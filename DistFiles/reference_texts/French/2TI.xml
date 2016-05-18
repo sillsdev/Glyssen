@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2TI" singlevoice="false" pageheader="2 TIMOTHY">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TI">
+    <text>2 TIMOTHY</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2TI" initialStartVerse="0" characterId="BC-2TI">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TI">
+    <verse num="1" />
+    <text>Moi, Paul, je suis apôtre du Christ Jésus, parce que Dieu l'a voulu. Je suis chargé d'annoncer la vie promise que le Christ Jésus nous donne.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TI">
+    <verse num="2" />
+    <text>Timothée, mon fils très aimé, c'est à toi que j'écris. Que Dieu le Père et le Christ Jésus notre Seigneur te bénissent. Qu'ils te montrent leur amour et te donnent la paix!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TI">
+    <verse num="3" />
+    <text>Nuit et jour, quand je prie, je dis toujours ton nom. Et je remercie Dieu, que je sers avec une conscience pure, comme mes ancêtres l'ont fait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TI">
+    <verse num="4" />
+    <text>En me rappelant tes larmes, j'ai très envie de te voir pour être rempli de joie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TI">
+    <verse num="5" />
+    <text>Je me souviens de la foi sincère qui est en toi. C'était déjà celle de ta grand-mère Loïs et de ta mère Eunice, et cette foi est en toi aussi, j'en suis sûr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TI">
+    <verse num="6" />
+    <text>C'est pourquoi je te rappelle ceci: garde bien vivant le don de Dieu, que tu as reçu quand j'ai posé les mains sur ta tête.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI">
+    <verse num="7" />
+    <text>En effet, l'Esprit Saint que Dieu nous a donné ne nous rend pas timides. Au contraire, cet Esprit nous remplit de force, d'amour et de maîtrise de soi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI">
+    <verse num="8" />
+    <text>N'aie donc pas honte de rendre témoignage à notre Seigneur, et n'aie pas honte de moi qui suis en prison pour lui. Mais souffre avec moi pour la Bonne Nouvelle avec la puissance de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TI">
+    <verse num="9" />
+    <text>Dieu nous a sauvés et il nous a appelés pour que nous soyons à lui. Il n'a pas fait cela à cause de nos actes, mais parce qu'il l'a décidé. C'est un don gratuit qu'il nous a fait dans le Christ Jésus, avant que le monde existe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TI">
+    <verse num="10" />
+    <text>Maintenant, ce don est devenu visible quand notre Sauveur, le Christ Jésus, est apparu. C'est lui qui a enlevé son pouvoir à la mort et, par la Bonne Nouvelle, il a fait connaître la vie qui ne meurt pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TI">
+    <verse num="11" />
+    <text>Dieu m'a chargé d'annoncer cette Bonne Nouvelle comme apôtre, et de l'enseigner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TI">
+    <verse num="12" />
+    <text>C'est pour cela que je souffre maintenant, mais je n'en ai pas honte. En effet, je sais en qui j'ai mis ma confiance. Et, j'en suis sûr, Dieu est assez puissant pour protéger jusqu'au dernier jour ce qu'il m'a confié.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2TI">
+    <verse num="13" />
+    <text>Prends comme modèle les paroles vraies que tu as reçues de moi. Tu les as reçues avec la foi et l'amour que le Christ Jésus nous donne.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2TI">
+    <verse num="14" />
+    <text>On t'a confié un beau trésor. Garde-le avec l'aide de l'Esprit Saint qui habite en nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2TI">
+    <verse num="15" />
+    <text>Tu le sais, tous ceux de la province d'Asie m'ont abandonné, entre autres Phygèle et Hermogène.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2TI">
+    <verse num="16" />
+    <text>Que le Seigneur montre sa bonté à la famille d'Onésiphore. En effet, il m'a souvent encouragé et il n'a pas eu honte de moi, qui suis en prison.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2TI">
+    <verse num="17" />
+    <text>Au contraire, dès son arrivée à Rome, il m'a cherché partout et il m'a trouvé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2TI">
+    <verse num="18" />
+    <text>Que le Seigneur Jésus lui donne de recevoir la bonté de Dieu le jour du jugement! Oui, tu sais très bien tous les services qu'il m'a rendus à Ephèse. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2TI" initialStartVerse="0" characterId="BC-2TI">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TI">
+    <verse num="1" />
+    <text>Toi, mon fils, cherche à devenir toujours plus fort grâce à l'amour du Christ Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TI">
+    <verse num="2" />
+    <text>Ce que tu m'as entendu enseigner devant de nombreux témoins, confie-le à des gens sûrs. Ils doivent être capables eux-mêmes de l'enseigner aussi à d'autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TI">
+    <verse num="3" />
+    <text>Prends ta part de souffrance, comme un bon soldat du Christ Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TI">
+    <verse num="4" />
+    <text>Un soldat qui sert dans l'armée et qui veut plaire à son chef ne s'occupe pas des affaires de la vie civile.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI">
+    <verse num="5" />
+    <text>Un sportif ne peut gagner le prix que s'il joue selon les règles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TI">
+    <verse num="6" />
+    <text>Les fruits de la récolte sont d'abord pour le cultivateur qui a beaucoup travaillé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TI">
+    <verse num="7" />
+    <text>Réfléchis à ce que je dis, et le Seigneur te fera tout comprendre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TI">
+    <verse num="8" />
+    <text>Souviens-toi de Jésus-Christ: il s'est réveillé de la mort, il est né dans la famille de David, son ancêtre, selon la Bonne Nouvelle que j'annonce.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI">
+    <verse num="9" />
+    <text>A cause de cette Bonne Nouvelle, je souffre et je suis même attaché avec des chaînes comme un bandit. Mais la parole de Dieu n'est pas enchaînée.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TI">
+    <verse num="10" />
+    <text>C'est pourquoi je supporte tout pour ceux que Dieu a choisis. Alors, eux aussi seront sauvés par le Christ Jésus, et ainsi ils auront la gloire qui dure toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TI">
+    <verse num="11" />
+    <text>Voici une parole sûre: si nous sommes morts avec le Christ, avec lui nous vivrons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TI">
+    <verse num="12" />
+    <text>Si nous résistons, avec lui, nous serons rois. Si nous le rejetons, lui aussi nous rejettera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI">
+    <verse num="13" />
+    <text>Si nous ne sommes pas fidèles, lui, il reste fidèle. En effet, il ne peut pas faire le contraire de ce qu'il dit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI">
+    <verse num="14" />
+    <text>Rappelle cela à tous. Devant Dieu, demande-leur avec force de ne pas se battre sur les mots. Cela ne sert à rien, sauf à démolir ceux qui écoutent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI">
+    <verse num="15" />
+    <text>Tâche de te présenter à Dieu comme un homme solide, un ouvrier qui peut être content de son travail et qui annonce correctement la vraie Parole de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TI">
+    <verse num="16" />
+    <text>Evite les discours creux et contraires à la foi. Oui, ceux qui les font s'éloigneront de Dieu de plus en plus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TI">
+    <verse num="17" />
+    <text>Leurs discours seront comme une plaie infectée qui s'élargit. Parmi ces gens-là, il y a Himéné et Philète.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-2TI">
+    <verse num="18" />
+    <text>Ils se sont éloignés de la vérité. Ils disent que Dieu nous a déjà relevés de la mort et ainsi, ils renversent la foi de certains.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
+    <verse num="19" />
+    <text>Pourtant, les solides fondations que Dieu a posées résistent. Voici les paroles qui sont écrites sur elles: &lt;&lt;Le Seigneur connaît ceux qui sont à lui.&gt;&gt; Et encore : &lt;&lt;Celui qui dit: J'appartiens au Seigneur, doit s'éloigner du mal.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2TI">
+    <verse num="20" />
+    <text>Dans une belle maison, il n'y a pas seulement des plats en or et en argent, il y a aussi des plats en bois et en terre. Les uns servent les jours de fête, les autres servent tous les jours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI">
+    <verse num="21" />
+    <text>Celui qui se débarrasse de ces enseignements faux, il ressemble à un plat qu'on utilise les jours de fête. On le gardera pour le Seigneur. Il sera utile à son maître et il servira pour faire tout ce qui est bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2TI">
+    <verse num="22" />
+    <text>Fuis les désirs mauvais de la jeunesse. Cherche la justice, la foi, l'amour, la paix avec ceux qui prient le Seigneur d'un cœur pur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-2TI">
+    <verse num="23" />
+    <text>Mais rejette les discussions inutiles et stupides. Tu le sais, elles provoquent des disputes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI">
+    <verse num="24" />
+    <text>Et un serviteur du Seigneur ne doit pas se disputer. Il doit être aimable avec tous, capable d'enseigner et de supporter les critiques.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-2TI">
+    <verse num="25" />
+    <text>Il doit répondre avec douceur à ceux qui sont contre lui. En effet, Dieu leur donnera peut-être l'occasion de changer leur façon de penser pour connaître la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI">
+    <verse num="26" />
+    <text>Ils sortiront des pièges de l'esprit du mal, qui les retenait prisonniers. Ils ne feront plus sa volonté et ainsi, ils pourront de nouveau penser correctement. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2TI" initialStartVerse="0" characterId="BC-2TI">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TI">
+    <verse num="1" />
+    <text>Tu dois le savoir: dans les derniers jours, il y aura des moments difficiles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TI">
+    <verse num="2" />
+    <text>Les gens seront égoïstes, amis de l'argent. Ils se vanteront, ils seront orgueilleux, ils insulteront Dieu. Ils désobéiront à leurs parents, ils ne seront plus capables de dire merci. Ils ne respecteront plus les choses de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TI">
+    <verse num="3" />
+    <text>Ils seront durs, sans pitié, ils diront du mal des autres. Ils mèneront une vie de désordre, ils seront cruels, ennemis du bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TI">
+    <verse num="4" />
+    <text>Ils trahiront les autres, ils seront violents. L'orgueil les rendra aveugles. Ils aimeront le plaisir au lieu d'aimer Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TI">
+    <verse num="5" />
+    <text>Ils feront semblant d'être fidèles à Dieu, mais en réalité, ils rejetteront la puissance de la foi. Tourne le dos à ces gens-là.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TI">
+    <verse num="6" />
+    <text>Certains d'entre eux ont l'habitude d'aller dans les maisons. Et ils prennent dans leurs pièges des femmes faibles, chargées de péchés, qui n'ont pas une foi solide. Ces femmes sont entraînées par toutes sortes de désirs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TI">
+    <verse num="7" />
+    <text>Elles sont toujours en train d'apprendre, mais elles ne peuvent jamais arriver à connaître la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TI">
+    <verse num="8" />
+    <text>Autrefois, Jannès et Jambrès étaient contre Moïse. De même, ces gens-là sont contre la vérité. Ce sont des hommes qui ont l'intelligence tordue, et leur foi ne vaut rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TI">
+    <verse num="9" />
+    <text>Mais ils n'iront pas très loin. En effet, tous verront leurs erreurs, comme autrefois on a vu les erreurs de Jannès et de Jambrès.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TI">
+    <verse num="10" />
+    <text>Mais toi, tu m'as suivi en tout: tu as écouté mon enseignement, tu as imité ma conduite, tu as connu mes projets, ma foi, ma patience, mon amour, ma fidélité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TI">
+    <verse num="11" />
+    <text>Tu sais les dures attaques et les souffrances que j'ai connues à Antioche de Pisidie, à Iconium, à Lystre. Oui, j'ai beaucoup souffert. Pourtant, le Seigneur m'a délivré de tout cela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TI">
+    <verse num="12" />
+    <text>D'ailleurs, tous ceux qui veulent vivre fidèlement en étant unis au Christ Jésus, on les fera souffrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TI">
+    <verse num="13" />
+    <text>Mais les gens mauvais et les charlatans iront toujours plus loin dans le mal. Ils tromperont les autres, et on les trompera à leur tour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TI">
+    <verse num="14" />
+    <text>Toi, garde solidement ce que tu as appris et ce que tu as accepté comme quelque chose de sûr. Tu sais quels maîtres t'ont appris cela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TI">
+    <verse num="15" />
+    <text>Oui, tu connais les Livres Saints depuis ton enfance, ils sont capables de te donner la sagesse. Cette sagesse conduit au salut quand on croit en Jésus-Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TI">
+    <verse num="16" />
+    <text>Tous les Livres Saints ont été écrits avec l'aide de Dieu. Ils sont utiles pour enseigner la vérité, pour persuader, pour corriger les erreurs, pour former à une vie juste.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TI">
+    <verse num="17" />
+    <text>Grâce aux Livres Saints, l'homme de Dieu sera parfaitement préparé et formé pour faire tout ce qui est bien. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="2TI" initialStartVerse="0" characterId="BC-2TI">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2TI">
+    <verse num="1" />
+    <text>Voici ce que je te demande avec force, devant Dieu et devant le Christ Jésus qui viendra juger les vivants et les morts et qui va paraître comme roi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2TI">
+    <verse num="2" />
+    <text>annonce la parole de Dieu, insiste toujours, même si ce n'est pas le bon moment. Corrige les erreurs, fais des reproches et encourage avec beaucoup de patience, en cherchant toujours à enseigner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-2TI">
+    <verse num="3" />
+    <text>En effet, un moment viendra où certains ne voudront plus écouter l'enseignement juste. Mais ils suivront plutôt leurs désirs. Ils feront appel à une foule de maîtres qui leur diront ce qu'ils ont envie d'entendre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-2TI">
+    <verse num="4" />
+    <text>Ils fermeront leurs oreilles à la vérité et ils les ouvriront pour écouter des histoires fausses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2TI">
+    <verse num="5" />
+    <text>Mais toi, sois raisonnable en toutes choses. Supporte la souffrance, travaille à annoncer la Bonne Nouvelle, sois un parfait serviteur de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-2TI">
+    <verse num="6" />
+    <text>Pour moi, voici le moment où ma vie va être offerte à Dieu comme un sacrifice. Je vais bientôt mourir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-2TI">
+    <verse num="7" />
+    <text>J'ai combattu le beau combat, j'ai fini ma course, j'ai gardé la foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-2TI">
+    <verse num="8" />
+    <text>Et maintenant, le prix de la victoire m'attend. C'est la juste récompense que le Seigneur, le juste juge, va me donner le jour du jugement. Il me la donnera à moi, mais il la donnera aussi à tous ceux qui attendent avec amour le moment où il paraîtra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-2TI">
+    <verse num="9" />
+    <text>Tâche de venir me rejoindre très vite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-2TI">
+    <verse num="10" />
+    <text>En effet, Démas m'a abandonné, parce qu'il aime trop les choses de cette terre. Il est parti à Thessalonique. Crécens est parti en Galatie, et Tite en Dalmatie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-2TI">
+    <verse num="11" />
+    <text>Seul Luc est avec moi. Prends Marc et amène-le avec toi, il m'est très utile pour le service de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-2TI">
+    <verse num="12" />
+    <text>J'ai envoyé Tychique à Ephèse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2TI">
+    <verse num="13" />
+    <text>Quand tu viendras, apporte le vêtement que j'ai laissé à Troas chez Carpos. Apporte aussi les livres, surtout les parchemins.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-2TI">
+    <verse num="14" />
+    <text>Alexandre le forgeron m'a fait beaucoup de mal. Le Seigneur lui donnera ce que ses actes méritent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-2TI">
+    <verse num="15" />
+    <text>Méfie-toi de lui, toi aussi! En effet, il s'est opposé durement à ce que nous avons dit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2TI">
+    <verse num="16" />
+    <text>La première fois que je me suis défendu au tribunal, personne ne m'a aidé, tous m'ont abandonné. Que Dieu ne les punisse pas!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-2TI">
+    <verse num="17" />
+    <text>Mais le Seigneur, lui, était auprès de moi, il m'a donné sa force. Alors j'ai pu annoncer jusqu'au bout la Bonne Nouvelle. Tous ceux qui ne sont pas juifs l'ont entendue, et j'ai été délivré de la gueule du lion.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2TI">
+    <verse num="18" />
+    <text>Le Seigneur me délivrera de tout mal, il me sauvera en me faisant entrer au ciel, dans son Royaume. Rendons gloire au Seigneur pour toujours! Amen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-2TI">
+    <verse num="19" />
+    <text>Salue Priscille et Aquilas, et aussi la famille d'Onésiphore.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-2TI">
+    <verse num="20" />
+    <text>Eraste est resté à Corinthe. J'ai laissé Trophime à Milet parce qu'il était malade.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-2TI">
+    <verse num="21" />
+    <text>Tâche de venir avant la mauvaise saison. Eubule, Pudens, Linus, Claudia, ainsi que tous les frères et sœurs chrétiens te saluent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-2TI">
+    <verse num="22" />
+    <text>Que le Seigneur soit avec toi! Qu'il vous bénisse tous! </text>
+  </block>
+  <UnappliedSplits />
+</book>

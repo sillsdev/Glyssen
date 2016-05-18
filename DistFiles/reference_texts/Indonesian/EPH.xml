@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="EPH" singlevoice="false" pageheader="EPHESIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+    <text>EPHESIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Dari Paulus, rasul Kristus Yesus oleh kehendak Allah, kepada orang-orang kudus di Efesus, orang-orang percaya dalam Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Kasih karunia dan damai sejahtera dari Allah, Bapa kita dan dari Tuhan Yesus Kristus menyertai kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Terpujilah Allah dan Bapa Tuhan kita Yesus Kristus yang dalam Kristus telah mengaruniakan kepada kita segala berkat rohani di dalam sorga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Sebab di dalam Dia Allah telah memilih kita sebelum dunia dijadikan, supaya kita kudus dan tak bercacat di hadapan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Dalam kasih Ia telah menentukan kita dari semula oleh Yesus Kristus untuk menjadi anak-anak-Nya, sesuai dengan kerelaan kehendak-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>supaya terpujilah kasih karunia-Nya yang mulia, yang dikaruniakan-Nya kepada kita di dalam Dia, yang dikasihi-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Sebab di dalam Dia dan oleh darah-Nya kita beroleh penebusan, yaitu pengampunan dosa, menurut kekayaan kasih karunia-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>yang dilimpahkan-Nya kepada kita dalam segala hikmat dan pengertian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Sebab Ia telah menyatakan rahasia kehendak-Nya kepada kita, sesuai dengan rencana kerelaan-Nya, yaitu rencana kerelaan yang dari semula telah ditetapkan-Nya di dalam Kristus</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>sebagai persiapan kegenapan waktu untuk mempersatukan di dalam Kristus sebagai Kepala segala sesuatu, baik yang di sorga maupun yang di bumi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Aku katakan &lt;&lt;di dalam Kristus&gt;&gt;, karena di dalam Dialah kami mendapat bagian yang dijanjikan— kami yang dari semula ditentukan untuk menerima bagian itu sesuai dengan maksud Allah, yang di dalam segala sesuatu bekerja menurut keputusan kehendak-Nya—</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>supaya kami, yang sebelumnya telah menaruh harapan pada Kristus, boleh menjadi puji-pujian bagi kemuliaan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Di dalam Dia kamu juga—karena kamu telah mendengar firman kebenaran, yaitu Injil keselamatanmu—di dalam Dia kamu juga, ketika kamu percaya, dimeteraikan dengan Roh Kudus, yang dijanjikan-Nya itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Dan Roh Kudus itu adalah jaminan bagian kita sampai kita memperoleh seluruhnya, yaitu penebusan yang menjadikan kita milik Allah, untuk memuji kemuliaan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Karena itu, setelah aku mendengar tentang imanmu dalam Tuhan Yesus dan tentang kasihmu terhadap semua orang kudus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>akupun tidak berhenti mengucap syukur karena kamu. Dan aku selalu mengingat kamu dalam doaku,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>dan meminta kepada Allah Tuhan kita Yesus Kristus, yaitu Bapa yang mulia itu, supaya Ia memberikan kepadamu Roh hikmat dan wahyu untuk mengenal Dia dengan benar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Dan supaya Ia menjadikan mata hatimu terang, agar kamu mengerti pengharapan apakah yang terkandung dalam panggilan-Nya: betapa kayanya kemuliaan bagian yang ditentukan-Nya bagi orang-orang kudus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>dan betapa hebat kuasa-Nya bagi kita yang percaya, sesuai dengan kekuatan kuasa-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>yang dikerjakan-Nya di dalam Kristus dengan membangkitkan Dia dari antara orang mati dan mendudukkan Dia di sebelah kanan-Nya di sorga,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>jauh lebih tinggi dari segala pemerintah dan penguasa dan kekuasaan dan kerajaan dan tiap-tiap nama yang dapat disebut, bukan hanya di dunia ini saja, melainkan juga di dunia yang akan datang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Dan segala sesuatu telah diletakkan-Nya di bawah kaki Kristus dan Dia telah diberikan-Nya kepada jemaat sebagai Kepala dari segala yang ada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Jemaat yang adalah tubuh-Nya, yaitu kepenuhan Dia, yang memenuhi semua dan segala sesuatu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Kamu dahulu sudah mati karena pelanggaran-pelanggaran dan dosa-dosamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Kamu hidup di dalamnya, karena kamu mengikuti jalan dunia ini, karena kamu mentaati penguasa kerajaan angkasa, yaitu roh yang sekarang sedang bekerja di antara orang-orang durhaka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Sebenarnya dahulu kami semua juga terhitung di antara mereka, ketika kami hidup di dalam hawa nafsu daging dan menuruti kehendak daging dan pikiran kami yang jahat. Pada dasarnya kami adalah orang-orang yang harus dimurkai, sama seperti mereka yang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Tetapi Allah yang kaya dengan rahmat, oleh karena kasih-Nya yang besar, yang dilimpahkan-Nya kepada kita,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>telah menghidupkan kita bersama-sama dengan Kristus, sekalipun kita telah mati oleh kesalahan-kesalahan kita—oleh kasih karunia kamu diselamatkan—</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>dan di dalam Kristus Yesus Ia telah membangkitkan kita juga dan memberikan tempat bersama-sama dengan Dia di sorga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>That way, in the ages to come he might show the exceeding riches of his grace in kindness toward us in Christ Jesus;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Sebab karena kasih karunia kamu diselamatkan oleh iman; itu bukan hasil usahamu, tetapi pemberian Allah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>itu bukan hasil pekerjaanmu: jangan ada orang yang memegahkan diri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Karena kita ini buatan Allah, diciptakan dalam Kristus Yesus untuk melakukan pekerjaan baik, yang dipersiapkan Allah sebelumnya. Ia mau, supaya kita hidup di dalamnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Karena itu ingatlah, bahwa dahulu kamu—sebagai orang-orang bukan Yahudi menurut daging, yang disebut orang-orang tak bersunat oleh mereka yang menamakan dirinya &lt;&lt;sunat&gt;&gt;, yaitu sunat lahiriah yang dikerjakan oleh tangan manusia, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>bahwa waktu itu kamu tanpa Kristus, tidak termasuk kewargaan Israel dan tidak mendapat bagian dalam ketentuan-ketentuan yang dijanjikan, tanpa pengharapan dan tanpa Allah di dalam dunia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Tetapi sekarang di dalam Kristus Yesus kamu, yang dahulu &lt;&lt;jauh&gt;&gt;, sudah menjadi &lt;&lt;dekat&gt;&gt; oleh darah Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Karena Dialah damai sejahtera kita, yang telah mempersatukan kedua pihak dan yang telah merubuhkan tembok pemisah, yaitu perseteruan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>sebab dengan mati-Nya sebagai manusia Ia telah membatalkan hukum Taurat dengan segala perintah dan ketentuannya, untuk menciptakan keduanya menjadi satu manusia baru di dalam diri-Nya, dan dengan itu mengadakan damai sejahtera,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>dan untuk memperdamaikan keduanya, di dalam satu tubuh, dengan Allah oleh salib, dengan melenyapkan perseteruan pada salib itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Ia datang dan memberitakan damai sejahtera kepada kamu yang &lt;&lt;jauh&gt;&gt; dan damai sejahtera kepada mereka yang &lt;&lt;dekat&gt;&gt;,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>karena oleh Dia kita kedua pihak dalam satu Roh beroleh jalan masuk kepada Bapa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Demikianlah kamu bukan lagi orang asing dan pendatang, melainkan kawan sewarga dari orang-orang kudus dan anggota-anggota keluarga Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Keluarga ini sedang dibangun di atas dasar para rasul dan para nabi, dengan Kristus Yesus sebagai batu penjuru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Di dalam Dia tumbuh seluruh bangunan, rapih tersusun, menjadi bait Allah yang kudus, di dalam Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Di dalam Dia kamu juga turut dibangunkan menjadi tempat kediaman Allah, di dalam Roh. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Itulah sebabnya aku ini, Paulus, orang yang dipenjarakan karena Kristus Yesus untuk kamu orang-orang yang tidak mengenal Allah</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>—memang kamu telah mendengar tentang tugas penyelenggaraan kasih karunia Allah, yang dipercayakan kepadaku karena kamu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>yaitu bagaimana rahasianya dinyatakan kepadaku dengan wahyu, seperti yang telah kutulis di atas dengan singkat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Apabila kamu membacanya, kamu dapat mengetahui dari padanya pengertianku akan rahasia Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>yang pada zaman angkatan-angkatan dahulu tidak diberitakan kepada anak-anak manusia, tetapi yang sekarang dinyatakan di dalam Roh kepada rasul-rasul dan nabi-nabi-Nya yang kudus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>yaitu bahwa orang-orang bukan Yahudi, karena Berita Injil, turut menjadi ahli-ahli waris dan anggota-anggota tubuh dan peserta dalam janji yang diberikan dalam Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Dari Injil itu aku telah menjadi pelayannya menurut pemberian kasih karunia Allah, yang dianugerahkan kepadaku sesuai dengan pengerjaan kuasa-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Kepadaku, yang paling hina di antara segala orang kudus, telah dianugerahkan kasih karunia ini, untuk memberitakan kepada orang-orang bukan Yahudi kekayaan Kristus, yang tidak terduga itu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>dan untuk menyatakan apa isinya tugas penyelenggaraan rahasia yang telah berabad-abad tersembunyi dalam Allah, yang menciptakan segala sesuatu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>supaya sekarang oleh jemaat diberitahukan pelbagai ragam hikmat Allah kepada pemerintah-pemerintah dan penguasa-penguasa di sorga,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>sesuai dengan maksud abadi, yang telah dilaksanakan-Nya dalam Kristus Yesus, Tuhan kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Di dalam Dia kita beroleh keberanian dan jalan masuk kepada Allah dengan penuh kepercayaan oleh iman kita kepada-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Sebab itu aku minta kepadamu, supaya kamu jangan tawar hati melihat kesesakanku karena kamu, karena kesesakanku itu adalah kemuliaanmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Itulah sebabnya aku sujud kepada Bapa,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>yang dari pada-Nya semua turunan yang di dalam sorga dan di atas bumi menerima namanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Aku berdoa supaya Ia, menurut kekayaan kemuliaan-Nya, menguatkan dan meneguhkan kamu oleh Roh-Nya di dalam batinmu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>sehingga oleh imanmu Kristus diam di dalam hatimu dan kamu berakar serta berdasar di dalam kasih.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Aku berdoa, supaya kamu bersama-sama dengan segala orang kudus dapat memahami, betapa lebarnya dan panjangnya dan tingginya dan dalamnya kasih Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>dan dapat mengenal kasih itu, sekalipun ia melampaui segala pengetahuan. Aku berdoa, supaya kamu dipenuhi di dalam seluruh kepenuhan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Bagi Dialah, yang dapat melakukan jauh lebih banyak dari pada yang kita doakan atau pikirkan, seperti yang ternyata dari kuasa yang bekerja di dalam kita,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>bagi Dialah kemuliaan di dalam jemaat dan di dalam Kristus Yesus turun-temurun sampai selama-lamanya. Amin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Sebab itu aku menasihatkan kamu, aku, orang yang dipenjarakan karena Tuhan, supaya hidupmu sebagai orang-orang yang telah dipanggil berpadanan dengan panggilan itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Hendaklah kamu selalu rendah hati, lemah lembut, dan sabar. Tunjukkanlah kasihmu dalam hal saling membantu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Dan berusahalah memelihara kesatuan Roh oleh ikatan damai sejahtera:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>satu tubuh, dan satu Roh, sebagaimana kamu telah dipanggil kepada satu pengharapan yang terkandung dalam panggilanmu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>satu Tuhan, satu iman, satu baptisan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>satu Allah dan Bapa dari semua, Allah yang di atas semua dan oleh semua dan di dalam semua.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Tetapi kepada kita masing-masing telah dianugerahkan kasih karunia menurut ukuran pemberian Kristus. </text>
+    <verse num="8" />
+    <text>Itulah sebabnya kata nas:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Tatkala Ia naik ke tempat tinggi, Ia membawa tawanan-tawanan; Ia memberikan pemberian-pemberian kepada manusia.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Bukankah &lt;&lt;Ia telah naik&gt;&gt; berarti, bahwa Ia juga telah turun ke bagian bumi yang paling bawah?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Ia yang telah turun, Ia juga yang telah naik jauh lebih tinggi dari pada semua langit, untuk memenuhkan segala sesuatu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Dan Ialah yang memberikan baik rasul-rasul maupun nabi-nabi, baik pemberita-pemberita Injil maupun gembala-gembala dan pengajar-pengajar,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>untuk memperlengkapi orang-orang kudus bagi pekerjaan pelayanan, bagi pembangunan tubuh Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>sampai kita semua telah mencapai kesatuan iman dan pengetahuan yang benar tentang Anak Allah, kedewasaan penuh, dan tingkat pertumbuhan yang sesuai dengan kepenuhan Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>sehingga kita bukan lagi anak-anak, yang diombang-ambingkan oleh rupa- rupa angin pengajaran, oleh permainan palsu manusia dalam kelicikan mereka yang menyesatkan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>tetapi dengan teguh berpegang kepada kebenaran di dalam kasih kita bertumbuh di dalam segala hal ke arah Dia, Kristus, yang adalah Kepala.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Dari pada-Nyalah seluruh tubuh, —yang rapih tersusun dan diikat menjadi satu oleh pelayanan semua bagiannya, sesuai dengan kadar pekerjaan tiap-tiap anggota—menerima pertumbuhannya dan membangun dirinya dalam kasih.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Sebab itu kukatakan dan kutegaskan ini kepadamu di dalam Tuhan: Jangan hidup lagi sama seperti orang-orang yang tidak mengenal Allah dengan pikirannya yang sia-sia</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>dan pengertiannya yang gelap, jauh dari hidup persekutuan dengan Allah, karena kebodohan yang ada di dalam mereka dan karena kedegilan hati mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Perasaan mereka telah tumpul, sehingga mereka menyerahkan diri kepada hawa nafsu dan mengerjakan dengan serakah segala macam kecemaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Tetapi kamu bukan demikian. Kamu telah belajar mengenal Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Karena kamu telah mendengar tentang Dia dan menerima pengajaran di dalam Dia menurut kebenaran yang nyata dalam Yesus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>yaitu bahwa kamu, berhubung dengan kehidupan kamu yang dahulu, harus menanggalkan manusia lama, yang menemui kebinasaannya oleh nafsunya yang menyesatkan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>supaya kamu dibaharui di dalam roh dan pikiranmu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>dan mengenakan manusia baru, yang telah diciptakan menurut kehendak Allah di dalam kebenaran dan kekudusan yang sesungguhnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Karena itu buanglah dusta dan berkatalah benar seorang kepada yang lain, karena kita adalah sesama anggota.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>&lt;&lt;Apabila kamu menjadi marah, janganlah kamu berbuat dosa:&gt;&gt; janganlah matahari terbenam, sebelum padam amarahmu </text>
+    <verse num="27" />
+    <text>dan janganlah beri kesempatan kepada Iblis.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Orang yang mencuri, janganlah ia mencuri lagi, tetapi baiklah ia bekerja keras dan melakukan pekerjaan yang baik dengan tangannya sendiri, supaya ia dapat membagikan sesuatu kepada orang yang berkekurangan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Janganlah ada perkataan kotor keluar dari mulutmu, tetapi pakailah perkataan yang baik untuk membangun, di mana perlu, supaya mereka yang mendengarnya, beroleh kasih karunia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>Dan janganlah kamu mendukakan Roh Kudus Allah, yang telah memeteraikan kamu menjelang hari penyelamatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
+    <verse num="31" />
+    <text>Segala kepahitan, kegeraman, kemarahan, pertikaian dan fitnah hendaklah dibuang dari antara kamu, demikian pula segala kejahatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>Tetapi hendaklah kamu ramah seorang terhadap yang lain, penuh kasih mesra dan saling mengampuni, sebagaimana Allah di dalam Kristus telah mengampuni kamu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Sebab itu jadilah penurut-penurut Allah, seperti anak-anak yang kekasih</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>dan hiduplah di dalam kasih, sebagaimana Kristus Yesus juga telah mengasihi kamu dan telah menyerahkan diri-Nya untuk kita sebagai persembahan dan korban yang harum bagi Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Tetapi percabulan dan rupa-rupa kecemaran atau keserakahan disebut sajapun jangan di antara kamu, sebagaimana sepatutnya bagi orang-orang kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Demikian juga perkataan yang kotor, yang kosong atau yang sembrono—karena hal-hal ini tidak pantas—tetapi sebaliknya ucapkanlah syukur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Karena ingatlah ini baik-baik: tidak ada orang sundal, orang cemar atau orang serakah, artinya penyembah berhala, yang mendapat bagian di dalam Kerajaan Kristus dan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Janganlah kamu disesatkan orang dengan kata-kata yang hampa, karena hal-hal yang demikian mendatangkan murka Allah atas orang-orang durhaka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Sebab itu janganlah kamu berkawan dengan mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Memang dahulu kamu adalah kegelapan, tetapi sekarang kamu adalah terang di dalam Tuhan. Sebab itu hiduplah sebagai anak-anak terang,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>karena terang hanya berbuahkan kebaikan dan keadilan dan kebenaran,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>dan ujilah apa yang berkenan kepada Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Janganlah turut mengambil bagian dalam perbuatan-perbuatan kegelapan yang tidak berbuahkan apa-apa, tetapi sebaliknya telanjangilah perbuatan-perbuatan itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Sebab menyebutkan sajapun apa yang dibuat oleh mereka di tempat-tempat yang tersembunyi telah memalukan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Tetapi segala sesuatu yang sudah ditelanjangi oleh terang itu menjadi nampak, sebab semua yang nampak adalah terang. </text>
+    <verse num="14" />
+    <text>Itulah sebabnya dikatakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+    <text>&lt;&lt;Bangunlah, hai kamu yang tidur dan bangkitlah dari antara orang mati dan Kristus akan bercahaya atas kamu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Karena itu, perhatikanlah dengan saksama, bagaimana kamu hidup, janganlah seperti orang bebal, tetapi seperti orang arif,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>dan pergunakanlah waktu yang ada, karena hari-hari ini adalah jahat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Sebab itu janganlah kamu bodoh, tetapi usahakanlah supaya kamu mengerti kehendak Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Dan janganlah kamu mabuk oleh anggur, karena anggur menimbulkan hawa nafsu, tetapi hendaklah kamu penuh dengan Roh,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>dan berkata-katalah seorang kepada yang lain dalam mazmur, kidung puji-pujian dan nyanyian rohani. Bernyanyi dan bersoraklah bagi Tuhan dengan segenap hati.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Ucaplah syukur senantiasa atas segala sesuatu dalam nama Tuhan kita Yesus Kristus kepada Allah dan Bapa kita</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>dan rendahkanlah dirimu seorang kepada yang lain di dalam takut akan Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Hai isteri, tunduklah kepada suamimu seperti kepada Tuhan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>karena suami adalah kepala isteri sama seperti Kristus adalah kepala jemaat. Dialah yang menyelamatkan tubuh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Karena itu sebagaimana jemaat tunduk kepada Kristus, demikian jugalah isteri kepada suami dalam segala sesuatu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Hai suami, kasihilah isterimu sebagaimana Kristus telah mengasihi jemaat dan telah menyerahkan diri-Nya baginya</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>untuk menguduskannya, sesudah Ia menyucikannya dengan memandikannya dengan air dan firman,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH">
+    <verse num="27" />
+    <text>supaya dengan demikian Ia menempatkan jemaat di hadapan diri-Nya dengan cemerlang tanpa cacat atau kerut atau yang serupa itu, tetapi supaya jemaat kudus dan tidak bercela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Demikian juga suami harus mengasihi isterinya sama seperti tubuhnya sendiri: Siapa yang mengasihi isterinya mengasihi dirinya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Sebab tidak pernah orang membenci tubuhnya sendiri, tetapi mengasuhnya dan merawatinya, sama seperti Kristus terhadap jemaat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>karena kita adalah anggota tubuh-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
+    <verse num="31" />
+    <text>&lt;&lt;Sebab itu laki-laki akan meninggalkan ayahnya dan ibunya dan bersatu dengan isterinya, sehingga keduanya itu menjadi satu daging.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>Rahasia ini besar, tetapi yang aku maksudkan ialah hubungan Kristus dan jemaat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
+    <verse num="33" />
+    <text>Bagaimanapun juga, bagi kamu masing-masing berlaku: kasihilah isterimu seperti dirimu sendiri dan isteri hendaklah menghormati suaminya. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Hai anak-anak, taatilah orang tuamu di dalam Tuhan, karena haruslah demikian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+    <verse num="2" />
+    <text>&lt;&lt;Hormatilah ayahmu dan ibumu &gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
+    <text>— ini adalah suatu perintah yang penting, seperti yang nyata dari janji ini:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
+    <verse num="3" />
+    <text>&lt;&lt;supaya kamu berbahagia dan panjang umurmu di bumi.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Dan kamu, bapa-bapa, janganlah bangkitkan amarah di dalam hati anak-anakmu, tetapi didiklah mereka di dalam ajaran dan nasihat Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Hai hamba-hamba, taatilah tuanmu yang di dunia dengan takut dan gentar, dan dengan tulus hati, sama seperti kamu taat kepada Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>jangan hanya di hadapan mereka saja untuk menyenangkan hati orang, tetapi sebagai hamba-hamba Kristus yang dengan segenap hati melakukan kehendak Allah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>dan yang dengan rela menjalankan pelayanannya seperti orang-orang yang melayani Tuhan dan bukan manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Kamu tahu, bahwa setiap orang, baik hamba, maupun orang merdeka, kalau ia telah berbuat sesuatu yang baik, ia akan menerima balasannya dari Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Dan kamu tuan-tuan, perbuatlah demikian juga terhadap mereka dan jauhkanlah ancaman. Ingatlah, bahwa Tuhan mereka dan Tuhan kamu ada di sorga dan Ia tidak memandang muka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Akhirnya, hendaklah kamu kuat di dalam Tuhan, di dalam kekuatan kuasa-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Kenakanlah seluruh perlengkapan senjata Allah, supaya kamu dapat bertahan melawan tipu muslihat Iblis;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>karena perjuangan kita bukanlah melawan darah dan daging, tetapi melawan pemerintah-pemerintah, melawan penguasa-penguasa, melawan penghulu-penghulu dunia yang gelap ini, melawan roh-roh jahat di udara.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Sebab itu ambillah seluruh perlengkapan senjata Allah, supaya kamu dapat mengadakan perlawanan pada hari yang jahat itu dan tetap berdiri, sesudah kamu menyelesaikan segala sesuatu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Jadi berdirilah tegap, berikatpinggangkan kebenaran dan berbajuzirahkan keadilan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>kakimu berkasutkan kerelaan untuk memberitakan Injil damai sejahtera;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>dalam segala keadaan pergunakanlah perisai iman, sebab dengan perisai itu kamu akan dapat memadamkan semua panah api dari si jahat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>dan terimalah ketopong keselamatan dan pedang Roh, yaitu firman Allah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>dalam segala doa dan permohonan. Berdoalah setiap waktu di dalam Roh dan berjaga-jagalah di dalam doamu itu dengan permohonan yang tak putus-putusnya untuk segala orang Kudus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>juga untuk aku, supaya kepadaku, jika aku membuka mulutku, dikaruniakan perkataan yang benar, agar dengan keberanian aku memberitakan rahasia Injil,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>yang kulayani sebagai utusan yang dipenjarakan. Berdoalah supaya dengan keberanian aku menyatakannya, sebagaimana seharusnya aku berbicara.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Supaya kamu juga mengetahui keadaan dan hal ihwalku, maka Tikhikus, saudara kita yang kekasih dan pelayan yang setia di dalam Tuhan, akan memberitahukan semuanya kepada kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Dengan maksud inilah ia kusuruh kepadamu, yaitu supaya kamu tahu hal ihwal kami dan supaya ia menghibur hatimu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Damai sejahtera dan kasih dengan iman dari Allah, Bapa dan dari Tuhan Yesus Kristus menyertai sekalian saudara.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Kasih karunia menyertai semua orang, yang mengasihi Tuhan kita Yesus Kristus dengan kasih yang tidak binasa.</text>
+  </block>
+  <UnappliedSplits />
+</book>

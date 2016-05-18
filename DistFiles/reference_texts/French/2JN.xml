@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2JN" singlevoice="false" pageheader="2 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
+    <text>2 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2JN">
+    <verse num="1" />
+    <text>Moi, l'ancien, j'écris à la Dame que Dieu a choisie et à ses enfants que j'aime vraiment. Je ne suis pas le seul à vous aimer, il y a aussi tous ceux qui connaissent la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2JN">
+    <verse num="2" />
+    <text>Nous vous aimons parce que la vérité reste en nous, et elle sera avec nous pour toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2JN">
+    <verse num="3" />
+    <text>Que Dieu le Père et Jésus-Christ, le Fils du Père, nous donnent bénédiction, pardon et paix, dans la vérité et l'amour!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2JN">
+    <verse num="4" />
+    <text>J'ai été très heureux de trouver que certains de tes enfants vivent dans la vérité, comme le Père nous l'a commandé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2JN">
+    <verse num="5" />
+    <text>Et maintenant, chère Dame, voici ce que je te demande: aimons-nous les uns les autres! Ce n'est pas un commandement nouveau que je t'écris ici, c'est le commandement que nous avons depuis le début.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2JN">
+    <verse num="6" />
+    <text>Aimer, c'est vivre selon les commandements de Dieu. Et voici le commandement que vous avez entendu depuis le début: vivez dans l'amour!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
+    <verse num="7" />
+    <text>Beaucoup de menteurs sont allés partout dans le monde. Ils ne reconnaissent pas que Jésus-Christ est vraiment devenu un être humain. Ces gens-là sont des menteurs et des ennemis du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
+    <verse num="8" />
+    <text>Faites attention à vous! Alors vous ne perdrez pas le résultat de notre travail et vous recevrez toute votre récompense.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
+    <verse num="9" />
+    <text>Tous ceux qui ne gardent pas l'enseignement du Christ, mais lui ajoutent quelque chose, ils n'acceptent pas Dieu. Celui qui garde l'enseignement du Christ accepte le Père et aussi le Fils.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
+    <verse num="10" />
+    <text>Si quelqu'un vient à vous et n'apporte pas cet enseignement, ne le recevez pas chez vous, ne lui dites pas: &lt;&lt;Sois le bienvenu!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2JN">
+    <verse num="11" />
+    <text>Si vous lui dites: &lt;&lt;Sois le bienvenu!&gt;&gt;, vous participez au mal que cette personne fait. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
+    <verse num="12" />
+    <text>J'ai beaucoup de choses à vous dire, mais je n'ai pas voulu le faire avec du papier et de l'encre. En effet, j'espère aller chez vous et vous parler face à face, pour que nous soyons parfaitement heureux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2JN">
+    <verse num="13" />
+    <text>Les enfants de ta Sœur, celle que Dieu a choisie, t'envoient leurs salutations. </text>
+  </block>
+  <UnappliedSplits />
+</book>

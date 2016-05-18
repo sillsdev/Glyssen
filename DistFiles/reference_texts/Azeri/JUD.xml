@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JUD" singlevoice="false" pageheader="JUDE">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JUD">
+    <text>JUDE</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JUD" initialStartVerse="0" characterId="BC-JUD">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JUD">
+    <verse num="1" />
+    <text>İsa Mәsihin qulu, Yaqubun qardaşı mәn Yәhudadan Ata Allahın sevdiyi, İsa Mәsih üçün qorunmuş olan çağırılanlara salam!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JUD">
+    <verse num="2" />
+    <text>Mәrhәmәt, sülh vә mәhәbbәt sizә bol-bol verilsin!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JUD">
+    <verse num="3" />
+    <text>Sevimlilәr, ümumi xilasımızla bağlı sizә yazmağa çox sәy göstәrirdim. Bu arada müqәddәslәrә ilk vә son dәfә әmanәt edilәn iman uğrunda mübarizә aparmağa sizi hәvәslәndirmәk üçün sizә yazmağı özümә borc bildim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JUD">
+    <verse num="4" />
+    <text>Çünki Allahımızın lütfünü pozğunluq üçün bәhanәlәrә çevirәn, yeganә Pәrvәrdigarı – Rәbbimiz İsa Mәsihi inkar edәn bәzi allahsız adamlar gizlicә aranıza girdilәr. Onların mühakimәyә uğrayacaqları çoxdan yazılmışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD">
+    <verse num="5" />
+    <text>Bütün bunları bildiyiniz halda sizә xatırlatmaq istәyirәm ki, ilk vә son dәfә xalqı Misirdәn xilas edәn Rәbb sonra iman etmәyәnlәri mәhv etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD">
+    <verse num="6" />
+    <text>Öz başçılıqlarını saxlamayan, mәskunlaşdığı yerlәri tәrk edәn mәlәklәri dә böyük qiyamәt günü üçün әbәdi zәncirlәrlә bağlayaraq zülmәtdә saxlamışdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JUD">
+    <verse num="7" />
+    <text>Sodom, Homorra vә әtrafdakı şәhәrlәr dә özlәrini buna bәnzәr tәrzdә cinsi әxlaqsızlığa vә qeyri-tәbii münasibәtlәrә tәslim etdilәr; sonra bu şәhәrlәr әbәdi odla yandırılma cәzasını çәkәrәk bir nümunә oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JUD">
+    <verse num="8" />
+    <text>Eyni şәkildә aranıza girәn bu röyagörәnlәr dә öz cismini murdar edir, ağalığı rәdd edir, ehtişamlı varlıqlara şәr atırlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JUD">
+    <verse num="9" />
+    <text>Hәtta baş mәlәk Mikael dә Musanın cәsәdi barәsindә iblisin әleyhinә çıxıb ona şәr söylәyәrәk hökm vermәyә cәsarәt etmәdi, ancaq </text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="9" characterId="Michael, archangel">
+    <text>&lt;&lt;Qoy Rәbb sәnә qadağan etsin!&gt;&gt; dedi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
+    <verse num="10" />
+    <text>Amma bu adamlar başa düşmәdiklәri hәr şeyә şәr atırlar. Onlar dәrrakәsiz heyvanlar kimi qeyri-iradi surәtdә nә anlayırlarsa, bunlarla mәhv olurlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD">
+    <verse num="11" />
+    <text>Vay onların halına! Çünki onlar Qabilin yolu ilә getdilәr. Qazanca görә özlәrini Bilamın yalanına düçar etdilәr. Qorah kimi üsyan qaldırdıqları üçün hәlak oldular.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JUD">
+    <verse num="12" />
+    <text>Belә adamlar sizin mәhәbbәt süfrәlәrinizi lәkәlәyirlәr. Onlar sizinlә birlikdә yeyib-içәrәk qorxmadan özlәrini bәslәyirlәr. Bunlar külәklәrin tәrpәtdiyi susuz buludlardır. Payızda meyvә vermәdiyi üçün kökündәn qoparılmış vә iki dәfә ölmüş ağaclardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JUD">
+    <verse num="13" />
+    <text>Öz xәcalәtini köpük kimi sovuran şiddәtli dәniz dalğalarıdır. Sәyyar ulduzlardır ki, onlar üçün Allah qatı qaranlığı әbәdi saxlayır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JUD">
+    <verse num="14" />
+    <text>Adәmlә birlikdә yeddinci nәsil sayılan Xanok da bu adamlara aid peyğәmbәrlik edәrәk demişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch" multiBlockQuote="Start">
+    <text>&lt;&lt;Budur, Rәbb saysız-hesabsız müqәddәs mәlәklәri ilә gәldi ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch" multiBlockQuote="Continuation">
+    <verse num="15" />
+    <text>hamını mühakimә etsin vә Allaha qarşı gördüklәri allahsız işlәr vә allahsız günahkarların Özünә qarşı inadkarcasına dediklәri bütün sözlәr üçün mәhkum etsin&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD">
+    <verse num="16" />
+    <text>Bu adamlar deyinәrәk öz talelәrindәn gileylәnirlәr. Onlar öz ehtiraslarına uyğun hәrәkәt edirlәr. Ağızlarından lovğa sözlәr çıxır vә öz xeyirlәrinә görә yaltaqlanırlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JUD">
+    <verse num="17" />
+    <text>Amma siz, ey sevimlilәr, Rәbbimiz İsa Mәsihin hәvarilәrinin әvvәlcәdәn söylәdiklәri sözlәri xatırlayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JUD">
+    <verse num="18" />
+    <text>Onlar sizә dedilәr: &lt;&lt;Axır zamanda öz allahsız ehtiraslarına görә hәrәkәt edәn rişxәndçilәr ortaya çıxacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JUD">
+    <verse num="19" />
+    <text>Bunlar ayrılıq salan, öz tәbiәtinә әsir olan, Ruha malik olmayan insanlardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JUD">
+    <verse num="20" />
+    <text>Siz isә, sevimlilәr, özünüzü әn müqәddәs olan imanınızın tәmәli üzәrindә inkişaf etdirin vә Müqәddәs Ruhun idarәsi ilә dua edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JUD">
+    <verse num="21" />
+    <text>Rәbbimiz İsa Mәsihin әbәdi hәyata aparan mәrhәmәtini gözlәyәrәk özünüzü Allah mәhәbbәtindә qoruyun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JUD">
+    <verse num="22" />
+    <text>Şübhә edәn adamlara qarşı mәrhәmәtli olun;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JUD">
+    <verse num="23" />
+    <text>başqalarını oddan qaparaq xilas edin; digәrlәrinә isә mәrhәmәt edin. Amma qorxu içindә cismin lәkәlәdiyi paltardan belә, çәkinin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JUD">
+    <verse num="24" />
+    <text>Sizi büdrәmәkdәn qoruyub Öz izzәtli hüzuruna böyük sevinclә nöqsansız çıxarmağa qadir olan</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JUD">
+    <verse num="25" />
+    <text>Xilaskarımız, yeganә Allaha Rәbbimiz İsa Mәsih vasitәsilә әzәldәn bәri, indi vә әbәdi olaraq izzәt, әzәmәt, qüdrәt vә sәlahiyyәt olsun! Amin. </text>
+  </block>
+  <UnappliedSplits />
+</book>

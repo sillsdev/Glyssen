@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1JN" singlevoice="false" pageheader="1 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+    <text>1 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Nous vous annonçons la Parole qui donne la vie et qui existe depuis toujours. Nous l'avons entendue, nous l'avons vue de nos yeux, nous l'avons regardée avec attention, nous l'avons touchée de nos mains.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Oui, la vie s'est montrée, et nous l'avons vue. Nous en sommes témoins, et nous vous annonçons cette vie avec Dieu pour toujours. Elle était près du Père et elle s'est montrée à nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Cette vie, nous l'avons vue et nous l'avons entendue. Nous vous l'annonçons à vous aussi, ainsi vous serez unis à nous. Ensemble, nous serons unis au Père et à son Fils Jésus-Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Nous vous écrivons cela pour que notre joie soit totale. Marcher dans la lumière</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Voici le message que nous avons entendu de la bouche de Jésus-Christ, et nous vous l'annonçons: Dieu est lumière, en lui, il n'y a pas de nuit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Nous disons peut-être: nous sommes unis à Dieu. Mais si, en même temps, nous marchons dans la nuit, nous mentons et nous ne faisons pas sa volonté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Dieu est dans la lumière. Alors, si nous aussi, nous marchons dans la lumière, nous sommes unis les uns aux autres, et le sang de Jésus, son Fils, nous purifie de tous les péchés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Nous disons peut-être: &lt;&lt;Nous n'avons pas de péché.&gt;&gt; Mais nous nous trompons, et la vérité n'est pas en nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Dieu fait ce qu'il promet et il est juste. Alors, si nous avouons nos péchés, il nous les pardonnera et il enlèvera tout le mal qui est en nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Nous disons peut-être: &lt;&lt;Nous n'avons pas commis de péchés.&gt;&gt; Dans ce cas, nous faisons de Dieu un menteur, et sa parole n'est pas en nous. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Mes enfants, je vous écris ces choses-là pour que vous évitiez de commettre des péchés. Mais si quelqu'un commet des péchés, nous avons un défenseur devant le Père: c'est Jésus-Christ, le juste.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Lui, il s'est offert en sacrifice, pour que Dieu pardonne nos péchés. Et Dieu pardonne non seulement nos péchés à nous, mais aussi les péchés du monde entier.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Si nous gardons les commandements de Dieu, nous savons que nous connaissons Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Si quelqu'un dit: &lt;&lt;Je connais Dieu&gt;&gt;, mais s'il n'obéit pas à ses commandements, c'est un menteur, la vérité n'est pas en lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Mais celui qui obéit à la parole de Dieu, son amour pour Dieu est vraiment parfait. Ainsi nous savons que nous sommes unis à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Si quelqu'un dit: &lt;&lt;Je reste uni à Dieu&gt;&gt;, il doit vivre comme Jésus-Christ a vécu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Amis très chers, ce n'est pas un commandement nouveau que je vous écris, c'est un commandement ancien. Vous l'avez reçu depuis le début. Ce commandement ancien, c'est la parole que vous avez entendue.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Et pourtant, je vous écris un commandement nouveau, qui est vraiment nouveau en Jésus et doit l'être en vous. En effet, la nuit s'en va et la vraie lumière brille déjà.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Si quelqu'un dit: &lt;&lt;Je suis dans la lumière&gt;&gt;, mais s'il déteste son frère ou sa sœur, celui-là est encore dans la nuit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Celui qui aime son frère ou sa sœur reste dans la lumière, il ne risque pas de tomber dans le péché.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Mais celui qui déteste son frère ou sa sœur est dans la nuit, il marche dans la nuit. Il ne sait pas où il va, la nuit l'a rendu aveugle.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Mes enfants, dans cette lettre, je vous dis: &lt;&lt;Dieu pardonne vos péchés grâce au nom du Christ.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Vous, les parents, je vous dis: &lt;&lt;Vous connaissez celui qui existe depuis toujours.&gt;&gt; Vous, les jeunes, je vous dis: &lt;&lt;Vous avez vaincu le Mauvais.&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Vous, les enfants, je vous dis encore: &lt;&lt;Vous connaissez le Père.&gt;&gt; Vous, les parents, je vous dis encore: &lt;&lt;Vous connaissez celui qui existe depuis toujours.&gt;&gt; Vous, les jeunes, je vous dis encore: &lt;&lt;Vous êtes forts, la parole de Dieu reste en vous, et vous avez vaincu le Mauvais.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>N'aimez pas le monde ni ce qui est dans le monde. Si quelqu'un aime le monde, il n'aime pas Dieu le Père.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Voici ce qu'on trouve dans le monde: les mauvais désirs que chacun porte en soi, l'envie de posséder ce qu'on voit, et l'orgueil qui vient de la richesse. Eh bien, tout cela ne vient pas du Père, mais du monde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Le monde ne dure pas, et les mauvais désirs ne durent pas non plus. Mais celui qui fait ce que Dieu veut, celui-là vit pour toujours. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Mes enfants, c'est bientôt la fin des temps. Vous avez entendu dire: &lt;&lt;L'ennemi du Christ arrive.&gt;&gt; Maintenant, beaucoup d'ennemis du Christ sont déjà là. C'est pourquoi nous le savons: c'est bientôt la fin des temps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Ces gens-là sont partis de notre communauté, mais ils n'étaient pas nos frères et nos sœurs. S'ils avaient été nos frères et nos sœurs, ils seraient restés avec nous. Maintenant, c'est clair: ces gens-là n'étaient pas nos frères et nos sœurs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Mais vous, vous avez reçu l'Esprit de Dieu, c'est le Christ qui vous l'a donné. Voilà pourquoi vous tous, vous connaissez la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Je ne vous ai pas écrit: &lt;&lt;Vous ignorez la vérité&gt;&gt;, mais je vous ai écrit: &lt;&lt;Vous connaissez la vérité, et aucun mensonge ne peut venir de la vérité.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>Qui est le menteur? C'est celui qui dit: &lt;&lt;Jésus n'est pas le Christ.&gt;&gt; Voilà l'ennemi du Christ, il rejette et le Père et le Fils!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Tous ceux qui rejettent Jésus le Fils, rejettent aussi le Père. Celui qui accepte le Fils accepte aussi le Père.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>C'est pourquoi, gardez en vous les paroles entendues depuis le début. Si les paroles entendues depuis le début restent en vous, vous aussi, vous resterez unis au Fils et au Père.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN">
+    <verse num="25" />
+    <text>Oui, le Christ nous l'a promis: nous vivrons avec Dieu pour toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN">
+    <verse num="26" />
+    <text>Voilà ce que je voulais vous écrire sur ceux qui veulent vous tromper.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
+    <verse num="27" />
+    <text>Quant à vous, le Christ vous a donné son Esprit, et cet Esprit habite en vous. Alors vous n'avez pas besoin d'un maître. En effet, c'est l'Esprit Saint qui vous apprend tout, et ce qu'il vous apprend est vrai, ce n'est pas un mensonge. C'est pourquoi, restez unis au Christ, comme l'Esprit Saint vous l'a appris. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
+    <verse num="28" />
+    <text>Oui, mes enfants, restez unis au Christ. Alors, quand il paraîtra, nous serons pleins de confiance. Ce jour-là, nous ne serons pas couverts de honte devant lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN">
+    <verse num="29" />
+    <text>Vous savez que le Christ est juste. Alors reconnaissez ceci: tous ceux qui font ce qui est juste, sont enfants de Dieu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Voyez: le Père nous aime tellement qu'il nous appelle ses enfants, et c'est vrai, nous sommes ses enfants! Mais le monde ne nous connaît pas, parce qu'il n'a pas connu Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Amis très chers, dès maintenant, nous sommes enfants de Dieu, mais ce que nous serons plus tard, cela reste encore caché. Voici ce que nous savons: quand le Christ paraîtra, nous le verrons comme il est, alors nous lui ressemblerons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Tous ceux qui espèrent cela du Christ se rendent purs comme lui est pur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Tous ceux qui commettent des péchés luttent contre Dieu. En effet, commettre des péchés, c'est lutter contre Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Vous le savez: Jésus-Christ est venu pour enlever les péchés, et en lui il n'y a pas de péché.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Tous ceux qui restent unis à lui ne commettent plus de péchés. Tous ceux qui commettent des péchés ne voient pas Jésus-Christ, ils ne le connaissent pas non plus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Mes enfants, faites attention, ne vous laissez pas tromper! Si quelqu'un fait ce qui est juste, il est juste comme Jésus-Christ est juste.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Si quelqu'un commet des péchés, il appartient à l'esprit du mal, parce que l'esprit du mal est pécheur depuis le début. Pourquoi le Fils de Dieu est-il venu? Il est venu pour détruire les actions de l'esprit du mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Tous ceux qui sont enfants de Dieu ne commettent plus de péchés. En effet, la parole de Dieu reste en eux comme une semence. Ils ne peuvent plus commettre de péchés, parce qu'ils sont enfants de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Voici comment on distingue les enfants de Dieu et les enfants de l'esprit du mal: tous ceux qui ne font pas ce qui est juste, ou qui n'aiment pas leurs frères et leurs sœurs, ils n'appartiennent pas à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>En effet, voici le message que vous avez entendu depuis le début: aimons-nous les uns les autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Ne faisons pas comme Caïn. Il appartenait au Mauvais et il a tué son frère. Pourquoi est-ce qu'il l'a tué? Parce que les actions de Caïn étaient mauvaises, et celles de son frère étaient justes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Frères et sœurs chrétiens, le monde vous déteste, ne soyez pas surpris de cela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Mais nous, nous avons de l'amour les uns pour les autres. C'est pourquoi, nous le savons: autrefois, nous étions morts, mais maintenant, nous sommes entrés dans la vie. En effet, celui qui n'aime pas reste dans la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Tous ceux qui détestent un frère ou une sœur sont des assassins, et, vous le savez, un assassin n'a pas en lui la vie avec Dieu pour toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Aimer, qu'est-ce que c'est? Maintenant, nous le savons: Jésus a donné sa vie pour nous. Donc, nous aussi, nous devons donner notre vie pour nos frères et nos sœurs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Voici un exemple: quelqu'un est riche. Il voit un frère ou une sœur qui est dans le besoin et il ferme son cœur. Est-ce qu'on peut dire qu'il aime Dieu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Mes enfants, n'aimons pas avec des paroles et avec de beaux discours, mais avec des actes. Ces actes montrent que notre amour est vrai.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Par là, nous saurons que nous appartenons à la vérité, et devant Dieu, nous rendrons la paix à notre cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>En effet, si notre cœur nous accuse, nous le savons, Dieu est plus grand que notre cœur et il connaît tout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Amis très chers, si notre cœur ne nous accuse pas, nous sommes pleins de confiance devant Dieu</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>et nous recevons de lui tout ce que nous demandons. Pourquoi? Parce que nous obéissons à ses commandements et nous faisons ce qui lui plaît.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Voici ce que Dieu commande: nous devons croire au nom de son Fils, Jésus-Christ, et nous aimer les uns les autres, comme le Christ l'a commandé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>Celui qui obéit aux commandements de Dieu, il vit en Dieu et Dieu vit en lui. Oui, Dieu vit en nous, à cause de l'Esprit Saint qu'il nous a donné. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Amis très chers, ne croyez pas tous ceux qui disent: &lt;&lt;Nous avons l'Esprit Saint.&gt;&gt; Mais examinez-les avec attention pour savoir si ces gens ont vraiment l'Esprit de Dieu. En effet, beaucoup de faux prophètes sont venus dans le monde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Voici comment vous reconnaissez l'Esprit de Dieu. Tous ceux qui affirment: &lt;&lt;Jésus-Christ est vraiment devenu un être humain&gt;&gt;, ceux-là appartiennent à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Mais ceux qui ne veulent pas affirmer cela n'appartiennent pas à Dieu, ils appartiennent à l'ennemi du Christ. Vous avez entendu dire: &lt;&lt;L'ennemi du Christ arrive&gt;&gt;, et maintenant, il est déjà dans le monde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Vous, mes enfants, vous appartenez à Dieu et vous avez vaincu les faux prophètes. Voici pourquoi: l'Esprit de Dieu qui est en vous est plus puissant que l'ennemi du Christ qui est dans le monde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Les faux prophètes, eux, appartiennent au monde. C'est pourquoi ils parlent comme le monde, et le monde les écoute.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Nous, au contraire, nous appartenons à Dieu. Celui qui connaît Dieu nous écoute, celui qui n'appartient pas à Dieu ne nous écoute pas. Voilà comment nous reconnaissons l'Esprit de Dieu, qui est vrai, et l'esprit du mal, qui est menteur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Amis très chers, aimons-nous les uns les autres, parce que l'amour vient de Dieu. Tous ceux qui aiment sont enfants de Dieu et ils connaissent Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Ceux qui n'aiment pas ne connaissent pas Dieu, parce que Dieu est amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Voici comment Dieu nous a montré son amour: il a envoyé son Fils unique dans le monde, pour que nous vivions par lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Alors, l'amour, qu'est-ce que c'est? Ce n'est pas nous qui avons aimé Dieu, c'est lui qui nous a aimés. Il nous a tellement aimés qu'il a envoyé son Fils. Celui-ci s'est offert en sacrifice pour nous, c'est pourquoi Dieu pardonne nos péchés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Amis très chers, puisque Dieu nous a aimés de cette façon, nous aussi, nous devons nous aimer les uns les autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Personne n'a jamais vu Dieu, mais si nous nous aimons les uns les autres, Dieu vit en nous, et son amour en nous est parfait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Voici comment nous reconnaissons que nous vivons en Dieu et que Dieu vit en nous: il nous a donné son Esprit Saint.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Le Père a envoyé son Fils pour sauver le monde. Nous, nous avons vu cela et nous en rendons témoignage.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Si quelqu'un affirme: &lt;&lt;Jésus est le Fils de Dieu&gt;&gt;, Dieu vit en lui, et lui, il vit en Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Et nous, nous avons connu l'amour que Dieu a pour nous, et nous avons cru à cet amour. Dieu est amour. Si quelqu'un vit dans l'amour, il vit en Dieu, et Dieu vit en lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Si l'amour est parfait en nous, nous pouvons être pleins de confiance pour le jour où Dieu nous jugera. Pourquoi? Parce que notre vie dans le monde ressemble à celle de Jésus-Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Quand on aime, on n'a pas peur. L'amour parfait chasse la peur. En fait, on a peur quand on attend une punition. Celui qui a peur n'aime donc pas de façon parfaite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Mais nous, nous aimons, parce que Dieu nous a aimés le premier.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Si quelqu'un dit: &lt;&lt;J'aime Dieu&gt;&gt;, et s'il déteste son frère ou sa sœur, c'est un menteur. En effet, celui qui n'aime pas un frère ou une sœur qu'il voit, il ne peut pas aimer Dieu qu'il ne voit pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Voici le commandement que Dieu nous a donné: celui qui aime Dieu doit aussi aimer son frère et sa sœur. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Tous ceux qui croient que Jésus est le Christ sont enfants de Dieu. Et ceux qui aiment Dieu le Père aiment aussi ses enfants.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Comment savoir que nous aimons les enfants de Dieu? Nous les aimons si nous aimons Dieu et si nous obéissons à ses commandements.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Oui, aimer Dieu, c'est garder ses commandements. Et ses commandements ne sont pas difficiles,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>parce que tous ceux qui sont enfants de Dieu peuvent vaincre le monde. Et ce qui nous rend vainqueurs du monde, c'est notre foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Qui donc est vainqueur du monde? C'est seulement celui qui croit que Jésus est le Fils de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Jésus-Christ, c'est lui qui est venu avec l'eau et le sang. Il est venu, non pas avec l'eau seulement, mais avec l'eau et aussi avec le sang. L'Esprit de Dieu est témoin que cela est vrai. En effet, l'Esprit de Dieu est la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Il y a trois témoins:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>l'Esprit, l'eau et le sang, et les trois sont d'accord.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Quand des êtres humains sont témoins de quelque chose, nous les croyons. Mais quand Dieu est témoin, c'est bien plus fort! Et voici le témoignage de Dieu: il a rendu témoignage à son Fils.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Celui qui croit au Fils de Dieu porte ce témoignage dans son cœur. Celui qui ne croit pas en Dieu, celui-là fait de Dieu un menteur! Il ne croit pas au témoignage que Dieu a rendu à son Fils.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Voici ce témoignage: Dieu nous a donné la vie avec lui pour toujours, et son Fils est la source de cette vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Celui qui a le Fils a la vie, celui qui n'a pas le Fils n'a pas la vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Je vous ai écrit cette lettre pour vous faire savoir ceci: vous qui croyez au Fils de Dieu, vous avez la vie avec Dieu pour toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Voici pourquoi nous sommes pleins de confiance devant Dieu: quand nous lui demandons quelque chose qu'il trouve bon pour nous, il nous écoute.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Nous le savons, Dieu écoute toutes nos demandes. Alors, ce que nous lui demandons, nous l'obtenons, c'est sûr!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Si quelqu'un voit son frère ou sa sœur commettre un péché, un péché qui ne conduit pas à la mort, il doit prier. Alors Dieu donnera la vie à ce frère ou à cette sœur, si vraiment son péché ne conduit pas à la mort. Mais il y a un péché qui conduit à la mort, et je ne dis pas de prier pour ce péché-là.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Toutes les actions mauvaises sont des péchés, mais il y a des péchés qui ne conduisent pas à la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Nous le savons, tous ceux qui sont enfants de Dieu ne commettent plus de péché. En effet, le Fils de Dieu les protège, et le Mauvais ne peut pas les toucher</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Nous le savons, nous appartenons à Dieu, mais le monde entier est sous le pouvoir du Mauvais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Nous le savons, le Fils de Dieu est venu. Il nous a donné l'intelligence pour connaître le vrai Dieu, et nous restons unis au vrai Dieu par son Fils Jésus-Christ. Lui, il est le vrai Dieu et il est la vie pour toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Mes enfants, faites attention! Ne suivez pas les faux dieux! </text>
+  </block>
+  <UnappliedSplits />
+</book>

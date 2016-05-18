@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="ROM" singlevoice="false" pageheader="ROMANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM">
+    <text>ROMANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Павел, раб Иисуса Христа, призванный Апостол, избранный к благовестию Божию,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>которое Бог прежде обещал через пророков Своих, в святых писаниях,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>о Сыне Своем, Который родился от семени Давидова по плоти</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>и открылся Сыном Божиим в силе, по духу святыни, через воскресение из мертвых, о Иисусе Христе Господе нашем,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>через Которого мы получили благодать и апостольство, чтобы во имя Его покорять вере все народы,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>между которыми находитесь и вы, призванные Иисусом Христом, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>всем находящимся в Риме возлюбленным Божиим, призванным святым: благодать вам и мир от Бога отца нашего и Господа Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Прежде всего благодарю Бога моего через Иисуса Христа за всех вас, что вера ваша возвещается во всем мире.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Свидетель мне Бог, Которому служу духом моим в благовествовании Сына Его, что непрестанно воспоминаю о вас,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>всегда прося в молитвах моих, чтобы воля Божия когда-нибудь благопоспешила мне придти к вам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>ибо я весьма желаю увидеть вас, чтобы преподать вам некое дарование духовное к утверждению вашему,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>то есть утешиться с вами верою общею, вашею и моею.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Не хочу, братия, оставить вас в неведении, что я многократно намеревался придти к вам (но встречал препятствия даже доныне), чтобы иметь некий плод и у вас, как и у прочих народов.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Я должен и Еллинам и варварам, мудрецам и невеждам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Итак, что до меня, я готов благовествовать и вам, находящимся в Риме.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Ибо я не стыжусь благовествования Христова, потому что оно есть сила Божия ко спасению всякому верующему, во-первых, Иудею, потом и Еллину.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>В нем открывается правда Божия от веры в веру, как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="scripture">
+    <text>праведный верою жив будет.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Ибо открывается гнев Божий с неба на всякое нечестие и неправду человеков, подавляющих истину неправдою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Ибо, что можно знать о Боге, явно для них, потому что Бог явил им.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Ибо невидимое Его, вечная сила Его и Божество, от создания мира через рассматривание творений видимы, так что они безответны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Но как они, познав Бога, не прославили Его, как Бога, и не возблагодарили, но осуетились в умствованиях своих, и омрачилось несмысленное их сердце;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>называя себя мудрыми, обезумели,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>и славу нетленного Бога изменили в образ, подобный тленному человеку, и птицам, и четвероногим, и пресмыкающимся, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>то и предал их Бог в похотях сердец их нечистоте, так что они сквернили сами свои тела.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Они заменили истину Божию ложью, и поклонялись, и служили твари вместо Творца, Который благословен во веки, аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Потому предал их Бог постыдным страстям: женщины их заменили естественное употребление противоестественным;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>подобно и мужчины, оставив естественное употребление женского пола, разжигались похотью друг на друга, мужчины на мужчинах делая срам и получая в самих себе должное возмездие за свое заблуждение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>И как они не заботились иметь Бога в разуме, то предал их Бог превратному уму—делать непотребства,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>так что они исполнены всякой неправды, блуда, лукавства, корыстолюбия, злобы, исполнены зависти, убийства, распрей, обмана, злонравия,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>злоречивы, клеветники, богоненавистники, обидчики, самохвалы, горды, изобретательны на зло, непослушны родителям,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>безрассудны, вероломны, нелюбовны, непримиримы, немилостивы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Они знают праведный суд Божий, что делающие такие дела достойны смерти; однако не только их делают, но и делающих одобряют.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Поэтому вы без уважительной причины, о человек, кто бы ты ни кто судья. Ибо в то, что вы судите другого, ты осуждаешь себя. Для вас, кто судьи практикуют те же самые вещи.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>А мы знаем, что поистине есть суд Божий на делающих такие дела.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Неужели думаешь ты, человек, что избежишь суда Божия, осуждая делающих такие дела и (сам) делая то же?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Или пренебрегаешь богатство благости, кротости и долготерпения Божия, не разумея, что благость Божия ведет тебя к покаянию?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Но, по упорству твоему и нераскаянному сердцу, ты сам себе собираешь гнев на день гнева и откровения праведного суда от Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Который воздаст каждому по делам его:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>тем, которые постоянством в добром деле ищут славы, чести и бессмертия, —жизнь вечную;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>а тем, которые упорствуют и не покоряются истине, но предаются неправде, —ярость и гнев.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Скорбь и теснота всякой душе человека, делающего злое, во-первых, Иудея, потом и Еллина!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Напротив, слава и честь и мир всякому, делающему доброе, во— первых, Иудею, потом и Еллину!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Ибо нет лицеприятия у Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Те, которые, не имея закона, согрешили, вне закона и погибнут; а те, которые под законом согрешили, по закону осудятся</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>(потому что не слушатели закона праведны пред Богом, но исполнители закона оправданы будут,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>ибо когда язычники, не имеющие закона, по природе законное делают, то, не имея закона, они сами себе закон:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>они показывают, что дело закона у них написано в сердцах, о чем свидетельствует совесть их и мысли их, то обвиняющие, то оправдывающие одна другую)</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>в день, когда, по благовествованию моему, Бог будет судить тайные дела человеков через Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Вот, ты называешься Иудеем, и успокаиваешь себя законом, и хвалишься Богом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>и знаешь волю Его, и разумеешь лучшее, научаясь из закона,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>и уверен о себе, что ты путеводитель слепых, свет для находящихся во тьме,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>наставник невежд, учитель младенцев, имеющий в законе образец ведения и истины:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Таким образом, Вы, кто учит другого, ты не учишь себя самого? Вы, кто проповедует, что человек не красть, крадешь?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Проповедуя не красть, крадешь? говоря: 'не прелюбодействуй', прелюбодействуешь? гнушаясь идолов, святотатствуешь?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Хвалишься законом, а преступлением закона бесчестишь Бога? </text>
+    <verse num="24" />
+    <text>Ибо ради вас, как написано,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
+    <text>имя Божие хулится у язычников.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Обрезание полезно, если исполняешь закон; а если ты преступник закона, то обрезание твое стало необрезанием.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Итак, если необрезанный соблюдает постановления закона, то его необрезание не вменится ли ему в обрезание?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>И необрезанный по природе, исполняющий закон, не осудит ли тебя, преступника закона при Писании и обрезании?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Ибо не тот Иудей, кто таков по наружности, и не то обрезание, которое наружно, на плоти;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>но он еврей, который является одним внутри, и то обрезание, которое в сердце. "Это в духе, не в письме, Его похвала не от людей, но от Бога.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Итак, какое преимущество быть Иудеем, или какая польза от обрезания?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Великое преимущество во всех отношениях, а наипаче в том, что им вверено слово Божие.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Ибо что же? если некоторые и неверны были, неверность их уничтожит ли верность Божию?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Никак. Бог верен, а всякий человек лжив, как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="scripture">
+    <text>Ты праведен в словах Твоих и победишь в суде Твоем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Если же наша неправда открывает правду Божию, то что скажем? не будет ли Бог несправедлив, когда изъявляет гнев? (говорю по человеческому рассуждению).</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Никак. Ибо иначе как Богу судить мир?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Ибо, если верность Божия возвышается моею неверностью к славе Божией, за что еще меня же судить, как грешника?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>И не делать ли нам зло, чтобы вышло добро, как некоторые злословят нас и говорят, будто мы так учим? Праведен суд на таковых.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Итак, что же? имеем ли мы преимущество? Нисколько. Ибо мы уже доказали, что как Иудеи, так и Еллины, все под грехом, </text>
+    <verse num="10" />
+    <text>как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>нет праведного ни одного; </text>
+    <verse num="11" />
+    <text>нет разумевающего; никто не ищет Бога;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>все совратились с пути, до одного негодны; нет делающего добро, нет ни одного.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
+    <verse num="13" />
+    <text>Гортань их—открытый гроб; языком своим обманывают; яд аспидов на губах их. </text>
+    <verse num="14" />
+    <text>Уста их полны злословия и горечи.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
+    <verse num="15" />
+    <text>Ноги их быстры на пролитие крови; </text>
+    <verse num="16" />
+    <text>разрушение и пагуба на путях их;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>они не знают пути мира. </text>
+    <verse num="18" />
+    <text>Нет страха Божия перед глазами их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Но мы знаем, что закон, если что говорит, говорит к состоящим под законом, так что заграждаются всякие уста, и весь мир становится виновен пред Богом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>потому что делами закона не оправдается пред Ним никакая плоть; ибо законом познаётся грех.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Но ныне, независимо от закона, явилась правда Божия, о которой свидетельствуют закон и пророки,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>правда Божия через веру в Иисуса Христа во всех и на всех верующих, ибо нет различия,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>потому что все согрешили и лишены славы Божией,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>получая оправдание даром, по благодати Его, искуплением во Христе Иисусе,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>которого Бог предложил в жертву умилостивления в Крови Его через веру, для показания правды Его в прощении грехов, соделанных прежде,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>во время долготерпения Божия, к показанию правды Его в настоящее время, да явится Он праведным и оправдывающим верующего в Иисуса.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Где же то, чем бы хвалиться? уничтожено. Каким законом? законом дел? Нет, но законом веры.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Ибо мы признаём, что человек оправдывается верою, независимо от дел закона.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Неужели Бог есть Бог Иудеев только, а не и язычников? Конечно, и язычников,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>потому что один Бог, Который оправдает обрезанных по вере и необрезанных через веру.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>Итак, мы уничтожаем закон верою? Никак; но закон утверждаем.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Что же, скажем, Авраам, отец наш, приобрел по плоти?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Если Авраам оправдался делами, он имеет похвалу, но не пред Богом. </text>
+    <verse num="3" />
+    <text>Ибо что говорит Писание?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
+    <text>Поверил Авраам Богу, и это вменилось ему в праведность.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Воздаяние делающему вменяется не по милости, но по долгу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>А не делающему, но верующему в Того, Кто оправдывает нечестивого, вера его вменяется в праведность.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Так и Давид называет блаженным человека, которому Бог вменяет праведность независимо от дел: </text>
+    <verse num="7" />
+    <text>Давид сказал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+    <text>Блаженны, чьи беззакония прощены и чьи грехи покрыты.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>Блажен человек, которому Господь не вменит греха.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Блаженство сие относится к обрезанию, или к необрезанию? Мы говорим, что Аврааму вера вменилась в праведность.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Когда вменилась? по обрезании или до обрезания? Не по обрезании, а до обрезания.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>И знак обрезания он получил, как печать праведности через веру, которую имел в необрезании, так что он стал отцом всех верующих в необрезании, чтобы и им вменилась праведность,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>и отцом обрезанных, не только принявших обрезание, но и ходящих по следам веры отца нашего Авраама, которую имел он в необрезании.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Бог обещал Аврааму и его потомкам, что они будут наследниками мира. Это обещание было сделано не потому, что Авраам повиновался закону *, но потому, что он верил в Бога и был принят им.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Если утверждающиеся на законе суть наследники, то тщетна вера, бездейственно обетование;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>ибо закон производит гнев, потому что, где нет закона, нет и преступления.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Итак по вере, чтобы было по милости, дабы обетование было непреложно для всех,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM">
+    <text>не только по закону, но и по вере потомков Авраама, который есть отец всем нам </text>
+    <verse num="17" />
+    <text>(как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="scripture">
+    <text>Я поставил тебя отцом многих народов)</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM">
+    <text>пред Богом, Которому он поверил, животворящим мертвых и называющим несуществующее, как существующее.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Он, сверх надежды, поверил с надеждою, через что сделался отцом многих народов, по сказанному:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+    <text>'так многочисленно будет семя твое'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>И, не изнемогши в вере, он не помышлял, что тело его, почти столетнего, уже омертвело, и утроба Саррина в омертвении;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>не поколебался в обетовании Божием неверием, но пребыл тверд в вере, воздав славу Богу</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>и будучи вполне уверен, что Он силен и исполнить обещанное.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Потому и вменилось ему в праведность.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>А впрочем не в отношении к нему одному написано, что вменилось ему,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>но и в отношении к нам; вменится и нам, верующим в Того, Кто воскресил из мертвых Иисуса Христа, Господа нашего,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Который предан за грехи наши и воскрес для оправдания нашего.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Итак, оправдавшись верою, мы имеем мир с Богом через Господа нашего Иисуса Христа, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>через Которого верою и получили мы доступ к той благодати, в которой стоим и хвалимся надеждою славы Божией.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>И не сим только, но хвалимся и скорбями, зная, что от скорби происходит терпение, </text>
+    <verse num="4" />
+    <text>от терпения опытность, от опытности надежда,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>а надежда не постыжает, потому что любовь Божия излилась в сердца наши Духом Святым, данным нам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Ибо Христос, когда еще мы были немощны, в определенное время умер за нечестивых.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Ибо едва ли кто умрет за праведника; разве за благодетеля, может быть, кто и решится умереть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Но Бог Свою любовь к нам доказывает тем, что Христос умер за нас, когда мы были еще грешниками.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Посему тем более ныне, будучи оправданы Кровию Его, спасемся Им от гнева.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Ибо если, будучи врагами, мы примирились с Богом смертью Сына Его, то тем более, примирившись, спасемся жизнью Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>И не довольно сего, но и хвалимся Богом чрез Господа нашего Иисуса Христа, посредством Которого мы получили ныне примирение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Посему, как одним человеком грех вошел в мир, и грехом смерть, так и смерть перешла во всех человеков, потому что в нем все согрешили.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Ибо и до закона грех был в мире; но грех не вменяется, когда нет закона.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Однако же смерть царствовала от Адама до Моисея и над несогрешившими подобно преступлению Адама, который есть образ будущего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Но дар благодати не как преступление. Ибо если преступлением одного подверглись смерти многие, то тем более благодать Божия и дар по благодати одного Человека, Иисуса Христа, преизбыточествуют для многих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>И дар не как суд за одного согрешившего; ибо суд за одно преступление —к осуждению; а дар благодати—к оправданию от многих преступлений.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Ибо если преступлением одного смерть царствовала посредством одного, то тем более приемлющие обилие благодати и дар праведности будут царствовать в жизни посредством единого Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Посему, как преступлением одного всем человекам осуждение, так правдою одного всем человекам оправдание к жизни.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Ибо, как непослушанием одного человека сделались многие грешными, так и послушанием одного сделаются праведными многие.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Закон же пришел после, и таким образом умножилось преступление. А когда умножился грех, стала преизобиловать благодать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>дабы, как грех царствовал к смерти, так и благодать воцарилась через праведность к жизни вечной Иисусом Христом, Господом нашим.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Что же скажем? оставаться ли нам в грехе, чтобы умножилась благодать? Никак.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Мы умерли для греха: как же нам жить в нем?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Неужели не знаете, что все мы, крестившиеся во Христа Иисуса, в смерть Его крестились?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Итак мы погреблись с Ним крещением в смерть, дабы, как Христос воскрес из мертвых славою Отца, так и нам ходить в обновленной жизни.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Ибо если мы соединены с Ним подобием смерти Его, то должны быть соединены и подобием воскресения,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>зная то, что ветхий наш человек распят с Ним, чтобы упразднено было тело греховное, дабы нам не быть уже рабами греху;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>ибо умерший освободился от греха.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Если же мы умерли со Христом, то веруем, что и жить будем с Ним.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Мы знаем, что Христос, воскреснув из мертвых, уже не умирает: смерть уже не имеет над Ним власти.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Ибо, что Он умер, то умер однажды для греха; а что живет, то живет для Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Так и вы почитайте себя мертвыми для греха, живыми же для Бога во Христе Иисусе, Господе нашем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Итак да не царствует грех в смертном вашем теле, чтобы вам повиноваться ему в похотях его;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>и не предавайте членов ваших греху в орудия неправды, но представьте себя Богу, как оживших из мертвых, и члены ваши Богу в орудия праведности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Грех не должен над вами господствовать, ибо вы не под законом, но под благодатью.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Что же? станем ли грешить, потому что мы не под законом, а под благодатью? Никак.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Ты не знаешь этого? Когда вы поставлены на службу человека, как рабы, вы рабы хозяина, которому вы подчиняетесь. Так что, либо вы рабами греха, а грех ведет к смерти, или вы слуги Бога, и Бог делает тебя праведным, потому что вы ему подчиняться.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Благодарение Богу, что вы, быв прежде рабами греха, от сердца стали послушны тому образу учения, которому предали себя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Освободившись же от греха, вы стали рабами праведности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Говорю по рассуждению человеческому, ради немощи плоти вашей. Как предавали вы члены ваши в рабы нечистоте и беззаконию на дела беззаконные,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-ROM">
+    <text>так ныне представьте члены ваши в рабы праведности на дела святые.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Ибо, когда вы были рабами греха, тогда были свободны от праведности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Какой же плод вы имели тогда? Такие дела, каких ныне сами стыдитесь, потому что конец их—смерть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Но ныне, когда вы освободились от греха и стали рабами Богу, плод ваш есть святость, а конец—жизнь вечная.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Ибо возмездие за грех—смерть, а дар Божий—жизнь вечная во Христе Иисусе, Господе нашем.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Разве вы не знаете, братия (ибо говорю знающим закон), что закон имеет власть над человеком, пока он жив?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Замужняя женщина привязана законом к живому мужу; а если умрет муж, она освобождается от закона замужества.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Посему, если при живом муже выйдет за другого, называется прелюбодейцею; если же умрет муж, она свободна от закона, и не будет прелюбодейцею, выйдя за другого мужа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Так и вы, братия мои, умерли для закона телом Христовым, чтобы принадлежать другому, Воскресшему из мертвых, да приносим плод Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Ибо, когда мы жили по плоти, тогда страсти греховные, обнаруживаемые законом, действовали в членах наших, чтобы приносить плод смерти;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>но ныне, умерши для закона, которым были связаны, мы освободились от него, чтобы нам служить Богу в обновлении духа, а не по ветхой букве.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Что же скажем? Неужели от закона грех? Никак. Но я не иначе узнал грех, как посредством закона. Ибо я не понимал бы и пожелания, если бы закон не говорил:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="scripture">
+    <text>не пожелай.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Но грех, взяв повод от заповеди, произвел во мне всякое пожелание: ибо без закона грех мертв.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Я жил некогда без закона; но когда пришла заповедь, то грех ожил, </text>
+    <verse num="10" />
+    <text>а я умер; и таким образом заповедь, данная для жизни, послужила мне к смерти,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>потому что грех, взяв повод от заповеди, обольстил меня и умертвил ею.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Посему закон свят, и заповедь свята и праведна и добра.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Итак, неужели доброе сделалось мне смертоносным? Никак; но грех, оказывающийся грехом потому, что посредством доброго причиняет мне смерть, так что грех становится крайне грешен посредством заповеди.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Ибо мы знаем, что закон духовен, а я плотян, продан греху.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Ибо не понимаю, что делаю: потому что не то делаю, что хочу, а что ненавижу, то делаю.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Если же делаю то, чего не хочу, то соглашаюсь с законом, что он добр,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>а потому уже не я делаю то, но живущий во мне грех.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Ибо знаю, что не живет во мне, то есть в плоти моей, доброе; потому что желание добра есть во мне, но чтобы сделать оное, того не нахожу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Доброго, которого хочу, не делаю, а злое, которого не хочу, делаю.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Если же делаю то, чего не хочу, уже не я делаю то, но живущий во мне грех.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Итак я нахожу закон, что, когда хочу делать доброе, прилежит мне злое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Ибо по внутреннему человеку нахожу удовольствие в законе Божием;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>но в членах моих вижу иной закон, противоборствующий закону ума моего и делающий меня пленником закона греховного, находящегося в членах моих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Бедный я человек! кто избавит меня от сего тела смерти?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Благодарю Бога моего Иисусом Христом, Господом нашим. Итак тот же самый я умом моим служу закону Божию, а плотию закону греха.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Итак нет ныне никакого осуждения тем, которые во Христе Иисусе живут не по плоти, но по духу,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>потому что закон духа жизни во Христе Иисусе освободил меня от закона греха и смерти.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Как закон, ослабленный плотию, был бессилен, то Бог послал Сына Своего в подобии плоти греховной в жертву за грех и осудил грех во плоти,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>чтобы оправдание закона исполнилось в нас, живущих не по плоти, но по духу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Ибо живущие по плоти о плотском помышляют, а живущие по духу—о духовном.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Помышления плотские суть смерть, а помышления духовные—жизнь и мир,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>потому что плотские помышления суть вражда против Бога; ибо закону Божию не покоряются, да и не могут.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Посему живущие по плоти Богу угодить не могут.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Но вы не по плоти живете, а по духу, если только Дух Божий живет в вас. Если же кто Духа Христова не имеет, тот и не Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>А если Христос в вас, то тело мертво для греха, но дух жив для праведности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Если же Дух Того, Кто воскресил из мертвых Иисуса, живет в вас, то Воскресивший Христа из мертвых оживит и ваши смертные тела Духом Своим, живущим в вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Итак, братия, мы не должники плоти, чтобы жить по плоти;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>ибо если живете по плоти, то умрете, а если духом умерщвляете дела плотские, то живы будете.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Ибо все, водимые Духом Божиим, суть сыны Божии.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Потому что вы не приняли духа рабства, чтобы опять жить в страхе, но приняли Духа усыновления, Которым взываем: 'Авва, Отче!'</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Сей самый Дух свидетельствует духу нашему, что мы—дети Божии.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>А если дети, то и наследники, наследники Божии, сонаследники же Христу, если только с Ним страдаем, чтобы с Ним и прославиться.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Ибо думаю, что нынешние временные страдания ничего не стоят в сравнении с тою славою, которая откроется в нас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Ибо тварь с надеждою ожидает откровения сынов Божиих,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>потому что тварь покорилась суете не добровольно, но по воле покорившего ее, в надежде,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>что и сама тварь освобождена будет от рабства тлению в свободу славы детей Божиих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Ибо знаем, что вся тварь совокупно стенает и мучится доныне;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>и не только она, но и мы сами, имея начаток Духа, и мы в себе стенаем, ожидая усыновления, искупления тела нашего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Ибо мы спасены в надежде. Надежда же, когда видит, не есть надежда; ибо если кто видит, то чего ему и надеяться?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Но когда надеемся того, чего не видим, тогда ожидаем в терпении.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Также и Дух подкрепляет нас в немощах наших; ибо мы не знаем, о чем молиться, как должно, но Сам Дух ходатайствует за нас воздыханиями неизреченными.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Испытующий же сердца знает, какая мысль у Духа, потому что Он ходатайствует за святых по воле Божией.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Притом знаем, что любящим Бога, призванным по Его изволению, все содействует ко благу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Ибо кого Он предузнал, тем и предопределил быть подобными образу Сына Своего, дабы Он был первородным между многими братиями.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>А кого Он предопределил, тех и призвал, а кого призвал, тех и оправдал; а кого оправдал, тех и прославил.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>Что же сказать на это? Если Бог за нас, кто против нас?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Тот, Который Сына Своего не пощадил, но предал Его за всех нас, как с Ним не дарует нам и всего?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-ROM">
+    <verse num="33" />
+    <text>Кто будет обвинять избранных Божиих? Бог оправдывает их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-ROM">
+    <verse num="34" />
+    <text>Кто осуждает? Христос Иисус умер, но и воскрес: Он и одесную Бога, Он и ходатайствует за нас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="narrator-ROM">
+    <verse num="35" />
+    <text>Кто отлучит нас от любви Божией: скорбь, или теснота, или гонение, или голод, или нагота, или опасность, или меч?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="narrator-ROM">
+    <verse num="36" />
+    <text>как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="scripture">
+    <text>за Тебя умерщвляют нас всякий день, считают нас за овец, обреченных на заклание.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ROM">
+    <verse num="37" />
+    <text>Но все сие преодолеваем силою Возлюбившего нас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="narrator-ROM">
+    <verse num="38" />
+    <text>Ибо я уверен, что ни смерть, ни жизнь, ни Ангелы, ни Начала, ни Силы, ни настоящее, ни будущее,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="narrator-ROM">
+    <verse num="39" />
+    <text>ни высота, ни глубина, ни другая какая тварь не может отлучить нас от любви Божией во Христе Иисусе, Господе нашем.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Истину говорю во Христе, не лгу, свидетельствует мне совесть моя в Духе Святом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>что великая для меня печаль и непрестанное мучение сердцу моему:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>я желал бы сам быть отлученным от Христа за братьев моих, родных мне по плоти,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Они израильтян и людей Бог избрал для себя; слава, заветы, закон, обслуживание, и обетования;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>их и отцы, и от них Христос по плоти, сущий над всем Бог, благословенный во веки, аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Но не то, чтобы слово Божие не сбылось: ибо не все те Израильтяне, которые от Израиля;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>и не все дети Авраама, которые от семени его, но сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="scripture">
+    <text>в Исааке наречется тебе семя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>То есть не плотские дети суть дети Божии, но дети обетования признаются за семя. </text>
+    <verse num="9" />
+    <text>А слово обетования таково:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
+    <text>в это же время приду, и у Сарры будет сын.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>И не одно это; но так было и с Ревеккою, когда она зачала в одно время двух сыновей от Исаака, отца нашего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Ибо, когда они еще не родились и не сделали ничего доброго или худого (дабы изволение Божие в избрании происходило </text>
+    <verse num="12" />
+    <text>не от дел, но от Призывающего), сказано было ей:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="scripture">
+    <text>больший будет в порабощении у меньшего,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>как и написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="scripture">
+    <text>Иакова Я возлюбил, а Исава возненавидел.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Что же скажем? Неужели неправда у Бога? Никак. </text>
+    <verse num="15" />
+    <text>Ибо Он говорит Моисею:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="scripture">
+    <text>кого миловать, помилую; кого жалеть, пожалею.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Итак помилование зависит не от желающего и не от подвизающегося, но от Бога милующего. </text>
+    <verse num="17" />
+    <text>Ибо Писание говорит фараону:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="scripture">
+    <text>для того самого Я и поставил тебя, чтобы показать над тобою силу Мою и чтобы проповедано было имя Мое по всей земле.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Итак, кого хочет, милует; а кого хочет, ожесточает.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Ты скажешь мне: 'за что же еще обвиняет? Ибо кто противостанет воле Его?'</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>А ты кто, человек, что споришь с Богом? Изделие скажет ли сделавшему его: 'зачем ты меня так сделал?'</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Не властен ли горшечник над глиною, чтобы из той же смеси сделать один сосуд для почетного употребления, а другой для низкого?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Что же, если Бог, желая показать гнев и явить могущество Свое, с великим долготерпением щадил сосуды гнева, готовые к погибели,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Что делать, если он сделал это, чтобы явить богатство славы Своей над сосудами милосердия, которые он подготовил заранее, за славу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Мы те, которые он выбрал, не только евреев, но и из язычников.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>По его словам также в Осии</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
+    <text>не Мой народ назову Моим народом, и не возлюбленную—возлюбленною.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
+    <verse num="26" />
+    <text>И на том месте, где сказано им: вы не Мой народ, там названы будут сынами Бога живаго.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>А Исаия провозглашает об Израиле:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="scripture" multiBlockQuote="Start">
+    <text>хотя бы сыны Израилевы были числом, как песок морской, только остаток спасется;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="28" />
+    <text>ибо дело оканчивает и скоро решит по правде, дело решительное совершит Господь на земле.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>И, как предсказал Исаия:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="scripture">
+    <text>если бы Господь Саваоф не оставил нам семени, то мы сделались бы, как Содом, и были бы подобны Гоморре.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Что же скажем? Язычники, не искавшие праведности, получили праведность, праведность от веры.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>А Израиль, искавший закона праведности, не достиг до закона праведности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Почему? потому что искали не в вере, а в делах закона. Ибо преткнулись о камень преткновения, </text>
+    <verse num="33" />
+    <text>как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="scripture">
+    <text>вот, полагаю в Сионе камень преткновения и камень соблазна; но всякий, верующий в Него, не постыдится.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Братия! желание моего сердца и молитва к Богу об Израиле во спасение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Ибо свидетельствую им, что имеют ревность по Боге, но не по рассуждению.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Ибо, не разумея праведности Божией и усиливаясь поставить собственную праведность, они не покорились праведности Божией,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>потому что конец закона—Христос, к праведности всякого верующего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Моисей пишет о праведности от закона:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture">
+    <text>исполнивший его человек жив будет им.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>А праведность от веры так говорит: не говори в сердце твоем: кто взойдет на небо? то есть Христа свести.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Или кто сойдет в бездну? то есть Христа из мертвых возвести. </text>
+    <verse num="8" />
+    <text>Но что говорит Писание?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
+    <text>Близко к тебе слово, в устах твоих и в сердце твоем,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-ROM">
+    <text>то есть слово веры, которое проповедуем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Ибо если устами твоими будешь исповедывать Иисуса Господом и сердцем твоим веровать, что Бог воскресил Его из мертвых, то спасешься,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>потому что сердцем веруют к праведности, а устами исповедуют ко спасению. </text>
+    <verse num="11" />
+    <text>Ибо Писание говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="scripture">
+    <text>всякий, верующий в Него, не постыдится.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Здесь нет различия между Иудеем и Еллином, потому что один Господь у всех, богатый для всех, призывающих Его. </text>
+    <verse num="13" />
+    <text>Ибо всякий,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="scripture">
+    <text>кто призовет имя Господне, спасется.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Но как призывать Того, в Кого не уверовали? как веровать в Того, о Ком не слыхали? как слышать без проповедующего?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>И как проповедывать, если не будут посланы? как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="scripture">
+    <text>как прекрасны ноги благовествующих мир, благовествующих благое!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Но не все послушались благовествования. Ибо Исаия говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
+    <text>Господи! кто поверил слышанному от нас?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Итак вера от слышания, а слышание от слова Божия.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Но спрашиваю:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="scripture">
+    <text>разве они не слышали? Напротив, по всей земле прошел голос их, и до пределов вселенной слова их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Еще спрашиваю: разве Израиль не знал? Но первый Моисей говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="scripture">
+    <text>Я возбужу в вас ревность не народом, раздражу вас народом несмысленным.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>А Исаия смело говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture">
+    <text>Меня нашли не искавшие Меня; Я открылся не вопрошавшим о Мне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Об Израиле же говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="scripture">
+    <text>целый день Я простирал руки Мои к народу непослушному и упорному.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Итак, спрашиваю: неужели Бог отверг народ Свой? Никак. Ибо и я Израильтянин, от семени Авраамова, из колена Вениаминова.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Не отверг Бог народа Своего, который Он наперед знал. Или не знаете, что говорит Писание в повествовании об Илии? как он жалуется Богу на Израиля, говоря:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="scripture">
+    <verse num="3" />
+    <text>Господи! пророков Твоих убили, жертвенники Твои разрушили; остался я один, и моей души ищут.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Что же говорит ему Божеский ответ?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="scripture">
+    <text>Я соблюл Себе семь тысяч человек, которые не преклонили колени перед Ваалом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Так и в нынешнее время, по избранию благодати, сохранился остаток.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Но если по благодати, то не по делам; иначе благодать не была бы уже благодатью. А если по делам, то это уже не благодать; иначе дело не есть уже дело.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Что же? Израиль, чего искал, того не получил; избранные же получили, а прочие ожесточились, </text>
+    <verse num="8" />
+    <text>как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="scripture">
+    <text>Бог дал им дух усыпления, глаза, которыми не видят, и уши, которыми не слышат, даже до сего дня.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>И Давид говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="scripture" multiBlockQuote="Start">
+    <text>да будет трапеза их сетью, тенетами и петлею в возмездие им;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>да помрачатся глаза их, чтобы не видеть, и хребет их да будет согбен навсегда.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Итак спрашиваю: неужели они преткнулись, чтобы совсем пасть? Никак. Но от их падения спасение язычникам, чтобы возбудить в них ревность.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Если же падение их—богатство миру, и оскудение их— богатство язычникам, то тем более полнота их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Вам говорю, язычникам. Как Апостол язычников, я прославляю служение мое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Не возбужу ли ревность в сродниках моих по плоти и не спасу ли некоторых из них?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Ибо если отвержение их—примирение мира, то что будет принятие, как не жизнь из мертвых?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Если начаток свят, то и целое; и если корень свят, то и ветви.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Но некоторые из ветвей отломились, а ты, дикая маслина, привился на место их и стал причастником с ними корня и богатство оливкового дерева.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Не хвались на ветвях. Если вы похвастаться, это не ты корень держишь, но корень тебя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Скажешь: 'ветви отломились, чтобы мне привиться'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Хорошо. Они отломились неверием, а ты держишься верою: не гордись, но бойся.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Ибо если Бог не пощадил природных ветвей, то смотри, пощадит ли и тебя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Итак видишь благость и строгость Божию: строгость к отпадшим, а благость к тебе, если пребудешь в благости Божией; иначе и ты будешь отсечен.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Но и те, если не пребудут в неверии, привьются, потому что Бог силен опять привить их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Ибо если ты отсечен от дикой по природе маслины и не по природе привился к хорошей маслине, то тем более сии природные привьются к своей маслине.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Ибо не хочу оставить вас, братия, в неведении о тайне сей, —чтобы вы не мечтали о себе, — что ожесточение произошло в Израиле отчасти, до времени, пока войдет полное число язычников;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>и так весь Израиль спасется, как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="scripture" multiBlockQuote="Start">
+    <text>придет от Сиона Избавитель, и отвратит нечестие от Иакова.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="27" />
+    <text>И сей завет им от Меня, когда сниму с них грехи их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>В отношении к благовестию, они враги ради вас; а в отношении к избранию, возлюбленные Божии ради отцов.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Ибо дары и призвание Божие непреложны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Как и вы некогда были непослушны Богу, а ныне помилованы, по непослушанию их,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>так и они теперь непослушны для помилования вас, чтобы и сами они были помилованы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Ибо всех заключил Бог в непослушание, чтобы всех помиловать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-ROM">
+    <verse num="33" />
+    <text>О, бездна богатства и премудрости и ведения Божия! Как непостижимы судьбы Его и неисследимы пути Его!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="scripture">
+    <verse num="34" />
+    <text>Ибо кто познал ум Господень? Или кто был советником Ему?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture">
+    <verse num="35" />
+    <text>Или кто дал Ему наперед, чтобы Он должен был воздать?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM">
+    <verse num="36" />
+    <text>Ибо все из Него, Им и к Нему. Ему слава во веки, аминь.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Итак умоляю вас, братия, милосердием Божиим, представьте тела ваши в жертву живую, святую, благоугодную Богу, для разумного служения вашего,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>и не сообразуйтесь с веком сим, но преобразуйтесь обновлением ума вашего, чтобы вам познавать, что есть воля Божия, благая, угодная и совершенная.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>По данной мне благодати, всякому из вас говорю: не думайте о себе более, нежели должно думать; но думайте скромно, по мере веры, какую каждому Бог уделил.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Ибо, как в одном теле у нас много членов, но не у всех членов одно и то же дело,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>так мы, многие, составляем одно тело во Христе, а порознь один для другого члены.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>И как, по данной нам благодати, имеем различные дарования, то, имеешь ли пророчество, пророчествуй по мере веры;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>имеешь ли служение, пребывай в служении; учитель ли, —в учении;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>увещатель ли, увещевай; раздаватель ли, раздавай в простоте; начальник ли, начальствуй с усердием; благотворитель ли, благотвори с радушием.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Любовь да будет непритворна; отвращайтесь зла, прилепляйтесь к добру;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>будьте братолюбивы друг к другу с нежностью; в почтительности друг друга предупреждайте;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>в усердии не ослабевайте; духом пламенейте; Господу служите;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>утешайтесь надеждою; в скорби будьте терпеливы, в молитве постоянны;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>в нуждах святых принимайте участие; ревнуйте о странноприимстве.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Благословляйте гонителей ваших; благословляйте, а не проклинайте.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Радуйтесь с радующимися и плачьте с плачущими.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Будьте единомысленны между собою; не высокомудрствуйте, но последуйте смиренным; не мечтайте о себе;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>никому не воздавайте злом за зло, но пекитесь о добром перед всеми человеками.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Если возможно с вашей стороны, будьте в мире со всеми людьми.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Не мстите за себя, возлюбленные, но дайте место гневу Божию. Ибо написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture">
+    <text>Мне отмщение, Я воздам, говорит Господь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Итак,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
+    <text>если враг твой голоден, накорми его; если жаждет, напой его: ибо, делая сие, ты соберешь ему на голову горящие уголья.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Не будь побежден злом, но побеждай зло добром.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Всякая душа да будет покорна высшим властям, ибо нет власти не от Бога; существующие же власти от Бога установлены.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Посему противящийся власти противится Божию установлению. А противящиеся сами навлекут на себя осуждение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Ибо начальствующие страшны не для добрых дел, но для злых. Хочешь ли не бояться власти? Делай добро, и получишь похвалу от нее.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Начальник есть Божий слуга, тебе на добро. Если же делаешь зло, бойся, ибо он не напрасно носит меч: он Божий слуга, отмститель в наказание делающему злое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>И потому надобно повиноваться не только из страха наказания, но и по совести.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Для сего вы и подати платите, ибо они Божии служители, сим самым постоянно занятые.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Итак отдавайте всякому должное: кому подать, подать; кому оброк, оброк; кому страх, страх; кому честь, честь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Не оставайтесь должными никому ничем, кроме взаимной любви; ибо любящий другого исполнил закон.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Ибо заповеди: не прелюбодействуй, не убивай, не кради, не лжесвидетельствуй, не пожелай чужого и все другие заключаются в сем слове: люби ближнего твоего, как самого себя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Любовь не делает ближнему зла; итак любовь есть исполнение закона.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Так поступайте, зная время, что наступил уже час пробудиться нам от сна. Ибо ныне ближе к нам спасение, нежели когда мы уверовали.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Ночь прошла, а день приблизился: итак отвергнем дела тьмы и облечемся в оружия света.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Как днем, будем вести себя благочинно, не предаваясь ни пированиям и пьянству, ни сладострастию и распутству, ни ссорам и зависти;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>но облекитесь в Господа нашего Иисуса Христа, и попечения о плоти не превращайте в похоти.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="14" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>14</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Немощного в вере принимайте без споров о мнениях.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Ибо иной уверен, что можно есть все, а немощный ест овощи.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Кто ест, не уничижай того, кто не ест; и кто не ест, не осуждай того, кто ест, потому что Бог принял его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Кто ты, осуждающий чужого раба? Перед своим Господом стоит он, или падает. И будет восставлен, ибо силен Бог восставить его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Иной отличает день от дня, а другой судит о всяком дне равно. Всякий поступай по удостоверению своего ума.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Кто различает дни, для Господа различает; и кто не различает дней, для Господа не различает. Кто ест, для Господа ест, ибо благодарит Бога; и кто не ест, для Господа не ест, и благодарит Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Ибо никто из нас не живет для себя, и никто не умирает для себя;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>а живем ли—для Господа живем; умираем ли—для Господа умираем: и потому, живем ли или умираем, —всегда Господни.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Ибо Христос для того и умер, и воскрес, и ожил, чтобы владычествовать и над мертвыми и над живыми.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>А ты что осуждаешь брата твоего? Или и ты, что унижаешь брата твоего? Все мы предстанем на суд Христов. </text>
+    <verse num="11" />
+    <text>Ибо написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
+    <text>живу Я, говорит Господь, предо Мною преклонится всякое колено, и всякий язык будет исповедывать Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Итак каждый из нас за себя даст отчет Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Не станем же более судить друг друга, а лучше судите о том, как бы не подавать брату случая к преткновению или соблазну.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Я знаю и уверен в Господе Иисусе, что нет ничего в себе самом нечистого; только почитающему что-либо нечистым, тому нечисто.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Если же за пищу огорчается брат твой, то ты уже не по любви поступаешь. Не губи твоею пищею того, за кого Христос умер.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Да не хулится ваше доброе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Ибо Царствие Божие не пища и питие, но праведность и мир и радость во Святом Духе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Кто сим служит Христу, тот угоден Богу и достоин одобрения от людей.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Итак будем искать того, что служит к миру и ко взаимному назиданию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Ради пищи не разрушай дела Божия. Все чисто, но худо человеку, который ест на соблазн.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Лучше не есть мяса, не пить вина и не делать ничего такого, отчего брат твой претыкается, или соблазняется, или изнемогает.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Ты имеешь веру? имей ее сам в себе, пред Богом. Блажен, кто не осуждает себя в том, что избирает.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>А сомневающийся, если ест, осуждается, потому что не по вере; а все, что не по вере, грех.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Могущему же утвердить вас, по благовествованию моему и проповеди Иисуса Христа, по откровению тайны, о которой от вечных времен было умолчано,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>но которая ныне явлена, и через писания пророческие, по повелению вечного Бога, возвещена всем народам для покорения их вере,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Единому Премудрому Богу, через Иисуса Христа, слава во веки. Аминь.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="15" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>15</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Мы, сильные, должны сносить немощи бессильных и не себе угождать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Каждый из нас должен угождать ближнему, во благо, к назиданию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Ибо и Христос не Себе угождал, но, как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="scripture">
+    <text>злословия злословящих Тебя пали на Меня.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>А все, что писано было прежде, написано нам в наставление, чтобы мы терпением и утешением из Писаний сохраняли надежду.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Бог же терпения и утешения да дарует вам быть в единомыслии между собою, по учению Христа Иисуса,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>дабы вы единодушно, едиными устами славили Бога и Отца Господа нашего Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Посему принимайте друг друга, как и Христос принял вас в славу Божию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Разумею то, что Иисус Христос сделался служителем для обрезанных—ради истины Божией, чтобы исполнить обещанное отцам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>а для язычников—из милости, чтобы славили Бога, как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="scripture">
+    <text>за то буду славить Тебя, (Господи,) между язычниками, и буду петь имени Твоему.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>И еще сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="scripture">
+    <text>возвеселитесь, язычники, с народом Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>И еще:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="scripture">
+    <text>хвалите Господа, все язычники, и прославляйте Его, все народы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Исаия также говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="scripture">
+    <text>будет корень Иессеев, и восстанет владеть народами; на Него язычники надеяться будут.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Бог же надежды да исполнит вас всякой радости и мира в вере, дабы вы, силою Духа Святаго, обогатились надеждою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>И сам я уверен о вас, братия мои, что и вы полны благости, исполнены всякого познания и можете наставлять друг друга;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>но писал вам, братия, с некоторою смелостью, отчасти как бы в напоминание вам, по данной мне от Бога благодати</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>быть служителем Иисуса Христа у язычников и совершать священнодействие благовествования Божия, дабы сие приношение язычников, будучи освящено Духом Святым, было благоприятно Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Итак я могу похвалиться в Иисусе Христе в том, что относится к Богу,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>ибо не осмелюсь сказать что-нибудь такое, чего не совершил Христос через меня, в покорении язычников вере, словом и делом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>силою знамений и чудес, силою Духа Божия, так что благовествование Христово распространено мною от Иерусалима и окрестности до Иллирика.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Притом я старался благовествовать не там, где уже было известно имя Христово, дабы не созидать на чужом основании, </text>
+    <verse num="21" />
+    <text>но как написано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture">
+    <text>не имевшие о Нем известия увидят, и не слышавшие узнают.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Сие-то много раз и препятствовало мне придти к вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Ныне же, не имея такого места в сих странах, а с давних лет имея желание придти к вам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>как только предприму путь в Испанию, приду к вам. Ибо надеюсь, что, проходя, увижусь с вами и что вы проводите меня туда, как скоро наслажусь общением с вами, хотя отчасти.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>А теперь я иду в Иерусалим, чтобы послужить святым,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>ибо Македония и Ахаия усердствуют некоторым подаянием для бедных между святыми в Иерусалиме.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Усердствуют, да и должники они перед ними. Ибо если язычники сделались участниками в их духовном, то должны и им послужить в телесном.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Исполнив это и верно доставив им сей плод усердия, я отправлюсь через ваши места в Испанию,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>и уверен, что когда приду к вам, то приду с полным благословением благовествования Христова.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Между тем умоляю вас, братия, Господом нашим Иисусом Христом и любовью Духа, подвизаться со мною в молитвах за меня к Богу,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>чтобы избавиться мне от неверующих в Иудее и чтобы служение мое для Иерусалима было благоприятно святым,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>дабы мне в радости, если Богу угодно, придти к вам и успокоиться с вами.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-ROM">
+    <verse num="33" />
+    <text>Бог же мира да будет со всеми вами, аминь.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="16" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>16</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Представляю вам Фиву, сестру нашу, диакониссу церкви Кенхрейской.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Примите ее для Господа, как прилично святым, и помогите ей, в чем она будет иметь нужду у вас, ибо и она была помощницею многим и мне самому.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Приветствуйте Прискиллу и Акилу, сотрудников моих во Христе Иисусе</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>(которые голову свою полагали за мою душу, которых не я один благодарю, но и все церкви из язычников), и домашнюю их церковь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Приветствуйте возлюбленного моего Епенета, который есть начаток Ахаии для Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Приветствуйте Мариам, которая много трудилась для нас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Приветствуйте Андроника и Юнию, сродников моих и узников со мною, прославившихся между Апостолами и прежде меня еще уверовавших во Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Приветствуйте Амплия, возлюбленного мне в Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Приветствуйте Урбана, сотрудника нашего во Христе, и Стахия, возлюбленного мне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Приветствуйте Апеллеса, испытанного во Христе. Приветствуйте верных из дома Аристовулова.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Приветствуйте Иродиона, сродника моего. Приветствуйте из домашних Наркисса тех, которые в Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Приветствуйте Трифену и Трифосу, трудящихся о Господе. Приветствуйте Персиду возлюбленную, которая много потрудилась о Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Приветствуйте Руфа, избранного в Господе, и матерь его и мою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Приветствуйте Асинкрита, Флегонта, Ерма, Патрова, Ермия и других с ними братьев.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Приветствуйте Филолога и Юлию, Нирея и сестру его, и Олимпана, и всех с ними святых.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Приветствуйте друг друга с целованием святым. Приветствуют вас все церкви Христовы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Умоляю вас, братия, остерегайтесь производящих разделения и соблазны, вопреки учению, которому вы научились, и уклоняйтесь от них;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>ибо такие люди служат не Господу нашему Иисусу Христу, а своему чреву, и ласкательством и красноречием обольщают сердца простодушных.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Ваша покорность вере всем известна; посему я радуюсь за вас, но желаю, чтобы вы были мудры на добро и просты на зло.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Бог же мира сокрушит сатану под ногами вашими вскоре. Благодать Господа нашего Иисуса Христа с вами! Аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Приветствуют вас Тимофей, сотрудник мой, и Луций, Иасон и Сосипатр, сродники мои.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Приветствую вас в Господе и я, Тертий, писавший сие послание.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Приветствует вас Гаий, странноприимец мой и всей церкви. Приветствует вас Ераст, городской казнохранитель, и брат Кварт.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Благодать Господа нашего Иисуса Христа со всеми вами. Аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Могущему же утвердить вас, по благовествованию моему и проповеди Иисуса Христа, по откровению тайны, о которой от вечных времен было умолчано,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>но которая ныне явлена, и через писания пророческие, по повелению вечного Бога, возвещена всем народам для покорения их вере,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Единому Премудрому Богу, через Иисуса Христа, слава во веки. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

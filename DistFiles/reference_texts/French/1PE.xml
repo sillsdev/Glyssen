@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1PE" singlevoice="false" pageheader="1 PETER">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE">
+    <text>1 PETER</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1PE">
+    <verse num="1" />
+    <text>Moi, Pierre, apôtre de Jésus-Christ, j'écris à ceux que Dieu a choisis et qui vivent comme des étrangers dans les provinces du Pont, de la Galatie, de la Cappadoce, de l'Asie et de la Bithynie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1PE">
+    <verse num="2" />
+    <text>Dieu le Père vous a choisis d'avance comme il l'avait prévu. Il a fait de vous un peuple saint par son Esprit, pour que vous obéissiez à Jésus-Christ et pour que son sang répandu vous rende purs. Que Dieu vous bénisse et vous donne la paix en abondance!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1PE">
+    <verse num="3" />
+    <text>Chantons la louange de Dieu, le Père de notre Seigneur Jésus-Christ! Dans sa grande bonté, il nous a fait naître une deuxième fois en relevant Jésus-Christ de la mort. Nous avons ainsi une espérance qui fait vivre,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE">
+    <verse num="4" />
+    <text>et nous pouvons attendre avec joie les biens que Dieu garde pour nous. Il les garde pour vous dans les cieux, là où ils ne peuvent s'abîmer, ni être salis, ni disparaître.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1PE">
+    <verse num="5" />
+    <text>Et vous-mêmes, si vous croyez, le Dieu puissant vous garde pour vous sauver. Ce salut, on le connaîtra à la fin des temps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1PE">
+    <verse num="6" />
+    <text>C'est pourquoi vous êtes remplis de joie, même si toutes sortes de difficultés doivent vous rendre tristes pendant un peu de temps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1PE">
+    <verse num="7" />
+    <text>Ces difficultés servent à montrer la qualité de votre foi. L'or peut s'abîmer, pourtant on le met dans le feu, pour voir s'il est pur. C'est pareil pour votre foi. Elle est plus précieuse que l'or, mais elle aussi est mise à l'épreuve. Alors, quand Jésus-Christ paraîtra, vous recevrez honneur, louange et gloire, à cause de la qualité de votre foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1PE">
+    <verse num="8" />
+    <text>Jésus, vous ne l'avez pas vu, et pourtant vous l'aimez. Vous ne le voyez pas maintenant, et pourtant vous croyez en lui. C'est pourquoi vous êtes remplis d'une très grande joie, une joie si grande qu'on ne peut même pas en parler.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1PE">
+    <verse num="9" />
+    <text>Cette joie, vous l'avez parce que vous êtes sauvés. Voilà la récompense que vous gagnez en croyant en Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1PE">
+    <verse num="10" />
+    <text>Les prophètes ont fait beaucoup de recherches au sujet de ce salut. Par avance, ils ont parlé du don que vous alliez recevoir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1PE">
+    <verse num="11" />
+    <text>L'Esprit du Christ était en eux, et il a annoncé par avance les souffrances que le Christ allait supporter et la gloire qui allait suivre. Les prophètes ont cherché à comprendre à quel moment et de quelle façon ces choses allaient arriver.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1PE">
+    <verse num="12" />
+    <text>Voici ce que Dieu leur a appris: le message qu'ils donnaient n'était pas pour eux, mais pour vous. Maintenant, ceux qui annoncent la Bonne Nouvelle vous ont communiqué ce message, avec la puissance de l'Esprit Saint envoyé du ciel. Et ce message, les anges eux-mêmes désirent beaucoup le connaître.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1PE">
+    <verse num="13" />
+    <text>C'est pourquoi, soyez prêts à l'action! Restez attentifs! Mettez toute votre espérance dans le don que vous allez recevoir, quand Jésus-Christ paraîtra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1PE">
+    <verse num="14" />
+    <text>Obéissez à Dieu, ne suivez donc pas les désirs que vous aviez autrefois, avant de connaître le Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1PE">
+    <verse num="15" />
+    <text>Dieu vous a appelés et il est saint, alors vous aussi, devenez saints dans toute votre conduite. </text>
+    <verse num="16" />
+    <text>En effet, les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture">
+    <text>&lt;&lt;Soyez saints, parce que moi, je suis saint.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
+    <verse num="17" />
+    <text>Dans vos prières, vous appelez &lt;&lt;Père&gt;&gt; celui qui juge chacun selon ce qu'il a fait, sans faire de différence entre les gens. Alors, vivez en respectant Dieu avec confiance, pendant que vous êtes sur la terre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1PE">
+    <verse num="18" />
+    <text>La façon de vivre que vous avez reçue de vos ancêtres ne menait à rien. Mais vous le savez, Dieu a payé un grand prix pour vous libérer de cette façon de vivre. En effet, il ne l'a pas fait avec des choses qui peuvent s'abîmer, comme l'or ou l'argent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1PE">
+    <verse num="19" />
+    <text>Mais il vous a libérés avec le sang précieux du Christ, qui est comme un agneau sans défaut et sans tache.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1PE">
+    <verse num="20" />
+    <text>Dieu l'a choisi avant la création du monde, et pour votre bien, il l'a fait connaître maintenant, en ces temps qui sont les derniers.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1PE">
+    <verse num="21" />
+    <text>C'est par le Christ que vous croyez en Dieu, qui l'a réveillé de la mort et lui a donné la gloire. Voilà pourquoi vous mettez votre foi et votre espérance en Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-1PE">
+    <verse num="22" />
+    <text>En obéissant à la vérité, vous êtes devenus purs, pour aimer sincèrement vos frères et vos sœurs chrétiens. Aimez-vous donc les uns les autres, de tout votre cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1PE">
+    <verse num="23" />
+    <text>La parole de Dieu vous a fait naître de nouveau. Et cette Parole n'est pas comme une graine qui meurt. Elle est vivante, elle ne meurt pas, elle dure toujours. </text>
+    <verse num="24" />
+    <text>En effet, les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Tous les êtres humains sont comme l'herbe, et tout ce qui les rend importants est comme la fleur des champs. L'herbe sèche et la fleur tombe,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="25" />
+    <text>mais la parole du Seigneur dure toujours.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
+    <text>Cette Parole, c'est la Bonne Nouvelle qu'on vous a annoncée. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1PE">
+    <verse num="1" />
+    <text>Rejetez donc tout ce qui est mal. Ne trompez personne, ne soyez pas faux, ne soyez pas jaloux, ne dites pas du mal des autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1PE">
+    <verse num="2" />
+    <text>Comme des bébés qui viennent de naître, désirez le lait de la parole de Dieu. C'est un lait sans mélange. Alors, en le buvant, vous grandirez et vous serez sauvés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE">
+    <verse num="3" />
+    <text>En effet, les Livres Saints le disent: &lt;&lt;Vous avez goûté comme le Seigneur est bon.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1PE">
+    <verse num="4" />
+    <text>Approchez-vous du Seigneur Jésus. Il est la pierre vivante. Les gens l'ont rejetée, mais Dieu l'a choisie, et elle est précieuse à ses yeux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1PE">
+    <verse num="5" />
+    <text>Approchez-vous de lui. Alors, vous aussi, comme des pierres vivantes, vous servirez à construire la maison de l'Esprit Saint. Vous formerez une communauté de prêtres saints, pour offrir des sacrifices selon l'Esprit de Dieu, et Dieu les acceptera à cause de Jésus-Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1PE">
+    <verse num="6" />
+    <text>En effet, les Livres Saints disent de la part de Dieu:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Regardez! J'ai choisi une pierre précieuse et je la pose dans la ville de Sion comme pierre principale. Celui qui s'appuie sur elle ne sera pas déçu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE">
+    <verse num="7" />
+    <text>Pour vous qui croyez, cette pierre vous donne de l'honneur. Mais pour ceux qui ne croient pas,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;la pierre que les constructeurs ont rejetée, est devenue la pierre principale de la maison.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
+    <verse num="8" />
+    <text>Et ailleurs ils disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;C'est une pierre qui fait perdre l'équilibre, un rocher qui fait tomber.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
+    <text>Les gens se cognent contre elle parce qu'ils refusent de croire à la parole de Dieu, et c'est cela qui devait leur arriver.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE">
+    <verse num="9" />
+    <text>Mais vous, vous êtes la race choisie, la communauté des prêtres du Roi, la nation sainte. Vous êtes le peuple que Dieu a choisi pour annoncer les grandes choses qu'il a faites. Il vous a appelés à sortir de la nuit, pour vous conduire vers sa lumière magnifique.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE">
+    <verse num="10" />
+    <text>Autrefois, vous n'étiez pas le peuple de Dieu, mais maintenant, vous êtes son peuple. Autrefois, Dieu n'avait pas pitié de vous, mais maintenant, il a pitié de vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1PE">
+    <verse num="11" />
+    <text>Amis très chers, vous êtes des gens de passage et des étrangers sur cette terre. C'est pourquoi je vous le demande: ne suivez pas les désirs mauvais qui luttent contre vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1PE">
+    <verse num="12" />
+    <text>Au milieu de ceux qui ne connaissent pas Dieu, ayez une belle conduite. Alors, s'ils vous accusent faussement de faire le mal, ils verront vos bonnes actions, et ainsi, le jour où Dieu viendra, ils lui rendront gloire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE">
+    <verse num="13" />
+    <text>Obéissez aux autorités à cause du Seigneur: au roi parce qu'il est le chef de tous,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1PE">
+    <verse num="14" />
+    <text>et aussi aux gouverneurs. Le roi les envoie pour punir ceux qui font le mal et féliciter ceux qui font le bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1PE">
+    <verse num="15" />
+    <text>Dieu veut ceci: par vos bonnes actions, fermez la bouche aux gens stupides et ignorants.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1PE">
+    <verse num="16" />
+    <text>Conduisez-vous comme des personnes libres, mais votre liberté ne doit pas devenir comme une couverture pour cacher des actes mauvais. Conduisez-vous plutôt comme des serviteurs de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1PE">
+    <verse num="17" />
+    <text>Ayez du respect pour tout le monde. Aimez vos frères et vos sœurs chrétiens. Honorez Dieu, respectez le roi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1PE">
+    <verse num="18" />
+    <text>Vous, les serviteurs, obéissez à vos patrons avec respect. Obéissez non seulement aux patrons qui sont bons et aimables, mais aussi à ceux qui sont difficiles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1PE">
+    <verse num="19" />
+    <text>Vous supportez peut-être des souffrances que vous ne méritez pas, et cela, parce que vous voulez rester fidèles à Dieu. Eh bien, c'est une belle chose.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1PE">
+    <verse num="20" />
+    <text>En effet, si vous avez fait le mal, quel mérite avez-vous à supporter les coups? Mais si vous souffrez avec patience quand vous avez fait le bien, c'est une belle chose devant Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1PE">
+    <verse num="21" />
+    <text>Oui, c'est à cela que Dieu vous a appelés. Le Christ aussi a souffert pour vous, il vous a montré le chemin, pour que vous suiviez ses traces.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
+    <verse num="22" />
+    <text>Lui, il n'a pas fait le mal, il n'a jamais trompé personne.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
+    <verse num="23" />
+    <text>Lui, quand on l'a insulté, il n'a pas rendu l'insulte. Quand il a souffert, il n'a menacé personne, mais il a mis sa confiance en Dieu qui juge avec justice.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1PE">
+    <verse num="24" />
+    <text>Sur le bois de la croix, il a porté lui-même nos péchés dans son corps. C'est pourquoi nous avons cessé de vivre pour le péché et nous pouvons mener une vie qui plaît à Dieu. C'est par ses blessures qu'il vous a guéris.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1PE">
+    <verse num="25" />
+    <text>Oui, vous étiez comme des moutons perdus, mais maintenant, vous êtes revenus vers le berger qui protège vos vies. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE">
+    <verse num="1" />
+    <text>De façon semblable, vous, les femmes, obéissez à votre mari. Alors, même si votre mari ne croit pas à la parole de Dieu, il sera gagné à la foi par votre conduite, et cela, sans paroles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1PE">
+    <verse num="2" />
+    <text>En effet, il verra combien votre vie est pure et pleine de respect.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1PE">
+    <verse num="3" />
+    <text>Votre beauté ne doit pas être extérieure: coiffure compliquée, bijoux en or, robes trop élégantes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1PE">
+    <verse num="4" />
+    <text>Elle doit être cachée à l'intérieur de vous-mêmes. Un cœur doux et calme, voilà la beauté qui a beaucoup de valeur pour Dieu, et elle ne disparaît pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1PE">
+    <verse num="5" />
+    <text>Autrefois, les femmes croyantes qui espéraient en Dieu avaient cette beauté-là, parce qu'elles obéissaient à leur mari.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1PE">
+    <verse num="6" />
+    <text>Par exemple, Sara obéissait à Abraham, et elle l'appelait &lt;&lt;Mon maître&gt;&gt;. Maintenant, vous êtes ses filles, si vous faites le bien sans vous laisser troubler par aucune peur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1PE">
+    <verse num="7" />
+    <text>Et vous, les maris, prenez soin de votre femme dans la vie commune. Les femmes sont plus fragiles, vous devez en tenir compte. Traitez-les avec respect puisque comme vous, elles recevront le don de la vraie vie. Si vous faites cela, rien ne vous arrêtera dans vos prières.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1PE">
+    <verse num="8" />
+    <text>Enfin, ayez tous les mêmes pensées et les mêmes sentiments, aimez-vous comme des frères et des sœurs. Soyez bons, et faites-vous petits les uns devant les autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1PE">
+    <verse num="9" />
+    <text>Ne rendez pas le mal pour le mal, ne rendez pas l'insulte pour l'insulte. Au contraire, répondez: &lt;&lt;Que Dieu te bénisse!&gt;&gt; En effet, quand Dieu vous a appelés, c'était pour vous donner une bénédiction. </text>
+    <verse num="10" />
+    <text>Les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Est-ce que tu veux avoir une vie agréable et connaître des jours heureux? Alors ne dis pas de mal des autres. Evite les mensonges.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Fuis le mal, et fais le bien. Recherche la paix et poursuis-la.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>Oui, les yeux du Seigneur se tournent vers ceux qui lui obéissent. Ses oreilles entendent leurs cris, mais il s'oppose à ceux qui font le mal.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE">
+    <verse num="13" />
+    <text>Si vous cherchez à faire le bien de tout votre cœur, qui vous fera du mal?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
+    <verse num="14" />
+    <text>Et puis, si un jour vous souffrez parce que vous faites le bien, quel bonheur pour vous! N'ayez pas peur des gens et ne vous laissez pas troubler!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1PE">
+    <verse num="15" />
+    <text>Mais reconnaissez dans vos cœurs que le Christ seul est saint, il est votre Seigneur. Quand on vous demande pourquoi vous espérez, soyez toujours prêts à donner des explications.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1PE">
+    <verse num="16" />
+    <text>Mais faites-le avec douceur et respect, avec une conscience pure. Alors, quand des gens vous accusent faussement sur un point, quand ils vous insultent parce que vous vous conduisez en chrétiens, ils seront couverts de honte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE">
+    <verse num="17" />
+    <text>Oui, il vaut mieux souffrir en faisant le bien, si Dieu veut cela, plutôt que de souffrir en faisant le mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1PE">
+    <verse num="18" />
+    <text>En effet, le Christ lui-même est mort une fois pour toutes pour les péchés des êtres humains. Lui qui était innocent, il est mort pour des coupables, afin de vous conduire à Dieu. Lui, il a été tué dans son corps, mais l'Esprit Saint lui a rendu la vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1PE">
+    <verse num="19" />
+    <text>Alors il est allé annoncer la Bonne Nouvelle aux morts qui étaient en prison.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1PE">
+    <verse num="20" />
+    <text>Ces morts sont ceux qui ont désobéi à Dieu autrefois, quand Dieu faisait durer sa patience. C'était au moment où Noé construisait son bateau. Peu de personnes, huit en tout, sont entrées dans ce bateau et ont été sauvées à travers l'eau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE">
+    <verse num="21" />
+    <text>C'est une image du baptême qui vous sauve aujourd'hui, vous aussi. Le sens du baptême n'est pas d'enlever les saletés du corps, mais de répondre à l'appel de Dieu avec une conscience pure. Le baptême vous sauve, parce que Jésus-Christ s'est levé de la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1PE">
+    <verse num="22" />
+    <text>Il est monté au ciel, il est à la droite de Dieu. Maintenant, les anges et les esprits qui ont du pouvoir et de la puissance sont sous son autorité. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1PE">
+    <verse num="1" />
+    <text>Le Christ a souffert dans son corps. Alors, vous aussi, soyez sûrs d'une chose: le chrétien qui souffre dans son corps a laissé le péché. Pour vous, cette pensée doit être une arme de combat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1PE">
+    <verse num="2" />
+    <text>Pendant le temps qui vous reste à vivre sur la terre, ne suivez pas les mauvais désirs humains, mais suivez la volonté de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1PE">
+    <verse num="3" />
+    <text>Oui, autrefois, vous avez trop souvent voulu faire comme ceux qui ne connaissent pas Dieu. Vous vous conduisiez n'importe comment, vous étiez jaloux, ivrognes. Vous mangiez trop, vous buviez trop, vous adoriez les faux dieux, ce qui est une chose horrible.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE">
+    <verse num="4" />
+    <text>Maintenant, ces gens-là sont surpris. Vous n'allez plus avec eux, vous ne participez plus à leur vie qui déborde d'actions honteuses, et ils vous insultent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1PE">
+    <verse num="5" />
+    <text>Mais ils rendront compte de leurs actes à Dieu, qui est prêt à juger les vivants et les morts.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1PE">
+    <verse num="6" />
+    <text>C'est pour cela que la Bonne Nouvelle a été annoncée même aux morts. Ils ont été jugés selon ce qu'ils ont fait, comme tous les humains. Mais maintenant, grâce à l'Esprit Saint, ils peuvent vivre selon Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1PE">
+    <verse num="7" />
+    <text>C'est bientôt la fin du monde. Alors soyez des sages, et restez sobres pour pouvoir prier.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1PE">
+    <verse num="8" />
+    <text>Avant tout, aimez-vous de tout votre cœur, parce que &lt;&lt;l'amour efface beaucoup de péchés&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1PE">
+    <verse num="9" />
+    <text>Recevez-vous les uns les autres dans vos maisons sans vous plaindre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1PE">
+    <verse num="10" />
+    <text>Mettez-vous au service des autres, selon le don que chacun a reçu. Soyez comme de bons serviteurs qui prennent soin des dons variés de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1PE">
+    <verse num="11" />
+    <text>Celui qui parle doit être le porte-parole de Dieu. Celui qui sert doit servir avec la force que Dieu donne. Alors, tous rendront gloire à Dieu en toutes choses par Jésus-Christ. A lui la gloire et la puissance pour toujours! Amen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
+    <verse num="12" />
+    <text>Amis très chers, vous êtes dans le feu de la souffrance. Ne soyez pas surpris, ce n'est pas étonnant! Ce feu va montrer ce que vous valez.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE">
+    <verse num="13" />
+    <text>Si vraiment vous participez aux souffrances du Christ, soyez joyeux. Alors, quand vous verrez sa gloire, vous serez également heureux et pleins de joie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1PE">
+    <verse num="14" />
+    <text>Si on vous insulte parce que vous êtes disciples du Christ, quel bonheur pour vous! L'Esprit de Dieu, l'Esprit glorieux est sur vous!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE">
+    <verse num="15" />
+    <text>Parmi vous, si quelqu'un souffre, il ne faut pas que cela lui arrive parce qu'il a tué, parce qu'il a volé, parce qu'il a fait le mal, ou parce qu'il a semé le désordre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1PE">
+    <verse num="16" />
+    <text>Mais s'il souffre parce qu'il est chrétien, il ne doit pas avoir honte. Il doit plutôt remercier Dieu de pouvoir porter le nom du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE">
+    <verse num="17" />
+    <text>Oui, c'est le début du jugement, et il commence par la famille de Dieu. S'il commence par nous, qu'est-ce qui va arriver à la fin à ceux qui ne veulent pas croire à la Bonne Nouvelle de Dieu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+    <verse num="18" />
+    <text>&lt;&lt;C'est déjà difficile pour des gens qui font le bien, d'être sauvés. Alors, les gens mauvais et les pécheurs, qu'est-ce qu'ils vont devenir?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
+    <verse num="19" />
+    <text>Ainsi, ceux qui souffrent en faisant ce que Dieu veut doivent se confier à leur Créateur, qui est fidèle, et continuer à faire le bien. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1PE">
+    <verse num="1" />
+    <text>Maintenant, je parle aux anciens qui sont au milieu de vous. Moi, je suis ancien comme vous. J'ai été témoin des souffrances du Christ et je dois participer à la gloire qui va paraître.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1PE">
+    <verse num="2" />
+    <text>Prenez soin du troupeau que Dieu vous a confié. Ne faites pas cela par devoir, mais de bon cœur, comme Dieu le désire. Agissez non pour gagner de l'argent, mais par amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1PE">
+    <verse num="3" />
+    <text>Avec ceux que Dieu vous a confiés, ne soyez pas des chefs durs, mais devenez les modèles du troupeau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE">
+    <verse num="4" />
+    <text>Ainsi quand le Chef des bergers viendra, vous recevrez pour toujours une récompense pleine de gloire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1PE">
+    <verse num="5" />
+    <text>Vous, les jeunes, obéissez aux anciens! Et vous tous, faites-vous petits les uns devant les autres. Les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Dieu résiste aux orgueilleux, mais il est bon pour les petits.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE">
+    <verse num="6" />
+    <text>Faites-vous petits sous la main puissante de Dieu, pour qu'il vous honore quand le moment sera venu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1PE">
+    <verse num="7" />
+    <text>Mettez tous vos soucis dans la main de Dieu, parce qu'il prend soin de vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1PE">
+    <verse num="8" />
+    <text>Soyez sobres, restez éveillés! Votre ennemi, l'esprit du mal, est comme le lion qui rugit. Il va partout et cherche quelqu'un à dévorer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1PE">
+    <verse num="9" />
+    <text>Résistez-lui en restant solides dans la foi. Vous le savez, dans le monde entier, vos frères et sœurs chrétiens souffrent comme vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1PE">
+    <verse num="10" />
+    <text>Vos souffrances vont durer un certain temps. Mais Dieu, qui nous aime tant, vous a appelés à participer à sa gloire sans fin, en étant unis au Christ. Alors il va vous rendre parfaits, solides et forts, et on ne pourra plus vous faire tomber.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1PE">
+    <verse num="11" />
+    <text>A lui la puissance pour toujours. Amen!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1PE">
+    <verse num="12" />
+    <text>Je vous écris ces quelques mots par Silas. Pour moi, c'est un frère fidèle. Je vous envoie cette lettre, pour vous donner du courage et pour vous dire: voilà le vrai don de Dieu, restez attachés à ce don!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1PE">
+    <verse num="13" />
+    <text>L'Eglise qui est à Babylone vous salue. Dieu l'a choisie comme vous. Marc, mon fils, vous salue aussi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1PE">
+    <verse num="14" />
+    <text>Saluez-vous tous en vous embrassant avec amour. Paix à vous tous qui êtes unis dans le Christ! </text>
+  </block>
+  <UnappliedSplits />
+</book>

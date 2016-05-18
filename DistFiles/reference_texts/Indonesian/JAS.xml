@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JAS" singlevoice="false" pageheader="JAMES">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+    <text>JAMES</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Salam dari Yakobus, hamba Allah dan Tuhan Yesus Kristus, kepada kedua belas suku di perantauan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Saudara-saudaraku, anggaplah sebagai suatu kebahagiaan, apabila kamu jatuh ke dalam berbagai-bagai pencobaan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>sebab kamu tahu, bahwa ujian terhadap imanmu itu menghasilkan ketekunan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Dan biarkanlah ketekunan itu memperoleh buah yang matang, supaya kamu menjadi sempurna dan utuh dan tak kekurangan suatu apapun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Tetapi apabila di antara kamu ada yang kekurangan hikmat, hendaklah ia memintakannya kepada Allah, —yang memberikan kepada semua orang dengan murah hati dan dengan tidak membangkit-bangkit—,maka hal itu akan diberikan kepadanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Hendaklah ia memintanya dalam iman, dan sama sekali jangan bimbang, sebab orang yang bimbang sama dengan gelombang laut, yang diombang-ambingkan kian ke mari oleh angin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Orang yang demikian janganlah mengira, bahwa ia akan menerima sesuatu dari Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Sebab orang yang mendua hati tidak akan tenang dalam hidupnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Baiklah saudara yang berada dalam keadaan yang rendah bermegah karena kedudukannya yang tinggi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>dan orang kaya karena kedudukannya yang rendah sebab ia akan lenyap seperti bunga rumput.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Karena matahari terbit dengan panasnya yang terik dan melayukan rumput itu, sehingga gugurlah bunganya dan hilanglah semaraknya. Demikian jugalah halnya dengan orang kaya; di tengah-tengah segala usahanya ia akan lenyap.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Berbahagialah orang yang bertahan dalam pencobaan, sebab apabila ia sudah tahan uji, ia akan menerima mahkota kehidupan yang dijanjikan Allah kepada barangsiapa yang mengasihi Dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Apabila seorang dicobai, janganlah ia berkata: &lt;&lt;Pencobaan ini datang dari Allah!&gt;&gt; Sebab Allah tidak dapat dicobai oleh yang jahat, dan Ia sendiri tidak mencobai siapapun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Tetapi tiap-tiap orang dicobai oleh keinginannya sendiri, karena ia diseret dan dipikat olehnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Dan apabila keinginan itu telah dibuahi, ia melahirkan dosa; dan apabila dosa itu sudah matang, ia melahirkan maut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Saudara-saudara yang kukasihi, janganlah sesat!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Setiap pemberian yang baik dan setiap anugerah yang sempurna, datangnya dari atas, diturunkan dari Bapa segala terang; pada-Nya tidak ada perubahan atau bayangan karena pertukaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Atas kehendak-Nya sendiri Ia telah menjadikan kita oleh firman kebenaran, supaya kita pada tingkat yang tertentu menjadi anak sulung di antara semua ciptaan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Hai saudara-saudara yang kukasihi, ingatlah hal ini: setiap orang hendaklah cepat untuk mendengar, tetapi lambat untuk berkata-kata, dan juga lambat untuk marah;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>sebab amarah manusia tidak mengerjakan kebenaran di hadapan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Sebab itu buanglah segala sesuatu yang kotor dan kejahatan yang begitu banyak itu dan terimalah dengan lemah lembut firman yang tertanam di dalam hatimu, yang berkuasa menyelamatkan jiwamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Tetapi hendaklah kamu menjadi pelaku firman dan bukan hanya pendengar saja; sebab jika tidak demikian kamu menipu diri sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Sebab jika seorang hanya mendengar firman saja dan tidak melakukannya, ia adalah seumpama seorang yang sedang mengamat-amati mukanya yang sebenarnya di depan cermin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Baru saja ia memandang dirinya, ia sudah pergi atau ia segera lupa bagaimana rupanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Tetapi barangsiapa meneliti hukum yang sempurna, yaitu hukum yang memerdekakan orang, dan ia bertekun di dalamnya, jadi bukan hanya mendengar untuk melupakannya, tetapi sungguh-sungguh melakukannya, ia akan berbahagia oleh perbuatannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Jikalau ada seorang menganggap dirinya beribadah, tetapi tidak mengekang lidahnya, ia menipu dirinya sendiri, maka sia-sialah ibadahnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+    <verse num="27" />
+    <text>Ibadah yang murni dan yang tak bercacat di hadapan Allah, Bapa kita, ialah mengunjungi yatim piatu dan janda-janda dalam kesusahan mereka, dan menjaga supaya dirinya sendiri tidak dicemarkan oleh dunia. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Saudara-saudaraku, sebagai orang yang beriman kepada Yesus Kristus, Tuhan kita yang mulia, janganlah iman itu kamu amalkan dengan memandang muka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Sebab, jika ada seorang masuk ke dalam kumpulanmu dengan memakai cincin emas dan pakaian indah dan datang juga seorang miskin ke situ dengan memakai pakaian buruk,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>dan kamu menghormati orang yang berpakaian indah itu dan berkata kepadanya: &lt;&lt;Silakan tuan duduk di tempat yang baik ini!&gt;&gt;, sedang kepada orang yang miskin itu kamu berkata: &lt;&lt;Berdirilah di sana!&gt;&gt; atau: &lt;&lt;Duduklah di lantai ini dekat tumpuan kakiku!&gt;&gt;,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>bukankah kamu telah membuat pembedaan di dalam hatimu dan bertindak sebagai hakim dengan pikiran yang jahat?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Dengarkanlah, hai saudara-saudara yang kukasihi! Bukankah Allah memilih orang-orang yang dianggap miskin oleh dunia ini untuk menjadi kaya dalam iman dan menjadi ahli waris Kerajaan yang telah dijanjikan-Nya kepada barangsiapa yang mengasihi Dia?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Tetapi kamu telah menghinakan orang-orang miskin. Bukankah justru orang-orang kaya yang menindas kamu dan yang menyeret kamu ke pengadilan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Bukankah mereka yang menghujat Nama yang mulia, yang oleh-Nya kamu menjadi milik Allah?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Akan tetapi, jikalau kamu menjalankan hukum utama yang tertulis dalam Kitab Suci:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Kasihilah sesamamu manusia seperti dirimu sendiri&gt;&gt; ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <text>kamu berbuat baik. </text>
+    <verse num="9" />
+    <text>Tetapi, jikalau kamu memandang muka, kamu berbuat dosa, dan oleh hukum itu menjadi nyata, bahwa kamu melakukan pelanggaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Sebab barangsiapa menuruti seluruh hukum itu, tetapi mengabaikan satu bagian dari padanya, ia bersalah terhadap seluruhnya. </text>
+    <verse num="11" />
+    <text>Sebab Ia yang mengatakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Jangan berzinah&gt;&gt; ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>Ia mengatakan juga:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Jangan membunuh&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>Jadi jika kamu tidak berzinah tetapi membunuh, maka kamu menjadi pelanggar hukum juga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Berkatalah dan berlakulah seperti orang-orang yang akan dihakimi oleh hukum yang memerdekakan orang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Sebab penghakiman yang tak berbelas kasihan akan berlaku atas orang yang tidak berbelas kasihan. Tetapi belas kasihan akan menang atas penghakiman.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Apakah gunanya, saudara-saudaraku, jika seorang mengatakan, bahwa ia mempunyai iman, padahal ia tidak mempunyai perbuatan? Dapatkah iman itu menyelamatkan dia?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Jika seorang saudara atau saudari tidak mempunyai pakaian dan kekurangan makanan sehari-hari,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>dan seorang dari antara kamu berkata: &lt;&lt;Selamat jalan, kenakanlah kain panas dan makanlah sampai kenyang!&gt;&gt;, tetapi ia tidak memberikan kepadanya apa yang perlu bagi tubuhnya, apakah gunanya itu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Demikian juga halnya dengan iman: Jika iman itu tidak disertai perbuatan, maka iman itu pada hakekatnya adalah mati.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Tetapi mungkin ada orang berkata: &lt;&lt;Padamu ada iman dan padaku ada perbuatan&gt;&gt;, aku akan menjawab dia: &lt;&lt;Tunjukkanlah kepadaku imanmu itu tanpa perbuatan, dan aku akan menunjukkan kepadamu imanku dari perbuatan-perbuatanku.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Engkau percaya, bahwa hanya ada satu Allah saja? Itu baik! Tetapi setan-setanpun juga percaya akan hal itu dan mereka gemetar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Hai manusia yang bebal, maukah engkau mengakui sekarang, bahwa iman tanpa perbuatan adalah iman yang kosong?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Bukankah Abraham, bapa kita, dibenarkan karena perbuatan-perbuatannya, ketika ia mempersembahkan Ishak, anaknya, di atas mezbah?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Kamu lihat, bahwa iman bekerjasama dengan perbuatan-perbuatan dan oleh perbuatan-perbuatan itu iman menjadi sempurna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Dengan jalan demikian genaplah nas yang mengatakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+    <text>&lt;&lt;Lalu percayalah Abraham kepada Allah, maka Allah memperhitungkan hal itu kepadanya sebagai kebenaran.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <text>Karena itu Abraham disebut: &lt;&lt;Sahabat Allah.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Jadi kamu lihat, bahwa manusia dibenarkan karena perbuatan-perbuatannya dan bukan hanya karena iman.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Dan bukankah demikian juga Rahab, pelacur itu, dibenarkan karena perbuatan-perbuatannya, ketika ia menyembunyikan orang-orang yang disuruh itu di dalam rumahnya, lalu menolong mereka lolos melalui jalan yang lain?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Sebab seperti tubuh tanpa roh adalah mati, demikian jugalah iman tanpa perbuatan-perbuatan adalah mati. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Saudara-saudaraku, janganlah banyak orang di antara kamu mau menjadi guru; sebab kita tahu, bahwa sebagai guru kita akan dihakimi menurut ukuran yang lebih berat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Sebab kita semua bersalah dalam banyak hal; barangsiapa tidak bersalah dalam perkataannya, ia adalah orang sempurna, yang dapat juga mengendalikan seluruh tubuhnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Kita mengenakan kekang pada mulut kuda, sehingga ia menuruti kehendak kita, dengan jalan demikian kita dapat juga mengendalikan seluruh tubuhnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Dan lihat saja kapal-kapal, walaupun amat besar dan digerakkan oleh angin keras, namun dapat dikendalikan oleh kemudi yang amat kecil menurut kehendak jurumudi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Demikian juga lidah, walaupun suatu anggota kecil dari tubuh, namun dapat memegahkan perkara-perkara yang besar. Lihatlah, betapapun kecilnya api, ia dapat membakar hutan yang besar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Lidahpun adalah api; ia merupakan suatu dunia kejahatan dan mengambil tempat di antara anggota-anggota tubuh kita sebagai sesuatu yang dapat menodai seluruh tubuh dan menyalakan roda kehidupan kita, sedang ia sendiri dinyalakan oleh api neraka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Semua jenis binatang liar, burung-burung, serta binatang-binatang menjalar dan binatang-binatang laut dapat dijinakkan dan telah dijinakkan oleh sifat manusia,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>tetapi tidak seorangpun yang berkuasa menjinakkan lidah; ia adalah sesuatu yang buas, yang tak terkuasai, dan penuh racun yang mematikan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Dengan lidah kita memuji Tuhan, Bapa kita; dan dengan lidah kita mengutuk manusia yang diciptakan menurut rupa Allah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>dari mulut yang satu keluar berkat dan kutuk. Hal ini, saudara-saudaraku, tidak boleh demikian terjadi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Adakah sumber memancarkan air tawar dan air pahit dari mata air yang sama?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Saudara-saudaraku, adakah pohon ara dapat menghasilkan buah zaitun dan adakah pokok anggur dapat menghasilkan buah ara? Demikian juga mata air asin tidak dapat mengeluarkan air tawar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Siapakah di antara kamu yang bijak dan berbudi? Baiklah ia dengan cara hidup yang baik menyatakan perbuatannya oleh hikmat yang lahir dari kelemahlembutan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Jika kamu menaruh perasaan iri hati dan kamu mementingkan diri sendiri, janganlah kamu memegahkan diri dan janganlah berdusta melawan kebenaran!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Itu bukanlah hikmat yang datang dari atas, tetapi dari dunia, dari nafsu manusia, dari setan-setan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Sebab di mana ada iri hati dan mementingkan diri sendiri di situ ada kekacauan dan segala macam perbuatan jahat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Tetapi hikmat yang dari atas adalah pertama-tama murni, selanjutnya pendamai, peramah, penurut, penuh belas kasihan dan buah-buah yang baik, tidak memihak dan tidak munafik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Dan buah yang terdiri dari kebenaran ditaburkan dalam damai untuk mereka yang mengadakan damai. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Dari manakah datangnya sengketa dan pertengkaran di antara kamu? Bukankah datangnya dari hawa nafsumu yang saling berjuang di dalam tubuhmu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Kamu mengingini sesuatu, tetapi kamu tidak memperolehnya, lalu kamu membunuh; kamu iri hati, tetapi kamu tidak mencapai tujuanmu, lalu kamu bertengkar dan kamu berkelahi. Kamu tidak memperoleh apa-apa, karena kamu tidak berdoa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Atau kamu berdoa juga, tetapi kamu tidak menerima apa-apa, karena kamu salah berdoa, sebab yang kamu minta itu hendak kamu habiskan untuk memuaskan hawa nafsumu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Hai kamu, orang-orang yang tidak setia! Tidakkah kamu tahu, bahwa persahabatan dengan dunia adalah permusuhan dengan Allah? Jadi barangsiapa hendak menjadi sahabat dunia ini, ia menjadikan dirinya musuh Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Janganlah kamu menyangka, bahwa Kitab Suci tanpa alasan berkata: &lt;&lt;Roh yang ditempatkan Allah di dalam diri kita, diingini-Nya dengan cemburu!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Tetapi kasih karunia, yang dianugerahkan-Nya kepada kita, lebih besar dari pada itu. Karena itu Ia katakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Allah menentang orang yang congkak, tetapi mengasihani orang yang rendah hati.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Karena itu tunduklah kepada Allah, dan lawanlah Iblis, maka ia akan lari dari padamu!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Mendekatlah kepada Allah, dan Ia akan mendekat kepadamu. Tahirkanlah tanganmu, hai kamu orang-orang berdosa! dan sucikanlah hatimu, hai kamu yang mendua hati!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Sadarilah kemalanganmu, berdukacita dan merataplah; hendaklah tertawamu kamu ganti dengan ratap dan sukacitamu dengan dukacita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Rendahkanlah dirimu di hadapan Tuhan, dan Ia akan meninggikan kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Saudara-saudaraku, janganlah kamu saling memfitnah! Barangsiapa memfitnah saudaranya atau menghakiminya, ia mencela hukum dan menghakiminya; dan jika engkau menghakimi hukum, maka engkau bukanlah penurut hukum, tetapi hakimnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Hanya ada satu Pembuat hukum dan Hakim, yaitu Dia yang berkuasa menyelamatkan dan membinasakan. Tetapi siapakah engkau, sehingga engkau mau menghakimi sesamamu manusia?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Jadi sekarang, hai kamu yang berkata: &lt;&lt;Hari ini atau besok kami berangkat ke kota anu, dan di sana kami akan tinggal setahun dan berdagang serta mendapat untung&gt;&gt; ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>sedang kamu tidak tahu apa yang akan terjadi besok. Apakah arti hidupmu? Hidupmu itu sama seperti uap yang sebentar saja kelihatan lalu lenyap.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Sebenarnya kamu harus berkata: &lt;&lt;Jika Tuhan menghendakinya</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Tetapi sekarang kamu memegahkan diri dalam congkakmu, dan semua kemegahan yang demikian adalah salah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Jadi jika seorang tahu bagaimana ia harus berbuat baik, tetapi ia tidak melakukannya, ia berdosa. , kami akan hidup dan berbuat ini dan itu.&gt;&gt; </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Jadi sekarang hai kamu orang-orang kaya, menangislah dan merataplah atas sengsara yang akan menimpa kamu!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Kekayaanmu sudah busuk, dan pakaianmu telah dimakan ngengat!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Emas dan perakmu sudah berkarat, dan karatnya akan menjadi kesaksian terhadap kamu dan akan memakan dagingmu seperti api. Kamu telah mengumpulkan harta pada hari-hari yang sedang berakhir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Sesungguhnya telah terdengar teriakan besar, karena upah yang kamu tahan dari buruh yang telah menuai hasil ladangmu, dan telah sampai ke telinga Tuhan semesta alam keluhan mereka yang menyabit panenmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Dalam kemewahan kamu telah hidup dan berfoya-foya di bumi, kamu telah memuaskan hatimu sama seperti pada hari penyembelihan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Kamu telah menghukum, bahkan membunuh orang yang benar dan ia tidak dapat melawan kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Karena itu, saudara-saudara, bersabarlah sampai kepada kedatangan Tuhan! Sesungguhnya petani menantikan hasil yang berharga dari tanahnya dan ia sabar sampai telah turun hujan musim gugur dan hujan musim semi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Kamu juga harus bersabar dan harus meneguhkan hatimu, karena kedatangan Tuhan sudah dekat!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Saudara-saudara, janganlah kamu bersungut-sungut dan saling mempersalahkan, supaya kamu jangan dihukum. Sesungguhnya Hakim telah berdiri di ambang pintu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Saudara-saudara, turutilah teladan penderitaan dan kesabaran para nabi yang telah berbicara demi nama Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Sesungguhnya kami menyebut mereka berbahagia, yaitu mereka yang telah bertekun; kamu telah mendengar tentang ketekunan Ayub dan kamu telah tahu apa yang pada akhirnya disediakan Tuhan baginya, karena Tuhan maha penyayang dan penuh belas kasihan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Tetapi yang terutama, saudara-saudara, janganlah kamu bersumpah demi sorga maupun demi bumi atau demi sesuatu yang lain. Jika ya, hendaklah kamu katakan ya, jika tidak hendaklah kamu katakan tidak, supaya kamu jangan kena hukuman.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Kalau ada seorang di antara kamu yang menderita, baiklah ia berdoa! Kalau ada seorang yang bergembira baiklah ia menyanyi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Kalau ada seorang di antara kamu yang sakit, baiklah ia memanggil para penatua jemaat, supaya mereka mendoakan dia serta mengolesnya dengan minyak dalam nama Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Dan doa yang lahir dari iman akan menyelamatkan orang sakit itu dan Tuhan akan membangunkan dia; dan jika ia telah berbuat dosa, maka dosanya itu akan diampuni.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Karena itu hendaklah kamu saling mengaku dosamu dan saling mendoakan, supaya kamu sembuh. Doa orang yang benar, bila dengan yakin didoakan, sangat besar kuasanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Elia adalah manusia biasa sama seperti kita, dan ia telah bersungguh-sungguh berdoa, supaya hujan jangan turun, dan hujanpun tidak turun di bumi selama tiga tahun dan enam bulan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Lalu ia berdoa pula dan langit menurunkan hujan dan bumipun mengeluarkan buahnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Saudara-saudaraku, jika ada di antara kamu yang menyimpang dari kebenaran dan ada seorang yang membuat dia berbalik,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>ketahuilah, bahwa barangsiapa membuat orang berdosa berbalik dari jalannya yang sesat, ia akan menyelamatkan jiwa orang itu dari maut dan menutupi banyak dosa.</text>
+  </block>
+  <UnappliedSplits />
+</book>

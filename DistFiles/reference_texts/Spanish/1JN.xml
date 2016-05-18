@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1JN" singlevoice="false" pageheader="1 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+    <text>1 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Les escribimos a ustedes acerca de aquello que ya existía desde el principio, de lo que hemos oído y de lo que hemos visto con nuestros propios ojos. Porque lo hemos visto y lo hemos tocado con nuestras manos. Se trata de la Palabra de vida.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Esta vida se manifestó: nosotros la vimos y damos testimonio de ella, y les anunciamos a ustedes esta vida eterna, la cual estaba con el Padre y se nos ha manifestado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Les anunciamos, pues, lo que hemos visto y oído, para que ustedes estén unidos con nosotros, como nosotros estamos unidos con Dios el Padre y con su Hijo Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Escribimos estas cosas para que nuestra alegría sea completa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Este es el mensaje que Jesucristo nos enseñó y que les anunciamos a ustedes: que Dios es luz y que en él no hay ninguna oscuridad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Si decimos que estamos unidos a él, y al mismo tiempo vivimos en la oscuridad, mentimos y no practicamos la verdad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Pero si vivimos en la luz, así como Dios está en la luz, entonces hay unión entre nosotros, y la sangre de su Hijo Jesús nos limpia de todo pecado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Si decimos que no tenemos pecado, nos engañamos a nosotros mismos y no hay verdad en nosotros;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>pero si confesamos nuestros pecados, podemos confiar en que Dios, que es justo, nos perdonará nuestros pecados y nos limpiará de toda maldad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Si decimos que no hemos cometido pecado, hacemos que Dios parezca mentiroso y no hemos aceptado verdaderamente su palabra.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Hijitos míos, les escribo estas cosas para que no cometan pecado. Aunque si alguno comete pecado, tenemos ante el Padre un defensor, que es Jesucristo, y él es justo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Jesucristo se ofreció en sacrificio para que nuestros pecados sean perdonados; y no solo los nuestros, sino los de todo el mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Si obedecemos los mandamientos de Dios, podemos estar seguros de que hemos llegado a conocerlo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Pero si alguno dice: &lt;&lt;Yo lo conozco&gt;&gt;, y no obedece sus mandamientos, es un mentiroso y no hay verdad en él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>En cambio, si uno obedece su palabra, en él se ha perfeccionado verdaderamente el amor de Dios, y de ese modo sabemos que estamos unidos a él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>El que dice que está unido a Dios, debe vivir como vivió Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Queridos hermanos, este mandamiento que les escribo no es nuevo: es el mismo que ustedes recibieron desde el principio. Este mandamiento antiguo es el mensaje que ya oyeron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Y, sin embargo, esto que les escribo es un mandamiento nuevo, que es verdad tanto en Cristo como en ustedes, porque la oscuridad va pasando y ya brilla la luz verdadera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Si alguno dice que está en la luz, pero odia a su hermano, todavía está en la oscuridad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>El que ama a su hermano vive en la luz, y no hay nada que lo haga caer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Pero el que odia a su hermano vive y anda en la oscuridad, y no sabe a dónde va, porque la oscuridad lo ha dejado ciego.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Hijitos, les escribo a ustedes porque Dios, gracias a Jesucristo, les ha perdonado sus pecados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Padres, les escribo a ustedes porque han conocido al que ya existía desde el principio. Jóvenes, les escribo a ustedes porque han vencido al maligno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Les he escrito a ustedes, hijitos, porque han conocido al Padre. Les he escrito a ustedes, padres, porque han conocido al que ya existía desde el principio. Les he escrito también a ustedes, jóvenes, porque son fuertes y han aceptado la palabra de Dios en su corazón, y porque han vencido al maligno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>No amen al mundo, ni lo que hay en el mundo. Si alguno ama al mundo, no ama al Padre;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>porque nada de lo que el mundo ofrece viene del Padre, sino del mundo mismo. Y esto es lo que el mundo ofrece: los malos deseos de la naturaleza humana, el deseo de poseer lo que agrada a los ojos y el orgullo de las riquezas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Pero el mundo se va acabando, con todos sus malos deseos; en cambio, el que hace la voluntad de Dios vive para siempre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Hijitos, esta es la hora última. Ustedes han oído que viene el Anticristo; pues bien, ahora han aparecido muchos anticristos. Por eso sabemos que es la hora última.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Ellos salieron de entre nosotros; pero en realidad no eran de los nuestros, porque si lo hubieran sido se habrían quedado con nosotros. Pero sucedió así para que se viera claramente que no todos son de los nuestros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Cristo, el Santo, los ha consagrado a ustedes con el Espíritu, y todos ustedes tienen conocimiento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Les escribo, pues, no porque no conozcan la verdad, sino porque la conocen; y ustedes saben que ninguna mentira puede venir de la verdad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>¿Quién es el mentiroso? Precisamente el que dice que Jesús no es el Mesías. Ese es el Anticristo, pues niega tanto al Padre como al Hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Cualquiera que niega al Hijo, tampoco tiene al Padre; pero el que se declara a favor del Hijo, tiene también al Padre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>Por eso, guarden ustedes en su corazón el mensaje que oyeron desde el principio; y si lo que oyeron desde el principio queda en su corazón, también ustedes permanecerán unidos con el Hijo y con el Padre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN">
+    <verse num="25" />
+    <text>Esto es precisamente lo que nos ha prometido Jesucristo: la vida eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN">
+    <verse num="26" />
+    <text>Les estoy escribiendo acerca de quienes tratan de engañarlos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
+    <verse num="27" />
+    <text>Pero ustedes tienen el Espíritu Santo con el que Jesucristo los ha consagrado, y no necesitan que nadie les enseñe, porque el Espíritu que él les ha dado los instruye acerca de todas las cosas, y sus enseñanzas son verdad y no mentira. Permanezcan unidos a Cristo, conforme a lo que el Espíritu les ha enseñado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
+    <verse num="28" />
+    <text>Ahora, hijitos, permanezcan unidos a Cristo, para que tengamos confianza cuando él aparezca y no sintamos vergüenza delante de él cuando venga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN">
+    <verse num="29" />
+    <text>Ya que ustedes saben que Jesucristo es justo, deben saber también que todos los que hacen lo que es justo son hijos de Dios.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Miren cuánto nos ama Dios el Padre, que se nos puede llamar hijos de Dios, y lo somos. Por eso, los que son del mundo no nos conocen, pues no han conocido a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Queridos hermanos, ya somos hijos de Dios. Y aunque no se ve todavía lo que seremos después, sabemos que cuando Jesucristo aparezca seremos como él, porque lo veremos tal como es.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Y todo el que tiene esta esperanza en él, se purifica a sí mismo, de la misma manera que Jesucristo es puro.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Pero todo el que peca, hace maldad; porque el pecado es la maldad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Ustedes ya saben que Jesucristo vino al mundo para quitar los pecados, y que él no tiene pecado alguno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Así pues, todo el que permanece unido a él, no sigue pecando; pero todo el que peca, no lo ha visto ni lo ha conocido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Hijitos míos, que nadie los engañe: el que practica la justicia es justo, como él es justo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>pero el que practica el pecado es del diablo, porque el diablo peca desde el principio. Precisamente para esto ha venido el Hijo de Dios: para deshacer lo hecho por el diablo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Ninguno que sea hijo de Dios practica el pecado, porque tiene en sí mismo el germen de la vida de Dios; y no puede seguir pecando porque es hijo de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Se sabe quiénes son hijos de Dios y quiénes son hijos del diablo, porque cualquiera que no hace el bien o no ama a su hermano, no es de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Este es el mensaje que han oído ustedes desde el principio: que nos amemos unos a otros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>No seamos como Caín, que era del maligno y mató a su hermano. ¿Y por qué lo mató? Pues porque los hechos de Caín eran malos, y los de su hermano, buenos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Hermanos míos, no se extrañen si los que son del mundo los odian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Nosotros hemos pasado de la muerte a la vida, y lo sabemos porque amamos a nuestros hermanos. El que no ama, aún está muerto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Todo el que odia a su hermano es un asesino, y ustedes saben que ningún asesino puede tener vida eterna en sí mismo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Conocemos lo que es el amor porque Jesucristo dio su vida por nosotros; así también, nosotros debemos dar la vida por nuestros hermanos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Pues si uno es rico y ve que su hermano necesita ayuda, pero no se la da, ¿cómo puede tener amor de Dios en su corazón?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Hijitos míos, que nuestro amor no sea solamente de palabra, sino que se demuestre con hechos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>De esta manera sabremos que somos de la verdad, y podremos sentirnos seguros delante de Dios;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>pues si nuestro corazón nos acusa de algo, Dios es más grande que nuestro corazón, y lo sabe todo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Queridos hermanos, si nuestro corazón no nos acusa, tenemos confianza delante de Dios;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>y él nos dará todo lo que le pidamos, porque obedecemos sus mandamientos y hacemos lo que le agrada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Y su mandamiento es que creamos en su Hijo Jesucristo, y que nos amemos unos a otros como él nos mandó.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>Los que obedecen sus mandamientos viven en él, y él vive en ellos. Y en esto sabemos que él vive en nosotros: por el Espíritu que nos ha dado.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Queridos hermanos, no crean ustedes a todos los que dicen estar inspirados por Dios, sino pónganlos a prueba, a ver si el espíritu que hay en ellos es de Dios o no. Porque el mundo está lleno de falsos profetas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>De esta manera pueden ustedes saber quién tiene el Espíritu de Dios: todo el que reconoce que Jesucristo vino como hombre verdadero, tiene el Espíritu de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>El que no reconoce así a Jesús, no tiene el Espíritu de Dios; al contrario, tiene el espíritu del Anticristo. Ustedes han oído que ese espíritu ha de venir; pues bien, ya está en el mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Hijitos, ustedes son de Dios y han vencido a esos mentirosos, porque el que está en ustedes es más poderoso que el que está en el mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Ellos son del mundo; por eso hablan de las cosas del mundo, y los que son del mundo los escuchan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>En cambio, nosotros somos de Dios. El que conoce a Dios nos escucha, pero el que no es de Dios no nos escucha. En esto, pues, podemos conocer quién tiene el espíritu de la verdad y quién tiene el espíritu del engaño.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Queridos hermanos, debemos amarnos unos a otros, porque el amor viene de Dios. Todo el que ama es hijo de Dios y conoce a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>El que no ama no ha conocido a Dios, porque Dios es amor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Dios mostró su amor hacia nosotros al enviar a su Hijo único al mundo para que tengamos vida por él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>El amor consiste en esto: no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros y envió a su Hijo, para que, ofreciéndose en sacrificio, nuestros pecados quedaran perdonados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Queridos hermanos, si Dios nos ha amado así, nosotros también debemos amarnos unos a otros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>A Dios nunca lo ha visto nadie; pero si nos amamos unos a otros, Dios vive en nosotros y su amor se hace realidad en nosotros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>La prueba de que nosotros vivimos en Dios y de que él vive en nosotros, es que nos ha dado su Espíritu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Y nosotros mismos hemos visto y declaramos que el Padre envió a su Hijo para salvar al mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Cualquiera que reconoce que Jesús es el Hijo de Dios, vive en Dios y Dios en él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Así hemos llegado a saber y creer que Dios nos ama. Dios es amor, y el que vive en el amor, vive en Dios y Dios en él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>De esta manera se hace realidad el amor en nosotros, para que en el día del juicio tengamos confianza; porque nosotros somos en este mundo tal como es Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Donde hay amor no hay miedo. Al contrario, el amor perfecto echa fuera el miedo, pues el miedo supone el castigo. Por eso, si alguien tiene miedo, es que no ha llegado a amar perfectamente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Nosotros amamos porque él nos amó primero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Si alguno dice: &lt;&lt;Yo amo a Dios&gt;&gt;, y al mismo tiempo odia a su hermano, es un mentiroso. Pues si uno no ama a su hermano, a quien ve, tampoco puede amar a Dios, a quien no ve.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Jesucristo nos ha dado este mandamiento: que el que ama a Dios, ame también a su hermano.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Todo el que tiene fe en que Jesús es el Mesías, es hijo de Dios; y el que ama a un padre, ama también a los hijos de ese padre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Cuando amamos a Dios y hacemos lo que él manda, sabemos que amamos también a los hijos de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>El amar a Dios consiste en obedecer sus mandamientos; y sus mandamientos no son una carga,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>porque todo el que es hijo de Dios vence al mundo. Y nuestra fe nos ha dado la victoria sobre el mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>El que cree que Jesús es el Hijo de Dios, vence al mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>La venida de Jesucristo quedó señalada con agua y sangre; no solo con agua, sino con agua y sangre. El Espíritu mismo es testigo de esto, y el Espíritu es la verdad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Tres son los testigos en el cielo: el Padre, la Palabra y el Espíritu Santo, y estos tres son uno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Y tres son los testigos en la tierra. el Espíritu, el agua y la sangre; y los tres están de acuerdo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Aceptamos el testimonio de los hombres, pero el testimonio de Dios es de mucho más valor, porque consiste en el testimonio que Dios ha dado acerca de su Hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>El que cree en el Hijo de Dios, lleva este testimonio en su propio corazón; el que no cree en Dios, lo hace aparecer como mentiroso, porque no cree en el testimonio que Dios ha dado acerca de su Hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Este testimonio es que Dios nos ha dado vida eterna, y que esta vida está en su Hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>El que tiene al Hijo de Dios, tiene también esta vida; pero el que no tiene al Hijo de Dios, no la tiene. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Les escribo esto a ustedes que creen en el Hijo de Dios, para que sepan que tienen vida eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Tenemos confianza en Dios, porque sabemos que si le pedimos algo conforme a su voluntad, él nos oye.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Y así como sabemos que Dios oye nuestras oraciones, también sabemos que ya tenemos lo que le hemos pedido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Si alguno ve que su hermano está cometiendo un pecado que no lleva a la muerte, debe orar, y Dios dará vida al hermano, si se trata de un pecado que no lleva a la muerte. Hay un pecado que lleva a la muerte, y por ese pecado no digo que se deba orar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Toda maldad es pecado; pero hay pecado que no lleva a la muerte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Sabemos que el que tiene a Dios como Padre, no sigue pecando, porque el Hijo de Dios lo cuida, y el maligno no lo toca.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Sabemos que somos de Dios y que el mundo entero está bajo el poder del maligno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Sabemos también que el Hijo de Dios ha venido y nos ha dado entendimiento para conocer al Dios verdadero. Vivimos unidos al que es verdadero, es decir, a su Hijo Jesucristo. Este es el Dios verdadero y la vida eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Hijitos, cuídense de los dioses falsos.</text>
+  </block>
+  <UnappliedSplits />
+</book>

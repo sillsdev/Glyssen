@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JAS" singlevoice="false" pageheader="JAMES">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+    <text>JAMES</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Moi, Jacques, serviteur de Dieu et du Seigneur Jésus-Christ, je salue le peuple de Dieu répandu un peu partout dans le monde entier.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Mes frères et mes sœurs chrétiens, quand vous rencontrez des difficultés de toutes sortes, soyez très heureux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Vous le savez, si votre foi reste solide dans les difficultés, celles-ci vous rendent plus résistants.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Il faut que vous résistiez jusqu'au bout, alors vous serez vraiment parfaits et vous ne manquerez de rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Si quelqu'un parmi vous manque de sagesse, il doit la demander à Dieu, et Dieu lui donnera cette sagesse. En effet, Dieu donne à tous généreusement, sans faire de reproches.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Mais il faut qu'il demande avec foi, sans douter. Celui qui doute ressemble à une grosse vague de la mer que le vent soulève et agite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Celui-là ne doit pas penser qu'il va recevoir quelque chose du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>C'est quelqu'un qui ne sait pas choisir sa route: tantôt il avance, tantôt il recule.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Le chrétien qui est pauvre et petit peut être fier, parce que Dieu lui donne une place importante.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Le chrétien qui est riche doit être fier, parce que Dieu le rend petit. En effet, le riche ne dure pas. Il est comme la fleur d'une plante sauvage:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>le soleil se lève avec sa chaleur brûlante, il sèche la plante, la fleur tombe et elle perd sa beauté. De la même façon, un jour, le riche va être balayé avec toutes ses activités.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Il est heureux, l'homme qui résiste dans les difficultés. En effet, quand il aura montré sa valeur, il recevra la vie. C'est la récompense que Dieu a promise à ceux qui lui donnent leur amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Quand quelqu'un a envie de faire le mal, il ne doit pas dire: &lt;&lt;C'est Dieu qui me pousse au mal.&gt;&gt; Dieu ne peut pas avoir envie de faire le mal et il ne pousse personne au mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Chacun est poussé au mal par son désir mauvais qui l'attire et l'entraîne.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Et quand on laisse faire ce désir, il donne naissance au péché. Puis, quand le péché a grandi, il donne naissance à la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Mes frères et mes sœurs très aimés, ne vous trompez pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Tout ce qui nous arrive de bon, tous les plus beaux cadeaux viennent d'en haut. Ils viennent de Dieu, le créateur du soleil et des étoiles. Chez lui, il n'y a pas de changement, pas de mouvement, pas d'ombre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Dieu a voulu nous donner la vie par la parole de vérité. Alors nous sommes d'une certaine façon au premier rang de tout ce qu'il a créé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Mes frères et mes sœurs très aimés, vous devez savoir ceci: chacun doit être rapide pour écouter, mais lent pour parler, lent pour se mettre en colère.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Un homme en colère ne fait pas ce qui est juste aux yeux de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Alors, rejetez tout ce qui salit, tout ce qui rend mauvais. Recevez avec douceur la parole que Dieu a plantée en vous, elle peut vous sauver la vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Ne vous contentez pas de l'écouter, mais faites ce qu'elle dit, sinon, vous vous trompez vous-mêmes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Oui, celui qui écoute la parole et qui ne fait pas ce qu'elle dit, voici à qui il ressemble: il ressemble à un homme qui regarde son visage dans un miroir. Il se voit tel qu'il est,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>il se regarde, puis il s'en va et il oublie tout de suite comment il est.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Au contraire, voici quelqu'un qui étudie avec attention la loi parfaite qui rend libre. Il reste attaché à cette loi, il écoute la parole, il ne l'oublie pas et il fait ce qu'elle dit. Cet homme-là sera heureux dans ce qu'il fera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Si quelqu'un croit être un bon chrétien, mais n'est pas maître de sa langue, il se trompe lui-même, et sa façon de pratiquer la religion ne vaut rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+    <verse num="27" />
+    <text>Aux yeux de Dieu notre Père, voici la façon parfaite de pratiquer la religion: prendre soin des orphelins et des veuves dans leur malheur, ne pas se laisser salir par les choses du monde. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Mes frères et mes sœurs, vous croyez en Jésus-Christ, notre Seigneur plein de gloire. Alors ne faites pas de différence entre les gens.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Prenons un exemple: un homme vient là où vous êtes réunis. Il porte une bague en or et des habits très beaux. Un pauvre vient à la même réunion, il est mal habillé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Vous montrez plus de respect à l'homme qui porte les beaux habits et vous lui dites: &lt;&lt;Vous, asseyez-vous ici, à cette bonne place!&gt;&gt; Au pauvre, vous dites: &lt;&lt;Toi, reste debout!&gt;&gt; ou bien: &lt;&lt;Assieds-toi là, par terre, à mes pieds!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Quand vous agissez ainsi, est-ce que vous ne faites pas des différences entre vous? Est-ce que vous ne jugez pas avec un cœur mauvais?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Ecoutez, mes frères et mes sœurs très aimés! Est-ce que Dieu ne choisit pas justement ceux qui sont pauvres aux yeux du monde? Il veut les rendre riches en leur donnant la foi, il veut qu'ils reçoivent le Royaume promis à ceux qui ont de l'amour pour lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Mais vous, vous méprisez les pauvres! Pourtant, qui vous écrase? Qui vous traîne devant les tribunaux? Ce sont les riches, n'est-ce pas?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Ce sont les riches qui se moquent du beau nom que Dieu vous a donné.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Aime ton prochain comme toi-même.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <text>C'est la loi du Royaume, et si vous obéissez à cette règle, vous agissez bien. </text>
+    <verse num="9" />
+    <text>Mais si vous faites des différences entre les gens, vous péchez, et la loi de Moïse vous condamne parce que vous désobéissez.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Oui, celui qui suit toute la loi, mais qui désobéit à un seul commandement est coupable envers toute la loi. </text>
+    <verse num="11" />
+    <text>En effet, Dieu a dit:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Ne commets pas d'adultère.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>Mais il a dit aussi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Ne tue personne.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>Donc, par exemple, tu ne commets pas d'adultère, mais tu assassines quelqu'un. En faisant cela, tu désobéis à la loi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Parlez et vivez comme des gens qui vont être jugés par une loi qui rend libre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Oui, au moment du jugement, il n'y aura pas de pitié pour ceux qui n'ont pas eu pitié des autres. Mais même quand Dieu juge, il est plein de pitié.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Mes frères et mes sœurs, quelqu'un dira peut-être: &lt;&lt;Je crois en Dieu.&gt;&gt; Mais s'il n'agit pas pour le montrer, cela sert à quoi? Est-ce que cette foi peut le sauver?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Par exemple, un frère ou une sœur n'ont pas de vêtements, ils n'ont pas à manger tous les jours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Parmi vous, quelqu'un leur dit: &lt;&lt;Allez en paix! Allez vous habiller, et bon appétit!&gt;&gt; Mais ces paroles servent à quoi, si vous ne leur donnez pas ce qu'il faut pour vivre?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Pour la foi, c'est la même chose. Si tu crois en Dieu, mais si tu n'agis pas, ta foi est complètement morte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Quelqu'un dira peut-être: &lt;&lt;Tu as la foi, moi, j'ai les actes!&gt;&gt; Je répondrai: &lt;&lt;Montre-moi comment ta foi peut exister sans les actes. Et moi, je vais te montrer par mes actes que ma foi existe.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Tu crois qu'il y a un seul Dieu? Tu as raison. Les esprits mauvais le croient aussi, et même, ils tremblent de peur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Tu es stupide! Est-ce que tu veux la preuve que la foi sans les actes ne sert à rien?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Abraham notre ancêtre, comment est-ce que Dieu l'a reconnu comme juste? C'est quand il a offert son fils Isaac sur l'autel, n'est-ce pas?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Tu vois, sa foi agissait par ses actes, et ceux-ci l'ont rendue parfaite!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Alors, ce que les Livres Saints disent s'est réalisé:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+    <text>&lt;&lt;Abraham a cru en Dieu. Pour cela, Dieu l'a reconnu comme juste&gt;&gt;,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <text>et il l'a appelé son ami.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Vous voyez, Dieu reconnaît quelqu'un comme juste aussi à cause de ses actes, et pas seulement à cause de sa foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Pour Rahab, la prostituée, c'est la même chose. Dieu l'a reconnue comme juste à cause de ce qu'elle a fait. En effet, elle a reçu chez elle des messagers du peuple d'Israël et elle les a aidés à partir par un autre chemin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Oui, sans le souffle, le corps est mort, de même aussi, sans les actes, la foi est morte. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Mes frères et mes sœurs, ne vous mettez pas tous à enseigner! Vous le savez, nous qui enseignons, on nous jugera plus sévèrement que les autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Nous faisons tous beaucoup d'erreurs. Si quelqu'un parle sans faire d'erreur, il est parfait, il peut être maître de tout son corps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Quand nous mettons une tige en fer dans la bouche des chevaux pour les faire obéir, nous pouvons diriger tout leur corps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Regardez les bateaux! Ils sont grands, et ce sont des vents très forts qui les font avancer. Pourtant, c'est avec un petit morceau de bois qu'on les dirige, et ils vont là où le pilote veut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>La langue, c'est pareil. C'est une petite partie du corps, pourtant elle peut se vanter de grandes choses. Regardez! Il faut seulement une petite flamme pour mettre le feu à une grande forêt.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>La langue aussi est comme une flamme, c'est là que le mal habite. Elle fait partie de notre corps et elle le salit tout entier. Notre langue met le feu à notre vie, de la naissance jusqu'à la mort! Ce feu vient du lieu de souffrance lui-même.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Les êtres humains sont capables de faire obéir tous les animaux: bêtes sauvages et oiseaux, serpents et poissons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Mais la langue, personne ne peut la faire obéir! C'est une chose mauvaise qui ne reste jamais tranquille, et elle est pleine d'un poison qui donne la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Avec la langue, nous chantons la louange de notre Seigneur et Père. Avec elle aussi, nous jetons des malédictions aux êtres humains que Dieu a faits à son image.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Bénédiction et malédiction sortent de la même bouche! Mes frères et mes sœurs, cela ne va pas!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Est-ce que la même source fait couler de l'eau douce et de l'eau amère?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Est-ce qu'un figuier peut donner des olives ? Est-ce qu'une vigne peut donner des figues? De même, une source d'eau salée ne peut pas donner de l'eau douce.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Est-ce qu'il y a quelqu'un de sage parmi vous? Est-ce qu'il y a quelqu'un d'intelligent? Alors il doit le montrer par sa bonne conduite, par des actes faits avec douceur et sagesse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Mais si vous avez dans votre cœur une jalousie amère et l'envie de passer devant les autres, ne vous vantez pas. Ne dites pas de paroles contraires à la vérité!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Cette sagesse-là ne vient pas d'en haut. Elle appartient à la terre, elle est humaine, elle ressemble à celle des esprits mauvais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Quand les gens sont jaloux, quand ils ont envie de passer devant les autres, il y a du désordre et toutes sortes d'actions mauvaises.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Mais la sagesse d'en haut donne d'abord un cœur pur, puis elle apporte paix et douceur. Elle cherche à unir, elle est pleine de bonté et elle produit des actions bonnes. Elle ne fait pas de différence entre les gens, et elle n'est pas fausse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Ceux qui aiment la paix répandent la paix autour d'eux, comme des semences, et les fruits qu'ils récoltent, ce sont des actions justes. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>D'où viennent les disputes? D'où viennent les luttes entre vous? Est-ce qu'elles ne viennent pas des désirs mauvais qui luttent dans vos corps?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Vous voulez quelque chose et vous ne pouvez pas l'avoir? Alors vous êtes prêts à tuer. Vous êtes jaloux et vous ne pouvez pas obtenir ce que vous désirez? Alors vous luttez et vous vous battez. Vous n'avez pas ce que vous voulez, parce que vous ne le demandez pas à Dieu!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Vous demandez et vous ne recevez rien? C'est que vous demandez mal! Vous demandez seulement pour satisfaire vos désirs mauvais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Vous trompez Dieu! Vous ne savez donc pas ceci: aimer le monde, c'est détester Dieu. Celui qui veut être l'ami du monde devient l'ennemi de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Ce n'est sûrement pas pour rien que les Livres Saints disent: &lt;&lt;Dieu aime très vivement l'esprit qu'il a mis en nous.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Mais Dieu nous fait un cadeau plus grand encore. En effet, les Livres Saints disent aussi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Dieu résiste aux orgueilleux. Il est bon pour les petits.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Alors obéissez à Dieu, mais résistez à l'esprit du mal, et il va fuir loin de vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Approchez-vous de Dieu, il s'approchera de vous. Purifiez-vous, vous qui êtes pécheurs! Nettoyez vos cœurs, vous qui êtes faux!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Soyez tristes, mettez des habits de deuil, pleurez! Changez vos rires en larmes et votre joie en tristesse!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Faites-vous petits devant le Seigneur, et il vous honorera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Frères et sœurs chrétiens, ne dites pas de mal les uns des autres! Celui qui dit du mal d'un frère ou d'une sœur, ou qui les juge, dit du mal de la loi et il juge la loi. Et si tu juges la loi, tu n'obéis plus à la loi, tu es son juge.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>C'est Dieu seul qui donne la loi et qui est juge, lui seul peut sauver et faire mourir. Mais toi qui juges ton prochain, tu te prends pour qui?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Maintenant, faites attention, vous qui dites: &lt;&lt;Aujourd'hui ou demain, nous irons dans cette ville, nous resterons là-bas une année. Nous ferons du commerce, nous gagnerons de l'argent.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Pourtant, vous ne savez même pas comment vous vivrez demain. Oui, vous êtes comme un petit nuage qui est là quelques instants et qu'on ne voit plus ensuite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Au contraire, vous devez dire: &lt;&lt;Si le Seigneur le veut, nous vivrons, et nous ferons ceci ou bien cela.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Mais non! Vous vous vantez avec des paroles pleines d'orgueil. Se vanter de cette façon, c'est mauvais!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Celui qui sait faire le bien et ne le fait pas, se rend coupable d'un péché. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Maintenant, faites attention, vous, les riches! Pleurez! Criez à cause des malheurs qui vont venir sur vous!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Votre richesse est pourrie, les vers mangent vos vêtements!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Votre or et votre argent rouillent, et leur rouille va vous accuser, elle va dévorer votre corps comme un feu. Le monde va bientôt finir, pourtant vous conservez des richesses en réserve!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Et même, vous gardez pour vous le salaire des ouvriers qui font la récolte dans vos champs! Alors ils se plaignent, et les cris de ces ouvriers arrivent aux oreilles de Dieu, le Seigneur tout-puissant!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Sur la terre, vous avez vécu au milieu des richesses, vous avez fait ce qui vous plaisait. Vous avez bien mangé pendant que des gens mouraient.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Vous avez condamné les innocents et vous les avez tués. Ils ne vous ont pas résisté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Frères et sœurs chrétiens, soyez patients, le Seigneur vient! Regardez le cultivateur. Il attend avec patience les belles récoltes de la terre, depuis les premières jusqu'aux dernières.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Vous aussi, soyez patients! Courage, le Seigneur vient bientôt!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Frères et sœurs, ne vous plaignez pas des autres, pour que Dieu ne vous juge pas. Voici le juge, il est à votre porte!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Frères et sœurs, les prophètes, qui ont parlé au nom du Seigneur, ont souffert avec patience. Prenez-les comme exemples.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Voyez! Les gens qui résistent dans les difficultés, nous disons qu'ils sont heureux. Vous avez entendu l'histoire de Job, l'homme patient. Vous savez ce que le Seigneur lui a donné à la fin. Oui, le Seigneur est plein de tendresse et de pitié.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Surtout, mes frères et mes sœurs, ne faites pas de serments. Ne prenez pas comme témoin le ciel, la terre ou autre chose! Dites simplement oui quand c'est oui, et non quand c'est non, alors Dieu ne vous jugera pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Parmi vous, est-ce que quelqu'un souffre? Il doit prier. Est-ce que quelqu'un est heureux? Il doit chanter pour le Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Est-ce que quelqu'un est malade? Il doit appeler les responsables de l'Eglise. Ils verseront de l'huile sur lui et ils prieront pour lui, au nom du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>S'ils prient avec confiance, cette prière sauvera le malade. Le Seigneur le mettra debout, et, s'il a péché, Dieu lui pardonnera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Alors reconnaissez vos péchés les uns devant les autres. Priez les uns pour les autres afin d'être guéris. La prière d'un homme juste est très puissante.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Elie était un homme tout à fait comme nous. Il a beaucoup prié pour que la pluie ne tombe pas, et la pluie n'est pas tombée sur la terre pendant trois ans et demi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Puis il a prié encore une fois, et le ciel a donné de la pluie, la terre a produit ses récoltes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Mes frères et mes sœurs, parmi vous, quelqu'un peut se perdre loin de la vérité, et un frère ou une sœur peut le ramener.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Eh bien, vous devez savoir ceci: si une personne ramène un pécheur de la mauvaise route où il se trouve, il le sauve de la mort. Et à cause de cette action, Dieu va pardonner beaucoup de péchés. </text>
+  </block>
+  <UnappliedSplits />
+</book>

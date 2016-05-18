@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JUD" singlevoice="false" pageheader="JUDE">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JUD">
+    <text>JUDE</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JUD" initialStartVerse="0" characterId="BC-JUD">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JUD">
+    <verse num="1" />
+    <text>Judas, siervo de Jesucristo y hermano de Santiago, saluda a los que Dios el Padre ama y ha llamado, los cuales son protegidos por Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JUD">
+    <verse num="2" />
+    <text>Reciban ustedes abundancia de misericordia, paz y amor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JUD">
+    <verse num="3" />
+    <text>Queridos hermanos, he sentido grandes deseos de escribirles acerca de la salvación que tanto ustedes como yo tenemos; pero ahora me veo en la necesidad de hacerlo para rogarles que luchen por la fe que una vez fue entregada al pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JUD">
+    <verse num="4" />
+    <text>Porque por medio de engaños se han infiltrado ciertas personas a quienes las Escrituras ya habían señalado desde hace mucho tiempo para la condenación. Son hombres malvados, que toman la bondad de nuestro Dios como pretexto para una vida desenfrenada, y niegan a nuestro único Dueño y Señor, Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD">
+    <verse num="5" />
+    <text>Aunque ustedes ya lo saben, quiero recordarles que el Señor, después que sacó de Egipto al pueblo de Israel, destruyó a los que no creyeron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD">
+    <verse num="6" />
+    <text>Y a los ángeles que no conservaron su debido puesto, sino que dejaron su propio hogar, Dios los retiene en prisiones oscuras y eternas para el gran día del juicio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JUD">
+    <verse num="7" />
+    <text>Lo mismo que esos ángeles, también Sodoma y Gomorra y las ciudades vecinas se entregaron a la prostitución, y se dejaron llevar por vicios contra la naturaleza. Por eso sufrieron el castigo del fuego eterno y quedaron como advertencia para todos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JUD">
+    <verse num="8" />
+    <text>A pesar de ello, también esos hombres, viviendo en sueños, contaminan su cuerpo, rechazan la autoridad del Señor e insultan a los poderes superiores.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JUD">
+    <verse num="9" />
+    <text>El mismo arcángel Miguel, cuando luchaba contra el diablo disputándole el cuerpo de Moisés, no se atrevió a condenarlo con insultos, sino que solamente le dijo: </text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="9" characterId="Michael, archangel">
+    <text>&lt;&lt;¡Que el Señor te reprenda!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
+    <verse num="10" />
+    <text>Pero esos hombres hablan mal de las cosas que no conocen; y en cuanto a las que conocen por instinto, como las conocen los animales sin entendimiento, las usan para su propia condenación.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD">
+    <verse num="11" />
+    <text>¡Ay de ellos!, porque han seguido el ejemplo de Caín. Por ganar dinero se han desviado, como Balaam, y como Coré, mueren por su rebeldía.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JUD">
+    <verse num="12" />
+    <text>Son una vergüenza en las fiestas de amor fraternal que ustedes celebran, en las que ellos comen y beben alegremente, sin mostrar ningún respeto. Son pastores que cuidan solamente de sí mismos. Son nubes sin agua, llevadas por el viento. Son árboles que no dan fruto a su tiempo, dos veces muertos y arrancados de raíz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JUD">
+    <verse num="13" />
+    <text>Son violentas olas del mar, que arrojan como espuma sus acciones vergonzosas. Son estrellas que han perdido su rumbo y están condenadas a pasar la eternidad en la más negra oscuridad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JUD">
+    <verse num="14" />
+    <text>También Henoc, que fue el séptimo después de Adán, habló proféticamente cuando dijo acerca de esa gente:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch" multiBlockQuote="Start">
+    <text>&lt;&lt;Vi al Señor, que venía con miles y miles de sus ángeles</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch" multiBlockQuote="Continuation">
+    <verse num="15" />
+    <text>a juzgar a todos los hombres y a condenarlos por todo el mal que cometieron en su maldad y por todas las palabras insolentes que como malvados pecadores dijeron contra él.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD">
+    <verse num="16" />
+    <text>De todo se quejan, todo lo critican y solo buscan satisfacer sus propios deseos. Hablan con jactancia, y adulan a los demás para aprovecharse de ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JUD">
+    <verse num="17" />
+    <text>Pero ustedes, queridos hermanos, acuérdense de que los apóstoles de nuestro Señor Jesucristo</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JUD">
+    <verse num="18" />
+    <text>les habían dicho: &lt;&lt;En los últimos tiempos habrá gente burlona, que vivirá de acuerdo con sus malos deseos.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JUD">
+    <verse num="19" />
+    <text>Esos son los que causan divisiones; siguen sus deseos naturales y no tienen el Espíritu de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JUD">
+    <verse num="20" />
+    <text>Pero ustedes, queridos hermanos, manténganse firmes en su santísima fe. Oren guiados por el Espíritu Santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JUD">
+    <verse num="21" />
+    <text>Consérvense en el amor de Dios y esperen el día en que nuestro Señor Jesucristo, en su misericordia, nos dará la vida eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JUD">
+    <verse num="22" />
+    <text>Tengan compasión de los que dudan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JUD">
+    <verse num="23" />
+    <text>A unos sálvenlos sacándolos del fuego, y tengan compasión de otros, aunque cuídense de ellos y aborrezcan hasta la ropa que llevan contaminada por su mala vida.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JUD">
+    <verse num="24" />
+    <text>Y a aquel que es capaz de guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría -</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JUD">
+    <verse num="25" />
+    <text>a Dios nuestro Salvador, quien es el único sabio, sea gloria y majestad, imperio y potencia, ahora y siempre. Amén.</text>
+  </block>
+  <UnappliedSplits />
+</book>

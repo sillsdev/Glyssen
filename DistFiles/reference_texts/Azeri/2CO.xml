@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2CO" singlevoice="false" pageheader="2 CORINTHIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2CO">
+    <text>2 CORINTHIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Allahın iradәsi ilә Mәsih İsanın hәvarisi mәn Paul vә Timotey qardaşdan Allahın Korinfdә olan cәmiyyәtinә vә bütün Axayyadakı müqәddәslәrә salam!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Atamız Allahdan vә Rәbb İsa Mәsihdәn sizә lütf vә sülh olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Rәbbimiz İsa Mәsihin Allahına – Atasına alqış olsun! O, rәhmli Ata vә hәr cür tәsәlli verәn Allahdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Çәkdiyimiz hәr bir әziyyәtdә O bizә tәsәlli verir ki, biz dә Allahdan aldığımız tәsәlli ilә hәr cür әziyyәt çәkәnlәrә tәsәlli verә bilәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Çünki Mәsihin әzablarını necә böyük hәcmdә çәkiriksә, Mәsih vasitәsilә o cür böyük tәsәlli dә tapırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Әziyyәt çәkiriksә, bu sizә tәsәlli vә xilas gәtirir. Tәsәlli tapırıqsa, bu da bizim kimi çәkdiyiniz әzablara dözәsiniz deyә sizә güc verәn bir tәsәlli almanız üçündür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Sizinlә bağlı ümidimiz sarsılmaz. Çünki әzablarımıza şәrik olduğunuz kimi tәsәllimizә dә şәrik olduğunuzu bilirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Ey qardaşlar, Asiya vilayәtindә çәkdiyimiz әziyyәtlәrdәn bixәbәr olmağınızı istәmirәm. Gücümüzdәn daha artıq bir yük altında qaldıq. Belә ki yaşamaqdan belә, ümidimizi kәsmişdik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Daxilәn hiss etdik ki, ölümә mәhkum olmuşuq. Amma bu özümüzә deyil, ölülәri dirildәn Allaha güvәnmәyimiz üçün başımıza gәldi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Allah bizi belә bir böyük ölüm tәhlükәsindәn qurtardı vә qurtarmaqda davam edәcәk. Ümidimizi Ona bağlamışıq</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>vә siz dә dualarınızla bizә kömәk etdikcә bizi yenә qurtaracaq. Belә ki bir çox insanın etdiyi dua nәticәsindә bizә verdiyi әnamdan ötrü qoy çoxları bizim üçün Allaha şükür etsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Vicdanımız da şahiddir ki, dünyaya, xüsusәn sizә görә bәşәri müdrikliklә deyil, Allahın lütfü ilә, Allahdan gәlәn sәxavәt vә sәmimiyyәtlә hәyat sürmüşük. Biz buna görә fәxr edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>We write to you only what we know you can understand. I hope you will ubnderstand everything.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>When Jesus comes again, you will be as proud of us as we are of you. Right now you do not understand us very well.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Buna әmin olub әvvәlcә yanınıza gәlmәk niyyәtindә idim ki, ikiqat xeyir tapasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Hәm Makedoniyaya gedәndә, hәm dә Makedoniyadan qayıdanda yanınıza gәlmәk niyyәtindә oldum. Bundan sonra siz mәni Yәhudeyaya yola salmalı idiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Bu niyyәtdә olanda görәsәn qәrarsız idimmi? Ya da niyyәtlәrim cismani tәbiәtimdәn doğur ki, gah &lt;&lt;bәli, bәli&gt;&gt;,gah da &lt;&lt;xeyr, xeyr&gt;&gt; deyim?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Allahın sәdaqәtinә and olsun ki, sizә çatdırdığımız xәbәr gah &lt;&lt;bәli&gt;&gt;,gah da &lt;&lt;xeyr&gt;&gt; deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Sila vә Timoteylә birlikdә sizә vәz etdiyimiz Allahın Oğlu İsa Mәsih hәm &lt;&lt;bәli&gt;&gt;,hәm dә &lt;&lt;xeyr&gt;&gt; deyil. Onda yalnız &lt;&lt;bәli&gt;&gt; var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>Çünki Allahın bütün vәdlәri İsa Mәsihdә &lt;&lt;bәli&gt;&gt; dir. Buna görә Allahın izzәti üçün Mәsih vasitәsilә &lt;&lt;Amin&gt;&gt; deyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Bizi sizlәrlә birlikdә Mәsihә möhkәm bağlayan vә bizi mәsh edәn Allahdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-2CO">
+    <verse num="22" />
+    <text>O bizi möhürlәdi vә Ruhunu qәlbimizdә girov qoydu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO">
+    <verse num="23" />
+    <text>Allah şahidimdir, canıma and olsun ki, indiyәdәk sizә qıymadığım üçün Korinfә gәlmәdim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-2CO">
+    <verse num="24" />
+    <text>İmanınıza ağalıq etmәk istәmirik, sevinmәniz üçün sizinlә birgә çalışırıq. Çünki imanda dönmәz dayanmısınız. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Mәn sizi kәdәrlәndirmәmәk üçün qәrara aldım ki, yenә yanınıza gәlmәyim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Çünki sizi kәdәrlәndirsәm, kәdәrlәndirdiyim sizlәrdәn başqa mәni kim şadlandıracaq?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Bunu yazmışdım ki, gәldiyim zaman mәni sevindirәsi insanlar kәdәrlәndirmәsin. Hamınıza inanıram ki, mәnim sevincim hәr birinizin sevincidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Kәdәrlәndirmәk üçün deyil, sizә bәslәdiyim hәdsiz mәhәbbәti dәrk edәsiniz deyә sizә böyük әziyyәt, ürәk ağrısı vә göz yaşları içindә yazdım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Әgәr kimsә kәdәr gәtiribsә, şişirtmәdәn deyim ki, mәnә deyil, haradasa hamınıza kәdәr gәtirib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Belәsinә ictimaiyyәtin verdiyi bu cәza bәsdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Hәdsiz kәdәrә qәrq olmasın deyә yaxşı olar ki, o insanı indi bağışlayasınız vә tәsәlli verәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Buna görә sizdәn xahiş edirәm ki, yenidәn ona mәhәbbәt göstәrin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Bunu da sizә yazdım ki, hәr vәziyyәtdә sizin itaәtli olmağınızı yoxlayım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Kimi bağışlasanız, mәn dә bağışlayaram. Әgәr mәn bir şey bağışlamışamsa, Mәsihin hüzurunda sizin xeyriniz üçün bağışlamışam ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Şeytan bizdәn mәnfәәt qazanmasın. Çünki onun niyyәtlәrindәn xәbәrsiz deyilik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Mәsihin Müjdәsini yaymaq mәqsәdi ilә Troasa gәlәndә Rәbdәn mәnim üçün bir qapı açıldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Amma qardaşım Titi orada tapmayanda ürәyim narahat oldu. Ona görә oradakılarla xudahafizlәşib Makedoniyaya gәldim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Bizi hәmişә Mәsihin zәfәr tәntәnәsindә addımladan, Onu tanımaqdan yaranan әtri bizim vasitәmizlә hәr tәrәfә yayan Allaha şükür olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Çünki biz hәm xilas, hәm dә hәlak olanlar arasında Allaha xoş olan Mәsih әtriyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Hәlak olanlar üçün ölümә aparan ölüm qoxusu, xilas olanlar üçünsә hәyata aparan hәyat әtriyik. Belә bir iş üçün kim yararlıdır?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Axı biz çoxları kimi Allahın kәlamının alverçilәri deyilik; әksinә, Allah tәrәfindәn göndәrilib Allahın hüzurunda, Mәsihdә olaraq sәmimi qәlbdәn danışırıq. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Özümüz barәdә yenә zәmanәt veririkmi? Yoxsa bәzilәri kimi sizә yazılan vә yaxud sizin yazdığınız zәmanәt mәktublarına ehtiyacımız var?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Bütün insanların tanıdığı, oxuduğu, ürәklәrimizә yazılmış mәktubumuz sizsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Xidmәtimizin nәticәsi olan bir Mәsih mәktubu olduğunuz aydın görünür; bu mәktub mürәkkәblә yox, var olan Allahın Ruhu ilә daş lövhәlәrә deyil, әt ürәklәrә yazılıb.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Mәsih sayәsindә Allah hüzurunda belә etibarımız var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Özümüzdәn yaranan qabiliyyәtimiz yoxdur vә bunu iddia da edә bilmәrik. Bizә qabiliyyәt verәn Allahdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>O bizi Yeni Әhdin xidmәtçilәri olmaq üçün qabiliyyәtli etdi. Bu Yeni Әhd yazılı Qanuna deyil, Ruha әsaslanır. Çünki yazılı Qanun öldürür, Ruh isә hәyat verir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Ölümlә nәticәlәnәn xidmәt, yәni daş lövhәlәr üzәrindә hәkk olunan yazılı Qanun elә ehtişamla gәldi ki, Musanın üzündәn parlayan ehtişam ötәri olduğu halda İsrail övladları onun üzünә baxa bilmirdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Onda Ruha әsaslanan xidmәt daha da ehtişamlı olmazmı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Әgәr insanı mәhkum edәn xidmәtin ehtişamı varsa, salehlik qazandıran xidmәtin ehtişamı nә qәdәr çoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Çünki әvvәllәr ehtişamlı olanın indi hәdsiz ehtişamı olanla müqayisәdә ehtişamı yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Әgәr ötәri olan ehtişamla gәldisә, daimi olanın ehtişamı daha da böyükdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Belә bir ümidә sahib olduğumuz üçün böyük cәsarәtlә danışa bilәrik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>İsrail övladları onun üzündәki ötәri ehtişamın keçib-getmәsinә baxmasın deyә üzünә niqab çәkәn Musa kimi deyilik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>İsrail övladları fikirlәrindә inadkar oldu. Bu günә qәdәr Köhnә Әhd oxunarkәn onları eyni niqab qapayır, açılmır, çünki yalnız Mәsih vasitәsilә götürülür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Hәtta bu günә qәdәr Musanın Yazıları nә vaxt oxunursa, onların ürәklәrini bir niqab qapayır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Amma kim Rәbbә tәrәf dönürsә, o vaxt niqab aradan qaldırılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Rәbb Ruhdur, Rәbbin Ruhu haradadırsa, azadlıq da oradadır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Biz hamımız niqabsız üzdә Rәbbin ehtişamını әks etdirәrәk Rәbbin surәtindә dәyişilirik. Ruh olan Rәbdәn yaranan bu ehtişam get-gedә bizdә görünmәyә başlayır. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Belәliklә, bizә verilәn mәrhәmәtlә bu xidmәtә tәyin olunduğumuz üçün ümidimizi itirmirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Xәcalәt gәtirәn gizli yolları rәdd etmişik. Hiylә işlәtmirik, Allahın sözünü tәhrif etmirik, amma hәqiqәti açıq elan etmәklә Allahın önündә, hәr insanın vicdanı qarşısında özümüz barәdә zәmanәt veririk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Әgәr yaydığımız Müjdә qapalıdırsa, yalnız hәlak olanlar üçün qapalıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Onları bu dövrün allahı korazehin etdi ki, Allahın surәti olan Mәsihin ehtişamlı Müjdәsinin işığı imansızların üzәrinә doğmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Biz özümüzü yox, İsa Mәsihi Rәbb olaraq vәz edirik. Özümüzü isә İsa naminә qullarınız olaraq tәqdim edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Çünki &lt;&lt;zülmәtdәn işıq parlayacaq&gt;&gt; deyәn Allah ürәyimizә nur saçdı ki, İsa Mәsihin üzündәn saçan Öz ehtişamını tanımağımızdan doğan nuru bizә versin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Üstün qüvvәnin bizdәn yaranmadığı, Allaha aid olduğu bilinsin deyә bu xәzinәni saxsı qablarda saxlayırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Hәr tәrәfdәn әziyyәt çәkirik, amma әzilmirik. Çaşqınlıq içindәyik, lakin çarәsiz deyilik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Tәqib olunuruq, amma tәrk edilmirik. Yıxıdılırıq, amma yox olmuruq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>İsanın ölümünü bәdәnimizdә hәmişә daşıyırıq ki, Onun hәyatı bәdәnimizdә aydın görünsün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Çünki İsanın hәyatı fani cismimizdә aydın görünsün deyә biz yaşaya-yaşaya İsa üçün hәmişә ölümә tәslim edilirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Belәliklә, ölüm bizdә, hәyat isә sizdә fәaliyyәt göstәrir. </text>
+    <verse num="13" />
+    <text>But having the same spirit of faith, according to that which is written,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;İman etdim, buna görә danışdım&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2CO">
+    <text>deyә yazıldığı üçün eyni iman ruhuna sahib olaraq biz dә iman edir vә buna görә danışırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Çünki bilirik ki, Rәbb İsanı dirildәn Allah bizi dә İsa ilә birlikdә dirildib sizinlә birgә Öz hüzuruna çıxaracaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Bütün bunlar sizә görәdir. Belә ki Allahın lütfü çoxalıb daha çox insana ehsan olunsun vә Onun izzәti üçün daha çox şükür edilsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Buna görә biz ümidimizi itirmirik. Zahirimiz get-gedә xarab olsa da, daxilimiz gündәn-günә tәzәlәnir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Çünki müvәqqәti, yüngül әziyyәtlәrimiz bizә heç bir şeylә müqayisә edilmәz dәrәcәdә böyük vә әbәdi izzәt qazandırır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Gözlәrimizi görünәn şeylәrә deyil, görünmәyәn şeylәrә dikirik. Çünki görünәnlәr gәldi-gedәr, görünmәyәnlәrsә әbәdidir. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Bilirik ki, sığındığımız bu dünyәvi çadır dağılarsa, göylәrdә Allahın bizә verdiyi binamız, әllә tikilmәyәn әbәdi bir evimiz var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>İndi isә sәmavi mәskәnimiz üstümüzü örtsün deyә hәsrәt çәkәrәk inlәyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Soyunuruqsa da, lüt-üryan qalmarıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Bu dünyәvi çadırda ikәn hamımız ağır yük altında inlәyirik. Çünki soyunmamızı deyil, üstümüzün örtülmәsini istәyirik ki, hәyat fani şeylәri yeyib-udsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Bizi mәhz bunun üçün hazırlaşdıran Allahdır. O, Ruhunu bizә girov verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Buna görә hәmişә arxayınlığımız var, hәm dә bilirik ki, bu bәdәndә mәskunlaşdıqca Rәbdәn uzağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Gözlә görünәnә deyil, imana görә hәyat sürürük.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Әlbәttә, arxayınlığımız var vә bu bәdәndәn uzaqlaşıb Rәbbimizin yanında mәskunlaşmağı üstün tuturuq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Buna görә bәdәndә mәskun vә yaxud bәdәndәn uzaq olmağımıza baxmayaraq, mәqsәdimiz Rәbbi razı salmaqdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Çünki hәr birimiz bu bәdәndә olanda etdiyimiz әmәllәr pis dә olsa, yaxşı da olsa, onların әvәzini almaq üçün Mәsihin hökm kürsüsü önünә çıxmalıyıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Demәk, Rәbdәn qorxmanın nә olduğunu anladığımız üçün insanları inandırmağa çalışırıq. Allaha bizim kim olduğumuz aşkardır vә ümidvaram ki, sizin vicdanınıza da aşkardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Sizә özümüz barәdә yenә zәmanәt vermәk istәmirik, amma ürәklәri ilә deyil, zahiri görünüşlәri ilә öyünәnlәrә cavab verә bilәsiniz deyә bizimlә fәxr etmәniz üçün sizә imkan yaradırıq</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Әgәr ağlımızı itirmişiksә, bu, Allah üçündür, yox, әgәr ağlımız başımızdadırsa, bu sizin üçündür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Bizi mәcbur edәn Mәsihin mәhәbbәtidir vә bu qәnaәtә gәlmişik ki, bir Nәfәr hamı üçün öldüyünә görә hamı öldü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Bәli, O hәr kәs uğrunda öldü ki, qoy yaşayanlar artıq özlәri üçün deyil, onlar uğrunda Ölüb-Dirilәn üçün yaşasınlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Bunun nәticәsindә dә biz artıq heç kimi bәşәri nöqteyi-nәzәrdәn tanımırıq. Nә vaxtsa Mәsihi bәşәri nöqteyi-nәzәrdәn tanısaq da, indi Onu elә tanımırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Demәli, kim Mәsihdәdirsә, yeni yaradılışdır, köhnә şeylәr keçib-getdi, tәzә şeylәr gәldi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Bunların hamısı Allahdandır. O, Mәsih vasitәsilә bizi Özü ilә barışdırdı vә bizә barışdırma xidmәtini verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Belә ki Allah insanların tәqsirlәrini onların әleyhinә qoymayaraq dünyanı Mәsihdә Özü ilә barışdırmaqda idi. Barışdırma sözünü dә bizә әmanәt etdi</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>Belәliklә, biz Mәsihin nümayәndәlәriyik, sanki Allah bizim vasitәmizlә rica edir. Mәsihin adı ilә yalvarırıq ki, Allahla barışın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Günahla әlaqәsi olmayan Mәsihi Allah bizim uğrumuzda günah qurbanı verdi ki, biz Onda Allahın salehliyinә nail olaq. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Buna görә Allahla birgә işlәyәn bizlәr rica edirik ki, Onun lütfünü boş yerә qәbul etmәyәsiniz. </text>
+    <verse num="2" />
+    <text>Çünki O deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+    <text>&lt;&lt;Münasib vaxtda sәni eşitdim, Xilas günü sәnә kömәk etdim&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-2CO">
+    <text>Budur, indi münasib vaxt, budur, indi xilas günü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Xidmәtimiz etibardan düşmәsin deyә heç kimi büdrәdәn bir şey etmirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Әksinә, Allahın xidmәtçisi olaraq hәr şeydә özümüz barәdә zәmanәt veririk; hәdsiz dözümdә, әziyyәtlәrdә, ehtiyaclarda, sıxıntılarda,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>döyülәndә, hәbslәrdә, qarışıqlıqlarda, zәhmәtdә, yuxusuz qalanda, aclıqlarda,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>pak yaşayanda, bilikdә, sәbirdә, xeyirxahlıqda, Müqәddәs Ruhda, riyasız mәhәbbәtdә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>hәqiqәti elan edәndә, Allahın qüvvәsindә, hәm sağ, hәm dә sol әllәrimizdә salehlik silahları ilә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>gah ucalıb gah alçalaraq tәhqir olunanda, tәriflәnәndә özümüz özümüzә zamin dururuq. Bizi yalançı sayırlar, amma biz doğruçuyuq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Sanki namәlumuq, amma tanınırıq. Elә bil ölümün ağzındayıq, amma hәlә yaşayırıq. Elә bil cәza çәkirik, amma öldürülmürük.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Sanki kәdәr içindәyik, әslindә hәmişә sevinirik. Yoxsul sayılırıq, amma çoxlarını varlandırırıq. Elә bil heç nәyimiz yoxdur, amma hәr şeyә sahibik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Ey Korinflilәr, sizinlә açıq danışırıq, sizә ürәyimizi açmışıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Bizimlә yaxın münasibәtinizә mane olan biz deyilik, bu maneә sizin daxili hisslәrinizdәdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Buna cavab olaraq, sizә övladlarım kimi deyirәm: siz dә ürәyinizi açın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>İmansızlarla eyni boyunduruğa girmәyin. Çünki salehliklә qanunsuzluğun nә şәrikliyi var? İşıqla qaranlığın ortaq nәyi var?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Mәsihlә Belialın nә uyğunluğu var? Yaxud imanlı ilә imansızın ümumi nәyi var?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Allahın mәbәdi ilә bütlәrin sazişi ola bilәrmi? Çünki biz var olan Allahın mәbәdiyik. Belә ki Allah demişdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
+    <text>&lt;&lt;Mәn aralarında yaşayıb-dolanacağam, Onların Allahı olacağam, Onlar da Mәnim xalqım olacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
+    <verse num="17" />
+    <text>Ona görә &lt;&lt;aralarından çıxıb ayrılın&gt;&gt;Rәbb belә deyir, &lt;&lt;Murdar şeylәrә toxunmayın&gt;&gt;; &lt;&lt;Mәn dә sizi qәbul edәcәyәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="18" />
+    <text>&lt;&lt;Mәn sizә Ata olacağam, Siz dә Mәnә oğullar vә qızlar olacaqsınız&gt;&gt;Külli-İxtiyar Rәbb belә deyir. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Sevimlilәr, bu vәdlәrә malik olduğumuza görә Allahdan qorxub kamil müqәddәsliyә çataraq bizi cisimdә vә ruhda murdarlayan hәr şeydәn özümüzü tәmizlәyәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Ürәyinizdә bizim üçün yer ayırın. Biz heç kimә haqsızlıq etmәmişik, heç kimә zәrәr vermәmişik, heç kimi istismar etmәmişik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Sözlәrimlә sizi mәhkum etmәk istәmirәm, çünki әvvәlcәdәn dediyim kimi ürәyimizdә elә bir yeriniz var ki, ölsәk dә, yaşasaq da sizinlә bir olacağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Sizә çox etibar edirәm, sizinlә çox fәxr edirәm. Nә cür әziyyәt çәksәk belә, tәsәllim bol, sevincim hәdsizdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Makedoniyaya gәlәndә dә cismәn dinclik tapmadıq. Hәr tәrәfdәn әziyyәt çәkirdik. Bayırda çәkişmәlәr, daxildә qorxular var idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Lakin mәzlumlara tәsәlli verәn Allah Titin gәlişi ilә bizә tәsәlli verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Ancaq Titin gәlişindәn deyil, sizin ona verdiyiniz tәsәllidәn dә tәsәlli aldıq. Çünki Tit dedi ki, siz mәndәn ötrü darıxır, dәrd vә qeyrәt çәkirsiniz. Buna görә sevincim daha da artdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Mәktubumla sizi kәdәrlәndirdimsә dә, buna görә peşman deyilәm. Әslindә mәktubumla sizi bir anlıq da olsa kәdәrlәndirdiyim üçün peşman olmuşdum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Amma indi kәdәrinizә görә yox, bu kәdәr hissinin sizin tövbә etmәnizә sәbәb olduğu üçün sevinirәm. Allah istәyәn tәrzdә kәdәrlәndiniz, buna görә dә bizdәn heç bir şeydә ziyan görmәdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Allah istәyәn tәrzdә olan kәdәr insanda tövbә yaradıb onu xilasa aparır vә bunda peşmançılıq yoxdur. Dünyanın kәdәri isә ölüm yaradır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Baxın Allah istәyәn tәrzdә çәkdiyiniz bu kәdәr sizdә nә qәdәr böyük cәhd, tәmizә çıxmaq arzusu, qәzәb, qorxu, hәsrәt, qeyrәt, әdalәtpәrvәrlik yaratdı. Bu işdә hәr cәhәtdәn saf olduğunuz barәdә zәmanәt verdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Sizә o mәktubu yazanda haqsızlıq edәnә yaxud haqsızlığa mәruz qalana görә yazmadım. Bizim üçün etdiyiniz cәhdi Allah önündә aydın görmәniz üçün yazdım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Bütün bunlardan tәsәlli alırıq. Buna әlavә olaraq Titin sevinci bizi daha da sevindirdi. Hamınız onun ruhunu tәzәlәdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Mәn onun qarşısında sizinlә fәxr etmişdim, siz dә mәni utandırmadınız. Sizә dediyimiz hәr şey necә doğru idisә, Titin qarşısında sizinlә fәxr etmәyimiz dә doğru çıxdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Hamınızın itaәtli olduğunuzu, onu necә qorxu vә lәrzә ilә qәbul etdiyinizi yada saldıqca sizә olan sevgisi daha da artır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Sizә hәr işdә etibar edә bildiyim üçün sevinirәm. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Qardaşlar, sizә bildirmәk istәyirik ki, Makedoniyadakı cәmiyyәtlәrә verilәn Allahın lütfü nә etdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>onlar böyük әziyyәtlәrlә sınananda coşğun sevinclәri hәdsiz yoxsul olduqları halda zәngin sәxavәt göstәrmәlәri ilә aşıb-daşdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Mәn şahidәm ki, onlar bunu bacardıqları qәdәr, hәtta artıqlaması ilә, könüllü surәtdә etdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Bizә yalvara-yalvara müqәddәslәrә yardım işinә şәrik olmaq lütfünә nail olmaq istәdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Bu, gözlәdiyimizdәn dә artıq oldu, çünki onlar özlәrini әvvәlcә Rәbbә, sonra Allahın iradәsi ilә bizә hәsr etdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Ona görә Titdәn xahiş etdik ki, onun başladığı bu xeyriyyә işini sizin aranızda başa çatdırsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Sizsә hәr şeydә – imanda, sözdә, bilikdә, hәr cür cәhddә, sizә göstәrdiyimiz mәhәbbәtdә zәngin olduğunuz kimi bu xeyriyyәçilikdә dә zәngin olun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Mәn bunları әmr edәrәk demirәm, lakin başqalarının cәhdi ilә müqayisәdә sizin mәhәbbәtinizin hәqiqiliyini sınaqdan keçirәrәk deyirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Rәbbimiz İsa Mәsihin lütfündәn xәbәrdarsınız: siz Onun yoxsulluğu vasitәsilә varlı olasınız deyә Özü varlı olduğu halda sizin uğrunuzda yoxsullaşdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Bu barәdә sizә mәslәhәt verirәm. Siz keçәn il bu işi nәinki gördünüz, hәtta tәşәbbüskarı oldunuz. Öz xeyriniz üçün</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>indi bu işi başa çatdırın. Buna hәvәsiniz necә idisә, imkan daxilindә bunu elә dә başa çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Çünki insanın hәvәsi varsa, verdiyi yardım imkanı çatmadığı qәdәr yox, imkanına görә mәqbul sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Sizi әziyyәtә salıb başqalarına rahatlıq vermәk deyil, bәrabәrlik istәyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>İndi sizin әlavә vәsaitiniz qoy onların ehtiyaclarını ödәsin ki, lazım olanda onların vәsaiti dә sizin ehtiyacınızı ödәsin. Belәcә qoy bәrabәrlik olsun. </text>
+    <verse num="15" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Çox yığanın artığı, az yığanın әskiyi olmadı&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Titin ürәyindә sizin üçün eyni cәhdi oyadan Allaha şükür olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Çünki Tit bizim xahişimizi qәbul etmәklә kifayәtlәnmәdi, böyük cәhd göstәrәrәk könüllü surәtdә sizin yanınıza gәlir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Müjdәni yaydığına görә bütün cәmiyyәtlәrdә tәriflәnәn bir qardaşı da onunla birgә yanınıza göndәririk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Hәmçinin o, Rәbbi izzәtlәndirmәk vә yardım etmәyә hәvәsli olduğumuzu göstәrmәk üçün apardığımız bu xeyriyyә işindә yol yoldaşımız olmaq mәqsәdi ilә cәmiyyәtlәr tәrәfindәn seçildi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>Bu bol olan nәzir-niyazla әlaqәdar xidmәtimizdә heç kim bizdә sәhv tutmasın deyә diqqәt göstәririk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Çünki mәqsәdimiz yalnız Rәbbin gözündә deyil, insanların da gözündә doğru sayılan işlәri görmәkdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-2CO">
+    <verse num="22" />
+    <text>Çox işdә dәfәlәrlә sınaqdan keçirib cәhdini gördüyümüz, indi sizә bәslәdiyi böyük etibar sayәsindә daha da cәhd göstәrәn başqa qardaşımızı da onlarla bәrabәr göndәririk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-2CO">
+    <verse num="23" />
+    <text>Titә gәlincә, o mәnim şәrikim, sizlәrin arasında çalışan әmәkdaşım, qardaşlarımızsa Mәsihin izzәti üçün cәmiyyәtlәrin elçilәridir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-2CO">
+    <verse num="24" />
+    <text>Buna görә dә cәmiyyәtlәrin qarşısında mәhәbbәtinizi vә sizinlә fәxr etmәyimizin sәbәbini onlara sübut edin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Müqәddәslәrә göstәrilәcәk yardımla әlaqәdar sizә yazmağıma ehtiyac yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Çünki yardım etmәyә hәvәsiniz olduğunu bilirәm. Axayyada olan sizlәrin keçәn ildәn bәri hazırlıqlı olduğunuzu söylәyәrәk Makedoniyalılar qarşısında fәxr etmәkdәyәm. Sizin sәyiniz onların çoxunu hәrәkәtә gәtirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Sizinlә etdiyimiz fәxr bu işdә boşa çıxmasın deyә qardaşları yanınıza göndәrirәm vә dediyim kimi gәrәk hazır olasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Belә ki bәzi Makedoniyalılar mәnimlә gәlib sizin hazır olmadığınızı görәrsә, sizә etibar etdiyimizә görә nә biz utanaq, nә dә siz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Ona görә dә mәn qardaşlardan xahiş etmәyә ehtiyac duyuram ki, mәndәn әvvәl yanınıza gәlib vәd edilmiş bol bәxşişlәrinizi qabaqcadan hazır etsinlәr. Qoy bu bәxşişlәr istismarçılıqla yox, könüllü surәtdә hazır olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Yadda saxlayın: az әkәn az, bol-bol әkәn bol-bol biçәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Könülsüz yaxud mәcburi yox, hәr kәs ürәyinin niyyәtinә görә pay versin. Çünki Allah sevinә-sevinә pay verәn adamı sevir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Allah sizә hәr bir nemәti bol-bol verә bilәr. Belә ki hәr bir şeyә hәmişә, hәrtәrәfli, kifayәt qәdәr sahib olmaqla hәr yaxşı әmәl üçün bol-bol imkanınız olsun. </text>
+    <verse num="9" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Sәpәlәyәr, fәqirlәrә paylayar, Salehliyi әbәdi qalar&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Әkinçiyә toxum vә yemәk üçün çörәk ehtiyatı verәn Allah sizin dә әkin ehtiyatınızı çoxaldacaq vә salehliyinizin bәhrәsini artıracaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Hәr tәrәfli sәxavәtli olmanız üçün hәr baxımdan varlandırılacaqsınız. Sәxavәtiniz bizim vasitәmizlә Allaha şükür etmәyә sәbәb olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Çünki etdiyiniz bu xidmәt yalnız müqәddәslәrin ehtiyaclarını ödәmәklә kifayәtlәnmir, hәm dә Allaha edilәn çox şükürlәrlә aşıb-daşır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Bu xidmәtlә sübut etdiyiniz kimi, iqrar etdiyiniz Mәsihin Müjdәsinә itaәt göstәrdiyinizә, onlara vә hamıya sәxavәtlә yardım göndәrdiyinizә görә Allahı izzәtlәndirirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Allahın sizә bәxş etdiyi hәdsiz lütfә görә hәr birinizin hәsrәtini çәkәrәk sizin üçün dua edirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Allahın sözlә ifadә oluna bilmәyәn bәxşişinә görә Ona şükür olsun! </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Yanınızda ürkәk, lakin sizdәn uzaq ikәn cürәtli olan mәn Paul Mәsihdәn gәlәn hәlimlik vә mülayimliklә sizdәn xahiş edir,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>yalvarıram: yanınıza gәlәndә mәni vadar etmәyin ki, bizi cismani tәbiәtә görә hәyat sürәn insanlar zәnn edәn bәzi adamlara göstәrmәyi vacib saydığım cürәti sizә dә göstәrim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Çünki cismәn hәyat sürsәk dә, cismani tәbiәtә görә döyüş aparmırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Ona görә ki döyüş silahlarımız cisimdәn düzәldilәn silahlar deyil, qalaları dağıdan ilahi qüvvәyә malik silahlardır. Nәzәriyyәlәri,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Allah barәdә biliyә qarşı çıxan hәr bir sәddi yıxıb hәr bir düşüncәni әsir edәrәk Mәsihә itaәt etdiririk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Siz Mәsihә tamamilә itaәt edәndә hәr cür itaәtsizliyi cәzalandırmağa hazır olacağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Göz qabağında olanlara baxın. Kim Mәsihә aid olduğuna arxalanırsa, yadda saxlasın ki, onun qәdәr biz dә Mәsihә aidik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Sizi yıxmaq üçün deyil, inkişaf etdirmәk üçün Rәbbin bizә verdiyi sәlahiyyәtә görә bir az artıq öyünәrәmsә dә, utanmaram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Elә görünmәk istәmirәm ki, mәktublarımla sizi qorxuduram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Mәnim barәmdә deyirlәr ki, &lt;&lt;onun mәktubları ciddi vә tәsirlidir, özünü görәndә isә zәhmsiz, nitqi dә heçdir&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Kim bunu düşünürsә, qoy bilsin ki, uzaqda olanda mәktublarımızla dediklәrimizә yanınızda olanda da әmәl edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Öz-özü barәdә zәmanәt verәn bәzi adamlarla özümüzü bәrabәr saymağa vә yaxud da müqayisә etmәyә sözsüz ki cәsarәt etmirik. Özlәrini öz arşınları ilә ölçә-ölçә, hәmçinin özlәrini özlәri ilә müqayisә edә-edә onlar dәrrakәlәrini itirdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Biz isә hәdsiz öyünmәyәcәyik. Öyünmәyimiz Allahın bizә verdiyi, sizin dә daxil olduğunuz iş dairәsinin hәddini aşmayacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Sizә yetişmәyәnlәr kimi uzaqlara getmirik. Çünki Mәsihin Müjdәsini sizә çatdıran bizik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Başqalarının әmәyi ilә öyünüb hәddimizi aşmırıq. Ümidvarıq ki, imanınız böyüdükcә aranızda işimizin әhatә dairәsi daha da genişlәnәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Belәcә başqasının işinin әhatә dairәsindә olan nailiyyәtlәrlә öyünmәdәn Müjdәni sizin o tayınızdakı diyarlarda da yaya bilәcәyik. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>&lt;&lt;Öyünәn Rәbdә öyünsün&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Çünki özü barәdә zәmanәt verәn insan yox, barәsindә Rәbbin zәmanәt verdiyi insan sınaqdan keçmiş olur. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Ümidvaram ki, mәnim bir qәdәr ağılsızlığıma da dözәcәksiniz. Bәli, mәnә bir qәdәr dözün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Sizә görә ilahi bir qısqanclıq hiss edirәm. Çünki sizlәr sanki bakirә qızsınız vә sizi bir Oğlana, yәni Mәsihә nişanlayıb tәqdim etmişәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Amma qorxuram ki, ilanın hiylәgәrliyi ilә Hәvvanı aldatması kimi düşüncәlәrinizin pozulub Mәsihә olan sәmimi vә pak hәsr olunmasından azasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Çünki әgәr kimsә yanınıza gәlib bizim vәz etdiyimiz İsadan başqa bir İsanı tәbliğ edirsә, aldığınızdan fәrqli bir ruh alırsınızsa vә yaxud qәbul etdiyinizdәn fәrqli bir müjdәni qәbul edirsinizsә, siz buna necә dә mәmnuniyyәtlә dözürsünüz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Zәnnimcә bu &lt;&lt;böyük hәvarilәr&gt;&gt;dәn mәn heç dә geri qalmıram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Natiqlik mәharәtim olmasa da, bilikdә mәharәtsiz deyilәm. Bunu sizә hәr vәziyyәtdә hәr tәrәfli göstәrdik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Ucalmanız üçün özümü aşağı tutaraq Allah Müjdәsini müftә yaymaqla günah işlәtdimmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Sizә xidmәt etmәk üçün başqa cәmiyyәtlәrdәn tәminat alaraq sanki onları soydum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Yanınızda olarkәn ehtiyacım olduğu halda heç birinizә yük olmadım. Çünki Makedoniyadan gәlәn qardaşlar ehtiyacımı tamamilә ödәdilәr. Sizә yük olmaqdan özümü saxladım vә gәlәcәkdә dә özümü saxlayacağam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Mәndә olan Mәsihin hәqiqәtinә and olsun! Axayya vilayәtindә heç kim mәni susdura bilmәz ki, buna öyünmәyim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Niyә? Sizi sevmәdiyimә görәmi? Allah bilir ki, sevirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Özlәrini bizimlә bәrabәr sayaraq öyünәnlәr buna әsas axtarır. Mәn etdiyimi edәcәyәm ki, onların әsasını kәsim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Çünki bunlar saxta hәvari, Mәsih hәvarisinin cildinә girәn fırıldaqçılardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Buna heyrәtlәnmәk lazım deyil, çünki Şeytan da işıq mәlәyi cildinә girir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Şeytana xidmәt edәnlәrin salehlik xidmәtçilәrinin cildinә girmәsi qәribә deyil. Onların aqibәti әmәllәrinә görә olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Yenә deyirәm, qoy heç kim mәni ağılsız saymasın. Elәdirsә, mәni ağılsız kimi qәbul edin, qoy mәn dә bir az öyünüm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Dediklәrimi Rәbbin sözü kimi yox, öyünә-öyünә özünә güvәnәn ağılsız adam kimi deyirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Madam ki bir çoxları cismani tәbiәtlәrinә görә öyünürlәr, mәn dә öyünәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Siz ağıllı olduğunuz üçün ağılsızlara necә dә sevinclә dözürsünüz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>Belә ki sizi kölә edәnlәrә, istismar edәnlәrә, sizdәn faydalananlara, özünü üstün sayanlara, hәtta sifәtinizә şillә vuranlara dözürsünüz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Utanaraq qәbul edirәm ki, buna gücümüz çatmır! Kimin bir şeylә öyünmәyә cәsarәti varsa, bir ağılsız kimi deyirәm ki, mәnim dә ona cәsarәtim var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-2CO">
+    <verse num="22" />
+    <text>Onlar İbranilәrdirmi? Mәn dә İbraniyәm. Onlar İsraillilәrdirmi? Mәn dә İsrailliyәm. Onlar İbrahimin nәslindәndirmi? Mәn dә İbrahimin nәslindәnәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-2CO">
+    <verse num="23" />
+    <text>Onlar Mәsihin xidmәtçilәridirmi? Dәli kimi deyirәm ki, Onun daha böyük xidmәtçisi mәnәm, çünki zәhmәtim daha çox olub, hәbsә düşmәyim daha çoxdur, döyülmәyimin sayı-hesabı yoxdur, dәfәlәrlә ölümlә üz-üzә gәlmişәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-2CO">
+    <verse num="24" />
+    <text>Beş dәfә Yәhudilәrdәn otuz doqquz qırmanc yemişәm,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-2CO">
+    <verse num="25" />
+    <text>üç dәfә dәyәnәklә döyülmüşәm, bir dәfә mәni daşqalaq etdilәr, üç dәfә gәmi qәzasına düşdüm vә bir gün gecә-gündüz ucsuz-bucaqsız dәnizdә qaldım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-2CO">
+    <verse num="26" />
+    <text>Tez-tez sәyahәtdә olduğum müddәtdә çaylarda tәhlükәyә, quldurlar arasında tәhlükәyә, soydaşlarım arasında tәhlükәyә, başqa millәtlәr arasında tәhlükәyә şәhәrdә tәhlükәyә, çöldә tәhlükәyә, dәnizdә tәhlükәyә, saxta qardaşlar arasında tәhlükәyә mәruz qaldım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-2CO">
+    <verse num="27" />
+    <text>Zәhmәt vә әmәk çәkdim, dәfәlәrlә yuxusuz qaldım. Aclığın, susuzluğun dadını gördüm. Çox vaxt yemәk, soyuqda paltar tapmadım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-2CO">
+    <verse num="28" />
+    <text>Bunlarla yanaşı bütün cәmiyyәtlәr üçün hәr gün çәkdiyim qayğının yükü boynumdadır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO">
+    <verse num="29" />
+    <text>Kimsә zәif olanda mәn dә zәif olmadımmı? Kimsә büdrәyәndә mәn alışıb-yanmadımmı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-2CO">
+    <verse num="30" />
+    <text>Öyünmәliyәmsә, zәifliyimi göstәrәn şeylәrlә öyünәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO">
+    <verse num="31" />
+    <text>Rәbb İsanın әbәdi alqışlanan Allah vә Atasına and olsun ki, yalan demirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-2CO">
+    <verse num="32" />
+    <text>Dәmәşqdә padşah Aretanın valisi mәni tutmaq üçün şәhәri nәzarәt altına almışdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-2CO">
+    <verse num="33" />
+    <text>Amma mәn sәbәt içindә şәhәr divarlarının pәncәrәlәrinin birindәn yerә sallandım vә onun әlindәn qaçdım. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Faydalı olmasa da, öyünmәliyәm. İndi Rәbdәn gәlәn görüntülәrә vә vәhylәrә keçirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Mәsihdә olaraq on dörd il bundan әvvәl – bәdәndәmi, yoxsa bәdәndәn xaricmi, mәn bilmirәm, Allah bilir – götürülüb göyün üçüncü qatına aparılan bir insanı tanıyıram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Bilirәm ki, bu adam – bәdәndәmi, yoxsa bәdәndәn kәnarmı, mәn bilmirәm, Allah bilir –</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>cәnnәtә aparılıb orada dillә ifadә olunmayan, insanın danışması qadağan olunan sözlәr eşitdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Belә birisi ilә öyünәcәyәm, amma özümlә әlaqәdar olaraq zәifliyimdәn başqa bir şeylә öyünmәyәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Öyünmәk istәsәm belә, ağılsız olmayacağam. Çünki hәqiqәti deyәcәyәm. Amma heç kim mәni görüb eşitdiyindәn artıq bir şәxs saymasın deyә öyünmәkdәn çәkinirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Aldığım vәhylәrin üstünlüyü ilә qürurlanmayım deyә cismim üçün bir tikan, yәni mәnә әzab vermәk üçün Şeytanın bir elçisi göndәrildi ki, qürurlanmayım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Bunun mәndәn uzaq olması üçün üç dәfә Rәbbә yalvardım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Amma O mәnә dedi: &lt;&lt;Lütfüm sәnә kifayәtdir, çünki zәiflik olanda qüvvә tam olur&gt;&gt;. Mәsihin qüvvәsi mәndә mәskәn salsın deyә zәifliklәrimlә daha çox sevinә-sevinә öyünәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Ona görә dә Mәsih uğrunda zәifliklәrә, tәhqirlәrә, ehtiyaclara, tәqiblәrә vә sıxıntılara mәmnuniyyәtlә dözürәm, çünki mәn zәiflәyәndә qüvvәtlәnirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Mәn ağılsızlaşdım, çünki siz mәni vadar etdiniz. Amma siz mәnim barәmdә zәmanәt vermәli idiniz. Çünki özüm bir şey olmasam da, hәmin &lt;&lt;böyük hәvarilәr&gt;&gt; dәn heç dә geri qalmıram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Hәvariliyimin nişanәlәri aranızda әlamәtlәr, xariqәlәr vә möcüzәlәr vasitәsilә, böyük dözümlülüklә göstәrildi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Mәn sizә yük olmadım, bundan başqa sizin digәr cәmiyyәtlәrdәn nә әskiyiniz var? Bu haqsızlığımı bağışlayın!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Budur, üçüncü dәfә yanınıza gәlmәyә hazıram. Sizә yük olmayacağam, çünki sizdәn heç nә istәmirәm, yalnız sizi istәyirәm. Axı övladların ata-ana üçün deyil, ata-ananın övladları üçün ehtiyat görmәsi doğru sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Mәn dә sizin hәyatınız uğrunda sevinә-sevinә malımdan vә canımdan keçәcәyәm. Sizi daha da çox sevsәm, daha az sevilәcәyәmmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Qoy belә olsun. Düşünürsünüz ki, mәn sizә ağır yük olmadım, amma çoxbilmiş olduğuma görә sizi fәnd işlәdәrәk aldatdım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Yanınıza göndәrdiyim adamlardan hansı biri ilә sizi istismar etdim?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Titi yanınıza gәlmәk hәvәsinә saldım vә o biri qardaşı da onunla göndәrdim. Tit mәnә görә sizi istismar etmәdi, elә deyilmi? Eyni ruhda hәyat sürmәdikmi? Eyni izlә getmәdikmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Bu vaxta qәdәr qarşınızda özümüzü müdafiә etdiyimizi düşünürsünüzmü? Allahın qarşısında, Mәsihdә olaraq danışırıq. Sevimlilәr, etdiyimiz hәr şey sizin inkişafınız üçündür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>Qorxuram ki, gәlişimdә sizi istәdiyim vәziyyәtdә tapmayım, siz dә istәdiyinizi mәndә tapmayasınız vә aranızda münaqişә, qısqanclıq, hiddәt, özünü göstәrmә, böhtan, qeybәt, lovğalıq, qarışıqlıq tapam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Bu da mәni qorxudur ki, yanınıza gәlәndә Allahım mәni sizin qarşınızda aşağı tutacaq: әvvәllәr günah işlәdәrәk batdıqları murdarlıq, әxlaqsızlıq vә pozğunluqdan tövbә etmәyәn bir çox adamlar üçün yas tutacağam. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Bu, yanınıza üçüncü gәlişim olacaq. &lt;&lt;Hәr iddia iki yaxud üç şahidin sözü ilә tәsdiq edilsin&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>İkinci dәfә yanınızda olanda keçmişdә günah işlәdәnlәrә xәbәr verdiyim kimi indi uzaqda olanda da onların vә başqalarının hamısına xәbәrdarlıq edirәm ki, yenә yanınıza gәlәndә onların heç birini cәzasız qoymayacağam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Mәsihin mәnim vasitәmlә danışdığına dair istәdiyiniz sübut budur. Mәsih aranızda zәifliklә deyil, qüdrәtlә fәaliyyәt göstәrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Çünki O, zәiflik içindә çarmıxa çәkildiyi halda Allahın qüdrәti ilә yaşayır. Biz dә Onda zәifik, amma sizin xeyriniz üçün Onunla bәrabәr Allahın qüdrәti ilә yaşayacağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Özünüzü yoxlayın vә iman yolunda olub-olmadığınızı bilmәk üçün sınaqdan keçirin. İsa Mәsihin daxilinizdә olduğunu başa düşmürsünüzmü? Yoxsa sınaqdan keçmirsiniz?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Ümidvaram, bizim sınaqdan keçdiyimizi başa düşәcәksiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Allaha dua edirik ki, pis iş görmәyәsiniz; bu bizim sınaqdan keçmәmizi göstәrmәk üçün deyil, sınaqdan keçmәyәnlәr kimi olsaq da, sizin yaxşılıq etmәniz üçündür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Çünki hәqiqәtә qarşı heç nә edә bilmәrik, nә etsәk, hәqiqәt uğrunda edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Biz zәif, sizsә güclü olanda sevinirik. Bәrpa olmanız üçün dua edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Bunları sizә uzaqdan yazıram ki, yanınızda olanda Rәbbin yıxmaq üçün deyil, inkişaf etdirmәk üçün mәnә verdiyi sәlahiyyәti sәrt şәkildә istifadә etmәyә mәcbur olmayım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Nәhayәt, ey qardaşlar, sevinin. Bәrpa olunun, tәsәlli tapın, hәmfikir olun, sülh içindә ömür sürün. Mәhәbbәt vә sülh qaynağı olan Allah sizinlә olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Bir-birinizi müqәddәs öpüşlә salamlayın. Bütün müqәddәslәr sizә salam göndәrir. </text>
+    <verse num="13" />
+    <text>Rәbb İsa Mәsihin lütfü, Allahın mәhәbbәti vә Müqәddәs Ruhun şәrikliyi hamınıza yar olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>The grace of the Lord Jesus Christ, the love of God and the fellowship of the Holy Spirit, be with you all. Amen. </text>
+  </block>
+  <UnappliedSplits />
+</book>

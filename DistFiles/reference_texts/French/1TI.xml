@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1TI" singlevoice="false" pageheader="1 TIMOTHY">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI">
+    <text>1 TIMOTHY</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Moi, Paul, je suis apôtre du Christ Jésus, parce que Dieu notre Sauveur et le Christ Jésus notre espérance m'en ont donné l'ordre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Timothée, c'est à toi que j'écris, toi qui es pour moi un vrai fils dans la foi. Que Dieu le Père et le Christ Jésus notre Seigneur te bénissent, qu'ils te montrent leur amour et te donnent la paix!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Comme je te l'ai demandé en partant pour la Macédoine, reste à Ephèse. Là-bas, certains chrétiens enseignent des erreurs. Interdis-leur de faire cela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>Qu'ils abandonnent les histoires fausses et les longues listes d'ancêtres! Cela soulève seulement des questions inutiles et ne sert pas le projet de Dieu, connu par la foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>L'ordre que je donne ici a pour but de faire grandir l'amour qui vient d'un cœur pur, d'une conscience bonne et d'une foi sincère.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>Certains ont quitté ce chemin, et ils se sont perdus dans des discussions qui ne mènent à rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Au sujet de la loi de Moïse, ils veulent être des maîtres, mais ils ne savent pas ce qu'ils disent. Ils ne connaissent pas ce qu'ils affirment avec tant de force.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>Oui, nous le savons, la loi de Moïse est bonne, si on s'en sert comme il faut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>Comprenons une chose: la loi n'est pas faite pour ceux qui sont fidèles à Dieu. Elle est faite pour ceux qui refusent d'obéir, pour les révoltés, pour les méchants et pour les pécheurs. La loi est pour ceux qui ne respectent pas Dieu ni les choses de Dieu, pour ceux qui tuent leur père ou leur mère, pour les assassins.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>La loi est pour les gens qui ont une vie immorale, pour les hommes qui couchent avec des jeunes gens, pour les marchands d'esclaves. La loi est aussi pour les menteurs et ceux qui font des serments faux. Elle est pour tous ceux qui agissent, d'une façon ou d'une autre, contre l'enseignement juste.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Cet enseignement se trouve dans la Bonne Nouvelle qui fait connaître le Dieu plein de gloire. Dieu, qui veut notre bonheur, m'a confié cette Bonne Nouvelle.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Je remercie le Christ Jésus notre Seigneur. Il m'a jugé digne de confiance en me prenant à son service et il m'a donné la force nécessaire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Pourtant, avant, je l'avais insulté, je l'avais fait souffrir, j'avais été violent. Mais Dieu a eu pitié de moi. J'agissais ainsi sans savoir ce que je faisais. En effet, je ne croyais pas au Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Mais la bonté de notre Seigneur pour moi a été immense: j'ai reçu la foi, et aussi l'amour qui vient du Christ Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>Voici une parole sûre, qui mérite d'être acceptée par tous: le Christ Jésus est venu dans le monde pour sauver les pécheurs. Et moi, je suis le premier des pécheurs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Mais Dieu a eu pitié de moi. Alors le Christ Jésus a pu montrer toute sa patience pour moi, le premier des pécheurs. C'est un exemple pour ceux qui croiront en lui et qui recevront la vie avec Dieu pour toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1TI">
+    <verse num="17" />
+    <text>Que tout le monde honore Dieu et lui rende gloire pour toujours. Il est le Roi qui vit sans fin, qui ne meurt pas, que personne ne voit, le Dieu unique! Amen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1TI">
+    <verse num="18" />
+    <text>Timothée, mon fils, voilà l'enseignement que je te confie. Il est en accord avec les paroles que des prophètes ont dites sur toi autrefois. Ces paroles te donneront du courage, et tu pourras mener le beau combat</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1TI">
+    <verse num="19" />
+    <text>avec foi et avec une conscience bonne. Quelques-uns ont refusé d'écouter leur conscience et ainsi ils ont perdu la foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1TI">
+    <verse num="20" />
+    <text>Parmi eux, il y a Himéné et Alexandre. Je les ai livrés à Satan. Ainsi, ils apprendront à ne plus insulter Dieu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Avant tout, je recommande ceci: il faut faire des demandes à Dieu, le prier, le supplier et le remercier pour tous les êtres humains.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Il faut prier pour ceux qui nous gouvernent et pour toutes les autorités. Alors nous pourrons mener une vie calme et tranquille en étant fidèles à Dieu et en nous conduisant bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Voilà ce qui est beau et ce qui plaît à Dieu notre Sauveur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>Il veut que tous soient sauvés et arrivent à connaître la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>En effet, il y a un seul Dieu. Il y a aussi un seul intermédiaire entre Dieu et les êtres humains: c'est un être humain, le Christ Jésus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>qui a donné sa vie pour libérer tous les humains. C'est là le témoignage que le Christ a donné au moment fixé par Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Et c'est à cause de ce témoignage que Dieu a fait de moi un messager et un apôtre. Il m'a chargé d'enseigner aux non-Juifs ce qu'il faut croire et ce qui est vrai. Je dis la vérité, je ne mens pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>Je veux donc que les hommes prient partout, en levant les mains vers le ciel. Ils doivent le faire avec un cœur pur, en abandonnant toute colère et toute dispute.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>Je veux aussi que les femmes s'habillent correctement. Elles doivent avoir une tenue digne et simple, sans coiffure compliquée. Elles ne doivent pas porter de bijoux en or, ni de perles ou d'habits trop chers.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>Mais elles doivent montrer leur beauté par leurs bonnes actions. Cela convient à des femmes qui affirment leur amour pour Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Pendant l'enseignement, les femmes doivent rester tranquilles en écoutant avec respect.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Je ne leur permets pas d'enseigner ni de dire aux hommes ce qu'ils doivent faire. Elles doivent donc garder le silence.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>En effet, Dieu a d'abord fait Adam, ensuite il a fait Eve.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Et ce n'est pas Adam qui s'est laissé tromper, c'est la femme: elle s'est laissée tromper, puis elle a désobéi à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>Pourtant, elle sera sauvée en ayant des enfants, mais à une condition: elle doit garder fidèlement la foi et l'amour et mener une vie simple qui plaît à Dieu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Voici une parole sûre: si quelqu'un veut être un des principaux responsables de l'Eglise, il désire une belle fonction.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Alors il faut que ce responsable soit sans défaut. Il doit s'être marié une seule fois, être sobre, raisonnable et correct. Il doit bien recevoir les gens qui viennent chez lui. Il faut qu'il soit capable d'enseigner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Il ne doit pas être buveur ni violent, mais doux et calme. Qu'il n'aime pas l'argent!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>Il doit bien diriger sa famille et avoir des enfants qui obéissent avec respect.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>Si quelqu'un ne sait pas diriger sa famille, comment peut-il s'occuper de l'Eglise de Dieu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>Le responsable ne doit pas être un nouveau chrétien, sinon l'orgueil peut le rendre aveugle. Et il risque d'être condamné comme l'esprit du mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Il faut aussi que les non-chrétiens pensent du bien de ce responsable. Alors personne ne dira de mal de lui, et il ne tombera pas dans les pièges de l'esprit du mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>Il faut aussi que les diacres soient des hommes respectables et sincères. Ils ne doivent pas boire trop de vin, ni chercher à gagner de l'argent de façon malhonnête.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>Il faut qu'ils gardent la vérité de la foi avec une conscience pure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>On doit d'abord les examiner. Ensuite, si on n'a rien à leur reprocher, ils pourront servir comme diacres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Les femmes qui sont diacres doivent aussi être respectables. Elles ne doivent pas dire du mal des autres, elles doivent être sobres et dignes de confiance en toutes choses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Les diacres doivent s'être mariés une seule fois. Il faut qu'ils dirigent bien leurs enfants et leur famille.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Oui, ceux qui font bien leur travail de diacre seront honorés. Ils auront beaucoup d'assurance, parce qu'ils croient au Christ Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Je t'écris tout cela en espérant aller te voir bientôt.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>Mais si je n'arrive pas tout de suite, tu sauras par cette lettre comment te conduire dans la famille de Dieu. Cette famille, c'est l'Eglise du Dieu vivant, qui soutient et protège la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Oui, c'est sûr, elle est grande, la connaissance mystérieuse que la foi nous donne: Le Christ s'est montré en devenant un homme, et il était juste, l'Esprit Saint l'a prouvé. Il a été vu par les anges et on l'a fait connaître chez tous les peuples. Sur la terre, on a cru en lui, et dans le ciel, il a reçu la gloire de Dieu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>L'Esprit Saint le dit clairement: dans les derniers temps, certains abandonneront la foi. Ils suivront les idées fausses, et les enseignements qui viennent des esprits mauvais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Des gens faux et menteurs les tromperont par leurs paroles. Ces gens-là ont une conscience marquée par l'erreur comme au fer rouge.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Ils interdiront le mariage, ils interdiront aussi de manger certains aliments. Pourtant, c'est Dieu qui a créé ces aliments. Les croyants qui connaissent la vérité peuvent donc les manger en lui disant merci.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>Oui, tout ce que Dieu a créé est bon. Rien n'est à rejeter, mais il faut tout prendre en remerciant Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>En effet, la parole de Dieu et la prière font que ces choses deviennent agréables à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>Enseigne tout cela aux frères et sœurs chrétiens. Alors tu seras un bon serviteur du Christ Jésus, tu montreras que tu es nourri des paroles de la foi et de l'enseignement juste. Cet enseignement, tu l'as suivi fidèlement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Mais rejette les histoires fausses et contraires à la foi. Entraîne-toi plutôt à rester fidèle à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>L'entraînement du corps est utile, mais à peu de chose. Au contraire, la fidélité à Dieu est utile à tout. En effet, à celui qui est fidèle à Dieu, la vie est promise pour maintenant et pour plus tard.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>C'est là une parole sûre, qui mérite d'être reçue par tous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>Oui, nous travaillons durement et nous combattons, parce que nous avons mis notre espérance dans le Dieu vivant. Il est le Sauveur de tous, surtout de ceux qui croient.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Voilà ce que tu dois commander et enseigner. L'exemple à donner aux croyants</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Personne ne doit te mépriser parce que tu es jeune. Mais toi, montre l'exemple aux croyants, par tes paroles, ta vie, ton amour, ta foi, ta pureté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>En attendant ma venue, applique-toi à lire les Livres Saints aux chrétiens, à les encourager, à les enseigner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>N'oublie pas le don de l'Esprit Saint qui est en toi. Tu l'as reçu quand les prophètes ont parlé et quand le groupe des anciens a posé les mains sur ta tête.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>Fais tout cela avec grand soin, donne-toi à ce travail entièrement, alors tous verront tes progrès.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Fais attention à ta façon de vivre et à ton enseignement. Reste fidèle dans tout cela. Oui, si tu agis ainsi, tu te sauveras toi-même, ainsi que ceux qui t'écoutent. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Ne parle pas durement à un homme âgé. Mais donne-lui des conseils comme s'il était ton père. Conseille les jeunes gens comme des frères,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>les femmes âgées comme des mères. Conseille aussi les jeunes femmes comme des sœurs, en toute pureté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Prends soin des veuves, de celles qui sont vraiment seules.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>Mais si une veuve a des enfants ou des petits-enfants, il faut qu'ils apprennent ceci: c'est d'abord eux qui doivent s'occuper de leur famille. De cette façon, ils rendront à leurs parents et à leurs grands-parents ce qu'ils ont reçu d'eux. Voilà ce qui plaît à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>La veuve qui n'a personne pour s'occuper d'elle, et qui reste complètement seule, a mis sa confiance en Dieu. Jour et nuit, elle prie et supplie Dieu sans cesse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>Mais la veuve qui cherche seulement son plaisir, elle est déjà morte, même si elle paraît vivante.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Voilà aussi ce que tu dois rappeler aux veuves, pour qu'on n'ait rien à leur reprocher.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>Si quelqu'un ne s'occupe pas de sa famille, surtout de ses parents les plus proches, il a rejeté la foi, il est plus mauvais qu'un incroyant.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>Au groupe des veuves, inscris seulement une femme qui a au moins 60 ans. Elle doit s'être mariée une seule fois.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>Il faut qu'on la connaisse pour tout ce qu'elle a fait de bien: elle a élevé ses enfants, elle a bien reçu ceux qui venaient chez elle, elle a lavé les pieds des chrétiens, elle a aidé les malheureux, elle a fait toutes sortes de bonnes actions.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Mais n'inscris pas les veuves qui sont jeunes. En effet, quand leurs désirs les éloignent du Christ, elles veulent se remarier.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Alors elles sont coupables, parce qu'elles ne sont pas fidèles à la promesse qu'elles ont faite au Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Comme elles n'ont rien à faire, elles prennent l'habitude d'aller de maison en maison. Non seulement elles ne font rien, mais encore elles bavardent. Elles s'occupent de ce qui ne les regarde pas, elles disent n'importe quoi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Je veux donc que les jeunes veuves se remarient, qu'elles aient des enfants, qu'elles dirigent leur maison. Alors, elles ne donneront pas à nos ennemis l'occasion de dire du mal de nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>En effet, il y a déjà quelques veuves qui se sont perdues en suivant Satan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Quand une femme croyante a des veuves dans sa famille, elle doit les aider. Ainsi, l'Eglise n'aura pas à s'en charger et elle pourra aider les veuves qui sont vraiment seules.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1TI">
+    <verse num="17" />
+    <text>Quand les anciens dirigent bien l'Eglise, ils méritent de recevoir un salaire double. Ils le méritent surtout quand ils travaillent durement au service de la Parole et pour enseigner. </text>
+    <verse num="18" />
+    <text>En effet, les Livres Saints le disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;Quand le bœuf travaille pendant la récolte, ne l'empêche pas de manger les épis.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TI">
+    <text>Et encore:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;L'ouvrier doit recevoir un salaire.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI">
+    <verse num="19" />
+    <text>Il faut deux ou trois témoins pour accuser un ancien. Sinon, n'accepte pas qu'on l'accuse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1TI">
+    <verse num="20" />
+    <text>Fais des reproches devant tout le monde à ceux qui commettent des péchés. Alors les autres aussi auront peur de mal faire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TI">
+    <verse num="21" />
+    <text>Voici ce que je te demande avec force devant Dieu, devant le Christ Jésus, et devant les anges de Dieu: respecte tout cela sans être injuste, sans faire de différence entre les gens.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI">
+    <verse num="22" />
+    <text>Ne te presse pas de poser les mains sur la tête de quelqu'un. Ne participe pas aux péchés des autres. Toi-même, garde-toi pur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI">
+    <verse num="23" />
+    <text>Ne bois pas seulement de l'eau. Prends un peu de vin à cause de ton estomac, puisque tu es souvent malade.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI">
+    <verse num="24" />
+    <text>On s'aperçoit tout de suite des péchés de certaines personnes avant même de les juger. Au contraire, chez d'autres, on s'en aperçoit seulement plus tard.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI">
+    <verse num="25" />
+    <text>Les bonnes actions, elles aussi, se voient tout de suite. Même celles qu'on ne voit pas tout de suite ne peuvent pas rester cachées. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-1TI">
+    <verse num="1" />
+    <text>Tous ceux qui sont esclaves doivent penser ceci: leurs maîtres sont dignes d'un grand respect. Alors on ne se moquera pas du nom de Dieu ni de notre enseignement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1TI">
+    <verse num="2" />
+    <text>Les esclaves qui ont des maîtres croyants sont leurs frères. Mais ce n'est pas une raison pour que ces esclaves leur manquent de respect. Au contraire, ils doivent les servir encore mieux. En effet, ces maîtres qui profitent de leurs services sont des croyants aimés de Dieu. Voilà ce que tu dois enseigner et recommander.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI">
+    <verse num="3" />
+    <text>Il y a des gens qui enseignent des erreurs. Ils ne suivent pas les vraies paroles de notre Seigneur Jésus-Christ, ni l'enseignement qui va avec notre foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1TI">
+    <verse num="4" />
+    <text>Ce sont des gens que l'orgueil rend aveugles. Ce sont des ignorants, des malades qui discutent et se battent sur des mots. Cela provoque des jalousies, des disputes, des insultes, des soupçons méchants,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1TI">
+    <verse num="5" />
+    <text>des discussions sans fin entre personnes qui ont l'intelligence tordue. Ils ne voient plus la vérité. Ils pensent que la foi en Dieu est un moyen pour devenir riches.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1TI">
+    <verse num="6" />
+    <text>C'est vrai, la foi en Dieu est une grande richesse, à une condition: il faut se contenter de ce qu'on a.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI">
+    <verse num="7" />
+    <text>Nous n'avons rien apporté sur cette terre, et nous ne pouvons rien emporter non plus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-1TI">
+    <verse num="8" />
+    <text>Alors, si nous avons de quoi manger et nous habiller, cela doit nous suffire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1TI">
+    <verse num="9" />
+    <text>Mais ceux qui veulent devenir riches tombent dans la tentation. De nombreux désirs stupides et dangereux les prennent au piège. Ils conduisent les gens vers la mort et les détruisent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1TI">
+    <verse num="10" />
+    <text>Oui, la racine de tous les malheurs, c'est l'amour de l'argent. Plusieurs l'ont trop cherché, c'est pourquoi ils se sont perdus loin de la foi. Ils ont beaucoup souffert, et c'est leur faute.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-1TI">
+    <verse num="11" />
+    <text>Mais toi, homme de Dieu, évite ces choses-là. Cherche à être juste, sois fidèle à Dieu. Vis avec foi, amour, patience et douceur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1TI">
+    <verse num="12" />
+    <text>Combats le beau combat au service de la foi, afin de vivre avec Dieu pour toujours. C'est pour cette vie qu'il t'a appelé. Tu as reconnu cela le jour où tu as affirmé clairement ta foi devant beaucoup de témoins.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1TI">
+    <verse num="13" />
+    <text>Et maintenant, je te donne un ordre en présence de Dieu, qui donne la vie à toutes choses. Je le fais aussi en présence du Christ Jésus qui a rendu un beau témoignage devant Ponce Pilate.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1TI">
+    <verse num="14" />
+    <text>Garde le commandement que tu as reçu, en restant sans tache et sans défaut, jusqu'au jour où notre Seigneur Jésus-Christ paraîtra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1TI">
+    <verse num="15" />
+    <text>C'est Dieu qui fera paraître le Christ au moment qu'il a fixé. Il est la source du bonheur et le seul maître de tout, le Roi des rois et le Seigneur des seigneurs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1TI">
+    <verse num="16" />
+    <text>Il est le seul qui ne meurt pas. Il habite une lumière que nous ne pouvons pas atteindre. Personne ne l'a vu, personne ne peut le voir. A lui honneur et puissance pour toujours! Amen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1TI">
+    <verse num="17" />
+    <text>Recommande aux riches de ce monde de ne pas être orgueilleux. Qu'ils ne mettent pas leur confiance dans une richesse qui ne dure pas, mais qu'ils la mettent en Dieu. C'est lui qui nous donne toutes choses généreusement pour que nous en profitions.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1TI">
+    <verse num="18" />
+    <text>Dis-leur de faire le bien, d'être riches en actions bonnes. Qu'ils donnent de bon cœur et partagent avec les autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1TI">
+    <verse num="19" />
+    <text>Ainsi ils mettront en réserve pour l'avenir un trésor beau et solide et ils pourront posséder la vraie vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1TI">
+    <verse num="20" />
+    <text>Timothée, garde fidèlement ce que Dieu t'a confié. Evite les discours creux et contraires à la foi, les critiques présentées par une fausse connaissance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-1TI">
+    <verse num="21" />
+    <text>Certains ont cru posséder cette connaissance et ils se sont éloignés de la foi. Que l'amour de Dieu soit avec vous! </text>
+  </block>
+  <UnappliedSplits />
+</book>

@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2CO" singlevoice="false" pageheader="2 CORINTHIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2CO">
+    <text>2 CORINTHIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Moi, Paul, je suis apôtre du Christ Jésus parce que Dieu l'a voulu. Avec Timothée notre frère, j'écris à l'Eglise de Dieu qui est à Corinthe. J'écris aussi à tous ceux qui appartiennent à Dieu, et qui se trouvent dans l'Akaïe entière.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Que Dieu notre Père et le Seigneur Jésus-Christ vous bénissent et vous donnent la paix!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Rendons gloire à Dieu, le Père de notre Seigneur Jésus-Christ! Il est le Père plein de bonté et le Dieu qui nous encourage toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Il nous donne du courage dans toutes nos souffrances. Ainsi, il nous rend capables d'encourager tous ceux qui souffrent, et nous leur donnons le courage que nous-mêmes, nous recevons de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>En effet, comme nous participons aux nombreuses souffrances du Christ, de la même façon, nous recevons beaucoup d'encouragements par le Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Si nous souffrons, c'est pour vous encourager et pour que vous soyez sauvés. Si nous sommes encouragés, c'est pour vous encourager à supporter les mêmes souffrances que nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Nous sommes vraiment pleins de confiance quand nous pensons à vous. En effet, vous participez à nos souffrances, mais nous le savons, vous participez en même temps à l'encouragement que nous recevons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Oui, frères et sœurs chrétiens, nous voulons vous faire connaître ceci: dans la province d'Asie, nous avons supporté de grandes souffrances. Leur poids était très lourd, il a dépassé nos forces, nous avons même cru mourir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Nous étions sûrs d'être condamnés à mort. Ainsi, nous ne pouvions plus mettre notre confiance en nous-mêmes, nous devions mettre notre confiance en Dieu, qui réveille les morts.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>C'est Dieu qui nous a délivrés de ce danger de mort et il nous délivrera encore. Oui, nous avons confiance en lui, il nous délivrera encore.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Vous aussi, vous nous aidez en priant pour nous. Ainsi, nous recevrons de Dieu des bienfaits, grâce aux prières de beaucoup de personnes. C'est pourquoi beaucoup aussi pourront remercier Dieu pour nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Voici pourquoi nous sommes fiers, et notre conscience en est témoin: nous avons agi simplement et sincèrement avec tout le monde et surtout avec vous. Cela nous venait de Dieu, c'est la bonté de Dieu qui nous guidait, et non la sagesse humaine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Nous vous écrivons pour vous seulement ce que nous savons que vous pouvez comprendre. J'espère que vous ubnderstand tout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Quand Jésus reviendra, vous serez aussi fiers de nous car nous sommes de vous. En ce moment vous ne nous comprennent pas très bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>J'étais sûr de cela, c'est pourquoi je voulais passer d'abord chez vous, pour vous donner de la joie deux fois.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>De chez vous, je voulais aller en Macédoine, et à mon retour de Macédoine, je voulais revenir chez vous, pour que vous me donniez les moyens d'aller en Judée.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Quand j'ai décidé cela, est-ce que j'ai agi sans réfléchir? Ou bien, quand je prends une décision, est-ce que je fais seulement ma volonté en disant à la fois &lt;&lt;oui&gt;&gt; et &lt;&lt;non&gt;&gt;?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Dieu lui-même le sait bien: ce que nous vous disons, ce n'est pas à la fois &lt;&lt;oui&gt;&gt; et &lt;&lt;non&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Silas, Timothée et moi, nous vous avons annoncé le Fils de Dieu, Jésus le Christ. Eh bien, Jésus n'a pas été &lt;&lt;oui&gt;&gt; et &lt;&lt;non&gt;&gt;, mais il a toujours été &lt;&lt;oui&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>En effet, Jésus, est le &lt;&lt;oui&gt;&gt; à tout ce que Dieu a promis. C'est donc aussi par Jésus que nous disons notre &lt;&lt;oui&gt;&gt; à Dieu pour lui rendre gloire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Et c'est Dieu lui-même qui nous rend forts avec vous, pour le Christ. C'est lui qui nous a mis à part,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-2CO">
+    <verse num="22" />
+    <text>qui a posé sa marque sur nous. Il a mis l'Esprit Saint dans nos cœurs, et cet Esprit est la première part des biens qu'il va nous donner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO">
+    <verse num="23" />
+    <text>Je prends Dieu comme témoin, je dis la vérité. Plutôt mourir que mentir! Je ne suis pas revenu à Corinthe, parce que je n'ai pas voulu vous faire de la peine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-2CO">
+    <verse num="24" />
+    <text>Nous ne cherchons pas à vous dire ce que vous devez croire. En effet, votre foi est solide, mais nous souhaitons travailler avec vous à votre joie. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Voici ce que j'ai décidé: je ne reviendrai pas chez vous, si cela doit vous rendre tristes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Si moi, je vous rends tristes, qui peut encore me donner de la joie? Est-ce que ce n'est pas justement celui que j'ai rendu triste?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>A mon arrivée chez vous, certains risquaient de me rendre triste. Pourtant, c'est eux qui devaient me donner de la joie. C'est la raison pour laquelle je vous ai écrit. J'en suis sûr: quand je suis joyeux, vous pouvez être joyeux, vous aussi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Oui, je vous ai écrit en pleurant beaucoup, j'avais le cœur plein de tristesse et d'inquiétude. Pourtant, je n'ai pas écrit pour vous rendre tristes, je l'ai fait pour vous montrer l'amour très grand que j'ai pour vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Si quelqu'un a causé de la tristesse, ce n'est pas à moi. C'est plutôt à vous tous qu'il en a causé. Mais il ne faut pas exagérer l'affaire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Pour cet homme-là, les reproches de la communauté suffisent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>C'est pourquoi, maintenant, vous devez plutôt lui pardonner et l'encourager, sinon, une tristesse trop grande risque de le décourager complètement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Alors je vous le demande, montrez-lui que vous l'aimez.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>En effet, voici pourquoi je vous ai écrit: je voulais voir si vous étiez prêts à obéir en toutes choses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Quand vous pardonnez à quelqu'un, moi aussi, je lui pardonne. Quand je pardonne, si toutefois j'ai quelque chose à pardonner, je pardonne à cause de vous en présence du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>De cette façon, Satan ne nous trompe pas. Oui, nous connaissons bien ses intentions.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Je suis arrivé à Troas pour annoncer la Bonne Nouvelle du Christ, car le Seigneur me donnait l'occasion de pouvoir travailler là.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Pourtant, j'étais très inquiet, parce que je n'avais pas trouvé Tite, mon frère. C'est pourquoi j'ai dit au revoir aux gens de Troas et je suis parti pour la Macédoine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Remercions Dieu! Par le Christ, il nous emmène toujours dans le défilé qui fête sa victoire, et il se sert de nous pour faire connaître le Christ en tout lieu. C'est comme une bonne odeur qui se répand partout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Oui, nous sommes comme un parfum agréable que le Christ offre à Dieu. Ce parfum est pour ceux que Dieu sauve, il est aussi pour ceux qui perdent leur vie loin de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Pour ceux qui se perdent, c'est une odeur de mort qui donne la mort. Pour les autres, c'est une odeur de vie qui donne la vie. Mais qui est capable de faire un tel travail?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Nous ne sommes pas comme beaucoup de gens qui font du commerce avec la parole de Dieu. Nous, nous disons la vérité de la part de Dieu, devant Dieu, comme des serviteurs du Christ. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Est-ce que nous devons recommencer à nous mettre en avant? Certains ont besoin de vous montrer des lettres de recommandation ou de vous en demander. Est-ce que nous en avons besoin aussi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Notre lettre, c'est vous. Elle est écrite dans nos cœurs, tout le monde la connaît et la lit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Oui, c'est clair, le Christ lui-même a écrit cette lettre, et c'est nous qui l'avons apportée. Elle n'est pas écrite avec de l'encre, mais avec l'Esprit du Dieu vivant. Elle n'est pas gravée dans la pierre, mais elle est gravée dans des cœurs humains.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Devant Dieu, nous sommes sûrs de cela, à cause du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Nous ne pensons pas que nous sommes capables de faire quelque chose tout seuls, mais c'est Dieu qui nous a rendus capables de faire ce que nous faisons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>C'est lui qui nous a rendus capables d'être les serviteurs d'une alliance nouvelle. Cette alliance ne dépend pas de la loi écrite, mais de l'Esprit Saint. La loi écrite donne la mort, mais l'Esprit Saint donne la vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Les paroles de cette loi étaient gravées dans la pierre, et Moïse était au service de cette loi qui donne la mort. Malgré cela, ce service lui donnait une grande gloire. Et à cause de la gloire qui brillait sur son visage, les Israélites ne pouvaient pas le regarder. Pourtant, cette gloire ne durait pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Mais le service de l'Esprit Saint donnera une gloire encore plus grande.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Le service de la loi qui condamne à mort était déjà plein de gloire. Alors le service de l'Esprit qui rend juste donnera encore beaucoup plus de gloire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Ainsi, devant cette gloire extraordinaire, la gloire qui a brillé autrefois n'est plus rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Les choses qui ne durent pas étaient pleines de gloire. Alors les choses qui durent seront encore beaucoup plus glorieuses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Avec cette espérance, nous sommes pleins de confiance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Nous ne faisons pas comme Moïse qui mettait un voile sur son visage. De cette façon, les Israélites ne pouvaient pas voir la fin d'une gloire qui ne durait pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Mais leur intelligence s'est fermée, et jusqu'à aujourd'hui, quand ils lisent les livres de l'ancienne alliance, le même voile est encore là. Non, il n'est pas enlevé, sauf pour celui qui est uni au Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>En effet, jusqu'à aujourd'hui, chaque fois que les Israélites lisent les livres de Moïse, un voile couvre leur cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Mais chaque fois que les gens se tournent vers le Seigneur, le voile tombe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Le Seigneur ici, c'est l'Esprit Saint. Et quand l'Esprit du Seigneur est présent, la liberté est là.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Notre visage à nous tous est sans voile, et la gloire du Seigneur se reflète sur nous, comme dans un miroir. Alors le Seigneur, qui est l'Esprit, nous transforme. Il nous rend semblables à lui, avec une gloire toujours plus grande. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Dieu, dans sa bonté, nous a confié ce service, c'est pourquoi nous ne sommes pas découragés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Nous avons rejeté les moyens malhonnêtes qu'on utilise en se cachant. Nous agissons honnêtement et nous ne déformons pas la parole de Dieu. Au contraire, nous montrons clairement la vérité, et ainsi, nous faisons appel à la conscience de tous devant Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Pourtant, notre Bonne Nouvelle reste cachée pour certains, pour ceux qui perdent leur vie loin de Dieu</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>et qui ne croient pas. Le dieu mauvais de ce monde a rendu leur intelligence aveugle. Alors ils ne voient pas briller la lumière qui est dans la Bonne Nouvelle. C'est la lumière de la gloire du Christ, lui qui est l'image de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Non, ce que nous annonçons, ce n'est pas nous-mêmes, mais Jésus-Christ le Seigneur. Et nous, nous sommes vos serviteurs à cause de Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Dieu a dit: &lt;&lt;Que la lumière brille au milieu de l'obscurité!&gt;&gt; Et c'est lui-même qui a brillé dans nos cœurs. Il a voulu nous éclairer, en nous faisant connaître sa gloire, qui brille sur le visage du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Mais nous qui portons ce trésor, nous sommes comme des plats en argile. Ainsi, on voit bien que cette puissance extraordinaire vient de Dieu, et non de nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Les gens nous attaquent de tous côtés, mais nous ne sommes pas écrasés. Ils nous font beaucoup de difficultés, mais nous ne sommes pas abattus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Ils nous font souffrir, mais Dieu ne nous abandonne pas. Ils nous jettent par terre, mais nous ne sommes pas tués.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Nous portons toujours la mort de Jésus dans notre corps, alors on peut voir aussi la vie de Jésus dans notre corps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Nous sommes vivants, mais nous risquons sans arrêt la mort à cause de Jésus. Ainsi on peut voir aussi la vie de Jésus dans notre corps qui doit mourir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>De cette façon, la mort agit en nous, mais la vie agit en vous. </text>
+    <verse num="13" />
+    <text>Les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;J'ai cru, c'est pourquoi j'ai parlé.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2CO">
+    <text>La même foi nous fait agir. Nous croyons, nous aussi, et c'est pourquoi nous parlons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Oui, nous le savons: Dieu a réveillé le Seigneur Jésus de la mort. Il nous réveillera, nous aussi, avec Jésus et il nous placera avec vous, auprès de lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Tout ce qui arrive, c'est pour vous. De cette façon, puisque les bienfaits de Dieu se répandent de plus en plus, vous serez toujours plus nombreux à le remercier et à lui rendre gloire tous ensemble.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>C'est pourquoi nous ne sommes pas découragés. Et même si notre corps s'use petit à petit, ce qui est au fond de nous devient chaque jour nouveau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Oui, nos souffrances actuelles sont légères et durent peu de temps, mais elles nous préparent une gloire extraordinaire. Cette gloire dure toujours et elle est beaucoup plus grande que nos souffrances.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Nous, nous ne cherchons pas ce qu'on peut voir, nous cherchons les choses qu'on ne voit pas. En effet, ce qu'on peut voir ne dure pas longtemps, mais les choses qu'on ne voit pas durent toujours. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Sur la terre, nous habitons dans un corps. Il est comme une tente qui sera détruite un jour. Mais nous le savons, dans les cieux, nous avons une maison qui dure toujours. C'est Dieu qui l'a faite, ce ne sont pas les hommes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Et maintenant, nous gémissons, nous cherchons de toutes nos forces à mettre sur nous cet autre vêtement, notre maison du ciel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>En effet, si cette maison du ciel nous couvre, Dieu ne nous trouvera pas nus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Pendant que nous habitons notre tente de la terre, nous gémissons comme sous une charge trop lourde. C'est vrai, nous ne voulons pas quitter notre corps. Mais nous voulons mettre sur lui le vêtement du ciel pour que la vie transforme ce qui doit mourir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Celui qui nous a préparés pour cette vie-là, c'est Dieu. Il nous a donné l'Esprit Saint, comme première part des biens que nous allons recevoir de lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Donc, nous sommes toujours pleins de courage. Mais nous le savons, pendant que nous habitons dans notre corps, nous habitons loin du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>En effet, nous vivons dans la foi et nous ne voyons encore rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Oui, nous sommes pleins de courage et nous aimons mieux quitter ce corps pour aller habiter près du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Mais ce que nous voulons avant tout, c'est lui plaire, soit en restant dans ce corps, soit en le quittant.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Nous devrons tous nous présenter devant le tribunal du Christ. Alors chacun recevra ce qui lui revient pour ce qu'il aura fait en bien ou en mal, pendant sa vie sur la terre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Respecter Dieu avec confiance, nous savons ce que cela veut dire. C'est pourquoi nous cherchons à persuader les gens. Dieu nous connaît parfaitement, et j'espère que vous aussi, au fond de vos cœurs, vous nous connaissez parfaitement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Nous n'allons pas chercher encore une fois à nous mettre en avant, mais nous voulons vous donner l'occasion d'être fiers de nous. Alors vous pourrez répondre à ceux qui se vantent pour des choses visibles, et non pour ce qui est dans le cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Si nous avons été fous, c'est pour Dieu. Si nous sommes raisonnables, c'est pour vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>L'amour du Christ remplit notre cœur quand nous pensons à ceci : un seul homme est mort pour tous, c'est le Christ, donc, tous participent à sa mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Il est mort pour tous, ainsi les vivants ne vivent plus pour eux-mêmes. Ils vivent pour le Christ qui est mort pour eux et qui, pour eux, s'est réveillé de la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>C'est pourquoi, maintenant, nous ne connaissons plus personne d'une façon humaine. Si nous avons connu le Christ de cette façon, maintenant, ce n'est plus ainsi que nous le connaissons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Alors, si quelqu'un est uni au Christ, il est créé à nouveau. Ce qui est ancien est fini, ce qui est nouveau est là.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Tout cela vient de Dieu. Il nous a réconciliés avec lui par le Christ et il nous a demandé d'annoncer cette réconciliation.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Oui, c'est Dieu qui a réconcilié le monde avec lui, par le Christ. Il ne tient plus compte des fautes des êtres humains et il nous charge d'annoncer cette parole de réconciliation.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>C'est donc de la part du Christ que nous prenons la parole. En réalité, par nous, c'est Dieu lui-même qui vous lance un appel: au nom du Christ, acceptez d'être réconciliés avec Dieu. Cela, nous vous le demandons avec force.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Le Christ était sans péché, mais Dieu l'a chargé de notre péché. Alors maintenant, par le Christ, Dieu nous a rendus justes. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Nous qui travaillons avec Dieu, nous vous le demandons: ne gaspillez pas les dons que vous avez reçus de lui. </text>
+    <verse num="2" />
+    <text>En effet, Dieu a dit:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+    <text>&lt;&lt;Au bon moment, j'ai entendu ta prière. Quand le jour du salut est arrivé, je suis venu à ton secours.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-2CO">
+    <text>Eh bien, maintenant, c'est vraiment le bon moment, maintenant, c'est le jour où Dieu nous sauve.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Nous ne voulons pas que les gens critiquent notre travail. C'est pourquoi nous essayons de ne pas mettre d'obstacles sur leur chemin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Au contraire, nous montrons en toutes choses que nous sommes serviteurs de Dieu. Ainsi, nous supportons avec beaucoup de patience les malheurs, les souffrances, la peur,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>les coups, les prisons, les attaques de la foule. Nous supportons toutes sortes de fatigues, le manque de sommeil, la faim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Nous menons une vie pure, nous montrons que nous connaissons les choses de Dieu. Nous sommes patients, nous sommes bons. L'Esprit Saint est avec nous. Nous aimons sincèrement,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>nous annonçons la vérité, et Dieu nous donne sa force pour cela. Nous prenons comme arme ce qui est juste, pour attaquer ou pour nous défendre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Les gens nous mettent à l'honneur et ils nous couvrent de honte. Ils disent du mal de nous et aussi du bien. Ils nous prennent pour des menteurs, pourtant, nous disons la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Ils nous traitent comme des inconnus, et pourtant, on nous connaît bien. Ils nous considèrent comme des mourants, et pourtant, nous sommes bien vivants. Ils nous punissent, mais sans nous tuer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Ils nous rendent tristes, et pourtant nous sommes toujours joyeux. Ils croient que nous sommes pauvres, pourtant, nous rendons les autres riches. Ils croient que nous n'avons rien, pourtant, nous possédons tout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Amis de Corinthe, nous vous avons parlé librement, nous vous avons ouvert notre cœur largement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Il n'est pas fermé pour vous, ce sont vos cœurs qui sont fermés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Je vous parle comme un père à ses enfants. Faites comme nous: ouvrez votre cœur largement, vous aussi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>N'allez pas avec ceux qui ne croient pas en Dieu, vous ne pouvez pas vivre ensemble. Ce qui est juste et ce qui est contraire à Dieu, est-ce que cela va ensemble? Est-ce que la lumière va avec la nuit?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Est-ce que le Christ peut être d'accord avec Satan? Est-ce qu'un croyant peut aller avec celui qui ne croit pas en Dieu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Qu'est-ce qu'il y a de commun entre la maison de Dieu et les faux dieux? Nous, nous sommes la maison du Dieu vivant. Dieu l'a dit:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
+    <text>&lt;&lt;Je vais habiter et vivre au milieu d'eux. Je serai leur Dieu, et ils seront mon peuple.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
+    <verse num="17" />
+    <text>C'est pourquoi le Seigneur Dieu dit: &lt;&lt;Quittez ces gens-là et allez loin d'eux! Ne touchez pas à ce qui est impur, et moi, je vous accueillerai.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="18" />
+    <text>Le Seigneur tout-puissant dit encore: &lt;&lt;Je serai pour vous un père, et vous serez pour moi des fils et des filles.&gt;&gt; </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Amis très chers, ces promesses sont pour vous. Alors lavons-nous de tout ce qui abîme notre corps et notre cœur. Cherchons à être parfaitement saints en respectant Dieu avec confiance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Faites-nous une place dans vos cœurs. Nous n'avons été injustes envers personne, nous n'avons détruit la foi de personne, nous n'avons profité de personne.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Je ne dis pas cela pour vous condamner. Je l'ai déjà dit: vous êtes dans nos cœurs, et nous sommes toujours ensemble, morts ou vivants.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>J'ai une grande confiance en vous, je suis très fier de vous. Je suis plein de courage, je suis rempli d'une très grande joie, malgré toutes nos souffrances.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>En effet, quand nous sommes arrivés en Macédoine, nous n'avons pas eu de repos. Au contraire, nous avons rencontré toutes sortes de difficultés: des luttes autour de nous, et la peur dans notre cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Mais Dieu, qui donne du courage à ceux qui sont découragés, nous a consolés par l'arrivée de Tite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Ce n'est pas seulement l'arrivée de Tite qui nous a consolés, c'est aussi l'encouragement que vous lui avez donné. Il nous a dit que vous aviez très envie de me voir. Il nous a parlé de votre tristesse, de votre ardeur à me défendre. Alors ma joie a été encore plus grande.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Si mon autre lettre vous a rendus tristes, je ne le regrette pas. Oui, je le sais bien, cette lettre vous a rendus tristes pendant un certain temps. Je l'ai peut-être regretté,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>mais maintenant, je suis dans la joie. Ce n'est pas à cause de votre tristesse, mais parce que cette tristesse a changé votre cœur. Elle a plu à Dieu, et ainsi, nous ne vous avons fait aucun mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>En effet, la tristesse qui plaît à Dieu change notre cœur. De cette façon, nous pouvons être sauvés et nous n'avons pas à regretter cette tristesse. Mais la tristesse qui ne change pas le cœur produit la mort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Votre tristesse a plu à Dieu. Regardez maintenant les résultats! Mais oui, quelle rapidité pour agir, quelles excuses! Quels regrets! Quelle peur de mal faire! Quelle envie de me revoir! Quelle ardeur! Quelle volonté de punir le coupable! En tout cas, dans cette affaire, vous avez montré que vous étiez innocents.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Ainsi, je ne vous ai pas écrit à cause de celui qui vous a fait du mal. Je ne vous ai pas écrit non plus à cause de celui qui a supporté ce mal. Mais j'ai voulu vous montrer devant Dieu que vous étiez prêts à agir activement pour nous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Voilà ce qui nous a encouragés. En plus de cet encouragement, nous avons été encore plus heureux à cause de la joie de Tite. Oui, vous tous, vous l'avez rassuré.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Devant lui, c'est vrai, je me suis montré assez fier de vous, mais je n'en ai pas honte. Nous vous avons toujours dit la vérité, et cela prouve une chose: j'ai eu raison de me vanter à votre sujet devant Tite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Il se rappelle combien vous étiez tous prêts à obéir, et comment vous l'avez reçu avec grand respect et en tremblant. C'est pourquoi son amour pour vous est encore plus grand.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Je suis heureux de pouvoir compter sur vous pour tout. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Frères et sœurs chrétiens, nous voulons vous faire connaître ceci: Dieu a montré ses bienfaits dans les Eglises de Macédoine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Beaucoup de souffrances les ont mises à l'épreuve, mais elles sont restées très joyeuses. Et elles ont donné beaucoup, sans compter, malgré leur très grande pauvreté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Les chrétiens ont donné ce qu'ils pouvaient, et même plus que cela, j'en suis témoin. Ils l'ont fait, et pourtant, on ne leur a rien demandé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Ils nous ont réclamé de pouvoir participer à cette aide pour les chrétiens de Jérusalem. Ils ont beaucoup insisté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Ils ont offert leur personne au Seigneur, ensuite à nous, parce que Dieu le voulait. Cela a dépassé notre attente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Nous avons donc insisté auprès de Tite. Il avait commencé chez vous cette action pour les chrétiens de Jérusalem. Nous lui avons demandé de la mener jusqu'au bout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Vous avez tout en abondance: vous êtes des croyants, vous parlez très bien. Vous connaissez les choses de Dieu et vous êtes toujours prêts à agir. Vous avez de l'amour pour nous. Alors, pour ces dons, montrez-vous aussi très généreux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Ce n'est pas un ordre que je vous donne. Je vous ai seulement raconté avec quelle rapidité les autres Eglises ont agi. De cette façon, je vous donne l'occasion de montrer que votre amour est vrai.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>En effet, vous connaissez le don généreux de notre Seigneur Jésus-Christ. Il était riche, mais pour vous, il s'est fait pauvre, afin de vous rendre riches par sa pauvreté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Je vous donne mon avis dans cette affaire. Voici ce qui est bon pour vous: vous avez été les premiers à faire quelque chose pour les chrétiens de Jérusalem. Vous avez été aussi les premiers à décider cette action l'année dernière.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Donc, maintenant, menez-la jusqu'au bout avec les moyens que vous avez. Quand vous l'avez décidée, vous avez montré beaucoup de bonne volonté. Alors, avec la même volonté, vous allez mener cette action jusqu'au bout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Quand on donne de bon cœur, les gens nous reçoivent bien avec ce qu'on a. Ils ne nous demandent pas ce qu'on n'a pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Il ne s'agit pas de vous rendre très pauvres pour aider les autres. Non, ce qu'il faut, c'est l'égalité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Maintenant, ce que vous avez en trop servira à ceux qui manquent de quelque chose. Ainsi, un jour, quand vous manquerez de quelque chose, ce qu'ils auront en trop vous servira. Cela fera l'égalité. </text>
+    <verse num="15" />
+    <text>Les Livres Saints le disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Celui qui a récolté beaucoup n'a rien en trop. Celui qui a récolté peu de choses ne manque de rien.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Remercions Dieu! Je désire beaucoup vous aider. Eh bien, Dieu a mis dans le cœur de Tite le même désir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Tite a accepté notre demande, et avec plus d'ardeur encore, il a lui-même décidé d'aller chez vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Avec lui, nous avons envoyé un autre frère. Toutes les Eglises disent du bien de celui-ci, à cause de son travail pour annoncer la Bonne Nouvelle.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Ce n'est pas tout! Les Eglises l'ont désigné, pour qu'il vienne avec nous distribuer l'aide reçue. C'est un service que nous devons rendre, pour la gloire du Seigneur lui-même. Ainsi, nous montrons notre bonne volonté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>On nous a confié beaucoup d'argent. Nous voulons éviter des reproches sur notre façon de rendre ce service.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>Nous cherchons ce qui est bien, non seulement aux yeux de Dieu, mais aussi aux yeux des hommes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-2CO">
+    <verse num="22" />
+    <text>Avec ceux qui sont partis, nous avons aussi envoyé notre frère. Il désire vraiment aider les autres. Cela, nous l'avons vu souvent et en beaucoup d'occasions. Maintenant, il a totalement confiance en vous et donc, il désire encore plus vivement rendre service.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-2CO">
+    <verse num="23" />
+    <text>Tite, c'est mon compagnon, il travaille avec moi pour vous. Nos frères, ce sont les envoyés des Eglises. Ils agissent pour la gloire du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-2CO">
+    <verse num="24" />
+    <text>Aussi, montrez-leur que vous les aimez vraiment. Alors les Eglises en seront sûres et elles sauront que nous avons raison d'être fiers de vous. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Pour l'aide à apporter aux chrétiens de Jérusalem, c'est inutile de vous écrire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Je connais votre bonne volonté. Avec les gens de Macédoine, je me suis vanté à votre sujet. Je leur ai dit: &lt;&lt;Les chrétiens de la province d'Akaïe sont prêts à donner depuis l'année dernière.&gt;&gt; Et votre ardeur à rendre service a entraîné presque tout le monde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Pourtant, je vous envoie ces frères, pour que vous soyez vraiment prêts, comme je l'ai dit. Dans cette affaire, j'étais fier de vous, il ne faut pas que ce soit pour rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>En effet, si les gens de Macédoine viennent avec moi et ne vous trouvent pas prêts, j'ai peur d'une chose: nous qui sommes sûrs de vous, nous allons être couverts de honte, et vous aussi, évidemment!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>C'est pourquoi j'ai pensé qu'il fallait demander aux frères d'aller chez vous avant nous. Ils vont s'occuper des dons généreux que vous avez déjà promis, ils vont les recueillir. Ainsi on verra que vous donnez de bon cœur, et non avec regret.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Il faut le savoir: celui qui sème peu de graines récolte peu, et celui qui sème beaucoup de graines récolte beaucoup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Chacun doit donner ce qu'il a décidé dans son cœur, sans tristesse et sans être forcé. En effet, Dieu aime celui qui donne avec joie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Dieu a le pouvoir de vous donner en abondance toutes sortes de bienfaits. Aussi vous aurez toujours tout ce qu'il vous faut, et vous aurez encore suffisamment pour faire de bonnes actions. </text>
+    <verse num="9" />
+    <text>Les Livres Saints disent:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Il donne généreusement aux pauvres, sa bonté dure toujours.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>C'est Dieu qui donne les graines au semeur et le pain pour la nourriture. Il vous donnera les graines à vous aussi, il les multipliera et les fera pousser. Ainsi votre bonté produira beaucoup de fruits.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Dieu vous rendra riches de mille manières, et vous pourrez vous montrer très généreux. Alors beaucoup remercieront Dieu pour ces dons que nous leur ferons de votre part.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Par cette offrande, vous rendez service aux chrétiens de Jérusalem. De cette façon, vous leur donnez ce qui leur manque. De plus, vous les encouragez tous à remercier Dieu du fond du cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Vous montrez que vous obéissez à la Bonne Nouvelle du Christ. Vous mettez généreusement en commun ce que vous avez, avec les chrétiens de Jérusalem et avec tous. A cause de tout cela, ils reconnaîtront la valeur de ce service et ils rendront gloire à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Dieu vous a donné en abondance de grands bienfaits. Pour cela, ils vous montreront leur amour en priant pour vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Remercions Dieu pour ses bienfaits extraordinaires! </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Moi, Paul, je vous fais une demande personnelle à cause de la douceur et de la bonté du Christ. On dit que je suis timide quand je suis en face de vous, et énergique avec vous quand je suis loin!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Je vous en prie, ne m'obligez pas à être énergique quand je serai parmi vous! Mais certains pensent que nous agissons pour des raisons humaines. Alors, oui, contre ceux-là, je veux utiliser toute mon énergie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Nous sommes des hommes, c'est vrai, pourtant, nous ne luttons pas d'une façon humaine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Non, les armes qui nous servent à lutter ne sont pas des armes humaines. Mais leur force vient de Dieu pour détruire tout ce qui lui résiste. Nous détruisons les façons de penser qui sont fausses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Nous renversons tous les raisonnements que des orgueilleux opposent à la connaissance de Dieu. Nous voulons changer l'esprit des gens pour qu'ils obéissent au Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Et quand votre obéissance sera parfaite, nous serons prêts à punir tout acte de désobéissance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Regardez les choses en face! Si quelqu'un est persuadé d'appartenir au Christ, il doit être sûr d'une chose une fois pour toutes: s'il appartient au Christ, nous aussi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Le Seigneur nous a donné l'autorité, pour construire votre communauté, et non pour la détruire. Je suis peut-être trop fier de cela, mais je ne vais pas en avoir honte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Je ne veux pas avoir l'air de chercher à vous faire peur par mes lettres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>En effet, certains disent: &lt;&lt;Les lettres de Paul sont sévères et énergiques. Mais quand il est au milieu de nous, il est faible, et ce qu'il dit ne vaut rien.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Celui qui parle ainsi, doit être sûr d'une chose: quand nous sommes absents, nous vous écrivons des lettres sévères. Quand nous serons présents, nous agirons aussi avec sévérité, il n'y aura pas de différence.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Certains pensent beaucoup de bien d'eux-mêmes, nous n'osons pas nous égaler ou nous comparer à eux. Ils se prennent eux-mêmes comme mesure pour se mesurer et se comparer aux autres. Ils sont stupides!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Mais nous, nous n'allons pas dépasser la mesure en nous vantant! Quand Dieu nous a conduits jusqu'à vous, il a fixé des limites à notre champ d'action, et nous allons les prendre comme mesure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Quand nous sommes allés chez vous, nous n'avons pas dépassé ces limites. Nous sommes vraiment arrivés les premiers jusqu'à vous avec la Bonne Nouvelle du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Nous ne dépassons pas la mesure en nous vantant à cause du travail des autres. Mais nous espérons une chose: votre foi fera des progrès, et nous pourrons agrandir notre champ d'action, parmi vous, mais sans dépasser les limites fixées.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Ensuite, nous annoncerons la Bonne Nouvelle dans des régions situées plus loin que chez vous. Nous ne voulons pas travailler dans le champ d'action des autres et nous vanter d'activités qu'ils ont déjà faites. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Si quelqu'un veut se vanter, qu'il se vante à cause du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Qui a de la valeur? Ce n'est pas celui qui se félicite lui-même, c'est celui que le Seigneur félicite. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Ah! si vous pouviez supporter que je sois un peu fou! Eh bien oui, supportez-moi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Je vous aime d'un amour jaloux, et ce très grand amour vient de Dieu. En effet, je vous ai promis en mariage à un seul mari: le Christ. Oui, je vous présente à lui comme une jeune fille très pure.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Mais rappelez-vous: le serpent a trompé Eve par son mensonge. Alors j'ai peur d'une chose: qu'on vous donne des idées fausses et que vous ne soyez plus fidèlement et sincèrement attachés au Christ comme avant.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Par exemple, quelqu'un arrive. Il vous annonce un autre Jésus, un Jésus que nous n'avons jamais annoncé. Ou bien vous recevez un autre esprit, un esprit que vous n'avez jamais reçu. Ou encore on vous annonce une Bonne Nouvelle que vous n'avez jamais reçue non plus. Et vous supportez très bien cela!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Pourtant, je pense que j'ai autant de valeur que vos espèces de grands apôtres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>D'accord, je ne sais pas très bien parler. Mais pour la connaissance de Dieu, c'est autre chose! Nous vous avons toujours montré cela clairement, dans tout ce que nous avons fait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Quand je vous ai annoncé la Bonne Nouvelle de Dieu, je me suis fait petit pour vous rendre grands, en vous l'annonçant gratuitement. Est-ce que c'est une faute?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Quand je travaillais pour vous, j'étais payé par d'autres Eglises, j'ai pris leur argent pour vous aider.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Quand j'étais chez vous, j'ai eu besoin d'argent, mais je ne vous ai rien demandé. Les frères venus de Macédoine m'ont apporté ce qu'il me fallait. J'ai toujours évité d'être un poids pour vous et je l'éviterai toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Personne ne m'empêchera d'être fier de cela dans toute l'Akaïe. Grâce au Christ qui est en moi, je peux dire que c'est vrai.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Pourquoi est-ce que je dis cela? Parce que je ne vous aime pas? Mais si, Dieu sait que je vous aime.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Ce que je fais, je le ferai encore. Alors ceux qui veulent une occasion pour se vanter d'agir comme nous, ces gens-là n'en auront pas!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Ce sont de faux apôtres, des ouvriers malhonnêtes. Ils font semblant d'être des apôtres du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Rien d'étonnant à cela: Satan lui-même fait semblant d'être un ange de lumière.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Pour les serviteurs de Satan, faire semblant d'accomplir ce qui est juste, c'est donc facile. Mais leur vie finira comme leurs actions le méritent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>Je le répète, ne pensez pas que je suis fou! Ou bien alors, acceptez que je sois fou, et je pourrai, moi aussi, me vanter un peu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Ce que je vais dire, je ne le dis pas comme le Seigneur le veut, je le dis comme un fou. En effet, je suis sûr d'avoir des raisons de me vanter.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>Beaucoup se vantent pour des raisons humaines. Eh bien, moi aussi, je vais me vanter.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Vous qui êtes des personnes sages, vous supportez volontiers ceux qui ne le sont pas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>Les gens vous rendent esclaves, ils profitent de vous, ils volent tout ce que vous avez, ils vous méprisent, ils vous frappent au visage, et vous supportez tout cela!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>J'ai honte de le dire, nous avons été trop faibles! Pourtant, si quelqu'un ose se vanter de quelque chose, je vais l'oser, moi aussi, même si je parle comme un fou.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-2CO">
+    <verse num="22" />
+    <text>Ils sont Hébreux? Moi aussi! Israélites? Moi aussi! De la famille d'Abraham? Moi aussi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-2CO">
+    <verse num="23" />
+    <text>Des serviteurs du Christ? Je le suis bien plus qu'eux! En disant cela, je parle encore comme un fou! J'ai travaillé plus qu'eux, j'ai été en prison plus souvent qu'eux. On m'a frappé encore beaucoup plus, et j'ai été en danger de mort plus souvent qu'eux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-2CO">
+    <verse num="24" />
+    <text>Cinq fois, les Juifs m'ont donné les 39 coups de fouet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-2CO">
+    <verse num="25" />
+    <text>Trois fois, les Romains m'ont frappé durement, une fois, on m'a jeté des pierres pour me tuer.Trois fois, j'ai été sur un bateau qui a coulé, et une fois, j'ai passé un jour et une nuit dans l'eau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-2CO">
+    <verse num="26" />
+    <text>J'ai fait beaucoup de voyages et j'ai connu beaucoup de dangers: dangers à cause des rivières, des bandits, de mes frères juifs ou des non-Juifs, dangers dans les villes, dangers dans le désert, dangers sur la mer, dangers des faux frères.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-2CO">
+    <verse num="27" />
+    <text>J'ai fait des travaux très fatigants et j'ai souvent manqué de sommeil. J'ai eu faim et soif et j'ai souvent manqué de nourriture. J'ai eu froid et j'ai manqué de vêtements.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-2CO">
+    <verse num="28" />
+    <text>Et je n'ai pas parlé de la chose la plus importante: mon souci de toutes les Eglises. J'y pense tous les jours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO">
+    <verse num="29" />
+    <text>Quand quelqu'un est faible, moi aussi, je me sens faible. Quand quelqu'un commet des péchés, cela me fait mal à moi aussi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-2CO">
+    <verse num="30" />
+    <text>S'il faut se vanter, je vais me vanter d'être faible.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO">
+    <verse num="31" />
+    <text>Je ne mens pas, Dieu, le Père du Seigneur Jésus le sait bien. Gloire à lui pour toujours!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-2CO">
+    <verse num="32" />
+    <text>Quand j'étais à Damas, le gouverneur au service du roi Arétas a fait garder les portes de la ville pour m'arrêter.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-2CO">
+    <verse num="33" />
+    <text>Mais on m'a fait descendre par la fenêtre dans un grand panier, le long du mur de la ville, et j'ai pu lui échapper. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>Est-ce que je dois me vanter? Cela ne sert à rien! Pourtant je vais parler de ce que le Seigneur m'a fait voir et m'a fait connaître.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Je connais un disciple du Christ. Il y a 14 ans, Dieu a enlevé cet homme jusqu'au plus haut des cieux. Est-ce que c'était avec son corps? Je n'en sais rien. Est-ce que c'était sans son corps? Je n'en sais rien, mais Dieu le sait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Je le sais, Dieu a enlevé cet homme jusqu'au paradis. Est-ce que c'était avec son corps ou sans son corps? Je n'en sais rien, mais Dieu le sait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>Là, il a entendu des paroles qu'on ne peut pas dire avec des mots. Ces paroles, personne n'a le droit de les répéter.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Pour celui-là, je me vanterai. Mais pour moi, je me vanterai seulement parce que je suis faible.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Si je voulais me vanter, je ne serais pas fou, je dirais seulement la vérité, mais je ne le fais pas. Ainsi, on me jugera, seulement en voyant ce que je fais, et seulement en entendant ce que je dis, sans rien de plus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Ce que le Seigneur m'a fait connaître est extraordinaire. Alors, pour éviter que je me vante de cela, j'ai reçu dans mon corps comme une blessure: un envoyé de Satan est chargé de me frapper pour m'empêcher de me vanter.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Trois fois, j'ai prié le Seigneur de me délivrer de cette souffrance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Mais le Seigneur m'a dit: &lt;&lt;Mon amour te suffit. Ma puissance se montre vraiment quand tu es faible.&gt;&gt; Donc je me vanterai surtout parce que je suis faible. Alors la puissance du Christ habitera en moi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>C'est pourquoi les faiblesses, les insultes, les difficultés, les souffrances et les soucis que je connais pour le Christ, je les accepte avec joie. Oui, quand je suis faible, c'est à ce moment-là que je suis fort.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Vous voyez, je deviens fou! Vous m'avez forcé à cela. C'est vous qui deviez vanter mes qualités. En effet, je n'ai rien de moins que vos espèces de grands apôtres, et pourtant je ne suis rien!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Vous avez vu chez vous ma patience très grande, des signes étonnants, des faits extraordinaires, des actions puissantes. Cela montre que je suis un apôtre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-2CO">
+    <verse num="13" />
+    <text>Qu'est-ce que vous avez eu de moins que les autres Eglises? Une chose: je ne vous ai rien coûté. Vous trouvez que ce n'est pas juste? Alors pardonnez-moi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="14" />
+    <text>Je suis prêt à venir chez vous pour la troisième fois et je ne vous coûterai rien. Ce n'est pas votre argent que je veux, c'est vous! D'habitude, les petits enfants ne gagnent pas d'argent pour leurs parents, mais ce sont les parents qui doivent gagner de l'argent pour leurs enfants.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-2CO">
+    <verse num="15" />
+    <text>Moi, je donnerai facilement de l'argent pour vous, et même je donnerai ma vie tout entière. Est-ce que vous m'aimerez moins parce que je vous aime plus?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-2CO">
+    <verse num="16" />
+    <text>D'accord, je n'ai pas été un poids pour vous. Mais d'après certains, je ne suis pas franc et je vous ai pris au piège par des mensonges!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-2CO">
+    <verse num="17" />
+    <text>Regardez tous ceux que je vous ai envoyés: est-ce que j'ai utilisé un seul d'entre eux pour profiter de vous?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO">
+    <verse num="18" />
+    <text>J'ai insisté pour que Tite aille vous voir, et j'ai envoyé un frère avec lui. Est-ce que Tite a profité de vous? Est-ce que lui et moi, nous n'avons pas marché dans la même direction, en suivant le même chemin?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-2CO">
+    <verse num="19" />
+    <text>Depuis un bon moment, vous pensez peut-être que nous cherchons à nous défendre devant vous. Non! Nous parlons devant Dieu, comme le Christ le veut. Et tout cela, amis très chers, nous le faisons pour construire votre communauté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO">
+    <verse num="20" />
+    <text>J'ai bien peur de ceci: quand j'arriverai chez vous, vous serez peut-être différents de ce que j'attends. Et moi, je serai peut-être différent de ce que vous attendez. J'ai peur de trouver chez vous des disputes, de la jalousie, de la colère, des querelles de personnes, des jugements mauvais sur les autres, des bavardages méchants, de l'orgueil, du désordre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-2CO">
+    <verse num="21" />
+    <text>J'ai encore peur d'une chose: à ma prochaine visite, Dieu va peut-être me couvrir de honte devant vous. Je devrai peut-être pleurer sur beaucoup d'entre vous qui continuent à commettre des péchés comme autrefois. En effet, maintenant, ils ne se sont pas encore tournés vers Dieu. Ils mènent une vie immorale et mauvaise, ils se conduisent n'importe comment. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="2CO" initialStartVerse="0" characterId="BC-2CO">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-2CO">
+    <verse num="1" />
+    <text>C'est la troisième fois que je vais chez vous. &lt;&lt;Pour juger toute affaire, on doit entendre au moins deux ou trois témoins.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-2CO">
+    <verse num="2" />
+    <text>Je parle à ceux qui ont commis des péchés autrefois, et à tous les autres. Aujourd'hui, je ne suis pas parmi vous, mais je le redis comme pendant ma deuxième visite: quand je reviendrai, j'agirai sévèrement avec tous,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-2CO">
+    <verse num="3" />
+    <text>Puisque vous voulez savoir, je vais vous prouver que le Christ parle à travers moi. Christ n'est pas faible quand il travaille dans vos cœurs. Il utilise son pouvoir à travers vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-2CO">
+    <verse num="4" />
+    <text>C'est vrai, le Christ a été cloué sur une croix à cause de sa faiblesse, mais il est vivant à cause de la puissance de Dieu. Et nous aussi, nous sommes faibles parce que nous sommes unis au Christ. Mais nous serons vivants avec lui, à cause de la puissance de Dieu, comme vous le verrez.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO">
+    <verse num="5" />
+    <text>Interrogez-vous, voyez si vous vivez comme des croyants, examinez-vous. Vous reconnaissez bien que Jésus-Christ est en vous, n'est-ce pas? Ou alors, vous ne pouvez pas donner des preuves de votre foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO">
+    <verse num="6" />
+    <text>Mais nous, nous pouvons en donner, et j'espère que vous le reconnaîtrez.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-2CO">
+    <verse num="7" />
+    <text>Nous demandons à Dieu que vous ne fassiez rien de mal. Ce n'est pas pour vous prouver que nous avons raison. Non, nous voulons seulement que vous fassiez le bien. Et peu importe si cela semble montrer que nous avons tort!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-2CO">
+    <verse num="8" />
+    <text>Car nous ne pouvons rien faire contre la vérité, nous pouvons seulement travailler pour la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-2CO">
+    <verse num="9" />
+    <text>Oui, nous sommes dans la joie quand nous sommes faibles et quand vous êtes forts. Ce que nous demandons dans nos prières, c'est que vous soyez parfaits.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-2CO">
+    <verse num="10" />
+    <text>Voilà pourquoi je vous écris quand je suis encore loin de vous: je ne veux pas avoir besoin de me montrer sévère quand je serai auprès de vous. En effet, le Seigneur m'a donné l'autorité pour construire votre communauté, et non pour la détruire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-2CO">
+    <verse num="11" />
+    <text>Maintenant, frères et sœurs chrétiens, soyez dans la joie. Cherchez à être parfaits, encouragez-vous et soyez d'accord entre vous. Vivez dans la paix, et le Dieu d'amour et de paix sera avec vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-2CO">
+    <verse num="12" />
+    <text>Saluez-vous les uns les autres en vous embrassant comme des frères et des sœurs. Tous les chrétiens vous saluent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-2CO">
+    <verse num="13" />
+    <verse num="14" />
+    <text>Que le Seigneur Jésus-Christ vous bénisse! Que l'amour de Dieu et l'Esprit Saint qui nous unit soient avec vous tous! </text>
+  </block>
+  <UnappliedSplits />
+</book>

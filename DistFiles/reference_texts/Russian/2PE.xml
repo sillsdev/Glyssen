@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2PE" singlevoice="false" pageheader="2 PETER">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2PE">
+    <text>2 PETER</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Симон Петр, раб и Апостол Иисуса Христа, принявшим с нами равно драгоценную веру по правде Бога нашего и Спасителя Иисуса Христа:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>благодать и мир вам да умножится в познании Бога и Христа Иисуса, Господа нашего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>Как от Божественной силы Его даровано нам все потребное для жизни и благочестия, через познание Призвавшего нас славою и благостию,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>которыми дарованы нам великие и драгоценные обетования, дабы вы через них соделались причастниками Божеского естества, удалившись от господствующего в мире растления похотью:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>то вы, прилагая к сему все старание, покажите в вере вашей добродетель, в добродетели рассудительность,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>в рассудительности воздержание, в воздержании терпение, в терпении благочестие,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>в благочестии братолюбие, в братолюбии любовь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>Если это в вас есть и умножается, то вы не останетесь без успеха и плода в познании Господа нашего Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>А в ком нет сего, тот слеп, закрыл глаза, забыл об очищении прежних грехов своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>Посему, братия, более и более старайтесь делать твердым ваше звание и избрание; так поступая, никогда не преткнетесь,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>ибо так откроется вам свободный вход в вечное Царство Господа нашего и Спасителя Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>Для того я никогда не перестану напоминать вам о сем, хотя вы то и знаете, и утверждены в настоящей истине.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>Справедливым же почитаю, доколе нахожусь в этой телесной храмине, возбуждать вас напоминанием,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>зная, что скоро должен оставить храмину мою, как и Господь наш Иисус Христос открыл мне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Буду же стараться, чтобы вы и после моего отшествия всегда приводили это на память.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>Ибо мы возвестили вам силу и пришествие Господа нашего Иисуса Христа, не хитросплетенным басням последуя, но быв очевидцами Его величия.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>Ибо Он принял от Бога Отца честь и славу, когда от велелепной славы принесся к Нему такой глас: Сей есть Сын Мой возлюбленный, в Котором Мое благоволение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>И этот глас, принесшийся с небес, мы слышали, будучи с Ним на святой горе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-2PE">
+    <verse num="19" />
+    <text>И притом мы имеем вернейшее пророческое слово; и вы хорошо делаете, что обращаетесь к нему, как к светильнику, сияющему в темном месте, доколе не начнет рассветать день и не взойдет утренняя звезда в сердцах ваших,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-2PE">
+    <verse num="20" />
+    <text>зная прежде всего то, что никакого пророчества в Писании нельзя разрешить самому собою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2PE">
+    <verse num="21" />
+    <text>Ибо никогда пророчество не было произносимо по воле человеческой, но изрекали его святые Божии человеки, будучи движимы Духом Святым.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Были и лжепророки в народе, как и у вас будут лжеучители, которые введут пагубные ереси и, отвергаясь искупившего их Господа, навлекут сами на себя скорую погибель.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>И многие последуют их разврату, и через них путь истины будет в поношении.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>И из любостяжания будут уловлять вас льстивыми словами; суд им давно готов, и погибель их не дремлет.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>Ибо, если Бог ангелов согрешивших не пощадил, но, связав узами адского мрака, предал блюсти на суд для наказания;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>и если не пощадил первого мира, но в восьми душах сохранил семейство Ноя, проповедника правды, когда навел потоп на мир нечестивых;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>и если города Содомские и Гоморрские, осудив на истребление, превратил в пепел, показав пример будущим нечестивцам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>а праведного Лота, утомленного обращением между людьми неистово развратными, избавил</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>(ибо сей праведник, живя между ними, ежедневно мучился в праведной душе, видя и слыша дела беззаконные) —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>то, конечно, знает Господь, как избавлять благочестивых от искушения, а беззаконников соблюдать ко дню суда, для наказания,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>а наипаче тех, которые идут вслед скверных похотей плоти, презирают начальства, дерзки, своевольны и не страшатся злословить высших,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>тогда как и Ангелы, превосходя их крепостью и силою, не произносят на них пред Господом укоризненного суда.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>Они, как бессловесные животные, водимые природою, рожденные на уловление и истребление, злословя то, чего не понимают, в растлении своем истребятся.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>Они получат возмездие за беззаконие, ибо они полагают удовольствие во вседневной роскоши; срамники и осквернители, они наслаждаются обманами своими, пиршествуя с вами.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>Глаза у них исполнены любострастия и непрестанного греха; они прельщают неутвержденные души; сердце их приучено к любостяжанию: это сыны проклятия.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Оставив прямой путь, они заблудились, идя по следам Валаама, сына Восорова, который возлюбил мзду неправедную,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>но был обличен в своем беззаконии: бессловесная ослица, проговорив человеческим голосом, остановила безумие пророка.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>Это безводные источники, облака и мглы, гонимые бурею: им приготовлен мрак вечной тьмы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>Ибо, произнося надутое пустословие, они уловляют в плотские похоти и разврат тех, которые едва отстали от находящихся в заблуждении.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2PE">
+    <verse num="19" />
+    <text>Обещают им свободу, будучи сами рабы тления; ибо, кто кем побежден, тот тому и раб.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2PE">
+    <verse num="20" />
+    <text>Ибо если, избегнув скверн мира чрез познание Господа и Спасителя нашего Иисуса Христа, опять запутываются в них и побеждаются ими, то последнее бывает для таковых хуже первого.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2PE">
+    <verse num="21" />
+    <text>Лучше бы им не познать пути правды, нежели, познав, возвратиться назад от преданной им святой заповеди.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
+    <verse num="22" />
+    <text>Но с ними случается по верной пословице:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
+    <text>пес возвращается на свою блевотину, и: вымытая свинья идет валяться в грязи.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Это уже второе послание пишу к вам, возлюбленные; в них напоминанием возбуждаю ваш чистый смысл,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>чтобы вы помнили слова, прежде реченные святыми пророками, и заповедь Господа и Спасителя, преданную Апостолами вашими.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>Прежде всего знайте, что в последние дни явятся наглые ругатели, поступающие по собственным своим похотям</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>и говорящие: где обетование пришествия Его? Ибо с тех пор, как стали умирать отцы, от начала творения, всё остается так же.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>Думающие так не знают, что вначале словом Божиим небеса и земля составлены из воды и водою:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>потому тогдашний мир погиб, быв потоплен водою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>А нынешние небеса и земля, содержимые тем же Словом, сберегаются огню на день суда и погибели нечестивых человеков.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>Одно то не должно быть сокрыто от вас, возлюбленные, что у Господа один день, как тысяча лет, и тысяча лет, как один день.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>Не медлит Господь исполнением обетования, как некоторые почитают то медлением; но долготерпит нас, не желая, чтобы кто погиб, но чтобы все пришли к покаянию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>Придет же день Господень, как тать ночью, и тогда небеса с шумом прейдут, стихии же, разгоревшись, разрушатся, земля и все дела на ней сгорят.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>Если так всё это разрушится, то какими должно быть в святой жизни и благочестии вам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>ожидающим и желающим пришествия дня Божия, в который воспламененные небеса разрушатся и разгоревшиеся стихии растают?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>Впрочем мы, по обетованию Его, ожидаем нового неба и новой земли, на которых обитает правда.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>Итак, возлюбленные, ожидая сего, потщитесь явиться пред Ним неоскверненными и непорочными в мире;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>и долготерпение Господа нашего почитайте спасением, как и возлюбленный брат наш Павел, по данной ему премудрости, написал вам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>как он говорит об этом и во всех посланиях, в которых есть нечто неудобовразумительное, что невежды и неутвержденные, к собственной своей погибели, превращают, как и прочие Писания.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>Итак вы, возлюбленные, будучи предварены о сем, берегитесь, чтобы вам не увлечься заблуждением беззаконников и не отпасть от своего утверждения,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>но возрастайте в благодати и познании Господа нашего и Спасителя Иисуса Христа. Ему слава и ныне и в день вечный. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

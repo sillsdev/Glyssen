@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="COL" singlevoice="false" pageheader="COLOSSIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-COL">
+    <text>COLOSSIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="COL" initialStartVerse="0" characterId="BC-COL">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-COL">
+    <verse num="1" />
+    <text>Павел, волею Божиею Апостол Иисуса Христа, и Тимофей брат,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-COL">
+    <verse num="2" />
+    <text>находящимся в Колоссах святым и верным братиям во Христе Иисусе:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-COL">
+    <verse num="3" />
+    <text>благодать вам и мир от Бога Отца нашего и Господа Иисуса Христа. Благодарим Бога и Отца Господа нашего Иисуса Христа, всегда молясь о вас,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-COL">
+    <verse num="4" />
+    <text>услышав о вере вашей во Христа Иисуса и о любви ко всем святым,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-COL">
+    <verse num="5" />
+    <text>в надежде на уготованное вам на небесах, о чем вы прежде слышали в истинном слове благовествования,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-COL">
+    <verse num="6" />
+    <text>которое пребывает у вас, как и во всем мире, и приносит плод, и возрастает, как и между вами, с того дня, как вы услышали и познали благодать Божию в истине,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-COL">
+    <verse num="7" />
+    <text>как и научились от Епафраса, возлюбленного сотрудника нашего, верного для вас служителя Христова,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-COL">
+    <verse num="8" />
+    <text>который и известил нас о вашей любви в духе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-COL">
+    <verse num="9" />
+    <text>Посему и мы с того дня, как о сем услышали, не перестаем молиться о вас и просить, чтобы вы исполнялись познанием воли Его, во всякой премудрости и разумении духовном,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-COL">
+    <verse num="10" />
+    <text>чтобы поступали достойно Бога, во всем угождая Ему, принося плод во всяком деле благом и возрастая в познании Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-COL">
+    <verse num="11" />
+    <text>укрепляясь всякою силою по могуществу славы Его, во всяком терпении и великодушии с радостью,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-COL">
+    <verse num="12" />
+    <text>благодаря Бога и Отца, призвавшего нас к участию в наследии святых во свете,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-COL">
+    <verse num="13" />
+    <text>избавившего нас от власти тьмы и введшего в Царство возлюбленного Сына Своего,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-COL">
+    <verse num="14" />
+    <text>в Котором мы имеем искупление Кровию Его и прощение грехов,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-COL">
+    <verse num="15" />
+    <text>Который есть образ Бога невидимого, рожденный прежде всякой твари;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-COL">
+    <verse num="16" />
+    <text>ибо Им создано всё, что на небесах и что на земле, видимое и невидимое: престолы ли, господства ли, начальства ли, власти ли, —все Им и для Него создано;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-COL">
+    <verse num="17" />
+    <text>и Он есть прежде всего, и все Им стоит.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-COL">
+    <verse num="18" />
+    <text>И Он есть глава тела Церкви; Он—начаток, первенец из мертвых, дабы иметь Ему во всем первенство,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-COL">
+    <verse num="19" />
+    <text>ибо благоугодно было Отцу, чтобы в Нем обитала всякая полнота,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-COL">
+    <verse num="20" />
+    <text>и чтобы посредством Его примирить с Собою все, умиротворив через Него, Кровию креста Его, и земное и небесное.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-COL">
+    <verse num="21" />
+    <text>И вас, бывших некогда отчужденными и врагами, по расположению к злым делам,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-COL">
+    <verse num="22" />
+    <text>ныне примирил в теле Плоти Его, смертью Его, чтобы представить вас святыми и непорочными и неповинными пред Собою,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-COL">
+    <verse num="23" />
+    <text>если только пребываете тверды и непоколебимы в вере и не отпадаете от надежды благовествования, которое вы слышали, которое возвещено всей твари поднебесной, которого я, Павел, сделался служителем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-COL">
+    <verse num="24" />
+    <text>Ныне радуюсь в страданиях моих за вас и восполняю недостаток в плоти моей скорбей Христовых за Тело Его, которое есть Церковь,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-COL">
+    <verse num="25" />
+    <text>которой сделался я служителем по домостроительству Божию, вверенному мне для вас, чтобы исполнить слово Божие,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-COL">
+    <verse num="26" />
+    <text>тайну, сокрытую от веков и родов, ныне же открытую святым Его,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-COL">
+    <verse num="27" />
+    <text>Которым благоволил Бог показать, какое богатство славы в тайне сей для язычников, которая есть Христос в вас, упование славы,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-COL">
+    <verse num="28" />
+    <text>Которого мы проповедуем, вразумляя всякого человека и научая всякой премудрости, чтобы представить всякого человека совершенным во Христе Иисусе;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-COL">
+    <verse num="29" />
+    <text>для чего я и тружусь и подвизаюсь силою Его, действующею во мне могущественно.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="COL" initialStartVerse="0" characterId="BC-COL">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-COL">
+    <verse num="1" />
+    <text>Желаю, чтобы вы знали, какой подвиг имею я ради вас и ради тех, которые в Лаодикии и Иераполе, и ради всех, кто не видел лица моего в плоти,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-COL">
+    <verse num="2" />
+    <text>дабы утешились сердца их, соединенные в любви для всякого богатства совершенного разумения, для познания тайны Бога и Отца и Христа,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-COL">
+    <verse num="3" />
+    <text>в Котором сокрыты все сокровища премудрости и ведения.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-COL">
+    <verse num="4" />
+    <text>Это говорю я для того, чтобы кто-нибудь не прельстил вас вкрадчивыми словами;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-COL">
+    <verse num="5" />
+    <text>ибо хотя я и отсутствую телом, но духом нахожусь с вами, радуясь и видя ваше благоустройство и твердость веры вашей во Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-COL">
+    <verse num="6" />
+    <text>Посему, как вы приняли Христа Иисуса Господа, так и ходите в Нем, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL">
+    <verse num="7" />
+    <text>будучи укоренены и утверждены в Нем и укреплены в вере, как вы научены, преуспевая в ней с благодарением.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-COL">
+    <verse num="8" />
+    <text>Смотрите, братия, чтобы кто не увлек вас философиею и пустым обольщением, по преданию человеческому, по стихиям мира, а не по Христу;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-COL">
+    <verse num="9" />
+    <text>ибо в Нем обитает вся полнота Божества телесно,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-COL">
+    <verse num="10" />
+    <text>и вы имеете полноту в Нем, Который есть глава всякого начальства и власти.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-COL">
+    <verse num="11" />
+    <text>В Нем вы и обрезаны обрезанием нерукотворенным, совлечением греховного тела плоти, обрезанием Христовым;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-COL">
+    <verse num="12" />
+    <text>быв погребены с Ним в крещении, в Нем вы и совоскресли верою в силу Бога, Который воскресил Его из мертвых,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-COL">
+    <verse num="13" />
+    <text>и вас, которые были мертвы во грехах и в необрезании плоти вашей, оживил вместе с Ним, простив нам все грехи,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-COL">
+    <verse num="14" />
+    <text>истребив учением бывшее о нас рукописание, которое было против нас, и Он взял его от среды и пригвоздил ко кресту;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-COL">
+    <verse num="15" />
+    <text>отняв силы у начальств и властей, властно подверг их позору, восторжествовав над ними Собою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-COL">
+    <verse num="16" />
+    <text>Итак никто да не осуждает вас за пищу, или питие, или за какой-нибудь праздник, или новомесячие, или субботу:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-COL">
+    <verse num="17" />
+    <text>это есть тень будущего, а тело—во Христе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-COL">
+    <verse num="18" />
+    <text>Никто да не обольщает вас самовольным смиренномудрием и служением Ангелов, вторгаясь в то, чего не видел, безрассудно надмеваясь плотским своим умом</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-COL">
+    <verse num="19" />
+    <text>и не держась главы, от которой все тело, составами и связями будучи соединяемо и скрепляемо, растет возрастом Божиим.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-COL">
+    <verse num="20" />
+    <text>Итак, если вы со Христом умерли для стихий мира, то для чего вы, как живущие в мире, держитесь постановлений:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
+    <verse num="21" />
+    <text>'не прикасайся', 'не вкушай', 'не дотрагивайся' —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-COL">
+    <verse num="22" />
+    <text>что все истлевает от употребления, —по заповедям и учению человеческому?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL">
+    <verse num="23" />
+    <text>Это имеет только вид мудрости в самовольном служении, смиренномудрии и изнурении тела, в некотором небрежении о насыщении плоти.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="COL" initialStartVerse="0" characterId="BC-COL">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-COL">
+    <verse num="1" />
+    <text>Итак, если вы воскресли со Христом, то ищите горнего, где Христос сидит одесную Бога;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-COL">
+    <verse num="2" />
+    <text>о горнем помышляйте, а не о земном.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-COL">
+    <verse num="3" />
+    <text>Ибо вы умерли, и жизнь ваша сокрыта со Христом в Боге.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-COL">
+    <verse num="4" />
+    <text>Когда же явится Христос, жизнь ваша, тогда и вы явитесь с Ним во славе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-COL">
+    <verse num="5" />
+    <text>Итак, умертвите земные члены ваши: блуд, нечистоту, страсть, злую похоть и любостяжание, которое есть идолослужение,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-COL">
+    <verse num="6" />
+    <text>за которые гнев Божий грядет на сынов противления,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-COL">
+    <verse num="7" />
+    <text>в которых и вы некогда обращались, когда жили между ними.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-COL">
+    <verse num="8" />
+    <text>А теперь вы отложите все: гнев, ярость, злобу, злоречие, скврнословие уст ваших;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-COL">
+    <verse num="9" />
+    <text>не говорите лжи друг другу, совлекшись ветхого человека с делами его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-COL">
+    <verse num="10" />
+    <text>Облекшись в нового, который обновляется в познании по образу Создавшего его,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-COL">
+    <verse num="11" />
+    <text>где нет ни Еллина, ни Иудея, ни обрезания, ни необрезания, варвара, Скифа, раба, свободного, но все и во всем Христос.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-COL">
+    <verse num="12" />
+    <text>Итак облекитесь, как избранные Божии, святые и возлюбленные, в милосердие, благость, смиренномудрие, кротость, долготерпение,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-COL">
+    <verse num="13" />
+    <text>снисходя друг другу и прощая взаимно, если кто на кого имеет жалобу: как Христос простил вас, так и вы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-COL">
+    <verse num="14" />
+    <text>Более же всего облекитесь в любовь, которая есть совокупность совершенства.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-COL">
+    <verse num="15" />
+    <text>И да владычествует в сердцах ваших мир Божий, к которому вы и призваны в одном теле, и будьте дружелюбны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-COL">
+    <verse num="16" />
+    <text>Слово Христово да вселяется в вас обильно, со всякою премудростью; научайте и вразумляйте друг друга псалмами, славословием и духовными песнями, во благодати воспевая в сердцах ваших Господу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-COL">
+    <verse num="17" />
+    <text>И всё, что вы делаете, словом или делом, всё делайте во имя Господа Иисуса Христа, благодаря через Него Бога и Отца.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-COL">
+    <verse num="18" />
+    <text>Жены, повинуйтесь мужьям своим, как прилично в Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-COL">
+    <verse num="19" />
+    <text>Мужья, любите своих жен и не будьте к ним суровы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-COL">
+    <verse num="20" />
+    <text>Дети, будьте послушны родителям вашим во всем, ибо это благоугодно Господу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-COL">
+    <verse num="21" />
+    <text>Отцы, не раздражайте детей ваших, дабы они не унывали.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-COL">
+    <verse num="22" />
+    <text>Рабы, во всем повинуйтесь господам вашим по плоти, не в глазах только служа им, как человекоугодники, но в простоте сердца, боясь Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-COL">
+    <verse num="23" />
+    <text>И всё, что делаете, делайте от души, как для Господа, а не для человеков,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-COL">
+    <verse num="24" />
+    <text>зная, что в воздаяние от Господа получите наследие, ибо вы служите Господу Христу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-COL">
+    <verse num="25" />
+    <text>А кто неправо поступит, тот получит по своей неправде, у Него нет лицеприятия.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="COL" initialStartVerse="0" characterId="BC-COL">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-COL">
+    <verse num="1" />
+    <text>Господа, оказывайте рабам должное и справедливое, зная, что и вы имеете Господа на небесах.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-COL">
+    <verse num="2" />
+    <text>Будьте постоянны в молитве, бодрствуя в ней с благодарением.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-COL">
+    <verse num="3" />
+    <text>Молитесь также и о нас, чтобы Бог отверз нам дверь для слова, возвещать тайну Христову, за которую я и в узах,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-COL">
+    <verse num="4" />
+    <text>дабы я открыл ее, как должно мне возвещать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-COL">
+    <verse num="5" />
+    <text>Со внешними обходитесь благоразумно, пользуясь временем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-COL">
+    <verse num="6" />
+    <text>Слово ваше да будет всегда с благодатию, приправлено солью, дабы вы знали, как отвечать каждому.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-COL">
+    <verse num="7" />
+    <text>О мне всё скажет вам Тихик, возлюбленный брат и верный служитель и сотрудник в Господе,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-COL">
+    <verse num="8" />
+    <text>которого я для того послал к вам, чтобы он узнал о ваших обстоятельствах и утешил сердца ваши,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-COL">
+    <verse num="9" />
+    <text>с Онисимом, верным и возлюбленным братом нашим, который от вас. Они расскажут вам о всем здешнем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-COL">
+    <verse num="10" />
+    <text>Приветствует вас Аристарх, заключенный вместе со мною, и Марк, племянник Варнавы— о котором вы получили приказания: если придет к вам, примите его, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-COL">
+    <verse num="11" />
+    <text>также Иисус, прозываемый Иустом, оба из обрезанных. Они—единственные сотрудники для Царствия Божия, бывшие мне отрадою.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-COL">
+    <verse num="12" />
+    <text>Приветствует вас Епафрас ваш, раб Иисуса Христа, всегда подвизающийся за вас в молитвах, чтобы вы пребыли совершенны и исполнены всем, что угодно Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-COL">
+    <verse num="13" />
+    <text>Свидетельствую о нем, что он имеет великую ревность и заботу о вас и о находящихся в Лаодикии и Иераполе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-COL">
+    <verse num="14" />
+    <text>Приветствует вас Лука, врач возлюбленный, и Димас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-COL">
+    <verse num="15" />
+    <text>Приветствуйте братьев в Лаодикии, и Нимфана, и домашнюю церковь его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-COL">
+    <verse num="16" />
+    <text>Когда это послание прочитано будет у вас, то распорядитесь, чтобы оно было прочитано и в Лаодикийской церкви; а то, которое из Лаодикии, прочитайте и вы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-COL">
+    <verse num="17" />
+    <text>Скажите Архиппу: смотри, чтобы тебе исполнить служение, которое ты принял в Господе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-COL">
+    <verse num="18" />
+    <text>Приветствие моею рукою, Павловою. Помните мои узы. Благодать со всеми вами. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

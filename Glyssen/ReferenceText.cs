@@ -19,7 +19,13 @@ namespace Glyssen
 	public enum ReferenceTextType
 	{
 		English,
-		//French,
+		Azeri,
+		French,
+		Indonesian,
+		Portuguese,
+		Russian,
+		Spanish,
+		TokPisin,
 		Custom
 	}
 
@@ -27,21 +33,38 @@ namespace Glyssen
 	{
 		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 
-		private static ReferenceText s_english;
-		public static ReferenceText English
+		private static readonly Dictionary<ReferenceTextType, ReferenceText> StandardReferenceTexts = new Dictionary<ReferenceTextType, ReferenceText>();
+
+		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
-			get
+			ReferenceText referenceText;
+			if (!StandardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
 			{
-				if (s_english == null)
+				ScrVers versification;
+				switch (referenceTextType)
 				{
-					s_english = GetStandardReferenceText(ReferenceTextType.English);
-					s_english.m_vers = ScrVers.English;
+					case ReferenceTextType.English:
+					case ReferenceTextType.Azeri:
+					case ReferenceTextType.French:
+					case ReferenceTextType.Indonesian:
+					case ReferenceTextType.Portuguese:
+					case ReferenceTextType.Russian:
+					case ReferenceTextType.Spanish:
+					case ReferenceTextType.TokPisin:
+						versification = ScrVers.English;
+						break;
+					default:
+						throw new ArgumentOutOfRangeException("referenceTextType", referenceTextType, null);
 				}
-				return s_english;
+				referenceText = GenerateStandardReferenceText(referenceTextType);
+				referenceText.m_vers = versification;
+
+				StandardReferenceTexts[referenceTextType] = referenceText;
 			}
+			return referenceText;
 		}
 
-		private static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
+		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			string languageName = LocalizationManager.GetDynamicString("Glyssen", "ReferenceText." + referenceTextType, referenceTextType.ToString());
 
@@ -51,10 +74,10 @@ namespace Glyssen
 			if (exception != null)
 			{
 				Analytics.ReportException(exception);
-				ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+				ErrorReport.ReportNonFatalExceptionWithMessage(
+					exception,
 					LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded: {1}"),
-					languageName,
-					referenceProjectFilePath);
+						languageName, referenceProjectFilePath);
 				return null;
 			}
 
@@ -75,16 +98,9 @@ namespace Glyssen
 
 		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
 		{
-			string projectFileName;
-			switch (referenceTextType)
-			{
-				default:
-					projectFileName = "eng.glyssen";
-					break;
-			}
+			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + kProjectFileExtension;
 			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
-
 
 		private readonly ReferenceTextType m_referenceTextType;
 

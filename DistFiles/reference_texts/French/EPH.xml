@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="EPH" singlevoice="false" pageheader="EPHESIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+    <text>EPHESIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Moi, Paul, je suis apôtre du Christ Jésus parce que Dieu l'a voulu. J'écris à ceux qui appartiennent à Dieu, qui se trouvent à Ephèse et qui croient au Christ Jésus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Que Dieu notre Père et le Seigneur Jésus-Christ vous bénissent et vous donnent la paix!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Louange à Dieu, le Père de notre Seigneur Jésus-Christ! En effet, il nous a bénis dans le Christ en nous communiquant les dons de son Esprit qui viennent du ciel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Avant la création du monde, Dieu nous a choisis dans le Christ pour que nous soyons saints et sans défaut devant ses yeux. Dieu nous aime</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>et, depuis toujours, il a voulu que nous devenions ses fils par Jésus-Christ. Il a voulu cela dans sa bonté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Alors chantons la gloire de Dieu pour la grandeur de ses bienfaits! Il nous les donne généreusement par son Fils très aimé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Dans le Christ, par son sang, nous sommes libérés du mal, et nos péchés sont pardonnés, tellement la bonté de Dieu est grande!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Oui, Dieu nous a couverts de ses bienfaits. Il nous a donné toute la sagesse et l'intelligence.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Il nous a fait connaître son mystère, c'est-à-dire ce que, dans sa bonté, il voulait faire dans le Christ depuis toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Ce projet, Dieu voulait le réaliser au temps choisi par lui: rassembler tout ce qui est dans les cieux et ce qui est sur la terre, sous un seul chef, le Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Et dans le Christ, Dieu nous a donné notre part au salut en nous choisissant d'avance selon son projet. Il a fait tout cela parce qu'il l'a décidé et voulu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Alors, nous qui avons été les premiers à mettre notre espoir dans le Christ, chantons la gloire de Dieu!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Dans le Christ, vous aussi, vous avez entendu la parole vraie, la Bonne Nouvelle qui vous sauve. Ensuite, vous avez cru dans le Christ, et Dieu vous a marqués d'un signe. Cette marque, c'est l'Esprit Saint qu'il a promis.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Cet Esprit est la première part des biens que nous allons recevoir de Dieu. Nous les posséderons quand nous serons entièrement libérés du mal. Alors chantons la gloire de Dieu!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Voici ce que j'ai appris: vous croyez au Seigneur Jésus et vous aimez tous ceux qui lui appartiennent. C'est pourquoi, depuis que je sais cela,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>je dis vos noms quand je prie, et sans cesse je remercie Dieu à cause de vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Je demande au Dieu de notre Seigneur Jésus-Christ, le Père rempli de gloire, de vous donner la sagesse. Alors vous découvrirez Dieu et vous le connaîtrez vraiment.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Je lui demande d'ouvrir les yeux de votre intelligence. Ainsi, vous pourrez connaître l'espérance qu'il vous a donnée en vous appelant. Vous connaîtrez la richesse magnifique des biens qu'il donne à ceux qui lui appartiennent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Vous connaîtrez la puissance extraordinaire que Dieu a montrée pour nous qui croyons en lui. Sa puissance et sa force,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Dieu les a montrées dans le Christ quand il l'a réveillé de la mort, quand il l'a fait asseoir à sa droite dans les cieux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Ainsi, le Christ est placé au-dessus de toutes les forces et de toutes les puissances qui ont autorité et pouvoir. Il est au-dessus de tout ce qui existe, non seulement dans le monde d'aujourd'hui, mais aussi dans le monde qui vient.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Oui, Dieu a tout mis sous les pieds du Christ. Il a mis le Christ au-dessus de tout, et il l'a donné comme tête à l'Eglise.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>L'Eglise est le corps du Christ. En elle, le Christ est totalement présent, lui en qui Dieu habite totalement. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Autrefois, vous étiez morts à cause de vos fautes, à cause de vos péchés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Vous viviez dans le péché en suivant les forces de ce monde. Vous obéissiez au chef des puissances mauvaises qui règnent entre ciel et terre. Ce chef, c'est l'esprit du mal qui agit maintenant chez ceux qui désobéissent à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Autrefois, nous aussi, nous faisions tous partie de ces gens-là quand nous vivions selon nos désirs mauvais. Nous obéissions à ces désirs et à nos pensées mauvaises. A cause de notre nature, nous méritions la colère de Dieu comme les autres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Mais Dieu est riche en pitié et il nous aime d'un grand amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>C'est pourquoi, à nous qui étions morts à cause de nos fautes, il nous a donné la vie avec le Christ. Oui, vous êtes sauvés grâce à la bonté de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Avec le Christ Jésus, il nous a réveillés de la mort et avec lui encore, il nous a fait asseoir dans les cieux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Ainsi, en montrant sa bonté pour nous dans le Christ Jésus, Dieu a voulu prouver pour toujours la richesse extraordinaire de ses bienfaits.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>En effet, vous êtes sauvés grâce à la bonté de Dieu, et parce que vous croyez. Cela ne vient pas de vous, c'est Dieu qui vous donne le salut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Ce salut ne vient pas de vos actions à vous, donc personne ne peut se vanter!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Oui, c'est Dieu qui nous a faits. Il nous a créés dans le Christ Jésus pour que nous menions une vie riche en actions bonnes. Et ces actions, Dieu les a préparées pour que nous les fassions.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Les Juifs portent la marque de la circoncision sur leur corps et ils aiment s'appeler &lt;&lt;les circoncis&gt;&gt;. Vous qui n'êtes pas juifs de naissance, vous ne portez pas cette marque sur votre corps, et ils vous appellent &lt;&lt;les non-circoncis&gt;&gt;. Eh bien, rappelez-vous ce que vous étiez autrefois:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>vous étiez sans Messie, vous n'aviez aucun droit dans le peuple d'Israël. La promesse faite par Dieu dans ses alliances avec son peuple n'était pas pour vous. Vous étiez sans espérance et sans Dieu dans le monde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Mais maintenant, dans le Christ Jésus, vous qui étiez loin, vous êtes devenus proches par le sang du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Oui, c'est lui qui est notre paix. Avec les Juifs et les non-Juifs, il a fait un seul peuple. En donnant sa vie sur la croix, le Christ a détruit le mur de haine qui les séparait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Il a enlevé toute valeur à la loi de Moïse, à ses commandements et à ses règles. Alors, avec les Juifs et les non-Juifs, le Christ a créé un seul peuple nouveau en union avec lui, et ainsi, il a fait la paix entre eux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>En mourant sur la croix, il a réuni les Juifs et les non-Juifs en un seul corps, et il les a réconciliés avec Dieu. Par la croix, il a détruit la haine.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Il est venu annoncer la Bonne Nouvelle de la paix pour vous qui étiez loin, et aussi pour ceux qui étaient proches.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>En effet, en passant par le Christ, Juifs et non-Juifs, nous pouvons nous approcher du Père, grâce à l'unique Esprit Saint.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>C'est pourquoi vous n'êtes plus des étrangers, ni des gens de passage. Mais vous faites partie du peuple de Dieu, vous en avez tous les droits et vous êtes de la famille de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Vous êtes devenus la maison qui a pour fondations les apôtres et les prophètes. La pierre principale, c'est le Christ Jésus lui-même.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>C'est en union avec le Christ que toutes les pierres de la maison tiennent ensemble. Et cette maison s'agrandit pour former un temple saint dans le Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>C'est en union avec le Christ que vous aussi, vous faites partie de la maison qui est construite. Et vous formez avec tous les autres un lieu où Dieu habite par son Esprit. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Moi, Paul, je suis prisonnier du Christ Jésus pour vous qui n'êtes pas juifs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Vous avez sans doute entendu parler du service que Dieu, dans sa bonté, m'a chargé d'accomplir pour vous, afin de réaliser son projet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Il m'a ouvert les yeux pour me faire connaître ce projet caché, je viens de vous en parler un peu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>En lisant ma lettre, vous pouvez voir combien je connais le mystère que Dieu réalise par le Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Ce mystère, Dieu ne l'avait pas fait connaître aux ancêtres. Mais aujourd'hui, il vient de le faire connaître par son Esprit à ses apôtres saints et à ses prophètes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Voici ce mystère: en étant unis au Christ Jésus par la Bonne Nouvelle, ceux qui ne sont pas juifs reçoivent en partage les mêmes biens que les Juifs. Ils font partie du même corps, ils participent à la même promesse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Dieu, dans sa bonté, m'a donné d'être serviteur de cette Bonne Nouvelle, grâce à l'action de sa puissance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Moi, je suis le plus petit de tous les chrétiens. Pourtant j'ai reçu ce don: annoncer à ceux qui ne sont pas juifs la richesse très profonde du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>J'ai également reçu le don de montrer clairement comment Dieu accomplit ce mystère. Lui qui est le Créateur de toutes choses, il avait caché en lui ce mystère depuis toujours.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Alors maintenant, par l'Eglise, tous ceux qui ont autorité et pouvoir dans les cieux peuvent connaître la sagesse de Dieu. Cette sagesse, Dieu la montre de mille manières,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>selon le projet qu'il avait fait depuis toujours. Ce projet, il l'a réalisé dans le Christ Jésus, notre Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Nous sommes unis au Christ et nous croyons en lui. Nous avons donc la liberté de nous approcher de Dieu avec confiance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>C'est pourquoi je vous le demande: ne vous laissez pas décourager par les souffrances que je supporte pour vous. Elles vous donnent la vraie gloire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>C'est pourquoi je me mets à genoux devant Dieu le Père,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>de qui toute famille reçoit son nom dans les cieux et sur la terre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Oui, je lui demande de vous rendre forts par son Esprit, tellement sa gloire est grande. Ainsi, vous pourrez être des chrétiens solides.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Que le Christ habite dans vos cœurs par la foi! Plongez vos racines dans l'amour et soyez solidement construits sur cet amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Alors vous serez capables de comprendre avec tous les chrétiens la largeur, la longueur, la hauteur et la profondeur de l'amour du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Vous connaîtrez cet amour qui dépasse tout ce qu'on peut connaître. Vous recevrez toute la vie de Dieu, et il habitera totalement en vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Dieu agit en nous avec puissance. Et quand nous lui demandons quelque chose, il peut faire beaucoup plus! Oui, sa puissance dépasse tout ce qu'on peut imaginer!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>A lui la gloire, dans l'Eglise et par le Christ Jésus, dans tous les temps et pour toujours! Amen. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Voici ce que je vous demande avec force, moi qui suis prisonnier pour le Seigneur: vivez en accord avec l'appel que vous avez reçu de lui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Soyez simples, doux et patients, supportez-vous les uns les autres avec amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Cherchez toujours à rester unis par l'Esprit Saint, c'est lui qui vous unit en faisant la paix entre vous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Il y a un seul corps et un seul Esprit Saint. Dieu vous a appelés aussi à une seule espérance.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Il y a un seul Seigneur, une seule foi, un seul baptême.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Il y a un seul Dieu et Père de tous, il est au-dessus de tous, il agit par tous, il habite en tous.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Dieu nous a donné ses bienfaits, mais le Christ a mesuré à chacun sa part. </text>
+    <verse num="8" />
+    <text>Dans les Livres Saints, on lit:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Quand il est monté très haut, il a emmené des prisonniers. Il a fait des dons aux êtres humains.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>&lt;&lt;Il est monté.&gt;&gt; Qu'est-ce que cela veut dire? Avant de monter, le Christ est d'abord descendu dans les régions les plus profondes de la terre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Celui qui est descendu, c'est aussi celui qui est &lt;&lt;monté&gt;&gt; plus haut que tous les cieux. Ainsi il a pu remplir le monde entier.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Voici les &lt;&lt;dons&gt;&gt; que le Christ a faits: les uns ont reçu le don d'être apôtres, ou bien d'être prophètes, ou bien d'annoncer la Bonne Nouvelle. D'autres ont reçu le don de conduire le peuple de Dieu, ou encore d'enseigner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Par ces dons, le Christ a voulu former ceux qui appartiennent à Dieu. Ainsi, ils peuvent accomplir leur service de chrétiens pour construire le corps du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Alors tous ensemble, nous aurons peu à peu une même foi et une même connaissance du Fils de Dieu. Finalement, nous serons des chrétiens adultes et nous atteindrons la taille parfaite du Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Nous ne serons plus des bébés. Nous ne ressemblerons plus à un petit bateau poussé dans tous les sens par les vagues de la mer. Nous ne serons plus emportés de tous les côtés par le vent des idées fausses. Les gens ne nous tromperont plus avec leurs mensonges habiles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Mais en disant la vérité avec amour, nous grandirons en tout vers celui qui est la tête, le Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>C'est par lui que toutes les parties du corps tiennent ensemble et sont unies. Beaucoup d'articulations servent à unir le corps, et quand chaque partie du corps fait son travail, le corps grandit et se construit lui-même dans l'amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>C'est pourquoi, je vous dis ceci et j'insiste au nom du Seigneur: ne vivez plus comme ceux qui ne connaissent pas Dieu. Leurs pensées ne mènent à rien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Leur intelligence est dans la nuit, et ils ne participent pas à la vie de Dieu. En effet, ils sont ignorants parce que leur cœur est fermé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Ils ne savent plus ce qui est bien et ce qui est mal, et ils se conduisent n'importe comment. Toutes les actions immorales qu'ils ont envie de faire, ils les font sans se gêner.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Vous, ce n'est pas de cette façon que vous avez appris à connaître le Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Mais est-ce que c'est bien du Christ que vous avez entendu parler? Est-ce que c'est lui qu'on vous a enseigné, selon la vérité qui est en Jésus?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Si oui, vous devez laisser votre vie d'autrefois. Avant, vous étiez pleins de désirs trompeurs qui vous détruisaient. Eh bien, ce que vous étiez avant, il faut vous en débarrasser comme d'un vieux vêtement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Comprenez les choses d'une façon nouvelle, selon l'Esprit de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Et, comme si vous mettiez un vêtement neuf, devenez une personne nouvelle. Cette personne nouvelle est créée comme Dieu veut: la vérité la rend juste et sainte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Alors ne mentez plus. Chacun doit dire la vérité à son prochain, parce que tous ensemble, nous faisons partie d'un même corps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>Quand vous vous mettez en colère, ne commettez pas de péché. Votre colère doit cesser avant le coucher du soleil. </text>
+    <verse num="27" />
+    <text>Ne laissez aucune place en vous à l'esprit du mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Le voleur ne doit plus voler, il doit plutôt faire tous ses efforts pour travailler de ses mains honnêtement. Ainsi, il pourra donner quelque chose à celui qui a besoin d'une aide.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Aucune parole mauvaise ne doit sortir de votre bouche. Dites seulement des paroles utiles qui aident les autres selon leurs besoins, et qui font du bien à ceux qui vous entendent.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>Dieu vous a marqués de son Esprit Saint, alors ne faites pas de peine à cet Esprit. En effet, c'est lui qui vous assure qu'un jour, Dieu vous libérera complètement de vos péchés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
+    <verse num="31" />
+    <text>Ne gardez pas dans votre cœur le mal qu'on vous a fait. Ne vous énervez pas, ne vous mettez pas en colère, faites disparaître de chez vous les cris, les insultes, le mal sous toutes ses formes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>Soyez bons les uns pour les autres, ayez un cœur plein de tendresse. Pardonnez-vous les uns aux autres, comme Dieu vous a pardonné dans le Christ. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Vous êtes les enfants que Dieu aime, eh bien, imitez-le.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Vivez dans l'amour comme le Christ: il nous a aimés et il a donné sa vie pour nous, comme une offrande et un sacrifice agréable à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Vous appartenez à Dieu, donc, chez vous, on ne doit même pas entendre parler de certaines choses. Par exemple, faire toutes sortes d'actions immorales et mauvaises, chercher à avoir tout pour soi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Pas de paroles grossières ni stupides ni sales, cela ne se fait pas! Mais quand vous parlez, faites-le plutôt pour remercier Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Vous devez savoir ceci: ceux qui mènent une vie immorale ou mauvaise ne participeront pas au Royaume du Christ et de Dieu. Les gens qui veulent tout pour eux n'y participeront pas non plus. En effet, tout vouloir pour soi, c'est une façon d'adorer les faux dieux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Personne ne doit vous tromper avec des paroles creuses. A cause de tout cela, la colère de Dieu vient sur les gens qui refusent de lui obéir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Ne faites donc pas comme eux!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Oui, avant, vous étiez dans la nuit, mais maintenant, en étant unis au Seigneur, vous êtes dans la lumière. Vivez comme des gens qui appartiennent à la lumière.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Ce que la lumière produit, c'est toute action bonne, juste et vraie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Cherchez ce qui plaît au Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Les actions qui appartiennent à la nuit ne produisent rien de bon. N'y participez pas, au contraire, dénoncez-les!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Oui, ce que ces gens-là font en cachette, on a honte d'en parler.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Pourtant, quand on dénonce ce qu'ils font, leurs actions apparaissent en pleine lumière. </text>
+    <verse num="14" />
+    <text>En effet, tout ce qui apparaît clairement devient lumière. C'est pourquoi on dit:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+    <text>&lt;&lt;Réveille-toi, toi qui dors. Lève-toi du milieu des morts, et le Christ t'éclairera de sa lumière.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Faites bien attention à votre conduite. Ne vivez pas sans réfléchir, vivez plutôt comme des sages</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>qui savent profiter du temps que Dieu leur laisse. Les jours que nous vivons sont mauvais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>C'est pourquoi, ne soyez pas stupides, mais comprenez bien la volonté du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Ne buvez pas trop de vin: la boisson pousse les gens à se détruire. Mais soyez remplis de l'Esprit Saint.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Ensemble, dites des psaumes, des hymnes, des cantiques qui viennent de cet Esprit. Chantez la louange du Seigneur de tout votre cœur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Remerciez Dieu le Père toujours et pour tout, au nom de notre Seigneur Jésus-Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Obéissez les uns aux autres par respect pour le Christ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>es femmes à leur mari comme au Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>En effet, le mari est le chef de sa femme, comme le Christ est le chef de l'Eglise. Le Christ est le Sauveur de l'Eglise qui est son corps.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Comme l'Eglise obéit au Christ, les femmes doivent obéir pour tout à leur mari.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Maris, aimez votre femme comme le Christ a aimé l'Eglise. Il a donné sa vie pour elle,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>afin qu'elle soit sainte: il l'a rendue pure par l'eau et par la Parole.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH">
+    <verse num="27" />
+    <text>Il a voulu que l'Eglise se présente devant lui pleine de gloire, sans tache, sans ride, sans aucun défaut. Il a voulu qu'elle soit sainte et sans reproche.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>A son tour, un mari doit aimer sa femme comme il aime son corps. Aimer sa femme, c'est s'aimer soi-même.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Non, personne n'a jamais détesté son corps. Au contraire, on le nourrit, on en prend soin, comme le Christ le fait pour son Eglise.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>Est-ce que nous ne faisons pas partie du corps du Christ? Dans les Livres Saints on lit:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
+    <verse num="31" />
+    <text>&lt;&lt;C'est pourquoi l'homme quittera son père et sa mère pour s'attacher à sa femme et les deux deviendront comme une seule personne.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>Ce mystère est grand, et moi, je vous dis qu'il s'agit du Christ et de l'Eglise.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
+    <verse num="33" />
+    <text>Mais il s'agit aussi de vous: chacun doit aimer sa femme comme lui-même, et la femme doit respecter son mari. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Enfants, obéissez à vos parents, comme le Seigneur le veut, c'est votre devoir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+    <verse num="2" />
+    <text>&lt;&lt;Respecte ton père et ta mère&gt;&gt;,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
+    <text>voilà le premier commandement que Dieu a donné avec une promesse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
+    <verse num="3" />
+    <text>&lt;&lt;Alors tu seras heureux et tu vivras longtemps sur la terre.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Et vous, les parents, ne poussez pas vos enfants à la révolte. Mais pour les élever, corrigez-les et donnez-leur des conseils qui viennent du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Esclaves, obéissez à vos maîtres sur la terre avec beaucoup de respect, d'un cœur sincère, comme vous obéissez au Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Ne les servez pas seulement quand ils vous surveillent, comme pour plaire à des hommes. Mais obéissez comme des serviteurs du Christ qui font de tout leur cœur ce que Dieu veut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Servez vos maîtres de bon cœur, comme si vous serviez le Seigneur et non des hommes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Vous le savez: ce que chacun fait de bien, il le retrouvera près du Seigneur, qu'il soit esclave ou homme libre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Et vous, les maîtres, agissez de la même façon avec vos esclaves. Laissez de côté les menaces. Vous le savez: vous et eux, vous avez le même Maître dans les cieux, et lui, il ne fait pas de différence entre les gens.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Enfin, devenez forts avec la force très puissante du Seigneur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Prenez avec vous toutes les armes de Dieu, pour pouvoir résister aux pièges de l'esprit du mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Non, ce n'est pas contre des êtres humains que nous devons lutter. Mais c'est contre des forces très puissantes qui ont autorité et pouvoir. Nous devons lutter contre les puissances qui dirigent le monde de la nuit, contre les esprits mauvais qui habitent entre le ciel et la terre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>C'est pourquoi prenez toutes les armes de Dieu. Ainsi, dans les mauvais jours, vous pourrez résister, et après avoir bien lutté, vous resterez debout.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Alors, debout! Prenez la vérité comme ceinture, mettez la justice comme cuirasse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Prenez comme sandales l'ardeur pour annoncer la Bonne Nouvelle de la paix.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Toujours et partout, prenez le bouclier de la foi. Avec lui, vous pourrez éteindre les flèches brûlantes de l'esprit du mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Recevez aussi le casque du salut et l'épée de l'Esprit Saint, c'est-à-dire la parole de Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Priez sans cesse. Faites toutes vos prières et vos demandes par l'Esprit Saint! Soyez bien attentifs et priez toujours fidèlement pour tous les chrétiens.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Priez aussi pour moi, afin que Dieu mette sa Parole dans ma bouche. Alors j'annoncerai avec courage le mystère de la Bonne Nouvelle.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Je suis le porte-parole de la Bonne Nouvelle, et pour elle, je suis attaché avec des chaînes. Priez pour que je parle avec courage, comme je dois le faire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Je veux que vous aussi, vous connaissiez ma situation et ce que je fais. Tychique, mon frère et mon ami, qui sert fidèlement le Seigneur, vous donnera toutes les nouvelles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Je l'envoie exprès chez vous pour vous dire comment nous allons, et pour vous encourager.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Que Dieu le Père et notre Seigneur Jésus-Christ donnent aux frères et sœurs chrétiens la paix, l'amour et la foi!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Que Dieu bénisse tous ceux qui aiment notre Seigneur Jésus-Christ d'un amour qui ne meurt pas! </text>
+  </block>
+  <UnappliedSplits />
+</book>
