@@ -672,6 +672,7 @@ namespace Glyssen
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
 						upgradedProject.m_metadata.ParserVersion = Settings.Default.ParserVersion;
+						upgradedProject.InitializeLoadedProject();
 						return upgradedProject;
 					}
 				}
@@ -758,6 +759,11 @@ namespace Glyssen
 					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
 			}
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
+
+			// For legacy projects
+			if (project.CharacterGroupList.CharacterGroups.Any() && project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
+				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
+
 			return project;
 		}
 
