@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="HEB" singlevoice="false" pageheader="HEBREWS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-HEB">
+    <text>HEBREWS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Setelah pada zaman dahulu Allah berulang kali dan dalam pelbagai cara berbicara kepada nenek moyang kita dengan perantaraan nabi-nabi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>maka pada zaman akhir ini Ia telah berbicara kepada kita dengan perantaraan Anak-Nya, yang telah Ia tetapkan sebagai yang berhak menerima segala yang ada. Oleh Dia Allah telah menjadikan alam semesta.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Ia adalah cahaya kemuliaan Allah dan gambar wuYUD Allah dan menopang segala yang ada dengan firman-Nya yang penuh kekuasaan. Dan setelah Ia selesai mengadakan penyucian dosa, Ia duduk di sebelah kanan Yang Mahabesar, di tempat yang tinggi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>jauh lebih tinggi dari pada malaikat-malaikat, sama seperti nama yang dikaruniakan kepada-Nya jauh lebih indah dari pada nama mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Karena kepada siapakah di antara malaikat-malaikat itu pernah Ia katakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Anak-Ku Engkau! Engkau telah Kuperanakkan pada hari ini?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <text>dan</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Aku akan menjadi Bapa-Nya, dan Ia akan menjadi Anak-Ku?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Dan ketika Ia membawa pula Anak-Nya yang sulung ke dunia, Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Semua malaikat Allah harus menyembah Dia.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Dan tentang malaikat-malaikat Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Yang membuat malaikat-malaikat-N menjadi badai dan pelayan-pelayan-Nya menjadi nyala api.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Tetapi tentang Anak Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Takhta-Mu, ya Allah, tetap untuk seterusnya dan selamanya, dan tongkat kerajaan-Mu adalah tongkat kebenaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Engkau mencintai keadilan dan membenci kefasikan; sebab itu Allah, Allah-Mu telah mengurapi Engkau dengan minyak sebagai tanda kesukaan, melebihi teman-teman sekutu-Mu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Dan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Pada mulanya, ya Tuhan, Engkau telah meletakkan dasar bumi, dan langit adalah buatan tangan-Mu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Semuanya itu akan binasa, tetapi Engkau tetap ada, dan semuanya itu akan menjadi usang seperti pakaian;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>seperti jubah akan Engkau gulungkan mereka, dan seperti persalinan mereka akan diubah, tetapi Engkau tetap sama, dan tahun-tahun-Mu tidak berkesudahan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Dan kepada siapakah di antara malaikat itu pernah Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;Duduklah di sebelah kanan-Ku, sampai Kubuat musuh-musuh-Mu menjadi tumpuan kaki-Mu?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Bukankah mereka semua adalah roh-roh yang melayani, yang diutus untuk melayani mereka yang harus memperoleh keselamatan? </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Karena itu harus lebih teliti kita memperhatikan apa yang telah kita dengar, supaya kita jangan hanyut dibawa arus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Sebab kalau firman yang dikatakan dengan perantaraan malaikat-malaikat tetap berlaku, dan setiap pelanggaran dan ketidaktaatan mendapat balasan yang setimpal,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>bagaimanakah kita akan luput, jikalau kita menyia-nyiakan keselamatan yang sebesar itu, yang mula-mula diberitakan oleh Tuhan dan oleh mereka yang telah mendengarnya, kepada kita dengan cara yang dapat dipercayai, sedangkan</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Allah meneguhkan kesaksian mereka oleh tanda-tanda dan mujizat-mujizat dan oleh berbagai-bagai penyataan kekuasaan dan karena Roh Kudus, yang dibagi-bagikan-Nya menurut kehendak-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Sebab bukan kepada malaikat-malaikat telah Ia taklukkan dunia yang akan datang, yang kita bicarakan ini.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Ada orang yang pernah memberi kesaksian di dalam suatu nas, katanya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Apakah manusia, sehingga Engkau mengingatnya, atau anak manusia, sehingga Engkau mengindahkannya?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Namun Engkau telah membuatnya untuk waktu yang singkat sedikit lebih rendah dari pada malaikat-malaikat, dan telah memahkotainya dengan kemuliaan dan hormat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>segala sesuatu telah Engkau taklukkan di bawah kaki-Nya.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB">
+    <text>Sebab dalam menaklukkan segala sesuatu kepada-Nya, tidak ada suatupun yang Ia kecualikan, yang tidak takluk kepada-Nya. Tetapi sekarang ini belum kita lihat, bahwa segala sesuatu telah ditaklukkan kepada-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Tetapi Dia, yang untuk waktu yang singkat dibuat sedikit lebih rendah dari pada malaikat-malaikat, yaitu Yesus, kita lihat, yang oleh karena penderitaan maut, dimahkotai dengan kemuliaan dan hormat, supaya oleh kasih karunia Allah Ia mengalami maut bagi semua manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Sebab memang sesuai dengan keadaan Allah—yang bagi-Nya dan oleh-Nya segala sesuatu dijadikan—, yaitu Allah yang membawa banyak orang kepada kemuliaan, juga menyempurnakan Yesus, yang memimpin mereka kepada keselamatan, dengan penderitaan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Sebab Ia yang menguduskan dan mereka yang dikuduskan, mereka semua berasal dari Satu; itulah sebabnya Ia tidak malu menyebut mereka saudara, </text>
+    <verse num="12" />
+    <text>kata-Nya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
+    <text>&lt;&lt;Aku akan memberitakan nama-Mu kepada saudara-saudara-Ku, dan memuji-muji Engkau di tengah-tengah jemaat,&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>dan lagi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>&lt;&lt;Aku akan menaruh kepercayaan kepada-Nya,&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <text>dan lagi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>&lt;&lt;Sesungguhnya, inilah Aku dan anak-anak yang telah diberikan Allah kepada-Ku.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Karena anak-anak itu adalah anak-anak dari darah dan daging, maka Ia juga menjadi sama dengan mereka dan mendapat bagian dalam keadaan mereka, supaya oleh kematian-Nya Ia memusnahkan dia, yaitu Iblis, yang berkuasa atas maut;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>dan supaya dengan jalan demikian Ia membebaskan mereka yang seumur hidupnya berada dalam perhambaan oleh karena takutnya kepada maut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Sebab sesungguhnya, bukan malaikat-malaikat yang Ia kasihani, tetapi keturunan Abraham yang Ia kasihani.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Itulah sebabnya, maka dalam segala hal Ia harus disamakan dengan saudara-saudara-Nya, supaya Ia menjadi Imam Besar yang menaruh belas kasihan dan yang setia kepada Allah untuk mendamaikan dosa seluruh bangsa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Sebab oleh karena Ia sendiri telah menderita karena pencobaan, maka Ia dapat menolong mereka yang dicobai. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Sebab itu, hai saudara-saudara yang kudus, yang mendapat bagian dalam panggilan sorgawi, pandanglah kepada Rasul dan Imam Besar yang kita akui, yaitu Yesus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>yang setia kepada Dia yang telah menetapkan-Nya, sebagaimana Musapun setia dalam segenap rumah-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Sebab Ia dipandang layak mendapat kemuliaan lebih besar dari pada Musa, sama seperti ahli bangunan lebih dihormati dari pada rumah yang dibangunnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Sebab setiap rumah dibangun oleh seorang ahli bangunan, tetapi ahli bangunan segala sesuatu ialah Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Dan Musa memang setia dalam segenap rumah Allah sebagai pelayan untuk memberi kesaksian tentang apa yang akan diberitakan kemudian,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>tetapi Kristus setia sebagai Anak yang mengepalai rumah-Nya; dan rumah-Nya ialah kita, jika kita sampai kepada akhirnya teguh berpegang pada kepercayaan dan pengharapan yang kita megahkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Sebab itu, seperti yang dikatakan Roh Kudus:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Pada hari ini, jika kamu mendengar suara-Nya, </text>
+    <verse num="8" />
+    <text>janganlah keraskan hatimu seperti dalam kegeraman pada waktu pencobaan di padang gurun,&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>&lt;&lt;di mana nenek moyangmu mencobai Aku dengan jalan menguji Aku, sekalipun mereka melihat perbuatan-perbuatan-Ku, empat puluh tahun lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>Itulah sebabnya Aku murka kepada angkatan itu, dan berkata: &lt;Selalu mereka sesat hati, dan mereka tidak mengenal jalan-Ku,&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>sehingga Aku bersumpah dalam murka-Ku: &lt;Mereka takkan masuk ke tempat perhentian-Ku.&gt; &gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Waspadalah, hai saudara-saudara, supaya di antara kamu jangan terdapat seorang yang hatinya jahat dan yang tidak percaya oleh karena ia murtad dari Allah yang hidup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Tetapi nasihatilah seorang akan yang lain setiap hari, selama masih dapat dikatakan &lt;&lt;hari ini&gt;&gt; , supaya jangan ada di antara kamu yang menjadi tegar hatinya karena tipu daya dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Karena kita telah beroleh bagian di dalam Kristus, asal saja kita teguh berpegang sampai kepada akhirnya pada keyakinan iman kita yang semula. </text>
+    <verse num="15" />
+    <text>Tetapi apabila pernah dikatakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Pada hari ini, jika kamu mendengar suara-Nya, janganlah keraskan hatimu seperti dalam kegeraman,&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>siapakah mereka yang membangkitkan amarah Allah, sekalipun mereka mendengar suara-Nya? Bukankah mereka semua yang keluar dari Mesir di bawah pimpinan Musa?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Dan siapakah yang Ia murkai empat puluh tahun lamanya? Bukankah mereka yang berbuat dosa dan yang mayatnya bergelimpangan di padang gurun?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Dan siapakah yang telah Ia sumpahi, bahwa mereka takkan masuk ke tempat perhentian-Nya? Bukankah mereka yang tidak taat?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Demikianlah kita lihat, bahwa mereka tidak dapat masuk oleh karena ketidakpercayaan mereka. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Sebab itu, baiklah kita waspada, supaya jangan ada seorang di antara kamu yang dianggap ketinggalan, sekalipun janji akan masuk ke dalam perhentian-Nya masih berlaku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Karena kepada kita diberitakan juga kabar kesukaan sama seperti kepada mereka, tetapi firman pemberitaan itu tidak berguna bagi mereka, karena tidak bertumbuh bersama-sama oleh iman dengan mereka yang mendengarnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Sebab kita yang beriman, akan masuk ke tempat perhentian seperti yang Ia katakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
+    <text>&lt;&lt;Sehingga Aku bersumpah dalam murka-Ku: &lt;Mereka takkan masuk ke tempat perhentian-Ku,&gt; &gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <text>sekalipun pekerjaan-Nya sudah selesai sejak dunia dijadikan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Sebab tentang hari ketujuh pernah dikatakan di dalam suatu nas:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="scripture">
+    <text>&lt;&lt;Dan Allah berhenti pada hari ketujuh dari segala pekerjaan-Nya.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Dan dalam nas itu kita baca:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Mereka takkan masuk ke tempat perhentian-Ku.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Jadi sudah jelas, bahwa ada sejumlah orang akan masuk ke tempat perhentian itu, sedangkan mereka yang kepadanya lebih dahulu diberitakan kabar kesukaan itu, tidak masuk karena ketidaktaatan mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Sebab itu Ia menetapkan pula suatu hari, yaitu &lt;&lt;hari ini&gt;&gt;, ketika Ia setelah sekian lama berfirman dengan perantaraan Daud seperti dikatakan di atas:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Pada hari ini, jika kamu mendengar suara-Nya, janganlah keraskan hatimu!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Sebab, andaikata Yosua telah membawa mereka masuk ke tempat perhentian, pasti Allah tidak akan berkata-kata kemudian tentang suatu hari lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Jadi masih tersedia suatu hari perhentian, hari ketujuh, bagi umat Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Sebab barangsiapa telah masuk ke tempat perhentian-Nya, ia sendiri telah berhenti dari segala pekerjaannya, sama seperti Allah berhenti dari pekerjaan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Karena itu baiklah kita berusaha untuk masuk ke dalam perhentian itu, supaya jangan seorangpun jatuh karena mengikuti contoh ketidaktaatan itu juga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Sebab firman Allah hidup dan kuat dan lebih tajam dari pada pedang bermata dua manapun; ia menusuk amat dalam sampai memisahkan jiwa dan roh, sendi-sendi dan sumsum; ia sanggup membedakan pertimbangan dan pikiran hati kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Dan tidak ada suatu makhlukpun yang tersembunyi di hadapan-Nya, sebab segala sesuatu telanjang dan terbuka di depan mata Dia, yang kepada-Nya kita harus memberikan pertanggungan jawab.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Karena kita sekarang mempunyai Imam Besar Agung, yang telah melintasi semua langit, yaitu Yesus, Anak Allah, baiklah kita teguh berpegang pada pengakuan iman kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Sebab Imam Besar yang kita punya, bukanlah imam besar yang tidak dapat turut merasakan kelemahan-kelemahan kita, sebaliknya sama dengan kita, Ia telah dicobai, hanya tidak berbuat dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Sebab itu marilah kita dengan penuh keberanian menghampiri takhta kasih karunia, supaya kita menerima rahmat dan menemukan kasih karunia untuk mendapat pertolongan kita pada waktunya. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Sebab setiap imam besar, yang dipilih dari antara manusia, ditetapkan bagi manusia dalam hubungan mereka dengan Allah, supaya ia mempersembahkan persembahan dan korban karena dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Ia harus dapat mengerti orang-orang yang jahil dan orang-orang yang sesat, karena ia sendiri penuh dengan kelemahan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>yang mengharuskannya untuk mempersembahkan korban karena dosa, bukan saja bagi umat, tetapi juga bagi dirinya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Dan tidak seorangpun yang mengambil kehormatan itu bagi dirinya sendiri, tetapi dipanggil untuk itu oleh Allah, seperti yang telah terjadi dengan Harun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Demikian pula Kristus tidak memuliakan diri-Nya sendiri dengan menjadi Imam Besar, tetapi dimuliakan oleh Dia yang berfirman kepada-Nya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Anak-Ku Engkau! Engkau telah Kuperanakkan pada hari ini,&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>sebagaimana firman-Nya dalam suatu nas lain:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Engkau adalah Imam untuk selama-lamanya, menurut peraturan Melkisedek.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Dalam hidup-Nya sebagai manusia, Ia telah mempersembahkan doa dan permohonan dengan ratap tangis dan keluhan kepada Dia, yang sanggup menyelamatkan-Nya dari maut, dan karena kesalehan-Nya Ia telah didengarkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Dan sekalipun Ia adalah Anak, Ia telah belajar menjadi taat dari apa yang telah diderita-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>dan sesudah Ia mencapai kesempurnaan-Nya, Ia menjadi pokok keselamatan yang abadi bagi semua orang yang taat kepada-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>dan Ia dipanggil menjadi Imam Besar oleh Allah, menurut peraturan Melkisedek.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Tentang hal itu banyak yang harus kami katakan, tetapi yang sukar untuk dijelaskan, karena kamu telah lamban dalam hal mendengarkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Sebab sekalipun kamu, ditinjau dari sudut waktu, sudah seharusnya menjadi pengajar, kamu masih perlu lagi diajarkan asas-asas pokok dari penyataan Allah, dan kamu masih memerlukan susu, bukan makanan keras.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Sebab barangsiapa masih memerlukan susu ia tidak memahami ajaran tentang kebenaran, sebab ia adalah anak kecil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Tetapi makanan keras adalah untuk orang-orang dewasa, yang karena mempunyai pancaindera yang terlatih untuk membedakan yang baik dari pada yang jahat. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Sebab itu marilah kita tinggalkan asas-asas pertama dari ajaran tentang Kristus dan beralih kepada perkembangannya yang penuh. Janganlah kita meletakkan lagi dasar pertobatan dari perbuatan-perbuatan yang sia-sia, dan dasar kepercayaan kepada Allah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>yaitu ajaran tentang pelbagai pembaptisan, penumpangan tangan, kebangkitan orang-orang mati dan hukuman kekal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Dan itulah yang akan kita perbuat, jika Allah mengizinkannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Sebab mereka yang pernah diterangi hatinya, yang pernah mengecap karunia sorgawi, dan yang pernah mendapat bagian dalam Roh Kudus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>dan yang mengecap firman yang baik dari Allah dan karunia-karunia dunia yang akan datang,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>namun yang murtad lagi, tidak mungkin dibaharui sekali lagi sedemikian, hingga mereka bertobat, sebab mereka menyalibkan lagi Anak Allah bagi diri mereka dan menghina-Nya di muka umum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Sebab tanah yang menghisap air hujan yang sering turun ke atasnya, dan yang menghasilkan tumbuh-tumbuhan yang berguna bagi mereka yang mengerjakannya, menerima berkat dari Allah;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>tetapi jikalau tanah itu menghasilkan semak duri dan rumput duri, tidaklah ia berguna dan sudah dekat pada kutuk, yang berakhir dengan pembakaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Tetapi, hai saudara-saudaraku yang kekasih, sekalipun kami berkata demikian tentang kamu, kami yakin, bahwa kamu memiliki sesuatu yang lebih baik, yang mengandung keselamatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Sebab Allah bukan tidak adil, sehingga Ia lupa akan pekerjaanmu dan kasihmu yang kamu tunjukkan terhadap nama- Nya oleh pelayanan kamu kepada orang-orang kudus, yang masih kamu lakukan sampai sekarang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Tetapi kami ingin, supaya kamu masing-masing menunjukkan kesungguhan yang sama untuk menjadikan pengharapanmu suatu milik yang pasti, sampai pada akhirnya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>agar kamu jangan menjadi lamban, tetapi menjadi penurut-penurut mereka yang oleh iman dan kesabaran mendapat bagian dalam apa yang dijanjikan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Sebab ketika Allah memberikan janji-Nya kepada Abraham, Ia bersumpah demi diri-Nya sendiri, karena tidak ada orang yang lebih tinggi dari pada-Nya, </text>
+    <verse num="14" />
+    <text>kata-Nya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="scripture">
+    <text>&lt;&lt;Sesungguhnya Aku akan memberkati engkau berlimpah-limpah dan akan membuat engkau sangat banyak.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Abraham menanti dengan sabar dan dengan demikian ia memperoleh apa yang dijanjikan kepadanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Sebab manusia bersumpah demi orang yang lebih tinggi, dan sumpah itu menjadi suatu pengokohan baginya, yang mengakhiri segala bantahan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Karena itu, untuk lebih meyakinkan mereka yang berhak menerima janji itu akan kepastian putusan-Nya, Allah telah mengikat diri-Nya dengan sumpah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>supaya oleh dua kenyataan yang tidak berubah-ubah, tentang mana Allah tidak mungkin berdusta, kita yang mencari perlindungan, beroleh dorongan yang kuat untuk menjangkau pengharapan yang terletak di depan kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Pengharapan itu adalah sauh yang kuat dan aman bagi jiwa kita, yang telah dilabuhkan sampai ke belakang tabir,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>di mana Yesus telah masuk sebagai Perintis bagi kita, ketika Ia, menurut peraturan Melkisedek, menjadi Imam Besar sampai selama-lamanya. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Sebab Melkisedek adalah raja Salem dan imam Allah Yang Mahatinggi; ia pergi menyongsong Abraham ketika Abraham kembali dari mengalahkan raja-raja, dan memberkati dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Kepadanyapun Abraham memberikan sepersepuluh dari semuanya. Menurut arti namanya Melkisedek adalah pertama-tama &lt;&lt;raja kebenaran&gt;&gt;, dan juga &lt;&lt;raja Salem&gt;&gt;, yaitu &lt;&lt;raja damai sejahtera.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Ia tidak berbapa, tidak beribu, tidak bersilsilah, harinya tidak berawal dan hidupnya tidak berkesudahan, dan karena ia dijadikan sama dengan Anak Allah, ia tetap menjadi imam sampai selama-lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Camkanlah betapa besarnya orang itu, yang kepadanya Abraham, bapa leluhur kita, memberikan sepersepuluh dari segala rampasan yang paling baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Dan mereka dari anak-anak Lewi, yang menerima jabatan imam, mendapat tugas, menurut hukum Taurat, untuk memungut persepuluhan dari umat Israel, yaitu dari saudara-saudara mereka, sekalipun mereka ini juga adalah keturunan Abraham.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Tetapi Melkisedek, yang bukan keturunan mereka, memungut persepuluhan dari Abraham dan memberkati dia, walaupun ia adalah pemilik janji.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Memang tidak dapat disangkal, bahwa yang lebih rendah diberkati oleh yang lebih tinggi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Dan di sini manusia-manusia fana menerima persepuluhan, dan di sana Ia, yang tentang Dia diberi kesaksian, bahwa Ia hidup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Maka dapatlah dikatakan, bahwa dengan perantaraan Abraham dipungut juga persepuluhan dari Lewi, yang berhak menerima persepuluhan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>sebab ia masih berada dalam tubuh bapa leluhurnya, ketika Melkisedek menyongsong bapa leluhurnya itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Karena itu, andaikata oleh imamat Lewi telah tercapai kesempurnaan—sebab karena imamat itu umat Israel telah menerima Taurat— apakah sebabnya masih perlu seorang lain ditetapkan menjadi imam besar menurut peraturan Melkisedek dan yang tentang dia tidak dikatakan menurut peraturan Harun?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Sebab, jikalau imamat berubah, dengan sendirinya akan berubah pula hukum Taurat itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Sebab Ia, yang dimaksudkan di sini, termasuk suku lain; dari suku ini tidak ada seorangpun yang pernah melayani di mezbah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Sebab telah diketahui semua orang, bahwa Tuhan kita berasal dari suku Yehuda dan mengenai suku itu Musa tidak pernah mengatakan suatu apapun tentang imam-imam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Dan hal itu jauh lebih nyata lagi, jikalau ditetapkan seorang imam lain menurut cara Melkisedek,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>yang menjadi imam bukan berdasarkan peraturan-peraturan manusia, tetapi berdasarkan hidup yang tidak dapat binasa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Sebab tentang Dia diberi kesaksian:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Engkau adalah Imam untuk selama-lamanya, menurut peraturan Melkisedek.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Memang suatu hukum yang dikeluarkan dahulu dibatalkan, kalau hukum itu tidak mempunyai kekuatan dan karena itu tidak berguna,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>—sebab hukum Taurat sama sekali tidak membawa kesempurnaan—tetapi sekarang ditimbulkan pengharapan yang lebih baik, yang mendekatkan kita kepada Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Dan sama seperti hal ini tidak terjadi tanpa sumpah—memang mereka telah menjadi imam tanpa sumpah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>tetapi Ia dengan sumpah, diucapkan oleh Dia yang berfirman kepada-Nya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Tuhan telah bersumpah dan Ia tidak akan menyesal: Engkau adalah Imam untuk selama-lamanya&gt;&gt; —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>demikian pula Yesus adalah jaminan dari suatu perjanjian yang lebih kuat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Dan dalam jumlah yang besar mereka telah menjadi imam, karena mereka dicegah oleh maut untuk tetap menjabat imam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Tetapi, karena Ia tetap selama-lamanya, imamat-Nya tidak dapat beralih kepada orang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Karena itu Ia sanggup juga menyelamatkan dengan sempurna semua orang yang oleh Dia datang kepada Allah. Sebab Ia hidup senantiasa untuk menjadi Pengantara mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Sebab Imam Besar yang demikianlah yang kita perlukan: yaitu yang saleh, tanpa salah, tanpa noda, yang terpisah dari orang-orang berdosa dan lebih tinggi dari pada tingkat-tingkat sorga,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>yang tidak seperti imam-imam besar lain, yang setiap hari harus mempersembahkan korban untuk dosanya sendiri dan sesudah itu barulah untuk dosa umatnya, sebab hal itu telah dilakukan- Nya satu kali untuk selama-lamanya, ketika Ia mempersembahkan diri-Nya sendiri sebagai korban.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Sebab hukum Taurat menetapkan orang-orang yang diliputi kelemahan menjadi Imam Besar, tetapi sumpah, yang diucapkan kemudian dari pada hukum Taurat, menetapkan Anak, yang telah menjadi sempurna sampai selama-lamanya. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Inti segala yang kita bicarakan itu ialah: kita mempunyai Imam Besar yang demikian, yang duduk di sebelah kanan takhta Yang Mahabesar di sorga,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>dan yang melayani ibadah di tempat kudus, yaitu di dalam kemah sejati, yang didirikan oleh Tuhan dan bukan oleh manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Sebab setiap Imam Besar ditetapkan untuk mempersembahkan korban dan persembahan dan karena itu Yesus perlu mempunyai sesuatu untuk dipersembahkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Sekiranya Ia di bumi ini, Ia sama sekali tidak akan menjadi imam, karena di sini telah ada orang-orang yang mempersembahkan persembahan menurut hukum Taurat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Pelayanan mereka adalah gambaran dan bayangan dari apa yang ada di sorga, sama seperti yang diberitahukan kepada Musa, ketika ia hendak mendirikan kemah:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Ingatlah, demikian firman-Nya, bahwa engkau membuat semuanya itu menurut contoh yang telah ditunjukkan kepadamu di atas gunung itu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Tetapi sekarang Ia telah mendapat suatu pelayanan yang jauh lebih agung, karena Ia menjadi Pengantara dari perjanjian yang lebih mulia, yang didasarkan atas janji yang lebih tinggi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Sebab, sekiranya perjanjian yang pertama itu tidak bercacat, tidak akan dicari lagi tempat untuk yang kedua.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Sebab Ia menegor mereka ketika Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Sesungguhnya, akan datang waktunya, demikianlah firman Tuhan, Aku akan mengadakan perjanjian baru dengan kaum Israel dan dengan kaum Yehuda,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>bukan seperti perjanjian yang telah Kuadakan dengan nenek moyang mereka, pada waktu Aku memegang tangan mereka untuk membawa mereka keluar dari tanah Mesir. Sebab mereka tidak setia kepada perjanjian-Ku, dan Aku menolak mereka, demikian firman Tuhan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
+    <verse num="10" />
+    <text>&lt;&lt;Maka inilah perjanjian yang Kuadakan dengan kaum Israel sesudah waktu itu, demikianlah firman Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Aku akan menaruh hukum-Ku dalam akal budi mereka dan menuliskannya dalam hati mereka, maka Aku akan menjadi Allah mereka dan mereka akan menjadi umat-Ku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Dan mereka tidak akan mengajar lagi sesama warganya, atau sesama saudaranya dengan mengatakan: &lt;Kenallah Tuhan!&gt; Sebab mereka semua, besar kecil, akan mengenal Aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>Sebab Aku akan menaruh belas kasihan terhadap kesalahan mereka dan tidak lagi mengingat dosa-dosa mereka.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Oleh karena Ia berkata-kata tentang perjanjian yang baru, Ia menyatakan yang pertama sebagai perjanjian yang telah menjadi tua. Dan apa yang telah menjadi tua dan usang, telah dekat kepada kemusnahannya. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Memang perjanjian yang pertama juga mempunyai peraturan-peraturan untuk ibadah dan untuk tempat kudus buatan tangan manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Sebab ada dipersiapkan suatu kemah, yaitu bagian yang paling depan dan di situ terdapat kaki dian dan meja dengan roti sajian. Bagian ini disebut tempat yang kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Di belakang tirai yang kedua terdapat suatu kemah lagi yang disebut tempat yang maha kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Di situ terdapat mezbah pembakaran ukupan dari emas, dan tabut perjanjian, yang seluruhnya disalut dengan emas; di dalam tabut perjanjian itu tersimpan buli-buli emas berisi manna, tongkat Harun yang pernah bertunas dan loh-loh batu yang bertuliskan perjanjian,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>dan di atasnya kedua kerub kemuliaan yang menaungi tutup pendamaian. Tetapi hal ini tidak dapat kita bicarakan sekarang secara terperinci.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Demikianlah caranya tempat yang kudus itu diatur. Maka imam-imam senantiasa masuk ke dalam kemah yang paling depan itu untuk melakukan ibadah mereka,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>tetapi ke dalam kemah yang kedua hanya Imam Besar saja yang masuk sekali setahun, dan harus dengan darah yang ia persembahkan karena dirinya sendiri dan karena pelanggaran-pelanggaran, yang dibuat oleh umatnya dengan tidak sadar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Dengan ini Roh Kudus menyatakan, bahwa jalan ke tempat yang kudus itu belum terbuka, selama kemah yang pertama itu masih ada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Itu adalah kiasan masa sekarang. Sesuai dengan itu dipersembahkan korban dan persembahan yang tidak dapat menyempurnakan mereka yang mempersembahkannya menurut hati nurani mereka,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>karena semuanya itu, di samping makanan minuman dan pelbagai macam pembasuhan, hanyalah peraturan-peraturan untuk hidup insani, yang hanya berlaku sampai tibanya waktu pembaharuan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Tetapi Kristus telah datang sebagai Imam Besar untuk hal-hal yang baik yang akan datang: Ia telah melintasi kemah yang lebih besar dan yang lebih sempurna, yang bukan dibuat oleh tangan manusia, —artinya yang tidak termasuk ciptaan ini, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>dan Ia telah masuk satu kali untuk selama-lamanya ke dalam tempat yang kudus bukan dengan membawa darah domba jantan dan darah anak lembu, tetapi dengan membawa darah-Nya sendiri. Dan dengan itu Ia telah mendapat kelepasan yang kekal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Sebab, jika darah domba jantan dan darah lembu jantan dan percikan abu lembu muda menguduskan mereka yang najis, sehingga mereka disucikan secara lahiriah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>betapa lebihnya darah Kristus, yang oleh Roh yang kekal telah mempersembahkan diri-Nya sendiri kepada Allah sebagai persembahan yang tak bercacat, akan menyucikan hati nurani kita dari perbuatan-perbuatan yang sia-sia, supaya kita dapat beribadah kepada Allah yang hidup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Karena itu Ia adalah Pengantara dari suatu perjanjian yang baru, supaya mereka yang telah terpanggil dapat menerima bagian kekal yang dijanjikan, sebab Ia telah mati untuk menebus pelanggaran-pelanggara yang telah dilakukan selama perjanjian yang pertama.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Sebab di mana ada wasiat, di situ harus diberitahukan tentang kematian pembuat wasiat itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Karena suatu wasiat barulah sah, kalau pembuat wasiat itu telah mati, sebab ia tidak berlaku, selama pembuat wasiat itu masih hidup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Itulah sebabnya, maka perjanjian yang pertama tidak disahkan tanpa darah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Sebab sesudah Musa memberitahukan semua perintah hukum Taurat kepada seluruh umat, ia mengambil darah anak lembu dan darah domba jantan serta air, dan bulu merah dan hisop, lalu memerciki kitab itu sendiri dan seluruh umat, </text>
+    <verse num="20" />
+    <text>sambil berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Inilah darah perjanjian yang ditetapkan Allah bagi kamu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Dan juga kemah dan semua alat untuk ibadah dipercikinya secara demikian dengan darah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Dan hampir segala sesuatu disucikan menurut hukum Taurat dengan darah, dan tanpa penumpahan darah tidak ada pengampunan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Jadi segala sesuatu yang melambangkan apa yang ada di sorga haruslah ditahirkan secara demikian, tetapi benda-benda sorgawi sendiri oleh persembahan-persembahan yang lebih baik dari pada itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Sebab Kristus bukan masuk ke dalam tempat kudus buatan tangan manusia yang hanya merupakan gambaran saja dari yang sebenarnya, tetapi ke dalam sorga sendiri untuk menghadap hadirat Allah guna kepentingan kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Dan Ia bukan masuk untuk berulang-ulang mempersembahkan diri-Nya sendiri, sebagaimana Imam Besar setiap tahun masuk ke dalam tempat kudus dengan darah yang bukan darahnya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Sebab jika demikian Ia harus berulang-ulang menderita sejak dunia ini dijadikan. Tetapi sekarang Ia hanya satu kali saja menyatakan diri-Nya, pada zaman akhir untuk menghapuskan dosa oleh korban-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Dan sama seperti manusia ditetapkan untuk mati hanya satu kali saja, dan sesudah itu dihakimi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>demikian pula Kristus hanya satu kali saja mengorbankan diri-Nya untuk menanggung dosa banyak orang. Sesudah itu Ia akan menyatakan diri-Nya sekali lagi tanpa menanggung dosa untuk menganugerahkan keselamatan kepada mereka, yang menantikan Dia. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Di dalam hukum Taurat hanya terdapat bayangan saja dari keselamatan yang akan datang, dan bukan hakekat dari keselamatan itu sendiri. Karena itu dengan korban yang sama, yang setiap tahun terus-menerus dipersembahkan, hukum Taurat tidak mungkin menyempurnakan mereka yang datang mengambil bagian di dalamnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Sebab jika hal itu mungkin, pasti orang tidak mempersembahkan korban lagi, sebab mereka yang melakukan ibadah itu tidak sadar lagi akan dosa setelah disucikan sekali untuk selama-lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Tetapi justru oleh korban-korban itu setiap tahun orang diperingatkan akan adanya dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Sebab tidak mungkin darah lembu jantan atau darah domba jantan menghapuskan dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Karena itu ketika Ia masuk ke dunia, Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Korban dan persembahan tidak Engkau kehendaki—tetapi Engkau telah menyediakan tubuh bagiku—.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Kepada korban bakaran dan korban penghapus dosa Engkau tidak berkenan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Lalu Aku berkata: &lt;Sungguh, Aku datang; dalam gulungan kitab ada tertulis tentang Aku untuk melakukan kehendak-Mu, ya Allah-Ku.&gt; &gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Di atas Ia berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Korban dan persembahan, korban bakaran dan korban penghapus dosa tidak Engkau kehendaki dan Engkau tidak berkenan kepadanya&gt;&gt; —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <text>meskipun dipersembahkan menurut hukum Taurat—. </text>
+    <verse num="9" />
+    <text>Dan kemudian kata-Nya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Sungguh, Aku datang untuk melakukan kehendak-Mu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
+    <text>Yang pertama Ia hapuskan, supaya menegakkan yang kedua.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Dan karena kehendak-Nya inilah kita telah dikuduskan satu kali untuk selama-lamanya oleh persembahan tubuh Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Selanjutnya setiap imam melakukan tiap-tiap hari pelayanannya dan berulang-ulang mempersembahkan korban yang sama, yang sama sekali tidak dapat menghapuskan dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Tetapi Ia, setelah mempersembahkan hanya satu korban saja karena dosa, Ia duduk untuk selama-lamanya di sebelah kanan Allah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>dan sekarang Ia hanya menantikan saatnya, di mana musuh-musuh-Nya akan dijadikan tumpuan kaki-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Sebab oleh satu korban saja Ia telah menyempurnakan untuk selama-lamanya mereka yang Ia kuduskan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Dan tentang hal itu Roh Kudus juga memberi kesaksian kepada kita, </text>
+    <verse num="16" />
+    <text>sebab setelah Ia berfirman:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Inilah perjanjian yang akan Kuadakan dengan mereka sesudah waktu itu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
+    <text>Aku akan menaruh hukum-Ku di dalam hati mereka dan menuliskannya dalam akal budi mereka,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Ia berfirman pula:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
+    <text>dan Aku tidak lagi mengingat dosa-dosa dan kesalahan mereka.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Jadi apabila untuk semuanya itu ada pengampunan, tidak perlu lagi dipersembahkan korban karena dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Jadi, saudara-saudara, oleh darah Yesus kita sekarang penuh keberanian dapat masuk ke dalam tempat kudus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>karena Ia telah membuka jalan yang baru dan yang hidup bagi kita melalui tabir, yaitu diri-Nya sendiri,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>dan kita mempunyai seorang Imam Besar sebagai kepala Rumah Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Karena itu marilah kita menghadap Allah dengan hati yang tulus ikhlas dan keyakinan iman yang teguh, oleh karena hati kita telah dibersihkan dari hati nurani yang jahat dan tubuh kita telah dibasuh dengan air yang murni.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Marilah kita teguh berpegang pada pengakuan tentang pengharapan kita, sebab Ia, yang menjanjikannya, setia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Dan marilah kita saling memperhatikan supaya kita saling mendorong dalam kasih dan dalam pekerjaan baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Janganlah kita menjauhkan diri dari pertemuan-pertemuan ibadah kita, seperti dibiasakan oleh beberapa orang, tetapi marilah kita saling menasihati, dan semakin giat melakukannya menjelang hari Tuhan yang mendekat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Sebab jika kita sengaja berbuat dosa, sesudah memperoleh pengetahuan tentang kebenaran, maka tidak ada lagi korban untuk menghapus dosa itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Tetapi yang ada ialah kematian yang mengerikan akan penghakiman dan api yang dahsyat yang akan menghanguskan semua orang durhaka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Jika ada orang yang menolak hukum Musa, ia dihukum mati tanpa belas kasihan atas keterangan dua atau tiga orang saksi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Betapa lebih beratnya hukuman yang harus dijatuhkan atas dia, yang menginjak-injak Anak Allah, yang menganggap najis darah perjanjian yang menguduskannya, dan yang menghina Roh kasih karunia?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Sebab kita mengenal Dia yang berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;Pembalasan adalah hak-Ku. Akulah yang akan menuntut pembalasan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <text>Dan lagi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;Tuhan akan menghakimi umat-Nya.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>Ngeri benar, kalau jatuh ke dalam tangan Allah yang hidup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>Ingatlah akan masa yang lalu. Sesudah kamu menerima terang, kamu banyak menderita oleh karena kamu bertahan dalam perjuangan yang berat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>baik waktu kamu dijadikan tontonan oleh cercaan dan penderitaan, maupun waktu kamu mengambil bagian dalam penderitaan mereka yang diperlakukan sedemikian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>Memang kamu telah turut mengambil bagian dalam penderitaan orang-orang hukuman dan ketika harta kamu dirampas, kamu menerima hal itu dengan sukacita, sebab kamu tahu, bahwa kamu memiliki harta yang lebih baik dan yang lebih menetap sifatnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>Sebab itu janganlah kamu melepaskan kepercayaanmu, karena besar upah yang menantinya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>Sebab kamu memerlukan ketekunan, supaya sesudah kamu melakukan kehendak Allah, kamu memperoleh apa yang dijanjikan itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" multiBlockQuote="Start">
+    <verse num="37" />
+    <text>&lt;&lt;Sebab sedikit, bahkan sangat sedikit waktu lagi, dan Ia yang akan datang, sudah akan ada, tanpa menangguhkan kedatangan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="38" />
+    <text>Tetapi orang-Ku yang benar akan hidup oleh iman, dan apabila ia mengundurkan diri, maka Aku tidak berkenan kepadanya.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Tetapi kita bukanlah orang-orang yang mengundurkan diri dan binasa, tetapi orang-orang yang percaya dan yang beroleh hidup. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Iman adalah dasar dari segala sesuatu yang kita harapkan dan bukti dari segala sesuatu yang tidak kita lihat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Sebab oleh imanlah telah diberikan kesaksian kepada nenek moyang kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Karena iman kita mengerti, bahwa alam semesta telah dijadikan oleh firman Allah, sehingga apa yang kita lihat telah terjadi dari apa yang tidak dapat kita lihat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Karena iman Habel telah mempersembahkan kepada Allah korban yang lebih baik dari pada korban Kain. Dengan jalan itu ia memperoleh kesaksian kepadanya, bahwa ia benar, karena Allah berkenan akan persembahannya itu dan karena iman ia masih berbicara, sesudah ia mati.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Karena iman Henokh terangkat, supaya ia tidak mengalami kematian, dan ia tidak ditemukan, karena Allah telah mengangkatnya. Sebab sebelum ia terangkat, ia memperoleh kesaksian, bahwa ia berkenan kepada Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Tetapi tanpa iman tidak mungkin orang berkenan kepada Allah. Sebab barangsiapa berpaling kepada Allah, ia harus percaya bahwa Allah ada, dan bahwa Allah memberi upah kepada orang yang sungguh-sungguh mencari Dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Karena iman, maka Nuh—dengan petunjuk Allah tentang sesuatu yang belum kelihatan—dengan taat mempersiapkan bahtera untuk menyelamatkan keluarganya; dan karena iman itu ia menghukum dunia, dan ia ditentukan untuk menerima kebenaran, sesuai dengan imannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Karena iman Abraham taat, ketika ia dipanggil untuk berangkat ke negeri yang akan diterimanya menjadi milik pusakanya, lalu ia berangkat dengan tidak mengetahui tempat yang ia tujui.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Karena iman ia diam di tanah yang dijanjikan itu seolah-olah di suatu tanah asing dan di situ ia tinggal di kemah dengan Ishak dan Yakub, yang turut menjadi ahli waris janji yang satu itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Sebab ia menanti-nantikan kota yang mempunyai dasar, yang direncanakan dan dibangun oleh Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Karena iman ia juga dan Sara beroleh kekuatan untuk menurunkan anak cucu, walaupun usianya sudah lewat, karena ia menganggap Dia, yang memberikan janji itu setia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Itulah sebabnya, maka dari satu orang, malahan orang yang telah mati pucuk, terpancar keturunan besar, seperti bintang di langit dan seperti pasir di tepi laut, yang tidak terhitung banyaknya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Dalam iman mereka semua ini telah mati sebagai orang-orang yang tidak memperoleh apa yang dijanjikan itu, tetapi yang hanya dari jauh melihatnya dan melambai-lambai kepadanya dan yang mengakui, bahwa mereka adalah orang asing dan pendatang di bumi ini.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Sebab mereka yang berkata demikian menyatakan, bahwa mereka dengan rindu mencari suatu tanah air.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Dan kalau sekiranya dalam hal itu mereka ingat akan tanah asal, yang telah mereka tinggalkan, maka mereka cukup mempunyai kesempatan untuk pulang ke situ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Tetapi sekarang mereka merindukan tanah air yang lebih baik yaitu satu tanah air sorgawi. Sebab itu Allah tidak malu disebut Allah mereka, karena Ia telah mempersiapkan sebuah kota bagi mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Karena iman maka Abraham, tatkala ia dicobai, mempersembahkan Ishak. Ia, yang telah menerima janji itu, rela mempersembahkan anaknya yang tunggal,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>walaupun kepadanya telah dikatakan:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;Keturunan yang berasal dari Ishaklah yang akan disebut keturunanmu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Karena ia berpikir, bahwa Allah berkuasa membangkitkan orang-orang sekalipun dari antara orang mati. Dan dari sana ia seakan-akan telah menerimanya kembali.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Karena iman maka Ishak, sambil memandang jauh ke depan, memberikan berkatnya kepada Yakub dan Esau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Karena iman maka Yakub, ketika hampir waktunya akan mati, memberkati kedua anak Yusuf, lalu menyembah sambil bersandar pada kepala tongkatnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Karena iman maka Yusuf menjelang matinya memberitakan tentang keluarnya orang-orang Israel dan memberi pesan tentang tulang-belulangnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Karena iman maka Musa, setelah ia lahir, disembunyikan selama tiga bulan oleh orang tuanya, karena mereka melihat, bahwa anak itu elok rupanya dan mereka tidak takut akan perintah raja.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Karena iman maka Musa, setelah dewasa, menolak disebut anak puteri Firaun,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>karena ia lebih suka menderita sengsara dengan umat Allah dari pada untuk sementara menikmati kesenangan dari dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Ia menganggap penghinaan karena Kristus sebagai kekayaan yang lebih besar dari pada semua harta Mesir, sebab pandangannya ia arahkan kepada upah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Karena iman maka ia telah meninggalkan Mesir dengan tidak takut akan murka raja. Ia bertahan sama seperti ia melihat apa yang tidak kelihatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Karena iman maka ia mengadakan Paskah dan pemercikan darah, supaya pembinasa anak-anak sulung jangan menyentuh mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Karena iman maka mereka telah melintasi Laut Merah sama seperti melintasi tanah kering, sedangkan orang-orang Mesir tenggelam, ketika mereka mencobanya juga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Karena iman maka runtuhlah tembok-tembok Yerikho, setelah kota itu dikelilingi tujuh hari lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>Karena iman maka Rahab, perempuan sundal itu, tidak turut binasa bersama-sama dengan orang-orang durhaka, karena ia telah menyambut pengintai-pengintai itu dengan baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>Dan apakah lagi yang harus aku sebut? Sebab aku akan kekurangan waktu, apabila aku hendak menceriterakan tentang Gideon, Barak, Simson, Yefta, Daud dan Samuel dan para nabi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>yang karena iman telah menaklukkan kerajaan-kerajaan, mengamalkan kebenaran, memperoleh apa yang dijanjikan, menutup mulut singa-singa,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>memadamkan api yang dahsyat. Mereka telah luput dari mata pedang, telah beroleh kekuatan dalam kelemahan, telah menjadi kuat dalam peperangan dan telah memukul mundur pasukan-pasukan tentara asing.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>Ibu-ibu telah menerima kembali orang-orangnya yang telah mati, sebab dibangkitkan. Tetapi orang-orang lain membiarkan dirinya disiksa dan tidak mau menerima pembebasan, supaya mereka beroleh kebangkitan yang lebih baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>Ada pula yang diejek dan didera, bahkan yang dibelenggu dan dipenjarakan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-HEB">
+    <verse num="37" />
+    <text>Mereka dilempari, digergaji, dibunuh dengan pedang; mereka mengembara dengan berpakaian kulit domba dan kulit kambing sambil menderita kekurangan, kesesakan dan siksaan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="38" characterId="narrator-HEB">
+    <verse num="38" />
+    <text>Dunia ini tidak layak bagi mereka. Mereka mengembara di padang gurun dan di pegunungan, dalam gua-gua dan celah-celah gunung.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Dan mereka semua tidak memperoleh apa yang dijanjikan itu, sekalipun iman mereka telah memberikan kepada mereka suatu kesaksian yang baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="40" characterId="narrator-HEB">
+    <verse num="40" />
+    <text>Sebab Allah telah menyediakan sesuatu yang lebih baik bagi kita; tanpa kita mereka tidak dapat sampai kepada kesempurnaan. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Karena kita mempunyai banyak saksi, bagaikan awan yang mengelilingi kita, marilah kita menanggalkan semua beban dan dosa yang begitu merintangi kita, dan berlomba dengan tekun dalam perlombaan yang diwajibkan bagi kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Marilah kita melakukannya dengan mata yang tertuju kepada Yesus, yang memimpin kita dalam iman, dan yang membawa iman kita itu kepada kesempurnaan, yang dengan mengabaikan kehinaan tekun memikul salib ganti sukacita yang disediakan bagi Dia, yang sekarang duduk di sebelah kanan takhta Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Ingatlah selalu akan Dia, yang tekun menanggung bantahan yang sehebat itu terhadap diri-Nya dari pihak orang-orang berdosa, supaya jangan kamu menjadi lemah dan putus asa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Dalam pergumulan kamu melawan dosa kamu belum sampai mencucurkan darah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Dan sudah lupakah kamu akan nasihat yang berbicara kepada kamu seperti kepada anak-anak:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Hai anakku, janganlah anggap enteng didikan Tuhan, dan janganlah putus asa apabila engkau diperingatkan-Nya;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>karena Tuhan menghajar orang yang dikasihi-Nya, dan Ia menyesah orang yang diakui-Nya sebagai anak.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Jika kamu harus menanggung ganjaran; Allah memperlakukan kamu seperti anak. Di manakah terdapat anak yang tidak dihajar oleh ayahnya?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Tetapi, jikalau kamu bebas dari ganjaran, yang harus diderita setiap orang, maka kamu bukanlah anak, tetapi anak-anak gampang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Selanjutnya: dari ayah kita yang sebenarnya kita beroleh ganjaran, dan mereka kita hormati; kalau demikian bukankah kita harus lebih taat kepada Bapa segala roh, supaya kita boleh hidup?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Sebab mereka mendidik kita dalam waktu yang pendek sesuai dengan apa yang mereka anggap baik, tetapi Dia menghajar kita untuk kebaikan kita, supaya kita beroleh bagian dalam kekudusan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Memang tiap-tiap ganjaran pada waktu ia diberikan tidak mendatangkan sukacita, tetapi dukacita. Tetapi kemudian ia menghasilkan buah kebenaran yang memberikan damai kepada mereka yang dilatih olehnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Sebab itu kuatkanlah tangan yang lemah dan lutut yang goyah;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>dan luruskanlah jalan bagi kakimu, sehingga yang pincang jangan terpelecok, tetapi menjadi sembuh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Berusahalah hidup damai dengan semua orang dan kejarlah kekudusan, sebab tanpa kekudusan tidak seorangpun akan melihat Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Jagalah supaya jangan ada seorangpun menjauhkan diri dari kasih karunia Allah, agar jangan tumbuh akar yang pahit yang menimbulkan kerusuhan dan yang mencemarkan banyak orang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Janganlah ada orang yang menjadi cabul atau yang mempunyai nafsu yang rendah seperti Esau, yang menjual hak kesulungannya untuk sepiring makanan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Sebab kamu tahu, bahwa kemudian, ketika ia hendak menerima berkat itu, ia ditolak, sebab ia tidak beroleh kesempatan untuk memperbaiki kesalahannya, sekalipun ia mencarinya dengan mencucurkan air mata.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Sebab kamu tidak datang kepada gunung yang dapat disentuh dan api yang menyala-nyala, kepada kekelaman, kegelapan dan angin badai,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>kepada bunyi sangkakala dan bunyi suara yang membuat mereka yang mendengarnya memohon, supaya jangan lagi berbicara kepada mereka,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>sebab mereka tidak tahan mendengar perintah ini:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Bahkan jika binatangpun yang menyentuh gunung, ia harus dilempari dengan batu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Dan sangat mengerikan pemandangan itu, sehingga Musa berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Aku sangat ketakutan dan sangat gemetar.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Tetapi kamu sudah datang ke Bukit Sion, ke kota Allah yang hidup, Yerusalem sorgawi dan kepada beribu-ribu malaikat, suatu kumpulan yang meriah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>dan kepada jemaat anak-anak sulung, yang namanya terdaftar di sorga, dan kepada Allah, yang menghakimi semua orang, dan kepada roh-roh orang-orang benar yang telah menjadi sempurna,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>dan kepada Yesus, Pengantara perjanjian baru, dan kepada darah pemercikan, yang berbicara lebih kuat dari pada darah Habel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Jagalah supaya kamu jangan menolak Dia, yang berfirman. Sebab jikalau mereka, yang menolak Dia yang menyampaikan firman Allah di bumi, tidak luput, apa lagi kita, jika kita berpaling dari Dia yang berbicara dari sorga?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Waktu itu suara-Nya menggoncangkan bumi, tetapi sekarang Ia memberikan janji:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="scripture">
+    <text>&lt;&lt;Satu kali lagi Aku akan menggoncangkan bukan hanya bumi saja, melainkan langit juga.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Ungkapan &lt;&lt;Satu kali lagi&gt;&gt; menunjuk kepada perubahan pada apa yang dapat digoncangkan, karena ia dijadikan supaya tinggal tetap apa yang tidak tergoncangkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Jadi, karena kita menerima kerajaan yang tidak tergoncangkan, marilah kita mengucap syukur dan beribadah kepada Allah menurut cara yang berkenan kepada-Nya, dengan hormat dan takut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Sebab &lt;&lt;Allah kita adalah api yang menghanguskan.&gt;&gt; </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Peliharalah kasih persaudaraan!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Jangan kamu lupa memberi tumpangan kepada orang, sebab dengan berbuat demikian beberapa orang dengan tidak diketahuinya telah menjamu malaikat-malaikat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Ingatlah akan orang-orang hukuman, karena kamu sendiri juga adalah orang-orang hukuman. Dan ingatlah akan orang-orang yang diperlakukan sewenang-wenang, karena kamu sendiri juga masih hidup di dunia ini.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Hendaklah kamu semua penuh hormat terhadap perkawinan dan janganlah kamu mencemarkan tempat tidur, sebab orang-orang sundal dan pezinah akan dihakimi Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Janganlah kamu menjadi hamba uang dan cukupkanlah dirimu dengan apa yang ada padamu. Karena Allah telah berfirman:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Aku sekali-kali tidak akan membiarkan engkau dan Aku sekali-kali tidak akan meninggalkan engkau.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Sebab itu dengan yakin kita dapat berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Tuhan adalah Penolongku. Aku tidak akan takut. Apakah yang dapat dilakukan manusia terhadap aku?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Ingatlah akan pemimpin-pemimpin kamu, yang telah menyampaikan firman Allah kepadamu. Perhatikanlah akhir hidup mereka dan contohlah iman mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Yesus Kristus tetap sama, baik kemarin maupun hari ini dan sampai selama-lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Janganlah kamu disesatkan oleh berbagai-bagai ajaran asing. Sebab yang baik ialah, bahwa hati kamu diperkuat dengan kasih karunia dan bukan dengan pelbagai makanan yang tidak memberi faedah kepada mereka yang menuruti aturan-aturan makanan macam itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Kita mempunyai suatu mezbah dan orang-orang yang melayani kemah tidak boleh makan dari apa yang di dalamnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Karena tubuh binatang-binatang yang darahnya dibawa masuk ke tempat kudus oleh Imam Besar sebagai korban penghapus dosa, dibakar di luar perkemahan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Itu jugalah sebabnya Yesus telah menderita di luar pintu gerbang untuk menguduskan umat-Nya dengan darah-Nya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Karena itu marilah kita pergi kepada-Nya di luar perkemahan dan menanggung kehinaan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Sebab di sini kita tidak mempunyai tempat tinggal yang tetap; kita mencari kota yang akan datang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Sebab itu marilah kita, oleh Dia, senantiasa mempersembahkan korban syukur kepada Allah, yaitu ucapan bibir yang memuliakan nama-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Dan janganlah kamu lupa berbuat baik dan memberi bantuan, sebab korban-korban yang demikianlah yang berkenan kepada Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Taatilah pemimpin-pemimpinmu dan tunduklah kepada mereka, sebab mereka berjaga-jaga atas jiwamu, sebagai orang-orang yang harus bertanggung jawab atasnya. Dengan jalan itu mereka akan melakukannya dengan gembira, bukan dengan keluh kesah, sebab hal itu tidak akan membawa keuntungan bagimu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Berdoalah terus untuk kami; sebab kami yakin, bahwa hati nurani kami adalah baik, karena di dalam segala hal kami menginginkan suatu hidup yang baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Dan secara khusus aku menasihatkan kamu, agar kamu melakukannya, supaya aku lebih lekas dikembalikan kepada kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Maka Allah damai sejahtera, yang oleh darah perjanjian yang kekal telah membawa kembali dari antara orang mati Gembala Agung segala domba, yaitu Yesus, Tuhan kita,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>kiranya memperlengkapi kamu dengan segala yang baik untuk melakukan kehendak-Nya, dan mengerjakan di dalam kita apa yang berkenan kepada-Nya, oleh Yesus Kristus. Bagi Dialah kemuliaan sampai selama-lamanya! Amin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Dan aku menasihatkan kamu, saudara-saudara, supaya kata-kata nasihat ini kamu sambut dengan rela hati, sekalipun pendek saja suratku ini kepada kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Ketahuilah, bahwa Timotius, saudara kita, telah berangkat. Segera sesudah ia datang, aku akan mengunjungi kamu bersama-sama dengan dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Sampaikanlah salam kepada semua pemimpin kamu dan semua orang kudus. Terimalah salam dari saudara-saudara di Italia. </text>
+    <verse num="25" />
+    <text>Kasih karunia menyertai kamu sekalian.</text>
+  </block>
+  <UnappliedSplits />
+</book>

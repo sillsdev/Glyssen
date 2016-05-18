@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JUD" singlevoice="false" pageheader="JUDE">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JUD">
+    <text>JUDE</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JUD" initialStartVerse="0" characterId="BC-JUD">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JUD">
+    <verse num="1" />
+    <text>Dari Yudas, hamba Yesus Kristus dan saudara Yakobus, kepada mereka, yang terpanggil, yang dikasihi dalam Allah Bapa, dan yang dipelihara untuk Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JUD">
+    <verse num="2" />
+    <text>Rahmat, damai sejahtera dan kasih kiranya melimpahi kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JUD">
+    <verse num="3" />
+    <text>Saudara-saudaraku yang kekasih, sementara aku bersungguh-sungguh berusaha menulis kepada kamu tentang keselamatan kita bersama, aku merasa terdorong untuk menulis ini kepada kamu dan menasihati kamu, supaya kamu tetap berjuang untuk mempertahankan iman yang telah disampaikan kepada orang-orang kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JUD">
+    <verse num="4" />
+    <text>Sebab ternyata ada orang tertentu yang telah masuk menyelusup di tengah-tengah kamu, yaitu orang-orang yang telah lama ditentukan untuk dihukum. Mereka adalah orang-orang yang fasik, yang menyalahgunakan kasih karunia Allah kita untuk melampiaskan hawa nafsu mereka, dan yang menyangkal satu-satunya Penguasa dan Tuhan kita, Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD">
+    <verse num="5" />
+    <text>Tetapi, sekalipun kamu telah mengetahui semuanya itu dan tidak meragukannya lagi, aku ingin mengingatkan kamu bahwa memang Tuhan menyelamatkan umat-Nya dari tanah Mesir, namun sekali lagi membinasakan mereka yang tidak percaya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD">
+    <verse num="6" />
+    <text>Dan bahwa Ia menahan malaikat-malaikat yang tidak taat pada batas-batas kekuasaan mereka, tetapi yang meninggalkan tempat kediaman mereka, dengan belenggu abadi di dalam dunia kekelaman sampai penghakiman pada hari besar,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JUD">
+    <verse num="7" />
+    <text>sama seperti Sodom dan Gomora dan kota-kota sekitarnya, yang dengan cara yang sama melakukan percabulan dan mengejar kepuasan-kepuasan yang tak wajar, telah menanggung siksaan api kekal sebagai peringatan kepada semua orang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JUD">
+    <verse num="8" />
+    <text>Namun demikian orang-orang yang bermimpi-mimpian ini juga mencemarkan tubuh mereka dan menghina kekuasaan Allah serta menghujat semua yang mulia di sorga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JUD">
+    <verse num="9" />
+    <text>Tetapi penghulu malaikat, Mikhael, ketika dalam suatu perselisihan bertengkar dengan Iblis mengenai mayat Musa, tidak berani menghakimi Iblis itu dengan kata-kata hujatan, tetapi berkata: </text>
+  </block>
+  <block style="p" chapter="1" initialStartVerse="9" characterId="Michael, archangel">
+    <text>&lt;&lt;Kiranya Tuhan menghardik engkau!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
+    <verse num="10" />
+    <text>Akan tetapi mereka menghujat segala sesuatu yang tidak mereka ketahui dan justru apa yang mereka ketahui dengan nalurinya seperti binatang yang tidak berakal, itulah yang mengakibatkan kebinasaan mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD">
+    <verse num="11" />
+    <text>Celakalah mereka, karena mereka mengikuti jalan yang ditempuh Kain dan karena mereka, oleh sebab upah, menceburkan diri ke dalam kesesatan Bileam, dan mereka binasa karena kedurhakaan seperti Korah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JUD">
+    <verse num="12" />
+    <text>Mereka inilah noda dalam perjamuan kasihmu, di mana mereka tidak malu-malu melahap dan hanya mementingkan dirinya sendiri; mereka bagaikan awan yang tak berair, yang berlalu ditiup angin; mereka bagaikan pohon-pohon yang dalam musim gugur tidak menghasilkan buah, pohon-pohon yang terbantun dengan akar-akarnya dan yang mati sama sekali.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JUD">
+    <verse num="13" />
+    <text>Mereka bagaikan ombak laut yang ganas, yang membuihkan keaiban mereka sendiri; mereka bagaikan bintang-bintang yang baginya telah tersedia tempat di dunia kekelaman untuk selama-lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JUD">
+    <verse num="14" />
+    <text>Juga tentang mereka Henokh, keturunan ketujuh dari Adam, telah bernubuat, katanya:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="Enoch" multiBlockQuote="Start">
+    <text>&lt;&lt;Sesungguhnya Tuhan datang dengan beribu-ribu orang kudus-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="Enoch" multiBlockQuote="Continuation">
+    <verse num="15" />
+    <text>hendak menghakimi semua orang dan menjatuhkan hukuman atas orang-orang fasik karena semua perbuatan fasik, yang mereka lakukan dan karena semua kata-kata nista, yang diucapkan orang-orang berdosa yang fasik itu terhadap Tuhan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JUD">
+    <verse num="16" />
+    <text>Mereka itu orang-orang yang menggerutu dan mengeluh tentang nasibnya, hidup menuruti hawa nafsunya, tetapi mulut mereka mengeluarkan perkataan-perkataan yang bukan-bukan dan mereka menjilat orang untuk mendapat keuntungan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JUD">
+    <verse num="17" />
+    <text>Tetapi kamu, saudara-saudaraku yang kekasih, ingatlah akan apa yang dahulu telah dikatakan kepada kamu oleh rasul-rasul Tuhan kita, Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JUD">
+    <verse num="18" />
+    <text>Sebab mereka telah mengatakan kepada kamu: &lt;&lt;Menjelang akhir zaman akan tampil pengejek-pengejek yang akan hidup menuruti hawa nafsu kefasikan mereka.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JUD">
+    <verse num="19" />
+    <text>Mereka adalah pemecah belah yang dikuasai hanya oleh keinginan-keinginan dunia ini dan yang hidup tanpa Roh Kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JUD">
+    <verse num="20" />
+    <text>Akan tetapi kamu, saudara-saudaraku yang kekasih, bangunlah dirimu sendiri di atas dasar imanmu yang paling suci dan berdoalah dalam Roh Kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JUD">
+    <verse num="21" />
+    <text>Peliharalah dirimu demikian dalam kasih Allah sambil menantikan rahmat Tuhan kita, Yesus Kristus, untuk hidup yang kekal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JUD">
+    <verse num="22" />
+    <text>Tunjukkanlah belas kasihan kepada mereka yang ragu-ragu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JUD">
+    <verse num="23" />
+    <text>selamatkanlah mereka dengan jalan merampas mereka dari api. Tetapi tunjukkanlah belas kasihan yang disertai ketakutan kepada orang-orang lain juga, dan bencilah pakaian mereka yang dicemarkan oleh keinginan-keinginan dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JUD">
+    <verse num="24" />
+    <text>Bagi Dia, yang berkuasa menjaga supaya jangan kamu tersandung dan yang membawa kamu dengan tak bernoda dan penuh kegembiraan di hadapan kemuliaan-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JUD">
+    <verse num="25" />
+    <text>Allah yang esa, Juruselamat kita oleh Yesus Kristus, Tuhan kita, bagi Dia adalah kemuliaan, kebesaran, kekuatan dan kuasa sebelum segala abad dan sekarang dan sampai selama-lamanya. Amin.</text>
+  </block>
+  <UnappliedSplits />
+</book>

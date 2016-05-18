@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="TIT" singlevoice="false" pageheader="TITUS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-TIT">
+    <text>TITUS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="TIT" initialStartVerse="0" characterId="BC-TIT">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-TIT">
+    <verse num="1" />
+    <text>Павел, раб Божий, Апостол же Иисуса Христа, по вере избранных Божиих и познанию истины, относящейся к благочестию,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-TIT">
+    <verse num="2" />
+    <text>в надежде вечной жизни, которую обещал неизменный в слове Бог прежде вековых времен,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-TIT">
+    <verse num="3" />
+    <text>а в свое время явил Свое слово в проповеди, вверенной мне по повелению Спасителя нашего, Бога, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-TIT">
+    <verse num="4" />
+    <text>Титу, истинному сыну по общей вере: благодать, милость и мир от Бога Отца и Господа Иисуса Христа, Спасителя нашего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-TIT">
+    <verse num="5" />
+    <text>Для того я оставил тебя в Крите, чтобы ты довершил недоконченное и поставил по всем городам пресвитеров, как я тебе приказывал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-TIT">
+    <verse num="6" />
+    <text>если кто непорочен, муж одной жены, детей имеет верных, не укоряемых в распутстве или непокорности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-TIT">
+    <verse num="7" />
+    <text>Ибо епископ должен быть непорочен, как Божий домостроитель, не дерзок, не гневлив, не пьяница, не бийца, не корыстолюбец,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-TIT">
+    <verse num="8" />
+    <text>но страннолюбив, любящий добро, целомудрен, справедлив, благочестив, воздержан,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-TIT">
+    <verse num="9" />
+    <text>держащийся истинного слова, согласного с учением, чтобы он был силен и наставлять в здравом учении и противящихся обличать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-TIT">
+    <verse num="10" />
+    <text>Ибо есть много и непокорных, пустословов и обманщиков, особенно из обрезанных,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-TIT">
+    <verse num="11" />
+    <text>каковым должно заграждать уста: они развращают целые домы, уча, чему не должно, из постыдной корысти.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-TIT">
+    <verse num="12" />
+    <text>Из них же самих один стихотворец сказал: 'Критяне всегда лжецы, злые звери, утробы ленивые'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-TIT">
+    <verse num="13" />
+    <text>Свидетельство это справедливо. По сей причине обличай их строго, дабы они были здравы в вере,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-TIT">
+    <verse num="14" />
+    <text>не внимая Иудейским басням и постановлениям людей, отвращающихся от истины.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-TIT">
+    <verse num="15" />
+    <text>Для чистых все чисто; а для оскверненных и неверных нет ничего чистого, но осквернены и ум их и совесть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-TIT">
+    <verse num="16" />
+    <text>Они говорят, что знают Бога, а делами отрекаются, будучи гнусны и непокорны и не способны ни к какому доброму делу.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="TIT" initialStartVerse="0" characterId="BC-TIT">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-TIT">
+    <verse num="1" />
+    <text>Ты же говори то, что сообразно с здравым учением:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-TIT">
+    <verse num="2" />
+    <text>чтобы старцы были бдительны, степенны, целомудренны, здравы в вере, в любви, в терпении;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-TIT">
+    <verse num="3" />
+    <text>чтобы старицы также одевались прилично святым, не были клеветницы, не порабощались пьянству, учили добру;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-TIT">
+    <verse num="4" />
+    <text>чтобы вразумляли молодых любить мужей, любить детей,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-TIT">
+    <verse num="5" />
+    <text>быть целомудренными, чистыми, попечительными о доме, добрыми, покорными своим мужьям, да не порицается слово Божие.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-TIT">
+    <verse num="6" />
+    <text>Юношей также увещевай быть целомудренными.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-TIT">
+    <verse num="7" />
+    <text>Во всем показывай в себе образец добрых дел, в учительстве чистоту, степенность, неповрежденность,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-TIT">
+    <verse num="8" />
+    <text>слово здравое, неукоризненное, чтобы противник был посрамлен, не имея ничего сказать о нас худого.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-TIT">
+    <verse num="9" />
+    <text>Рабов увещевай повиноваться своим господам, угождать им во всем, не прекословить,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-TIT">
+    <verse num="10" />
+    <text>не красть, но оказывать всю добрую верность, дабы они во всем были украшением учению Спасителя нашего, Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-TIT">
+    <verse num="11" />
+    <text>Ибо явилась благодать Божия, спасительная для всех человеков,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-TIT">
+    <verse num="12" />
+    <text>научающая нас, чтобы мы, отвергнув нечестие и мирские похоти, целомудренно, праведно и благочестиво жили в нынешнем веке,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-TIT">
+    <verse num="13" />
+    <text>ожидая блаженного упования и явления славы великого Бога и Спасителя нашего Иисуса Христа,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-TIT">
+    <verse num="14" />
+    <text>Который дал Себя за нас, чтобы избавить нас от всякого беззакония и очистить Себе народ особенный, ревностный к добрым делам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-TIT">
+    <verse num="15" />
+    <text>Сие говори, увещевай и обличай со всякою властью, чтобы никто не пренебрегал тебя.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="TIT" initialStartVerse="0" characterId="BC-TIT">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-TIT">
+    <verse num="1" />
+    <text>Напоминай им повиноваться и покоряться начальству и властям, быть готовыми на всякое доброе дело,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-TIT">
+    <verse num="2" />
+    <text>никого не злословить, быть не сварливыми, но тихими, и оказывать всякую кротость ко всем человекам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-TIT">
+    <verse num="3" />
+    <text>Ибо и мы были некогда несмысленны, непокорны, заблуждшие, были рабы похотей и различных удовольствий, жили в злобе и зависти, были гнусны, ненавидели друг друга.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-TIT">
+    <verse num="4" />
+    <text>Когда же явилась благодать и человеколюбие Спасителя нашего, Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-TIT">
+    <verse num="5" />
+    <text>Он спас нас не по делам праведности, которые бы мы сотворили, а по Своей милости, банею возрождения и обновления Святым Духом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-TIT">
+    <verse num="6" />
+    <text>Которого излил на нас обильно через Иисуса Христа, Спасителя нашего,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-TIT">
+    <verse num="7" />
+    <text>чтобы, оправдавшись Его благодатью, мы по упованию соделались наследниками вечной жизни.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-TIT">
+    <verse num="8" />
+    <text>Слово это верно; и я желаю, чтобы ты подтверждал о сем, дабы уверовавшие в Бога старались быть прилежными к добрым делам: это хорошо и полезно человекам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-TIT">
+    <verse num="9" />
+    <text>Глупых же состязаний и родословий, и споров и распрей о законе удаляйся, ибо они бесполезны и суетны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-TIT">
+    <verse num="10" />
+    <text>Еретика, после первого и второго вразумления, отвращайся,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-TIT">
+    <verse num="11" />
+    <text>зная, что таковой развратился и грешит, будучи самоосужден.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-TIT">
+    <verse num="12" />
+    <text>Когда пришлю к тебе Артему или Тихика, поспеши придти ко мне в Никополь, ибо я положил там провести зиму.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-TIT">
+    <verse num="13" />
+    <text>Зину законника и Аполлоса позаботься отправить так, чтобы у них ни в чем не было недостатка.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-TIT">
+    <verse num="14" />
+    <text>Пусть и наши учатся упражняться в добрых делах, в удовлетворении необходимым нуждам, дабы не были бесплодны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-TIT">
+    <verse num="15" />
+    <text>Приветствуют тебя все находящиеся со мною. Приветствуй любящих нас в вере. Благодать со всеми вами. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

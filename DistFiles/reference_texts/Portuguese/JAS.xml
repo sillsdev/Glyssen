@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JAS" singlevoice="false" pageheader="JAMES">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+    <text>JAMES</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Eu, Tiago, * servo de Deus e do Senhor Jesus Cristo, envio saudações a todo o povo de Deus espalhado pelo mundo inteiro.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Meus irmãos, sintam-se felizes quando passarem por todo tipo de aflições.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Pois vocês sabem que, quando a sua fé vence essas provações, ela produz perseverança.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Que essa perseverança seja perfeita a fim de que vocês sejam maduros e corretos, não falhando em nada!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Mas, se alguém tem falta de sabedoria, peça a Deus, e ele a dará porque é generoso e dá com bondade a todos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Porém peçam com fé e não duvidem de modo nenhum, pois quem duvida é como as ondas do mar, que o vento leva de um lado para o outro.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Quem é assim não pense que vai receber alguma coisa do Senhor,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>pois não tem firmeza e nunca sabe o que deve fazer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>O irmão que é pobre deve ficar contente quando Deus faz com que melhore de vida;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>e quem é rico deve sentir o mesmo quando Deus faz com que piore de vida. Pois quem é rico desaparecerá como a flor da erva do campo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Quando o sol brilha forte, e o seu calor queima a planta, aí a flor cai, e a sua beleza é destruída. Do mesmo modo, quem é rico será destruído no meio dos seus negócios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Feliz é aquele que nas aflições continua fiel! Porque, depois de sair aprovado dessas aflições, receberá como prêmio a vida que Deus promete aos que o amam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Quando alguém for tentado, não diga: “Esta tentação vem de Deus.” Pois Deus não pode ser tentado pelo mal e ele mesmo não tenta ninguém.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Mas as pessoas são tentadas quando são atraídas e enganadas pelos seus próprios maus desejos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Então esses desejos fazem com que o pecado nasça, e o pecado, quando já está maduro, produz a morte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Não se enganem, meus queridos irmãos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Tudo de bom que recebemos e tudo o que é perfeito vêm do céu, vêm de Deus, o Criador das luzes do céu. Ele não muda, nem varia de posição, o que causaria a escuridão.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Pela sua própria vontade ele fez com que nós nascêssemos a, por meio da palavra da verdade, a fim de ocuparmos o primeiro lugar entre todas as suas criaturas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Lembrem disto, meus queridos irmãos: cada um esteja pronto para ouvir, mas demore para falar e ficar com raiva.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Porque a raiva humana não produz o que Deus aprova.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Portanto, deixem todo costume imoral e toda má conduta. Aceitem com humildade a mensagem que Deus planta no coração de vocês, a qual pode salvá-los.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Não se enganem; não sejam apenas ouvintes dessa mensagem, mas a ponham em prática.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Porque aquele que ouve a mensagem e não a põe em prática é como uma pessoa que olha no espelho e vê como é.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Dá uma boa olhada, depois vai embora e logo esquece a sua aparência.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>O evangelho é a lei perfeita que dá liberdade às pessoas. Se alguém examina bem essa lei e não a esquece, mas a põe em prática, Deus vai abençoar tudo o que essa pessoa fizer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Alguém está pensando que é religioso? Se não souber controlar a língua, a sua religião não vale nada, e ele está enganando a si mesmo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+    <verse num="27" />
+    <text>Para Deus, o Pai, a religião pura e verdadeira é esta: ajudar os órfãos e as viúvas nas suas aflições e não se manchar com as coisas más deste mundo.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Meus irmãos, vocês que crêem no nosso * glorioso Senhor Jesus Cristo, nunca tratem as pessoas de modo diferente por causa da aparência delas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Por exemplo, entra na reunião de vocês um homem com anéis de ouro e bem vestido, e entra também outro, pobre e vestindo roupas velhas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Digamos que vocês tratam melhor o que está bem vestido e dizem: “Este é o melhor lugar; sente-se aqui”, mas dizem ao pobre: “Fique de pé” ou “Sente-se aí no chão, perto dos meus pés.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Nesse caso vocês estão fazendo diferença entre vocês mesmos e estão se baseando em maus motivos para julgar o valor dos outros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Escutem, meus queridos irmãos! Deus escolheu os pobres deste mundo para serem ricos na fé e para possuírem o Reino que ele prometeu aos que o amam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>No entanto, vocês desprezam os pobres. Por acaso, não são os ricos que exploram vocês e os arrastam para serem julgados nos tribunais?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>São eles que falam mal do bom nome b que Deus deu a vocês.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Entretanto, se você cumprir a lei real, de acordo com a Escritura,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+    <text>“Ame os outros como você ama a você mesmo.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <text>você vai fazer bem. </text>
+    <verse num="9" />
+    <text>Mas, se vocês tratam as pessoas pela aparência, estão pecando, e a lei os condena como culpados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Porque quem quebra um só mandamento da lei é culpado de quebrar todos. </text>
+    <verse num="11" />
+    <text>Pois o mesmo que disse:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>“Não cometa adultério”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>também disse:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>“Não mate”.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>Mesmo que você não cometa adultério, será culpado de quebrar a lei se matar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Falem e vivam como pessoas que serão julgadas pela lei que nos dá a liberdade.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Quando Deus julgar, não terá misericórdia das pessoas que não tiveram misericórdia dos outros. Mas as pessoas que tiveram misericórdia dos outros não serão condenadas no Dia do Juízo Final.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Meus irmãos, que adianta alguém dizer que tem fé se ela não vier acompanhada de ações? Será que essa fé pode salvá-lo?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Por exemplo, pode haver irmãos ou irmãs que precisam de roupa e que não têm nada para comer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Se vocês não lhes dão o que eles precisam para viver, não adianta nada dizer: “Que Deus os abençoe! Vistam agasalhos e comam bem.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Portanto, a fé é assim: se não vier acompanhada de ações, é coisa morta.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Mas alguém poderá dizer: “Você tem fé, e eu tenho ações.” E eu respondo: “Então me mostre como é possível ter fé sem que ela seja acompanhada de ações. Eu vou lhe mostrar a minha fé por meio das minhas ações.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Você crê que há somente um Deus? Ótimo! Os demônios também crêem e tremem de medo</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Seu tolo! Vou provar-lhe que a fé sem ações não vale nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Como é que o nosso antepassado Abraão foi aceito por Deus? Foi pelo que fez quando ofereceu o seu filho Isaque sobre o altar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Veja como a sua fé e as suas ações agiram juntas. Por meio das suas ações, a sua fé se tornou completa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Assim aconteceu o que as * Escrituras Sagradas dizem:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+    <text>“Abraão creu em Deus, e por isso Deus o aceitou.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <text>E Abraão foi chamado de “amigo de Deus”.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Assim, vocês vêem que a pessoa é aceita por Deus por meio das suas ações e não somente pela fé.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Foi o que aconteceu com a prostituta Raabe, quando hospedou os espiões israelitas e os ajudou a sair da cidade por outro caminho. Deus a aceitou pelo que ela fez.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Portanto, assim como o corpo sem o espírito está morto, assim também a fé sem ações está morta.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Meus irmãos, somente poucos de vocês deveriam se tornar mestres na Igreja, pois vocês sabem que nós, os que ensinamos, seremos julgados com mais rigor do que os outros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Todos nós sempre cometemos erros. Quem não comete nenhum erro no que diz é uma pessoa madura, capaz de controlar todo o seu corpo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Até na boca dos cavalos colocamos um freio para que nos obedeçam e assim fazemos com que vão aonde queremos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Pensem no navio: grande como é, empurrado por ventos fortes, ele é guiado por um pequeno leme e vai aonde o piloto quer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>É isto o que acontece com a língua: mesmo pequena, ela se gaba de grandes coisas. Vejam como uma grande floresta pode ser incendiada por uma pequena chama!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>A língua é um fogo. Ela é um mundo de maldade, ocupa o seu lugar no nosso corpo e espalha o mal em todo o nosso ser. Com o fogo que vem do próprio inferno, ela põe toda a nossa vida em chamas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>O ser humano é capaz de dominar todas as criaturas e tem dominado os animais selvagens, os pássaros, os animais que se arrastam pelo chão e os peixes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Mas ninguém ainda foi capaz de dominar a língua. Ela é má, cheia de veneno mortal, e ninguém a pode controlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Usamos a língua tanto para agradecer ao Senhor e Pai como para amaldiçoar as pessoas, que foram criadas parecidas com Deus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Da mesma boca saem palavras tanto de agradecimento como de maldição. Meus irmãos, isso não deve ser assim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Por acaso pode a mesma fonte jorrar água doce e água amarga?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Meus irmãos, por acaso pode uma figueira dar azeitonas ou um pé de uva dar figos? Assim, também, uma fonte de água salgada não pode dar água doce</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Existe entre vocês alguém que seja sábio e inteligente? Pois então que prove isso pelo seu bom comportamento e pelas suas ações, praticadas com humildade e sabedoria.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Mas, se no coração de vocês existe inveja, amargura e egoísmo, então não mintam contra a verdade, gabando-se de serem sábios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Essa espécie de sabedoria não vem do céu; ela é deste mundo, é da nossa natureza humana e é diabólica.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Pois, onde há inveja e egoísmo, há também confusão e todo tipo de coisas más.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>A sabedoria que vem do céu é antes de tudo pura; e é também pacífica, bondosa e amigável. Ela é cheia de misericórdia, produz uma colheita de boas ações, não trata os outros pela sua aparência e é livre de fingimento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Pois a bondade é a colheita produzida pelas sementes que foram plantadas pelos que trabalham em favor da paz.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>De onde vêm as lutas e as brigas entre vocês? Elas vêm dos maus desejos que estão sempre lutando dentro de vocês.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Vocês querem muitas coisas; mas, como não podem tê-las, estão prontos até para matar a fim de consegui-las. Vocês as desejam ardentemente; mas, como não conseguem possuí-las, brigam e lutam. Não conseguem o que querem porque não pedem a Deus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>E, quando pedem, não recebem porque os seus motivos são maus. Vocês pedem coisas a fim de usá-las para os seus próprios prazeres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Gente infiel! Será que vocês não sabem que ser amigo do mundo é ser inimigo de Deus? Quem quiser ser amigo do mundo se torna inimigo de Deus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Não pensem que não quer dizer nada esta passagem das * Escrituras Sagradas c: “O espírito que Deus pôs em nós está cheio de desejos violentos.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Porém a bondade que Deus mostra é ainda mais forte, pois as Escrituras Sagradas dizem:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+    <text>“Deus é contra os orgulhosos, mas é bondoso com os humildes.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Portanto, obedeçam a Deus e enfrentem o Diabo, que ele fugirá de vocês.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Cheguem perto de Deus, e ele chegará perto de vocês. Lavem as mãos, pecadores! Limpem o coração, hipócritas!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Fiquem tristes, gritem e chorem. Mudem as suas risadas em choro e a sua alegria em tristeza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Humilhem-se diante do Senhor, e ele os colocará numa posição de honra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Meus irmãos, não falem mal uns dos outros. Quem fala mal do seu irmão em Cristo ou o julga está falando mal da * lei e julgando-a. Pois, se você julga a lei, então já não é uma pessoa que obedece à lei, mas é alguém que a julga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Deus é o único que faz as leis e o único juiz. Só ele pode salvar ou destruir. Quem você pensa que é, para julgar os outros</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Agora escutem, vocês que dizem: “Hoje ou amanhã iremos a tal cidade e ali ficaremos um ano fazendo negócios e ganhando muito dinheiro!”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Vocês não sabem como será a sua vida amanhã, pois vocês são como uma neblina passageira, que aparece por algum tempo e logo depois desaparece.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>O que vocês deveriam dizer é isto: “Se Deus quiser, estaremos vivos e faremos isto ou aquilo.”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Porém vocês são orgulhosos e vivem se gabando. Todo esse orgulho é mau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Portanto, comete pecado a pessoa que sabe fazer o bem e não faz.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Agora, ricos, escutem! Chorem e gritem pelas desgraças que vocês vão sofrer!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>As suas riquezas estão podres, e as suas roupas finas estão comidas pelas traças.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>O seu ouro e a sua prata estão cobertos de ferrugem, e essa ferrugem será testemunha contra vocês e, como fogo, comerá o corpo de vocês. Nestes últimos tempos vocês têm amontoado riquezas</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>e não têm pago os salários das pessoas que trabalham nos seus campos. Escutem as suas reclamações! Os gritos dos que trabalham nas colheitas têm chegado até os ouvidos de Deus, o Senhor Todo-Poderoso.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Vocês têm tido uma vida de luxo e prazeres aqui na terra e estão gordos como gado pronto para o matadouro.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Vocês têm condenado e matado os inocentes, e eles não podem fazer nada contra vocês.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Por isso, irmãos, tenham paciência até que o Senhor venha. Vejam como o lavrador espera com paciência que a sua terra dê colheitas preciosas. Ele espera pacientemente pelas chuvas do outono e da primavera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Vocês também precisam ter paciência. Não desanimem, pois o Senhor virá logo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Irmãos, não se queixem uns dos outros para não serem julgados por Deus. O Juiz está perto, pronto para vir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Lembrem dos * profetas que falaram em nome do Senhor e os tomem como exemplo de paciência nos momentos de sofrimento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>E nós achamos que eles foram felizes por terem suportado o sofrimento com paciência. Vocês têm ouvido a respeito da paciência de Jó e sabem como no final Deus o abençoou. Porque o Senhor é cheio de bondade e de misericórdia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Acima de tudo, meus irmãos, quando vocês prometerem alguma coisa, não jurem pelo céu, nem pela terra, nem por nada mais. Digam somente “sim”, quando for sim, e “não”, quando for não, para que Deus não os condene.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Se algum de vocês está sofrendo, ore. Se alguém está contente, cante hinos de agradecimento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Se algum de vocês estiver doente, que chame os * presbíteros da igreja, para que façam oração e ponham azeite d na cabeça dessa pessoa em nome do Senhor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Essa oração, feita com fé, salvará a pessoa doente. O Senhor lhe dará saúde e perdoará os pecados que tiver cometido</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Portanto, confessem os seus pecados uns aos outros e façam oração uns pelos outros, para que vocês sejam curados. A oração de uma pessoa obediente a Deus tem muito poder.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>O profeta Elias era um ser humano como nós. Ele orou com fervor para que não chovesse, e durante três anos e meio não choveu sobre a terra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Depois orou outra vez, e então choveu, e a terra deu a sua colheita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Meus irmãos, se algum de vocês se desviar da verdade, e outro o fizer voltar para o bom caminho,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>lembrem disto: quem fizer um pecador voltar do seu mau caminho salvará da morte esse pecador e fará com que muitos pecados sejam perdoados.</text>
+  </block>
+  <UnappliedSplits />
+</book>

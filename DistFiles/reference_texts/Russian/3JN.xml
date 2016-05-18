@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="3JN" singlevoice="false" pageheader="3 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
+    <text>3 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-3JN">
+    <verse num="1" />
+    <text>Старец— возлюбленному Гаию, которого я люблю по истине.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-3JN">
+    <verse num="2" />
+    <text>Возлюбленный! молюсь, чтобы ты здравствовал и преуспевал во всем, как преуспевает душа твоя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-3JN">
+    <verse num="3" />
+    <text>Ибо я весьма обрадовался, когда пришли братия и засвидетельствовали о твоей верности, как ты ходишь в истине.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-3JN">
+    <verse num="4" />
+    <text>Для меня нет большей радости, как слышать, что дети мои ходят в истине.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN">
+    <verse num="5" />
+    <text>Возлюбленный! ты как верный поступаешь в том, что делаешь для братьев и для странников.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-3JN">
+    <verse num="6" />
+    <text>Они засвидетельствовали перед церковью о твоей любви. Ты хорошо поступишь, если отпустишь их, как должно ради Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-3JN">
+    <verse num="7" />
+    <text>ибо они ради имени Его пошли, не взяв ничего от язычников.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-3JN">
+    <verse num="8" />
+    <text>Итак мы должны принимать таковых, чтобы сделаться споспешниками истине.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN">
+    <verse num="9" />
+    <text>Я писал церкви; но любящий первенствовать у них Диотреф не принимает нас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-3JN">
+    <verse num="10" />
+    <text>Посему, если я приду, то напомню о делах, которые он делает, понося нас злыми словами, и не довольствуясь тем, и сам не принимает братьев, и запрещает желающим, и изгоняет из церкви.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN">
+    <verse num="11" />
+    <text>Возлюбленный! не подражай злу, но добру. Кто делает добро, тот от Бога; а делающий зло не видел Бога.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-3JN">
+    <verse num="12" />
+    <text>О Димитрии засвидетельствовано всеми и самою истиною; свидетельствуем также и мы, и вы знаете, что свидетельство наше истинно.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-3JN">
+    <verse num="13" />
+    <text>Многое имел я писать; но не хочу писать к тебе чернилами и тростью,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-3JN">
+    <verse num="14" />
+    <text>а надеюсь скоро увидеть тебя и поговорить устами к устам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-3JN">
+    <verse num="15" />
+    <text>Мир тебе. Приветствуют тебя друзья; приветствуй друзей поименно. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

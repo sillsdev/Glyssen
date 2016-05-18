@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="3JN" singlevoice="false" pageheader="3 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
+    <text>3 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-3JN">
+    <verse num="1" />
+    <text>Moi, l'ancien, j'écris à Gaïus, cet ami très cher que j'aime vraiment.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-3JN">
+    <verse num="2" />
+    <text>Ami très cher, je souhaite que tu te portes bien à tous points de vue. Ta vie chrétienne est bonne, je souhaite que ta santé soit aussi bonne.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-3JN">
+    <verse num="3" />
+    <text>J'ai été très heureux quand des frères sont arrivés. En effet, ils ont rendu témoignage à la vérité qui est en toi: oui, tu vis dans la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-3JN">
+    <verse num="4" />
+    <text>Ma plus grande joie, c'est d'apprendre que mes enfants vivent dans la vérité. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN">
+    <verse num="5" />
+    <text>Ami très cher, tu prends soin des chrétiens, et pourtant, ce sont des étrangers. Quand tu fais cela, tu agis comme un croyant.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-3JN">
+    <verse num="6" />
+    <text>Devant la communauté, ils ont rendu témoignage à ton amour. Aide-les dans leur voyage d'une façon qui plaise à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-3JN">
+    <verse num="7" />
+    <text>En effet, c'est pour le nom du Christ qu'ils ont pris la route, et ils n'ont rien demandé à ceux qui ne connaissent pas Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-3JN">
+    <verse num="8" />
+    <text>Alors nous, nous devons aider ces frères et ces sœurs, pour travailler avec eux au service de la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN">
+    <verse num="9" />
+    <text>J'ai écrit une petite lettre à la communauté, mais Diotrèphe, qui aime passer devant les autres, n'accepte pas notre autorité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-3JN">
+    <verse num="10" />
+    <text>C'est pourquoi, quand je viendrai, je parlerai de ce qu'il fait, de tout le mal qu'il dit contre nous. Et cela ne lui suffit pas: il refuse de recevoir les autres chrétiens. Et quand certains veulent les recevoir, il les empêche de le faire et il les chasse de la communauté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN">
+    <verse num="11" />
+    <text>Ami très cher, n'imite pas ce qui est mal, mais imite ce qui est bien. Celui qui fait le bien appartient à Dieu, celui qui fait le mal ne connaît pas Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-3JN">
+    <verse num="12" />
+    <text>Tout le monde rend un bon témoignage à Démétrius, la vérité elle-même parle pour lui. Nous aussi, nous lui rendons témoignage, et tu sais que notre témoignage est vrai.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-3JN">
+    <verse num="13" />
+    <text>J'ai beaucoup de choses à te dire, mais je ne veux pas le faire avec une plume et de l'encre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-3JN">
+    <verse num="14" />
+    <text>J'espère te revoir bientôt, et nous parlerons face à face.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-3JN">
+    <verse num="15" />
+    <text>Que la paix soit avec toi! Les amis d'ici te saluent. Salue aussi les amis de là-bas, chacun en particulier. </text>
+  </block>
+  <UnappliedSplits />
+</book>

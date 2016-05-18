@@ -35,10 +35,17 @@ namespace GlyssenTests
 			}
 		}
 
-		[Test]
-		public void English_ReferenceTextIsLoadedCorrectly()
+		[TestCase(ReferenceTextType.English)]
+		[TestCase(ReferenceTextType.Azeri)]
+		[TestCase(ReferenceTextType.French)]
+		[TestCase(ReferenceTextType.Indonesian)]
+		[TestCase(ReferenceTextType.Portuguese)]
+		[TestCase(ReferenceTextType.Russian)]
+		[TestCase(ReferenceTextType.Spanish)]
+		[TestCase(ReferenceTextType.TokPisin)]
+		public void GetStandardReferenceText_AllStandardReferenceTextsAreLoadedCorrectly(ReferenceTextType referenceTextType)
 		{
-			var referenceText = ReferenceText.English;
+			var referenceText = ReferenceText.GetStandardReferenceText(referenceTextType);
 			Assert.AreEqual(27, referenceText.Books.Count); //Only NT so far. Hopefully soon, it will include the OT also.
 			Assert.AreEqual(ScrVers.English, referenceText.Versification);
 		}

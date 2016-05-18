@@ -76,7 +76,7 @@ namespace Glyssen
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
 			if (installFonts)
 				InstallFontsIfNecessary();
-			PrimaryReferenceText = ReferenceText.English;
+			PrimaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :

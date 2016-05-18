@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2JN" singlevoice="false" pageheader="2 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
+    <text>2 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2JN">
+    <verse num="1" />
+    <text>Mi hetman bilong sios, mi raitim dispela pas long yu meri wantaim ol pikinini bilong yu. God i bin makim yu bilong em yet, na mi tok tru tumas, mi laikim yupela tru. Na i no mi tasol. Nogat. Olgeta manmeri i save long tok tru, ol i laikim yupela tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2JN">
+    <verse num="2" />
+    <text>Tok tru em i stap long yumi, na em bai i stap long yumi oltaim oltaim, olsem na mipela i save laikim yupela tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2JN">
+    <verse num="3" />
+    <text>Long pasin bilong tok tru na long pasin bilong laikim tru ol arapela, God Papa wantaim Jisas Krais, em Pikinini bilong Papa, bai i mekim pasin bilong marimari na sori na bel isi i kamap strong long laip bilong yumi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2JN">
+    <verse num="4" />
+    <text>Mi amamas tru long harim tok long sampela pikinini bilong yu ol i save bihainim tok tru, olsem Papa i bin tok long yumi mas bihainim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2JN">
+    <verse num="5" />
+    <text>Tasol meri, mi gat wanpela tok mi laik bai yu mas bihainim. Em i olsem, yumi wan wan i mas laikim tru ol arapela. I no olsem mi givim nupela lo long yu. Nogat. Bipo tru yumi kisim dispela lo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2JN">
+    <verse num="6" />
+    <text>Pasin bilong laikim tru ol arapela, em i olsem. Yumi mas bihainim ol lo bilong God. Olsem na dispela lo bipo tru yupela i harim, em i olsem, yupela i mas bihainim pasin bilong laikim tru ol arapela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
+    <verse num="7" />
+    <text>Harim. Planti man i laik giamanim yumi, ol i raun nabaut long graun. Ol i no bilip olsem, Jisas Krais em i bin kamap man. Dispela kain man, em i man bilong giaman, na em i birua bilong Krais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
+    <verse num="8" />
+    <text>Olsem na yupela i mas lukaut gut, nogut yupela i lusim ol samting yumi bin hatwok long kisim. Yupela i mas sanap strong, na bai yupela i kisim olgeta pe bilong yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
+    <verse num="9" />
+    <text>Sapos wanpela man i no holim strong tok bilong Krais, na em i kalap i go long narapela tok, orait God i no i stap wantaim em. Tasol sapos wanpela man i holim strong tok bilong Krais, orait Papa wantaim Pikinini tupela i stap wantaim em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
+    <verse num="10" />
+    <text>Sapos wanpela man i kam long yupela, na em i no bringim dispela kain tok i kam, orait yupela i no ken givim gude long em, na yupela i no ken kisim em i go long haus bilong yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2JN">
+    <verse num="11" />
+    <text>Man i givim gude long dispela kain man, em i helpim em long wok nogut bilong em. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
+    <verse num="12" />
+    <text>Inap mi raitim planti tok moa long yupela, tasol mi no laik putim dispela tok long wanpela pas. Mi ting mi mas i kam lukim yupela, na bai yumi toktok wantaim na yumi amamas tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2JN">
+    <verse num="13" />
+    <text>Ol pikinini bilong susa bilong yu, em dispela susa God i makim bilong em yet, ol i tok gude long yu. </text>
+  </block>
+  <UnappliedSplits />
+</book>

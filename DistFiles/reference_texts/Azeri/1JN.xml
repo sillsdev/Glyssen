@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1JN" singlevoice="false" pageheader="1 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+    <text>1 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Biz Hәyat Kәlamını elan edirik; bu hәmin Kәlamdır ki, başlanğıcdan var idi vә biz Onu eşitdik, gözlәrimizlә gördük, seyr etdik vә әllәrimizlә hiss etdik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Hәyat zahir oldu, biz dә onu görüb şahidlik edirik vә Ata ilә birlikdә olub bizә zahir olan әbәdi hәyatı sizә elan edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Biz sizә gördüyümüzü vә eşitdiyimizi elan edirik ki, sizin dә bizimlә şәrikliyiniz olsun; bizim şәrikliyimiz dә Ata vә Onun Oğlu İsa Mәsihlәdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Bunları biz yazırıq ki, sevincimiz kamil olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Mәsihdәn eşitdiyimiz vә sizә elan etdiyimiz xәbәr budur ki, Allah nurdur vә Onda zәrrә qәdәr dә qaranlıq yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Әgәr biz &lt;&lt;Allahla şәrikliyimiz var&gt;&gt; dediyimiz halda qaranlıqda gәziriksә, demәk, yalan danışırıq vә hәqiqәtә әmәl etmirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Amma O, nurda olduğu kimi biz dә nurda gәziriksә, onda bir-birimizlә şәrikliyimiz var vә Onun Oğlu İsanın qanı bizi hәr günahdan tәmizlәyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Әgәr günahsız olduğumuzu iddia ediriksә, özümüzü aldadırıq vә daxilimizdә hәqiqәt yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Amma günahlarımızı etiraf ediriksә, Allah sadiq vә әdalәtli olduğu üçün günahlarımızı bağışlayacaq vә bizi hәr haqsızlıqdan tәmizlәyәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Әgәr günahkar olmadığımızı iddia ediriksә, onda Onu yalançı yerinә qoyuruq vә daxilimizdә Onun sözü olmur. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Övladlarım, bunları sizә yazıram ki, günah etmәyәsiniz. Әgәr kimsә günah etsә belә, Atanın hüzurunda Vәsatәtçimiz var; O, saleh olan İsa Mәsihdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>O bizim günahlarımıza görә – tәkcә bizim günahlarımıza görә deyil, bütün dünyanın günahlarına görә kәffarә qurbanıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Onu tanıdığımızı bundan bilirik ki, Onun әmrlәrinә riayәt edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Kim &lt;&lt;Onu tanıyıram&gt;&gt; deyir, amma Onun әmrlәrinә riayәt etmirsә, yalançıdır vә onun daxilindә hәqiqәt yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Lakin kim Onun sözünә riayәt edirsә, Allah mәhәbbәti onda, hәqiqәtәn, kamilliyә çatıb. Bundan bilirik ki, biz Allahdayıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Kim Onda qaldığını deyirsә, İsa Mәsihin hәyat sürdüyü kimi hәyat sürmәlidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Sevimlilәr, sizә yeni әmr yazmıram, әvvәldәn bәri malik olduğunuz qәdim bir әmri yazıram; qәdim әmr isә eşitdiyiniz sözdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Yenә dә sizә yeni bir әmr yazıram; bunun hәqiqi olduğu Mәsihdә vә sizdә görünür. Çünki qaranlıq keçir vә hәqiqi nur artıq parlayır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Kim nurda olduğunu deyir, amma qardaşına nifrәt edirsә, hәlә dә qaranlıqdadır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Qardaşını sevәn nurda qalır vә onda büdrәmә sәbәbi yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Amma qardaşına nifrәt edәn qaranlıqdadır. O, qaranlıqda gәzir vә hara getdiyini bilmir, çünki qaranlıq onun gözlәrini kor edib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Ey övladlar, sizә yazıram, çünki Onun adı naminә günahlarınız bağışlanıb.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Ey atalar, sizә yazıram, çünki başlanğıcdan bәri Var Olanı tanıyırsınız. Ey gәnclәr, sizә yazıram, çünki şәr olana qalib gәlmisiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Ey uşaqlar, sizә yazdım, çünki Atanı tanıyırsınız. Ey atalar, sizә yazdım, çünki başlanğıcdan bәri Var Olanı tanıyırsınız. Ey gәnclәr, sizә yazdım, çünki güclüsünüz, Allahın kәlamı sizdә qalır, şәr olana da qalib gәlmisiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Dünyanı vә dünyada olan şeylәri sevmәyin. Kim dünyanı sevirsә, onda Atadan olan mәhәbbәt yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Çünki dünyada olan hәr şey – cismani ehtiraslar, acgözlük vә dünya malına görә tәkәbbür Atadan yox, dünyadan gәlir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Dünya vә ondakı ehtiraslar keçib-gedir, amma Allahın iradәsinә әmәl edәn әbәdi qalır. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Ey uşaqlar, axır zamandır. Siz &lt;&lt;Mәsih әleyhdarı&gt;&gt; nın gәlәcәyini eşitmisiniz, indi dә çoxlu Mәsih әleyhdarı meydana çıxıb. Bundan bilirik ki, axır zamandır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Onlar bizim aramızdan çıxdılar, amma bizә mәxsus deyildilәr. Әgәr bizә mәxsus olsaydılar, bizimlә qalardılar. Amma qalmadılar ki, heç birinin bizә mәxsus olmadığı aşkara çıxsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Lakin siz Müqәddәs Olandan bir mәsh almısınız vә hamınız biliklisiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Mәn sizә hәqiqәti bilmәdiyiniz üçün deyil, onu bildiyiniz üçün yazdım; siz bunu da bilirsiniz ki, heç bir yalanın hәqiqәtlә әlaqәsi yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>Bәs yalançı kimdir? İsanın Mәsih olduğunu inkar edәn şәxs! O, Atanı vә Oğulu inkar edәn Mәsih әleyhdarıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Oğulu inkar edәn hәr kәs Ataya da malik deyil, lakin Oğulu iqrar edәn kәs Ataya da malikdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>Sizin әvvәldәn bәri eşitdiyiniz söz qoy sizdә qalsın. Әgәr әvvәldәn bәri eşitdiyiniz söz sizdә qalsa, siz dә Oğul vә Atada qalarsınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN">
+    <verse num="25" />
+    <text>Onun bizә verdiyi vәd budur: әbәdi hәyat!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN">
+    <verse num="26" />
+    <text>Bunları sizi aldatmaq istәyәnlәr barәsindә yazıram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
+    <verse num="27" />
+    <text>Sizә gәlincә, Ondan aldığınız mәsh daxilinizdә qalır vә ehtiyacınız yoxdur ki, kimsә sizә tәlim versin. Әksinә, Onun bu mәshi sizә hәr şey barәdә tәlim verir vә bu, yalan deyil, hәqiqәtdir. Ona görә dә sizә öyrәtdiyi kimi Onda qalın. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
+    <verse num="28" />
+    <text>Belәliklә, ey övladlar, Onda qalın ki, O zahir olanda cәsarәtimiz olsun, Onun zühuru zamanı önündә utanmayaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN">
+    <verse num="29" />
+    <text>Әgәr Onun saleh olduğunu bilirsinizsә, hәm dә bilin ki, saleh iş görәn hәr kәs Ondan doğulub. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Görün Ata bizә necә mәhәbbәt göstәrib ki, biz Allahın övladları adlanırıq! Doğrudan da, belәyik! Dünya Onu tanımadığına görә bizi dә tanımır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Ey sevimlilәr, indi biz Allahın övladlarıyıq, amma nә olacağımız hәlә üzә çıxmayıb. Lakin bilirik ki, Mәsih zühur edәndә biz Ona bәnzәyәcәyik, çünki Onu olduğu kimi görәcәyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Ona bu cür ümid bağlayan hәr kәs O pak olduğu kimi özünü pak edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Günah edәn hәr kәs Qanunu da pozar, çünki günah Qanunu pozmaqdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Siz bilirsiniz ki, Mәsih günahları aradan qaldırmaq üçün zühur etdi. Onda günah yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Onda qalan hәr kәs günahını davam etdirmәz. Günahını davam etdirәn hәr kәs nә Onu görüb, nә dә Onu tanıyır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Ey övladlar, heç kәs sizi aldatmasın; saleh iş görәn şәxs Mәsihin saleh olduğu kimi salehdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Günahını davam etdirәn şәxs iblisdәndir, çünki iblis başlanğıcdan bәri günah edir. Allahın Oğlu buna görә zühur etdi ki, iblisin әmәllәrini puça çıxarsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Allahdan doğulan hәr kәs günahını davam etdirmәz, çünki Allahın toxumu onda qalır. O, günahını davam etdirә bilmәz, çünki Allahdan doğulub.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Kimin Allahın övladı, kiminsә iblisin övladı olması bundan aydın olur: saleh iş görmәyәn, hәmçinin qardaşını sevmәyәn hәr kәs Allahdan deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Әvvәldәn bәri eşitdiyiniz xәbәr budur: bir-birimizi sevәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Şәrdәn olub qardaşını öldürәn Qabil kimi olmayaq. O, qardaşını niyә öldürdü? Ona görә ki öz әmәllәri şәr, qardaşının әmәllәri isә saleh idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Belәliklә, qardaşlar, dünya sizә nifrәt edirsә, heyrәt etmәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Qardaşlarımızı sevdiyimizә görә biz bilirik ki, ölümdәn hәyata keçmişik. Sevmәyәnsә ölümdә qalır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Qardaşına nifrәt edәn hәr kәs qatildir. Bildiyiniz kimi, heç bir qatil özündә qalan әbәdi hәyata malik deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Mәhәbbәtin nә olduğunu bundan anladıq ki, Mәsih Öz canını bizim üçün fәda etdi. Biz dә öz canımızı qardaşlarımız üçün fәda etmәliyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Әgәr kimsә dünya malına sahib olarkәn qardaşını ehtiyac içindә görüb ona rәhmi gәlmirsә, Allah mәhәbbәti onda necә qala bilәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Ey övladlar, sözdә vә dildә deyil, әmәldә vә hәqiqәtdә sevәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <verse num="20" />
+    <text>Bununla hәqiqәtdәn olduğumuzu bilәcәyik vә ürәyimiz bizi mәhkum edirsә, ürәyimizi Allahın önündә sakitlәşdirәcәyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN">
+    <text>Çünki Allah bizim ürәyimizdәn üstündür vә hәr şeyi bilir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Ey sevimlilәr, әgәr ürәyimiz bizi mәhkum etmirsә, demәk, Allahın hüzurunda cәsarәtlә danışa bilәrik</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN">
+    <verse num="22" />
+    <text>vә Ondan nә dilәyiriksә, alırıq. Ona görә ki Onun әmrlәrinә riayәt edirik vә önündә Ona mәqbul olan işlәr görürük.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN">
+    <verse num="23" />
+    <text>Onun әmri dә budur ki, biz Onun Oğlu İsa Mәsihin adına iman edәk vә Onun bizә әmr etdiyi kimi bir-birimizi sevәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN">
+    <verse num="24" />
+    <text>Onun әmrlәrinә riayәt edәn şәxs Allahda, Allah da onda qalır. Onun bizdә qaldığını bu yolla, bizә verdiyi Ruh vasitәsilә bilirik. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>Ey sevimlilәr, hәr ruha inanmayın; ruhların Allahdan olub-olmadığını bilmәk üçün onları sınaqdan keçirin. Çünki dünyada çoxlu yalançı peyğәmbәr meydana çıxıb.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Allahın Ruhunu bundan tanıya bilәrsiniz: İsa Mәsihin cismәn gәldiyini iqrar edәn hәr ruh Allahdandır,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>İsanı iqrar etmәyәn hәr ruhsa Allahdan deyil. Bu, &lt;&lt;Mәsih әleyhdarı&gt;&gt; nın ruhudur ki, bu ruhun gәlәcәyini eşitmisiniz vә indi dә artıq dünyadadır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Sizsә, ey övladlar, Allahdansınız vә yalançı peyğәmbәrlәrә qalib gәlmisiniz. Çünki sizdә olan Ruh dünyada olandan üstündür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Onlar dünyadandır, buna görә dә dünyәvi mövqedәn danışırlar vә dünya onlara qulaq asır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Bizsә Allahdanıq. Allahı tanıyan bizә qulaq asır, Allahdan olmayansa bizә qulaq asmır. Hәqiqәt ruhunu vә aldatma ruhunu bundan tanıyırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Ey sevimlilәr, bir-birimizi sevәk, çünki mәhәbbәt Allahdandır. Sevәn hәr kәs dә Allahdan doğulub vә Allahı tanıyır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Sevmәyәn kәs Allahı tanımır, çünki Allah mәhәbbәtdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Allahın bizә olan mәhәbbәti belә zahir oldu: Allah Öz vahid Oğlunu dünyaya göndәrdi ki, biz Onun vasitәsilә yaşayaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Mәhәbbәt bizim Allahı sevmәyimizlә bağlı deyil, bundan ibarәtdir: O bizi sevdi vә Öz Oğlunu bizim günahlarımıza görә kәffarә qurbanı olaraq göndәrdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Ey sevimlilәr, Allah bizi bu cür sevdiyi üçün biz dә gәrәk bir-birimizi sevәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Allahı heç kim heç zaman görmәyib. Әgәr biz bir-birimizi sevsәk, Allah bizdә qalır vә Onun mәhәbbәti bizdә kamil olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Bizim Onda, Onun da bizdә qaldığını bundan bilirik ki, O bizә Öz Ruhundan verib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Biz görüb şahidlik edirik ki, Ata Oğlunu dünyanın Xilaskarı olaraq göndәrdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Kim iqrar edir ki, İsa Allahın Oğludur, Allah onda, o da Allahda qalır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Biz Allahın bizә olan mәhәbbәtini anlayıb buna inandıq. Allah mәhәbbәtdir. Kim mәhәbbәtdә qalarsa, Allahda qalar, Allah da onda qalar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Mәhәbbәt bizdә ona görә kamil oldu ki, qiyamәt günündә cәsarәtimiz olsun. Çünki Mәsih necәdirsә, biz dә bu dünyada elәyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Mәhәbbәtdә qorxu yoxdur, әksinә, kamil mәhәbbәt qorxunu qovar. Çünki qorxu cәzaya aiddir, qorxan insan mәhәbbәtdә kamil deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Biz sevirik, çünki öncә O bizi sevdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Kim &lt;&lt;mәn Allahı sevirәm&gt;&gt; deyir, amma öz qardaşına nifrәt edirsә, yalançıdır. Axı gördüyü qardaşını sevmәyәn görmәdiyi Allahı sevә bilmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Bizim Ondan aldığımız әmr budur ki, Allahı sevәn gәrәk öz qardaşını da sevsin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN">
+    <verse num="1" />
+    <text>İsanın Mәsih olduğuna inanan hәr kәs Allahdan doğulub. Doğanı sevәn ondan doğulanı da sevir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN">
+    <verse num="2" />
+    <text>Biz Allahın övladlarını sevdiyimizi bundan anlayırıq ki, Allahı sevib Onun әmrlәrinә әmәl edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN">
+    <verse num="3" />
+    <text>Çünki Allah mәhәbbәti Onun әmrlәrinә riayәt etmәyimizi tәlәb edir. Onun әmrlәri isә ağır deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN">
+    <verse num="4" />
+    <text>Çünki Allahdan doğulan hәr kәs dünyaya qalib gәlir. Bizә dünya üzәrindә zәfәr qazandıran öz imanımızdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN">
+    <verse num="5" />
+    <text>Dünyaya qalib gәlәn kimdir? Әlbәttә ki, İsanın Allahın Oğlu olmasına inanan!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN">
+    <verse num="6" />
+    <text>Su vә qanla gәlәn Şәxs hәmin İsa Mәsihdir. O yalnız su ilә deyil, su vә qanla gәldi. Buna şәhadәt edәn Ruhdur, çünki Ruh hәqiqәtdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN">
+    <verse num="7" />
+    <text>Bәli, üç şahid var:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN">
+    <verse num="8" />
+    <text>Ruh, su vә qan. Bunların üçü dә bir-birinә uyğun gәlir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
+    <verse num="9" />
+    <text>Biz insanların şәhadәtini qәbul edirik, amma Allahın şәhadәti bundan üstündür. Çünki bu, Allahın şәhadәtidir; O Öz Oğlu barәdә şәhadәt edib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
+    <verse num="10" />
+    <text>Allahın Oğluna iman edәn kәs öz daxilindә bu şәhadәtә malikdir. Amma Allaha inanmayan Onu yalançı yerinә qoyub. Çünki Allahın Öz Oğlu barәdә verdiyi şәhadәtә inanmayıb.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN">
+    <verse num="11" />
+    <text>Bu şәhadәt ondan ibarәtdir ki, Allah bizә әbәdi hәyat verib vә bu hәyat Onun Oğlundadır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
+    <verse num="12" />
+    <text>Oğula malik olan şәxsin hәyatı var, Allahın Oğluna malik olmayan şәxsin isә hәyatı yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
+    <verse num="13" />
+    <text>Bunları sizә – Allahın Oğlunun adına iman edәnlәrә yazdım ki, әbәdi hәyata malik olduğunuzu bilәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
+    <verse num="14" />
+    <text>Biz Onun hüzurunda ona görә cәsarәtlә danışa bilirik ki, Onun iradәsinә uyğun nәsә dilәdikdә O bizi eşidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
+    <verse num="15" />
+    <text>Bilirik ki, nә dilәyiriksә, O bizi eşidir; belәcә dә bilirik ki, Ondan dilәdiklәrimizi alırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
+    <verse num="16" />
+    <text>Әgәr bir kәs qardaşının ölümә aparmayan günah etdiyini görsә, qoy Allahdan onun sağ qalmasını dilәsin vә belәcә ona – ölümә aparmayan günah edәn kәsә hәyat versin. Ölümә aparan günah da var. Demirәm ki, bu barәdә Allahdan istәsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN">
+    <verse num="17" />
+    <text>Hәr cür haqsızlıq günahdır, amma ölümә aparmayan günah da var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
+    <verse num="18" />
+    <text>Bilirik ki, Allahdan doğulan hәr kәs günahını davam etdirmәz. Әksinә, Allahdan doğulan Oğul onu qoruyur vә şәr olan ona toxuna bilmir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN">
+    <verse num="19" />
+    <text>Bilirik ki, biz Allahdanıq, amma bütün dünya şәr olanın hakimiyyәti altındadır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN">
+    <verse num="20" />
+    <text>Bunu da bilirik ki, Allahın Oğlu gәlib bizә Haqq Olanı tanımaq üçün dәrrakә verdi. Biz dә Haqq Olanda, Onun Oğlu İsa Mәsihdәyik. Hәqiqi Allah vә әbәdi hәyat Odur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN">
+    <verse num="21" />
+    <text>Ey övladlar, özünüzü bütlәrdәn qoruyun! </text>
+  </block>
+  <UnappliedSplits />
+</book>

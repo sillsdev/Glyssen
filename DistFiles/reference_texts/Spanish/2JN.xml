@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2JN" singlevoice="false" pageheader="2 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
+    <text>2 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2JN">
+    <verse num="1" />
+    <text>El anciano saluda a la comunidad escogida por Dios y a los que pertenecen a ella. Los amo de veras, y no solo yo, sino también todos los que han conocido la verdad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2JN">
+    <verse num="2" />
+    <text>Los amo a ustedes por causa de la verdad que tenemos en nuestro corazón y que estará con nosotros para siempre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2JN">
+    <verse num="3" />
+    <text>Que Dios el Padre, y Jesucristo, Hijo del Padre, derramen su gracia sobre ustedes y les den misericordia y paz, en verdad y en amor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2JN">
+    <verse num="4" />
+    <text>Me he alegrado mucho de encontrar a algunos de los tuyos viviendo conforme a la verdad, como Dios el Padre nos ha mandado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2JN">
+    <verse num="5" />
+    <text>Ahora, queridos hermanos, les ruego que nos amemos los unos a los otros. Esto que les escribo no es un mandamiento nuevo, sino el mismo que recibimos desde el principio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2JN">
+    <verse num="6" />
+    <text>El amor consiste en vivir según los mandamientos de Dios, y el mandamiento, como ya lo han oído ustedes desde el principio, es que vivan en el amor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
+    <verse num="7" />
+    <text>Pues andan por el mundo muchos engañadores que no reconocen que Jesucristo vino como hombre verdadero. El que es así, es el engañador y el Anticristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
+    <verse num="8" />
+    <text>Tengan ustedes cuidado, para no perder el resultado de nuestro trabajo, sino recibir su recompensa completa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
+    <verse num="9" />
+    <text>Cualquiera que pretenda avanzar más allá de lo que Cristo enseñó, no tiene a Dios; pero el que permanece en esa enseñanza, tiene al Padre y también al Hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
+    <verse num="10" />
+    <text>Si alguno va a visitarlos a ustedes y no lleva esta enseñanza, no lo reciban en casa ni lo saluden;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2JN">
+    <verse num="11" />
+    <text>porque quien lo salude se hará cómplice de sus malas acciones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
+    <verse num="12" />
+    <text>Tengo mucho que decirles a ustedes, pero no quiero hacerlo por carta. Espero ir a verlos y hablar con ustedes personalmente, para que así nuestra alegría sea completa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2JN">
+    <verse num="13" />
+    <text>Los que pertenecen a la comunidad hermana de ustedes, a la cual Dios también ha escogido, les mandan saludos.</text>
+  </block>
+  <UnappliedSplits />
+</book>

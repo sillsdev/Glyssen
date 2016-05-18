@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="GAL" singlevoice="false" pageheader="GALATIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-GAL">
+    <text>GALATIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="GAL" initialStartVerse="0" characterId="BC-GAL">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-GAL">
+    <verse num="1" />
+    <text>Pablo, apóstol no enviado ni nombrado por los hombres, sino por Jesucristo mismo y por Dios Padre que resucitó a Jesús,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-GAL">
+    <verse num="2" />
+    <text>saluda, junto con todos los hermanos, a las iglesias de Galacia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-GAL">
+    <verse num="3" />
+    <text>Que Dios nuestro Padre y el Señor Jesucristo derramen su gracia y su paz sobre ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-GAL">
+    <verse num="4" />
+    <text>Jesucristo se entregó a la muerte por nuestros pecados, para librarnos del estado perverso actual del mundo, según la voluntad de nuestro Dios y Padre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-GAL">
+    <verse num="5" />
+    <text>¡Gloria a Dios para siempre! Amén.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-GAL">
+    <verse num="6" />
+    <text>Estoy muy sorprendido de que ustedes se hayan alejado tan pronto de Dios, que los llamó mostrando en Cristo su bondad, y se hayan pasado a otro evangelio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-GAL">
+    <verse num="7" />
+    <text>En realidad no es que haya otro evangelio. Lo que pasa es que hay algunos que los perturban a ustedes, y que quieren trastornar el evangelio de Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-GAL">
+    <verse num="8" />
+    <text>Pero si alguien les anuncia un evangelio distinto del que ya les hemos anunciado, que caiga sobre él la maldición de Dios, no importa si se trata de mí mismo o de un ángel venido del cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-GAL">
+    <verse num="9" />
+    <text>Lo he dicho antes y ahora lo repito: Si alguien les anuncia un evangelio diferente del que ya recibieron, que caiga sobre él la maldición de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-GAL">
+    <verse num="10" />
+    <text>Yo no busco la aprobación de los hombres, sino la aprobación de Dios. No busco quedar bien con los hombres. ¡Si yo quisiera quedar bien con los hombres, ya no sería un siervo de Cristo!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-GAL">
+    <verse num="11" />
+    <text>Sepan ustedes esto, hermanos: el evangelio que yo anuncio no es invención humana.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-GAL">
+    <verse num="12" />
+    <text>No lo recibí ni lo aprendí de hombre alguno, sino que Jesucristo mismo me lo hizo conocer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-GAL">
+    <verse num="13" />
+    <text>Ustedes habrán oído decir cuál era mi conducta anterior en el judaísmo, y cómo perseguí con violencia a la iglesia de Dios y procuré destruirla.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-GAL">
+    <verse num="14" />
+    <text>En el judaísmo, yo dejaba atrás a muchos de mis paisanos de mi misma edad, porque era mucho más estricto en mantener las tradiciones de mis antepasados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-GAL">
+    <verse num="15" />
+    <text>Pero Dios, que me escogió antes de nacer y por su gran bondad me llamó, tuvo a bien hacerme conocer a su Hijo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-GAL">
+    <verse num="16" />
+    <text>para que anunciara su evangelio entre los no judíos. Y no fui entonces a consultar con ningún ser humano;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-GAL">
+    <verse num="17" />
+    <text>ni fui tampoco a Jerusalén a ver a los que eran apóstoles antes que yo. Por el contrario, me dirigí sin tardar a la región de Arabia, y luego volví a Damasco.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-GAL">
+    <verse num="18" />
+    <text>Tres años después fui a Jerusalén para conocer a Cefas, con quien estuve quince días.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-GAL">
+    <verse num="19" />
+    <text>Pero no vi a ningún otro de los apóstoles, aunque sí a Santiago el hermano del Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-GAL">
+    <verse num="20" />
+    <text>Les aseguro delante de Dios que lo que les estoy escribiendo es la verdad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-GAL">
+    <verse num="21" />
+    <text>Después me dirigí a las regiones de Siria y Cilicia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-GAL">
+    <verse num="22" />
+    <text>En cambio, los hermanos de las iglesias de Cristo que están en Judea no me conocían personalmente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-GAL">
+    <verse num="23" />
+    <text>Solamente oían decir: &lt;&lt;El que antes nos perseguía, anda ahora predicando el evangelio que en otro tiempo quería destruir.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-GAL">
+    <verse num="24" />
+    <text>Y alababan a Dios por causa mía.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="GAL" initialStartVerse="0" characterId="BC-GAL">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-GAL">
+    <verse num="1" />
+    <text>Catorce años después fui otra vez a Jerusalén con Bernabé, y llevé a Tito conmigo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-GAL">
+    <verse num="2" />
+    <text>Fui porque Dios me había mostrado que tenía que ir. Y allí expuse ante la comunidad el evangelio que anuncio a los no judíos. Y lo expliqué también en privado ante aquellos que eran reconocidos como de mayor autoridad, para dejar en claro que lo que yo estaba haciendo o había hecho no era trabajo inútil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-GAL">
+    <verse num="3" />
+    <text>Pero ni siquiera Tito, que estaba conmigo y que era griego, fue obligado a someterse al rito de la circuncisión.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-GAL">
+    <verse num="4" />
+    <text>Algunos falsos hermanos se habían metido entre nosotros a escondidas, para espiar la libertad que tenemos en Cristo Jesús y hacernos otra vez esclavos de la ley.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-GAL">
+    <verse num="5" />
+    <text>Pero ni por un momento nos dejamos llevar por ellos, porque queríamos que la verdad del evangelio permaneciera en ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-GAL">
+    <verse num="6" />
+    <text>Pero no me añadieron nada nuevo los que eran reconocidos como de mayor autoridad (aunque a mí no me interesa lo que hayan sido ellos, porque Dios no juzga por las apariencias).</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-GAL">
+    <verse num="7" />
+    <text>Al contrario, reconocieron que Dios me había encargado el trabajo de anunciar el evangelio a los no judíos, así como a Pedro le había encargado el trabajo de anunciarlo a los judíos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-GAL">
+    <verse num="8" />
+    <text>Pues el mismo Dios que envió a Pedro como apóstol a los judíos, me envió también a mí como apóstol a los no judíos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-GAL">
+    <verse num="9" />
+    <text>Santiago, Cefas y Juan, que eran tenidos por columnas de la iglesia, reconocieron que Dios me había concedido este privilegio, y para confirmar que nos aceptaban como compañeros, nos dieron la mano a mí y a Bernabé, y estuvieron de acuerdo en que nosotros fuéramos a trabajar entre los no judíos, mientras que ellos trabajarían entre los judíos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-GAL">
+    <verse num="10" />
+    <text>Solamente nos pidieron que nos acordáramos de los pobres, cosa que he procurado hacer con todo cuidado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-GAL">
+    <verse num="11" />
+    <text>Pero cuando Cefas fue a la ciudad de Antioquía, lo reprendí en su propia cara, porque lo que estaba haciendo era condenable.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-GAL">
+    <verse num="12" />
+    <text>Pues primero comía con los no judíos, hasta que llegaron algunas personas de parte de Santiago; entonces comenzó a separarse, y dejó de comer con ellos, porque tenía miedo de los fanáticos de la circuncisión.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-GAL">
+    <verse num="13" />
+    <text>Y los otros creyentes judíos consintieron también con Pedro en su hipocresía, tanto que hasta Bernabé se dejó llevar por ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-GAL">
+    <verse num="14" />
+    <text>Por eso, cuando vi que no se portaban conforme a la verdad del evangelio, le dije a Cefas delante de toda la comunidad: &lt;&lt;Tú, que eres judío, has estado viviendo como si no lo fueras; ¿por qué, pues, quieres obligar a los no judíos a vivir como si lo fueran?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-GAL">
+    <verse num="15" />
+    <text>Nosotros somos judíos de nacimiento, y no pecadores paganos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-GAL">
+    <verse num="16" />
+    <text>Sin embargo, sabemos que nadie es reconocido como justo por cumplir la ley sino gracias a la fe en Jesucristo. Por esto, también nosotros hemos creído en Jesucristo, para que Dios nos reconozca como justos, gracias a esa fe y no por cumplir la ley. Porque nadie será reconocido como justo por cumplir la ley.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-GAL">
+    <verse num="17" />
+    <text>Ahora bien, si buscando ser reconocidos como justos por medio de Cristo, resulta que también nosotros somos pecadores, ¿acaso esto querrá decir que Cristo nos hace pecadores? ¡Claro que no!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-GAL">
+    <verse num="18" />
+    <text>Pues si destruyo algo y luego lo vuelvo a construir, yo mismo soy el culpable.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-GAL">
+    <verse num="19" />
+    <text>Porque por medio de la ley yo he muerto a la ley, a fin de vivir para Dios. Con Cristo he sido crucificado,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-GAL">
+    <verse num="20" />
+    <text>y ya no soy yo quien vive, sino que es Cristo quien vive en mí. Y la vida que ahora vivo en el cuerpo, la vivo por mi fe en el Hijo de Dios, que me amó y se entregó a la muerte por mí.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-GAL">
+    <verse num="21" />
+    <text>No quiero rechazar la bondad de Dios; pues si se obtuviera la justicia por medio de la ley, Cristo habría muerto inútilmente.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="GAL" initialStartVerse="0" characterId="BC-GAL">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-GAL">
+    <verse num="1" />
+    <text>¡Gálatas, duros para entender! ¿Quién los embrujó? En nuestra predicación hemos mostrado ante sus propios ojos a Jesucristo crucificado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-GAL">
+    <verse num="2" />
+    <text>Solo quiero que me contesten a esta pregunta: ¿Recibieron ustedes el Espíritu de Dios por el cumplimiento de la ley o por aceptar el mensaje de la fe?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-GAL">
+    <verse num="3" />
+    <text>¿Son tan duros para entender, que habiendo comenzado con el Espíritu quieren ahora terminar con algo puramente humano?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-GAL">
+    <verse num="4" />
+    <text>¿Tantas buenas experiencias para nada?... ¡Imposible que hayan sido para nada!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-GAL">
+    <verse num="5" />
+    <text>Cuando Dios les da su Espíritu y hace milagros entre ustedes, ¿por qué lo hace? No en virtud del cumplimiento de la ley, sino por aceptar el mensaje de la fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-GAL">
+    <verse num="6" />
+    <text>Así también,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="scripture">
+    <text>Abraham creyó a Dios, y Dios le tuvo esto en cuenta y lo reconoció como justo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-GAL">
+    <verse num="7" />
+    <text>Por lo tanto, ustedes deben saber que los verdaderos descendientes de Abraham son los que tienen fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-GAL">
+    <verse num="8" />
+    <text>La Escritura, viendo de antemano que también entre los no judíos iba Dios a reconocer como justos a los que tuvieran fe, había anunciado a Abraham esta buena noticia:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Todas las naciones serán bendecidas por medio de ti.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-GAL">
+    <verse num="9" />
+    <text>De manera que los que creen son bendecidos junto con Abraham, que también creyó.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-GAL">
+    <verse num="10" />
+    <text>Quienes ponen su confianza en la ley están bajo maldición, porque la Escritura dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
+    <text>&lt;&lt;Maldito sea el que no cumple fielmente todo lo que está escrito en el libro de la ley.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL">
+    <verse num="11" />
+    <text>Por tanto, está claro que nadie es reconocido como justo en virtud de la ley; pues la Escritura dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;El justo por la fe vivirá.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL">
+    <verse num="12" />
+    <text>Pero la ley no se basa en la fe, sino que dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture">
+    <text>&lt;&lt;El que cumpla la ley, vivirá por ella.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-GAL">
+    <verse num="13" />
+    <text>Cristo nos rescató de la maldición de la ley haciéndose maldición por causa nuestra, porque la Escritura dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;Maldito todo el que muere colgado de un madero.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-GAL">
+    <verse num="14" />
+    <text>Esto sucedió para que la bendición que Dios prometió a Abraham alcance también, por medio de Cristo Jesús, a los no judíos; y para que por medio de la fe recibamos todos el Espíritu que Dios ha prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-GAL">
+    <verse num="15" />
+    <text>Hermanos, voy a hablarles en términos humanos: Cuando un hombre hace un pacto y lo respalda con su firma, nadie puede anularlo ni agregarle nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-GAL">
+    <verse num="16" />
+    <text>Ahora bien, Dios hizo sus promesas a Abraham y a su descendencia. La Escritura no habla de &lt;&lt;descendencias&gt;&gt;, en plural, sino en singular; dice: &lt;&lt;y a tu descendencia&gt;&gt;, la cual es Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-GAL">
+    <verse num="17" />
+    <text>Lo que digo es esto: Dios hizo una alianza con Abraham, y la confirmó. Por eso, la ley de Moisés, que vino cuatrocientos treinta años después, no puede anular aquella alianza y dejar sin valor la promesa de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-GAL">
+    <verse num="18" />
+    <text>Pues si lo que Dios prometió darnos dependiera de la ley de Moisés, ya no sería una promesa; pero el hecho es que Dios prometió a Abraham dárselo gratuitamente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-GAL">
+    <verse num="19" />
+    <text>Entonces, ¿para qué sirve la ley? Fue dada después, para poner de manifiesto la desobediencia de los hombres, hasta que viniera esa &lt;&lt;descendencia&gt;&gt; a quien se le había hecho la promesa. La ley fue proclamada por medio de ángeles, y Moisés sirvió de intermediario.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-GAL">
+    <verse num="20" />
+    <text>Pero no hay necesidad de intermediario cuando se trata de una sola persona, y Dios es uno solo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-GAL">
+    <verse num="21" />
+    <text>¿Acaso esto quiere decir que la ley está en contra de las promesas de Dios? ¡Claro que no! Porque si la ley pudiera dar vida, entonces la justicia realmente se obtendría en virtud de la ley.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-GAL">
+    <verse num="22" />
+    <text>Pero, según lo que dice la Escritura, todos son prisioneros del pecado, para que quienes creen en Jesucristo puedan recibir lo que Dios ha prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-GAL">
+    <verse num="23" />
+    <text>Antes de venir la fe, la ley nos tenía presos, esperando a que la fe fuera dada a conocer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-GAL">
+    <verse num="24" />
+    <text>La ley era para nosotros como el esclavo que vigila a los niños, hasta que viniera Cristo, para que por la fe obtuviéramos la justicia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-GAL">
+    <verse num="25" />
+    <text>Pero ahora que ha llegado la fe, ya no estamos a c</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="narrator-GAL">
+    <verse num="26" />
+    <text>pues por la fe en Cristo Jesús todos ustedes son hijos de Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="narrator-GAL">
+    <verse num="27" />
+    <text>ya que al unirse a Cristo en el bautismo, han quedado revestidos de Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="narrator-GAL">
+    <verse num="28" />
+    <text>Ya no importa el ser judío o griego, esclavo o libre, hombre o mujer; porque unidos a Cristo Jesús, todos ustedes son uno solo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-GAL">
+    <verse num="29" />
+    <text>Y si son de Cristo, entonces son descendientes de Abraham y herederos de las promesas que Dios le hizo. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="GAL" initialStartVerse="0" characterId="BC-GAL">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-GAL">
+    <verse num="1" />
+    <text>Lo que quiero decir es esto: Mientras el heredero es menor de edad, en nada se diferencia de un esclavo de la familia, aunque sea en realidad el dueño de todo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-GAL">
+    <verse num="2" />
+    <text>Hay personas que lo cuidan y que se encargan de sus asuntos, hasta el tiempo que su padre haya señalado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-GAL">
+    <verse num="3" />
+    <text>Lo mismo pasa con nosotros: cuando éramos menores de edad, estábamos sometidos a los poderes que dominan este mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-GAL">
+    <verse num="4" />
+    <text>Pero cuando se cumplió el tiempo, Dios envió a su Hijo, que nació de una mujer, sometido a la ley de Moisés,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-GAL">
+    <verse num="5" />
+    <text>para rescatarnos a los que estábamos bajo esa ley y concedernos gozar de los derechos de hijos de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-GAL">
+    <verse num="6" />
+    <text>Y porque ya somos sus hijos, Dios mandó el Espíritu de su Hijo a nuestros corazones; y el Espíritu clama: &lt;&lt;¡Abbá! ¡Padre!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-GAL">
+    <verse num="7" />
+    <text>Así pues, tú ya no eres esclavo, sino hijo de Dios; y por ser hijo suyo, es voluntad de Dios que seas también su heredero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-GAL">
+    <verse num="8" />
+    <text>Antes, cuando ustedes no conocían a Dios, eran esclavos de seres que en realidad no son dioses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-GAL">
+    <verse num="9" />
+    <text>Pero ahora que ustedes han conocido a Dios, o mejor dicho, ahora que Dios los ha conocido a ustedes, ¿cómo es posible que vuelvan a someterse a esos débiles y pobres poderes, y a hacerse sus esclavos?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-GAL">
+    <verse num="10" />
+    <text>Ustedes celebran ciertos días, meses, fechas y años...</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-GAL">
+    <verse num="11" />
+    <text>¡Mucho me temo que mi trabajo entre ustedes no haya servido de nada!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-GAL">
+    <verse num="12" />
+    <text>Hermanos, les ruego: sean como yo, porque yo me he vuelto como ustedes. No es que me hayan causado ustedes ningún daño.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-GAL">
+    <verse num="13" />
+    <text>Como ya saben, cuando primero les prediqué el evangelio lo hice debido a una enfermedad que sufría.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-GAL">
+    <verse num="14" />
+    <text>Y esa enfermedad fue una prueba para ustedes, que no me despreciaron ni me rechazaron a causa de ella, sino que, al contrario, me recibieron como a un ángel de Dios, ¡como si se tratara del mismo Cristo Jesús!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-GAL">
+    <verse num="15" />
+    <text>¿Qué pasó con aquella alegría que sentían? Puedo decir en favor de ustedes que, de haberles sido posible, hasta se habrían sacado los ojos para dármelos a mí.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-GAL">
+    <verse num="16" />
+    <text>Y ahora, ¿acaso me he vuelto enemigo de ustedes, solamente porque les he dicho la verdad?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-GAL">
+    <verse num="17" />
+    <text>Esa gente tiene mucho interés en ustedes, pero no son buenas sus intenciones. Lo que quieren es apartarlos de nosotros, para que luego ustedes se interesen por ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-GAL">
+    <verse num="18" />
+    <text>Claro que es bueno interesarse por los demás, pero con buenas intenciones; y que sea siempre, y no solamente cuando estoy entre ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-GAL">
+    <verse num="19" />
+    <text>Hijos míos, otra vez sufro dolores de parto, hasta que Cristo se forme en ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-GAL">
+    <verse num="20" />
+    <text>¡Ojalá estuviera yo ahí ahora mismo para hablarles de otra manera, pues no sé qué pensar de ustedes!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-GAL">
+    <verse num="21" />
+    <text>Díganme una cosa, ustedes, los que quieren someterse a la ley: ¿Acaso no han escuchado lo que la ley dice?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-GAL">
+    <verse num="22" />
+    <text>Pues dice que Abraham tuvo dos hijos: uno de una esclava, y el otro de su propia esposa, que era libre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-GAL">
+    <verse num="23" />
+    <text>El hijo de la esclava nació de modo puramente humano; pero el hijo de la libre nació para que se cumpliera lo que Dios había prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-GAL">
+    <verse num="24" />
+    <text>Esto tiene un sentido simbólico; las dos mujeres representan dos alianzas: una es la del monte Sinaí, y está representada por Agar, que fue la madre del que habría de ser esclavo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-GAL">
+    <verse num="25" />
+    <text>Pues Agar representa el monte Sinaí, en Arabia, que corresponde a la actual Jerusalén, ya que esta ciudad está sometida a esclavitud junto con sus hijos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-GAL">
+    <verse num="26" />
+    <text>Pero la Jerusalén celestial es libre, y nosotros somos hijos suyos. </text>
+    <verse num="27" />
+    <text>Porque la Escritura dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="scripture">
+    <text>&lt;&lt;Alégrate, mujer estéril, tú que no tienes hijos; grita de alegría, tú que no conoces los dolores de parto. Porque la mujer que fue abandonada tendrá más hijos que la mujer que tiene esposo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-GAL">
+    <verse num="28" />
+    <text>Hermanos, ustedes son como Isaac: son los hijos que Dios había prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-GAL">
+    <verse num="29" />
+    <text>Pero así como en aquel tiempo el hijo que nació de modo puramente humano perseguía al hijo que nació por obra del Espíritu, así sucede también ahora.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-GAL">
+    <verse num="30" />
+    <text>Pero ¿qué dice la Escritura? Pues dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;Echa fuera a la esclava y a su hijo, porque el hijo de la esclava no puede compartir la herencia con el hijo de la libre.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL">
+    <verse num="31" />
+    <text>De manera, hermanos, que no somos hijos de la esclava, sino de la libre.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="GAL" initialStartVerse="0" characterId="BC-GAL">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-GAL">
+    <verse num="1" />
+    <text>Cristo nos dio libertad para que seamos libres. Por lo tanto, manténganse ustedes firmes en esa libertad y no se sometan otra ve Zal yugo de la esclavitud.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-GAL">
+    <verse num="2" />
+    <text>Escúchenme. Yo, Pablo, les digo que si ustedes se someten al rito de la circuncisión, Cristo no les servirá de nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-GAL">
+    <verse num="3" />
+    <text>Quiero repetirle a cualquier hombre que se circuncida, que está obligado a cumplir toda la ley.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-GAL">
+    <verse num="4" />
+    <text>Ustedes, los que quieren ser reconocidos como justos por cumplir la ley, se han apartado de Cristo; han rechazado la generosidad de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-GAL">
+    <verse num="5" />
+    <text>Pero nosotros, por medio del Espíritu tenemos la esperanza de alcanzar la justicia basados en la fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-GAL">
+    <verse num="6" />
+    <text>Porque gracias a Cristo Jesús, ya no cuenta para nada estar o no circuncidados. Lo que cuenta es la fe, una fe activa por medio del amor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-GAL">
+    <verse num="7" />
+    <text>Ustedes iban por buen camino. ¿Quién les impidió obedecer a la verdad?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-GAL">
+    <verse num="8" />
+    <text>No fue cosa de Dios, que los ha llamado. Se dice que</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-GAL">
+    <verse num="9" />
+    <text>&lt;&lt;un poco de levadura hace que fermente toda la masa&gt;&gt;,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-GAL">
+    <verse num="10" />
+    <text>y yo tengo confianza en el Señor de que ustedes no van a pensar de otro modo; pero Dios castigará a ese que los anda perturbando, no importa quién sea.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-GAL">
+    <verse num="11" />
+    <text>En cuanto a mí, hermanos, si todavía estuviera yo insistiendo en el valor de la circuncisión, los judíos no me perseguirían, ya que en ese caso el mensaje de la cruz de Cristo no los ofendería.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-GAL">
+    <verse num="12" />
+    <text>Pero esos que los andan perturbando a ustedes, ¡ojalá se castraran a sí mismos de una vez!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-GAL">
+    <verse num="13" />
+    <text>Ustedes, hermanos, han sido llamados a la libertad. Pero no usen esta libertad para dar rienda suelta a sus instintos. Más bien sírvanse los unos a los otros por amor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-GAL">
+    <verse num="14" />
+    <text>Porque toda la ley se resume en este solo mandato:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+    <text>&lt;&lt;Ama a tu prójimo como a ti mismo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-GAL">
+    <verse num="15" />
+    <text>Tengan cuidado, porque si ustedes se muerden y se comen unos a otros, llegarán a destruirse entre ustedes mismos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-GAL">
+    <verse num="16" />
+    <text>Por lo tanto, digo: Vivan según el Espíritu, y no busquen satisfacer sus propios malos deseos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-GAL">
+    <verse num="17" />
+    <text>Porque los malos deseos están en contra del Espíritu, y el Espíritu está en contra de los malos deseos. El uno está en contra de los otros, y por eso ustedes no pueden hacer lo que quisieran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-GAL">
+    <verse num="18" />
+    <text>Pero si el Espíritu los guía, entonces ya no estarán sometidos a la ley.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-GAL">
+    <verse num="19" />
+    <text>Es fácil ver lo que hacen quienes siguen los malos deseos: cometen inmoralidades sexuales, hacen cosas impuras y viciosas,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-GAL">
+    <verse num="20" />
+    <text>adoran ídolos y practican la brujería. Mantienen odios, discordias y celos. Se enojan fácilmente, causan rivalidades, divisiones y partidismos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-GAL">
+    <verse num="21" />
+    <text>Son envidiosos, borrachos, glotones y otras cosas parecidas. Les advierto a ustedes, como ya antes lo he hecho, que los que así se portan no tendrán parte en el reino de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-GAL">
+    <verse num="22" />
+    <text>En cambio, lo que el Espíritu produce es amor, alegría, paz, paciencia, amabilidad, bondad, fidelidad,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-GAL">
+    <verse num="23" />
+    <text>humildad y dominio propio. Contra tales cosas no hay ley.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-GAL">
+    <verse num="24" />
+    <text>Y los que son de Cristo Jesús, ya han crucificado la naturaleza del hombre pecador junto con sus pasiones y malos deseos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-GAL">
+    <verse num="25" />
+    <text>Si ahora vivimos por el Espíritu, dejemos también que el Espíritu nos guíe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-GAL">
+    <verse num="26" />
+    <text>No seamos orgullosos, ni sembremos rivalidades y envidias entre nosotros.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="GAL" initialStartVerse="0" characterId="BC-GAL">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-GAL">
+    <verse num="1" />
+    <text>Hermanos, si ven que alguien ha caído en algún pecado, ustedes que son espirituales deben ayudarlo a corregirse. Pero háganlo amablemente; y que cada cual tenga mucho cuidado, no suceda que él también sea puesto a prueba.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-GAL">
+    <verse num="2" />
+    <text>Ayúdense entre sí a soportar las cargas, y de esa manera cumplirán la ley de Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-GAL">
+    <verse num="3" />
+    <text>Si alguien se cree ser algo, cuando no es nada, a sí mismo se engaña.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-GAL">
+    <verse num="4" />
+    <text>Cada uno debe juzgar su propia conducta, y si ha de sentirse orgulloso, que lo sea respecto de sí mismo y no respecto de los demás.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-GAL">
+    <verse num="5" />
+    <text>Pues cada uno tiene que llevar su propia carga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-GAL">
+    <verse num="6" />
+    <text>El que recibe instrucción en el mensaje del evangelio, debe compartir con su maestro toda clase de bienes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-GAL">
+    <verse num="7" />
+    <text>No se engañen ustedes: nadie puede burlarse de Dios. Lo que se siembra, se cosecha.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-GAL">
+    <verse num="8" />
+    <text>El que siembra en los malos deseos, de sus malos deseos recogerá una cosecha de muerte. El que siembra en el Espíritu, del Espíritu recogerá una cosecha de vida eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-GAL">
+    <verse num="9" />
+    <text>Así que no debemos cansarnos de hacer el bien; porque si no nos desanimamos, a su debido tiempo cosecharemos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-GAL">
+    <verse num="10" />
+    <text>Por eso, siempre que podamos, hagamos bien a todos, y especialmente a nuestros hermanos en la fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-GAL">
+    <verse num="11" />
+    <text>¡Miren ustedes con qué letras tan grandes les estoy escribiendo ahora con mi propia mano!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-GAL">
+    <verse num="12" />
+    <text>Esos que quieren obligarlos a circuncidarse, lo hacen solamente para quedar bien con la gente y no ser perseguidos por causa de la cruz de Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-GAL">
+    <verse num="13" />
+    <text>Pero ni siquiera los que se circuncidan cumplen todo lo que la ley dice. En cambio quieren que ustedes se circunciden, para gloriarse de haberlos obligado a ustedes a llevar esa marca en el cuerpo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-GAL">
+    <verse num="14" />
+    <text>En cuanto a mí, de nada quiero gloriarme sino de la cruz de nuestro Señor Jesucristo. Pues por medio de la cruz de Cristo, el mundo ha muerto para mí y yo he muerto para el mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-GAL">
+    <verse num="15" />
+    <text>De nada vale estar o no estar circuncidados; lo que sí vale es el haber sido creados de nuevo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-GAL">
+    <verse num="16" />
+    <text>Reciban paz y misericordia todos los que viven según esta regla, y todos los del Israel de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-GAL">
+    <verse num="17" />
+    <text>De ahora en adelante no quiero que nadie me cause más dificultades; pues llevo marcadas en mi cuerpo las señales de lo que he sufrido en unión con Jesús.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-GAL">
+    <verse num="18" />
+    <text>Hermanos, que nuestro Señor Jesucristo derrame su gracia sobre todos ustedes. Amén.</text>
+  </block>
+  <UnappliedSplits />
+</book>

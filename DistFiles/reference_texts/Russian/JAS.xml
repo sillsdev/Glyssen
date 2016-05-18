@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JAS" singlevoice="false" pageheader="JAMES">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+    <text>JAMES</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Иаков, раб Бога и Господа Иисуса Христа, двенадцати коленам, находящимся в рассеянии, —радоваться.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>С великою радостью принимайте, братия мои, когда впадаете в различные искушения,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>зная, что испытание вашей веры производит терпение;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>терпение же должно иметь совершенное действие, чтобы вы были совершенны во всей полноте, без всякого недостатка.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Если же у кого из вас недостает мудрости, да просит у Бога, дающего всем просто и без упреков, —и дастся ему.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Но да просит с верою, нимало не сомневаясь, потому что сомневающийся подобен морской волне, ветром поднимаемой и развеваемой.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Да не думает такой человек получить что-нибудь от Господа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Человек с двоящимися мыслями не тверд во всех путях своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Да хвалится брат униженный высотою своею,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>а богатый—унижением своим, потому что он прейдет, как цвет на траве.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Восходит солнце, настает зной, и зноем иссушает траву, цвет ее опадает, исчезает красота вида ее; так увядает и богатый в путях своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Блажен человек, который переносит искушение, потому что, быв испытан, он получит венец жизни, который обещал Господь любящим Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>В искушении никто не говори: Бог меня искушает; потому что Бог не искушается злом и Сам не искушает никого,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>но каждый искушается, увлекаясь и обольщаясь собственною похотью;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>похоть же, зачав, рождает грех, а сделанный грех рождает смерть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Не обманывайтесь, братия мои возлюбленные.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Всякое даяние доброе и всякий дар совершенный нисходит свыше, от Отца светов, у Которого нет изменения и ни тени перемены.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Восхотев, родил Он нас словом истины, чтобы нам быть некоторым начатком Его созданий.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Итак, братия мои возлюбленные, всякий человек да будет скор на слышание, медлен на слова, медлен на гнев,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>ибо гнев человека не творит правды Божией.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Посему, отложив всякую нечистоту и остаток злобы, в кротости примите насаждаемое слово, могущее спасти ваши души.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Будьте же исполнители слова, а не слышатели только, обманывающие самих себя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Ибо, кто слушает слово и не исполняет, тот подобен человеку, рассматривающему природные черты лица своего в зеркале:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>он посмотрел на себя, отошел и тотчас забыл, каков он.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Но кто вникнет в закон совершенный, закон свободы, и пребудет в нем, тот, будучи не слушателем забывчивым, но исполнителем дела, блажен будет в своем действии.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Если кто из вас думает, что он благочестив, и не обуздывает своего языка, но обольщает свое сердце, у того пустое благочестие.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+    <verse num="27" />
+    <text>Чистое и непорочное благочестие пред Богом и Отцем есть то, чтобы призирать сирот и вдов в их скорбях и хранить себя неоскверненным от мира.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Братия мои! имейте веру в Иисуса Христа нашего Господа славы, не взирая на лица.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Ибо, если в собрание ваше войдет человек с золотым перстнем, в богатой одежде, войдет же и бедный в скудной одежде,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>и вы, смотря на одетого в богатую одежду, скажете ему: тебе хорошо сесть здесь, а бедному скажете: ты стань там, или садись здесь, у ног моих, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>то не пересуживаете ли вы в себе и не становитесь ли судьями с худыми мыслями?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Послушайте, братия мои возлюбленные: не бедных ли мира избрал Бог быть богатыми верою и наследниками Царствия, которое Он обещал любящим Его?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>А вы презрели бедного. Не богатые ли притесняют вас, и не они ли влекут вас в суды?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Не они ли бесславят доброе имя, которым вы называетесь?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Если вы исполняете закон царский, по Писанию:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+    <text>возлюби ближнего твоего, как себя самого,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <text>—хорошо делаете. </text>
+    <verse num="9" />
+    <text>Но если поступаете с лицеприятием, то грех делаете, и перед законом оказываетесь преступниками.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Кто соблюдает весь закон и согрешит в одном чем-нибудь, тот становится виновным во всем. </text>
+    <verse num="11" />
+    <text>Ибо Тот же, Кто сказал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>не прелюбодействуй,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>сказал и:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>не убей;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>посему, если ты не прелюбодействуешь, но убьешь, то ты также преступник закона.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Так говорите и так поступайте, как имеющие быть судимы по закону свободы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Ибо суд без милости не оказавшему милости; милость превозносится над судом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Что пользы, братия мои, если кто говорит, что он имеет веру, а дел не имеет? может ли эта вера спасти его?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Если брат или сестра наги и не имеют дневного пропитания,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>а кто-нибудь из вас скажет им: 'идите с миром, грейтесь и питайтесь', но не даст им потребного для тела: что пользы?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Так и вера, если не имеет дел, мертва сама по себе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Но скажет кто-нибудь: 'ты имеешь веру, а я имею дела': покажи мне веру твою без дел твоих, а я покажу тебе веру мою из дел моих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Ты веруешь, что Бог един: хорошо делаешь; и бесы веруют, и трепещут.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Но хочешь ли знать, неосновательный человек, что вера без дел мертва?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Не делами ли оправдался Авраам, отец наш, возложив на жертвенник Исаака, сына своего?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Видишь ли, что вера содействовала делам его, и делами вера достигла совершенства?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>И исполнилось слово Писания:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+    <text>'веровал Авраам Богу, и это вменилось ему в праведность,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <text>и он наречен другом Божиим'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Видите ли, что человек оправдывается делами, а не верою только?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Подобно и Раав блудница не делами ли оправдалась, приняв соглядатаев и отпустив их другим путем?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Ибо, как тело без духа мертво, так и вера без дел мертва.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Братия мои! не многие делайтесь учителями, зная, что мы подвергнемся большему осуждению,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>ибо все мы много согрешаем. Кто не согрешает в слове, тот человек совершенный, могущий обуздать и все тело.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Вот, мы влагаем удила в рот коням, чтобы они повиновались нам, и управляем всем телом их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Вот, и корабли, как ни велики они и как ни сильными ветрами носятся, небольшим рулем направляются, куда хочет кормчий;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>так и язык—небольшой член, но много делает. Посмотри, небольшой огонь как много вещества зажигает!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>И язык—огонь, прикраса неправды; язык в таком положении находится между членами нашими, что оскверняет все тело и воспаляет круг жизни, будучи сам воспаляем от геенны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Ибо всякое естество зверей и птиц, пресмыкающихся и морских животных укрощается и укрощено естеством человеческим,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>а язык укротить никто из людей не может: это—неудержимое зло; он исполнен смертоносного яда.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Им благословляем Бога и Отца, и им проклинаем человеков, сотворенных по подобию Божию.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Из тех же уст исходит благословение и проклятие: не должно, братия мои, сему так быть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Течет ли из одного отверстия источника сладкая и горькая вода?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Не может, братия мои, смоковница приносить маслины или виноградная лоза смоквы. Также и один источник не может изливать соленую и сладкую воду.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Мудр ли и разумен кто из вас, докажи это на самом деле добрым поведением с мудрою кротостью.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Но если в вашем сердце вы имеете горькую зависть и сварливость, то не хвалитесь и не лгите на истину.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Это не есть мудрость, нисходящая свыше, но земная, душевная, бесовская,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>ибо где зависть и сварливость, там неустройство и всё худое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Но мудрость, сходящая свыше, во-первых, чиста, потом мирна, скромна, послушлива, полна милосердия и добрых плодов, беспристрастна и нелицемерна.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Плод же правды в мире сеется у тех, которые хранят мир.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Откуда у вас вражды и распри? не отсюда ли, от вожделений ваших, воюющих в членах ваших?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Желаете—и не имеете; убиваете и завидуете—и не можете достигнуть; препираетесь и враждуете—и не имеете, потому что не просите.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Просите, и не получаете, потому что просите не на добро, а чтобы употребить для ваших вожделений.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Прелюбодеи и прелюбодейцы! не знаете ли, что дружба с миром есть вражда против Бога? Итак, кто хочет быть другом миру, тот становится врагом Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Или вы думаете, что напрасно говорит Писание: 'до ревности любит дух, живущий в нас'?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Но тем большую дает благодать; посему и сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+    <text>Бог гордым противится, а смиренным дает благодать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Итак покоритесь Богу; противостаньте диаволу, и убежит от вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Приблизьтесь к Богу, и приблизится к вам; очистите руки, грешники, исправьте сердца, двоедушные.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Сокрушайтесь, плачьте и рыдайте; смех ваш да обратится в плач, и радость—в печаль.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Смиритесь пред Господом, и вознесет вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Не злословьте друг друга, братия: кто злословит брата или судит брата своего, того злословит закон и судит закон; а если ты судишь закон, то ты не исполнитель закона, но судья.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Един Законодатель и Судия, могущий спасти и погубить; а ты кто, который судишь другого?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Теперь послушайте вы, говорящие: 'сегодня или завтра отправимся в такой-то город, и проживем там один год, и будем торговать и получать прибыль';</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>вы, которые не знаете, что случится завтра: ибо что такое жизнь ваша? пар, являющийся на малое время, а потом исчезающий.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Вместо того, чтобы вам говорить: 'если угодно будет Господу и живы будем, то сделаем то или другое', —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>вы, по своей надменности, тщеславитесь: всякое такое тщеславие есть зло.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Итак, кто разумеет делать добро и не делает, тому грех.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Послушайте вы, богатые: плачьте и рыдайте о бедствиях ваших, находящих на вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Богатство ваше сгнило, и одежды ваши изъедены молью.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Золото ваше и серебро изоржавело, и ржавчина их будет свидетельством против вас и съест плоть вашу, как огонь: вы собрали себе сокровище на последние дни.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Вот, плата, удержанная вами у работников, пожавших поля ваши, вопиет, и вопли жнецов дошли до слуха Господа Саваофа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Вы роскошествовали на земле и наслаждались; напитали сердца ваши, как бы на день заклания.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Вы осудили, убили Праведника; Он не противился вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Итак, братия, будьте долготерпеливы до пришествия Господня. Вот, земледелец ждет драгоценного плода от земли и для него терпит долго, пока получит дождь ранний и поздний.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Долготерпите и вы, укрепите сердца ваши, потому что пришествие Господне приближается.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Не сетуйте, братия, друг на друга, чтобы не быть осужденными: вот, Судия стоит у дверей.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>В пример злострадания и долготерпения возьмите, братия мои, пророков, которые говорили именем Господним.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Вот, мы ублажаем тех, которые терпели. Вы слышали о терпении Иова и видели конец оного от Господа, ибо Господь весьма милосерд и сострадателен.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Прежде же всего, братия мои, не клянитесь ни небом, ни землею, и никакою другою клятвою, но да будет у вас: 'да, да' и 'нет, нет', дабы вам не подпасть осуждению.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Злостраждет ли кто из вас, пусть молится. Весел ли кто, пусть поет псалмы.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Болен ли кто из вас, пусть призовет пресвитеров Церкви, и пусть помолятся над ним, помазав его елеем во имя Господне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>И молитва веры исцелит болящего, и восставит его Господь; и если он соделал грехи, простятся ему.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Признавайтесь друг пред другом в проступках и молитесь друг за друга, чтобы исцелиться: много может усиленная молитва праведного.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Илия был человек, подобный нам, и молитвою помолился, чтобы не было дождя: и не было дождя на землю три года и шесть месяцев.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>И опять помолился: и небо дало дождь, и земля произрастила плод свой.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Братия! если кто из вас уклонится от истины, и обратит кто его,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>пусть тот знает, что обративший грешника от ложного пути его спасет душу от смерти и покроет множество грехов.</text>
+  </block>
+  <UnappliedSplits />
+</book>

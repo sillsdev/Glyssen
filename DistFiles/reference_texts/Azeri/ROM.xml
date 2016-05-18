@@ -1,0 +1,1895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="ROM" singlevoice="false" pageheader="ROMANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM">
+    <text>ROMANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>İsa Mәsihin qulu, hәvari olmağa çağırılmış, Allahın Müjdәsini yaymaq üçün seçilmiş mәn Pauldan salam!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Allahın Öz peyğәmbәrlәri vasitәsilә Müqәddәs Yazılarda әvvәlcәdәn vәd etdiyi o Müjdә</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>It concerns his Son, who was born of the seed of David according to the flesh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>He was declared to be the Son of God with power, according to the Spirit of holiness, by the resurrection from the dead, Jesus Christ our Lord,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Biz Onun vasitәsilә lütfә vә hәvariliyә nail olduq ki, Onun adı naminә bütün millәtlәrdәn olan insanları imana itaәt etmәyә çağıraq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Siz dә İsa Mәsihә mәxsus olmaq üçün çağırılmış o insanların arasındasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>to all who are in Rome, beloved of God, called to be saints: Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Hәr şeydәn әvvәl, hamınız üçün İsa Mәsihin vasitәsilә Allahıma şükür edirәm ki, imanınız bütün dünyada elan olunur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Oğlunun Müjdәsini yaymaqda bütün qәlbimlә ibadәt etdiyim Allah şahidimdir ki, mәn sizi necә daim yada salıram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Dualarımda hәmişә yalvarıram ki, Allahın iradәsi ilә nәhayәt yanınıza gәlmәyә nail olum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Çünki sizi qüvvәtlәndirmәk üçün sizә ruhani bir әnam çatdırmaq mәqsәdindәyәm; buna görә dә sizi görmәk üçün hәsrәt çәkirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Daha doğrusu, mәn aranızda olarkәn bir-birimizin imanı ilә qarşılıqlı halda ruhlanaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Ey qardaşlar, bixәbәr olmağınızı istәmirәm ki, başqa millәtlәrdәn olan digәrlәri arasında etdiyim kimi sizin aranızda da әmәyimin bәhrәsini götürüm deyә dәfәlәrlә yanınıza gәlmәk niyyәtindә olmuşam, amma indiyәdәk maneәlәrә rast gәldim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Mәn hәm Yunanlara, hәm dә barbarlara, hәm aqillәrә, hәm dә cahillәrә borcluyam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Bu sәbәbdәn mәn Romada yaşayan sizlәrә dә bacardığım qәdәr Müjdәni yaymağa hәvәsim var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Mәn Müjdәdәn utanmıram, çünki o, iman edәn hәr kәsin – әvvәlcә Yәhudinin, sonra da Yunanın xilası üçün Allahın qüdrәtidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Müjdәdә Allahın salehliyi aşkar olur vә bu salehlik tamamilә imanla әldә edilir. Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Saleh adam imanla yaşayacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Hәqiqәtә haqsızlıqla әngәl törәdәn adamların hәr cür allahsızlığı vә haqsızlığı ucbatından Allahın qәzәbi göydәn aşkar olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Çünki Allah haqqında mәlum olan şeylәr onlara aşkardır, Allah Özü bunu onlara aşkar edib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Dünyanın yaradılışından bәri Allahın gözә görünmәyәn xüsusiyyәtlәri, yәni әbәdi qüdrәti vә ilahiliyi Onun yaratdıqları vasitәsilә üzә çıxır. Buna görә dә onlar üzrsüzdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Adamlar Allahı tanıdıqları halda Ona nә Allah kimi izzәt verdilәr, nә dә şükür etdilәr. Әksinә, boş düşüncәlәrә uydular vә axmaq ürәklәrini qaranlıq bürüdü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Müdrik olduqlarını iddia etdiklәri halda ağılsız olub,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>fani olmayan Allahın izzәtini fani olan insana, quşlara, dördayaqlılara vә sürünәnlәrә bәnzәyәn bütlәrlә әvәz etdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Buna görә dә Allah onları ürәklәrinin şәhvәti üzündәn murdarlığa tәslim etdi ki, bir-birlәrinin bәdәnini rüsvay etsinlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Onlar Allahın hәqiqәtini yalanla әvәz etdilәr, Yaradanın yerinә yaradılışa sәcdә vә ibadәt etdilәr; o Yaradana әbәdi alqış olsun! Amin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Bu sәbәbdәn Allah onları öz rәzil hәvәslәrinә tәslim etdi. Onların qadınları tәbii әlaqәni qeyri-tәbii әlaqә ilә әvәz etdilәr,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>eyni tәrzdә kişilәr dә qadınla olan tәbii әlaqәdәn әl çәkib bir-birlәrinә şәhvәtlә qızdılar; kişilәr kişilәrlә rüsvayçılıq edib öz daxillәrindә rәzilliklәrinә layiq cәzanı aldılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Allahı şüurlarında saxlamağı yanlış saydıqları üçün Allah da onları yanlış düşüncәlәrә tәslim etdi ki, әdәbsiz işlәr görsünlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Onlar hәr cür haqsızlıq, pislik, tamahkarlıq vә kinlә doldular; paxıllıq, qatillik, münaqişә ruhu, hiylә vә pis niyyәtlә dolub-daşdılar. Onlar qeybәtçi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>böhtançı, Allaha nifrәt edәn, söyüşçü, mәğrur, tәkәbbürlü, pis işlәrdә bacarıqlı, ata-anaya itaәtsiz,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>axmaq, xain, şәfqәtsiz vә rәhmsizdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Hәrçәnd ki belә işlәrlә mәşğul olanların ölümә layiq olduğu barәdә Allahın әdalәtli hökmünü bilirlәr, amma yenә dә bu işlәri görürlәr, hәtta belә işlәr görәn başqalarını da alqışlayırlar. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Belәliklә, sәn ey başqasını mühakimә edәn adam, kim olursansa-ol, sәn dә üzrsüzsәn. Çünki başqasını mühakimә edәrkәn özünü dә mәhkum edirsәn. Ona görә ki başqasını mühakimә etdiyin halda özün dә hәmin işlәri görürsәn.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Bizsә bilirik ki, belә işlәrlә mәşğul olanlara Allah hәqiqәtә әsasәn hökm çıxarır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Ey belә işlәrlә mәşğul olanları mühakimә edәrәk özü dә hәmin işlәri görәn insan! Mәgәr elә güman edirsәn ki, Allahın hökmündәn qaça bilәcәksәn?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Yaxud sәn Allahın zәngin xeyirxahlığına, hәlimliyinә vә sәbirli olmağına xor baxırsan? Bәs anlamırsan ki, Onun xeyirxahlığı sәni tövbәyә yönәldir?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Amma sәn Allahın qәzәbinin vә әdalәtli hökmünün zahir olacağı gün inadkarlığına vә tövbә etmәyәn ürәyinә görә özün üçün qәzәb toplayırsan;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Allah hәr kәsә әmәlinә görә әvәzini verәcәk:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>dözümlә yaxşı әmәl sahibi olaraq izzәt, hörmәt vә ölmәzlik axtaranlara әbәdi hәyat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>özlәrini göstәrәrәk hәqiqәtә tabe olmayıb haqsızlığa baş әyәnlәrә isә qәzәb vә hiddәt göndәrәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Pislik edәn hәr kәsә – әvvәlcә Yәhudiyә, sonra da Yunana әziyyәt vә sıxıntı,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>yaxşı әmәl sahibi olan hәr kәsә isә – әvvәlcә Yәhudiyә, sonra da başqa millәtdәn olana izzәt, hörmәt vә sülh verәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Çünki Allah insanlar arasında tәrәfkeşlik etmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Qanunu bilmәdәn günah edәnlәrin hamısı Qanunu bilmәsәlәr dә, hәlak olacaqlar. Qanunu bilәrәk günah edәnlәrin dә hamısı Qanunla mühakimә olunacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Çünki Allahın nәzәrindә Qanunu eşidәnlәr deyil, ona әmәl edәnlәr saleh sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Belәcә Qanuna malik olmayan başqa millәtlәr tәbiәtlәrinә görә Qanuna әmәl edәndә Qanuna malik olmadıqları halda onlar özlәri üçün qanun olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Onlar bununla göstәrirlәr ki, Qanunun tәlәblәri ürәklәrindә yazılıb. Onların vicdanı buna şahiddir, düşüncәlәri dә onları gah ittiham, gah da müdafiә edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Mәnim elan etdiyim Müjdәyә görә, Allahın Mәsih İsa vasitәsilә insanların gizli işlәrini mühakimә edәcәyi gün belә olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Ey özünü Yәhudi adlandıran! Qanuna güvәnәrәk Allahla öyünürsәn;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Onun iradәsini bilirsәn, Qanundan tәlim aldığın üçün әn üstün dәyәrlәri ayırd edirsәn;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>You are confident that you yourself are a guide of the blind, a light to those who are in darkness.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>You think you are a corrector of the foolish, a teacher of babies, having in the law the form of knowledge and of the truth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Bәs nә üçün başqalarını öyrәtdiyin halda özün öyrәnmirsәn? Oğurlamamağı bәyan edәrkәn özün oğurlayırsan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>&lt;&lt;Zina etmә&gt;&gt;dediyin halda özün zina edirsәn? Bütlәrdәn iyrәnәrkәn mәbәdlәri soyursan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Qanunla öyünmәyinә baxmayaraq, onu pozub Allahı hörmәtdәn salırsan. </text>
+    <verse num="24" />
+    <text>Axı belә yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
+    <text>&lt;&lt;Sizin üzünüzdәn millәtlәr arasında Allahın adına küfr edilir&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Sünnәtin yalnız o zaman faydası var ki, sәn Qanuna әmәl edәsәn. Әgәr sәn Qanunu pozursansa, sünnәtli olduğun halda sünnәtsiz adam kimi olursan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Elәcә dә әgәr sünnәt olunmamış adam Qanunun әdalәtli tәlәblәrinә riayәt edirsә, sünnәt olunmamasına baxmayaraq, sünnәtli sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Onda cismәn sünnәt olunmadığı halda Qanuna әmәl edәn adam sәni mühakimә edәcәk; sәn ki yazılı Qanuna vә sünnәtә malik olduğun halda Qanunu pozursan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Çünki zahirәn Yәhudi olan Yәhudi deyil, zahirәn vә cismәn sünnәt olunan da sünnәtli deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>but he is a Jew who is one inwardly, and circumcision is that of the heart. It is in the spirit not in the letter; His praise is not from men, but from God. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Bәs Yәhudi olmağın nә üstünlüyü var? Sünnәtin faydası nәdir?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Hәr cәhәtdәn böyük üstünlüyü var. Hәr şeydәn әvvәl, Allahın sözlәri Yәhudilәrә әmanәt edilib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Әgәr onlardan bәzisi iman etmәdisә, onda nә olacaq? Mәgәr onların imansızlığı Allahın sәdaqәtini lәğv edә bilәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Әsla! Bütün insanlar yalançı olsa da, Allah haqlıdır. Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="scripture">
+    <text>&lt;&lt;Sәn Öz sözlәrindә haqlı çıxacaqsan, Mühakimә etdiyin zaman qalib gәlәcәksәn&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Bәs bizim haqsızlığımız Allahın әdalәtli olduğunu üzә çıxarırsa, onda nә deyә bilәrik? İnsanların düşündüyü kimi soruşuram: Allah üzәrimizә qәzәbini gәtirәn zaman haqsızdırmı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Әsla, haqlıdır! Bәs Allah dünyanı başqa cür necә mühakimә edә bilәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>&lt;&lt;Bәs mәnim yalanım Allahın hәqiqәtini ucaldıb Ona izzәt gәtirirsә, nә üçün mәn üstәlik bir günahkar kimi mühakimә olunmalıyam?&gt;&gt; deyә soruşa bilәrlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Belә isә, &lt;&lt;gәlin pislik edәk ki, bundan yaxşılıq әmәlә gәlsin&gt;&gt; deyә bilәrikmi? Bәzi adamlar bizә böhtan atıb söylәyir ki, biz belә öyrәdirik. Belә söylәyәnlәr haqlı olaraq cәza alacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Bәs nә deyәk? Biz Yәhudilәrin üstünlüyü varmı? Әlbәttә, yox! Çünki biz artıq hәm Yәhudilәri, hәm dә Yunanları tәqsirlәndirdik ki, onların hamısı günahın hökmü altındadır. </text>
+    <verse num="10" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Saleh olan yoxdur, Bir nәfәr belә, yoxdur. </text>
+    <verse num="11" />
+    <text>Dәrk edәn bir kәs yoxdur, Allahı axtaran yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>Hamısı yoldan azıb, Onlardan fayda yoxdur. Bir nәfәr dә olsun Yaxşı iş görәn yoxdur&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
+    <verse num="13" />
+    <text>&lt;&lt;Boğazları açıq qәbirdir, Dillәri yalan danışır&gt;&gt;. &lt;&lt;Dodaqlarında gürzә zәhәri var&gt;&gt; </text>
+    <verse num="14" />
+    <text>&lt;&lt;Ağızları lәnәt vә acı sözlәrlә doludur&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
+    <verse num="15" />
+    <text>&lt;&lt;Ayaqları qan tökmәyә tәlәsir, </text>
+    <verse num="16" />
+    <text>Yollarında viranәlik vә fәlakәt var,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>Әmin-amanlıq yolu nәdir, bilmirlәr&gt;&gt;. </text>
+    <verse num="18" />
+    <text>&lt;&lt;Onların gözündә Allah qorxusu yoxdur&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Biz bilirik ki, Qanunda deyilәnlәrin hamısı Qanunun hökmü altında olanlara aiddir; belә ki bütün dillәr sussun vә bütün dünya Allahın hökmünә mәruz qalsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Belәliklә, Qanuna әmәl etmәklә heç bir insan Allahın önündә saleh sayılmayacaq. Çünki Qanun vasitәsilә günah dәrk olunur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Amma indi Qanuna bağlı olmayaraq Allahdan gәlәn salehlik zahir olub. Buna Qanun da, Peyğәmbәrlәrin yazıları da şәhadәt edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Allahdan gәlәn bu salehlik İsa Mәsihә iman vasitәsilә Ona iman gәtirәnlәrin hamısına verilir. Heç kәsә fәrq qoyulmur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Çünki hamı günah edib, Allahın izzәtindәn mәhrum olub</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>vә Onun lütfü ilә dә Mәsih İsada satın alınmağa nail olaraq bir hәdiyyә kimi saleh sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Allah İsanı kәffarә qurbanı olaraq tәqdim etdi ki, iman edәnlәrin günahları Onun qanı vasitәsilә bağışlansın. Bunu Öz salehliyini göstәrmәk üçün etdi. Çünki sәbirli olub qabaqca edilәn günahları cәzasız qoymuşdu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Bunu etdi ki, indiki zamanda salehliyini zahir etsin; belәcә Özü әdalәtli olsun, İsaya olan imana әsaslananı da saleh saysın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Bәs biz nә ilә öyünә bilәrik? Heç bir şeylә. Hansı ehkama әsaslana bilәrik? Qanuna әmәl etmәk ehkamınamı? Xeyr, yalnız iman ehkamına!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Çünki bu nәticәyә gәlirik ki, insan Qanuna әmәl etmәklә deyil, iman vasitәsilә saleh sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Mәgәr Allah yalnız Yәhudilәrin Allahıdır? Başqa millәtlәrin dә Allahı deyilmi? Әlbәttә, başqa millәtlәrin dә Allahıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Çünki yalnız bir Allah var vә O, sünnәtlilәri imanla, sünnәtsizlәri dә iman vasitәsilә saleh sayacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>Onda biz iman vasitәsilә Qanunu lәğv edirikmi? Әsla! Әksinә, onu bir daha tәsdiq edirik. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Bәs onda cismani әcdadımız İbrahim haqqında nә deyә bilәrik? O nә әldә etdi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Әgәr İbrahim öz әmәllәri ilә saleh sayılsaydı, öyünmәyә haqqı olardı, amma Allahın önündә yox. </text>
+    <verse num="3" />
+    <text>Müqәddәs Yazı nә deyir?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
+    <text>i &lt;&lt;İbrahim Allaha iman etdi vә bu ona salehlik sayıldı&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Әmәl edәnin muzdu ona hәdiyyә sayılmaz, bu onun haqqıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Lakin әmәl etmәyib allahsız adamları saleh sayan Allaha iman edәn şәxsin imanı ona salehlik sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Davud da o adamın bәxtiyarlığından danışır ki, Allah әmәlinә baxmayıb onu saleh sayır. </text>
+    <verse num="7" />
+    <text>Davud dedi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Üsyankarlığı bağışlanan, Günahı әfv olunan insan Nә bәxtiyardır!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>Rәbb tәrәfindәn tәqsirkar sayılmayan insan Nә bәxtiyardır!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Mәgәr bu bәxtiyarlıq yalnız sünnәtlilәrә mәxsusdur, yoxsa sünnәtsizlәrә dә aiddir? Bәli, biz deyirik ki, İbrahimin imanı ona salehlik sayıldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Nә vәziyyәtdә sayıldı? Sünnәt olunandan sonra, yoxsa sünnәt olunandan әvvәl? Sünnәt olunandan sonra deyil, sünnәt olunandan әvvәl!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>O, sünnәtsiz ikәn imanla malik olduğu salehliyi tәsdiq edәn möhür olaraq sünnәt әlamәtini aldı. Belәcә İbrahim sünnәtsiz olaraq iman edәn hamının atası oldu ki, onlara da imanları salehlik sayılsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Atamız İbrahim hәm dә o sünnәtli olanların atası oldu ki, sadәcә sünnәtli olmaqla qalmayıb, onun sünnәt edilmәmişdәn әvvәl malik olduğu iman izi ilә gedirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>God promised Abraham and his descendants that they would be heirs to the world. This promise was made not because Abraham had obeyed the law *, but because he believed in God and had been accepted by him.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Әgәr Qanuna әsaslananlar varis olsaydı, onda iman mәnasız, vәd dә tәsirsiz olardı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Çünki qanun Allahın qәzәbini üzә çıxarır. Amma qanun olmayan yerdә onun pozulması da olmur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Therefore, God's promise depends on faith, in order that the promise may be guaranteed as God's gift to all the descendants of Abraham.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM">
+    <text>It is not only for those who obey the law but also for those who believe as Abraham believed in God because he is the spiritual father of us all. </text>
+    <verse num="17" />
+    <text>* As the Scriptures say:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Sәni çoxlu millәtin atası etdim&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM">
+    <text>İbrahim Allahın dərgahında kimə o iman Ata ki, --- olmayan olan Allah kimin ölü həyat verir, və zəng əşyalar, onlar sanki.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Heç bir ümid olmadığı halda İbrahim çoxlu millәtin atası olacağına ümidlә inandı. Çünki ona deyilmişdi ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;nәslin o qәdәr olacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Hәtta tәxminәn yüz yaşında ikәn öz bәdәninin artıq ölüyә bәnzәdiyini, arvadı Saranın da bәtninin ölü olduğunu anladı, amma imanı azalmadı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Allahın vәdinә imansızlıqla şübhә etmәdi, әksinә, imanında möhkәm durub Allahı izzәtlәndirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Tamamilә әmin idi ki, Allah verdiyi vәdi yerinә yetirmәyә dә qadirdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Buna görә dә imanı ona salehlik sayıldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>&lt;&lt;Salehlik sayıldı&gt;&gt; sözlәri yalnız İbrahim üçün yazılmayıb;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Rәbbimiz İsanı ölülәr arasından Dirildәnә iman etmәklә saleh sayılacaq bizlәr üçün dә belә yazılmışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>İsa bizim tәqsirlәrimizә görә ölümә tәslim edildi vә bizim saleh sayılmağımız üçün dirildi. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Belәliklә, imanla saleh sayıldığımız üçün Rәbbimiz İsa Mәsih vasitәsilә Allahla barışmış oluruq. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Elә Mәsihin vasitәsilә dә daxilindә qaldığımız lütfә imanla nail olduq vә Allahın izzәtinә ümid bağlamağımızla fәxr edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Yalnız bununla deyil, çәkdiyimiz әziyyәtlәrlә dә fәxr edirik, çünki bilirik ki, әziyyәtdәn dözüm, </text>
+    <verse num="4" />
+    <text>dözümdәn Allaha xoş gәlmә, Allaha xoş gәlmәdәn ümid yaranır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Ümidimiz dә boşa çıxmır, çünki Allah mәhәbbәti bizә verilәn Müqәddәs Ruh vasitәsilә ürәklәrimizә tökülüb.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Biz hәlә gücsüz ikәn Mәsih müәyyәn zamanda allahsız adamların uğrunda öldü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Saleh bir adam uğrunda kiminsә ölmәsi çәtin işdir; bәlkә dә yaxşı bir adam uğrunda kimsә ölmәyә cәsarәt edәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Lakin Allah bizә olan mәhәbbәtini bununla sübut edir ki, biz hәlә günahkar ola-ola Mәsih bizim uğrumuzda öldü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Belәcә Onun qanı ilә indi saleh sayıldığımıza görә Onun vasitәsilә dә Allahın qәzәbindәn mütlәq xilas olacağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Әgәr biz Allahın düşmәni olduğumuz vaxt Onun Oğlunun ölmәsi ilә Allahla barışdıqsa, barışdıqdan sonra Onun hәyatı vasitәsilә daha qәti olaraq xilas olacağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Yalnız bununla deyil, Rәbbimiz İsa Mәsih vasitәsilә Allahla da fәxr edirik ki, indi Onun vasitәsilә Allahla barışığa nail olmuşuq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Belәliklә, günah bir insan vasitәsilә, ölüm dә günah vasitәsilә bu dünyaya gәldi. Belәcә ölüm bütün insanlara yayıldı, çünki hamı günah etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Qanundan әvvәl dә dünyada günah var idi. Amma qanun olmayanda günah hesaba alınmır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Lakin Adәmdәn Musaya qәdәr ölüm hamıya, hәtta Adәmin әmri pozmasına bәnzәr bir günah etmәyәnlәrә dә hökmranlıq etdi. Adәm o gәlәcәk İnsanın әvvәlcәdәn göstәrilәn tәsviri idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Amma Allahın әnamı tәqsir kimi deyil. Çünki bir adamın tәqsiri üzündәn çox adam öldüsә dә, Allahın lütfü vә bir Adamın, yәni İsa Mәsihin lütfü ilә verilәn әnam bir çoxları üçün daha böyük tәsir göstәrdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Allahın әnamı hәmin bir adamın günahının nәticәsi kimi deyil: bir günahdan sonra gәlәn hökm mәhkumluq gәtirdi, amma çoxlu tәqsirdәn sonra gәlәn әnam salehlik gәtirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Әgәr bir adamın tәqsiri üzündәn ölüm hәmin adamın vasitәsilә hökmranlıq etdisә, Allahın bol lütfünü vә salehlik әnamını qәbul edәnlәr bir Adam, yәni İsa Mәsih vasitәsilә daha qәti olaraq hәyatda hökmranlıq edәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Demәli, necә ki bir tәqsir üzündәn bütün adamlar mәhkum olundu, elәcә dә bir saleh әmәlә görә bütün adamlara yaşamaq üçün salehlik verildi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Necә ki bir adamın itaәtsizliyi üzündәn bir çoxları günahkar sayıldı, elәcә dә bir Adamın itaәti sayәsindә bir çoxları saleh sayılacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Qanunun meydana gәlmәsi tәqsirin çoxalmasına sәbәb oldu. Lakin günah çoxalan yerdә Allahın lütfü daha da çoxaldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Nәticәdә günah ölüm vasitәsilә hökmranlıq etdiyi kimi lütf dә salehlik vasitәsilә hökmranlıq edir; belә ki lütf Rәbbimiz İsa Mәsihin vasitәsilә әbәdi hәyat versin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Bәs nә deyә bilәrik? Günah işlәtmәyi davam etdirәk ki, Allahın lütfü çoxalsın?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Әsla! İndi ki biz günaha münasibәtdә ölmüşük, artıq günah içindә necә yaşaya bilәrik?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Mәgәr bilmirsiniz ki, biz hamımız Mәsih İsa ilә birlәşmәk üçün vәftiz olunarkәn hәmin vәftizlә Onun ölümü ilә birlәşdik?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Demәli, vәftiz olunub Onun ölümü ilә birlәşmәklә biz dә Onunla birgә dәfn olunduq; belә ki Atanın izzәti ilә Mәsih ölülәr arasından dirildiyi kimi biz dә hәmin cür yeni hәyat sürәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Әgәr Onun ölümünә bәnzәr ölümdә Onunla bir olmuşuqsa, Onun dirilmәsinә bәnzәr dirilmәdә dә Onunla bir olacağıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Bunu bilirik ki, günahlı bәdәnin aradan qaldırılması üçün, daha günaha qul olmayaq deyә köhnә mәnliyimiz Onunla birlikdә çarmıxa çәkildi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Çünki ölmüş adam günahdan azad olub.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Әgәr Mәsihlә ölmüşüksә, Onunla yaşayacağımıza da inanırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Çünki bilirik ki, Mәsih ölülәr arasından dirildiyinә görә bir daha ölmәyәcәk vә ölüm Ona artıq hökmranlıq etmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Onun ölümü günahın müqabilindә ilk vә son ölüm oldu, yaşadığı hәyatı isә Allah üçün yaşayır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Belәcә siz dә özünüzü Mәsih İsada olaraq günaha münasibәtdә ölü, Allaha münasibәtdә isә diri sayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Ona görә dә qoymayın ki, günah sizin fani bәdәninizә hökmranlıq etsin vә siz dә bәdәninizin ehtiraslarına itaәt edәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Bәdәninizin üzvlәrini dә haqsızlıq alәti olmaq üçün günaha tәslim etmәyin; әksinә, özünüzü ölülәr arasından dirilәnlәr kimi Allaha, bәdәninizin üzvlәrini dә salehlik alәti olmaq üçün yenә Allaha tәslim edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Günah sizә hökmranlıq etmәyәcәk, ona görә ki siz Qanun altında deyil, lütf altındasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>İndi nә edәk? Qanun altında deyil, lütf altında olduğumuz üçün günah edәkmi? Әsla!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Mәgәr bilmirsiniz ki, itaәtli qullar kimi özünüzü kimә tәslim etsәniz, onun da qullarısınız? Ya ölümә aparan günahın ya da salehliyә aparan itaәtin qulları ola bilәrsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Amma Allaha şükür olsun ki, әvvәllәr günahın qulları olduğunuz halda özünüzü hәsr etdiyiniz tәlimin nümunәsinә ürәkdәn itaәt etdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Belәcә günahdan azad olub salehliyin qulu oldunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Cismani tәbiәtinizin zәifliyi üzündәn insanların düşündüyü kimi danışıram. Necә әvvәllәr üzvlәrinizi murdarlığa vә Qanunu pozmaq üçün qanunsuzluğa qul kimi tәslim etmişdiniz,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-ROM">
+    <text>elәcә dә indi üzvlәrinizi müqәddәs olmaq üçün salehliyә qul kimi tәslim edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Çünki siz günahın qulları olanda salehliyә әmәl etmәkdәn azad idiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Bәs o zaman nә bәhrә götürdünüz? İndi artıq o şeylәrdәn utanırsınız. Axı onların axırı ölümdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>But now you have been set free from sin and are slaves of God. With that you get a life completely devoted to him, and the result is that you have eternal life.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Çünki günahın әvәzi ölümdür, Allahın әnamı isә Rәbbimiz Mәsih İsada olan әbәdi hәyatdır. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Ey qardaşlar, bunu Qanunu bilәnlәrә söylәyirәm, mәgәr bilmirsiniz ki, insan yalnız sağ ikәn qanun onun üzәrindә hökmә malikdir?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Mәsәlәn, әrli qadın qanunla әrinә o vaxtacan bağlıdır ki, әri sağdır; amma әri öldükdә qadın nikah qanunundan azad olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Buna görә dә әgәr qadın әri sağ ikәn başqa bir kişiyә әrә gedirsә, zinakar sayılır. Amma әri ölsә, qadın qanundan azad olur vә başqa bir kişiyә әrә getdikdә zinakar olmur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Elәcә dә, qardaşlarım, siz dә Mәsihin bәdәni vasitәsilә Qanuna münasibәtdә ölmüsünüz ki, başqasına, yәni ölülәr arasından dirilmiş Mәsihә mәxsus olasınız; belә ki Allah üçün bәhrә verәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Çünki biz cismani tәbiәtә görә yaşayarkәn günahın Qanun vasitәsilә gәlәn hәvәslәri üzvlәrimizdә fәal idi. Buna görә dә biz ölüm üçün bәhrә verirdik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Amma indi әvvәlcә әsiri olduğumuz Qanuna münasibәtdә ölüb, ondan azad olduq. Nәticәdә yazılı Qanunun köhnә yolunda deyil, Ruhun yeni yolunda qulluq edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Bәs nә deyә bilәrik? Qanun günahdırmı? Әsla! Qanun olmasaydı, günahın nә olduğunu bilmәzdim. Әgәr Qanun demәsәydi, tamahın nә olduğunu anlamazdım:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;tamah salma&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Lakin günah bu әmrin vasitәsilә fürsәt tapıb mәndә hәr növ tamah әmәlә gәtirdi; çünki Qanun olmasa, günah ölüdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Bir vaxt Qanun mәndә yox ikәn mәn sağ idim, amma o әmr mәnә gәlәndә günah dirildi, </text>
+    <verse num="10" />
+    <text>mәnsә öldüm. Belәcә anladım ki, mәnә hәyat vermәli olan bu әmr mәnә ölüm gәtirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Çünki günah o әmrin vasitәsilә fürsәt tapıb mәni azdırdı vә onunla mәni öldürdü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Buna görә dә Qanun müqәddәsdir, әmr dә müqәddәs, әdalәtli vә yaxşıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Belә çıxır ki, yaxşı olan bir şey mәnә ölüm gәtirdi? Әsla! Mәhz günah, günah olduğu aşkar olsun deyә yaxşı olan bir şeyin vasitәsilә mәnә ölüm gәtirirdi; belә ki günah әmrin vasitәsilә hәdsiz günahlı olduğunu göstәrsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Biz bilirik ki, Qanun ruhanidir, mәnsә cismani olub qul kimi günaha satılmışam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Çünki nә iş gördüyümü anlamıram; istәdiyimi deyil, nifrәt etdiyim şeyi edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Әgәr istәmәdiyimi edirәmsә, onda tәsdiq edirәm ki, Qanun yaxşıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Elә isә artıq mәn deyil, daxilimdә yaşayan günah bu işi görür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Bilirәm ki, daxilimdә, yәni cismani tәbiәtimdә yaxşı bir şey yaşamır; çünki yaxşı şey etmәk istәyi mәndә var, amma onu yerinә yetirmәyә qadir deyilәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>İstәdiyim yaxşı şeyi etmirәm, amma istәmәdiyim pis şeyi edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Әgәr istәmәdiyim şeyi edirәmsә, onda artıq mәn deyil, daxilimdә yaşayan günah bu işi görür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Belәcә bu nәticәyә gәlirәm ki, yaxşılıq etmәk istәrkәn mәndә pislik üzә çıxır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Bir yandan daxili varlığım Allahın qanunundan zövq alır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Amma üzvlәrimdә başqa bir qanun da görürәm ki, ağlımın tәsdiq etdiyi Qanunla mübarizә aparır vә üzvlәrimdә olan günah qanununa mәni әsir edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Necә dә yazıq insanam! Ölümә düçar olan bu bәdәndәn mәni kim xilas edә bilәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Rәbbimiz İsa Mәsihin vasitәsilә Allaha şükür olsun! Belәcә mәn ağlımla Allahın qanununa, cismani tәbiәtimlә isә günah qanununa qulluq edirәm. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Demәli, indi Mәsih İsada olanlara heç bir mәhkumluq yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Çünki hәyat verәn Ruhun qanunu sәni günah vә ölüm qanunundan Mәsih İsa vasitәsilә azad etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Belәcә cismani tәbiәt üzündәn gücsüz olan Qanunun edә bilmәdiyi şeyi Allah etdi: Öz Oğlunu günahlı cismin bәnzәrindә günah qurbanı olaraq göndәrib günahı Onun cismi ilә mәhkum etdi ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Qanunun әdalәtli tәlәblәri artıq cismani tәbiәtә görә yox, Ruha görә hәyat sürәn bizlәrdә yerinә yetsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Cismani tәbiәtә görә yaşayanlar cismani şeylәr barәdә düşünür, Ruha görә yaşayanlar isә Ruhla bağlı şeylәr barәdә düşünür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Cismani tәbiәtә uyan fikirlәr ölüm, Ruha uyan fikirlәrsә hәyat vә sülh gәtirir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Çünki cismani tәbiәtә uyan fikirlәr Allaha qarşı düşmәnçilik edir; belә ki bunlar Allahın qanununa tabe deyil vә ola da bilmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Hәmçinin cismani tәbiәtdә olanlar Allahı razı sala bilmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Lakin Allahın Ruhu sizdә yaşayırsa, siz cismani tәbiәtdә deyil, Ruhdasınız. Kimdә Mәsihin Ruhu yoxdursa, o adam Mәsihә mәxsus deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Әgәr Mәsih sizdәdirsә, bәdәniniz günah sәbәbindәn ölü, ruhunuzsa salehlik sәbәbindәn diridir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Әgәr İsanı ölülәr arasından Dirildәnin Ruhu sizdә yaşayırsa, Mәsihi ölülәr arasından Dirildәn, sizdә yaşayan Ruhu ilә sizin dә fani bәdәnlәrinizә hәyat verәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Belәliklә, ey qardaşlar, biz cismani tәbiәtimizә borclu deyilik ki, ona görә yaşayaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Çünki cismani tәbiәtә görә yaşayırsınızsa, ölәcәksiniz, amma bәdәnin pis әmәllәrini Ruhun vasitәsilә öldürürsünüzsә, yaşayacaqsınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Allahın Ruhu ilә yönәldilәnlәrin hamısı Allahın oğullarıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Axı siz kölәlik ruhunu almadınız ki, yenә dә qorxu içindә yaşayasınız; övladlıq Ruhunu aldınız. Elә o Ruhun vasitәsilә Allaha &lt;&lt;Abba, Ata&gt;&gt; deyә nida edirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Elә Ruh Özü bizim ruhumuzla birgә şәhadәt edir ki, biz Allahın övladlarıyıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>And if we are children, then heirs; heirs of God, and joint heirs with Christ. Therefore, if we share in his suffering, we also share in his glory.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Belә düşünürәm ki, çәkdiyimiz indiki әzablar bizә zahir olacaq izzәtlә heç müqayisәyә gәlmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Yaradılış Allahın oğullarının zahir olmasını böyük hәsrәtlә gözlәyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Çünki yaradılış öz iradәsi ilә deyil, onu tәslim edәn Kәsin iradәsi ilә puçluğa tәslim edildi. Amma ümidvardır ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>yaradılış özü dә çürümәyә әsir olmaqdan xilas olub, Allah övladlarının izzәtli azadlığına qovuşacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Çünki bilirik ki, bütün yaradılış indiyәcәn birlikdә inildәyib doğuş ağrısı çәkir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Ancaq tәkcә yaradılış yox, Ruhun nübarını alan biz özümüz dә övladlığa qәbul olunmağımızı, yәni bәdәnimizin satın alınmasını gözlәyәrәk içimizdә inildәyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Çünki biz ümidlә xilas olduq. Amma gözә görünәn ümid ümid deyil. Axı kim gördüyü şeyә ümid edәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Amma görmәdiyimiz şeyә ümid edәndә onu sәbirlә gözlәyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Belәcә Ruh da bizә zәif olarkәn kömәk edir. Biz nә üçün vә necә dua etmәk lazım olduğunu bilmirik, lakin Ruh Özü dillә deyilmәyәn ahlarla vәsatәtçilik edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Ürәklәri sınayan Allah da Ruhun nә düşündüyünü bilir, çünki Ruh Allahın iradәsinә görә müqәddәslәr üçün vәsatәtçilik edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Biz bilirik ki, hәr şey birlikdә Allahı sevәnlәrin, Onun mәqsәdinә görә çağırılanların xeyrinә işlәyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Çünki Allah qabaqcadan tanıdığı adamları Öz Oğlunun surәtinә uyğunlaşmaq üçün әvvәlcәdәn tәyin etdi ki, O, çoxlu qardaş arasında ilk doğulan olsun;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>әvvәlcәdәn tәyin etdiyi adamları da çağırdı; çağırdığı adamları da saleh saydı; saleh saydığı adamları da izzәtlәndirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>Bәs bunlar barәdә nә deyә bilәrik? Әgәr Allah bizimlәdirsә, kim bizә qarşı dura bilәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>O Öz Oğlunu belә, әsirgәmәyib Onu hamımızın uğrunda ölümә tәslim etdisә, Onunla birgә bütün şeylәri dә bizә lütf etmәyәcәkmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-ROM">
+    <verse num="33" />
+    <text>Allahın seçdiyi adamları kim ittiham edә bilәr? Onları saleh sayan Allahdır!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-ROM">
+    <verse num="34" />
+    <text>Mәhkum edәn kimdir? Ölmüş, üstәlik dirilmiş Mәsih İsa hәm Allahın sağındadır, hәm dә bizim üçün vәsatәtçilik edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="narrator-ROM">
+    <verse num="35" />
+    <text>Mәsihin mәhәbbәtindәn bizi kim ayıra bilәr? Әziyyәtmi, sıxıntımı, tәqibmi, aclıqmı, çılpaqlıqmı, tәhlükәmi, qılıncmı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="narrator-ROM">
+    <verse num="36" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="scripture">
+    <text>&lt;&lt;Biz gün boyu Sәnin uğrunda öldürülürük, Qurbanlıq qoyunlar sayılırıq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ROM">
+    <verse num="37" />
+    <text>Lakin bizi Sevәnin vasitәsilә bütün bunlarda tam qәlәbә qazanırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="narrator-ROM">
+    <verse num="38" />
+    <text>Çünki әminәm ki, nә ölüm, nә hәyat, nә mәlәklәr, nә başçılar, nә indiki, nә dә gәlәcәk şeylәr, nә qüvvәlәr,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="narrator-ROM">
+    <verse num="39" />
+    <text>nә ucalıq, nә dәrinlik, nә dә başqa bir mәxluq bizi Rәbbimiz Mәsih İsada olan Allah mәhәbbәtindәn ayırmağa qadir olmayacaq. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Mәsihdә hәqiqәti söylәyirәm, yalan danışmıram, vicdanım dediklәrimi Müqәddәs Ruhda tәsdiq edir ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>ürәyimdә böyük bir kәdәr, daimi bir iztirab var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Çünki qardaşlarımın, yәni cismani soydaşlarımın xatirinә mәn özüm Mәsihdәn uzaqlaşıb lәnәt qazanmağımı istәrdim;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>They are Israelites and are the people God chose for himself; the glory, the covenants, the giving of the law, the service, and the promises;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Әcdadlar da onlara mәxsusdur, Mәsih dә cismәn onlardandır; O hәr şeyin üzәrindә olan Allahdır ki, Ona әbәdi alqış olsun! Amin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Lakin bu o demәk deyil ki, Allahın kәlamı boşa çıxıb. Çünki İsraildәn törәyәnlәrin heç dә hamısı İsrailә mәxsus deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>İbrahimin nәslindәn olanların heç dә hamısı İbrahimin övladları deyil. Amma deyilib:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;İshaqdan törәyәnlәr sәnin nәslin adlanacaq&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Bu o demәkdir ki, Allahın övladları cismani övladlar deyil, Allahın vәdinә görә doğulan övladlardır ki, bunlar İbrahimin nәsli sayılır. </text>
+    <verse num="9" />
+    <text>Çünki belә vәd verilmişdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Gәlәn il bu vaxt gәlәcәyәm vә Saranın bir oğlu olacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Yalnız bu yox, Rivqa da bir kişidәn, yәni babamız İshaqdan hamilә oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <verse num="12" />
+    <text>Amma iki oğlu hәlә anadan olmamış vә yaxşılıq ya pislik etmәmiş ikәn Allah Rivqaya dedi; belә ki Allahın seçim mәqsәdi onların әmәllәrinә deyil, Öz çağırışına әsaslanaraq bәrqәrar olsun:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="scripture">
+    <text>&lt;&lt;böyüyü kiçiyinә qulluq edәcәk&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;Yaqubu sevdim, Esava isә nifrәt etdim&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Bәs indi nә deyә bilәrik? Mәgәr Allah әdalәtsizlik edir? Әsla! </text>
+    <verse num="15" />
+    <text>Çünki O, Musaya deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Kimә istәsәm, mәrhәmәt edәrәm, kimә istәsәm, rәhm edәrәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Belәliklә, seçim insanın istәyindәn yaxud sәyindәn deyil, yalnız mәrhәmәt edәn Allahdan asılıdır. </text>
+    <verse num="17" />
+    <text>Ona görә dә Müqәddәs Yazıda Allah firona deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Sәni buna görә ucaltdım ki, Öz gücümü sәnin üzәrindә göstәrim vә adım bütün dünyaya elan edilsin&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Demәli, Allah kimә istәyirsә, mәrhәmәt edir, kimi istәyirsә, inadkar edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>İndi sәn mәnә deyә bilәrsәn: &lt;&lt;Bәs Allah daha nә üçün bizi tәqsirkar çıxarır? Mәgәr kimsә Onun iradәsinin әleyhinә gedә bilәr?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Amma, ey insan, sәn kimsәn ki, Allahla mübahisәyә girişirsәn? Mәgәr düzәldilәn bir şey onu düzәldәnә &lt;&lt;Mәni niyә bu cür yaratdın?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Mәgәr dulusçunun işlәtdiyi gilә ixtiyarı çatmır ki, hәmin gildәn bir qabı şәrәfli iş üçün, o biri qabı isә şәrәfsiz iş üçün düzәltsin?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Әgәr Allah qәzәbini göstәrmәk vә qüdrәtini bildirmәk istәyәrәk qәzәbinә gәlib mәhv olmağa hazırlanmış qablara böyük sәbirlә dözdüsә, biz nә deyә bilәrik?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Mәgәr O bunu etdi ki, qabaqcadan izzәt üçün hazırladığı mәrhәmәt tapan qablara izzәtinin necә zәngin olduğunu bildirsin?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>O qablar bizik ki, Allah yalnız Yәhudilәr arasından deyil, hәm dә başqa millәtlәr arasından çağırdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Necә ki Huşәnin kitabında deyilir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
+    <text>&lt;&lt;“Xalqım deyil” dediyimә “Xalqımsan” deyәcәyәm, “Sevdiyim deyil” dediyimә “Sevdiyimsәn” deyәcәyәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
+    <verse num="26" />
+    <text>&lt;&lt;Onlara “siz Mәnim xalqım deyilsiniz” deyilәn yerdә “siz var olan Allahın övladlarısınız” deyilәcәk&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Yeşaya da İsrail barәdә belә nida edir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;İsrail övladlarının sayı dәniz qumu qәdәr çox olsa belә, Ancaq sağ qalanları xilas olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="28" />
+    <text>Çünki Rәbb yer üzündә hökmünü Tam vә tez yerinә yetirәcәk&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Yeşayanın qabaqcadan söylәdiyi kimi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="scripture">
+    <text>&lt;&lt;Әgәr Ordular Rәbbi Bizim xalqdan bir neçә Sağ qalan adam qoymasaydı, Biz Sodom kimi olardıq, Homorraya bәnzәyәrdik&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Bәs nә deyә bilәrik? Salehliyin ardınca getmәyәn başqa millәtlәr salehliyi, yәni imanla gәlәn salehliyi әldә etdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>Amma salehlik göstәrәn Qanunun ardınca gedәn İsrail xalqı bu Qanuna çata bilmәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Nә üçün? Çünki imanla yox, әmәllәrlә gedirdilәr. Belәcә büdrәmә daşına ilişdilәr. </text>
+    <verse num="33" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="scripture">
+    <text>&lt;&lt;Budur, Sionda bir büdrәmә daşı vә yıxıdan qaya qoyuram. Ona iman edәn kәs utandırılmaz&gt;&gt;. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Ey qardaşlar, İsraillilәrin xilasını ürәkdәn arzulayıram vә bunun üçün Allaha dua edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Onların barәsindә şәhadәt edirәm ki, Allah naminә qeyrәt çәkirlәr, amma bu qeyrәt biliyә әsaslanmır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Çünki onlar Allahdan gәlәn salehliyi anlamayıb öz salehliklәrini bәrqәrar etmәyә çalışmaqla Allahın salehliyinә tabe olmadılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Mәsih Qanunun sonu olub ki, iman gәtirәn hәr kәs saleh sayılsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Musa Qanunla gәlәn salehlik haqqında belә yazır:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Bu şeylәri yerinә yetirәn adam bunların sayәsindә yaşayacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Amma imanla gәlәn salehlik barәdә belә deyilir: &lt;&lt;Ürәyindә demә ki, “Kim göylәrә, yәni Mәsihi endirmәyә çıxacaq?”</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>ya da “Kim dibsiz dәrinliyә, yәni Mәsihi ölülәr arasından qaldırmağa enәcәk?”&gt;&gt; </text>
+    <verse num="8" />
+    <text>Bәs onda nә deyilir?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Kәlam sәnә çox yaxındır, o sәnin dilindә vә ürәyindәdir&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-ROM">
+    <text>Biz elә hәmin iman kәlamını vәz edirik:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>әgәr sәn İsanın Rәbb olduğunu dilinlә iqrar edib Allahın Onu ölülәr arasından diriltdiyinә ürәkdәn inansan, xilas olacaqsan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Çünki insan ürәkdәn iman etmәklә saleh sayılır vә dili ilә iqrar etmәklә xilas olur. </text>
+    <verse num="11" />
+    <text>Belә ki Müqәddәs Yazıda deyilir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Ona iman edәn hәr kәs utandırılmayacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Burada Yәhudi ilә Yunan arasında fәrq yoxdur, hamısının Rәbbi birdir vә Onu çağıranların hamısına bol bәrәkәt verir. </text>
+    <verse num="13" />
+    <text>Çünki</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;Rәbbin adını çağıran hәr kәs xilas olacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Bәs onlar iman etmәdiklәri Şәxsi necә çağıracaqlar? Barәsindә eşitmәdiklәri Şәxsә necә iman edәcәklәr? Vәz edәn olmasa, necә eşidәcәklәr?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Göndәrilmәsәlәr, necә vәz edәcәklәr? Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Xoş xәbәri müjdәlәyәnin qәdәmlәri necә dә gözәldir!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Amma Müjdәyә hamı qulaq asmadı. Çünki Yeşaya deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
+    <text>&lt;&lt;Ya Rәbb, xәbәrimizә kim inandı?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Belәliklә, iman eşitmәkdәn, eşitmәk dә Mәsihin kәlamı vasitәsilә yaranır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Lakin soruşuram: mәgәr onlar eşitmәdilәr? Әlbәttә ki, eşitdilәr:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;Avazları bütün dünyaya yayıldı, Sözlәri yerin ucqarlarına çatdı&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Bir dә soruşuram: mәgәr İsrail anlamadı? Musa ilk olaraq deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="scripture">
+    <text>&lt;&lt;Mәn sizi xalq olmayanlarla qısqandıracağam, Axmaq bir millәtlә qәzәblәndirәcәyәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Yeşaya isә cәsarәtlә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Rәbb deyir: “Mәni axtarmayanlar tәrәfindәn tapıldım, Mәni soruşmayanlara Mәn zühur etdim”&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>İsrail barәdә isә belә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Gün boyu itaәtsiz, dikbaş xalqa әllәrimi uzadıb durdum&gt;&gt;. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Belәliklә, soruşuram: mәgәr Allah Öz xalqını rәdd etdi? Әsla! Çünki mәn özüm dә İbrahim nәslindәn, Binyamin qәbilәsindәn olan bir İsrailliyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Allah qabaqcadan tanıdığı Öz xalqını rәdd etmәdi. Mәgәr siz bilmirsiniz ki, Müqәddәs Yazıda İlyas barәdә nә deyilir? İlyas İsraildәn Allaha şikayәt edib deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="scripture">
+    <verse num="3" />
+    <text>&lt;&lt;Ya Rәbb! Sәnin peyğәmbәrlәrini öldürdülәr, qurbangahlarını dağıtdılar. Tәkcә mәn qaldım, onlar canımı almaq üçün mәni dә axtarırlar&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Bәs Allahdan ona hansı cavab gәldi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="scripture">
+    <text>&lt;&lt;Mәn Özüm üçün Baal qarşısında diz çökmәmiş yeddi min adamı saxlamışam&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Belәcә indi dә Allahın lütfü ilә seçilmiş sağ qalanlar var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Әgәr bu, lütflә oldusa, daha әmәllәrlә deyil; yoxsa lütf daha lütf olmaz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Onda nә deyә bilәrik? İsrail axtardığını әldә etmәdi, seçilmişlәr әldә etdilәr; digәrlәri isә inadkar oldu. </text>
+    <verse num="8" />
+    <text>Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Allah onları dәrin yuxuya saldı, Onlara bu günәdәk görmәyәn gözlәr, Eşitmәyәn qulaqlar verdi&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Davud da belә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Süfrәlәri onlara tәlә, tor, Büdrәmә daşı vә cәza olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>Gözlәrinә qara gәlsin, görmәsinlәr, Bellәri hәmişә bükülü qalsın!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Belәliklә, soruşuram: mәgәr İsraillilәr bir daha ayağa qalxmamaq üçün büdrәyib-yıxıldılar? Әsla! Amma onların tәqsiri başqa millәtlәrin xilasına sәbәb oldu ki, İsraillilәrdә qibtә oyandırsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Әgәr onların tәqsiri dünyaya zәnginlik, onların qüsuru da başqa millәtlәrә zәnginlik gәtirdisә, gör onların bütövlüyü necә böyük zәnginlik gәtirәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Lakin, ey başqa millәtlәr, sizә bildirirәm: mәn başqa millәtlәrә göndәrilәn hәvari olduğuma görә öz xidmәtimi izzәtli sayıram ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>bәlkә soydaşlarımda qibtә hissi oyandırıb bәzilәrini xilas edә bilim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Çünki onların rәdd edilmәsi dünyanın Allahla barışması demәkdirsә, onların qәbul edilmәsi ölülәr arasından hәyata dönmәk deyilmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Әgәr xәmirin ilk hissәsi müqәddәsdirsә, demәk, xәmirin hamısı müqәddәsdir; әgәr kök müqәddәsdirsә, budaqlar da müqәddәsdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Ancaq filiallarının bir qopardılmış edilmiş, və bir yabanı zeytun olan, onların arasında ilə grafted edilmiş, kök və zeytun ağacı zənginliyi onlara ilə partaker oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>filial artıq öyünə etməyin. Siz öymək, bu kök dəstək sizə deyil, kök siz dəstəkləyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>O zaman deyәcәksәn: budaqlar qoparıldı ki, mәn onların yerinә peyvәnd olunum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Doğrudur; onlar imansızlıqlarına görә qoparıldı, amma sәn imanına görә yerindә durursan. Buna görә tәkәbbürlü olma, әksinә, qorx!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Çünki Allah tәbii budaqlara rәhm etmәdisә, bәlkә sәnә dә rәhm etmәyәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Sәn gör ki, Allah eyni zamanda hәm xeyirxahdır, hәm dә sәrt: yıxılanlara sәrtlik, sәnә isә, әgәr Onun xeyirxahlığına bağlı qalarsansa, xeyirxahlıq göstәrәr. Әks tәqdirdә sәn dә kәsilib atılacaqsan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Әgәr imansızlıqda qalmasalar, onlar da peyvәnd olunacaqlar, çünki Allah onları yenә dә peyvәnd etmәyә qadirdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Әgәr sәn tәbiәtәn yabanı olan zeytun ağacından kәsilib, tәbiәtinә uyğun olmadan yetişdirilәn zeytun ağacına peyvәnd edildinsә, bu tәbii budaqlar öz zeytun ağacına necә dә asanlıqla peyvәnd olunacaq!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Ey qardaşlar, özünüzü ağıllı saymayasınız deyә bu sirdәn bixәbәr olmağınızı istәmirәm: İsrailin bәzisi o vaxta qәdәr inadkar qalacaq ki, başqa millәtlәrdәn xilas olanların sayı tamamlansın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Belәcә bütün İsrail xilas olacaq. Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Qurtarıcı Siondan gәlәcәk, Yaqub nәslindәn allahsızlığı uzaqlaşdıracaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="27" />
+    <text>&lt;&lt;Günahlarını aradan qaldırdığım zaman Mәnim onlarla bağladığım Әhd budur&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Müjdә mәsәlәsindә İsraillilәr sizin üçün Allaha düşmәndir, amma Allah onları seçdiyinә görә әcdadlarının xatirinә Onun üçün sevimlidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Çünki Allahın әnamları vә dәvәti geri alınmaz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Siz bir zamanlar Allaha itaәtsiz idiniz vә indi onların itaәtsizliyi üzündәn mәrhәmәt tapdınız;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>elәcә dә sizin tapdığınız mәrhәmәtdәn ötrü onlar indi itaәtsiz oldular ki, özlәri dә indi mәrhәmәt tapsınlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Çünki Allah hamını itaәtsizliyә әsir edib ki, hamıya mәrhәmәt göstәrsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-ROM">
+    <verse num="33" />
+    <text>Allahın zәnginliyi nә böyük, Hikmәti vә biliyi nә dәrindir! Onun hökmlәri necә dә ağlasığmaz, Yolları necә dә anlaşılmazdır!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="scripture">
+    <verse num="34" />
+    <text>&lt;&lt;Rәbbin ağlını kim dәrk etdi? Ona kim mәslәhәtçi oldu?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture">
+    <verse num="35" />
+    <text>&lt;&lt;Kim Ona bir şey verdi ki, Әvәzini Ondan istәyә bilsin?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM">
+    <verse num="36" />
+    <text>Çünki hәr şeyin mәnbәyi Odur, hәr şey Onun vasitәsilә vә Onun üçün var oldu. Ona әbәdi olaraq izzәt olsun! Amin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Belәliklә, ey qardaşlar, Allahın mәrhәmәti xatirinә sizә yalvarıram ki, bәdәnlәrinizi diri, müqәddәs vә Allahı razı salan bir qurban olaraq Ona tәqdim edin; bu sizin ağılla etdiyiniz ibadәtdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Bu dövrә uyğunlaşmayın, әksinә, düşüncәnizin tәzәlәnmәsi ilә dәyişin ki, Allahın yaxşı, razı salan vә kamil iradәsini ayırd edәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Mәnә verilәn lütflә sizin hәr birinizә deyirәm ki, lazım olduğundan artıq özünüz barәdә yüksәk fikirdә olmayın; lakin hәr biriniz Allahın ona verdiyi imanın ölçüsünә görә ağıl-kamalla düşünün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Çünki bizim bir bәdәnimizdә çoxlu üzvlәr olduğu halda onların hәr birinin vәzifәsi heç dә eyni deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Elәcә biz dә çox olduğumuz halda Mәsihdә bir bәdәnik vә ayrı-ayrılıqda bir-birimizә bağlı üzvlәrik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Allahın bizә bağışladığı lütfә görә müxtәlif ruhani әnamlarımız var. Bir kәsin әnamı peyğәmbәrlikdirsә, imanının ölçüsünә görә peyğәmbәrlik etsin;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>әnamı xidmәtdirsә, xidmәt etsin; müәllimlikdirsә, öyrәtsin;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>nәsihәt verәndirsә, nәsihәt versin; pay verәndirsә, sәxavәtlә, rәhbәrdirsә, sәylә, mәrhәmәt göstәrәndirsә, sevinә-sevinә öz işini görsün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Qoy mәhәbbәtiniz riyasız olsun. Pislikdәn ikrah edin, yaxşılığa bağlanın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Qardaşlıq sevgisi ilә bir-birinizi sevin. Hörmәt göstәrmәkdә bir-birinizi qabaqlayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Sәyiniz azalmasın, ruhunuz alovlu olsun. Rәbbә qulluq edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Ümidinizlә sevinin. Әziyyәtdә dözümlü olun. Dayanmadan dua edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Ehtiyac içindә olan müqәddәslәrә yardım etmәyә şәrik olun. Qonaqpәrvәr olmağa sәy göstәrin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Sizi tәqib edәnlәrә xeyir-dua verin; lәnәt yox, xeyir-dua verin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Sevinәnlәrlә sevinin, ağlayanlarla ağlayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Bir-birinizlә hәmfikir olun; tәkәbbürlü olmayın, mәzlumlarla dostluq edin. Özünüzü ağıllı saymayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Heç kimә pislik әvәzinә pislik etmәyin. Hamının gözündә yaxşı olan işlәr görmәyә diqqәt yetirin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>İmkan daxilindә bacardıqca bütün adamlarla sülh içindә yaşayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Ey sevimlilәr, heç kәsdәn qisas almayın, Allahın qәzәbinә yer verin. Çünki yazılıb ki, Rәbb belә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture">
+    <text>&lt;&lt;Qisas Mәnimdir, әvәzini Mәn verәcәyәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Әksinә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;düşmәnin acdırsa, onu yedizdir, susuzdursa, ona su ver. Belә etmәklә sanki onun başına köz tökәrsәn&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Pislik sәnә üstün gәlmәsin, pisliyә yaxşılıqla qalib gәl. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Hәr kәs başçılıq edәn hakimiyyәtlәrә tabe olsun. Çünki Allah tәrәfindәn tәyin olunmayan hakimiyyәt yoxdur; mövcud olan hakimiyyәtlәr Allah tәrәfindәn tәyin olunub.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Buna görә dә hakimiyyәtә qarşı çıxan adam Allahın tәyin etdiyinin әleyhinә çıxır vә әleyhinә çıxan belәlәri özlәrini mühakimәyә düçar edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Çünki yaxşı iş görәnlәr deyil, pis iş görәnlәr hökmdarlardan qorxmalıdır. İstәyirsәnmi hakimiyyәtdәn qorxmayasan? Yaxşı iş gör, onda o sәni tәriflәyәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Hökmdar sәnin xeyrin üçün Allaha xidmәt edir. Amma pis iş görürsәnsә, qorx! Çünki o, әbәs yerә qılınc daşımır, Allaha xidmәt edir ki, pis iş görәndәn qisas alsın vә Allahın qәzәbini onun başına gәtirsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Bu sәbәbdәn yalnız qәzәbә görә deyil, vicdanın xatirinә dә hakimiyyәtә tabe olmaq lazımdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Vergini dә siz buna görә ödәyirsiniz. Çünki hökmdarlar Allahın xidmәtçisidir vә mәhz bu işlә daim mәşğuldurlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Belәliklә, hәr kәsә öz haqqını verin: vergi haqqı olana vergi, gömrük haqqı olana gömrük, qorxu haqqı olana qorxu, hörmәt haqqı olana hörmәt.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Bir-birinizi sevmәkdәn başqa heç nәdә heç kimә borclu qalmayın; çünki başqasını sevәn Qanunu yerinә yetirmiş olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Belә ki &lt;&lt;zina etmә, qәtl etmә, oğurluq etmә, tamah salma&gt;&gt; vә bunlardan başqa nә әmr varsa, bu kәlamla yekunlaşdırmaq olar: &lt;&lt;Qonşunu özün kimi sev&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Sevәn insan qonşusuna qarşı pis iş görmәz, buna görә dә mәhәbbәt Qanunun tamamlanmasıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Zәmanәni, yuxudan ayılmaq vaxtınızın gәldiyini anlayaraq belә rәftar edin. Çünki indi xilasımız iman etdiyimiz vaxtda olduğundan daha yaxındır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Gecә keçdi, gündüz isә yaxınlaşdı; buna görә dә qaranlığın әmәllәrini üzәrimizdәn ataq vә nurun silahlarına bürünәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Gün işığında olduğu kimi lәyaqәtlә hәyat sürәk; eyş-işrәtә vә sәrxoşluğa, әxlaqsızlığa vә pozğunluğa, münaqişәyә vә qısqanclığa qapılmayaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Әksinә, Rәbb İsa Mәsihә bürünün vә cismani tәbiәtinizin ehtiraslarına uymaq fikrindә olmayın. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="14" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>14</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>İmanı zәif olanı qәbul edin, amma onun fikirlәri ilә mübahisәyә girişmәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Biri inanır ki, hәr şeyi yeyә bilәr, amma imanı zәif olan yalnız tәrәvәz yeyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Yeyәn yemәyәnә xor baxmasın, yemәyәn dә yeyәni mühakimә etmәsin. Çünki Allah onu qәbul edib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Sәn kimsәn ki, başqasının xidmәtçisini mühakimә edirsәn? O xidmәtçini haqlı yaxud haqsız çıxarmaq ixtiyarı ağasına mәxsusdur. Xidmәtçi haqlı çıxacaq, çünki Rәbb onu haqlı çıxarmağa qadirdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Kimsә bir günü o biri gündәn üstün sayır, başqası isә hәr günü eyni sayır. Qoy hәr kәs öz fikrinә әmin olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Bir günü fәrqlәndirәn adam onu Rәbb üçün fәrqlәndirir. Yeyәn Rәbb üçün yeyir, çünki Allaha şükür edir. Yemәyәn dә Rәbb üçün yemir vә Allaha şükür edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Çünki bizim heç birimiz özümüz üçün yaşamırıq vә özümüz üçün ölmürük.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Yaşayırıqsa, Rәbb üçün yaşayırıq, ölürüksә, Rәbb üçün ölürük. Buna görә yaşasaq da, ölsәk dә Rәbbә mәxsusuq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Çünki Mәsih ona görә ölüb yenә yaşadı ki, hәm ölülәrin, hәm dә yaşayanların Rәbbi olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Bәs sәn nә üçün qardaşını mühakimә edirsәn? Yaxud nә üçün qardaşına xor baxırsan? Axı biz hamımız Allahın hökm kürsüsünün qarşısında dayanacağıq. </text>
+    <verse num="11" />
+    <text>Çünki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Rәbb deyir: Varlığıma and içdim, Hәr diz önümdә çökәcәk, Hәr dil Allah olduğumu bildirәcәk&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Belәcә hәr birimiz özü üçün Allaha hesabat verәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Buna görә dә daha bir-birimizi mühakimә etmәyәk, әksinә, qәrara alın ki, heç bir qardaşın önünә onu büdrәdәn yaxud pis yola çәkәn bir şey qoymayasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Rәbb İsada olaraq әminәm ki, heç bir şey özlüyündә murdar deyil. Amma nәyisә murdar sayan adam üçün o şey murdardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Әgәr sәnin qardaşın yediyin bir şeydәn ötrü kәdәrlәnirsә, onda sәn mәhәbbәtә görә hәyat sürmürsәn. Uğrunda Mәsihin öldüyü adamı öz yemәyinә görә hәlaka tәslim etmә.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>İmkan vermәyin ki, sizin yaxşı hesab etdiyiniz bir şey pislәnsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Çünki Allahın Padşahlığı yemәk-içmәkdәn ibarәt deyil, Müqәddәs Ruhda salehlik, sülh vә sevincdәn ibarәtdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Kim belәcә Mәsihә qulluq edirsә, Allahı razı salır vә insanların da rәğbәtini qazanır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Belәliklә, özümüzü sülh gәtirәn vә bir-birimizi inkişaf etdirәn işlәrә hәsr edәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Qidaya görә Allahın işlәrini pozma! Hamısı tәmizdir. Amma yemәyi ilә başqasının büdrәmәsinә sәbәb olan adam pislik edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Әt yemәyәrәk, şәrab içmәyәrәk qardaşının büdrәmәsinә sәbәb olmayan isә yaxşılıq edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Bu mәsәlәlәrdә etiqadını Allahın önündә öz ürәyindә saxla. Seçdiyi bir işdә özünü mühakimә etmәyәn adam nә bәxtiyardır!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Amma bir yemәyә şübhә edәn adam o yemәyi yeyirsә, mәhkum olur. Çünki gördüyü iş imana әsaslanmır vә imana әsaslanmayan hәr şey günahdır </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Allah mәnim elan etdiyim Müjdәyә vә İsa Mәsih barәdә vәzә görә, әzәldәn bәri gizli saxlanmış sirri aydınlaşdıran vәhyә uyğun olaraq, sizi qüvvәtlәndirmәyә qadirdir;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>bu hәmin sirdir ki, indi aşkar olmuş vә әbәdi Allahın әmrinә әsasәn peyğәmbәrlәrin Yazıları vasitәsilә bütün millәtlәrin iman gәtirib itaәt etmәsi üçün bәyan edilmişdir;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>o yeganә vә müdrik Allaha İsa Mәsih vasitәsilә әbәdi izzәt olsun! Amin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="15" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>15</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Biz imanı güclü olanlar imanı gücsüz olanların zәifliklәrinә dözmәliyik vә yalnız özümüzü razı salmamalıyıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Hәr birimiz yaxşılıq naminә inkişaf etdirmәk mәqsәdi ilә qonşumuzu razı salaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Çünki Mәsih dә Özünü razı salmadı. Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="scripture">
+    <text>&lt;&lt;Sәni tәhqir edәnlәrin tәhqirlәri altında qaldım&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Bundan әvvәl yazılanların hamısı bizi öyrәtmәk üçün yazıldı ki, dözümlә vә Müqәddәs Yazıların ürәk-dirәyi ilә ümidimiz olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Dözüm verәn vә ürәklәndirәn Allah Mәsih İsanın istәyinә uyğun olaraq sizә hәmfikirlilik bәxş etsin ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>hamınız birlikdә vә bir sәslә Rәbbimiz İsa Mәsihin Atası olan Allahı izzәtlәndirәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Buna görә dә Mәsih sizi qәbul etdiyi kimi siz dә Allahın izzәti üçün bir-birinizi qәbul edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Mәn dә bunu bildirirәm: Mәsih Allahın haqlı olduğunu göstәrmәk üçün sünnәtlilәrin xidmәtçisi oldu ki, әcdadlara verilәn vәdlәri yerinә yetirsin;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>belәcә başqa millәtlәr dә Allahın mәrhәmәtinә görә Onu izzәtlәndirsinlәr. Necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Buna görә millәtlәr arasında Sәnә şükür edәcәyәm, İsminә tәrәnnüm söylәyәcәyәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Yenә deyilir ki:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="scripture">
+    <text>&lt;&lt;Ey millәtlәr, Onun xalqı ilә birgә sevinin!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Başqa bir yerdә:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;Ey bütün millәtlәr, Rәbbә hәmd edin! Ey bütün ümmәtlәr, Onu mәdh edin!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Yeşaya da belә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="scripture">
+    <text>&lt;&lt;Yesseyin Kökü gәlәcәk, Millәtlәrә hökmran olmaq üçün ucalacaq, Millәtlәr Ona ümid bağlayacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Qoy ümid mәnbәyi olan Allah iman edәn sizlәri hәr cür şadlıq vә sülhlә doldursun ki, Müqәddәs Ruhun qüdrәti ilә ümidlә dolub-daşasınız. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Ey qardaşlarım, mәn sizin barәnizdә әminәm ki, siz yaxşılıqla dolu, hәr cür biliklә kamilsiniz vә bir-birinizә nәsihәt vermәyә qadirsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Amma Allahın mәnә bәxş etdiyi lütflә bәzi mәsәlәlәri sizә xatırlatmaq üçün bu sözlәri cәsarәtlә yazmışam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Hәmin lütfә görә mәn başqa millәtlәr üçün Mәsih İsanın xidmәtçisi oldum ki, bir kahin kimi Allahın Müjdәsini vәz edim vә başqa millәtlәr Müqәddәs Ruhla tәqdis edilәrәk Allaha mәqbul olan qurban olsunlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Belәcә Allaha xidmәt etdiyimә görә Mәsih İsa ilә fәxr edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Başqa millәtlәri itaәtә gәtirmәk üçün Mәsihin mәnim vasitәmlә söz vә әmәllә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>әlamәt vә xariqәlәrin qüvvәti ilә, Allahın Ruhunun qüdrәti ilә etdiklәrindәn başqa bir şey barәdә danışmağa cәsarәt etmәrәm. Belә ki mәn Yerusәlimdәn başlayıb İllirikum diyarına qәdәr hәr tәrәfdә Mәsihin Müjdәsini yayıb qurtardım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Bununla birgә, Müjdәni Mәsihin adının hәlә eşidilmәdiyi yerlәrdә yaymaq başlıca mәqsәdim oldu ki, bir başqasının qoyduğu tәmәl üzәrindә bina qurmayım. </text>
+    <verse num="21" />
+    <text>Amma necә ki yazılıb:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Onun haqqında xәbәri olmayanlar görәcәk, Eşitmәyәnlәr anlayacaq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Bu sәbәbdәn sizin yanınıza gәlmәk niyyәtim bir neçә dәfә әngәllәndi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>İndi isә bu diyarlarda işlәyәcәyim başqa bir yer qalmır, illәrdir ki, yanınıza gәlmәyi arzu edirdim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Buna görә İspaniyaya getmәk niyyәtindәyәm vә ümidvaram ki, yolüstü sizi dә görüm vә әvvәl qısa müddәt dә olsa, dostluğunuzdan zövq alandan sonra mәni oraya yola salasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Amma indi mәn müqәddәslәrә yardım etmәk üçün Yerusәlimә gedirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>Çünki Makedoniya vә Axayyada olanlar Yerusәlimdә müqәddәslәr arasındakı kasıblar üçün ianә yığmağı mәslәhәt bildilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>Әlbәttә, özlәri mәslәhәt bildilәr, hәm dә әslindә onlara borcludurlar. Çünki başqa millәtlәr Yerusәlim müqәddәslәrinin ruhani nemәtlәrinә şәrik oldularsa, maddi nemәtlәri ilә onlara xidmәt etmәyә borcludurlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-ROM">
+    <verse num="28" />
+    <text>Belәcә bu işi başa çatdırıb әldә olunan sәmәrәni onlara çatdırandan sonra sizin yerlәrdәn keçib İspaniyaya gedәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-ROM">
+    <verse num="29" />
+    <text>Bilirәm ki, yanınıza gәlәndә Mәsihin tam xeyir-duası ilә gәlәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="30" characterId="narrator-ROM">
+    <verse num="30" />
+    <text>Ey qardaşlar, Rәbbimiz İsa Mәsihin xatirinә, Ruhun mәhәbbәti naminә sizә yalvarıram, Allaha mәnim üçün etdiyiniz dualarda mәnimlә birlikdә mübarizә aparın ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="narrator-ROM">
+    <verse num="31" />
+    <text>Yәhudeyada olan imansızlardan xilas olum vә Yerusәlimә olan yardımımı müqәddәslәr qәbul etsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-ROM">
+    <verse num="32" />
+    <text>Belәliklә, istәyirәm ki, Allahın iradәsi ilә sevinclә yanınıza gәlib sizinlә könlümü fәrәhlәndirim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-ROM">
+    <verse num="33" />
+    <text>Qoy sülh qaynağı olan Allah sizin hamınızla olsun. Amin. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="16" book="ROM" initialStartVerse="0" characterId="BC-ROM">
+    <text>16</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="narrator-ROM">
+    <verse num="1" />
+    <text>Kenxreyadakı cәmiyyәtin xidmәtçisi olan bacımız Fibi barәdә sizә zәmanәt verirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-ROM">
+    <verse num="2" />
+    <text>Onu Rәbdә olduğu üçün müqәddәslәrә layiq tәrzdә qәbul edin, nә ehtiyacı varsa, siz ona kömәk edin. Çünki o, çoxlarına vә şәxsәn mәnә dә hamilik edib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="narrator-ROM">
+    <verse num="3" />
+    <text>Mәsih İsada hәmkarlarım olan Priskila vә Akilaya salam söylәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="narrator-ROM">
+    <verse num="4" />
+    <text>Onlar mәnim hәyatım üçün öz canlarını tәhlükәyә saldılar. Onlara yalnız mәn yox, başqa millәtlәrin bütün cәmiyyәtlәri dә tәşәkkür edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="narrator-ROM">
+    <verse num="5" />
+    <text>Onların evindә toplanan cәmiyyәtә dә salam söylәyin. Asiya vilayәtindәn Mәsih üçün ilk mәhsul olan sevimli qardaşım Epenetә salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="narrator-ROM">
+    <verse num="6" />
+    <text>Sizin üçün xeyli zәhmәt çәkmiş Mәryәmә salam söylәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-ROM">
+    <verse num="7" />
+    <text>Hәvarilәr arasında şöhrәt qazanmış, mәndәn әvvәl Mәsihdә olmuş soydaşlarım vә zindan yoldaşlarım Andronikosa vә Yuniyaya salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-ROM">
+    <verse num="8" />
+    <text>Rәbdә mәnә sevimli olan Ampliyata salam söylәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-ROM">
+    <verse num="9" />
+    <text>Mәsihdә hәmkarımız olan Urbana vә mәnә sevimli olan Staxisә salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="narrator-ROM">
+    <verse num="10" />
+    <text>Mәsihdә sәdaqәti sübut edilmiş Apellisә salam söylәyin. Aristobulun ailәsindәn olanlara salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-ROM">
+    <verse num="11" />
+    <text>Soydaşım Hirodiona salam söylәyin. Narkisin ailәsindәn Rәbdә olanlara salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-ROM">
+    <verse num="12" />
+    <text>Rәbbin xidmәtindә zәhmәt çәkmiş Trifena ilә Trifosaya salam söylәyin. Rәbbin xidmәtindә xeyli zәhmәt çәkmiş sevimli Persisә salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-ROM">
+    <verse num="13" />
+    <text>Rәbdә seçmә insan olan Rufusa vә mәnә dә analıq edәn anasına salam söylәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-ROM">
+    <verse num="14" />
+    <text>Asinkritә, Fleqona, Hermesә, Patrobaya, Hermaya vә onlarla birlikdә olan bacı-qardaşlara salam çatdırın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-ROM">
+    <verse num="15" />
+    <text>Filoloqa, Yuliyaya, Nereyә vә onun bacısına, Olimpaya vә onlarla birlikdә olan bütün müqәddәslәrә salam söylәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-ROM">
+    <verse num="16" />
+    <text>Bir-birinizi müqәddәs öpüşlә salamlayın. Mәsihin bütün cәmiyyәtlәri sizә salam göndәrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="narrator-ROM">
+    <verse num="17" />
+    <text>Qardaşlar, sizә yalvarıram ki, öyrәndiyiniz tәlimin әleyhinә çıxaraq ayrılıq salan vә büdrәmәyә sәbәb olan adamlara nәzarәt edin vә onlardan uzaq durun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ROM">
+    <verse num="18" />
+    <text>Çünki belә adamlar Rәbbimiz Mәsihә deyil, öz qarınlarına qulluq edirlәr; onlar yağlı vә yaltaq nitqlәri ilә sadәlövh adamların ürәklәrini tovlayırlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="19" characterId="narrator-ROM">
+    <verse num="19" />
+    <text>Sizin itaәtiniz hamıya bәllidir. Buna görә dә sizin üçün sevinirәm. Amma istәyirәm ki, yaxşı işlәrdә müdrik, pis işlәrdә mәsum olasınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-ROM">
+    <verse num="20" />
+    <text>Sülh qaynağı olan Allah Şeytanı tezliklә ayaqlarınızın altında әzәcәk. Rәbbimiz İsanın lütfü sizә yar olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-ROM">
+    <verse num="21" />
+    <text>Hәmkarım Timotey, soydaşlarım Luki, Yason vә Sosipater sizә salam göndәrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ROM">
+    <verse num="22" />
+    <text>Bu mәktubu yazıya alan mәn Terti dә Rәbbin ismi ilә sizә salam söylәyirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="narrator-ROM">
+    <verse num="23" />
+    <text>Mәni vә bütün cәmiyyәti qonaq saxlayan Qayın sizә salamı var. Şәhәrin xәzinәdarı olan Erast vә Kvart qardaş da sizә salam göndәrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-ROM">
+    <verse num="24" />
+    <text>Atamız Allahdan vә Rәbb İsa Mәsihdәn sizә lütf vә sülh olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="25" characterId="narrator-ROM">
+    <verse num="25" />
+    <text>Allah mәnim elan etdiyim Müjdәyә vә İsa Mәsih barәdә vәzә görә, әzәldәn bәri gizli saxlanmış sirri aydınlaşdıran vәhyә uyğun olaraq, sizi qüvvәtlәndirmәyә qadirdir;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="26" characterId="narrator-ROM">
+    <verse num="26" />
+    <text>bu hәmin sirdir ki, indi aşkar olmuş vә әbәdi Allahın әmrinә әsasәn peyğәmbәrlәrin Yazıları vasitәsilә bütün millәtlәrin iman gәtirib itaәt etmәsi üçün bәyan edilmişdir;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="27" characterId="narrator-ROM">
+    <verse num="27" />
+    <text>o yeganә vә müdrik Allaha İsa Mәsih vasitәsilә әbәdi izzәt olsun! Amin. </text>
+  </block>
+  <UnappliedSplits />
+</book>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2PE" singlevoice="false" pageheader="2 PETER">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2PE">
+    <text>2 PETER</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Moi, Simon-Pierre, serviteur et apôtre de Jésus-Christ, j'écris à ceux qui ont reçu une foi aussi précieuse que la nôtre, par la générosité de Jésus-Christ, notre Dieu et notre Sauveur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>Vous connaissez Dieu et Jésus notre Seigneur. Alors, qu'ils vous bénissent et vous donnent la paix en abondance!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>Dans sa puissance, Dieu nous a donné tout ce qu'il faut pour vivre en lui restant fidèles. En effet, il nous a fait connaître celui qui nous a appelés à participer à sa gloire et à sa bonté.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>Par cette gloire et cette puissance, Dieu nous a donné des promesses très grandes et précieuses. Alors, en recevant ce qu'il a promis, vous pourrez sortir de ce monde pourri par des désirs mauvais et vous pourrez être unis avec Dieu lui-même.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>C'est pourquoi, faites tous les efforts que vous pouvez pour croire, et en même temps pour mener une vie honnête. Menez une vie honnête, et en même temps apprenez à connaître ce que Dieu veut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>Connaissez ce que Dieu veut, et en même temps soyez maîtres de vous-mêmes. Soyez maîtres de vous-mêmes, et en même temps soyez patients. Soyez patients, et en même temps fidèles à Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>Soyez fidèles à Dieu, et en même temps ayez de l'amitié pour vos frères et sœurs chrétiens. Ayez de l'amitié pour eux et aussi de l'amour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>Voilà les qualités que vous devez posséder. Et si vous les possédez en abondance, vous serez actifs et vous serez capables de mieux connaître notre Seigneur Jésus-Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>Mais si quelqu'un ne possède pas ces qualités, il ne voit pas clair et il ressemble à un aveugle. Il oublie qu'il a été lavé de ses péchés d'autrefois.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>Alors, frères et sœurs, faites encore plus d'efforts pour rester fidèles à l'appel de Dieu et au choix qu'il a fait de vous. Si vous vivez de cette façon, vous ne risquez pas de tomber dans le mal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>Oui, Dieu vous ouvrira largement l'entrée du Royaume sans fin, du Royaume de Jésus-Christ, notre Seigneur et notre Sauveur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>C'est pourquoi, je veux toujours vous rappeler ces choses. Pourtant, vous les connaissez déjà et vous restez fidèles à la vérité que vous avez reçue.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>Mais je crois juste de réveiller votre attention en vous rappelant ces choses, pendant que je suis encore sur cette terre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>Je le sais, le moment de ma mort est proche. Notre Seigneur Jésus-Christ me l'a fait savoir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Mais, après mon départ, vous pourrez garder le souvenir de ces enseignements en toute occasion, je ferai tout pour cela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>En effet, ce n'est pas avec des histoires fausses et compliquées que nous vous avons fait connaître la venue puissante de notre Seigneur Jésus-Christ. Mais nous l'avons vu de nos yeux, lui, dans toute sa grandeur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>Oui, il a reçu honneur et gloire de Dieu le Père, au moment où la voix de ce Dieu puissant a dit: &lt;&lt;Celui-ci est mon Fils très aimé, c'est lui que j'ai choisi avec joie.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>Cette voix est venue du ciel, nous l'avons entendue nous-mêmes quand nous étions avec Jésus sur la montagne sainte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-2PE">
+    <verse num="19" />
+    <text>De plus, nous avons la parole des prophètes. Elle est très solide, et vous avez raison de la regarder avec attention. En effet, elle est comme une lampe qui brille dans un endroit obscur, en attendant que la lumière du jour paraisse et que l'étoile du matin éclaire vos cœurs.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-2PE">
+    <verse num="20" />
+    <text>Tout d'abord, vous devez savoir ceci: personne ne doit expliquer tout seul les prophéties des Livres Saints.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2PE">
+    <verse num="21" />
+    <text>En effet, personne n'a jamais communiqué une prophétie par sa seule volonté. Mais c'est avec l'aide de l'Esprit Saint que des gens ont parlé de la part de Dieu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Autrefois, il y a eu des faux prophètes dans le peuple. Parmi vous, il y aura aussi des faux maîtres. Ils donneront habilement des enseignements trompeurs et ils iront jusqu'à rejeter le Maître qui les a sauvés. Ainsi, ils vont attirer rapidement sur eux le malheur qui les détruira.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>Beaucoup de gens les suivront en se conduisant n'importe comment. A cause d'eux, on se moquera du chemin de la vérité.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>Et parce qu'ils ont très envie de gagner de l'argent, ils vous tromperont par des histoires inventées. Mais depuis longtemps déjà, leur condamnation est prête, et le malheur va rapidement tomber sur eux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>En effet, Dieu n'a pas laissé sans punition les anges qui ont péché, mais il les a plongés dans le lieu de souffrance. Il les a attachés avec des chaînes dans la nuit et là, il les garde jusqu'au jour du jugement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>Le monde d'autrefois, Dieu ne l'a pas laissé sans punition. Mais quand il a noyé le monde de ses ennemis au moment de la grande inondation, il a sauvé seulement Noé, lui qui annonçait la justice que Dieu demande, et sept autres personnes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>Dieu a aussi condamné les villes de Sodome et de Gomorrhe en les détruisant par le feu. Cela devait servir d'exemple aux gens mauvais, pour leur montrer ce qui allait leur arriver.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>Il a prononcé le juste Lot, qui a été très affligé par la vie lascive des méchants.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>(Pour ce logement homme juste parmi eux était tourmenté dans son âme juste à cause de jour en jour avec voyant et entendant leurs oeuvres criminelles).</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>Cela montre donc que le Seigneur peut délivrer de la souffrance ceux qui lui sont fidèles. Et il peut garder en réserve les gens mauvais, pour les punir le jour du jugement.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>Il punira surtout ceux qui suivent les mauvais désirs de leur corps. Ceux-là cherchent seulement à faire des actions impures et ils méprisent l'autorité du Seigneur. Ces faux maîtres ont trop confiance en eux. Ils sont orgueilleux et ils n'ont pas peur d'insulter les esprits glorieux du ciel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>Même les anges ne jugent pas ces esprits et ils ne les insultent pas devant le Seigneur. Pourtant les anges sont plus forts et plus puissants que ces faux maîtres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>Ces gens-là sont comme des animaux sans intelligence, faits pour être pris dans des pièges et pour être tués. Ils insultent ce qu'ils ne connaissent pas et ils mourront comme ces animaux.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>C'est la punition qu'ils vont recevoir pour leurs mauvaises actions. Ils aiment satisfaire leurs désirs mauvais en plein jour. Quand ils font la fête avec vous, ils prennent plaisir à vous mentir, et leur présence est dégoûtante et honteuse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>Leurs yeux ne font que chercher des femmes, ils ont toujours envie de commettre des péchés, ils attirent ceux qui sont faibles. Ce sont des hommes qui cherchent toujours à gagner quelque chose. La malédiction est sur eux!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Ils ont abandonné le bon chemin et ils se sont perdus. Ils ont suivi la route de Balaam, le fils de Bosor, à qui on a offert de l'argent pour faire le mal. Et Balaam s'est laissé attirer par cet argent,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>mais il a entendu des reproches pour sa faute: une ânesse muette s'est mise à parler avec une voix humaine et elle a arrêté l'action stupide du prophète Balaam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>Ces faux maîtres sont comme des sources sans eau, comme des nuages poussés par un vent violent. Dieu leur a réservé une place dans la nuit la plus noire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>Oui, avec leurs discours ronflants complètement creux, ils attirent ceux qui viennent à peine d'abandonner la vie avec des gens dans l'erreur. Pour cela, ils se servent des désirs honteux du corps,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2PE">
+    <verse num="19" />
+    <text>et ils leur promettent la liberté. Pourtant, eux-mêmes sont esclaves des plaisirs qui les détruisent. En effet, quand une chose nous domine, nous sommes ses esclaves.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-2PE">
+    <verse num="20" />
+    <text>Ceux qui connaissent Jésus-Christ, notre Seigneur et notre Sauveur, ont abandonné les mauvaises influences du monde, mais ils peuvent se laisser reprendre et se laisser vaincre par elles. Alors leur situation est finalement bien pire qu'avant.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2PE">
+    <verse num="21" />
+    <text>Ils ont connu le chemin qui mène à la justice, mais ils ont abandonné les commandements de Dieu qu'on leur avait appris. Dans ce cas, il aurait mieux valu qu'ils ne connaissent pas ce chemin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-2PE">
+    <verse num="22" />
+    <text>Maintenant, ce qui leur est arrivé montre la vérité de ce proverbe:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
+    <text>&lt;&lt;Le chien mange de nouveau ce qu'il a vomi&gt;&gt;, et &lt;&lt;le cochon qui vient d'être lavé recommence à se rouler dans la boue&gt;&gt;.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2PE">
+    <verse num="1" />
+    <text>Amis très chers, voici déjà la deuxième lettre que je vous écris. Dans ces deux lettres, je fais appel à vos souvenirs pour vous aider à penser d'une manière correcte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2PE">
+    <verse num="2" />
+    <text>Souvenez-vous des paroles que les saints prophètes ont dites autrefois. Souvenez-vous aussi des commandements que les apôtres vous ont enseignés: ce sont les commandements du Seigneur, le Sauveur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2PE">
+    <verse num="3" />
+    <text>Tout d'abord, voici ce que vous devez savoir: dans les derniers jours, des gens vont venir. Ils vivront en suivant seulement leurs désirs mauvais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2PE">
+    <verse num="4" />
+    <text>Ils se moqueront de vous en disant: &lt;&lt;Jésus a promis de venir, n'est-ce pas? Eh bien, où est-il? En effet, nos pères sont morts, pourtant, tout est comme avant, depuis la création du monde!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2PE">
+    <verse num="5" />
+    <text>En disant cela, ils oublient une chose: le ciel et la terre ont été créés voici très longtemps. Par sa parole, Dieu a fait sortir la terre de l'eau et il l'a formée avec de l'eau.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2PE">
+    <verse num="6" />
+    <text>C'est également avec de l'eau, l'eau de la grande inondation, que le monde d'autrefois a été détruit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2PE">
+    <verse num="7" />
+    <text>De la même façon, la parole de Dieu garde en réserve le ciel et la terre d'aujourd'hui pour le jour où les ennemis de Dieu seront jugés. Ce jour-là, le ciel et la terre seront détruits par le feu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE">
+    <verse num="8" />
+    <text>En tout cas, amis très chers, n'oubliez pas ceci: pour le Seigneur, un jour est comme 1000 ans, et 1000 ans sont comme un jour.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2PE">
+    <verse num="9" />
+    <text>Le Seigneur va bientôt accomplir sa promesse. Pourtant, certains disent qu'il est en retard. En fait, il est patient avec vous, il ne veut pas que certains meurent pour toujours, mais il veut que tous arrivent à changer leur vie.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2PE">
+    <verse num="10" />
+    <text>Le jour du Seigneur viendra comme un voleur. Ce jour-là, le ciel disparaîtra avec un bruit terrible, le feu détruira les étoiles du ciel, la terre et les actions de ses habitants seront jugées.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2PE">
+    <verse num="11" />
+    <text>Puisque tout cela doit disparaître, vous comprenez bien quel genre de vie vous devez mener. Vous devez vous conduire comme Dieu veut et lui rester fidèles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2PE">
+    <verse num="12" />
+    <text>Vous attendez que le jour de Dieu arrive et vous souhaitez qu'il vienne vite. Ce jour-là, le feu détruira le ciel, et les étoiles fondront dans une chaleur brûlante.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2PE">
+    <verse num="13" />
+    <text>Dieu a promis un ciel nouveau et une terre nouvelle où la justice habitera. Oui, c'est ce que nous attendons.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2PE">
+    <verse num="14" />
+    <text>C'est pourquoi, amis très chers, en attendant ce jour, faites des efforts pour être sans défaut et sans tache, en paix avec Dieu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2PE">
+    <verse num="15" />
+    <text>Et dites-vous une chose: c'est à cause de la patience du Seigneur que vous pouvez être sauvés. Voilà ce que Paul, notre frère et notre ami, a voulu vous dire dans ses lettres. Il le dit avec la sagesse que Dieu lui a donnée.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2PE">
+    <verse num="16" />
+    <text>C'est ce qu'il écrit dans toutes ses lettres, quand il parle de ce sujet. Il y a des passages difficiles à comprendre, alors les gens qui sont ignorants et sans formation en changent le sens. Ils font d'ailleurs la même chose avec d'autres passages des Livres Saints. En agissant ainsi, ils se détruisent eux-mêmes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2PE">
+    <verse num="17" />
+    <text>Mais vous, amis très chers, maintenant je vous ai prévenus. Faites donc attention, ne vous laissez pas tromper par les erreurs des ennemis de Dieu. Ainsi vous pourrez rester solides dans la foi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2PE">
+    <verse num="18" />
+    <text>Que l'amour et la connaissance de Jésus-Christ, notre Seigneur et notre Sauveur, grandissent en vous. Rendons-lui gloire, dès maintenant et pour toujours! Amen! </text>
+  </block>
+  <UnappliedSplits />
+</book>

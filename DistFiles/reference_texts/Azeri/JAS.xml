@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="JAS" singlevoice="false" pageheader="JAMES">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+    <text>JAMES</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Allahın vә Rәbb İsa Mәsihin qulu mәn Yaqubdan millәtlәr arasına sәpәlәnmiş on iki qәbilәyә salam!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Ey qardaşlarım, müxtәlif sınaqlarla üzlәşәndә bunu böyük bir sevinc hesab edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Çünki bilirsiniz ki, imanınızın sınaqdan keçmәsi dözüm yaradır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Dözüm dә öz әmәlini kamil etsin ki, siz yetkin vә kamil adamlar olasınız, heç bir çatışmazlığınız olmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Әgәr sizlәrdәn birinin müdrikliyi çatışmırsa, hәr kәsә sәxavәtlә vә mәzәmmәt etmәdәn verәn Allahdan dilәsin vә ona verilәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Amma qoy heç şübhә etmәdәn imanla dilәsin. Çünki şübhә edәn adam külәyin qaldırdığı vә hәrәkәtә gәtirdiyi dәniz dalğasına bәnzәyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Qoy belә adam düşünmәsin ki, Rәbdәn bir şey alacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>O qәrarsızdır, heç bir yolunda sabit deyil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Qoy hәqir qardaş öz ucalığı ilә fәxr etsin,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>varlı qardaşsa öz hәqirliyi ilә fәxr etsin, çünki varlı insan otun çiçәyi kimi solub gedәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Günәş çıxır, bәrk isti olur vә otu qurudur. Otun çiçәyi tökülür vә onun zahiri gözәlliyi itir. Varlı adam da belәcә, işlәyә-işlәyә solacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Sınağa dözәn adam nә bәxtiyardır! Çünki sınaqdan keçәndәn sonra Rәbbin Onu sevәnlәrә vәd etdiyi hәyat tacını alacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Sınağa düşәndә qoy heç kim &lt;&lt;Allah mәni sınağa çәkir&gt;&gt;demәsin. Çünki Allah pisliklә sınağa çәkilmir vә Özü dә heç kimi sınağa çәkmir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Lakin hәr kәs öz ehtirası ilә aparılıb yoldan çıxarılaraq sınağa çәkilir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Sonra ehtiras boylu qalıb günah doğurur. Günah da yetişәndә ölüm törәdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Ey sevimli qardaşlarım, aldanmayın:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>hәr yaxşı bәxşiş vә hәr kamil hәdiyyә yuxarıdan, Özündә heç bir dәyişiklik ya dönüklük kölgәsi olmayan nurlar Atasından gәlir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>O Öz iradәsinә görә hәqiqәt kәlamı ilә doğulmamıza sәbәb oldu ki, biz Onun yaratdıqlarının bir növ nübarı olaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Belәliklә, ey sevimli qardaşlarım, qoy hәr bir adam eşitmәkdә cәld, söz söylәmәkdә tәmkinli vә qәzәblәnmәkdә dә tәmkinli olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Çünki insanın qәzәbi Allahın salehliyini hasil etmir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Buna görә dә hәr cür murdarlığı vә dolub-daşan pisliyi kәnara ataraq ürәyinizә әkilәn, canlarınızı xilas etmәyә qadir olan kәlamı hәlimliklә qәbul edin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Bu kәlamın icraçısı olun, yalnız eşidәnlәr olub özünüzü aldatmayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Çünki kәlamı eşidәn, amma icraçısı olmayan şәxs güzgüdә öz üzünün cizgilәrinә baxan adama bәnzәyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>O öz-özünә baxır, kәnara çәkilir vә dәrhal necә olduğunu unudur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Lakin kamil qanuna, azadlıq qanununa diqqәtlә baxıb ona bağlı qalan şәxs unutqan eşidәn deyil, әmәldә icraçıdır; belә adam öz işindә nә bәxtiyardır!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Әgәr sizdәn biri özünün mömin olduğunu düşünür, amma ürәyini aldadıb öz dilini yüyәnlәmirsә, onun möminliyi puçdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+    <verse num="27" />
+    <text>Ata Allahın hüzurunda pak vә nöqsansız möminlik budur: yetimlәrә vә dullara onların әziyyәtlәrindә qayğı göstәrmәk vә özünü dünyadan qoruyub lәkәsiz olmaq. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Qardaşlarım, izzәtli Rәbbimiz İsa Mәsihә iman edәnlәr olaraq insanlar arasında tәrәfkeşlik etmәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Mәsәlәn, toplandığınız yerә qızıl üzüklü, gözәl geyinmiş bir adamla eyni vaxtda kasıb, nimdaş paltarlı adam da gәlәrsә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>gözәl geyinmiş adama diqqәt yetirib &lt;&lt;buyurun, burada әylәşin&gt;&gt;,kasıba da &lt;&lt;sәn orada dur&gt;&gt; vә yaxud &lt;&lt;yerdә otur&gt;&gt; deyәrsinizsә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>öz aranızda ayrı-seçkilik edib pis fikirli hakimlәr kimi davranmırsınızmı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Ey sevimli qardaşlarım, dinlәyin: Allah bu dünyada kasıbları imanda zәnginlәşmәk vә Onu sevәnlәrә vәd etdiyi Padşahlığın varisi olmaq üçün seçmәdimi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Sizsә kasıbı hörmәtdәn saldınız. Mәgәr sizi sıxışdıran varlılar deyilmi? Sizi mәhkәmәlәrә çәkәn onlar deyilmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Sizin mәxsus olduğunuz Şәxsin şәrәfli adına küfr edәn onlar deyilmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Әgәr siz deyәn Müqәddәs Yazıya görә Padşahınız Allahın qanununa hәqiqәtәn әmәl edirsinizsә, yaxşı edirsiniz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;qonşunu özün kimi sev.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+    <text>Əgər yaxşı edəcəyik. </text>
+    <verse num="9" />
+    <text>Amma әgәr insanlar arasında tәrәfkeşlik edirsinizsә, günah etmiş olursunuz vә Qanuna әsasәn onu pozanlar kimi mәhkum olunursunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Çünki kim Qanunun hamısına riayәt edәrәk birindә büdrәyәrsә, o bütün Qanuna qarşı tәqsirkar olur. </text>
+    <verse num="11" />
+    <text>Çünki dә demişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;zina etmә&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>deyәn,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+    <text>&lt;&lt;qәtl etmә&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+    <text>Әgәr zina etmәyib qәtl edirsәnsә, sәn Qanunu pozmuş olursan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Azadlıq qanunu ilә mühakimә olunacaq adamlar kimi danışın vә bu cür davranın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Çünki mәrhәmәt göstәrmәyәn mәrhәmәtsiz mühakimә olunur. Mәrhәmәt mühakimәyә qalib gәlir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Qardaşlarım, әgәr bir kimsә yaxşı әmәllәri olmadığı halda imanının olduğunu bildirirsә, bunun xeyri nәdir? Belә iman onu xilas edә bilәrmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Әgәr qardaş-bacılardan birinin paltarı vә gündәlik yemәyi yoxdursa</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>vә sizdәn biri ona &lt;&lt;arxayın get, isin vә qarnını doydur&gt;&gt; deyib onların yaşayışı üçün lazım olanları vermirsә, nә faydası var?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>İman da elәdir, әgәr yaxşı әmәllәri yoxdursa, özü-özlüyündә ölüdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Lakin kimsә belә deyә bilәr: &lt;&lt;Sәnin imanın var, mәnim dә әmәllәrim&gt;&gt;. Sәn imanını mәnә әmәlsiz göstәr, mәn dә sәnә imanımı әmәllәrimlә göstәrәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Sәn Allahın bir olduğuna inanırsansa, yaxşı edirsәn. Cinlәr dә buna inanır vә әsirlәr!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>Ey ağılsız adam, әmәlsiz imanın puç olduğuna sübut istәyirsәnmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+    <verse num="21" />
+    <text>Atamız İbrahim öz oğlu İshaqı qurbangahda Allaha tәqdim edәndә әmәllәrlә saleh sayılmadımı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+    <verse num="22" />
+    <text>Görürsәn, iman onun әmәllәri ilә birgә fәaliyyәtdә idi vә iman әmәllәrlә tamamlanmışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <verse num="23" />
+    <text>Belәliklә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+    <text>&lt;&lt;İbrahim Allaha iman etdi vә bu ona salehlik sayıldı&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+    <text>deyәn Müqәddәs Yazı belә yerinә yetdi vә İbrahim Allahın dostu adlandırıldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+    <verse num="24" />
+    <text>Görürsünüz ki, insan yalnız imanla deyil, әmәllәri ilә dә saleh sayılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+    <verse num="25" />
+    <text>Eyni tәrzdә mәgәr fahişә Raxav belә, qasidlәri qәbul edib başqa yolla geri göndәrәrәk öz әmәllәri ilә saleh sayılmadımı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+    <verse num="26" />
+    <text>Çünki ruhsuz bәdәn ölü olduğu kimi әmәlsiz iman da ölüdür. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Qardaşlarım, bildiyiniz kimi biz müәllimlәr daha ciddi bir mühakimәdәn keçәcәyik. Bu sәbәbә görә dә çoxunuz müәllim olmayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Çünki hamımız çox büdrәyirik. Sözlәri ilә büdrәmәyәn bir kimsә bütün bәdәni dә yüyәnlәyә bilәn kamil bir insandır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Bizә itaәt etsinlәr deyә atların ağzına yüyәn taxırıq, belәcә bütün bәdәnlәrini döndәririk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Bax gәmilәr dә böyük olduqları vә güclü külәklәr tәrәfindәn aparıldıqları halda sükançının könlü haraya istәyirsә, kiçicik bir sükanla oraya dönür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Dil dә elәdir, bәdәnin kiçik üzvüdür, amma çox öyünür. Baxın, balaca bir qığılcım böyük bir meşәni yandırır!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Dil dә oddur. Dil bәdәn üzvlәrimizin arasında haqsızlıq dünyasıdır. O bütün bәdәnimizi lәkәlәyir vә özü cәhәnnәmdәn odlandırıldığı kimi hәyatımızın gedişatını da odlandırır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Çünki istәr heyvanların, istәrsә dә quşların, istәr sürünәnlәrin, istәrsә dә dәniz mәxluqlarının hәr cinsi insan nәsli tәrәfindәn әhlilәşdirilir vә әhlilәşdirilmişdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Amma dili heç bir insan әhlilәşdirә bilmir. Dil qarşısıalınmaz bәladır vә öldürücü zәhәrlә doludur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Dilimizlә Rәbb Ataya alqış edirik. Dilimizlә dә Allahın surәtindә yaradılmış insanları lәnәtlәyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Alqış vә lәnәt eyni ağızdan çıxır. Qardaşlarım, bu belә olmamalıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Bir bulağın eyni gözündәn şirin vә acı su çıxarmı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Qardaşlarım, әncir ağacı zeytun vә üzüm tәnәyi dә әncir yetişdirә bilәrmi? Elәcә dә şor bulaqdan şirin su gәlә bilmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Aranızda müdrik vә dәrrakәli olan varmı? Qoy o öz yaxşı hәyat tәrzi ilә, müdriklikdәn yaranan hәlimliklә yaxşı әmәllәrini göstәrsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Amma ürәyinizdә acı qısqanclıq, xudbin ehtiras varsa, öyünmәyin vә hәqiqәti inkar etmәyin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Belә müdriklik yuxarıdan nazil olan müdriklik deyil, ancaq dünyәvi, ruhani olmayan vә şeytani müdriklikdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Çünki harada qısqanclıq vә xudbin ehtiras varsa, orada qarışıqlıq vә hәr cür pis әmәl vardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Amma yuxarıdan nazil olan müdriklik әvvәla safdır, sonra da sülhpәrvәrdir, mülayimdir, itaәtlidir, mәrhәmәt vә xeyirli bәhrәlәrlә doludur, qәrәzsizdir, riyasızdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>Sülh yaradanların әkdiyi sülh toxumlarından salehlik bәhrәsi yetişir. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>Aranızda dava vә çәkişmәlәrin kökü haradandır? Bәdәnlәrinizin üzvlәrindә mübarizә edәn ehtiraslarınızdan deyilmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Nә isә arzu edib әldә etmәyincә adam öldürürsünüz. Hәsәd aparırsınız, amma istәdiyinizә nail olmayınca çәkişib dava edirsiniz. Әldә edә bilmirsiniz, çünki dilәmirsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Dilәyirsiniz, amma almırsınız, çünki öz kefinizә sәrf etmәk üçün pis niyyәtlә dilәyirsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Ey vәfasızlar, dünya ilә dostluğun Allaha qarşı düşmәnçilik olduğunu bilmirsinizmi? Buna görә dә dünya ilә dost olmaq istәyәn özünü Allaha düşmәn edәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Bәlkә güman edirsiniz ki, Müqәddәs Yazı әbәs yerә &lt;&lt;Allahın daxilimizә verdiyi ruh qısqanclıqla hәsrәt çәkәr&gt;&gt; deyir?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Lakin Allah daha çox lütf verir. Bunun üçün belә deyilir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Allah mәğrurlara qarşıdır, İtaәtkarlara isә lütf göstәrәr&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Buna görә dә Allaha tabe olun. İblisә qarşı durun vә o sizdәn qaçacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Allaha yaxınlaşın, O da sizә yaxınlaşacaq. Ey günahkarlar, әllәrinizi paklayın! Ey qәrarsız insanlar, ürәklәrinizi saflaşdırın!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Kәdәrlәnin, yas tutun, ağlayın! Qoy gülüşünüz yasa, sevinciniz dә qәmә dönsün!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Rәbbin önündә özünüzü aşağı tutun, O da sizi ucaldacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Qardaşlar, bir-birinizi pislәmәyin. Qardaşını pislәyәn yaxud qardaşını mühakimә edәn kәs Qanunu pislәyir vә Qanunu mühakimә edir. Amma sәn Qanunu mühakimә edirsәnsә, Qanunun icraçısı deyil, onun hakimisәn.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Qanunverәn vә Hakim birdir, xilas etmәyә vә hәlak etmәyә qadir olan Odur. Bәs sәn kimsәn ki, qonşunu mühakimә edirsәn?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>İndi siz belә deyirsiniz: &lt;&lt;Bu gün yaxud sabah biz filan şәhәrә gedib orada bir il qalacağıq vә ticarәtlә mәşğul olub pul qazanacağıq&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Әslindә isә sabah nә baş verәcәyini bilmirsiniz. Axı hәyatınız nәdir ki? Qısa bir müddәtә görünüb sonra da yox olan buxardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>Bunun әvәzinә &lt;&lt;әgәr Rәbb istәyәrsә, sağ qalarıq, bu vә ya digәr işi görәrik&gt;&gt; demәlisiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>İndi isә siz öz tәkәbbürlü olmağınızla öyünürsünüz. Bu cür öyünmәlәrin hamısı pisdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>Demәli, kimsә bir yaxşı işi görmәli olduğunu bilib onu etmirsә, günah edir. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+    <verse num="1" />
+    <text>İndi isә, ey varlılar, başınıza gәlәcәk kәdәrli hadisәlәrә görә fәryad edib ağlayın!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+    <verse num="2" />
+    <text>Var-dövlәtiniz çürüyüb, paltarlarınızı da güvә yeyib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+    <verse num="3" />
+    <text>Qızıl-gümüşünüz paslanıb. Onların pası sizә qarşı şahidlik edәcәk vә әtinizi od kimi yandırıb-yaxacaq. Bu axır zamanda var-dövlәt yığmısınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+    <verse num="4" />
+    <text>Bax zәmilәrinizi biçәn işçilәrdәn hiylәgәrcәsinә gizlәtdiyiniz әmәk haqqı sizә qarşı haray çәkir. Biçinçilәrin fәryadı Ordular Rәbbinin qulaqlarına çatıb!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+    <verse num="5" />
+    <text>Siz yer üzündә firavan yaşayıb kef çәkmisiniz. Boğazlanma günündә dә özünüzü kökәldirsiniz!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+    <verse num="6" />
+    <text>Sizә müqavimәt göstәrmәyәn salehi mәhkum edib öldürdünüz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+    <verse num="7" />
+    <text>Belәliklә, ey qardaşlar, Rәbbin zühuruna qәdәr sәbirli olun. Görün әkinçi birinci vә axırıncı yağış yağanacan sәbir edәrәk torpağın qiymәtli mәhsulunu gözlәyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+    <verse num="8" />
+    <text>Siz dә sәbirli vә ürәkli olun, çünki Rәbbin zühuru yaxındır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+    <verse num="9" />
+    <text>Qardaşlar, mühakimә olunmamaq üçün bir-birinizdәn gileylәnmәyin. Budur, Hakim qapı arxasında durur!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+    <verse num="10" />
+    <text>Qardaşlar, Rәbbin adı ilә danışmış peyğәmbәrlәri әzablara tab gәtirmәk vә sәbir nümunәsi kimi götürün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+    <verse num="11" />
+    <text>Budur, biz dözümlü olanları bәxtiyar hesab edirik. Әyyubun dözümü barәsindә eşitmisiniz vә Rәbbin axırda nә etdiyini dә gördünüz, çünki Rәbb çox rәhmli vә mәrhәmәtlidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+    <verse num="12" />
+    <text>Lakin hәr şeydәn әvvәl, qardaşlarım, nә göyә, nә yerә, nә dә başqa bir şeyә and için. Qoy sizdә &lt;&lt;bәli&gt;&gt; niz bәli, &lt;&lt;xeyr&gt;&gt; iniz xeyr olsun ki, mühakimәyә düşmәyәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+    <verse num="13" />
+    <text>Aranızda әzab çәkәn varmı? Qoy dua etsin. Şadlanan varmı? Qoy ilahi oxusun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+    <verse num="14" />
+    <text>Aranızda xәstә olan varmı? Qoy imanlılar cәmiyyәtinin ağsaqqallarını çağırtdırsın. Onlar da Rәbbin adına onu yağla mәsh edәrәk dua etsinlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+    <verse num="15" />
+    <text>İmanla edilәn dua xәstәni sağaldacaq vә Rәbb onu ayağa qaldıracaq. Әgәr o adam günah edibsә, bağışlanacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+    <verse num="16" />
+    <text>Belәliklә, günahlarınızı bir-birinizә etiraf edin vә bir-biriniz üçün dua edin ki, sağalasınız. Saleh adamın duası çox güclü vә tәsirlidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+    <verse num="17" />
+    <text>İlyas tәbiәtcә bizim kimi bir adam idi vә o sәylә dua etdi ki, yağış olmasın. Üç il altı ay torpağa yağış yağmadı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+    <verse num="18" />
+    <text>O yenә dә dua etdi vә göy yağış yağdırdı, torpaq da barını verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+    <verse num="19" />
+    <text>Qardaşlarım, әgәr aranızdan biri haqq yolundan azar vә kimsә onu doğru yola qaytararsa,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+    <verse num="20" />
+    <text>qoy bilsin ki, günahkarı azdığı yolundan qaytaran onun canını ölümdәn xilas edәr vә bir çox günahın üstünü örtәr. </text>
+  </block>
+  <UnappliedSplits />
+</book>

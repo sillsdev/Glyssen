@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="HEB" singlevoice="false" pageheader="HEBREWS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-HEB">
+    <text>HEBREWS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Allah qәdim zamanlarda dәfәlәrlә vә müxtәlif yollarla әcdadlarımıza peyğәmbәrlәr vasitәsilә müraciәt etmişdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Amma bu axır zamanda O bizә Oğul vasitәsilә müraciәt etdi; Onu hәr şeyin varisi tәyin etmişdi vә Onun vasitәsilә kainatı yaratmışdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Oğul Allahın izzәtinin әksi vә mahiyyәtinin tam surәtidir. O hәr şeyi qüdrәtli kәlamı ilә saxlayır. O, günahlardan tәmizlәnmәni tәmin edәndәn sonra ucalarda möhtәşәm Allahın sağında oturdu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Mәlәklәrdәn nә qәdәr üstün adı irs olaraq aldısa, o qәdәr onlardan üstün oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Axı Allah mәlәklәrin hansına nә vaxtsa demişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Sәn Mәnim Oğlumsan, Mәn bu gün Sәnә Ata oldum&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <text>yaxud</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Mәn Ona Ata, O isә Mәnә Oğul olacaq&gt;&gt;?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Yenә dә Allah İlk Doğulanı dünyaya gәtirәndә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Allahın bütün mәlәklәri qoy Onun qarşısında sәcdә etsin&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Mәlәklәr barәsindә isә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Öz mәlәklәrini külәklәrә, Öz xidmәtçilәrini yanar oda döndәrir!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Amma Oğul haqqında bunu deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Ey Allah, taxtın әbәdilik, sonsuzadәk qalır, Sәnin şahlıq әsan insaf әsasıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Salehliyi sevib qanunsuzluğa nifrәt etmisәn. Ona görә Allah, Sәnin Allahın Sevinc yağı ilә Yoldaşlarından çox Sәni mәsh edib&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Yenә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Ya Rәbb, Sәn yerin tәmәlini әzәldәn qurmusan, Göylәr Sәnin әllәrinin işidir!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Onlar yox olacaq, amma Sәn qalacaqsan, Hamısı paltar kimi köhnәlәcәk,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>Onları geyim kimi bükәcәksәn, Onları paltar kimi dәyişdirәcәksәn. Amma Sәn dәyişmәzsәn, İllәrin tükәnmәzdir&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Lakin Allah mәlәklәrin hansına nә vaxtsa demişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;Mәn düşmәnlәrini ayaqlarının altına kәtil kimi salanadәk Sağımda otur&gt;&gt;?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Bütün mәlәklәr xilası irs olaraq alacaq şәxslәrә xidmәt etmәk üçün göndәrilәn xidmәtçi ruhlar deyilmi? </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Buna görә dә biz eşitdiklәrimizә daha da diqqәtli olmalıyıq ki, axın bizi aparmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Çünki mәlәklәr vasitәsilә bәyan edilәn söz qüvvәyә mindi, hәr cür tәqsir vә itaәtsizliyә haqlı cәza verildisә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>bu cür böyük xilasa mәhәl qoymasaq, biz necә qurtula bilәrik? Bu xilas әvvәlcә Rәbb tәrәfindәn bildirildi vә Onu eşidәnlәr tәrәfindәn bizә tәsdiq olundu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Allah da әlamәt, xariqәlәr, müxtәlif möcüzәlәr vә Öz iradәsinә uyğun olaraq payladığı Müqәddәs Ruhun әnamları ilә şәhadәt etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Barәsindә danışdığımız gәlәcәk dünyanı Allah mәlәklәrә tabe etmәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Lakin kimsә bir yerdә belә şәhadәt etdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;İnsan kimdir ki, onun haqqında düşünürsәn? Bәşәr oğlu kimdir ki, onun qayğısını çәkirsәn?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Onu mәlәklәrdәn az müddәt әrzindә aşağı tutdun, İzzәt vә әzәmәt tacını onun başına qoydun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>Hәr şeyi onun ayağının altına qoyub tabe etdin&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB">
+    <text>Allah hәr şeyi insana tabe etdiyinә görә ona tabe olmamış heç nә qoymadı. Lakin indi biz hәr şeyin ona tabe olduğunu hәlә görmürük.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Amma Allahın lütfü ilә hәr kәsin uğrunda ölmәk üçün mәlәklәrdәn az müddәt әrzindә aşağı tutulmuş Şәxsi, yәni İsanı görürük. Çәkdiyi ölüm әzabına görә Onun başına izzәt vә әzәmәt tacı qoyuldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Hәr şey Allah üçün vә Allah vasitәsilә mövcuddur. Bir çox övladı izzәtә çatdırmaq üçün onların xilasının Banisini әzablar vasitәsilә kamil etmәsi Allaha münasib idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Çünki tәqdis edәn Şәxsin vә tәqdis olunanların hamısının Atası eynidir. Bu sәbәbdәn İsa onları qardaş çağırmaqdan utanmayıb </text>
+    <verse num="12" />
+    <text>deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
+    <text>&lt;&lt;İsmini qardaşlarıma elan edәcәyәm, Toplantı arasında Sәnә hәmd söylәyәcәyәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Yenә dә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>&lt;&lt;Mәn Ona güvәnәcәyәm&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <text>vә yenә</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>&lt;&lt;Budur, Mәn vә Allahın Mәnә verdiyi övladlar&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Bu sәbәbdәn bu övladlar tәrkibcә qan vә әtdәn yarandıqlarına görә İsa Özü dә onların insan tәbiәtinә şәrik oldu ki, ölüm üzәrindә hakimiyyәt sahibi olanı, yәni iblisi Öz ölümü vasitәsilә tәsirsiz hala gәtirsin</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>vә ölüm qorxusuna görә ömürlәri boyu әsarәtdә olanların hamısını azad etsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Şübhәsiz, O, mәlәklәrә deyil, İbrahim nәslinә yardım edәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Buna görә dә O hәr cәhәtdәn qardaşlarına bәnzәr olmalı idi; belә ki Allaha xidmәtindә mәrhәmәtli vә sadiq Baş Kahin olub xalqının günahları üçün kәffarә edә bilsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Çünki Özü sınağa çәkilib әzab çәkdiyi üçün sınağa çәkilәnlәrә kömәk edә bilәr. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Bu sәbәbә görә, ey sәmavi çağırışa ortaq olan müqәddәs qardaşlar, әqidәmizin Elçisi vә Baş Kahini İsa haqqında düşünün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>İsa Onu tәyin edәn Kәsә sadiq qaldı; necә ki Musa da Allahın bütün evindә Ona sadiq qaldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Evin bәnnası evdәn daha çox hörmәt qazandığı kimi İsa da Musadan daha böyük izzәtә layiq görüldü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Çünki hәr evin bir bәnnası var, hәr şeyin bәnnası isә Allahdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Musa gәlәcәkdә deyilәcәk sözlәrә şәhadәt etmәk üçün Allahın bütün evindә bir xidmәtçi kimi sadiq qaldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Amma Mәsih Onun evi üzәrindә Oğul olaraq sadiqdir. Әgәr biz cәsarәtimizi vә fәxr etdiyimiz ümidi qoruyub saxlasaq, Onun evi bizik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Buna görә Müqәddәs Ruhun dediyi kimi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Bu gün әgәr Onun sәsini eşitsәniz, </text>
+    <verse num="8" />
+    <text>Qoy ürәklәriniz üsyan vaxtı olduğu kimi, Sәhradakı sınaq günündә olduğu kimi inadkar olmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Orada atalarınız Mәni sınadılar, Qırx il әmәllәrimi görәrәk Mәni yoxladılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>Buna görә o nәsildәn zәhlәm getdi. Dedim: “Onlar hәmişә ürәklәrindә azır, Yollarımı tanımırlar”.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Buna görә qәzәblәnib and içmişәm: “Onlar Mәnim rahatlıq diyarıma girmәyәcәklәr”&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Ey qardaşlar, diqqәtli olun ki, sizlәrdәn heç birinizdә var olan Allahdan uzaqlaşan şәr vә imansız ürәk olmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Amma &lt;&lt;bu gün&gt;&gt; adlanan hәr gün bir-birinizi ürәklәndirin ki, heç biriniz günahın aldadıcılığı ilә inadkar olmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Çünki әvvәldәn bizdә olan etimadı sonadәk möhkәm saxlasaq, Mәsihlә ortaq olarıq. </text>
+    <verse num="15" />
+    <text>Necә ki deyilmişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Bu gün әgәr Onun sәsini eşitsәniz, Qoy ürәklәriniz üsyan vaxtı olduğu kimi inadkar olmasın&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Bәs eşidib üsyan edәnlәr kimdir? Musanın başçılığı ilә Misirdәn çıxanların hamısı deyilmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Allah qırx il kimә qәzәblәnirdi? Günaha batmış, meyitlәri çöldә sәrilәnlәrә deyilmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Bәs O kimlәrә and içdi ki, Onun rahatlıq diyarına girmәyәcәklәr? Mәgәr itaәt etmәyәnlәrә deyil?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Belәliklә, görürük ki, onlar imansızlığına görә oraya girә bilmәdilәr. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Belәliklә, Allahın rahatlıq diyarına girmәk vәdi hәlә dә qüvvәdә olarkәn hәr birinizin bundan mәhrum olmasından qorxaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Çünki Misirdәn çıxanlar kimi biz dә Müjdә aldıq. Amma onların eşitdiyi kәlam onlara xeyir gәtirmәdi, çünki bu kәlama qulaq asanların imanına şәrik olmadılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Biz iman etmişlәrsә rahatlıq diyarına girmәkdәyik, necә ki Allah demişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
+    <text>&lt;&lt;Buna görә qәzәblәnib and içmişәm: “Onlar Mәnim rahatlıq diyarıma girmәyәcәklәr”&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <text>Halbuki Onun işlәri dünya yaranandan bәri tamamlanmışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Çünki bir yerdә yeddinci gün barәsindә belә deyib:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="scripture">
+    <text>&lt;&lt;Allah bütün gördüyü işlәrdәn ayrılıb yeddinci gün istirahәt etdi&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Bu barәdә yenә deyib:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Onlar Mәnim rahatlıq diyarıma girmәyәcәklәr&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Belәliklә, bәzilәrinә o rahatlıq diyarına girmәk üçün, şübhәsiz ki, imkan qalır. Lakin Müjdәni әvvәlcәdәn eşidәnlәr itaәtsizliyә görә ora girә bilmәdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Bu sәbәbә görә Allah xeyli vaxt keçәndәn sonra Davud vasitәsilә &lt;&lt;bu gün&gt;&gt; deyәrәk tәkrar müәyyәn bir gün tәyin edir, necә ki әvvәlcә deyilmişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Bu gün әgәr Onun sәsini eşitsәniz, Qoy ürәklәriniz inadkar olmasın&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Çünki Yeşua onlara rahatlıq diyarı versәydi, Allah bundan sonra başqa bir gün barәsindә danışmazdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Belәcә Allahın xalqı üçün hәlә dә bir istirahәt qalır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Allah Öz işlәrini qurtarıb Şәnbә günü istirahәt etdiyi kimi Onun rahatlıq diyarına girәn dә öz işlәrini qurtarıb istirahәt etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Buna görә dә bu rahatlıq diyarına girmәyә çalışaq ki, heç kәs eyni itaәtsizlik nümunәsinә әmәl edib yıxılmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Allahın kәlamı canlı vә tәsirlidir, hәr ikiağızlı qılıncdan da itidir, canla ruhu, oynaqlarla iliyi bir-birindәn ayıraraq keçir, ürәyin fikir vә niyyәtlәrini ayırd edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Allahdan gizli heç nә yoxdur. Lakin Onun gözlәri qarşısında hәr şey çılpaq vә açıq-aşkardır. Biz Ona hesabat verәcәyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Belәliklә, Allahın Oğlu İsa göylәrdәn keçәn böyük Baş Kahinimiz olduğuna görә әqidәmizi möhkәm tutaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Çünki bizim Baş Kahinimiz belә deyil ki, zәifliklәrimizdә bizim halımıza acıya bilmәsin. Әksinә, hәr cәhәtdәn bizim kimi sınağa çәkilmiş, lakin günah etmәmişdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Buna görә dә lütfkar Allahın taxtına cәsarәtlә yaxınlaşaq ki, vaxtında kömәyә nail olmaq üçün mәrhәmәt alıb lütf tapaq. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>İnsanlar arasından seçilәn hәr baş kahin günahlardan ötrü tәqdim vә qurbanlar vermәk, Allahla bağlı olan işlәrdә insanları tәmsil etmәk üçün tәyin edilir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Cahillәrlә vә yolunu azmışlarla hәlim davrana bilir, çünki özü dә zәifliyә mәruzdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Buna görә o, xalqın günahları üçün olduğu kimi öz günahları üçün dә qurbanlar tәqdim etmәlidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Heç kәs bu şәrәfә öz-özünә nail olmur, ancaq Harun kimi Allah tәrәfindәn çağırılanda nail olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Elәcә dә Mәsih dә Baş Kahin olmaq üçün Öz-Özünü izzәtlәndirmәdi, Ona deyәn Allah Onu izzәtlәndirdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Sәn Mәnim oğlumsan, Mәn bu gün Sәnә Ata oldum&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Digәr yerdә isә O belә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Sәn Melkisedeq vәzifәli әbәdi bir Kahinsәn&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Mәsih yer üzündә cisimdә olduğu günlәrdә Onu ölümdәn qurtarmağa qadir olan Allaha böyük fәryad vә göz yaşları ilә dua edib yalvardı vә möminliyinә görә eşidildi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>O, Oğul olduğu halda çәkdiyi әzablarla itaәtli olmağı öyrәndi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Kamilliyә çatandan sonra Ona itaәt edәnlәrin hamısı üçün әbәdi xilas qaynağı oldu</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>vә Allah tәrәfindәn Melkisedeq vәzifәli Baş Kahin tәyin edildi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Bu mövzuda deyilәsi sözümüz çoxdur, amma bunları izah etmәk çәtindir. Çünki sizin qulağınız ağır eşidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Siz artıq müәllim olmalı idiniz; amma kimsәnin sizә tәkrarәn Allahın kәlamının ibtidai tәlimlәrini öyrәtmәsinә hәlә dә möhtacsınız. Siz bәrk yemәyә yox, südә möhtac olmusunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Südlә bәslәnәn hәr kәs körpә olduğu üçün salehlik barәsindә olan kәlamda tәcrübәsizdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Bәrk yemәk isә yetkinlәr, yәni duyğularını xeyirlә şәri ayırd etmәkdәn ötrü hәssas edәnlәr üçündür. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Bunun üçün Mәsih barәsindәki ibtidai tәlimi geridә buraxıb kamilliyә doğru irәlilәyәk. Ölüm gәtirәn әmәllәrdәn tövbә edib Allaha iman etmәnin tәmәlini,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>vәftizlәr, әl qoyub tәqdis etmә, ölülәrin dirilmәsi vә әbәdi mәhkәmә haqqındakı tәlimin әsasını yenidәn qurmayaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Allah izin verәrsә, bunlara da әmәl edәcәyik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Bir dәfә nurlanmış, sәmavi әnamdan dadmış vә Müqәddәs Ruha şәrik olmuş,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Allahın xoş kәlamını vә gәlәcәk dövrün qüvvәlәrini dadmış olduqları halda</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>imandan dönәnlәri yenidәn tövbә edәcәk vәziyyәtinә gәtirmәk mümkün deyil. Çünki özlәri Allahın Oğlunu yenidәn çarmıxa çәkib rüsvay edirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Dәfәlәrlә üstünә yağan yağışı içәn vә kimlәr üçün işlәnirsә, onlara faydalı bitkilәr yetişdirәn torpaq Allahdan xeyir-bәrәkәt alır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Tikan vә qanqal yetişdirәn torpaq isә yararsız vә lәnәtә yaxındır, onun sonu yanmaqdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Lakin, ey sevimlilәr, biz bu cür danışsaq belә, әminik ki, vәziyyәtiniz daha yaxşıdır vә xilasa malik olursunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Axı Allah әdalәtsiz deyil ki, әmәlinizi vә Onun adı ilә müqәddәslәrә әvvәldәn vә indi dә xidmәt etmәklә göstәrdiyiniz mәhәbbәti unutsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Ümidin verdiyi tam etimada nail olmaq üçün axıra qәdәr hәr birinizin eyni sәyi göstәrmәyinizi arzulayırıq ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>siz tәnbәl olmayasınız, amma vәd olunan şeylәri iman vә sәbirlә irs alanlardan nümunә götürәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Allah İbrahimә vәd verdiyi vaxt adına and içmәk üçün Özündәn üstün birinin olmadığına görә Öz varlığına and içәrәk </text>
+    <verse num="14" />
+    <text>dedi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="scripture">
+    <text>&lt;&lt;Sәnә mütlәq xeyir-dua verәcәyәm vә nәslini çoxaldacağam&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Belәliklә, İbrahim sәbirlә gözlәyәrәk vәdә nail oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>İnsanlar özlәrindәn daha üstün olanın adına and içirlәr vә sözlәrini tәsdiq edәn and hәr iddiaya son qoyur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Elәcә dә Allah vәdin varislәrinә iradәsinin dәyişmәzliyini daha açıq-aşkar etmәk istәyәrәk öz vәdini andla tәsdiqlәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Belә ki qarşımıza qoyulan ümidә bağlanmaq üçün Allaha sığınan bizlәr Allahın bunlarda yalan danışması qeyri-mümkün olduğuna görә iki dәyişilmәz şeydә – Onun vәd vә andında böyük tәsәlliyә malik olaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Can lövbәrimiz kimi möhkәm vә sarsılmaz olan bu ümid mәbәdin pәrdәsinin arxasındakı iç otağa daxil olur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>İsa ilk olaraq bizim uğrumuzda oraya daxil oldu; O, Melkisedeq vәzifәli әbәdi Baş Kahin olmuşdu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Bu Melkisedeq Salem padşahı vә Allah-Taalanın kahini idi. Padşahları mәğlub edib geri qayıdan İbrahimin pişvazına çıxdı vә ona xeyir-dua verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>İbrahim dә ona hәr şeyin onda bir hissәsini verdi. Melkisedeq әn әvvәl öz adının mәnasına görә salehlik padşahıdır, sonra isә Salem padşahı, yәni sülh padşahıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>O, atasız, anasız olub nәsil şәcәrәsi yoxdur. Nә günlәrinin başlanğıcı, nә dә hәyatının sonu var. Lakin Allahın Oğluna bәnzәdilmiş әbәdi kahin olaraq qalır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Baxın bu adam necә böyükdür ki, ulu babamız İbrahim belә qәnimәtlәrinin onda bir hissәsini ona verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Levi oğullarından kahinlik vәzifәsini alanlar, Qanuna görә xalqdan, yәni İbrahim nәslindәn olduqları halda, öz qardaşlarından onda bir hissәni almaq әmrinә malikdirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Amma onların nәslindәn olmayan Melkisedeq İbrahimdәn onda bir hissәni aldı vә vәdlәrә malik olana xeyir-dua verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Şübhәsiz ki, böyük özündәn kiçiyә xeyir-dua verәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Burada onda bir hissәni ölümlü insanlar alır, orada isә yaşadığına dair şәhadәtә malik olan bir nәfәr alır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Demәk olar ki, onda bir hissәni alan Levi dә İbrahim vasitәsilә onda bir hissәni vermişdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Çünki Melkisedeq İbrahimin pişvazına çıxanda Levi hәlә әcdadının belindә idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Belәliklә, әgәr kamillik Levililәrin kahinliyi vasitәsilә әldә edilsәydi – çünki xalq bu kahinliyә әsasәn Qanunu alıb – Harun vәzifәli deyil, Melkisedeq vәzifәli başqa bir kahinin tәyin edilmәsi barәdә danışmağa daha nә ehtiyac vardı?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Çünki kahinlik dәyişilәndә Qanunun da dәyişilmәsinә ehtiyac var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Haqqında bu sözlәr deyilәn Adam başqa bir qәbilәyә mәnsubdur vә bu qәbilәdәn heç kәs qurbangahda xidmәt etmәmişdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Axı Rәbbimizin Yәhuda qәbilәsindәn törәmәsi mәlumdur. Musa bu qәbilә barәsindә kahinlәrә aid bir söz demәmişdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Melkisedeqә bәnzәr başqa bir Kahinin tәyin edilmәsi bunu daha da aydın göstәrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>O, Qanunun cismani kahinlik әmrinә görә deyil, tükәnmәz hәyat qüdrәtinә görә Kahin oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Çünki deyә şәhadәt olunur:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Sәn Melkisedeq vәzifәli әbәdi bir Kahinsәn&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Bundan әvvәlki әmr zәif vә yararsız olduğuna görә lәğv olunur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Çünki Qanun heç bir şeyi kamillәşdirmәyib. Bunun yerinә bizi Allaha yaxınlaşdıran daha gözәl ümid verilir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Bu kahinlik isә andsız olmadı. O biri kahinlәr andsız kahin oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Lakin İsa Ona deyәn Allah vasitәsilә andla kahin oldu:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Rәbb and içdi, qәrarını dәyişmәz: “Sәn әbәdi bir Kahinsәn”&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Buna görә İsa daha yaxşı Әhdin zәmanәtçisi oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Bununla belә, hәmin kahinlәrin sayı çox idi, çünki ölüm onların vәzifәdә qalmasına mane olurdu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Lakin İsa әbәdi yaşadığı üçün daimi kahinliyә malikdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Buna görә O Özü vasitәsilә Allaha yaxınlaşanları tam xilas etmәyә qadirdir. Çünki O onlar üçün vәsatәtçilik etmәkdәn ötrü hәmişә yaşayır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Hәqiqәtәn, bizә belә bir Baş Kahinin olması münasibdir ki, O, müqәddәs, günahsız, lәkәsiz, günahkarlardan ayrılmış, göylәrdәn daha ucalara qaldırılmış olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>O başqa baş kahinlәr kimi әvvәlcә öz günahları, sonra da xalqın günahları üçün hәr gün qurban tәqdim etmәk mәcburiyyәtindә deyil. Çünki Özünü qurban vermәklә bunu birdәfәlik etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Qanun zәifliklәri olan insanları baş kahin tәyin edir. Lakin Qanundan sonra verilmiş and sözü әbәdi olaraq kamillәşdirilmiş Oğulu tәyin etdi. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Deyilәnlәrin әsası isә budur: bizim elә bir Baş Kahinimiz var ki, göylәrdәki möhtәşәm Allahın taxtının sağında oturub.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>O, Müqәddәs mәkanda vә insanın deyil, Rәbbin qurduğu hәqiqi çadırda xidmәt edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Hәr baş kahin tәqdim vә qurban gәtirmәk üçün tәyin olunur. Buna görә bizim dә Baş Kahinimizin tәqdim etmәk üçün nәyisә olmalıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Әgәr Özü yer üzündә olsaydı, әsla Kahin olmazdı. Çünki Qanuna әsasәn tәqdim gәtirәnlәr var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Onlar göylәrdәkilәrin tәsviri vә kölgәsi olan yerdә ibadәt edir, necә ki Musa İbadәt çadırını qurmaq üzrә olanda Allah onu xәbәrdar etmişdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Dağda sәnә göstәrilәn nümunәyә görә bunların hamısını ehtiyatla düzәlt&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Amma indi İsa daha yaxşı vәdlәr üzәrindә qurulmuş daha yaxşı bir Әhdin Vasitәçisi olduğu qәdәr üstün bir xidmәtә nail oldu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Әgәr ilk Әhd qüsursuz olsaydı, ikinci Әhdә sәbәb axtarılmazdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Çünki Allah Öz xalqını tәqsirkar çıxararaq deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Rәbb bәyan edir: “İsrail xalqı vә Yәhuda xalqı ilә Yeni bir Әhd bağlayacağım günlәr yaxınlaşır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Bu Әhd Atalarını Misir torpağından çıxartmaq üçün Әllәrindәn tutduğum gün Onlarla bağladığım әhdә bәnzәmәyәcәk. Çünki onlar әhdimә sadiq qalmadılar, Mәn dә onlardan üz döndәrdim” Rәbb belә bәyan edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
+    <verse num="10" />
+    <text>“O günlәrdәn sonra İsrail xalqı ilә Bağlayacağım Әhd belәdir” Rәbb bәyan edir,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>“Qanunlarımı onların zehinlәrinә qoyub Ürәklәrinә yazacağam. Mәn onların Allahı, Onlar da Mәnim xalqım olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Bir kәs öz hәmvәtәnini yaxud qardaşını ‹Rәbbi tanı› deyib öyrәtmәyәcәk. Çünki böyükdәn kiçiyә qәdәr hamı Mәni tanıyacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>Çünki tәqsirlәrinә qarşı mәrhәmәtli olacağam, Günahlarını daha yada salmayacağam”&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Allah &lt;&lt;Yeni Әhd&gt;&gt; demәklә birincisinin köhnә olduğunu göstәrir. Köhnәlәn vә yaşa dolansa çox keçmәdәn yox olur. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Birinci Әhdin dә ibadәt barәsindәki qaydaları vә dünyәvi Müqәddәs mәkanı var idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Bir çadır qurulmuşdu. Müqәddәs yer adlanan ilk bölmәdә çıraqdan, masa vә tәqdis çörәklәri var idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>İkinci pәrdә arxasında isә Әn Müqәddәs yer adlanan bir bölmә var idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Burada qızıl buxur qurbangahı ilә hәr tәrәfdәn qızılla örtülmüş Әhd sandığı var idi. Sandığın içindә manna ilә dolu qızıl qab, Harunun tumurcuqlamış әsası vә Әhd lövhәlәri var idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Sandığın üzәrindә isә kәffarә qapağına kölgә salan izzәtli keruvlar var idi. Lakin bunlar barәsindә indi әtraflı danışa bilmirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Bu şeylәr belә qurulduqdan sonra kahinlәr hәmişә çadırın ilk bölmәsinә daxil olub ibadәti aparırlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>İkinci bölmәsinә isә yalnız baş kahin daxil ola bilәr. O da özü üçün vә xalqın bilmәdәn işlәtdiyi günahlar üçün orada tәqdim etdiyi qurban qanı olmadan o yerә daxil ola bilmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Müqәddәs Ruh bununla göstәrir ki, çadırın ilk bölmәsi durduqca Әn Müqәddәs yerә gedәn yol hәlә aşkar olmamışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Bu çadır indiki vaxt üçün bir misaldır. Bu sәbәbdәn ibadәt edәnin vicdanını kamillәşdirә bilmәyәn tәqdimlәr vә qurbanlar verilir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Bunlar ancaq yemәk, içmәk vә cürbәcür yuyunma tәrzlәri ilә, yәni hәr şeyin nizama salınacağı vaxtadәk qüvvәdә olub cismani işlәrә mәxsus olan qaydalarla әlaqәdardır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Lakin Mәsih indi gәlәn nemәtlәrin Baş Kahini olaraq gәldi. İnsan әli ilә qurulmamış, yәni bu yaradılışdan olmayan daha böyük vә daha mükәmmәl çadırdan keçib</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>tәkәlәrlә danaların qanı ilә yox, Öz qanı ilә Әn Müqәddәs yerә birdәfәlik daxil oldu; әbәdi satınalınmanı tәmin etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Çünki әgәr tәkәlәrlә buğaların qanı vә düyәnin külünün murdar olanların üstünә sәpilmәsi onları tәqdis edib cismәn tәmizlәyirsә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>demәli, әbәdi Ruh vasitәsilә Özünü qüsursuz olaraq Allaha tәqdim etmiş Mәsihin qanı var olan Allaha ibadәt edә bilmәmiz üçün vicdanımızı ölüm gәtirәn әmәllәrdәn nә qәdәr çox tәmizlәyәcәk!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Buna görә dә çağırılmışların vәd edilәn әbәdi irsi alması üçün Mәsih Yeni Әhdin Vasitәçisidir. Çünki O, Birinci Әhd zamanı etdiklәri tәqsirlәrdәn onları satın almaq üçün ölmüşdü.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Bir vәsiyyәtnamә varsa, vәsiyyәt edәnin ölümünü sübut etmәk lazımdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Çünki vәsiyyәtnamә ancaq ölümdәn sonra qüvvәyә minir. Vәsiyyәt edәn sağ olanda vәsiyyәtnamәnin heç bir qüvvәsi yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Bu sәbәbә görә Birinci Әhd dә qan axıdılmadan qüvvәyә minmәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Musa Qanunun hәr әmrini bütün xalqın önündә bәyan edәndәn sonra su, al rәngli yun vә züfa otu ilә dana vә tәkәlәrin qanını götürüb hәm kitabın özünә, hәm dә bütün xalqın üzәrinә sәpәrәk </text>
+    <verse num="20" />
+    <text>dedi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Budur Allahın sizә әmr etdiyi Әhdin qanı&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Eyni tәrzdә çadır vә bütün xidmәt әşyalarının üzәrinә qan sәpdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Demәk olar ki, Qanuna görә hәr bir şey qanla tәmizlәnir vә qan axıdılmadan bağışlanma olmur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Belәliklә, göylәrdәkilәrin tәsvirlәrini bu qurbanlarla, göylәrdәkilәri isә bunlardan daha yaxşı qurbanlarla tәmizlәmәk lazım idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Mәsih әsl Müqәddәs mәkanın nümunәsi olub insan әli ilә qurulan Müqәddәs mәkana deyil, göyün özünә daxil oldu ki, indi bizim üçün Allahın hüzurunda zahir olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Baş kahin hәr il özünün olmayan qanla Әn Müqәddәs yerә girәr. Amma Mәsih Özünü dәfәlәrlә tәqdim etmәk üçün göyә girmәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Elә olsaydı, O, dünya yaranandan bәri dәfәlәrlә әzab çәkmәli olardı. İndi isә dövrlәrin sonunda, O Özünü qurban vermәklә günahı aradan qaldırmaq üçün bir dәfә zühur etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Necә müәyyәn edilmişdir ki, insanlar bir dәfә ölüb ondan sonra mühakimә olunsunlar,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>elәcә dә Mәsih bir çoxlarının günahını Öz üzәrinә götürmәk üçün bir dәfә tәqdim edilmişdir vә ikinci dәfә günahın öhdәsindәn gәlmәk üçün deyil, xilas gәtirmәk üçün Onu gözlәyәnlәrә zühur edәcәk. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Qanunda gәlәcәk nemәtlәrin әsli deyil, kölgәsi vardır. Buna görә dә Qanun ildәn-ilә daimi bir surәtdә tәqdim olunan eyni qurbanlar vasitәsilә Allaha yaxınlaşanları әsla kamil edә bilmәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Әks tәqdirdә, bu qurbanların tәqdim olunmasına son qoyulardı. Çünki ibadәt edәnlәr birdәfәlik tәmizlәnәndәn sonra artıq günahlarına görә vicdan әzabı çәkmәzdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Amma bu qurbanlar vasitәsilә insanlar ildәn-ilә günahlarını yadlarına salır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Çünki buğaların vә tәkәlәrin qanı ilә günahları aradan qaldırmaq qeyri-mümkündür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Buna görә Mәsih dünyaya gәlәndә deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Qurban vә tәqdim istәmәdin, Amma Mәnә bir bәdәn hazırladın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Yandırma qurbanı, günah qurbanından xoşun gәlmәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>O zaman dedim: “Budur, gәlmişәm, Kitab tumarında Mәnim haqqımda yazılıb. Ay Allah, Sәnin iradәni yerinә yetirim”&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Mәsih әvvәl dedi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
+    <text>&lt;&lt;Qurban, tәqdim, yandırma qurbanı vә günah qurbanı istәmәdin, Bunlardan xoşun gәlmәdi&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <text>Bunlar hamısı Qanuna görә tәqdim olunur. </text>
+    <verse num="9" />
+    <text>Sonra dedi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Budur, gәlmişәm, Sәnin iradәni yerinә yetirim&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
+    <text>Yәni, Mәsih ikinci Әhdi qüvvәyә mindirmәk üçün birincisini lәğv edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Bu iradәyә әsasәn biz İsa Mәsihin bәdәninin birdәfәlik tәqdim olunmasına görә tәqdis olunduq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Hәr bir kahin hәr gün xidmәtini icra edәrәk әsla günahları aradan qaldıra bilmәyәn eyni qurbanları dәfәlәrlә tәqdim edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Amma Mәsih günahlar üçün yalnız bir qurban tәqdim edәndәn sonra әbәdi olaraq Allahın sağında oturdu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>O vaxtdan bәri O, düşmәnlәrinin Onun ayaqları altına kәtil kimi salınmasını gözlәyir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Çünki O yalnız bir tәqdim vasitәsilә tәqdis olunmaqda olanları hәmişәlik kamillәşdirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Müqәddәs Ruh da bu haqda bizә şәhadәt edir. Çünki әvvәl deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
+    <verse num="16" />
+    <text>&lt;&lt;“O günlәrdәn sonra Onlarla bağlayacağım Әhd belәdir” Rәbb bәyan edir,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
+    <text>“Qanunlarımı onların ürәyinә qoyub Zehinlәrinә yazacağam”&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Sonra deyir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Günahlarını vә qanunsuzluqlarını yada salmayacağam&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Günahların bağışlanması olanda isә artıq günah üçün tәqdim etmә yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Belәliklә, ey qardaşlar, İsanın qanı sayәsindә Әn Müqәddәs yerә daxil olmağa cәsarәtimiz çatır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>O bizә pәrdәdәn, yәni Öz cismindәn keçәn yeni vә canlı bir yol açmışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Hәm dә O, Allahın evi üçün cavabdeh olan böyük bir Kahinimizdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Ona görә ürәklәrimiz pis vicdandan paklanmış, bәdәnlәrimiz dә tәmiz su ilә yuyulmuş halda imanın tam etimadı ilә, sәmimi qәlblә Allaha yaxınlaşaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Ümid verәn әqidәdәn möhkәm tutaq, çünki vәd verәn Allah sadiqdir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Bir-birimizi mәhәbbәtә vә xeyirxah әmәllәr etmәk üçün necә hәvәslәndirmәk haqqında fikirlәşәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Bәzi adamların vәrdiş etdiyi kimi birgә yığışmağımızı tәrk etmәyәk. Lakin qiyamәt gününün yaxınlaşdığını gördükcә bir-birimizi daha çox ruhlandıraq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Hәqiqәti dәrk edib qәbul edәndәn sonra qәsdәn günah etmәkdә davam etsәk, artıq günah üçün qurban qalmır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Lakin mühakimәnin vә Allahın düşmәnlәrini yandırıb-yaxan şiddәtli alovun dәhşәtlә gözlәnmәsi qalır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Musanın Qanununu heç sayan adam iki yaxud üç şahidin sözü ilә rәhm edilmәdәn öldürülür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Әgәr bir nәfәr Allahın Oğlunu tapdalayaraq tәqdis edildiyi Әhdin qanını adi bir şey sayıb Allahın lütfkar Ruhunu tәhqir edәrsә, sizcә bundan nә qәdәr ağır cәzaya layiq sayılacaq?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Çünki deyәni tanıyırıq:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;Qisas Mәnimdir, әvәzini Mәn verәcәyәm&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <text>vә yenә dә</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;Rәbb Öz xalqını mühakimә edәcәk&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>Var olan Allahın әlinә düşmәk dәhşәtdir!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>Siz әvvәlki günlәri xatırlayın. O vaxt Allahın nuru üzәrinizә saçandan sonra әzablı, böyük mübarizәyә tab gәtirdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>Bәzәn tәhqir vә әziyyәtlәrә uğrayıb tamaşaya qoyuldunuz, bәzәnsә eyni rәftara mәruz qalanların dәrdinә şәrik oldunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>Hәm dә siz mәhbusların çәkdiyi әzablara şәrik oldunuz, özünüzün daha yaxşı vә daimi malınız olduğunu bilәrәk әmlakınızın talan edilmәsini sevinclә qәbul etdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>Buna görә cәsarәtinizi itirmәyin, bu cәsarәtә görә mükafatınız böyükdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>Çünki Allahın iradәsini yerinә yetirib vәd olunan şeyi almaq üçün sizin tab gәtirmәyә ehtiyacınız var. </text>
+    <verse num="37" />
+    <text>Çünki</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Bir az müddәtdәn sonra Gәlәn gәlәcәk, gecikmәyәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="38" />
+    <text>Amma saleh adamım imanla yaşayacaq. Әgәr geri çәkilsә, ondan razı qalmayacağam&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Bizsә geri çәkilib hәlak olanlardan deyilik; iman edib canlarının xilasına nail olanlardanıq. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>İman ümid edilәnlәrә etibar etmәk, görünmәyәn şeylәrә әmin olmaqdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Әcdadlarımız imanları üçün müsbәt şәhadәt aldılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>İman vasitәsilә dәrk edirik ki, kainat Allahın kәlamı ilә yarandı, belәcә dә görünәn şeylәr görünmәyәnlәrdәn törәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>İman vasitәsilә Habil Allaha Qabildәn daha yaxşı bir qurban tәqdim etdi. Bunun vasitәsilә saleh olduğu tәsdiq olundu, çünki Allah onun tәqdimlәri barәdә şәhadәt etdi. Habil ölmüş olduğu halda iman vasitәsilә hәlә dә danışır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Xanok ölümü görmәsin deyә iman vasitәsilә dünyadan götürüldü. Onu tapa bilmәdilәr, çünki Allah onu dünyadan götürmüşdü. Götürülmәzdәn әvvәl o, şәhadәt almışdı ki, Allahı razı salıb.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>İman olmadan Allahı razı salmaq qeyri-mümkündür. Çünki Allaha yaxınlaşan şәxs inanmalıdır ki, O var vә Onu axtaranlara mükafat verir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Nuh hәlә gözә görünmәyәn şeylәr barәsindә edilәn xәbәrdarlığa iman vasitәsilә ciddi yanaşaraq öz ev әhlinin xilası üçün gәmi düzәltdi. O, iman vasitәsilә dünyanı mәhkum etdi vә imana görә olan salehliyi irs olaraq aldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>İbrahim çağırılanda iman vasitәsilә itaәtli olub irs alacağı torpağa getdi. O hara getdiyini bilmәyәrәk yola çıxdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>İman vasitәsilә vәd edilmiş ölkәdә bir qәrib kimi mәskunlaşdı. O eyni vәdin hәmvarislәri olan İshaq vә Yaqubla birlikdә çadırlarda yaşadı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Çünki İbrahim memarı vә banisi Allah olan bünövrәli şәhәri gözlәyirdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Sara özü sonsuz vә yaşı ötmüş olduğu halda iman vasitәsilә nәsil yaratmaq üçün güc aldı, çünki vәd Edәni sadiq saydı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Buna görә dә bir kişidәn, artıq ölüdәn fәrqlәnmәyәn birindәn sayca göydәki ulduzlar qәdәr, dәniz kәnarındakı qum kimi saysız-hesabsız nәsil törәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Bunların hamısı imanlı olaraq öldü. Vәd edilәn şeylәrә nail olmadılar, amma bunları uzaqdan görüb salamladılar vә özlәrinin yer üzündә yad vә qәrib olduqlarını iqrar etdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Axı belә sözlәri deyәnlәr bir vәtәn axtardıqlarını göstәrirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Әgәr onlar çıxdıqları ölkә barәsindә düşünsәydilәr, qayıtmağa imkanları olardı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Amma әslindә onlar daha yaxşı bir ölkәni, yәni sәmavi vәtәni arzu edirdilәr. Buna görә Allah Özünü onların Allahı adlandırmaqdan utanmır, çünki O onlar üçün şәhәr hazırlamışdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>İbrahim sınağa çәkildiyi vaxt iman vasitәsilә İshaqı qurban olaraq tәqdim etdi. Vәdlәrә nail olmuş İbrahim bircә oğlunu qurban vermәk niyyәtindә idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Halbuki ona deyilmişdi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;İshaqdan törәyәnlәr sәnin nәslin adlanacaq&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>O, Allahı onu ölülәr arasından diriltmәyә qadir saydı. Buna görә dә mәcazi mәnada İshaqı ölümdәn geri aldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>İman vasitәsilә İshaq gәlәcәk hadisәlәrlә әlaqәdar Yaquba vә Esava xeyir-dua verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Yaqub ölәrkәn Yusifin hәr iki oğluna iman vasitәsilә xeyir-dua verdi vә öz dәyәnәyinin başına söykәnib Allaha sәcdә etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Yusif dә ölәrkәn İsrail övladlarının Misirdәn çıxacaqları haqqında iman vasitәsilә söz söylәyәrәk öz sümüklәri barәsindә әmr verdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Musa doğulanda anası vә atası iman vasitәsilә onu üç ay gizlәtdilәr. Çünki onlar uşağın gözәl olduğunu görüb padşahın fәrmanından qorxmadılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Musa böyüyәndәn sonra firon qızının oğlu adlanmaqdan iman vasitәsilә imtina etdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Günahdan müvәqqәti zövq almaqdansa Allahın xalqı ilә birlikdә әzab çәkmәyi üstün tutdu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Mәsih naminә çәkdiyi tәhqiri Misir xәzinәlәrindәn daha böyük var-dövlәt saydı, çünki alacağı mükafata gözünü dikmişdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>İman vasitәsilә padşahın qәzәbindәn qorxmayıb Misirdәn çıxdı, çünki o, gözә Görünmәyәni sanki görmüş kimi möhkәm dayandı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>İman vasitәsilә Musa Pasxa qurbanının kәsilmәsini vә onun qanının çilәnmәsini hәyata keçirtdi ki, ilk doğulanları öldürәn mәhvedici mәlәk İsraillilәrә toxunmasın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>İman vasitәsilә İsraillilәr Qırmızı dәnizi qurudan keçәn kimi keçdilәr. Misirlilәr dә bunu etmәyә cәhd etdilәr, amma boğuldular.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>İman vasitәsilә İsraillilәr yeddi gün Yerixonun әtrafında gәzdikdәn sonra onun divarları yıxıldı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>İman vasitәsilә fahişә Raxav casusları dostcasına qarşıladığı üçün itaәtli olmayanlarla birgә hәlak olmadı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>Daha nә deyә bilәrәm? Gideon, Baraq, Şimşon, İftah, Davud, Şamuel vә başqa peyğәmbәrlәr barәsindә danışsam, vaxtım çatmaz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>İman vasitәsilә onlar padşahlıqları mәğlub etdilәr, әdalәti icra etdilәr, vәdlәrә nail oldular, aslanların ağızlarını bağladılar,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>şiddәtli alovu söndürdülәr, qılıncın ağzından qaçdılar, zәiflikdәn qüvvәtlәndilәr, döyüşdә güclü oldular, yadellilәrin ordularını qovdular.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>Qadınlar öz ölülәrini dirilmiş geri aldılar. Bәzilәri işgәncә çәkәndә qurtulmaqdan imtina etdilәr ki, dirilib daha yaxşı hәyata nail olsunlar;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>digәrlәri dә tәhqir olunub döyüldülәr, habelә zәncirlәrә vә hәbslәrә mәruz qaldılar;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-HEB">
+    <verse num="37" />
+    <text>onlar daşqalaq edildilәr, mişarlanıb bölündülәr, qılıncdan keçirilib öldürüldülәr. Bәzilәri isә qoyun dәrisinә vә keçi gönünә bürünәrәk gәzib-dolaşdılar, yoxsulluğa, әzab-әziyyәtә mәruz qaldılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="38" characterId="narrator-HEB">
+    <verse num="38" />
+    <text>Dünya onlara layiq deyildi. Onlar sәhralarda, dağlarda, mağaralarda vә yeraltı oyuqlarda dolaşıb gәzdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Onların hamısı iman vasitәsilә müsbәt şәhadәt aldı, amma vәd edilәnә nail olmadılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="40" characterId="narrator-HEB">
+    <verse num="40" />
+    <text>Çünki Allah bizim üçün daha yaxşı şey hazırlamışdır ki, onlar bizsiz kamilliyә çatmasın. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Buna görә bu qәdәr böyük şahidlәr buludu ilә әhatә olunduğumuz üçün biz hәr bir yükü vә bizi asanlıqla çaşdıran günahı tәrk edib qarşımızdakı yarışda dözümlә qaçaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Gözümüzü imanımızın Banisi vә Kamillәşdiricisi olan İsaya dikәk. O, qarşısına qoyulan sevincә görә rüsvayçılığı heç sayıb çarmıxa çәkilmәyә tab gәtirdi vә Allahın taxtının sağında oturdu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Günahkarlardan Ona qarşı olan bu qәdәr düşmәnçiliyә dözәn Şәxs barәsindә düşünün ki, yorulub ruhdan düşmәyәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Günaha qarşı etdiyiniz mübarizәdә hәlә qan tökülәcәk qәdәr möhkәm durmamısınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Sizә oğul deyib verilәn bu nәsihәti unutdunuz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Oğlum, Rәbbin verdiyi tәrbiyәyә xor baxma, Onun mәzәmmәtindәn ruhdan düşmә.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Çünki Rәbb sevdiyini tәrbiyәlәndirәr, Qәbul etdiyi hәr oğulu döyәr&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Tәrbiyәyә tab gәtirin. Allah sizinlә övladları kimi rәftar edir. Elә bir oğul varmı atası onu tәrbiyәlәndirmәsin?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Hәr kәs üçün ümumi olan tәrbiyәdәn mәhrum olsanız, demәli, siz oğul yox, qeyri-qanuni övladsınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Hәm dә әgәr bizi tәrbiyәlәndirәn cismani atalarımıza hörmәt ediriksә, ruhani Ataya daha çox tabe olaraq yaşamalı deyilikmi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Atalarımız bizi qısa bir müddәtә öz dәrk etdiklәri kimi tәrbiyәlәndirdilәr. Amma Allah Onun müqәddәsliyinә ortaq olaq deyә bizi xeyrimiz üçün tәrbiyәlәndirir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Hәr tәrbiyә isә indiki vaxt sevinc deyil, kәdәr verәn bir şey kimi görünür, amma sonradan bu yolda yetişdirilәnlәrә salehliyin dinclik sәmәrәsini hasil edir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Buna görә yorğun әllәrinizi qaldırın vә zәiflәnmiş dizlәrinizi güclәndirin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Ayaqlarınız üçün düz yollar seçin ki, axsaq bәdәn üzvlәriniz yerindәn çıxmasın, әksinә sağalsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Hamı ilә birlikdә sülh içindә yaşamağa vә müqәddәs olmağa can atın, çünki müqәddәsliyә nail olmadan heç kim Rәbbi görmәyәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Diqqәt edin ki, heç kim Allahın lütfündәn mәhrum olmasın, aranızda bir acı kök böyüyüb әziyyәt vermәsin vә bununla bir çoxlarını murdar etmәsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Qoy heç kim әxlaqsız vә yaxud Esav kimi allahsız olmasın. O, bir qab xörәyә görә öz ilk oğulluq haqqını satdı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Bilirsiniz ki, bundan sonra da o, xeyir-duanı irs olaraq almaq istәyirdi, lakin rәdd olundu. Xeyir-duanı göz yaşları ilә axtardısa da, atasının fikrini dәyişmәyә qadir olmadı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Siz toxunula bilәn, odla yanan bir şeyә, qaranlığa, zülmәtә, qasırğaya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>şeypur gurultusuna vә kәlam söylәyәn sәsә yaxınlaşmadınız; o sәsi eşidәnlәr onlara daha bir söz deyilmәsin deyә yalvardılar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Çünki әmrinә tab gәtirә bilmәzdilәr:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;әgәr dağa bir heyvan belә, toxunsa, o, daşqalaq edilsin&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Bu mәnzәrә o qәdәr qorxunc idi ki, Musa dedi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;mәn qorxu vә lәrzә içindәyәm&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Lakin siz Sion dağına, var olan Allahın şәhәrinә – sәmavi Yerusәlimә, saysız-hesabsız mәlәklәrә,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>göylәrdә adları qeyd edilmiş ilk doğulanların ümumi mәclisinә vә cәmiyyәtinә, hamının Hakimi olan Allaha, kamala çatmış salehlәrin ruhlarına,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Yeni Әhdin Vasitәçisi olan İsaya vә Habilin qanından daha üstün söz deyәn sәpilmiş qana yaxınlaşdınız.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Bunu Deyәni rәdd etmәyәsiniz deyә diqqәtli olun. Çünki әgәr yer üzündә xәbәrdarlıq edәni rәdd edәnlәr cәzadan qaça bilmәdilәrsә, biz göylәrdәn xәbәrdarlıq Edәndәn üz döndәrsәk, cәzadan qaça bilmәyәcәyimiz daha çox yәqindir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>O vaxt Onun sәsi yeri sarsıtdı. Amma indi deyә vәd etmişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="scripture">
+    <text>&lt;&lt;Mәn bir dәfә dә yalnız yeri yox, göyü dә lәrzәyә gәtirәcәyәm&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>&lt;&lt;Bir dәfә dә&gt;&gt;sözü bunu göstәrir: sarsıla bilәn, yәni yaradılmış şeylәr aradan qaldırılacaq ki, sarsıla bilmәyәnlәr daim var olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Buna görә sarsılmaz Padşahlığa nail olduğumuz üçün minnәtdar olaq; belә ki möminlik vә ehtiramla Allaha mәqbul tәrzdә Ona ibadәt edәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Çünki Allahımız yandırıb-yaxan alovdur. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Aranızda daimi qardaşlıq sevgisi olsun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Qonaqpәrvәr olmağı da unutmayın, çünki belә davranan bәzilәri bilmәdәn mәlәklәrә qonaqpәrvәrlik göstәrmişlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Özünüzü hәbsdә olanların yerinә qoyaraq onları yada salın. Әzab-әziyyәt içindә olanları da elә xatırlayın ki, sanki özünüz onlarla birgә әzab-әziyyәt çәkirsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Qoy hәr kәs nikaha hörmәtlә yanaşsın. Qoy әr-arvad yatağı murdarlanmasın. Çünki Allah әxlaqsızları vә zinakarları mühakimә edәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Hәyatınız pulpәrәstlikdәn azad olsun, nәyiniz varsa, ona qane olun. Çünki Allah Özü demişdir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Sәni heç vaxt atmaram, sәni heç vaxt tәrk etmәrәm&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Buna görә biz arxayınlıqla deyirik:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Rәbb mәnә yardım edәndir, heç qorxmaram. İnsan mәnә nә edә bilәr?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Allahın kәlamını sizә danışan rәhbәrlәrinizi yada salın. Onların hәyat tәrzinin nәticәsinә baxıb imanlarını nümunә olaraq götürün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>İsa Mәsih dünәn, bu gün vә әbәdi olaraq eynidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Müxtәlif vә yad tәlimlәrlә yoldan azmayın, çünki ürәk yemәklәrlә deyil, Allahın lütfü ilә qüvvәtlәnsә, yaxşıdır. Bu cür yemәk qaydalarına riayәt edәnlәr bir xeyir görmәdilәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Bizim bir qurbangahımız var ki, ibadәt çadırında xidmәt edәnlәrin ondan yemәyә icazәsi yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Çünki baş kahin günah qurbanı olan heyvanların qanını Müqәddәs yerә gәtirir, cәsәdlәri isә düşәrgәnin kәnarında yandırılır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Bunun kimi İsa da Öz qanı ilә xalqı tәqdis etmәk üçün şәhәr darvazasının kәnarında әzab çәkdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Buna görә Onun gördüyü tәhqiri daşıyaraq düşәrgәnin kәnarına çıxıb Onun yanına gedәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Çünki burada daimi şәhәrimiz yoxdur, amma biz gәlәcәk şәhәri axtarırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Onda İsa vasitәsilә hәmişә Allaha hәmd qurbanını, yәni Onun adını iqrar edәnlәrin dilinin bәhrәsi olan sözlәri tәqdim edәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Xeyirxahlıq etmәyi vә varınızı başqaları ilә bölüşmәyi unutmayın, çünki Allah bu cür qurbanlardan razı qalır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Öz rәhbәrlәrinizә itaәtli olun vә onlara tabe olun. Axı onlar hәr vaxt hәyatınız üçün qayğı çәkir, çünki hesabat verәcәklәr. Qoy onlar bunu sevinclә etsin, ah-zarla etmәsinlәr, çünki bu sizә fayda vermәz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Bizim üçün dua edin. Biz әminik ki, vicdanımız tәmizdir vә hәr cәhәtcә yaxşı hәyat tәrzi sürmәyә can atırıq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Yanınıza tez qayıtmağım üçün dua etmәnizi xüsusilә xahiş edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Sülh qaynağı olan Allah – qoyunların böyük Çobanı olan Rәbbimiz İsanı әbәdi Әhdin qanı ilә ölülәr arasından dirildәn Allah</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>sizi hәr cür yaxşı şeylә tәmin etsin ki, İsa Mәsih vasitәsilә Özünә xoş olanı bizdә icra etsin vә siz Onun iradәsini hәyata keçirәsiniz. İsa Mәsihә әbәdi izzәt olsun! Amin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Qardaşlar, sizdәn xahiş edirәm, bu öyüd-nәsihәt sözünü dözümlә qәbul edin, çünki sizә qısaca yazdım.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Xәbәriniz olsun ki, qardaşımız Timotey azadlığa buraxılmışdır. Әgәr tezliklә yanıma gәlәrsә, onunla birlikdә sizi görәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Bütün rәhbәrlәrinizi vә müqәddәslәrin hamısını salamlayın. İtaliyadan olanlar sizә salam göndәrirlәr. </text>
+    <verse num="25" />
+    <text>Hamınıza lütf olsun! </text>
+  </block>
+  <UnappliedSplits />
+</book>

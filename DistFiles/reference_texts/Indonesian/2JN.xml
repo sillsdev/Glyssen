@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2JN" singlevoice="false" pageheader="2 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
+    <text>2 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2JN">
+    <verse num="1" />
+    <text>Dari penatua kepada Ibu yang terpilih dan anak-anaknya yang benar-benar aku kasihi. Bukan aku saja yang mengasihi kamu, tetapi juga semua orang yang telah mengenal kebenaran,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2JN">
+    <verse num="2" />
+    <text>oleh karena kebenaran yang tetap di dalam kita dan yang akan menyertai kita sampai selama-lamanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2JN">
+    <verse num="3" />
+    <text>Kasih karunia, rahmat dan damai sejahtera dari Allah Bapa, dan dari Yesus Kristus, Anak Bapa, akan menyertai kita dalam kebenaran dan kasih.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2JN">
+    <verse num="4" />
+    <text>Aku sangat bersukacita, bahwa aku mendapati, bahwa separuh dari anak-anakmu hidup dalam kebenaran sesuai dengan perintah yang telah kita terima dari Bapa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2JN">
+    <verse num="5" />
+    <text>Dan sekarang aku minta kepadamu, Ibu—bukan seolah-olah aku menuliskan perintah baru bagimu, tetapi menurut perintah yang sudah ada pada kita dari mulanya—supaya kita saling mengasihi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2JN">
+    <verse num="6" />
+    <text>Dan inilah kasih itu, yaitu bahwa kita harus hidup menurut perintah-Nya. Dan inilah perintah itu, yaitu bahwa kamu harus hidup di dalam kasih, sebagaimana telah kamu dengar dari mulanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
+    <verse num="7" />
+    <text>Sebab banyak penyesat telah muncul dan pergi ke seluruh dunia, yang tidak mengaku, bahwa Yesus Kristus telah datang sebagai manusia. Itu adalah si penyesat dan antikristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
+    <verse num="8" />
+    <text>Waspadalah, supaya kamu jangan kehilangan apa yang telah kami kerjakan itu, tetapi supaya kamu mendapat upahmu sepenuhnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
+    <verse num="9" />
+    <text>Setiap orang yang tidak tinggal di dalam ajaran Kristus, tetapi yang melangkah keluar dari situ, tidak memiliki Allah. Barangsiapa tinggal di dalam ajaran itu, ia memiliki Bapa maupun Anak.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
+    <verse num="10" />
+    <text>Jikalau seorang datang kepadamu dan ia tidak membawa ajaran ini, janganlah kamu menerima dia di dalam rumahmu dan janganlah memberi salam kepadanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2JN">
+    <verse num="11" />
+    <text>Sebab barangsiapa memberi salam kepadanya, ia mendapat bagian dalam perbuatannya yang jahat. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
+    <verse num="12" />
+    <text>Sungguhpun banyak yang harus kutulis kepadamu, aku tidak mau melakukannya dengan kertas dan tinta, tetapi aku berharap datang sendiri kepadamu dan berbicara berhadapan muka dengan kamu, supaya sempurnalah sukacita kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2JN">
+    <verse num="13" />
+    <text>Salam kepada kamu dari anak-anak saudaramu yang terpilih.</text>
+  </block>
+  <UnappliedSplits />
+</book>

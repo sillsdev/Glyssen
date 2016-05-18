@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="PHP" singlevoice="false" pageheader="PHILIPPIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP">
+    <text>PHILIPPIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Paul and Timothy, servants of Christ Jesus, To all the saints in Christ Jesus at Philippi, Together with the overseers and deacons:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Atamız Allahdan vә Rәbb İsa Mәsihdәn sizә lütf vә sülh olsun!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Sizi hәr dәfә yada salanda Allahıma şükür edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Hәmişә hamınız üçün hәr bir dilәyimdә sevinә-sevinә dua edirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Çünki ilk gündәn indiyәdәk Müjdәni yaymaqda şәrik oldunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Әminәm ki, sizdә xeyirli işә başlayan Allah Mәsih İsanın zühur edәcәyi günәdәk bunu başa çatdıracaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Hamınız haqqında belә düşünmәkdә haqlıyam, çünki qәlbimdә yeriniz var. İstәr hәbsdә olsam, istәr Müjdәni müdafiә vә tәsdiq etsәm, hamınız mәnimlә bәrabәr Allahın lütfünә şәriksiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Allah şahidimdir ki, Mәsih İsanın duyğusu ilә hәr birinizin hәsrәtini çәkirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Dua edirәm ki, mәhәbbәtiniz bilik vә hәr cür idrak baxımından get-gedә daha çox artsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>That way you may approve the things that are excellent; that you may be sincere and without offense to the day of Christ.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>I pray that you will be filled with the fruits of righteousness, which are through Jesus Christ, to the glory and praise of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Qardaşlar, bunu sizә bildirmәk istәyirәm ki, başıma gәlәnlәr Müjdә yaymağı daha da irәli apardı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Belә olanda bütün saray mühafizәçilәri daxil olmaqla hamıya mәlum oldu ki, Mәsihdә olduğuma görә hәbs olunmuşam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Hәmçinin qardaşlardan әksәriyyәti mәnim hәbsimdәn ötrü Rәbbә güvәnәrәk kәlamı qorxmadan bәyan etmәk üçün daha çox cәsarәt göstәrdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Doğrusu, bәzilәri paxıllıq vә rәqabәt, bәzilәri isә yaxşı niyyәtlә Mәsihi vәz edirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Bәzilәri bunu mәhәbbәtlә edirlәr, çünki bilirlәr ki, mәn Müjdәni müdafiә etmәk üçün tәyin edilmişәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Bәzilәri isә Mәsihi sәmimiliklә deyil, mәhbus halımda guya mәnә әziyyәt vermәklә özlәrini göstәrmәk üçün bәyan edirlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Nә olar? İstәr riyakarlıqla, istәrsә dә sәmimiliklә, nә cür olursa-olsun, әsasәn Mәsih bәyan edilir, mәn buna sevinirәm. Әlbәttә, sevinәcәyәm,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>çünki bilirәm ki, bunun nәticәsi dualarınızla vә İsa Mәsihin Ruhunun kömәyi ilә mәnim xilasım olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Böyük hәvәslә gözlәyir vә ümidvaram ki, heç bir vәziyyәtdә utandırılmayacağam, yaşasam da, ölsәm dә, hәmişәki kimi indi dә bәdәnimdә Mәsihin ucalması üçün tam cәsarәt göstәrә bilәcәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Çünki mәnim üçün yaşamaq Mәsihdir, ölmәksә qazancdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Lakin cismәn yaşasam, faydalı işlәr görә bilәcәyәm. Buna görә nә seçәcәyimi bilmirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Hәr iki tәrәfdәn yolum kәsilib. Arzum buranı tәrk edib Mәsihlә olmaqdır, çünki bu lap yaxşıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHP">
+    <verse num="24" />
+    <text>Amma sağ qalmağım sizin üçün daha lazımlıdır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHP">
+    <verse num="25" />
+    <text>Buna әmin olaraq bilirәm: sağ qalacağam vә hamınızla birlikdә qalmaqda davam edәcәyәm ki, imanda hәm irәlilәyәsiniz, hәm dә sevinәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-PHP">
+    <verse num="26" />
+    <text>Belә ki bir dә yanınıza gәldiyim üçün mәnә görә Mәsih İsada fәxriniz artsın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-PHP">
+    <verse num="27" />
+    <text>Lakin hәyat tәrziniz Mәsihin Müjdәsinә layiq olsun. Gәlib sizi görsәm dә, gәlmәyib haqqınızda eşitsәm dә, bilim ki, siz bir ruhda möhkәm dayanıb Müjdәyә әsaslanan imanda canbir olaraq sәy göstәrirsiniz</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-PHP">
+    <verse num="28" />
+    <text>vә heç bir şәkildә әleyhdarlarınızdan qorxmursunuz. Bu onlar üçün hәlak, sizin üçünsә xilas әlamәtidir. Bu da Allahın işidir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-PHP">
+    <verse num="29" />
+    <text>Çünki sizә yalnız Mәsihә iman etmәk deyil, Onun uğrunda әzab çәkmәk üstünlüyü dә ehsan olundu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
+    <verse num="30" />
+    <text>Apardığım mübarizәni әvvәldәn gördünüz, indi dә bunun haqqında eşidir vә siz dә hәmin mübarizәni aparırsınız. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Belәliklә, Mәsihdә bir ruhlandırılma, mәhәbbәtdәn yaranan bir tәsәlli, Ruha bir şәriklik, bir rәhm vә mәrhәmәt varsa,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>hәmfikir olub bir-birinizә eyni mәhәbbәti göstәrәrәk canbir vә hәmrәy olmağınızla sevincimi bütövlәşdirin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Heç bir işi özünü göstәrәrәk vә ya lovğalıqla etmәyin. Qoy hәr biriniz itaәtkarlıqda digәrini özündәn üstün saysın</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>vә yalnız öz mәnfәәtini deyil, başqalarının da mәnfәәtini güdsün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Mәsih İsa necә düşündü, siz dә elә düşünün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Allah surәtindә olduğu halda O Özünü Allaha bәrabәr tutmağı bir haqq saymadı.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Lakin Özünü heç etdi vә qul surәtinә salıb insanlara oxşar oldu. İnsan şәklini alıb</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Özünü aşağı tutdu vә ölümә qәdәr – çarmıx üzәrindә ölümә qәdәr itaәt göstәrdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Buna görә dә Allah Onu çox ucaltdı vә Ona lütflә bütün adlardan ali bir ad verdi ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>göydә, yerdә vә yerin altında olanların hamısı İsanın adına ehtiram edәrәk diz çöksün</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>vә hәr dil Ata Allahın izzәti üçün İsa Mәsihin Rәbb olduğunu bәyan etsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Belә isә, ey sevimlilәrim, hәmişә itaәtli olduğunuz kimi yalnız mәn yanınızda olanda yox, xüsusәn yanınızda olmadığım bu anda belә, qorxu vә lәrzә ilә xilasınızı әmәllәrinizdә göstәrin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Çünki sizdә fәaliyyәt göstәrәn Allahdır, belә ki Onun xoş mәramını hәm istәyәsiniz, hәm dә bunun üçün fәaliyyәt göstәrәsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Hәr şeyi şikayәtlәnmәdәn, mübahisә etmәdәn yerinә yetirin ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>nöqsansız vә saf olaraq bu әyri vә azmış nәsil arasında Allahın lәkәsiz övladları olasınız. Onların arasında dünyanın nuru kimi parlayın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Hәyat sözünü tәqdim edin. Qoy Mәsihin zühur edәcәyi gündә fәxr edә bilim ki, nә boş yerә cәhd etdim, nә dә boş yerә zәhmәt çәkdim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Lakin sizin imanınızın qurban vә xidmәti üzәrinә içmә tәqdimi kimi tökülәcәyәmsә dә, sevinirәm vә hamınızın sevincinә şәrikәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Siz dә mәhz bunun üçün sevinin vә mәnim sevincimә şәrik olun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Vәziyyәtinizdәn xәbәrdar olub ürәyim sakitlәşsin deyә bu yaxınlarda Timoteyi yanınıza göndәrәcәyim üçün Rәbb İsada ümidim var.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Çünki Timotey kimi mәnimlә canbir olan, hәqiqәtәn qayğınıza qalan başqa kimsәm yoxdur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Ona görә ki hәr kәs İsa Mәsihin xeyrini deyil, öz xeyrini güdür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Amma Timoteyin öz dәyәrini necә sübut etdiyini, atasının yanında qulluq edәn oğul kimi Müjdәni yaymaq işindә mәnimlә birgә qulluq etdiyini bilirsiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Belәliklә, işlәrimin nә yerdә olduğunu bilәn kimi onu yanınıza göndәrmәk ümidindәyәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-PHP">
+    <verse num="24" />
+    <text>Mәn dә yaxında yanınıza gәlmәyim barәdә Rәbbә güvәnirәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-PHP">
+    <verse num="25" />
+    <text>Lakin ehtiyacımın tәminatına görә mәnә yardım etmәk üçün göndәrdiyiniz nümayәndәni, qardaşım, әmәkdaşım vә birlikdә mübarizә apardığım Epafroditi yanınıza qaytarmağı lazım bildim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-PHP">
+    <verse num="26" />
+    <text>Çünki o hәr birinizdәn ötrü darıxır vә onun xәstә olduğunu eşitdiyinizә görә çox narahat idi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-PHP">
+    <verse num="27" />
+    <text>O, hәqiqәtәn, elә xәstәlәnmişdi ki, az qala ölsün. Lakin Allahın ona, yalnız ona deyil, kәdәrimin üstünә kәdәr gәlmәsin deyә hәm dә mәnә rәhmi gәldi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-PHP">
+    <verse num="28" />
+    <text>Onu yanınıza göndәrmәyә daha çox buna görә razılıq verdim ki, onu yenidәn görüb sevinәsiniz vә mәnim dә kәdәrim yüngüllәşsin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-PHP">
+    <verse num="29" />
+    <text>Rәbdә olan bu adamı tam sevinclә qәbul edin vә belәlәrini qiymәtlәndirin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
+    <verse num="30" />
+    <text>Çünki o, Mәsihin işi uğrunda az qala ölәcәkdi. Sizin mәnә edә bilmәdiyiniz kömәyi etmәk üçün canını tәhlükәyә atdı. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Nәhayәt, qardaşlarım, Rәbdә sevinin! Sizә eyni şeylәri yazmaq mәni yormaz, amma sizi qoruyar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Özünüzü &lt;&lt;itlәr&gt;&gt; dәn qoruyun, pis iş görәnlәrdәn qoruyun, bәdәni sünnәt edәrәk kәsib-atanlardan qoruyun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Çünki әsl sünnәtlilәr Allahın Ruhu vasitәsilә ibadәt edәn, Mәsih İsa ilә fәxr edәn vә cismani şeylәrә güvәnmәyәn bizlәrik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Әslindә mәn cismani şeylәrә dә güvәnә bilәrdim. Әgәr başqası cismani şeylәrә güvәnmәyi düşünürsә, mәn daha çox güvәnә bilәrәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Mәn sәkkizgünlük ikәn sünnәt olundum. İsrail nәslindәn, Binyamin qәbilәsindәn, İbranilәrdәn törәmiş bir İbraniyәm. Qanuna münasibәtdә farisey idim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Qeyrәt çәkmәyә gәlincә, Allahın cәmiyyәtini tәqib edirdim. Qanuna әsaslanan salehliyә gәlincә, nöqsansız idim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Amma mәnә fayda gәtirәn nә varsa, Mәsih uğrunda ziyan saymışam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Bundan әlavә, Rәbbim Mәsih İsanı tanımağın ali dәyәrinin yanında hәr şeyi ziyan hesab edirәm. Onun uğrunda var-yoxumu atıb tullantı sayıram ki, Mәsihi qazanıb</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Onda hesab olunum. Belә ki Qanunla gәlәn öz salehliyimә deyil, Mәsihә imandan yaranan, imanla Allahdan gәlәn salehliyә malik olum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>Belә ki Mәsihi vә Onun dirilmә qüdrәtini, әzablarına şәrikliyi dә dәrk edim vә Onun ölümündә Ona bәnzәyim ki,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>nә olursa-olsun, ölülәr arasından dirilmәyә nail olum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Demirәm ki, indi bunlara malik olmuşam vә yaxud kamillәşmişәm. Amma hәdәfdәn tutmaq üçün qaçıram. Çünki Mәsih İsa mәni bu mәqsәd üçün tutub.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Qardaşlar, hesab etmirәm ki, bunu tutmuşam. Yalnız bir şey edirәm: arxada qalanları unudub qarşımda olana çatmaq üçün cәhd edirәm</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>vә hәdәfә doğru qaçıram ki, mükafatı alım, yәni Allahın Mәsih İsada yuxarıya çağırışına nail olum.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Belәliklә, aramızda kim kamildirsә, qoy belә düşünsün. Hәr hansı bir mövzuda fәrqli düşüncәlәriniz varsa, Allah bunu da sizә açacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Ancaq çatdığımız sәviyyәyә uyğun hәyat sürәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Qardaşlar, hamınız birlikdә mәndәn nümunә götürün vә sizә göstәrdiyimiz nümunәyә uyğun hәyat sürәnlәrә diqqәtlә baxın.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Sizә dәfәlәrlә söylәdiyim kimi indi dә göz yaşları içindә tәkrar deyirәm: bir çoxları Mәsihin çarmıxına düşmәn olaraq hәyat sürür.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Onların sonu hәlakdır. Onların allahı qarınlarıdır. Öz rüsvayçılıqları ilә fәxr edir, yalnız dünyәvi şeylәr barәdә düşünürlәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Bizsә sәma vәtәndaşlarıyıq vә oradan Xilaskar olan Rәbb İsa Mәsihi hәvәslә gözlәyirik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>O hәr şeyi Özünә tabe etmәyә qadir olan qüvvәsinin tәsiri ilә bizim yazıq bәdәnimizi dәyişdirib Öz izzәtli bәdәninә bәnzәr hala gәtirәcәk. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Belәliklә, ey hәsrәtini çәkdiyim sevimli qardaşlarım, sevincim vә başımın tacı, Rәbdә olaraq bu cür dönmәz durun, ey sevimlilәr!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Evodiyaya yalvarıram, Sintixiyә yalvarıram ki, Rәbdә hәmfikir olsunlar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Bәli, ey әsl әmәkdaşım, sәndәn dә xahişim var, bu qadınlara kömәk et. Çünki onlar mәnimlә, Klementlә vә adları hәyat kitabında olan digәr әmәkdaşlarımla bәrabәr Müjdәni yaymaq üçün sәy göstәriblәr.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Rәbdә hәmişә sevinin! Bir dә deyirәm: sevinin!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Qoy sizin mülayimliyiniz bütün insanlara mәlum olsun. Rәbb yaxındır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Heç nәyin qayğısını çәkmәyin, amma hәr barәdә xahişlәrinizi Allaha dualarla, yalvarışlarla, şükür edә-edә bildirin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Onda Allahın ağlagәlmәz sülhü ürәklәrinizi vә düşüncәlәrinizi Mәsih İsada qoruyacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Nәhayәt, qardaşlar, doğru, lәyaqәtli, saleh, pak, cazibәli, etibarlı nә varsa, әgәr әla vә tәrifә layiq nә varsa, bunları düşünün.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Mәndәn öyrәndiyiniz, qәbul etdiyiniz, eşitdiyiniz vә mәndә gördüyünüz nә varsa, bunları hәyata keçirin. Onda sülh qaynağı olan Allah sizinlә olacaq.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>Mәn Rәbdә bol-bol sevinirәm ki, nәhayәt indi mәnim barәmdәki qayğınızı yenidәn canlandırdınız. Әslindә qayğınız vardı, amma bunu göstәrmәyә fürsәt tapa bilmirdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>Ehtiyaca düşdüyüm üçün bunları söylәmirәm, çünki hansı şәraitdә yaşasam, ondan razı qalmağa alışmışam.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Mәn mәzlumluğun da, bolluğun da nә olduğunu bilirәm. İstәr tox, istәr ac, istәr bolluq, istәr ehtiyac içindә olum, hәr şәraitdә, hәr vәziyyәtdә razı qalmağın sirrini öyrәnmişәm.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Mәnә qüvvәt verәn Mәsihin kömәyi ilә hәr işә gücüm çatır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Buna baxmayaraq nә yaxşı ki әziyyәtimә şәrik oldunuz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Ey Filipililәr, özünüz dә bilirsiniz ki, aranızda Müjdә yayımının başlanğıcında, mәn Makedoniyanı tәrk edәn zaman sizdәn başqa heç bir cәmiyyәt nәzir vermәk vә toplamaq üçün mәnimlә şәrik iş görmәdi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Mәn Salonikdә olanda belә, ehtiyacım üçün dәfәlәrlә siz mәnә yardım göndәrdiniz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Bu o demәk deyil ki, mәn bәxşiş axtarıram. Mәn ancaq sizin hesabınıza yazıla bilәn sәmәrәni axtarıram.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Mәnsә tamamilә tәmin olunmuşam vә bolluq içindәyәm. Epafroditin әli ilә göndәrdiyiniz hәdiyyәlәri alandan sonra ehtiyacım qalmadı. Bu, Allahın xoşuna gәlәn әtirli tәqdim, Ona mәqbul olan vә razı salan qurbandır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Sizin hәr ehtiyacınızı isә Allahım Mәsih İsada olan Öz izzәtli zәnginliyinә görә ödәyәcәk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Qoy Atamız Allaha әbәdi izzәt olsun! Amin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Mәsih İsada müqәddәs olan hәr kәsi salamlayın. Mәnimlә olan qardaşlar sizә salam göndәrir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Sizi bütün müqәddәslәr, xüsusәn qeysәrin sarayında işlәyәnlәr salamlayır.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Rәbb İsa Mәsihin lütfü ruhunuza yar olsun! </text>
+  </block>
+  <UnappliedSplits />
+</book>

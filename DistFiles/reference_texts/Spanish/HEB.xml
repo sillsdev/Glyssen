@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="HEB" singlevoice="false" pageheader="HEBREWS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-HEB">
+    <text>HEBREWS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>En tiempos antiguos Dios habló a nuestros antepasados muchas veces y de muchas maneras por medio de los profetas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Ahora, en estos tiempos últimos, nos ha hablado por su Hijo, mediante el cual creó los mundos y al cual ha hecho heredero de todas las cosas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Él es el resplandor glorioso de Dios, la imagen misma de lo que Dios es y el que sostiene todas las cosas con su palabra poderosa. Después de limpiarnos de nuestros pecados, se ha sentado en el cielo, a la derecha del trono de Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>y ha llegado a ser superior a los ángeles, pues ha recibido en herencia un título mucho más importante que el de ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Porque Dios nunca dijo a ningún ángel:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Tú eres mi Hijo; yo te he engendrado hoy.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <text>Ni dijo tampoco de ningún ángel:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Yo seré un padre para él, y él será un hijo para mí.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Pero en otro lugar, al presentar a su Hijo primogénito al mundo, dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Que todos los ángeles de Dios lo adoren.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Respecto a los ángeles, Dios dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Hace que sus ángeles sean como vientos, y como llamas de fuego sus servidores.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Pero respecto al Hijo, dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Tu reinado, oh Dios, es eterno, y es un reinado de justicia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Has amado lo bueno y odiado lo malo; por eso te ha escogido Dios, tu Dios, y te ha colmado de alegría más que a tus compañeros.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>También dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Tú, oh Señor, afirmaste la tierra desde el principio; tú mismo hiciste el cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Todo ello dejará de existir, pero tú permaneces para siempre. Todo ello se gastará como la ropa;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>¡lo doblarás como se dobla un vestido, lo cambiarás como quien se cambia de ropa! Pero tú eres el mismo; tu vida no terminará.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Dios nunca dijo a ninguno de los ángeles:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="scripture">
+    <text>&lt;&lt;Siéntate a mi derecha, hasta que yo haga de tus enemigos el estrado de tus pies.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Porque todos los ángeles son espíritus al servicio de Dios, enviados en ayuda de quienes han de recibir en herencia la salvación.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Por esta causa debemos prestar mucha más atención al mensaje que hemos oído, para que no nos apartemos del camino.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Los mandamientos que Dios dio en otros tiempos por medio de los ángeles, tenían fuerza de ley, y quienes pecaron y los desobedecieron fueron castigados justamente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>¿Cómo, pues, escaparemos nosotros, si descuidamos una salvación tan grande? Pues el mismo Señor fue quien anunció primero esta salvación, la cual después confirmaron entre nosotros los que oyeron ese mensaje.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Además, Dios la ha confirmado con señales, maravillas y muchos milagros, y por medio del Espíritu Santo, que nos ha dado de diferentes maneras, conforme a su voluntad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Dios no ha puesto bajo la autoridad de los ángeles ese mundo futuro del cual estamos hablando.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Al contrario, en un lugar de la Escritura alguien declara:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;¿Qué es el hombre? ¿Qué es el ser humano? ¿Por qué lo recuerdas y te preocupas por él?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Por un poco de tiempo lo hiciste algo menor que los ángeles, pero lo coronaste de gloria y honor;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>todo lo sujetaste debajo de sus pies.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB">
+    <text>Así que, al sujetarlo todo debajo de sus pies, Dios no dejó nada sin sujetarlo a él. Sin embargo, todavía no vemos que todo le esté sujeto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Pero vemos que Jesús, a quien Dios hizo algo menor que los ángeles por un poco de tiempo, está coronado de gloria y honor, a causa de la muerte que sufrió. Dios, en su amor, quiso que experimentara la muerte para bien de todos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Todas las cosas existen para Dios y por la acción de Dios, que quiere que todos sus hijos tengan parte en su gloria. Por eso, Dios, por medio del sufrimiento, tenía que hacer perfecto a Jesucristo, el Salvador de ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Porque todos son del mismo Padre: tanto los consagrados como el que los consagra. Por esta razón, el Hijo de Dios no se avergüenza de llamarlos hermanos, </text>
+    <verse num="12" />
+    <text>al decir en la Escritura:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
+    <text>&lt;&lt;Hablaré de ti a mis hermanos, y te cantaré himnos en medio de la congregación.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>También dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>&lt;&lt;En él pondré mi esperanza.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <text>Y otra vez dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>&lt;&lt;Aquí estoy, con los hijos que Dios me dio.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Así como los hijos de una familia son de la misma carne y sangre, así también Jesús fue de carne y sangre humanas, para derrotar con su muerte al que tenía poder para matar, es decir, al diablo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>De esta manera ha dado libertad a todos los que por miedo a la muerte viven como esclavos durante toda la vida.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Pues ciertamente no vino para ayudar a los ángeles, sino a los descendientes de Abraham.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Y para eso tenía que hacerse igual en todo a sus hermanos, para llegar a ser un Sumo Sacerdote fiel y compasivo en su servicio a Dios, y para obtener el perdón de los pecados de los hombres por medio del sacrificio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Y como él mismo sufrió y fue puesto a prueba, ahora puede ayudar a los que también son puestos a prueba.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Por lo tanto, hermanos, ustedes los del pueblo santo, que han sido llamados por Dios a ser suyos, consideren atentamente a Cristo Jesús, el Apóstol y Sumo Sacerdote, gracias al cual profesamos nuestra fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Pues Jesús ha sido fiel a Dios, que lo nombró para este servicio, como también Moisés fue fiel en su servicio en toda la casa de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Pero a Jesús se le ha concedido más honor que a Moisés, del mismo modo que el que hace una casa recibe más honor que la casa misma.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Toda casa tiene que estar hecha por alguien; pero Dios es el que hizo todo lo que existe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Así pues, Moisés, como siervo, fue fiel en toda la casa de Dios, y su servicio consistió en ser testigo de las cosas que Dios había de decir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Pero Cristo, como Hijo, es fiel sobre esta casa de Dios que somos nosotros mismos, si mantenemos la seguridad y la alegría en la esperanza que tenemos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Por eso, como dice el Espíritu Santo en la Escritura:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Si hoy escuchan ustedes lo que Dios dice, </text>
+    <verse num="8" />
+    <text>no endurezcan su corazón como aquellos que se rebelaron y pusieron a Dios a prueba en el desierto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Allí me pusieron a prueba los antepasados de ustedes, aun cuando habían visto mis obras durante cuarenta años.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>Por eso me enojé con aquella generación, y dije: &lt;Andan siempre extraviados en su corazón, y no han querido conocer mis caminos.&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Por eso juré en mi furor que no entrarían en mi reposo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Hermanos, cuídense de que ninguno de ustedes tenga un corazón tan malo e incrédulo que se aparte del Dios viviente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Al contrario, anímense unos a otros cada día, mientras dura ese &lt;&lt;hoy&gt;&gt; de que habla la Escritura, para que ninguno de ustedes sea engañado por el pecado y su corazón se vuelva rebelde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Porque nosotros tenemos parte con Cristo, con tal de que nos mantengamos firmes hasta el fin en la confianza que teníamos al principio. </text>
+    <verse num="15" />
+    <text>Por lo cual dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
+    <text>&lt;&lt;Si hoy escuchan ustedes lo que Dios dice, no endurezcan su corazón como aquellos que se rebelaron.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>¿Y quiénes fueron los que se rebelaron después de haber oído la voz de Dios? Pues todos los que Moisés había sacado de la tierra de Egipto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>¿Y con quiénes estuvo Dios enojado durante cuarenta años? Con los que pecaron, los cuales cayeron muertos en el desierto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>¿Y a quiénes juró Dios que no entrarían en su reposo? A los que desobedecieron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Y, en efecto, vemos que no pudieron entrar porque no creyeron.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Por eso, mientras todavía contamos con la promesa de entrar en ese reposo de Dios, debemos tener cuidado, no sea que alguno de ustedes no lo logre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Porque nosotros recibimos el anuncio de la buena noticia, lo mismo que ellos; pero a ellos no les sirvió de nada el oírlo, porque no se unieron por la fe con los que habían obedecido al mensaje.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Pero nosotros, que hemos creído, entraremos en ese reposo, del cual Dios ha dicho:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
+    <text>&lt;&lt;Por eso juré en mi furor que no entrarían en el lugar de mi reposo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <text>Sin embargo, Dios había terminado su trabajo desde que creó el mundo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>pues en alguna parte de las Escrituras se dice del séptimo día:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="scripture">
+    <text>&lt;&lt;Dios reposó de todo su trabajo el séptimo día.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Y otra vez se dice en las Escrituras:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;No entrarán en mi reposo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Pero todavía falta que algunos entren en ese lugar de reposo, ya que, por haber desobedecido, no entraron los que primero recibieron el anuncio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Por eso, Dios ha vuelto a señalar un día, un nuevo &lt;&lt;hoy&gt;&gt;, y lo ha hecho hablándonos por medio de lo que, mucho tiempo después, David dijo en la Escritura ya mencionada:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Si hoy escuchan ustedes lo que Dios dice, no endurezcan su corazón.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Porque si Josué les hubiera dado reposo a los israelitas, Dios no habría hablado de otro día.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>De manera que todavía queda un reposo sagrado para el pueblo de Dios;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>porque el que entra en ese reposo de Dios, reposa de su trabajo, así como Dios reposó del suyo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Debemos, pues, esforzarnos por entrar en ese reposo, para que nadie siga el ejemplo de aquellos que no creyeron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Porque la palabra de Dios tiene vida y poder. Es más cortante que cualquier espada de dos filos, y penetra hasta lo más profundo del alma y del espíritu, hasta lo más íntimo de la persona; y somete a juicio los pensamientos y las intenciones del corazón.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Nada de lo que Dios ha creado puede esconderse de él; todo está claramente expuesto ante aquel a quien tenemos que rendir cuentas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Jesús, el Hijo de Dios, es nuestro gran Sumo Sacerdote que ha entrado en el cielo. Por eso debemos seguir firmes en la fe que profesamos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Pues nuestro Sumo Sacerdote puede compadecerse de nuestra debilidad, porque él también estuvo sometido a las mismas pruebas que nosotros; solo que él jamás pecó.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Acerquémonos, pues, con confianza al trono de nuestro Dios amoroso, para que él tenga misericordia de nosotros y en su bondad nos ayude en la hora de necesidad.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Todo sumo sacerdote es escogido de entre los hombres, nombrado para representarlos delante de Dios y para hacer ofrendas y sacrificios por los pecados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Y como el sacerdote está sujeto a las debilidades humanas, puede tener compasión de los ignorantes y los extraviados;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>y a causa de su propia debilidad, tiene que ofrecer sacrificios por sus pecados tanto como por los pecados del pueblo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Nadie puede tomar este honor para sí mismo, sino que es Dios quien lo llama y le da el honor, como en el caso de Aarón.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>De la misma manera, Cristo no se nombró Sumo Sacerdote a sí mismo, sino que Dios le dio ese honor, pues él fue quien le dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Tú eres mi hijo; yo te he engendrado hoy.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Y también le dijo en otra parte de las Escrituras:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;Tú eres sacerdote para siempre, de la misma clase que Melquisedec.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Mientras Cristo estuvo viviendo aquí en el mundo, con voz fuerte y muchas lágrimas oró y suplicó a Dios, que tenía poder para librarlo de la muerte; y por su obediencia, Dios lo escuchó.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Así que Cristo, a pesar de ser Hijo, sufriendo aprendió lo que es la obediencia;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>y al perfeccionarse de esa manera, llegó a ser fuente de salvación eterna para todos los que lo obedecen,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>y Dios lo nombró Sumo Sacerdote de la misma clase que Melquisedec.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Tenemos mucho que decir sobre este asunto, pero es difícil explicarlo, porque ustedes son lentos para entender.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Al cabo de tanto tiempo, ustedes ya deberían ser maestros; en cambio, necesitan que se les expliquen de nuevo las cosas más sencillas de las enseñanzas de Dios. Han vuelto a ser tan débiles que, en vez de comida sólida, tienen que tomar leche.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Y los que se alimentan de leche son como niños de pecho, incapaces de juzgar rectamente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>La comida sólida es para los adultos, para los que ya saben juzgar, porque están acostumbrados a distinguir entre lo bueno y lo malo.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Así que sigamos adelante hasta llegar a ser adultos, dejando a un lado las primeras enseñanzas acerca de Cristo. No volvamos otra vez a las cosas básicas, como la conversión y el abandono de las obras que llevan a la muerte, o como la fe en Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>las enseñanzas sobre el bautismo, el imponer las manos a los creyentes, la resurrección de los muertos y el juicio eterno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Es lo que haremos, si Dios lo permite.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Porque a los que una vez recibieron la luz, y saborearon el don de Dios, y tuvieron parte en el Espíritu Santo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>y saborearon el buen mensaje de Dios y el poder del mundo venidero,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>si caen de nuevo, ya no se les puede hacer volver a Dios, porque ellos mismos están crucificando otra vez al Hijo de Dios y exponiéndolo a la burla de todos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Son como la tierra que bebe la lluvia que cae en abundancia sobre ella: si da una cosecha útil a los que la trabajan, recibe la bendición de Dios;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>pero si da espinos y cardos, no vale nada; cae bajo la maldición de Dios, y finalmente será quemada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Pero aunque hablamos así, queridos hermanos, estamos seguros de que ustedes se encuentran en el primer caso, es decir, en camino de salvación.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Porque Dios es justo, y no olvidará lo que ustedes han hecho y el amor que le han mostrado al ayudar a los del pueblo santo, como aún lo están haciendo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Pero deseamos que cada uno de ustedes siga mostrando hasta el fin ese mismo entusiasmo, para que se realice completamente su esperanza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>No queremos que se vuelvan perezosos, sino que sigan el ejemplo de quienes por medio de la fe y la constancia están recibiendo la herencia que Dios les ha prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Cuando Dios hizo la promesa a Abraham, juró por sí mismo, porque no había otro superior a él por quien jurar; </text>
+    <verse num="14" />
+    <text>y dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="scripture">
+    <text>&lt;&lt;Sí, yo te bendeciré mucho y haré que tu descendencia sea numerosa.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Abraham esperó con paciencia, y recibió lo que Dios le había prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Cuando los hombres juran, lo hacen por alguien superior a ellos mismos; y cuando garantizan algo mediante un juramento, ya no hay más que discutir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Pues bien, Dios quiso mostrar claramente a quienes habían de recibir la herencia que él les prometía, que estaba dispuesto a cumplir la promesa sin cambiar nada de ella. Por eso garantizó su promesa mediante el juramento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>De estas dos cosas que no pueden cambiarse y en las que Dios no puede mentir, recibimos un firme consuelo los que hemos buscado la protección de Dios y hemos confiado en la esperanza que él nos ha dado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Esta esperanza mantiene firme y segura nuestra alma, igual que el ancla mantiene firme al barco. Es una esperanza que ha penetrado hasta detrás del velo en el templo celestial,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>donde antes entró Jesús para abrirnos camino, llegando él a ser así Sumo Sacerdote para siempre, de la misma clase que Melquisedec.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Este Melquisedec fue rey de Salem y sacerdote del Dios altísimo. Cuando Abraham regresaba de la batalla en la que había derrotado a los reyes, Melquisedec salió a su encuentro y lo bendijo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>entonces Abraham le dio la décima parte de todo lo que había ganado en la batalla. Ante todo, hay que notar que el nombre Melquisedec significa &lt;&lt;rey de justicia&gt;&gt;, pero aparece también como rey de Salem, que quiere decir &lt;&lt;rey de paz&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Nada se sabe de su padre ni de su madre ni de sus antepasados; ni tampoco se habla de su nacimiento ni de su muerte; y así, a semejanza del Hijo de Dios, es sacerdote para siempre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Ahora bien, fíjense qué importante era Melquisedec, que nuestro propio antepasado Abraham le dio la décima parte de lo que les había ganado a los reyes en la batalla.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Según la ley de Moisés, los sacerdotes que son descendientes de Leví tienen el derecho de cobrarle al pueblo la décima parte de todo, a pesar de que son sus parientes y descienden de Abraham lo mismo que ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Pero Melquisedec, aunque no era descendiente de Leví, le cobró la décima parte a Abraham, que había recibido las promesas de Dios. Así Melquisedec bendijo a Abraham;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>y nadie puede negar que el que bendice es superior al bendecido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Aquí, en esta vida, los que cobran la décima parte son hombres mortales; pero la Escritura habla de Melquisedec como de uno que todavía vive.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Y se puede decir que los sacerdotes que descienden de Leví, y que ahora cobran la décima parte, pagaron también la décima parte a Melquisedec al pagársela a él Abraham;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>porque, en cierto sentido, cuando Melquisedec salió al encuentro de Abraham, este llevaba ya en su cuerpo a sus descendientes que aún no habían nacido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>El pueblo de Israel recibió la ley basada en el sacerdocio levítico. Ahora bien, si estos sacerdotes hubieran podido hacer perfectos a los hombres, no habría sido necesario que apareciera otro sacerdote, ya no de la clase de Aarón sino de la clase de Melquisedec.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Porque al cambiar el sacerdocio, también se tiene que cambiar la ley;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>y nuestro Señor, de quien la Escritura dice esto, pertenece a otra tribu de Israel, de la cual no ha salido ningún sacerdote.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Porque es bien sabido que nuestro Señor vino de la tribu de Judá, y Moisés no dijo nada de esa tribu cuando habló del sacerdocio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Y esto es aún más claro si el nuevo sacerdote que aparece es uno como Melquisedec,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>que no fue sacerdote según una ley que toma en cuenta elementos puramente humanos, sino según el poder de una vida indestructible.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Porque esto es lo que Dios dice de él:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="scripture">
+    <text>&lt;&lt;Tú eres sacerdote para siempre, de la misma clase que Melquisedec.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Así que el mandato anterior quedó cancelado porque era débil e inútil,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>pues la ley de Moisés no perfeccionó nada, y en su lugar tenemos una esperanza mejor, por la cual nos acercamos a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Y Dios garantizó esto con un juramento. Los otros sacerdotes fueron nombrados sin juramento alguno,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>pero en el caso del Señor sí hubo un juramento, pues en la Escritura se le dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;El Señor hizo un juramento y no va a desdecirse: &lt;Tú eres sacerdote para siempre.&gt;!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>De este modo, Jesús es quien garantiza una alianza mejor que la primera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Los otros sacerdotes fueron muchos porque la muerte les impedía seguir viviendo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>pero como Jesús no muere, su oficio sacerdotal no pasa a ningún otro.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Por eso puede salvar para siempre a los que se acercan a Dios por medio de él, pues vive para siempre, para rogar a Dios por ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Así pues, Jesús es precisamente el Sumo Sacerdote que necesitábamos. Él es santo, sin maldad y sin mancha, apartado de los pecadores y puesto más alto que el cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>No es como los otros sumos sacerdotes, que tienen que matar animales y ofrecerlos cada día en sacrificio, primero por sus propios pecados y luego por los pecados del pueblo. Por el contrario, Jesús ofreció el sacrificio una sola vez y para siempre, cuando se ofreció a sí mismo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>La ley de Moisés nombra como sumos sacerdotes a hombres imperfectos; pero el juramento de Dios, que fue hecho después de la ley, nombra sumo sacerdote a su Hijo, quien ha sido hecho perfecto para siempre.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Lo más importante de lo que estamos diciendo es que nuestro Sumo Sacerdote es de tal naturaleza que se ha sentado en el cielo, a la derecha del trono de Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>y oficia como sacerdote en el verdadero santuario, el que fue hecho por el Señor y no por los hombres.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Todo sumo sacerdote es nombrado para presentar ofrendas y sacrificios, y por eso es necesario que Jesucristo también tenga algo que ofrecer.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Si él estuviera en la tierra, ni siquiera sería sacerdote, pues aquí ya hay sacerdotes que presentan las ofrendas mandadas por la ley de Moisés.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Pero estos sacerdotes prestan su servicio por medio de cosas que no son más que copias y sombras de lo que hay en el cielo. Y sabemos que son copias porque, cuando Moisés iba a construir el santuario, Dios le dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Pon atención y hazlo todo según el modelo que te mostré en el monte.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Pero nuestro Sumo Sacerdote, que ha recibido un ministerio sacerdotal mucho mejor, es mediador de una alianza mejor, basada en mejores promesas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Si la primera alianza hubiera sido perfecta, no habría sido necesaria una segunda alianza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Pero Dios encontró imperfecta a aquella gente, y dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;El Señor dice: Vendrán días en que haré una nueva alianza con Israel y con Judá.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Esta alianza no será como la que hice con sus antepasados, cuando los tomé de la mano para sacarlos de la tierra de Egipto; y como ellos no cumplieron mi alianza, yo los abandoné, dice el Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
+    <verse num="10" />
+    <text>&lt;&lt;La alianza que haré con Israel después de aquellos días, será esta, dice el Señor:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>Pondré mis leyes en su mente y las escribiré en su corazón. Yo seré su Dios y ellos serán mi pueblo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Ya no será necesario que unos a otros, compatriotas o parientes, tengan que instruirse para que conozcan al Señor, porque todos me conocerán, desde el más pequeño hasta el más grande.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>Yo les perdonaré sus maldades y no me acordaré más de sus pecados.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Cuando Dios habla de una nueva alianza es porque ha declarado vieja a la primera; y a lo que está viejo y anticuado, poco le falta para desaparecer.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Ahora bien, la primera alianza tenía sus reglas para el culto, pero en un santuario terrenal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>La tienda se levantó de tal forma que en su primera parte, llamada el Lugar Santo, estaban el candelabro y la mesa con los panes consagrados a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Detrás del segundo velo estaba el llamado Lugar Santísimo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>allí había un altar de oro para quemar el incienso, y el arca de la alianza cubierta de oro por todos lados. En el arca había una jarra de oro que contenía el maná, y también estaban el bastón de Aarón, que había retoñado, y las tablas de la alianza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Encima del arca estaban los seres alados que representaban la presencia de Dios, los cuales cubrían con sus alas la tapa del arca. Pero por ahora no es necesario dar más detalles sobre estas cosas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Preparadas así las cosas, los sacerdotes entran continuamente en la primera parte de la tienda para celebrar los oficios del culto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Pero en la segunda parte entra únicamente el sumo sacerdote, y solo una vez al año; y cuando entra, tiene que llevar sangre de animales para ofrecerla por sí mismo y por los pecados que el pueblo comete sin darse cuenta.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Con esto el Espíritu Santo nos da a entender que, mientras la primera parte de la tienda seguía existiendo, el camino al santuario todavía no estaba abierto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Todo esto es un símbolo para el tiempo presente; pues las ofrendas y sacrificios que allí se ofrecen a Dios no pueden hacer perfecta la conciencia de los que así lo adoran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Se trata únicamente de alimentos, bebidas y ciertas ceremonias de purificación, que son reglas externas y que tienen valor solamente hasta que Dios cambie las cosas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Pero Cristo ya vino, y ahora él es el Sumo Sacerdote de los bienes definitivos. El santuario donde él actúa como sacerdote es mejor y más perfecto, y no ha sido hecho por los hombres; es decir, no es de esta creación.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Cristo ha entrado en el santuario, ya no para ofrecer la sangre de chivos y becerros, sino su propia sangre; ha entrado una sola vez y para siempre, y ha obtenido para nosotros la liberación eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Es verdad que la sangre de los toros y chivos, y las cenizas de la becerra que se quema en el altar, las cuales son rociadas sobre los que están impuros, tienen poder para consagrarlos y purificarlos por fuera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Pero si esto es así, ¡cuánto más poder tendrá la sangre de Cristo! Pues por medio del Espíritu eterno, Cristo se ofreció a sí mismo a Dios como sacrificio sin mancha, y su sangre limpia nuestra conciencia de las obras que llevan a la muerte, para que podamos servir al Dios viviente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Por eso, Jesucristo es mediador de una nueva alianza y un nuevo testamento, pues con su muerte libra a los hombres de los pecados cometidos bajo la primera alianza, y hace posible que los que Dios ha llamado reciban la herencia eterna que él les ha prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Para que un testamento entre en vigor, tiene que comprobarse primero la muerte de la persona que lo hizo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Pues un testamento no tiene valor mientras vive el que lo hizo, sino solo cuando ya ha muerto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Por eso, la primera alianza también se estableció con derramamiento de sangre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Moisés anunció todos los mandamientos de la ley a todo el pueblo; después tomó lana roja y una rama de hisopo, las mojó en la sangre de los becerros y los chivos mezclada con agua, y roció el libro de la ley y también a todo el pueblo. </text>
+    <verse num="20" />
+    <text>Entonces les dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Esta es la sangre que confirma la alianza que Dios ha ordenado para ustedes.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Moisés roció también con sangre el santuario y todos los objetos que se usaban en el culto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Según la ley, casi todo tiene que ser purificado con sangre; y no hay perdón de pecados si no hay derramamiento de sangre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>De manera que se necesitaban tales sacrificios para purificar aquellas cosas que son copias de lo celestial; pero las cosas celestiales necesitan mejores sacrificios que esos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Porque Cristo no entró en aquel santuario hecho por los hombres, que era solamente una figura del santuario verdadero, sino que entró en el cielo mismo, donde ahora se presenta delante de Dios para rogar en nuestro favor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Y no entró para ofrecerse en sacrificio muchas veces, como hace cada año todo sumo sacerdote, que entra en el santuario para ofrecer sangre ajena.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Si ese fuera el caso, Cristo habría tenido que morir muchas veces desde la creación del mundo. Pero el hecho es que ahora, en el final de los tiempos, Cristo ha aparecido una sola vez y para siempre, ofreciéndose a sí mismo en sacrificio para quitar el pecado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Y así como todos han de morir una sola vez y después vendrá el juicio,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>así también Cristo ha sido ofrecido en sacrificio una sola vez para quitar los pecados de muchos. Después aparecerá por segunda vez, ya no en relación con el pecado, sino para salvar a los que lo esperan.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Porque la ley de Moisés era solamente una sombra de los bienes que habían de venir, y no su presencia verdadera. Por eso la ley nunca puede hacer perfectos a quienes cada año se acercan a Dios para ofrecerle los mismos sacrificios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Pues si la ley realmente pudiera purificarlos del pecado, ya no se sentirían culpables, y dejarían de ofrecer sacrificios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Pero estos sacrificios sirven más bien para hacerles recordar sus pecados cada año.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Porque la sangre de los toros y de los chivos no puede quitar los pecados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Por eso Cristo, al entrar en el mundo, dijo a Dios:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;No quieres sacrificio ni ofrendas, sino que me has dado un cuerpo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>No te agradan los holocaustos ni las ofrendas para quitar el pecado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Entonces dije: &lt;Aquí estoy, tal como está escrito de mí en el libro, para hacer tu voluntad, oh Dios.&gt;!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>En primer lugar, dice que</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
+    <text>Dios no quiere ni le agradan sacrificios ni ofrendas de animales, ni holocaustos para quitar el pecado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <text>Aunque la ley les obligaba a realizar. </text>
+    <verse num="9" />
+    <text>Y después añade:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Aquí vengo para hacer tu voluntad.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
+    <text>Es decir, que quita aquellos sacrificios antiguos y pone en su lugar uno nuevo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Dios nos ha consagrado porque Jesucristo hizo la voluntad de Dios al ofrecer su propio cuerpo en sacrificio una sola vez y para siempre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Todo sacerdote judío oficia cada día y sigue ofreciendo muchas veces los mismos sacrificios, aunque estos nunca pueden quitar los pecados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Pero Jesucristo ofreció por los pecados un solo sacrificio para siempre, y luego se sentó a la derecha de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Allí está esperando hasta que Dios haga de sus enemigos el estrado de sus pies,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>porque por medio de una sola ofrenda hizo perfectos para siempre a los que han sido consagrados a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Y el Espíritu Santo nos lo confirma, al decir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
+    <verse num="16" />
+    <text>&lt;&lt;La alianza que haré con ellos después de aquellos días, será esta, dice el Señor:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
+    <text>Pondré mis leyes en su corazón y las escribiré en su mente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>y agrega:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
+    <text>Y no me acordaré más de sus pecados y maldades.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Así pues, cuando los pecados han sido perdonados, ya no hay necesidad de más ofrendas por el pecado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Hermanos, ahora podemos entrar con toda libertad en el santuario gracias a la sangre de Jesús,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>siguiendo el nuevo camino de vida que él nos abrió a través del velo, es decir, a través de su propio cuerpo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Tenemos un gran sacerdote al frente de la casa de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Por eso, acerquémonos a Dios con corazón sincero y con una fe completamente segura, limpios nuestros corazones de mala conciencia y lavados nuestros cuerpos con agua pura.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Mantengámonos firmes, sin dudar, en la esperanza de la fe que profesamos, porque Dios cumplirá la promesa que nos ha hecho.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Busquemos la manera de ayudarnos unos a otros a tener más amor y a hacer el bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>No dejemos de asistir a nuestras reuniones, como hacen algunos, sino animémonos unos a otros; y tanto más cuanto que vemos que el día del Señor se acerca.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Porque si seguimos pecando intencionalmente después de haber conocido la verdad, ya no queda más sacrificio por los pecados;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>solamente nos queda la terrible amenaza del juicio y del fuego ardiente que destruirá a los enemigos de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Cuando alguien desobedece la ley de Moisés, si hay dos o tres testigos que declaren contra él, se le condena a muerte sin compasión.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Pues ¿no creen ustedes que mucho mayor castigo merecen los que pisotean al Hijo de Dios y desprecian su sangre, los que insultan al Espíritu del Dios que los ama? Esa sangre es la que confirma la alianza, y con ella han sido ellos consagrados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Sabemos que el Señor ha dicho:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;A mí me corresponde hacer justicia; yo pagaré.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <text>Y ha dicho también:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>&lt;&lt;El Señor juzgará a su pueblo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>¡Terrible cosa es caer en las manos del Dios viviente!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>Pero recuerden ustedes los tiempos pasados, cuando acababan ustedes de recibir la luz y soportaron con fortaleza los sufrimientos de una gran lucha.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>Algunos de ustedes fueron insultados y maltratados públicamente, y otros se unieron en el sufrimiento con los que fueron tratados así.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>Ustedes tuvieron compasión de los que estaban en la cárcel, y hasta con alegría se dejaron quitar lo que poseían, sabiendo que en el cielo tienen algo que es mucho mejor y que permanece para siempre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>No pierdan, pues, su confianza, porque ella les traerá una gran recompensa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>Ustedes necesitan tener fortaleza en el sufrimiento, para hacer la voluntad de Dios y recibir así lo que él ha prometido. </text>
+    <verse num="37" />
+    <text>Pues la Escritura dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;Pronto, muy pronto, vendrá el que tiene que venir. No tardará.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="38" />
+    <text>Mi justo por la fe vivirá; pero si se vuelve atrás, no estaré contento de él.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Y nosotros no somos de los que se vuelven atrás y van a su condenación, sino de los que alcanzan la salvación porque tienen fe.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Tener fe es tener la plena seguridad de recibir lo que se espera; es estar convencidos de la realidad de cosas que no vemos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Nuestros antepasados fueron aprobados porque tuvieron fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Por fe sabemos que Dios formó los mundos mediante su palabra, de modo que lo que ahora vemos fue hecho de cosas que no podían verse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Por fe, Abel ofreció a Dios un sacrificio mejor que el que ofreció Caín, y por eso Dios lo declaró justo y le aceptó sus ofrendas. Así que, aunque Abel está muerto, sigue hablando por medio de su fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Por su fe, Henoc fue llevado en vida para que no muriera, y ya no lo encontraron, porque Dios se lo había llevado. Y la Escritura dice que, antes de ser llevado, Henoc había agradado a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Pero no es posible agradar a Dios sin tener fe, porque para acercarse a Dios, uno tiene que creer que existe y que recompensa a los que lo buscan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Por fe, Noé, cuando Dios le advirtió que habían de pasar cosas que todavía no podían verse, obedeció y construyó el arca para salvar a su familia. Y por esa misma fe, Noé condenó a la gente del mundo y fue heredero de la justicia que se obtiene por la fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Por fe, Abraham, cuando Dios lo llamó, obedeció y salió para ir al lugar que él le iba a dar como herencia. Salió de su tierra sin saber a dónde iba,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>y por la fe que tenía vivió como extranjero en la tierra que Dios le había prometido. Vivió en tiendas de campaña, lo mismo que Isaac y Jacob, que también recibieron esa promesa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Porque Abraham esperaba aquella ciudad que tiene bases firmes, de la cual Dios es arquitecto y constructor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Por fe también, aunque Sara no podía tener hijos y Abraham era demasiado viejo, este recibió fuerzas para ser padre, porque creyó que Dios cumpliría sin falta su promesa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Así que Abraham, aunque ya próximo al fin de sus días, llegó a tener descendientes tan numerosos como las estrellas del cielo y como la arena de la orilla del mar, que no se puede contar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Todas esas personas murieron sin haber recibido las cosas que Dios había prometido; pero como tenían fe, las vieron de lejos, y las saludaron reconociéndose a sí mismos como extranjeros de paso por este mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Y los que dicen tal cosa, claramente dan a entender que todavía andan en busca de una patria.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Si hubieran estado pensando en la tierra de donde salieron, bien podrían haber regresado allá;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>pero ellos deseaban una patria mejor, es decir, la patria celestial. Por eso, Dios no se avergüenza de ser llamado el Dios de ellos, pues les tiene preparada una ciudad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Por fe, Abraham, cuando Dios lo puso a prueba, tomó a Isaac para ofrecerlo en sacrificio. Estaba dispuesto a ofrecer a su único hijo</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>a pesar de que Dios le había prometido:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="scripture">
+    <text>&lt;&lt;Por medio de Isaac tendrás descendientes.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Es que Abraham reconocía que Dios tiene poder hasta para resucitar a los muertos; y por eso Abraham recobró a su hijo, y así vino a ser un símbolo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Por fe, Isaac prometió bendiciones futuras a Jacob y a Esaú.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Por fe, Jacob, cuando ya iba a morir, prometió bendiciones a cada uno de los hijos de José, y adoró a Dios apoyándose sobre la punta de su bastón.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Por fe, José, al morir, dijo que los israelitas saldrían más tarde de la tierra de Egipto, y dejó órdenes acerca de lo que deberían hacer con sus restos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Por fe, al nacer Moisés, sus padres lo escondieron durante tres meses; porque vieron que era un niño hermoso, y no tuvieron miedo de la orden que el rey había dado de matar a los niños.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Y por fe, Moisés, cuando ya fue hombre, no quiso llamarse hijo de la hija del faraón;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>prefirió ser maltratado junto con el pueblo de Dios, a gozar por un tiempo los placeres del pecado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Consideró de más valor sufrir la deshonra del Mesías que gozar de la riqueza de Egipto; porque tenía la vista puesta en la recompensa que Dios le había de dar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Por fe, Moisés se fue de la tierra de Egipto, sin miedo al enojo del rey; y se mantuvo firme en su propósito, como si viera al Dios invisible.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Por fe, Moisés celebró la Pascua y mandó rociar las puertas con sangre, para que el ángel de la muerte no tocara al hijo mayor de ningún israelita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Por fe, los israelitas pasaron el Mar Rojo como si fuera tierra seca; luego, cuando los egipcios quisieron hacer lo mismo, se ahogaron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Por fe cayeron los muros de la ciudad de Jericó, después que los israelitas marcharon alrededor de ellos durante siete días.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>Y por fe, Rahab, la prostituta, no murió junto con los desobedientes, porque ella había recibido amistosamente a los espías de Israel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>¿Qué más voy a decir? Me faltaría tiempo para hablar de Gedeón, de Barac, de Sansón, de Jefté, de David, de Samuel y de los profetas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>Por la fe conquistaron países, impartieron justicia, recibieron lo que Dios había prometido, cerraron la boca de los leones,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>apagaron fuegos violentos, escaparon de ser muertos a filo de espada, sacaron fuerzas de flaqueza y llegaron a ser poderosos en la guerra, venciendo a los ejércitos enemigos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>Hubo mujeres que recibieron otra vez con vida a sus familiares muertos. Otros murieron en el tormento, sin aceptar ser liberados, a fin de resucitar a una vida mejor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>Otros sufrieron burlas y azotes, y hasta cadenas y cárceles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-HEB">
+    <verse num="37" />
+    <text>Y otros fueron muertos a pedradas, aserrados por la mitad o muertos a filo de espada; anduvieron de un lado a otro vestidos solo de piel de oveja y de cabra; pobres, afligidos y maltratados.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="38" characterId="narrator-HEB">
+    <verse num="38" />
+    <text>Estos hombres, que el mundo ni siquiera merecía, anduvieron sin rumbo fijo por los desiertos, y por los montes, y por las cuevas y las cavernas de la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Sin embargo, ninguno de ellos recibió lo que Dios había prometido, aunque fueron aprobados por la fe que tenían;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="40" characterId="narrator-HEB">
+    <verse num="40" />
+    <text>porque Dios, teniéndonos en cuenta a nosotros, había dispuesto algo mejor, para que solamente en unión con nosotros fueran ellos hechos perfectos.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Por eso, nosotros, teniendo a nuestro alrededor tantas personas que han demostrado su fe, dejemos a un lado todo lo que nos estorba y el pecado que nos enreda, y corramos con fortaleza la carrera que tenemos por delante.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Fijemos nuestra mirada en Jesús, pues de él procede nuestra fe y él es quien la perfecciona. Jesús soportó la cruz, sin hacer caso de lo vergonzoso de esa muerte, porque sabía que después del sufrimiento tendría gozo y alegría; y se sentó a la derecha del trono de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Por lo tanto, mediten en el ejemplo de Jesús, que sufrió tanta contradicción de parte de los pecadores; por eso, no se cansen ni se desanimen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Pues ustedes aún no han tenido que llegar hasta la muerte en su lucha contra el pecado,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>y han olvidado ya lo que Dios les aconseja como a hijos suyos. Dice en la Escritura:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>&lt;&lt;No desprecies, hijo mío, la corrección del Señor, ni te desanimes cuando te reprenda.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Porque el Señor corrige a quien él ama, y castiga a aquel a quien recibe como hijo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Ustedes están sufriendo para su corrección: Dios los trata como a hijos. ¿Acaso hay algún hijo a quien su padre no corrija?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Pero si Dios no los corrige a ustedes como corrige a todos sus hijos, entonces ustedes no son hijos legítimos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Además, cuando éramos niños, nuestros padres aquí en la tierra nos corregían, y los respetábamos. ¿Por qué no hemos de someternos, con mayor razón, a nuestro Padre celestial, para obtener la vida?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Nuestros padres aquí en la tierra nos corregían durante esta corta vida, según lo que les parecía más conveniente; pero Dios nos corrige para nuestro verdadero provecho, para hacernos santos como él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Ciertamente, ningún castigo es agradable en el momento de recibirlo, sino que duele; pero si uno aprende la lección, el resultado es una vida de paz y rectitud.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Así pues, renueven las fuerzas de sus manos cansadas y de sus rodillas debilitadas,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>y busquen el camino derecho, para que sane el pie que está cojo y no se tuerza más.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Procuren estar en paz con todos y llevar una vida santa; pues sin la santidad, nadie podrá ver al Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Procuren que a nadie le falte la gracia de Dios, a fin de que ninguno sea como una planta de raíz amarga que hace daño y envenena a la gente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Que ninguno de ustedes se entregue a la prostitución ni desprecie lo sagrado; pues esto hizo Esaú, que por una sola comida vendió sus derechos de hijo mayor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Y ustedes saben que después, cuando quiso recibir la bendición de su padre, fue rechazado; y aunque lloró mucho, ya no hubo remedio para lo sucedido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Ustedes no se acercaron, como los israelitas, a algo que se podía tocar y que ardía en llamas, donde había oscuridad, tinieblas y tempestad;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>ni oyeron el sonido de la trompeta ni la voz de Dios. Los que oyeron esa voz rogaron que no les siguiera hablando,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>porque no podían soportar el mandato que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Al que ponga el pie en el monte, hay que matarlo a pedradas o con lanza, aunque sea un animal.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Tan espantoso era lo que se veía, que el mismo Moisés dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Estoy temblando de miedo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Ustedes, por el contrario, se han acercado al monte Sión, y a la ciudad del Dios viviente, la Jerusalén celestial, y a muchos miles de ángeles reunidos para alabar a Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>y a la comunidad de los primeros hijos de Dios inscritos en el cielo. Se han acercado a Dios, el Juez de todos, a los espíritus de los hombres buenos que Dios ha hecho perfectos,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>a Jesús, mediador de una nueva alianza, y a la sangre con que hemos sido purificados, la cual nos habla mejor que la sangre de Abel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Por eso tengan cuidado de no rechazar al que nos habla. Pues los que rechazaron a Dios cuando él les llamó la atención aquí en la tierra, no escaparon. Y mucho menos podremos escapar nosotros, si le damos la espalda al que nos llama la atención desde el cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>En aquel tiempo, la voz de Dios hizo temblar la tierra, pero ahora dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="scripture">
+    <text>&lt;&lt;Una vez más haré temblar no solo la tierra, sino también el cielo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Al decir &lt;&lt;una vez más&gt;&gt;, se entiende que se quitarán las cosas creadas, lo que puede ser movido, para que permanezca lo que no puede moverse.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>El reino que Dios nos da, no puede ser movido. Demos gracias por esto, y adoremos a Dios con la devoción y reverencia que le agradan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Porque nuestro Dios es como un fuego que todo lo consume.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>No dejen de amarse unos a otros como hermanos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>No se olviden de ser amables con los que lleguen a su casa, pues de esa manera, sin saberlo, algunos hospedaron ángeles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Acuérdense de los presos, como si también ustedes estuvieran presos con ellos. Piensen en los que han sido maltratados, ya que ustedes también pueden pasar por lo mismo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Que todos respeten el matrimonio y mantengan la pureza de sus relaciones matrimoniales; porque Dios juzgará a los que cometen inmoralidades sexuales y a los que cometen adulterio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>No amen el dinero; conténtense con lo que tienen, porque Dios ha dicho:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="scripture">
+    <text>&lt;&lt;Nunca te dejaré ni te abandonaré.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Así que podemos decir con confianza:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="scripture">
+    <text>&lt;&lt;El Señor es mi ayuda; no temeré. ¿Que me puede hacer el hombre?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Acuérdense de quienes los han dirigido y les han anunciado el mensaje de Dios; mediten en cómo han terminado sus vidas, y sigan el ejemplo de su fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Jesucristo es el mismo ayer, hoy y siempre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>No se dejen ustedes llevar por enseñanzas diferentes y extrañas. Es mejor que nuestros corazones se fortalezcan en el amor de Dios que en seguir reglas sobre los alimentos; pues esas reglas nunca han sido de provecho.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Nosotros tenemos un altar, del cual no tienen derecho a comer los sacerdotes del antiguo santuario.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Pues el sumo sacerdote lleva la sangre de los animales al santuario, como ofrenda para quitar el pecado, pero los cuerpos de esos animales se queman fuera del campamento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Así también, Jesús sufrió la muerte fuera de la ciudad, para consagrar al pueblo por medio de su propia sangre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Vayamos, pues, con Jesús, fuera del campamento, y suframos la misma deshonra que él sufrió.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Pues en este mundo no tenemos una ciudad que permanezca para siempre, sino que vamos en busca de la ciudad futura.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Por eso debemos alabar siempre a Dios por medio de Jesucristo. Esta alabanza es el sacrificio que debemos ofrecer. ¡Alabémoslo, pues, con nuestros labios!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>No se olviden ustedes de hacer el bien y de compartir con otros lo que tienen; porque estos son los sacrificios que agradan a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Obedezcan a sus dirigentes y sométanse a ellos, porque ellos cuidan sin descanso de ustedes, sabiendo que tienen que rendir cuentas a Dios. Procuren hacerles el trabajo agradable y no penoso, pues lo contrario no sería de ningún provecho para ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Oren por nosotros, que estamos seguros de tener la conciencia tranquila, ya que queremos portarnos bien en todo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Pido especialmente sus oraciones para que Dios me permita volver a estar pronto con ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Que el Dios de paz, que resucitó de la muerte a nuestro Señor Jesús, el gran Pastor de las ovejas, quien con su sangre confirmó su alianza eterna,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>los haga a ustedes perfectos y buenos en todo, para que cumplan su voluntad; y que haga de nosotros lo que él quiera, por medio de Jesucristo. ¡Gloria para siempre a Cristo! Amén.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Hermanos, les ruego que reciban con paciencia estas pocas palabras de aliento que les he escrito.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Sepan ustedes que nuestro hermano Timoteo está ya en libertad; si llega pronto, lo llevaré conmigo cuando vaya a verlos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Saluden a todos sus dirigentes y a todos los del pueblo santo. Los de Italia les mandan saludos. </text>
+    <verse num="25" />
+    <text>Que Dios derrame su gracia sobre todos ustedes.</text>
+  </block>
+  <UnappliedSplits />
+</book>

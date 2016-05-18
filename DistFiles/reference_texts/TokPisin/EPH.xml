@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="EPH" singlevoice="false" pageheader="EPHESIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+    <text>EPHESIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Mi Pol, mi aposel bilong Krais Jisas. Long laik bilong em yet God i makim mi olsem aposel. Mi raitim dispela pas long yupela ol manmeri bilong God i stap long taun Efesus na i bihainim tru Krais Jisas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>God Papa bilong yumi, wantaim Bikpela Jisas Krais, i ken marimari long yupela na mekim bel bilong yupela i stap isi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Yumi litimapim nem bilong God, em i God na Papa bilong Bikpela bilong yumi Jisas Krais. Long Krais em i bin givim yumi olgeta gutpela samting bilong heven, bilong helpim spirit bilong yumi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Taim God i no mekim graun i kamap yet, na em i makim yumi pinis long pas wantaim Krais, bai yumi ken i stap holi. Bai yumi ken i stap stretpela manmeri na i no gat asua long ai bilong en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Bipo yet em i laikim yumi tumas, na em i makim yumi bilong kamap pikinini bilong em yet long wok Jisas Krais bai i mekim bilong kisim bek yumi. Long laik bilong em yet God i mekim olsem.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Long nem bilong dispela Pikinini em i laikim tumas, God i bin marimari moa yet long yumi. Olsem na yumi mas ting long dispela bikpela marimari bilong em na yumi mas litimapim nem bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Marimari bilong God em i pulap tru. Krais i dai pinis bilong baim bek yumi, na long blut bilong en, God i lusim olgeta sin bilong yumi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>God i kapsaitim marimari bilong en moa yet long yumi, na em i givim olgeta kain save wantaim gutpela tingting long yumi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Bipo God i tingting pinis long dispela samting em i laik mekim long wok bilong Krais. Tasol dispela tingting bilong en i bin i stap hait, na nau em i soim yumi pinis dispela tingting bilong en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Dispela samting em i laik mekim em i olsem. Em i laik stiaim olgeta samting i go i go, na long dispela taim em i makim pinis, em bai i bungim olgeta samting long Krais, ol samting bilong heven na bilong graun tu. Na Krais i ken i stap het bilong olgeta samting.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>God i save bihainim laik na tingting bilong em yet na mekim olgeta samting i kamap, na long laik bilong em, bipo yet em i makim mipela Juda bilong pas wantaim Krais na kamap lain manmeri tru bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Mipela Juda, mipela ol namba wan lain i bin bilip long Krais na bihainim em, na God i makim mipela bilong tingting oltaim long bikpela lait na strong bilong em na litimapim nem bilong em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Na yupela ol manmeri bilong ol arapela lain, yupela tu i harim pinis tok tru, em dispela gutnius bilong God i kisim bek yupela. Na yupela i bilip pinis long Krais. Olsem na yupela i pas wantaim Krais, na God i bihainim promis em i bin mekim bipo na em i givim Holi Spirit long yupela, olsem mak bilong yupela i stap lain manmeri bilong em stret.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Yumi kisim Holi Spirit pinis, olsem na yumi save, bihain yumi bai kisim tu olgeta arapela gutpela samting God i bin promis long givim long ol manmeri bilong en. Yumi wet long kisim ol dispela samting long taim God i kisim bek yumi na yumi stap fri tru wantaim em. Na yumi bai tingting long ol dispela strongpela wok em i bin mekim na yumi bai litimapim biknem bilong en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Mi harim tok long yupela i bilip tru long Bikpela Jisas, na yupela i save givim bel bilong yupela long olgeta manmeri bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Olsem na taim mi mekim prea, oltaim mi save tingting long yupela na tenkyu long God. Na mi save prea</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>long God bilong Bikpela bilong yumi Jisas Krais, em Papa i stap nambawan tru wantaim bikpela lait na strong bilong en, em i ken givim gutpela tingting long yupela na mekim yupela i save gut long as bilong tok bilong em, bai yupela i ken save gut long em yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Mi laik bai em i givim lait long tingting bilong yupela, bai yupela i ken save gut long ol dispela samting em i singautim yupela bilong kisim, em ol samting yupela i wetim i stap. Olsem bai yupela i save long ol dispela gutpela gutpela samting God i bin makim bilong yumi ol manmeri bilong em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Na bai yupela i ken save olsem, dispela strong bilong God oltaim em i wok long helpim yumi ol manmeri i bilip long em, em i bikpela moa moa yet. Yumi no inap tru long skelim strong bilong en. Na dispela bikpela strong bilong God i save wok long yumi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>em tasol bipo i bin wok long Krais. Krais i dai pinis, na long dispela bikpela strong bilong God, God i kirapim em na i bringim em i go sindaun long han sut bilong em long heven.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Olsem na Krais i stap antap tru long olgeta kain strongpela spirit, na long olgeta hetman na long olgeta gavman, na long olgeta samting i gat strong. Em i stap antap long olgeta man i gat nem nau long dispela taim, na long taim bihain tu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>God i bin putim olgeta samting i stap aninit long Krais, na i mekim em i stap het tru bilong olgeta samting, na long dispela pasin em i stap het bilong sios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Sios em i bodi bilong Krais. Krais em i stap insait long olgeta samting na i pulapim ol tru, na em i pulap olgeta long sios bilong en. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Bipo yupela i save mekim ol kain kain rong na sin, na dispela i kilim yupela i dai.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Long dispela taim yupela i bin wokabaut long pasin nogut bilong dispela graun. Yupela i bin bihainim pasin bilong hetman bilong ol spirit nogut i stap long skai, em dispela strongpela spirit i wok yet insait long bel bilong ol man i save sakim tok bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Bipo yumi olgeta i bin i stap wantaim dispela lain, na yumi bihainim laik nogut bilong olpela bel bilong yumi tasol. Yumi bihainim laik bilong dispela olpela bel na laik bilong tingting bilong yumi yet. Na long taim yumi bin i stap olsem, yumi inap kisim pe nogut God i redim pinis bilong givim long olgeta manmeri i mekim dispela kain pasin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <verse num="5" />
+    <text>Tru, rong bilong yumi em i kilim yumi na yumi dai pinis. Yumi stap olsem ol man i dai pinis olgeta.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH">
+    <text>Tasol marimari bilong God em i pulap tru na em i givim bel bilong en moa yet long yumi. Olsem na em i mekim yumi i stap laip wantaim Krais. Yes, long marimari bilong God tasol em i kisim bek yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Em i kirapim yumi wantaim Krais Jisas. Na em i mekim yumi i sindaun pinis wantaim Krais long sia king bilong en long heven.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Long wok bilong Krais Jisas em i mekim dispela gutpela pasin long yumi, long wanem, em i laik soim bikpela marimari tru bilong en long olgeta man long olgeta taim bihain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Yupela i bilip long Krais, na long marimari bilong God tasol, God i kisim bek yupela. Dispela em i no samting yupela yet i mekim. Nogat. God i givim nating long yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Em i no olsem pe bilong wok yupela i mekim. Olsem na i no gat wanpela man em inap litimapim nem bilong em yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Long Krais Jisas God i mekim yumi i kamap ol nupela manmeri, bilong yumi ken wokabaut long rot bilong gutpela pasin bipo yet God i redim pinis bilong yumi ken wokabaut long en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Yupela i save, ol lain bilong Juda i save katim skin bilong ol man, na ol i save kolim yupela olsem, "Ol man i no save katim skin." Dispela i tok long pasin ol man yet i save mekim long skin bilong ol. Orait yupela i mas tingim gut, bipo yupela i stap man bilong ol arapela lain,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>na long dispela taim yupela i stap longwe long Krais. Yupela i stap ausait long lain bilong Israel. God i bin mekim promis na i givim kontrak long ol lain Israel, na yupela i stap ausait long dispela lain. Yupela i stap long dispela graun, na i no gat wanpela gutpela samting i stap bilong yupela i wetim i kamap bihain. Na yupela i no save long God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Bipo yupela i stap longwe tru. Tasol nau blut bilong Krais i bringim yupela i kam, na yupela i pas wantaim Krais Jisas na yupela i stap klostu tru long God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Krais yet i save mekim yumi i stap bel isi na sindaun gut wantaim. Bipo ol lain Juda i save birua long ol arapela lain, na dispela pasin birua i kamap olsem banis i stap namel long ol Juda na ol man bilong ol arapela lain. Tasol long bodi bilong em yet Krais i brukim pinis dispela banis na i pinisim dispela pasin birua, na em i bungim tupela lain na mekim ol i kamap wanpela lain tasol.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Em i rausim pinis lo bilong Moses wantaim olgeta hap tok na olgeta lo bilong en. Em i mekim olsem, bai em i ken bungim tupela lain na mekim ol i kamap olsem wanpela nupela man. Na long dispela pasin em i mekim yumi i stap wanbel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Em i dai long diwai kros bilong bungim dispela tupela lain long wanpela bodi. Na long diwai kros em i kilim i dai dispela pasin birua i bin i stap bipo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Em i kam na i autim gutnius olsem, "Nau yupela i stap wanbel." Em i autim dispela gutnius long yupela ol lain i stap long ol longwe ples, na long ol manmeri i stap klostu tu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Yumi stap wanbel, long wanem, long Krais yumi tupela lain wantaim i gat wanpela Spirit i opim rot bilong yumi ken kamap long Papa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Nau yupela i no moa i stap olsem ol tripman i no gat graun. Nogat. Yupela i wanlain wantaim ol manmeri bilong God. Yupela i stap lain tru bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Yupela i olsem haus God i wokim. Em i bin planim mipela aposel wantaim ol profet olsem pos bilong dispela haus. Na Krais Jisas em i namba wan pos tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Olgeta bun bilong dispela haus i pas long Krais, olsem na olgeta i pas gut wantaim. Na God i wokim yet dispela haus, na haus i laik kamap bikpela moa na i stap haus bilong Bikpela yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Yupela tu i pas long Krais, na God i bungim yupela wantaim ol arapela manmeri bilong en, na yupela i kamap haus tru bilong God, bai em wantaim Holi Spirit i ken i stap long dispela haus. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>God i mekim gut tru long yupela, na long dispela as tasol mi Pol mi stap long kalabus, long wanem, mi save mekim wok bilong Krais Jisas bilong helpim yupela man bilong ol arapela lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Mi ting yupela i harim pinis olsem, God i bin marimari long mi na makim mi bilong mekim dispela wok em i mekim bilong marimari long yupela tu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Dispela tok long samting God i mekim, bipo em i stap hait, tasol God yet i bin kamapim long mi, olsem mi stori liklik pinis.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Na taim yupela i ritim dispela tok, orait yupela bai i save olsem, mi save gut tru long dispela tok hait bilong wok Krais i mekim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Long olgeta taim bipo, God i no bin autim klia dispela tok hait. Tasol nau long Holi Spirit, God i autim klia long mipela ol aposel na profet bilong em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Dispela tok i olsem. Long gutnius yupela man bilong ol arapela lain yupela i kamap wanlain na wanpela bodi wantaim mipela. Na yumi olgeta i save kisim olgeta samting God i bin makim bilong yumi long Krais Jisas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>God i mekim mi i kamap wokman bilong autim dispela gutnius. Em i marimari long mi, na em i givim strong bilong en long mi, bilong strongim mi long mekim dispela wok.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Mi aninit tru long olgeta arapela manmeri bilong God, tasol em i marimari long mi na givim dispela wok long mi, em wok bilong autim gutnius long ol arapela lain. Dispela gutnius i tok long olgeta gutpela samting bilong Krais, em yumi ol man i no inap tru long skelim na kaunim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>God i bin wokim olgeta samting, na pastaim em i haitim tingting bilong en long olgeta pasin em i laik mekim. Na dispela tingting i stap hait long olgeta taim bipo. Tasol nau em i givim mi wok bilong autim klia dispela tingting bilong em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Bipo em i haitim, tasol nau em i mekim sios bilong en i kamap, na long dispela pasin em i mekim ol kain kain gutpela tingting na save bilong en i kamap ples klia, bai ol strongpela ensel na spirit bilong heven i ken save long tingting bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Bipo yet God i tingting long mekim ol dispela samting, na nau long wok bilong Krais Jisas, Bikpela bilong yumi, em i mekim pinis.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Na yumi save bilip long Krais, na yumi no pret. Yumi save gut olsem, Krais em i rot bilong yumi kamap long God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Olsem na mi tokim yupela nau, yupela i no ken tingting planti long dispela pen mi karim bilong helpim yupela, na bai bilip bilong yupela i slek. Nogat. Yupela i ken amamas long dispela samting i kamap, long wanem, em bai i helpim yupela long i stap gut wantaim God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Mi ting long ol dispela samting Papa i bin mekim na mi save brukim skru long en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Em i Papa bilong olgeta lain i stap long heven na long graun, na em yet i givim nem long olgeta dispela lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Mi save brukim skru na prea olsem, Papa i bin makim ol planti gutpela gutpela samting tru bilong givim yupela, olsem na em i ken pulapim Holi Spirit bilong em long bel bilong yupela, na mekim yupela i stap strong tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Na long bilip bilong yupela, Krais i ken i stap long bel bilong yupela. Na pasin bilong laikim tru ol arapela, em i ken kamap strong tru insait long bel bilong yupela na mekim yupela i sanap strong, olsem graun i save holimpas rop bilong diwai na mekim diwai i sanap strong.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>I pray that you may be strengthened to comprehend with all the saints what is the breadth and length and height and depth.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>I pray that you will know Christ's love which surpasses knowledge, that you may be filled with all the fullness of God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Strong bilong God yet i save wok long bel bilong yumi, na dispela strong i winim tru tingting bilong yumi. Olgeta samting yumi save askim God long mekim, ol i no inap tru long mak bilong strong bilong en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Olsem na oltaim oltaim ol manmeri bilong sios i mas litimapim nem bilong God long nem bilong Krais Jisas, inap long olgeta taim bihain. I tru. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Mi Pol, mi stap long kalabus, long wanem, mi save mekim wok bilong Bikpela. Mi ting long God i bin singautim yupela long bihainim em tru, olsem na mi laik kirapim yupela long wokabaut stret long pasin em i laikim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Yupela i mas i stap aninit tru long ol arapela Kristen na mekim pasin isi long ol. Yupela i no ken belhat kwik long ol long taim ol i rongim yupela. Yupela wan wan i mas givim bel bilong yupela long ol na karim hevi ol i givim yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Holi Spirit em i givim yumi pasin bilong i stap wanbel, na dispela pasin em i olsem rop i pasim yumi na yumi stap wanlain. Olsem na yupela i mas hatwok long holimpas dispela pasin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>I gat wanpela bodi tasol, na i gat wanpela Holi Spirit tasol. Olsem tasol God i singautim yupela bilong wetim wanpela samting tasol, em long God i ken inapim tru ol gutpela samting em i laik mekim long yumi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>I gat wanpela Bikpela tasol, na wanpela pasin bilong bilip, na wanpela baptais tasol.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>I gat wanpela God, em i Papa bilong yumi olgeta. Em i antap long olgeta manmeri, na em i wok namel long olgeta manmeri, na em i stap insait long olgeta manmeri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Krais i givim bikpela presen moa long yumi, na olsem tasol God i bin marimari moa yet long yumi olgeta wan wan. </text>
+    <verse num="8" />
+    <text>Buk bilong God i tok olsem,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
+    <text>"Em i go antap tru, na em i kisim bikpela lain kalabus i go wantaim em. Na em i givim ol presen long ol man."</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Na dispela tok "em i go antap" em i soim yumi olsem Krais i no i go antap tasol. Nogat. Pastaim em i go daun insait long hap bilong graun i stap daunbilo tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Dispela man pastaim em i go daun, em i go antap tu. Em i go antap tru long olgeta heven, bilong em i ken pulapim olgeta samting.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Na em tasol i givim ol presen olsem. Long sampela man em i givim wok aposel. Na long sampela em i givim wok profet. Na long sampela em i givim wok bilong autim gutnius long ol manmeri. Na long sampela em i givim wok pasto na wok bilong skulim ol manmeri long ol pasin God i laikim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Krais i givim ol dispela presen bilong helpim yumi manmeri bilong God bai yumi inap long mekim gutpela wok bilong em. Olsem na bai bodi bilong Krais i ken kamap strong na i stap gut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Na dispela wok bai i go i go inap long yumi bilip tru na dispela i mekim yumi i stap wanbel tru, na yumi olgeta i save tru long Pikinini Bilong God. Olsem na Kristen laip bilong yumi bai i kamap strong na yumi bai kisim ol wankain gutpela pasin olsem Krasi yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Yumi bai i no inap i stap moa olsem ol liklik pikinini, na ol dispela tok bilong ol grisman i save tumas long olgeta pasin bilong trik na giaman, em bai i no inap sakim yumi nabaut olsem win na si i save sakim kanu long solwara, na kanu i trip nabaut na i no i go stret long ples em i makim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Yumi no ken putim yau long ol dispela kain tok. Nogat. Yumi mas bihainim pasin bilong laikim tru ol arapela na mekim tok tru tasol long ol. Olsem bai yumi kamap strongpela manmeri na bai yumi pas tru wantaim Krais, em i het bilong yumi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>na em i save mekim yumi olgeta han lek ai samting bilong bodi yumi mekim gut wok em i makim bilong yumi olgeta wan wan. Na em i save mekim yumi olgeta skru rop bun samting bilong bodi i pas gut wantaim na i bihainim pasin bilong laikim tru ol arapela, na long dispela pasin bodi i save kamap bikpela na strongpela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Olsem na mi laik mekim wanpela tok long yupela. Long nem bilong Bikpela mi tokaut strong olsem, yupela i no ken wokabaut moa long pasin bilong ol haiden. Tingting bilong ol i paul olgeta,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>na save bilong ol i olsem tudak. Ol i no gat save tru, na bel bilong ol i pas, olsem na ol i stap ausait long laip bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Ol i no save sem moa long pasin ol i save mekim. Ol i go insait tru long pasin nogut, na bel bilong ol i kirap tru long mekim ol kain kain pasin doti.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
+    <text> </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Mi ting yupela i harim pinis tok bilong Krais, na ol i skulim yupela pinis long tok tru i stap long Jisas. Na mi save, ol i no bin skulim yupela long mekim ol dispela pasin nogut bilong ol haiden.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Bipo yupela tu i bin wokabaut long pasin bilong olpela man, em pasin bilong giaman na bel i kirap long mekim ol samting nogut, na em pasin i bringim man i go long rot bilong bagarap. Tasol nau yupela i mas rausim dispela olpela pasin</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>na tingting bilong yupela i mas kamap nupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Yupela i mas kamap ol nupela manmeri, em ol manmeri God i mekim ol i kamap nupela na ol i stap olsem God yet, long wanem, pasin bilong ol i stretpela olgeta na i holi tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Olsem na yupela i mas lusim pasin bilong giaman. Yupela olgeta i mas mekim tok tru tasol long ol arapela Kristen, long wanem, yumi olgeta i stap hap bilong wanpela bodi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>Sapos bel bilong yupela i hat, orait yupela lukaut. Nogut yupela i mekim sin. Nogut yupela i belhat yet i stap na san i go daun. </text>
+    <verse num="27" />
+    <text>Nogut yupela i opim dua long Satan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Ol stilman i no ken stil moa. Nogat. Nau ol i mas wok. Ol i mas mekim gutpela wok long han bilong ol yet, na ol bai i kisim planti samting, inap long ol i ken helpim ol man i sot long ol samting.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Yupela i no ken larim ol kain kain tok nogut i kamap long maus bilong yupela. Nogat. Gutpela tok tasol i mas kamap, inap long strongim ol man i slek. Dispela kain tok i save bringim marimari bilong God i kam long ol man i harim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>Yupela i no ken givim bel hevi long Holi Spirit bilong God. God i givim Holi Spirit long yupela olsem mak bilong yupela i stap ol manmeri bilong em stret, na bilong soim yupela olsem em i makim taim bilong kisim bek yupela na mekim yupela i kamap fri tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
+    <verse num="31" />
+    <text>Yupela i mas rausim olgeta pasin bilong bel nogut na kros na belhat na bikmaus na tok bilas, na olgeta kain pasin nogut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>Yupela i mas mekim gutpela pasin long ol arapela Kristen na givim bel bilong yupela long ol. Yupela i mas lusim sin bilong ol, olsem God i lusim sin bilong yupela long nem bilong Krais.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>God i save laikim yupela tru, na yupela i stap pikinini bilong em. Olsem na yupela i mas bihainim ol pasin em yet i save mekim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH">
+    <verse num="2" />
+    <text>Yupela i mas wokabaut long pasin bilong laikim tru ol arapela, olsem Krais i bin laikim yumi tru na givim laip bilong em yet bilong helpim yumi. Em i givim laip bilong en long God olsem ofa i gat gutpela switpela smel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH">
+    <verse num="3" />
+    <text>Yupela i no ken mekim pasin pamuk na olgeta kain pasin doti, na yupela i no ken mangalim ol samting bilong ol arapela. Tok bilong ol dispela pasin tu i no ken kamap liklik namel long yupela. I no inap yumi manmeri bilong God i toktok long ol dispela kain pasin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Yupela i no ken mekim tok doti na tok kranki na tok pilai nogut. Dispela kain pasin em i no inap long yumi mekim. Nogat. Mobeta yupela i tok tenkyu long God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Yupela i mas save gut olsem, ol manmeri bilong mekim pasin pamuk na olkain pasin doti, na ol manmeri bilong mangal, em wankain pasin olsem pasin bilong lotuim ol giaman god, ol dispela lain i no inap i kam insait long kingdom bilong Krais na God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Yupela i mas lukaut gut, nogut yupela i bihainim ol rabis toktok nating bilong ol man i laik pulim yupela i go mekim ol dispela pasin nogut. Em ol dispela kain pasin tasol i save mekim God i belhat long ol man bilong sakim tok bilong em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Olsem na yupela i no ken poroman wantaim ol dispela kain man.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Bipo yupela i stap long tudak, tasol nau Bikpela i putim yupela i stap long lait. Olsem na yupela i mas wokabaut olsem ol manmeri bilong lait.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Lait em i save kamapim olgeta kain gutpela pasin na stretpela pasin na pasin bilong tok tru.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Yupela i mas trai long kisim save long ol pasin Bikpela i savelaikim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Yupela i no ken poroman wantaim ol man i save mekim pasin bilong tudak. Kain pasin olsem em i no save karim gutpela kaikai. Nogat. Mobeta yupela i mas soim ol man olsem, dispela kain pasin em i nogut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Mi no ken tokaut long ol pasin ol i save hait na mekim. Nogat. Mi sem long toktok long ol dispela kain samting.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Tasol lait i save kamapim as bilong olgeta pasin na mekim ol i stap ples klia. </text>
+    <verse num="14" />
+    <text>Na taim lait i mekim wanpela samting i stap ples klia, orait dispela samting tu i kamap olsem lait. Olsem na dispela tok i stap,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+    <text>"Yu man nau yu slip, yu mas kirap. Yu kirap long matmat na Krais bai i givim lait long yu."</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>Olsem na yupela i mas lukaut gut long wokabaut bilong yupela. Yupela i no ken wokabaut olsem man i no gat save. Nogat. Yupela i mas wokabaut olsem man i gat save.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Nau yupela i gat taim bilong mekim pasin bilong God. Tasol dispela taim nau yumi stap long en, em i taim nogut, olsem na yupela i mas lukaut, nogut dispela taim i lus nating.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Yupela i no ken mekim ol kranki pasin. Nogat. Yupela i mas save gut long laik bilong Bikpela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Yupela i no ken dring planti na spak. Nogat. Dispela kain pasin i save bagarapim yupela. Yupela i mas larim Spirit bilong God i pulap long yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Na taim yupela i toktok wantaim ol arapela manmeri bilong God, yupela i mas kisim ol tok i stap long ol song bilong Buk Song na long ol arapela song bilong lotu na long ol song Holi Spirit i kamapim long bel bilong yupela, na putim insait long tok bilong yupela. Na yupela i mas singim ol song long Bikpela, long maus na long bel bilong yupela tu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>Na oltaim yupela i mas givim tenkyu long God Papa long olgeta samting, long nem bilong Bikpela bilong yumi Jisas Krais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Yupela i mas ting long Krais em i Bikpela bilong yupela, na yupela wan wan i mas i stap aninit long ol arapela man meri bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Yupela meri, yupela i mas aninit long ol man bilong yupela, olsem yupela i save aninit long Bikpela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>Long wanem, man em i het bilong meri bilong en, olsem Krais em i het bilong sios. Sios em i bodi bilong Krais, na Krais i bin kisim bek em.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>Sios em i stap aninit long Krais. Olsem tasol yupela meri tu, oltaim yupela i mas aninit long ol man bilong yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH">
+    <verse num="25" />
+    <text>Yupela man, yupela i mas laikim tumas ol meri bilong yupela, olsem Krais i laikim tumas sios na i givim laip bilong em yet bilong helpim sios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH">
+    <verse num="26" />
+    <text>Long wara na long tok bilong en, Krais i wasim sios na mekim em i kamap klin long ai bilong en. Long dispela pasin em i makim sios i bilong em yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH">
+    <verse num="27" />
+    <text>Em i laik mekim sios i kamap naispela tru long ai bilong em, na bai sios i no gat doti na grile na kain samting olsem. Nogat. Sios i ken i stap holi na i no gat asua.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH">
+    <verse num="28" />
+    <text>Olsem tasol yupela man, yupela i mas laikim tru ol meri bilong yupela, olsem yupela i save laikim bodi bilong yupela yet. Man i laikim tru meri bilong en, em i laikim tru em yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH">
+    <verse num="29" />
+    <text>Yumi save, i no gat wanpela man i save birua long bodi bilong em yet. Nogat. Em i save givim kaikai long en na lukautim gut, olsem Krais i save mekim long sios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH">
+    <verse num="30" />
+    <text>long wanem, yumi olsem lek han na ai samting bilong bodi bilong Krais. Buk bilong God i tok olsem,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
+    <verse num="31" />
+    <text>"Olsem na man i save lusim papamama na i pas wantaim meri bilong en, na tupela i kamap wanpela bodi tasol."</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
+    <verse num="32" />
+    <text>Dispela tok hait em i gat bikpela tingting bilong en. Mi yet, mi ting em i tok long Krais wantaim sios bilong en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
+    <verse num="33" />
+    <text>Tasol dispela tok i tok tu long yupela man wan wan long yupela i mas laikim tru meri bilong yupela, olsem yupela i save laikim yupela yet. Na meri i mas i stap aninit long man bilong en na mekim gutpela pasin long em. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH">
+    <verse num="1" />
+    <text>Yupela pikinini, yupela i mas bihainim tok bilong papamama bilong yupela. Yupela olgeta i pas wantaim Bikpela, na dispela pasin em i stretpela pasin bilong yupela i mekim. Buk bilong God i tok olsem,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+    <verse num="2" />
+    <text>"Yu mas aninit long papamama bilong yu na bihainim tok bilong ol."</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
+    <text>Dispela lo em i namba wan lo i gat promis i stap wantaim, em promis i tok olsem,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
+    <verse num="3" />
+    <text>"Sapos yu mekim olsem, orait olgeta wok samting yu mekim i ken kamap gutpela, na bai yu stap longpela taim long dispela graun."</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
+    <verse num="4" />
+    <text>Na yupela papa, yupela i no ken bagarapim tingting bilong ol pikinini bilong yupela na mekim ol i belhat long yupela. Nogat. Yupela i mas mekim gutpela pasin long ai bilong Bikpela, na stretim gut ol pikinini bilong yupela na skulim ol long tok bilong Bikpela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
+    <verse num="5" />
+    <text>Yupela ol wokboi nating, yupela i mas aninit long ol bosman bilong yupela, na yupela i mas pret tru, nogut yupela i mekim pasin i no stret long ai bilong ol. Oltaim yupela i mas tingting strong long mekim gutpela wok tasol, long wankain pasin olsem yupela i save mekim long taim yupela i mekim wok bilong Krais.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH">
+    <verse num="6" />
+    <text>Nogut yupela i ting long grisim ol na yupela i mekim gutpela wok long taim ol i stap klostu tasol. Nogat. Yupela i mas ting olsem yupela i stap wokboi nating bilong Krais yet, na bel bilong yupela i mas amamas long bihainim laik bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH">
+    <verse num="7" />
+    <text>Olsem na yupela i mas belgut na mekim wok. I no olsem yupela i mekim wok bilong ol man. Nogat. Yupela i mekim wok bilong Bikpela yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH">
+    <verse num="8" />
+    <text>Tingim. Sapos wanpela man i mekim gutpela wok, orait Bikpela bai i givim gutpela pe long em, maski dispela man em i wokboi nating o em i stap fri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH">
+    <verse num="9" />
+    <text>Na yupela ol bosman, yupela tu i mas mekim gutpela pasin long ol wokboi nating bilong yupela. Yupela i mas lusim pasin bilong pretim ol. Bikpela i stap long heven, em i Bikpela bilong yupela na bilong ol tu, na em i save skelim pasin bilong olgeta manmeri long wankain pasin tasol.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH">
+    <verse num="10" />
+    <text>Orait nau mi laik pinisim tok bilong mi olsem, yupela i pas wantaim Bikpela, olsem na yupela i mas tingting long olgeta bikpela strong bilong en, na yupela i mas sanap strong.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH">
+    <verse num="11" />
+    <text>Yupela i mas pasim olgeta klos pait God i save givim long yumi, na bai yupela inap long sanap strong na sakim olgeta kain pasin bilong trik na giaman Satan i save hait na mekim.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
+    <verse num="12" />
+    <text>Tingim gut. Yumi no save pait long ol manmeri. Nogat. Yumi pait long ol strongpela spirit na ol gavman na ol kain kain samting i gat strong, ol i save bosim graun long dispela taim bilong tudak. Yumi pait long olgeta spirit nogut i stap antap.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
+    <verse num="13" />
+    <text>Olsem na yupela i mas kisim olgeta klos pait God i save givim yupela, na long taim nogut yupela bai inap sanap strong long pait. Na long taim pait i pinis, yupela bai i sanap strong i stap yet.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH">
+    <verse num="14" />
+    <text>Sapos yupela i laik sanap strong, orait yupela i mas pasim tok tru olsem let bilong yupela, na pasim stretpela pasin olsem siot kapa i karamapim bros bilong yupela,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH">
+    <verse num="15" />
+    <text>na yupela i mas redi long autim gutnius bilong God i laik wanbel wantaim ol manmeri, na putim dispela pasin olsem su bilong yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH">
+    <verse num="16" />
+    <text>Yupela i mas kisim dispela olgeta samting bilong pait, na yupela i mas kisim tu pasin bilong bilip, na holim strong olsem hap plang, bai yupela inap long mekim i dai olgeta spia paia dispela man nogut Satan i save sutim i kam long yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH">
+    <verse num="17" />
+    <text>Yupela i mas tingting long God i kisim bek yupela pinis, na dispela tingting i mas i stap olsem hat kapa yupela i putim. Na yupela i mas holim bainat bilong Holi Spirit, em tok bilong God.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH">
+    <verse num="18" />
+    <text>Long strong bilong Holi Spirit yupela i mas prea oltaim. Yupela i mas strong long mekim ol kain kain beten na askim God long helpim yupela. Oltaim yupela i mas was gut bai yupela i no lusim dispela pasin. Yupela i no ken malolo. Oltaim yupela i mas prea na askim God long helpim olgeta manmeri bilong en.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH">
+    <verse num="19" />
+    <text>Na yupela i mas askim God long helpim mi tu. Mi laik bai yupela i prea olsem, God i ken putim tok long maus bilong mi, na mi ken daunim pret na autim tru tok hait bilong gutnius.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH">
+    <verse num="20" />
+    <text>God yet i bin salim mi i go bilong autim dispela gutnius, na long dispela as tasol mi stap long kalabus. Mi gat wok bilong autim gutnius, olsem na yupela i mas prea long God i ken strongim mi, bai mi ken daunim pret na tokaut strong long ol manmeri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH">
+    <verse num="21" />
+    <text>Tikikus bai i toksave long yupela long olgeta wok mi mekim. Tikikus em i brata tru bilong yumi, na em i gutpela wokman tru bilong Bikpela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH">
+    <verse num="22" />
+    <text>Mi salim em i kam long yupela bai yupela i ken save, mipela i stap olsem wanem, na bai em i ken strongim bel bilong yupela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH">
+    <verse num="23" />
+    <text>God Papa wantaim Bikpela Jisas Krais em i ken mekim isi bel bilong yupela olgeta brata, na em i ken mekim yupela i bilip strong na i laikim tru ol arapela.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
+    <verse num="24" />
+    <text>God i ken mekim pasin bilong marimari long olgeta man i no save lusim pasin bilong laikim tru Bikpela bilong yumi Jisas Krais. </text>
+  </block>
+  <UnappliedSplits />
+</book>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="2JN" singlevoice="false" pageheader="2 JOHN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
+    <text>2 JOHN</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2JN">
+    <verse num="1" />
+    <text>Старец—избранной госпоже и детям ее, которых я люблю по истине, и не только я, но и все, познавшие истину,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2JN">
+    <verse num="2" />
+    <text>ради истины, которая пребывает в нас и будет с нами вовек.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2JN">
+    <verse num="3" />
+    <text>Да будет с вами благодать, милость, мир от Бога Отца и от Господа Иисуса Христа, Сына Отчего, в истине и любви.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2JN">
+    <verse num="4" />
+    <text>Я весьма обрадовался, что нашел из детей твоих, ходящих в истине, как мы получили заповедь от Отца.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2JN">
+    <verse num="5" />
+    <text>И ныне прошу тебя, госпожа, не как новую заповедь предписывая тебе, но ту, которую имеем от начала, чтобы мы любили друг друга.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2JN">
+    <verse num="6" />
+    <text>Любовь же состоит в том, чтобы мы поступали по заповедям Его. Это та заповедь, которую вы слышали от начала, чтобы поступали по ней.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
+    <verse num="7" />
+    <text>Ибо многие обольстители вошли в мир, не исповедующие Иисуса Христа, пришедшего во плоти: такой человек есть обольститель и антихрист.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
+    <verse num="8" />
+    <text>Наблюдайте за собою, чтобы нам не потерять того, над чем мы трудились, но чтобы получить полную награду.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
+    <verse num="9" />
+    <text>Всякий, преступающий учение Христово и не пребывающий в нем, не имеет Бога; пребывающий в учении Христовом имеет и Отца и Сына.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
+    <verse num="10" />
+    <text>Кто приходит к вам и не приносит сего учения, того не принимайте в дом и не приветствуйте его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2JN">
+    <verse num="11" />
+    <text>Ибо приветствующий его участвует в злых делах его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
+    <verse num="12" />
+    <text>Многое имею писать вам, но не хочу на бумаге чернилами, а надеюсь придти к вам и говорить устами к устам, чтобы радость ваша была полна.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-2JN">
+    <verse num="13" />
+    <text>Приветствуют тебя дети сестры твоей избранной. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

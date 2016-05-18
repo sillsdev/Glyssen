@@ -1,0 +1,1385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="HEB" singlevoice="false" pageheader="HEBREWS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-HEB">
+    <text>HEBREWS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Бог, многократно и многообразно говоривший издревле отцам в пророках,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>в последние дни сии говорил нам в Сыне, Которого поставил наследником всего, чрез Которого и веки сотворил.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Сей, будучи сияние славы и образ ипостаси Его и держа все словом силы Своей, совершив Собою очищение грехов наших, воссел одесную (престола) величия на высоте,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>будучи столько превосходнее Ангелов, сколько славнейшее пред ними наследовал имя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Ибо кому когда из Ангелов сказал Бог:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>Ты Сын Мой, Я ныне родил Тебя?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB">
+    <text>И еще:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
+    <text>Я буду Ему Отцем, и Он будет Мне Сыном?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Также, когда вводит Первородного во вселенную, говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="scripture">
+    <text>и да поклонятся Ему все Ангелы Божии.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Об Ангелах сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="scripture">
+    <text>Ты творишь Ангелами Своими духов и служителями Своими пламенеющий огонь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>А о Сыне:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>престол Твой, Боже, в век века; жезл царствия Твоего—жезл правоты.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Ты возлюбил правду и возненавидел беззаконие, посему помазал Тебя, Боже, Бог Твой елеем радости более соучастников Твоих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>И:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>в начале Ты, Господи, основал землю, и небеса—дело рук Твоих;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>они погибнут, а Ты пребываешь; и все обветшают, как риза,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>и как одежду свернешь их, и изменятся; но Ты тот же, и лета Твои не кончатся.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Кому когда из Ангелов сказал Бог:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="scripture">
+    <text>седи одесную Меня, доколе положу врагов Твоих в подножие ног Твоих?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Не все ли они суть служебные духи, посылаемые на служение для тех, которые имеют наследовать спасение?</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Посему мы должны быть особенно внимательны к слышанному, чтобы не отпасть.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Ибо, если через Ангелов возвещенное слово было твердо, и всякое преступление и непослушание получало праведное воздаяние,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>то как мы избежим, вознерадев о толиком спасении, которое, быв сначала проповедано Господом, в нас утвердилось слышавшими от Него,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>при засвидетельствовании от Бога знамениями и чудесами, и различными силами, и раздаянием Духа Святаго по Его воле?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Ибо не Ангелам Бог покорил будущую вселенную, о которой говорим;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>напротив некто негде засвидетельствовал, говоря:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" multiBlockQuote="Start">
+    <text>что значит человек, что Ты помнишь его? или сын человеческий, что Ты посещаешь его?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Не много Ты унизил его пред Ангелами; славою и честью увенчал его, и поставил его над делами рук Твоих,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>все покорил под ноги его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB">
+    <text>Когда же покорил ему все, то не оставил ничего непокоренным ему. Ныне же еще не видим, чтобы все было ему покорено;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>но видим, что за претерпение смерти увенчан славою и честью Иисус, Который не много был унижен пред Ангелами, дабы Ему, по благодати Божией, вкусить смерть за всех.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Ибо надлежало, чтобы Тот, для Которого все и от Которого все, приводящего многих сынов в славу, вождя спасения их совершил через страдания.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Ибо и освящающий и освящаемые, все—от Единого; поэтому Он не стыдится называть их братиями, говоря:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
+    <verse num="12" />
+    <text>возвещу имя Твое братиям Моим, посреди церкви воспою Тебя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>И еще:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>Я буду уповать на Него.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-HEB">
+    <text>И еще:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus">
+    <text>вот Я и дети, которых дал Мне Бог.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>А как дети причастны плоти и крови, то и Он также воспринял оные, дабы смертью лишить силы имеющего державу смерти, то есть диавола,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>и избавить тех, которые от страха смерти через всю жизнь были подвержены рабству.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Ибо не Ангелов восприемлет Он, но восприемлет семя Авраамово.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Посему Он должен был во всем уподобиться братиям, чтобы быть милостивым и верным первосвященником пред Богом, для умилостивления за грехи народа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Ибо, как Сам Он претерпел, быв искушен, то может и искушаемым помочь.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Итак, братия святые, участники в небесном звании, уразумейте Посланника и Первосвященника исповедания нашего, Иисуса Христа,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Который верен Поставившему Его, как и Моисей во всем доме Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Ибо Он достоин тем большей славы пред Моисеем, чем большую честь имеет в сравнении с домом тот, кто устроил его,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>ибо всякий дом устрояется кем-либо; а устроивший всё есть Бог.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>И Моисей верен во всем доме Его, как служитель, для засвидетельствования того, что надлежало возвестить;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>а Христос—как Сын в доме Его; дом же Его—мы, если только дерзновение и упование, которым хвалимся, твердо сохраним до конца.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Почему, как говорит Дух Святый,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
+    <text>ныне, когда услышите глас Его, </text>
+    <verse num="8" />
+    <text>не ожесточите сердец ваших, как во время ропота, в день искушения в пустыне,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>где искушали Меня отцы ваши, испытывали Меня, и видели дела Мои сорок лет.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>Посему Я вознегодовал на оный род и сказал: непрестанно заблуждаются сердцем, не познали они путей Моих;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>посему Я поклялся во гневе Моем, что они не войдут в покой Мой.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Смотрите, братия, чтобы не было в ком из вас сердца лукавого и неверного, дабы вам не отступить от Бога живаго.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Но наставляйте друг друга каждый день, доколе можно говорить: 'ныне', чтобы кто из вас не ожесточился, обольстившись грехом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Ибо мы сделались причастниками Христу, если только начатую жизнь твердо сохраним до конца, </text>
+    <verse num="15" />
+    <text>доколе говорится:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
+    <text>'ныне, когда услышите глас Его, не ожесточите сердец ваших, как во время ропота'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Ибо некоторые из слышавших возроптали; но не все вышедшие из Египта с Моисеем.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>На кого же негодовал Он сорок лет? Не на согрешивших ли, которых кости пали в пустыне?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Против кого же клялся, что не войдут в покой Его, как не против непокорных?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Итак видим, что они не могли войти за неверие.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Посему будем опасаться, чтобы, когда еще остается обетование войти в покой Его, не оказался кто из вас опоздавшим.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Ибо и нам оно возвещено, как и тем; но не принесло им пользы слово слышанное, не растворенное верою слышавших.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>А входим в покой мы уверовавшие, так как Он сказал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
+    <text>'Я поклялся в гневе Моем, что они не войдут в покой Мой',</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-HEB">
+    <text>хотя дела Его были совершены еще в начале мира.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Ибо негде сказано о седьмом дне так:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="scripture">
+    <text>и почил Бог в день седьмый от всех дел Своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>И еще здесь:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="scripture">
+    <text>'не войдут в покой Мой'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Итак, как некоторым остается войти в него, а те, которым прежде возвещено, не вошли в него за непокорность,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>то еще определяет некоторый день, 'ныне', говоря через Давида, после столь долгого времени, как выше сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
+    <text>'ныне, когда услышите глас Его, не ожесточите сердец ваших'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Ибо если бы Иисус Навин доставил им покой, то не было бы сказано после того о другом дне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Посему для народа Божия еще остается субботство.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Ибо, кто вошел в покой Его, тот и сам успокоился от дел своих, как и Бог от Своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Итак постараемся войти в покой оный, чтобы кто по тому же примеру не впал в непокорность.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Ибо слово Божие живо и действенно и острее всякого меча обоюдоострого: оно проникает до разделения души и духа, составов и мозгов, и судит помышления и намерения сердечные.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>И нет твари, сокровенной от Него, но все обнажено и открыто перед очами Его: Ему дадим отчет.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Итак, имея Первосвященника великого, прошедшего небеса, Иисуса Сына Божия, будем твердо держаться исповедания нашего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Ибо мы имеем не такого первосвященника, который не может сострадать нам в немощах наших, но Который, подобно нам, искушен во всем, кроме греха.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Посему да приступаем с дерзновением к престолу благодати, чтобы получить милость и обрести благодать для благовременной помощи.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Ибо всякий первосвященник, из человеков избираемый, для человеков поставляется на служение Богу, чтобы приносить дары и жертвы за грехи,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>могущий снисходить невежествующим и заблуждающим, потому что и сам обложен немощью,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>и посему он должен как за народ, так и за себя приносить жертвы о грехах.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>И никто сам собою не приемлет этой чести, но призываемый Богом, как и Аарон.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Так и Христос не Сам Себе присвоил славу быть первосвященником, но Тот, Кто сказал Ему:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+    <text>Ты Сын Мой, Я ныне родил Тебя;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>как и в другом месте говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="scripture">
+    <text>Ты священник вовек по чину Мелхиседека.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Он, во дни плоти Своей, с сильным воплем и со слезами принес молитвы и моления Могущему спасти Его от смерти; и услышан был за Свое благоговение;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>хотя Он и Сын, однако страданиями навык послушанию,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>и, совершившись, сделался для всех послушных Ему виновником спасения вечного,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>быв наречен от Бога Первосвященником по чину Мелхиседека.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>О сем надлежало бы нам говорить много; но трудно истолковать, потому что вы сделались неспособны слушать.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Ибо, судя по времени, вам надлежало быть учителями; но вас снова нужно учить первым началам слова Божия, и для вас нужно молоко, а не твердая пища.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Всякий, питаемый молоком, несведущ в слове правды, потому что он младенец;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>твердая же пища свойственна совершенным, у которых чувства навыком приучены к различению добра и зла.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Посему, оставив начатки учения Христова, поспешим к совершенству; и не станем снова полагать основание обращению от мертвых дел и вере в Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>учению о крещениях, о возложении рук, о воскресении мертвых и о суде вечном.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>И это сделаем, если Бог позволит.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Ибо невозможно—однажды просвещенных, и вкусивших дара небесного, и соделавшихся причастниками Духа Святаго,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>и вкусивших благого глагола Божия и сил будущего века,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>и отпадших, опять обновлять покаянием, когда они снова распинают в себе Сына Божия и ругаются Ему.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Земля, пившая многократно сходящий на нее дождь и произращающая злак, полезный тем, для которых и возделывается, получает благословение от Бога;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>а производящая терния и волчцы негодна и близка к проклятию, которого конец—сожжение.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Впрочем о вас, возлюбленные, мы надеемся, что вы в лучшем состоянии и держитесь спасения, хотя и говорим так.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Ибо не неправеден Бог, чтобы забыл дело ваше и труд любви, которую вы оказали во имя Его, послужив и служа святым.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Желаем же, чтобы каждый из вас, для совершенной уверенности в надежде, оказывал такую же ревность до конца,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>дабы вы не обленились, но подражали тем, которые верою и долготерпением наследуют обетования.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Бог, давая обетование Аврааму, как не мог никем высшим клясться, клялся Самим Собою, </text>
+    <verse num="14" />
+    <text>говоря:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="scripture">
+    <text>истинно благословляя благословлю тебя и размножая размножу тебя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>И так Авраам, долготерпев, получил обещанное.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Люди клянутся высшим, и клятва во удостоверение оканчивает всякий спор их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Посему и Бог, желая преимущественнее показать наследникам обетования непреложность Своей воли, употребил в посредство клятву,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>дабы в двух непреложных вещах, в которых невозможно Богу солгать, твердое утешение имели мы, прибегшие взяться за предлежащую надежду,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>которая для души есть как бы якорь безопасный и крепкий, и входит во внутреннейшее за завесу,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>куда предтечею за нас вошел Иисус, сделавшись Первосвященником навек по чину Мелхиседека.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Ибо Мелхиседек, царь Салима, священник Бога Всевышнего, тот, который встретил Авраама и благословил его, возвращающегося после поражения царей,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>которому и десятину отделил Авраам от всего, —во-первых, по знаменованию имени царь правды, а потом и царь Салима, то есть царь мира,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>без отца, без матери, без родословия, не имеющий ни начала дней, ни конца жизни, уподобляясь Сыну Божию, пребывает священником навсегда.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Видите, как велик тот, которому и Авраам патриарх дал десятину из лучших добыч своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Получающие священство из сынов Левииных имеют заповедь—брать по закону десятину с народа, то есть со своих братьев, хотя и сии произошли от чресл Авраамовых.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Но сей, не происходящий от рода их, получил десятину от Авраама и благословил имевшего обетования.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Без всякого же прекословия меньший благословляется большим.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>И здесь десятины берут человеки смертные, а там—имеющий о себе свидетельство, что он живет.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>И, так сказать, сам Левий, принимающий десятины, в лице Авраама дал десятину:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>ибо он был еще в чреслах отца, когда Мелхиседек встретил его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Итак, если бы совершенство достигалось посредством левитского священства, —ибо с ним сопряжен закон народа, —то какая бы еще нужда была восставать иному священнику по чину Мелхиседека, а не по чину Аарона именоваться?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Потому что с переменою священства необходимо быть перемене и закона.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Ибо Тот, о Котором говорится сие, принадлежал к иному колену, из которого никто не приступал к жертвеннику.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Ибо известно, что Господь наш воссиял из колена Иудина, о котором Моисей ничего не сказал относительно священства.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>И это еще яснее видно из того, что по подобию Мелхиседека восстает Священник иной,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Который таков не по закону заповеди плотской, но по силе жизни непрестающей.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Ибо засвидетельствовано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="scripture">
+    <text>Ты священник вовек по чину Мелхиседека.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Отменение же прежде бывшей заповеди бывает по причине ее немощи и бесполезности,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>ибо закон ничего не довел до совершенства; но вводится лучшая надежда, посредством которой мы приближаемся к Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>И как сие было не без клятвы, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>ибо те были священниками без клятвы, а Сей с клятвою, потому что о Нем сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="scripture">
+    <text>клялся Господь, и не раскается: Ты священник вовек по чину Мелхиседека, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>то лучшего завета поручителем соделался Иисус.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Притом тех священников было много, потому что смерть не допускала пребывать одному;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>а Сей, как пребывающий вечно, имеет и священство непреходящее,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>посему и может всегда спасать приходящих чрез Него к Богу, будучи всегда жив, чтобы ходатайствовать за них.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Таков и должен быть у нас Первосвященник: святой, непричастный злу, непорочный, отделенный от грешников и превознесенный выше небес,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Который не имеет нужды ежедневно, как те первосвященники, приносить жертвы сперва за свои грехи, потом за грехи народа, ибо Он совершил это однажды, принеся в жертву Себя Самого.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Ибо закон поставляет первосвященниками человеков, имеющих немощи; а слово клятвенное, после закона, поставило Сына, на веки совершенного.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Главное же в том, о чем говорим, есть то: мы имеем такого Первосвященника, Который воссел одесную престола величия на небесах</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>и есть священнодействователь святилища и скинии истинной, которую воздвиг Господь, а не человек.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Всякий первосвященник поставляется для приношения даров и жертв; а потому нужно было, чтобы и Сей также имел, что принести.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Если бы Он оставался на земле, то не был бы и священником, потому что здесь такие священники, которые по закону приносят дары,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>которые служат образу и тени небесного, как сказано было Моисею, когда он приступал к совершению скинии:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="scripture">
+    <text>смотри, сказано, сделай все по образу, показанному тебе на горе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>Но Сей Первосвященник получил служение тем превосходнейшее, чем лучшего Он ходатай завета, который утвержден на лучших обетованиях.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Ибо, если бы первый завет был без недостатка, то не было бы нужды искать места другому.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Но пророк, укоряя их, говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
+    <text>вот, наступают дни, говорит Господь, когда Я заключу с домом Израиля и с домом Иуды новый завет,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>не такой завет, какой Я заключил с отцами их в то время, когда взял их за руку, чтобы вывести их из земли Египетской, потому что они не пребыли в том завете Моем, и Я пренебрег их, говорит Господь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
+    <verse num="10" />
+    <text>Вот завет, который завещаю дому Израилеву после тех дней, говорит Господь:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+    <text>вложу законы Мои в мысли их, и напишу их на сердцах их; и буду их Богом, а они будут Моим народом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>И не будет учить каждый ближнего своего и каждый брата своего, говоря: познай Господа; потому что все, от малого до большого, будут знать Меня,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>потому что Я буду милостив к неправдам их, и грехов их и беззаконий их не воспомяну более.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Говоря 'новый', показал ветхость первого; а ветшающее и стареющее близко к уничтожению.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>И первый завет имел постановление о Богослужении и святилище земное:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>ибо устроена была скиния первая, в которой был светильник, и трапеза, и предложение хлебов, и которая называется 'святое'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>За второю же завесою была скиния, называемая 'Святое-святых',</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>имевшая золотую кадильницу и обложенный со всех сторон золотом ковчег завета, где были золотой сосуд с манною, жезл Ааронов расцветший и скрижали завета,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>а над ним херувимы славы, осеняющие очистилище; о чем не нужно теперь говорить подробно.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>При таком устройстве, в первую скинию всегда входят священники совершать Богослужение;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>а во вторую—однажды в год один только первосвященник, не без крови, которую приносит за себя и за грехи неведения народа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Сим Дух Святый показывает, что еще не открыт путь во святилище, доколе стоит прежняя скиния.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Она есть образ настоящего времени, в которое приносятся дары и жертвы, не могущие сделать в совести совершенным приносящего,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>и которые с яствами и питиями, и различными омовениями и обрядами, относящимися до плоти, установлены были только до времени исправления.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Но Христос, Первосвященник будущих благ, придя с большею и совершеннейшею скиниею, нерукотворенною, то есть не такового устроения,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>и не с кровью козлов и тельцов, но со Своею Кровию, однажды вошел во святилище и приобрел вечное искупление.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Ибо если кровь тельцов и козлов и пепел телицы, через окропление, освящает оскверненных, дабы чисто было тело,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>то кольми паче Кровь Христа, Который Духом Святым принес Себя непорочного Богу, очистит совесть нашу от мертвых дел, для служения Богу живому и истинному!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>И потому Он есть ходатай нового завета, дабы вследствие смерти Его, бывшей для искупления от преступлений, сделанных в первом завете, призванные к вечному наследию получили обетованное.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Ибо, где завещание, там необходимо, чтобы последовала смерть завещателя,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>потому что завещание действительно после умерших: оно не имеет силы, когда завещатель жив.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Почему и первый завет был утвержден не без крови.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Ибо Моисей, произнеся все заповеди по закону перед всем народом, взял кровь тельцов и козлов с водою и шерстью червленою и иссопом, и окропил как самую книгу, так и весь народ, </text>
+    <verse num="20" />
+    <text>говоря:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="scripture">
+    <text>это кровь завета, который заповедал вам Бог.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Также окропил кровью и скинию и все сосуды Богослужебные.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Да и все почти по закону очищается кровью, и без пролития крови не бывает прощения.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Итак образы небесного должны были очищаться сими, самое же небесное лучшими сих жертвами.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Ибо Христос вошел не в рукотворенное святилище, по образу истинного устроенное, но в самое небо, чтобы предстать ныне за нас пред лице Божие,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>и не для того, чтобы многократно приносить Себя, как первосвященник входит во святилище каждогодно с чужою кровью;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>иначе надлежало бы Ему многократно страдать от начала мира; Он же однажды, к концу веков, явился для уничтожения греха жертвою Своею.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>И как человекам положено однажды умереть, а потом суд,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>так и Христос, однажды принеся Себя в жертву, чтобы подъять грехи многих, во второй раз явится не для очищения греха, а для ожидающих Его во спасение.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Закон, имея тень будущих благ, а не самый образ вещей, одними и теми же жертвами, каждый год постоянно приносимыми, никогда не может сделать совершенными приходящих с ними.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Иначе перестали бы приносить их, потому что приносящие жертву, быв очищены однажды, не имели бы уже никакого сознания грехов.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Но жертвами каждогодно напоминается о грехах,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>ибо невозможно, чтобы кровь тельцов и козлов уничтожала грехи.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Посему Христос, входя в мир, говорит:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>жертвы и приношения Ты не восхотел, но тело уготовал Мне.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Всесожжения и жертвы за грех неугодны Тебе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Тогда Я сказал: вот, иду, как в начале книги написано о Мне, исполнить волю Твою, Боже.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Сказав прежде,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
+    <text>что 'ни жертвы, ни приношения, ни всесожжений, ни жертвы за грех,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
+    <text>—которые приносятся по закону, —Ты не восхотел и не благоизволил', </text>
+    <verse num="9" />
+    <text>потом прибавил:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="scripture">
+    <text>'вот, иду исполнить волю Твою, Боже'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB">
+    <text>Отменяет первое, чтобы постановить второе.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>По сей-то воле освящены мы единократным принесением тела Иисуса Христа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>И всякий священник ежедневно стоит в служении, и многократно приносит одни и те же жертвы, которые никогда не могут истребить грехов.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Он же, принеся одну жертву за грехи, навсегда воссел одесную Бога,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>ожидая затем, доколе враги Его будут положены в подножие ног Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Ибо Он одним приношением навсегда сделал совершенными освящаемых.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>О сем свидетельствует нам и Дух Святый; ибо сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Start">
+    <verse num="16" />
+    <text>Вот завет, который завещаю им после тех дней, говорит Господь:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
+    <text>вложу законы Мои в сердца их, и в мыслях их напишу их,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>ибо сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="scripture">
+    <text>и грехов их и беззаконий их не воспомяну более.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>А где прощение грехов, там не нужно приношение за них.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Итак, братия, имея дерзновение входить во святилище посредством Крови Иисуса Христа, путем новым и живым,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>который Он вновь открыл нам через завесу, то есть плоть Свою,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>и имея великого Священника над домом Божиим,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>да приступаем с искренним сердцем, с полною верою, кроплением очистив сердца от порочной совести, и омыв тело водою чистою,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>будем держаться исповедания упования неуклонно, ибо верен Обещавший.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Будем внимательны друг ко другу, поощряя к любви и добрым делам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Не будем оставлять собрания своего, как есть у некоторых обычай; но будем увещевать друг друга, и тем более, чем более усматриваете приближение дня оного.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Ибо если мы, получив познание истины, произвольно грешим, то не остается более жертвы за грехи,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>но некое страшное ожидание суда и ярость огня, готового пожрать противников.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Если отвергшийся закона Моисеева, при двух или трех свидетелях, без милосердия наказывается смертью,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>то сколь тягчайшему, думаете, наказанию повинен будет тот, кто попирает Сына Божия и не почитает за святыню Кровь завета, которою освящен, и Духа благодати оскорбляет?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Мы знаем Того, Кто сказал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>у Меня отмщение, Я воздам, говорит Господь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-HEB">
+    <text>И еще:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="scripture">
+    <text>Господь будет судить народ Свой.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>Страшно впасть в руки Бога живаго!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>Вспомните прежние дни ваши, когда вы, быв просвещены, выдержали великий подвиг страданий,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>то сами среди поношений и скорбей служа зрелищем для других, то принимая участие в других, находившихся в таком же состоянии;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>ибо вы и моим узам сострадали и расхищение имения вашего приняли с радостью, зная, что есть у вас на небесах имущество лучшее и непреходящее.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>Итак не оставляйте упования вашего, которому предстоит великое воздаяние.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>Терпение нужно вам, чтобы, исполнив волю Божию, получить обещанное; </text>
+    <verse num="37" />
+    <text>ибо</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="scripture" multiBlockQuote="Start">
+    <text>еще немного, очень немного, и Грядущий придет и не умедлит.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="38" />
+    <text>Праведный верою жив будет; а если кто поколеблется, не благоволит к тому душа Моя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>Мы же не из колеблющихся на погибель, но стоим в вере к спасению души.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Вера же есть осуществление ожидаемого и уверенность в невидимом.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>В ней свидетельствованы древние.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Верою познаём, что веки устроены словом Божиим, так что из невидимого произошло видимое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Верою Авель принес Богу жертву лучшую, нежели Каин; ею получил свидетельство, что он праведен, как засвидетельствовал Бог о дарах его; ею он и по смерти говорит еще.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Верою Енох переселен был так, что не видел смерти; и не стало его, потому что Бог переселил его. Ибо прежде переселения своего получил он свидетельство, что угодил Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>А без веры угодить Богу невозможно; ибо надобно, чтобы приходящий к Богу веровал, что Он есть, и ищущим Его воздает.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Верою Ной, получив откровение о том, что еще не было видимо, благоговея приготовил ковчег для спасения дома своего; ею осудил он (весь) мир, и сделался наследником праведности по вере.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Верою Авраам повиновался призванию идти в страну, которую имел получить в наследие, и пошел, не зная, куда идет.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Верою обитал он на земле обетованной, как на чужой, и жил в шатрах с Исааком и Иаковом, сонаследниками того же обетования;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>ибо он ожидал города, имеющего основание, которого художник и строитель Бог.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Верою и сама Сарра (будучи неплодна) получила силу к принятию семени, и не по времени возраста родила, ибо знала, что верен Обещавший.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>И потому от одного, и притом омертвелого, родилось так много, как много звезд на небе и как бесчислен песок на берегу морском.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Все сии умерли в вере, не получив обетований, а только издали видели оные, и радовались, и говорили о себе, что они странники и пришельцы на земле;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>ибо те, которые так говорят, показывают, что они ищут отечества.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>И если бы они в мыслях имели то отечество, из которого вышли, то имели бы время возвратиться;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>но они стремились к лучшему, то есть к небесному; посему и Бог не стыдится их, называя Себя их Богом: ибо Он приготовил им город.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Верою Авраам, будучи искушаем, принес в жертву Исаака и, имея обетование, принес единородного,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>о котором было сказано:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="scripture">
+    <text>в Исааке наречется тебе семя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Ибо он думал, что Бог силен и из мертвых воскресить, почему и получил его в предзнаменование.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Верою в будущее Исаак благословил Иакова и Исава.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>Верою Иаков, умирая, благословил каждого сына Иосифова и поклонился на верх жезла своего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Верою Иосиф, при кончине, напоминал об исходе сынов Израилевых и завещал о костях своих.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Верою Моисей по рождении три месяца скрываем был родителями своими, ибо видели они, что дитя прекрасно, и не устрашились царского повеления.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Верою Моисей, придя в возраст, отказался называться сыном дочери фараоновой,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>и лучше захотел страдать с народом Божиим, нежели иметь временное греховное наслаждение,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>и поношение Христово почел большим для себя богатством, нежели Египетские сокровища; ибо он взирал на воздаяние.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Верою оставил он Египет, не убоявшись гнева царского, ибо он, как бы видя Невидимого, был тверд.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Верою совершил он Пасху и пролитие крови, дабы истребитель первенцев не коснулся их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>Верою перешли они Чермное море, как по суше, —на что покусившись, Египтяне потонули.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-HEB">
+    <verse num="30" />
+    <text>Верою пали стены Иерихонские, по семидневном обхождении.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-HEB">
+    <verse num="31" />
+    <text>Верою Раав блудница, с миром приняв соглядатаев (и проводив их другим путем), не погибла с неверными.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-HEB">
+    <verse num="32" />
+    <text>И что еще скажу? Недостанет мне времени, чтобы повествовать о Гедеоне, о Вараке, о Самсоне и Иеффае, о Давиде, Самуиле и (других) пророках,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-HEB">
+    <verse num="33" />
+    <text>которые верою побеждали царства, творили правду, получали обетования, заграждали уста львов,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="narrator-HEB">
+    <verse num="34" />
+    <text>угашали силу огня, избегали острия меча, укреплялись от немощи, были крепки на войне, прогоняли полки чужих;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="narrator-HEB">
+    <verse num="35" />
+    <text>жены получали умерших своих воскресшими; иные же замучены были, не приняв освобождения, дабы получить лучшее воскресение;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-HEB">
+    <verse num="36" />
+    <text>другие испытали поругания и побои, а также узы и темницу,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-HEB">
+    <verse num="37" />
+    <text>были побиваемы камнями, перепиливаемы, подвергаемы пытке, умирали от меча, скитались в милотях и козьих кожах, терпя недостатки, скорби, озлобления;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="38" characterId="narrator-HEB">
+    <verse num="38" />
+    <text>те, которых весь мир не был достоин, скитались по пустыням и горам, по пещерам и ущельям земли.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-HEB">
+    <verse num="39" />
+    <text>И все сии, свидетельствованные в вере, не получили обещанного,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="40" characterId="narrator-HEB">
+    <verse num="40" />
+    <text>потому что Бог предусмотрел о нас нечто лучшее, дабы они не без нас достигли совершенства.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Посему и мы, имея вокруг себя такое облако свидетелей, свергнем с себя всякое бремя и запинающий нас грех и с терпением будем проходить предлежащее нам поприще,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>взирая на начальника и совершителя веры Иисуса, Который, вместо предлежавшей Ему радости, претерпел крест, пренебрегши посрамление, и воссел одесную престола Божия.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Помыслите о Претерпевшем такое над Собою поругание от грешников, чтобы вам не изнемочь и не ослабеть душами вашими.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Вы еще не до крови сражались, подвизаясь против греха,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>и забыли утешение, которое предлагается вам, как сынам:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
+    <text>сын мой! не пренебрегай наказания Господня, и не унывай, когда Он обличает тебя.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="scripture" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Ибо Господь, кого любит, того наказывает; бьет же всякого сына, которого принимает.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Если вы терпите наказание, то Бог поступает с вами, как с сынами. Ибо есть ли какой сын, которого бы не наказывал отец?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Если же остаетесь без наказания, которое всем обще, то вы незаконные дети, а не сыны.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Притом, если мы, будучи наказываемы плотскими родителями нашими, боялись их, то не гораздо ли более должны покориться Отцу духов, чтобы жить?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Те наказывали нас по своему произволу для немногих дней; а Сей—для пользы, чтобы нам иметь участие в святости Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Всякое наказание в настоящее время кажется не радостью, а печалью; но после наученным через него доставляет мирный плод праведности.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>Итак укрепите опустившиеся руки и ослабевшие колени</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>и ходите прямо ногами вашими, дабы хромлющее не совратилось, а лучше исправилось.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>Старайтесь иметь мир со всеми и святость, без которой никто не увидит Господа.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Наблюдайте, чтобы кто не лишился благодати Божией; чтобы какой горький корень, возникнув, не причинил вреда, и чтобы им не осквернились многие;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>чтобы не было между вами какого блудника, или нечестивца, который бы, как Исав, за одну снедь отказался от своего первородства.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Ибо вы знаете, что после того он, желая наследовать благословение, был отвержен; не мог переменить мыслей отца, хотя и просил о том со слезами.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Вы приступили не к горе, осязаемой и пылающей огнем, не ко тьме и мраку и буре,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>не к трубному звуку и гласу глаголов, который слышавшие просили, чтобы к ним более не было продолжаемо слово,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>ибо они не могли стерпеть того, что заповедуемо было:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
+    <text>если и зверь прикоснется к горе, будет побит камнями (или поражен стрелою);</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>и столь ужасно было это видение, что и Моисей сказал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="scripture">
+    <text>'я в страхе и трепете'.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Но вы приступили к горе Сиону и ко граду Бога живаго, к небесному Иерусалиму и тьмам Ангелов,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>к торжествующему собору и церкви первенцев, написанных на небесах, и к Судии всех Богу, и к духам праведников, достигших совершенства,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>и к Ходатаю нового завета Иисусу, и к Крови кропления, говорящей лучше, нежели Авелева.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-HEB">
+    <verse num="25" />
+    <text>Смотрите, не отвратитесь и вы от говорящего. Если те, не послушав глаголавшего на земле, не избегли наказания, то тем более не избежим мы, если отвратимся от Глаголющего с небес,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="narrator-HEB">
+    <verse num="26" />
+    <text>Которого глас тогда поколебал землю, и Который ныне дал такое обещание:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="scripture">
+    <text>еще раз поколеблю не только землю, но и небо.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-HEB">
+    <verse num="27" />
+    <text>Слова: 'еще раз' означают изменение колеблемого, как сотворенного, чтобы пребыло непоколебимое.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB">
+    <verse num="28" />
+    <text>Итак мы, приемля царство непоколебимое, будем хранить благодать, которою будем служить благоугодно Богу, с благоговением и страхом,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-HEB">
+    <verse num="29" />
+    <text>потому что Бог наш есть огнь поядающий.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="HEB" initialStartVerse="0" characterId="BC-HEB">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-HEB">
+    <verse num="1" />
+    <text>Братолюбие между вами да пребывает.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-HEB">
+    <verse num="2" />
+    <text>Страннолюбия не забывайте, ибо через него некоторые, не зная, оказали гостеприимство Ангелам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-HEB">
+    <verse num="3" />
+    <text>Помните узников, как бы и вы с ними были в узах, и страждущих, как и сами находитесь в теле.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-HEB">
+    <verse num="4" />
+    <text>Брак у всех да будет честен и ложе непорочно; блудников же и прелюбодеев судит Бог.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-HEB">
+    <verse num="5" />
+    <text>Имейте нрав несребролюбивый, довольствуясь тем, что есть. Ибо Сам сказал:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="scripture">
+    <text>не оставлю тебя и не покину тебя,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-HEB">
+    <verse num="6" />
+    <text>так что мы смело говорим:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="scripture">
+    <text>Господь мне помощник, и не убоюсь: что сделает мне человек?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-HEB">
+    <verse num="7" />
+    <text>Поминайте наставников ваших, которые проповедывали вам слово Божие, и, взирая на кончину их жизни, подражайте вере их.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-HEB">
+    <verse num="8" />
+    <text>Иисус Христос вчера и сегодня и во веки Тот же.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-HEB">
+    <verse num="9" />
+    <text>Учениями различными и чуждыми не увлекайтесь; ибо хорошо благодатью укреплять сердца, а не яствами, от которых не получили пользы занимающиеся ими.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-HEB">
+    <verse num="10" />
+    <text>Мы имеем жертвенник, от которого не имеют права питаться служащие скинии.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-HEB">
+    <verse num="11" />
+    <text>Так как тела животных, которых кровь для очищения греха вносится первосвященником во святилище, сжигаются вне стана, —</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-HEB">
+    <verse num="12" />
+    <text>то и Иисус, дабы освятить людей Кровию Своею, пострадал вне врат.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-HEB">
+    <verse num="13" />
+    <text>Итак выйдем к Нему за стан, нося Его поругание;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-HEB">
+    <verse num="14" />
+    <text>ибо не имеем здесь постоянного града, но ищем будущего.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-HEB">
+    <verse num="15" />
+    <text>Итак будем через Него непрестанно приносить Богу жертву хвалы, то есть плод уст, прославляющих имя Его.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-HEB">
+    <verse num="16" />
+    <text>Не забывайте также благотворения и общительности, ибо таковые жертвы благоугодны Богу.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="narrator-HEB">
+    <verse num="17" />
+    <text>Повинуйтесь наставникам вашим и будьте покорны, ибо они неусыпно пекутся о душах ваших, как обязанные дать отчет; чтобы они делали это с радостью, а не воздыхая, ибо это для вас неполезно.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-HEB">
+    <verse num="18" />
+    <text>Молитесь о нас; ибо мы уверены, что имеем добрую совесть, потому что во всем желаем вести себя честно.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="narrator-HEB">
+    <verse num="19" />
+    <text>Особенно же прошу делать это, дабы я скорее возвращен был вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="20" characterId="narrator-HEB">
+    <verse num="20" />
+    <text>Бог же мира, воздвигший из мертвых Пастыря овец великого Кровию завета вечного, Господа нашего Иисуса (Христа),</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="narrator-HEB">
+    <verse num="21" />
+    <text>да усовершит вас во всяком добром деле, к исполнению воли Его, производя в вас благоугодное Ему через Иисуса Христа. Ему слава во веки веков! Аминь.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="22" characterId="narrator-HEB">
+    <verse num="22" />
+    <text>Прошу вас, братия, примите сие слово увещания; я же не много и написал вам.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="narrator-HEB">
+    <verse num="23" />
+    <text>Знайте, что брат наш Тимофей освобожден, и я вместе с ним, если он скоро придет, увижу вас.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-HEB">
+    <verse num="24" />
+    <text>Приветствуйте всех наставников ваших и всех святых. Приветствуют вас Италийские. </text>
+    <verse num="25" />
+    <text>Благодать со всеми вами. Аминь.</text>
+  </block>
+  <UnappliedSplits />
+</book>

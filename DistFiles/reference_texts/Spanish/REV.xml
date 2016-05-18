@@ -1,0 +1,1971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="REV" singlevoice="false">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-REV">
+    <text>REVELATION</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Esta es la revelación que Dios hizo a Jesucristo, para que él mostrara a sus siervos lo que pronto ha de suceder. Jesucristo lo ha dado a conocer enviando su ángel a su siervo Juan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>el cual ha dicho la verdad de todo lo que vio, y es testigo del mensaje de Dios confirmado por Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Dichoso el que lee y dichosos los que escuchan la lectura de este mensaje profético, y hacen caso de lo que aquí está escrito, porque ya se acerca el tiempo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Juan saluda a las siete iglesias de la provincia de Asia. Reciban ustedes gracia y paz de parte del que es y era y ha de venir, y de parte de los siete espíritus que están delante de su trono,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>y también de parte de Jesucristo, testigo fiel, que fue el primero en resucitar y tiene autoridad sobre los reyes de la tierra. Cristo nos ama, y nos ha librado de nuestros pecados derramando su sangre,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>y ha hecho de nosotros un reino; nos ha hecho sacerdotes al servicio de su Dios y Padre. ¡Que la gloria y el poder sean suyos para siempre! Amén.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>¡Cristo viene en las nubes! Todos lo verán, incluso los que lo traspasaron; y todos los pueblos del mundo harán duelo por él. Sí, amén.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
+    <verse num="8" />
+    <text>&lt;&lt;Yo soy el alfa y la omega,&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
+    <text>dice El Señor Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
+    <text>el que es, el que era y el que ha de venir, el todopoderoso.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Yo, Juan, soy hermano de ustedes, y por mi unión con Jesús tengo parte con ustedes en el reino de Dios, en los sufrimientos y en la fortaleza para soportarlos. Por haber anunciado el mensaje de Dios confirmado por Jesús, me encontraba yo en la isla llamada Patmos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Y sucedió que en el día del Señor quedé bajo el poder del Espíritu, y oí detrás de mí una fuerte voz, como un toque de trompeta, </text>
+    <verse num="11" />
+    <text>que me decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="Jesus">
+    <text>&lt;&lt;Yo soy el Alfa y la Omega, el primero y el último, y Escribe en un libro lo que ves, y mándalo a las siete iglesias de la provincia de Asia: a Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadelfia y Laodicea.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Me volví para ver de quién era la voz que me hablaba; y al hacerlo vi siete candelabros de oro,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>y en medio de los siete candelabros vi a alguien que parecía ser un hijo de hombre, vestido con una ropa que le llegaba hasta los pies y con un cinturón de oro a la altura del pecho.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Sus cabellos eran blancos como la lana, o como la nieve, y sus ojos parecían llamas de fuego.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Sus pies brillaban como bronce pulido, fundido en un horno; y su voz era tan fuerte como el ruido de una cascada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>En su mano derecha tenía siete estrellas, y de su boca salía una aguda espada de dos filos. Su cara era como el sol cuando brilla en todo su esplendor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Al verlo, caí a sus pies como muerto. Pero él, poniendo su mano derecha sobre mí, me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start">
+    <text>&lt;&lt;No tengas miedo; yo soy el primero y el último, </text>
+    <verse num="18" />
+    <text>y el que vive. Estuve muerto, pero ahora vivo para siempre. Yo tengo las llaves del reino de la muerte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="19" />
+    <text>Escribe lo que has visto: lo que ahora hay y lo que va a haber después.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="20" />
+    <text>Este es el secreto de las siete estrellas que has visto en mi mano derecha, y de los siete candelabros de oro: las siete estrellas representan a los ángeles de las siete iglesias, y los siete candelabros representan a las siete iglesias.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="Jesus">
+    <verse num="1" />
+    <text>&lt;&lt;Escribe al ángel de la iglesia de Éfeso: &lt;Esto dice el que tiene las siete estrellas en su mano derecha y anda en medio de los siete candelabros de oro:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="2" />
+    <text>Yo sé todo lo que haces; conozco tu duro trabajo y tu constancia, y sé que no puedes soportar a los malos. También sé que has puesto a prueba a los que dicen ser apóstoles y no lo son, y has descubierto que son mentirosos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="3" />
+    <text>Has sido constante, y has sufrido mucho por mi causa, sin cansarte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="4" />
+    <text>Pero tengo una cosa contra ti: que ya no tienes el mismo amor que al principio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="5" />
+    <text>Por eso, recuerda de dónde has caído, vuélvete a Dios y haz otra vez lo que hacías al principio. Si no, iré a ti y quitaré tu candelabro de su lugar, a menos que te vuelvas a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Sin embargo, tienes a tu favor que odias los hechos de los nicolaítas, los cuales yo también odio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias! A los que salgan vencedores les daré a comer del árbol de la vida, que está en el paraíso de Dios.&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="8" />
+    <text>&lt;&lt;Escribe también al ángel de la iglesia de Esmirna: &lt;Esto dice el primero y el último, el que murió y ha vuelto a vivir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Yo conozco tus sufrimientos y tu pobreza, aunque en realidad eres rico. Y sé lo mal que hablan de ti los que se dicen judíos pero no son otra cosa que una congregación de Satanás.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>No tengas miedo de lo que vas a sufrir, pues el diablo meterá en la cárcel a algunos de ustedes, para que todos ustedes sean puestos a prueba; y tendrán que sufrir durante diez días. Manténte fiel hasta la muerte, y yo te daré la vida como premio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias! Los que salgan vencedores no sufrirán ningún daño de la segunda muerte.&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
+    <verse num="12" />
+    <text>&lt;&lt;Escribe también al ángel de la iglesia de Pérgamo: &lt;Esto dice el que tiene la aguda espada de dos filos:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="13" />
+    <text>Yo sé que vives donde Satanás tiene su trono; sin embargo sigues fiel a mi causa. No renegaste de tu fe en mí, ni siquiera en los días en que a Antipas, mi testigo fiel, lo mataron en esa ciudad donde vive Satanás.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="14" />
+    <text>Pero tengo unas cuantas cosas contra ti: que ahí tienes algunos que no quieren apartarse de la enseñanza de Balaam, el cual aconsejó a Balac que hiciera pecar a los israelitas incitándolos a comer alimentos ofrecidos en sacrificio a los ídolos y a la prostitución.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="15" />
+    <text>También tienes ahí algunos que no quieren apartarse de la enseñanza de los nicolaítas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="16" />
+    <text>Por eso, vuélvete a Dios; de lo contrario, iré pronto a ti, y con la espada que sale de mi boca pelearé contra ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias! A los que salgan vencedores les daré a comer del maná que está escondido; y les daré también una piedra blanca, en la que está escrito un nombre nuevo que nadie conoce sino quien lo recibe.&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="Jesus">
+    <verse num="18" />
+    <text>&lt;&lt;Escribe también al ángel de la iglesia de Tiatira: &lt;Esto dice el Hijo de Dios, el que tiene los ojos como llamas de fuego y los pies como bronce pulido:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="19" />
+    <text>Yo sé todo lo que haces; conozco tu amor, tu fe, tu servicio y tu constancia, y sé que ahora estás haciendo más que al principio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="20" />
+    <text>Pero tengo una cosa contra ti: que toleras a esa mujer, Jezabel, que se llama a sí misma profetisa pero engaña con su enseñanza a mis siervos, incitándolos a la prostitución y a comer alimentos ofrecidos en sacrificio a los ídolos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="21" />
+    <text>Yo le he dado tiempo para que se convierta a Dios; pero ella no ha querido hacerlo ni ha abandonado su prostitución.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="22" />
+    <text>Así que yo la arrojo en un lecho de dolor, y haré los que cometen adulterio con ella sufren intensamente, a menos que se arrepientan de sus caminos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="23" />
+    <text>voy a golpear a sus hijos muertos. Y todas las iglesias sabrán que yo soy el que escudriña los corazones y las mentes, y os daré a cada uno según vuestras obras.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="24" />
+    <text>En cuanto a ustedes, los que están en Tiatira pero no siguen esa enseñanza ni han llegado a conocer lo que ellos llaman los secretos profundos de Satanás, les digo que no les impongo otra carga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="25" />
+    <text>Pero conserven lo que tienen, hasta que yo venga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="26" />
+    <text>El que salga vencedor, y el que guarda mis obras hasta el fin, yo le daré autoridad sobre las naciones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="27" />
+    <text>y las regirá con vara de hierro, rompiendo ellos como ollas de barro, como yo también la he recibido de mi Padre:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="28" />
+    <text>y yo le daré la estrella de la mañana.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="29" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias!&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="1" />
+    <text>&lt;&lt;Escribe también al ángel de la iglesia de Sardes: &lt;Esto dice el que tiene los siete espíritus de Dios y las siete estrellas: Yo sé todo lo que haces, y sé que estás muerto aunque tienes fama de estar vivo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="2" />
+    <text>Despiértate y refuerza las cosas que todavía quedan, pero que ya están a punto de morir, pues he visto que lo que haces no es perfecto delante de mi Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="3" />
+    <text>Recuerda, pues, la enseñanza que has recibido; síguela y vuélvete a Dios. Si no te mantienes despierto, iré a ti como el ladrón, cuando menos lo esperes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="4" />
+    <text>Sin embargo, ahí en Sardes tienes unas cuantas personas que no han manchado sus ropas; ellas andarán conmigo vestidas de blanco, porque se lo merecen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="5" />
+    <text>Los que salgan vencedores serán así vestidos de blanco, y no borraré sus nombres del libro de la vida, sino que los reconoceré delante de mi Padre y delante de sus ángeles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias!&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus">
+    <verse num="7" />
+    <text>&lt;&lt;Escribe también al ángel de la iglesia de Filadelfia: &lt;Esto dice el que es santo y verdadero, el que tiene la llave del rey David, el que cuando abre nadie puede cerrar y cuando cierra nadie puede abrir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="8" />
+    <text>Yo sé todo lo que haces; mira, delante de ti he puesto una puerta abierta que nadie puede cerrar, y aunque tienes poca fuerza, has hecho caso de mi palabra y no me has negado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>Yo haré que los de la congregación de Satanás, los mentirosos que dicen ser judíos y no lo son, vayan a arrodillarse a tus pies, para que sepan que yo te he amado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>Has cumplido mi mandamiento de ser constante, y por eso yo te protegeré de la hora de prueba que va a venir sobre el mundo entero para poner a prueba a todos los que viven en la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Vengo pronto. Conserva lo que tienes, para que nadie te arrebate tu premio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>A los que salgan vencedores les daré que sean columnas en el templo de mi Dios, y nunca más saldrán de allí; y en ellos escribiré el nombre de mi Dios y el nombre de la ciudad de mi Dios, la nueva Jerusalén que viene del cielo, de mi Dios; y también escribiré en ellos mi nombre nuevo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="13" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias!&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Jesus">
+    <verse num="14" />
+    <text>&lt;&lt;Escribe también al ángel de la iglesia de Laodicea: &lt;Esto dice el Amén, el testigo fiel y verdadero, el origen de todo lo que Dios creó:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="15" />
+    <text>Yo sé todo lo que haces. Sé que no eres frío ni caliente. ¡Ojalá fueras frío o caliente!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="16" />
+    <text>Pero como eres tibio, y no frío ni caliente, te vomitaré de mi boca.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>Pues tú dices que eres rico, que te ha ido muy bien y que no te hace falta nada; y no te das cuenta de que eres un desdichado, miserable, pobre, ciego y desnudo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="18" />
+    <text>Por eso te aconsejo que de mí compres oro refinado en el fuego, para que seas realmente rico; y que de mí compres ropa blanca para vestirte y cubrir tu vergonzosa desnudez, y una medicina para que te la pongas en los ojos y veas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="19" />
+    <text>Yo reprendo y corrijo a todos los que amo. Por lo tanto, sé fervoroso y vuélvete a Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="20" />
+    <text>Mira, yo estoy llamando a la puerta; si alguien oye mi voz y abre la puerta, entraré en su casa y cenaremos juntos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="21" />
+    <text>A los que salgan vencedores les daré un lugar conmigo en mi trono, así como yo he vencido y me he sentado con mi Padre en su trono.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="22" />
+    <text>¡El que tiene oídos, oiga lo que el Espíritu dice a las iglesias!&gt;! &gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Después de esto, miré y vi una puerta abierta en el cielo; y la voz que yo había escuchado primero, y que parecía un toque de trompeta, me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="Jesus">
+    <text>&lt;&lt;Sube acá y te mostraré las cosas que tienen que suceder después de estas.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>En ese momento quedé bajo el poder del Espíritu, y vi un trono puesto en el cielo, y alguien estaba sentado en el trono.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>El que estaba sentado en el trono tenía el aspecto de un diamante o de un rubí, y alrededor del trono había un arco iris que brillaba como una esmeralda;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>también alrededor del trono vi otros veinticuatro tronos, en los cuales estaban sentados veinticuatro ancianos: iban vestidos de blanco y llevaban una corona de oro en la cabeza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Del trono salían relámpagos, voces y truenos; y delante del trono ardían siete antorchas de fuego, que son los siete espíritus de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Delante del trono había también algo que parecía un mar, transparente como el cristal. En el centro, donde estaba el trono, y a su alrededor, había cuatro seres vivientes llenos de ojos por delante y por detrás.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>El primero de aquellos seres parecía un león, el segundo parecía un toro, el tercero tenía aspecto humano, y el cuarto parecía un águila volando.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Cada uno de los cuatro seres vivientes tenía seis alas, y estaba cubierto de ojos por fuera y por dentro. Y ni de día ni de noche dejaban de decir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="four living creatures">
+    <text>&lt;&lt;¡Santo, santo, santo es el Señor, Dios todopoderoso, el que era y es y ha de venir!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Cuando los seres vivientes dan gloria, honor y gracias a él que está sentado en el trono, al que vive por los siglos de los siglos,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>los veinti-cuatro ancianos se postran delante del que está sentado en el trono, y la adoración Aquel que vive por los siglos de los siglos, y arrojan sus coronas delante del trono, diciendo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="twenty-four elders">
+    <verse num="11" />
+    <text>&lt;&lt;Tú eres digno, Señor y Dios nuestro, de recibir la gloria, el honor y el poder, porque tú has creado todas las cosas; por tu voluntad existen y han sido creadas.&gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>En la mano derecha del que estaba sentado en el trono vi un rollo escrito por dentro y por fuera, y sellado con siete sellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Y vi un ángel poderoso que preguntaba a gran voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="angel, powerful" delivery="loud">
+    <text>&lt;&lt;¿Quién es digno de abrir el rollo y romper sus sellos?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Pero ni en el cielo ni en la tierra ni debajo de la tierra había nadie que pudiera abrir el rollo, ni mirarlo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Y yo lloraba mucho, porque no se había encontrado a nadie digno de abrir el rollo, ni de mirarlo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Pero uno de los ancianos me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="elders, one of the">
+    <text>&lt;&lt;No llores más, pues el León de la tribu de Judá, el retoño de David, ha vencido y puede abrir el rollo y romper sus siete sellos.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Entonces, en medio del trono y de los cuatro seres vivientes, y en medio de los ancianos, vi un Cordero. Estaba de pie, pero se veía que había sido sacrificado. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <text>Tenía siete cuernos y siete ojos, que son los siete espíritus de Dios enviados por toda la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Aquel Cordero fue y tomó el rollo de la mano derecha del que estaba sentado en el trono;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>y en cuanto tomó el rollo, los cuatro seres vivientes y los veinticuatro ancianos se pusieron de rodillas delante del Cordero. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <text>Todos ellos tenían arpas, y llevaban copas de oro llenas de incienso, que son las oraciones del pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Y cantaban este canto nuevo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start">
+    <text>&lt;&lt;Tú eres digno de tomar el rollo y de romper sus sellos, porque fuiste sacrificado; y derramando tu sangre redimiste para Dios gentes de toda raza, lengua, pueblo y nación.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>De ellos hiciste un reino, hiciste sacerdotes para nuestro Dios, y reinarán sobre la tierra.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Luego miré, y oí la voz de muchos ángeles que estaban alrededor del trono, de los seres vivientes y de los ancianos. Había millones y millones de ellos,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>y decían con fuerte voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="angels, many" delivery="singing">
+    <text>&lt;&lt;¡El Cordero que fue sacrificado es digno de recibir el poder y la riqueza, la sabiduría y la fuerza, el honor, la gloria y la alabanza!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Y oí también que todas las cosas creadas por Dios en el cielo, en la tierra, debajo de la tierra y en el mar, decían:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="every created thing" delivery="singing">
+    <text>&lt;&lt;¡Al que está sentado en el trono y al Cordero, sean dados la alabanza, el honor, la gloria y el poder por todos los siglos!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Los cuatro seres vivientes respondían:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="four living creatures">
+    <text>&lt;&lt;¡Amén!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
+    <text>Y los veinticuatro ancianos se pusieron de rodillas y adoraron.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Luego vi cuando el Cordero rompía el primero de los siete sellos, y oí que uno de aquellos cuatro seres vivientes decía con voz que parecía un trueno:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="living creature, first" delivery="loud">
+    <text>&lt;&lt;¡Ven!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Miré, y vi un caballo blanco, y el que lo montaba llevaba un arco en la mano. Se le dio una corona, y salió triunfante y para triunfar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Cuando el Cordero rompió el segundo sello, oí que el segundo de los seres vivientes decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="living creature, second">
+    <text>&lt;&lt;¡Ven!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Y salió otro caballo. Era de color rojo, y el que lo montaba recibió poder para quitar la paz del mundo y para hacer que los hombres se mataran unos a otros; y se le dio una gran espada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Cuando el Cordero rompió el tercer sello, oí que el tercero de los seres vivientes decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="living creature, third">
+    <text>&lt;&lt;¡Ven!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-REV">
+    <text>Miré, y vi un caballo negro, y el que lo montaba tenía una balanza en la mano.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Y en medio de los cuatro seres vivientes oí una voz que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="voice from among living creatures">
+    <text>&lt;&lt;Solamente un kilo de trigo por el salario de un día, y tres kilos de cebada por el salario de un día; pero no eches a perder el aceite ni el vino.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Cuando el Cordero rompió el cuarto sello, oí que el cuarto de los seres vivientes decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="living creature, fourth">
+    <text>&lt;&lt;¡Ven!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Miré, y vi un caballo amarillento, y el que lo montaba se llamaba Muerte. Tras él venía el que representaba al reino de la muerte, y se les dio poder sobre la cuarta parte del mundo, para matar con guerras, con hambres, con enfermedades y con las fieras de la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Cuando el Cordero rompió el quinto sello, vi debajo del altar a los que habían sido degollados por haber proclamado el mensaje de Dios y haber sido fieles a su testimonio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Decían con fuerte voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="souls of those killed for word of God">
+    <text>&lt;&lt;Soberano santo y fiel, ¿cuándo juzgarás a los habitantes de la tierra y vengarás nuestra muerte?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Entonces se les dieron ropas blancas, y se les dijo que descansaran aún por un poco de tiempo, hasta que se completara el número de sus hermanos que, en el servicio a Dios, tenían que ser muertos como ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Cuando el Cordero rompió el sexto sello, miré, y hubo un gran terremoto. El sol se volvió negro, como ropa de luto; toda la luna se volvió roja, como la sangre,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>y las estrellas cayeron del cielo a la tierra, como caen los higos verdes de la higuera cuando esta es sacudida por un fuerte viento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>El cielo desapareció como un papel que se enrolla, y todas las montañas y las islas fueron removidas de su lugar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Y los reyes del mundo se escondieron en las cuevas y entre las rocas de las montañas, junto con los grandes, los jefes militares, los ricos, los poderosos y todos los esclavos y los hombres libres;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>y decían a las montañas y a las rocas:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="kings, princes, generals, rich, powerful, slave and free" delivery="crying" multiBlockQuote="Start">
+    <text>&lt;&lt;¡Caigan sobre nosotros y escóndannos de la presencia del que está sentado en el trono, y de la ira del Cordero!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="kings, princes, generals, rich, powerful, slave and free" delivery="crying" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>Porque ha llegado ya el gran día del castigo, ¿y quién podrá resistir?&gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Después de esto, vi cuatro ángeles que estaban en pie sobre los cuatro puntos cardinales, deteniendo los cuatro vientos para que no soplaran sobre la tierra ni sobre el mar ni sobre ningún árbol.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>También vi otro ángel que venía del oriente, y que tenía el sello del Dios viviente. Este ángel gritó con fuerte voz a los otros cuatro que habían recibido poder para hacer daño a la tierra y al mar:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="angel standing in sun">
+    <verse num="3" />
+    <text>&lt;&lt;¡No hagan daño a la tierra ni al mar ni a los árboles, mientras no hayamos puesto un sello en la frente a los siervos de nuestro Dios!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Y oí el número de los que así fueron señalados: ciento cuarenta y cuatro mil de entre todas las tribus israelitas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Fueron señalados doce mil de la tribu de Judá, doce mil de la tribu de Rubén, doce mil de la tribu de Gad,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>doce mil de la tribu de Aser, doce mil de la tribu de Neftalí, doce mil de la tribu de Manasés,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>doce mil de la tribu de Simeón, doce mil de la tribu de Leví, doce mil de la tribu de Isacar,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>doce mil de la tribu de Zabulón, doce mil de la tribu de José y doce mil de la tribu de Benjamín.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Después de esto, miré y vi una gran multitud de todas las naciones, razas, lenguas y pueblos. Estaban en pie delante del trono y delante del Cordero, y eran tantos que nadie podía contarlos. Iban vestidos de blanco y llevaban palmas en las manos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Todos gritaban con fuerte voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="multitude from all nations, tribes, peoples, languages">
+    <text>&lt;&lt;¡La salvación se debe a nuestro Dios que está sentado en el trono, y al Cordero!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Y todos los ángeles estaban en pie alrededor del trono y de los ancianos y de los cuatro seres vivientes; y se inclinaron delante del trono hasta tocar el suelo con la frente, y adoraron a Dios </text>
+    <verse num="12" />
+    <text>diciendo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="angels, all the">
+    <text>&lt;&lt;¡Amén! La alabanza, la gloria, la sabiduría, la gratitud, el honor, el poder y la fuerza sean dados a nuestro Dios por todos los siglos. ¡Amén!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Entonces uno de los ancianos me preguntó:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="elders, one of the">
+    <text>&lt;&lt;¿Quiénes son estos que están vestidos de blanco, y de dónde han venido?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>&lt;&lt;Tú lo sabes, señor&gt;&gt;, le contesté. Y él me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="elders, one of the" multiBlockQuote="Start">
+    <text>&lt;&lt;Estos son los que han pasado por la gran tribulación, los que han lavado sus ropas y las han blanqueado en la sangre del Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="elders, one of the" multiBlockQuote="Continuation">
+    <verse num="15" />
+    <text>&lt;&lt;Por eso están delante del trono de Dios, y día y noche le sirven en su templo. El que está sentado en el trono los protegerá con su presencia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="elders, one of the" multiBlockQuote="Continuation">
+    <verse num="16" />
+    <text>Ya no sufrirán hambre ni sed, ni los quemará el sol, ni el calor los molestará;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="elders, one of the" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>porque el Cordero, que está en medio del trono, será su pastor y los guiará a manantiales de aguas de vida, y Dios secará toda lágrima de sus ojos.&gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Cuando el Cordero rompió el séptimo sello del rollo, hubo silencio en el cielo durante una media hora.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Luego vi a los siete ángeles que estaban de pie delante de Dios, a los cuales se les dieron siete trompetas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Después vino otro ángel, con un incensario de oro, y se puso de pie ante el altar; y se le dio mucho incienso, para ofrecerlo sobre el altar de oro que estaba delante del trono, junto con las oraciones del pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>El humo del incienso subió de la mano del ángel a la presencia de Dios, junto con las oraciones del pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Entonces el ángel tomó el incensario, lo llenó con brasas de fuego del altar, y lo lanzó sobre la tierra; y hubo truenos, voces, relámpagos y un terremoto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Los siete ángeles que tenían las siete trompetas se prepararon para tocarlas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>El primer ángel tocó su trompeta, y fueron lanzados sobre la tierra granizo y fuego mezclados con sangre. Se quemó la tercera parte de la tierra, junto con la tercera parte de los árboles y toda la hierba verde.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>El segundo ángel tocó su trompeta, y fue lanzado al mar algo que parecía un gran monte ardiendo en llamas; y la tercera parte del mar se volvió sangre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>La tercera parte de todo lo que vivía en el mar, murió, y la tercera parte de los barcos fueron destruidos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>El tercer ángel tocó su trompeta, y una gran estrella, ardiendo como una antorcha, cayó del cielo sobre la tercera parte de los ríos y sobre los manantiales.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>La estrella se llamaba Amargura; y la tercera parte de las aguas se volvió amarga, y a causa de aquellas aguas amargas murió mucha gente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>El cuarto ángel tocó su trompeta, y fue dañada la tercera parte del sol, la tercera parte de la luna y la tercera parte de las estrellas. De modo que una tercera parte de ellos quedó oscura, y no dieron su luz durante la tercera parte del día ni de la noche.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Luego miré, y oí un águila que volaba en medio del cielo y decía con fuerte voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="eagle crying with loud voice">
+    <text>&lt;&lt;¡Ay, ay, ay de los habitantes de la tierra, cuando suenen las trompetas que van a tocar los otros tres ángeles!&gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>El quinto ángel tocó su trompeta, y vi una estrella que había caído del cielo a la tierra; y se le dio la llave del pozo del abismo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Abrió el pozo del abismo, y de él subió humo como de un gran horno; y el humo del pozo hizo oscurecer el sol y el aire.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Del humo salieron langostas que se extendieron por la tierra; y se les dio poder como el que tienen los alacranes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Se les mandó que no hicieran daño a la hierba de la tierra ni a ninguna cosa verde ni a ningún árbol, sino solamente a quienes no llevaran el sello de Dios en la frente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Pero no se les permitió matar a la gente, sino tan solo causarle dolor durante cinco meses; y el dolor que causaban era como el de una picadura de alacrán.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>En aquellos días la gente buscará la muerte, y no la encontrará; desearán morirse, y la muerte se alejará de ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Las langostas parecían caballos preparados para la guerra; en la cabeza llevaban algo semejante a una corona de oro, y su cara tenía apariencia humana.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Tenían cabello como de mujer, y sus dientes parecían de león.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Sus cuerpos estaban protegidos con una especie de armadura de hierro, y el ruido de sus alas era como el de muchos carros tirados por caballos cuando entran en combate.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Sus colas, armadas de aguijones, parecían de alacrán, y en ellas tenían poder para hacer daño a la gente durante cinco meses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>El jefe de las langostas, que es el ángel del abismo, se llama en hebreo Abadón y en griego Apolión.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Pasó el primer desastre; pero todavía faltan dos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>El sexto ángel tocó su trompeta, y oí una voz que salía de entre los cuatro cuernos del altar de oro que estaba delante de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Y la voz le dijo al sexto ángel, que tenía la trompeta:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="voice from altar">
+    <text>&lt;&lt;Suelta los cuatro ángeles que están atados junto al gran río Éufrates.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Entonces fueron soltados los cuatro ángeles, para que mataran a la tercera parte de la gente, pues habían sido preparados precisamente para esa hora, día, mes y año.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>Y alcancé a oir el número de los soldados de a caballo: eran doscientos millones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Así es como vi los caballos en la visión, y quienes los montaban se cubrían el pecho con una armadura roja como el fuego, azul como el jacinto y amarilla como el azufre. Y los caballos tenían cabeza como de león, y de su boca salía fuego, humo y azufre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>La tercera parte de la gente fue muerta por estas tres calamidades que salían de la boca de los caballos: fuego, humo y azufre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>Porque el poder de los caballos estaba en su boca y en su cola; pues sus colas parecían serpientes, y dañaban con sus cabezas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-REV">
+    <verse num="20" />
+    <text>Pero el resto de la gente, los que no murieron por estas calamidades, tampoco ahora dejaron de hacer el mal que hacían, ni dejaron de adorar a los demonios y a los ídolos de oro, plata, bronce, piedra y madera, los cuales no pueden ver ni oir ni caminar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-REV">
+    <verse num="21" />
+    <text>Y tampoco dejaron de matar, ni de hacer brujerías, ni de cometer inmoralidades sexuales, ni de robar.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Vi otro ángel poderoso, que bajaba del cielo envuelto en una nube; tenía un arco iris sobre la cabeza, su cara brillaba como el sol y sus piernas parecían columnas de fuego.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Llevaba en la mano un rollito abierto, y puso el pie derecho sobre el mar y el izquierdo sobre la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Y gritó con fuerte voz, como un león que ruge; y cuando gritó, siete truenos dejaron oir sus propias voces.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Después que los siete truenos hablaron, iba yo a escribir; pero oí una voz del cielo, que me decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="voice from heaven (God?)">
+    <text>&lt;&lt;Guarda en secreto lo que dijeron los siete truenos, y no lo escribas.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Entonces el ángel que vi en pie sobre el mar y sobre la tierra, levantó al cielo su mano derecha</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>y juró por el que vive para siempre, el que hizo el cielo, la tierra, el mar y todas las cosas que hay en ellos. Dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="angel standing on sea and land" multiBlockQuote="Start">
+    <text>&lt;&lt;Ya no habrá más tiempo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="angel standing on sea and land" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>sino que cuando llegue el momento en que el séptimo ángel comience a tocar su trompeta, quedará cumplido el designio secreto de Dios, como él anunció a sus propios siervos los profetas.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>La voz que yo había oído, y que salía del cielo, volvió a hablarme, y me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="voice from heaven (God?)">
+    <text>&lt;&lt;Anda y toma el rollito abierto que tiene en la mano el ángel que está de pie sobre el mar y sobre la tierra.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Fui al ángel y le pedí que me diera el rollito, y me contestó:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="angel standing on sea and land">
+    <text>&lt;&lt;Toma y cómetelo. En tu boca será dulce como la miel, pero en tu estómago se volverá amargo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Tomé el rollito de la mano del ángel, y me lo comí; y en mi boca era dulce como la miel, pero una vez que me lo comí, se me volvió amargo en el estómago. </text>
+    <verse num="11" />
+    <text>Entonces me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="angel standing on sea and land">
+    <text>&lt;&lt;Tienes que comunicar nuevos mensajes proféticos acerca de muchos pueblos, naciones, lenguas y reyes.&gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Me dieron una vara de medir, parecida a una caña, y me dijeron:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Start">
+    <text>&lt;&lt;Levántate y toma las medidas del templo de Dios y del altar, y cuenta los que adoran allí.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Continuation">
+    <verse num="2" />
+    <text>Pero no midas el atrio exterior del templo, porque ha sido entregado a los paganos, los cuales van a pisotear la ciudad santa durante cuarenta y dos meses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Continuation">
+    <verse num="3" />
+    <text>Y yo enviaré dos testigos, vestidos con ropas ásperas, a comunicar mensajes proféticos durante mil doscientos sesenta días.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Estos dos testigos son los dos olivos y los dos candelabros que están delante del Señor de la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Si alguien intenta hacerles daño, ellos echan fuego por la boca, que quema por completo a sus enemigos; así morirá cualquiera que quiera hacerles daño.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Estos testigos tienen poder para cerrar el cielo, para que no llueva durante el tiempo en que estén comunicando su mensaje profético, y también tienen poder para cambiar el agua en sangre y para hacer sufrir a la tierra con toda clase de calamidades, tantas veces como ellos quieran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Pero cuando hayan terminado de dar su testimonio, el monstruo que sube del abismo los atacará, los vencerá y los matará.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Sus cadáveres quedarán tendidos en las calles de la gran ciudad donde fue crucificado su Señor, la cual en lenguaje figurado se llama Sodoma, y también Egipto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Y por tres días y medio, gente de distintos pueblos, razas, lenguas y naciones verá sus cadáveres y no dejará que los entierren.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Los que viven en la tierra se alegrarán de su muerte. Estarán tan contentos que se harán regalos unos a otros, porque aquellos dos profetas eran un tormento para ellos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Pero al cabo de los tres días y medio, Dios los revivió y se levantaron otra vez, y todos los que los vieron se llenaron de miedo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Entonces los dos testigos oyeron una fuerte voz del cielo, que les decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="voice from heaven (God?)">
+    <text>&lt;&lt;¡Suban acá!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
+    <text>Y subieron al cielo en una nube, y sus enemigos los vieron.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>En aquel mismo momento hubo un gran terremoto, y a causa del terremoto se derrumbó la décima parte de la ciudad, y siete mil personas murieron. Los que aún quedaron con vida, llenos de miedo alabaron a Dios, que está en el cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Pasó el segundo desastre, pero pronto viene el tercero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>El séptimo ángel tocó su trompeta, y se oyeron fuertes voces en el cielo, que decían:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="voices in heaven, loud">
+    <text>&lt;&lt;El reino del mundo es ya de nuestro Señor y de su Mesías, y reinarán por todos los siglos.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>Los veinticuatro ancianos que estaban sentados en sus tronos delante de Dios, se inclinaron hasta el suelo y adoraron a Dios, </text>
+    <verse num="17" />
+    <text>diciendo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="twenty-four elders" multiBlockQuote="Start">
+    <text>&lt;&lt;Te damos gracias, Señor, Dios todopoderoso, tú que eres y que eras, porque has tomado tu gran poder y has comenzado a reinar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="twenty-four elders" multiBlockQuote="Continuation">
+    <verse num="18" />
+    <text>Las naciones se han enfurecido; pero ha llegado el día de tu ira, el momento en que has de juzgar a los muertos; y darás la recompensa a tus siervos los profetas, a tu pueblo santo y a los que honran tu nombre, sean grandes o pequeños; y destruirás a los que destruyen la tierra.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>Entonces se abrió el templo de Dios que está en el cielo, y en el templo se veía el arca de su alianza. Y hubo relámpagos, voces, truenos, un terremoto y una gran granizada.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Apareció en el cielo una gran señal: una mujer envuelta en el sol como en un vestido, con la luna bajo sus pies y una corona de doce estrellas en la cabeza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>La mujer estaba encinta, y gritaba por los dolores del parto, por el sufrimiento de dar a luz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Luego apareció en el cielo otra señal: un gran dragón rojo que tenía siete cabezas, diez cuernos y una corona en cada cabeza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Con la cola arrastró la tercera parte de las estrellas del cielo, y las lanzó sobre la tierra. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
+    <text>El dragón se detuvo delante de la mujer que iba a dar a luz, para devorar a su hijo tan pronto como naciera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Y la mujer dio a luz un hijo varón, el cual ha de gobernar a todas las naciones con cetro de hierro. Pero su hijo le fue quitado y llevado ante Dios y ante su trono;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>y la mujer huyó al desierto, donde Dios le había preparado un lugar para que allí le dieran de comer durante mil doscientos sesenta días.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Después hubo una batalla en el cielo: Miguel y sus ángeles lucharon contra el dragón. El dragón y sus ángeles pelearon,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>pero no pudieron vencer, y ya no hubo lugar para ellos en el cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Así que fue expulsado el gran dragón, aquella serpiente antigua que se llama Diablo y Satanás, y que engaña a todo el mundo. Él y sus ángeles fueron lanzados a la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Entonces oí una fuerte voz en el cielo, que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="voice in heaven, loud" multiBlockQuote="Start">
+    <text>&lt;&lt;Ya llegó la salvación, el poder y el reino de nuestro Dios, y la autoridad de su Mesías; porque ha sido expulsado el acusador de nuestros hermanos, el que día y noche los acusaba delante de nuestro Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="voice in heaven, loud" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Nuestros hermanos lo han vencido con la sangre derramada del Cordero y con el mensaje que ellos proclamaron; no tuvieron miedo de perder la vida, sino que estuvieron dispuestos a morir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="voice in heaven, loud" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>¡Alégrense, pues, cielos, y ustedes que viven en ellos! ¡Pero ay de los que viven en la tierra y en el mar, porque el diablo, sabiendo que le queda poco tiempo, ha bajado contra ustedes lleno de furor!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Cuando el dragón se vio lanzado a la tierra, persiguió a la mujer que había tenido el hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Pero a la mujer se le dieron dos grandes alas de águila, para que pudiera volar a su lugar en el desierto, lejos del dragón, donde tenían que darle de comer durante tres años y medio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>El dragón arrojó agua por la boca, para formar un río que arrastrara a la mujer;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>pero la tierra ayudó a la mujer, pues abrió la boca y se tragó el río que el dragón había arrojado por su boca.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Con eso, el dragón se puso furioso contra la mujer, y fue a pelear contra el resto de los descendientes de ella, contra los que obedecen los mandamientos de Dios y siguen fieles al testimonio de Jesús. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Y el dragón se plantó a la orilla del mar. Vi subir del mar un monstruo que tenía siete cabezas y diez cuernos. En cada cuerno tenía una corona, y en las cabezas tenía nombres ofensivos contra Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Este monstruo que yo vi, parecía un leopardo; y tenía patas como de oso, y boca como de león. El dragón le dio su poder y su trono, y mucha autoridad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Una de las cabezas del monstruo parecía tener una herida mortal; pero la herida fue curada, y el mundo entero se llenó de asombro y siguió al monstruo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Adoraron al dragón porque había dado autoridad al monstruo, y adoraron también al monstruo, diciendo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="worshipers of the beast">
+    <text>&lt;&lt;¿Quién hay como este monstruo, y quién podrá luchar contra él?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>También se le permitió al monstruo decir cosas arrogantes y ofensivas contra Dios, y tener autoridad durante cuarenta y dos meses.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Y así lo hizo; habló contra Dios, y dijo cosas ofensivas contra él y su santuario y contra los que están en el cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>También se le permitió hacer guerra contra el pueblo santo, hasta vencerlo; y se le dio autoridad sobre toda raza, pueblo, lengua y nación.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>A ese monstruo lo adorarán todos los habitantes de la tierra cuyos nombres no están escritos, desde la creación del mundo, en el libro de la vida del Cordero que fue sacrificado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Si alguno tiene oídos, oiga:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>&lt;&lt;A los que deban ir presos, se los llevarán presos; y a los que deban morir a filo de espada, a filo de espada los matarán.&gt;&gt; Aquí se verá la fortaleza y la fe del pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Después vi otro monstruo, que subía de la tierra. Tenía dos cuernos que parecían de cordero, pero hablaba como un dragón.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Y tenía toda la autoridad del primer monstruo, en su presencia, y hacía que la tierra y sus habitantes adoraran al primer monstruo, el que había sido curado de su herida mortal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>También hacía grandes señales milagrosas. Hasta hacía caer fuego del cielo a la tierra, a la vista de la gente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Engaña a mi propia gente que moran en la tierra a causa de las señales que ha permitido hacer frente a la bestia, diciendo a los moradores de la tierra:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the">
+    <text>"Hacer una imagen a la bestia que tiene la herida de espada, y vivió."</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Y al segundo monstruo se le dio el poder de dar vida a la imagen del primer monstruo, para que aquella imagen hablara e hiciera matar a todos los que no la adorasen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>Además, hizo que a todos, pequeños y grandes, ricos y pobres, libres y esclavos, les pusieran una marca en la mano derecha o en la frente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Y nadie podía comprar ni vender, si no tenía la marca o el nombre del monstruo, o el número de su nombre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>Aquí se verá la sabiduría; el que entienda, calcule el número del monstruo, que es un número de hombre. Ese número es el seiscientos sesenta y seis.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="14" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>14</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Vi al Cordero, que estaba de pie sobre el monte Sión. Con él había ciento cuarenta y cuatro mil personas que tenían escrito en la frente el nombre del Cordero y de su Padre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Luego oí un sonido que venía del cielo; era como el sonido de una cascada, como el retumbar de un fuerte trueno; era un sonido como el de muchos arpistas tocando sus arpas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Y cantaban un canto nuevo delante del trono y delante de los cuatro seres vivientes y de los ancianos. Ninguno podía aprender aquel canto, sino solamente los ciento cuarenta y cuatro mil que fueron salvados de entre los de la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Estos son vírgenes, no se contaminaron con mujeres; son los que siguen al Cordero por dondequiera que va. Fueron salvados de entre los hombres como primera ofrenda para Dios y para el Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>No se encontró ninguna mentira en sus labios, pues son intachables.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Vi otro ángel, que volaba en medio cielo y que llevaba un mensaje eterno para anunciarlo a los que viven en la tierra, a todas las naciones, razas, lenguas y pueblos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Decía con fuerte voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="angel flying directly overhead">
+    <text>&lt;&lt;Teman a Dios y denle alabanza, pues ya llegó la hora en que él ha de juzgar. Adoren al que hizo el cielo y la tierra, el mar y los manantiales.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Lo siguió un segundo ángel, que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="angel flying directly overhead, second">
+    <text>&lt;&lt;¡Ya cayó, ya cayó la gran Babilonia, la que emborrachó a todas las naciones con el vino de su prostitución!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Luego los siguió otro ángel, el tercero, que decía con fuerte voz:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="angel flying directly overhead, third" multiBlockQuote="Start">
+    <text>&lt;&lt;Si alguno adora al monstruo y a su imagen, y se deja poner su marca en la frente o en la mano,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="angel flying directly overhead, third" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>tendrá que beber el vino de la ira de Dios, que se ha preparado puro en la copa de su enojo; y será atormentado con fuego y azufre delante de los santos ángeles y del Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="angel flying directly overhead, third" multiBlockQuote="Start">
+    <verse num="11" />
+    <text>El humo de su tormento sube por todos los siglos, y no hay descanso de día ni de noche para los que adoran al monstruo y a su imagen y reciben la marca de su nombre.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="angel flying directly overhead, third" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>¡Aquí se verá la fortaleza del pueblo santo, de aquellos que cumplen sus mandamientos y son fieles a Jesús!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Entonces oí una voz del cielo, que me decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)">
+    <text>&lt;&lt;Escribe esto: &lt;Dichosos de aquí en adelante los que mueren unidos al Señor.&gt;!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
+    <text>&lt;&lt;Sí,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
+    <text>El Espíritu dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
+    <text>ellos descansarán de sus trabajos, pues sus obras los acompañan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Miré, y vi una nube blanca, y sobre la nube estaba sentado alguien que parecía ser un hijo de hombre. Llevaba una corona de oro en la cabeza y una hoz afilada en la mano.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Y salió del templo otro ángel, gritando con fuerte voz al que estaba sentado en la nube:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="angel, coming out of temple">
+    <text>&lt;&lt;¡Mete tu hoz y recoge la cosecha; porque ya llegó la hora, y la cosecha de la tierra está madura!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>El que estaba sentado en la nube pasó entonces su hoz sobre la tierra, y recogió la cosecha de la tierra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Luego otro ángel salió del templo que está en el cielo, llevando él también una hoz afilada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>Y del altar salió otro ángel, que tenía autoridad sobre el fuego y que llamó con fuerte voz al que llevaba la hoz afilada, diciendo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="angel, coming out of temple, another">
+    <text>&lt;&lt;¡Mete tu hoz afilada, y corta con ella los racimos de los viñedos que hay en la tierra, porque ya sus uvas están maduras!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>El ángel pasó su hoz sobre la tierra y cortó las uvas de los viñedos de la tierra, y luego las echó en el gran recipiente que se usa para exprimirlas y que simboliza la ira de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-REV">
+    <verse num="20" />
+    <text>Las uvas fueron exprimidas fuera de la ciudad, y del recipiente salió sangre, que llegó a la altura de los frenos de los caballos en una extensión de trescientos kilómetros.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="15" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>15</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Vi en el cielo otra señal grande y asombrosa: siete ángeles con las siete últimas calamidades, con las cuales llegaba a su fin la ira de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Vi también lo que parecía ser un mar de cristal mezclado con fuego; junto a ese mar de cristal estaban de pie, con arpas que Dios les había dado, los que habían alcanzado la victoria sobre el monstruo y su imagen, y sobre el número de su nombre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Y cantaban el canto de Moisés, siervo de Dios, y el canto del Cordero. Decían:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="conquerors of beast, image &amp; his name" delivery="singing" multiBlockQuote="Start">
+    <text>&lt;&lt;Grande y maravilloso es todo lo que has hecho, Señor, Dios todopoderoso; rectos y verdaderos son tus caminos, oh Rey de las naciones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="conquerors of beast, image &amp; his name" delivery="singing" multiBlockQuote="Continuation">
+    <verse num="4" />
+    <text>¿Quién no te temerá, oh Señor? ¿Quién no te alabará? Pues solamente tú eres santo; Todas las naciones vendrán y te adorarán, porque tus juicios han sido manifestados.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Después de esto, miré y vi abrirse en el cielo el santuario, la tienda de la alianza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Del santuario salieron aquellos siete ángeles que llevaban las siete calamidades. Iban vestidos de lino limpio y brillante, y llevaban cinturones de oro a la altura del pecho.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Uno de los cuatro seres vivientes dio a cada uno de los siete ángeles una copa de oro llena de la ira de Dios, el cual vive por todos los siglos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Y el santuario se llenó del humo procedente de la grandeza y del poder de Dios, y nadie podía entrar en él hasta que hubieran terminado las siete calamidades que llevaban los siete ángeles.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="16" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>16</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Oí una fuerte voz, que salía del santuario y que decía a los siete ángeles:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="voice from temple">
+    <text>&lt;&lt;Vayan y vacíen sobre la tierra esas siete copas de la ira de Dios.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>El primer ángel fue y vació su copa sobre la tierra; y a toda la gente que tenía la marca del monstruo y adoraba su imagen, le salió una llaga maligna y dolorosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>El segundo ángel vació su copa sobre el mar, y el agua del mar se volvió sangre, como la de un hombre asesinado, y murió todo lo que en el mar tenía vida.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>El tercer ángel vació su copa sobre los ríos y manantiales, y se volvieron sangre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Luego oí que el ángel de las aguas decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="angel over waters" multiBlockQuote="Start">
+    <text>&lt;&lt;Tú eres justo por haber juzgado así, oh Dios santo, que eres y que eras,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angel over waters" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>porque ellos derramaron la sangre de tu pueblo santo y de los profetas, y ahora tú les has dado a beber sangre. ¡Se lo han merecido!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Oí también que el del altar decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="altar">
+    <text>&lt;&lt;Sí, oh Señor, Dios todopoderoso, tú has juzgado con verdad y rectitud.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>El cuarto ángel vació su copa sobre el sol, y se le dio al sol poder para quemar con fuego a la gente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Y todos quedaron terriblemente quemados; pero no se volvieron a Dios ni lo alabaron, sino que dijeron cosas ofensivas contra él, que tiene poder sobre estas calamidades.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>El quinto ángel vació su copa sobre el trono del monstruo, y su reino quedó en oscuridad. La gente se mordía la lengua de dolor;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>pero ni aun así dejaron de hacer el mal, sino que a causa de sus dolores y sus llagas dijeron cosas ofensivas contra el Dios del cielo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>El sexto ángel vació su copa sobre el gran río Éufrates, y el agua del río se secó para dar paso a los reyes que venían de oriente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Vi que de la boca del dragón, de la boca del monstruo y de la boca del falso profeta, salían tres espíritus impuros en forma de ranas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Eran espíritus de demonios, que hacían señales milagrosas y salían a reunir a todos los reyes del mundo para la batalla del gran día del Dios todopoderoso.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus">
+    <verse num="15" />
+    <text>&lt;&lt;Miren, yo vengo como el ladrón. Dichoso el que se mantiene despierto y conserva su ropa, para que no ande desnudo y se vea la vergüenza de su desnudez.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>Y reunieron a los reyes en el lugar que en hebreo se llama Harmagedón.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>El séptimo ángel vació su copa en el aire, y desde el santuario salió una fuerte voz que venía del trono y decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="God">
+    <text>&lt;&lt;¡Ya está hecho!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>Entonces hubo relámpagos, voces y truenos, y la tierra tembló a causa de un terremoto más violento que todos los terremotos que ha habido desde que hay gente en el mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>La gran ciudad se partió en tres, y las ciudades del mundo se derrumbaron; y Dios se acordó de la gran ciudad de Babilonia, para hacerla beber el vino de su ira terrible.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-REV">
+    <verse num="20" />
+    <text>Todas las islas y los montes desaparecieron,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-REV">
+    <verse num="21" />
+    <text>y del cielo cayeron sobre la gente enormes granizos, que pesaban más de cuarenta kilos, y los hombres dijeron cosas ofensivas contra Dios por la calamidad del granizo, porque fue un castigo muy grande.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="17" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>17</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Uno de los siete ángeles que tenían las siete copas, vino y me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="1" characterId="angel (one of the seven)" multiBlockQuote="Start">
+    <text>&lt;&lt;Ven, te voy a mostrar el castigo de la gran prostituta que está sentada sobre las aguas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="2" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="2" />
+    <text>Los reyes del mundo se han entregado a la prostitución con ella, y los habitantes de la tierra se han emborrachado con el vino de su prostitución.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Luego, en la visión que me hizo ver el Espíritu, el ángel me llevó al desierto. Allí vi una mujer montada en un monstruo rojo, el cual estaba cubierto de nombres ofensivos para Dios y tenía siete cabezas y diez cuernos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Aquella mujer iba vestida con ropa de colores púrpura y rojo, y estaba adornada con oro, piedras preciosas y perlas. Tenía en la mano una copa de oro llena de cosas odiosas y de la impureza de su prostitución;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>y llevaba escrito en la frente un nombre misterioso:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="inscription on forehead of Babylon">
+    <text>&lt;&lt;La gran Babilonia, madre de las prostitutas y de todo lo que hay de odioso en el mundo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Luego me di cuenta de que la mujer estaba borracha de la sangre del pueblo santo y de los que habían sido muertos por ser testigos de Jesús. Al verla, me quedé muy asombrado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Entonces el ángel me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="angel (one of the seven)" multiBlockQuote="Start">
+    <text>&lt;&lt;¿Por qué te asombras? Te voy a decir el significado secreto de esa mujer y del monstruo que la lleva, el que tiene las siete cabezas y los diez cuernos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="8" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>El monstruo que has visto es uno que antes vivía, pero ya no existe; sin embargo, va a subir del abismo antes de ir a su destrucción total. Los habitantes de la tierra cuyos nombres no están escritos en el libro de la vida desde la creación del mundo, se asombrarán cuando vean ese monstruo que antes vivía y ya no existe, pero que volverá a venir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="9" />
+    <text>&lt;&lt;Aquí se verá quién tiene sabiduría y entendimiento: Las siete cabezas representan siete montes sobre los que esa mujer está sentada; las cabezas, a su vez, representan siete reyes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="10" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="10" />
+    <text>&lt;&lt;Cinco de estos reyes ya cayeron, uno de ellos gobierna ahora y el otro no ha venido todavía. Pero cuando venga, no durará mucho tiempo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="11" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>El monstruo que antes vivía y que ya no existe, es el octavo rey; aunque es también uno de los otros siete, y se encamina a su destrucción total.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="12" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="12" />
+    <text>&lt;&lt;Los diez cuernos que has visto son diez reyes que todavía no han comenzado a gobernar; pero por una hora recibirán, junto con el monstruo, autoridad como de reyes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="13" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="13" />
+    <text>Estos diez reyes están de acuerdo, y darán su poder y autoridad al monstruo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="14" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="14" />
+    <text>Pelearán contra el Cordero; pero el Cordero los vencerá, teniendo con él a los que Dios ha llamado y escogido y son fieles, porque el Cordero es Señor de señores y Rey de reyes.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>El ángel me dijo también:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="angel (one of the seven)" multiBlockQuote="Start">
+    <text>&lt;&lt;Las aguas que viste, sobre las cuales está sentada la prostituta, son pueblos, gentes, lenguas y naciones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="16" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="16" />
+    <text>Y los diez cuernos que viste y el monstruo odiarán a la prostituta, y la dejarán abandonada y desnuda; comerán la carne de su cuerpo, y la quemarán con fuego.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="17" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>Dios les ha puesto en el corazón la determinación de hacer lo que él quiere que hagan: se pondrán de acuerdo para entregar su autoridad de reyes al monstruo, hasta que se cumpla lo que Dios ha dicho.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="18" />
+    <text>La mujer que viste es aquella gran ciudad que domina a los reyes del mundo.&gt;&gt;</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>18</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Después de esto, vi otro ángel que bajaba del cielo; tenía mucha autoridad, y la tierra quedó iluminada con su resplandor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Con fuerte voz gritaba:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
+    <text>&lt;&lt;¡Ya cayó, ya cayó la gran Babilonia! ¡Se ha vuelto vivienda de demonios, guarida de toda clase de espíritus impuros, nido de toda clase de aves impuras y de fieras impuras y odiosas! </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation">
+    <verse num="3" />
+    <text>Pues todas las naciones se emborracharon con el vino de su prostitución; los reyes del mundo se prostituyeron con ella, y los comerciantes del mundo se hicieron ricos con su exagerado derroche.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Oí otra voz del cielo, que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
+    <text>&lt;&lt;Salgan de esa ciudad, ustedes que son mi pueblo, para que no participen en sus pecados ni los alcancen sus calamidades;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <verse num="5" />
+    <text>pues sus pecados se han amontonado hasta el cielo, y Dios ha tenido presentes sus maldades.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="6" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <verse num="6" />
+    <text>Denle lo mismo que ella ha dado a otros; páguenle el doble de lo que ha hecho; mézclenle una bebida dos veces más fuerte que la que ella mezcló para otros;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>denle tormento y sufrimiento en la medida en que se entregó al orgullo y al derroche. Pues dice en su corazón:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <text>&lt;Aquí estoy sentada como una reina. No soy viuda, ni sufriré.&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>Por eso, en un solo día le vendrán sus calamidades: muerte, aflicción y hambre, y será quemada en el fuego; porque poderoso es Dios, el Señor, que la ha condenado.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Los reyes del mundo que se prostituyeron con ella y se entregaron al derroche, llorarán y harán lamentación por ella cuando vean el humo de su incendio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Se quedarán lejos por miedo a su castigo, y dirán:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
+    <text>&lt;&lt;¡Ay, ay de ti, la gran ciudad, Babilonia, la ciudad poderosa! Porque en un instante llegó tu castigo.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Los comerciantes del mundo también llorarán y harán lamentación por esa ciudad, porque ya no habrá quien les compre sus cargamentos:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>cargamentos de oro, plata, piedras preciosas, perlas, telas de lino fino y de seda, de color púrpura y rojo; toda clase de maderas aromáticas; objetos de marfil, de maderas preciosas, de bronce, de hierro y de mármol;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>cargamentos de canela y especias aromáticas; incienso, perfumes y resinas; vino, aceite, harina fina y trigo; animales de carga, ovejas, caballos, carros y hasta esclavos, que son vidas humanas. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Y dirán a la ciudad:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth">
+    <text>&lt;&lt;¡Ya no tienes las ricas frutas que tanto te gustaban; para siempre has perdido todos tus lujos y riquezas!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Los que negociaban con esas cosas y se hicieron ricos a costa de la ciudad, se quedarán lejos por miedo a su castigo, llorando y lamentándose, </text>
+    <verse num="16" />
+    <text>y dirán:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start">
+    <text>&lt;&lt;¡Ay, ay de la gran ciudad! Vestida de lino fino, con ropas de color púrpura y rojo, adornada con oro, perlas y piedras preciosas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
+    <verse num="17" />
+    <text>¡Y en un instante se ha acabado tanta riqueza!&gt;&gt; Todos los capitanes de barco y los que navegan por la costa, los marineros y todos los que se ganan la vida en el mar, se quedaron lejos</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>y, al ver el humo del incendio de la ciudad, gritaron:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing">
+    <text>&lt;&lt;¿Qué otra ciudad podía compararse a esta gran ciudad?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>Y se echaron polvo en la cabeza, llorando y lamentándose, y gritaron:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing">
+    <text>&lt;&lt;¡Ay, ay de la gran ciudad! Con su riqueza se hicieron ricos todos los que tenían barcos en el mar. ¡Y en un instante ha quedado destruida!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">
+    <verse num="20" />
+    <text>Tú, oh cielo, alégrate por causa de esa ciudad; y alégrense ustedes, los del pueblo santo, y los apóstoles y los profetas, porque Dios, al condenarla, les ha hecho justicia a ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV">
+    <verse num="21" />
+    <text>Entonces un ángel poderoso levantó una piedra, que era como una gran piedra de molino, y lanzándola al mar dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="angel, powerful" multiBlockQuote="Start">
+    <text>&lt;&lt;Así serás tú echada abajo, Babilonia, la gran ciudad, y nunca más te volverán a ver.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="angel, powerful" multiBlockQuote="Continuation">
+    <verse num="22" />
+    <text>Nunca más se oirá en tus calles música de arpas, flautas y trompetas, ni habrá en ti trabajadores de ningún oficio, ni se oirá en ti el ruido de la piedra del molino.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="23" characterId="angel, powerful" multiBlockQuote="Continuation">
+    <verse num="23" />
+    <text>Nunca más brillará en ti la luz de una lámpara, ni se oirá en ti el bullicio de las fiestas de bodas. Porque tus comerciantes eran los poderosos del mundo y engañaste a todas las naciones con tus brujerías.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="angel, powerful" multiBlockQuote="Continuation">
+    <verse num="24" />
+    <text>Pues en esa ciudad se ha encontrado la sangre de los profetas y del pueblo santo, y de todos los que han sido asesinados en el mundo.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>19</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Después de esto, oí las fuertes voces de una gran multitud que decía en el cielo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="1" characterId="voice of great crowd in heaven, loud" delivery="shouting" multiBlockQuote="Start">
+    <text>&lt;&lt;¡Aleluya! La salvación, la gloria y el poder son de nuestro Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="voice of great crowd in heaven, loud" delivery="shouting" multiBlockQuote="Continuation">
+    <verse num="2" />
+    <text>porque él juzga rectamente y con verdad; Pues ha condenado a la gran prostituta que con su prostitución corrompió al mundo; ha vengado en ella la muerte de los siervos de Dios.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Luego volvieron a decir:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="voice of great crowd in heaven, loud" delivery="shouting">
+    <text>&lt;&lt;¡Aleluya! &lt;&lt;El humo de ella nunca dejará de subir.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Y los veinticuatro ancianos y los cuatro seres vivientes se postraron hasta el suelo y adoraron a Dios, que estaba sentado en el trono. Y decían:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
+    <text>&lt;&lt;¡Amén! ¡Aleluya!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Desde el trono se oyó entonces una voz, que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="voice from throne">
+    <text>&lt;&lt;¡Alaben a nuestro Dios todos ustedes, pequeños y grandes, todos ustedes que lo sirven y le tienen reverencia!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Oí también algo como las voces de mucha gente, como el sonido de una cascada y de fuertes truenos. Decían:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" multiBlockQuote="Start">
+    <text>&lt;&lt;¡Aleluya! Porque ha comenzado a gobernar el Señor, nuestro Dios todopoderoso.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="7" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>Alegrémonos, llenémonos de gozo y démosle gloria, porque ha llegado el momento de las bodas del Cordero. Su esposa se ha preparado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
+    <verse num="8" />
+    <text>Se le dio a ella que ella misma matriz en brillante, lino puro, fino." </text>
+  </block>
+  <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
+    <text>Porque el lino fino es las acciones justas de los santos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>El ángel me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="angel (one of the seven)">
+    <text>&lt;&lt;Escribe: &lt;Felices los que han sido invitados al banquete de bodas del Cordero.&gt;! &gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <text>Y añadió:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="angel (one of the seven)">
+    <text>&lt;&lt;Estas son palabras verdaderas de Dios.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Me arrodillé a los pies del ángel, para adorarlo, pero él me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="angel (one of the seven)">
+    <text>&lt;&lt;No hagas eso, pues yo soy siervo de Dios, lo mismo que tú y tus hermanos que siguen fieles al testimonio de Jesús. Adora a Dios.&gt;&gt; Pues ese testimonio de Jesús es el que inspira a los profetas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Vi el cielo abierto; y apareció un caballo blanco, y el que lo montaba se llamaba Fiel y Verdadero, porque con rectitud gobernaba y hacía la guerra.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Sus ojos brillaban como llamas de fuego, llevaba en la cabeza muchas coronas y tenía un nombre escrito que solamente él conocía.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Iba vestido con ropa teñida de sangre, y su nombre era: La Palabra de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Lo seguían los ejércitos del cielo, vestidos de lino fino, blanco y limpio, y montados en caballos blancos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>Le salía de la boca una espada afilada, para herir con ella a las naciones. Las gobernará con cetro de hierro. Y él mismo pisará las uvas para sacar el vino de la ira terrible del Dios todopoderoso.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>En su manto y sobre el muslo llevaba escrito este título:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-REV">
+    <text>&lt;&lt;Rey de reyes y Señor de señores.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Y vi un ángel que, puesto de pie en el sol, gritaba con fuerza a todas las aves de rapiña que vuelan en medio del cielo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="angel standing in sun" multiBlockQuote="Start">
+    <text>&lt;&lt;¡Vengan y reúnanse para la gran cena de Dios,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="18" characterId="angel standing in sun" multiBlockQuote="Continuation">
+    <verse num="18" />
+    <text>para que coman carne de reyes, de jefes militares y de hombres valientes, carne de caballos y de sus jinetes, carne de todos: de libres y de esclavos, de pequeños y de grandes!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>Vi al monstruo y a los reyes del mundo con sus ejércitos, que se habían reunido para pelear contra el que montaba aquel caballo y contra su ejército.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
+    <verse num="20" />
+    <text>El monstruo fue apresado, junto con el falso profeta que había hecho señales milagrosas en su presencia. Por medio de esas señales, el falso profeta había engañado a los que se dejaron poner la marca del monstruo y adoraron su imagen. Entonces el monstruo y el falso profeta fueron arrojados vivos al lago de fuego donde arde el azufre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV">
+    <verse num="21" />
+    <text>Y los demás fueron muertos con la espada que salía de la boca del que montaba el caballo, y todas las aves de rapiña se hartaron de la carne de ellos.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="20" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>20</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Vi un ángel que bajaba del cielo con la llave del abismo y una gran cadena en la mano.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Este ángel sujetó al dragón, aquella serpiente antigua que es el Diablo y Satanás, y lo encadenó por mil años.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Lo arrojó al abismo, donde lo encerró, y puso un sello sobre la puerta para que no engañara a las naciones hasta que pasaran los mil años, al cabo de los cuales habrá de ser soltado por un poco de tiempo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Vi tronos, y en ellos estaban sentados los que habían recibido autoridad para juzgar. Vi también las almas de aquellos a quienes les cortaron la cabeza por haber sido fieles al testimonio de Jesús y al mensaje de Dios. Ellos no habían adorado al monstruo ni a su imagen, ni se habían dejado poner su marca en la frente o en la mano. Y vi que volvieron a vivir y que reinaron con Cristo mil años.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Pero los otros muertos no volvieron a vivir hasta después de los mil años. Esta es la primera resurrección.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>¡Dichosos los que tienen parte en la primera resurrección, pues pertenecen al pueblo santo! La segunda muerte no tiene ningún poder sobre ellos, sino que serán sacerdotes de Dios y de Cristo, y reinarán con él los mil años.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="narrator-REV">
+    <verse num="7" />
+    <text>Cuando hayan pasado los mil años, Satanás será soltado de su prisión,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>y saldrá a engañar a las naciones de los cuatro extremos de la tierra, a Gog y a Magog, cuyos ejércitos, numerosos como la arena del mar, reunirá para la batalla.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Y subieron por lo ancho de la tierra, y rodearon el campamento del pueblo santo, y la ciudad que él ama. Pero cayó fuego del cielo y los quemó por completo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Y el diablo, que los había engañado, fue arrojado al lago de fuego y azufre, donde también habían sido arrojados el monstruo y el falso profeta. Allí serán atormentados día y noche por todos los siglos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>Vi un gran trono blanco, y al que estaba sentado en él. Delante de su presencia desaparecieron completamente la tierra y el cielo, y no se los volvió a ver por ninguna parte.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Y vi los muertos, grandes y pequeños, de pie delante del trono; y fueron abiertos los libros, y también otro libro, que es el libro de la vida. Los muertos fueron juzgados de acuerdo con sus hechos y con lo que estaba escrito en aquellos libros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>El mar entregó sus muertos, y el reino de la muerte entregó los muertos que había en él; y todos fueron juzgados, cada uno conforme a lo que había hecho. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>Luego el reino de la muerte fue arrojado al lago de fuego. Este lago de fuego es la muerte segunda, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>y allí fueron arrojados los que no tenían su nombre escrito en el libro de la vida.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="21" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>21</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>Después vi un cielo nuevo y una tierra nueva; porque el primer cielo y la primera tierra habían dejado de existir, y también el mar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>Vi la ciudad santa, la nueva Jerusalén, que bajaba del cielo, de la presencia de Dios. Estaba arreglada como una novia vestida para su prometido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Y oí una fuerte voz que venía del trono, y que decía:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="voice from throne" multiBlockQuote="Start">
+    <text>&lt;&lt;Aquí está el lugar donde Dios vive con los hombres. Vivirá con ellos, y ellos serán sus pueblos, y Dios mismo estará con ellos como su Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="4" characterId="voice from throne" multiBlockQuote="Continuation">
+    <verse num="4" />
+    <text>Secará todas las lágrimas de ellos, y ya no habrá muerte, ni llanto, ni lamento, ni dolor; porque todo lo que antes existía ha dejado de existir.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>El que estaba sentado en el trono dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="God">
+    <text>&lt;&lt;Yo hago nuevas todas las cosas.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV">
+    <text>Y también dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="God">
+    <text>&lt;&lt;Escribe, porque estas palabras son verdaderas y dignas de confianza.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>Después me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="God" multiBlockQuote="Start">
+    <text>&lt;&lt;Ya está hecho. Yo soy el alfa y la omega, el principio y el fin. Al que tenga sed le daré a beber del manantial del agua de la vida, sin que le cueste nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="God" multiBlockQuote="Continuation">
+    <verse num="7" />
+    <text>El que salga vencedor recibirá todo esto como herencia; y yo seré su Dios y él será mi hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="God" multiBlockQuote="Continuation">
+    <verse num="8" />
+    <text>Pero en cuanto a los cobardes, los incrédulos, los odiosos, los asesinos, los que cometen inmoralidades sexuales, los que practican la brujería, los que adoran ídolos, y todos los mentirosos, a ellos les tocará ir al lago de azufre ardiente, que es la segunda muerte.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Vino uno de los siete ángeles que tenían las siete copas llenas de las siete últimas calamidades, y me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="angel (one of the seven)">
+    <text>&lt;&lt;Ven, que te voy a enseñar a la novia, la esposa del Cordero.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>Y en la visión que me hizo ver el Espíritu, el ángel me llevó a un monte grande y alto, y me mostró la gran ciudad santa de Jerusalén, que bajaba del cielo, de la presencia de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
+    <verse num="11" />
+    <text>La ciudad brillaba con el resplandor de Dios; su brillo era como el de una piedra preciosa, como un diamante, transparente como el cristal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Alrededor de la ciudad había una muralla grande y alta, que tenía doce puertas, y en cada puerta había un ángel; en las puertas estaban escritos los nombres de las doce tribus de Israel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="narrator-REV">
+    <verse num="13" />
+    <text>Tres puertas daban al este, tres al norte, tres al sur y tres al oeste.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="narrator-REV">
+    <verse num="14" />
+    <text>La muralla de la ciudad tenía doce piedras por base, en las que estaban escritos los nombres de los doce apóstoles del Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="15" characterId="narrator-REV">
+    <verse num="15" />
+    <text>El ángel que hablaba conmigo llevaba una caña de oro para medir la ciudad, sus puertas y su muralla.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="16" characterId="narrator-REV">
+    <verse num="16" />
+    <text>La ciudad era cuadrada; su largo era igual a su ancho. El ángel midió con su caña la ciudad: medía doce mil estadios; su largo, su alto y su ancho eran iguales.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>Luego midió la muralla: medía ciento cuarenta y cuatro codos, según las medidas humanas que el ángel estaba usando.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>La muralla estaba hecha de diamante, y la ciudad era de oro puro, como vidrio pulido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>Las piedras de la base de la muralla estaban adornadas con toda clase de piedras preciosas: la primera, con diamante; la segunda, con zafiro; la tercera, con agata; la cuarta, con esmeralda;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="20" characterId="narrator-REV">
+    <verse num="20" />
+    <text>la quinta, con ónice; la sexta, con rubí; la séptima, con crisólito; la octava, con berilo; la novena, con topacio; la décima, con crisoprasa; la undécima, con jacinto; y la duodécima, con amatista.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="21" characterId="narrator-REV">
+    <verse num="21" />
+    <text>Las doce puertas eran doce perlas; cada puerta estaba hecha de una sola perla. Y la calle principal de la ciudad era de oro puro, como vidrio transparente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="narrator-REV">
+    <verse num="22" />
+    <text>No vi ningún santuario en la ciudad, porque el Señor, el Dios todopoderoso, es su santuario, y también el Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-REV">
+    <verse num="23" />
+    <text>La ciudad no necesita ni sol ni luna que la alumbren, porque la alumbra el resplandor de Dios, y su lámpara es el Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="24" characterId="narrator-REV">
+    <verse num="24" />
+    <text>Las naciones caminarán a la luz de la ciudad, y los reyes del mundo le entregarán sus riquezas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="25" characterId="narrator-REV">
+    <verse num="25" />
+    <text>Sus puertas no se cerrarán de día, y en ella no habrá noche.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="narrator-REV">
+    <verse num="26" />
+    <text>Le entregarán las riquezas y el esplendor de las naciones;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-REV">
+    <verse num="27" />
+    <text>pero nunca entrará nada impuro, ni nadie que haga cosas odiosas o engañosas. Solamente entrarán los que tienen su nombre escrito en el libro de la vida del Cordero.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="22" book="REV" initialStartVerse="0" characterId="BC-REV">
+    <text>22</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="1" characterId="narrator-REV">
+    <verse num="1" />
+    <text>El ángel me mostró un río limpio, de agua de vida. Era claro como el cristal, y salía del trono de Dios y del Cordero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="2" characterId="narrator-REV">
+    <verse num="2" />
+    <text>En medio de la calle principal de la ciudad y a cada lado del río, crecía el árbol de la vida, que da fruto cada mes, es decir, doce veces al año; y las hojas del árbol sirven para sanar a las naciones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="3" characterId="narrator-REV">
+    <verse num="3" />
+    <text>Ya no habrá allí nada puesto bajo maldición. El trono de Dios y del Cordero estará en la ciudad, y sus siervos lo adorarán.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="4" characterId="narrator-REV">
+    <verse num="4" />
+    <text>Lo verán cara a cara, y llevarán su nombre en la frente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="narrator-REV">
+    <verse num="5" />
+    <text>Allí no habrá noche, y los que allí vivan no necesitarán luz de lámpara ni luz del sol, porque Dios el Señor les dará su luz, y ellos reinarán por todos los siglos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="narrator-REV">
+    <verse num="6" />
+    <text>El ángel me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="angel (one of the seven)">
+    <text>&lt;&lt;Estas palabras son verdaderas y dignas de confianza. El Señor, el mismo Dios que inspira a los profetas, ha enviado su ángel para mostrar a sus siervos lo que pronto va a suceder.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="Jesus">
+    <verse num="7" />
+    <text>&lt;&lt;¡Vengo pronto! ¡Dichoso el que hace caso del mensaje profético que está escrito en este libro!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV">
+    <verse num="8" />
+    <text>Yo, Juan, vi y oí estas cosas. Y después de verlas y oírlas, me arrodillé a los pies del ángel que me las había mostrado, para adorarlo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="narrator-REV">
+    <verse num="9" />
+    <text>Pero él me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="angel (one of the seven)">
+    <text>&lt;&lt;No hagas eso, pues yo soy siervo de Dios, lo mismo que tú y que tus hermanos los profetas y que todos los que hacen caso de lo que está escrito en este libro. Adora a Dios.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="narrator-REV">
+    <verse num="10" />
+    <text>También me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="angel (one of the seven)" multiBlockQuote="Start">
+    <text>&lt;&lt;No guardes en secreto el mensaje profético que está escrito en este libro, porque ya se acerca el tiempo de su cumplimiento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
+    <verse num="11" />
+    <text>Deja que el malo siga en su maldad, y que el impuro siga en su impureza; pero que el bueno siga haciendo el bien, y que el santo siga santificándose.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="narrator-REV">
+    <verse num="12" />
+    <text>Y me dijo:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="Jesus">
+    <text>&lt;&lt;Sí, vengo pronto, y traigo el premio que voy a dar a cada uno conforme a lo que haya hecho.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
+    <verse num="13" />
+    <text>Yo soy el alfa y la omega, el primero y el último, el principio y el fin.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="14" />
+    <text>Dichosos los que lavan sus ropas para tener derecho al árbol de la vida y poder entrar por las puertas de la ciudad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="15" />
+    <text>Pero fuera se quedarán los pervertidos, los que practican la brujería, los que cometen inmoralidades sexuales, los asesinos, los que adoran ídolos y todos los que aman y practican el engaño.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+    <verse num="16" />
+    <text>&lt;&lt;Yo, Jesús, he enviado mi ángel para declarar todo esto a las iglesias. Yo soy el retoño que desciende de David. Soy la estrella brillante de la mañana.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
+    <verse num="17" />
+    <text>El Espíritu Santo y la esposa del Cordero dicen:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)">
+    <text>&lt;&lt;¡Ven!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
+    <text>Y el que escuche, diga:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears">
+    <text>&lt;&lt;¡Ven!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
+    <text>Y el que tenga sed, y quiera, venga y tome del agua de la vida sin que le cueste nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="narrator-REV">
+    <verse num="18" />
+    <text>A todos los que escuchan el mensaje profético escrito en este libro, les advierto esto: Si alguno añade algo a estas cosas, Dios le añadirá a él las calamidades que en este libro se han descrito.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="19" characterId="narrator-REV">
+    <verse num="19" />
+    <text>Y si alguno quita algo del mensaje profético escrito en este libro, Dios le quitará su parte del árbol de la vida y de la ciudad santa que en este libro se han descrito.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="narrator-REV">
+    <verse num="20" />
+    <text>El que declara esto, dice:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="Jesus">
+    <text>&lt;&lt;Sí, vengo pronto.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="narrator-REV">
+    <text>Amén. ¡Ven, Señor Jesús!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="narrator-REV">
+    <verse num="21" />
+    <text>Que el Señor Jesús derrame su gracia sobre todos. Amén.</text>
+  </block>
+  <UnappliedSplits />
+</book>

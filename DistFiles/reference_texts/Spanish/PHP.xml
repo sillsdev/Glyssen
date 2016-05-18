@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="PHP" singlevoice="false" pageheader="PHILIPPIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP">
+    <text>PHILIPPIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Pablo y Timoteo, siervos de Cristo Jesús, saludan a los que en la ciudad de Filipos pertenecen al pueblo santo por estar unidos a Cristo Jesús, es decir, a toda la comunidad con los que la presiden y los diáconos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Que Dios nuestro Padre y el Señor Jesucristo derramen su gracia y su paz sobre ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Cada vez que me acuerdo de ustedes doy gracias a mi Dios;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>y cuando oro, siempre pido con alegría por todos ustedes;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>pues ustedes se han hecho solidarios con la causa del evangelio, desde el primer día hasta hoy.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Estoy seguro de que Dios, que comenzó a hacer su buena obra en ustedes, la irá llevando a buen fin hasta el día en que Jesucristo regrese.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Es muy justo que yo piense así de todos ustedes, porque los llevo dentro de mi corazón y porque todos ustedes son solidarios conmigo de la bondad que Dios me ha mostrado, ya sea que esté yo en la cárcel o que me presente delante de las autoridades para defender y confirmar el anuncio del evangelio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Pues Dios sabe cuánta nostalgia siento de todos ustedes, con el tierno amor que me infunde Cristo Jesús.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Pido en mi oración que su amor siga creciendo más y más todavía, y que Dios les dé sabiduría y entendimiento,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>para que sepan escoger siempre lo mejor. Así podrán vivir una vida limpia, y avanzar sin tropiezos hasta el día en que Cristo vuelva;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>pues ustedes presentarán una abundante cosecha de buenas acciones gracias a Jesucristo, para honra y gloria de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Hermanos, quiero que sepan que las cosas que a mí me han pasado han venido en realidad a ayudar al anuncio del evangelio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Pues mi prisión ha servido para dar testimonio público de Cristo a la gente del palacio y a todos los demás.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Y al ver que estoy preso, la mayoría de los hermanos se han animado a anunciar el mensaje, sin miedo y con más confianza en el Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Es verdad que algunos anuncian a Cristo por envidia y rivalidad, pero otros lo hacen con buena intención.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Algunos anuncian a Cristo por amor, sabiendo que Dios me ha puesto aquí para defender el evangelio;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>pero otros lo hacen por interés personal, y no son sinceros, sino que quieren causarme más dificultades ahora que estoy preso.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Pero ¿qué importa? De cualquier manera, con sinceridad o sin ella, anuncian a Cristo; y esto me causa alegría. Y todavía me alegraré más,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>pues yo sé que todo esto será para mi salvación, gracias a las oraciones de ustedes y a la ayuda que me da el Espíritu de Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Pues espero firmemente que Dios no me dejará quedar mal, sino que, ahora como siempre, se mostrará públicamente en mí la grandeza de Cristo, tanto si sigo vivo como si muero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Porque para mí, seguir viviendo es Cristo, y morir, una ganancia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Y si al seguir viviendo en este cuerpo, mi trabajo puede producir tanto fruto, entonces no sé qué escoger.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Me es difícil decidirme por una de las dos cosas: por un lado, quisiera morir para ir a estar con Cristo, pues eso sería mucho mejor para mí;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHP">
+    <verse num="24" />
+    <text>pero, por otro lado, a causa de ustedes es más necesario que siga viviendo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHP">
+    <verse num="25" />
+    <text>Y como estoy convencido de esto, sé que me quedaré todavía con ustedes, para ayudarlos a seguir adelante y a tener más gozo en su fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-PHP">
+    <verse num="26" />
+    <text>Así me tendrán otra vez entre ustedes, y haré que aumente su orgullo en Cristo Jesús.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-PHP">
+    <verse num="27" />
+    <text>Solamente esto: procuren que su manera de vivir esté de acuerdo con el evangelio de Cristo. Así, lo mismo si voy a verlos que si no voy, quiero recibir noticias de que ustedes siguen firmes y muy unidos, luchando todos juntos por la fe del evangelio,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-PHP">
+    <verse num="28" />
+    <text>sin dejarse asustar en nada por sus enemigos. Esto es una clara señal de que ellos van a la destrucción, y al mismo tiempo es señal de la salvación de ustedes. Y esto procede de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-PHP">
+    <verse num="29" />
+    <text>Pues por causa de Cristo, ustedes no solo tienen el privilegio de creer en él, sino también de sufrir por él.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
+    <verse num="30" />
+    <text>Ustedes y yo estamos en la misma lucha. Ya vieron antes cómo luché, y ahora tienen noticias de cómo sigo luchando.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Así que, si Cristo les ha dado el poder de animar, si el amor los impulsa a consolar a otros, si todos participan del mismo Espíritu, si tienen un corazón compasivo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>llénenme de alegría viviendo todos en armonía, unidos por un mismo amor, por un mismo espíritu y por un mismo propósito.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>No hagan nada por rivalidad o por orgullo, sino con humildad, y que cada uno considere a los demás como mejores que él mismo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Ninguno busque únicamente su propio bien, sino también el bien de los otros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Tengan unos con otros la manera de pensar propia de quien está unido a Cristo Jesús,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>el cual: Aunque existía con el mismo ser de Dios, no se aferró a su igualdad con él,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>sino que renunció a lo que era suyo y tomó naturaleza de siervo. Haciéndose como todos los hombres y presentándose como un hombre cualquiera,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>se humilló a sí mismo, haciéndose obediente hasta la muerte, hasta la muerte en la cruz.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Por eso Dios le dio el más alto honor y el más excelente de todos los nombres,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>para que, ante ese nombre concedido a Jesús, doblen todos las rodillas en el cielo, en la tierra y debajo de la tierra,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>y todos reconozcan que Jesucristo es Señor, para gloria de Dios Padre.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Por tanto, mis queridos hermanos, así como ustedes me han obedecido siempre, y no solo cuando he estado entre ustedes, obedézcanme más ahora que estoy lejos. Hagan efectiva su propia salvación con profunda reverencia;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>pues Dios, según su bondadosa determinación, es quien hace nacer en ustedes los buenos deseos y quien los ayuda a llevarlos a cabo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Háganlo todo sin murmuraciones ni discusiones,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>para que nadie encuentre en ustedes culpa ni falta alguna, y sean hijos de Dios sin mancha en medio de esta gente mala y perversa. Entre ellos brillan ustedes como estrellas en el mundo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>manteniendo firme el mensaje de vida. Así, cuando venga Cristo, yo podré sentirme orgulloso de ustedes, sabiendo que no he corrido ni trabajado en vano.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Y aunque mi propia vida sea sacrificada para completar la ofrenda que ustedes hacen a Dios por su fe, yo me alegro y comparto esa alegría con todos ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Alégrense ustedes también, y tomen parte en mi alegría.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Confiado en el Señor Jesús, espero mandarles pronto a Timoteo, para alegrarme al recibir noticias de ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Porque no tengo a ningún otro que comparta tanto mis propios sentimientos y que de veras se preocupe por el bien de ustedes;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>todos buscan su propio interés, y no el interés de Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Pero ustedes ya saben del buen comportamiento de Timoteo y de cómo ha servido conmigo en el anuncio del evangelio, ayudándome como si fuera mi hijo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Así que espero enviárselo en cuanto yo sepa qué va a pasar conmigo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-PHP">
+    <verse num="24" />
+    <text>aunque confío en el Señor que también yo mismo iré pronto.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-PHP">
+    <verse num="25" />
+    <text>Igualmente me parece necesario mandarles al hermano Epafrodito, mi compañero de trabajo y de armas, al que ustedes mismos me enviaron para atender mis necesidades.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-PHP">
+    <verse num="26" />
+    <text>Él siente mucha nostalgia de todos ustedes, y está muy preocupado porque ustedes supieron que se encontraba enfermo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-PHP">
+    <verse num="27" />
+    <text>Y es verdad que lo estuvo, y hasta a punto de morir; pero Dios tuvo compasión de él, y no solo de él sino también de mí, para que no tuviera yo más tristezas de las que ya tengo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-PHP">
+    <verse num="28" />
+    <text>Por eso se lo envío a toda prisa, para que ustedes se alegren de verlo otra vez y para que yo no esté tan triste.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-PHP">
+    <verse num="29" />
+    <text>Recíbanlo con toda alegría, como hermano en el Señor, y estimen siempre a los que son como él,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
+    <verse num="30" />
+    <text>ya que estuvo a punto de morir por servir a Cristo. Puso en peligro su vida, y estuvo cerca de la muerte, por prestarme los servicios que ustedes no me podían prestar personalmente.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Por lo demás, hermanos míos, alégrense en el Señor. Para mí no es ninguna molestia repetir lo que ya les he escrito, y para ustedes es útil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Cuídense de esa gente despreciable, de los malos trabajadores, de esos que mutilan el cuerpo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>porque los verdaderos circuncidados somos nosotros, los que adoramos a Dios movidos por su Espíritu, y nos gloriamos de ser de Cristo Jesús, y no ponemos nuestra confianza en las cosas externas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Aunque también yo tengo razones para confiar en tales cosas. Nadie tendría más razones que yo para confiar en ellas:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>me circuncidaron a los ocho días de nacer, soy de raza israelita, pertenezco a la tribu de Benjamín, soy hebreo e hijo de hebreos. En cuanto a la interpretación de la ley judía, fui del partido fariseo;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>era tan fanático, que perseguía a los de la iglesia; y en cuanto a la justicia que se basa en el cumplimiento de la ley, era irreprochable.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Pero todo esto, que antes valía mucho para mí, ahora, a causa de Cristo, lo tengo por algo sin valor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Aún más, a nada le concedo valor si lo comparo con el bien supremo de conocer a Cristo Jesús, mi Señor. Por causa de Cristo lo he perdido todo, y todo lo considero basura a cambio de ganarlo a él</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>y encontrarme unido a él; no con una justicia propia, adquirida por medio de la ley, sino con la justicia que se adquiere por la fe en Cristo, la que da Dios con base en la fe.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>Lo que quiero es conocer a Cristo, sentir en mí el poder de su resurrección y la solidaridad en sus sufrimientos; haciéndome semejante a él en su muerte,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>espero llegar a la resurrección de los muertos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>No quiero decir que ya lo haya conseguido todo, ni que ya sea perfecto; pero sigo adelante con la esperanza de alcanzarlo, puesto que Cristo Jesús me alcanzó primero.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Hermanos, no digo que yo mismo ya lo haya alcanzado; lo que sí hago es olvidarme de lo que queda atrás y esforzarme por alcanzar lo que está delante,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>para llegar a la meta y ganar el premio celestial que Dios nos llama a recibir por medio de Cristo Jesús.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Todos los que ya poseemos una fe madura, debemos pensar de esta manera. Si en alguna cosa ustedes piensan de otro modo, Dios les hará ver esto también.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Pero, eso sí, debemos vivir de acuerdo con lo que ya hemos alcanzado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Hermanos, sigan mi ejemplo y fíjense también en los que viven según el ejemplo que nosotros les hemos dado a ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Ya les he dicho muchas veces, y ahora se lo repito con lágrimas, que hay muchos que están viviendo como enemigos de la cruz de Cristo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>y su fin es la perdición. Su dios son sus propios apetitos, y sienten orgullo de lo que debería darles vergüenza. Solo piensan en las cosas de este mundo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>En cambio, nosotros somos ciudadanos del cielo, y estamos esperando que del cielo venga el Salvador, el Señor Jesucristo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>que cambiará nuestro cuerpo miserable para que sea como su propio cuerpo glorioso. Y lo hará por medio del poder que tiene para dominar todas las cosas.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Por eso, mis queridos hermanos, a quienes tanto deseo ver; ustedes, amados míos, que son mi alegría y mi premio, sigan así, firmes en el Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Ruego a Evodia, y también a Síntique, que se pongan de acuerdo como hermanas en el Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Y a ti, mi fiel compañero de trabajo, te pido que ayudes a estas hermanas, pues ellas lucharon a mi lado en el anuncio del evangelio, junto con Clemente y los otros que trabajaron conmigo. Sus nombres ya están escritos en el libro de la vida.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Alégrense siempre en el Señor. Repito: ¡Alégrense!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Que todos los conozcan a ustedes como personas bondadosas. El Señor está cerca.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>No se aflijan por nada, sino preséntenselo todo a Dios en oración; pídanle, y denle gracias también.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Así Dios les dará su paz, que es más grande de lo que el hombre puede entender; y esta paz cuidará sus corazones y sus pensamientos por medio de Cristo Jesús.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Por último, hermanos, piensen en todo lo verdadero, en todo lo que es digno de respeto, en todo lo recto, en todo lo puro, en todo lo agradable, en todo lo que tiene buena fama. Piensen en toda clase de virtudes, en todo lo que merece alabanza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Sigan practicando lo que les enseñé y las instrucciones que les di, lo que me oyeron decir y lo que me vieron hacer: háganlo así y el Dios de paz estará con ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>Me alegro mucho en el Señor de que ustedes hayan vuelto a pensar en mí. No quiero decir que me hubieran olvidado, sino que no tenían la oportunidad de ayudarme.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>No lo digo porque yo esté necesitado, pues he aprendido a contentarme con lo que tengo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Sé lo que es vivir en la pobreza, y también lo que es vivir en la abundancia. He aprendido a hacer frente a cualquier situación, lo mismo a estar satisfecho que a tener hambre, a tener de sobra que a no tener nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>A todo puedo hacerle frente, gracias a Cristo que me fortalece.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Sin embargo, ustedes hicieron bien compartiendo mis dificultades.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Cuando partí de Macedonia, al comenzar a anunciar el evangelio, fueron ustedes, los de la iglesia de Filipos, los únicos con quienes tuve este intercambio de bienes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Pues incluso estando yo en Tesalónica, más de una ve Zustedes me enviaron ofrendas para mis necesidades.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>No es que yo esté cobrándoles nada; lo que quiero es que ustedes lleguen a tener más en su cuenta delante de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Acuso recibo de todo, y hasta tengo de sobra. Con lo que me enviaron por medio de Epafrodito, tengo más que suficiente. Lo que me enviaron fue como una ofrenda de incienso perfumado, un sacrificio que Dios recibe con agrado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Por lo tanto, mi Dios les dará a ustedes todo lo que les falte, conforme a las gloriosas riquezas que tiene en Cristo Jesús.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>¡Gloria para siempre a nuestro Dios y Padre! Amén.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Saluden de mi parte a todos los que pertenecen al pueblo santo por Jesucristo. Los hermanos que están conmigo les mandan saludos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>También les mandan saludos todos los que pertenecen al pueblo santo, y especialmente los del servicio del emperador romano.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Que el Señor Jesucristo derrame su gracia sobre ustedes.</text>
+  </block>
+  <UnappliedSplits />
+</book>

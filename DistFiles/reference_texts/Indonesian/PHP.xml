@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="PHP" singlevoice="false" pageheader="PHILIPPIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP">
+    <text>PHILIPPIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Dari Paulus dan Timotius, hamba-hamba Kristus Yesus, kepada semua orang kudus dalam Kristus Yesus di Filipi, dengan para penilik jemaat dan diaken.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Kasih karunia dan damai sejahtera dari Allah, Bapa kita, dan dari Tuhan Yesus Kristus menyertai kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Aku mengucap syukur kepada Allahku setiap kali aku mengingat kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Dan setiap kali aku berdoa untuk kamu semua, aku selalu berdoa dengan sukacita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Aku mengucap syukur kepada Allahku karena persekutuanmu dalam Berita Injil mulai dari hari pertama sampai sekarang ini.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Akan hal ini aku yakin sepenuhnya, yaitu Ia, yang memulai pekerjaan yang baik di antara kamu, akan meneruskannya sampai pada akhirnya pada hari Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Memang sudahlah sepatutnya aku berpikir demikian akan kamu semua, sebab kamu ada di dalam hatiku, oleh karena kamu semua turut mendapat bagian dalam kasih karunia yang diberikan kepadaku, baik pada waktu aku dipenjarakan, maupun pada waktu aku membela dan meneguhkan Berita Injil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Sebab Allah adalah saksiku betapa aku dengan kasih mesra Kristus Yesus merindukan kamu sekalian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Dan inilah doaku, semoga kasihmu makin melimpah dalam pengetahuan yang benar dan dalam segala macam pengertian,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>sehingga kamu dapat memilih apa yang baik, supaya kamu suci dan tak bercacat menjelang hari Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>penuh dengan buah kebenaran yang dikerjakan oleh Yesus Kristus untuk memuliakan dan memuji Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Aku menghendaki, saudara-saudara, supaya kamu tahu, bahwa apa yang terjadi atasku ini justru telah menyebabkan kemajuan Injil,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>sehingga telah jelas bagi seluruh istana dan semua orang lain, bahwa aku dipenjarakan karena Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Dan kebanyakan saudara dalam Tuhan telah beroleh kepercayaan karena pemenjaraanku untuk bertambah berani berkata-kata tentang firman Allah dengan tidak takut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Ada orang yang memberitakan Kristus karena dengki dan perselisihan, tetapi ada pula yang memberitakan-Nya dengan maksud baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Mereka ini memberitakan Kristus karena kasih, sebab mereka tahu, bahwa aku ada di sini untuk membela Injil,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>tetapi yang lain karena kepentingan sendiri dan dengan maksud yang tidak ikhlas, sangkanya dengan demikian mereka memperberat bebanku dalam penjara.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Tetapi tidak mengapa, sebab bagaimanapun juga, Kristus diberitakan, baik dengan maksud palsu maupun dengan jujur. Tentang hal itu aku bersukacita. Dan aku akan tetap bersukacita,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>karena aku tahu, bahwa kesudahan semuanya ini ialah keselamatanku oleh doamu dan pertolongan Roh Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Sebab yang sangat kurindukan dan kuharapkan ialah bahwa aku dalam segala hal tidak akan beroleh malu, melainkan seperti sediakala, demikianpun sekarang, Kristus dengan nyata dimuliakan di dalam tubuhku, baik oleh hidupku, maupun oleh matiku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Karena bagiku hidup adalah Kristus dan mati adalah keuntungan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Tetapi jika aku harus hidup di dunia ini, itu berarti bagiku bekerja memberi buah. Jadi mana yang harus kupilih, aku tidak tahu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Aku didesak dari dua pihak: aku ingin pergi dan diam bersama-sama dengan Kristus—itu memang jauh lebih baik;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHP">
+    <verse num="24" />
+    <text>tetapi lebih perlu untuk tinggal di dunia ini karena kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHP">
+    <verse num="25" />
+    <text>Dan dalam keyakinan ini tahulah aku: aku akan tinggal dan akan bersama-sama lagi dengan kamu sekalian supaya kamu makin maju dan bersukacita dalam iman,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-PHP">
+    <verse num="26" />
+    <text>sehingga kemegahanmu dalam Kristus Yesus makin bertambah karena aku, apabila aku kembali kepada kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-PHP">
+    <verse num="27" />
+    <text>Hanya, hendaklah hidupmu berpadanan dengan Injil Kristus, supaya, apabila aku datang aku melihat, dan apabila aku tidak datang aku mendengar, bahwa kamu teguh berdiri dalam satu roh, dan sehati sejiwa berjuang untuk iman yang timbul dari Berita Injil,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-PHP">
+    <verse num="28" />
+    <text>dengan tiada digentarkan sedikitpun oleh lawanmu. Bagi mereka semuanya itu adalah tanda kebinasaan, tetapi bagi kamu tanda keselamatan, dan itu datangnya dari Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-PHP">
+    <verse num="29" />
+    <text>Sebab kepada kamu dikaruniakan bukan saja untuk percaya kepada Kristus, melainkan juga untuk menderita untuk Dia,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
+    <verse num="30" />
+    <text>dalam pergumulan yang sama seperti yang dahulu kamu lihat padaku, dan yang sekarang kamu dengar tentang aku. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Jadi karena dalam Kristus ada nasihat, ada penghiburan kasih, ada persekutuan Roh, ada kasih mesra dan belas kasihan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>karena itu sempurnakanlah sukacitaku dengan ini: hendaklah kamu sehati sepikir, dalam satu kasih, satu jiwa, satu tujuan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>dengan tidak mencari kepentingan sendiri atau puji-pujian yang sia-sia. Sebaliknya hendaklah dengan rendah hati yang seorang menganggap yang lain lebih utama dari pada dirinya sendiri;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>dan janganlah tiap-tiap orang hanya memperhatikan kepentingannya sendiri, tetapi kepentingan orang lain juga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Hendaklah kamu dalam hidupmu bersama, menaruh pikiran dan perasaan yang terdapat juga dalam Kristus Yesus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>yang walaupun dalam rupa Allah, tidak menganggap kesetaraan dengan Allah itu sebagai milik yang harus dipertahankan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>melainkan telah mengosongkan diri-Nya sendiri, dan mengambil rupa seorang hamba, dan menjadi sama dengan manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Dan dalam keadaan sebagai manusia, Ia telah merendahkan diri-Nya dan taat sampai mati, bahkan sampai mati di kayu salib.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Itulah sebabnya Allah sangat meninggikan Dia dan mengaruniakan kepada-Nya nama di atas segala nama,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>supaya dalam nama Yesus bertekuk lutut segala yang ada di langit dan yang ada di atas bumi dan yang ada di bawah bumi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>dan segala lidah mengaku: &lt;&lt;Yesus Kristus adalah Tuhan,&gt;&gt; bagi kemuliaan Allah, Bapa!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Hai saudara-saudaraku yang kekasih, kamu senantiasa taat; karena itu tetaplah kerjakan keselamatanmu dengan takut dan gentar, bukan saja seperti waktu aku masih hadir, tetapi terlebih pula sekarang waktu aku tidak hadir,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>karena Allahlah yang mengerjakan di dalam kamu baik kemauan maupun pekerjaan menurut kerelaan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Lakukanlah segala sesuatu dengan tidak bersungut-sungut dan berbantah-bantahan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>supaya kamu tiada beraib dan tiada bernoda, sebagai anak-anak Allah yang tidak bercela di tengah-tengah angkatan yang bengkok hatinya dan yang sesat ini, sehingga kamu bercahaya di antara mereka seperti bintang-bintang di dunia,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>sambil berpegang pada firman kehidupan, agar aku dapat bermegah pada hari Kristus, bahwa aku tidak percuma berlomba dan tidak percuma bersusah-susah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Tetapi sekalipun darahku dicurahkan pada korban dan ibadah imanmu, aku bersukacita dan aku bersukacita dengan kamu sekalian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Dan kamu juga harus bersukacita demikian dan bersukacitalah dengan aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Tetapi dalam Tuhan Yesus kuharap segera mengirimkan Timotius kepadamu, supaya tenang juga hatiku oleh kabar tentang hal ihwalmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Karena tak ada seorang padaku, yang sehati dan sepikir dengan dia dan yang begitu bersungguh-sungguh memperhatikan kepentinganmu;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>sebab semuanya mencari kepentingannya sendiri, bukan kepentingan Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Kamu tahu bahwa kesetiaannya telah teruji dan bahwa ia telah menolong aku dalam pelayanan Injil sama seperti seorang anak menolong bapanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Dialah yang kuharap untuk kukirimkan dengan segera, sesudah jelas bagiku bagaimana jalannya perkaraku;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-PHP">
+    <verse num="24" />
+    <text>tetapi dalam Tuhan aku percaya, bahwa aku sendiripun akan segera datang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-PHP">
+    <verse num="25" />
+    <text>Sementara itu kuanggap perlu mengirimkan Epafroditus kepadamu, yaitu saudaraku dan teman sekerja serta teman seperjuanganku, yang kamu utus untuk melayani aku dalam keperluanku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-PHP">
+    <verse num="26" />
+    <text>Karena ia sangat rindu kepada kamu sekalian dan susah juga hatinya, sebab kamu mendengar bahwa ia sakit.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-PHP">
+    <verse num="27" />
+    <text>Memang benar ia sakit dan nyaris mati, tetapi Allah mengasihani dia, dan bukan hanya dia saja, melainkan aku juga, supaya dukacitaku jangan bertambah-tambah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-PHP">
+    <verse num="28" />
+    <text>Itulah sebabnya aku lebih cepat mengirimkan dia, supaya bila kamu melihat dia, kamu dapat bersukacita pula dan berkurang dukacitaku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-PHP">
+    <verse num="29" />
+    <text>Jadi sambutlah dia dalam Tuhan dengan segala sukacita dan hormatilah orang-orang seperti dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
+    <verse num="30" />
+    <text>Sebab oleh karena pekerjaan Kristus ia nyaris mati dan ia mempertaruhkan jiwanya untuk memenuhi apa yang masih kurang dalam pelayananmu kepadaku. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Akhirnya, saudara-saudaraku, bersukacitalah dalam Tuhan. Menuliskan hal ini lagi kepadamu tidaklah berat bagiku dan memberi kepastian kepadamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Hati-hatilah terhadap anjing-anjing, hati-hatilah terhadap pekerja-pekerja yang jahat, hati-hatilah terhadap penyunat-penyunat yang palsu,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>karena kitalah orang-orang bersunat, yang beribadah oleh Roh Allah, dan bermegah dalam Kristus Yesus dan tidak menaruh percaya pada hal-hal lahiriah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Sekalipun aku juga ada alasan untuk menaruh percaya pada hal-hal lahiriah. Jika ada orang lain menyangka dapat menaruh percaya pada hal-hal lahiriah, aku lebih lagi:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>disunat pada hari kedelapan, dari bangsa Israel, dari suku Benyamin, orang Ibrani asli, tentang pendirian terhadap hukum Taurat aku orang Farisi,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>tentang kegiatan aku penganiaya jemaat, tentang kebenaran dalam mentaati hukum Taurat aku tidak bercacat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Tetapi apa yang dahulu merupakan keuntungan bagiku, sekarang kuanggap rugi karena Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Malahan segala sesuatu kuanggap rugi, karena pengenalan akan Kristus Yesus, Tuhanku, lebih mulia dari pada semuanya. Oleh karena Dialah aku telah melepaskan semuanya itu dan menganggapnya sampah, supaya aku memperoleh Kristus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>dan berada dalam Dia bukan dengan kebenaranku sendiri karena mentaati hukum Taurat, melainkan dengan kebenaran karena kepercayaan kepada Kristus, yaitu kebenaran yang Allah anugerahkan berdasarkan kepercayaan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>Yang kukehendaki ialah mengenal Dia dan kuasa kebangkitan- Nya dan persekutuan dalam penderitaan-Nya, di mana aku menjadi serupa dengan Dia dalam kematian-Nya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>supaya aku akhirnya beroleh kebangkitan dari antara orang mati.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Bukan seolah-olah aku telah memperoleh hal ini atau telah sempurna, melainkan aku mengejarnya, kalau-kalau aku dapat juga menangkapnya, karena akupun telah ditangkap oleh Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Saudara-saudara, aku sendiri tidak menganggap, bahwa aku telah menangkapnya, tetapi ini yang kulakukan: aku melupakan apa yang telah di belakangku dan mengarahkan diri kepada apa yang di hadapanku,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>dan berlari-lari kepada tujuan untuk memperoleh hadiah, yaitu panggilan sorgawi dari Allah dalam Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Karena itu marilah kita, yang sempurna, berpikir demikian. Dan jikalau lain pikiranmu tentang salah satu hal, hal itu akan dinyatakan Allah juga kepadamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Tetapi baiklah tingkat pengertian yang telah kita capai kita lanjutkan menurut jalan yang telah kita tempuh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Saudara-saudara, ikutilah teladanku dan perhatikanlah mereka, yang hidup sama seperti kami yang menjadi teladanmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Karena, seperti yang telah kerap kali kukatakan kepadamu, dan yang kunyatakan pula sekarang sambil menangis, banyak orang yang hidup sebagai seteru salib Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Kesudahan mereka ialah kebinasaan, Tuhan mereka ialah perut mereka, kemuliaan mereka ialah aib mereka, pikiran mereka semata-mata tertuju kepada perkara duniawi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Karena kewargaan kita adalah di dalam sorga, dan dari situ juga kita menantikan Tuhan Yesus Kristus sebagai Juruselamat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>yang akan mengubah tubuh kita yang hina ini, sehingga serupa dengan tubuh- Nya yang mulia, menurut kuasa-Nya yang dapat menaklukkan segala sesuatu kepada diri-Nya. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-PHP">
+    <verse num="1" />
+    <text>Karena itu, saudara-saudara yang kukasihi dan yang kurindukan, sukacitaku dan mahkotaku, berdirilah juga dengan teguh dalam Tuhan, hai saudara-saudaraku yang kekasih!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-PHP">
+    <verse num="2" />
+    <text>Euodia kunasihati dan Sintikhe kunasihati, supaya sehati sepikir dalam Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-PHP">
+    <verse num="3" />
+    <text>Bahkan, kuminta kepadamu juga, Sunsugos, temanku yang setia: tolonglah mereka. Karena mereka telah berjuang dengan aku dalam pekabaran Injil, bersama-sama dengan Klemens dan kawan-kawanku sekerja yang lain, yang nama-namanya tercantum dalam kitab kehidupan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-PHP">
+    <verse num="4" />
+    <text>Bersukacitalah senantiasa dalam Tuhan! Sekali lagi kukatakan: Bersukacitalah!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-PHP">
+    <verse num="5" />
+    <text>Hendaklah kebaikan hatimu diketahui semua orang. Tuhan sudah dekat!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-PHP">
+    <verse num="6" />
+    <text>Janganlah hendaknya kamu kuatir tentang apapun juga, tetapi nyatakanlah dalam segala hal keinginanmu kepada Allah dalam doa dan permohonan dengan ucapan syukur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-PHP">
+    <verse num="7" />
+    <text>Damai sejahtera Allah, yang melampaui segala akal, akan memelihara hati dan pikiranmu dalam Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-PHP">
+    <verse num="8" />
+    <text>Jadi akhirnya, saudara-saudara, semua yang benar, semua yang mulia, semua yang adil, semua yang suci, semua yang manis, semua yang sedap didengar, semua yang disebut kebajikan dan patut dipuji, pikirkanlah semuanya itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-PHP">
+    <verse num="9" />
+    <text>Dan apa yang telah kamu pelajari dan apa yang telah kamu terima, dan apa yang telah kamu dengar dan apa yang telah kamu lihat padaku, lakukanlah itu. Maka Allah sumber damai sejahtera akan menyertai kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-PHP">
+    <verse num="10" />
+    <text>Aku sangat bersukacita dalam Tuhan, bahwa akhirnya pikiranmu dan perasaanmu bertumbuh kembali untuk aku. Memang selalu ada perhatianmu, tetapi tidak ada kesempatan bagimu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-PHP">
+    <verse num="11" />
+    <text>Kukatakan ini bukanlah karena kekurangan, sebab aku telah belajar mencukupkan diri dalam segala keadaan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-PHP">
+    <verse num="12" />
+    <text>Aku tahu apa itu kekurangan dan aku tahu apa itu kelimpahan. Dalam segala hal dan dalam segala perkara tidak ada sesuatu yang merupakan rahasia bagiku; baik dalam hal kenyang, maupun dalam hal kelaparan, baik dalam hal kelimpahan maupun dalam hal kekurangan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-PHP">
+    <verse num="13" />
+    <text>Segala perkara dapat kutanggung di dalam Dia yang memberi kekuatan kepadaku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-PHP">
+    <verse num="14" />
+    <text>Namun baik juga perbuatanmu, bahwa kamu telah mengambil bagian dalam kesusahanku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-PHP">
+    <verse num="15" />
+    <text>Kamu sendiri tahu juga, hai orang-orang Filipi; pada waktu aku baru mulai mengabarkan Injil, ketika aku berangkat dari Makedonia, tidak ada satu jemaatpun yang mengadakan perhitungan hutang dan piutang dengan aku selain dari pada kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-PHP">
+    <verse num="16" />
+    <text>Karena di Tesalonikapun kamu telah satu dua kali mengirimkan bantuan kepadaku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-PHP">
+    <verse num="17" />
+    <text>Tetapi yang kuutamakan bukanlah pemberian itu, melainkan buahnya, yang makin memperbesar keuntunganmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-PHP">
+    <verse num="18" />
+    <text>Kini aku telah menerima semua yang perlu dari padamu, malahan lebih dari pada itu. Aku berkelimpahan, karena aku telah menerima kirimanmu dari Epafroditus, suatu persembahan yang harum, suatu korban yang disukai dan yang berkenan kepada Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-PHP">
+    <verse num="19" />
+    <text>Allahku akan memenuhi segala keperluanmu menurut kekayaan dan kemuliaan-Nya dalam Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-PHP">
+    <verse num="20" />
+    <text>Dimuliakanlah Allah dan Bapa kita selama-lamanya! Amin.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-PHP">
+    <verse num="21" />
+    <text>Sampaikanlah salamku kepada tiap-tiap orang kudus dalam Kristus Yesus. Salam kepadamu dari saudara-saudara, yang bersama-sama dengan aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
+    <verse num="22" />
+    <text>Salam kepadamu dari segala orang kudus, khususnya dari mereka yang di istana Kaisar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
+    <verse num="23" />
+    <text>Kasih karunia Tuhan Yesus Kristus menyertai rohmu!</text>
+  </block>
+  <UnappliedSplits />
+</book>

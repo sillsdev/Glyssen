@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="TIT" singlevoice="false" pageheader="TITUS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-TIT">
+    <text>TITUS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="TIT" initialStartVerse="0" characterId="BC-TIT">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-TIT">
+    <verse num="1" />
+    <text>Carta de Pablo, siervo de Dios y apóstol de Jesucristo, enviado por él para que los elegidos de Dios lleguen a la fe y al conocimiento de la verdad que se encuentra en nuestra religión,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-TIT">
+    <verse num="2" />
+    <text>sostenidos por la esperanza de la vida eterna. Dios, que no miente, prometió esta vida desde la eternidad,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-TIT">
+    <verse num="3" />
+    <text>y ahora, a su debido tiempo, ha dado a conocer su mensaje por medio de la predicación que me ha sido confiada por mandato de Dios nuestro Salvador.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-TIT">
+    <verse num="4" />
+    <text>A Tito, verdadero hijo en la fe común a los dos. Que Dios nuestro Padre y Jesucristo nuestro Salvador derramen su gracia y su paz sobre ti.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-TIT">
+    <verse num="5" />
+    <text>Cuando te dejé en la isla de Creta, lo hice para que arreglaras lo que quedaba por arreglar y para que, en cada pueblo, nombraras ancianos de la iglesia, de acuerdo con lo que yo te encargué.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-TIT">
+    <verse num="6" />
+    <text>Un anciano debe llevar una vida irreprochable. Debe ser esposo de una sola mujer, y sus hijos deben ser creyentes y no estar acusados de mala conducta o de ser rebeldes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-TIT">
+    <verse num="7" />
+    <text>Pues el que preside la comunidad está encargado de las cosas de Dios, y por eso es necesario que lleve una vida irreprochable. No debe ser terco, ni de mal genio; no debe ser borracho, ni amigo de peleas, ni desear ganancias mal habidas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-TIT">
+    <verse num="8" />
+    <text>Al contrario, siempre debe estar dispuesto a hospedar gente en su casa, y debe ser un hombre de bien, de buen juicio, justo, santo y disciplinado.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-TIT">
+    <verse num="9" />
+    <text>Debe apegarse al verdadero mensaje que se le enseñó, para que también pueda animar a otros con la sana enseñanza y convencer a los que contradicen.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-TIT">
+    <verse num="10" />
+    <text>Porque hay muchos rebeldes, sobre todo entre los que vienen del judaísmo, que dicen cosas sin sentido y engañan a la gente.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-TIT">
+    <verse num="11" />
+    <text>A esos hay que taparles la boca, pues trastornan familias enteras, enseñando lo que no deben para obtener ganancias mal habidas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-TIT">
+    <verse num="12" />
+    <text>Fue un profeta de la misma isla de Creta quien dijo de sus paisanos: &lt;&lt;Los cretenses, siempre mentirosos, salvajes, glotones y perezosos.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-TIT">
+    <verse num="13" />
+    <text>Y dijo la verdad; por eso, repréndelos duramente, para que sean sanos en su fe</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-TIT">
+    <verse num="14" />
+    <text>y para que no hagan caso de cuentos inventados por los judíos, ni de lo que ordenan los que dan la espalda a la verdad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-TIT">
+    <verse num="15" />
+    <text>Para los puros todas las cosas son puras; pero para los que son impuros y no aceptan la fe, nada hay puro, pues tienen impuras la mente y la conciencia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-TIT">
+    <verse num="16" />
+    <text>Dicen conocer a Dios, pero con sus hechos lo niegan; son odiosos y rebeldes, incapaces de ninguna obra buena.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="TIT" initialStartVerse="0" characterId="BC-TIT">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-TIT">
+    <verse num="1" />
+    <text>Lo que digas debe estar siempre de acuerdo con la sana enseñanza.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-TIT">
+    <verse num="2" />
+    <text>Los ancianos deben ser serios, respetables y de buen juicio; sanos en su fe, en su amor y en su fortaleza para soportar el sufrimiento.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-TIT">
+    <verse num="3" />
+    <text>Igualmente, las ancianas deben portarse con reverencia, y no ser chismosas, ni emborracharse. Deben dar buen ejemplo</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-TIT">
+    <verse num="4" />
+    <text>y enseñar a las jóvenes a amar a sus esposos y a sus hijos,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-TIT">
+    <verse num="5" />
+    <text>a ser juiciosas, puras, cuidadosas del hogar, bondadosas y sujetas a sus esposos, para que nadie pueda hablar mal del mensaje de Dios.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-TIT">
+    <verse num="6" />
+    <text>Anima igualmente a los jóvenes a ser juiciosos</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-TIT">
+    <verse num="7" />
+    <text>en todo, y dales tú mismo ejemplo de cómo hacer el bien. Al enseñarles, hazlo con toda pureza y dignidad,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-TIT">
+    <verse num="8" />
+    <text>hablando de una manera sana, que nadie pueda condenar. Así sentirá vergüenza cualquiera que se ponga en contra, pues no podrá decir nada malo de nosotros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-TIT">
+    <verse num="9" />
+    <text>Aconseja a los siervos que obedezcan en todo a sus amos; que sean amables y no respondones.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-TIT">
+    <verse num="10" />
+    <text>Que no roben, sino que sean completamente honrados, para mostrar en todo qué hermosa es la enseñanza de Dios nuestro Salvador.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-TIT">
+    <verse num="11" />
+    <text>Pues Dios ha mostrado su bondad, al ofrecer la salvación a toda la humanidad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-TIT">
+    <verse num="12" />
+    <text>Esa bondad de Dios nos enseña a renunciar a la maldad y a los deseos mundanos, y a llevar en el tiempo presente una vida de buen juicio, rectitud y piedad,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-TIT">
+    <verse num="13" />
+    <text>mientras llega el feliz cumplimiento de nuestra esperanza: el regreso glorioso de nuestro gran Dios y Salvador Jesucristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-TIT">
+    <verse num="14" />
+    <text>Él se entregó a la muerte por nosotros, para rescatarnos de toda maldad y limpiarnos completamente, haciendo de nosotros el pueblo de su propiedad, empeñados en hacer el bien.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-TIT">
+    <verse num="15" />
+    <text>Esto es lo que tienes que enseñar, animando y reprendiendo con toda autoridad. Que nadie te desprecie.</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="TIT" initialStartVerse="0" characterId="BC-TIT">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-TIT">
+    <verse num="1" />
+    <text>Recuerda a los otros que se sometan al gobierno y a las autoridades, que sean obedientes y que siempre estén dispuestos a hacer lo bueno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-TIT">
+    <verse num="2" />
+    <text>Que no hablen mal de nadie, que sean pacíficos y bondadosos, y que se muestren humildes de corazón en su trato con todos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-TIT">
+    <verse num="3" />
+    <text>Porque antes también nosotros éramos insensatos y rebeldes; andábamos perdidos y éramos esclavos de toda clase de deseos y placeres. Vivíamos en maldad y envidia, odiados y odiándonos unos a otros.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-TIT">
+    <verse num="4" />
+    <text>Pero Dios nuestro Salvador mostró su bondad y su amor por la humanidad,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-TIT">
+    <verse num="5" />
+    <text>y, sin que nosotros hubiéramos hecho nada bueno, por pura misericordia nos salvó lavándonos y regenerándonos, y dándonos nueva vida por el Espíritu Santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-TIT">
+    <verse num="6" />
+    <text>Pues por medio de Jesucristo nuestro Salvador nos dio en abundancia el Espíritu Santo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-TIT">
+    <verse num="7" />
+    <text>para que, después de hacernos justos por su bondad, tengamos la esperanza de recibir en herencia la vida eterna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-TIT">
+    <verse num="8" />
+    <text>Esto es muy cierto, y quiero que insistas mucho en ello, para que los que creen en Dios se ocupen en hacer el bien. Estas cosas son buenas y útiles para todos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-TIT">
+    <verse num="9" />
+    <text>Pero evita las discusiones tontas, las leyendas acerca de los antepasados, las discordias y las peleas por cuestiones de la ley de Moisés. Son cosas inútiles y sin sentido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-TIT">
+    <verse num="10" />
+    <text>Si alguien causa divisiones en la iglesia, llámale la atención una y dos veces; pero si no te hace caso, expúlsalo de ella,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-TIT">
+    <verse num="11" />
+    <text>pues debes saber que esa persona se ha pervertido y que su mismo pecado la está condenando.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-TIT">
+    <verse num="12" />
+    <text>Cuando yo te mande a Artemas o a Tíquico, haz lo posible por ir a Nicópolis a verme, porque he decidido pasar allí el invierno.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-TIT">
+    <verse num="13" />
+    <text>Ayuda en todo lo que puedas al abogado Zenas y a Apolo, dándoles lo necesario para que sigan su viaje y no les falte nada.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-TIT">
+    <verse num="14" />
+    <text>Y que los nuestros aprendan también a hacer el bien y a ayudar en casos de necesidad, para que sus vidas sean útiles.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-TIT">
+    <verse num="15" />
+    <text>Todos los que están conmigo te mandan saludos. Saluda a nuestros queridos amigos en la fe. Que Dios derrame su gracia sobre todos ustedes.</text>
+  </block>
+  <UnappliedSplits />
+</book>

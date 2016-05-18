@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="PHM" singlevoice="false" pageheader="PHILEMON">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHM">
+    <text>PHILEMON</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="PHM" initialStartVerse="0" characterId="BC-PHM">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHM">
+    <verse num="1" />
+    <text>Pablo, preso por causa de Cristo Jesús, y el hermano Timoteo saludan a Filemón, querido compañero de trabajo,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHM">
+    <verse num="2" />
+    <text>y a la iglesia que se reúne en su casa, así como a la hermana Apia y a Arquipo, nuestro compañero en la lucha.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHM">
+    <verse num="3" />
+    <text>Que Dios nuestro Padre y el Señor Jesucristo derramen su gracia y su paz sobre ustedes.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHM">
+    <verse num="4" />
+    <text>Siempre doy gracias a mi Dios al acordarme de ti en mis oraciones,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHM">
+    <verse num="5" />
+    <text>porque he tenido noticias del amor y la fe que tienes para con el Señor Jesús y para con todos los que pertenecen al pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHM">
+    <verse num="6" />
+    <text>Y pido a Dios que tu participación en la misma fe te lleve a conocer todo el bien que podemos realizar por amor a Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHM">
+    <verse num="7" />
+    <text>Estoy muy contento y animado por tu amor, ya que tú, hermano, has llenado de consuelo el corazón de los que pertenecen al pueblo santo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHM">
+    <verse num="8" />
+    <text>Por eso, aunque en nombre de Cristo tengo derecho a ordenarte lo que debes hacer,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHM">
+    <verse num="9" />
+    <text>prefiero rogártelo en nombre del amor. Yo, Pablo, ya anciano, y ahora preso por causa de Cristo Jesús,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHM">
+    <verse num="10" />
+    <text>te pido un favor para mi hijo Onésimo, de quien he llegado a ser padre según la fe aquí en la cárcel.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHM">
+    <verse num="11" />
+    <text>En otro tiempo, Onésimo fue para ti un esclavo inútil, pero ahora nos es útil tanto a ti como a mí.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHM">
+    <verse num="12" />
+    <text>Te lo envío de nuevo: es el hijo de mis entrañas.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHM">
+    <verse num="13" />
+    <text>Yo hubiera querido que se quedara aquí conmigo, para que me sirviera en tu lugar mientras estoy preso por causa del evangelio.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHM">
+    <verse num="14" />
+    <text>Pero no quiero hacer nada que tú antes no hayas aprobado, para que el favor que me haces no sea por obligación sino por tu propia voluntad.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHM">
+    <verse num="15" />
+    <text>Tal vez Onésimo se apartó de ti por algún tiempo para que ahora lo tengas para siempre,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHM">
+    <verse num="16" />
+    <text>ya no como un esclavo, sino como algo mejor que un esclavo: como un hermano querido. Yo lo quiero mucho, pero tú debes quererlo todavía más, no solo humanamente sino también como hermano en el Señor.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHM">
+    <verse num="17" />
+    <text>Así pues, si me tienes por hermano en la fe, recíbelo como si se tratara de mí mismo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHM">
+    <verse num="18" />
+    <text>Si te ha hecho algún daño, o si te debe algo, cóbramelo a mí.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHM">
+    <verse num="19" />
+    <text>Yo, Pablo, escribo esto con mi puño y letra: Yo lo pagaré. Por no decir que lo pongas a tu cuenta, ya que tú me debes tu propia persona.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHM">
+    <verse num="20" />
+    <text>Sí, hermano, te pido este favor por amor al Señor; consuela mi corazón como hermano en Cristo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHM">
+    <verse num="21" />
+    <text>Te escribo porque estoy seguro de tu obediencia, y sé que harás más de lo que te pido.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHM">
+    <verse num="22" />
+    <text>Además de esto, prepárame alojamiento; porque espero que, en respuesta a las oraciones de ustedes, Dios les concederá que yo vaya a verlos.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHM">
+    <verse num="23" />
+    <text>Saludos de Epafras, mi compañero de cárcel por causa de Cristo Jesús,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHM">
+    <verse num="24" />
+    <text>y también de Marcos, Aristarco, Demas y Lucas, que me ayudan en el trabajo.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHM">
+    <verse num="25" />
+    <text>Que el Señor Jesucristo derrame su gracia sobre ustedes.</text>
+  </block>
+  <UnappliedSplits />
+</book>

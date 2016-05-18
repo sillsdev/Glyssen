@@ -1,0 +1,1832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book id="1CO" singlevoice="false" pageheader="1 CORINTHIANS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
+    <text>1 CORINTHIANS</text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="1" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>1</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Dari Paulus, yang oleh kehendak Allah dipanggil menjadi rasul Kristus Yesus, dan dari Sostenes, saudara kita,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>kepada jemaat Allah di Korintus, yaitu mereka yang dikuduskan dalam Kristus Yesus dan yang dipanggil menjadi orang-orang kudus, dengan semua orang di segala tempat, yang berseru kepada nama Tuhan kita Yesus Kristus, yaitu Tuhan mereka dan Tuhan kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Kasih karunia dan damai sejahtera dari Allah, Bapa kita, dan dari Tuhan Yesus Kristus menyertai kamu. </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Aku senantiasa mengucap syukur kepada Allahku karena kamu atas kasih karunia Allah yang dianugerahkan-Nya kepada kamu dalam Kristus Yesus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Sebab di dalam Dia kamu telah menjadi kaya dalam segala hal: dalam segala macam perkataan dan segala macam pengetahuan,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>sesuai dengan kesaksian tentang Kristus, yang telah diteguhkan di antara kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Demikianlah kamu tidak kekurangan dalam suatu karuniapun sementara kamu menantikan penyataan Tuhan kita Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Ia juga akan meneguhkan kamu sampai kepada kesudahannya, sehingga kamu tak bercacat pada hari Tuhan kita Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Allah, yang memanggil kamu kepada persekutuan dengan Anak-Nya Yesus Kristus, Tuhan kita, adalah setia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Tetapi aku menasihatkan kamu, saudara-saudara, demi nama Tuhan kita Yesus Kristus, supaya kamu seia sekata dan jangan ada perpecahan di antara kamu, tetapi sebaliknya supaya kamu erat bersatu dan sehati sepikir.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Sebab, saudara-saudaraku, aku telah diberitahukan oleh orang-orang dari keluarga Kloe tentang kamu, bahwa ada perselisihan di antara kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Yang aku maksudkan ialah, bahwa kamu masing-masing berkata: &lt;&lt;Aku dari golongan Paulus.&gt;&gt; Atau &lt;&lt;aku dari golongan Apolos.&gt;&gt; Atau &lt;&lt;aku dari golongan Kefas.&gt;&gt; Atau &lt;&lt;aku dari golongan Kristus.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Adakah Kristus terbagi-bagi? Adakah Paulus disalibkan karena kamu? Atau adakah kamu dibaptis dalam nama Paulus?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Aku mengucap syukur bahwa tidak ada seorangpun juga di antara kamu yang aku baptis selain Krispus dan Gayus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>sehingga tidak ada orang yang dapat mengatakan, bahwa kamu dibaptis dalam namaku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Juga keluarga Stefanus aku yang membaptisnya. Kecuali mereka aku tidak tahu, entahkah ada lagi orang yang aku baptis.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Sebab Kristus mengutus aku bukan untuk membaptis, tetapi untuk memberitakan Injil; dan itupun bukan dengan hikmat perkataan, supaya salib Kristus jangan menjadi sia-sia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Sebab pemberitaan tentang salib memang adalah kebodohan bagi mereka yang akan binasa, tetapi bagi kita yang diselamatkan pemberitaan itu adalah kekuatan Allah. </text>
+    <verse num="19" />
+    <text>Karena ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="scripture">
+    <text>&lt;&lt;Aku akan membinasakan hikmat orang-orang berhikmat dan kearifan orang-orang bijak akan Kulenyapkan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Di manakah orang yang berhikmat? Di manakah ahli Taurat? Di manakah pembantah dari dunia ini? Bukankah Allah telah membuat hikmat dunia ini menjadi kebodohan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Oleh karena dunia, dalam hikmat Allah, tidak mengenal Allah oleh hikmatnya, maka Allah berkenan menyelamatkan mereka yang percaya oleh kebodohan pemberitaan Injil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Orang-orang Yahudi menghendaki tanda dan orang-orang Yunani mencari hikmat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>tetapi kami memberitakan Kristus yang disalibkan: untuk orang-orang Yahudi suatu batu sandungan dan untuk orang-orang bukan Yahudi suatu kebodohan, </text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>tetapi untuk mereka yang dipanggil, baik orang Yahudi, maupun orang bukan Yahudi, Kristus adalah kekuatan Allah dan hikmat Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Sebab yang bodoh dari Allah lebih besar hikmatnya dari pada manusia dan yang lemah dari Allah lebih kuat dari pada manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Ingat saja, saudara-saudara, bagaimana keadaan kamu, ketika kamu dipanggil: menurut ukuran manusia tidak banyak orang yang bijak, tidak banyak orang yang berpengaruh, tidak banyak orang yang terpandang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Tetapi apa yang bodoh bagi dunia, dipilih Allah untuk memalukan orang-orang yang berhikmat, dan apa yang lemah bagi dunia, dipilih Allah untuk memalukan apa yang kuat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>dan apa yang tidak terpandang dan yang hina bagi dunia, dipilih Allah, bahkan apa yang tidak berarti, dipilih Allah untuk meniadakan apa yang berarti,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>supaya jangan ada seorang manusiapun yang memegahkan diri di hadapan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>Tetapi oleh Dia kamu berada dalam Kristus Yesus, yang oleh Allah telah menjadi hikmat bagi kita. Ia membenarkan dan menguduskan dan menebus kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>Karena itu seperti ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture">
+    <text>&lt;&lt;Barangsiapa yang bermegah, hendaklah ia bermegah di dalam Tuhan.&gt;&gt; </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>2</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Demikianlah pula, ketika aku datang kepadamu, saudara-saudara, aku tidak datang dengan kata-kata yang indah atau dengan hikmat untuk menyampaikan kesaksian Allah kepada kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Sebab aku telah memutuskan untuk tidak mengetahui apa-apa di antara kamu selain Yesus Kristus, yaitu Dia yang disalibkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Aku juga telah datang kepadamu dalam kelemahan dan dengan sangat takut dan gentar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Baik perkataanku maupun pemberitaanku tidak kusampaikan dengan kata-kata hikmat yang meyakinkan, tetapi dengan keyakinan akan kekuatan Roh,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>supaya iman kamu jangan bergantung pada hikmat manusia, tetapi pada kekuatan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Sungguhpun demikian kami memberitakan hikmat di kalangan mereka yang telah matang, yaitu hikmat yang bukan dari dunia ini, dan yang bukan dari penguasa-penguasa dunia ini, yaitu penguasa-penguasa yang akan ditiadakan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Tetapi yang kami beritakan ialah hikmat Allah yang tersembunyi dan rahasia, yang sebelum dunia dijadikan, telah disediakan Allah bagi kemuliaan kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Tidak ada dari penguasa dunia ini yang mengenalnya, sebab kalau sekiranya mereka mengenalnya, mereka tidak menyalibkan Tuhan yang mulia. </text>
+    <verse num="9" />
+    <text>Tetapi seperti ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Apa yang tidak pernah dilihat oleh mata, dan tidak pernah didengar oleh telinga, dan yang tidak pernah timbul di dalam hati manusia: semua yang disediakan Allah untuk mereka yang mengasihi Dia.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Karena kepada kita Allah telah menyatakannya oleh Roh, sebab Roh menyelidiki segala sesuatu, bahkan hal-hal yang tersembunyi dalam diri Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Siapa gerangan di antara manusia yang tahu, apa yang terdapat di dalam diri manusia selain roh manusia sendiri yang ada di dalam dia? Demikian pulalah tidak ada orang yang tahu, apa yang terdapat di dalam diri Allah selain Roh Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Kita tidak menerima roh dunia, tetapi roh yang berasal dari Allah, supaya kita tahu, apa yang dikaruniakan Allah kepada kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Dan karena kami menafsirkan hal-hal rohani kepada mereka yang mempunyai Roh, kami berkata-kata tentang karunia-karunia Allah dengan perkataan yang bukan diajarkan kepada kami oleh hikmat manusia, tetapi oleh Roh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Tetapi manusia duniawi tidak menerima apa yang berasal dari Roh Allah, karena hal itu baginya adalah suatu kebodohan; dan ia tidak dapat memahaminya, sebab hal itu hanya dapat dinilai secara rohani.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Tetapi manusia rohani menilai segala sesuatu, tetapi ia sendiri tidak dinilai oleh orang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="scripture">
+    <verse num="16" />
+    <text>Sebab: &lt;&lt;Siapakah yang mengetahui pikiran Tuhan, sehingga ia dapat menasihati Dia?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
+    <text>Tetapi kami memiliki pikiran Kristus. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="3" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>3</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Dan aku, saudara-saudara, pada waktu itu tidak dapat berbicara dengan kamu seperti dengan manusia rohani, tetapi hanya dengan manusia duniawi, yang belum dewasa dalam Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Susulah yang kuberikan kepadamu, bukanlah makanan keras, sebab kamu belum dapat menerimanya. Dan sekarangpun kamu belum dapat menerimanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Karena kamu masih manusia duniawi. Sebab, jika di antara kamu ada iri hati dan perselisihan bukankah hal itu menunjukkan, bahwa kamu manusia duniawi dan bahwa kamu hidup secara manusiawi?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Karena jika yang seorang berkata: &lt;&lt;Aku dari golongan Paulus,&gt;&gt; dan yang lain berkata: &lt;&lt;Aku dari golongan Apolos,&gt;&gt; bukankah hal itu menunjukkan, bahwa kamu manusia duniawi yang bukan rohani?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Jadi, apakah Apolos? Apakah Paulus? Pelayan-pelayan Tuhan yang olehnya kamu menjadi percaya, masing-masing menurut jalan yang diberikan Tuhan kepadanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Aku menanam, Apolos menyiram, tetapi Allah yang memberi pertumbuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Karena itu yang penting bukanlah yang menanam atau yang menyiram, melainkan Allah yang memberi pertumbuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Baik yang menanam maupun yang menyiram adalah sama; dan masing-masing akan menerima upahnya sesuai dengan pekerjaannya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Karena kami adalah kawan sekerja Allah; kamu adalah ladang Allah, bangunan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Sesuai dengan kasih karunia Allah, yang dianugerahkan kepadaku, aku sebagai seorang ahli bangunan yang cakap telah meletakkan dasar, dan orang lain membangun terus di atasnya. Tetapi tiap-tiap orang harus memperhatikan, bagaimana ia harus membangun di atasnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Karena tidak ada seorangpun yang dapat meletakkan dasar lain dari pada dasar yang telah diletakkan, yaitu Yesus Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Entahkah orang membangun di atas dasar ini dengan emas, perak, batu permata, kayu, rumput kering atau jerami,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>sekali kelak pekerjaan masing-masing orang akan nampak. Karena hari Tuhan akan menyatakannya, sebab ia akan nampak dengan api dan bagaimana pekerjaan masing-masing orang akan diuji oleh api itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Jika pekerjaan yang dibangun seseorang tahan uji, ia akan mendapat upah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Jika pekerjaannya terbakar, ia akan menderita kerugian, tetapi ia sendiri akan diselamatkan, tetapi seperti dari dalam api.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Tidak tahukah kamu, bahwa kamu adalah bait Allah dan bahwa Roh Allah diam di dalam kamu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Jika ada orang yang membinasakan bait Allah, maka Allah akan membinasakan dia. Sebab bait Allah adalah kudus dan bait Allah itu ialah kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Janganlah ada orang yang menipu dirinya sendiri. Jika ada di antara kamu yang menyangka dirinya berhikmat menurut dunia ini, biarlah ia menjadi bodoh, supaya ia berhikmat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Karena hikmat dunia ini adalah kebodohan bagi Allah. Sebab ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="scripture">
+    <text>&lt;&lt;Ia yang menangkap orang berhikmat dalam kecerdikannya.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Dan di tempat lain:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="scripture">
+    <text>&lt;&lt;Tuhan mengetahui rancangan-rancangan orang berhikmat; sesungguhnya semuanya sia-sia belaka.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Karena itu janganlah ada orang yang memegahkan dirinya atas manusia, sebab segala sesuatu adalah milikmu:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>baik Paulus, Apolos, maupun Kefas, baik dunia, hidup, maupun mati, baik waktu sekarang, maupun waktu yang akan datang. Semuanya kamu punya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Tetapi kamu adalah milik Kristus dan Kristus adalah milik Allah. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="4" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>4</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Demikianlah hendaknya orang memandang kami: sebagai hamba-hamba Kristus, yang kepadanya dipercayakan rahasia Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Yang akhirnya dituntut dari pelayan-pelayan yang demikian ialah, bahwa mereka ternyata dapat dipercayai.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Bagiku sedikit sekali artinya entahkah aku dihakimi oleh kamu atau oleh suatu pengadilan manusia. Malahan diriku sendiripun tidak kuhakimi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Sebab memang aku tidak sadar akan sesuatu, tetapi bukan karena itulah aku dibenarkan. Dia, yang menghakimi aku, ialah Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Karena itu, janganlah menghakimi sebelum waktunya, yaitu sebelum Tuhan datang. Ia akan menerangi, juga apa yang tersembunyi dalam kegelapan, dan Ia akan memperlihatkan apa yang direncanakan di dalam hati. Maka tiap-tiap orang akan menerima pujian dari Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Saudara-saudara, kata-kata ini aku kenakan pada diriku sendiri dan pada Apolos, karena kamu, supaya dari teladan kami kamu belajar apakah artinya ungkapan: &lt;&lt;Jangan melampaui yang ada tertulis&gt;&gt;, supaya jangan ada di antara kamu yang menyombongkan diri dengan jalan mengutamakan yang satu dari pada yang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Sebab siapakah yang menganggap engkau begitu penting? Dan apakah yang engkau punyai, yang tidak engkau terima? Dan jika engkau memang menerimanya, mengapakah engkau memegahkan diri, seolah-olah engkau tidak menerimanya?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Kamu telah kenyang, kamu telah menjadi kaya, tanpa kami kamu telah menjadi raja. Ah, alangkah baiknya kalau benar demikian, bahwa kamu telah menjadi raja, sehingga kamipun turut menjadi raja dengan kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Sebab, menurut pendapatku, Allah memberikan kepada kami, para rasul, tempat yang paling rendah, sama seperti orang-orang yang telah dijatuhi hukuman mati, sebab kami telah menjadi tontonan bagi dunia, bagi malaikat-malaikat dan bagi manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Kami bodoh oleh karena Kristus, tetapi kamu arif dalam Kristus. Kami lemah, tetapi kamu kuat. Kamu mulia, tetapi kami hina.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Sampai pada saat ini kami lapar, haus, telanjang, dipukul dan hidup mengembara,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>kami melakukan pekerjaan tangan yang berat. Kalau kami dimaki, kami memberkati; kalau kami dianiaya, kami sabar;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>kalau kami difitnah, kami tetap menjawab dengan ramah; kami telah menjadi sama dengan sampah dunia, sama dengan kotoran dari segala sesuatu, sampai pada saat ini.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Hal ini kutuliskan bukan untuk memalukan kamu, tetapi untuk menegor kamu sebagai anak-anakku yang kukasihi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Sebab sekalipun kamu mempunyai beribu-ribu pendidik dalam Kristus, kamu tidak mempunyai banyak bapa. Karena akulah yang dalam Kristus Yesus telah menjadi bapamu oleh Injil yang kuberitakan kepadamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Sebab itu aku menasihatkan kamu: turutilah teladanku!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Justru itulah sebabnya aku mengirimkan kepadamu Timotius, yang adalah anakku yang kekasih dan yang setia dalam Tuhan. Ia akan memperingatkan kamu akan hidup yang kuturuti dalam Kristus Yesus, seperti yang kuajarkan di mana-mana dalam setiap jemaat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Tetapi ada beberapa orang yang menjadi sombong, karena mereka menyangka, bahwa aku tidak akan datang lagi kepadamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Tetapi aku akan segera datang kepadamu, kalau Tuhan menghendakinya. Maka aku akan tahu, bukan tentang perkataan orang-orang yang sombong itu, tetapi tentang kekuatan mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Sebab Kerajaan Allah bukan terdiri dari perkataan, tetapi dari kuasa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Apakah yang kamu kehendaki? Haruskah aku datang kepadamu dengan cambuk atau dengan kasih dan dengan hati yang lemah lembut? </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="5" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>5</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Memang orang mendengar, bahwa ada percabulan di antara kamu, dan percabulan yang begitu rupa, seperti yang tidak terdapat sekalipun di antara bangsa-bangsa yang tidak mengenal Allah, yaitu bahwa ada orang yang hidup dengan isteri ayahnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Sekalipun demikian kamu sombong. Tidakkah lebih patut kamu berdukacita dan menjauhkan orang yang melakukan hal itu dari tengah-tengah kamu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Sebab aku, sekalipun secara badani tidak hadir, tetapi secara rohani hadir, aku—sama seperti aku hadir—telah menjatuhkan hukuman atas dia, yang telah melakukan hal yang semacam itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Bilamana kita berkumpul dalam roh, kamu bersama-sama dengan aku, dengan kuasa Yesus, Tuhan kita,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>orang itu harus kita serahkan dalam nama Tuhan Yesus kepada Iblis, sehingga binasa tubuhnya, agar rohnya diselamatkan pada hari Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Kemegahanmu tidak baik. Tidak tahukah kamu, bahwa sedikit ragi mengkhamiri seluruh adonan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Buanglah ragi yang lama itu, supaya kamu menjadi adonan yang baru, sebab kamu memang tidak beragi. Sebab anak domba Paskah kita juga telah disembelih, yaitu Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Karena itu marilah kita berpesta, bukan dengan ragi yang lama, bukan pula dengan ragi keburukan dan kejahatan, tetapi dengan roti yang tidak beragi, yaitu kemurnian dan kebenaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Dalam suratku telah kutuliskan kepadamu, supaya kamu jangan bergaul dengan orang-orang cabul.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Yang aku maksudkan bukanlah dengan semua orang cabul pada umumnya dari dunia ini atau dengan semua orang kikir dan penipu atau dengan semua penyembah berhala, karena jika demikian kamu harus meninggalkan dunia ini.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Tetapi yang kutuliskan kepada kamu ialah, supaya kamu jangan bergaul dengan orang, yang sekalipun menyebut dirinya saudara, adalah orang cabul, kikir, penyembah berhala, pemfitnah, pemabuk atau penipu; dengan orang yang demikian janganlah kamu sekali-kali makan bersama-sama.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Sebab dengan wewenang apakah aku menghakimi mereka, yang berada di luar jemaat? Bukankah kamu hanya menghakimi mereka yang berada di dalam jemaat?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Mereka yang berada di luar jemaat akan dihakimi Allah. Usirlah orang yang melakukan kejahatan dari tengah-tengah kamu. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>6</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Apakah ada seorang di antara kamu, yang jika berselisih dengan orang lain, berani mencari keadilan pada orang-orang yang tidak benar, dan bukan pada orang-orang kudus?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Atau tidak tahukah kamu, bahwa orang-orang kudus akan menghakimi dunia? Dan jika penghakiman dunia berada dalam tangan kamu, tidakkah kamu sanggup untuk mengurus perkara-perkara yang tidak berarti?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Tidak tahukah kamu, bahwa kita akan menghakimi malaikat-malaikat? Jadi apalagi perkara-perkara biasa dalam hidup kita sehari-hari.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Sekalipun demikian, jika kamu harus mengurus perkara-perkara biasa, kamu menyerahkan urusan itu kepada mereka yang tidak berarti dalam jemaat?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Hal ini kukatakan untuk memalukan kamu. Tidak adakah seorang di antara kamu yang berhikmat, yang dapat mengurus perkara-perkara dari saudara-saudaranya?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Adakah saudara yang satu mencari keadilan terhadap saudara yang lain, dan justru pada orang-orang yang tidak percaya?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Adanya saja perkara di antara kamu yang seorang terhadap yang lain telah merupakan kekalahan bagi kamu. Mengapa kamu tidak lebih suka menderita ketidakadilan? Mengapakah kamu tidak lebih suka dirugikan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Tetapi kamu sendiri melakukan ketidakadilan dan kamu sendiri mendatangkan kerugian, dan hal itu kamu buat terhadap saudara-saudaramu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Atau tidak tahukah kamu, bahwa orang-orang yang tidak adil tidak akan mendapat bagian dalam Kerajaan Allah? Janganlah sesat! Orang cabul, penyembah berhala, orang berzinah, banci, orang pemburit,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>pencuri, orang kikir, pemabuk, pemfitnah dan penipu tidak akan mendapat bagian dalam Kerajaan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Dan beberapa orang di antara kamu demikianlah dahulu. Tetapi kamu telah memberi dirimu disucikan, kamu telah dikuduskan, kamu telah dibenarkan dalam nama Tuhan Yesus Kristus dan dalam Roh Allah kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>&lt;&lt;Segala sesuatu halal bagiku,&gt;&gt; tetapi bukan semuanya berguna. &lt;&lt;Segala sesuatu halal bagiku,&gt;&gt; tetapi aku tidak membiarkan diriku diperhamba oleh suatu apapun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>&lt;&lt;Makanan adalah untuk perut dan perut untuk makanan:&gt;&gt; tetapi kedua-duanya akan dibinasakan Allah. Tetapi tubuh bukanlah untuk percabulan, melainkan untuk Tuhan, dan Tuhan untuk tubuh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Allah, yang membangkitkan Tuhan, akan membangkitkan kita juga oleh kuasa-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Tidak tahukah kamu, bahwa tubuhmu adalah anggota Kristus? Akan kuambilkah anggota Kristus untuk menyerahkannya kepada percabulan? Sekali-kali tidak!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Atau tidak tahukah kamu, bahwa siapa yang mengikatkan dirinya pada perempuan cabul, menjadi satu tubuh dengan dia? Sebab, demikianlah kata nas: &lt;&lt;Keduanya akan menjadi satu daging.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Tetapi siapa yang mengikatkan dirinya pada Tuhan, menjadi satu roh dengan Dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Jauhkanlah dirimu dari percabulan! Setiap dosa lain yang dilakukan manusia, terjadi di luar dirinya. Tetapi orang yang melakukan percabulan berdosa terhadap dirinya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Atau tidak tahukah kamu, bahwa tubuhmu adalah bait Roh Kudus yang diam di dalam kamu, Roh Kudus yang kamu peroleh dari Allah, —dan bahwa kamu bukan milik kamu sendiri?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Sebab kamu telah dibeli dan harganya telah lunas dibayar: Karena itu muliakanlah Allah dengan tubuhmu! </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="7" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>7</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Dan sekarang tentang hal-hal yang kamu tuliskan kepadaku. Adalah baik bagi laki-laki, kalau ia tidak kawin,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>tetapi mengingat bahaya percabulan, baiklah setiap laki-laki mempunyai isterinya sendiri dan setiap perempuan mempunyai suaminya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Hendaklah suami memenuhi kewajibannya terhadap isterinya, demikian pula isteri terhadap suaminya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Isteri tidak berkuasa atas tubuhnya sendiri, tetapi suaminya, demikian pula suami tidak berkuasa atas tubuhnya sendiri, tetapi isterinya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Janganlah kamu saling menjauhi, kecuali dengan persetujuan bersama untuk sementara waktu, supaya kamu mendapat kesempatan untuk berdoa. Sesudah itu hendaklah kamu kembali hidup bersama-sama, supaya Iblis jangan menggodai kamu, karena kamu tidak tahan bertarak.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Hal ini kukatakan kepadamu sebagai kelonggaran, bukan sebagai perintah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Namun demikian alangkah baiknya, kalau semua orang seperti aku; tetapi setiap orang menerima dari Allah karunianya yang khas, yang seorang karunia ini, yang lain karunia itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Tetapi kepada orang-orang yang tidak kawin dan kepada janda-janda aku anjurkan, supaya baiklah mereka tinggal dalam keadaan seperti aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Tetapi kalau mereka tidak dapat menguasai diri, baiklah mereka kawin. Sebab lebih baik kawin dari pada hangus karena hawa nafsu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Kepada orang-orang yang telah kawin aku—tidak, bukan aku, tetapi Tuhan—perintahkan, supaya seorang isteri tidak boleh menceraikan suaminya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Dan jikalau ia bercerai, ia harus tetap hidup tanpa suami atau berdamai dengan suaminya. Dan seorang suami tidak boleh menceraikan isterinya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Kepada orang-orang lain aku, bukan Tuhan, katakan: kalau ada seorang saudara beristerikan seorang yang tidak beriman dan perempuan itu mau hidup bersama-sama dengan dia, janganlah saudara itu menceraikan dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Dan kalau ada seorang isteri bersuamikan seorang yang tidak beriman dan laki-laki itu mau hidup bersama-sama dengan dia, janganlah ia menceraikan laki-laki itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Karena suami yang tidak beriman itu dikuduskan oleh isterinya dan isteri yang tidak beriman itu dikuduskan oleh suaminya. Andaikata tidak demikian, niscaya anak-anakmu adalah anak cemar, tetapi sekarang mereka adalah anak-anak kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Tetapi kalau orang yang tidak beriman itu mau bercerai, biarlah ia bercerai; dalam hal yang demikian saudara atau saudari tidak terikat. Tetapi Allah memanggil kamu untuk hidup dalam damai sejahtera.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Sebab bagaimanakah engkau mengetahui, hai isteri, apakah engkau tidak akan menyelamatkan suamimu? Atau bagaimanakah engkau mengetahui, hai suami, apakah engkau tidak akan menyelamatkan isterimu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Selanjutnya hendaklah tiap-tiap orang tetap hidup seperti yang telah ditentukan Tuhan baginya dan dalam keadaan seperti waktu ia dipanggil Allah. Inilah ketetapan yang kuberikan kepada semua jemaat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Kalau seorang dipanggil dalam keadaan bersunat, janganlah ia berusaha meniadakan tanda-tanda sunat itu. Dan kalau seorang dipanggil dalam keadaan tidak bersunat, janganlah ia mau bersunat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Sebab bersunat atau tidak bersunat tidak penting. Yang penting ialah mentaati hukum-hukum Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Baiklah tiap-tiap orang tinggal dalam keadaan, seperti waktu ia dipanggil Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Adakah engkau hamba waktu engkau dipanggil? Itu tidak apa-apa! Tetapi jikalau engkau mendapat kesempatan untuk dibebaskan, pergunakanlah kesempatan itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Sebab seorang hamba yang dipanggil oleh Tuhan dalam pelayanan-Nya, adalah orang bebas, milik Tuhan. Demikian pula orang bebas yang dipanggil Kristus, adalah hamba-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Kamu telah dibeli dan harganya telah lunas dibayar. Karena itu janganlah kamu menjadi hamba manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Saudara-saudara, hendaklah tiap-tiap orang tinggal di hadapan Allah dalam keadaan seperti pada waktu ia dipanggil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Sekarang tentang para gadis. Untuk mereka aku tidak mendapat perintah dari Tuhan. Tetapi aku memberikan pendapatku sebagai seorang yang dapat dipercayai karena rahmat yang diterimanya dari Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Aku berpendapat, bahwa, mengingat waktu darurat sekarang, adalah baik bagi manusia untuk tetap dalam keadaannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Adakah engkau terikat pada seorang perempuan? Janganlah engkau mengusahakan perceraian! Adakah engkau tidak terikat pada seorang perempuan? Janganlah engkau mencari seorang!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>Tetapi, kalau engkau kawin, engkau tidak berdosa. Dan kalau seorang gadis kawin, ia tidak berbuat dosa. Tetapi orang-orang yang demikian akan ditimpa kesusahan badani dan aku mau menghindarkan kamu dari kesusahan itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>Saudara-saudara, inilah yang kumaksudkan, yaitu: waktu telah singkat! Karena itu dalam waktu yang masih sisa ini orang-orang yang beristeri harus berlaku seolah-olah mereka tidak beristeri;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>dan orang-orang yang menangis seolah-olah tidak menangis; dan orang-orang yang bergembira seolah-olah tidak bergembira; dan orang-orang yang membeli seolah-olah tidak memiliki apa yang mereka beli;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>pendeknya orang-orang yang mempergunakan barang-barang duniawi seolah-olah sama sekali tidak mempergunakannya. Sebab dunia seperti yang kita kenal sekarang akan berlalu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="32" characterId="narrator-1CO">
+    <verse num="32" />
+    <text>Aku ingin, supaya kamu hidup tanpa kekuatiran. Orang yang tidak beristeri memusatkan perhatiannya pada perkara Tuhan, bagaimana Tuhan berkenan kepadanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="33" characterId="narrator-1CO">
+    <verse num="33" />
+    <text>Orang yang beristeri memusatkan perhatiannya pada perkara duniawi, bagaimana ia dapat menyenangkan isterinya,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="narrator-1CO">
+    <verse num="34" />
+    <text>dan dengan demikian perhatiannya terbagi-bagi. Perempuan yang tidak bersuami dan anak-anak gadis memusatkan perhatian mereka pada perkara Tuhan, supaya tubuh dan jiwa mereka kudus. Tetapi perempuan yang bersuami memusatkan perhatiannya pada perkara duniawi, bagaimana ia dapat menyenangkan suaminya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="narrator-1CO">
+    <verse num="35" />
+    <text>Semuanya ini kukatakan untuk kepentingan kamu sendiri, bukan untuk menghalang-halangi kamu dalam kebebasan kamu, tetapi sebaliknya supaya kamu melakukan apa yang benar dan baik, dan melayani Tuhan tanpa gangguan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-1CO">
+    <verse num="36" />
+    <text>Tetapi jikalau seorang menyangka, bahwa ia tidak berlaku wajar terhadap gadisnya, jika gadisnya itu telah bertambah tua dan ia benar-benar merasa, bahwa mereka harus kawin, baiklah mereka kawin, kalau ia menghendakinya. Hal itu bukan dosa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="narrator-1CO">
+    <verse num="37" />
+    <text>Tetapi kalau ada seorang, yang tidak dipaksa untuk berbuat demikian, benar-benar yakin dalam hatinya dan benar-benar menguasai kemauannya, telah mengambil keputusan untuk tidak kawin dengan gadisnya, ia berbuat baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="38" characterId="narrator-1CO">
+    <verse num="38" />
+    <text>Jadi orang yang kawin dengan gadisnya berbuat baik, dan orang yang tidak kawin dengan gadisnya berbuat lebih baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="39" characterId="narrator-1CO">
+    <verse num="39" />
+    <text>Isteri terikat selama suaminya hidup. Kalau suaminya telah meninggal, ia bebas untuk kawin dengan siapa saja yang dikehendakinya, asal orang itu adalah seorang yang percaya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="narrator-1CO">
+    <verse num="40" />
+    <text>Tetapi menurut pendapatku, ia lebih berbahagia, kalau ia tetap tinggal dalam keadaannya. Dan aku berpendapat, bahwa aku juga mempunyai Roh Allah. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="8" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>8</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Tentang daging persembahan berhala kita tahu: &lt;&lt;kita semua mempunyai pengetahuan.&gt;&gt; Pengetahuan yang demikian membuat orang menjadi sombong, tetapi kasih membangun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Jika ada seorang menyangka, bahwa ia mempunyai sesuatu &lt;&lt;pengetahuan&gt;&gt;, maka ia belum juga mencapai pengetahuan, sebagaimana yang harus dicapainya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Tetapi orang yang mengasihi Allah, ia dikenal oleh Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Tentang hal makan daging persembahan berhala kita tahu: &lt;&lt;tidak ada berhala di dunia dan tidak ada Allah lain dari pada Allah yang esa.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Sebab sungguhpun ada apa yang disebut &lt;&lt;allah&gt;&gt;, baik di sorga, maupun di bumi—dan memang benar ada banyak &lt;&lt;allah&gt;&gt; dan banyak &lt;&lt;tuhan&gt;&gt; yang demikian—</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>namun bagi kita hanya ada satu Allah saja, yaitu Bapa, yang dari pada-Nya berasal segala sesuatu dan yang untuk Dia kita hidup, dan satu Tuhan saja, yaitu Yesus Kristus, yang oleh-Nya segala sesuatu telah dijadikan dan yang karena Dia kita hidup.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Tetapi bukan semua orang yang mempunyai pengetahuan itu. Ada orang, yang karena masih terus terikat pada berhala-berhala, makan daging itu sebagai daging persembahan berhala. Dan oleh karena hati nurani mereka lemah, hati nurani mereka itu dinodai olehnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>&lt;&lt;Makanan tidak membawa kita lebih dekat kepada Allah. Kita tidak rugi apa-apa, kalau tidak kita makan dan kita tidak untung apa-apa, kalau kita makan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Tetapi jagalah, supaya kebebasanmu ini jangan menjadi batu sandungan bagi mereka yang lemah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Karena apabila orang melihat engkau yang mempunyai &lt;&lt;pengetahuan&gt;&gt;, sedang duduk makan di dalam kuil berhala, bukankah orang yang lemah hati nuraninya itu dikuatkan untuk makan daging persembahan berhala?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Dengan jalan demikian orang yang lemah, yaitu saudaramu, yang untuknya Kristus telah mati, menjadi binasa karena pengetahuanmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Jika engkau secara demikian berdosa terhadap saudara-saudaramu dan melukai hati nurani mereka yang lemah, engkau pada hakekatnya berdosa terhadap Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Karena itu apabila makanan menjadi batu sandungan bagi saudaraku, aku untuk selama-lamanya tidak akan mau makan daging lagi, supaya aku jangan menjadi batu sandungan bagi saudaraku. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="9" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>9</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Bukankah aku rasul? Bukankah aku orang bebas? Bukankah aku telah melihat Yesus, Tuhan kita? Bukankah kamu adalah buah pekerjaanku dalam Tuhan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Sekalipun bagi orang lain aku bukanlah rasul, tetapi bagi kamu aku adalah rasul. Sebab hidupmu dalam Tuhan adalah meterai dari kerasulanku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Inilah pembelaanku terhadap mereka yang mengeritik aku. </text>
+    <verse num="4" />
+    <text>Tidakkah kami mempunyai hak untuk makan dan minum?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Tidakkah kami mempunyai hak untuk membawa seorang isteri Kristen, dalam perjalanan kami, seperti yang dilakukan rasul-rasul lain dan saudara-saudara Tuhan dan Kefas?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Atau hanya aku dan Barnabas sajakah yang tidak mempunyai hak untuk dibebaskan dari pekerjaan tangan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Siapakah yang pernah turut dalam peperangan atas biayanya sendiri? Siapakah yang menanami kebun anggur dan tidak memakan buahnya? Atau siapakah yang menggembalakan kawanan domba dan yang tidak minum susu domba itu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Apa yang kukatakan ini bukanlah hanya pikiran manusia saja. Bukankah hukum Taurat juga berkata-kata demikian?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Sebab dalam hukum Musa ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
+    <text>&lt;&lt;Janganlah engkau memberangus mulut lembu yang sedang mengirik!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
+    <text>Lembukah yang Allah perhatikan? </text>
+    <verse num="10" />
+    <text>Atau kitakah yang Ia maksudkan? Ya, untuk kitalah hal ini ditulis, yaitu pembajak harus membajak dalam pengharapan dan pengirik harus mengirik dalam pengharapan untuk memperoleh bagiannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Jadi, jika kami telah menaburkan benih rohani bagi kamu, berlebih-lebihank kalau kami menuai hasil duniawi dari pada kamu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Kalau orang lain mempunyai hak untuk mengharapkan hal itu dari pada kamu, bukankah kami mempunyai hak yang lebih besar? Tetapi kami tidak mempergunakan hak itu. Sebaliknya, kami menanggung segala sesuatu, supaya jangan kami mengadakan rintangan bagi pemberitaan Injil Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Tidak tahukah kamu, bahwa mereka yang melayani dalam tempat kudus mendapat penghidupannya dari tempat kudus itu dan bahwa mereka yang melayani mezbah, mendapat bahagian mereka dari mezbah itu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Demikian pula Tuhan telah menetapkan, bahwa mereka yang memberitakan Injil, harus hidup dari pemberitaan Injil itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Tetapi aku tidak pernah mempergunakan satupun dari hak-hak itu. Aku tidak menulis semuanya ini, supaya akupun diperlakukan juga demikian. Sebab aku lebih suka mati dari pada...! Sungguh, kemegahanku tidak dapat ditiadakan siapapun juga!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Karena jika aku memberitakan Injil, aku tidak mempunyai alasan untuk memegahkan diri. Sebab itu adalah keharusan bagiku. Celakalah aku, jika aku tidak memberitakan Injil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Kalau andaikata aku melakukannya menurut kehendakku sendiri, memang aku berhak menerima upah. Tetapi karena aku melakukannya bukan menurut kehendakku sendiri, pemberitaan itu adalah tugas penyelenggaraan yang ditanggungkan kepadaku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Kalau demikian apakah upahku? Upahku ialah ini: bahwa aku boleh memberitakan Injil tanpa upah, dan bahwa aku tidak mempergunakan hakku sebagai pemberita Injil.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Sungguhpun aku bebas terhadap semua orang, aku menjadikan diriku hamba dari semua orang, supaya aku boleh memenangkan sebanyak mungkin orang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Demikianlah bagi orang Yahudi aku menjadi seperti orang Yahudi, supaya aku memenangkan orang-orang Yahudi. Bagi orang-orang yang hidup di bawah hukum Taurat aku menjadi seperti orang yang hidup di bawah hukum Taurat, sekalipun aku sendiri tidak hidup di bawah hukum Taurat, supaya aku dapat memenangkan mereka yang hidup di bawah hukum Taurat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Bagi orang-orang yang tidak hidup di bawah hukum Taurat aku menjadi seperti orang yang tidak hidup di bawah hukum Taurat, sekalipun aku tidak hidup di luar hukum Allah, karena aku hidup di bawah hukum Kristus, supaya aku dapat memenangkan mereka yang tidak hidup di bawah hukum Taurat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Bagi orang-orang yang lemah aku menjadi seperti orang yang lemah, supaya aku dapat menyelamatkan mereka yang lemah. Bagi semua orang aku telah menjadi segala-galanya, supaya aku sedapat mungkin memenangkan beberapa orang dari antara mereka.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Segala sesuatu ini aku lakukan karena Injil, supaya aku mendapat bagian dalamnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Tidak tahukah kamu, bahwa dalam gelanggang pertandingan semua peserta turut berlari, tetapi bahwa hanya satu orang saja yang mendapat hadiah? Karena itu larilah begitu rupa, sehingga kamu memperolehnya!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Tiap-tiap orang yang turut mengambil bagian dalam pertandingan, menguasai dirinya dalam segala hal. Mereka berbuat demikian untuk memperoleh suatu mahkota yang fana, tetapi kita untuk memperoleh suatu mahkota yang abadi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Sebab itu aku tidak berlari tanpa tujuan dan aku bukan petinju yang sembarangan saja memukul.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Tetapi aku melatih tubuhku dan menguasainya seluruhnya, supaya sesudah memberitakan Injil kepada orang lain, jangan aku sendiri ditolak. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="10" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>10</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Aku mau, supaya kamu mengetahui, saudara-saudara, bahwa nenek moyang kita semua berada di bawah perlindungan awan dan bahwa mereka semua telah melintasi laut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Untuk menjadi pengikut Musa mereka semua telah dibaptis dalam awan dan dalam laut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Mereka semua makan makanan rohani yang sama</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>dan mereka semua minum minuman rohani yang sama, sebab mereka minum dari batu karang rohani yang mengikuti mereka, dan batu karang itu ialah Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Tetapi sungguhpun demikian Allah tidak berkenan kepada bagian yang terbesar dari mereka, karena mereka ditewaskan di padang gurun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Semuanya ini telah terjadi sebagai contoh bagi kita untuk memperingatkan kita, supaya jangan kita menginginkan hal-hal yang jahat seperti yang telah mereka perbuat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>dan supaya jangan kita menjadi penyembah-penyembah berhala, sama seperti beberapa orang dari mereka, seperti ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
+    <text>&lt;&lt;Maka duduklah bangsa itu untuk makan dan minum; kemudian bangunlah mereka dan bersukaria.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Janganlah kita melakukan percabulan, seperti yang dilakukan oleh beberapa orang dari mereka, sehingga pada satu hari telah tewas dua puluh tiga ribu orang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Dan janganlah kita mencobai Tuhan, seperti yang dilakukan oleh beberapa orang dari mereka, sehingga mereka mati dipagut ular.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Dan janganlah bersungut-sungut, seperti yang dilakukan oleh beberapa orang dari mereka, sehingga mereka dibinasakan oleh malaikat maut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Semuanya ini telah menimpa mereka sebagai contoh dan dituliskan untuk menjadi peringatan bagi kita yang hidup pada waktu, di mana zaman akhir telah tiba.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Sebab itu siapa yang menyangka, bahwa ia teguh berdiri, hati-hatilah supaya ia jangan jatuh!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Pencobaan-pencobaan yang kamu alami ialah pencobaan-pencobaan biasa, yang tidak melebihi kekuatan manusia. Sebab Allah setia dan karena itu Ia tidak akan membiarkan kamu dicobai melampaui kekuatanmu. Pada waktu kamu dicobai Ia akan memberikan kepadamu jalan ke luar, sehingga kamu dapat menanggungnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Karena itu, saudara-saudaraku yang kekasih, jauhilah penyembahan berhala!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Aku berbicara kepadamu sebagai orang-orang yang bijaksana. Pertimbangkanlah sendiri apa yang aku katakan!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Bukankah cawan pengucapan syukur, yang atasnya kita ucapkan syukur, adalah persekutuan dengan darah Kristus? Bukankah roti yang kita pecah-pecahkan adalah persekutuan dengan tubuh Kristus?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Karena roti adalah satu, maka kita, sekalipun banyak, adalah satu tubuh, karena kita semua mendapat bagian dalam roti yang satu itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Perhatikanlah bangsa Israel menurut daging: bukankah mereka yang makan apa yang dipersembahkan mendapat bagian dalam pelayanan mezbah?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Apakah yang kumaksudkan dengan perkataan itu? Bahwa persembahan berhala adalah sesuatu? Atau bahwa berhala adalah sesuatu?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Bukan! Apa yang kumaksudkan ialah, bahwa persembahan mereka adalah persembahan kepada roh-roh jahat, bukan kepada Allah. Dan aku tidak mau, bahwa kamu bersekutu dengan roh-roh jahat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Kamu tidak dapat minum dari cawan Tuhan dan juga dari cawan roh-roh jahat. Kamu tidak dapat mendapat bagian dalam perjamuan Tuhan dan juga dalam perjamuan roh-roh jahat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Atau maukah kita membangkitkan cemburu Tuhan? Apakah kita lebih kuat dari pada Dia?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>&lt;&lt;Segala sesuatu diperbolehkan.&gt;&gt; Benar, tetapi bukan segala sesuatu berguna. &lt;&lt;Segala sesuatu diperbolehkan.&gt;&gt; Benar, tetapi bukan segala sesuatu membangun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Jangan seorangpun yang mencari keuntungannya sendiri, tetapi hendaklah tiap-tiap orang mencari keuntungan orang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Kamu boleh makan segala sesuatu yang dijual di pasar daging, tanpa mengadakan pemeriksaan karena keberatan-keberatan hati nurani.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Karena: &lt;&lt;bumi serta segala isinya adalah milik Tuhan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Kalau kamu diundang makan oleh seorang yang tidak percaya, dan undangan itu kamu terima, makanlah apa saja yang dihidangkan kepadamu, tanpa mengadakan pemeriksaan karena keberatan-keberatan hati nurani.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>Tetapi kalau seorang berkata kepadamu: &lt;&lt;Itu persembahan berhala!&gt;&gt; janganlah engkau memakannya, oleh karena dia yang mengatakan hal itu kepadamu dan karena keberatan-keberatan hati nurani.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>Yang aku maksudkan dengan keberatan-keberatan bukanlah keberatan-keberata hati nuranimu sendiri, tetapi keberatan-keberatan hati nurani orang lain itu. Mungkin ada orang yang berkata: &lt;&lt;Mengapa kebebasanku harus ditentukan oleh keberatan-keberatan hati nurani orang lain?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>Kalau aku mengucap syukur atas apa yang aku turut memakannya, mengapa orang berkata jahat tentang aku karena makanan, yang atasnya aku mengucap syukur?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>Aku menjawab: Jika engkau makan atau jika engkau minum, atau jika engkau melakukan sesuatu yang lain, lakukanlah semuanya itu untuk kemuliaan Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-1CO">
+    <verse num="32" />
+    <text>Janganlah kamu menimbulkan syak dalam hati orang, baik orang Yahudi atau orang Yunani, maupun Jemaat Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="narrator-1CO">
+    <verse num="33" />
+    <text>Sama seperti aku juga berusaha menyenangkan hati semua orang dalam segala hal, bukan untuk kepentingan diriku, tetapi untuk kepentingan orang banyak, supaya mereka beroleh selamat. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="11" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>11</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Jadilah pengikutku, sama seperti aku juga menjadi pengikut Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Aku harus memuji kamu, sebab dalam segala sesuatu kamu tetap mengingat akan aku dan teguh berpegang pada ajaran yang kuteruskan kepadamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Tetapi aku mau, supaya kamu mengetahui hal ini, yaitu Kepala dari tiap-tiap laki-laki ialah Kristus, kepala dari perempuan ialah laki-laki dan Kepala dari Kristus ialah Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Tiap-tiap laki-laki yang berdoa atau bernubuat dengan kepala yang bertudung, menghina kepalanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Tetapi tiap-tiap perempuan yang berdoa atau bernubuat dengan kepala yang tidak bertudung, menghina kepalanya, sebab ia sama dengan perempuan yang dicukur rambutnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Sebab jika perempuan tidak mau menudungi kepalanya, maka haruslah ia juga menggunting rambutnya. Tetapi jika bagi perempuan adalah penghinaan, bahwa rambutnya digunting atau dicukur, maka haruslah ia menudungi kepalanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Sebab laki-laki tidak perlu menudungi kepalanya: ia menyinarkan gambaran dan kemuliaan Allah. Tetapi perempuan menyinarkan kemuliaan laki-laki.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Sebab laki-laki tidak berasal dari perempuan, tetapi perempuan berasal dari laki-laki. </text>
+    <verse num="9" />
+    <text>Dan laki-laki tidak diciptakan karena perempuan, tetapi perempuan diciptakan karena laki-laki.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Sebab itu, perempuan harus memakai tanda wibawa di kepalanya oleh karena para malaikat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Namun demikian, dalam Tuhan tidak ada perempuan tanpa laki-laki dan tidak ada laki-laki tanpa perempuan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Sebab sama seperti perempuan berasal dari laki-laki, demikian pula laki-laki dilahirkan oleh perempuan; dan segala sesuatu berasal dari Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Pertimbangkanlah sendiri: Patutkah perempuan berdoa kepada Allah dengan kepala yang tidak bertudung?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Bukankah alam sendiri menyatakan kepadamu, bahwa adalah kehinaan bagi laki-laki, jika ia berambut panjang,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>tetapi bahwa adalah kehormatan bagi perempuan, jika ia berambut panjang? Sebab rambut diberikan kepada perempuan untuk menjadi penudung.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Tetapi jika ada orang yang mau membantah, kami maupun Jemaat-jemaat Allah tidak mempunyai kebiasaan yang demikian.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Dalam peraturan-peraturan yang berikut aku tidak dapat memuji kamu, sebab pertemuan-pertemuanmu tidak mendatangkan kebaikan, tetapi mendatangkan keburukan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Sebab pertama-tama aku mendengar, bahwa apabila kamu berkumpul sebagai Jemaat, ada perpecahan di antara kamu, dan hal itu sedikit banyak aku percaya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Sebab di antara kamu harus ada perpecahan, supaya nyata nanti siapakah di antara kamu yang tahan uji.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Apabila kamu berkumpul, kamu bukanlah berkumpul untuk makan perjamuan Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Sebab pada perjamuan itu tiap-tiap orang memakan dahulu makanannya sendiri, sehingga yang seorang lapar dan yang lain mabuk.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Apakah kamu tidak mempunyai rumah sendiri untuk makan dan minum? Atau maukah kamu menghinakan Jemaat Allah dan memalukan orang-orang yang tidak mempunyai apa-apa? Apakah yang kukatakan kepada kamu? Memuji kamu? Dalam hal ini aku tidak memuji.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Sebab apa yang telah kuteruskan kepadamu, telah aku terima dari Tuhan, yaitu bahwa Tuhan Yesus, pada malam waktu Ia diserahkan, mengambil roti.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Sesudah itu Ia mengucap syukur atasnya; Ia memecah-mecahkannya dan berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus">
+    <text>&lt;&lt;Inilah tubuh-Ku, yang diserahkan bagi kamu; perbuatlah ini menjadi peringatan akan Aku!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Demikian juga Ia mengambil cawan, sesudah makan, lalu berkata:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus">
+    <text>&lt;&lt;Cawan ini adalah perjanjian baru yang dimeteraikan oleh darah-Ku; perbuatlah ini, setiap kali kamu meminumnya, menjadi peringatan akan Aku!&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Sebab setiap kali kamu makan roti ini dan minum cawan ini, kamu memberitakan kematian Tuhan sampai Ia datang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Jadi barangsiapa dengan cara yang tidak layak makan roti atau minum cawan Tuhan, ia berdosa terhadap tubuh dan darah Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>Karena itu hendaklah tiap-tiap orang menguji dirinya sendiri dan baru sesudah itu ia makan roti dan minum dari cawan itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>Karena barangsiapa makan dan minum tanpa mengakui tubuh Tuhan, ia mendatangkan hukuman atas dirinya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>Sebab itu banyak di antara kamu yang lemah dan sakit, dan tidak sedikit yang meninggal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>Kalau kita menguji diri kita sendiri, hukuman tidak menimpa kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-1CO">
+    <verse num="32" />
+    <text>Tetapi kalau kita menerima hukuman dari Tuhan, kita dididik, supaya kita tidak akan dihukum bersama-sama dengan dunia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="narrator-1CO">
+    <verse num="33" />
+    <text>Karena itu, saudara-saudaraku, jika kamu berkumpul untuk makan, nantikanlah olehmu seorang akan yang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="narrator-1CO">
+    <verse num="34" />
+    <text>Kalau ada orang yang lapar, baiklah ia makan dahulu di rumahnya, supaya jangan kamu berkumpul untuk dihukum. Hal-hal yang lain akan kuatur, kalau aku datang. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="12" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>12</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Sekarang tentang karunia-karunia Roh. Aku mau, saudara-saudara, supaya kamu mengetahui kebenarannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Kamu tahu, bahwa pada waktu kamu masih belum mengenal Allah, kamu tanpa berpikir ditarik kepada berhala-berhala yang bisu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Karena itu aku mau meyakinkan kamu, &lt;bahwa tidak ada seorangpun yang berkata-kata oleh Roh Allah,&gt; dapat berkata: &lt;Yesus adalah Tuhan&gt;, selain oleh Roh Kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Ada rupa-rupa karunia, tetapi satu Roh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Dan ada rupa-rupa pelayanan, tetapi satu Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Dan ada berbagai-bagai perbuatan ajaib, tetapi Allah adalah satu yang mengerjakan semuanya dalam semua orang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Tetapi kepada tiap-tiap orang dikaruniakan penyataan Roh untuk kepentingan bersama.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Sebab kepada yang seorang Roh memberikan karunia untuk berkata-kata dengan hikmat, dan kepada yang lain Roh yang sama memberikan karunia berkata-kata dengan pengetahuan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Kepada yang seorang Roh yang sama memberikan iman, dan kepada yang lain Ia memberikan karunia untuk menyembuhkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Kepada yang seorang Roh memberikan kuasa untuk mengadakan mujizat, dan kepada yang lain Ia memberikan karunia untuk bernubuat, dan kepada yang lain lagi Ia memberikan karunia untuk membedakan bermacam-macam roh. Kepada yang seorang Ia memberikan karunia untuk berkata-kata dengan bahasa roh, dan kepada yang lain Ia memberikan karunia untuk menafsirkan bahasa roh itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Tetapi semuanya ini dikerjakan oleh Roh yang satu dan yang sama, yang memberikan karunia kepada tiap-tiap orang secara khusus, seperti yang dikehendaki-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Karena sama seperti tubuh itu satu dan anggota-anggotanya banyak, dan segala anggota itu, sekalipun banyak, merupakan satu tubuh, demikian pula Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Sebab dalam satu Roh kita semua, baik orang Yahudi, maupun orang Yunani, baik budak, maupun orang merdeka, telah dibaptis menjadi satu tubuh dan kita semua diberi minum dari satu Roh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Karena tubuh juga tidak terdiri dari satu anggota, tetapi atas banyak anggota.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Andaikata kaki berkata: &lt;&lt;Karena aku bukan tangan, aku tidak termasuk tubuh&gt;&gt;, jadi benarkah ia tidak termasuk tubuh?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Dan andaikata telinga berkata: &lt;&lt;Karena aku bukan mata, aku tidak termasuk tubuh&gt;&gt;, jadi benarkah ia tidak termasuk tubuh?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Andaikata tubuh seluruhnya adalah mata, di manakah pendengaran? Andaikata seluruhnya adalah telinga, di manakah penciuman?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Tetapi Allah telah memberikan kepada anggota, masing-masing secara khusus, suatu tempat pada tubuh, seperti yang dikehendaki-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Andaikata semuanya adalah satu anggota, di manakah tubuh? </text>
+    <verse num="20" />
+    <text>Memang ada banyak anggota, tetapi hanya satu tubuh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Jadi mata tidak dapat berkata kepada tangan: &lt;&lt;Aku tidak membutuhkan engkau.&gt;&gt; Dan kepala tidak dapat berkata kepada kaki: &lt;&lt;Aku tidak membutuhkan engkau.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Malahan justru anggota-anggota tubuh yang nampaknya paling lemah, yang paling dibutuhkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Dan kepada anggota-anggota tubuh yang menurut pemandangan kita kurang terhormat, kita berikan penghormatan khusus. Dan terhadap anggota-anggota kita yang tidak elok, kita berikan perhatian khusus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Hal itu tidak dibutuhkan oleh anggota-anggota kita yang elok. Allah telah menyusun tubuh kita begitu rupa, sehingga kepada anggota-anggota yang tidak mulia diberikan penghormatan khusus,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Dengan cara ini ada jangan terjadi perpecahan dalam tubuh. Para anggota harus memiliki perawatan yang sama satu sama lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Karena itu jika satu anggota menderita, semua anggota turut menderita; jika satu anggota dihormati, semua anggota turut bersukacita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Kamu semua adalah tubuh Kristus dan kamu masing-masing adalah anggotanya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>Dan Allah telah menetapkan beberapa orang dalam Jemaat: pertama sebagai rasul, kedua sebagai nabi, ketiga sebagai pengajar. Selanjutnya mereka yang mendapat karunia untuk mengadakan mujizat, untuk menyembuhkan, untuk melayani, untuk memimpin, dan untuk berkata-kata dalam bahasa roh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>Adakah mereka semua rasul, atau nabi, atau pengajar? Adakah mereka semua mendapat karunia untuk mengadakan mujizat,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>atau untuk menyembuhkan, atau untuk berkata-kata dalam bahasa roh, atau untuk menafsirkan bahasa roh?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>Jadi berusahalah untuk memperoleh karunia-karunia yang paling utama. Dan aku menunjukkan kepadamu jalan yang lebih utama lagi. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="13" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>13</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Sekalipun aku dapat berkata-kata dengan semua bahasa manusia dan bahasa malaikat, tetapi jika aku tidak mempunyai kasih, aku sama dengan gong yang berkumandang dan canang yang gemerincing.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Sekalipun aku mempunyai karunia untuk bernubuat dan aku mengetahui segala rahasia dan memiliki seluruh pengetahuan; dan sekalipun aku memiliki iman yang sempurna untuk memindahkan gunung, tetapi jika aku tidak mempunyai kasih, aku sama sekali tidak berguna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Dan sekalipun aku membagi-bagikan segala sesuatu yang ada padaku, bahkan menyerahkan tubuhku untuk dibakar, tetapi jika aku tidak mempunyai kasih, sedikitpun tidak ada faedahnya bagiku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Kasih itu sabar; kasih itu murah hati; ia tidak cemburu. Ia tidak memegahkan diri dan tidak sombong.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Ia tidak melakukan yang tidak sopan dan tidak mencari keuntungan diri sendiri. Ia tidak pemarah dan tidak menyimpan kesalahan orang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Ia tidak bersukacita karena ketidakadilan, tetapi karena kebenaran.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Ia menutupi segala sesuatu, percaya segala sesuatu, mengharapkan segala sesuatu, sabar menanggung segala sesuatu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Kasih tidak berkesudahan; nubuat akan berakhir; bahasa roh akan berhenti; pengetahuan akan lenyap.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Sebab pengetahuan kita tidak lengkap dan nubuat kita tidak sempurna.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Tetapi jika yang sempurna tiba, maka yang tidak sempurna itu akan lenyap.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Ketika aku kanak-kanak, aku berkata-kata seperti kanak-kanak, aku merasa seperti kanak-kanak, aku berpikir seperti kanak-kanak. Sekarang sesudah aku menjadi dewasa, aku meninggalkan sifat kanak-kanak itu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Karena sekarang kita melihat dalam cermin suatu gambaran yang samar-samar, tetapi nanti kita akan melihat muka dengan muka. Sekarang aku hanya mengenal dengan tidak sempurna, tetapi nanti aku akan mengenal dengan sempurna, seperti aku sendiri dikenal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Demikianlah tinggal ketiga hal ini, yaitu iman, pengharapan dan kasih, dan yang paling besar di antaranya ialah kasih. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="14" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>14</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Kejarlah kasih itu dan usahakanlah dirimu memperoleh karunia-karunia Roh, terutama karunia untuk bernubuat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Siapa yang berkata-kata dengan bahasa roh, tidak berkata-kata kepada manusia, tetapi kepada Allah. Sebab tidak ada seorangpun yang mengerti bahasanya; oleh Roh ia mengucapkan hal-hal yang rahasia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Tetapi siapa yang bernubuat, ia berkata-kata kepada manusia, ia membangun, menasihati dan menghibur.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Siapa yang berkata-kata dengan bahasa roh, ia membangun dirinya sendiri, tetapi siapa yang bernubuat, ia membangun Jemaat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Aku suka, supaya kamu semua berkata-kata dengan bahasa roh, tetapi lebih dari pada itu, supaya kamu bernubuat. Sebab orang yang bernubuat lebih berharga dari pada orang yang berkata-kata dengan bahasa roh, kecuali kalau orang itu juga menafsirkannya, sehingga Jemaat dapat dibangun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Jadi, saudara-saudara, jika aku datang kepadamu dan berkata-kata dengan bahasa roh, apakah gunanya itu bagimu, jika aku tidak menyampaikan kepadamu penyataan Allah atau pengetahuan atau nubuat atau pengajaran?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Sama halnya dengan alat-alat yang tidak berjiwa, tetapi yang berbunyi, seperti seruling dan kecapi— bagaimanakah orang dapat mengetahui lagu apakah yang dimainkan seruling atau kecapi, kalau keduanya tidak mengeluarkan bunyi yang berbeda?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Atau, jika nafiri tidak mengeluarkan bunyi yang terang, siapakah yang menyiapkan diri untuk berperang?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Demikianlah juga kamu yang berkata-kata dengan bahasa roh: jika kamu tidak mempergunakan kata-kata yang jelas, bagaimanakah orang dapat mengerti apa yang kamu katakan? Kata-katamu sia-sia saja kamu ucapkan di udara!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Ada banyak—entah berapa banyak—macam bahasa di dunia; sekalipun demikian tidak ada satupun di antaranya yang mempunyai bunyi yang tidak berarti.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Tetapi jika aku tidak mengetahui arti bahasa itu, aku menjadi orang asing bagi dia yang mempergunakannya dan dia orang asing bagiku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Demikian pula dengan kamu: Kamu memang berusaha untuk memperoleh karunia-karunia Roh, tetapi lebih dari pada itu hendaklah kamu berusaha mempergunakannya untuk membangun Jemaat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Karena itu siapa yang berkata-kata dengan bahasa roh, ia harus berdoa, supaya kepadanya diberikan juga karunia untuk menafsirkannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Sebab jika aku berdoa dengan bahasa roh, maka rohkulah yang berdoa, tetapi akal budiku tidak turut berdoa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Jadi, apakah yang harus kubuat? Aku akan berdoa dengan rohku, tetapi aku akan berdoa juga dengan akal budiku; aku akan menyanyi dan memuji dengan rohku, tetapi aku akan menyanyi dan memuji juga dengan akal budiku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Sebab, jika engkau mengucap syukur dengan rohmu saja, bagaimanakah orang biasa yang hadir sebagai pendengar dapat mengatakan &lt;&lt;amin&gt;&gt; atas pengucapan syukurmu? Bukankah ia tidak tahu apa yang engkau katakan?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Sebab sekalipun pengucapan syukurmu itu sangat baik, tetapi orang lain tidak dibangun olehnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Aku mengucap syukur kepada Allah, bahwa aku berkata-kata dengan bahasa roh lebih dari pada kamu semua.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Tetapi dalam pertemuan Jemaat aku lebih suka mengucapkan lima kata yang dapat dimengerti untuk mengajar orang lain juga, dari pada beribu-ribu kata dengan bahasa roh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Saudara-saudara, janganlah sama seperti anak-anak dalam pemikiranmu. Jadilah anak-anak dalam kejahatan, tetapi orang dewasa dalam pemikiranmu!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Dalam hukum Taurat ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="scripture">
+    <text>&lt;&lt;Oleh orang-orang yang mempunyai bahasa lain dan oleh mulut orang-orang asing Aku akan berbicara kepada bangsa ini, namun demikian mereka tidak akan mendengarkan Aku, firman Tuhan.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Karena itu karunia bahasa roh adalah tanda, bukan untuk orang yang beriman, tetapi untuk orang yang tidak beriman; sedangkan karunia untuk bernubuat adalah tanda, bukan untuk orang yang tidak beriman, tetapi untuk orang yang beriman.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Jadi, kalau seluruh Jemaat berkumpul bersama-sama dan tiap-tiap orang berkata-kata dengan bahasa roh, lalu masuklah orang-orang luar atau orang-orang yang tidak beriman, tidakkah akan mereka katakan, bahwa kamu gila?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Tetapi kalau semua bernubuat, lalu masuk orang yang tidak beriman atau orang baru, ia akan diyakinkan oleh semua dan diselidiki oleh semua;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>segala rahasia yang terkandung di dalam hatinya akan menjadi nyata, sehingga ia akan sujud menyembah Allah dan mengaku: &lt;&lt;Sungguh, Allah ada di tengah-tengah kamu.&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Jadi bagaimana sekarang, saudara-saudara? Bilamana kamu berkumpul, hendaklah tiap-tiap orang mempersembahkan sesuatu: yang seorang mazmur, yang lain pengajaran, atau penyataan Allah, atau karunia bahasa roh, atau karunia untuk menafsirkan bahasa roh, tetapi semuanya itu harus dipergunakan untuk membangun.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Jika ada yang berkata-kata dengan bahasa roh, biarlah dua atau sebanyak-banyaknya tiga orang, seorang demi seorang, dan harus ada seorang lain untuk menafsirkannya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>Jika tidak ada orang yang dapat menafsirkannya, hendaklah mereka berdiam diri dalam pertemuan Jemaat dan hanya boleh berkata-kata kepada dirinya sendiri dan kepada Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>Tentang nabi-nabi—baiklah dua atau tiga orang di antaranya berkata-kata dan yang lain menanggapi apa yang mereka katakan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>Tetapi jika seorang lain yang duduk di situ mendapat penyataan, maka yang pertama itu harus berdiam diri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>Sebab kamu semua boleh bernubuat seorang demi seorang, sehingga kamu semua dapat belajar dan beroleh kekuatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="32" characterId="narrator-1CO">
+    <verse num="32" />
+    <text>Karunia nabi takluk kepada nabi-nabi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="33" characterId="narrator-1CO">
+    <verse num="33" />
+    <text>Sebab Allah tidak menghendaki kekacauan, tetapi damai sejahtera, sama seperti dalam semua Jemaat orang-orang kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="34" characterId="narrator-1CO">
+    <verse num="34" />
+    <text>Perempuan harus berdiam diri dalam pertemuan-pertemuan Jemaat. Sebab mereka tidak diperbolehkan untuk berbicara. Mereka harus menundukkan diri, seperti yang dikatakan juga oleh hukum Taurat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="35" characterId="narrator-1CO">
+    <verse num="35" />
+    <text>Jika mereka ingin mengetahui sesuatu, baiklah mereka menanyakannya kepada suaminya di rumah. Sebab tidak sopan bagi perempuan untuk berbicara dalam pertemuan Jemaat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="36" characterId="narrator-1CO">
+    <verse num="36" />
+    <text>Atau adakah firman Allah mulai dari kamu? Atau hanya kepada kamu sajakah firman itu telah datang?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="narrator-1CO">
+    <verse num="37" />
+    <text>Jika seorang menganggap dirinya nabi atau orang yang mendapat karunia rohani, ia harus sadar, bahwa apa yang kukatakan kepadamu adalah perintah Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="38" characterId="narrator-1CO">
+    <verse num="38" />
+    <text>Tetapi jika ia tidak mengindahkannya, janganlah kamu mengindahkan dia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="39" characterId="narrator-1CO">
+    <verse num="39" />
+    <text>Karena itu, saudara-saudaraku, usahakanlah dirimu untuk memperoleh karunia untuk bernubuat dan janganlah melarang orang yang berkata-kata dengan bahasa roh.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="40" characterId="narrator-1CO">
+    <verse num="40" />
+    <text>Tetapi segala sesuatu harus berlangsung dengan sopan dan teratur. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="15" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>15</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Dan sekarang, saudara-saudara, aku mau mengingatkan kamu kepada Injil yang aku beritakan kepadamu dan yang kamu terima, dan yang di dalamnya kamu teguh berdiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Oleh Injil itu kamu diselamatkan, asal kamu teguh berpegang padanya, seperti yang telah kuberitakan kepadamu—kecuali kalau kamu telah sia-sia saja menjadi percaya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Sebab yang sangat penting telah kusampaikan kepadamu, yaitu apa yang telah kuterima sendiri, ialah bahwa Kristus telah mati karena dosa-dosa kita, sesuai dengan Kitab Suci,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>bahwa Ia telah dikuburkan, dan bahwa Ia telah dibangkitkan, pada hari yang ketiga, sesuai dengan Kitab Suci;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>bahwa Ia telah menampakkan diri kepada Kefas dan kemudian kepada kedua belas murid-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Sesudah itu Ia menampakkan diri kepada lebih dari lima ratus saudara sekaligus; kebanyakan dari mereka masih hidup sampai sekarang, tetapi beberapa di antaranya telah meninggal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Selanjutnya Ia menampakkan diri kepada Yakobus, kemudian kepada semua rasul.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Dan yang paling akhir dari semuanya Ia menampakkan diri juga kepadaku, sama seperti kepada anak yang lahir sebelum waktunya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="narrator-1CO">
+    <verse num="9" />
+    <text>Karena aku adalah yang paling hina dari semua rasul, sebab aku telah menganiaya Jemaat Allah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Tetapi karena kasih karunia Allah aku adalah sebagaimana aku ada sekarang, dan kasih karunia yang dianugerahkan-Nya kepadaku tidak sia-sia. Sebaliknya, aku telah bekerja lebih keras dari pada mereka semua; tetapi bukannya aku, melainkan kasih karunia Allah yang menyertai aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Sebab itu, baik aku, maupun mereka, demikianlah kami mengajar dan demikianlah kamu menjadi percaya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Jadi, bilamana kami beritakan, bahwa Kristus dibangkitkan dari antara orang mati, bagaimana mungkin ada di antara kamu yang mengatakan, bahwa tidak ada kebangkitan orang mati?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Kalau tidak ada kebangkitan orang mati, maka Kristus juga tidak dibangkitkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Tetapi andaikata Kristus tidak dibangkitkan, maka sia-sialah pemberitaan kami dan sia-sialah juga kepercayaan kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Lebih dari pada itu kami ternyata berdusta terhadap Allah, karena tentang Dia kami katakan, bahwa Ia telah membangkitkan Kristus— padahal Ia tidak membangkitkan-Nya, kalau andaikata benar, bahwa orang mati tidak dibangkitkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Sebab jika benar orang mati tidak dibangkitkan, maka Kristus juga tidak dibangkitkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Dan jika Kristus tidak dibangkitkan, maka sia-sialah kepercayaan kamu dan kamu masih hidup dalam dosamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>Demikianlah binasa juga orang-orang yang mati dalam Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Jikalau kita hanya dalam hidup ini saja menaruh pengharapan pada Kristus, maka kita adalah orang-orang yang paling malang dari segala manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Tetapi yang benar ialah, bahwa Kristus telah dibangkitkan dari antara orang mati, sebagai yang sulung dari orang-orang yang telah meninggal.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Sebab sama seperti maut datang karena satu orang manusia, demikian juga kebangkitan orang mati datang karena satu orang manusia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Karena sama seperti semua orang mati dalam persekutuan dengan Adam, demikian pula semua orang akan dihidupkan kembali dalam persekutuan dengan Kristus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Tetapi tiap-tiap orang menurut urutannya: Kristus sebagai buah sulung; sesudah itu mereka yang menjadi milik-Nya pada waktu kedatangan-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Kemudian tiba kesudahannya, yaitu bilamana Ia menyerahkan Kerajaan kepada Allah Bapa, sesudah Ia membinasakan segala pemerintahan, kekuasaan dan kekuatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="narrator-1CO">
+    <verse num="25" />
+    <text>Karena Ia harus memegang pemerintahan sebagai Raja sampai Allah meletakkan semua musuh-Nya di bawah kaki-Nya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="narrator-1CO">
+    <verse num="26" />
+    <text>Musuh yang terakhir, yang dibinasakan ialah maut.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="narrator-1CO">
+    <verse num="27" />
+    <text>Sebab segala sesuatu telah ditaklukkan-Nya di bawah kaki-Nya. Tetapi kalau dikatakan, bahwa &lt;&lt;segala sesuatu telah ditaklukkan&gt;&gt;, maka teranglah, bahwa Ia sendiri yang telah menaklukkan segala sesuatu di bawah kaki Kristus itu tidak termasuk di dalamnya.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="28" characterId="narrator-1CO">
+    <verse num="28" />
+    <text>Tetapi kalau segala sesuatu telah ditaklukkan di bawah Kristus, maka Ia sendiri sebagai Anak akan menaklukkan diri-Nya di bawah Dia, yang telah menaklukkan segala sesuatu di bawah-Nya, supaya Allah menjadi semua di dalam semua.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-1CO">
+    <verse num="29" />
+    <text>Jika tidak demikian, apakah faedahnya perbuatan orang-orang yang dibaptis bagi orang mati? Kalau orang mati sama sekali tidak dibangkitkan, mengapa mereka mau dibaptis bagi orang-orang yang telah meninggal?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="30" characterId="narrator-1CO">
+    <verse num="30" />
+    <text>Dan kami juga—mengapakah kami setiap saat membawa diri kami ke dalam bahaya?</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="narrator-1CO">
+    <verse num="31" />
+    <text>Saudara-saudara, tiap-tiap hari aku berhadapan dengan maut. Demi kebanggaanku akan kamu dalam Kristus Yesus, Tuhan kita, aku katakan, bahwa hal ini benar.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-1CO">
+    <verse num="32" />
+    <text>Kalau hanya berdasarkan pertimbangan-pertimbangan manusia saja aku telah berjuang melawan binatang buas di Efesus, apakah gunanya hal itu bagiku? Jika orang mati tidak dibangkitkan, maka &lt;&lt;marilah kita makan dan minum, sebab besok kita mati&gt;&gt;.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
+    <verse num="33" />
+    <text>Janganlah kamu sesat: Pergaulan yang buruk merusakkan kebiasaan yang baik.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-1CO">
+    <verse num="34" />
+    <text>Sadarlah kembali sebaik-baiknya dan jangan berbuat dosa lagi! Ada di antara kamu yang tidak mengenal Allah. Hal ini kukatakan, supaya kamu merasa malu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-1CO">
+    <verse num="35" />
+    <text>Tetapi mungkin ada orang yang bertanya: &lt;&lt;Bagaimanakah orang mati dibangkitkan? Dan dengan tubuh apakah mereka akan datang kembali?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="narrator-1CO">
+    <verse num="36" />
+    <text>Hai orang bodoh! Apa yang engkau sendiri taburkan, tidak akan tumbuh dan hidup, kalau ia tidak mati dahulu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="narrator-1CO">
+    <verse num="37" />
+    <text>Dan yang engkau taburkan bukanlah tubuh tanaman yang akan tumbuh, tetapi biji yang tidak berkulit, umpamanya biji gandum atau biji lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="38" characterId="narrator-1CO">
+    <verse num="38" />
+    <text>Tetapi Allah memberikan kepadanya suatu tubuh, seperti yang dikehendaki-Nya: Ia memberikan kepada tiap-tiap biji tubuhnya sendiri.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="39" characterId="narrator-1CO">
+    <verse num="39" />
+    <text>Bukan semua daging sama: daging manusia lain dari pada daging binatang, lain dari pada daging burung, lain dari pada daging ikan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="40" characterId="narrator-1CO">
+    <verse num="40" />
+    <text>Ada tubuh sorgawi dan ada tubuh duniawi, tetapi kemuliaan tubuh sorgawi lain dari pada kemuliaan tubuh duniawi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="narrator-1CO">
+    <verse num="41" />
+    <text>Kemuliaan matahari lain dari pada kemuliaan bulan, dan kemuliaan bulan lain dari pada kemuliaan bintang-bintang, dan kemuliaan bintang yang satu berbeda dengan kemuliaan bintang yang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="42" characterId="narrator-1CO">
+    <verse num="42" />
+    <text>Demikianlah pula halnya dengan kebangkitan orang mati. Ditaburkan dalam kebinasaan, dibangkitkan dalam ketidakbinasaan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="43" characterId="narrator-1CO">
+    <verse num="43" />
+    <text>Ditaburkan dalam kehinaan, dibangkitkan dalam kemuliaan. Ditaburkan dalam kelemahan, dibangkitkan dalam kekuatan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="44" characterId="narrator-1CO">
+    <verse num="44" />
+    <text>Yang ditaburkan adalah tubuh alamiah, yang dibangkitkan adalah tubuh rohaniah. Jika ada tubuh alamiah, maka ada pula tubuh rohaniah. </text>
+    <verse num="45" />
+    <text>Seperti ada tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture">
+    <text>&lt;&lt;Manusia pertama, Adam menjadi makhluk yang hidup&gt;&gt; ,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO">
+    <text>tetapi Adam yang akhir menjadi roh yang menghidupkan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="46" characterId="narrator-1CO">
+    <verse num="46" />
+    <text>Tetapi yang mula-mula datang bukanlah yang rohaniah, tetapi yang alamiah; kemudian barulah datang yang rohaniah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="47" characterId="narrator-1CO">
+    <verse num="47" />
+    <text>Manusia pertama berasal dari debu tanah dan bersifat jasmani, manusia kedua berasal dari sorga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="48" characterId="narrator-1CO">
+    <verse num="48" />
+    <text>Makhluk-makhluk alamiah sama dengan dia yang berasal dari debu tanah dan makhluk-makhluk sorgawi sama dengan Dia yang berasal dari sorga.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="49" characterId="narrator-1CO">
+    <verse num="49" />
+    <text>Sama seperti kita telah memakai rupa dari yang alamiah, demikian pula kita akan memakai rupa dari yang sorgawi.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="50" characterId="narrator-1CO">
+    <verse num="50" />
+    <text>Saudara-saudara, inilah yang hendak kukatakan kepadamu, yaitu bahwa daging dan darah tidak mendapat bagian dalam Kerajaan Allah dan bahwa yang binasa tidak mendapat bagian dalam apa yang tidak binasa.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="51" characterId="narrator-1CO">
+    <verse num="51" />
+    <text>Sesungguhnya aku menyatakan kepadamu suatu rahasia: kita tidak akan mati semuanya, tetapi kita semuanya akan diubah,</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="52" characterId="narrator-1CO">
+    <verse num="52" />
+    <text>dalam sekejap mata, pada waktu bunyi nafiri yang terakhir. Sebab nafiri akan berbunyi dan orang-orang mati akan dibangkitkan dalam keadaan yang tidak dapat binasa dan kita semua akan diubah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="53" characterId="narrator-1CO">
+    <verse num="53" />
+    <text>Karena yang dapat binasa ini harus mengenakan yang tidak dapat binasa, dan yang dapat mati ini harus mengenakan yang tidak dapat mati.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="narrator-1CO">
+    <verse num="54" />
+    <text>Dan sesudah yang dapat binasa ini mengenakan yang tidak dapat binasa dan yang dapat mati ini mengenakan yang tidak dapat mati, maka akan genaplah firman Tuhan yang tertulis:</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture">
+    <text>&lt;&lt;Maut telah ditelan dalam kemenangan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture">
+    <verse num="55" />
+    <text>Hai maut di manakah kemenanganmu? Hai maut, di manakah sengatmu?&gt;&gt;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO">
+    <verse num="56" />
+    <text>Sengat maut ialah dosa dan kuasa dosa ialah hukum Taurat.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="57" characterId="narrator-1CO">
+    <verse num="57" />
+    <text>Tetapi syukur kepada Allah, yang telah memberikan kepada kita kemenangan oleh Yesus Kristus, Tuhan kita.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="58" characterId="narrator-1CO">
+    <verse num="58" />
+    <text>Karena itu, saudara-saudaraku yang kekasih, berdirilah teguh, jangan goyah, dan giatlah selalu dalam pekerjaan Tuhan! Sebab kamu tahu, bahwa dalam persekutuan dengan Tuhan jerih payahmu tidak sia-sia. </text>
+  </block>
+  <block style="c" paragraphStart="true" chapter="16" book="1CO" initialStartVerse="0" characterId="BC-1CO">
+    <text>16</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="narrator-1CO">
+    <verse num="1" />
+    <text>Tentang pengumpulan uang bagi orang-orang kudus, hendaklah kamu berbuat sesuai dengan petunjuk-petunjuk yang kuberikan kepada Jemaat-jemaat di Galatia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-1CO">
+    <verse num="2" />
+    <text>Pada hari pertama dari tiap-tiap minggu hendaklah kamu masing-masing—sesuai dengan apa yang kamu peroleh—menyisihkan sesuatu dan menyimpannya di rumah, supaya jangan pengumpulan itu baru diadakan, kalau aku datang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="narrator-1CO">
+    <verse num="3" />
+    <text>Sesudah aku tiba, aku akan mengutus orang-orang, yang kamu anggap layak, dengan surat ke Yerusalem untuk menyampaikan pemberianmu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="narrator-1CO">
+    <verse num="4" />
+    <text>Kalau ternyata penting, bahwa aku juga pergi, maka mereka akan pergi bersama-sama dengan aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="5" characterId="narrator-1CO">
+    <verse num="5" />
+    <text>Aku akan datang kepadamu, sesudah aku melintasi Makedonia, sebab aku akan melintasi Makedonia.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="narrator-1CO">
+    <verse num="6" />
+    <text>Dan di Korintus mungkin aku akan tinggal beberapa lamanya dengan kamu atau mungkin aku akan tinggal selama musim dingin, sehingga kamu dapat menolong aku untuk melanjutkan perjalananku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-1CO">
+    <verse num="7" />
+    <text>Sebab sekarang aku tidak mau melihat kamu hanya sepintas lalu saja. Aku harap dapat tinggal agak lama dengan kamu, jika diperkenankan Tuhan.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-1CO">
+    <verse num="8" />
+    <text>Tetapi aku akan tinggal di Efesus sampai hari raya Pentakosta, </text>
+    <verse num="9" />
+    <text>sebab di sini banyak kesempatan bagiku untuk mengerjakan pekerjaan yang besar dan penting, sekalipun ada banyak penentang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="narrator-1CO">
+    <verse num="10" />
+    <text>Jika Timotius datang kepadamu, usahakanlah supaya ia berada di tengah-tengah kamu tanpa takut, sebab ia mengerjakan pekerjaan Tuhan, sama seperti aku.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-1CO">
+    <verse num="11" />
+    <text>Jadi, janganlah ada orang yang menganggapnya rendah! Tetapi tolonglah dia, supaya ia melanjutkan perjalanannya dengan selamat, agar ia datang kembali kepadaku, sebab aku di sini menunggu kedatangannya bersama-sama dengan saudara-saudara yang lain.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-1CO">
+    <verse num="12" />
+    <text>Tentang saudara Apolos: telah berulang-ulang aku mendesaknya untuk bersama-sama dengan saudara-saudara lain mengunjungi kamu, tetapi ia sama sekali tidak mau datang sekarang. Kalau ada kesempatan baik nanti, ia akan datang.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-1CO">
+    <verse num="13" />
+    <text>Berjaga-jagalah! Berdirilah dengan teguh dalam iman! Bersikaplah sebagai laki-laki! Dan tetap kuat!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-1CO">
+    <verse num="14" />
+    <text>Lakukanlah segala pekerjaanmu dalam kasih!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-1CO">
+    <verse num="15" />
+    <text>Ada suatu permintaan lagi kepadamu, saudara-saudara. Kamu tahu, bahwa Stefanus dan keluarganya adalah orang-orang yang pertama-tama bertobat di Akhaya, dan bahwa mereka telah mengabdikan diri kepada pelayanan orang-orang kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-1CO">
+    <verse num="16" />
+    <text>Karena itu taatilah orang-orang yang demikian dan setiap orang yang turut bekerja dan berjerih payah.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="narrator-1CO">
+    <verse num="17" />
+    <text>Aku bergembira atas kedatangan Stefanus, Fortunatus dan Akhaikus, karena mereka melengkapi apa yang masih kurang padamu;</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-1CO">
+    <verse num="18" />
+    <text>karena mereka menyegarkan rohku dan roh kamu. Hargailah orang-orang yang demikian!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="19" characterId="narrator-1CO">
+    <verse num="19" />
+    <text>Salam kepadamu dari Jemaat-jemaat di Asia Kecil. Akwila, Priskila dan Jemaat di rumah mereka menyampaikan berlimpah-limpah salam kepadamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-1CO">
+    <verse num="20" />
+    <text>Salam kepadamu dari saudara-saudara semuanya. Sampaikanlah salam seorang kepada yang lain dengan cium kudus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-1CO">
+    <verse num="21" />
+    <text>Dengan tanganku sendiri aku menulis ini: Salam dari Paulus.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-1CO">
+    <verse num="22" />
+    <text>Siapa yang tidak mengasihi Tuhan, terkutuklah ia. Maranata!</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="narrator-1CO">
+    <verse num="23" />
+    <text>Kasih karunia Tuhan Yesus menyertai kamu.</text>
+  </block>
+  <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-1CO">
+    <verse num="24" />
+    <text>Kasihku menyertai kamu sekalian dalam Kristus Yesus. </text>
+  </block>
+  <UnappliedSplits />
+</book>
