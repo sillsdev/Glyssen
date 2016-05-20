@@ -16,7 +16,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>Nә bәxtiyardır bu peyğәmbәrlik sözlәrini oxuyan, eşidәnlәr vә orada yazılanlara riayәt edәnlәr! Çünki vaxt yaxındır. </text>
+    <text>Nә bәxtiyardır bu peyğәmbәrlik sözlәrini oxuyan, eşidәnlәr vә orada yazılanlara riayәt edәnlәr! Çünki vaxt yaxındır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -92,7 +92,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Mәnim sağ әlimdә gördüyün yeddi ulduzun vә yeddi qızıl çıraqdanın sirrinә gәlincә, yeddi ulduz yeddi cәmiyyәtin mәlәklәri, yeddi çıraqdan da yeddi cәmiyyәt demәkdir. </text>
+    <text>Mәnim sağ әlimdә gördüyün yeddi ulduzun vә yeddi qızıl çıraqdanın sirrinә gәlincә, yeddi ulduz yeddi cәmiyyәtin mәlәklәri, yeddi çıraqdan da yeddi cәmiyyәt demәkdir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>2</text>
@@ -211,7 +211,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="29" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. </text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>3</text>
@@ -238,7 +238,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. </text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
@@ -302,7 +302,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir&gt;&gt;. </text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>4</text>
@@ -332,7 +332,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Taxtın önündә sanki büllura bәnzәyәn şüşә dәniz var idi. Taxtın әtrafında, hәr dörd yanında önü dә, arxası da gözlәrlә örtülmüş dörd canlı mәxluq var idi.</text>
+    <text>Taxtın önündә sanki büllura bәnzәyәn şüşә dәniz var idi. </text>
+    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <text>Taxtın әtrafında, hәr dörd yanında önü dә, arxası da gözlәrlә örtülmüş dörd canlı mәxluq var idi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -355,7 +357,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="twenty-four elders">
     <verse num="11" />
-    <text>&lt;&lt;Ey bizim Rәbbimiz vә Allahımız! Sәn izzәt, şәrәf vә qüdrәt almağa layiqsәn. Çünki hәr şeyi Sәn yaratdın, Hәr şey Sәnin iradәnlә var olub yarandı&gt;&gt;. </text>
+    <text>&lt;&lt;Ey bizim Rәbbimiz vә Allahımız! Sәn izzәt, şәrәf vә qüdrәt almağa layiqsәn. Çünki hәr şeyi Sәn yaratdın, Hәr şey Sәnin iradәnlә var olub yarandı&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>5</text>
@@ -391,6 +393,7 @@
     <text>Gördüm ki, taxtla dörd canlı mәxluqun ortasında vә ağsaqqalların arasında bir Quzu dayanıb; O sanki kәsilmiş vәziyyәtdә idi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>Onun yeddi buynuzu vә yeddi gözü var idi ki, bunlar da bütün yer üzünә göndәrilmiş Allahın yeddi ruhudur.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
@@ -402,6 +405,7 @@
     <text>O, tumarı götürdüyü zaman dörd canlı mәxluq vә iyirmi dörd ağsaqqal Quzunun önündә yerә qapandı. </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <sound effectName="Harp" userSpecifiesLocation="true" />
     <text>Hәr birinin әlindә çәng var idi vә buxurla dolu qızıl nimçәlәr tuturdular ki, bunlar müqәddәslәrin dualarıdır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
@@ -441,7 +445,7 @@
     <text>&lt;&lt;Amin!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
-    <text>Onda ağsaqqallar yerә qapanıb sәcdә etdilәr. </text>
+    <text>Onda ağsaqqallar yerә qapanıb sәcdә etdilәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>6</text>
@@ -536,7 +540,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="kings, princes, generals, rich, powerful, slave and free" delivery="crying" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Çünki qәzәblәrinin böyük günü gәlib çatdı vә ona qarşı kim dura bilәr?&gt;&gt; </text>
+    <text>Çünki qәzәblәrinin böyük günü gәlib çatdı vә ona qarşı kim dura bilәr?&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>7</text>
@@ -617,7 +621,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="elders, one of the" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Çünki taxtın ortasında olan Quzu Onların Çobanı olacaq, Onları hәyat suyunun qaynaqlarına aparacaq, Allah onların bütün göz yaşlarını silәcәk&gt;&gt;. </text>
+    <text>Çünki taxtın ortasında olan Quzu Onların Çobanı olacaq, Onları hәyat suyunun qaynaqlarına aparacaq, Allah onların bütün göz yaşlarını silәcәk&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>8</text>
@@ -648,11 +652,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
-    <text>Birinci mәlәk şeypurunu çaldı. Onda qanla qarışıq dolu vә od әmәlә gәlib yer üzünә yağdırıldı. Yer üzünün üçdә biri, ağacların üçdә biri vә bütün yaşıl otlar yandırıldı.</text>
+    <text>Birinci mәlәk şeypurunu çaldı. Onda </text>
+    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <text>qanla qarışıq dolu vә od әmәlә gәlib yer üzünә yağdırıldı. Yer üzünün üçdә biri, ağacların üçdә biri vә bütün yaşıl otlar yandırıldı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>İkinci mәlәk şeypurunu çaldı. Onda sanki böyük bir dağ odla yanaraq dәnizin içinә atıldı. Dәnizin üçdә biri qana döndü.</text>
+    <text>İkinci mәlәk şeypurunu çaldı. Onda </text>
+    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <text>sanki böyük bir dağ odla yanaraq dәnizin içinә atıldı. Dәnizin üçdә biri qana döndü.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -660,7 +668,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>Üçüncü mәlәk şeypurunu çaldı. Onda göydәn mәşәl kimi yanan böyük bir ulduz enib çayların üçdә birinin vә su qaynaqlarının üstünә düşdü.</text>
+    <text>Üçüncü mәlәk şeypurunu çaldı. Onda </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>göydәn mәşәl kimi yanan böyük bir ulduz enib çayların üçdә birinin vә su qaynaqlarının üstünә düşdü.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -668,21 +678,25 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
-    <text>Dördüncü mәlәk şeypurunu çaldı. Onda günәşin, ayın vә ulduzların üçdә biri vuruldu; buna görә dә onların üçdә biri qaraldı. Gündüzün üçdә biri, gecәnin dә elә o qәdәri işıqsız qaldı.</text>
+    <text>Dördüncü mәlәk şeypurunu çaldı. Onda </text>
+    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <text>günәşin, ayın vә ulduzların üçdә biri vuruldu; buna görә dә onların üçdә biri qaraldı. Gündüzün üçdә biri, gecәnin dә elә o qәdәri işıqsız qaldı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>Onda göyün ortasında uçan bir qartal gördüm vә onun uca sәslә belә dediyini eşitdim:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="eagle crying with loud voice">
-    <text>&lt;&lt;Şeypurlarını çalacaq o biri üç mәlәyin şeypur sәslәrindәn yer üzündә yaşayanların vay, vay, vay halına!&gt;&gt; </text>
+    <text>&lt;&lt;Şeypurlarını çalacaq o biri üç mәlәyin şeypur sәslәrindәn yer üzündә yaşayanların vay, vay, vay halına!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>9</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Beşinci mәlәk şeypurunu çaldı. Onda mәn göydәn yerә düşmüş bir ulduz gördüm. Dibsiz dәrinliyә enәn quyunun açarı ona verildi.</text>
+    <text>Beşinci mәlәk şeypurunu çaldı. Onda mәn </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>göydәn yerә düşmüş bir ulduz gördüm. Dibsiz dәrinliyә enәn quyunun açarı ona verildi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -749,7 +763,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Mәn görüntüdә atları vә onların belindә oturan atlıları bu cür gördüm: onların od, tünd göy vә kükürd rәngindә döş zirehlәri var idi, atların başı aslan başı kimi idi vә ağızlarından od, tüstü vә kükürd çıxırdı.</text>
+    <text>Mәn görüntüdә atları vә onların belindә oturan atlıları bu cür gördüm: onların od, tünd göy vә kükürd rәngindә döş zirehlәri var idi, atların başı aslan başı kimi idi vә ağızlarından </text>
+    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <text>od, tüstü vә kükürd çıxırdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -765,14 +781,16 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Hәmçinin onlar nә qatilliklәrindәn, nә sehrbazlıqlarından, nә әxlaqsızlıqlarından, nә dә oğurluqlarından tövbә etdilәr. </text>
+    <text>Hәmçinin onlar nә qatilliklәrindәn, nә sehrbazlıqlarından, nә әxlaqsızlıqlarından, nә dә oğurluqlarından tövbә etdilәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>10</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Mәn göydәn enәn başqa bir güclü mәlәyi gördüm. O, buluda bürünmüşdü vә başının üstündә göy qurşağı var idi. Üzü günәşә, ayaqları da od sütununa bәnzәyirdi.</text>
+    <text>Mәn göydәn enәn başqa bir güclü mәlәyi gördüm. O, buluda bürünmüşdü vә başının üstündә göy qurşağı var idi. Üzü günәşә, </text>
+    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <text>ayaqları da od sütununa bәnzәyirdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -780,7 +798,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>Aslan nәriltisinә bәnzәr uca sәslә nida etdi. O nida edәndә yeddi göy gurultusu öz sәsi ilә danışdı.</text>
+    <text>Aslan </text>
+    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <text>nәriltisinә bәnzәr uca sәslә nida etdi. O nida edәndә yeddi göy gurultusu öz sәsi ilә danışdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -825,7 +845,7 @@
     <text>Mәnә belә dә deyildi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="angel standing on sea and land">
-    <text>&lt;&lt;Sәn gәrәk yenә dә çoxlu xalq, millәt, dil vә padşah barәdә peyğәmbәrlik edәsәn&gt;&gt;. </text>
+    <text>&lt;&lt;Sәn gәrәk yenә dә çoxlu xalq, millәt, dil vә padşah barәdә peyğәmbәrlik edәsәn&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>11</text>
@@ -851,11 +871,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
-    <text>Әgәr kimsә onlara zәrәr vurmaq istәsә, ağızlarından od çıxıb düşmәnlәrini yandırıb-yaxır. Belәcә onlara zәrәr vurmaq istәyәn hәr kәs bu cür öldürülmәlidir.</text>
+    <text>Әgәr kimsә onlara zәrәr vurmaq istәsә, </text>
+    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <text>ağızlarından od çıxıb düşmәnlәrini yandırıb-yaxır. Belәcә onlara zәrәr vurmaq istәyәn hәr kәs bu cür öldürülmәlidir.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Onların göyü bağlamağa ixtiyarı var ki, peyğәmbәrlik etdiklәri günlәr yağış yağmasın. Hәmçinin onların suları qana döndәrmәyә vә yer üzünә istәdiklәri qәdәr hәr cür bәla gәtirmәyә ixtiyarı var.</text>
+    <text>Onların göyü bağlamağa ixtiyarı var ki, peyğәmbәrlik etdiklәri günlәr yağış yağmasın. </text>
+    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <text>Hәmçinin onların suları qana döndәrmәyә vә yer üzünә istәdiklәri qәdәr hәr cür bәla gәtirmәyә ixtiyarı var.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -875,7 +899,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Lakin hәmin üç gün yarım bitәndә Allahdan gәlәn hәyat nәfәsi onların içinә girdi vә onlar ayağa qalxdı. Onda onları görәnlәrin canına böyük qorxu düşdü.</text>
+    <text>Lakin hәmin üç gün yarım bitәndә </text>
+    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <text>Allahdan gәlәn hәyat nәfәsi onların içinә girdi vә onlar ayağa qalxdı. Onda onları görәnlәrin canına böyük qorxu düşdü.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -917,7 +943,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
-    <text>Allahın göydәki mәbәdi açıldı vә Onun Әhd sandığı orada zahir oldu. Onda şimşәk, uğultu, göy gurultusu, zәlzәlә vә güclü dolu gәldi. </text>
+    <text>Allahın göydәki mәbәdi açıldı vә Onun Әhd sandığı orada zahir oldu. Onda şimşәk, uğultu, göy gurultusu, zәlzәlә vә güclü dolu gәldi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>12</text>
@@ -996,7 +1022,7 @@
     <verse num="17" />
     <text>Onda әjdaha qadına qәzәblәndi, onun nәslindәn Allahın әmrlәrinә riayәt edәn vә İsa barәdә şәhadәt edәn başqaları ilә döyüşmәk üçün getdi </text>
     <verse num="18" />
-    <text>vә dәniz sahilinin qumları üzәrindә dayandı. </text>
+    <text>vә dәniz sahilinin qumları üzәrindә dayandı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>13</text>
@@ -1077,7 +1103,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
-    <text>Bu işdә müdrik olmaq lazımdır. Kimin ağlı var, qoy bu vәhşi heyvana mәxsus sayı hesablasın, çünki bu bir insanın sayıdır. Onun sayı altı yüz altmış altıdır. </text>
+    <text>Bu işdә müdrik olmaq lazımdır. Kimin ağlı var, qoy bu vәhşi heyvana mәxsus sayı hesablasın, çünki bu bir insanın sayıdır. Onun sayı altı yüz altmış altıdır.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>14</text>
@@ -1168,7 +1194,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
-    <text>Onda buludun üstündә Oturan Öz orağını yer üzünә saldı vә yer üzü biçildi.</text>
+    <text>Onda buludun üstündә Oturan </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>Öz orağını yer üzünә saldı vә yer üzü biçildi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
@@ -1187,7 +1215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>Üzümlәr şәhәrdәn kәnarda olan üzümsıxanda tapdalandı. Üzümsıxandan qan çıxdı vә at yüyәnlәrinә qәdәr qalxaraq 1600 stadiyә bәrabәr mәsafәyә axdı. </text>
+    <text>Üzümlәr şәhәrdәn kәnarda olan üzümsıxanda tapdalandı. Üzümsıxandan qan çıxdı vә at yüyәnlәrinә qәdәr qalxaraq 1600 stadiyә bәrabәr mәsafәyә axdı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>15</text>
@@ -1225,7 +1253,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Mәbәd Allahın izzәt vә qüdrәtinә görә tüstü ilә doldu. Belәcә yeddi mәlәyin gәtirdiyi yeddi bәla tamam olana qәdәr heç kәs mәbәdә girә bilmәdi. </text>
+    <text>Mәbәd Allahın izzәt vә qüdrәtinә görә tüstü ilә doldu. Belәcә yeddi mәlәyin gәtirdiyi yeddi bәla tamam olana qәdәr heç kәs mәbәdә girә bilmәdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>16</text>
@@ -1289,7 +1317,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>Gördüm ki, әjdahanın ağzından, vәhşi heyvanın ağzından vә yalançı peyğәmbәrin ağzından qurbağaya bәnzәr üç natәmiz ruh çıxır.</text>
+    <text>Gördüm ki, </text>
+    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <text>әjdahanın ağzından, </text>
+    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <text>vәhşi heyvanın ağzından vә </text>
+    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <text>yalançı peyğәmbәrin ağzından qurbağaya bәnzәr üç natәmiz ruh çıxır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -1324,7 +1358,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Göydәn adamların üstünә hәrәsinin çәkisi bir talant olan böyük dolu dәnәlәri yağdı. Adamlar dolu bәlasına görә Allaha küfr etdilәr, çünki bu bәla çox şiddәtli idi. </text>
+    <text>Göydәn adamların üstünә hәrәsinin çәkisi bir talant olan böyük dolu dәnәlәri yağdı. Adamlar dolu bәlasına görә Allaha küfr etdilәr, çünki bu bәla çox şiddәtli idi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>17</text>
@@ -1411,7 +1445,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>Gördüyün qadın da yer üzünün padşahları üzәrindә padşahlıq edәn böyük şәhәrdir&gt;&gt;. </text>
+    <text>Gördüyün qadın da yer üzünün padşahları üzәrindә padşahlıq edәn böyük şәhәrdir&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>18</text>
@@ -1438,7 +1472,8 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
     <text>&lt;&lt;Ey Mәnim xalqım, oradan çıxın ki, Onun günahlarına şәrik olmayasınız, Onun uğrayacağı bәlalara düçar olmayasınız.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <sound effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>Çünki onun günahları qalaqlanıb göyә çatdı, Allah onun haqsız işlәrini yada saldı.</text>
   </block>
@@ -1455,11 +1490,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Buna görә dә bir günün içindә Onun üstünә bәlalar gәlәcәk, Azara, yasa, aclığa düçar olacaq, odda yandırılacaq. Çünki onu mühakimә edәn Rәbb Allah qüdrәtlidir&gt;&gt;.</text>
+    <text>Buna görә dә bir günün içindә Onun üstünә bәlalar gәlәcәk, </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>Azara, yasa, aclığa düçar olacaq, odda yandırılacaq. Çünki onu mühakimә edәn Rәbb Allah qüdrәtlidir&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
-    <text>Onunla әxlaqsızlıq edәn vә şәhvәtpәrәstlik içindә yaşayan yer üzünün padşahları onun yanğınından çıxan tüstünü görәndә onun üçün ağlayıb ah-nalә edәcәklәr.</text>
+    <text>Onunla әxlaqsızlıq edәn vә şәhvәtpәrәstlik içindә yaşayan yer üzünün padşahları onun </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>yanğınından çıxan tüstünü görәndә onun üçün ağlayıb ah-nalә edәcәklәr.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -1498,9 +1537,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Çünki bu qәdәr var-dövlәt Bir saat içindә viran oldu&gt;&gt;. Bütün gәmi rәislәri, sәrnişinlәr, dәnizçilәr vә dәnizdә ticarәt edәnlәrin hamısı uzaqda dayanaraq</text>
+    <text>Çünki bu qәdәr var-dövlәt Bir saat içindә viran oldu&gt;&gt;. </text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+    <text>Bütün gәmi rәislәri, sәrnişinlәr, dәnizçilәr vә dәnizdә ticarәt edәnlәrin hamısı uzaqda dayanaraq </text>
     <verse num="18" />
     <text>onun yanğınından çıxan tüstüyә baxıb nida edirdilәr:</text>
   </block>
@@ -1535,7 +1575,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="angel, powerful" multiBlockQuote="Continuation">
     <verse num="24" />
-    <text>Peyğәmbәrlәrin, müqәddәslәrin vә Yer üzündә kәsilәnlәrin hamısının qanı O şәhәrdә üzә çıxdı&gt;&gt; </text>
+    <text>Peyğәmbәrlәrin, müqәddәslәrin vә Yer üzündә kәsilәnlәrin hamısının qanı O şәhәrdә üzә çıxdı&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>19</text>
@@ -1585,12 +1625,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
-    <text>Bu onun parlaq, təmiz, gözəl keten ki, o ki array özü verilmişdir." </text>
+    <text>Bu onun parlaq, təmiz, gözəl keten ki, o ki array özü verilmişdir."</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
-    <text>(Gözəl kətan olan saints olan saleh aktları üçün istifadə olunur.)</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <text>(Gözəl kətan olan saints olan saleh aktları üçün istifadə olunur.) </text>
     <verse num="9" />
     <text>Onda mәlәk mәnә dedi:</text>
   </block>
@@ -1654,11 +1692,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>Vәhşi heyvan yaxalandı; onun önündә әlamәtlәr göstәrmiş, bunlarla onun damğasını qәbul edib surәtinә sәcdә edәnlәri aldatmış yalançı peyğәmbәr dә yaxalandı. Hәr ikisi diri-diri kükürdlә yanan od gölünә atıldı.</text>
+    <text>Vәhşi heyvan yaxalandı; onun önündә әlamәtlәr göstәrmiş, bunlarla onun damğasını qәbul edib surәtinә sәcdә edәnlәri aldatmış yalançı peyğәmbәr dә yaxalandı. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>Hәr ikisi diri-diri kükürdlә yanan od gölünә atıldı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Başqaları isә atın belindә oturan Süvarinin ağzından çıxan qılıncla hәlak oldu. Bütün quşlar da onların әtini yeyib doydu. </text>
+    <text>Başqaları isә atın belindә oturan Süvarinin ağzından çıxan qılıncla hәlak oldu. Bütün quşlar da onların әtini yeyib doydu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>20</text>
@@ -1705,7 +1745,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Böyük ağ taxt vә onun üstündә Oturanı gördüm. Yer vә göy Onun önündәn qaçdı vә onlara yer tapılmadı.</text>
+    <text>Böyük ağ taxt vә onun üstündә Oturanı gördüm. </text>
+    <text>Yer vә göy Onun önündәn qaçdı vә onlara yer tapılmadı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1714,14 +1755,16 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>Dәniz öz içindә olan ölülәri, ölüm vә ölülәr diyarı da öz qoynunda olan ölülәri tәslim etdi. Hәr biri öz әmәlinә görә mühakimә olundu. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
     <text>Ölüm vә ölülәr diyarı odlu gölә atıldı. Bu odlu göl ikinci ölümdür. </text>
+    <sound effectName="Weird2" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
-    <text>Kimin adı hәyat kitabına yazılmayıbsa, o, odlu gölә atıldı. </text>
+    <text>Kimin adı hәyat kitabına yazılmayıbsa, o, odlu gölә atıldı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>21</text>
@@ -1782,7 +1825,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>O mәni Ruhda böyük vә uca bir dağın başına apardı. Oradan mәnә göydәn, Allahın yanından enәn müqәddәs şәhәri, Yerusәlimi göstәrdi.</text>
+    <text>O mәni Ruhda böyük vә uca bir dağın başına apardı. </text>
+    <text>Oradan mәnә göydәn, Allahın yanından enәn müqәddәs şәhәri, Yerusәlimi göstәrdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -1850,7 +1894,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-REV">
     <verse num="27" />
-    <text>Oraya murdar olan heç bir şey, iyrәnc iş görәn vә yalan danışan heç kim әsla girmәyәcәk, yalnız adları Quzunun hәyat kitabına yazılanlar girәcәk. </text>
+    <text>Oraya murdar olan heç bir şey, iyrәnc iş görәn vә yalan danışan heç kim әsla girmәyәcәk, yalnız adları Quzunun hәyat kitabına yazılanlar girәcәk.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>22</text>
@@ -1967,7 +2011,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Rәbb İsanın lütfü hamıya yar olsun! Amin. </text>
+    <text>Rәbb İsanın lütfü hamıya yar olsun! Amin.</text>
   </block>
   <UnappliedSplits />
 </book>

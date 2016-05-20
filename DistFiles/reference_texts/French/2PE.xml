@@ -88,7 +88,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-2PE">
     <verse num="21" />
-    <text>En effet, personne n'a jamais communiqué une prophétie par sa seule volonté. Mais c'est avec l'aide de l'Esprit Saint que des gens ont parlé de la part de Dieu. </text>
+    <text>En effet, personne n'a jamais communiqué une prophétie par sa seule volonté. Mais c'est avec l'aide de l'Esprit Saint que des gens ont parlé de la part de Dieu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE">
     <text>2</text>
@@ -257,7 +257,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2PE">
     <verse num="18" />
-    <text>Que l'amour et la connaissance de Jésus-Christ, notre Seigneur et notre Sauveur, grandissent en vous. Rendons-lui gloire, dès maintenant et pour toujours! Amen! </text>
+    <text>Que l'amour et la connaissance de Jésus-Christ, notre Seigneur et notre Sauveur, grandissent en vous. Rendons-lui gloire, dès maintenant et pour toujours! Amen!</text>
   </block>
   <UnappliedSplits />
 </book>

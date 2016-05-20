@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
+using SIL.Xml;
 
 namespace GlyssenTests
 {
@@ -548,6 +551,25 @@ namespace GlyssenTests
 			block.SetCharacterAndCharacterIdInScript("David/Goliath", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("David/Goliath", block.CharacterId);
 			Assert.AreEqual("David", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SerializeDeserialize_ContainsScriptAnnotations_RoundtripDataRemainsTheSame()
+		{
+			var block = new Block();
+			block.BlockElements = new List<BlockElement>
+			{
+				new ScriptText("script text"),
+				new Sound { EffectName = "effect name" },
+				new Verse("2"),
+				new ScriptText("script text 2"),
+			};
+
+			var blockBefore = block.Clone();
+			var xmlString = XmlSerializationHelper.SerializeToString(block);
+			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/sound", 1);
+			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
+			Assert.AreEqual(blockBefore.GetText(true, true), blockAfter.GetText(true, true));
 		}
 
 		private CharacterVerse JesusQuestioning

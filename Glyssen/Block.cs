@@ -188,14 +188,16 @@ namespace Glyssen
 
 		public string PrimaryReferenceText
 		{
-			get { return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(true) : null; }
+			get { return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(true, true) : null; }
 		}
 
 		[XmlElement]
 		public List<Block> ReferenceBlocks { get; set; }
 
 		[XmlElement(Type = typeof (ScriptText), ElementName = "text")]
-		[XmlElement(Type = typeof (Verse), ElementName = "verse")]
+		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
+		[XmlElement(Type = typeof(Sound), ElementName = "sound")]
+		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
 		public List<BlockElement> BlockElements { get; set; }
 
 		public bool CharacterIsStandard
@@ -214,7 +216,7 @@ namespace Glyssen
 			MatchesReferenceText = true;
 		}
 
-		public string GetText(bool includeVerseNumbers)
+		public string GetText(bool includeVerseNumbers, bool includeAnnotations = false)
 		{
 			if (IsChapterAnnouncement && BookCode != null && FormatChapterAnnouncement != null)
 				return FormatChapterAnnouncement(BookCode, ChapterNumber) ?? ((ScriptText)BlockElements.First()).Content;
@@ -222,7 +224,7 @@ namespace Glyssen
 			return GetTextFromBlockElements(includeVerseNumbers);
 		}
 
-		private string GetTextFromBlockElements(bool includeVerseNumbers)
+		private string GetTextFromBlockElements(bool includeVerseNumbers, bool includeAnnotations = false)
 		{
 			StringBuilder bldr = new StringBuilder();
 
@@ -243,6 +245,12 @@ namespace Glyssen
 					ScriptText text = blockElement as ScriptText;
 					if (text != null)
 						bldr.Append(text.Content);
+					else if (includeAnnotations)
+					{
+						ScriptAnnotation annotation = blockElement as ScriptAnnotation;
+						if (annotation != null)
+							bldr.Append(annotation.ToDisplay);
+					}
 				}
 			}
 

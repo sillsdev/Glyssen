@@ -112,7 +112,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
     <verse num="27" />
-    <text>Ata Allahın hüzurunda pak vә nöqsansız möminlik budur: yetimlәrә vә dullara onların әziyyәtlәrindә qayğı göstәrmәk vә özünü dünyadan qoruyub lәkәsiz olmaq. </text>
+    <text>Ata Allahın hüzurunda pak vә nöqsansız möminlik budur: yetimlәrә vә dullara onların әziyyәtlәrindә qayğı göstәrmәk vә özünü dünyadan qoruyub lәkәsiz olmaq.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
     <text>2</text>
@@ -239,7 +239,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
     <verse num="26" />
-    <text>Çünki ruhsuz bәdәn ölü olduğu kimi әmәlsiz iman da ölüdür. </text>
+    <text>Çünki ruhsuz bәdәn ölü olduğu kimi әmәlsiz iman da ölüdür.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
     <text>3</text>
@@ -314,7 +314,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
     <verse num="18" />
-    <text>Sülh yaradanların әkdiyi sülh toxumlarından salehlik bәhrәsi yetişir. </text>
+    <text>Sülh yaradanların әkdiyi sülh toxumlarından salehlik bәhrәsi yetişir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
     <text>4</text>
@@ -388,7 +388,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
     <verse num="17" />
-    <text>Demәli, kimsә bir yaxşı işi görmәli olduğunu bilib onu etmirsә, günah edir. </text>
+    <text>Demәli, kimsә bir yaxşı işi görmәli olduğunu bilib onu etmirsә, günah edir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
     <text>5</text>
@@ -471,7 +471,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
     <verse num="20" />
-    <text>qoy bilsin ki, günahkarı azdığı yolundan qaytaran onun canını ölümdәn xilas edәr vә bir çox günahın üstünü örtәr. </text>
+    <text>qoy bilsin ki, günahkarı azdığı yolundan qaytaran onun canını ölümdәn xilas edәr vә bir çox günahın üstünü örtәr.</text>
   </block>
   <UnappliedSplits />
 </book>

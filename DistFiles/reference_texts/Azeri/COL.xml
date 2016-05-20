@@ -120,7 +120,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-COL">
     <verse num="29" />
-    <text>Bu mәqsәdlә dә zәhmәt çәkirәm vә Onun mәndә qüdrәtlә fәaliyyәt göstәrәn qüvvәsi ilә mübarizә aparıram. </text>
+    <text>Bu mәqsәdlә dә zәhmәt çәkirәm vә Onun mәndә qüdrәtlә fәaliyyәt göstәrәn qüvvәsi ilә mübarizә aparıram.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>2</text>
@@ -215,7 +215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL">
     <verse num="23" />
-    <text>Şübhәsiz, bu qaydalar uydurma dindarlıq, mütilik vә bәdәnә xәtәr yetirmәkdә zahirәn müdrik görünür, amma cismani tәbiәtin hәvәsinin qarşısını almaq üçün onların heç bir dәyәri yoxdur. </text>
+    <text>Şübhәsiz, bu qaydalar uydurma dindarlıq, mütilik vә bәdәnә xәtәr yetirmәkdә zahirәn müdrik görünür, amma cismani tәbiәtin hәvәsinin qarşısını almaq üçün onların heç bir dәyәri yoxdur.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>3</text>
@@ -318,7 +318,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-COL">
     <verse num="25" />
-    <text>Kim haqsızlıq edәrsә, işlәtdiyi haqsızlığın әvәzini alacaq, çünki Rәbb tәrәfkeşlik etmәz. </text>
+    <text>Kim haqsızlıq edәrsә, işlәtdiyi haqsızlığın әvәzini alacaq, çünki Rәbb tәrәfkeşlik etmәz.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>4</text>
@@ -393,7 +393,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-COL">
     <verse num="18" />
-    <text>Mәn Paul bu salamı öz әlimlә yazıram. Unutmayın ki, mәn hәbsdәyәm. Sizә lütf olsun! </text>
+    <text>Mәn Paul bu salamı öz әlimlә yazıram. Unutmayın ki, mәn hәbsdәyәm. Sizә lütf olsun!</text>
   </block>
   <UnappliedSplits />
 </book>

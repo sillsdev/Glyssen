@@ -43,7 +43,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Mәn sizi su ilә vәftiz etdim, amma O sizi Müqәddәs Ruhla vәftiz edәcәk&gt;&gt;. </text>
+    <text>Mәn sizi su ilә vәftiz etdim, amma O sizi Müqәddәs Ruhla vәftiz edәcәk&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
@@ -95,7 +95,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>İsa dәrhal onları çağırdı. Onlar da qayıqdakı ataları Zavdayı vә muzdlu işçilәri qoyub Onun ardınca getdi. </text>
+    <text>İsa dәrhal onları çağırdı. Onlar da qayıqdakı ataları Zavdayı vә muzdlu işçilәri qoyub Onun ardınca getdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -122,7 +122,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Natәmiz ruh bu adamı sarsıdıb bәrkdәn çığıraraq ondan çıxdı.</text>
+    <text>Natәmiz ruh bu adamı sarsıdıb </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>bәrkdәn çığıraraq ondan çıxdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -157,7 +159,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>İsa müxtәlif xәstәliyә tutulan çox adama şәfa verdi vә bir çox cinlәri qovdu. Amma cinlәrә danışmağa izin vermәdi, çünki onlar İsanın Kim olduğunu bilirdilәr. </text>
+    <text>İsa müxtәlif xәstәliyә tutulan çox adama şәfa verdi vә bir çox cinlәri qovdu. Amma cinlәrә danışmağa izin vermәdi, çünki onlar İsanın Kim olduğunu bilirdilәr.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -214,7 +216,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="45" characterId="narrator-MRK">
     <verse num="45" />
-    <text>Lakin o çıxıb bu sözü vәz edәrәk hәr yanda yaymağa başladı. Ona görә dә İsa artıq heç bir şәhәrә açıq girә bilmirdi, ancaq kәnarda, kimsәsiz yerlәrdә qalır vә adamlar hәr tәrәfdәn Onun yanına gәlirdi. </text>
+    <text>Lakin o çıxıb bu sözü vәz edәrәk hәr yanda yaymağa başladı. Ona görә dә İsa artıq heç bir şәhәrә açıq girә bilmirdi, ancaq kәnarda, kimsәsiz yerlәrdә qalır vә adamlar hәr tәrәfdәn Onun yanına gәlirdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>2</text>
@@ -277,7 +279,7 @@
     <text>Xәstә qalxdı vә dәrhal döşәyini götürәrәk hamının qarşısında çıxıb getdi. Hamı mat qaldı vә Allahı izzәtlәndirib dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="everyone who saw healing of paralytic" delivery="praising">
-    <text>&lt;&lt;Biz heç vaxt belә şey görmәmişik&gt;&gt; </text>
+    <text>&lt;&lt;Biz heç vaxt belә şey görmәmişik&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -335,7 +337,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Heç kim tәzә şәrabı köhnә tuluqlara doldurmaz. Yoxsa şәrab tuluqları partladar, hәm şәrab, hәm dә tuluqlar zay olar. Tәzә şәrab tәzә tuluqlara doldurulmalıdır&gt;&gt; </text>
+    <text>Heç kim tәzә şәrabı köhnә tuluqlara doldurmaz. Yoxsa şәrab tuluqları partladar, hәm şәrab, hәm dә tuluqlar zay olar. Tәzә şәrab tәzә tuluqlara doldurulmalıdır&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-MRK">
     <verse num="23" />
@@ -366,7 +368,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>Bax Bәşәr Oğlu Şәnbә gününün dә Sahibidir&gt;&gt;. </text>
+    <text>Bax Bәşәr Oğlu Şәnbә gününün dә Sahibidir&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>3</text>
@@ -555,7 +557,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>Çünki kim Allahın iradәsini yerinә yetirirsә, Mәnim qardaşım, bacım vә anam odur&gt;&gt;. </text>
+    <text>Çünki kim Allahın iradәsini yerinә yetirirsә, Mәnim qardaşım, bacım vә anam odur&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>4</text>
@@ -597,7 +599,7 @@
     <text>Daha sonra İsa dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Jesus">
-    <text>&lt;&lt;Eşitmәyә qulağı olan eşitsin!&gt;&gt; </text>
+    <text>&lt;&lt;Eşitmәyә qulağı olan eşitsin!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
@@ -742,7 +744,7 @@
     <text>İsa durub külәyә qadağan etdi vә gölә dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="Jesus" delivery="forcefully">
-    <text>&lt;&lt;Sus, sakit ol!&gt;&gt; </text>
+    <text>&lt;&lt;Sus, sakit ol!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="narrator-MRK">
     <text>Külәk dayandı vә dәrin sükut çökdü. </text>
@@ -757,7 +759,7 @@
     <text>Onlar dәhşәtә düşüb bir-birindәn soruşdular:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="disciples" delivery="awe">
-    <text>&lt;&lt;Bu Adam kimdir ki, külәk dә, göl dә Ona itaәt edir?&gt;&gt; </text>
+    <text>&lt;&lt;Bu Adam kimdir ki, külәk dә, göl dә Ona itaәt edir?&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>5</text>
@@ -833,7 +835,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>İsa onlara izin verdi. Natәmiz ruhlar adamdan çıxıb donuzların içinә girdi. İki minәdәk sürü dә uçurumdan aşağı, gölә atılıb orada boğuldu.</text>
+    <text>İsa onlara izin verdi. Natәmiz ruhlar adamdan çıxıb </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>donuzların içinә girdi. İki minәdәk sürü dә </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>uçurumdan aşağı, gölә atılıb orada </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>boğuldu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1014,13 +1022,7 @@
     <text>Şәnbә günü olanda O, sinaqoqda tәlim öyrәtmәyә başladı. Onu dinlәyәn adamların çoxu tәәccüblәnәrәk dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>&lt;&lt;Bu Adamda belә şeylәr haradandır? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>Bu necә hikmәtdir Ona verilib? Bu cür möcüzәlәr Onun әlindәn necә gәlir?</text>
+    <text>&lt;&lt;Bu Adamda belә şeylәr haradandır? Bu necә hikmәtdir Ona verilib? Bu cür möcüzәlәr Onun әlindәn necә gәlir?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1040,7 +1042,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>İsa onların imansızlığına heyrәt edirdi. Sonra әtraf kәndlәrdә tәlim öyrәdәrәk oraları gәzib-dolaşdı. </text>
+    <text>İsa onların imansızlığına heyrәt edirdi. Sonra әtraf kәndlәrdә tәlim öyrәdәrәk oraları gәzib-dolaşdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -1334,7 +1336,7 @@
     <text>"Mənə sizin geyimlərinin saçaq toxunmaq izin ver!"</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK">
-    <text>Və bütün bu ona şəfa idi toxundu. </text>
+    <text>Və bütün bu ona şəfa idi toxundu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>7</text>
@@ -1446,7 +1448,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="23" />
-    <text>Bütün bu pis işlәr insan daxilindәn çıxıb onu murdar edir&gt;&gt;. </text>
+    <text>Bütün bu pis işlәr insan daxilindәn çıxıb onu murdar edir&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-MRK">
     <verse num="24" />
@@ -1486,7 +1488,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>Qadın evinә gәlәndә gördü ki, qızı yatağında uzanıb vә cin ondan çıxıb. </text>
+    <text>Qadın evinә gәlәndә gördü ki, qızı yatağında uzanıb vә cin ondan çıxıb.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1532,7 +1534,7 @@
     <text>Hamı hәdsiz tәәccüblәnәrәk dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="people of Decapolis">
-    <text>&lt;&lt;Hәr işin öhdәsindәn yaxşı gәlir: hәm karların qulağını, hәm dә lalların dilini açır&gt;&gt;. </text>
+    <text>&lt;&lt;Hәr işin öhdәsindәn yaxşı gәlir: hәm karların qulağını, hәm dә lalların dilini açır&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>8</text>
@@ -1593,7 +1595,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
-    <text>O, şagirdlәri ilә birlikdә dәrhal qayığa minib Dalmanuta bölgәsinә getdi. </text>
+    <text>O, şagirdlәri ilә birlikdә dәrhal qayığa minib Dalmanuta bölgәsinә getdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
@@ -1665,7 +1667,7 @@
     <text>İsa onlara dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning">
-    <text>&lt;&lt;Hәlә başa düşmәmisinizmi?&gt;&gt; </text>
+    <text>&lt;&lt;Hәlә başa düşmәmisinizmi?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -1694,7 +1696,7 @@
     <text>İsa onu evinә göndәrdi vә dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Kәndә belә, girmә&gt;&gt;. </text>
+    <text>&lt;&lt;Kәndә belә, girmә&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -1769,7 +1771,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="38" />
-    <text>Bu vәfasız vә günahkar nәsil arasında kim Mәndәn vә Mәnim sözlәrimdәn utanarsa, Bәşәr Oğlu da Atasının izzәti içindә müqәddәs mәlәklәrlә birgә gәlәndә o adamdan utanacaq&gt;&gt;. </text>
+    <text>Bu vәfasız vә günahkar nәsil arasında kim Mәndәn vә Mәnim sözlәrimdәn utanarsa, Bәşәr Oğlu da Atasının izzәti içindә müqәddәs mәlәklәrlә birgә gәlәndә o adamdan utanacaq&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>9</text>
@@ -1843,7 +1845,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="13" />
-    <text>Lakin sizә deyirәm: artıq İlyas gәldi vә haqqında yazıldığı kimi, nә istәdilәrsә, onun başına gәtirdilәr&gt;&gt;. </text>
+    <text>Lakin sizә deyirәm: artıq İlyas gәldi vә haqqında yazıldığı kimi, nә istәdilәrsә, onun başına gәtirdilәr&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1918,7 +1920,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Ruh çığırıb uşağı sarsıdaraq çıxdı. Uşaq ölü kimi düşdü vә çoxları dedi:</text>
+    <text>Ruh çığırıb </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>uşağı sarsıdaraq çıxdı. Uşaq ölü kimi düşdü vә çoxları dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>&lt;&lt;O öldü!&gt;&gt;</text>
@@ -1939,7 +1943,7 @@
     <text>İsa onlara cavab verdi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="Jesus">
-    <text>&lt;&lt;Bu cür ruhlar yalnız dua ilә çıxa bilәr&gt;&gt;. </text>
+    <text>&lt;&lt;Bu cür ruhlar yalnız dua ilә çıxa bilәr&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1954,7 +1958,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
-    <text>Lakin şagirdlәr bu sözü başa düşmәdilәr vә Ondan soruşmaqdan da qorxurdular. </text>
+    <text>Lakin şagirdlәr bu sözü başa düşmәdilәr vә Ondan soruşmaqdan da qorxurdular.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -2038,7 +2042,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Duz yaxşı şeydir, amma әgәr duz dadsız olarsa, ona nә ilә dad vermәk olar? Qoy sizdә duz vә aranızda da sülh olsun&gt;&gt;. </text>
+    <text>Duz yaxşı şeydir, amma әgәr duz dadsız olarsa, ona nә ilә dad vermәk olar? Qoy sizdә duz vә aranızda da sülh olsun&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>10</text>
@@ -2214,7 +2218,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="31" />
-    <text>Amma birinci olanların çoxu axırıncı, axırıncı olanlar isә birinci olacaq&gt;&gt;. </text>
+    <text>Amma birinci olanların çoxu axırıncı, axırıncı olanlar isә birinci olacaq&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -2294,7 +2298,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="45" />
-    <text>Çünki Bәşәr Oğlu gәlmәdi ki, Ona xidmәt etsinlәr, gәldi ki, Özü xidmәt etsin vә çoxlarını satın almaq üçün Öz canını fidyә versin&gt;&gt;. </text>
+    <text>Çünki Bәşәr Oğlu gәlmәdi ki, Ona xidmәt etsinlәr, gәldi ki, Özü xidmәt etsin vә çoxlarını satın almaq üçün Öz canını fidyә versin&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="46" characterId="narrator-MRK">
     <verse num="46" />
@@ -2356,7 +2360,7 @@
     <text>&lt;&lt;Get, imanın sәni xilas etdi&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="52" characterId="narrator-MRK">
-    <text>Hәmin an bu adamın gözlәri açıldı vә o da İsanın ardınca getdi. </text>
+    <text>Hәmin an bu adamın gözlәri açıldı vә o da İsanın ardınca getdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>11</text>
@@ -2490,7 +2494,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>But if you do not forgive, neither will your Father in heaven forgive your transgressions.&gt;&gt; </text>
+    <text>But if you do not forgive, neither will your Father in heaven forgive your transgressions.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -2535,7 +2539,7 @@
     <text>İsa da onlara dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus">
-    <text>&lt;&lt;Bunları hansı sәlahiyyәtlә etdiyimi Mәn dә sizә demirәm&gt;&gt;. </text>
+    <text>&lt;&lt;Bunları hansı sәlahiyyәtlә etdiyimi Mәn dә sizә demirәm&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>12</text>
@@ -2717,7 +2721,7 @@
     <text>&lt;&lt;Sәn Allahın Padşahlığından uzaq deyilsәn&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="34" characterId="narrator-MRK">
-    <text>Bundan sonra heç kim İsadan bir şey soruşmağa cәsarәt etmәdi. </text>
+    <text>Bundan sonra heç kim İsadan bir şey soruşmağa cәsarәt etmәdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -2750,7 +2754,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="40" />
-    <text>Onlar dul qadınların evlәrini yeyib-dağıdar vә özlәrini göstәrmәk üçün uzun-uzadı dua edәrlәr. Bu adamların cәzası daha ağır olacaq&gt;&gt;. </text>
+    <text>Onlar dul qadınların evlәrini yeyib-dağıdar vә özlәrini göstәrmәk üçün uzun-uzadı dua edәrlәr. Bu adamların cәzası daha ağır olacaq&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="41" characterId="narrator-MRK">
     <verse num="41" />
@@ -2769,7 +2773,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="44" />
-    <text>Çünki onların hamısı varlarının artıqlığından verdi, bu qadın isә kasıblığına baxmayaraq, dolanmaq üçün әlindә nә varsa, hamısını verdi&gt;&gt;. </text>
+    <text>Çünki onların hamısı varlarının artıqlığından verdi, bu qadın isә kasıblığına baxmayaraq, dolanmaq üçün әlindә nә varsa, hamısını verdi&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>13</text>
@@ -2929,7 +2933,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="37" />
-    <text>Sizә söylәdiklәrimi hamıya deyirәm, oyaq olun!&gt;&gt; </text>
+    <text>Sizә söylәdiklәrimi hamıya deyirәm, oyaq olun!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>14</text>
@@ -3046,7 +3050,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>Bәşәr Oğlu Özü barәsindә yazıldığı kimi gedir. Amma vay o adamın halına ki, Bәşәr Oğluna xәyanәt edir! O adam heç doğulmasaydı, onun üçün daha yaxşı olardı&gt;&gt;. </text>
+    <text>Bәşәr Oğlu Özü barәsindә yazıldığı kimi gedir. Amma vay o adamın halına ki, Bәşәr Oğluna xәyanәt edir! O adam heç doğulmasaydı, onun üçün daha yaxşı olardı&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -3185,7 +3189,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>İsanın yanındakılardan biri qılınc çәkdi vә baş kahinin qulunu vurub qulağını qopartdı. </text>
+    <text>İsanın yanındakılardan biri qılınc çәkdi vә baş kahinin </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>qulunu vurub qulağını qopartdı. </text>
     <verse num="48" />
     <text>İsa onlara dedi:</text>
   </block>
@@ -3338,7 +3344,7 @@
     <text>&lt;&lt;xoruz iki dәfә banlamazdan әvvәl sәn Mәni üç dәfә inkar edәcәksәn&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
-    <text>Ona görә ağlamağa başladı. </text>
+    <text>Ona görә ağlamağa başladı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>15</text>
@@ -3568,7 +3574,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="narrator-MRK">
     <verse num="41" />
-    <text>İsa hәlә Qalileyada olanda bu qadınlar Onun ardınca getmiş vә Ona xidmәt etmişdilәr. Onunla birgә Yerusәlimә gәlәn xeyli qadın da orada idi. </text>
+    <text>İsa hәlә Qalileyada olanda bu qadınlar Onun ardınca getmiş vә Ona xidmәt etmişdilәr. Onunla birgә Yerusәlimә gәlәn xeyli qadın da orada idi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="42" characterId="narrator-MRK">
     <verse num="42" />
@@ -3605,7 +3611,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Mәcdәlli Mәryәm vә Yusifin anası Mәryәm baxıb cәsәdin hara qoyulduğunu gördülәr. </text>
+    <text>Mәcdәlli Mәryәm vә Yusifin anası Mәryәm baxıb cәsәdin hara qoyulduğunu gördülәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>16</text>

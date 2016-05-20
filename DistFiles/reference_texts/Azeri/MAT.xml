@@ -72,7 +72,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
-    <text>Belәliklә, İbrahimdәn Davuda qәdәr olan bütün nәsillәr on dörd nәsildir, Davuddan Babil sürgününә qәdәr on dörd nәsildir, Babil sürgünündәn Mәsihә qәdәr dә on dörd nәsildir. </text>
+    <text>Belәliklә, İbrahimdәn Davuda qәdәr olan bütün nәsillәr on dörd nәsildir, Davuddan Babil sürgününә qәdәr on dörd nәsildir, Babil sürgünündәn Mәsihә qәdәr dә on dörd nәsildir.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -99,18 +99,16 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="scripture">
     <verse num="23" />
-    <text>&lt;&lt;Budur, bakirә qız hamilә olub Oğlan doğacaq, adını İmmanuel qoyacaqlar&gt;&gt;. </text>
+    <text>&lt;&lt;Budur, bakirә qız hamilә olub Oğlan doğacaq, adını İmmanuel qoyacaqlar&gt;&gt;.</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
-    <text>&lt;&lt;İmmanuel&gt;&gt;&lt;&lt;Allah bizimlәdir&gt;&gt;</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-MAT">
+    <text>&lt;&lt;İmmanuel&gt;&gt;&lt;&lt;Allah bizimlәdir&gt;&gt; </text>
     <verse num="24" />
     <text>Yusif yuxudan oyananda Rәbbin mәlәyinin buyurduğu kimi etdi vә arvadını qәbul etdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-MAT">
     <verse num="25" />
-    <text>Amma Mәryәm bir Oğul doğana qәdәr Yusif onunla yaxınlıq etmәdi. Doğulan Körpәnin adını İsa qoydu. </text>
+    <text>Amma Mәryәm bir Oğul doğana qәdәr Yusif onunla yaxınlıq etmәdi. Doğulan Körpәnin adını İsa qoydu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>2</text>
@@ -230,7 +228,7 @@
     <text>Gәlib Nazaret deyilәn şәhәrdә mәskәn saldı. Bu, peyğәmbәrlәr vasitәsilә söylәnәn sözü yerinә yetsin deyә baş verdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-    <text>&lt;&lt;Ona Nazaretli deyilәcәk&gt;&gt; </text>
+    <text>&lt;&lt;Ona Nazaretli deyilәcәk&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>3</text>
@@ -319,7 +317,7 @@
     <text>Göylәrdәn bir sәda gәldi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="God">
-    <text>&lt;&lt;Bu Mәnim sevimli Oğlumdur, Ondan razıyam&gt;&gt;. </text>
+    <text>&lt;&lt;Bu Mәnim sevimli Oğlumdur, Ondan razıyam&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>4</text>
@@ -406,7 +404,7 @@
     <text>O vaxtdan İsa vәz edib belә demәyә başladı:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus" delivery="preaching">
-    <text>&lt;&lt;Tövbә edin! Çünki Sәmavi Padşahlıq yaxınlaşıb&gt;&gt;. </text>
+    <text>&lt;&lt;Tövbә edin! Çünki Sәmavi Padşahlıq yaxınlaşıb&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -427,7 +425,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
-    <text>Onlar da dәrhal qayığı vә atalarını qoyub Onun ardınca getdi. </text>
+    <text>Onlar da dәrhal qayığı vә atalarını qoyub Onun ardınca getdi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -439,7 +437,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-MAT">
     <verse num="25" />
-    <text>Qalileyadan, Dekapolis bölgәsindәn, Yerusәlimdәn, Yәhudeyadan vә İordan çayının o biri tayından böyük izdihamlar İsanın ardınca gedirdi. </text>
+    <text>Qalileyadan, Dekapolis bölgәsindәn, Yerusәlimdәn, Yәhudeyadan vә İordan çayının o biri tayından böyük izdihamlar İsanın ardınca gedirdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>5</text>
@@ -630,7 +628,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="48" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="48" />
-    <text>Ona görә dә Sәmavi Atanız kamil olduğu kimi siz dә kamil olun. </text>
+    <text>Ona görә dә Sәmavi Atanız kamil olduğu kimi siz dә kamil olun.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>6</text>
@@ -693,7 +691,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Amma siz başqa insanları bağışlamasanız, Atanız da sizin tәqsirlәrinizi bağışlamaz. </text>
+    <text>Amma siz başqa insanları bağışlamasanız, Atanız da sizin tәqsirlәrinizi bağışlamaz.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
     <verse num="16" />
@@ -769,7 +767,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="34" />
-    <text>Belәliklә, sabahın qayğısını çәkmәyin. Çünki sabahkı gün özü üçün qayğı çәkәcәk. Hәr günün öz yamanlığı kifayәtdir! </text>
+    <text>Belәliklә, sabahın qayğısını çәkmәyin. Çünki sabahkı gün özü üçün qayğı çәkәcәk. Hәr günün öz yamanlığı kifayәtdir!</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>7</text>
@@ -888,7 +886,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="narrator-MAT">
     <verse num="29" />
-    <text>çünki onlara öz ilahiyyatçıları kimi deyil, sәlahiyyәt sahibi kimi tәlim öyrәdirdi. </text>
+    <text>çünki onlara öz ilahiyyatçıları kimi deyil, sәlahiyyәt sahibi kimi tәlim öyrәdirdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>8</text>
@@ -917,7 +915,7 @@
     <text>İsa ona dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Bax heç kәsә bir söz demә, lakin get, özünü kahinә göstәr. Hәr kәsә şәhadәt olsun deyә Musanın buyurduğu tәqdimi apar&gt;&gt;. </text>
+    <text>&lt;&lt;Bax heç kәsә bir söz demә, lakin get, özünü kahinә göstәr. Hәr kәsә şәhadәt olsun deyә Musanın buyurduğu tәqdimi apar&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
@@ -968,7 +966,7 @@
     <text>&lt;&lt;Get, qoy sәnin imanına görә olsun&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-MAT">
-    <text>Xidmәtçisi dә o saat sağaldı. </text>
+    <text>Xidmәtçisi dә o saat sağaldı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-MAT">
     <verse num="14" />
@@ -1019,7 +1017,7 @@
     <text>İsa ona dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Ardımca gәl. Qoy ölülәr öz ölülәrini dәfn etsin&gt;&gt;. </text>
+    <text>&lt;&lt;Ardımca gәl. Qoy ölülәr öz ölülәrini dәfn etsin&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -1081,7 +1079,12 @@
     <text>&lt;&lt;Gedin!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
-    <text>Cinlәr dә adamlardan çıxıb donuzların içinә girdi. Belәliklә, bütün sürü uçurumdan aşağı, gölә atılıb suda boğuldu. </text>
+    <text>Cinlәr dә adamlardan çıxıb </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>donuzların içinә girdi. Belәliklә, bütün sürü uçurumdan aşağı, </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>gölә atılıb suda boğuldu. </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT">
     <verse num="33" />
@@ -1092,7 +1095,7 @@
     <text>Bundan sonra bütün şәhәr әhalisi İsanı qarşılamağa çıxdı. O zaman onlar onu gördükdə:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Gadarene (or Gerasenes) people" delivery="pleading">
-    <text>"Bizim sahəsi buraxın." </text>
+    <text>"Bizim sahəsi buraxın."</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>9</text>
@@ -1196,7 +1199,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Elәcә dә tәzә şәrabı köhnә tuluqlara doldurmazlar. Yoxsa tuluqlar partlayar, şәrab tökülәr, tuluqlar da zay olar. Tәzә şәrab tәzә tuluqlara doldurular; onda hәr ikisi qorunar&gt;&gt;. </text>
+    <text>Elәcә dә tәzә şәrabı köhnә tuluqlara doldurmazlar. Yoxsa tuluqlar partlayar, şәrab tökülәr, tuluqlar da zay olar. Tәzә şәrab tәzә tuluqlara doldurular; onda hәr ikisi qorunar&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -1305,7 +1308,7 @@
     <text>Lakin fariseylәr deyirdilәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="Pharisees" delivery="accusing">
-    <text>&lt;&lt;O, cinlәrin başçısının gücü ilә cinlәri qovur&gt;&gt;. </text>
+    <text>&lt;&lt;O, cinlәrin başçısının gücü ilә cinlәri qovur&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="35" characterId="narrator-MAT">
     <verse num="35" />
@@ -1324,7 +1327,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="38" />
-    <text>Buna görә dә mәhsulun Sahibinә yalvarın ki, Öz mәhsulunu yığmaq üçün işçilәr göndәrsin&gt;&gt;. </text>
+    <text>Buna görә dә mәhsulun Sahibinә yalvarın ki, Öz mәhsulunu yığmaq üçün işçilәr göndәrsin&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>10</text>
@@ -1498,7 +1501,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="42" />
-    <text>Kim bu kiçiklәrdәn birinә şagird olduğu üçün hәtta bir kasa soyuq su içirdәrsә, sizә doğrusunu deyirәm: mükafatsız qalmayacaq&gt;&gt;. </text>
+    <text>Kim bu kiçiklәrdәn birinә şagird olduğu üçün hәtta bir kasa soyuq su içirdәrsә, sizә doğrusunu deyirәm: mükafatsız qalmayacaq&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>11</text>
@@ -1568,7 +1571,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Qulağı olan eşitsin! </text>
+    <text>Qulağı olan eşitsin!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Start">
     <verse num="16" />
@@ -1631,7 +1634,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="30" />
-    <text>Çünki mәnim boyunduruğum rahat vә yüküm yüngüldür&gt;&gt;. </text>
+    <text>Çünki mәnim boyunduruğum rahat vә yüküm yüngüldür&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>12</text>
@@ -1875,7 +1878,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Çünki kim göylәrdә olan Atamın iradәsini yerinә yetirirsә, Mәnim qardaşım, bacım vә anam odur&gt;&gt;. </text>
+    <text>Çünki kim göylәrdә olan Atamın iradәsini yerinә yetirirsә, Mәnim qardaşım, bacım vә anam odur&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>13</text>
@@ -1915,7 +1918,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>Qulağı olan eşitsin!&gt;&gt; </text>
+    <text>Qulağı olan eşitsin!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-MAT">
     <verse num="10" />
@@ -2123,7 +2126,7 @@
     <text>İsa da onlara dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="52" characterId="Jesus">
-    <text>&lt;&lt;Ona görә dә Sәmavi Padşahlıq üçün şagirdlik etmiş hәr ilahiyyatçı xәzinәsindәn tәzә vә köhnә şeylәr çıxaran ev sahibinә bәnzәyir&gt;&gt;. </text>
+    <text>&lt;&lt;Ona görә dә Sәmavi Padşahlıq üçün şagirdlik etmiş hәr ilahiyyatçı xәzinәsindәn tәzә vә köhnә şeylәr çıxaran ev sahibinә bәnzәyir&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="53" characterId="narrator-MAT">
     <verse num="53" />
@@ -2153,7 +2156,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="58" characterId="narrator-MAT">
     <verse num="58" />
-    <text>İsa onların imansızlığı üzündәn orada çox möcüzә yaratmadı. </text>
+    <text>İsa onların imansızlığı üzündәn orada çox möcüzә yaratmadı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>14</text>
@@ -2258,7 +2261,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
-    <text>Yemәk yeyәn adamların sayı qadınlar vә uşaqlardan başqa, beş min nәfәrә yaxın idi. </text>
+    <text>Yemәk yeyәn adamların sayı qadınlar vә uşaqlardan başqa, beş min nәfәrә yaxın idi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
@@ -2343,7 +2346,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="36" characterId="narrator-MAT">
     <verse num="36" />
-    <text>Xәstәlәr heç olmasa İsanın paltarının әtәyinә toxunmaq üçün yalvarırdılar. Ona toxunanların hamısı sağaldı. </text>
+    <text>Xәstәlәr heç olmasa İsanın paltarının әtәyinә toxunmaq üçün yalvarırdılar. Ona toxunanların hamısı sağaldı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>15</text>
@@ -2442,7 +2445,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>İnsanı murdar edәn şeylәr bunlardır. Yuyulmamış әllәrlә yemәk isә insanı murdar etmәz&gt;&gt; </text>
+    <text>İnsanı murdar edәn şeylәr bunlardır. Yuyulmamış әllәrlә yemәk isә insanı murdar etmәz&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
@@ -2560,7 +2563,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="39" characterId="narrator-MAT">
     <verse num="39" />
-    <text>İsa camaatı buraxıb qayığa minәrәk Mәcdәl bölgәsinә getdi. </text>
+    <text>İsa camaatı buraxıb qayığa minәrәk Mәcdәl bölgәsinә getdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>16</text>
@@ -2715,7 +2718,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>Sizә doğrusunu deyirәm: burada duranlardan bәzisi Bәşәr Oğlunun Padşahlığı ilә gәldiyini görmәdәn ölmәyәcәk&gt;&gt;. </text>
+    <text>Sizә doğrusunu deyirәm: burada duranlardan bәzisi Bәşәr Oğlunun Padşahlığı ilә gәldiyini görmәdәn ölmәyәcәk&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>17</text>
@@ -2811,7 +2814,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
-    <text>İsa cinә qadağan etdi vә cin uşaqdan çıxdı. Oğlan o saatda şәfa tapdı.</text>
+    <text>İsa cinә qadağan etdi vә cin uşaqdan çıxdı. </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>Oğlan o saatda şәfa tapdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT">
     <verse num="19" />
@@ -2878,7 +2883,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="27" />
-    <text>Lakin bu adamları incitmәyәk deyә gölә get, tilov at vә tilova düşәn ilk balığı götür. Onun ağzını açanda bir gümüş pul tapacaqsan. Onu götür, hәm Mәnim, hәm dә öz әvәzinә ver&gt;&gt;. </text>
+    <text>Lakin bu adamları incitmәyәk deyә gölә get, tilov at vә tilova düşәn ilk balığı götür. Onun ağzını açanda bir gümüş pul tapacaqsan. Onu götür, hәm Mәnim, hәm dә öz әvәzinә ver&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>18</text>
@@ -2965,7 +2970,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Çünki harada iki vә ya üç nәfәr Mәnim adımla yığılarsa, Mәn dә orada, onların arasındayam&gt;&gt;. </text>
+    <text>Çünki harada iki vә ya üç nәfәr Mәnim adımla yığılarsa, Mәn dә orada, onların arasındayam&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
@@ -3031,7 +3036,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>Hәr biriniz qardaşlarınızı ürәkdәn bağışlamasanız, Sәmavi Atam da sizә elә edәr&gt;&gt;. </text>
+    <text>Hәr biriniz qardaşlarınızı ürәkdәn bağışlamasanız, Sәmavi Atam da sizә elә edәr&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>19</text>
@@ -3207,7 +3212,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="30" />
-    <text>Amma birinci olanların çoxu axırıncı, axırıncı olanlar isә birinci olacaq. </text>
+    <text>Amma birinci olanların çoxu axırıncı, axırıncı olanlar isә birinci olacaq.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>20</text>
@@ -3272,7 +3277,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>Belәcә dә axırıncılar birinci, birincilәr isә axırıncı olacaq&gt;&gt;. </text>
+    <text>Belәcә dә axırıncılar birinci, birincilәr isә axırıncı olacaq&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
@@ -3342,7 +3347,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>Belәcә Bәşәr Oğlu gәlmәdi ki, Ona xidmәt etsinlәr, gәldi ki, Özü xidmәt etsin vә çoxlarını satın almaq üçün Öz canını fidyә versin&gt;&gt;. </text>
+    <text>Belәcә Bәşәr Oğlu gәlmәdi ki, Ona xidmәt etsinlәr, gәldi ki, Özü xidmәt etsin vә çoxlarını satın almaq üçün Öz canını fidyә versin&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="29" characterId="narrator-MAT">
     <verse num="29" />
@@ -3384,7 +3389,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="34" characterId="narrator-MAT">
     <verse num="34" />
-    <text>İsanın onlara rәhmi gәldi, gözlәrinә toxundu. Hәmin an onların gözlәri açıldı vә İsanın ardınca getdilәr. </text>
+    <text>İsanın onlara rәhmi gәldi, gözlәrinә toxundu. Hәmin an onların gözlәri açıldı vә İsanın ardınca getdilәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>21</text>
@@ -3441,7 +3446,7 @@
     <text>Camaat isә deyirdi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="crowd" delivery="praising">
-    <text>&lt;&lt;Bu, Qalileyanın Nazaret şәhәrindәn olan İsa Peyğәmbәrdir&gt;&gt;. </text>
+    <text>&lt;&lt;Bu, Qalileyanın Nazaret şәhәrindәn olan İsa Peyğәmbәrdir&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-MAT">
     <verse num="12" />
@@ -3509,7 +3514,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>İmanla dua edәrәk hәr nә dilәsәniz, alacaqsınız&gt;&gt;. </text>
+    <text>İmanla dua edәrәk hәr nә dilәsәniz, alacaqsınız&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -3867,7 +3872,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="46" characterId="narrator-MAT">
     <verse num="46" />
-    <text>Bunun cavabında İsaya kimsә bir söz deyә bilmәdi. O gündәn sonra artıq heç kim Ondan bir şey soruşmağa cәsarәt etmәdi. </text>
+    <text>Bunun cavabında İsaya kimsә bir söz deyә bilmәdi. O gündәn sonra artıq heç kim Ondan bir şey soruşmağa cәsarәt etmәdi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>23</text>
@@ -4027,7 +4032,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="39" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="39" />
-    <text>Çünki Mәn sizә bunu deyirәm: “Rәbbin ismi ilә Gәlәnә alqış olsun!” deyәnә qәdәr Mәni bir daha görmәyәcәksiniz&gt;&gt;. </text>
+    <text>Çünki Mәn sizә bunu deyirәm: “Rәbbin ismi ilә Gәlәnә alqış olsun!” deyәnә qәdәr Mәni bir daha görmәyәcәksiniz&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>24</text>
@@ -4246,7 +4251,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="51" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="51" />
-    <text>ona ağır cәza verәcәk vә onu ikiüzlülәrlә bir yerdә saxlayacaq. Orada ağlaşma vә diş qıcırtısı olacaq. </text>
+    <text>ona ağır cәza verәcәk vә onu ikiüzlülәrlә bir yerdә saxlayacaq. Orada ağlaşma vә diş qıcırtısı olacaq.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="25" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>25</text>
@@ -4433,7 +4438,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="46" />
-    <text>Bunlar әbәdi әzaba, salehlәr isә әbәdi hәyata gedәcәk&gt;&gt;. </text>
+    <text>Bunlar әbәdi әzaba, salehlәr isә әbәdi hәyata gedәcәk&gt;&gt;.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="26" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>26</text>
@@ -4457,7 +4462,7 @@
     <text>Amma deyirdilәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders">
-    <text>&lt;&lt;Bunu bayramda etmәyәk, yoxsa xalq arasında qarışıqlıq düşәr&gt;&gt;. </text>
+    <text>&lt;&lt;Bunu bayramda etmәyәk, yoxsa xalq arasında qarışıqlıq düşәr&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -4719,7 +4724,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>Budur, İsa ilә birlikdә olanlardan biri әl atıb qılıncını çәkdi vә baş kahinin qulunu vurub qulağını qopartdı. </text>
+    <text>Budur, İsa ilә birlikdә olanlardan biri әl atıb qılıncını çәkdi vә </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>baş kahinin qulunu vurub qulağını qopartdı. </text>
     <verse num="52" />
     <text>İsa ona dedi:</text>
   </block>
@@ -4812,7 +4819,7 @@
     <text>dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="68" characterId="chief priests/Sanhedrin" delivery="mocking">
-    <text>&lt;&lt;Ey Mәsih, bizә peyğәmbәrlik elә görәk, Sәni vuran kimdir?&gt;&gt; </text>
+    <text>&lt;&lt;Ey Mәsih, bizә peyğәmbәrlik elә görәk, Sәni vuran kimdir?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="69" characterId="narrator-MAT">
     <verse num="69" />
@@ -4857,7 +4864,9 @@
     <text>&lt;&lt;O Adamı tanımıram&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
-    <text>Hәmin anda xoruz banladı. </text>
+    <text>Hәmin anda xoruz </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <text>banladı. </text>
     <verse num="75" />
     <text>Peter İsanın dediyi sözü yadına saldı.</text>
   </block>
@@ -4865,7 +4874,7 @@
     <text>&lt;&lt;xoruz banlamazdan әvvәl sәn Mәni üç dәfә inkar edәcәksәn&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT">
-    <text>Ona görә oradan çıxıb hönkür-hönkür ağladı. </text>
+    <text>Ona görә oradan çıxıb hönkür-hönkür ağladı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>27</text>
@@ -4895,7 +4904,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
-    <text>Yәhuda gümüş pulları mәbәdin içinә atıb oradan çıxdı, gedib özünü asdı.</text>
+    <text>Yәhuda gümüş pulları mәbәdin içinә atıb </text>
+    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <text>oradan çıxdı, gedib özünü asdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -5155,7 +5166,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>O anda mәbәdin pәrdәsi yuxarıdan aşağıya qәdәr iki yerә parçalandı. Yer sarsıldı, qayalar yarıldı.</text>
+    <text>O anda mәbәdin pәrdәsi yuxarıdan aşağıya qәdәr iki yerә </text>
+    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <text>parçalandı. Yer sarsıldı, qayalar yarıldı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT">
     <verse num="52" />
@@ -5178,7 +5191,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="56" characterId="narrator-MAT">
     <verse num="56" />
-    <text>Mәcdәlli Mәryәm, Yaqub ilә Yusifin anası Mәryәm vә Zavdayın oğullarının anası da onların arasında idi. </text>
+    <text>Mәcdәlli Mәryәm, Yaqub ilә Yusifin anası Mәryәm vә Zavdayın oğullarının anası da onların arasında idi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="57" characterId="narrator-MAT">
     <verse num="57" />
@@ -5198,7 +5211,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="61" characterId="narrator-MAT">
     <verse num="61" />
-    <text>Mәcdәlli Mәryәm vә o biri Mәryәm orada, qәbirin qarşısında oturmuşdular. </text>
+    <text>Mәcdәlli Mәryәm vә o biri Mәryәm orada, qәbirin qarşısında oturmuşdular.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="62" characterId="narrator-MAT">
     <verse num="62" />
@@ -5222,7 +5235,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="66" characterId="narrator-MAT">
     <verse num="66" />
-    <text>Onlar gedib qәbirin qarşısında keşikçi dәstәsi qoydular vә qәbir daşına möhür basdılar. Belәliklә, qәbirin tәhlükәsizliyi qorundu. </text>
+    <text>Onlar gedib qәbirin qarşısında keşikçi dәstәsi qoydular vә qәbir daşına möhür basdılar. Belәliklә, qәbirin tәhlükәsizliyi qorundu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>28</text>
@@ -5275,7 +5288,7 @@
     <text>İsa onlara dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="10" characterId="Jesus">
-    <text>&lt;&lt;Qorxmayın! Gedin, qardaşlarıma xәbәr verin ki, Qalileyaya getsinlәr. Mәni orada görәcәklәr&gt;&gt;. </text>
+    <text>&lt;&lt;Qorxmayın! Gedin, qardaşlarıma xәbәr verin ki, Qalileyaya getsinlәr. Mәni orada görәcәklәr&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="11" characterId="narrator-MAT">
     <verse num="11" />
@@ -5319,10 +5332,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>sizә әmr etdiyim hәr şeyә riayәt etmәyi onlara öyrәdin. Budur, Mәn dövrün sonuna qәdәr hәr gün sizinlәyәm&gt;&gt;. </text>
-  </block>
-  <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT">
-    <text>...</text>
+    <text>sizә әmr etdiyim hәr şeyә riayәt etmәyi onlara öyrәdin. Budur, Mәn dövrün sonuna qәdәr hәr gün sizinlәyәm&gt;&gt;.</text>
   </block>
   <UnappliedSplits />
 </book>

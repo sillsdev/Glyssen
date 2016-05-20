@@ -102,9 +102,7 @@
     <text>“Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel”; </text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
-    <text>which is, being interpreted, “God with us.”</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-MAT">
+    <text>which is, being interpreted, “God with us.” </text>
     <verse num="24" />
     <text>Joseph arose from his sleep, and did as the angel of the Lord commanded him, and took his wife to himself;</text>
   </block>
@@ -1083,7 +1081,13 @@
     <text>“Go!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
-    <text>They came out,  and went into the herd of pigs: and behold, the whole herd of pigs rushed  down the cliff into the sea,  and died in the water.</text>
+    <text>They came out, </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>and went into the herd of pigs: and behold, the whole herd of pigs rushed </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>down the cliff into the sea, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>and died in the water.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT">
     <verse num="33" />
@@ -2813,7 +2817,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
-    <text>Jesus rebuked him, the demon went out  of him, and the boy was cured from that hour.</text>
+    <text>Jesus rebuked him, the demon went out </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>of him, and the boy was cured from that hour.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT">
     <verse num="19" />
@@ -4722,7 +4728,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>Behold, one of those who were with Jesus stretched out his hand, and drew his sword, and  struck the servant of the high priest, and struck off his ear. </text>
+    <text>Behold, one of those who were with Jesus stretched out his hand, and drew his sword, and </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>struck the servant of the high priest, and struck off his ear. </text>
     <verse num="52" />
     <text>Then Jesus said to him,</text>
   </block>
@@ -4860,7 +4868,9 @@
     <text>“I don’t know the man!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
-    <text>Immediately the rooster  crowed. </text>
+    <text>Immediately the rooster </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <text>crowed. </text>
     <verse num="75" />
     <text>Peter remembered the word which Jesus had said to him,</text>
   </block>
@@ -4898,7 +4908,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
-    <text>He threw  down the pieces of silver in the sanctuary, and departed. He went away and hanged himself.</text>
+    <text>He threw </text>
+    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <text>down the pieces of silver in the sanctuary, and departed. He went away and hanged himself.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -5158,7 +5170,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>Behold, the veil of the temple was torn  in two from the top to the bottom. The earth quaked and the rocks were split.</text>
+    <text>Behold, the veil of the temple was torn </text>
+    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <text>in two from the top to the bottom. The earth quaked and the rocks were split.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT">
     <verse num="52" />
@@ -5322,10 +5336,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Teach them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.” </text>
-  </block>
-  <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT">
-    <text>Amen.</text>
+    <text>Teach them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.” Amen.</text>
   </block>
   <UnappliedSplits />
 </book>

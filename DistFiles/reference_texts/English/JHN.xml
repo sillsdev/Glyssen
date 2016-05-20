@@ -3934,7 +3934,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <verse num="10" />
-    <text>Simon Peter therefore, having a sword, drew it, and struck the high priest’s servant, and  cut off his right ear.</text>
+    <text>Simon Peter therefore, having a sword, drew it, and struck the high priest's servant, and </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>cut off his right ear.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <text>The servant’s name was Malchus. </text>
@@ -3996,7 +3998,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
-    <text>When he had said this, one of the officers standing by  slapped Jesus with his hand, saying,</text>
+    <text>When he had said this, one of the officers standing by </text>
+    <sound effectName="Slap" userSpecifiesLocation="true" />
+    <text>slapped Jesus with his hand, saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="officials of high priest, one of the" delivery="gruff">
     <text>“Do you answer the high priest like that?”</text>
@@ -4035,6 +4039,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
     <text>Peter therefore denied it again, and immediately the rooster crowed. </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
@@ -4656,6 +4661,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
     <text>So when Simon Peter heard that it was the Lord, he wrapped his coat around him (for he was naked), and threw himself into the sea. </text>
+    <sound effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN">
     <verse num="8" />

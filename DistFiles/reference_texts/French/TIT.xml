@@ -68,7 +68,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-TIT">
     <verse num="16" />
-    <text>Ils affirment qu'ils connaissent Dieu, mais ce qu'ils font prouve le contraire. Ils font horreur, ils n'obéissent à personne et ils sont incapables de faire quelque chose de bien. </text>
+    <text>Ils affirment qu'ils connaissent Dieu, mais ce qu'ils font prouve le contraire. Ils font horreur, ils n'obéissent à personne et ils sont incapables de faire quelque chose de bien.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="TIT" initialStartVerse="0" characterId="BC-TIT">
     <text>2</text>
@@ -131,7 +131,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-TIT">
     <verse num="15" />
-    <text>Voilà ce que tu dois dire avec toute ton autorité, pour encourager ou pour faire des reproches. Ne laisse personne te mépriser. </text>
+    <text>Voilà ce que tu dois dire avec toute ton autorité, pour encourager ou pour faire des reproches. Ne laisse personne te mépriser.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="TIT" initialStartVerse="0" characterId="BC-TIT">
     <text>3</text>
@@ -194,7 +194,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-TIT">
     <verse num="15" />
-    <text>Tous ceux qui sont avec moi te saluent. Salue nos amis qui ont la même foi que nous. Que Dieu vous bénisse tous! </text>
+    <text>Tous ceux qui sont avec moi te saluent. Salue nos amis qui ont la même foi que nous. Que Dieu vous bénisse tous!</text>
   </block>
   <UnappliedSplits />
 </book>

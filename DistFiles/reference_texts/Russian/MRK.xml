@@ -123,7 +123,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Тогда дух нечистый, сотрясши его и вскричав громким голосом, вышел из него.</text>
+    <text>Тогда дух нечистый, сотрясши его и вскричав громким голосом, </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>вышел из него.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -556,7 +558,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>ибо кто будет исполнять волю Божию, тот Мне брат, и сестра, и матерь. </text>
+    <text>ибо кто будет исполнять волю Божию, тот Мне брат, и сестра, и матерь.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>4</text>
@@ -598,7 +600,7 @@
     <text>И сказал им:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Jesus">
-    <text>кто имеет уши слышать, да слышит! </text>
+    <text>кто имеет уши слышать, да слышит!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
@@ -714,7 +716,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Без притчи же не говорил им, а ученикам наедине изъяснял все. </text>
+    <text>Без притчи же не говорил им, а ученикам наедине изъяснял все.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -743,7 +745,7 @@
     <text>И, встав, Он запретил ветру и сказал морю:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="Jesus" delivery="forcefully">
-    <text>умолкни, перестань. </text>
+    <text>умолкни, перестань.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="narrator-MRK">
     <text>И ветер утих, и сделалась великая тишина. </text>
@@ -758,7 +760,7 @@
     <text>И убоялись страхом великим и говорили между собою:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="disciples" delivery="awe">
-    <text>кто же Сей, что и ветер и море повинуются Ему? </text>
+    <text>кто же Сей, что и ветер и море повинуются Ему?</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>5</text>
@@ -834,7 +836,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Иисус тотчас позволил им. И нечистые духи, выйдя, вошли в свиней; и устремилось стадо с крутизны в море, а их было около двух тысяч; и потонули в море.</text>
+    <text>Иисус тотчас позволил им. И нечистые духи, выйдя, </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>вошли в свиней; и устремилось стадо </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>с крутизны в море, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>а их было около двух тысяч; и потонули в море.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -871,7 +879,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>И пошел и начал проповедывать в Десятиградии, что сотворил с ним Иисус; и все дивились. </text>
+    <text>И пошел и начал проповедывать в Десятиградии, что сотворил с ним Иисус; и все дивились.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -1015,13 +1023,7 @@
     <text>Когда наступила суббота, Он начал учить в синагоге; и многие слышавшие с изумлением говорили:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>откуда у Него это? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>что за премудрость дана Ему, и как такие чудеса совершаются руками Его?</text>
+    <text>откуда у Него это? что за премудрость дана Ему, и как такие чудеса совершаются руками Его?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1041,7 +1043,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>И дивился неверию их; потом ходил по окрестным селениям и учил. </text>
+    <text>И дивился неверию их; потом ходил по окрестным селениям и учил.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -1178,7 +1180,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="29" characterId="narrator-MRK">
     <verse num="29" />
-    <text>Ученики его, услышав, пришли и взяли тело его, и положили его во гробе. </text>
+    <text>Ученики его, услышав, пришли и взяли тело его, и положили его во гробе.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1335,7 +1337,7 @@
     <text>“Просто позвольте мне коснуться краем вашу одежду!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK">
-    <text>и которые прикасались к Нему, исцелялись. </text>
+    <text>и которые прикасались к Нему, исцелялись.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>7</text>
@@ -1447,7 +1449,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="23" />
-    <text>всё это зло извнутрь исходит и оскверняет человека. </text>
+    <text>всё это зло извнутрь исходит и оскверняет человека.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-MRK">
     <verse num="24" />
@@ -1487,7 +1489,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>И, придя в свой дом, она нашла, что бес вышел и дочь лежит на постели. </text>
+    <text>И, придя в свой дом, она нашла, что бес вышел и дочь лежит на постели.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1533,7 +1535,7 @@
     <text>И чрезвычайно дивились, и говорили:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="people of Decapolis">
-    <text>всё хорошо делает, —и глухих делает слышащими, и немых—говорящими. </text>
+    <text>всё хорошо делает, —и глухих делает слышащими, и немых—говорящими.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>8</text>
@@ -1594,7 +1596,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
-    <text>И тотчас войдя в лодку с учениками Своими, прибыл в пределы Далмануфские. </text>
+    <text>И тотчас войдя в лодку с учениками Своими, прибыл в пределы Далмануфские.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
@@ -1666,7 +1668,7 @@
     <text>И сказал им:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning">
-    <text>как же не разумеете? </text>
+    <text>как же не разумеете?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -1695,7 +1697,7 @@
     <text>И послал его домой, сказав:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="Jesus" delivery="giving orders">
-    <text>не заходи в селение и не рассказывай никому в селении. </text>
+    <text>не заходи в селение и не рассказывай никому в селении.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -1770,7 +1772,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="38" />
-    <text>Ибо кто постыдится Меня и Моих слов в роде сем прелюбодейном и грешном, того постыдится и Сын Человеческий, когда приидет в славе Отца Своего со святыми Ангелами. </text>
+    <text>Ибо кто постыдится Меня и Моих слов в роде сем прелюбодейном и грешном, того постыдится и Сын Человеческий, когда приидет в славе Отца Своего со святыми Ангелами.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>9</text>
@@ -1844,7 +1846,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="13" />
-    <text>Но говорю вам, что и Илия пришел, и поступили с ним, как хотели, как написано о нем. </text>
+    <text>Но говорю вам, что и Илия пришел, и поступили с ним, как хотели, как написано о нем.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1919,7 +1921,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>И, вскрикнув и сильно сотрясши его, вышел; и он сделался, как мертвый, так что многие говорили,</text>
+    <text>И, вскрикнув </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>и сильно сотрясши его, вышел; и он сделался, как мертвый, так что многие говорили,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>что он умер.</text>
@@ -1940,7 +1944,7 @@
     <text>И сказал им:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="Jesus">
-    <text>сей род не может выйти иначе, как от молитвы и поста. </text>
+    <text>сей род не может выйти иначе, как от молитвы и поста.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1955,7 +1959,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
-    <text>Но они не разумели сих слов, а спросить Его боялись. </text>
+    <text>Но они не разумели сих слов, а спросить Его боялись.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -2039,7 +2043,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Соль—добрая вещь; но ежели соль не солона будет, чем вы ее поправите? Имейте в себе соль, и мир имейте между собою. </text>
+    <text>Соль—добрая вещь; но ежели соль не солона будет, чем вы ее поправите? Имейте в себе соль, и мир имейте между собою.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>10</text>
@@ -2125,7 +2129,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-MRK">
     <verse num="16" />
-    <text>И, обняв их, возложил руки на них и благословил их. </text>
+    <text>И, обняв их, возложил руки на них и благословил их.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-MRK">
     <verse num="17" />
@@ -2215,7 +2219,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="31" />
-    <text>Многие же будут первые последними, и последние первыми. </text>
+    <text>Многие же будут первые последними, и последние первыми.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -2295,7 +2299,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="45" />
-    <text>Ибо и Сын Человеческий не для того пришел, чтобы Ему служили, но чтобы послужить и отдать душу Свою для искупления многих. </text>
+    <text>Ибо и Сын Человеческий не для того пришел, чтобы Ему служили, но чтобы послужить и отдать душу Свою для искупления многих.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="46" characterId="narrator-MRK">
     <verse num="46" />
@@ -2357,7 +2361,7 @@
     <text>иди, вера твоя спасла тебя.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="52" characterId="narrator-MRK">
-    <text>И он тотчас прозрел и пошел за Иисусом по дороге. </text>
+    <text>И он тотчас прозрел и пошел за Иисусом по дороге.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>11</text>
@@ -2420,7 +2424,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
-    <text>И вошел Иисус в Иерусалим и в храм; и, осмотрев всё, как время уже было позднее, вышел в Вифанию с двенадцатью. </text>
+    <text>И вошел Иисус в Иерусалим и в храм; и, осмотрев всё, как время уже было позднее, вышел в Вифанию с двенадцатью.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
@@ -2436,7 +2440,7 @@
     <text>отныне да не вкушает никто от тебя плода вовек!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-MRK">
-    <text>И слышали то ученики Его. </text>
+    <text>И слышали то ученики Его.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-MRK">
     <verse num="15" />
@@ -2459,7 +2463,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-MRK">
     <verse num="19" />
-    <text>Когда же стало поздно, Он вышел вон из города. </text>
+    <text>Когда же стало поздно, Он вышел вон из города.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
@@ -2490,7 +2494,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>Если же не прощаете, то и Отец ваш Небесный не простит вам согрешений ваших. </text>
+    <text>Если же не прощаете, то и Отец ваш Небесный не простит вам согрешений ваших.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -2535,7 +2539,7 @@
     <text>Тогда Иисус сказал им в ответ:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus">
-    <text>и Я не скажу вам, какою властью это делаю. </text>
+    <text>и Я не скажу вам, какою властью это делаю.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>12</text>
@@ -2589,7 +2593,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
-    <text>И старались схватить Его, но побоялись народа, ибо поняли, что о них сказал притчу; и, оставив Его, отошли. </text>
+    <text>И старались схватить Его, но побоялись народа, ибо поняли, что о них сказал притчу; и, оставив Его, отошли.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -2630,7 +2634,7 @@
     <text>отдавайте кесарево кесарю, а Божие Богу.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-MRK">
-    <text>И дивились Ему. </text>
+    <text>И дивились Ему.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-MRK">
     <verse num="18" />
@@ -2716,7 +2720,7 @@
     <text>недалеко ты от Царствия Божия.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="34" characterId="narrator-MRK">
-    <text>После того никто уже не смел спрашивать Его. </text>
+    <text>После того никто уже не смел спрашивать Его.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -2749,7 +2753,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="40" />
-    <text>Они пожирают домы вдов и лицемерно долго молятся. Они будут получать большее проклятье ". </text>
+    <text>Они пожирают домы вдов и лицемерно долго молятся. Они будут получать большее проклятье ".</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="41" characterId="narrator-MRK">
     <verse num="41" />
@@ -2768,7 +2772,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="44" />
-    <text>ибо все клали от избытка своего, а она от скудости своей положила всё, что имела, всё пропитание свое. </text>
+    <text>ибо все клали от избытка своего, а она от скудости своей положила всё, что имела, всё пропитание свое.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>13</text>
@@ -2928,7 +2932,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="37" />
-    <text>А что вам говорю, говорю всем: бодрствуйте. </text>
+    <text>А что вам говорю, говорю всем: бодрствуйте.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>14</text>
@@ -2992,7 +2996,7 @@
     <text>“Мы будем платить вам за это!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK">
-    <text>И он искал, как бы в удобное время предать Его. </text>
+    <text>И он искал, как бы в удобное время предать Его.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
@@ -3018,7 +3022,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-MRK">
     <verse num="16" />
-    <text>И пошли ученики Его, и пришли в город, и нашли, как сказал им; и приготовили пасху. </text>
+    <text>И пошли ученики Его, и пришли в город, и нашли, как сказал им; и приготовили пасху.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-MRK">
     <verse num="17" />
@@ -3045,7 +3049,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>Впрочем Сын Человеческий идет, как писано о Нем; но горе тому человеку, которым Сын Человеческий предается: лучше было бы тому человеку не родиться. </text>
+    <text>Впрочем Сын Человеческий идет, как писано о Нем; но горе тому человеку, которым Сын Человеческий предается: лучше было бы тому человеку не родиться.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -3102,7 +3106,7 @@
     <text>хотя бы мне надлежало и умереть с Тобою, не отрекусь от Тебя.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="31" characterId="narrator-MRK">
-    <text>То же и все говорили. </text>
+    <text>То же и все говорили.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -3184,7 +3188,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Один же из стоявших тут извлек меч, ударил раба первосвященникова и отсек ему ухо. </text>
+    <text>Один же из стоявших тут извлек меч, ударил раба первосвященникова </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>и отсек ему ухо. </text>
     <verse num="48" />
     <text>Тогда Иисус сказал им:</text>
   </block>
@@ -3205,7 +3211,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="52" characterId="narrator-MRK">
     <verse num="52" />
-    <text>Но он, оставив покрывало, нагой убежал от них. </text>
+    <text>Но он, оставив покрывало, нагой убежал от них.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="53" characterId="narrator-MRK">
     <verse num="53" />
@@ -3279,7 +3285,7 @@
     <text>прореки.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="narrator-MRK">
-    <text>И слуги били Его по ланитам. </text>
+    <text>И слуги били Его по ланитам.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="66" characterId="narrator-MRK">
     <verse num="66" />
@@ -3337,7 +3343,7 @@
     <text>прежде нежели петух пропоет дважды, трижды отречешься от Меня;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
-    <text>и начал плакать. </text>
+    <text>и начал плакать.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>15</text>
@@ -3368,7 +3374,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-MRK">
     <verse num="5" />
-    <text>Но Иисус и на это ничего не отвечал, так что Пилат дивился. </text>
+    <text>Но Иисус и на это ничего не отвечал, так что Пилат дивился.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />

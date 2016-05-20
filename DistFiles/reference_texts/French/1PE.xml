@@ -109,7 +109,7 @@
     <text>mais la parole du Seigneur dure toujours.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
-    <text>Cette Parole, c'est la Bonne Nouvelle qu'on vous a annoncée. </text>
+    <text>Cette Parole, c'est la Bonne Nouvelle qu'on vous a annoncée.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>2</text>
@@ -224,7 +224,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1PE">
     <verse num="25" />
-    <text>Oui, vous étiez comme des moutons perdus, mais maintenant, vous êtes revenus vers le berger qui protège vos vies. </text>
+    <text>Oui, vous étiez comme des moutons perdus, mais maintenant, vous êtes revenus vers le berger qui protège vos vies.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>3</text>
@@ -316,7 +316,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1PE">
     <verse num="22" />
-    <text>Il est monté au ciel, il est à la droite de Dieu. Maintenant, les anges et les esprits qui ont du pouvoir et de la puissance sont sous son autorité. </text>
+    <text>Il est monté au ciel, il est à la droite de Dieu. Maintenant, les anges et les esprits qui ont du pouvoir et de la puissance sont sous son autorité.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>4</text>
@@ -395,7 +395,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
     <verse num="19" />
-    <text>Ainsi, ceux qui souffrent en faisant ce que Dieu veut doivent se confier à leur Créateur, qui est fidèle, et continuer à faire le bien. </text>
+    <text>Ainsi, ceux qui souffrent en faisant ce que Dieu veut doivent se confier à leur Créateur, qui est fidèle, et continuer à faire le bien.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>5</text>
@@ -457,7 +457,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1PE">
     <verse num="14" />
-    <text>Saluez-vous tous en vous embrassant avec amour. Paix à vous tous qui êtes unis dans le Christ! </text>
+    <text>Saluez-vous tous en vous embrassant avec amour. Paix à vous tous qui êtes unis dans le Christ!</text>
   </block>
   <UnappliedSplits />
 </book>

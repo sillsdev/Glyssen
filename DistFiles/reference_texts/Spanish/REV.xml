@@ -332,7 +332,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Delante del trono había también algo que parecía un mar, transparente como el cristal. En el centro, donde estaba el trono, y a su alrededor, había cuatro seres vivientes llenos de ojos por delante y por detrás.</text>
+    <text>Delante del trono había también algo que parecía un mar, transparente </text>
+    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <text>como el cristal. En el centro, donde estaba el trono, y a su alrededor, había cuatro seres vivientes llenos de ojos por delante y por detrás.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -391,6 +393,7 @@
     <text>Entonces, en medio del trono y de los cuatro seres vivientes, y en medio de los ancianos, vi un Cordero. Estaba de pie, pero se veía que había sido sacrificado. </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>Tenía siete cuernos y siete ojos, que son los siete espíritus de Dios enviados por toda la tierra.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
@@ -402,6 +405,7 @@
     <text>y en cuanto tomó el rollo, los cuatro seres vivientes y los veinticuatro ancianos se pusieron de rodillas delante del Cordero. </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <sound effectName="Harp" userSpecifiesLocation="true" />
     <text>Todos ellos tenían arpas, y llevaban copas de oro llenas de incienso, que son las oraciones del pueblo santo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
@@ -648,11 +652,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
-    <text>El primer ángel tocó su trompeta, y fueron lanzados sobre la tierra granizo y fuego mezclados con sangre. Se quemó la tercera parte de la tierra, junto con la tercera parte de los árboles y toda la hierba verde.</text>
+    <text>El primer ángel tocó su trompeta, y fueron </text>
+    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <text>lanzados sobre la tierra granizo y fuego mezclados con sangre. Se quemó la tercera parte de la tierra, junto con la tercera parte de los árboles y toda la hierba verde.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>El segundo ángel tocó su trompeta, y fue lanzado al mar algo que parecía un gran monte ardiendo en llamas; y la tercera parte del mar se volvió sangre.</text>
+    <text>El segundo ángel tocó su trompeta, y </text>
+    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <text>fue lanzado al mar algo que parecía un gran monte ardiendo en llamas; y la tercera parte del mar se volvió sangre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -660,7 +668,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>El tercer ángel tocó su trompeta, y una gran estrella, ardiendo como una antorcha, cayó del cielo sobre la tercera parte de los ríos y sobre los manantiales.</text>
+    <text>El tercer ángel tocó su trompeta, y </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>una gran estrella, ardiendo como una antorcha, cayó del cielo sobre la tercera parte de los ríos y sobre los manantiales.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -668,7 +678,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
-    <text>El cuarto ángel tocó su trompeta, y fue dañada la tercera parte del sol, la tercera parte de la luna y la tercera parte de las estrellas. De modo que una tercera parte de ellos quedó oscura, y no dieron su luz durante la tercera parte del día ni de la noche.</text>
+    <text>El cuarto ángel tocó su trompeta, y fue dañada la tercera parte </text>
+    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <text>del sol, la tercera parte de la luna y la tercera parte de las estrellas. De modo que una tercera parte de ellos quedó oscura, y no dieron su luz durante la tercera parte del día ni de la noche.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
@@ -682,7 +694,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>El quinto ángel tocó su trompeta, y vi una estrella que había caído del cielo a la tierra; y se le dio la llave del pozo del abismo.</text>
+    <text>El quinto ángel tocó su trompeta, y vi una </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>estrella que había caído del cielo a la tierra; y se le dio la llave del pozo del abismo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -749,7 +763,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Así es como vi los caballos en la visión, y quienes los montaban se cubrían el pecho con una armadura roja como el fuego, azul como el jacinto y amarilla como el azufre. Y los caballos tenían cabeza como de león, y de su boca salía fuego, humo y azufre.</text>
+    <text>Así es como vi los caballos en la visión, y quienes los montaban se cubrían el pecho con una armadura roja como el fuego, azul como el jacinto y amarilla como el azufre. Y los caballos tenían cabeza como de león, y de su boca </text>
+    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <text>salía fuego, humo y azufre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -772,7 +788,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Vi otro ángel poderoso, que bajaba del cielo envuelto en una nube; tenía un arco iris sobre la cabeza, su cara brillaba como el sol y sus piernas parecían columnas de fuego.</text>
+    <text>Vi otro ángel poderoso, que bajaba del cielo envuelto en una nube; tenía un arco iris sobre la cabeza, su cara brillaba como el sol </text>
+    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <text>y sus piernas parecían columnas de fuego.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -780,7 +798,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>Y gritó con fuerte voz, como un león que ruge; y cuando gritó, siete truenos dejaron oir sus propias voces.</text>
+    <text>Y gritó con fuerte voz, como un </text>
+    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <text>león que ruge; y cuando gritó, siete truenos dejaron oir sus propias voces.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -851,11 +871,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
-    <text>Si alguien intenta hacerles daño, ellos echan fuego por la boca, que quema por completo a sus enemigos; así morirá cualquiera que quiera hacerles daño.</text>
+    <text>Si alguien intenta hacerles daño, </text>
+    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <text>ellos echan fuego por la boca, que quema por completo a sus enemigos; así morirá cualquiera que quiera hacerles daño.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Estos testigos tienen poder para cerrar el cielo, para que no llueva durante el tiempo en que estén comunicando su mensaje profético, y también tienen poder para cambiar el agua en sangre y para hacer sufrir a la tierra con toda clase de calamidades, tantas veces como ellos quieran.</text>
+    <text>Estos testigos tienen poder para cerrar el cielo, para que no llueva durante el tiempo en que estén comunicando su mensaje profético, </text>
+    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <text>y también tienen poder para cambiar el agua en sangre y para hacer sufrir a la tierra con toda clase de calamidades, tantas veces como ellos quieran.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -875,7 +899,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Pero al cabo de los tres días y medio, Dios los revivió y se levantaron otra vez, y todos los que los vieron se llenaron de miedo.</text>
+    <text>Pero al cabo de los tres días y medio, </text>
+    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <text>Dios los revivió y se levantaron otra vez, y todos los que los vieron se llenaron de miedo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -994,7 +1020,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Con eso, el dragón se puso furioso contra la mujer, y fue a pelear contra el resto de los descendientes de ella, contra los que obedecen los mandamientos de Dios y siguen fieles al testimonio de Jesús. </text>
+    <text>Con eso, el dragón se puso furioso contra la mujer, y fue a pelear contra el resto de los descendientes de ella, contra los que obedecen los mandamientos de Dios y siguen fieles al testimonio de Jesús.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>13</text>
@@ -1166,7 +1192,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
-    <text>El que estaba sentado en la nube pasó entonces su hoz sobre la tierra, y recogió la cosecha de la tierra.</text>
+    <text>El que estaba sentado en la nube pasó entonces su </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>hoz sobre la tierra, y recogió la cosecha de la tierra.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
@@ -1287,7 +1315,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>Vi que de la boca del dragón, de la boca del monstruo y de la boca del falso profeta, salían tres espíritus impuros en forma de ranas.</text>
+    <text>Vi que </text>
+    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <text>de la boca del dragón, </text>
+    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <text>de la boca del monstruo y </text>
+    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <text>de la boca del falso profeta, salían tres espíritus impuros en forma de ranas.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -1436,7 +1470,8 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
     <text>&lt;&lt;Salgan de esa ciudad, ustedes que son mi pueblo, para que no participen en sus pecados ni los alcancen sus calamidades;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <sound effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>pues sus pecados se han amontonado hasta el cielo, y Dios ha tenido presentes sus maldades.</text>
   </block>
@@ -1453,11 +1488,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Por eso, en un solo día le vendrán sus calamidades: muerte, aflicción y hambre, y será quemada en el fuego; porque poderoso es Dios, el Señor, que la ha condenado.&gt;&gt;</text>
+    <text>Por eso, en un solo día le vendrán sus calamidades: </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>muerte, aflicción y hambre, y será quemada en el fuego; porque poderoso es Dios, el Señor, que la ha condenado.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
-    <text>Los reyes del mundo que se prostituyeron con ella y se entregaron al derroche, llorarán y harán lamentación por ella cuando vean el humo de su incendio.</text>
+    <text>Los reyes del mundo que se prostituyeron con ella y se </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>entregaron al derroche, llorarán y harán lamentación por ella cuando vean el humo de su incendio.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -1496,9 +1535,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>¡Y en un instante se ha acabado tanta riqueza!&gt;&gt; Todos los capitanes de barco y los que navegan por la costa, los marineros y todos los que se ganan la vida en el mar, se quedaron lejos</text>
+    <text>¡Y en un instante se ha acabado tanta riqueza!&gt;&gt; </text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+    <text>Todos los capitanes de barco y los que navegan por la costa, los marineros y todos los que se ganan la vida en el mar, se quedaron lejos </text>
     <verse num="18" />
     <text>y, al ver el humo del incendio de la ciudad, gritaron:</text>
   </block>
@@ -1583,12 +1623,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
-    <text>Se le dio a ella que ella misma matriz en brillante, lino puro, fino." </text>
+    <text>Se le dio a ella que ella misma matriz en brillante, lino puro, fino."</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
-    <text>Porque el lino fino es las acciones justas de los santos.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <text>Porque el lino fino es las acciones justas de los santos. </text>
     <verse num="9" />
     <text>El ángel me dijo:</text>
   </block>
@@ -1652,7 +1690,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>El monstruo fue apresado, junto con el falso profeta que había hecho señales milagrosas en su presencia. Por medio de esas señales, el falso profeta había engañado a los que se dejaron poner la marca del monstruo y adoraron su imagen. Entonces el monstruo y el falso profeta fueron arrojados vivos al lago de fuego donde arde el azufre.</text>
+    <text>El monstruo fue apresado, junto con el falso profeta que había hecho señales milagrosas en su presencia. Por medio de esas señales, el falso profeta había engañado a los que se dejaron poner la marca del monstruo y adoraron su imagen. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>Entonces el monstruo y el falso profeta fueron arrojados vivos al lago de fuego donde arde el azufre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
@@ -1703,7 +1743,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Vi un gran trono blanco, y al que estaba sentado en él. Delante de su presencia desaparecieron completamente la tierra y el cielo, y no se los volvió a ver por ninguna parte.</text>
+    <text>Vi un gran trono blanco, y al que estaba sentado en él. </text>
+    <text>Delante de su presencia desaparecieron completamente la tierra y el cielo, y no se los volvió a ver por ninguna parte.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1712,10 +1753,12 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>El mar entregó sus muertos, y el reino de la muerte entregó los muertos que había en él; y todos fueron juzgados, cada uno conforme a lo que había hecho. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
     <text>Luego el reino de la muerte fue arrojado al lago de fuego. Este lago de fuego es la muerte segunda, </text>
+    <sound effectName="Weird2" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -1780,7 +1823,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>Y en la visión que me hizo ver el Espíritu, el ángel me llevó a un monte grande y alto, y me mostró la gran ciudad santa de Jerusalén, que bajaba del cielo, de la presencia de Dios.</text>
+    <text>Y en la visión que me hizo ver el Espíritu, el ángel me llevó a un monte grande y alto, </text>
+    <text>y me mostró la gran ciudad santa de Jerusalén, que bajaba del cielo, de la presencia de Dios.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />

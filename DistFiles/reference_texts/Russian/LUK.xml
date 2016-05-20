@@ -1922,7 +1922,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-LUK">
     <verse num="33" />
-    <text>Бесы, выйдя из человека, вошли в свиней, и бросилось стадо с крутизны в озеро и потонуло.</text>
+    <text>Бесы, выйдя из </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>человека, вошли в свиней, и бросилось стадо </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>с крутизны в озеро и </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>потонуло.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-LUK">
     <verse num="34" />
@@ -2025,7 +2031,8 @@
     <verse num="51" />
     <text>Придя же в дом, не позволил войти никому, кроме Петра, Иоанна и Иакова, и отца девицы, и матери.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
+    <sound effectName="Women crying" userSpecifiesLocation="true" />
     <verse num="52" />
     <text>Все плакали и рыдали о ней. Но Он сказал:</text>
   </block>
@@ -2034,7 +2041,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="53" characterId="narrator-LUK">
     <verse num="53" />
-    <text>И смеялись над Ним, зная, что она умерла.</text>
+    <text>И смеялись над Ним, </text>
+    <sound effectName="Women laughing" userSpecifiesLocation="true" />
+    <text>зная, что она умерла.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="54" characterId="narrator-LUK">
     <verse num="54" />
@@ -2118,6 +2127,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
     <verse num="10" />
     <text>Апостолы, возвратившись, рассказали Ему, что они сделали; и Он, взяв их с Собою, удалился особо в пустое место, близ города, называемого Вифсаидою. </text>
+    <sound effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK">
     <verse num="11" />
@@ -5102,7 +5112,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="50" characterId="narrator-LUK">
     <verse num="50" />
-    <text>И один из них ударил раба первосвященникова, и отсек ему правое ухо. </text>
+    <text>И один из них ударил раба первосвященникова, </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>и отсек ему правое ухо. </text>
     <verse num="51" />
     <text>Тогда Иисус сказал:</text>
   </block>
