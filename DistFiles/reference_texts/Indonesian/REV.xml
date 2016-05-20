@@ -16,7 +16,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>Berbahagialah ia yang membacakan dan mereka yang mendengarkan kata-kata nubuat ini, dan yang menuruti apa yang ada tertulis di dalamnya, sebab waktunya sudah dekat. </text>
+    <text>Berbahagialah ia yang membacakan dan mereka yang mendengarkan kata-kata nubuat ini, dan yang menuruti apa yang ada tertulis di dalamnya, sebab waktunya sudah dekat.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -92,7 +92,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Dan rahasia ketujuh bintang yang telah kaulihat pada tangan kanan-Ku dan ketujuh kaki dian emas itu: ketujuh bintang itu ialah malaikat ketujuh jemaat dan ketujuh kaki dian itu ialah ketujuh jemaat.&gt;&gt; </text>
+    <text>Dan rahasia ketujuh bintang yang telah kaulihat pada tangan kanan-Ku dan ketujuh kaki dian emas itu: ketujuh bintang itu ialah malaikat ketujuh jemaat dan ketujuh kaki dian itu ialah ketujuh jemaat.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>2</text>
@@ -211,7 +211,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="29" />
-    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat </text>
+    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>3</text>
@@ -238,7 +238,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat.&gt;&gt; </text>
+    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
@@ -302,7 +302,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat.&gt;&gt; </text>
+    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>4</text>
@@ -332,7 +332,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Dan di hadapan takhta itu ada lautan kaca bagaikan kristal ; di tengah-tengah takhta itu dan di sekelilingnya ada empat makhluk penuh dengan mata, di sebelah muka dan di sebelah belakang.</text>
+    <text>Dan di hadapan takhta itu ada lautan kaca bagaikan kristal </text>
+    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <text>; di tengah-tengah takhta itu dan di sekelilingnya ada empat makhluk penuh dengan mata, di sebelah muka dan di sebelah belakang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -355,7 +357,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="twenty-four elders">
     <verse num="11" />
-    <text>&lt;&lt;Ya Tuhan dan Allah kami, Engkau layak menerima puji-pujian dan hormat dan kuasa; sebab Engkau telah menciptakan segala sesuatu; dan oleh karena kehendak-Mu semuanya itu ada dan diciptakan.&gt;&gt; </text>
+    <text>&lt;&lt;Ya Tuhan dan Allah kami, Engkau layak menerima puji-pujian dan hormat dan kuasa; sebab Engkau telah menciptakan segala sesuatu; dan oleh karena kehendak-Mu semuanya itu ada dan diciptakan.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>5</text>
@@ -391,6 +393,7 @@
     <text>Maka aku melihat di tengah-tengah takhta dan keempat makhluk itu dan di tengah-tengah tua-tua itu </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>berdiri seekor Anak Domba seperti telah disembelih, bertanduk tujuh dan bermata tujuh: itulah ketujuh Roh Allah yang diutus ke seluruh bumi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
@@ -402,6 +405,7 @@
     <text>Ketika Ia mengambil gulungan kitab itu, tersungkurlah keempat makhluk dan kedua puluh empat tua-tua itu di hadapan Anak Domba itu, </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <sound effectName="Harp" userSpecifiesLocation="true" />
     <text>masing-masing memegang satu kecapi dan satu cawan emas, penuh dengan kemenyan: itulah doa orang-orang kudus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
@@ -441,7 +445,7 @@
     <text>&lt;&lt;Amin&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
-    <text>Dan tua-tua itu jatuh tersungkur dan menyembah. </text>
+    <text>Dan tua-tua itu jatuh tersungkur dan menyembah.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>6</text>
@@ -536,7 +540,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="kings, princes, generals, rich, powerful, slave and free" delivery="crying" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Sebab sudah tiba hari besar murka mereka dan siapakah yang dapat bertahan?&gt;&gt; </text>
+    <text>Sebab sudah tiba hari besar murka mereka dan siapakah yang dapat bertahan?&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>7</text>
@@ -617,7 +621,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="elders, one of the" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Sebab Anak Domba yang di tengah-tengah takhta itu, akan menggembalakan mereka dan akan menuntun mereka ke mata air kehidupan. Dan Allah akan menghapus segala air mata dari mata mereka.&gt;&gt; </text>
+    <text>Sebab Anak Domba yang di tengah-tengah takhta itu, akan menggembalakan mereka dan akan menuntun mereka ke mata air kehidupan. Dan Allah akan menghapus segala air mata dari mata mereka.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>8</text>
@@ -648,11 +652,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
-    <text>Lalu malaikat yang pertama meniup sangkakalanya dan terjadilah hujan es, dan api, bercampur darah; dan semuanya itu dilemparkan ke bumi; maka terbakarlah sepertiga dari bumi dan sepertiga dari pohon-pohon dan hanguslah seluruh rumput-rumputan hijau.</text>
+    <text>Lalu malaikat yang pertama meniup sangkakalanya dan terjadilah </text>
+    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <text>hujan es, dan api, bercampur darah; dan semuanya itu dilemparkan ke bumi; maka terbakarlah sepertiga dari bumi dan sepertiga dari pohon-pohon dan hanguslah seluruh rumput-rumputan hijau.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Lalu malaikat yang kedua meniup sangkakalanya dan ada sesuatu seperti gunung besar, yang menyala-nyala oleh api, dilemparkan ke dalam laut. Dan sepertiga dari laut itu menjadi darah,</text>
+    <text>Lalu malaikat yang kedua meniup sangkakalanya </text>
+    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <text>dan ada sesuatu seperti gunung besar, yang menyala-nyala oleh api, dilemparkan ke dalam laut. Dan sepertiga dari laut itu menjadi darah,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -660,7 +668,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>Lalu malaikat yang ketiga meniup sangkakalanya dan jatuhlah dari langit sebuah bintang besar, menyala-nyala seperti obor, dan ia menimpa sepertiga dari sungai-sungai dan mata-mata air.</text>
+    <text>Lalu malaikat yang ketiga meniup sangkakalanya </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>dan jatuhlah dari langit sebuah bintang besar, menyala-nyala seperti obor, dan ia menimpa sepertiga dari sungai-sungai dan mata-mata air.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -668,21 +678,25 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
-    <text>Lalu malaikat yang keempat meniup sangkakalanya dan terpukullah sepertiga dari matahari dan sepertiga dari bulan dan sepertiga dari bintang-bintang, sehingga sepertiga dari padanya menjadi gelap dan sepertiga dari siang hari tidak terang dan demikian juga malam hari.</text>
+    <text>Lalu malaikat yang keempat meniup sangkakalanya dan terpukullah sepertiga dari </text>
+    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <text>matahari dan sepertiga dari bulan dan sepertiga dari bintang-bintang, sehingga sepertiga dari padanya menjadi gelap dan sepertiga dari siang hari tidak terang dan demikian juga malam hari.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>Lalu aku melihat: aku mendengar seekor burung nasar terbang di tengah langit dan berkata dengan suara nyaring:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="eagle crying with loud voice">
-    <text>&lt;&lt;Celaka, celaka, celakalah mereka yang diam di atas bumi oleh karena bunyi sangkakala ketiga malaikat lain, yang masih akan meniup sangkakalanya.&gt;&gt; </text>
+    <text>&lt;&lt;Celaka, celaka, celakalah mereka yang diam di atas bumi oleh karena bunyi sangkakala ketiga malaikat lain, yang masih akan meniup sangkakalanya.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>9</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Lalu malaikat yang kelima meniup sangkakalanya, dan aku melihat sebuah bintang yang jatuh dari langit ke atas bumi, dan kepadanya diberikan anak kunci lobang jurang maut.</text>
+    <text>Lalu malaikat yang kelima meniup sangkakalanya, dan aku melihat sebuah </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>bintang yang jatuh dari langit ke atas bumi, dan kepadanya diberikan anak kunci lobang jurang maut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -749,7 +763,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Maka demikianlah aku melihat dalam penglihatan ini kuda-kuda dan orang-orang yang menungganginya; mereka memakai baju zirah, merah api dan biru dan kuning belerang warnanya; kepala kuda-kuda itu sama seperti kepala singa, dan dari mulutnya keluar api, dan asap dan belerang.</text>
+    <text>Maka demikianlah aku melihat dalam penglihatan ini kuda-kuda dan orang-orang yang menungganginya; mereka memakai baju zirah, merah api dan biru dan kuning belerang warnanya; kepala kuda-kuda itu sama seperti kepala singa, dan dari mulutnya </text>
+    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <text>keluar api, dan asap dan belerang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -765,14 +781,16 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>dan mereka tidak bertobat dari pada pembunuhan, sihir, percabulan dan pencurian. </text>
+    <text>dan mereka tidak bertobat dari pada pembunuhan, sihir, percabulan dan pencurian.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>10</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Dan aku melihat seorang malaikat lain yang kuat turun dari sorga, berselubungkan awan, dan pelangi ada di atas kepalanya dan mukanya sama seperti matahari, dan kakinya bagaikan tiang api.</text>
+    <text>Dan aku melihat seorang malaikat lain yang kuat turun dari sorga, berselubungkan awan, dan pelangi ada di atas kepalanya dan mukanya sama seperti matahari, </text>
+    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <text>dan kakinya bagaikan tiang api.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -780,7 +798,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>dan ia berseru dengan suara nyaring sama seperti singa yang mengaum. Dan sesudah ia berseru, ketujuh guruh itu memperdengarkan suaranya.</text>
+    <text>dan ia berseru dengan suara nyaring sama seperti singa yang mengaum. </text>
+    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <text>Dan sesudah ia berseru, ketujuh guruh itu memperdengarkan suaranya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -825,7 +845,7 @@
     <text>Maka ia berkata kepadaku:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="angel standing on sea and land">
-    <text>&lt;&lt;Engkau harus bernubuat lagi kepada banyak bangsa dan kaum dan bahasa dan raja.&gt;&gt; </text>
+    <text>&lt;&lt;Engkau harus bernubuat lagi kepada banyak bangsa dan kaum dan bahasa dan raja.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>11</text>
@@ -851,11 +871,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
-    <text>Dan jikalau ada orang yang hendak menyakiti mereka, keluarlah api dari mulut mereka menghanguskan semua musuh mereka. Dan jikalau ada orang yang hendak menyakiti mereka, maka orang itu harus mati secara itu.</text>
+    <text>Dan jikalau ada orang yang hendak menyakiti mereka, </text>
+    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <text>keluarlah api dari mulut mereka menghanguskan semua musuh mereka. Dan jikalau ada orang yang hendak menyakiti mereka, maka orang itu harus mati secara itu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Mereka mempunyai kuasa menutup langit, supaya jangan turun hujan selama mereka bernubuat; dan mereka mempunyai kuasa atas segala air untuk mengubahnya menjadi darah, dan untuk memukul bumi dengan segala jenis malapetaka, setiap kali mereka menghendakinya.</text>
+    <text>Mereka mempunyai kuasa menutup langit, supaya jangan turun hujan selama mereka bernubuat; </text>
+    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <text>dan mereka mempunyai kuasa atas segala air untuk mengubahnya menjadi darah, dan untuk memukul bumi dengan segala jenis malapetaka, setiap kali mereka menghendakinya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -875,7 +899,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Tiga setengah hari kemudian masuklah roh kehidupan dari Allah ke dalam mereka, sehingga mereka bangkit dan semua orang yang melihat mereka menjadi sangat takut.</text>
+    <text>Tiga setengah hari kemudian </text>
+    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <text>masuklah roh kehidupan dari Allah ke dalam mereka, sehingga mereka bangkit dan semua orang yang melihat mereka menjadi sangat takut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -893,7 +919,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
-    <text>Celaka yang kedua sudah lewat: lihatlah, celaka yang ketiga segera menyusul. </text>
+    <text>Celaka yang kedua sudah lewat: lihatlah, celaka yang ketiga segera menyusul.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -917,7 +943,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
-    <text>Maka terbukalah Bait Suci Allah yang di sorga, dan kelihatanlah tabut perjanjian-Nya di dalam Bait Suci itu dan terjadilah kilat dan deru guruh dan gempa bumi dan hujan es lebat. </text>
+    <text>Maka terbukalah Bait Suci Allah yang di sorga, dan kelihatanlah tabut perjanjian-Nya di dalam Bait Suci itu dan terjadilah kilat dan deru guruh dan gempa bumi dan hujan es lebat.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>12</text>
@@ -994,7 +1020,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Maka marahlah naga itu kepada perempuan itu, lalu pergi memerangi keturunannya yang lain, yang menuruti hukum-hukum Allah dan memiliki kesaksian Yesus </text>
+    <text>Maka marahlah naga itu kepada perempuan itu, lalu pergi memerangi keturunannya yang lain, yang menuruti hukum-hukum Allah dan memiliki kesaksian Yesus</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>13</text>
@@ -1036,7 +1062,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
-    <text>Barangsiapa bertelinga, hendaklah ia mendengar! </text>
+    <text>Barangsiapa bertelinga, hendaklah ia mendengar!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -1075,7 +1101,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
-    <text>Yang penting di sini ialah hikmat: barangsiapa yang bijaksana, baiklah ia menghitung bilangan binatang itu, karena bilangan itu adalah bilangan seorang manusia, dan bilangannya ialah enam ratus enam puluh enam. </text>
+    <text>Yang penting di sini ialah hikmat: barangsiapa yang bijaksana, baiklah ia menghitung bilangan binatang itu, karena bilangan itu adalah bilangan seorang manusia, dan bilangannya ialah enam ratus enam puluh enam.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>14</text>
@@ -1166,7 +1192,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
-    <text>Dan Ia, yang duduk di atas awan itu, mengayunkan sabit-Nya ke atas bumi, dan bumipun dituailah.</text>
+    <text>Dan Ia, yang duduk di atas awan itu, mengayunkan </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>sabit-Nya ke atas bumi, dan bumipun dituailah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
@@ -1185,7 +1213,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>Dan buah-buah anggur itu dikilang di luar kota dan dari kilangan itu mengalir darah, tingginya sampai ke kekang kuda dan jauhnya dua ratus mil. </text>
+    <text>Dan buah-buah anggur itu dikilang di luar kota dan dari kilangan itu mengalir darah, tingginya sampai ke kekang kuda dan jauhnya dua ratus mil.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>15</text>
@@ -1223,7 +1251,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Dan Bait Suci itu dipenuhi asap karena kemuliaan Allah dan karena kuasa-Nya, dan seorangpun tidak dapat memasuki Bait Suci itu, sebelum berakhir ketujuh malapetaka dari ketujuh malaikat itu. </text>
+    <text>Dan Bait Suci itu dipenuhi asap karena kemuliaan Allah dan karena kuasa-Nya, dan seorangpun tidak dapat memasuki Bait Suci itu, sebelum berakhir ketujuh malapetaka dari ketujuh malaikat itu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>16</text>
@@ -1287,7 +1315,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>Dan aku melihat dari mulut naga dan dari mulut binatang dan dari mulut nabi palsu itu keluar tiga roh najis yang menyerupai katak.</text>
+    <text>Dan aku melihat </text>
+    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <text>dari mulut naga </text>
+    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <text>dan dari mulut binatang </text>
+    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <text>dan dari mulut nabi palsu itu keluar tiga roh najis yang menyerupai katak.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -1322,7 +1356,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Dan hujan es besar, seberat seratus pon, jatuh dari langit menimpa manusia, dan manusia menghujat Allah karena malapetaka hujan es itu, sebab malapetaka itu sangat dahsyat. </text>
+    <text>Dan hujan es besar, seberat seratus pon, jatuh dari langit menimpa manusia, dan manusia menghujat Allah karena malapetaka hujan es itu, sebab malapetaka itu sangat dahsyat.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>17</text>
@@ -1409,7 +1443,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>Dan perempuan yang telah kaulihat itu, adalah kota besar yang memerintah atas raja-raja di bumi.&gt;&gt; </text>
+    <text>Dan perempuan yang telah kaulihat itu, adalah kota besar yang memerintah atas raja-raja di bumi.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>18</text>
@@ -1436,7 +1470,8 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
     <text>&lt;&lt;Pergilah kamu, hai umat-Ku, pergilah dari padanya supaya kamu jangan mengambil bagian dalam dosa-dosanya, dan supaya kamu jangan turut ditimpa malapetaka-malapetakanya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <sound effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>Sebab dosa-dosanya telah bertimbun-timbun sampai ke langit, dan Allah telah mengingat segala kejahatannya.</text>
   </block>
@@ -1453,11 +1488,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Sebab itu segala malapetakanya akan datang dalam satu hari, yaitu sampar dan perkabungan dan kelaparan; dan ia akan dibakar dengan api, karena Tuhan Allah, yang menghakimi dia, adalah kuat.&gt;&gt;</text>
+    <text>Sebab itu segala malapetakanya akan datang dalam satu hari, </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>yaitu sampar dan perkabungan dan kelaparan; dan ia akan dibakar dengan api, karena Tuhan Allah, yang menghakimi dia, adalah kuat.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
-    <text>Dan raja-raja di bumi, yang telah berbuat cabul dan hidup dalam kelimpahan dengan dia, akan menangisi dan meratapinya, apabila mereka melihat asap api yang membakarnya.</text>
+    <text>Dan raja-raja di bumi, yang telah berbuat cabul dan hidup dalam kelimpahan dengan dia, akan menangisi dan meratapinya, apabila mereka melihat </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>asap api yang membakarnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -1496,9 +1535,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>sebab dalam satu jam saja kekayaan sebanyak itu sudah binasa.&gt; &lt;&lt;Dan setiap nakhoda dan pelayar dan anak-anak kapal dan semua orang yang mata pencahariannya di laut, berdiri jauh-jauh,</text>
+    <text>sebab dalam satu jam saja kekayaan sebanyak itu sudah binasa.&gt; </text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+    <text>&lt;&lt;Dan setiap nakhoda dan pelayar dan anak-anak kapal dan semua orang yang mata pencahariannya di laut, berdiri jauh-jauh, </text>
     <verse num="18" />
     <text>dan berseru, ketika mereka melihat asap api yang membakarnya, katanya:</text>
   </block>
@@ -1533,7 +1573,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="angel, powerful" multiBlockQuote="Continuation">
     <verse num="24" />
-    <text>Dan di dalamnya terdapat darah nabi-nabi dan orang-orang kudus dan darah semua orang, yang dibunuh di bumi. </text>
+    <text>Dan di dalamnya terdapat darah nabi-nabi dan orang-orang kudus dan darah semua orang, yang dibunuh di bumi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>19</text>
@@ -1583,12 +1623,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
-    <text>Dan kepadanya dikaruniakan supaya memakai kain lenan halus yang berkilau-kilauan dan yang putih bersih!&gt;&gt; </text>
+    <text>Dan kepadanya dikaruniakan supaya memakai kain lenan halus yang berkilau-kilauan dan yang putih bersih!&gt;&gt;</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
-    <text>(Lenan halus itu adalah perbuatan-perbuatan yang benar dari orang-orang kudus.)</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <text>(Lenan halus itu adalah perbuatan-perbuatan yang benar dari orang-orang kudus.) </text>
     <verse num="9" />
     <text>Lalu ia berkata kepadaku:</text>
   </block>
@@ -1652,11 +1690,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>Maka tertangkaplah binatang itu dan bersama-sama dengan dia nabi palsu, yang telah mengadakan tanda-tanda di depan matanya, dan dengan demikian ia menyesatkan mereka yang telah menerima tanda dari binatang itu dan yang telah menyembah patungnya. Keduanya dilemparkan hidup-hidup ke dalam lautan api yang menyala-nyala oleh belerang.</text>
+    <text>Maka tertangkaplah binatang itu dan bersama-sama dengan dia nabi palsu, yang telah mengadakan tanda-tanda di depan matanya, dan dengan demikian ia menyesatkan mereka yang telah menerima tanda dari binatang itu dan yang telah menyembah patungnya. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>Keduanya dilemparkan hidup-hidup ke dalam lautan api yang menyala-nyala oleh belerang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Dan semua orang lain dibunuh dengan pedang, yang keluar dari mulut Penunggang kuda itu; dan semua burung kenyang oleh daging mereka. </text>
+    <text>Dan semua orang lain dibunuh dengan pedang, yang keluar dari mulut Penunggang kuda itu; dan semua burung kenyang oleh daging mereka.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>20</text>
@@ -1703,7 +1743,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Lalu aku melihat suatu takhta putih yang besar dan Dia, yang duduk di atasnya. Dari hadapan-Nya lenyaplah bumi dan langit dan tidak ditemukan lagi tempatnya.</text>
+    <text>Lalu aku melihat suatu takhta putih yang besar dan Dia, yang duduk di atasnya. Dari hadapan-Nya </text>
+    <text>lenyaplah bumi dan langit dan tidak ditemukan lagi tempatnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1712,14 +1753,17 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>Maka laut menyerahkan orang-orang mati yang ada di dalamnya, dan maut dan kerajaan maut menyerahkan orang-orang mati yang ada di dalamnya, dan mereka dihakimi masing-masing menurut perbuatannya. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
-    <text>Lalu maut dan kerajaan maut itu dilemparkanlah ke dalam lautan api. Itulah kematian yang kedua: lautan api.</text>
+    <text>Lalu maut dan kerajaan maut itu dilemparkanlah ke dalam lautan api. Itulah kematian yang kedua: </text>
+    <sound effectName="Weird2" userSpecifiesLocation="true" />
+    <text>lautan api.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
-    <text>Dan setiap orang yang tidak ditemukan namanya tertulis di dalam kitab kehidupan itu, ia dilemparkan ke dalam lautan api itu. </text>
+    <text>Dan setiap orang yang tidak ditemukan namanya tertulis di dalam kitab kehidupan itu, ia dilemparkan ke dalam lautan api itu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>21</text>
@@ -1780,7 +1824,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>Lalu, di dalam roh ia membawa aku ke atas sebuah gunung yang besar lagi tinggi dan ia menunjukkan kepadaku kota yang kudus itu, Yerusalem, turun dari sorga, dari Allah.</text>
+    <text>Lalu, di dalam roh ia membawa aku ke atas sebuah gunung yang besar lagi tinggi </text>
+    <text>dan ia menunjukkan kepadaku kota yang kudus itu, Yerusalem, turun dari sorga, dari Allah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -1848,7 +1893,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-REV">
     <verse num="27" />
-    <text>Tetapi tidak akan masuk ke dalamnya sesuatu yang najis, atau orang yang melakukan kekejian atau dusta, tetapi hanya mereka yang namanya tertulis di dalam kitab kehidupan Anak Domba itu. </text>
+    <text>Tetapi tidak akan masuk ke dalamnya sesuatu yang najis, atau orang yang melakukan kekejian atau dusta, tetapi hanya mereka yang namanya tertulis di dalam kitab kehidupan Anak Domba itu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>22</text>
@@ -1943,7 +1988,7 @@
     <text>&lt;&lt;Marilah!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
-    <text>Dan barangsiapa yang haus, hendaklah ia datang, dan barangsiapa yang mau, hendaklah ia mengambil air kehidupan dengan cuma-cuma! </text>
+    <text>Dan barangsiapa yang haus, hendaklah ia datang, dan barangsiapa yang mau, hendaklah ia mengambil air kehidupan dengan cuma-cuma!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -1965,7 +2010,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Kasih karunia Tuhan Yesus menyertai kamu sekalian! Amin. </text>
+    <text>Kasih karunia Tuhan Yesus menyertai kamu sekalian! Amin.</text>
   </block>
   <UnappliedSplits />
 </book>

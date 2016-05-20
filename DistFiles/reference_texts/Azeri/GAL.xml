@@ -100,7 +100,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-GAL">
     <verse num="24" />
-    <text>Belәliklә, mәnә görә Allahı izzәtlәndirirdilәr. </text>
+    <text>Belәliklә, mәnә görә Allahı izzәtlәndirirdilәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>2</text>
@@ -187,7 +187,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-GAL">
     <verse num="21" />
-    <text>Allahın lütfünü rәdd etmirәm. Çünki әgәr salehlik Qanun vasitәsilә qazanıla bilsәydi, demәli Mәsih boş yerә öldü. </text>
+    <text>Allahın lütfünü rәdd etmirәm. Çünki әgәr salehlik Qanun vasitәsilә qazanıla bilsәydi, demәli Mәsih boş yerә öldü.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>3</text>
@@ -324,7 +324,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-GAL">
     <verse num="29" />
-    <text>Әgәr Mәsihә aidsinizsә, demәli, İbrahimin nәslindәnsiniz vә vәdә görә varissiniz. </text>
+    <text>Әgәr Mәsihә aidsinizsә, demәli, İbrahimin nәslindәnsiniz vә vәdә görә varissiniz.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>4</text>
@@ -455,7 +455,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL">
     <verse num="31" />
-    <text>Buna görә, qardaşlar, biz cariyәnin deyil, azad qadının övladlarıyıq. </text>
+    <text>Buna görә, qardaşlar, biz cariyәnin deyil, azad qadının övladlarıyıq.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>5</text>
@@ -565,7 +565,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-GAL">
     <verse num="26" />
-    <text>Şöhrәtpәrәst olmayaq, bir-birimizi hirslәndirmәyәk, bir-birimizә paxıllıq etmәyәk. </text>
+    <text>Şöhrәtpәrәst olmayaq, bir-birimizi hirslәndirmәyәk, bir-birimizә paxıllıq etmәyәk.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>6</text>
@@ -640,7 +640,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-GAL">
     <verse num="18" />
-    <text>Qardaşlar, Rәbbimiz İsa Mәsihin lütfü ruhunuza yar olsun! Amin. </text>
+    <text>Qardaşlar, Rәbbimiz İsa Mәsihin lütfü ruhunuza yar olsun! Amin.</text>
   </block>
   <UnappliedSplits />
 </book>

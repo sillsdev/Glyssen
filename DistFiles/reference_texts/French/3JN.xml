@@ -20,7 +20,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-3JN">
     <verse num="4" />
-    <text>Ma plus grande joie, c'est d'apprendre que mes enfants vivent dans la vérité. </text>
+    <text>Ma plus grande joie, c'est d'apprendre que mes enfants vivent dans la vérité.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN">
     <verse num="5" />
@@ -64,7 +64,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-3JN">
     <verse num="15" />
-    <text>Que la paix soit avec toi! Les amis d'ici te saluent. Salue aussi les amis de là-bas, chacun en particulier. </text>
+    <text>Que la paix soit avec toi! Les amis d'ici te saluent. Salue aussi les amis de là-bas, chacun en particulier.</text>
   </block>
   <UnappliedSplits />
 </book>

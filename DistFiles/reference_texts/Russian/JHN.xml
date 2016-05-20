@@ -1218,7 +1218,8 @@
     <verse num="16" />
     <text>Когда же настал вечер, то ученики Его сошли к морю </text>
     <verse num="17" />
-    <text>и, войдя в лодку, отправились на ту сторону моря, в Капернаум. Становилось темно, а Иисус не приходил к ним.</text>
+    <text>и, войдя в лодку, отправились на ту сторону моря, в Капернаум. </text>
+    <text>Становилось темно, а Иисус не приходил к ним.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
@@ -3267,10 +3268,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-JHN">
     <verse num="24" />
-    <text>Ему Симон Петр сделал знак, чтобы спросил, </text>
+    <text>Ему Симон Петр сделал знак,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="24" characterId="Peter (Simon)" delivery="stage whisper">
-    <text>кто это, о котором говорит.</text>
+    <text>чтобы спросил, кто это, о котором говорит.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="narrator-JHN">
     <verse num="25" />
@@ -3934,7 +3935,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <verse num="10" />
-    <text>Симон же Петр, имея меч, извлек его, и ударил первосвященнического раба, и отсек ему правое ухо.</text>
+    <text>Симон же Петр, имея меч, извлек его, и ударил первосвященнического раба, </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>и отсек ему правое ухо.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <text>Имя рабу было Малх. </text>
@@ -3996,7 +3999,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
-    <text>Когда Он сказал это, один из служителей, стоявший близко, ударил Иисуса по щеке, сказав:</text>
+    <text>Когда Он сказал это, один из служителей, стоявший близко, </text>
+    <sound effectName="Slap" userSpecifiesLocation="true" />
+    <text>ударил Иисуса по щеке, сказав:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="officials of high priest, one of the" delivery="gruff">
     <text>так отвечаешь Ты первосвященнику?</text>
@@ -4035,6 +4040,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
     <text>Петр опять отрекся; и тотчас запел петух. </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
@@ -4656,6 +4662,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
     <text>Симон же Петр, услышав, что это Господь, опоясался одеждою, —ибо он был наг, —и бросился в море. </text>
+    <sound effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN">
     <verse num="8" />
@@ -4749,7 +4756,7 @@
     <verse num="18" />
     <text>Истинно, истинно говорю тебе: когда ты был молод, то препоясывался сам и ходил, куда хотел;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
     <text>а когда состаришься, то прострешь руки твои, и другой препояшет тебя, и поведет, куда не хочешь.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="19" characterId="narrator-JHN">

@@ -52,7 +52,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH">
     <verse num="12" />
-    <text>Na long dispela pasin yupela i ken litimapim nem bilong Bikpela bilong yumi Jisas, na em i ken litimapim nem bilong yupela tu. God bilong yumi na Bikpela Jisas Krais i ken marimari long yupela na mekim ol dispela samting i kamap long yupela. </text>
+    <text>Na long dispela pasin yupela i ken litimapim nem bilong Bikpela bilong yumi Jisas, na em i ken litimapim nem bilong yupela tu. God bilong yumi na Bikpela Jisas Krais i ken marimari long yupela na mekim ol dispela samting i kamap long yupela.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH">
     <text>2</text>
@@ -123,7 +123,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH">
     <verse num="17" />
-    <text>Na em i ken strongim bel bilong yupela, na helpim yupela long bihainim tru olgeta gutpela pasin na long mekim ol gutpela tok. </text>
+    <text>Na em i ken strongim bel bilong yupela, na helpim yupela long bihainim tru olgeta gutpela pasin na long mekim ol gutpela tok.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH">
     <text>3</text>
@@ -198,7 +198,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH">
     <verse num="18" />
-    <text>Marimari bilong Bikpela bilong yumi Jisas Krais i ken i stap wantaim yupela olgeta. </text>
+    <text>Marimari bilong Bikpela bilong yumi Jisas Krais i ken i stap wantaim yupela olgeta.</text>
   </block>
   <UnappliedSplits />
 </book>

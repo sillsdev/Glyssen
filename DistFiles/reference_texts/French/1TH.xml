@@ -44,7 +44,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TH">
     <verse num="10" />
-    <text>et pour attendre que son Fils vienne des cieux. Ce Fils, c'est Jésus que Dieu a réveillé de la mort et qui nous délivre du jugement de Dieu, qui est proche. </text>
+    <text>et pour attendre que son Fils vienne des cieux. Ce Fils, c'est Jésus que Dieu a réveillé de la mort et qui nous délivre du jugement de Dieu, qui est proche.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>2</text>
@@ -127,7 +127,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1TH">
     <verse num="20" />
-    <text>C'est vrai, vous êtes notre fierté et notre joie! </text>
+    <text>C'est vrai, vous êtes notre fierté et notre joie!</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>3</text>
@@ -182,7 +182,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TH">
     <verse num="13" />
-    <text>Ainsi, le Seigneur remplira vos cœurs de sa force. Et quand notre Seigneur Jésus viendra avec tous ceux qui lui appartiennent, vous serez saints devant Dieu notre Père, et on ne pourra rien vous reprocher. </text>
+    <text>Ainsi, le Seigneur remplira vos cœurs de sa force. Et quand notre Seigneur Jésus viendra avec tous ceux qui lui appartiennent, vous serez saints devant Dieu notre Père, et on ne pourra rien vous reprocher.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>4</text>
@@ -257,7 +257,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1TH">
     <verse num="18" />
-    <text>Alors, encouragez-vous les uns les autres avec ces paroles. </text>
+    <text>Alors, encouragez-vous les uns les autres avec ces paroles.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>5</text>
@@ -364,7 +364,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-1TH">
     <verse num="28" />
-    <text>Que l'amour de notre Seigneur Jésus-Christ soit avec vous! </text>
+    <text>Que l'amour de notre Seigneur Jésus-Christ soit avec vous!</text>
   </block>
   <UnappliedSplits />
 </book>

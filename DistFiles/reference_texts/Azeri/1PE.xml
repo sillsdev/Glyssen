@@ -109,7 +109,7 @@
     <text>Amma Rәbbin sözü әbәdi qalar&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
-    <text>Sizә vәz olunan Müjdә sözü budur. </text>
+    <text>Sizә vәz olunan Müjdә sözü budur.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>2</text>
@@ -224,7 +224,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1PE">
     <verse num="25" />
-    <text>Hamınız qoyun kimi yolunuzu azmışdınız, indi isә canınızın Çobanına vә Nәzarәtçisinә tәrәf döndünüz. </text>
+    <text>Hamınız qoyun kimi yolunuzu azmışdınız, indi isә canınızın Çobanına vә Nәzarәtçisinә tәrәf döndünüz.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>3</text>
@@ -255,7 +255,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1PE">
     <verse num="7" />
-    <text>Ey әrlәr, siz dә bunun kimi arvadlarınızla әdәblә, onların daha zәrif varlıqlar olduğuna uyğun davranın. Sizinlә birlikdә Allahın lütf etdiyi hәyatı irs olaraq aldıqlarına görә onlara hörmәt göstәrin ki, dualarınıza maneçilik törәdilmәsin. </text>
+    <text>Ey әrlәr, siz dә bunun kimi arvadlarınızla әdәblә, onların daha zәrif varlıqlar olduğuna uyğun davranın. Sizinlә birlikdә Allahın lütf etdiyi hәyatı irs olaraq aldıqlarına görә onlara hörmәt göstәrin ki, dualarınıza maneçilik törәdilmәsin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1PE">
     <verse num="8" />
@@ -316,7 +316,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1PE">
     <verse num="22" />
-    <text>İsa Mәsih göyә qalxıb vә Allahın sağındadır. Mәlәklәr, hakimlәr vә qüvvәlәr dә Ona tabedir. </text>
+    <text>İsa Mәsih göyә qalxıb vә Allahın sağındadır. Mәlәklәr, hakimlәr vә qüvvәlәr dә Ona tabedir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>4</text>
@@ -395,7 +395,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
     <verse num="19" />
-    <text>Bunun üçün qoy Allahın iradәsinә görә әzab çәkәnlәr yaxşılıq edәrәk hәyatlarını sadiq olan Yaradana hәvalә etsinlәr. </text>
+    <text>Bunun üçün qoy Allahın iradәsinә görә әzab çәkәnlәr yaxşılıq edәrәk hәyatlarını sadiq olan Yaradana hәvalә etsinlәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE">
     <text>5</text>
@@ -457,7 +457,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1PE">
     <verse num="14" />
-    <text>Bir-birinizi mәhәbbәtlә öpәrәk salamlayın. Mәsihdә olan hamınıza sülh olsun! </text>
+    <text>Bir-birinizi mәhәbbәtlә öpәrәk salamlayın. Mәsihdә olan hamınıza sülh olsun!</text>
   </block>
   <UnappliedSplits />
 </book>

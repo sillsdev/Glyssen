@@ -183,7 +183,7 @@
     <text>— Eu sou uma * serva de Deus; que aconteça comigo o que o senhor acabou de me dizer!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-LUK">
-    <text>E o anjo foi embora. </text>
+    <text>E o anjo foi embora.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="39" characterId="narrator-LUK">
     <verse num="39" />
@@ -1919,7 +1919,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-LUK">
     <verse num="33" />
-    <text>Então eles saíram do homem e entraram nos porcos, que se atiraram morro abaixo, para dentro do lago, e se afogaram.</text>
+    <text>Então eles saíram </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>do homem e entraram nos porcos, que se atiraram </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>morro abaixo, para dentro do lago, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>e se afogaram.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-LUK">
     <verse num="34" />
@@ -2022,7 +2028,8 @@
     <verse num="51" />
     <text>Quando Jesus chegou à casa de Jairo, deixou que Pedro, João e Tiago entrassem com ele, além do pai e da mãe da menina, e mais ninguém.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
+    <sound effectName="Women crying" userSpecifiesLocation="true" />
     <verse num="52" />
     <text>Todos os que estavam ali choravam e se lamentavam por causa da menina. Então Jesus disse:</text>
   </block>
@@ -2031,7 +2038,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="53" characterId="narrator-LUK">
     <verse num="53" />
-    <text>Aí começaram a caçoar dele porque sabiam que ela estava morta.</text>
+    <text>Aí começaram a caçoar </text>
+    <sound effectName="Women laughing" userSpecifiesLocation="true" />
+    <text>dele porque sabiam que ela estava morta.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="54" characterId="narrator-LUK">
     <verse num="54" />
@@ -2115,6 +2124,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
     <verse num="10" />
     <text>Os * apóstolos voltaram e contaram a Jesus tudo o que haviam feito. Então ele os levou consigo, e foram sozinhos para o povoado de Betsaida. </text>
+    <sound effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK">
     <verse num="11" />
@@ -5099,7 +5109,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="50" characterId="narrator-LUK">
     <verse num="50" />
-    <text>Um deles feriu com a espada o empregado do * Grande Sacerdote, cortando a sua orelha direita. </text>
+    <text>Um deles feriu com a espada o empregado do * Grande Sacerdote, </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>cortando a sua orelha direita. </text>
     <verse num="51" />
     <text>Mas Jesus ordenou:</text>
   </block>

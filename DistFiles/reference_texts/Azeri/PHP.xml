@@ -124,7 +124,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
     <verse num="30" />
-    <text>Apardığım mübarizәni әvvәldәn gördünüz, indi dә bunun haqqında eşidir vә siz dә hәmin mübarizәni aparırsınız. </text>
+    <text>Apardığım mübarizәni әvvәldәn gördünüz, indi dә bunun haqqında eşidir vә siz dә hәmin mübarizәni aparırsınız.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP">
     <text>2</text>
@@ -247,7 +247,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
     <verse num="30" />
-    <text>Çünki o, Mәsihin işi uğrunda az qala ölәcәkdi. Sizin mәnә edә bilmәdiyiniz kömәyi etmәk üçün canını tәhlükәyә atdı. </text>
+    <text>Çünki o, Mәsihin işi uğrunda az qala ölәcәkdi. Sizin mәnә edә bilmәdiyiniz kömәyi etmәk üçün canını tәhlükәyә atdı.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP">
     <text>3</text>
@@ -334,7 +334,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
     <verse num="21" />
-    <text>O hәr şeyi Özünә tabe etmәyә qadir olan qüvvәsinin tәsiri ilә bizim yazıq bәdәnimizi dәyişdirib Öz izzәtli bәdәninә bәnzәr hala gәtirәcәk. </text>
+    <text>O hәr şeyi Özünә tabe etmәyә qadir olan qüvvәsinin tәsiri ilә bizim yazıq bәdәnimizi dәyişdirib Öz izzәtli bәdәninә bәnzәr hala gәtirәcәk.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP">
     <text>4</text>
@@ -429,7 +429,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
     <verse num="23" />
-    <text>Rәbb İsa Mәsihin lütfü ruhunuza yar olsun! </text>
+    <text>Rәbb İsa Mәsihin lütfü ruhunuza yar olsun!</text>
   </block>
   <UnappliedSplits />
 </book>

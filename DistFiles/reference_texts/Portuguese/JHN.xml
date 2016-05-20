@@ -1218,7 +1218,8 @@
     <verse num="16" />
     <text>De tardinha, os discípulos de Jesus desceram até o lago. </text>
     <verse num="17" />
-    <text>Subiram num barco e começaram a atravessar o lago na direção da cidade de Cafarnaum. Quando já estava escuro, Jesus ainda não tinha vindo se encontrar com eles.</text>
+    <text>Subiram num barco e começaram a atravessar o lago na direção da cidade de Cafarnaum. </text>
+    <text>Quando já estava escuro, Jesus ainda não tinha vindo se encontrar com eles.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
@@ -3266,7 +3267,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-JHN">
     <verse num="24" />
-    <text>Simão Pedro fez um sinal para ele e disse: </text>
+    <text>Simão Pedro fez um sinal para ele e disse:</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="24" characterId="Peter (Simon)" delivery="stage whisper">
     <text>— Pergunte de quem o Mestre está falando.</text>
@@ -3933,7 +3934,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <verse num="10" />
-    <text>Aí Simão Pedro tirou a espada, atacou um empregado do * Grande Sacerdote e cortou a orelha direita dele.</text>
+    <text>Aí Simão Pedro tirou a espada, atacou um empregado do * Grande Sacerdote e </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>cortou a orelha direita dele.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <text>O nome do empregado era Malco. </text>
@@ -3995,7 +3998,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
-    <text>Quando Jesus disse isso, um dos guardas do Templo que estavam ali deu-lhe uma bofetada e disse:</text>
+    <text>Quando Jesus disse isso, um dos guardas do Templo que estavam ali </text>
+    <sound effectName="Slap" userSpecifiesLocation="true" />
+    <text>deu-lhe uma bofetada e disse:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="officials of high priest, one of the" delivery="gruff">
     <text>— Isso é maneira de falar com o Grande Sacerdote?</text>
@@ -4034,6 +4039,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
     <text>E outra vez Pedro disse que não. E no mesmo instante o galo cantou. </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
     <verse num="28" />
@@ -4655,6 +4661,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
     <text>Quando Simão Pedro ouviu dizer que era o Senhor, vestiu a * capa, pois havia tirado a roupa, e se jogou na água. </text>
+    <sound effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN">
     <verse num="8" />
@@ -4748,7 +4755,7 @@
     <verse num="18" />
     <text>Quando você era moço, você se aprontava e ia para onde queria.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
     <text>Mas eu afirmo a você que isto é verdade: quando for velho, você estenderá as mãos, alguém vai amarrá-las e o levará para onde você não vai querer ir.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="19" characterId="narrator-JHN">

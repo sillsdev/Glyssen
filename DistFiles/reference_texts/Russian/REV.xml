@@ -332,7 +332,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>и перед престолом море стеклянное, подобное кристаллу; и посреди престола и вокруг престола четыре животных, исполненных очей спереди и сзади.</text>
+    <text>и перед престолом море стеклянное, </text>
+    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <text>подобное кристаллу; и посреди престола и вокруг престола четыре животных, исполненных очей спереди и сзади.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -391,6 +393,7 @@
     <text>И я взглянул, и вот, посреди престола и четырех животных и посреди старцев </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>стоял Агнец как бы закланный, имеющий семь рогов и семь очей, которые суть семь духов Божиих, посланных во всю землю.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
@@ -402,6 +405,7 @@
     <text>И когда он взял книгу, тогда четыре животных и двадцать четыре старца пали пред Агнцем, </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <sound effectName="Harp" userSpecifiesLocation="true" />
     <text>имея каждый гусли и золотые чаши, полные фимиама, которые суть молитвы святых.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
@@ -648,11 +652,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
-    <text>Первый Ангел вострубил, и сделались град и огонь, смешанные с кровью, и пали на землю; и третья часть дерев сгорела, и вся трава зеленая сгорела.</text>
+    <text>Первый Ангел вострубил, и сделались </text>
+    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <text>град и огонь, смешанные с кровью, и пали на землю; и третья часть дерев сгорела, и вся трава зеленая сгорела.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Второй Ангел вострубил, и как бы большая гора, пылающая огнем, низверглась в море; и третья часть моря сделалась кровью,</text>
+    <text>Второй Ангел вострубил, </text>
+    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <text>и как бы большая гора, пылающая огнем, низверглась в море; и третья часть моря сделалась кровью,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -660,7 +668,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>Третий Aнгел вострубил, и упала с неба большая звезда, горящая подобно светильнику, и пала на третью часть рек и на источники вод.</text>
+    <text>Третий Aнгел вострубил, </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>и упала с неба большая звезда, горящая подобно светильнику, и пала на третью часть рек и на источники вод.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -668,7 +678,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
-    <text>Четвертый Ангел вострубил, и поражена была третья часть солнца и третья часть луны и третья часть звезд, так что затмилась третья часть их, и третья часть дня не светла была—так, как и ночи.</text>
+    <text>Четвертый Ангел вострубил, и поражена была третья часть </text>
+    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <text>солнца и третья часть луны и третья часть звезд, так что затмилась третья часть их, и третья часть дня не светла была—так, как и ночи.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
@@ -682,7 +694,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Пятый Ангел вострубил, и я увидел звезду, падшую с неба на землю, и дан был ей ключ от кладязя бездны.</text>
+    <text>Пятый Ангел вострубил, и я увидел звезду, </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>падшую с неба на землю, и дан был ей ключ от кладязя бездны.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -749,7 +763,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Так видел я в видении коней и на них всадников, которые имели на себе брони огненные, гиацинтовые и серные; головы у коней— как головы у львов, и изо рта их выходил огонь, дым и сера.</text>
+    <text>Так видел я в видении коней и на них всадников, которые имели на себе брони огненные, гиацинтовые и серные; головы у коней— как головы у львов, и изо рта их </text>
+    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <text>выходил огонь, дым и сера.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -772,7 +788,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>И видел я другого Ангела сильного, сходящего с неба, облеченного облаком; над головою его была радуга, и лице его как солнце, и ноги его как столпы огненные,</text>
+    <text>И видел я другого Ангела сильного, сходящего с неба, облеченного облаком; над головою его была радуга, и лице его как солнце, </text>
+    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <text>и ноги его как столпы огненные,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -780,7 +798,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>и воскликнул громким голосом, как рыкает лев; и когда он воскликнул, тогда семь громов проговорили голосами своими.</text>
+    <text>и воскликнул громким голосом, как рыкает </text>
+    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <text>лев; и когда он воскликнул, тогда семь громов проговорили голосами своими.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -851,11 +871,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
-    <text>И если кто захочет их обидеть, то огонь выйдет из уст их и пожрет врагов их; если кто захочет их обидеть, тому надлежит быть убиту.</text>
+    <text>И если кто захочет их обидеть, </text>
+    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <text>то огонь выйдет из уст их и пожрет врагов их; если кто захочет их обидеть, тому надлежит быть убиту.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Они имеют власть затворить небо, чтобы не шел дождь на землю во дни пророчествования их, и имеют власть над водами, превращать их в кровь, и поражать землю всякою язвою, когда только захотят.</text>
+    <text>Они имеют власть затворить небо, чтобы не шел дождь на землю во дни пророчествования их, </text>
+    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <text>и имеют власть над водами, превращать их в кровь, и поражать землю всякою язвою, когда только захотят.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -875,7 +899,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Но после трех дней с половиною вошел в них дух жизни от Бога, и они оба стали на ноги свои; и великий страх напал на тех, которые смотрели на них.</text>
+    <text>Но после трех дней с половиною </text>
+    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <text>вошел в них дух жизни от Бога, и они оба стали на ноги свои; и великий страх напал на тех, которые смотрели на них.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1166,7 +1192,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
-    <text>И поверг сидящий на облаке серп свой на землю, и земля была пожата.</text>
+    <text>И поверг сидящий на облаке серп свой </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>на землю, и земля была пожата.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
@@ -1287,7 +1315,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>И видел я выходящих из уст дракона и из уст зверя и из уст лжепророка трех духов нечистых, подобных жабам:</text>
+    <text>И видел я выходящих </text>
+    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <text>из уст дракона и </text>
+    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <text>из уст зверя и </text>
+    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <text>из уст лжепророка трех духов нечистых, подобных жабам:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -1423,7 +1457,8 @@
     <text>И воскликнул он сильно, громким голосом говоря:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
-    <text>пал, пал Вавилон, великая блудница, сделался жилищем бесов и пристанищем всякому нечистому духу, пристанищем всякой нечистой и отвратительной птице; ибо яростным вином блудодеяния своего она напоила все народы,</text>
+    <text>пал, пал Вавилон, великая блудница, сделался жилищем бесов и пристанищем всякому нечистому духу, пристанищем всякой нечистой и отвратительной птице; </text>
+    <text>ибо яростным вином блудодеяния своего она напоила все народы,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1436,7 +1471,8 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
     <text>выйди от нее, народ Мой, чтобы не участвовать вам в грехах ее и не подвергнуться язвам ее;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <sound effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>ибо грехи ее дошли до неба, и Бог воспомянул неправды ее.</text>
   </block>
@@ -1457,7 +1493,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
-    <text>И восплачут и возрыдают о ней цари земные, блудодействовавшие и роскошествовавшие с нею, когда увидят дым от пожара ее,</text>
+    <text>И восплачут и возрыдают о ней цари земные, блудодействовавшие и роскошествовавшие с нею, когда увидят </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>дым от пожара ее,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -1496,9 +1534,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>ибо в один час погибло такое богатство! И все кормчие, и все плывущие на кораблях, и все корабельщики, и все торгующие на море стали вдали</text>
+    <text>ибо в один час погибло такое богатство! </text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+    <text>И все кормчие, и все плывущие на кораблях, и все корабельщики, и все торгующие на море стали вдали </text>
     <verse num="18" />
     <text>и, видя дым от пожара ее, возопили, говоря:</text>
   </block>
@@ -1583,12 +1622,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
-    <text>И дано было ей облечься в виссон чистый и светлый; </text>
+    <text>И дано было ей облечься в виссон чистый и светлый;</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
-    <text>виссон же есть праведность святых.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <text>виссон же есть праведность святых. </text>
     <verse num="9" />
     <text>И сказал мне Ангел:</text>
   </block>
@@ -1652,7 +1689,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>И схвачен был зверь и с ним лжепророк, производивший чудеса пред ним, которыми он обольстил принявших начертание зверя и поклоняющихся его изображению: оба живые брошены в озеро огненное, горящее серою;</text>
+    <text>И схвачен был зверь и с ним лжепророк, производивший чудеса пред ним, которыми он обольстил принявших начертание зверя и поклоняющихся его изображению: </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>оба живые брошены в озеро огненное, горящее серою;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
@@ -1703,7 +1742,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>И увидел я великий белый престол и Сидящего на нем, от лица Которого бежало небо и земля, и не нашлось им места.</text>
+    <text>И увидел я великий белый престол и Сидящего на нем, от лица Которого </text>
+    <text>бежало небо и земля, и не нашлось им места.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1712,10 +1752,13 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>Тогда отдало море мертвых, бывших в нем, и смерть и ад отдали мертвых, которые были в них; и судим был каждый по делам своим. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
-    <text>И смерть и ад повержены в озеро огненное. Это смерть вторая.</text>
+    <text>И смерть и ад повержены в озеро огненное. </text>
+    <sound effectName="Weird2" userSpecifiesLocation="true" />
+    <text>Это смерть вторая.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
@@ -1780,7 +1823,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>И вознес меня в духе на великую и высокую гору, и показал мне великий город, святый Иерусалим, который нисходил с неба от Бога.</text>
+    <text>И вознес меня в духе на великую и высокую гору, </text>
+    <text>и показал мне великий город, святый Иерусалим, который нисходил с неба от Бога.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />

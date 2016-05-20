@@ -120,7 +120,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-COL">
     <verse num="29" />
-    <text>C'est pourquoi je travaille et je lutte avec la force du Christ qui agit en moi avec puissance. </text>
+    <text>C'est pourquoi je travaille et je lutte avec la force du Christ qui agit en moi avec puissance.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>2</text>
@@ -215,7 +215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL">
     <verse num="23" />
-    <text>C'est vrai: rendre un culte, se faire tout petits devant les anges, faire souffrir son corps, tout cela paraît sage. Pourtant, ces règles ne valent rien, elles servent seulement à satisfaire des désirs humains. </text>
+    <text>C'est vrai: rendre un culte, se faire tout petits devant les anges, faire souffrir son corps, tout cela paraît sage. Pourtant, ces règles ne valent rien, elles servent seulement à satisfaire des désirs humains.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>3</text>
@@ -318,7 +318,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-COL">
     <verse num="25" />
-    <text>Celui qui fait le mal, on le punira pour le mal qu'il a fait, et on ne fera pas de différence entre les gens. </text>
+    <text>Celui qui fait le mal, on le punira pour le mal qu'il a fait, et on ne fera pas de différence entre les gens.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="COL" initialStartVerse="0" characterId="BC-COL">
     <text>4</text>
@@ -393,7 +393,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-COL">
     <verse num="18" />
-    <text>Voici la salutation que moi, Paul, je vous écris de ma main. Souvenez-vous que je suis en prison! Que Dieu vous bénisse! </text>
+    <text>Voici la salutation que moi, Paul, je vous écris de ma main. Souvenez-vous que je suis en prison! Que Dieu vous bénisse!</text>
   </block>
   <UnappliedSplits />
 </book>

@@ -124,7 +124,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
     <verse num="30" />
-    <text>En effet, nous luttons ensemble, vous et moi. Autrefois, j'ai lutté sous vos yeux et je continue à lutter, vous le savez. </text>
+    <text>En effet, nous luttons ensemble, vous et moi. Autrefois, j'ai lutté sous vos yeux et je continue à lutter, vous le savez.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP">
     <text>2</text>
@@ -247,7 +247,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
     <verse num="30" />
-    <text>parce qu'il a vu la mort de près en travaillant pour le Christ. Il a risqué sa vie pour me rendre service quand vous ne pouviez pas le faire vous-mêmes. </text>
+    <text>parce qu'il a vu la mort de près en travaillant pour le Christ. Il a risqué sa vie pour me rendre service quand vous ne pouviez pas le faire vous-mêmes.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP">
     <text>3</text>
@@ -334,7 +334,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
     <verse num="21" />
-    <text>Alors il changera notre faible corps pour le rendre semblable à son corps glorieux. En effet, il est assez puissant pour tout mettre sous son pouvoir. </text>
+    <text>Alors il changera notre faible corps pour le rendre semblable à son corps glorieux. En effet, il est assez puissant pour tout mettre sous son pouvoir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP">
     <text>4</text>
@@ -429,7 +429,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
     <verse num="23" />
-    <text>Que le Seigneur Jésus-Christ vous bénisse! </text>
+    <text>Que le Seigneur Jésus-Christ vous bénisse!</text>
   </block>
   <UnappliedSplits />
 </book>

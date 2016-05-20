@@ -99,12 +99,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="scripture">
     <verse num="23" />
-    <text>“A virgem ficará grávida e terá um filho que receberá o nome de Emanuel.” </text>
+    <text>“A virgem ficará grávida e terá um filho que receberá o nome de Emanuel.”</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
-    <text>(Emanuel quer dizer “Deus está conosco”.)</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-MAT">
+    <text>(Emanuel quer dizer “Deus está conosco”.) </text>
     <verse num="24" />
     <text>Quando José acordou, fez o que o anjo do Senhor havia mandado e casou com Maria.</text>
   </block>
@@ -1083,7 +1081,13 @@
     <text>— Pois vão! —</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
-    <text>Os demônios saíram e entraram nos porcos, e estes se atiraram morro abaixo, para dentro do lago, e se afogaram.</text>
+    <text>Os demônios saíram </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>e entraram nos porcos, e estes se atiraram </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>morro abaixo, para dentro do lago, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>e se afogaram.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT">
     <verse num="33" />
@@ -1094,7 +1098,7 @@
     <text>Então todos os moradores daquela cidade saíram para se encontrar com Jesus; e, quando o encontraram, pediram-lhe, dizendo:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Gadarene (or Gerasenes) people" delivery="pleading">
-    <text>"Afastar-se das nossas fronteiras." </text>
+    <text>"Afastar-se das nossas fronteiras."</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>9</text>
@@ -2813,7 +2817,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
-    <text>Então deu uma ordem, o demônio saiu, e no mesmo instante o menino ficou curado.</text>
+    <text>Então deu uma ordem, o demônio </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>saiu, e no mesmo instante o menino ficou curado.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT">
     <verse num="19" />
@@ -4721,7 +4727,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>Mas um dos que estavam ali com Jesus tirou a espada, atacou um empregado do * Grande Sacerdote e cortou uma orelha dele. </text>
+    <text>Mas um dos que estavam ali com Jesus tirou a espada, </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>atacou um empregado do * Grande Sacerdote e cortou uma orelha dele. </text>
     <verse num="52" />
     <text>Aí Jesus disse:</text>
   </block>
@@ -4859,7 +4867,9 @@
     <text>— Juro que não conheço esse homem!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
-    <text>Naquele instante o galo cantou, </text>
+    <text>Naquele instante o galo </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <text>cantou, </text>
     <verse num="75" />
     <text>e Pedro lembrou que Jesus lhe tinha dito:</text>
   </block>
@@ -4897,7 +4907,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
-    <text>Então Judas jogou o dinheiro para dentro do Templo e saiu. Depois foi e se enforcou.</text>
+    <text>Então Judas jogou </text>
+    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <text>o dinheiro para dentro do Templo e saiu. Depois foi e se enforcou.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -5157,7 +5169,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>Então a cortina do Templo se rasgou em dois pedaços, de cima até embaixo. A terra tremeu, e as rochas se partiram.</text>
+    <text>Então a cortina do Templo se rasgou </text>
+    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <text>em dois pedaços, de cima até embaixo. A terra tremeu, e as rochas se partiram.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT">
     <verse num="52" />
@@ -5200,7 +5214,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="61" characterId="narrator-MAT">
     <verse num="61" />
-    <text>Maria Madalena e a outra Maria estavam ali, sentadas em frente do túmulo. </text>
+    <text>Maria Madalena e a outra Maria estavam ali, sentadas em frente do túmulo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="62" characterId="narrator-MAT">
     <verse num="62" />
@@ -5322,9 +5336,6 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
     <text>e ensinando-os a obedecer a tudo o que tenho ordenado a vocês. E lembrem disto: eu estou com vocês todos os dias, até o fim dos tempos.</text>
-  </block>
-  <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT">
-    <text>...</text>
   </block>
   <UnappliedSplits />
 </book>

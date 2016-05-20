@@ -132,7 +132,7 @@
     <text>Alors, comme les Livres Saints le disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture">
-    <text>&lt;&lt;Si quelqu'un veut se vanter, qu'il se vante à cause du Seigneur.&gt;&gt; </text>
+    <text>&lt;&lt;Si quelqu'un veut se vanter, qu'il se vante à cause du Seigneur.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>2</text>
@@ -203,7 +203,7 @@
     <text>Les Livres Saints disent: &lt;&lt;Qui connaît la pensée du Seigneur? Qui peut lui donner des conseils?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
-    <text>Eh bien, nous, nous avons la pensée du Christ. </text>
+    <text>Eh bien, nous, nous avons la pensée du Christ.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>3</text>
@@ -304,7 +304,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>mais vous, vous appartenez au Christ, et le Christ appartient à Dieu. </text>
+    <text>mais vous, vous appartenez au Christ, et le Christ appartient à Dieu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>4</text>
@@ -391,7 +391,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>Qu'est-ce que vous voulez? Que je vienne chez vous avec un fouet, ou bien avec un cœur plein d'amour et de douceur? </text>
+    <text>Qu'est-ce que vous voulez? Que je vienne chez vous avec un fouet, ou bien avec un cœur plein d'amour et de douceur?</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>5</text>
@@ -529,7 +529,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
-    <text>Dieu vous a achetés très cher pour vous rendre libres. Alors rendez gloire à Dieu par votre corps! </text>
+    <text>Dieu vous a achetés très cher pour vous rendre libres. Alors rendez gloire à Dieu par votre corps!</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>7</text>
@@ -692,7 +692,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="narrator-1CO">
     <verse num="40" />
-    <text>Pourtant, à mon avis, elle sera plus heureuse si elle reste comme elle est. Et moi aussi, je crois avoir l'Esprit de Dieu! </text>
+    <text>Pourtant, à mon avis, elle sera plus heureuse si elle reste comme elle est. Et moi aussi, je crois avoir l'Esprit de Dieu!</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>8</text>
@@ -747,7 +747,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>C'est pourquoi, si la nourriture doit faire tomber mes frères et mes sœurs chrétiens dans le péché, je ne mangerai plus jamais de viande, pour ne pas les faire tomber. </text>
+    <text>C'est pourquoi, si la nourriture doit faire tomber mes frères et mes sœurs chrétiens dans le péché, je ne mangerai plus jamais de viande, pour ne pas les faire tomber.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>9</text>
@@ -860,7 +860,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
-    <text>Je traite mon corps durement, j'en suis totalement maître. Sinon, moi qui ai annoncé le message aux autres, je risque ensuite d'être éliminé. </text>
+    <text>Je traite mon corps durement, j'en suis totalement maître. Sinon, moi qui ai annoncé le message aux autres, je risque ensuite d'être éliminé.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>10</text>
@@ -998,7 +998,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />
-    <text>Faites comme moi! J'essaie de plaire à tous dans toutes mes actions. Je ne cherche pas mon intérêt, je cherche l'intérêt de tous pour qu'ils soient sauvés. </text>
+    <text>Faites comme moi! J'essaie de plaire à tous dans toutes mes actions. Je ne cherche pas mon intérêt, je cherche l'intérêt de tous pour qu'ils soient sauvés.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>11</text>
@@ -1141,7 +1141,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="34" characterId="narrator-1CO">
     <verse num="34" />
-    <text>Si quelqu'un a faim, il doit manger chez lui. Ainsi, quand vous vous réunirez, Dieu ne vous jugera pas. Pour les autres questions, je les réglerai quand je viendrai. </text>
+    <text>Si quelqu'un a faim, il doit manger chez lui. Ainsi, quand vous vous réunirez, Dieu ne vous jugera pas. Pour les autres questions, je les réglerai quand je viendrai.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>12</text>
@@ -1266,7 +1266,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="31" characterId="narrator-1CO">
     <verse num="31" />
-    <text>Cherchez donc à avoir les dons les plus grands! Mais maintenant, je vais vous montrer un chemin meilleur que les autres. </text>
+    <text>Cherchez donc à avoir les dons les plus grands! Mais maintenant, je vais vous montrer un chemin meilleur que les autres.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>13</text>
@@ -1321,7 +1321,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>Maintenant, trois choses sont toujours là: la foi, l'espérance et l'amour. Mais la plus grande des trois, c'est l'amour. </text>
+    <text>Maintenant, trois choses sont toujours là: la foi, l'espérance et l'amour. Mais la plus grande des trois, c'est l'amour.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>14</text>
@@ -1487,7 +1487,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="40" characterId="narrator-1CO">
     <verse num="40" />
-    <text>mais tout doit se passer avec calme et dans l'ordre. </text>
+    <text>mais tout doit se passer avec calme et dans l'ordre.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>15</text>
@@ -1729,7 +1729,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="58" characterId="narrator-1CO">
     <verse num="58" />
-    <text>Alors, mes frères et mes sœurs très aimés, soyez forts, soyez solides! Travaillez toujours mieux au service du Seigneur. Vous le savez, en le servant, vous ne travaillez pas pour rien. </text>
+    <text>Alors, mes frères et mes sœurs très aimés, soyez forts, soyez solides! Travaillez toujours mieux au service du Seigneur. Vous le savez, en le servant, vous ne travaillez pas pour rien.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>16</text>
@@ -1826,7 +1826,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
-    <text>Je vous aime tous dans le Christ Jésus. </text>
+    <text>Je vous aime tous dans le Christ Jésus.</text>
   </block>
   <UnappliedSplits />
 </book>

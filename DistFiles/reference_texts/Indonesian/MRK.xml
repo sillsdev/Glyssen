@@ -43,7 +43,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Aku membaptis kamu dengan air, tetapi Ia akan membaptis kamu dengan Roh Kudus.&gt;&gt; </text>
+    <text>Aku membaptis kamu dengan air, tetapi Ia akan membaptis kamu dengan Roh Kudus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
@@ -66,7 +66,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Di padang gurun itu Ia tinggal empat puluh hari lamanya, dicobai oleh Iblis. Ia berada di sana di antara binatang-binatang liar dan malaikat-malaikat melayani Dia. </text>
+    <text>Di padang gurun itu Ia tinggal empat puluh hari lamanya, dicobai oleh Iblis. Ia berada di sana di antara binatang-binatang liar dan malaikat-malaikat melayani Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -96,7 +96,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>Yesus segera memanggil mereka dan mereka meninggalkan ayahnya, Zebedeus, di dalam perahu bersama orang-orang upahannya lalu mengikuti Dia. </text>
+    <text>Yesus segera memanggil mereka dan mereka meninggalkan ayahnya, Zebedeus, di dalam perahu bersama orang-orang upahannya lalu mengikuti Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -123,7 +123,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Roh jahat itu menggoncang-goncang orang itu, dan sambil menjerit dengan suara nyaring ia keluar dari padanya.</text>
+    <text>Roh jahat itu menggoncang-goncang orang itu, dan sambil menjerit </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>dengan suara nyaring ia keluar dari padanya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -134,7 +136,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-MRK">
     <verse num="28" />
-    <text>Lalu tersebarlah dengan cepat kabar tentang Dia ke segala penjuru di seluruh Galilea. </text>
+    <text>Lalu tersebarlah dengan cepat kabar tentang Dia ke segala penjuru di seluruh Galilea.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-MRK">
     <verse num="29" />
@@ -158,7 +160,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Ia menyembuhkan banyak orang yang menderita bermacam-macam penyakit dan mengusir banyak setan; Ia tidak memperbolehkan setan-setan itu berbicara, sebab mereka mengenal Dia. " </text>
+    <text>Ia menyembuhkan banyak orang yang menderita bermacam-macam penyakit dan mengusir banyak setan; Ia tidak memperbolehkan setan-setan itu berbicara, sebab mereka mengenal Dia. "</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -185,7 +187,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="39" characterId="narrator-MRK">
     <text>" </text>
     <verse num="39" />
-    <text>Lalu pergilah Ia ke seluruh Galilea dan memberitakan Injil dalam rumah-rumah ibadat mereka dan mengusir setan-setan. </text>
+    <text>Lalu pergilah Ia ke seluruh Galilea dan memberitakan Injil dalam rumah-rumah ibadat mereka dan mengusir setan-setan.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="40" characterId="narrator-MRK">
     <verse num="40" />
@@ -215,7 +217,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="45" characterId="narrator-MRK">
     <verse num="45" />
-    <text>Tetapi orang itu pergi memberitakan peristiwa itu dan menyebarkannya kemana-mana, sehingga Yesus tidak dapat lagi terang-terangan masuk ke dalam kota. Ia tinggal di luar di tempat-tempat yang sepi; namun orang terus juga datang kepada-Nya dari segala penjuru. </text>
+    <text>Tetapi orang itu pergi memberitakan peristiwa itu dan menyebarkannya kemana-mana, sehingga Yesus tidak dapat lagi terang-terangan masuk ke dalam kota. Ia tinggal di luar di tempat-tempat yang sepi; namun orang terus juga datang kepada-Nya dari segala penjuru.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>2</text>
@@ -278,7 +280,7 @@
     <text>Dan orang itupun bangun, segera mengangkat tempat tidurnya dan pergi ke luar di hadapan orang-orang itu, sehingga mereka semua takjub lalu memuliakan Allah, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="everyone who saw healing of paralytic" delivery="praising">
-    <text>&lt;&lt;Yang begini belum pernah kita lihat.&gt;&gt; </text>
+    <text>&lt;&lt;Yang begini belum pernah kita lihat.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -336,7 +338,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Demikian juga tidak seorangpun mengisikan anggur yang baru ke dalam kantong kulit yang tua, karena jika demikian anggur itu akan mengoyakkan kantong itu, sehingga anggur itu dan kantongnya dua-duanya terbuang. Tetapi anggur yang baru hendaknya disimpan dalam kantong yang baru pula.&gt;&gt; </text>
+    <text>Demikian juga tidak seorangpun mengisikan anggur yang baru ke dalam kantong kulit yang tua, karena jika demikian anggur itu akan mengoyakkan kantong itu, sehingga anggur itu dan kantongnya dua-duanya terbuang. Tetapi anggur yang baru hendaknya disimpan dalam kantong yang baru pula.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-MRK">
     <verse num="23" />
@@ -367,7 +369,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>jadi Anak Manusia adalah juga Tuhan atas hari Sabat.&gt;&gt; </text>
+    <text>jadi Anak Manusia adalah juga Tuhan atas hari Sabat.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>3</text>
@@ -409,7 +411,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>Lalu keluarlah orang-orang Farisi dan segera bersekongkol dengan orang-orang Herodian untuk membunuh Dia. </text>
+    <text>Lalu keluarlah orang-orang Farisi dan segera bersekongkol dengan orang-orang Herodian untuk membunuh Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -439,7 +441,7 @@
     <text>Tetapi Ia dengan keras melarang mereka</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus">
-    <text>memberitahukan siapa Dia. </text>
+    <text>memberitahukan siapa Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -557,7 +559,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>Barangsiapa melakukan kehendak Allah, dialah saudara-Ku laki-laki, dialah saudara-Ku perempuan, dialah ibu-Ku.&gt;&gt; </text>
+    <text>Barangsiapa melakukan kehendak Allah, dialah saudara-Ku laki-laki, dialah saudara-Ku perempuan, dialah ibu-Ku.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>4</text>
@@ -599,7 +601,7 @@
     <text>Dan kata-Nya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Jesus">
-    <text>&lt;&lt;Siapa mempunyai telinga untuk mendengar, hendaklah ia mendengar!&gt;&gt; </text>
+    <text>&lt;&lt;Siapa mempunyai telinga untuk mendengar, hendaklah ia mendengar!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
@@ -716,7 +718,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>dan tanpa perumpamaan Ia tidak berkata-kata kepada mereka, tetapi kepada murid-murid-Nya Ia menguraikan segala sesuatu secara tersendiri. </text>
+    <text>dan tanpa perumpamaan Ia tidak berkata-kata kepada mereka, tetapi kepada murid-murid-Nya Ia menguraikan segala sesuatu secara tersendiri.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -745,7 +747,7 @@
     <text>Iapun bangun, menghardik angin itu dan berkata kepada danau itu:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="Jesus" delivery="forcefully">
-    <text>&lt;&lt;Diam! Tenanglah!&gt;&gt; </text>
+    <text>&lt;&lt;Diam! Tenanglah!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="narrator-MRK">
     <text>Lalu angin itu reda dan danau itu menjadi teduh sekali. </text>
@@ -760,7 +762,7 @@
     <text>Mereka menjadi sangat takut dan berkata seorang kepada yang lain:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="disciples" delivery="awe">
-    <text>&lt;&lt;Siapa gerangan orang ini, sehingga angin dan danaupun taat kepada-Nya?&gt;&gt; </text>
+    <text>&lt;&lt;Siapa gerangan orang ini, sehingga angin dan danaupun taat kepada-Nya?&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>5</text>
@@ -836,7 +838,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Yesus mengabulkan permintaan mereka. Lalu keluarlah roh-roh jahat itu dan memasuki babi-babi itu. Kawanan babi yang kira-kira dua ribu jumlahnya itu terjun dari tepi jurang ke dalam danau dan mati lemas di dalamnya.</text>
+    <text>Yesus mengabulkan permintaan mereka. Lalu keluarlah </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>roh-roh jahat itu dan memasuki babi-babi itu. Kawanan babi yang kira-kira dua ribu jumlahnya itu terjun dari </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>tepi jurang ke dalam danau </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>dan mati lemas di dalamnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -873,7 +881,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>Orang itupun pergilah dan mulai memberitakan di daerah Dekapolis segala apa yang telah diperbuat Yesus atas dirinya dan mereka semua menjadi heran. </text>
+    <text>Orang itupun pergilah dan mulai memberitakan di daerah Dekapolis segala apa yang telah diperbuat Yesus atas dirinya dan mereka semua menjadi heran.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -1004,7 +1012,7 @@
     <text>mengetahui hal itu,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="Jesus">
-    <text>lalu Ia menyuruh mereka memberi anak itu makan. </text>
+    <text>lalu Ia menyuruh mereka memberi anak itu makan.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>6</text>
@@ -1018,13 +1026,7 @@
     <text>Pada hari Sabat Ia mulai mengajar di rumah ibadat dan jemaat yang besar takjub ketika mendengar Dia dan mereka berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>&lt;&lt;Dari mana diperoleh-Nya semuanya itu? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>Hikmat apa pulakah yang diberikan kepada-Nya? Dan mujizat-mujizat yang demikian bagaimanakah dapat diadakan oleh tangan-Nya?&gt;&gt;</text>
+    <text>&lt;&lt;Dari mana diperoleh-Nya semuanya itu? Hikmat apa pulakah yang diberikan kepada-Nya? Dan mujizat-mujizat yang demikian bagaimanakah dapat diadakan oleh tangan-Nya?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1044,7 +1046,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>Ia merasa heran atas ketidakpercayaan mereka. Lalu Yesus berjalan keliling dari desa ke desa sambil mengajar. </text>
+    <text>Ia merasa heran atas ketidakpercayaan mereka. Lalu Yesus berjalan keliling dari desa ke desa sambil mengajar.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -1181,7 +1183,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="29" characterId="narrator-MRK">
     <verse num="29" />
-    <text>Ketika murid-murid Yohanes mendengar hal itu mereka datang dan mengambil mayatnya, lalu membaringkannya dalam kuburan. " </text>
+    <text>Ketika murid-murid Yohanes mendengar hal itu mereka datang dan mengambil mayatnya, lalu membaringkannya dalam kuburan. "</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1338,7 +1340,7 @@
     <text>supaya mereka diperkenankan hanya menjamah jumbai jubah-Nya saja.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK">
-    <text>Dan semua orang yang menjamah-Nya menjadi sembuh. </text>
+    <text>Dan semua orang yang menjamah-Nya menjadi sembuh.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>7</text>
@@ -1450,7 +1452,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="23" />
-    <text>Semua hal-hal jahat ini timbul dari dalam dan menajiskan orang.&gt;&gt; </text>
+    <text>Semua hal-hal jahat ini timbul dari dalam dan menajiskan orang.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-MRK">
     <verse num="24" />
@@ -1491,7 +1493,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>Perempuan itu pulang ke rumahnya, lalu didapatinya anak itu berbaring di tempat tidur, sedang setan itu sudah keluar. </text>
+    <text>Perempuan itu pulang ke rumahnya, lalu didapatinya anak itu berbaring di tempat tidur, sedang setan itu sudah keluar.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1537,7 +1539,7 @@
     <text>Mereka takjub dan tercengang dan berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="people of Decapolis">
-    <text>&lt;&lt;Ia menjadikan segala-galanya baik, yang tuli dijadikan-Nya mendengar, yang bisu dijadikan-Nya berkata-kata.&gt;&gt; </text>
+    <text>&lt;&lt;Ia menjadikan segala-galanya baik, yang tuli dijadikan-Nya mendengar, yang bisu dijadikan-Nya berkata-kata.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>8</text>
@@ -1598,7 +1600,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
-    <text>Ia segera naik ke perahu dengan murid-murid-Nya dan bertolak ke daerah Dalmanuta. </text>
+    <text>Ia segera naik ke perahu dengan murid-murid-Nya dan bertolak ke daerah Dalmanuta.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
@@ -1670,7 +1672,7 @@
     <text>Lalu kata-Nya kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning">
-    <text>&lt;&lt;Masihkah kamu belum mengerti?&gt;&gt; </text>
+    <text>&lt;&lt;Masihkah kamu belum mengerti?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -1699,7 +1701,7 @@
     <text>Sesudah itu Yesus menyuruh dia pulang ke rumahnya dan berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Jangan masuk ke kampung!&gt;&gt; </text>
+    <text>&lt;&lt;Jangan masuk ke kampung!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -1775,7 +1777,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="38" />
-    <text>Sebab barangsiapa malu karena Aku dan karena perkataan-Ku di tengah-tengah angkatan yang tidak setia dan berdosa ini, Anak Manusiapun akan malu karena orang itu apabila Ia datang kelak dalam kemuliaan Bapa-Nya, diiringi malaikat-malaikat kudus.&gt;&gt; </text>
+    <text>Sebab barangsiapa malu karena Aku dan karena perkataan-Ku di tengah-tengah angkatan yang tidak setia dan berdosa ini, Anak Manusiapun akan malu karena orang itu apabila Ia datang kelak dalam kemuliaan Bapa-Nya, diiringi malaikat-malaikat kudus.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>9</text>
@@ -1849,7 +1851,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="13" />
-    <text>Tetapi Aku berkata kepadamu: Memang Elia sudah datang dan orang memperlakukan dia menurut kehendak mereka, sesuai dengan yang ada tertulis tentang dia.&gt;&gt; </text>
+    <text>Tetapi Aku berkata kepadamu: Memang Elia sudah datang dan orang memperlakukan dia menurut kehendak mereka, sesuai dengan yang ada tertulis tentang dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1924,7 +1926,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Lalu keluarlah roh itu sambil berteriak dan menggoncang-goncang anak itu dengan hebatnya. Anak itu kelihatannya seperti orang mati, sehingga banyak orang yang berkata:</text>
+    <text>Lalu keluarlah roh itu sambil berteriak </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>dan menggoncang-goncang anak itu dengan hebatnya. Anak itu kelihatannya seperti orang mati, sehingga banyak orang yang berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>&lt;&lt;Ia sudah mati.&gt;&gt;</text>
@@ -1945,7 +1949,7 @@
     <text>Jawab-Nya kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="Jesus">
-    <text>&lt;&lt;Jenis ini tidak dapat diusir kecuali dengan berdoa.&gt;&gt; </text>
+    <text>&lt;&lt;Jenis ini tidak dapat diusir kecuali dengan berdoa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1960,7 +1964,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
-    <text>Mereka tidak mengerti perkataan itu, namun segan menanyakannya kepada-Nya. </text>
+    <text>Mereka tidak mengerti perkataan itu, namun segan menanyakannya kepada-Nya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -2044,7 +2048,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Garam memang baik, tetapi jika garam menjadi hambar, dengan apakah kamu mengasinkannya? Hendaklah kamu selalu mempunyai garam dalam dirimu dan selalu hidup berdamai yang seorang dengan yang lain.&gt;&gt; </text>
+    <text>Garam memang baik, tetapi jika garam menjadi hambar, dengan apakah kamu mengasinkannya? Hendaklah kamu selalu mempunyai garam dalam dirimu dan selalu hidup berdamai yang seorang dengan yang lain.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>10</text>
@@ -2130,7 +2134,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-MRK">
     <verse num="16" />
-    <text>Lalu Ia memeluk anak-anak itu dan sambil meletakkan tangan-Nya atas mereka Ia memberkati mereka. </text>
+    <text>Lalu Ia memeluk anak-anak itu dan sambil meletakkan tangan-Nya atas mereka Ia memberkati mereka.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-MRK">
     <verse num="17" />
@@ -2220,7 +2224,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="31" />
-    <text>Tetapi banyak orang yang terdahulu akan menjadi yang terakhir dan yang terakhir akan menjadi yang terdahulu.&gt;&gt; </text>
+    <text>Tetapi banyak orang yang terdahulu akan menjadi yang terakhir dan yang terakhir akan menjadi yang terdahulu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -2301,7 +2305,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="45" />
-    <text>Karena Anak Manusia juga datang bukan untuk dilayani, melainkan untuk melayani dan untuk memberikan nyawa-Nya menjadi tebusan bagi banyak orang.&gt;&gt; </text>
+    <text>Karena Anak Manusia juga datang bukan untuk dilayani, melainkan untuk melayani dan untuk memberikan nyawa-Nya menjadi tebusan bagi banyak orang.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="46" characterId="narrator-MRK">
     <verse num="46" />
@@ -2363,7 +2367,7 @@
     <text>&lt;&lt;Pergilah, imanmu telah menyelamatkan engkau!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="52" characterId="narrator-MRK">
-    <text>Pada saat itu juga melihatlah ia, lalu ia mengikuti Yesus dalam perjalanan-Nya. </text>
+    <text>Pada saat itu juga melihatlah ia, lalu ia mengikuti Yesus dalam perjalanan-Nya.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>11</text>
@@ -2426,7 +2430,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
-    <text>Sesampainya di Yerusalem Ia masuk ke Bait Allah. Di sana Ia meninjau semuanya, tetapi sebab hari sudah hampir malam Ia keluar ke Betania bersama dengan kedua belas murid-Nya. </text>
+    <text>Sesampainya di Yerusalem Ia masuk ke Bait Allah. Di sana Ia meninjau semuanya, tetapi sebab hari sudah hampir malam Ia keluar ke Betania bersama dengan kedua belas murid-Nya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
@@ -2442,7 +2446,7 @@
     <text>&lt;&lt;Jangan lagi seorangpun makan buahmu selama-lamanya!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-MRK">
-    <text>Dan murid-murid-Nyapun mendengarnya. </text>
+    <text>Dan murid-murid-Nyapun mendengarnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-MRK">
     <verse num="15" />
@@ -2465,7 +2469,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-MRK">
     <verse num="19" />
-    <text>Menjelang malam mereka keluar lagi dari kota. </text>
+    <text>Menjelang malam mereka keluar lagi dari kota.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
@@ -2497,7 +2501,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>(Tetapi jika kamu tidak mengampuni, maka Bapamu yang di sorga juga tidak akan mengampuni kesalahan-kesalahanmu.) </text>
+    <text>(Tetapi jika kamu tidak mengampuni, maka Bapamu yang di sorga juga tidak akan mengampuni kesalahan-kesalahanmu.)</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -2542,7 +2546,7 @@
     <text>Maka kata Yesus kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus">
-    <text>&lt;&lt;Jika demikian, Aku juga tidak mengatakan kepadamu dengan kuasa manakah Aku melakukan hal-hal itu.&gt;&gt; </text>
+    <text>&lt;&lt;Jika demikian, Aku juga tidak mengatakan kepadamu dengan kuasa manakah Aku melakukan hal-hal itu.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>12</text>
@@ -2596,7 +2600,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
-    <text>Lalu mereka berusaha untuk menangkap Yesus, karena mereka tahu, bahwa merekalah yang dimaksudkan-Nya dengan perumpamaan itu. Tetapi mereka takut kepada orang banyak, jadi mereka pergi dan membiarkan Dia. </text>
+    <text>Lalu mereka berusaha untuk menangkap Yesus, karena mereka tahu, bahwa merekalah yang dimaksudkan-Nya dengan perumpamaan itu. Tetapi mereka takut kepada orang banyak, jadi mereka pergi dan membiarkan Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -2637,7 +2641,7 @@
     <text>&lt;&lt;Berikanlah kepada Kaisar apa yang wajib kamu berikan kepada Kaisar dan kepada Allah apa yang wajib kamu berikan kepada Allah!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-MRK">
-    <text>Mereka sangat heran mendengar Dia. </text>
+    <text>Mereka sangat heran mendengar Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-MRK">
     <verse num="18" />
@@ -2723,7 +2727,7 @@
     <text>&lt;&lt;Engkau tidak jauh dari Kerajaan Allah!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="34" characterId="narrator-MRK">
-    <text>Dan seorangpun tidak berani lagi menanyakan sesuatu kepada Yesus. </text>
+    <text>Dan seorangpun tidak berani lagi menanyakan sesuatu kepada Yesus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -2756,7 +2760,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="40" />
-    <text>Mereka melahap rumah janda, dan untuk berpura-pura, mereka membuat doa-doa panjang. Mereka ini pasti akan menerima hukuman yang lebih berat.&gt;&gt; </text>
+    <text>Mereka melahap rumah janda, dan untuk berpura-pura, mereka membuat doa-doa panjang. Mereka ini pasti akan menerima hukuman yang lebih berat.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="41" characterId="narrator-MRK">
     <verse num="41" />
@@ -2775,7 +2779,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="44" />
-    <text>Sebab mereka semua memberi dari kelimpahannya, tetapi janda ini memberi dari kekurangannya, semua yang ada padanya, yaitu seluruh nafkahnya.&gt;&gt; </text>
+    <text>Sebab mereka semua memberi dari kelimpahannya, tetapi janda ini memberi dari kekurangannya, semua yang ada padanya, yaitu seluruh nafkahnya.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>13</text>
@@ -2936,7 +2940,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="37" />
-    <text>Apa yang Kukatakan kepada kamu, Kukatakan kepada semua orang: berjaga-jagalah!&gt;&gt; </text>
+    <text>Apa yang Kukatakan kepada kamu, Kukatakan kepada semua orang: berjaga-jagalah!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>14</text>
@@ -3000,7 +3004,7 @@
     <text>berjanji akan memberikan uang kepadanya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK">
-    <text>Kemudian ia mencari kesempatan yang baik untuk menyerahkan Yesus. </text>
+    <text>Kemudian ia mencari kesempatan yang baik untuk menyerahkan Yesus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
@@ -3026,7 +3030,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-MRK">
     <verse num="16" />
-    <text>Maka berangkatlah kedua murid itu dan setibanya di kota, didapati mereka semua seperti yang dikatakan Yesus kepada mereka. Lalu mereka mempersiapkan Paskah. </text>
+    <text>Maka berangkatlah kedua murid itu dan setibanya di kota, didapati mereka semua seperti yang dikatakan Yesus kepada mereka. Lalu mereka mempersiapkan Paskah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-MRK">
     <verse num="17" />
@@ -3053,7 +3057,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>Anak Manusia memang akan pergi sesuai dengan yang ada tertulis tentang Dia, akan tetapi celakalah orang yang olehnya Anak Manusia itu diserahkan. Adalah lebih baik bagi orang itu sekiranya ia tidak dilahirkan.&gt;&gt; </text>
+    <text>Anak Manusia memang akan pergi sesuai dengan yang ada tertulis tentang Dia, akan tetapi celakalah orang yang olehnya Anak Manusia itu diserahkan. Adalah lebih baik bagi orang itu sekiranya ia tidak dilahirkan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -3110,7 +3114,7 @@
     <text>&lt;&lt;Sekalipun aku harus mati bersama-sama Engkau, aku takkan menyangkal Engkau.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="31" characterId="narrator-MRK">
-    <text>Semua yang lainpun berkata demikian juga. </text>
+    <text>Semua yang lainpun berkata demikian juga.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -3192,7 +3196,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Salah seorang dari mereka yang ada di situ menghunus pedangnya, lalu menetakkannya kepada hamba Imam Besar sehingga putus telinganya. </text>
+    <text>Salah seorang dari mereka yang ada di situ menghunus pedangnya, lalu menetakkannya kepada hamba Imam Besar sehingga </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>putus telinganya. </text>
     <verse num="48" />
     <text>Kata Yesus kepada mereka:</text>
   </block>
@@ -3213,7 +3219,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="52" characterId="narrator-MRK">
     <verse num="52" />
-    <text>tetapi ia melepaskan kainnya dan lari dengan telanjang. </text>
+    <text>tetapi ia melepaskan kainnya dan lari dengan telanjang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="53" characterId="narrator-MRK">
     <verse num="53" />
@@ -3287,7 +3293,7 @@
     <text>&lt;&lt;Hai nabi, cobalah terka!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="narrator-MRK">
-    <text>Malah para pengawalpun memukul Dia. </text>
+    <text>Malah para pengawalpun memukul Dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="66" characterId="narrator-MRK">
     <verse num="66" />
@@ -3345,7 +3351,7 @@
     <text>&lt;&lt;Sebelum ayam berkokok dua kali, engkau telah menyangkal Aku tiga kali.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
-    <text>Lalu menangislah ia tersedu-sedu. </text>
+    <text>Lalu menangislah ia tersedu-sedu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>15</text>
@@ -3376,7 +3382,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-MRK">
     <verse num="5" />
-    <text>Tetapi Yesus sama sekali tidak menjawab lagi, sehingga Pilatus merasa heran. </text>
+    <text>Tetapi Yesus sama sekali tidak menjawab lagi, sehingga Pilatus merasa heran.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
@@ -3521,7 +3527,7 @@
     <text>Baiklah Mesias, Raja Israel itu, turun dari salib itu, supaya kita lihat dan percaya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-MRK">
-    <text>Bahkan kedua orang yang disalibkan bersama-sama dengan Dia mencela Dia juga. </text>
+    <text>Bahkan kedua orang yang disalibkan bersama-sama dengan Dia mencela Dia juga.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -3575,7 +3581,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="narrator-MRK">
     <verse num="41" />
-    <text>Mereka semuanya telah mengikut Yesus dan melayani-Nya waktu Ia di Galilea. Dan ada juga di situ banyak perempuan lain yang telah datang ke Yerusalem bersama-sama dengan Yesus. </text>
+    <text>Mereka semuanya telah mengikut Yesus dan melayani-Nya waktu Ia di Galilea. Dan ada juga di situ banyak perempuan lain yang telah datang ke Yerusalem bersama-sama dengan Yesus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="42" characterId="narrator-MRK">
     <verse num="42" />
@@ -3612,7 +3618,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Maria Magdalena dan Maria ibu Yoses melihat di mana Yesus dibaringkan. </text>
+    <text>Maria Magdalena dan Maria ibu Yoses melihat di mana Yesus dibaringkan.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>16</text>
@@ -3651,7 +3657,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-MRK">
     <verse num="8" />
-    <text>Lalu mereka keluar dan lari meninggalkan kubur itu, sebab gentar dan dahsyat menimpa mereka. Mereka tidak mengatakan apa-apa kepada siapapun juga karena takut. Dengan singkat mereka sampaikan semua pesan itu kepada Petrus dan teman-temannya. Sesudah itu Yesus sendiri dengan perantaraan murid-murid-Nya memberitakan dari Timur ke Barat berita yang kudus dan tak terbinasakan tentang keselamatan yang kekal itu. </text>
+    <text>Lalu mereka keluar dan lari meninggalkan kubur itu, sebab gentar dan dahsyat menimpa mereka. Mereka tidak mengatakan apa-apa kepada siapapun juga karena takut. Dengan singkat mereka sampaikan semua pesan itu kepada Petrus dan teman-temannya. Sesudah itu Yesus sendiri dengan perantaraan murid-murid-Nya memberitakan dari Timur ke Barat berita yang kudus dan tak terbinasakan tentang keselamatan yang kekal itu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
@@ -3671,7 +3677,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Lalu kembalilah mereka dan memberitahukannya kepada teman-teman yang lain, tetapi kepada merekapun teman-teman itu tidak percaya. </text>
+    <text>Lalu kembalilah mereka dan memberitahukannya kepada teman-teman yang lain, tetapi kepada merekapun teman-teman itu tidak percaya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -3705,7 +3711,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>Merekapun pergilah memberitakan Injil ke segala penjuru, dan Tuhan turut bekerja dan meneguhkan firman itu dengan tanda-tanda yang menyertainya. </text>
+    <text>Merekapun pergilah memberitakan Injil ke segala penjuru, dan Tuhan turut bekerja dan meneguhkan firman itu dengan tanda-tanda yang menyertainya.</text>
   </block>
   <UnappliedSplits />
 </book>

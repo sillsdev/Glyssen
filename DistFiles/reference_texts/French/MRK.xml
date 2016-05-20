@@ -96,7 +96,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>Aussitôt Jésus les appelle. Ils laissent leur père Zébédée dans la barque avec les ouvriers, et ils s'en vont avec Jésus. </text>
+    <text>Aussitôt Jésus les appelle. Ils laissent leur père Zébédée dans la barque avec les ouvriers, et ils s'en vont avec Jésus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -122,7 +122,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>L'esprit mauvais secoue l'homme avec force et sort de lui en poussant un grand cri.</text>
+    <text>L'esprit mauvais secoue l'homme avec force et sort de lui en poussant un </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>grand cri.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -157,7 +159,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Jésus guérit toutes sortes de malades. Il chasse aussi beaucoup d'esprits mauvais et il ne les laisse pas parler, parce qu'ils savent qui est Jésus. </text>
+    <text>Jésus guérit toutes sortes de malades. Il chasse aussi beaucoup d'esprits mauvais et il ne les laisse pas parler, parce qu'ils savent qui est Jésus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -213,7 +215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="45" characterId="narrator-MRK">
     <verse num="45" />
-    <text>L'homme s'en va, mais il se met à raconter partout, et à tout le monde, ce qui s'est passé. C'est pourquoi Jésus ne peut plus se montrer dans une ville, il reste en dehors, dans des endroits déserts. Et les gens viennent à lui de tous les côtés. </text>
+    <text>L'homme s'en va, mais il se met à raconter partout, et à tout le monde, ce qui s'est passé. C'est pourquoi Jésus ne peut plus se montrer dans une ville, il reste en dehors, dans des endroits déserts. Et les gens viennent à lui de tous les côtés.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>2</text>
@@ -276,7 +278,7 @@
     <text>Aussitôt, l'homme se lève devant tout le monde, il prend sa natte et il sort. Tous les gens sont très étonnés et ils disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="everyone who saw healing of paralytic" delivery="praising">
-    <text>&lt;&lt;Nous n'avons jamais vu une chose pareille! Vraiment, Dieu est grand !&gt;&gt; </text>
+    <text>&lt;&lt;Nous n'avons jamais vu une chose pareille! Vraiment, Dieu est grand !&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -334,7 +336,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Personne ne met du vin nouveau dans de vieilles outres. Sinon, le vin fait éclater les outres, et on perd à la fois le vin et les outres. Au contraire, il faut mettre le vin nouveau dans des outres neuves.&gt;&gt; </text>
+    <text>Personne ne met du vin nouveau dans de vieilles outres. Sinon, le vin fait éclater les outres, et on perd à la fois le vin et les outres. Au contraire, il faut mettre le vin nouveau dans des outres neuves.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-MRK">
     <verse num="23" />
@@ -554,7 +556,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>Oui, si quelqu'un fait la volonté de Dieu, cette personne est mon frère, ma sœur, ma mère.&gt;&gt; </text>
+    <text>Oui, si quelqu'un fait la volonté de Dieu, cette personne est mon frère, ma sœur, ma mère.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>4</text>
@@ -596,7 +598,7 @@
     <text>Et Jésus ajoute:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="Jesus">
-    <text>&lt;&lt;Celui qui a des oreilles pour écouter, qu'il écoute!&gt;&gt; </text>
+    <text>&lt;&lt;Celui qui a des oreilles pour écouter, qu'il écoute!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
@@ -741,7 +743,7 @@
     <text>Jésus se réveille. Il menace le vent et dit au lac:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="Jesus" delivery="forcefully">
-    <text>&lt;&lt;Silence! Calme-toi!&gt;&gt; </text>
+    <text>&lt;&lt;Silence! Calme-toi!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="narrator-MRK">
     <text>Alors le vent s'arrête de souffler, et tout devient très calme. </text>
@@ -756,7 +758,7 @@
     <text>Mais les disciples sont effrayés et ils se disent entre eux:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="41" characterId="disciples" delivery="awe">
-    <text>&lt;&lt;Qui donc est cet homme? Même le vent et l'eau lui obéissent!&gt;&gt; </text>
+    <text>&lt;&lt;Qui donc est cet homme? Même le vent et l'eau lui obéissent!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>5</text>
@@ -832,7 +834,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Jésus leur donne la permission. Alors les esprits mauvais sortent de l'homme et ils entrent dans les cochons. Le troupeau compte à peu près 2000 cochons. Ils se précipitent tous du haut de la pente dans le lac et ils se noient.</text>
+    <text>Jésus leur donne la permission. Alors les esprits mauvais sortent de l'homme et ils </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>entrent dans les cochons. Le troupeau compte à peu près 2000 cochons. Ils se précipitent tous </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>du haut de la pente dans le lac </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>et ils se noient.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -999,7 +1007,7 @@
     <text>Ensuite il leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="Jesus">
-    <text>&lt;&lt;Donnez-lui quelque chose à manger.&gt;&gt; </text>
+    <text>&lt;&lt;Donnez-lui quelque chose à manger.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>6</text>
@@ -1013,13 +1021,7 @@
     <text>Le jour du sabbat, il se met à enseigner dans la maison de prière. Il y a beaucoup de gens. En l'écoutant, ils sont très étonnés et ils disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>&lt;&lt;Qui lui a appris tout cela? Cette sagesse qu'il a reçue, qu'est-ce que c'est? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>Et ces miracles qu'il fait, comment les fait-il?</text>
+    <text>&lt;&lt;Qui lui a appris tout cela? Cette sagesse qu'il a reçue, qu'est-ce que c'est? Et ces miracles qu'il fait, comment les fait-il?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1039,7 +1041,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>Et il s'étonne parce que les gens ne croient pas. Ensuite, Jésus va enseigner dans tous les villages qui sont autour de Nazareth. </text>
+    <text>Et il s'étonne parce que les gens ne croient pas. Ensuite, Jésus va enseigner dans tous les villages qui sont autour de Nazareth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -1333,7 +1335,7 @@
     <text>&lt;&lt;Laisse-les seulement toucher le bord de ton vêtement!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK">
-    <text>Et tous ceux qui le touchent sont guéris. </text>
+    <text>Et tous ceux qui le touchent sont guéris.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>7</text>
@@ -1445,7 +1447,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="23" />
-    <text>Tout ce mal sort de l'intérieur d'une personne et la rend impure.&gt;&gt; </text>
+    <text>Tout ce mal sort de l'intérieur d'une personne et la rend impure.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-MRK">
     <verse num="24" />
@@ -1485,7 +1487,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>La femme rentre chez elle et elle trouve son enfant couchée sur le lit. L'esprit mauvais est sorti de la fille. </text>
+    <text>La femme rentre chez elle et elle trouve son enfant couchée sur le lit. L'esprit mauvais est sorti de la fille.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1531,7 +1533,7 @@
     <text>Ils sont profondément étonnés et ils disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="people of Decapolis">
-    <text>&lt;&lt;Tout ce qu'il fait est vraiment bien! Il fait entendre les sourds et il fait parler les muets!&gt;&gt; </text>
+    <text>&lt;&lt;Tout ce qu'il fait est vraiment bien! Il fait entendre les sourds et il fait parler les muets!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>8</text>
@@ -1592,7 +1594,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
-    <text>Tout de suite après, il monte dans la barque avec ses disciples et il va dans la région de Dalmanouta. </text>
+    <text>Tout de suite après, il monte dans la barque avec ses disciples et il va dans la région de Dalmanouta.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
@@ -1664,7 +1666,7 @@
     <text>Alors Jésus leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning">
-    <text>&lt;&lt;Et vous ne comprenez pas encore?&gt;&gt; </text>
+    <text>&lt;&lt;Et vous ne comprenez pas encore?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -1693,7 +1695,7 @@
     <text>Jésus lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Retourne chez toi et ne rentre pas dans le village.&gt;&gt; </text>
+    <text>&lt;&lt;Retourne chez toi et ne rentre pas dans le village.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -1768,7 +1770,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="38" />
-    <text>Les gens d'aujourd'hui sont pécheurs et infidèles à Dieu. Si quelqu'un a honte de moi et de mes paroles au milieu de ces gens-là, alors moi, le Fils de l'homme, j'aurai honte de lui quand je viendrai avec les anges saints, dans la gloire de mon Père.&gt;&gt; </text>
+    <text>Les gens d'aujourd'hui sont pécheurs et infidèles à Dieu. Si quelqu'un a honte de moi et de mes paroles au milieu de ces gens-là, alors moi, le Fils de l'homme, j'aurai honte de lui quand je viendrai avec les anges saints, dans la gloire de mon Père.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>9</text>
@@ -1842,7 +1844,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="13" />
-    <text>Pourtant, je vous le dis, Elie est déjà venu, et les gens lui ont fait tout ce qu'ils ont voulu, comme les Livres Saints l'ont annoncé.&gt;&gt; </text>
+    <text>Pourtant, je vous le dis, Elie est déjà venu, et les gens lui ont fait tout ce qu'ils ont voulu, comme les Livres Saints l'ont annoncé.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1917,7 +1919,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>L'esprit pousse des cris, il secoue l'enfant avec force et il sort. L'enfant a l'air d'être mort, et beaucoup de gens disent:</text>
+    <text>L'esprit pousse des cris, </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>il secoue l'enfant avec force et il sort. L'enfant a l'air d'être mort, et beaucoup de gens disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>&lt;&lt;Il est mort.&gt;&gt;</text>
@@ -1938,7 +1942,7 @@
     <text>Jésus leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="Jesus">
-    <text>&lt;&lt;C'est seulement par la prière qu'on peut faire sortir ce genre d'esprit.&gt;&gt; </text>
+    <text>&lt;&lt;C'est seulement par la prière qu'on peut faire sortir ce genre d'esprit.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1953,7 +1957,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
-    <text>Mais les disciples ne comprennent pas ce qu'il leur dit, et ils ont peur de lui poser des questions. </text>
+    <text>Mais les disciples ne comprennent pas ce qu'il leur dit, et ils ont peur de lui poser des questions.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -2037,7 +2041,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Le sel est une bonne chose. Mais quand le sel perd son goût, comment lui rendre son bon goût? Ayez du sel en vous-mêmes et vivez en paix les uns avec les autres.&gt;&gt; </text>
+    <text>Le sel est une bonne chose. Mais quand le sel perd son goût, comment lui rendre son bon goût? Ayez du sel en vous-mêmes et vivez en paix les uns avec les autres.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>10</text>
@@ -2213,7 +2217,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="31" />
-    <text>Parmi ceux qui sont les premiers maintenant, beaucoup seront les derniers. Et parmi ceux qui sont les derniers maintenant, beaucoup seront les premiers.&gt;&gt; </text>
+    <text>Parmi ceux qui sont les premiers maintenant, beaucoup seront les derniers. Et parmi ceux qui sont les derniers maintenant, beaucoup seront les premiers.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -2293,7 +2297,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="45" />
-    <text>En effet, le Fils de l'homme n'est pas venu pour être servi. Il est venu pour servir et donner sa vie pour libérer un grand nombre de gens.&gt;&gt; </text>
+    <text>En effet, le Fils de l'homme n'est pas venu pour être servi. Il est venu pour servir et donner sa vie pour libérer un grand nombre de gens.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="46" characterId="narrator-MRK">
     <verse num="46" />
@@ -2355,7 +2359,7 @@
     <text>&lt;&lt;Va! Ta foi t'a sauvé!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="52" characterId="narrator-MRK">
-    <text>Aussitôt l'aveugle voit comme avant et il se met à suivre Jésus sur le chemin. </text>
+    <text>Aussitôt l'aveugle voit comme avant et il se met à suivre Jésus sur le chemin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>11</text>
@@ -2489,7 +2493,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>Mais si vous ne pardonnez pas aux autres, votre Père qui est dans les cieux ne vous pardonnera pas non plus vos péchés.&gt;&gt; </text>
+    <text>Mais si vous ne pardonnez pas aux autres, votre Père qui est dans les cieux ne vous pardonnera pas non plus vos péchés.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -2534,7 +2538,7 @@
     <text>Et Jésus leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus">
-    <text>&lt;&lt;Moi non plus, je ne vous dis pas de quel droit je fais ces choses.&gt;&gt; </text>
+    <text>&lt;&lt;Moi non plus, je ne vous dis pas de quel droit je fais ces choses.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>12</text>
@@ -2715,7 +2719,7 @@
     <text>&lt;&lt;Tu n'es pas loin du Royaume de Dieu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="34" characterId="narrator-MRK">
-    <text>Et personne n'ose plus poser de questions à Jésus. </text>
+    <text>Et personne n'ose plus poser de questions à Jésus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -2927,7 +2931,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="37" />
-    <text>Ce que je vous dis, je le dis à tous: restez éveillés!&gt;&gt; </text>
+    <text>Ce que je vous dis, je le dis à tous: restez éveillés!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>14</text>
@@ -3044,7 +3048,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="21" />
-    <text>Le Fils de l'homme va mourir, comme les Livres Saints l'annoncent. Mais quel malheur pour celui qui livre le Fils de l'homme! Pour cet homme-là, ce serait une bonne chose de ne pas être né!&gt;&gt; </text>
+    <text>Le Fils de l'homme va mourir, comme les Livres Saints l'annoncent. Mais quel malheur pour celui qui livre le Fils de l'homme! Pour cet homme-là, ce serait une bonne chose de ne pas être né!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -3183,7 +3187,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Un des disciples prend son épée. Il frappe le serviteur du grand-prêtre et lui coupe l'oreille. </text>
+    <text>Un des disciples prend son épée. Il frappe le serviteur du grand-prêtre et </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>lui coupe l'oreille. </text>
     <verse num="48" />
     <text>Jésus leur dit:</text>
   </block>
@@ -3336,7 +3342,7 @@
     <text>&lt;&lt;Avant que le coq chante deux fois, tu diras trois fois que tu ne me connais pas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="72" characterId="narrator-MRK">
-    <text>Et Pierre se met à pleurer. </text>
+    <text>Et Pierre se met à pleurer.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>15</text>
@@ -3566,7 +3572,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="narrator-MRK">
     <verse num="41" />
-    <text>Elles ont suivi Jésus et l'ont servi quand il était en Galilée. Il y a là aussi beaucoup d'autres femmes qui étaient montées avec lui à Jérusalem. </text>
+    <text>Elles ont suivi Jésus et l'ont servi quand il était en Galilée. Il y a là aussi beaucoup d'autres femmes qui étaient montées avec lui à Jérusalem.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="42" characterId="narrator-MRK">
     <verse num="42" />
@@ -3603,7 +3609,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Marie de Magdala et Marie, mère de José, regardent l'endroit où on met Jésus. </text>
+    <text>Marie de Magdala et Marie, mère de José, regardent l'endroit où on met Jésus.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>16</text>

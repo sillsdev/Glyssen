@@ -16,7 +16,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>Il est heureux, celui qui lit ce livre! Ils sont heureux, ceux qui écoutent ces paroles venues de Dieu et qui obéissent aux choses écrites ici! Oui, le moment fixé pour ces événements est bientôt là. </text>
+    <text>Il est heureux, celui qui lit ce livre! Ils sont heureux, ceux qui écoutent ces paroles venues de Dieu et qui obéissent aux choses écrites ici! Oui, le moment fixé pour ces événements est bientôt là.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -92,7 +92,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Voici le sens caché des sept étoiles que tu vois dans ma main droite, et des sept lampes en or: les sept étoiles sont les anges des sept Eglises, et les sept lampes sont les sept Eglises.&gt;&gt; </text>
+    <text>Voici le sens caché des sept étoiles que tu vois dans ma main droite, et des sept lampes en or: les sept étoiles sont les anges des sept Eglises, et les sept lampes sont les sept Eglises.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>2</text>
@@ -211,7 +211,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="29" />
-    <text>&lt;&lt;Celui qui a des oreilles, qu'il écoute ce que l'Esprit Saint dit aux Eglises!&gt;&gt; </text>
+    <text>&lt;&lt;Celui qui a des oreilles, qu'il écoute ce que l'Esprit Saint dit aux Eglises!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>3</text>
@@ -238,7 +238,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="6" />
-    <text>&lt;&lt;Celui qui a des oreilles, qu'il écoute ce que l'Esprit Saint dit aux Eglises!&gt;&gt; </text>
+    <text>&lt;&lt;Celui qui a des oreilles, qu'il écoute ce que l'Esprit Saint dit aux Eglises!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
@@ -302,7 +302,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>&lt;&lt;Celui qui a des oreilles, qu'il écoute ce que l'Esprit Saint dit aux Eglises!&gt;&gt; </text>
+    <text>&lt;&lt;Celui qui a des oreilles, qu'il écoute ce que l'Esprit Saint dit aux Eglises!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>4</text>
@@ -332,7 +332,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Devant le siège de roi, il y a comme une mer aussi transparente que du verre. Au milieu, autour de ce siège, il y a quatre êtres vivants qui sont couverts d'yeux devant et derrière.</text>
+    <text>Devant le siège de roi, il y a comme une mer aussi transparente que du verre. </text>
+    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <text>Au milieu, autour de ce siège, il y a quatre êtres vivants qui sont couverts d'yeux devant et derrière.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -355,7 +357,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="twenty-four elders">
     <verse num="11" />
-    <text>&lt;&lt;Seigneur notre Dieu, tu es digne de recevoir la gloire, l'honneur et la puissance. C'est toi qui as créé toutes choses, tu as voulu qu'elles existent, et elles ont été créées.&gt;&gt; </text>
+    <text>&lt;&lt;Seigneur notre Dieu, tu es digne de recevoir la gloire, l'honneur et la puissance. C'est toi qui as créé toutes choses, tu as voulu qu'elles existent, et elles ont été créées.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>5</text>
@@ -391,6 +393,7 @@
     <text>Alors je vois un Agneau debout. Il est près du siège royal, au milieu des quatre êtres vivants et des anciens.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
+    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>L'Agneau semble offert en sacrifice. Il a sept cornes et sept yeux. Les yeux sont les sept esprits que Dieu envoie dans le monde entier.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV">
@@ -402,6 +405,7 @@
     <text>Quand l'Agneau a pris le livre, les quatre êtres vivants et les 24 anciens tombent à genoux devant lui. </text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
+    <sound effectName="Harp" userSpecifiesLocation="true" />
     <text>Chacun tient une harpe, et des coupes en or, pleines de parfum. Ce sont les prières de ceux qui appartiennent à Dieu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV">
@@ -441,7 +445,7 @@
     <text>&lt;&lt;Amen!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
-    <text>Les anciens tombent à genoux et ils adorent. </text>
+    <text>Les anciens tombent à genoux et ils adorent.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>6</text>
@@ -536,7 +540,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="kings, princes, generals, rich, powerful, slave and free" delivery="crying" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Oui, le grand jour de leur colère est arrivé. Qui peut vivre encore?&gt;&gt; </text>
+    <text>Oui, le grand jour de leur colère est arrivé. Qui peut vivre encore?&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>7</text>
@@ -617,7 +621,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="elders, one of the" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Oui, l'Agneau qui est près du siège royal sera leur berger. Il les conduira vers des sources d'eau, d'une eau qui donne la vie, et Dieu essuiera toutes les larmes de leurs yeux.&gt;&gt; </text>
+    <text>Oui, l'Agneau qui est près du siège royal sera leur berger. Il les conduira vers des sources d'eau, d'une eau qui donne la vie, et Dieu essuiera toutes les larmes de leurs yeux.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>8</text>
@@ -648,11 +652,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
-    <text>Le premier fait sonner sa trompette. De la glace et du feu mélangés de sang tombent sur la terre. Le tiers de la terre brûle, le tiers des arbres brûle, et toute l'herbe verte brûle.</text>
+    <text>Le premier fait sonner sa trompette. </text>
+    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <text>De la glace et du feu mélangés de sang tombent sur la terre. Le tiers de la terre brûle, le tiers des arbres brûle, et toute l'herbe verte brûle.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Le deuxième ange fait sonner sa trompette. Quelque chose comme une grande montagne de feu tombe dans la mer. Le tiers de la mer devient du sang,</text>
+    <text>Le deuxième ange fait sonner sa trompette. </text>
+    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <text>Quelque chose comme une grande montagne de feu tombe dans la mer. Le tiers de la mer devient du sang,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
@@ -660,7 +668,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>Le troisième ange fait sonner sa trompette. Une grande étoile tombe du ciel, elle brûle comme une flamme immense. Elle tombe sur le tiers des fleuves et sur les sources d'eau.</text>
+    <text>Le troisième ange fait sonner sa trompette. </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>Une grande étoile tombe du ciel, elle brûle comme une flamme immense. Elle tombe sur le tiers des fleuves et sur les sources d'eau.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -668,21 +678,25 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
-    <text>Le quatrième ange fait sonner sa trompette. Le tiers du soleil, le tiers de la lune et le tiers des étoiles sont frappés. Les parties frappées deviennent noires: le jour perd un tiers de sa lumière et la nuit aussi.</text>
+    <text>Le quatrième ange fait sonner sa trompette. Le tiers du </text>
+    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <text>soleil, le tiers de la lune et le tiers des étoiles sont frappés. Les parties frappées deviennent noires: le jour perd un tiers de sa lumière et la nuit aussi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>Je regarde encore. Un aigle vole très haut dans le ciel. Je l'entends crier avec force:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="eagle crying with loud voice">
-    <text>&lt;&lt;Malheur! Quel malheur pour les habitants de la terre! Quel malheur pour eux, quand les trois autres anges feront sonner leurs trompettes!&gt;&gt; </text>
+    <text>&lt;&lt;Malheur! Quel malheur pour les habitants de la terre! Quel malheur pour eux, quand les trois autres anges feront sonner leurs trompettes!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>9</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Le cinquième ange fait sonner sa trompette. Je vois une étoile qui tombe du ciel sur la terre. Elle reçoit la clé du puits qui conduit au trou sans fond, là où les esprits mauvais sont en prison.</text>
+    <text>Le cinquième ange fait sonner sa trompette. Je vois une </text>
+    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <text>étoile qui tombe du ciel sur la terre. Elle reçoit la clé du puits qui conduit au trou sans fond, là où les esprits mauvais sont en prison.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -749,7 +763,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
-    <text>Je regarde, et voici comment les chevaux et leurs cavaliers m'apparaissent: Ils portent des cuirasses rouges comme du feu, bleu foncé comme une pierre précieuse, et jaunes comme de la poussière brûlante. Les têtes des chevaux sont comme des têtes de lion. Leurs bouches crachent du feu, de la fumée et de la poussière brûlante.</text>
+    <text>Je regarde, et voici comment les chevaux et leurs cavaliers m'apparaissent: Ils portent des cuirasses rouges comme du feu, bleu foncé comme une pierre précieuse, et jaunes comme de la poussière brûlante. Les têtes des chevaux sont comme des têtes de lion. Leurs bouches </text>
+    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <text>crachent du feu, de la fumée et de la poussière brûlante.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
@@ -765,14 +781,16 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Ces gens-là continuent à tuer, à pratiquer la sorcellerie, à mener une vie immorale et à voler. </text>
+    <text>Ces gens-là continuent à tuer, à pratiquer la sorcellerie, à mener une vie immorale et à voler.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>10</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
     <verse num="1" />
-    <text>Je vois un autre ange puissant qui descend du ciel. Un nuage l'enveloppe comme un vêtement, un cercle brillant entoure sa tête. Son visage est comme le soleil, ses jambes sont comme des colonnes de feu.</text>
+    <text>Je vois un autre ange puissant qui descend du ciel. Un nuage l'enveloppe comme un vêtement, un cercle brillant entoure sa tête. Son visage est comme le soleil, </text>
+    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <text>ses jambes sont comme des colonnes de feu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV">
     <verse num="2" />
@@ -780,7 +798,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
     <verse num="3" />
-    <text>Il crie d'une voix forte comme un lion qui rugit. Quand il a crié, sept coups de tonnerre se font entendre.</text>
+    <text>Il crie d'une voix forte comme un lion </text>
+    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <text>qui rugit. Quand il a crié, sept coups de tonnerre se font entendre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
@@ -825,7 +845,7 @@
     <text>Ensuite on me dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="angel standing on sea and land">
-    <text>&lt;&lt;Tu dois encore parler au nom de Dieu, au sujet de beaucoup de peuples et de pays, de beaucoup de gens de toutes langues et au sujet de beaucoup de rois.&gt;&gt; </text>
+    <text>&lt;&lt;Tu dois encore parler au nom de Dieu, au sujet de beaucoup de peuples et de pays, de beaucoup de gens de toutes langues et au sujet de beaucoup de rois.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>11</text>
@@ -851,11 +871,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
     <verse num="5" />
-    <text>Si quelqu'un veut leur faire du mal, un feu sort de leur bouche et détruit leurs ennemis. Oui, celui qui veut leur faire du mal mourra de cette façon.</text>
+    <text>Si quelqu'un veut leur faire du mal, </text>
+    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <text>un feu sort de leur bouche et détruit leurs ennemis. Oui, celui qui veut leur faire du mal mourra de cette façon.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
     <verse num="6" />
-    <text>Ces témoins ont le pouvoir d'empêcher la pluie de tomber pendant le temps où ils parlent au nom de Dieu. Ils ont le pouvoir de changer l'eau en sang. Ils peuvent frapper la terre de toutes sortes de grands malheurs, aussi souvent qu'ils veulent.</text>
+    <text>Ces témoins ont le pouvoir d'empêcher la pluie de tomber pendant le temps où ils parlent au nom de Dieu. </text>
+    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <text>Ils ont le pouvoir de changer l'eau en sang. Ils peuvent frapper la terre de toutes sortes de grands malheurs, aussi souvent qu'ils veulent.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV">
     <verse num="7" />
@@ -875,7 +899,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Mais après ces trois jours et demi, un souffle de vie qui vient de Dieu entre dans le corps des prophètes, et ils se mettent debout. Alors ceux qui les regardent ont très peur.</text>
+    <text>Mais après ces trois jours et demi, </text>
+    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <text>un souffle de vie qui vient de Dieu entre dans le corps des prophètes, et ils se mettent debout. Alors ceux qui les regardent ont très peur.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -917,7 +943,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
-    <text>Dans le ciel, le temple de Dieu s'ouvre. On voit le coffre de l'alliance dans son temple. Alors il y a des éclairs, des bruits, des coups de tonnerre, un tremblement de terre et une forte pluie de glace. </text>
+    <text>Dans le ciel, le temple de Dieu s'ouvre. On voit le coffre de l'alliance dans son temple. Alors il y a des éclairs, des bruits, des coups de tonnerre, un tremblement de terre et une forte pluie de glace.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>12</text>
@@ -996,7 +1022,7 @@
     <verse num="17" />
     <text>Le dragon est très en colère contre la femme et il part faire la guerre contre le reste de ses enfants, ceux-là qui obéissent aux commandements de Dieu et qui sont les témoins de Jésus. </text>
     <verse num="18" />
-    <text>Puis le dragon se place au bord de la mer. </text>
+    <text>Puis le dragon se place au bord de la mer.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>13</text>
@@ -1077,7 +1103,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="narrator-REV">
     <verse num="18" />
-    <text>C'est le moment de montrer de la sagesse. Celui qui est intelligent peut comprendre le chiffre de la bête parce qu'il représente le nom d'un homme. Son chiffre est 666 . </text>
+    <text>C'est le moment de montrer de la sagesse. Celui qui est intelligent peut comprendre le chiffre de la bête parce qu'il représente le nom d'un homme. Son chiffre est 666 .</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>14</text>
@@ -1168,7 +1194,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
     <verse num="16" />
-    <text>Alors celui qui est assis sur le nuage fait passer sa faucille sur la terre, et la récolte est faite sur toute la terre.</text>
+    <text>Alors celui qui est assis sur le nuage fait passer sa </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>faucille sur la terre, et la récolte est faite sur toute la terre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV">
     <verse num="17" />
@@ -1187,7 +1215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>On écrase le raisin dans le pressoir en dehors de la ville, et du sang coule du pressoir. Le sang se répand sur 300 kilomètres et il monte jusqu'à la mâchoire des chevaux. </text>
+    <text>On écrase le raisin dans le pressoir en dehors de la ville, et du sang coule du pressoir. Le sang se répand sur 300 kilomètres et il monte jusqu'à la mâchoire des chevaux.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>15</text>
@@ -1225,7 +1253,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="narrator-REV">
     <verse num="8" />
-    <text>Une fumée remplit le temple, à cause de la gloire de Dieu et de sa puissance. Personne ne peut entrer dans le temple, jusqu'à la fin des sept grands malheurs apportés par les sept anges. </text>
+    <text>Une fumée remplit le temple, à cause de la gloire de Dieu et de sa puissance. Personne ne peut entrer dans le temple, jusqu'à la fin des sept grands malheurs apportés par les sept anges.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>16</text>
@@ -1289,7 +1317,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
-    <text>Ensuite, je vois sortir trois esprits mauvais de la gueule du dragon, de la gueule de la bête et de la bouche du faux prophète. Ces esprits ressemblent à des grenouilles.</text>
+    <text>Ensuite, je vois sortir trois esprits mauvais </text>
+    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <text>de la gueule du dragon, </text>
+    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <text>de la gueule de la bête et </text>
+    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <text>de la bouche du faux prophète. Ces esprits ressemblent à des grenouilles.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
@@ -1324,7 +1358,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Des gros blocs de glace tombent du ciel sur les gens. Les gens insultent Dieu, à cause du grand malheur de cette pluie de glace. En effet, ce malheur est vraiment terrible. </text>
+    <text>Des gros blocs de glace tombent du ciel sur les gens. Les gens insultent Dieu, à cause du grand malheur de cette pluie de glace. En effet, ce malheur est vraiment terrible.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>17</text>
@@ -1411,7 +1445,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="angel (one of the seven)" multiBlockQuote="Continuation">
     <verse num="18" />
-    <text>&lt;&lt;Et la femme que tu as vue, c'est la grande ville qui dirige les rois de la terre.&gt;&gt; </text>
+    <text>&lt;&lt;Et la femme que tu as vue, c'est la grande ville qui dirige les rois de la terre.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>18</text>
@@ -1438,7 +1472,8 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
     <text>&lt;&lt;Mon peuple, sors de Babylone! Ainsi, tu ne participeras pas à ses péchés, tu ne souffriras pas à cause des grands malheurs qui vont la frapper.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
+    <sound effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>Oui, ses péchés montent jusqu'au ciel, et Dieu se souvient des actions mauvaises de cette ville.</text>
   </block>
@@ -1455,11 +1490,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>C'est pourquoi, voici les grands malheurs qui sont pour elle: la mort, le deuil et la famine. Ils vont tomber sur elle en un seul jour, et le feu va la brûler. Oui, le Seigneur Dieu qui la juge est puissant.&gt;&gt;</text>
+    <text>C'est pourquoi, voici les grands malheurs qui sont pour elle: </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>la mort, le deuil et la famine. Ils vont tomber sur elle en un seul jour, et le feu va la brûler. Oui, le Seigneur Dieu qui la juge est puissant.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
     <verse num="9" />
-    <text>Des rois de la terre se sont prostitués avec elle, ils ont profité de son immense richesse. Alors, en voyant la fumée du feu qui la brûle, ils pleureront sur cette ville et ils seront en deuil à cause d'elle.</text>
+    <text>Des rois de la terre se sont prostitués avec elle, ils ont profité de son immense richesse. Alors, en voyant la </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>fumée du feu qui la brûle, ils pleureront sur cette ville et ils seront en deuil à cause d'elle.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
@@ -1498,9 +1537,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>mais une heure a suffi pour détruire tant de richesses!&gt;&gt; Tous les capitaines des bateaux, tous ceux qui voyagent sur la mer, les marins et les pêcheurs restent loin d'elle.</text>
+    <text>mais une heure a suffi pour détruire tant de richesses!&gt;&gt; </text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+    <text>Tous les capitaines des bateaux, tous ceux qui voyagent sur la mer, les marins et les pêcheurs restent loin d'elle. </text>
     <verse num="18" />
     <text>Quand ils voient la fumée du feu qui la brûle, ils crient:</text>
   </block>
@@ -1535,7 +1575,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="24" characterId="angel, powerful" multiBlockQuote="Continuation">
     <verse num="24" />
-    <text>De plus, chez toi a coulé le sang des prophètes, le sang de ceux qui appartiennent à Dieu, et de tous ceux qu'on a tués sur la terre.&gt;&gt; </text>
+    <text>De plus, chez toi a coulé le sang des prophètes, le sang de ceux qui appartiennent à Dieu, et de tous ceux qu'on a tués sur la terre.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>19</text>
@@ -1585,12 +1625,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
     <verse num="8" />
-    <text>Pour vêtement, elle a reçu un habit de toile fine, brillante et pure." </text>
+    <text>Pour vêtement, elle a reçu un habit de toile fine, brillante et pure."</text>
   </block>
   <block style="p" chapter="19" initialStartVerse="8" characterId="narrator-REV">
-    <text>La toile fine, ce sont les actions justes de ceux qui appartiennent à Dieu.</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-REV">
+    <text>La toile fine, ce sont les actions justes de ceux qui appartiennent à Dieu. </text>
     <verse num="9" />
     <text>L'ange me dit:</text>
   </block>
@@ -1654,11 +1692,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
     <verse num="20" />
-    <text>La bête est faite prisonnière et le faux prophète avec elle. Ce faux prophète avait fait des choses extraordinaires devant la bête. Et ainsi, il avait trompé ceux qui avaient reçu la marque de la bête et qui adoraient sa statue. La bête et le faux prophète sont jetés tout vivants dans le lac de feu et de poussière brûlante.</text>
+    <text>La bête est faite prisonnière et le faux prophète avec elle. Ce faux prophète avait fait des choses extraordinaires devant la bête. Et ainsi, il avait trompé ceux qui avaient reçu la marque de la bête et qui adoraient sa statue. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <text>La bête et le faux prophète sont jetés tout vivants dans le lac de feu et de poussière brûlante.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>L'épée qui sort de la bouche du cavalier tue ceux qui restent, et tous les oiseaux se nourrissent de leurs corps. </text>
+    <text>L'épée qui sort de la bouche du cavalier tue ceux qui restent, et tous les oiseaux se nourrissent de leurs corps.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>20</text>
@@ -1705,7 +1745,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>Ensuite, je vois un grand siège royal tout blanc, avec quelqu'un qui est assis dessus. La terre et le ciel disparaissent devant lui, et on ne les revoit plus.</text>
+    <text>Ensuite, je vois un grand siège royal tout blanc, avec quelqu'un qui est assis dessus. La </text>
+    <text>terre et le ciel disparaissent devant lui, et on ne les revoit plus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1714,14 +1755,17 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
     <verse num="13" />
     <text>La mer rend les morts qu'elle contient. La mort et le monde des morts rendent aussi leurs morts, et chacun est jugé selon ce qu'il a fait. </text>
+    <sound effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
     <verse num="14" />
-    <text>Puis la mort et le monde des morts sont jetés dans le lac de feu. Le lac de feu, c'est la deuxième mort.</text>
+    <text>Puis la mort et le monde des morts sont jetés dans le lac de feu. Le lac de feu, </text>
+    <sound effectName="Weird2" userSpecifiesLocation="true" />
+    <text>c'est la deuxième mort.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
     <verse num="15" />
-    <text>Et si quelqu'un n'a pas son nom écrit dans le livre de vie, il est jeté dans le lac de feu. </text>
+    <text>Et si quelqu'un n'a pas son nom écrit dans le livre de vie, il est jeté dans le lac de feu.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>21</text>
@@ -1782,7 +1826,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>L'Esprit Saint vient en moi et il me transporte sur une grande montagne. Elle est très haute. Il me montre la ville sainte, Jérusalem qui descend du ciel, envoyée par Dieu.</text>
+    <text>L'Esprit Saint vient en moi et il me transporte sur une grande montagne. Elle est très haute. </text>
+    <text>Il me montre la ville sainte, Jérusalem qui descend du ciel, envoyée par Dieu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
@@ -1850,7 +1895,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-REV">
     <verse num="27" />
-    <text>Rien d'impur ne pourra entrer dans cette ville, les gens qui commettent des actions horribles et les menteurs n'y entreront pas non plus. Mais ceux qui ont leur nom écrit dans le livre de vie de l'Agneau, ceux-là seulement pourront y entrer. </text>
+    <text>Rien d'impur ne pourra entrer dans cette ville, les gens qui commettent des actions horribles et les menteurs n'y entreront pas non plus. Mais ceux qui ont leur nom écrit dans le livre de vie de l'Agneau, ceux-là seulement pourront y entrer.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="REV" initialStartVerse="0" characterId="BC-REV">
     <text>22</text>
@@ -1967,7 +2012,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="narrator-REV">
     <verse num="21" />
-    <text>Que le Seigneur Jésus vous bénisse tous! </text>
+    <text>Que le Seigneur Jésus vous bénisse tous!</text>
   </block>
   <UnappliedSplits />
 </book>

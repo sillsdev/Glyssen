@@ -123,7 +123,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>El espíritu impuro hizo que al hombre le diera un ataque, y gritando con gran fuerza salió de él.</text>
+    <text>El espíritu impuro hizo que al hombre le diera un ataque, y gritando </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>con gran fuerza salió de él.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -158,7 +160,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Jesús sanó de toda clase de enfermedades a mucha gente, y expulsó a muchos demonios; pero no dejaba que los demonios hablaran, porque ellos lo conocían. </text>
+    <text>Jesús sanó de toda clase de enfermedades a mucha gente, y expulsó a muchos demonios; pero no dejaba que los demonios hablaran, porque ellos lo conocían.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -833,7 +835,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Jesús les dio permiso, y los espíritus impuros salieron del hombre y entraron en los cerdos. Estos, que eran unos dos mil, echaron a correr pendiente abajo hasta el lago, y allí se ahogaron.</text>
+    <text>Jesús les dio permiso, y los espíritus impuros salieron del hombre y </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>entraron en los cerdos. Estos, que eran unos dos mil, echaron a correr pendiente </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>abajo hasta el lago, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>y allí se ahogaron.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1014,13 +1022,7 @@
     <text>Cuando llegó el sábado, comenzó a enseñar en la sinagoga. Y muchos oyeron a Jesús, y se preguntaron admirados:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>¿Dónde aprendió este tantas cosas? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>¿De dónde ha sacado esa sabiduría y los milagros que hace?</text>
+    <text>¿Dónde aprendió este tantas cosas? ¿De dónde ha sacado esa sabiduría y los milagros que hace?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1040,7 +1042,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>Y estaba asombrado porque aquella gente no creía en él. Jesús recorría las aldeas cercanas, enseñando. </text>
+    <text>Y estaba asombrado porque aquella gente no creía en él. Jesús recorría las aldeas cercanas, enseñando.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -1918,7 +1920,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>El espíritu gritó, e hizo que le diera otro ataque al muchacho. Luego salió de él, dejándolo como muerto, de modo que muchos decían:</text>
+    <text>El espíritu gritó, </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>e hizo que le diera otro ataque al muchacho. Luego salió de él, dejándolo como muerto, de modo que muchos decían:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>&lt;&lt;Esta muerto!&gt;&gt;</text>
@@ -3185,7 +3189,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Pero uno de los que estaban allí sacó su espada y le cortó una oreja al criado del sumo sacerdote. </text>
+    <text>Pero uno de los que estaban allí sacó su espada y </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>le cortó una oreja al criado del sumo sacerdote. </text>
     <verse num="48" />
     <text>Y Jesús preguntó a la gente:</text>
   </block>
@@ -3514,7 +3520,7 @@
     <text>¡Que baje de la cruz ese Mesías, Rey de Israel, para que veamos y creamos!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-MRK">
-    <text>Y hasta los que estaban crucificados con él lo insultaban. </text>
+    <text>Y hasta los que estaban crucificados con él lo insultaban.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />

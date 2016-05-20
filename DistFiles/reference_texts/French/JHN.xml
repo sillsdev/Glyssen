@@ -324,7 +324,7 @@
     <text>Et Jésus ajoute:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="51" characterId="Jesus">
-    <text>&lt;&lt;Oui, je vous le dis, c'est la vérité, vous verrez le ciel ouvert et les anges de Dieu qui montent et descendent au-dessus du Fils de l'homme.&gt;&gt; </text>
+    <text>&lt;&lt;Oui, je vous le dis, c'est la vérité, vous verrez le ciel ouvert et les anges de Dieu qui montent et descendent au-dessus du Fils de l'homme.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>2</text>
@@ -454,7 +454,7 @@
     <verse num="24" />
     <text>Mais Jésus n'a pas confiance en eux, parce qu'il les connaît tous. </text>
     <verse num="25" />
-    <text>Il n'a pas besoin qu'on le renseigne sur les gens. Lui, il sait ce qu'il y a dans le cœur humain. </text>
+    <text>Il n'a pas besoin qu'on le renseigne sur les gens. Lui, il sait ce qu'il y a dans le cœur humain.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>3</text>
@@ -623,7 +623,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="36" characterId="John the Baptist" multiBlockQuote="Continuation">
     <verse num="36" />
-    <text>Celui qui croit au Fils a la vie avec Dieu pour toujours. Celui qui refuse de croire au Fils ne verra pas cette vie, mais la colère de Dieu restera sur lui.&gt;&gt; </text>
+    <text>Celui qui croit au Fils a la vie avec Dieu pour toujours. Celui qui refuse de croire au Fils ne verra pas cette vie, mais la colère de Dieu restera sur lui.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>4</text>
@@ -765,7 +765,7 @@
     <text>Jésus lui répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="Jesus">
-    <text>&lt;&lt;Le Christ, c'est moi qui te parle.&gt;&gt; </text>
+    <text>&lt;&lt;Le Christ, c'est moi qui te parle.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="narrator-JHN">
     <verse num="27" />
@@ -844,7 +844,7 @@
     <text>Ils disent à la femme:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="42" characterId="many Samaritans">
-    <text>&lt;&lt;Maintenant, nous ne croyons plus seulement à cause de ce que tu as dit. Mais nous l'avons entendu nous-mêmes. Et nous le savons: le Sauveur du monde, c'est vraiment lui!&gt;&gt; </text>
+    <text>&lt;&lt;Maintenant, nous ne croyons plus seulement à cause de ce que tu as dit. Mais nous l'avons entendu nous-mêmes. Et nous le savons: le Sauveur du monde, c'est vraiment lui!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="43" characterId="narrator-JHN">
     <verse num="43" />
@@ -919,7 +919,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="54" characterId="narrator-JHN">
     <verse num="54" />
-    <text>C'est le deuxième signe étonnant que Jésus fait. Cela se passe quand il revient de Judée en Galilée. </text>
+    <text>C'est le deuxième signe étonnant que Jésus fait. Cela se passe quand il revient de Judée en Galilée.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>5</text>
@@ -1129,7 +1129,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="47" />
-    <text>mais vous ne croyez pas ce que Moïse a écrit. Alors comment pouvez-vous croire ce que je dis?&gt;&gt; </text>
+    <text>mais vous ne croyez pas ce que Moïse a écrit. Alors comment pouvez-vous croire ce que je dis?&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>6</text>
@@ -1210,13 +1210,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-JHN">
     <verse num="15" />
-    <text>Mais Jésus le sait: ils vont venir le prendre pour le faire roi. Alors il s'éloigne de nouveau dans la montagne, tout seul. </text>
+    <text>Mais Jésus le sait: ils vont venir le prendre pour le faire roi. Alors il s'éloigne de nouveau dans la montagne, tout seul.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-JHN">
     <verse num="16" />
     <text>Quand le soir arrive, les disciples de Jésus descendent au bord du lac. </text>
     <verse num="17" />
-    <text>Ils montent dans une barque et ils vont vers Capernaüm, de l'autre côté du lac. Il fait déjà nuit, Jésus ne les a pas encore rejoints.</text>
+    <text>Ils montent dans une barque et ils vont vers Capernaüm, de l'autre côté du lac. </text>
+    <text>Il fait déjà nuit, Jésus ne les a pas encore rejoints.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-JHN">
     <verse num="18" />
@@ -1233,7 +1234,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-JHN">
     <verse num="21" />
-    <text>Ils veulent le prendre dans la barque, mais aussitôt, la barque arrive à l'endroit où ils allaient. </text>
+    <text>Ils veulent le prendre dans la barque, mais aussitôt, la barque arrive à l'endroit où ils allaient.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
@@ -1489,7 +1490,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="71" characterId="narrator-JHN">
     <verse num="71" />
-    <text>En disant cela, Jésus parle de Judas, fils de Simon Iscariote. En effet, c'est Judas qui va livrer Jésus, et Judas est l'un des douze apôtres. </text>
+    <text>En disant cela, Jésus parle de Judas, fils de Simon Iscariote. En effet, c'est Judas qui va livrer Jésus, et Judas est l'un des douze apôtres.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>7</text>
@@ -1678,7 +1679,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jews, the" multiBlockQuote="Continuation">
     <verse num="36" />
-    <text>Il nous a dit: &lt;Vous me chercherez et vous ne me trouverez pas. Vous ne pouvez pas aller là où je vais.&gt; Qu'est-ce que ces paroles veulent dire?&gt;&gt; </text>
+    <text>Il nous a dit: &lt;Vous me chercherez et vous ne me trouverez pas. Vous ne pouvez pas aller là où je vais.&gt; Qu'est-ce que ces paroles veulent dire?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="narrator-JHN">
     <verse num="37" />
@@ -1832,7 +1833,7 @@
     <text>Jésus lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="Jesus">
-    <text>&lt;&lt;Moi non plus, je ne te condamne pas. Tu peux t'en aller, et maintenant, ne commets plus de péché.&gt;&gt; </text>
+    <text>&lt;&lt;Moi non plus, je ne te condamne pas. Tu peux t'en aller, et maintenant, ne commets plus de péché.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-JHN">
     <verse num="12" />
@@ -2106,7 +2107,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="59" characterId="narrator-JHN">
     <verse num="59" />
-    <text>Alors ils ramassent des pierres pour les lancer sur Jésus, mais il se cache et il sort du temple. </text>
+    <text>Alors ils ramassent des pierres pour les lancer sur Jésus, mais il se cache et il sort du temple.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>9</text>
@@ -2394,7 +2395,7 @@
     <text>Jésus leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus">
-    <text>&lt;&lt;Si vous étiez aveugles, vous ne seriez pas pécheurs. Mais, en fait, vous dites: &lt;Nous voyons clair.&gt; C'est pourquoi vous restez des pécheurs.&gt;&gt; </text>
+    <text>&lt;&lt;Si vous étiez aveugles, vous ne seriez pas pécheurs. Mais, en fait, vous dites: &lt;Nous voyons clair.&gt; C'est pourquoi vous restez des pécheurs.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>10</text>
@@ -2486,7 +2487,7 @@
     <text>Mais d'autres disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Jews, other">
-    <text>&lt;&lt;Un homme qui a un esprit mauvais ne parle pas de cette façon. Et un esprit mauvais ne peut pas ouvrir les yeux des aveugles.&gt;&gt; </text>
+    <text>&lt;&lt;Un homme qui a un esprit mauvais ne parle pas de cette façon. Et un esprit mauvais ne peut pas ouvrir les yeux des aveugles.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
@@ -2584,7 +2585,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="narrator-JHN">
     <verse num="42" />
-    <text>Et là, beaucoup de gens croient en Jésus. </text>
+    <text>Et là, beaucoup de gens croient en Jésus.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>11</text>
@@ -2676,7 +2677,7 @@
     <text>Alors Thomas, appelé aussi le Jumeau, dit aux autres disciples:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Thomas" delivery="resigned">
-    <text>&lt;&lt;Allons-y nous aussi, pour mourir avec Jésus!&gt;&gt; </text>
+    <text>&lt;&lt;Allons-y nous aussi, pour mourir avec Jésus!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-JHN">
     <verse num="17" />
@@ -2899,7 +2900,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="57" characterId="narrator-JHN">
     <verse num="57" />
-    <text>Les chefs des prêtres et les Pharisiens ont donné cet ordre: &lt;&lt;Si quelqu'un sait où Jésus se trouve, il doit venir le dire. Alors nous ferons arrêter Jésus.&gt;&gt; </text>
+    <text>Les chefs des prêtres et les Pharisiens ont donné cet ordre: &lt;&lt;Si quelqu'un sait où Jésus se trouve, il doit venir le dire. Alors nous ferons arrêter Jésus.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>12</text>
@@ -2983,7 +2984,7 @@
     <text>Alors les Pharisiens se disent les uns aux autres:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="teachers of religious law/Pharisees">
-    <text>&lt;&lt;Vous voyez, vous n'arriverez à rien. Voilà que tout le monde marche derrière Jésus!&gt;&gt; </text>
+    <text>&lt;&lt;Vous voyez, vous n'arriverez à rien. Voilà que tout le monde marche derrière Jésus!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-JHN">
     <verse num="20" />
@@ -3138,7 +3139,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Et je le sais, le commandement du Père donne la vie pour toujours. Tout ce que je dis, je le dis comme le Père me l'a dit.&gt;&gt; </text>
+    <text>Et je le sais, le commandement du Père donne la vie pour toujours. Tout ce que je dis, je le dis comme le Père me l'a dit.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>13</text>
@@ -3264,7 +3265,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-JHN">
     <verse num="24" />
-    <text>Simon-Pierre fait un geste pour dire à ce disciple : </text>
+    <text>Simon-Pierre fait un geste pour dire à ce disciple :</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="24" characterId="Peter (Simon)" delivery="stage whisper">
     <text>&lt;&lt;Demande à Jésus de qui il parle.&gt;&gt;</text>
@@ -3353,7 +3354,7 @@
     <text>Jésus lui répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="38" characterId="Jesus">
-    <text>&lt;&lt;Tu es vraiment prêt à donner ta vie pour moi? Oui, je te le dis, c'est la vérité: avant que le coq chante, tu diras trois fois que tu ne me connais pas.&gt;&gt; </text>
+    <text>&lt;&lt;Tu es vraiment prêt à donner ta vie pour moi? Oui, je te le dis, c'est la vérité: avant que le coq chante, tu diras trois fois que tu ne me connais pas.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>14</text>
@@ -3498,7 +3499,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="31" />
-    <text>mais il vient parce que le monde doit savoir une chose: j'aime le Père et je fais tout ce que le Père m'a commandé. Levez-vous, partons d'ici!&gt;&gt; </text>
+    <text>mais il vient parce que le monde doit savoir une chose: j'aime le Père et je fais tout ce que le Père m'a commandé. Levez-vous, partons d'ici!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>15</text>
@@ -3609,7 +3610,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="27" />
-    <text>Et vous, vous serez mes témoins, parce que vous avez été avec moi depuis le début.&gt;&gt; </text>
+    <text>Et vous, vous serez mes témoins, parce que vous avez été avec moi depuis le début.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>16</text>
@@ -3755,7 +3756,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="33" />
-    <text>Je vous ai dit cela pour que par moi, vous ayez la paix. Dans le monde, vous allez souffrir. Mais soyez courageux: j'ai vaincu le monde.&gt;&gt; </text>
+    <text>Je vous ai dit cela pour que par moi, vous ayez la paix. Dans le monde, vous allez souffrir. Mais soyez courageux: j'ai vaincu le monde.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>17</text>
@@ -3863,7 +3864,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="26" characterId="Jesus" delivery="praying" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>Je leur ai fait connaître ton nom et je vais encore te faire connaître à eux. Ainsi, l'amour que tu as pour moi sera en eux, et moi aussi, je serai en eux.&gt;&gt; </text>
+    <text>Je leur ai fait connaître ton nom et je vais encore te faire connaître à eux. Ainsi, l'amour que tu as pour moi sera en eux, et moi aussi, je serai en eux.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>18</text>
@@ -3931,7 +3932,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <verse num="10" />
-    <text>Simon-Pierre porte une épée. Il la sort de son étui, il frappe le serviteur du grand-prêtre et lui coupe l'oreille droite.</text>
+    <text>Simon-Pierre porte une épée. Il la sort de son étui, il frappe le serviteur du grand-prêtre et </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>lui coupe l'oreille droite.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
     <text>Ce serviteur s'appelle Malkus. </text>
@@ -3993,7 +3996,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="narrator-JHN">
     <verse num="22" />
-    <text>Quand Jésus dit cela, un des gardes du temple qui est là lui donne une gifle. Il lui dit:</text>
+    <text>Quand Jésus dit cela, un des gardes du temple qui est là lui donne une </text>
+    <sound effectName="Slap" userSpecifiesLocation="true" />
+    <text>gifle. Il lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="officials of high priest, one of the" delivery="gruff">
     <text>&lt;&lt;C'est de cette façon que tu réponds au grand-prêtre?&gt;&gt;</text>
@@ -4134,7 +4139,7 @@
     <text>&lt;&lt;Non! Pas celui-là, mais Barabbas!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="40" characterId="narrator-JHN">
-    <text>Pourtant, ce Barabbas est un bandit. </text>
+    <text>Pourtant, ce Barabbas est un bandit.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>19</text>
@@ -4252,7 +4257,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="16" characterId="narrator-JHN">
     <verse num="16" />
-    <text>Alors il leur livre Jésus pour qu'on le cloue sur une croix. On emmène donc Jésus. </text>
+    <text>Alors il leur livre Jésus pour qu'on le cloue sur une croix. On emmène donc Jésus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="narrator-JHN">
     <verse num="17" />
@@ -4303,7 +4308,7 @@
     <text>&lt;&lt;Entre eux, ils ont partagé mes habits. Et ils ont tiré au sort pour savoir qui aura mon vêtement.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="narrator-JHN">
-    <text>Voilà ce que les soldats ont fait. </text>
+    <text>Voilà ce que les soldats ont fait.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="25" characterId="narrator-JHN">
     <verse num="25" />
@@ -4405,7 +4410,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="42" characterId="narrator-JHN">
     <verse num="42" />
-    <text>C'est le jour où les Juifs préparent le sabbat, et la tombe est toute proche. C'est pourquoi Joseph et Nicodème mettent Jésus dans cette tombe. </text>
+    <text>C'est le jour où les Juifs préparent le sabbat, et la tombe est toute proche. C'est pourquoi Joseph et Nicodème mettent Jésus dans cette tombe.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>20</text>
@@ -4556,7 +4561,7 @@
     <text>Mais Thomas leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Thomas" delivery="stubborn">
-    <text>&lt;&lt;Je veux voir la marque des clous dans ses mains. Je veux mettre mon doigt à la place des clous, et je veux mettre ma main dans son côté. Sinon, je ne croirai pas.&gt;&gt; </text>
+    <text>&lt;&lt;Je veux voir la marque des clous dans ses mains. Je veux mettre mon doigt à la place des clous, et je veux mettre ma main dans son côté. Sinon, je ne croirai pas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="narrator-JHN">
     <verse num="26" />
@@ -4592,7 +4597,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="narrator-JHN">
     <verse num="31" />
-    <text>Ceux qu'on a racontés ici vous permettent de croire que Jésus est le Messie, le Fils de Dieu. Alors, si vous croyez, vous aurez la vie par lui. </text>
+    <text>Ceux qu'on a racontés ici vous permettent de croire que Jésus est le Messie, le Fils de Dieu. Alors, si vous croyez, vous aurez la vie par lui.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="JHN" initialStartVerse="0" characterId="BC-JHN">
     <text>21</text>
@@ -4653,6 +4658,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
     <text>Quand Simon-Pierre entend: &lt;&lt;C'est le Seigneur&gt;&gt;, il met son vêtement de dessus, parce qu'il l'avait enlevé, et il se jette dans l'eau. </text>
+    <sound effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN">
     <verse num="8" />
@@ -4746,7 +4752,7 @@
     <verse num="18" />
     <text>Oui, je te le dis, c'est la vérité: quand tu étais jeune, tu mettais toi-même ta ceinture et tu allais où tu voulais.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
     <text>Quand tu seras vieux, tu étendras les mains. Un autre te mettra ta ceinture et il te conduira là où tu ne veux pas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="19" characterId="narrator-JHN">
@@ -4784,7 +4790,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="25" characterId="narrator-JHN">
     <verse num="25" />
-    <text>Jésus a encore fait beaucoup d'autres choses. Si on les écrivait toutes l'une après l'autre, à mon avis, le monde entier ne pourrait pas contenir les livres qu'on écrirait. </text>
+    <text>Jésus a encore fait beaucoup d'autres choses. Si on les écrivait toutes l'une après l'autre, à mon avis, le monde entier ne pourrait pas contenir les livres qu'on écrirait.</text>
   </block>
   <UnappliedSplits />
 </book>

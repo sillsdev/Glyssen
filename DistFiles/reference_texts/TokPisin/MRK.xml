@@ -43,7 +43,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="John the Baptist" multiBlockQuote="Continuation">
     <verse num="8" />
-    <text>Mi save baptaisim yupela long wara. Tasol em bai i baptaisim yupela long Holi Spirit." </text>
+    <text>Mi save baptaisim yupela long wara. Tasol em bai i baptaisim yupela long Holi Spirit."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
@@ -66,7 +66,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Na Jisas i stap long ples i no gat man inap long 40 de, na Satan i traim em. Em i stap wantaim ol wel abus. Na ol ensel i helpim em. </text>
+    <text>Na Jisas i stap long ples i no gat man inap long 40 de, na Satan i traim em. Em i stap wantaim ol wel abus. Na ol ensel i helpim em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -96,7 +96,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>Na em i singautim tupela, na tupela i lusim papa Sebedi i stap long bot wantaim ol wokman, na tupela i go bihainim Jisas. </text>
+    <text>Na em i singautim tupela, na tupela i lusim papa Sebedi i stap long bot wantaim ol wokman, na tupela i go bihainim Jisas.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -123,7 +123,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Na spirit nogut i sakim dispela man, na i singaut bikmaus tru, na i lusim dispela man.</text>
+    <text>Na spirit nogut i sakim dispela man, na i singaut bikmaus tru, </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>na i lusim dispela man.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -134,7 +136,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-MRK">
     <verse num="28" />
-    <text>Na kwiktaim stori bilong ol samting Jisas i mekim i raun long olgeta hap bilong Galili. </text>
+    <text>Na kwiktaim stori bilong ol samting Jisas i mekim i raun long olgeta hap bilong Galili.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-MRK">
     <verse num="29" />
@@ -158,7 +160,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Orait Jisas i mekim orait planti manmeri i gat kain kain sik. Na em i rausim planti spirit nogut. Ol spirit nogut ol i save long em, olsem na em i tambuim ol long ol i no ken toktok. </text>
+    <text>Orait Jisas i mekim orait planti manmeri i gat kain kain sik. Na em i rausim planti spirit nogut. Ol spirit nogut ol i save long em, olsem na em i tambuim ol long ol i no ken toktok.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -184,7 +186,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="39" characterId="narrator-MRK">
     <verse num="39" />
-    <text>Na em i raun i go long olgeta hap bilong Galili, na em i autim tok insait long ol haus lotu bilong ol, na em i rausim ol spirit nogut. </text>
+    <text>Na em i raun i go long olgeta hap bilong Galili, na em i autim tok insait long ol haus lotu bilong ol, na em i rausim ol spirit nogut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="40" characterId="narrator-MRK">
     <verse num="40" />
@@ -336,7 +338,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Na i no gat man i save pulimapim nupela wain long olpela skin meme. Sapos em i mekim olsem, orait wain bai i brukim skin meme, na wain na skin meme bai i lus wantaim. Nogat. Ol i save pulimapim nupela wain long ol nupela skin meme." </text>
+    <text>Na i no gat man i save pulimapim nupela wain long olpela skin meme. Sapos em i mekim olsem, orait wain bai i brukim skin meme, na wain na skin meme bai i lus wantaim. Nogat. Ol i save pulimapim nupela wain long ol nupela skin meme."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-MRK">
     <verse num="23" />
@@ -409,7 +411,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
-    <text>Na kwiktaim ol Farisi i kirap na lusim haus na i go, na ol i bung wantaim lain bilong Herot. Ol i wokim toktok bilong painim rot long kilim Jisas i dai. em </text>
+    <text>Na kwiktaim ol Farisi i kirap na lusim haus na i go, na ol i bung wantaim lain bilong Herot. Ol i wokim toktok bilong painim rot long kilim Jisas i dai. em</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-MRK">
     <verse num="7" />
@@ -439,7 +441,7 @@
     <text>Tasol Jisas i save tambuim ol strong long ol</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus">
-    <text>i no ken tokaut ples klia long em yet em i husat tru. </text>
+    <text>i no ken tokaut ples klia long em yet em i husat tru.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -715,7 +717,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Em i no autim klia wanpela tok long ol manmeri. Nogat. Em i save autim long tok piksa tasol. Na taim ol disaipel tasol i stap wantaim em, em i save autim as bilong olgeta tok long ol. </text>
+    <text>Em i no autim klia wanpela tok long ol manmeri. Nogat. Em i save autim long tok piksa tasol. Na taim ol disaipel tasol i stap wantaim em, em i save autim as bilong olgeta tok long ol.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -744,7 +746,7 @@
     <text>Na Jisas i kirap, na i krosim win, na i tokim wara olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="Jesus" delivery="forcefully">
-    <text>"Inap nau. Yu pinis! Yu dai nau!" </text>
+    <text>"Inap nau. Yu pinis! Yu dai nau!"</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="39" characterId="narrator-MRK">
     <text>Na win I dai, na wara i no mekim nais liklik. </text>
@@ -835,7 +837,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Orait Jisas i larim ol i go. Na ol spirit nogut i lusim dispela man, na ol i go insait long ol pik. Na ol dispela lain pik i ran strong tru i go daun long wanpela ples nogut. Na ol i pundaun long raunwara, na ol i dring wara na i dai. Namba bilong olgeta pik em inap olsem 2,000 .</text>
+    <text>Orait Jisas i larim ol i go. Na ol spirit nogut i lusim dispela man,</text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>na ol i go insait long ol pik. Na ol dispela lain pik i ran strong tru </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>i go daun long wanpela ples nogut. Na ol i pundaun long raunwara, na ol i dring wara na i dai. </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>Namba bilong olgeta pik em inap olsem 2,000 .</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -872,7 +880,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
-    <text>Olsem na dispela man i go, na em i wok long autim tok long olgeta hap bilong distrik Dekapolis long olgeta samting Jisas i bin mekim bilong helpim em. Na olgeta manmeri i harim na ol i tingting planti. </text>
+    <text>Olsem na dispela man i go, na em i wok long autim tok long olgeta hap bilong distrik Dekapolis long olgeta samting Jisas i bin mekim bilong helpim em. Na olgeta manmeri i harim na ol i tingting planti.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-MRK">
     <verse num="21" />
@@ -1016,13 +1024,7 @@
     <text>Long de Sabat em I go long haus lotu na i givim tok bilong God long ol manmeri. Na planti bilong ol manmeri i harim tok bilong en, ol i kirap nogut na ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>"Dispela man em i kisim dispela tok we? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>Dispela save i stap long en, em i wanem kain save? Na olsem wanem na em i wokim olkain mirakel tu?</text>
+    <text>"Dispela man em i kisim dispela tok we? Dispela save i stap long en, em i wanem kain save? Na olsem wanem na em i wokim olkain mirakel tu?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1108,9 +1110,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="Herod Antipas (the tetrarch)" delivery="fearful">
     <text>"Bipo mi katim nek bilong Jon, tasol nau em i kirap bek."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-MRK">
-    <text> </text>
-  </block>
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-MRK" />
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-MRK">
     <verse num="18" />
     <text>Bipo Herot I bin maritim Herodias, em meri bilong Filip, brata bilong Herot. Na Jon i bin tokim Herot olsem, Olsem na Herot i bin salim ol man i go holimpas Jon na pasim em long sen long haus kalabus.</text>
@@ -1178,7 +1178,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="29" characterId="narrator-MRK">
     <verse num="29" />
-    <text>Ol disaipel bilong Jon i harim tok long dispela samting Herot i bin mekim, na ol i kam kisim bodi bilong Jon na karim i go planim long matmat. </text>
+    <text>Ol disaipel bilong Jon i harim tok long dispela samting Herot i bin mekim, na ol i kam kisim bodi bilong Jon na karim i go planim long matmat.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
@@ -1487,7 +1487,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>Na meri i go bek long haus bilong en, na i lukim pikinini i slip long bet, na spirit nogut i lusim em pinis. </text>
+    <text>Na meri i go bek long haus bilong en, na i lukim pikinini i slip long bet, na spirit nogut i lusim em pinis.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1594,7 +1594,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
-    <text>na kwiktaim em i kalap long bot wantaim ol disaipel bilong en, na ol i go long hap bilong distrik Dalmanuta. </text>
+    <text>na kwiktaim em i kalap long bot wantaim ol disaipel bilong en, na ol i go long hap bilong distrik Dalmanuta.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
@@ -1666,7 +1666,7 @@
     <text>Na em i tokim ol,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning">
-    <text>"Yupela i no save yet, a?" </text>
+    <text>"Yupela i no save yet, a?"</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="narrator-MRK">
     <verse num="22" />
@@ -1919,7 +1919,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Na dispela spirit i singaut nogut, na em i sakim pikinini moa yet, na em i lusim em na i go. Na pikinini i stap olsem em i dai pinis. Na planti man i lukim na i tok,</text>
+    <text>Na dispela spirit i singaut nogut, </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>na em i sakim pikinini moa yet, na em i lusim em na i go. Na pikinini i stap olsem em i dai pinis. Na planti man i lukim na i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>"Em i dai pinis."</text>
@@ -1955,7 +1957,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
-    <text>Tasol ol i no save long as bilong dispela tok. Na ol i pret long askim em long tokim ol. </text>
+    <text>Tasol ol i no save long as bilong dispela tok. Na ol i pret long askim em long tokim ol.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -2421,7 +2423,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-MRK">
     <verse num="11" />
-    <text>Na Jisas i kamap long Jerusalem, na em i go insait long banis bilong tempel, na i lukluk raun long olgeta samting. Tasol nau san i laik i go daun, olsem na em i go bek long Betani wantaim ol 12 -pela disaipel bilong en. </text>
+    <text>Na Jisas i kamap long Jerusalem, na em i go insait long banis bilong tempel, na i lukluk raun long olgeta samting. Tasol nau san i laik i go daun, olsem na em i go bek long Betani wantaim ol 12 -pela disaipel bilong en.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
@@ -2437,7 +2439,7 @@
     <text>"Yu no ken karim kaikai moa na ol man i kaikai. Nogat tru."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-MRK">
-    <text>Na ol disaipel bilong en ol i harim dispela tok. </text>
+    <text>Na ol disaipel bilong en ol i harim dispela tok.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-MRK">
     <verse num="15" />
@@ -2460,7 +2462,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-MRK">
     <verse num="19" />
-    <text>Na long apinun Jisas wantaim ol disaipel ol i lusim Jerusalem na i go. </text>
+    <text>Na long apinun Jisas wantaim ol disaipel ol i lusim Jerusalem na i go.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-MRK">
     <verse num="20" />
@@ -2591,7 +2593,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
-    <text>Ol bikman i save, Jisas i laik sutim tok long ol tasol na em i mekim dispela tok piksa. Ol i laik tru long holimpas Jisas, tasol ol i pret long ol manmeri. Olsem na ol i lusim em na ol i go. </text>
+    <text>Ol bikman i save, Jisas i laik sutim tok long ol tasol na em i mekim dispela tok piksa. Ol i laik tru long holimpas Jisas, tasol ol i pret long ol manmeri. Olsem na ol i lusim em na ol i go.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
@@ -2633,7 +2635,7 @@
     <text>"Orait samting bilong Sisar, em yupela i mas givim long Sisar. Na samting bilong God, em yupela i mas givim long God."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-MRK">
-    <text>Ol i harim tok bilong en na ol i kirap nogut tru. </text>
+    <text>Ol i harim tok bilong en na ol i kirap nogut tru.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-MRK">
     <verse num="18" />
@@ -2931,7 +2933,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="37" />
-    <text>Dispela tok mi givim long yupela, em mi givim long olgeta manmeri. Yupela i mas was i stap." </text>
+    <text>Dispela tok mi givim long yupela, em mi givim long olgeta manmeri. Yupela i mas was i stap."</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MRK" initialStartVerse="0" characterId="BC-MRK">
     <text>14</text>
@@ -2995,7 +2997,7 @@
     <text>Na ol i promis long givim sampela mani long em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK">
-    <text>Na Judas i stat long painim rot bilong givim Jisas long han bilong ol. </text>
+    <text>Na Judas i stat long painim rot bilong givim Jisas long han bilong ol.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-MRK">
     <verse num="12" />
@@ -3021,7 +3023,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-MRK">
     <verse num="16" />
-    <text>Orait tupela disaipel i go. Tupela i kamap long taun, na tupela i lukim olgeta samting i stap olsem Jisas i bin tokim tupela. Na tupela i redim kaikai. </text>
+    <text>Orait tupela disaipel i go. Tupela i kamap long taun, na tupela i lukim olgeta samting i stap olsem Jisas i bin tokim tupela. Na tupela i redim kaikai.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-MRK">
     <verse num="17" />
@@ -3105,7 +3107,7 @@
     <text>"Maski sapos mi mas i dai wantaim yu, mi no inap tok olsem mi no save long yu. Nogat tru."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="31" characterId="narrator-MRK">
-    <text>Na olgeta disaipel ol i mekim wankain tok. </text>
+    <text>Na olgeta disaipel ol i mekim wankain tok.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="32" characterId="narrator-MRK">
     <verse num="32" />
@@ -3187,7 +3189,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Wanpela bilong ol man i sanap klostu, em i pulim bainat bilong en na i paitim wokboi bilong hetpris, na bainat i katim yau bilong en na yau i pundaun. </text>
+    <text>Wanpela bilong ol man i sanap klostu, em i pulim bainat bilong en na i paitim wokboi bilong hetpris, na bainat i </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>katim yau bilong en na yau i pundaun. </text>
     <verse num="48" />
     <text>Na Jisas i tokim ol olsem,</text>
   </block>
@@ -3208,7 +3212,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="52" characterId="narrator-MRK">
     <verse num="52" />
-    <text>tasol em i lusim waitpela laplap na i ranawe as nating tasol. </text>
+    <text>tasol em i lusim waitpela laplap na i ranawe as nating tasol.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="53" characterId="narrator-MRK">
     <verse num="53" />
@@ -3282,7 +3286,7 @@
     <text>"Yu mekim tok profet nau."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="narrator-MRK">
-    <text>Na ol plisman i kisim em na solapim em. </text>
+    <text>Na ol plisman i kisim em na solapim em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="66" characterId="narrator-MRK">
     <verse num="66" />
@@ -3371,7 +3375,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="narrator-MRK">
     <verse num="5" />
-    <text>Tasol Jisas i no bekim wanpela tok moa, na dispela i mekim Pailat i tingting planti. </text>
+    <text>Tasol Jisas i no bekim wanpela tok moa, na dispela i mekim Pailat i tingting planti.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-MRK">
     <verse num="6" />
@@ -3516,7 +3520,7 @@
     <text>Dispela man God i makim bilong kisim bek ol manmeri bilong en, dispela king bilong Israel, em i ken lusim diwai kros na i kam daun, na bai yumi ken lukim, na yumi ken bilip."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="narrator-MRK">
-    <text>Tupela man ol i bin hangamapim long ol diwai kros klostu long Jisas, tupela tu i mekim tok bilas long em. </text>
+    <text>Tupela man ol i bin hangamapim long ol diwai kros klostu long Jisas, tupela tu i mekim tok bilas long em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-MRK">
     <verse num="33" />
@@ -3645,7 +3649,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-MRK">
     <verse num="8" />
-    <text>Orait ol meri i go ausait, na ol i lusim matmat na i ranawe. Bel bilong ol i kirap nogut na ol i wok long guria. Na ol i no mekim wanpela tok long wanpela man, long wanem, ol i pret. Maria bilong Makdala i lukim Jisas </text>
+    <text>Orait ol meri i go ausait, na ol i lusim matmat na i ranawe. Bel bilong ol i kirap nogut na ol i wok long guria. Na ol i no mekim wanpela tok long wanpela man, long wanem, ol i pret. Maria bilong Makdala i lukim Jisas</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-MRK">
     <verse num="9" />
@@ -3665,7 +3669,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Na tupela i go autim dispela tok long ol arapela disaipel. Tasol ol i no bilipim tok bilong tupela. </text>
+    <text>Na tupela i go autim dispela tok long ol arapela disaipel. Tasol ol i no bilipim tok bilong tupela.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
