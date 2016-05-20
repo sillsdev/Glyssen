@@ -8,6 +8,7 @@ using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Utilities;
+using SIL.Scripture;
 using SIL.Xml;
 
 namespace Glyssen
@@ -332,6 +333,28 @@ namespace Glyssen
 		public override string ToString()
 		{
 			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
+		}
+
+		public string ToString(bool includeReference, string bookId = null)
+		{
+			if (!includeReference)
+				return ToString();
+
+			if (bookId == null && !string.IsNullOrEmpty(BookCode))
+				bookId = BookCode;
+			int bookNum;
+			if (bookId == null)
+			{
+				bookId = string.Empty;
+				bookNum = 1;
+			}
+			else
+				bookNum = BCVRef.BookToNumber(bookId);
+
+			var startRef = new BCVRef(bookNum, ChapterNumber, InitialStartVerseNumber);
+			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerse);
+			
+			return BCVRef.MakeReferenceString(bookId, startRef, endRef, ":", "-") + " : " + ToString();
 		}
 
 		/// <summary>
