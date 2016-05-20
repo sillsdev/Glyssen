@@ -117,7 +117,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
-    <text>Orait na ol i tromoi ston bilong makim husat i mas kisim dispela wok, na ston bilong Matias i kamap. Olsem na ol i putim em wantaim ol 11 -pela aposel. </text>
+    <text>Orait na ol i tromoi ston bilong makim husat i mas kisim dispela wok, na ston bilong Matias i kamap. Olsem na ol i putim em wantaim ol 11 -pela aposel.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>2</text>
@@ -327,7 +327,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="47" characterId="narrator-ACT">
     <verse num="47" />
-    <text>Oltaim ol i save litimapim nem bilong God, na olgeta manmeri i belgut long ol. Long olgeta de Bikpela i wok long kisim bek sampela manmeri, na long dispela pasin em i mekim namba bilong ol manmeri i bilip long Jisas i kamap planti moa. </text>
+    <text>Oltaim ol i save litimapim nem bilong God, na olgeta manmeri i belgut long ol. Long olgeta de Bikpela i wok long kisim bek sampela manmeri, na long dispela pasin em i mekim namba bilong ol manmeri i bilip long Jisas i kamap planti moa.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>3</text>
@@ -544,7 +544,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-ACT">
     <verse num="22" />
-    <text>Dispela man, tupela i wokim mirakel na mekim em i kamap orait, em i winim 40 krismas pinis. </text>
+    <text>Dispela man, tupela i wokim mirakel na mekim em i kamap orait, em i winim 40 krismas pinis.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
@@ -583,7 +583,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-ACT">
     <verse num="31" />
-    <text>Ol i beten pinis, na dispela haus ol i bung long en em i guria. Na Holi Spirit i pulap long ol, na ol i autim tok bilong God. Ol i tokaut strong na ol i no pret. </text>
+    <text>Ol i beten pinis, na dispela haus ol i bung long en em i guria. Na Holi Spirit i pulap long ol, na ol i autim tok bilong God. Ol i tokaut strong na ol i no pret.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-ACT">
     <verse num="32" />
@@ -603,7 +603,7 @@
     <verse num="36" />
     <text>Na i gat wanpela man i stap, nem bilong en Josep. Na ol aposel i givim narapela nem Barnabas long em. Nem Barnabas em i wankain olsem dispela tok, "Man bilong strongim bel." Barnabas em i wanpela Livai, na em i man bilong ailan Saiprus. </text>
     <verse num="37" />
-    <text>Em i salim wanpela hap graun bilong en long narapela man. Na mani em i kisim, em i bringim i kam na givim long ol aposel. </text>
+    <text>Em i salim wanpela hap graun bilong en long narapela man. Na mani em i kisim, em i bringim i kam na givim long ol aposel.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>5</text>
@@ -804,7 +804,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="narrator-ACT">
     <verse num="42" />
-    <text>Na long olgeta de, ol i save go long tempel na long ol haus bilong ol manmeri, na ol i wok long skulim ol manmeri. Ol i no lusim wok bilong autim gutnius. Nogat. Ol i tokaut klia olsem, Jisas em i dispela man God i bin promis long salim i kam bilong kisim bek ol manmeri bilong en. </text>
+    <text>Na long olgeta de, ol i save go long tempel na long ol haus bilong ol manmeri, na ol i wok long skulim ol manmeri. Ol i no lusim wok bilong autim gutnius. Nogat. Ol i tokaut klia olsem, Jisas em i dispela man God i bin promis long salim i kam bilong kisim bek ol manmeri bilong en.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>6</text>
@@ -876,7 +876,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-ACT">
     <verse num="15" />
-    <text>Na olgeta man i sindaun long kaunsil, ol i lukluk strong long Stiven, na ol i lukim pes bilong en i lait olsem pes bilong wanpela ensel. </text>
+    <text>Na olgeta man i sindaun long kaunsil, ol i lukluk strong long Stiven, na ol i lukim pes bilong en i lait olsem pes bilong wanpela ensel.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>7</text>
@@ -1175,6 +1175,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
     <text>Wanpela man i stap long dispela taun, nem bilong en Saimon. Bipo em i save mekim ol kain kain pasin bilong soim strong na pawa na mekim olkain marila samting, na ol manmeri bilong Samaria i lukim na ol i tingting planti. Em i save tok olsem, "Mi bikman." </text>
+    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -1247,7 +1248,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ACT">
     <verse num="25" />
-    <text>Orait tupela aposel i autim tok bilong Bikpela na i tokim ol manmeri long ol samting Bikpela i bin mekim long tupela. Na bihain tupela i go bek long Jerusalem. Na taim tupela i wokabaut i go, tupela i autim gutnius long planti ples bilong ol Samaria. </text>
+    <text>Orait tupela aposel i autim tok bilong Bikpela na i tokim ol manmeri long ol samting Bikpela i bin mekim long tupela. Na bihain tupela i go bek long Jerusalem. Na taim tupela i wokabaut i go, tupela i autim gutnius long planti ples bilong ol Samaria.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
@@ -1487,7 +1488,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-ACT">
     <verse num="25" />
-    <text>Tasol ol disaipel bilong Sol i kisim em long nait na ol i bringim em i go antap long bikpela banis i raunim taun. Na ol i tokim em long sindaun long wanpela bikpela basket, na ol i slekim basket i go daun long ausait bilong taun. </text>
+    <text>Tasol ol disaipel bilong Sol i kisim em long nait na ol i bringim em i go antap long bikpela banis i raunim taun. Na ol i tokim em long sindaun long wanpela bikpela basket, na ol i slekim basket i go daun long ausait bilong taun.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-ACT">
     <verse num="26" />
@@ -1532,7 +1533,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="narrator-ACT">
     <text>Orait em i kirap kwiktaim. </text>
     <verse num="35" />
-    <text>Na olgeta man bilong taun Lida na bilong stretpela hap graun bilong Saron, ol i lukim Ainias i kamap orait gen, na ol i tanim bel i go long Bikpela. </text>
+    <text>Na olgeta man bilong taun Lida na bilong stretpela hap graun bilong Saron, ol i lukim Ainias i kamap orait gen, na ol i tanim bel i go long Bikpela.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="36" characterId="narrator-ACT">
     <verse num="36" />
@@ -1573,7 +1574,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="narrator-ACT">
     <verse num="43" />
-    <text>Na Pita i stap planti de long Jopa. Em i stap wantaim wanpela man nem bilong en Saimon. Dispela man i save kisim ol skin bilong bulmakau samting na redim bilong ol arapela kain wok. </text>
+    <text>Na Pita i stap planti de long Jopa. Em i stap wantaim wanpela man nem bilong en Saimon. Dispela man i save kisim ol skin bilong bulmakau samting na redim bilong ol arapela kain wok.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>10</text>
@@ -1620,7 +1621,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-ACT">
     <verse num="8" />
-    <text>Na Kornilius i tokim gut dispela tripela man long olgeta samting i bin kamap long en, na em i salim ol i go long Jopa. </text>
+    <text>Na Kornilius i tokim gut dispela tripela man long olgeta samting i bin kamap long en, na em i salim ol i go long Jopa.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
@@ -1701,7 +1702,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
-    <text>Orait na Pita i kisim ol i go insait long haus na em i lukautim ol long dispela nait. </text>
+    <text>Orait na Pita i kisim ol i go insait long haus na em i lukautim ol long dispela nait.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
     <text>Na long de bihain em i kirap i go wantaim ol. Na sampela bilong ol disaipel bilong Jisas i stap long Jopa ol i go wantaim em.</text>
@@ -1814,7 +1815,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="narrator-ACT">
     <verse num="48" />
-    <text>Na Pita i tokim ol dispela manmeri olsem, "Yupela i mas kisim baptais long nem bilong Jisas Krais." Ol i kisim baptais pinis, orait ol i tokim em long i stap sampela de wantaim ol. </text>
+    <text>Na Pita i tokim ol dispela manmeri olsem, "Yupela i mas kisim baptais long nem bilong Jisas Krais." Ol i kisim baptais pinis, orait ol i tokim em long i stap sampela de wantaim ol.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>11</text>
@@ -1947,7 +1948,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-ACT">
     <verse num="30" />
-    <text>Na ol i salim Barnabas na Sol na tupela i bringim dispela mani i go na givim long ol hetman bilong sios. </text>
+    <text>Na ol i salim Barnabas na Sol na tupela i bringim dispela mani i go na givim long ol hetman bilong sios.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>12</text>
@@ -2088,7 +2089,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-ACT">
     <verse num="25" />
-    <text>Na Barnabas wantaim Sol tupela i pinisim wok bilong tupela long Jerusalem, na tupela i go bek long Antiok. Na tupela i bringim Jon Mak i go wantaim tupela. </text>
+    <text>Na Barnabas wantaim Sol tupela i pinisim wok bilong tupela long Jerusalem, na tupela i go bek long Antiok. Na tupela i bringim Jon Mak i go wantaim tupela.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>13</text>
@@ -2106,7 +2107,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-ACT">
     <verse num="3" />
-    <text>Olsem na ol i tambu long kaikai na i mekim prea, na ol i putim han long tupela, na ol i salim tupela i go. </text>
+    <text>Olsem na ol i tambu long kaikai na i mekim prea, na ol i putim han long tupela, na ol i salim tupela i go.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ACT">
     <verse num="4" />
@@ -2141,7 +2142,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Paul" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>Orait harim. Nau han bilong Bikpela em i paitim yu, na ai bilong yu bai i pas. Nau bai yu no inap lukim san, na bai yu stap olsem longtaim liklik." </text>
+    <text>Orait harim. Nau han bilong Bikpela em i paitim yu, na ai bilong yu bai i pas. Nau bai yu no inap lukim san, na bai yu stap olsem longtaim liklik."</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-ACT">
     <text>Pol i tok olsem na wantu tasol samting olsem klaut i tudak olgeta i pasim ai bilong Elimas. Na em i go nabaut na i wok long painim man bilong holim han bilong em na soim rot long em.</text>
@@ -2320,7 +2321,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="52" characterId="narrator-ACT">
     <verse num="52" />
-    <text>Tasol Holi Spirit i pulap long ol manmeri bilong Antiok i bilip long Jisas, na ol i amamas tru. </text>
+    <text>Tasol Holi Spirit i pulap long ol manmeri bilong Antiok i bilip long Jisas, na ol i amamas tru.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>14</text>
@@ -2447,7 +2448,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="28" characterId="narrator-ACT">
     <verse num="28" />
-    <text>Na tupela i stap planti de wantaim ol disaipel long Antiok. </text>
+    <text>Na tupela i stap planti de wantaim ol disaipel long Antiok.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>15</text>
@@ -2634,7 +2635,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="41" characterId="narrator-ACT">
     <verse num="41" />
-    <text>Orait na tupela i wokabaut i go nabaut long provins Siria na Silisia, na Pol i wok long strongim ol manmeri bilong ol sios i stap long dispela hap. </text>
+    <text>Orait na tupela i wokabaut i go nabaut long provins Siria na Silisia, na Pol i wok long strongim ol manmeri bilong ol sios i stap long dispela hap.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>16</text>
@@ -2706,7 +2707,7 @@
     <text>"Sapos yupela i ting mi bilip tru long Bikpela, orait yupela I ken i kam i stap long haus bilong mi."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-ACT">
-    <text>Na em i strong tumas long mipela, na mipela i bihainim tok bilong em. </text>
+    <text>Na em i strong tumas long mipela, na mipela i bihainim tok bilong em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
@@ -2807,10 +2808,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="35" characterId="narrator-ACT">
     <verse num="35" />
-    <text>Long moning ol jas i salim ol plisman i kam, na ol i tokim woda olsem, </text>
+    <text>Long moning ol jas i salim ol plisman i kam, na ol i tokim woda olsem,</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="35" characterId="officers of magistrates">
-    <text>Ol jas i tok, yu ken lusim dispela tupela man i go.</text>
+    <text>"Ol jas i tok, yu ken lusim dispela tupela man i go."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="36" characterId="narrator-ACT">
     <verse num="36" />
@@ -2839,7 +2840,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="40" characterId="narrator-ACT">
     <verse num="40" />
-    <text>Bihain long tupela i lusim haus kalabus, tupela i go long haus bilong Lidia. Tupela i lukim ol Kristen na i givim sampela tok long ol bilong strongim bel bilong ol. Na bihain tupela i lusim taun na i go. </text>
+    <text>Bihain long tupela i lusim haus kalabus, tupela i go long haus bilong Lidia. Tupela i lukim ol Kristen na i givim sampela tok long ol bilong strongim bel bilong ol. Na bihain tupela i lusim taun na i go.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>17</text>
@@ -2884,7 +2885,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
-    <text>Orait ol hetman i mekim Jeson wantaim ol arapela man i baim kot pastaim, na ol i lusim ol i go. </text>
+    <text>Orait ol hetman i mekim Jeson wantaim ol arapela man i baim kot pastaim, na ol i lusim ol i go.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -3005,7 +3006,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="34" characterId="narrator-ACT">
     <verse num="34" />
-    <text>Tasol sampela man i bihainim em na ol i bilip. Wanpela em Dionisius, em wanpela memba bilong dispela kaunsil i save bung long maunten Areopagus. Na wanpela meri, nem bilong en Damaris, em i bilip, na ol arapela manmeri tu i bilip. </text>
+    <text>Tasol sampela man i bihainim em na ol i bilip. Wanpela em Dionisius, em wanpela memba bilong dispela kaunsil i save bung long maunten Areopagus. Na wanpela meri, nem bilong en Damaris, em i bilip, na ol arapela manmeri tu i bilip.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>18</text>
@@ -3135,7 +3136,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-ACT">
     <verse num="28" />
-    <text>Em i strong moa long autim tok long ai bilong ol manmeri, bilong bekim na daunim tru ol tok kranki ol Juda i bin mekim. Em i autim tok bilong buk bilong God bilong soim ol klia tumas olsem, Jisas em i man God i makim bilong kisim bek ol manmeri bilong en. </text>
+    <text>Em i strong moa long autim tok long ai bilong ol manmeri, bilong bekim na daunim tru ol tok kranki ol Juda i bin mekim. Em i autim tok bilong buk bilong God bilong soim ol klia tumas olsem, Jisas em i man God i makim bilong kisim bek ol manmeri bilong en.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>19</text>
@@ -3342,7 +3343,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="41" characterId="narrator-ACT">
     <verse num="41" />
-    <text>Kuskus i tok pinis, na em i salim ol manmeri i go. </text>
+    <text>Kuskus i tok pinis, na em i salim ol manmeri i go.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="ACT" initialStartVerse="0" characterId="BC-ACT">
     <text>20</text>
@@ -3357,7 +3358,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="3" characterId="narrator-ACT">
     <verse num="3" />
-    <text>Em i stap tripela mun long Grik na bihain em i laik kisim sip na i go long distrik Siria. Tasol em i harim tok olsem ol Juda i bin pasim tok long kilim em i dai, olsem na em i senisim tingting na em i wokabaut i go bek long Masedonia. </text>
+    <text>Em i stap tripela mun long Grik na bihain em i laik kisim sip na i go long distrik Siria. Tasol em i harim tok olsem ol Juda i bin pasim tok long kilim em i dai, olsem na em i senisim tingting na em i wokabaut i go bek long Masedonia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="4" characterId="narrator-ACT">
     <verse num="4" />
@@ -3396,7 +3397,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-ACT">
     <verse num="12" />
-    <text>Na dispela yangpela man i stap laip na ol i kisim em i go. Olsem na bel bilong ol i gutpela tumas. </text>
+    <text>Na dispela yangpela man i stap laip na ol i kisim em i go. Olsem na bel bilong ol i gutpela tumas.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-ACT">
     <verse num="13" />
@@ -3412,7 +3413,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
-    <text>Pol i pasim tingting pinis long em i laik abrusim Efesus, long wanem, em i no laik lusim planti taim long provins Esia. Em i laik hariap. Sapos inap, em i laik lukim Bikpela De Bilong Pentikos long Jerusalem. </text>
+    <text>Pol i pasim tingting pinis long em i laik abrusim Efesus, long wanem, em i no laik lusim planti taim long provins Esia. Em i laik hariap. Sapos inap, em i laik lukim Bikpela De Bilong Pentikos long Jerusalem.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
@@ -3577,7 +3578,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
-    <text>Na sampela bilong ol disaipel i stap long Sisaria ol i go wantaim mipela. Ol i bringim mipela i go long haus bilong Nason, em i man bilong Saiprus, na bipo yet em i bin kamap disaipel. Na mipela i stap long haus bilong en. </text>
+    <text>Na sampela bilong ol disaipel i stap long Sisaria ol i go wantaim mipela. Ol i bringim mipela i go long haus bilong Nason, em i man bilong Saiprus, na bipo yet em i bin kamap disaipel. Na mipela i stap long haus bilong en.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />
@@ -3783,7 +3784,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="Paul" delivery="preaching">
     <verse num="21" />
-    <text>Tasol Bikpela i tokim mi olsem, 'Yu go. Bai mi salim yu na yu go long ol manmeri bilong ol arapela lain i stap ol longwe ples.'" </text>
+    <text>Tasol Bikpela i tokim mi olsem, 'Yu go. Bai mi salim yu na yu go long ol manmeri bilong ol arapela lain i stap ol longwe ples.'"</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="22" characterId="narrator-ACT">
     <verse num="22" />
@@ -3842,7 +3843,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="29" characterId="narrator-ACT">
     <verse num="29" />
-    <text>Ol soldia i laik wipim em ol i harim dispela tok, na kwiktaim ol i surik. Na taim namba wan ofisa i save olsem, Pol em i man bilong Rom, orait em tu i pret, long wanem, em i bin tokim ol soldia long pasim em long sen. </text>
+    <text>Ol soldia i laik wipim em ol i harim dispela tok, na kwiktaim ol i surik. Na taim namba wan ofisa i save olsem, Pol em i man bilong Rom, orait em tu i pret, long wanem, em i bin tokim ol soldia long pasim em long sen.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="30" characterId="narrator-ACT">
     <verse num="30" />
@@ -3860,7 +3861,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
     <verse num="2" />
-    <text>Em i tok olsem, na hetpris Ananaias i tokim ol man i sanap klostu long em long paitim maus bilong en. </text>
+    <text>Em i tok olsem, na hetpris Ananaias i tokim ol man i sanap klostu long em </text>
+    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <text>long paitim maus bilong en. </text>
     <verse num="3" />
     <text>Na Pol i tokim em olsem,</text>
   </block>
@@ -4154,7 +4157,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
-    <text>Na em i tokim kepten long em i mas putim Pol long kalabus, tasol em i no ken kalabusim em strong tumas. Em i no ken tambuim ol pren bilong Pol long helpim em long ol samting. </text>
+    <text>Na em i tokim kepten long em i mas putim Pol long kalabus, tasol em i no ken kalabusim em strong tumas. Em i no ken tambuim ol pren bilong Pol long helpim em long ol samting.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="narrator-ACT">
     <verse num="24" />
@@ -4534,7 +4537,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
     <verse num="15" />
-    <text>na i sakim sip strong tru. Ol boskru i laik tanim sip na i go bek, tasol ol i no inap. Olsem na ol i larim win i sakim sip i go.</text>
+    <text>na i sakim sip strong tru. Ol boskru i laik tanim sip na i go bek, tasol ol i no inap. </text>
+    <text>Olsem na ol i larim win i sakim sip i go.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
@@ -4581,7 +4585,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
     <verse num="26" />
-    <text>Tasol yumi mas larim sip i ran i go, na win bai i sakim sip i go pas long wanpela ailan." </text>
+    <text>Tasol yumi mas larim sip i ran i go, na win bai i sakim sip i go pas long wanpela ailan."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-ACT">
     <verse num="27" />
@@ -4732,7 +4736,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />
-    <text>Mipela i go insait long Rom, na gavman i orait long Pol i stap long wanpela haus bilong em yet, wantaim wanpela soldia i was long em. </text>
+    <text>Mipela i go insait long Rom, na gavman i orait long Pol i stap long wanpela haus bilong em yet, wantaim wanpela soldia i was long em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="17" characterId="narrator-ACT">
     <verse num="17" />

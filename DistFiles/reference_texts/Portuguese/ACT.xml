@@ -1175,6 +1175,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
     <text>Morava ali um homem chamado Simão, que desde algum tempo atrás fazia feitiçaria entre os * samaritanos e os havia deixado muito admirados. Ele se fazia de importante, </text>
+    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -2143,7 +2144,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Paul" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>Agora escute! O Senhor vai castigá-lo. Você ficará cego e não verá a luz do sol por algum tempo. </text>
+    <text>Agora escute! O Senhor vai castigá-lo. Você ficará cego e não verá a luz do sol por algum tempo.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-ACT">
     <text>No mesmo instante Elimas sentiu uma nuvem escura cobrir os seus olhos e ele começou a se virar para todos os lados, procurando alguém que o guiasse pela mão.</text>
@@ -2809,7 +2810,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="35" characterId="narrator-ACT">
     <verse num="35" />
-    <text>Quando amanheceu, as autoridades romanas mandaram alguns policiais com a seguinte ordem para o carcereiro: </text>
+    <text>Quando amanheceu, as autoridades romanas mandaram alguns policiais com a seguinte ordem para o carcereiro:</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="35" characterId="officers of magistrates">
     <text>“Solte esses homens.”</text>
@@ -3862,7 +3863,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
     <verse num="2" />
-    <text>Mas Ananias, o * Grande Sacerdote, mandou que os homens que estavam perto de Paulo dessem um tapa na boca dele. </text>
+    <text>Mas Ananias, o * Grande Sacerdote, mandou que os homens que estavam perto de Paulo </text>
+    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <text>dessem um tapa na boca dele. </text>
     <verse num="3" />
     <text>Aí Paulo disse a Ananias:</text>
   </block>
@@ -4537,7 +4540,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
     <verse num="15" />
-    <text>e arrastou o navio de tal maneira, que não pudemos fazer com que ele seguisse na direção certa. Por isso desistimos e deixamos que o vento nos levasse.</text>
+    <text>e arrastou o navio de tal maneira, que não pudemos fazer com que ele seguisse na direção certa. </text>
+    <text>Por isso desistimos e deixamos que o vento nos levasse.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />

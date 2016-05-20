@@ -52,7 +52,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH">
     <verse num="12" />
-    <text>Belә ki Allahımızın vә Rәbb İsa Mәsihin lütfünә görә Rәbbimiz İsanın adı sizdә izzәt qazansın vә siz dә Onda izzәt qazanasınız. </text>
+    <text>Belә ki Allahımızın vә Rәbb İsa Mәsihin lütfünә görә Rәbbimiz İsanın adı sizdә izzәt qazansın vә siz dә Onda izzәt qazanasınız.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH">
     <text>2</text>
@@ -123,7 +123,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH">
     <verse num="17" />
-    <text>sizi ürәklәndirsin, hәr yaxşı söz vә әmәldә möhkәmlәndirsin. </text>
+    <text>sizi ürәklәndirsin, hәr yaxşı söz vә әmәldә möhkәmlәndirsin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH">
     <text>3</text>
@@ -198,7 +198,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH">
     <verse num="18" />
-    <text>Rәbbimiz İsa Mәsihin lütfü hamınıza yar olsun! </text>
+    <text>Rәbbimiz İsa Mәsihin lütfü hamınıza yar olsun!</text>
   </block>
   <UnappliedSplits />
 </book>

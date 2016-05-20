@@ -52,7 +52,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH">
     <verse num="12" />
-    <text>De cette façon, grâce à vous, le nom de notre Seigneur Jésus recevra de la gloire, et lui aussi vous donnera de la gloire. Tout cela est un don de notre Dieu et du Seigneur Jésus-Christ. </text>
+    <text>De cette façon, grâce à vous, le nom de notre Seigneur Jésus recevra de la gloire, et lui aussi vous donnera de la gloire. Tout cela est un don de notre Dieu et du Seigneur Jésus-Christ.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH">
     <text>2</text>
@@ -123,7 +123,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH">
     <verse num="17" />
-    <text>de remplir vos cœurs de courage. Qu'ils vous donnent la force de faire toujours le bien en actes et en paroles! </text>
+    <text>de remplir vos cœurs de courage. Qu'ils vous donnent la force de faire toujours le bien en actes et en paroles!</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH">
     <text>3</text>
@@ -198,7 +198,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH">
     <verse num="18" />
-    <text>Que l'amour de notre Seigneur Jésus-Christ soit avec vous tous! </text>
+    <text>Que l'amour de notre Seigneur Jésus-Christ soit avec vous tous!</text>
   </block>
   <UnappliedSplits />
 </book>

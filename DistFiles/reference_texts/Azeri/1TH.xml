@@ -8,7 +8,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TH">
     <verse num="1" />
-    <text>Paul, Sila vә Timoteydәn Ata Allah vә Rәbb İsa Mәsihdә olan Saloniklilәr cәmiyyәtinә salam! Sizә lütf vә sülh olsun! </text>
+    <text>Paul, Sila vә Timoteydәn Ata Allah vә Rәbb İsa Mәsihdә olan Saloniklilәr cәmiyyәtinә salam! Sizә lütf vә sülh olsun!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TH">
     <verse num="2" />
@@ -44,7 +44,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TH">
     <verse num="10" />
-    <text>and to wait for his Son from heaven, whom he raised from the dead--Jesus, who delivers us from the wrath to come. </text>
+    <text>and to wait for his Son from heaven, whom he raised from the dead--Jesus, who delivers us from the wrath to come.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>2</text>
@@ -127,7 +127,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1TH">
     <verse num="20" />
-    <text>Çünki siz bizim izzәtimiz vә sevincimizsiniz. </text>
+    <text>Çünki siz bizim izzәtimiz vә sevincimizsiniz.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>3</text>
@@ -182,7 +182,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TH">
     <verse num="13" />
-    <text>Belә ki Rәbbimiz İsa bütün müqәddәslәri ilә birgә zühur edәcәyi vaxt Atamız Allahın önündә müqәddәslikdә nöqsansız olmağınız üçün ürәklәrinizә qüvvә versin. Amin. </text>
+    <text>Belә ki Rәbbimiz İsa bütün müqәddәslәri ilә birgә zühur edәcәyi vaxt Atamız Allahın önündә müqәddәslikdә nöqsansız olmağınız üçün ürәklәrinizә qüvvә versin. Amin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>4</text>
@@ -257,7 +257,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1TH">
     <verse num="18" />
-    <text>Buna görә bir-birinizә bu sözlәrlә tәsәlli verin. </text>
+    <text>Buna görә bir-birinizә bu sözlәrlә tәsәlli verin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1TH" initialStartVerse="0" characterId="BC-1TH">
     <text>5</text>
@@ -364,7 +364,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-1TH">
     <verse num="28" />
-    <text>Rәbbimiz İsa Mәsihin lütfü sizә yar olsun! </text>
+    <text>Rәbbimiz İsa Mәsihin lütfü sizә yar olsun!</text>
   </block>
   <UnappliedSplits />
 </book>

@@ -96,7 +96,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
     <verse num="23" />
-    <text>Sios em i bodi bilong Krais. Krais em i stap insait long olgeta samting na i pulapim ol tru, na em i pulap olgeta long sios bilong en. </text>
+    <text>Sios em i bodi bilong Krais. Krais em i stap insait long olgeta samting na i pulapim ol tru, na em i pulap olgeta long sios bilong en.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH">
     <text>2</text>
@@ -187,7 +187,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
     <verse num="22" />
-    <text>Yupela tu i pas long Krais, na God i bungim yupela wantaim ol arapela manmeri bilong en, na yupela i kamap haus tru bilong God, bai em wantaim Holi Spirit i ken i stap long dispela haus. </text>
+    <text>Yupela tu i pas long Krais, na God i bungim yupela wantaim ol arapela manmeri bilong en, na yupela i kamap haus tru bilong God, bai em wantaim Holi Spirit i ken i stap long dispela haus.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH">
     <text>3</text>
@@ -274,7 +274,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
     <verse num="21" />
-    <text>Olsem na oltaim oltaim ol manmeri bilong sios i mas litimapim nem bilong God long nem bilong Krais Jisas, inap long olgeta taim bihain. I tru. </text>
+    <text>Olsem na oltaim oltaim ol manmeri bilong sios i mas litimapim nem bilong God long nem bilong Krais Jisas, inap long olgeta taim bihain. I tru.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH">
     <text>4</text>
@@ -356,9 +356,7 @@
     <verse num="19" />
     <text>Ol i no save sem moa long pasin ol i save mekim. Ol i go insait tru long pasin nogut, na bel bilong ol i kirap tru long mekim ol kain kain pasin doti.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
-    <text> </text>
-  </block>
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH" />
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
     <verse num="21" />
     <text>Mi ting yupela i harim pinis tok bilong Krais, na ol i skulim yupela pinis long tok tru i stap long Jisas. Na mi save, ol i no bin skulim yupela long mekim ol dispela pasin nogut bilong ol haiden.</text>
@@ -539,7 +537,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
     <verse num="33" />
-    <text>Tasol dispela tok i tok tu long yupela man wan wan long yupela i mas laikim tru meri bilong yupela, olsem yupela i save laikim yupela yet. Na meri i mas i stap aninit long man bilong en na mekim gutpela pasin long em. </text>
+    <text>Tasol dispela tok i tok tu long yupela man wan wan long yupela i mas laikim tru meri bilong yupela, olsem yupela i save laikim yupela yet. Na meri i mas i stap aninit long man bilong en na mekim gutpela pasin long em.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH">
     <text>6</text>
@@ -641,7 +639,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
     <verse num="24" />
-    <text>God i ken mekim pasin bilong marimari long olgeta man i no save lusim pasin bilong laikim tru Bikpela bilong yumi Jisas Krais. </text>
+    <text>God i ken mekim pasin bilong marimari long olgeta man i no save lusim pasin bilong laikim tru Bikpela bilong yumi Jisas Krais.</text>
   </block>
   <UnappliedSplits />
 </book>

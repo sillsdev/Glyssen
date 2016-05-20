@@ -1176,6 +1176,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
     <text>Pero había allí un hombre llamado Simón, que antes había practicado la brujería y que había engañado a la gente de Samaria haciéndose pasar por una persona importante. </text>
+    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -1703,7 +1704,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
     <verse num="23" />
-    <text>Entonces Pedro los hizo entrar, y se quedaron con él aquella noche. </text>
+    <text>Entonces Pedro los hizo entrar, y se quedaron con él aquella noche.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
     <text>Al día siguiente, Pedro se fue con ellos, y lo acompañaron algunos de los hermanos que vivían en Jope.</text>
@@ -2144,7 +2145,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Paul" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>Ahora el Señor te va a castigar: vas a quedarte ciego, y por algún tiempo no podrás ver la luz del sol. </text>
+    <text>Ahora el Señor te va a castigar: vas a quedarte ciego, y por algún tiempo no podrás ver la luz del sol.</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-ACT">
     <text>Inmediatamente Elimas quedó en total oscuridad, y buscaba que alguien lo llevara de la mano porque estaba ciego.</text>
@@ -2810,7 +2811,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="35" characterId="narrator-ACT">
     <verse num="35" />
-    <text>Por la mañana, los jueces mandaron unos guardias al carcelero con la siguiente orden: </text>
+    <text>Por la mañana, los jueces mandaron unos guardias al carcelero con la siguiente orden:</text>
   </block>
   <block style="p" chapter="16" initialStartVerse="35" characterId="officers of magistrates">
     <text>&lt;&lt;Suelten a Pablo y Silas&gt;&gt;</text>
@@ -3863,7 +3864,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
     <verse num="2" />
-    <text>Entonces Ananías, que era sumo sacerdote, mandó a los que estaban cerca de Pablo: &lt;&lt;Peguenle en la boca!&gt;&gt; </text>
+    <text>Entonces Ananías, que era sumo sacerdote, mandó a los que estaban cerca de Pablo: </text>
+    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <text>&lt;&lt;Peguenle en la boca!&gt;&gt; </text>
     <verse num="3" />
     <text>Pero Pablo le contestó:</text>
   </block>
@@ -4537,7 +4540,8 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
     <verse num="15" />
-    <text>y comenzó a arrastrarlo. Como no podíamos mantener el barco de cara al viento, tuvimos que dejarnos llevar por él.</text>
+    <text>y comenzó a arrastrarlo. Como no podíamos mantener el barco de cara al viento, </text>
+    <text>tuvimos que dejarnos llevar por él.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT">
     <verse num="16" />

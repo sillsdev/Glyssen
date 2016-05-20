@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 using SIL.Scripture;
 
@@ -82,6 +83,53 @@ namespace Glyssen
 		public int EndVerse
 		{
 			get { return ScrReference.VerseToIntEnd(Number); }
+		}
+	}
+
+	public abstract class ScriptAnnotation : BlockElement
+	{
+		public abstract string ToDisplay { get; }
+	}
+
+	public class Pause : ScriptAnnotation
+	{
+		[XmlAttribute("seconds")]
+		public double Seconds { get; set; }
+
+		public override string ToDisplay
+		{
+			get { return string.Format("||| + {0} SECs |||", Seconds); }
+		}
+	}
+
+	public class Sound : ScriptAnnotation
+	{
+		[XmlAttribute("startVerse")]
+		[DefaultValue(0)]
+		public int StartVerse { get; set; }
+
+		[XmlAttribute("endVerse")]
+		[DefaultValue(0)]
+		public int EndVerse { get; set; }
+
+		[XmlAttribute("effectName")]
+		[DefaultValue(null)]
+		public string EffectName { get; set; }
+
+		[XmlAttribute("userSpecifiesLocation")]
+		[DefaultValue(false)]
+		public bool UserSpecifiesLocation { get; set; }
+
+		[XmlIgnore]
+		public override string ToDisplay {
+			get
+			{
+				if (UserSpecifiesLocation && !string.IsNullOrEmpty(EffectName))
+					return string.Format("{{F8 SFX--{0}}} ", EffectName);
+				if (StartVerse != 0)
+					return string.Format(" ||| DO NOT COMBINE ||| {{Music--Starts @ v{0}}}", StartVerse);
+				return string.Empty;
+			}
 		}
 	}
 }

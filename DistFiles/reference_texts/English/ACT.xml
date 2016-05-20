@@ -1177,6 +1177,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
     <verse num="9" />
     <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
+    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
     <verse num="10" />
@@ -3864,7 +3865,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
     <verse num="2" />
-    <text>The high priest, Ananias, commanded those who stood by him to  strike him on the mouth. </text>
+    <text>The high priest, Ananias, commanded those who stood by him to </text>
+    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <text>strike him on the mouth. </text>
     <verse num="3" />
     <text>Then Paul said to him,</text>
   </block>

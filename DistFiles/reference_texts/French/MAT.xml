@@ -72,7 +72,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
-    <text>Voici le total: il y a 14 générations depuis Abraham jusqu'à David. Il y a 14 générations depuis David jusqu'à ce qu'on emmène les Israélites prisonniers à Babylone. Ensuite, il y a encore 14 générations jusqu'au Christ. </text>
+    <text>Voici le total: il y a 14 générations depuis Abraham jusqu'à David. Il y a 14 générations depuis David jusqu'à ce qu'on emmène les Israélites prisonniers à Babylone. Ensuite, il y a encore 14 générations jusqu'au Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -102,15 +102,13 @@
     <text>&lt;&lt;La jeune fille attendra un enfant. Elle mettra au monde un fils. On l'appellera Emmanuel, </text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
-    <text>ce qui veut dire &lt;Dieu avec nous&gt;.&gt;&gt;</text>
-  </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-MAT">
+    <text>&lt;Dieu avec nous&gt;.&gt;&gt; </text>
     <verse num="24" />
     <text>Quand Joseph se réveille, il fait ce que l'ange du Seigneur lui a commandé. Il prend sa femme chez lui,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-MAT">
     <verse num="25" />
-    <text>mais il ne s'unit pas à elle jusqu'au jour où Marie met au monde un fils. Joseph donne à l'enfant le nom de Jésus. </text>
+    <text>mais il ne s'unit pas à elle jusqu'au jour où Marie met au monde un fils. Joseph donne à l'enfant le nom de Jésus.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>2</text>
@@ -230,7 +228,7 @@
     <text>Il vient habiter dans une ville qui s'appelle Nazareth. Ainsi les choses se passent comme les prophètes l'avaient annoncé:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-    <text>&lt;&lt;On l'appellera Nazaréen.&gt;&gt; </text>
+    <text>&lt;&lt;On l'appellera Nazaréen.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>3</text>
@@ -319,7 +317,7 @@
     <text>Une voix vient du ciel et dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="God">
-    <text>&lt;&lt;Celui-ci est mon Fils très aimé. C'est lui que j'ai choisi avec joie.&gt;&gt; </text>
+    <text>&lt;&lt;Celui-ci est mon Fils très aimé. C'est lui que j'ai choisi avec joie.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>4</text>
@@ -407,7 +405,7 @@
     <text>A partir de ce moment, Jésus se met à annoncer:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Jesus" delivery="preaching">
-    <text>&lt;&lt;Changez votre vie! Oui, le Royaume des cieux est tout près de vous!&gt;&gt; </text>
+    <text>&lt;&lt;Changez votre vie! Oui, le Royaume des cieux est tout près de vous!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -428,7 +426,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
-    <text>Aussitôt ils laissent leur barque et leur père et ils suivent Jésus. </text>
+    <text>Aussitôt ils laissent leur barque et leur père et ils suivent Jésus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -440,7 +438,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-MAT">
     <verse num="25" />
-    <text>Des foules nombreuses suivent Jésus. Elles viennent de Galilée, de la région des Dix Villes, de Jérusalem, de Judée et de la région à l'est du Jourdain. </text>
+    <text>Des foules nombreuses suivent Jésus. Elles viennent de Galilée, de la région des Dix Villes, de Jérusalem, de Judée et de la région à l'est du Jourdain.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>5</text>
@@ -631,7 +629,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="48" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="48" />
-    <text>Soyez donc parfaits, comme votre Père dans les cieux est parfait!&gt;&gt; </text>
+    <text>Soyez donc parfaits, comme votre Père dans les cieux est parfait!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>6</text>
@@ -694,7 +692,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Mais si vous ne pardonnez pas aux autres, votre Père ne vous pardonnera pas vos fautes non plus.&gt;&gt; </text>
+    <text>Mais si vous ne pardonnez pas aux autres, votre Père ne vous pardonnera pas vos fautes non plus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
     <verse num="16" />
@@ -770,7 +768,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="34" />
-    <text>&lt;&lt;Donc, ne vous faites pas de souci pour demain. Demain se fera du souci pour lui-même. La fatigue d'aujourd'hui suffit pour aujourd'hui!&gt;&gt; </text>
+    <text>&lt;&lt;Donc, ne vous faites pas de souci pour demain. Demain se fera du souci pour lui-même. La fatigue d'aujourd'hui suffit pour aujourd'hui!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>7</text>
@@ -889,7 +887,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="narrator-MAT">
     <verse num="29" />
-    <text>En effet, il ne fait pas comme les maîtres de la loi, mais il enseigne avec l'autorité que Dieu lui donne. </text>
+    <text>En effet, il ne fait pas comme les maîtres de la loi, mais il enseigne avec l'autorité que Dieu lui donne.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>8</text>
@@ -918,7 +916,7 @@
     <text>Jésus lui dit encore:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Attention, ne dis rien à personne! Mais va te montrer au prêtre et offre le sacrifice que Moïse a commandé. Ainsi, tous auront la preuve que tu es guéri.&gt;&gt; </text>
+    <text>&lt;&lt;Attention, ne dis rien à personne! Mais va te montrer au prêtre et offre le sacrifice que Moïse a commandé. Ainsi, tous auront la preuve que tu es guéri.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
@@ -1021,7 +1019,7 @@
     <text>Jésus lui répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Jesus" delivery="giving orders">
-    <text>&lt;&lt;Suis-moi, et laisse les morts enterrer leurs morts!&gt;&gt; </text>
+    <text>&lt;&lt;Suis-moi, et laisse les morts enterrer leurs morts!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -1083,7 +1081,13 @@
     <text>&lt;&lt;Allez-y!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
-    <text>Les esprits mauvais sortent des deux hommes et ils entrent dans les cochons. Alors tout le troupeau se précipite du haut de la pente dans le lac, et les cochons se noient.</text>
+    <text>Les esprits mauvais sortent </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>des deux hommes et ils entrent dans les cochons. Alors tout le troupeau se précipite </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>du haut de la pente dans le lac, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>et les cochons se noient.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT">
     <verse num="33" />
@@ -1094,7 +1098,7 @@
     <text>Tous les habitants de la ville sortent pour aller à la rencontre de Jésus. Quand ils le voient, ils le supplient en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Gadarene (or Gerasenes) people" delivery="pleading">
-    <text>&lt;&lt;Quitte notre pays!&gt;&gt; </text>
+    <text>&lt;&lt;Quitte notre pays!&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>9</text>
@@ -1198,7 +1202,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="17" />
-    <text>Personne ne met du vin nouveau dans de vieilles outres, sinon, les outres éclatent, le vin coule par terre et les outres sont abîmées. Mais on met du vin nouveau dans des outres neuves. Ainsi le vin et les outres se conservent bien.&gt;&gt; </text>
+    <text>Personne ne met du vin nouveau dans de vieilles outres, sinon, les outres éclatent, le vin coule par terre et les outres sont abîmées. Mais on met du vin nouveau dans des outres neuves. Ainsi le vin et les outres se conservent bien.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
@@ -1307,7 +1311,7 @@
     <text>Mais les Pharisiens disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="Pharisees" delivery="accusing">
-    <text>&lt;&lt;C'est le chef des esprits mauvais qui donne à Jésus le pouvoir de chasser ces esprits!&gt;&gt; </text>
+    <text>&lt;&lt;C'est le chef des esprits mauvais qui donne à Jésus le pouvoir de chasser ces esprits!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="35" characterId="narrator-MAT">
     <verse num="35" />
@@ -1326,7 +1330,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="38" />
-    <text>Demandez donc au propriétaire de la récolte d'envoyer encore des ouvriers pour faire sa récolte.&gt;&gt; </text>
+    <text>Demandez donc au propriétaire de la récolte d'envoyer encore des ouvriers pour faire sa récolte.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>10</text>
@@ -1500,7 +1504,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="42" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
     <verse num="42" />
-    <text>si quelqu'un donne à boire un verre d'eau fraîche à l'un de ces petits parce que c'est mon disciple, il aura sûrement sa récompense.&gt;&gt; </text>
+    <text>si quelqu'un donne à boire un verre d'eau fraîche à l'un de ces petits parce que c'est mon disciple, il aura sûrement sa récompense.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>11</text>
@@ -1570,7 +1574,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="15" />
-    <text>Celui qui a des oreilles, qu'il écoute! </text>
+    <text>Celui qui a des oreilles, qu'il écoute!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Start">
     <verse num="16" />
@@ -1633,7 +1637,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="30" />
-    <text>Oui, la charge que je mettrai sur vous est facile à porter, ce que je vous donne à porter est léger.&gt;&gt; </text>
+    <text>Oui, la charge que je mettrai sur vous est facile à porter, ce que je vous donne à porter est léger.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>12</text>
@@ -1877,7 +1881,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="50" />
-    <text>Oui, si quelqu'un fait la volonté de mon Père qui est dans les cieux, cette personne est mon frère, ma sœur, ma mère.&gt;&gt; </text>
+    <text>Oui, si quelqu'un fait la volonté de mon Père qui est dans les cieux, cette personne est mon frère, ma sœur, ma mère.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>13</text>
@@ -1917,7 +1921,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>Et Jésus ajoute: &lt;&lt;Celui qui a des oreilles, qu'il écoute!&gt;&gt; </text>
+    <text>Et Jésus ajoute: &lt;&lt;Celui qui a des oreilles, qu'il écoute!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-MAT">
     <verse num="10" />
@@ -2125,7 +2129,7 @@
     <text>Jésus leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="52" characterId="Jesus">
-    <text>&lt;&lt;Un maître de la loi qui devient disciple du Royaume des cieux, voici à qui il ressemble: il est comme un maître de maison qui tire de son trésor des choses nouvelles et des choses anciennes.&gt;&gt; </text>
+    <text>&lt;&lt;Un maître de la loi qui devient disciple du Royaume des cieux, voici à qui il ressemble: il est comme un maître de maison qui tire de son trésor des choses nouvelles et des choses anciennes.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="53" characterId="narrator-MAT">
     <verse num="53" />
@@ -2155,7 +2159,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="58" characterId="narrator-MAT">
     <verse num="58" />
-    <text>A Nazareth, Jésus ne peut pas faire beaucoup de miracles, parce que les gens ne croient pas. </text>
+    <text>A Nazareth, Jésus ne peut pas faire beaucoup de miracles, parce que les gens ne croient pas.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>14</text>
@@ -2260,7 +2264,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
-    <text>Il y a environ 5,000 hommes qui ont mangé, sans compter les femmes et les enfants. </text>
+    <text>Il y a environ 5,000 hommes qui ont mangé, sans compter les femmes et les enfants.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-MAT">
     <verse num="22" />
@@ -2345,7 +2349,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="36" characterId="narrator-MAT">
     <verse num="36" />
-    <text>On supplie Jésus: &lt;&lt;Laisse-les toucher seulement le bord de ton vêtement!&gt;&gt; Et tous ceux qui le touchent sont guéris. </text>
+    <text>On supplie Jésus: &lt;&lt;Laisse-les toucher seulement le bord de ton vêtement!&gt;&gt; Et tous ceux qui le touchent sont guéris.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>15</text>
@@ -2444,7 +2448,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Voilà ce qui rend une personne impure. Mais quand on ne se lave pas les mains avant de manger, cela ne rend pas impur.&gt;&gt; </text>
+    <text>Voilà ce qui rend une personne impure. Mais quand on ne se lave pas les mains avant de manger, cela ne rend pas impur.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
@@ -2562,7 +2566,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="39" characterId="narrator-MAT">
     <verse num="39" />
-    <text>Ensuite, Jésus renvoie les foules. Il monte dans la barque et il va dans la région de Magadan. </text>
+    <text>Ensuite, Jésus renvoie les foules. Il monte dans la barque et il va dans la région de Magadan.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>16</text>
@@ -2717,7 +2721,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>Je vous le dis, c'est la vérité: quelques-uns ici ne mourront pas avant de voir le Fils de l'homme venir comme roi.&gt;&gt; </text>
+    <text>Je vous le dis, c'est la vérité: quelques-uns ici ne mourront pas avant de voir le Fils de l'homme venir comme roi.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>17</text>
@@ -2813,7 +2817,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
     <verse num="18" />
-    <text>Jésus menace l'esprit mauvais, et il sort de l'enfant. Au même moment, l'enfant est guéri.</text>
+    <text>Jésus menace l'esprit mauvais, et il sort </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>de l'enfant. Au même moment, l'enfant est guéri.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT">
     <verse num="19" />
@@ -2880,7 +2886,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="27" />
-    <text>Mais ceux qui font payer l'impôt du temple ne comprendront pas cela. C'est pourquoi, va pêcher dans le lac. Prends le premier poisson qui viendra, ouvre-lui la bouche. Tu trouveras une pièce d'argent. Prends-la et donne-la pour payer mon impôt et le tien.&gt;&gt; </text>
+    <text>Mais ceux qui font payer l'impôt du temple ne comprendront pas cela. C'est pourquoi, va pêcher dans le lac. Prends le premier poisson qui viendra, ouvre-lui la bouche. Tu trouveras une pièce d'argent. Prends-la et donne-la pour payer mon impôt et le tien.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>18</text>
@@ -2967,7 +2973,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Oui, quand deux ou trois sont réunis en mon nom, je suis là au milieu d'eux.&gt;&gt; </text>
+    <text>Oui, quand deux ou trois sont réunis en mon nom, je suis là au milieu d'eux.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-MAT">
     <verse num="21" />
@@ -3033,7 +3039,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>&lt;&lt;Mon Père qui est dans les cieux vous fera la même chose, si chacun de vous ne pardonne pas à ses frères et sœurs de tout son cœur.&gt;&gt; </text>
+    <text>&lt;&lt;Mon Père qui est dans les cieux vous fera la même chose, si chacun de vous ne pardonne pas à ses frères et sœurs de tout son cœur.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>19</text>
@@ -3209,7 +3215,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="30" />
-    <text>Parmi ceux qui sont les premiers maintenant, beaucoup seront les derniers. Et parmi ceux qui sont les derniers maintenant, beaucoup seront les premiers.&gt;&gt; </text>
+    <text>Parmi ceux qui sont les premiers maintenant, beaucoup seront les derniers. Et parmi ceux qui sont les derniers maintenant, beaucoup seront les premiers.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>20</text>
@@ -3274,7 +3280,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
-    <text>Et Jésus ajoute: &lt;&lt;Ainsi, les derniers seront les premiers, et les premiers seront les derniers.&gt;&gt; </text>
+    <text>Et Jésus ajoute: &lt;&lt;Ainsi, les derniers seront les premiers, et les premiers seront les derniers.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="narrator-MAT">
     <verse num="17" />
@@ -3344,7 +3350,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="28" />
-    <text>De la même façon, le Fils de l'homme n'est pas venu pour être servi. Mais il est venu pour servir et donner sa vie pour libérer un grand nombre de gens.&gt;&gt; </text>
+    <text>De la même façon, le Fils de l'homme n'est pas venu pour être servi. Mais il est venu pour servir et donner sa vie pour libérer un grand nombre de gens.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="29" characterId="narrator-MAT">
     <verse num="29" />
@@ -3386,7 +3392,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="34" characterId="narrator-MAT">
     <verse num="34" />
-    <text>Jésus est plein de pitié pour eux, il touche leurs yeux. Aussitôt, les aveugles voient clair et ils suivent Jésus. </text>
+    <text>Jésus est plein de pitié pour eux, il touche leurs yeux. Aussitôt, les aveugles voient clair et ils suivent Jésus.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>21</text>
@@ -3443,7 +3449,7 @@
     <text>Les foules répondent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="crowd" delivery="praising">
-    <text>&lt;&lt;C'est le prophète Jésus, de la ville de Nazareth en Galilée.&gt;&gt; </text>
+    <text>&lt;&lt;C'est le prophète Jésus, de la ville de Nazareth en Galilée.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-MAT">
     <verse num="12" />
@@ -3511,7 +3517,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="22" />
-    <text>Si vous avez la foi, vous recevrez tout ce que vous demanderez dans la prière.&gt;&gt; </text>
+    <text>Si vous avez la foi, vous recevrez tout ce que vous demanderez dans la prière.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-MAT">
     <verse num="23" />
@@ -3649,7 +3655,7 @@
     <text>Quand ils ont cherché à se saisir de lui, ils ont dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="46" characterId="chief priests/Pharisees">
-    <text>"Nous craignons que les gens parce qu'ils pensent qu'il est un prophète." </text>
+    <text>"Nous craignons que les gens parce qu'ils pensent qu'il est un prophète."</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>22</text>
@@ -3869,7 +3875,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="46" characterId="narrator-MAT">
     <verse num="46" />
-    <text>Parmi les Pharisiens, aucun ne peut répondre un seul mot à Jésus. Et, à partir de ce jour-là, personne n'ose plus lui poser de questions. </text>
+    <text>Parmi les Pharisiens, aucun ne peut répondre un seul mot à Jésus. Et, à partir de ce jour-là, personne n'ose plus lui poser de questions.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>23</text>
@@ -4028,7 +4034,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="39" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="39" />
-    <text>En effet, je vous le dis, bientôt vous ne me verrez plus jusqu'au jour où vous direz: &lt;Que Dieu bénisse celui qui vient en son nom!&gt; &gt; </text>
+    <text>En effet, je vous le dis, bientôt vous ne me verrez plus jusqu'au jour où vous direz: &lt;Que Dieu bénisse celui qui vient en son nom!&gt; &gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>24</text>
@@ -4247,7 +4253,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="51" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="51" />
-    <text>Il chassera ce serviteur, il le punira comme Dieu punit les hommes faux, et le serviteur pleurera et grincera des dents.&gt;&gt; </text>
+    <text>Il chassera ce serviteur, il le punira comme Dieu punit les hommes faux, et le serviteur pleurera et grincera des dents.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="25" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>25</text>
@@ -4458,7 +4464,7 @@
     <text>Ils disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders">
-    <text>&lt;&lt;Il ne faut pas l'arrêter pendant la fête, sinon le peuple va se révolter.&gt;&gt; </text>
+    <text>&lt;&lt;Il ne faut pas l'arrêter pendant la fête, sinon le peuple va se révolter.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -4720,7 +4726,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>Un des disciples de Jésus prend son épée. Il attaque le serviteur du grand-prêtre et lui coupe l'oreille. </text>
+    <text>Un des disciples de Jésus prend son épée. Il </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>attaque le serviteur du grand-prêtre et lui coupe l'oreille. </text>
     <verse num="52" />
     <text>Jésus lui dit:</text>
   </block>
@@ -4812,7 +4820,7 @@
     <text>en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="68" characterId="chief priests/Sanhedrin" delivery="mocking">
-    <text>&lt;&lt;Messie, devine! Dis-nous qui t'a frappé!&gt;&gt; </text>
+    <text>&lt;&lt;Messie, devine! Dis-nous qui t'a frappé!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="69" characterId="narrator-MAT">
     <verse num="69" />
@@ -4857,7 +4865,9 @@
     <text>&lt;&lt;Que Dieu me punisse si je mens! Je ne connais pas cet homme, je le jure!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
-    <text>Et au même moment un coq chante. </text>
+    <text>Et au même moment un coq </text>
+    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <text>chante. </text>
     <verse num="75" />
     <text>Pierre se souvient que Jésus lui a dit:</text>
   </block>
@@ -4865,7 +4875,7 @@
     <text>&lt;&lt;Avant que le coq chante, tu diras trois fois que tu ne me connais pas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="75" characterId="narrator-MAT">
-    <text>Pierre sort de la cour et il pleure beaucoup. </text>
+    <text>Pierre sort de la cour et il pleure beaucoup.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>27</text>
@@ -4895,7 +4905,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
     <verse num="5" />
-    <text>Judas jette l'argent dans le temple et il part. Ensuite il va se pendre.</text>
+    <text>Judas jette </text>
+    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <text>l'argent dans le temple et il part. Ensuite il va se pendre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT">
     <verse num="6" />
@@ -5155,7 +5167,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
     <verse num="51" />
-    <text>A ce moment-là, le grand rideau qui est dans le temple se déchire en deux morceaux, depuis le haut jusqu'en bas. La terre tremble, les rochers se fendent.</text>
+    <text>A ce moment-là, le grand rideau qui est dans le temple se déchire </text>
+    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <text>en deux morceaux, depuis le haut jusqu'en bas. La terre tremble, les rochers se fendent.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT">
     <verse num="52" />
@@ -5178,7 +5192,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="56" characterId="narrator-MAT">
     <verse num="56" />
-    <text>Parmi elles, il y a Marie de Magdala, Marie la mère de Jacques et de Joseph, et la mère des fils de Zébédée. </text>
+    <text>Parmi elles, il y a Marie de Magdala, Marie la mère de Jacques et de Joseph, et la mère des fils de Zébédée.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="57" characterId="narrator-MAT">
     <verse num="57" />
@@ -5198,7 +5212,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="61" characterId="narrator-MAT">
     <verse num="61" />
-    <text>Marie de Magdala et l'autre Marie sont là, assises en face de la tombe. </text>
+    <text>Marie de Magdala et l'autre Marie sont là, assises en face de la tombe.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="62" characterId="narrator-MAT">
     <verse num="62" />
@@ -5222,7 +5236,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="66" characterId="narrator-MAT">
     <verse num="66" />
-    <text>Ils vont préparer la garde de la tombe. Ils bloquent la pierre de l'entrée et ils mettent les soldats pour la surveiller. </text>
+    <text>Ils vont préparer la garde de la tombe. Ils bloquent la pierre de l'entrée et ils mettent les soldats pour la surveiller.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>28</text>
@@ -5275,7 +5289,7 @@
     <text>Alors Jésus leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="10" characterId="Jesus">
-    <text>&lt;&lt;N'ayez pas peur. Allez dire à mes frères de partir pour la Galilée. Ils me verront là-bas.&gt;&gt; </text>
+    <text>&lt;&lt;N'ayez pas peur. Allez dire à mes frères de partir pour la Galilée. Ils me verront là-bas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="11" characterId="narrator-MAT">
     <verse num="11" />
@@ -5319,10 +5333,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="20" />
-    <text>Apprenez-leur à obéir à tous les commandements que je vous ai donnés. Et moi, je suis avec vous tous les jours, jusqu'à la fin du monde.&gt;&gt; </text>
-  </block>
-  <block style="p" chapter="28" initialStartVerse="20" characterId="narrator-MAT">
-    <text>...</text>
+    <text>Apprenez-leur à obéir à tous les commandements que je vous ai donnés. Et moi, je suis avec vous tous les jours, jusqu'à la fin du monde.&gt;&gt;</text>
   </block>
   <UnappliedSplits />
 </book>

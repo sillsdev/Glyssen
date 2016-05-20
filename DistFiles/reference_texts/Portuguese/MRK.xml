@@ -123,7 +123,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>Aí o espírito sacudiu o homem com violência e, dando um grito, saiu dele.</text>
+    <text>Aí o espírito sacudiu o homem com violência e, </text>
+    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <text>dando um grito, saiu dele.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
     <verse num="27" />
@@ -158,7 +160,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
     <verse num="34" />
-    <text>Jesus curou muitas pessoas de todo tipo de doenças e expulsou muitos demônios. Ele não deixava que os demônios falassem, pois eles sabiam quem Jesus era. </text>
+    <text>Jesus curou muitas pessoas de todo tipo de doenças e expulsou muitos demônios. Ele não deixava que os demônios falassem, pois eles sabiam quem Jesus era.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="35" characterId="narrator-MRK">
     <verse num="35" />
@@ -833,7 +835,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
-    <text>Ele deixou, e os espíritos saíram do homem e entraram nos porcos. E estes, que eram quase dois mil, se atiraram morro abaixo, para dentro do lago, e se afogaram.</text>
+    <text>Ele deixou, e os espíritos saíram do homem e </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>entraram nos porcos. E estes, que eram quase dois mil, se atiraram </text>
+    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <text>morro abaixo, para dentro do lago, </text>
+    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <text>e se afogaram.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
     <verse num="14" />
@@ -1014,13 +1022,7 @@
     <text>No sábado começou a ensinar na * sinagoga. Muitos que o estavam escutando ficaram admirados e perguntaram:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
-    <text>— De onde é que este homem consegue tudo isso? </text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="narrator-MRK">
-    <text>…</text>
-  </block>
-  <block style="p" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Start">
-    <text>De onde vem a sabedoria dele? Como é que faz esses milagres?</text>
+    <text>— De onde é que este homem consegue tudo isso? De onde vem a sabedoria dele? Como é que faz esses milagres?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1486,7 +1488,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-MRK">
     <verse num="30" />
-    <text>Quando a mulher voltou para casa, encontrou a criança deitada na cama; de fato, o demônio tinha saído dela. </text>
+    <text>Quando a mulher voltou para casa, encontrou a criança deitada na cama; de fato, o demônio tinha saído dela.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-MRK">
     <verse num="31" />
@@ -1918,7 +1920,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
-    <text>O espírito gritou, sacudiu o menino e saiu dele, deixando-o como morto. Por isso todos diziam:</text>
+    <text>O espírito gritou, </text>
+    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <text>sacudiu o menino e saiu dele, deixando-o como morto. Por isso todos diziam:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
     <text>— Está morto.</text>
@@ -3185,7 +3189,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
-    <text>Mas um dos que estavam ali tirou a espada, atacou um empregado do * Grande Sacerdote e cortou uma orelha dele. </text>
+    <text>Mas um dos que estavam ali tirou a espada, atacou um empregado do * Grande Sacerdote e </text>
+    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <text>cortou uma orelha dele. </text>
     <verse num="48" />
     <text>Então Jesus disse para aquela gente:</text>
   </block>
