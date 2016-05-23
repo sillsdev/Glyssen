@@ -1536,7 +1536,7 @@
     <verse num="17" />
     <text>ибо в один час погибло такое богатство! </text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
     <text>И все кормчие, и все плывущие на кораблях, и все корабельщики, и все торгующие на море стали вдали </text>
     <verse num="18" />
     <text>и, видя дым от пожара ее, возопили, говоря:</text>

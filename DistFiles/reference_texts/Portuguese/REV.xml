@@ -1539,7 +1539,7 @@
     <verse num="17" />
     <text>Em somente uma hora ela perdeu toda a sua riqueza! </text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
     <text>Todos os capitães de navios e todos os passageiros, marinheiros e outros que ganham a vida no mar ficaram de longe. </text>
     <verse num="18" />
     <text>Então, vendo a fumaça do incêndio da cidade, gritaram:</text>

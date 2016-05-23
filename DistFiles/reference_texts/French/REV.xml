@@ -1539,7 +1539,7 @@
     <verse num="17" />
     <text>mais une heure a suffi pour détruire tant de richesses!&gt;&gt; </text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
     <text>Tous les capitaines des bateaux, tous ceux qui voyagent sur la mer, les marins et les pêcheurs restent loin d'elle. </text>
     <verse num="18" />
     <text>Quand ils voient la fumée du feu qui la brûle, ils crient:</text>
