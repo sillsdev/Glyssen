@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -6,32 +7,48 @@ using System.Text.RegularExpressions;
 using Glyssen;
 using Glyssen.Character;
 using OfficeOpenXml;
+using SIL.IO;
 using SIL.Scripture;
 using SIL.Windows.Forms;
+using SIL.Windows.Forms.FolderBrowserControl;
 using SIL.Xml;
 
 namespace DevTools
 {
-	class ReferenceTextUtility
+	static class ReferenceTextUtility
 	{
-		public static void Go()
-		{
-			var existing = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
-			//var pathToFCBHDirGuide = @"C:\Users\Polk\Documents\Protoscript Generator\DGNTEnglishSimplified.xlsx";
-			var pathToFCBHDirGuide = @"C:\Users\Polk\Documents\Protoscript Generator\DGNTAllSimplified.xlsx";
-			var outputDir = @"C:\projects\_Glyssen\DistFiles\reference_texts";
+		private const string kOutputDir = @"C:\projects\_Glyssen\DistFiles\reference_texts";
 
-			var allLanguages = new Dictionary<string, string>
+		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
+		{
+			{"English", "NewEnglish"},
+			{"Azeri", "Azeri"},
+			{"French", "French"},
+			{"Indonesian", "Indonesian"},
+			{"Portuguese", "Portuguese"},
+			{"Russian", "Russian"},
+			{"Spanish", "Spanish"},
+			{"TokPisin", "TokPisin"},
+		};
+
+		private static readonly ReferenceText s_existingEnglish;
+
+		static ReferenceTextUtility()
+		{
+			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+		}
+
+		public static bool Go()
+		{
+			//var pathToFCBHDirGuide = @"C:\Users\Polk\Documents\Protoscript Generator\DGNTEnglishSimplified.xlsx";
+			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			var pathToFCBHDirGuide = Path.Combine(myDocuments, @"Protoscript Generator\DGNTAllSimplified.xlsx");
+
+			if (!File.Exists(pathToFCBHDirGuide))
 			{
-				{"English", "NewEnglish"},
-				{"Azeri", "Azeri"},
-				{"French", "French"},
-				{"Indonesian", "Indonesian"},
-				{"Portuguese", "Portuguese"},
-				{"Russian", "Russian"},
-				{"Spanish", "Spanish"},
-				{"TokPisin", "TokPisin"},
-			};
+				Console.WriteLine("File does not exist: " + pathToFCBHDirGuide);
+				return true;
+			}
 
 			List<ReferenceTextRow> list;
 			using (var xls = new ExcelPackage(new FileInfo(pathToFCBHDirGuide)))
@@ -43,26 +60,26 @@ namespace DevTools
 				list = cells.GroupBy(c => c.Start.Row).Select(r =>
 				{
 					var row = r.Key;
-					var verseStr = cells[row, 3].Value as string ?? ((double)cells[row, 3].Value).ToString();
+					var verseStr = cells[row, 3].Value as string ?? ((double) cells[row, 3].Value).ToString();
 					return new ReferenceTextRow(
-						(string)cells[row, 1].Value,
-						((double)cells[row, 2].Value).ToString(),
+						(string) cells[row, 1].Value,
+						((double) cells[row, 2].Value).ToString(),
 						verseStr,
-						(string)cells[row, 4].Value,
-						(string)cells[row, 5].Value,
-						(string)cells[row, 6].Value,
-						(string)cells[row, 7].Value,
-						(string)cells[row, 8].Value,
-						(string)cells[row, 9].Value,
-						(string)cells[row, 10].Value,
-						(string)cells[row, 11].Value,
-						(string)cells[row, 12].Value);
+						(string) cells[row, 4].Value,
+						(string) cells[row, 5].Value,
+						(string) cells[row, 6].Value,
+						(string) cells[row, 7].Value,
+						(string) cells[row, 8].Value,
+						(string) cells[row, 9].Value,
+						(string) cells[row, 10].Value,
+						(string) cells[row, 11].Value,
+						(string) cells[row, 12].Value);
 				}).ToList();
 			}
 
-			foreach (var language in allLanguages)
+			foreach (var language in s_allLanguages)
 			{
-				string languageOutputDir = Path.Combine(outputDir, language.Value);
+				string languageOutputDir = Path.Combine(kOutputDir, language.Value);
 				Directory.CreateDirectory(languageOutputDir);
 
 				string prevBook = null;
@@ -70,7 +87,7 @@ namespace DevTools
 				int iBlock = 0;
 				BookScript existingBook = null;
 				int startBook = BCVRef.BookToNumber("MAT");
-				List<BookScript> refBooks = existing.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= startBook).ToList();
+				List<BookScript> refBooks = s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= startBook).ToList();
 				List<BookScript> newBooks = new List<BookScript>();
 				List<Block> newBlocks = new List<Block>();
 				foreach (var referenceTextRow in list.Where(r => BCVRef.BookToNumber(r.Book) >= startBook))
@@ -79,7 +96,7 @@ namespace DevTools
 					{
 						if (existingBook != null)
 						{
-							newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = existingBook.PageHeader });
+							newBooks.Add(new BookScript(existingBook.BookId, newBlocks) {PageHeader = existingBook.PageHeader});
 							newBlocks.Clear();
 						}
 						existingBook = refBooks[iBook++];
@@ -87,7 +104,9 @@ namespace DevTools
 
 						var newBlock = new Block("mt")
 						{
-							CharacterId = CharacterVerseData.GetStandardCharacterId(existingBook.BookId, CharacterVerseData.StandardCharacter.BookOrChapter),
+							CharacterId =
+								CharacterVerseData.GetStandardCharacterId(existingBook.BookId,
+									CharacterVerseData.StandardCharacter.BookOrChapter),
 						};
 						newBlock.BlockElements.Add(new ScriptText(existingBook.PageHeader));
 						newBlocks.Add(newBlock);
@@ -104,7 +123,9 @@ namespace DevTools
 						int chapter = int.Parse(referenceTextRow.Chapter);
 						var newBlock = new Block("c", chapter)
 						{
-							CharacterId = CharacterVerseData.GetStandardCharacterId(existingBook.BookId, CharacterVerseData.StandardCharacter.BookOrChapter),
+							CharacterId =
+								CharacterVerseData.GetStandardCharacterId(existingBook.BookId,
+									CharacterVerseData.StandardCharacter.BookOrChapter),
 							IsParagraphStart = true,
 							BookCode = existingBook.BookId
 						};
@@ -116,7 +137,7 @@ namespace DevTools
 					else
 					{
 //						var newText = referenceTextRow.EnglishText;
-						string newText = (string)ReflectionHelper.GetProperty(referenceTextRow, language.Key);
+						string newText = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
 						var filteredText = Regex.Replace(newText, "[\u007c][\u007c][\u007c].*?[\u007c][\u007c][\u007c]", "");
 						filteredText = Regex.Replace(filteredText, "{(\\d*?)} ", "[$1]\u00A0");
 						filteredText = Regex.Replace(filteredText, "{.*?}", "");
@@ -169,11 +190,68 @@ namespace DevTools
 					XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
 				}
 			}
+			return false;
 		}
 
 		private static bool Compare(string str1, string str2)
 		{
-			return Regex.Replace(str1, "[’‘'“”\"]", "").Trim() == Regex.Replace(Regex.Replace(str2, "  ", " "), "[’‘'“”\"]", "").Trim();
+			return Regex.Replace(str1, "[’‘'“”\"]", "").Trim() ==
+					Regex.Replace(Regex.Replace(str2, "  ", " "), "[’‘'“”\"]", "").Trim();
+		}
+
+		public static bool LinkToEnglish()
+		{
+			bool errorOcurred = false;
+			foreach (ReferenceTextType language in Enum.GetValues(typeof(ReferenceTextType)))
+			{
+				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom)
+					continue;
+
+				var refText = ReferenceText.GetStandardReferenceText(language);
+
+				//string languageOutputDir = Path.Combine(kOutputDir, language.Value);
+				if (refText == null)
+				{
+					errorOcurred = true;
+					Console.Error.WriteLine("No data available to create " + language + " reference text.");
+					continue;
+				}
+				Console.WriteLine("Processing " + language + "...");
+				Console.Write("   ");
+
+				foreach (var book in refText.Books)
+				{
+					var referenceBook = s_existingEnglish.Books.SingleOrDefault(b => b.BookId == book.BookId);
+					if (referenceBook == null)
+					{
+						errorOcurred = true;
+						Console.Error.WriteLine("English reference text does not contain book: " + book.BookId + ".");
+					}
+					else
+					{
+						Console.Write(book.BookId + "...");
+
+						Exception error = null;
+
+						try
+						{
+							ReferenceText.ApplyTo(book, referenceBook.GetScriptBlocks(), s_existingEnglish.GetFormattedChapterAnnouncement, refText.Versification, s_existingEnglish.Versification, true);
+							var bookXmlFile = FileLocator.GetFileDistributedWithApplication(ReferenceText.kDistFilesReferenceTextDirectoryName, language.ToString(), Path.ChangeExtension(book.BookId, "xml"));
+							XmlSerializationHelper.SerializeToFile(bookXmlFile, book, out error);
+						}
+						catch (Exception e)
+						{
+							error = e;
+						}
+						if (error != null)
+						{
+							errorOcurred = true;
+							Console.Error.WriteLine(error.Message);
+						}
+					}
+				}
+			}
+			return errorOcurred;
 		}
 	}
 

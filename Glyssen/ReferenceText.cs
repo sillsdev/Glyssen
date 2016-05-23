@@ -96,7 +96,7 @@ namespace Glyssen
 			return referenceText;
 		}
 
-		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
+		public static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
 		{
 			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + kProjectFileExtension;
 			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
@@ -141,18 +141,19 @@ namespace Glyssen
 
 		public static void ApplyTo(BookScript vernacularBook, IEnumerable<Block> referenceTextBlocks,
 			Func<string, int, string> formatReferenceTextChapterAnnouncement,
-			ScrVers vernacularVersification, ScrVers referenceVersification)
+			ScrVers vernacularVersification, ScrVers referenceVersification, bool oneToOneMatchingOnly = false)
 		{
 			var refBlockList = referenceTextBlocks.ToList();
 
-			SplitVernBlocksToMatchReferenceText(vernacularBook, refBlockList, vernacularVersification, referenceVersification);
+			if (!oneToOneMatchingOnly)
+				SplitVernBlocksToMatchReferenceText(vernacularBook, refBlockList, vernacularVersification, referenceVersification);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook, refBlockList, formatReferenceTextChapterAnnouncement, vernacularVersification, referenceVersification);
+			MatchVernBlocksToReferenceTextBlocks(vernacularBook, refBlockList, formatReferenceTextChapterAnnouncement, vernacularVersification, referenceVersification, oneToOneMatchingOnly);
 		}
 
 		private static void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, List<Block> refBlockList,
 			Func<string, int, string> formatReferenceTextChapterAnnouncement,
-			ScrVers vernacularVersification, ScrVers referenceVersification)
+			ScrVers vernacularVersification, ScrVers referenceVersification, bool oneToOneMatchingOnly)
 		{
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
 			var vernBlockList = vernacularBook.GetScriptBlocks();
@@ -163,6 +164,13 @@ namespace Glyssen
 				var currentRefBlock = refBlockList[iRefBlock];
 				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
 				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, referenceVersification);
+
+				if (oneToOneMatchingOnly)
+				{
+					// Clear any past matching information.
+					currentVernBlock.ReferenceBlocks.Clear();
+					currentVernBlock.MatchesReferenceText = false;
+				}
 
 				var type = CharacterVerseData.GetStandardCharacterType(currentVernBlock.CharacterId);
 				switch (type)
@@ -188,11 +196,15 @@ namespace Glyssen
 						// This will be re-incremented in the for loop, so it effectively allows
 						// the vern index to advance while keeping the ref index the same.
 						iRefBlock--;
+						if (oneToOneMatchingOnly && !currentVernBlock.MatchesReferenceText)
+							throw new Exception("Block not matched to reference block: " + currentVernBlock.ToString(true, vernacularBook.BookId));
 						continue;
 					default:
 						if (refInitStartVerse > vernInitStartVerse)
 						{
 							iRefBlock--;
+							if (oneToOneMatchingOnly && !currentVernBlock.MatchesReferenceText)
+								throw new Exception("Block not matched to reference block: " + currentVernBlock.ToString(true, vernacularBook.BookId));
 							continue;
 						}
 						break;
@@ -228,6 +240,8 @@ namespace Glyssen
 				}
 				else
 				{
+					if (oneToOneMatchingOnly)
+						throw new Exception("Block matched to more than one reference block: " + currentVernBlock.ToString(true, vernacularBook.BookId));
 					currentVernBlock.MatchesReferenceText = false;
 					currentVernBlock.ReferenceBlocks = new List<Block>(refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerse));
 				}
