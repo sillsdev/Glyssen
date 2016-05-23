@@ -50,8 +50,31 @@ namespace Glyssen.Dialogs
 			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
+			LoadReferenceTextOptions();
 			ProjectSettingsViewModel = model;
 			UpdateQuotePageDisplay();
+		}
+
+		private void LoadReferenceTextOptions()
+		{
+			var items = new Dictionary<string, ReferenceTextType>();
+
+			foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
+			{
+				if (itm == ReferenceTextType.Custom) continue;
+
+				var itemValue = itm.ToString();
+
+				var itemText = LocalizationManager.GetDynamicString(Program.kApplicationId,
+					"DialogBoxes.ProjectSettingsDlg.ReferenceTextDropdown." + itemValue,
+					itemValue);
+
+				items.Add(itemText, itm);
+			}
+
+			m_ReferenceText.DataSource = new BindingSource(items, null);
+			m_ReferenceText.ValueMember = "Value";
+			m_ReferenceText.DisplayMember = "Key";
 		}
 
 		private void ProjectSettingsDlg_Load(object sender, EventArgs e)
@@ -117,6 +140,15 @@ namespace Glyssen.Dialogs
 
 				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
+
+				foreach (KeyValuePair<string, ReferenceTextType> kvp in m_ReferenceText.Items)
+				{
+					if (kvp.Value == m_model.Project.ReferenceTextType)
+					{
+						m_ReferenceText.SelectedItem = kvp;
+						break;
+					}
+				}
 			}
 		}
 
@@ -212,6 +244,7 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
+			m_model.Project.ReferenceTextType = ((KeyValuePair<string, ReferenceTextType>)m_ReferenceText.SelectedItem).Value;
 
 			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;

@@ -192,7 +192,7 @@ namespace GlyssenTests
 			};
 			var refBook = new BookScript("JUD", blocks);
 			books.Add(refBook);
-			project.PrimaryReferenceText = primaryReferenceText;
+			project.ReferenceText = primaryReferenceText;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData().ToList();
 
