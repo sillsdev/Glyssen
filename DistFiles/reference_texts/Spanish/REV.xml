@@ -1537,7 +1537,7 @@
     <verse num="17" />
     <text>¡Y en un instante se ha acabado tanta riqueza!&gt;&gt; </text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="narrator-REV">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
     <text>Todos los capitanes de barco y los que navegan por la costa, los marineros y todos los que se ganan la vida en el mar, se quedaron lejos </text>
     <verse num="18" />
     <text>y, al ver el humo del incendio de la ciudad, gritaron:</text>
