@@ -1,6 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Xml;
 using Glyssen;
 using SIL.DblBundle.Usx;
@@ -24,13 +26,9 @@ namespace DevTools
 			var bookList = Directory.GetFiles(directoryWithXmlFiles, "*.xml").Select(XmlSerializationHelper.DeserializeFromFile<BookScript>).ToList();
 
 			foreach (var book in bookList.OrderBy(b => BCVRef.BookToNumber(b.BookId)))
-			{
 				foreach (var block in book.Blocks)
-				{
 					if (block.StyleTag == "s")
-						Debug.WriteLine(book.BookId + "\t" + block.ChapterNumber + "\t" + block.InitialStartVerseNumber + "\t" + block.GetText(true));
-				}
-			}
+						Debug.WriteLine(book.BookId + "\t" + block.ChapterNumber + "\t" + (block.InitialStartVerseNumber + 1) + "\t" + block.GetText(true));
 		}
 
 		private static void ExtractAnnotationsMarkedWithRqTag()
@@ -61,6 +59,50 @@ namespace DevTools
 					}
 				}
 			}
+		}
+
+		public static bool ConvertTextToScriptAnnotationElement(string text, out ScriptAnnotation annotation)
+		{
+//			var pauseRegex = new Regex("||| \\+(?:/d) |||");
+//			var match = pauseRegex.Match(text);
+//			if (match.Success)
+//				return new Pause { Seconds = int.Parse(match.Groups[0].Value) };
+//
+//			var musicEndRegex = new Regex("{Music--Ends before v(\\d*)}");
+//			var match = musicEndRegex.Match(text);
+//			if (match.Success)
+//			{
+//				annotation = new Sound { EndVerse = int.Parse(match.Groups[1].Value) };
+//				return true;
+//			}
+//
+//			var musicStartRegex = new Regex("{Music--Starts @ v(\\d*)}");
+//			match = musicStartRegex.Match(text);
+//			if (match.Success)
+//			{
+//				annotation = new Sound { StartVerse = int.Parse(match.Groups[1].Value) };
+//				return true;
+//			}
+//
+//			var sfxStartRegex = new Regex("{SFX--(.*)--Starts @ v(\\d*)}");
+//			match = sfxStartRegex.Match(text);
+//			if (match.Success)
+//			{
+//				annotation = new Sound { EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
+//				return true;
+//			}
+
+			var sfxRegex = new Regex("{F8 SFX--(.*)}");
+			var match = sfxRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { EffectName = match.Groups[1].Value, UserSpecifiesLocation = true };
+				return true;
+			}
+
+			annotation = null;
+			return false;
+
 		}
 	}
 }
