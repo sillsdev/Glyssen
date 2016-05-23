@@ -56,9 +56,10 @@ namespace Glyssen
 		private CharacterGroupList m_characterGroupList;
 		private readonly ISet<CharacterDetail> m_projectCharacterDetailData;
 		private bool m_projectFileIsWritable = true;
+		private ReferenceText m_referenceText;
 
-		private Dictionary<string, int> m_speechDistributionScore = null;
-		private Dictionary<string, int> m_keyStrokesByCharacterId = null;
+		private Dictionary<string, int> m_speechDistributionScore;
+		private Dictionary<string, int> m_keyStrokesByCharacterId;
 
 		public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 		public event EventHandler<ProjectStateChangedEventArgs> ProjectStateChanged;
@@ -76,7 +77,6 @@ namespace Glyssen
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
 			if (installFonts)
 				InstallFontsIfNecessary();
-			PrimaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -616,7 +616,30 @@ namespace Glyssen
 			get { return VoiceActorList.ActiveActors.Where(actor => !CharacterGroupList.HasVoiceActorAssigned(actor.Id)); }
 		}
 
-		public ReferenceText PrimaryReferenceText { get; set; }
+		public ReferenceText ReferenceText
+		{
+			get {
+				return m_referenceText ?? (m_referenceText = ReferenceText.GetStandardReferenceText(m_metadata.ReferenceText));
+			}
+			set
+			{
+				// for unit testing only
+				m_referenceText = value;
+			}
+		}
+
+		public ReferenceTextType ReferenceTextType
+		{
+			get { return m_metadata.ReferenceText; }
+			set
+			{
+				if (value == m_metadata.ReferenceText)
+					return;
+
+				m_metadata.ReferenceText = value;
+				m_referenceText = null;
+			}
+		}
 
 		public bool HasUnappliedSplits()
 		{
