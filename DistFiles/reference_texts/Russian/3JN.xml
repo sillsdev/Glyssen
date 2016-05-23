@@ -1,68 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="3JN" singlevoice="false" pageheader="3 JOHN">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
+      <text>3 JOHN</text>
+    </ReferenceBlocks>
     <text>3 JOHN</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN">
+  <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>3 JOHN 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-3JN">
+      <verse num="1" />
+      <text>The elder to Gaius the beloved, whom I love in truth.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Старец— возлюбленному Гаию, которого я люблю по истине.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-3JN">
+      <verse num="2" />
+      <text>Beloved, I pray that you may prosper in all things and be healthy, even as your soul prospers.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Возлюбленный! молюсь, чтобы ты здравствовал и преуспевал во всем, как преуспевает душа твоя.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-3JN">
+      <verse num="3" />
+      <text>For I rejoiced greatly, when brothers came and testified about your truth, even as you walk in truth.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Ибо я весьма обрадовался, когда пришли братия и засвидетельствовали о твоей верности, как ты ходишь в истине.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-3JN">
+      <verse num="4" />
+      <text>I have no greater joy than this, to hear about my children walking in truth.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Для меня нет большей радости, как слышать, что дети мои ходят в истине.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-3JN">
+      <verse num="5" />
+      <text>Beloved, you do a faithful work in whatever you accomplish for those who are brothers and strangers.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Возлюбленный! ты как верный поступаешь в том, что делаешь для братьев и для странников.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-3JN">
+      <verse num="6" />
+      <text>They have testified about your love before the assembly. You will do well to send them forward on their journey in a way worthy of God.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Они засвидетельствовали перед церковью о твоей любви. Ты хорошо поступишь, если отпустишь их, как должно ради Бога,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-3JN">
+      <verse num="7" />
+      <text>For the sake of the Name they went out, taking nothing from the Gentiles.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>ибо они ради имени Его пошли, не взяв ничего от язычников.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-3JN">
+      <verse num="8" />
+      <text>We therefore ought to receive such, that we may be fellow workers for the truth.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Итак мы должны принимать таковых, чтобы сделаться споспешниками истине.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN">
+      <verse num="9" />
+      <text>I wrote to the assembly, but Diotrephes, who loves to be first among them, doesn’t accept what we say.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Я писал церкви; но любящий первенствовать у них Диотреф не принимает нас.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-3JN">
+      <verse num="10" />
+      <text>Therefore if I come, I will call attention to his deeds which he does, unjustly accusing us with wicked words. Not content with this, neither does he himself receive the brothers, and those who would, he forbids and throws out of the assembly.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Посему, если я приду, то напомню о делах, которые он делает, понося нас злыми словами, и не довольствуясь тем, и сам не принимает братьев, и запрещает желающим, и изгоняет из церкви.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN">
+      <verse num="11" />
+      <text>Beloved, don’t imitate that which is evil, but that which is good. He who does good is of God. He who does evil hasn’t seen God.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Возлюбленный! не подражай злу, но добру. Кто делает добро, тот от Бога; а делающий зло не видел Бога.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-3JN">
+      <verse num="12" />
+      <text>Demetrius has the testimony of all, and of the truth itself; yes, we also testify, and you know that our testimony is true.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>О Димитрии засвидетельствовано всеми и самою истиною; свидетельствуем также и мы, и вы знаете, что свидетельство наше истинно.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-3JN">
+      <verse num="13" />
+      <text>I had many things to write to you, but I am unwilling to write to you with ink and pen.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Многое имел я писать; но не хочу писать к тебе чернилами и тростью,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-3JN">
+      <verse num="14" />
+      <text>I hope to see you soon, and then we will speak face to face.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>а надеюсь скоро увидеть тебя и поговорить устами к устам.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-3JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-3JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-3JN">
+      <verse num="15" />
+      <text>Peace be to you. The friends greet you. Greet the friends by name.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Мир тебе. Приветствуют тебя друзья; приветствуй друзей поименно. Аминь.</text>
   </block>

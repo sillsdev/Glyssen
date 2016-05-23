@@ -1,368 +1,734 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1TH" singlevoice="false" pageheader="1 THESSALONIANS">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TH">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TH">
+      <text>1 THESSALONIANS</text>
+    </ReferenceBlocks>
     <text>1 THESSALONIANS</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="1TH" initialStartVerse="0" characterId="BC-1TH">
+  <block style="c" paragraphStart="true" chapter="1" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>1 THESSALONIANS 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TH">
+      <verse num="1" />
+      <text>Paul, Silvanus, and Timothy, to the assembly of the Thessalonians in God the Father and the Lord Jesus Christ: Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Pablo, Silvano y Timoteo saludan a la comunidad de los creyentes de la ciudad de Tesalónica, que están unidos a Dios el Padre y al Señor Jesucristo. Que Dios derrame su gracia y su paz sobre ustedes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TH">
+      <verse num="2" />
+      <text>We always give thanks to God for all of you, mentioning you in our prayers.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Siempre damos gracias a Dios por todos ustedes, y los recordamos en nuestras oraciones.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TH">
+      <verse num="3" />
+      <text>We remember without ceasing your work of faith and labor of love and patience of hope in our Lord Jesus Christ, before our God and Father.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Continuamente recordamos qué activa ha sido su fe, qué servicial su amor, y qué fuerte en los sufrimientos su esperanza en nuestro Señor Jesucristo, delante de nuestro Dios y Padre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TH">
+      <verse num="4" />
+      <text>We know, brothers loved by God, that you are chosen.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Hermanos amados por Dios, sabemos que él los ha escogido.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TH">
+      <verse num="5" />
+      <text>Our Good News came to you not in word only, but also in power, and in the Holy Spirit, and with much assurance. You know what kind of men we showed ourselves to be among you for your sake.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Pues cuando nosotros les anunciamos el evangelio, no fue solamente con palabras, sino que lo hicimos también con demostraciones del poder de Dios y de la actividad del Espíritu Santo, y con una gran abundancia de gracias. Bien saben cómo nos portamos entre ustedes, buscando su propio bien.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TH">
+      <verse num="6" />
+      <text>You became imitators of us, and of the Lord, having received the word in much affliction, with joy of the Holy Spirit.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Ustedes, por su parte, siguieron nuestro ejemplo y el ejemplo del Señor, y recibieron el mensaje con la alegría que el Espíritu Santo les daba en medio de grandes sufrimientos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TH">
+      <verse num="7" />
+      <text>Thus you became an example to all who believe in Macedonia and in Achaia.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>De esta manera llegaron a ser un ejemplo para todos los creyentes en las regiones de Macedonia y Acaya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TH">
+      <verse num="8" />
+      <text>For from you the word of the Lord has been declared, not only in Macedonia and Achaia, but also in every place your faith toward God has gone out; so that we need not to say anything.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Partiendo de ustedes, el mensaje del Señor se ha extendido, no solo por Macedonia y Acaya, sino por todas partes, y se sabe de la fe que ustedes tienen en Dios, de manera que ya no es necesario que nosotros digamos nada.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TH">
+      <verse num="9" />
+      <text>For they themselves report concerning us what kind of a reception we had from you; and how you turned to God from idols, to serve a living and true God,</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Al contrario, ellos mismos hablan de nuestra llegada a ustedes y de cómo ustedes abandonaron los ídolos y se volvieron al Dios vivo y verdadero para servirle</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TH">
+      <verse num="10" />
+      <text>and to wait for his Son from heaven, whom he raised from the dead--Jesus, who delivers us from the wrath to come.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>y esperar que vuelva del cielo Jesús, el Hijo de Dios, al cual Dios resucitó. Jesús es quien nos salva del terrible castigo que viene.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="1TH" initialStartVerse="0" characterId="BC-1TH">
+  <block style="c" paragraphStart="true" chapter="2" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>1 THESSALONIANS 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TH">
+      <verse num="1" />
+      <text>For you yourselves know, brothers, our visit to you wasn’t in vain.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Ustedes mismos, hermanos, saben que nuestra visita a ustedes no fue en vano.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TH">
+      <verse num="2" />
+      <text>As you know, we suffered and were shamefully treated at Philippi, but with God’s help we preached the gospel to you without fear, even in the midst of much conflict.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Más bien, aunque, como ya saben, antes habíamos sido insultados y maltratados en Filipos, Dios nos ayudó a anunciarles a ustedes su evangelio, con todo valor y en medio de una fuerte lucha.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TH">
+      <verse num="3" />
+      <text>For our exhortation is not of error, nor of uncleanness, nor in deception.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Porque no estábamos equivocados en lo que predicábamos, ni tampoco hablábamos con malas intenciones ni con el propósito de engañar a nadie.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TH">
+      <verse num="4" />
+      <text>But even as we have been approved by God to be entrusted with the Good News, so we speak; not as pleasing men, but God, who tests our hearts.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Al contrario, Dios nos aprobó y nos encargó el evangelio, y así es como hablamos. No tratamos de agradar a la gente, sino a Dios, que examina nuestros corazones.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TH">
+      <verse num="5" />
+      <text>For neither were we at any time found using words of flattery, as you know, nor a cloak of covetousness (God is witness).</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Como ustedes saben, nunca los hemos halagado con palabras bonitas, ni hemos usado pretextos para ganar dinero. Dios es testigo de esto.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TH">
+      <verse num="6" />
+      <text>We did not seek glory from men (neither from you nor from others), when we might have claimed authority as apostles of Christ.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Nunca hemos buscado honores de nadie: ni de ustedes ni de otros.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TH">
+      <verse num="7" />
+      <text>But we were gentle among you, like a nursing mother cherishes her own children.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Aunque muy bien hubiéramos podido hacerles sentir el peso de nuestra autoridad como apóstoles de Cristo, nos hicimos como niños entre ustedes. Como una madre que cría y cuida a sus propios hijos,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TH">
+      <verse num="8" />
+      <text>Even so, affectionately longing for you, we were well pleased to impart to you, not the Good News of God only, but also our own souls, because you had become very dear to us.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>así también les tenemos a ustedes tanto cariño que hubiéramos deseado darles, no solo el evangelio de Dios, sino hasta nuestras propias vidas. ¡Tanto hemos llegado a quererlos!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TH">
+      <verse num="9" />
+      <text>For you remember, brothers, our labor and travail; for working night and day, that we might not burden any of you, we preached to you the Good News of God.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Hermanos, ustedes se acuerdan de cómo trabajábamos y luchábamos para ganarnos la vida. Trabajábamos día y noche, a fin de no ser una carga para ninguno de ustedes mientras les anunciábamos el evangelio de Dios.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TH">
+      <verse num="10" />
+      <text>You are witnesses with God, how holy, righteously, and blamelessly we behaved ourselves toward you who believe.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Ustedes son testigos, y Dios también, de que nos hemos portado de una manera santa, recta e irreprochable con ustedes los creyentes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TH">
+      <verse num="11" />
+      <text>As you know, we exhorted, comforted, and implored every one of you, as a father does his own children,</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <verse num="12" />
     <text>También saben que los hemos animado y consolado a cada uno de ustedes, como hace un padre con sus hijos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TH">
+      <verse num="12" />
+      <text>to the end that you should walk worthily of God, who calls you into his own Kingdom and glory.</text>
+    </ReferenceBlocks>
     <text>Les hemos encargado que se porten como deben hacerlo los que son de Dios, que los llama a tener parte en su propio reino y gloria.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TH">
+      <verse num="13" />
+      <text>For this cause we also thank God without ceasing, that, when you received from us the word of the message of God, you accepted it not as the word of men, but, as it is in truth, the word of God, which also works in you who believe.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Por esto, de nuestra parte, damos siempre gracias a Dios, pues cuando ustedes escucharon el mensaje de Dios que nosotros les predicamos, lo recibieron como mensaje de Dios y no como mensaje de hombres. Y en verdad es el mensaje de Dios, el cual produce sus resultados en ustedes los que creen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TH">
+      <verse num="14" />
+      <text>For you, brothers, became imitators of the assemblies of God which are in Judea in Christ Jesus; for you also suffered the same things from your own countrymen, even as they did from the Jews.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Porque ustedes, hermanos, llegaron a ser imitadores de las iglesias de Dios en Cristo Jesus que estan en Judea. Cuando ustedes, hermanos, sufrieron persecución a manos de sus paisanos, les pasó lo mismo que a las iglesias de Dios de los que pertenecen a Cristo Jesús en Judea, pues ellos también fueron perseguidos por sus paisanos los judíos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TH">
+      <verse num="15" />
+      <text>It was the Jews who killed both the Lord Jesus and their own prophets, and drove us out, and didn’t please God, and are contrary to all men.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Estos judíos mataron al Señor Jesús, como antes habían matado a los profetas, y nos echaron fuera a nosotros. No agradan a Dios, y están en contra de todos,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1TH">
+      <verse num="16" />
+      <text>They forbade us to speak to the Gentiles that they may be saved; to fill up their sins always. But wrath has come on them to the uttermost.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>pues cuando queremos hablar a los que no son judíos, para que también se salven, no nos dejan hacerlo. De esta manera llenan siempre la medida de sus pecados. Pero para poner fin a eso, el terrible castigo de Dios ha venido sobre ellos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1TH">
+      <verse num="17" />
+      <text>But we, brothers, being bereaved of you for a short season, in presence, not in heart, tried even harder to see your face with great desire.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Hermanos, cuando nos separamos de ustedes por algún tiempo, aunque no los veíamos, siempre los teníamos presentes en nuestro corazón y deseábamos mucho ir a verlos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1TH">
+      <verse num="18" />
+      <text>We wanted to come to you--indeed, I, Paul, once and again--but Satan hindered us.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Intentamos ir; por lo menos yo, Pablo, quise hacerlo varias veces, pero Satanás nos lo impidió.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1TH">
+      <verse num="19" />
+      <text>For what is our hope, or joy, or crown of rejoicing? Isn’t it even you, before our Lord Jesus Christ at his coming?</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Pues, ¿quién es nuestra esperanza, nuestra alegría y nuestro motivo de orgullo delante de nuestro Señor Jesús, cuando él regrese? Si no lo son ustedes, ningún otro lo será.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1TH">
+      <verse num="20" />
+      <text>For you are our glory and our joy.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Sí, ustedes son nuestra gloria y nuestra alegría.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="1TH" initialStartVerse="0" characterId="BC-1TH">
+  <block style="c" paragraphStart="true" chapter="3" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>1 THESSALONIANS 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TH">
+      <verse num="1" />
+      <text>Therefore when we couldn’t stand it any longer, we thought it good to be left behind at Athens alone.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Entonces, no pudiendo resistir más, decidimos quedarnos solos en Atenas</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TH">
+      <verse num="2" />
+      <text>We sent Timothy, our brother and God’s servant in the Good News of Christ, to establish you, and to comfort you concerning your faith;</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>y enviar a nuestro hermano Timoteo, que es colaborador de Dios en el anuncio del evangelio de Cristo. Lo enviamos para que fuera a afirmarlos y animarlos en su fe,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TH">
+      <verse num="3" />
+      <text>that no one be moved by these afflictions. For you know that we are appointed to this task.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>y para que ninguno se dejara confundir por estas dificultades. Pues ustedes mismos saben que tenemos que sufrir estas cosas.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TH">
+      <verse num="4" />
+      <text>For most certainly, when we were with you, we told you beforehand that we are to suffer affliction, even as it happened, and you know.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Además, cuando todavía estábamos con ustedes, les advertimos que íbamos a tener aflicciones; y así sucedió, como ya saben.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TH">
+      <verse num="5" />
+      <text>For this cause I also, when I couldn’t stand it any longer, sent that I might know your faith, for fear that by any means the tempter had tempted you, and our labor would have been in vain.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Por eso, yo en particular, no pudiendo resistir más, mandé preguntar cómo andaban ustedes en cuanto a su fe, pues tenía miedo de que el tentador les hubiera puesto una tentación y que nuestro trabajo hubiera resultado en vano.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TH">
+      <verse num="6" />
+      <text>But when Timothy came just now to us from you, and brought us glad news of your faith and love, and that you have good memories of us always, longing to see us, even as we also long to see you.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Pero ahora Timoteo ha vuelto de Tesalónica, y nos ha traído buenas noticias de la fe y el amor que ustedes tienen. Nos dice que siempre se acuerdan de nosotros con cariño, y que tienen tantos deseos de vernos como nosotros los tenemos de verlos a ustedes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TH">
+      <verse num="7" />
+      <text>For this cause, brothers, we were comforted over you in all our distress and affliction through your faith.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Por esto, hermanos, en medio de todas nuestras dificultades y aflicciones, hemos recibido mucho consuelo al saber que ustedes siguen firmes en su fe.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TH">
+      <verse num="8" />
+      <text>For now we live, if you stand fast in the Lord.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>El saber que ustedes están firmes en el Señor, nos reaviva.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TH">
+      <verse num="9" />
+      <text>For what thanksgiving can we render again to God for you, for all the joy with which we rejoice for your sakes before our God;</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>¿Cómo podremos dar suficientes gracias a nuestro Dios por ustedes y por el mucho gozo que a causa de ustedes tenemos delante de él?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TH">
+      <verse num="10" />
+      <text>night and day praying exceedingly that we may see your face, and may perfect that which is lacking in your faith?</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Día y noche suplicamos a Dios que nos permita verlos personalmente y completar lo que todavía falte en su fe.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TH">
+      <verse num="11" />
+      <text>Now may our God and Father himself, and our Lord Jesus Christ, direct our way to you.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Deseamos que Dios mismo nuestro Padre, y nuestro Señor Jesús, nos ayuden para que podamos ir a visitarlos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TH">
+      <verse num="12" />
+      <text>May the Lord make you to increase and abound in love one toward another, and toward all men, even as we also do toward you.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Y que el Señor los haga crecer y tener todavía más amor los unos para con los otros y para con todos, como nosotros los amamos a ustedes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TH">
+      <verse num="13" />
+      <text>May he establish your hearts blameless. In holiness before our God and Father, at the coming of our Lord Jesus Christ with all his saints.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Que los haga firmes en sus corazones, santos e irreprochables delante de Dios nuestro Padre cuando regrese nuestro Señor Jesús con todo su pueblo santo. Amén.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="1TH" initialStartVerse="0" characterId="BC-1TH">
+  <block style="c" paragraphStart="true" chapter="4" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>1 THESSALONIANS 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TH">
+      <verse num="1" />
+      <text>Finally then, brothers, we beg and exhort you in the Lord Jesus, that as you received from us how you ought to walk and to please God, that you abound more and more.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Ahora, hermanos, les rogamos y encargamos esto en el nombre del Señor Jesús: que sigan ustedes progresando cada día más en la manera de comportarse que aprendieron de nosotros para agradar a Dios, como ya lo están haciendo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TH">
+      <verse num="2" />
+      <text>For you know what instructions we gave you through the Lord Jesus.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Ustedes conocen las instrucciones que les dimos por la autoridad del Señor Jesús.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TH">
+      <verse num="3" />
+      <text>For this is the will of God: your sanctification, that you abstain from sexual immorality.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Lo que Dios quiere es que ustedes lleven una vida santa, que nadie cometa inmoralidades sexuales</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TH">
+      <verse num="4" />
+      <text>God wants each one of you to know how to possess himself of his own vessel in sanctification and honor.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>y que cada uno sepa dominar su propio cuerpo en forma santa y respetuosa,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TH">
+      <verse num="5" />
+      <text>Do not use your body in the passion of lust as the Gentiles who don’t know God do.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>no con pasión y malos deseos como las gentes que no conocen a Dios.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TH">
+      <verse num="6" />
+      <text>No one should take advantage of and wrong a brother or sister in this matter; because the Lord is an avenger in all these things, as also we forewarned you and testified.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Que nadie abuse ni engañe en este asunto a su prójimo, porque el Señor castiga duramente todo esto, como ya les hemos advertido.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TH">
+      <verse num="7" />
+      <text>For God called us not for uncleanness, but in sanctification.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Pues Dios no nos ha llamado a vivir en impureza, sino en santidad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TH">
+      <verse num="8" />
+      <text>Therefore he who rejects this doesn’t reject man, but God, who has also given his Holy Spirit to you.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Así pues, el que desprecia estas enseñanzas no desprecia a ningún hombre, sino a Dios, que les ha dado a ustedes su Espíritu Santo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TH">
+      <verse num="9" />
+      <text>But concerning brotherly love, you have no need that one write to you. For you yourselves are taught by God to love one another.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>En cuanto al amor entre hermanos, no tienen necesidad de que les escribamos, porque Dios mismo les ha enseñado a amarse unos a otros.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TH">
+      <verse num="10" />
+      <text>Indeed you do it toward all the brothers who are in all Macedonia. But we exhort you, brothers, that you abound more and more.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Pues así hacen ustedes con todos los hermanos que viven en toda Macedonia. Pero les rogamos, hermanos, que su amor aumente todavía más.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TH">
+      <verse num="11" />
+      <text>Make it your ambition to lead a quiet life, and to do your own business, and to work with your own hands, even as we instructed you.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Procuren vivir tranquilos y ocupados en sus propios asuntos, trabajando con sus manos como les hemos encargado,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TH">
+      <verse num="12" />
+      <text>Then you may walk properly toward those who are outside, and may have need of nothing.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>para que los respeten los de fuera y ustedes no tengan que depender de nadie.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TH">
+      <verse num="13" />
+      <text>But we don’t want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don’t grieve like the rest, who have no hope.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Hermanos, no queremos que se queden sin saber lo que pasa con los muertos, para que ustedes no se entristezcan como los otros, los que no tienen esperanza.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TH">
+      <verse num="14" />
+      <text>For if we believe that Jesus died and rose again, even so God will bring with him those who have fallen asleep in Jesus.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Así como creemos que Jesús murió y resucitó, así también creemos que Dios va a resucitar con Jesús a los que murieron creyendo en él.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TH">
+      <verse num="15" />
+      <text>For this we tell you by the word of the Lord, that we who are alive, who are left to the coming of the Lord, will in no way precede those who have fallen asleep.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Por esto les decimos a ustedes, como enseñanza del Señor, que nosotros, los que quedemos vivos hasta la venida del Señor, no nos adelantaremos a los que murieron.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TH">
+      <verse num="16" />
+      <text>For the Lord himself will descend from heaven with a shout, with the voice of the archangel, and with God’s trumpet. The dead in Christ will rise first.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Porque se oirá una voz de mando, la voz de un arcángel y el sonido de la trompeta de Dios, y el Señor mismo bajará del cielo. Y los que murieron creyendo en Cristo, resucitarán primero;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1TH">
+      <verse num="17" />
+      <text>Then we who are alive, who are left, will be caught up together with them in the clouds, to meet the Lord in the air. So we will be with the Lord forever.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>después, los que hayamos quedado vivos seremos llevados, juntamente con ellos, en las nubes, para encontrarnos con el Señor en el aire; y así estaremos con el Señor para siempre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1TH">
+      <verse num="18" />
+      <text>Therefore comfort one another with these words.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Anímense, pues, unos a otros con estas palabras.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="5" book="1TH" initialStartVerse="0" characterId="BC-1TH">
+  <block style="c" paragraphStart="true" chapter="5" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>1 THESSALONIANS 5</text>
+    </ReferenceBlocks>
     <text>5</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TH">
+      <verse num="1" />
+      <text>But concerning the times and the seasons, brothers, you have no need that anything be written to you.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>En cuanto a las fechas y los tiempos, hermanos, no necesitan que les escribamos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TH">
+      <verse num="2" />
+      <text>For you yourselves know well that the day of the Lord comes like a thief in the night.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Ustedes saben muy bien que el día del regreso del Señor llegará cuando menos se lo espere, como un ladrón que llega de noche.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TH">
+      <verse num="3" />
+      <text>For when they are saying, “Peace and safety,” then sudden destruction will come on them, like birth pains on a pregnant woman; and they will in no way escape.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Cuando la gente diga: &lt;&lt;Todo está en paz y tranquilo&gt;&gt;, entonces vendrá de repente sobre ellos la destrucción, como le vienen los dolores de parto a una mujer que está encinta; y no podrán escapar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH">
+      <verse num="4" />
+      <text>But you, brothers, aren’t in darkness, that the day should overtake you like a thief.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Pero ustedes, hermanos, no están en la oscuridad, para que el día del regreso del Señor los sorprenda como un ladrón.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TH">
+      <verse num="5" />
+      <text>You are all children of light, and children of the day. We don’t belong to the night, nor to darkness.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Todos ustedes son de la luz y del día. No somos de la noche ni de la oscuridad;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TH">
+      <verse num="6" />
+      <text>So then let’s not sleep, as everyone else does, but let’s watch and be sober.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>por eso no debemos dormir como los otros, sino mantenernos despiertos y en nuestro sano juicio.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TH">
+      <verse num="7" />
+      <text>For those who sleep, sleep in the night, and those who are drunk are drunk in the night.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Los que duermen, duermen de noche, y los que se emborrachan, se emborrachan de noche;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TH">
+      <verse num="8" />
+      <text>But let us, since we belong to the day, be sober, putting on the breastplate of faith and love, and, for a helmet, the hope of salvation.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>pero nosotros, que somos del día, debemos estar siempre en nuestro sano juicio. Debemos protegernos, como con una coraza, con la fe y el amor, y cubrirnos, como con un casco, con la esperanza de la salvación.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TH">
+      <verse num="9" />
+      <text>For God didn’t appoint us to wrath, but to the obtaining of salvation through our Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Porque Dios no nos destinó a recibir el castigo, sino a alcanzar la salvación por medio de nuestro Señor Jesucristo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TH">
+      <verse num="10" />
+      <text>Jesus died for us, that, whether we wake or sleep, we should live together with him.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Jesucristo murió por nosotros, para que, ya sea que sigamos despiertos o que nos durmamos con el sueño de la muerte, vivamos juntamente con él.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TH">
+      <verse num="11" />
+      <text>Therefore exhort one another, and build each other up, even as you also do.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Por eso, anímense y fortalézcanse unos a otros, tal como ya lo están haciendo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TH">
+      <verse num="12" />
+      <text>But we beg you, brothers, to know those who labor among you, and are over you in the Lord, and admonish you,</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Hermanos, les rogamos que tengan respeto a los que trabajan entre ustedes, los dirigen en las cosas del Señor y los amonestan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TH">
+      <verse num="13" />
+      <text>and to respect and honor them in love for their work’s sake. Be at peace among yourselves.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Deben estimarlos y amarlos mucho, por el trabajo que hacen. Vivan en paz unos con otros.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TH">
+      <verse num="14" />
+      <text>We exhort you, brothers, admonish the disorderly, encourage the fainthearted, support the weak, be patient toward all.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>También les encargamos, hermanos, que reprendan a los indisciplinados, que animen a los que están desanimados, que ayuden a los débiles y que tengan paciencia con todos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TH">
+      <verse num="15" />
+      <text>See that no one returns evil for evil to anyone, but always follow after that which is good, for one another, and for all.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Tengan cuidado de que ninguno pague a otro mal por mal. Al contrario, procuren hacer siempre el bien, tanto entre ustedes mismos como a todo el mundo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TH">
+      <verse num="16" />
+      <text>Rejoice always. </text>
+      <verse num="17" />
+      <text>Pray without ceasing.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Estén siempre contentos. </text>
     <verse num="17" />
     <text>Oren en todo momento.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TH">
+      <verse num="18" />
+      <text>In everything give thanks, for this is the will of God in Christ Jesus toward you.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Den gracias a Dios por todo, porque esto es lo que él quiere de ustedes como creyentes en Cristo Jesús.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TH">
+      <verse num="19" />
+      <text>Don’t quench the Spirit. </text>
+      <verse num="20" />
+      <text>Don’t despise prophesies.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>No apaguen el fuego del Espíritu. </text>
     <verse num="20" />
     <text>No desprecien el don de profecía.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TH">
+      <verse num="21" />
+      <text>Test all things, and hold firmly that which is good. </text>
+      <verse num="22" />
+      <text>Abstain from all appearance of evil.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Sométanlo todo a prueba y retengan lo bueno. </text>
     <verse num="22" />
     <text>Apártense de toda clase de mal.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TH">
+      <verse num="23" />
+      <text>May the God of peace himself sanctify you completely. May your whole spirit, soul, and body be preserved blameless at the coming of our Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Que Dios mismo, el Dios de paz, los haga a ustedes perfectamente santos, y les conserve todo su ser, espíritu, alma y cuerpo, sin defecto alguno, para la venida de nuestro Señor Jesucristo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TH">
+      <verse num="24" />
+      <text>He who calls you is faithful, who will also do it.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>El que los llama es fiel, y cumplirá todo esto.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TH">
+      <verse num="25" />
+      <text>Brothers, pray for us. </text>
+      <verse num="26" />
+      <text>Greet all the brothers with a holy kiss.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Hermanos, oren también por nosotros. </text>
     <verse num="26" />
     <text>Saluden a todos los hermanos con un beso santo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-1TH">
+      <verse num="27" />
+      <text>I solemnly command you by the Lord that this letter be read to all the holy brothers.</text>
+    </ReferenceBlocks>
     <verse num="27" />
     <text>Les encargo, por la autoridad del Señor, que lean esta carta a todos los hermanos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-1TH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-1TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-1TH">
+      <verse num="28" />
+      <text>The grace of our Lord Jesus Christ be with you. Amen.</text>
+    </ReferenceBlocks>
     <verse num="28" />
     <text>Que nuestro Señor Jesucristo derrame su gracia sobre ustedes.</text>
   </block>

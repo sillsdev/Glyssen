@@ -1,646 +1,1290 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="EPH" singlevoice="false" pageheader="EPHESIANS">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
+      <text>EPHESIANS</text>
+    </ReferenceBlocks>
     <text>EPHESIANS</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+  <block style="c" paragraphStart="true" chapter="1" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>EPHESIANS 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-EPH">
+      <verse num="1" />
+      <text>Paul, an apostle of Christ Jesus through the will of God, to the saints who are at Ephesus, and the faithful in Christ Jesus:</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Moi, Paul, je suis apôtre du Christ Jésus parce que Dieu l'a voulu. J'écris à ceux qui appartiennent à Dieu, qui se trouvent à Ephèse et qui croient au Christ Jésus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-EPH">
+      <verse num="2" />
+      <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Que Dieu notre Père et le Seigneur Jésus-Christ vous bénissent et vous donnent la paix!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-EPH">
+      <verse num="3" />
+      <text>Blessed be the God and Father of our Lord Jesus Christ, who has blessed us with every spiritual blessing in the heavenly places in Christ;</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Louange à Dieu, le Père de notre Seigneur Jésus-Christ! En effet, il nous a bénis dans le Christ en nous communiquant les dons de son Esprit qui viennent du ciel.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-EPH">
+      <verse num="4" />
+      <text>even as he chose us in him before the foundation of the world, that we would be holy and without blemish before him in love;</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Avant la création du monde, Dieu nous a choisis dans le Christ pour que nous soyons saints et sans défaut devant ses yeux. Dieu nous aime</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-EPH">
+      <verse num="5" />
+      <text>He predestined us for adoption as children through Jesus Christ to himself, according to the good pleasure of his desire.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>et, depuis toujours, il a voulu que nous devenions ses fils par Jésus-Christ. Il a voulu cela dans sa bonté.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-EPH">
+      <verse num="6" />
+      <text>We give thanks to God for his grace, by which he has accepted us in the Beloved.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Alors chantons la gloire de Dieu pour la grandeur de ses bienfaits! Il nous les donne généreusement par son Fils très aimé.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-EPH">
+      <verse num="7" />
+      <text>In him we have our redemption through his blood, the forgiveness of our trespasses, according to the riches of his grace,</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Dans le Christ, par son sang, nous sommes libérés du mal, et nos péchés sont pardonnés, tellement la bonté de Dieu est grande!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-EPH">
+      <verse num="8" />
+      <text>which he made to abound toward us in all wisdom and prudence,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Oui, Dieu nous a couverts de ses bienfaits. Il nous a donné toute la sagesse et l'intelligence.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-EPH">
+      <verse num="9" />
+      <text>He makes known to us the mystery of his will, according to his good pleasure which he purposed in Christ.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Il nous a fait connaître son mystère, c'est-à-dire ce que, dans sa bonté, il voulait faire dans le Christ depuis toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-EPH">
+      <verse num="10" />
+      <text>This plan is to be put into effect when the times have reached their fulfillment, to bring all things in heaven and on earth together under one head, even Christ.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Ce projet, Dieu voulait le réaliser au temps choisi par lui: rassembler tout ce qui est dans les cieux et ce qui est sur la terre, sous un seul chef, le Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-EPH">
+      <verse num="11" />
+      <text>In him also we were assigned an inheritance, having been foreordained. And this according to the purpose of him who works all things after the counsel of his will.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Et dans le Christ, Dieu nous a donné notre part au salut en nous choisissant d'avance selon son projet. Il a fait tout cela parce qu'il l'a décidé et voulu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-EPH">
+      <verse num="12" />
+      <text>We who were the first to trust in Christ should thank him for his greatness.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Alors, nous qui avons été les premiers à mettre notre espoir dans le Christ, chantons la gloire de Dieu!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-EPH">
+      <verse num="13" />
+      <text>You also, having heard the word of the truth, the Good News of your salvation in whom, having also believed, you were sealed with the Holy Spirit of promise,</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Dans le Christ, vous aussi, vous avez entendu la parole vraie, la Bonne Nouvelle qui vous sauve. Ensuite, vous avez cru dans le Christ, et Dieu vous a marqués d'un signe. Cette marque, c'est l'Esprit Saint qu'il a promis.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
+      <verse num="14" />
+      <text>who is a pledge of our inheritance, to the redemption of God’s own possession, to the praise of his glory.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Cet Esprit est la première part des biens que nous allons recevoir de Dieu. Nous les posséderons quand nous serons entièrement libérés du mal. Alors chantons la gloire de Dieu!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
+      <verse num="15" />
+      <text>For this cause I also, having heard of the faith in the Lord Jesus which is among you, and the love which you have toward all the saints,</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Voici ce que j'ai appris: vous croyez au Seigneur Jésus et vous aimez tous ceux qui lui appartiennent. C'est pourquoi, depuis que je sais cela,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
+      <verse num="16" />
+      <text>don’t cease to give thanks for you, making mention of you in my prayers.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>je dis vos noms quand je prie, et sans cesse je remercie Dieu à cause de vous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
+      <verse num="17" />
+      <text>I keep asking that the God of our Lord Jesus Christ, the Father of glory, may give to you a spirit of wisdom and revelation in the knowledge of him.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Je demande au Dieu de notre Seigneur Jésus-Christ, le Père rempli de gloire, de vous donner la sagesse. Alors vous découvrirez Dieu et vous le connaîtrez vraiment.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-EPH">
+      <verse num="18" />
+      <text>I pray also that the eyes of your hearts are enlightened, that you may know what is the hope of his calling. and what are the riches of the glory of his inheritance in the saints,</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Je lui demande d'ouvrir les yeux de votre intelligence. Ainsi, vous pourrez connaître l'espérance qu'il vous a donnée en vous appelant. Vous connaîtrez la richesse magnifique des biens qu'il donne à ceux qui lui appartiennent.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-EPH">
+      <verse num="19" />
+      <text>and what is the exceeding greatness of his power toward us who believe, according to that working of the strength of his might</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Vous connaîtrez la puissance extraordinaire que Dieu a montrée pour nous qui croyons en lui. Sa puissance et sa force,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-EPH">
+      <verse num="20" />
+      <text>which he worked in Christ, when he raised him from the dead, and made him to sit at his right hand in the heavenly places,</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Dieu les a montrées dans le Christ quand il l'a réveillé de la mort, quand il l'a fait asseoir à sa droite dans les cieux.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-EPH">
+      <verse num="21" />
+      <text>far above all rule, and authority, and power, and dominion. Far above every name that is named, not only in this age, but also in that which is to come.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Ainsi, le Christ est placé au-dessus de toutes les forces et de toutes les puissances qui ont autorité et pouvoir. Il est au-dessus de tout ce qui existe, non seulement dans le monde d'aujourd'hui, mais aussi dans le monde qui vient.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-EPH">
+      <verse num="22" />
+      <text>He put all things in subjection under his feet, and gave him to be head over all things for the assembly,</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Oui, Dieu a tout mis sous les pieds du Christ. Il a mis le Christ au-dessus de tout, et il l'a donné comme tête à l'Eglise.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-EPH">
+      <verse num="23" />
+      <text>which is his body, the fullness of him who fills all in all.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>L'Eglise est le corps du Christ. En elle, le Christ est totalement présent, lui en qui Dieu habite totalement.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+  <block style="c" paragraphStart="true" chapter="2" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>EPHESIANS 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-EPH">
+      <verse num="1" />
+      <text>You were made alive when you were dead in transgressions and sins.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Autrefois, vous étiez morts à cause de vos fautes, à cause de vos péchés.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-EPH">
+      <verse num="2" />
+      <text>You walked in the sinful ways of the world, according to the prince of the power of the air. The spirit who now works in the children of disobedience.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Vous viviez dans le péché en suivant les forces de ce monde. Vous obéissiez au chef des puissances mauvaises qui règnent entre ciel et terre. Ce chef, c'est l'esprit du mal qui agit maintenant chez ceux qui désobéissent à Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-EPH">
+      <verse num="3" />
+      <text>We also once lived among them in the lust of our flesh, doing the desires of the flesh and of the mind. We were by nature children of wrath, even as the rest.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Autrefois, nous aussi, nous faisions tous partie de ces gens-là quand nous vivions selon nos désirs mauvais. Nous obéissions à ces désirs et à nos pensées mauvaises. A cause de notre nature, nous méritions la colère de Dieu comme les autres.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-EPH">
+      <verse num="4" />
+      <text>But God, being rich in mercy, for his great love with which he loved us,</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Mais Dieu est riche en pitié et il nous aime d'un grand amour.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-EPH">
+      <verse num="5" />
+      <text>even when we were dead through our trespasses, made us alive together with Christ (by grace you have been saved).</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>C'est pourquoi, à nous qui étions morts à cause de nos fautes, il nous a donné la vie avec le Christ. Oui, vous êtes sauvés grâce à la bonté de Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-EPH">
+      <verse num="6" />
+      <text>He raised us up with him, and made us to sit with him in the heavenly places in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Avec le Christ Jésus, il nous a réveillés de la mort et avec lui encore, il nous a fait asseoir dans les cieux.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-EPH">
+      <verse num="7" />
+      <text>That way, in the ages to come he might show the exceeding riches of his grace in kindness toward us in Christ Jesus;</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Ainsi, en montrant sa bonté pour nous dans le Christ Jésus, Dieu a voulu prouver pour toujours la richesse extraordinaire de ses bienfaits.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-EPH">
+      <verse num="8" />
+      <text>For by grace you have been saved through faith, and that not of yourselves; it is the gift of God,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>En effet, vous êtes sauvés grâce à la bonté de Dieu, et parce que vous croyez. Cela ne vient pas de vous, c'est Dieu qui vous donne le salut.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-EPH">
+      <verse num="9" />
+      <text>not of works, that no one would boast.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Ce salut ne vient pas de vos actions à vous, donc personne ne peut se vanter!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-EPH">
+      <verse num="10" />
+      <text>For we are his workmanship, created in Christ Jesus for good works, which God prepared before that we would walk in them.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Oui, c'est Dieu qui nous a faits. Il nous a créés dans le Christ Jésus pour que nous menions une vie riche en actions bonnes. Et ces actions, Dieu les a préparées pour que nous les fassions.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-EPH">
+      <verse num="11" />
+      <text>Therefore remember that once you, the Gentiles in the flesh, who are called “uncircumcision” by that which is called “circumcision,” (in the flesh, made by hands);</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Les Juifs portent la marque de la circoncision sur leur corps et ils aiment s'appeler &lt;&lt;les circoncis&gt;&gt;. Vous qui n'êtes pas juifs de naissance, vous ne portez pas cette marque sur votre corps, et ils vous appellent &lt;&lt;les non-circoncis&gt;&gt;. Eh bien, rappelez-vous ce que vous étiez autrefois:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-EPH">
+      <verse num="12" />
+      <text>that you were at that time separate from Christ, alienated from the commonwealth of Israel, and strangers from the covenants of the promise, having no hope and without God in the world.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>vous étiez sans Messie, vous n'aviez aucun droit dans le peuple d'Israël. La promesse faite par Dieu dans ses alliances avec son peuple n'était pas pour vous. Vous étiez sans espérance et sans Dieu dans le monde.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-EPH">
+      <verse num="13" />
+      <text>But now in Christ Jesus you who once were far off are made near in the blood of Christ.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Mais maintenant, dans le Christ Jésus, vous qui étiez loin, vous êtes devenus proches par le sang du Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-EPH">
+      <verse num="14" />
+      <text>For he is our peace, who made both one, and broke down the middle wall of partition,</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Oui, c'est lui qui est notre paix. Avec les Juifs et les non-Juifs, il a fait un seul peuple. En donnant sa vie sur la croix, le Christ a détruit le mur de haine qui les séparait.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-EPH">
+      <verse num="15" />
+      <text>having abolished in the flesh the hostility, the law of commandments contained in ordinances, that he might create in himself one new man of the two, making peace;</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Il a enlevé toute valeur à la loi de Moïse, à ses commandements et à ses règles. Alors, avec les Juifs et les non-Juifs, le Christ a créé un seul peuple nouveau en union avec lui, et ainsi, il a fait la paix entre eux.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-EPH">
+      <verse num="16" />
+      <text>and might reconcile them both in one body to God through the cross, having killed the hostility thereby.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>En mourant sur la croix, il a réuni les Juifs et les non-Juifs en un seul corps, et il les a réconciliés avec Dieu. Par la croix, il a détruit la haine.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-EPH">
+      <verse num="17" />
+      <text>He came and preached peace to you who were far off and to those who were near.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Il est venu annoncer la Bonne Nouvelle de la paix pour vous qui étiez loin, et aussi pour ceux qui étaient proches.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-EPH">
+      <verse num="18" />
+      <text>For through him we both have our access in one Spirit to the Father.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>En effet, en passant par le Christ, Juifs et non-Juifs, nous pouvons nous approcher du Père, grâce à l'unique Esprit Saint.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-EPH">
+      <verse num="19" />
+      <text>So then you are no longer strangers and foreigners, but you are fellow citizens with the saints, and of the household of God.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>C'est pourquoi vous n'êtes plus des étrangers, ni des gens de passage. Mais vous faites partie du peuple de Dieu, vous en avez tous les droits et vous êtes de la famille de Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-EPH">
+      <verse num="20" />
+      <text>This family is being built on the foundation of the apostles and prophets, Christ Jesus himself being the chief cornerstone.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Vous êtes devenus la maison qui a pour fondations les apôtres et les prophètes. La pierre principale, c'est le Christ Jésus lui-même.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-EPH">
+      <verse num="21" />
+      <text>The whole building is in him, fitted together, grows into a holy temple in the Lord;</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>C'est en union avec le Christ que toutes les pierres de la maison tiennent ensemble. Et cette maison s'agrandit pour former un temple saint dans le Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-EPH">
+      <verse num="22" />
+      <text>In him you also are built together for a habitation of God in the Spirit.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>C'est en union avec le Christ que vous aussi, vous faites partie de la maison qui est construite. Et vous formez avec tous les autres un lieu où Dieu habite par son Esprit.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+  <block style="c" paragraphStart="true" chapter="3" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>EPHESIANS 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-EPH">
+      <verse num="1" />
+      <text>For this cause I, Paul, am the prisoner of Christ Jesus on behalf of you Gentiles.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Moi, Paul, je suis prisonnier du Christ Jésus pour vous qui n'êtes pas juifs.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-EPH">
+      <verse num="2" />
+      <text>I am sure that you have heard of the administration of that grace of God which was given me toward you.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Vous avez sans doute entendu parler du service que Dieu, dans sa bonté, m'a chargé d'accomplir pour vous, afin de réaliser son projet.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-EPH">
+      <verse num="3" />
+      <text>I wrote before in a few words that by revelation, the mystery was made known to me.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Il m'a ouvert les yeux pour me faire connaître ce projet caché, je viens de vous en parler un peu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-EPH">
+      <verse num="4" />
+      <text>When you read this you can perceive my understanding in the mystery of Christ;</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>En lisant ma lettre, vous pouvez voir combien je connais le mystère que Dieu réalise par le Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-EPH">
+      <verse num="5" />
+      <text>In other generations, this was not made known to the children of men. It has now been revealed to his holy apostles and prophets in the Spirit;</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Ce mystère, Dieu ne l'avait pas fait connaître aux ancêtres. Mais aujourd'hui, il vient de le faire connaître par son Esprit à ses apôtres saints et à ses prophètes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-EPH">
+      <verse num="6" />
+      <text>that the Gentiles are fellow heirs, and fellow members of the body, and fellow partakers of his promise in Christ Jesus through the Good News.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Voici ce mystère: en étant unis au Christ Jésus par la Bonne Nouvelle, ceux qui ne sont pas juifs reçoivent en partage les mêmes biens que les Juifs. Ils font partie du même corps, ils participent à la même promesse.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-EPH">
+      <verse num="7" />
+      <text>I was made a servant of this gospel, according to the gift of that grace of God which was given me according to the working of his power.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Dieu, dans sa bonté, m'a donné d'être serviteur de cette Bonne Nouvelle, grâce à l'action de sa puissance.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-EPH">
+      <verse num="8" />
+      <text>To me, the very least of all saints, was this grace given, to preach to the Gentiles the unsearchable riches of Christ,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Moi, je suis le plus petit de tous les chrétiens. Pourtant j'ai reçu ce don: annoncer à ceux qui ne sont pas juifs la richesse très profonde du Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-EPH">
+      <verse num="9" />
+      <text>and to make all men see what is the administration of the mystery which for ages has been hidden in God, who created all things through Jesus Christ;</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>J'ai également reçu le don de montrer clairement comment Dieu accomplit ce mystère. Lui qui est le Créateur de toutes choses, il avait caché en lui ce mystère depuis toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-EPH">
+      <verse num="10" />
+      <text>This was done so that now through the assembly the manifold wisdom of God might be made known to the principalities and the powers in the heavenly places,</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Alors maintenant, par l'Eglise, tous ceux qui ont autorité et pouvoir dans les cieux peuvent connaître la sagesse de Dieu. Cette sagesse, Dieu la montre de mille manières,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-EPH">
+      <verse num="11" />
+      <text>according to the eternal purpose which he purposed in Christ Jesus our Lord.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>selon le projet qu'il avait fait depuis toujours. Ce projet, il l'a réalisé dans le Christ Jésus, notre Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-EPH">
+      <verse num="12" />
+      <text>We can come to God in boldness and access him in confidence through our faith in him.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Nous sommes unis au Christ et nous croyons en lui. Nous avons donc la liberté de nous approcher de Dieu avec confiance.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-EPH">
+      <verse num="13" />
+      <text>Therefore I ask that you may not lose heart at my troubles for you, which are your glory.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>C'est pourquoi je vous le demande: ne vous laissez pas décourager par les souffrances que je supporte pour vous. Elles vous donnent la vraie gloire.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-EPH">
+      <verse num="14" />
+      <text>For this cause, I bow my knees to the Father of our Lord Jesus Christ,</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>C'est pourquoi je me mets à genoux devant Dieu le Père,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-EPH">
+      <verse num="15" />
+      <text>from whom every family in heaven and on earth is named.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>de qui toute famille reçoit son nom dans les cieux et sur la terre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-EPH">
+      <verse num="16" />
+      <text>I pray that he would grant you, according to the riches of his glory, that you may be strengthened with power through his Spirit in the inward man.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Oui, je lui demande de vous rendre forts par son Esprit, tellement sa gloire est grande. Ainsi, vous pourrez être des chrétiens solides.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-EPH">
+      <verse num="17" />
+      <text>I pray that Christ may dwell in your hearts through faith; to the end that you, being rooted and grounded in love.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Que le Christ habite dans vos cœurs par la foi! Plongez vos racines dans l'amour et soyez solidement construits sur cet amour.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-EPH">
+      <verse num="18" />
+      <text>I pray that you may be strengthened to comprehend with all the saints what is the breadth and length and height and depth.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Alors vous serez capables de comprendre avec tous les chrétiens la largeur, la longueur, la hauteur et la profondeur de l'amour du Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
+      <verse num="19" />
+      <text>I pray that you will know Christ’s love which surpasses knowledge, that you may be filled with all the fullness of God.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Vous connaîtrez cet amour qui dépasse tout ce qu'on peut connaître. Vous recevrez toute la vie de Dieu, et il habitera totalement en vous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
+      <verse num="20" />
+      <text>Now to him who is able to do exceedingly abundantly above all that we ask or think, according to the power that works in us,</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Dieu agit en nous avec puissance. Et quand nous lui demandons quelque chose, il peut faire beaucoup plus! Oui, sa puissance dépasse tout ce qu'on peut imaginer!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-EPH">
+      <verse num="21" />
+      <text>to him be the glory in the assembly and in Christ Jesus to all generations forever and ever. Amen.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>A lui la gloire, dans l'Eglise et par le Christ Jésus, dans tous les temps et pour toujours! Amen.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+  <block style="c" paragraphStart="true" chapter="4" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>EPHESIANS 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-EPH">
+      <verse num="1" />
+      <text>I therefore, the prisoner in the Lord, beg you to walk worthily of the calling with which you were called.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Voici ce que je vous demande avec force, moi qui suis prisonnier pour le Seigneur: vivez en accord avec l'appel que vous avez reçu de lui.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-EPH">
+      <verse num="2" />
+      <text>Walk with all lowliness and humility, with patience, bearing with one another in love.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Soyez simples, doux et patients, supportez-vous les uns les autres avec amour.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-EPH">
+      <verse num="3" />
+      <text>Be eager to keep the unity of the Spirit in the bond of peace.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Cherchez toujours à rester unis par l'Esprit Saint, c'est lui qui vous unit en faisant la paix entre vous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-EPH">
+      <verse num="4" />
+      <text>There is one body, and one Spirit, even as you also were called in one hope of your calling;</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Il y a un seul corps et un seul Esprit Saint. Dieu vous a appelés aussi à une seule espérance.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-EPH">
+      <verse num="5" />
+      <text>one Lord, one faith, one baptism,</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Il y a un seul Seigneur, une seule foi, un seul baptême.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-EPH">
+      <verse num="6" />
+      <text>one God and Father of all, who is over all, and through all, and in us all.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Il y a un seul Dieu et Père de tous, il est au-dessus de tous, il agit par tous, il habite en tous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-EPH">
+      <verse num="7" />
+      <text>But to each one of us was the grace given according to the measure of the gift of Christ. </text>
+      <verse num="8" />
+      <text>Therefore he says,</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Dieu nous a donné ses bienfaits, mais le Christ a mesuré à chacun sa part. </text>
     <verse num="8" />
     <text>Dans les Livres Saints, on lit:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
+      <text>“When he ascended on high, he led captivity captive, and gave gifts to men.”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Quand il est monté très haut, il a emmené des prisonniers. Il a fait des dons aux êtres humains.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
+      <verse num="9" />
+      <text>Now this, “He ascended,” what is it but that he also first descended into the lower parts of the earth?</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>&lt;&lt;Il est monté.&gt;&gt; Qu'est-ce que cela veut dire? Avant de monter, le Christ est d'abord descendu dans les régions les plus profondes de la terre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-EPH">
+      <verse num="10" />
+      <text>He who descended is the one who also ascended far above all the heavens, that he might fill all things.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Celui qui est descendu, c'est aussi celui qui est &lt;&lt;monté&gt;&gt; plus haut que tous les cieux. Ainsi il a pu remplir le monde entier.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-EPH">
+      <verse num="11" />
+      <text>He gave some to be apostles; and some, prophets; and some, evangelists; and some, shepherds and teachers;</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Voici les &lt;&lt;dons&gt;&gt; que le Christ a faits: les uns ont reçu le don d'être apôtres, ou bien d'être prophètes, ou bien d'annoncer la Bonne Nouvelle. D'autres ont reçu le don de conduire le peuple de Dieu, ou encore d'enseigner.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-EPH">
+      <verse num="12" />
+      <text>for the perfecting of the saints, to the work of serving, to the building up of the body of Christ;</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Par ces dons, le Christ a voulu former ceux qui appartiennent à Dieu. Ainsi, ils peuvent accomplir leur service de chrétiens pour construire le corps du Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-EPH">
+      <verse num="13" />
+      <text>until we all attain to the unity of the faith, and of the knowledge of the Son of God, to a full grown man, to the measure of the stature of the fullness of Christ.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Alors tous ensemble, nous aurons peu à peu une même foi et une même connaissance du Fils de Dieu. Finalement, nous serons des chrétiens adultes et nous atteindrons la taille parfaite du Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-EPH">
+      <verse num="14" />
+      <text>Then we will no longer be like children, tossed back and forth, carried about with every wind of doctrine, by the trickery of men, in craftiness, after the wiles of error.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Nous ne serons plus des bébés. Nous ne ressemblerons plus à un petit bateau poussé dans tous les sens par les vagues de la mer. Nous ne serons plus emportés de tous les côtés par le vent des idées fausses. Les gens ne nous tromperont plus avec leurs mensonges habiles.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-EPH">
+      <verse num="15" />
+      <text>Speaking truth in love, we may grow up in all things into him, who is the head, Christ.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Mais en disant la vérité avec amour, nous grandirons en tout vers celui qui est la tête, le Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-EPH">
+      <verse num="16" />
+      <text>It is from Christ that all the body, being fitted and knit together through that which every joint supplies, according to the working in measure of each individual part, makes the body increase to the building up of itself in love.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>C'est par lui que toutes les parties du corps tiennent ensemble et sont unies. Beaucoup d'articulations servent à unir le corps, et quand chaque partie du corps fait son travail, le corps grandit et se construit lui-même dans l'amour.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-EPH">
+      <verse num="17" />
+      <text>This I say therefore, and testify in the Lord, that you no longer walk as the rest of the Gentiles also walk, in the futility of their mind,</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>C'est pourquoi, je vous dis ceci et j'insiste au nom du Seigneur: ne vivez plus comme ceux qui ne connaissent pas Dieu. Leurs pensées ne mènent à rien.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-EPH">
+      <verse num="18" />
+      <text>being darkened in their understanding, alienated from the life of God, because of the ignorance that is in them, because of the hardening of their hearts.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Leur intelligence est dans la nuit, et ils ne participent pas à la vie de Dieu. En effet, ils sont ignorants parce que leur cœur est fermé.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-EPH">
+      <verse num="19" />
+      <text>Having become callous, they gave themselves up to lust, to work all uncleanness with greediness.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Ils ne savent plus ce qui est bien et ce qui est mal, et ils se conduisent n'importe comment. Toutes les actions immorales qu'ils ont envie de faire, ils les font sans se gêner.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-EPH">
+      <verse num="20" />
+      <text>But you did not learn Christ that way;</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Vous, ce n'est pas de cette façon que vous avez appris à connaître le Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-EPH">
+      <verse num="21" />
+      <text>If indeed you heard him, and were taught in him, even as truth is in Jesus,</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Mais est-ce que c'est bien du Christ que vous avez entendu parler? Est-ce que c'est lui qu'on vous a enseigné, selon la vérité qui est en Jésus?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-EPH">
+      <verse num="22" />
+      <text>put away your former way of life, the old man that grows corrupt after the lusts of deceit;</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Si oui, vous devez laisser votre vie d'autrefois. Avant, vous étiez pleins de désirs trompeurs qui vous détruisaient. Eh bien, ce que vous étiez avant, il faut vous en débarrasser comme d'un vieux vêtement.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-EPH">
+      <verse num="23" />
+      <text>Be renewed in the spirit of your mind,</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Comprenez les choses d'une façon nouvelle, selon l'Esprit de Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="24" characterId="narrator-EPH">
+      <verse num="24" />
+      <text>and put on the new man, who in the likeness of God has been created in righteousness and holiness of truth.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Et, comme si vous mettiez un vêtement neuf, devenez une personne nouvelle. Cette personne nouvelle est créée comme Dieu veut: la vérité la rend juste et sainte.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="narrator-EPH">
+      <verse num="25" />
+      <text>Therefore putting away falsehood, speak truth each one with his neighbor. For we are members of one another.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Alors ne mentez plus. Chacun doit dire la vérité à son prochain, parce que tous ensemble, nous faisons partie d'un même corps.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
+      <verse num="26" />
+      <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, </text>
+      <verse num="27" />
+      <text>neither give place to the devil.</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>Quand vous vous mettez en colère, ne commettez pas de péché. Votre colère doit cesser avant le coucher du soleil. </text>
     <verse num="27" />
     <text>Ne laissez aucune place en vous à l'esprit du mal.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-EPH">
+      <verse num="28" />
+      <text>Let him who stole steal no more; but rather let him labor, working with his hands the thing that is good, that he may have something to give to him who has need.</text>
+    </ReferenceBlocks>
     <verse num="28" />
     <text>Le voleur ne doit plus voler, il doit plutôt faire tous ses efforts pour travailler de ses mains honnêtement. Ainsi, il pourra donner quelque chose à celui qui a besoin d'une aide.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="29" characterId="narrator-EPH">
+      <verse num="29" />
+      <text>Let no corrupt speech proceed out of your mouth, but such as is good for building up as the need may be, that it may give grace to those who hear.</text>
+    </ReferenceBlocks>
     <verse num="29" />
     <text>Aucune parole mauvaise ne doit sortir de votre bouche. Dites seulement des paroles utiles qui aident les autres selon leurs besoins, et qui font du bien à ceux qui vous entendent.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
+      <verse num="30" />
+      <text>Don’t grieve the Holy Spirit of God, in whom you were sealed for the day of redemption.</text>
+    </ReferenceBlocks>
     <verse num="30" />
     <text>Dieu vous a marqués de son Esprit Saint, alors ne faites pas de peine à cet Esprit. En effet, c'est lui qui vous assure qu'un jour, Dieu vous libérera complètement de vos péchés.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
+      <verse num="31" />
+      <text>Let all bitterness, wrath, anger, outcry, and slander, be put away from you, with all malice.</text>
+    </ReferenceBlocks>
     <verse num="31" />
     <text>Ne gardez pas dans votre cœur le mal qu'on vous a fait. Ne vous énervez pas, ne vous mettez pas en colère, faites disparaître de chez vous les cris, les insultes, le mal sous toutes ses formes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="narrator-EPH">
+      <verse num="32" />
+      <text>And be kind to one another, tenderhearted, forgiving each other, just as God also in Christ forgave you.</text>
+    </ReferenceBlocks>
     <verse num="32" />
     <text>Soyez bons les uns pour les autres, ayez un cœur plein de tendresse. Pardonnez-vous les uns aux autres, comme Dieu vous a pardonné dans le Christ.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="5" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+  <block style="c" paragraphStart="true" chapter="5" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>EPHESIANS 5</text>
+    </ReferenceBlocks>
     <text>5</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-EPH">
+      <verse num="1" />
+      <text>Be therefore imitators of God, as beloved children.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Vous êtes les enfants que Dieu aime, eh bien, imitez-le.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-EPH">
+      <verse num="2" />
+      <text>Walk in love, even as Christ also loved you, and gave himself up for us, an offering and a sacrifice to God for a sweet-smelling fragrance.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Vivez dans l'amour comme le Christ: il nous a aimés et il a donné sa vie pour nous, comme une offrande et un sacrifice agréable à Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-EPH">
+      <verse num="3" />
+      <text>But sexual immorality, and all uncleanness, or covetousness, let it not even be mentioned among you, as becomes saints.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Vous appartenez à Dieu, donc, chez vous, on ne doit même pas entendre parler de certaines choses. Par exemple, faire toutes sortes d'actions immorales et mauvaises, chercher à avoir tout pour soi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-EPH">
+      <verse num="4" />
+      <text>Do not be guilty of filthiness, nor foolish talking, nor jesting, which are not appropriate; but rather give thanks to God.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Pas de paroles grossières ni stupides ni sales, cela ne se fait pas! Mais quand vous parlez, faites-le plutôt pour remercier Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-EPH">
+      <verse num="5" />
+      <text>Know this for sure, that no sexually immoral person, nor unclean person, nor covetous man, who is an idolater, has any inheritance in the Kingdom of Christ and God.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Vous devez savoir ceci: ceux qui mènent une vie immorale ou mauvaise ne participeront pas au Royaume du Christ et de Dieu. Les gens qui veulent tout pour eux n'y participeront pas non plus. En effet, tout vouloir pour soi, c'est une façon d'adorer les faux dieux.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-EPH">
+      <verse num="6" />
+      <text>Let no one deceive you with empty words. For because of these things, the wrath of God comes on the children of disobedience.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Personne ne doit vous tromper avec des paroles creuses. A cause de tout cela, la colère de Dieu vient sur les gens qui refusent de lui obéir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
+      <verse num="7" />
+      <text>Therefore don’t be partakers with them.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Ne faites donc pas comme eux!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
+      <verse num="8" />
+      <text>For you were once darkness, but are now light in the Lord. Walk as children of light.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Oui, avant, vous étiez dans la nuit, mais maintenant, en étant unis au Seigneur, vous êtes dans la lumière. Vivez comme des gens qui appartiennent à la lumière.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-EPH">
+      <verse num="9" />
+      <text>The fruit of the Spirit is in all goodness and righteousness and truth,</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Ce que la lumière produit, c'est toute action bonne, juste et vraie.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-EPH">
+      <verse num="10" />
+      <text>proving what is well pleasing to the Lord.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Cherchez ce qui plaît au Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-EPH">
+      <verse num="11" />
+      <text>Have no fellowship with the unfruitful works of darkness, but rather even reprove them.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Les actions qui appartiennent à la nuit ne produisent rien de bon. N'y participez pas, au contraire, dénoncez-les!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-EPH">
+      <verse num="12" />
+      <text>For the things which are done by them in secret, it is a shame even to speak of.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Oui, ce que ces gens-là font en cachette, on a honte d'en parler.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-EPH">
+      <verse num="13" />
+      <text>But all things, when they are reproved, are revealed by the light, for everything that reveals is light. </text>
+      <verse num="14" />
+      <text>Therefore he says,</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Pourtant, quand on dénonce ce qu'ils font, leurs actions apparaissent en pleine lumière. </text>
     <verse num="14" />
     <text>En effet, tout ce qui apparaît clairement devient lumière. C'est pourquoi on dit:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
+      <text>“Awake, you who sleep, and arise from the dead, and Christ will shine on you.”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Réveille-toi, toi qui dors. Lève-toi du milieu des morts, et le Christ t'éclairera de sa lumière.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
+      <verse num="15" />
+      <text>Therefore watch carefully how you walk, not as unwise, but as wise;</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Faites bien attention à votre conduite. Ne vivez pas sans réfléchir, vivez plutôt comme des sages</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-EPH">
+      <verse num="16" />
+      <text>redeeming the time, because the days are evil.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>qui savent profiter du temps que Dieu leur laisse. Les jours que nous vivons sont mauvais.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
+      <verse num="17" />
+      <text>Therefore don’t be foolish, but understand what the will of the Lord is.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>C'est pourquoi, ne soyez pas stupides, mais comprenez bien la volonté du Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
+      <verse num="18" />
+      <text>Don’t be drunken with wine, in which is dissipation, but be filled with the Spirit.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Ne buvez pas trop de vin: la boisson pousse les gens à se détruire. Mais soyez remplis de l'Esprit Saint.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
+      <verse num="19" />
+      <text>Speak to one another in psalms, hymns, and spiritual songs; singing, and making melody in your heart to the Lord.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Ensemble, dites des psaumes, des hymnes, des cantiques qui viennent de cet Esprit. Chantez la louange du Seigneur de tout votre cœur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-EPH">
+      <verse num="20" />
+      <text>Give thanks always concerning all things in the name of our Lord Jesus Christ, to God, even the Father.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Remerciez Dieu le Père toujours et pour tout, au nom de notre Seigneur Jésus-Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-EPH">
+      <verse num="21" />
+      <text>Subject yourselves one to another in the fear of Christ.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Obéissez les uns aux autres par respect pour le Christ,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-EPH">
+      <verse num="22" />
+      <text>Wives, be subject to your own husbands, as to the Lord.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>es femmes à leur mari comme au Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-EPH">
+      <verse num="23" />
+      <text>For the husband is the head of the wife, and Christ also is the head of the assembly, being himself the savior of the body.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>En effet, le mari est le chef de sa femme, comme le Christ est le chef de l'Eglise. Le Christ est le Sauveur de l'Eglise qui est son corps.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-EPH">
+      <verse num="24" />
+      <text>But as the assembly is subject to Christ, so let the wives also be to their own husbands in everything.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Comme l'Eglise obéit au Christ, les femmes doivent obéir pour tout à leur mari.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-EPH">
+      <verse num="25" />
+      <text>Husbands, love your wives, even as Christ also loved the assembly, and gave himself up for it.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Maris, aimez votre femme comme le Christ a aimé l'Eglise. Il a donné sa vie pour elle,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-EPH">
+      <verse num="26" />
+      <text>He did this to sanctify it, having cleansed it by the washing of water with the word,</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>afin qu'elle soit sainte: il l'a rendue pure par l'eau et par la Parole.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="narrator-EPH">
+      <verse num="27" />
+      <text>that he might present the assembly to himself gloriously, not having spot or wrinkle or any such thing; but that it should be holy and without blemish.</text>
+    </ReferenceBlocks>
     <verse num="27" />
     <text>Il a voulu que l'Eglise se présente devant lui pleine de gloire, sans tache, sans ride, sans aucun défaut. Il a voulu qu'elle soit sainte et sans reproche.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-EPH">
+      <verse num="28" />
+      <text>Even so husbands also ought to love their own wives as their own bodies. He who loves his own wife loves himself.</text>
+    </ReferenceBlocks>
     <verse num="28" />
     <text>A son tour, un mari doit aimer sa femme comme il aime son corps. Aimer sa femme, c'est s'aimer soi-même.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-EPH">
+      <verse num="29" />
+      <text>For no man ever hated his own flesh; but nourishes and cherishes it, even as the Lord also does the assembly;</text>
+    </ReferenceBlocks>
     <verse num="29" />
     <text>Non, personne n'a jamais détesté son corps. Au contraire, on le nourrit, on en prend soin, comme le Christ le fait pour son Eglise.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="narrator-EPH">
+      <verse num="30" />
+      <text>because we are members of his body, of his flesh and bones.</text>
+    </ReferenceBlocks>
     <verse num="30" />
     <text>Est-ce que nous ne faisons pas partie du corps du Christ? Dans les Livres Saints on lit:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="scripture">
+      <verse num="31" />
+      <text>“For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh.”</text>
+    </ReferenceBlocks>
     <verse num="31" />
     <text>&lt;&lt;C'est pourquoi l'homme quittera son père et sa mère pour s'attacher à sa femme et les deux deviendront comme une seule personne.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
+      <verse num="32" />
+      <text>This mystery is great, but I speak concerning Christ and of the assembly.</text>
+    </ReferenceBlocks>
     <verse num="32" />
     <text>Ce mystère est grand, et moi, je vous dis qu'il s'agit du Christ et de l'Eglise.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-EPH">
+      <verse num="33" />
+      <text>Nevertheless each of you must also love his own wife even as himself; and let the wife see that she respects her husband.</text>
+    </ReferenceBlocks>
     <verse num="33" />
     <text>Mais il s'agit aussi de vous: chacun doit aimer sa femme comme lui-même, et la femme doit respecter son mari.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH">
+  <block style="c" paragraphStart="true" chapter="6" book="EPH" initialStartVerse="0" characterId="BC-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
+      <text>EPHESIANS 6</text>
+    </ReferenceBlocks>
     <text>6</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-EPH">
+      <verse num="1" />
+      <text>Children, obey your parents in the Lord, for this is right.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Enfants, obéissez à vos parents, comme le Seigneur le veut, c'est votre devoir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
+      <verse num="2" />
+      <text>“Honor your father and mother,”</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>&lt;&lt;Respecte ton père et ta mère&gt;&gt;,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
+      <text>which is the first commandment with a promise:</text>
+    </ReferenceBlocks>
     <text>voilà le premier commandement que Dieu a donné avec une promesse.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="scripture">
+      <verse num="3" />
+      <text>“that it may be well with you, and you may live long on the earth.”</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>&lt;&lt;Alors tu seras heureux et tu vivras longtemps sur la terre.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
+      <verse num="4" />
+      <text>You fathers, don’t provoke your children to wrath, but nurture them in the discipline and instruction of the Lord.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Et vous, les parents, ne poussez pas vos enfants à la révolte. Mais pour les élever, corrigez-les et donnez-leur des conseils qui viennent du Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
+      <verse num="5" />
+      <text>Servants, be obedient to those who according to the flesh are your masters, with fear and trembling, in singleness of your heart, as to Christ;</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Esclaves, obéissez à vos maîtres sur la terre avec beaucoup de respect, d'un cœur sincère, comme vous obéissez au Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-EPH">
+      <verse num="6" />
+      <text>Do not work hard only when eyes are on you, as men pleasers; but as servants of Christ, doing the will of God from the heart.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Ne les servez pas seulement quand ils vous surveillent, comme pour plaire à des hommes. Mais obéissez comme des serviteurs du Christ qui font de tout leur cœur ce que Dieu veut.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-EPH">
+      <verse num="7" />
+      <text>Do everything with good will doing service, as to the Lord, and not to men.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Servez vos maîtres de bon cœur, comme si vous serviez le Seigneur et non des hommes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-EPH">
+      <verse num="8" />
+      <text>Know that whatever good thing each one does, he will receive the same again from the Lord, whether he is bound or free.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Vous le savez: ce que chacun fait de bien, il le retrouvera près du Seigneur, qu'il soit esclave ou homme libre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-EPH">
+      <verse num="9" />
+      <text>You masters, do the same things to them, and give up threatening, knowing that he who is both their Master and yours is in heaven, and there is no partiality with him.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Et vous, les maîtres, agissez de la même façon avec vos esclaves. Laissez de côté les menaces. Vous le savez: vous et eux, vous avez le même Maître dans les cieux, et lui, il ne fait pas de différence entre les gens.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-EPH">
+      <verse num="10" />
+      <text>Finally, be strong in the Lord, and in the strength of his might.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Enfin, devenez forts avec la force très puissante du Seigneur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-EPH">
+      <verse num="11" />
+      <text>Put on the whole armor of God, that you may be able to stand against the wiles of the devil.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Prenez avec vous toutes les armes de Dieu, pour pouvoir résister aux pièges de l'esprit du mal.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
+      <verse num="12" />
+      <text>For our wrestling is not against flesh and blood, but against the principalities, against the powers, against the world’s rulers of the darkness of this age, and against the spiritual forces of wickedness in the heavenly places.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Non, ce n'est pas contre des êtres humains que nous devons lutter. Mais c'est contre des forces très puissantes qui ont autorité et pouvoir. Nous devons lutter contre les puissances qui dirigent le monde de la nuit, contre les esprits mauvais qui habitent entre le ciel et la terre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
+      <verse num="13" />
+      <text>Therefore put on the whole armor of God, that you may be able to withstand in the evil day, and, having done all, to stand.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>C'est pourquoi prenez toutes les armes de Dieu. Ainsi, dans les mauvais jours, vous pourrez résister, et après avoir bien lutté, vous resterez debout.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-EPH">
+      <verse num="14" />
+      <text>Stand therefore, having the utility belt of truth buckled around your waist, and having put on the breastplate of righteousness,</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Alors, debout! Prenez la vérité comme ceinture, mettez la justice comme cuirasse.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-EPH">
+      <verse num="15" />
+      <text>and having fitted your feet with the preparation of the Good News of peace;</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Prenez comme sandales l'ardeur pour annoncer la Bonne Nouvelle de la paix.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-EPH">
+      <verse num="16" />
+      <text>above all, taking up the shield of faith, with which you will be able to quench all the fiery darts of the evil one.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Toujours et partout, prenez le bouclier de la foi. Avec lui, vous pourrez éteindre les flèches brûlantes de l'esprit du mal.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-EPH">
+      <verse num="17" />
+      <text>And take the helmet of salvation, and the sword of the Spirit, which is the word of God;</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Recevez aussi le casque du salut et l'épée de l'Esprit Saint, c'est-à-dire la parole de Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-EPH">
+      <verse num="18" />
+      <text>With all prayer and requests, pray at all times in the Spirit, and be watchful to this end in all perseverance and requests for all the saints:</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Priez sans cesse. Faites toutes vos prières et vos demandes par l'Esprit Saint! Soyez bien attentifs et priez toujours fidèlement pour tous les chrétiens.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-EPH">
+      <verse num="19" />
+      <text>Pray for me also, that I might speak without fear. Pray that I will use the right words to explain these difficult concepts in the Gospel.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Priez aussi pour moi, afin que Dieu mette sa Parole dans ma bouche. Alors j'annoncerai avec courage le mystère de la Bonne Nouvelle.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-EPH">
+      <verse num="20" />
+      <text>I was sent to be an ambassador. Currently I am in chains for preaching the Gospel. I want to keep on speaking for Christ without fear, the way I should.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Je suis le porte-parole de la Bonne Nouvelle, et pour elle, je suis attaché avec des chaînes. Priez pour que je parle avec courage, comme je dois le faire.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-EPH">
+      <verse num="21" />
+      <text>That you also may know my affairs, how I am doing. Tychicus, the beloved brother and faithful servant in the Lord, will make known to you all things.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Je veux que vous aussi, vous connaissiez ma situation et ce que je fais. Tychique, mon frère et mon ami, qui sert fidèlement le Seigneur, vous donnera toutes les nouvelles.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-EPH">
+      <verse num="22" />
+      <text>I have sent to you for this very purpose, that you may know our state, and that he may comfort your hearts.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Je l'envoie exprès chez vous pour vous dire comment nous allons, et pour vous encourager.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="23" characterId="narrator-EPH">
+      <verse num="23" />
+      <text>Peace be to the brothers, and love with faith, from God the Father and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Que Dieu le Père et notre Seigneur Jésus-Christ donnent aux frères et sœurs chrétiens la paix, l'amour et la foi!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-EPH">
+      <verse num="24" />
+      <text>Grace be with all those who love our Lord Jesus Christ with incorruptible love. Amen.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Que Dieu bénisse tous ceux qui aiment notre Seigneur Jésus-Christ d'un amour qui ne meurt pas!</text>
   </block>

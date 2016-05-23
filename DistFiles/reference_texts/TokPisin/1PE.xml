@@ -1,461 +1,920 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1PE" singlevoice="false" pageheader="1 PETER">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE">
+      <text>1 PETER</text>
+    </ReferenceBlocks>
     <text>1 PETER</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+  <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>1 PETER 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1PE">
+      <verse num="1" />
+      <text>Peter, an apostle of Jesus Christ, to the chosen ones who are living as foreigners in the Dispersion in Pontus, Galatia, Cappadocia, Asia, and Bithynia,</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Mi Pita, mi aposel bilong Jisas Krais. Mi raitim dispela pas long yupela manmeri bilong God, yupela ol lain i stap nabaut olsem tripman long provins Pontus na Galesia na Kapadosia na Esia na Bitinia.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1PE">
+      <verse num="2" />
+      <text>according to the foreknowledge of God the Father, in sanctification of the Spirit, that you may obey Jesus Christ and be sprinkled with his blood: Grace to you and peace be multiplied.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Bipo tru God Papa i save pinis long yupela na i makim yupela long kamap ol manmeri bilong em yet. Holi Spirit i bin helpim yupela long givim laip bilong yupela olgeta long God na kamap holi, bai yupela i ken bihainim gut tok bilong Jisas Krais. Na bai blut bilong Jisas i ken wasim yupela, na mekim yupela i kamap klin long ai bilong God. God i ken marimari moa yet long yupela na mekim bel bilong yupela i stap isi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1PE">
+      <verse num="3" />
+      <text>Blessed be the God and Father of our Lord Jesus Christ. Who according to his great mercy became our father again to a living hope through the resurrection of Jesus Christ from the dead,</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Yumi litimapim nem bilong God, em i God na Papa bilong Bikpela bilong yumi, Jisas Krais. Em i gat bikpela sori long yumi, na em i kirapim Jisas Krais long matmat, na long dispela rot God i givim yumi nupela laip. Na dispela nupela laip i strongim yumi long wetim em i inapim tru ol gutpela samting em i laik givim long yumi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE">
+      <verse num="4" />
+      <text>to an incorruptible and undefiled inheritance that doesn’t fade away, reserved in Heaven for you.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Em i makim yumi pinis bilong kisim gutpela laip bilong heven. Dispela laip em i no inap bagarap. Em i klin olgeta long ai bilong God, na em bai i no inap pinis. God i redim dispela laip pinis, bilong yupela i kisim long taim yupela i stap wantaim em long heven.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1PE">
+      <verse num="5" />
+      <text>By the power of God you are being guarded through faith for a salvation ready to be revealed in the last time.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Yupela i bilip long Krais, olsem na God i save lukautim yupela long strong bilong em, bai yupela i stap gut. Em i laik kisim bek yupela na mekim yupela i stap gut tru, na dispela samting em i laik mekim, em bai i kamap ples klia long las de.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1PE">
+      <verse num="6" />
+      <text>This is why you greatly rejoice, though now for a little while, if need be, you have been put to grief in various trials.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Yupela i save tingting long ol dispela samting God i laik mekim na yupela i save amamas. Tasol nau long liklik taim tasol, ating kain kain traim bai i kamap na givim pen long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1PE">
+      <verse num="7" />
+      <text>These trials have come so that the proof of your faith, which is more precious than gold that perishes even though it is tested by fire, may be found to result in praise, glory, and honor at the revelation of Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Long dispela pasin God i save traim bilip bilong yupela. Yumi save, gol em i gutpela samting tru, tasol ol i save kukim long paia, bilong traim na painimaut em i gol tru, o nogat. Bilip bilong yupela i winim gol na i gutpela moa, long wanem, gol em i samting bilong bagarap. Olsem na sapos ol kain kain traim i kamap long yupela, em i bilong traim bilip na soim olsem, yupela i bilip tru long Krais. Na long las de, taim Jisas Krais i kamap ples klia, em bai i amamas tru long yupela na givim biknem long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1PE">
+      <verse num="8" />
+      <text>Though you have not seen him, you love him; and even though you do not see him now, you believe in him and are filled with inexpressible and glorious joy.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Yupela i no bin lukim em yet, tasol yupela i save laikim em na givim bel bilong yupela long em. Nau yupela i no save lukim em, tasol yupela i bilip long em na amamas tru. Dispela amamas i winim olgeta amamas bilong dispela graun, na yumi no inap autim long maus. Nogat tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1PE">
+      <verse num="9" />
+      <text>For you are receiving the goal of your faith, the salvation of your souls.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Na God i wok long kisim bek yupela, long wanem, yupela i bilip long Krais.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1PE">
+      <verse num="10" />
+      <text>Concerning this salvation, the prophets sought and searched diligently. They prophesied of the grace that would come to you.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Ol profet i bin autim tok long dispela gutpela samting nau God i mekim long yupela. Ol i bin wok strong long painim as bilong dispela tok bilong God i kisim bek yumi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1PE">
+      <verse num="11" />
+      <text>They wondered who or what kind of time the Spirit of Christ, which was in them, pointed to, when he predicted the sufferings of Christ, and the glories that would follow them.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Spirit bilong Krais i bin i stap insait long ol profet, na Spirit i bin tokaut long maus bilong ol long ol kain kain pen Krais bai i karim na long bihain em bai i kisim biknem. Na ol profet i wok long askim, "Wanem taim dispela man bilong kisim bek yumi, em bai i kam?" na "Wanem samting bai i kamap long dispela taim?"</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1PE">
+      <verse num="12" />
+      <text>To them it was revealed, that not to themselves, but to you, they ministered these things, which now have been announced to you through those who preached the Good News to you by the Holy Spirit sent out from heaven; which things angels desire to look into.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Tasol God i soim ol olsem, ol dispela samting ol i toktok long en, ol bai i no inap kamap long taim bilong ol yet. Nogat. Tasol ol i autim tok long ol samting God bai i mekim bilong kisim bek yupela. Na nau God i salim Holi Spirit i kam daun long heven, na long strong bilong Holi Spirit, ol man bilong autim gutnius i tokim yupela pinis long ol dispela samting God i mekim. Ol ensel tu i laikim tumas long kisim save long ol dispela gutpela samting God i mekim long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1PE">
+      <verse num="13" />
+      <text>Therefore prepare your minds for action! Be sober and set your hope fully on the grace that will be brought to you at the revelation of Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Olsem na oltaim tingting bilong yupela i mas i stap redi na yupela i mas bosim gut wokabaut bilong yupela. Yupela i mas bilip strong na wetim God i mekim dispela gutpela samting em i laik mekim long yupela, long taim Jisas Krais i kamap ples klia.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1PE">
+      <verse num="14" />
+      <text>Be as children of obedience, not conforming yourselves according to your former lusts as in your ignorance.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Yupela i mas i stap olsem ol pikinini i save harim tok. Bipo yupela i no gat save, na yupela i save bihainim ol kain kain laik nogut. Tasol nau yupela i no ken bihainim dispela pasin moa. Nogat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1PE">
+      <verse num="15" />
+      <text>But just as he who called you is holy, you yourselves also be holy in all of your behavior; </text>
+      <verse num="16" />
+      <text>because it is written,</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>God i singautim yupela pinis, em i holi na em i save mekim gutpela na stretpela pasin olgeta. Olsem na yupela i mas givim yupela yet long God na stap holi long olgeta wokabaut bilong yupela. </text>
     <verse num="16" />
     <text>Buk bilong God i tok olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture">
+      <text>“You shall be holy; for I am holy.”</text>
+    </ReferenceBlocks>
     <text>"Yupela i mas i stap holi na bihainim gutpela stretpela pasin, long wanem, mi God bilong yupela, mi stap holi."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
+      <verse num="17" />
+      <text>If you call on him as Father, who without respect of persons judges according to each man’s work, pass the time of your living as foreigners here in reverent fear.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Yupela i save singaut long God na kolim em "Papa." Dispela Papa em i no save ting long nem bilong yumi na em i skelim yumi. Nogat. Em i save lukim pasin yumi wan wan i mekim na em i skelim yumi. Olsem na olgeta taim yupela i stap hia long dispela graun, yupela i mas save olsem dispela graun em i no ples tru bilong yupela, na yupela i mas aninit tru long God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1PE">
+      <verse num="18" />
+      <text>Know that you were redeemed, and not with corruptible things, with silver or gold, from the useless way of life handed down from your fathers.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Yupela i save pinis, bipo yupela i save bihainim ol pasin nogut yupela i bin kisim long ol tumbuna bilong yupela. Tasol God i bin baim bek yupela na tekewe yupela long dispela ol pasin. Na em i no givim ol samting bilong graun i save bagarap, olsem silva na gol, bilong baim bek yupela. Nogat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1PE">
+      <verse num="19" />
+      <text>You were redeemed with precious blood, as of a faultless and pure lamb, the blood of Christ.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Em i baim bek yupela long blut bilong Krais. Dispela blut em i dia tumas. Krais em i olsem wanpela pikinini sipsip i no gat mak o sua samting i bagarapim skin bilong en.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1PE">
+      <verse num="20" />
+      <text>Christ was foreknown indeed before the foundation of the world, but was revealed at the end of times for your sake.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Taim God i no wokim graun yet, em i makim Krais bilong mekim dispela wok bilong baim bek yupela. Na nau long dispela taim bilong ol las de yumi stap long en, God i mekim Krais i kamap ples klia pinis, bilong helpim yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1PE">
+      <verse num="21" />
+      <text>Through him you are believers in God, who raised him from the dead, and gave him glory; so that your faith and hope might be in God.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Em i helpim yupela na yupela i bilip long God, em God i bin kirapim Krais long matmat na givim biknem long em. Olsem na yupela i save bilip long God, na wet long em i mekim ol samting em i bin promis long mekim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-1PE">
+      <verse num="22" />
+      <text>Now that you have purified your souls in your obedience to the truth through the Spirit in sincere brotherly affection, love one another from the heart fervently.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Yupela i bin bihainim tok i tru, na long dispela pasin yupela i bin mekim yupela yet i kamap klin long ai bilong God. Na yupela i save laikim tru ol arapela manmeri bilong God. Orait nau yupela i mas wok strong moa long laikim ol na givim bel bilong yupela olgeta long ol.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1PE">
+      <verse num="23" />
+      <text>For you have been born again, not of corruptible seed, but of incorruptible, through the word of God, which lives and remains forever. </text>
+      <verse num="24" />
+      <text>For,</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Yupela i kamap nupela pinis, olsem nupela kaikai i kamap long gaden. Yupela i no kamap long ol pikinini kaikai i save bagarap. Nogat. Yupela i kamap long pikinini kaikai i save stap oltaim. Dispela pikinini kaikai em tok bilong God, em tok i gat laip na i save stap oltaim. </text>
     <verse num="24" />
     <text>Buk bilong God i tok olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
+      <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
+    </ReferenceBlocks>
     <text>"Olgeta manmeri i no save stap longpela taim long graun. Ol i save pinis hariap olsem gras, na biknem bilong ol i save pundaun olsem ol plaua nabaut. Gras i save drai, na ol plaua i save pundaun.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
+      <verse num="25" />
+      <text>but the Lord’s word endures forever.”</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Tasol tok bilong Bikpela i save stap oltaim oltaim."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
+      <text>This is the word of Good News which was preached to you.</text>
+    </ReferenceBlocks>
     <text>Dispela tok em i dispela gutnius ol i bin autim long yupela.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+  <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>1 PETER 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1PE">
+      <verse num="1" />
+      <text>Put away therefore all wickedness, all deceit, hypocrisies, envies, and all evil speaking.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Yupela i kamap nupela pinis, olsem na yupela i mas lusim olgeta pasin nogut na pasin bilong tok giaman na olgeta arapela pasin bilong giaman. Na pasin bilong bel nogut long man i gat planti samting, na olgeta tok baksait, em tu yupela i mas lusim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1PE">
+      <verse num="2" />
+      <text>Be like newborn babes, desiring always the pure spiritual milk, so that drinking it, you can grow and be saved.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Yumi save, nupela pikinini em i save laikim tumas susu. Olsem tasol yupela i mas laikim tumas long kisim gutpela susu i kam long God, na i no gat samting nogut i stap long en. Em dispela kain susu i save helpim spirit bilong yupela i kamap bikpela na strongpela long nupela laip God i givim long yupela, na bai yupela i stap gut wantaim God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1PE">
+      <verse num="3" />
+      <text>For as the Scriptures say: “You have discovered for yourself that the Lord is good.”</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Yupela i traim pinis pasin Bikpela i save mekim long yumi, na yupela i save, Bikpela i gutpela tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1PE">
+      <verse num="4" />
+      <text>Come to him as a living stone, rejected indeed by men, but chosen by God and precious to him.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Bikpela i olsem wanpela ston i gat laip, na yupela i mas i kam long em. Ol manmeri i bin lukim em olsem samting nogut, na ol i bin rausim em. Tasol God i makim em pinis na i lukim em i gutpela tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1PE">
+      <verse num="5" />
+      <text>You also, as living stones, are built up as a spiritual house, to be a holy priesthood, to offer up spiritual sacrifices, acceptable to God through Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Yupela tu i olsem ol ston i gat laip, na long strong bilong Holi Spirit God i laik mekim yupela i kamap haus bilong em yet. Olsem bai yupela i ken i stap lain pris God i makim bilong em yet, na long nem bilong Jisas Krais yupela i ken givim laip bilong yupela long God olsem ofa em i laikim tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1PE">
+      <verse num="6" />
+      <text>Because it is contained in Scripture,</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Buk bilong God i gat tok long dispela olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
+      <text>“Behold, I lay in Zion a chief cornerstone, chosen, and precious: He who believes in him will not be disappointed.”</text>
+    </ReferenceBlocks>
     <text>"Harim. Mi makim pinis wanpela ston bilong kamap namba wan ston bilong strongim haus. Em i gutpela na strongpela ston tru. Nau mi putim em i stap long maunten Saion. Ol man i bilip long em, ol bai i no inap kisim sem."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE">
+      <verse num="7" />
+      <text>For you who believe therefore is the honor, but for those who are disobedient,</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Olsem na long yupela ol man i bilip, Krais em i olsem gutpela ston tru. Tasol long ol man i no bilip,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
+      <text>“The stone which the builders rejected, has become the chief cornerstone,”</text>
+    </ReferenceBlocks>
     <text>"Dispela ston ol kamda i ting em i nogut na ol i rausim, nau em i kamap nambawan ston bilong strongim banis bilong haus,"</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
+      <verse num="8" />
+      <text>and,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>na</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+      <text>“a stone of stumbling, and a rock of offense.”</text>
+    </ReferenceBlocks>
     <text>"em i kamap olsem ston i stap long rot bilong ol, na planti bilong ol bai i sutim lek na pundaun na bagarap."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
+      <text>For they stumble at the word, being disobedient, to which also they were appointed.</text>
+    </ReferenceBlocks>
     <text>Ol i save sakim tok bilong God, olsem na ol i sutim lek bilong ol na ol i pundaun. Bipo God i tok pinis long ol bai i mekim olsem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE">
+      <verse num="9" />
+      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Tasol God i makim yupela pinis, na yupela i stap lain manmeri bilong em stret. Yupela i stap ol pris bilong lain bilong king. Yupela i stap lain manmeri i holi, em ol lain manmeri tru bilong God. Yupela i stap lain manmeri God i bin makim bilong em yet, bai yupela i ken tokaut long olgeta gutpela pasin em i bin mekim long yupela. Yupela i ken tokaut long em i bin singautim yupela long lusim tudak yupela i bin i stap long en, na em i bringim yupela i kam insait long lait bilong em, em lait i gutpela moa yet.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE">
+      <verse num="10" />
+      <text>In times past, you were no people, but now you are God’s people. At one time you did not have God’s mercy, but now you have obtained his mercy.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Bipo yupela i stap ol manmeri nating. Tasol nau yupela i stap lain manmeri bilong God. Bipo yupela i no kisim marimari bilong God, tasol nau yupela i kisim marimari bilong en pinis.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1PE">
+      <verse num="11" />
+      <text>Beloved, I beg you as foreigners and pilgrims, to abstain from fleshly lusts, which war against the soul.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Ol pren tru bilong mi, yupela i stap long dispela graun olsem ol man bilong narapela ples, na olsem ol tripman. Orait mi tokim yupela olsem, yupela i mas givim baksait long olgeta laik nogut bilong olpela bel, em ol dispela pasin i save pait long spirit bilong yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1PE">
+      <verse num="12" />
+      <text>Have such good behavior among the nations, that when they speak against you as evildoers, they may, by your good works which they see, glorify God in the day of visitation.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Yupela i mas wokabaut stret namel long ol haiden. Na sapos ol i tok nogut long yupela, bihain ol bai i lukim gutpela pasin bilong yupela, na ol bai i litimapim nem bilong God long dispela de em bai i kam bilong kotim ol manmeri.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE">
+      <verse num="13" />
+      <text>Therefore subject yourselves to every ordinance of man for the Lord’s sake: whether to the king, as supreme;</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Yupela i mas tingting long Bikpela na bihainim tok bilong olgeta kain gavman. King i stap namba wan tru, na yupela i mas bihainim tok bilong en.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1PE">
+      <verse num="14" />
+      <text>or to governors, as sent by him for vengeance on evildoers and for praise to those who do well.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Na yupela i mas bihainim tu tok bilong ol namba wan gavman bilong ol provins. King i bin putim ol i stap bilong bekim pe nogut long ol man i mekim pasin nogut, na bilong litimapim nem bilong ol man i mekim gutpela pasin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1PE">
+      <verse num="15" />
+      <text>For this is the will of God, that by well-doing you should put to silence the ignorance of foolish men:</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>God i laik bai yupela i mas mekim gutpela pasin tasol, olsem bai yupela inap pasim maus bilong ol krankiman i no gat save, na ol i save tok nogut long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1PE">
+      <verse num="16" />
+      <text>Live as free men, but do not use your freedom for a cloak of wickedness. Live as bondservants of God.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Yupela i mas wokabaut olsem ol man i stap fri. Tasol yupela i no ken ting, "Nau mipela i stap fri," na yupela i go mekim ol kain kain pasin nogut. Nogat. Yupela i mas wokabaut olsem ol wokboi bilong God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1PE">
+      <verse num="17" />
+      <text>Honor all men. Love the brotherhood. Fear God. Honor the king.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Yupela i mas mekim gutpela pasin long olgeta man, na givim bel bilong yupela long ol arapela manmeri bilong God. Yupela i mas pret long God na aninit long em. Na yupela i mas givim biknem long king.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1PE">
+      <verse num="18" />
+      <text>Servants, be in subjection to your masters with all fear; not only to the good and gentle, but also to the wicked.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Yupela wokboi, yupela i mas aninit long ol man i bosim yupela, na bihainim gut tok bilong ol. Mi no tok long ol gutpela bos tasol, em ol bos i save isi long yupela. Nogat. Yupela i mas aninit long ol bos nogut tu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1PE">
+      <verse num="19" />
+      <text>For it is commendable if someone endures pain, suffering unjustly, because of conscience toward God.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Yes, sapos yupela i larim God i stiaim tingting bilong yupela na yupela i mekim wok, na ol i givim nating pen long yupela, na yupela i karim dispela pen, orait God i laikim dispela pasin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1PE">
+      <verse num="20" />
+      <text>For what glory is it if, when you sin, you patiently endure beating? But if, when you do well, you patiently endure suffering, this is commendable with God.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Sapos yupela i mekim pasin nogut na ol i paitim yupela, na yupela i karim dispela pen, bai yupela i kisim wanem samting long dispela? Tasol sapos yupela i mekim gutpela pasin na ol i paitim yupela, na yupela i karim dispela pen, orait God i laikim dispela pasin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1PE">
+      <verse num="21" />
+      <text>For to this you were called, because Christ also suffered for us, leaving you an example, that you should follow his steps,</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>God i singautim yupela pinis bilong bihainim dispela kain pasin, long wanem, Krais tu i bin karim pen bilong helpim yupela. Em i soim yupela pinis dispela pasin bilong em, bai yupela i ken bihainim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1PE">
+      <verse num="22" />
+      <text>who did not sin, “neither was deceit found in his mouth.”</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Em i no bin mekim sin, na tu em i no bin mekim wanpela tok giaman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
+      <verse num="23" />
+      <text>When he was cursed, he didn’t curse back. When he suffered, he didn’t threaten, but committed himself to him who judges righteously.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Ol i bin tok nogut long em, tasol em i no bekim tok nogut bilong ol. Em i karim pen, tasol em i no tok long bagarapim ol. Nogat. Em i putim em yet long han bilong God, em dispela Jas i save skelim stret olgeta samting.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1PE">
+      <verse num="24" />
+      <text>He himself bore our sins in his body on the tree, that we, having died to sins, might live to righteousness; by whose stripes you were healed.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Krais i bin hangamap long diwai kros na i karim sin bilong yumi long bodi bilong em yet. Em i mekim olsem bai yumi ken lusim pasin bilong sin olgeta, na yumi ken i stap laip na bihainim ol pasin i stret olgeta. Ol i bin paitim em nogut, na long dispela pen em i karim em i mekim yupela i kamap orait gen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1PE">
+      <verse num="25" />
+      <text>For you were going astray like sheep; but now have returned to the Shepherd and Overseer of your souls.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Yupela olgeta i bin i stap olsem ol sipsip i raun nabaut. Tasol nau yupela i kam bek pinis long dispela Wasman Bilong Sipsip i save lukautim gut spirit bilong yupela.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+  <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>1 PETER 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE">
+      <verse num="1" />
+      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don’t obey the Word, they may be won by the behavior of their wives without a word;</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Olsem tasol, yupela maritmeri, yupela i mas aninit long ol man bilong yupela. Na sapos sampela bilong ol dispela man i no save bihainim tok bilong God, orait ol i ken lukim gutpela pasin bilong yupela meri bilong ol. Na maski yupela i no mekim wanpela tok long ol, bai ol i inap tanim bel,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1PE">
+      <verse num="2" />
+      <text>seeing your pure behavior in fear.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>long wanem, ol i lukim yupela meri i save wokabaut stret na aninit tru long ol.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1PE">
+      <verse num="3" />
+      <text>Let your beauty be not just the outward adorning of braiding the hair, and of wearing jewels of gold, or of putting on fine clothing;</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Yupela i no ken bilasim skin ausait tasol, long pasin bilong bilasim gras na putim bilas gol na kain kain naispela klos. Nogat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1PE">
+      <verse num="4" />
+      <text>but in the hidden person of the heart, in the incorruptible adornment of a gentle and quiet spirit, which is very precious in the sight of God.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Mobeta yupela i bilasim insait bilong yupela tu long olkain bilas i no inap long bagarap. Dispela kain bilas em pasin bilong i stap belgut na i stap bel isi. Dispela kain pasin em i gutpela moa yet long ai bilong God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1PE">
+      <verse num="5" />
+      <text>For this is how the holy women before, who hoped in God also adorned themselves, being in subjection to their own husbands.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>For this is how the holy women before, who hoped in God also adorned themselves, being in subjection to their own husbands.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1PE">
+      <verse num="6" />
+      <text>Sarah obeyed Abraham, calling him lord. You are her children if you do well, and are not put in fear by any terror.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Sarah obeyed Abraham, calling him lord. You are her children if you do well, and are not put in fear by any terror.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1PE">
+      <verse num="7" />
+      <text>You husbands, in the same way, live with your wives according to knowledge. Give honor to the woman, as to the weaker vessel, as being also joint heirs of the grace of life; that your prayers may not be hindered.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Yupela ol maritman, yupela i mas bihainim gutpela tingting na sindaun gut wantaim ol meri bilong yupela. Bodi bilong ol meri i no strong tumas, olsem na yupela i mas mekim gutpela pasin long ol. Yupela i mas save olsem, ol meri tu bai i kisim laip bilong i stap oltaim. Sapos yupela i bihainim dispela pasin, orait i no gat wanpela samting bai i pasim ol prea bilong yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1PE">
+      <verse num="8" />
+      <text>Finally, be all like-minded, compassionate, loving as brothers, tenderhearted, courteous.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Nau mi laik pinisim dispela tok olsem, yupela olgeta i mas i stap wanbel na sori long olgeta man. Yupela i mas laikim tru ol arapela manmeri bilong God na marimari long ol, na lusim pasin bilong bikhet.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1PE">
+      <verse num="9" />
+      <text>Do not render evil for evil, or insult for insult; but instead blessing. Know that to this were you called, that you may inherit a blessing. </text>
+      <verse num="10" />
+      <text>For,</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Sapos ol man i mekim nogut long yupela, orait yupela i no ken bekim. Sapos ol i tok nogut long yupela, orait yupela i no ken bekim tok nogut bilong ol. Nogat. Yupela i mas bekim long dispela pasin. Yupela i mas beten long God i ken mekim gut long ol. God i bin singautim yupela long mekim olsem, bai yupela yet i ken kisim blesing bilong en. </text>
     <verse num="10" />
     <text>Yumi save</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
+      <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
+    </ReferenceBlocks>
     <text>"Sapos man i laik bai laip bilong en i kamap gutpela, na em i laik lukim gutpela taim, orait em i no ken mekim tok nogut na em i no ken mekim ol tok giaman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
+      <verse num="11" />
+      <text>Let him turn away from evil, and do good. Let him seek peace, and pursue it.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Em i mas givim baksait long pasin nogut, na bihainim gutpela pasin tasol. Em i mas wok long kamap wanbel wantaim ol arapela manmeri, na em i mas strong long bihainim dispela pasin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="scripture" multiBlockQuote="Continuation">
+      <verse num="12" />
+      <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.”</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Long wanem, Bikpela i save lukautim ol stretpela manmeri, na em i save putim yau long ol beten bilong ol. Tasol Bikpela i no save laikim ol manmeri nogut."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE">
+      <verse num="13" />
+      <text>Now who is he who will harm you, if you become imitators of that which is good?</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Sapos yupela i wok strong long bihainim gutpela pasin, orait husat bai i mekim nogut long yupela?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
+      <verse num="14" />
+      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don’t fear what they fear, neither be troubled.”</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Tasol sapos yupela i mekim stretpela pasin, na yupela i karim pen long dispela, orait yupela i ken amamas. Sapos ol i mekim samting bilong pretim yupela, orait yupela i no ken pret long ol. Na bel bilong yupela i no ken kirap nogut. Nogat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1PE">
+      <verse num="15" />
+      <text>But sanctify the Lord God in your hearts. Always be ready to give an answer to everyone who asks you a reason concerning the hope that is in you, with humility and fear.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Long bel bilong yupela, yupela i mas putim Krais wanpela em i stap Bikpela bilong yupela. Na sapos ol i askim yupela long as bilong dispela gutpela samting yupela i wetim i stap, orait yupela i mas redi oltaim long bekim tok long ol.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1PE">
+      <verse num="16" />
+      <text>Have a good conscience; that, while you are spoken against as evildoers, they may be disappointed who curse your good way of life in Christ.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Tasol yupela i mas bekim tok bilong ol long tok isi na long gutpela pasin. Na oltaim yupela i mas i stap stret long ai bilong God. Olsem na sapos ol i tok nogut na tok bilas long yupela, orait ol man i save mekim dispela tok bilas long gutpela pasin yupela i mekim bilong bihainim Krais, ol bai i sem long dispela tok ol i bin mekim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE">
+      <verse num="17" />
+      <text>For it is better, if it is God’s will, that you suffer for doing well than for doing evil.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Sapos God i laik bai yumi i kisim pen long gutpela pasin yumi mekim, em i orait. Tasol sapos yumi kisim pen long pasin nogut yumi mekim, em i samting nogut.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1PE">
+      <verse num="18" />
+      <text>Because Christ also suffered for sins once, the righteous for the unrighteous, that he might bring you to God; being put to death in the flesh, but made alive in the spirit.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Yupela tingim Krais tu. Em i stretpela man, tasol em i kisim ples bilong ol manmeri nogut, na em i dai bilong tekewe sin, na bilong bringim yupela i kam long God. Em i dai wanpela taim tasol, na em i no inap i dai moa. Long graun em i stap man, na ol i kilim em i dai, tasol em i kirap bek na em i stap spirit long heven.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1PE">
+      <verse num="19" />
+      <text>He also went and preached to the spirits in prison.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Em i stap spirit na em i go autim tok long ol spirit i stap long ples kalabus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1PE">
+      <verse num="20" />
+      <text>Those were the spirits of the people who were disobedient in the days of Noah. God waited patiently while the ship was being built. But only eight people were saved when the earth was flooded with water.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Dispela ol spirit em ol spirit i bin sakim tok bilong God long taim bilong Noa. Long taim bilong Noa, pasin nogut i wok long kamap bikpela tru, tasol God i no bekim kwik. Nogat. Em i wet i go inap Noa i wokim pinis sip bilong en. Na liklik lain tasol, inap 8 -pela manmeri, ol i bin i go antap long sip na bikpela wara i karim ol i go na God i kisim bek ol na ol i stap gut.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1PE">
+      <verse num="21" />
+      <text>This water is a symbol of baptism, which now saves you-- not the putting away of the filth of the flesh, but the answer of a good conscience toward God, through the resurrection of Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Dispela wara em i olsem piksa bilong baptais, long wanem, God i save kisim bek yupela long wara bilong baptais. Baptais em i no bilong rausim doti bilong skin. Nogat. Em i promis yupela i mekim long God long yupela bai i stap klin long ai bilong en. Bilong kisim bek yupela, God i bin kirapim Jisas Krais long matmat,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1PE">
+      <verse num="22" />
+      <text>He has gone into heaven and is at the right hand of God. Having gone into heaven, angels, authorities, and powers have been made subject to him.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>na nau Krais i go pinis long heven, na em i stap long han sut bilong God. Na ol ensel na ol strongpela spirit na olgeta samting i gat strong, olgeta i stap aninit long em.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+  <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>1 PETER 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1PE">
+      <verse num="1" />
+      <text>Forasmuch then as Christ suffered for us in the flesh, arm yourselves also with the same mind; for suffering in the flesh puts an end to sin.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Krais i bin karim pen long bodi bilong em, na yupela i mas holim strong wankain tingting olsem em i bin holim. Long wanem, sapos wanpela man i bin karim pen long bodi bilong em, orait em i lusim pinis pasin bilong sin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1PE">
+      <verse num="2" />
+      <text>You should no longer live the rest of your time in the flesh for the lusts of men, but for the will of God.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Na long taim em i stap yet long bodi, em bai i no bihainim moa ol laik bilong olpela bel. Nogat. Em bai bihainim laik bilong God tasol.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1PE">
+      <verse num="3" />
+      <text>For we have spent enough of our past time doing the desire of the Gentiles. Having walked in lewdness, lusts, drunken binges, orgies, carousings, and abominable idolatries.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Yupela i wokabaut inap pinis long pasin bilong olpela bel, na mekim olkain pasin ol haiden i save laikim tumas long mekim, em ol pasin pamuk, na pasin bilong bel i kirap long ol samting nogut, na pasin bilong spak nabaut, na pasin bilong mekim ol bikpela pati na kaikai planti tumas na dringim planti strongpela dring na mekim pasin nogut, na pasin bilong sakim lo bilong God na mekim lotu long ol giaman god.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE">
+      <verse num="4" />
+      <text>They think it is strange that you don’t run with them into the same excess of riot, blaspheming.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Nau yupela i no save mekim ol dispela kain pasin nogut wantaim ol haiden. Na ol i save kirap nogut long dispela, na ol i tok nogut long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1PE">
+      <verse num="5" />
+      <text>They will give account to him who is ready to judge the living and the dead.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Tasol bihain ol yet i mas sanap long kot bilong bikpela Jas na tokim em bilong wanem ol i bin mekim ol dispela pasin. Dispela Jas em i redi pinis long skelim pasin bilong ol man i stap laip na ol man i dai pinis tu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1PE">
+      <verse num="6" />
+      <text>For to this end the Good News was preached even to the dead, that they might be judged indeed as men in the flesh, but live as to God in the spirit.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Long dispela as tasol na ol dispela manmeri i dai pinis ol i bin harim gutnius long taim ol i no i dai yet. Tru, ol i bin dai, olsem olgeta manmeri i bin mekim sin i mas i dai, tasol nau ol i kisim laip na i stap spirit, olsem God yet.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1PE">
+      <verse num="7" />
+      <text>But the end of all things is near. Therefore be of sound mind, self-controlled, and sober in prayer.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Taim bilong olgeta samting i laik pinis em i klostu nau. Olsem na yupela i mas tingting gut, na bosim gut ol pasin bilong yupela, bai yupela i ken prea gut.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1PE">
+      <verse num="8" />
+      <text>And above all things be earnest in your love among yourselves, for love covers a multitude of sins.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Yupela i mas holim strong pasin bilong laikim tru ol arapela manmeri bilong God, long wanem, pasin bilong laikim tru ol arapela, em i save karamapim planti sin na i winim olgeta arapela pasin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1PE">
+      <verse num="9" />
+      <text>Be hospitable to one another without grumbling.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Na sapos ol arapela manmeri bilong God i kam i stap wantaim yupela, orait yupela i mas lukautim ol gut. Yupela i no ken bel nogut long mekim dispela wok.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1PE">
+      <verse num="10" />
+      <text>As each has received a gift, employ it in serving one another, as good managers of the grace of God in its various forms.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>God i bin marimari long yupela olgeta wan wan na givim ol kain kain presen long yupela. Olsem na yupela wan wan i mas i stap gutpela wokboi bilong God, na yusim ol dispela presen bilong helpim ol arapela manmeri bilong God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1PE">
+      <verse num="11" />
+      <text>If anyone speaks, let it be as it were the very words of God. If anyone serves, let it be as of the strength which God supplies. That in all things God may be glorified through Jesus Christ, to whom belong the glory and the dominion forever and ever. Amen.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Sapos wanpela man i kisim presen bilong autim tok, orait em i mas autim stret tok bilong God. Sapos wanpela man i wok long helpim ol arapela man, orait em i mas mekim dispela wok long strong God i save givim em. Olsem bai ol man i ken lukim olgeta samting yupela i mekim, na long nem bilong Jisas Krais ol i ken litimapim nem bilong God. Em i gat namba na strong i stap oltaim oltaim. I tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
+      <verse num="12" />
+      <text>Beloved, don’t be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Ol brata tru, wanpela traim olsem paia i wok long kamap long yupela. Tasol yupela i no ken kirap nogut na ting em i narakain samting tru i kamap long yupela. Nogat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE">
+      <verse num="13" />
+      <text>But because you are partakers of Christ’s sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Long dispela traim yupela i karim pen olsem Krais i bin karim, olsem na yupela i mas amamas. Na taim biknem bilong Krais i kamap ples klia, bai yupela inap amamas moa yet na belgut tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1PE">
+      <verse num="14" />
+      <text>If you are insulted for the name of Christ, you are blessed; because the Spirit of glory and of God rests on you. On their part he is blasphemed, but on your part he is glorified.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Yupel a i holim nem bilong Krais, na sapos long dispela ol i tok nogut long yupela, orait yupela i ken amamas. Long wanem, yupela i save, Spirit bilong God, em Spirit i gat biknem na strong, em i stap long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE">
+      <verse num="15" />
+      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men’s matters.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Yupela i mas lukaut, nogut ol i givim pen long yupela, long wanem, yupela i bin kilim man i dai o stilim ol samting o mekim ol arapela kain pasin nogut o yupela i bin paulim wok bilong ol arapela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1PE">
+      <verse num="16" />
+      <text>But if one of you suffers for being a Christian, let him not be ashamed; but let him glorify God in this matter.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Tasol sapos man em i Kristen, na long dispela as em i karim pen, orait em i no ken sem. Nogat. Em i mas amamas long dispela nem Kristen, na litimapim nem bilong God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE">
+      <verse num="17" />
+      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don’t obey the Good News of God?</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Taim bilong God i kirapim kot long yumi ol lain bilong em yet, dispela taim i kamap pinis. Na sapos kot i stat long yumi pastaim, orait bai em i pinis olsem wanem long ol man i save sakim gutnius bilong God? Buk bilong God i tok olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+      <verse num="18" />
+      <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>"Sapos i hat tru long kisim bek ol stretpela man, orait olsem wanem long ol man i save givim baksait long God na mekim sin?"</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1PE">
+      <verse num="19" />
+      <text>Therefore let them also who suffer according to the will of God in doing good entrust their souls to him, as to a faithful Creator.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Olsem na sapos long laik bilong God sampela man i mas karim pen, orait dispela ol man i mas putim laip bilong ol long han bilong God na mekim ol gutpela pasin tasol. God i bin wokim yumi, na oltaim em i save lukautim yumi gut tru.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE">
+  <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>1 PETER 5</text>
+    </ReferenceBlocks>
     <text>5</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1PE">
+      <verse num="1" />
+      <text>I exhort the elders among you, as a fellow elder. As a witness of the sufferings of Christ, and as one who will also share in the glory that will be revealed.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Nau mi gat tok long yupela ol hetman bilong sios. Mi tu mi hetman olsem yupela, na long ai bilong mi yet mi bin lukim Krais i karim pen. Na mi tu wantaim yupela, yumi olgeta bai i kisim ol dispela gutpela samting God bai i givim yumi long taim strong na biknem bilong Krais i kamap ples klia. Olsem na mi laik kirapim yupela hetman long wok olsem.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1PE">
+      <verse num="2" />
+      <text>Shepherd the flock of God which is among you. Exercise oversight, not under compulsion, but voluntarily, not for dishonest gain, but willingly.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Yupela i mas lukautim gut ol manmeri bilong God. Ol i stap olsem ol sipsip long han bilong yupela. Na yupela i mas amamas long mekim dispela wok, olsem God i laik yupela i mekim. Nogut yupela i bihainim laik bilong ol arapela tasol na mekim. Na yupela i no ken mekim dispela wok bilong kisim pe tasol. Nogat. Yupela i mas i gat laik tru long mekim dispela wok.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1PE">
+      <verse num="3" />
+      <text>Do not lord it over those entrusted to you, but make yourselves examples to the flock.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Yupela i no ken i stap olsem ol bikman na daunim dispela ol manmeri God i bin putim long han bilong yupela. Nogat. Yupela i mas mekim gutpela pasin tasol, bai ol i ken lukim na bihainim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE">
+      <verse num="4" />
+      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn’t fade away.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Sapos yupela i mekim olsem, orait taim Namba Wan Wasman bilong sipsip i kamap ples klia, yupela bai i kisim nambawan prais tru, em prais i save stap gut oltaim, na i no save bagarap.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1PE">
+      <verse num="5" />
+      <text>Likewise, you younger ones, be subject to the elder. Yes, all of you clothe yourselves with humility, to subject yourselves to one another; for</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Olsem tasol yupela yangpela man i mas aninit long ol hetman. Na yupela olgeta i mas bihainim pasin bilong daunim yupela yet na i stap aninit long ol arapela manmeri bilong God. Yumi save,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
+      <text>“God resists the proud, but gives grace to the humble.”</text>
+    </ReferenceBlocks>
     <text>"God i save daunim ol man i apim nem bilong ol yet, tasol em i save marimari na mekim gut long ol man i daunim ol yet."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE">
+      <verse num="6" />
+      <text>Humble yourselves therefore under the mighty hand of God, that he may exalt you in due time.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Olsem na yupela i mas daunim laik bilong yupela yet na stap aninit long strongpela han bilong God. Na long taim em yet i makim, em bai i litimapim yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1PE">
+      <verse num="7" />
+      <text>Cast all your worries on him, because he cares for you.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>God i save wari long yupela. Olsem na olgeta hevi yupela i karim, yupela i mas putim long han bilong en.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1PE">
+      <verse num="8" />
+      <text>Be sober and self-controlled. Be watchful. Your adversary, the devil, walks around like a roaring lion, seeking whom he may devour.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Yupela i mas stap redi na was gut. Satan, dispela birua bilong yupela, em i olsem wanpela laion i singaut strong. Oltaim em i save raun bilong painim ol manmeri bilong kaikai.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1PE">
+      <verse num="9" />
+      <text>Withstand him steadfast in your faith, knowing that your brothers who are in the world are undergoing the same sufferings.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Tasol yupela i mas i stap strong long bilip na sakim em. Yupela i save, ol arapela manmeri bilong God, ol i stap long olgeta hap bilong graun, ol tu i save karim wankain pen olsem yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1PE">
+      <verse num="10" />
+      <text>But may the God of all grace, who called you to his eternal glory by Christ Jesus, after you have suffered a little while, perfect, establish, strengthen, and settle you.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>God em i as bilong olgeta marimari. Em i bin singautim yupela long Krais Jisas, bai yupela i ken i stap wantaim em long gutpela lait bilong en i save stap oltaim. Olsem na bai yupela i karim pen sotpela taim tasol, na bihain bai em yet i mekim yupela i orait gen, na strongim bilip bilong yupela na mekim yupela i sanap strong oltaim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1PE">
+      <verse num="11" />
+      <text>To him be the glory and the power forever and ever. Amen.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Em wanpela i gat olgeta strong i stap oltaim. I tru.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1PE">
+      <verse num="12" />
+      <text>Through Silvanus, our faithful brother, as I consider him, I have written to you briefly, exhorting, and testifying that this is the true grace of God in which you stand.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Long han bilong Sailas mi bin raitim dispela sotpela tok long yupela. Mi lukim em i brata tru bilong yumi. Long dispela pas mi laik tokim yupela long olgeta pasin God i save mekim bilong soim marimari bilong en long yupela. Mi yet mi save pinis long dispela em i marimari tru bilong God, olsem na mi tokaut klia long en. Na mi laik kirapim bel bilong yupela long yupela i mas sanap strong long en.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1PE">
+      <verse num="13" />
+      <text>She who is in Babylon, chosen together with you, greets you; and so does Mark, my son.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Ol manmeri bilong sios i stap long Babilon, em ol manmeri God i makim pinis wantaim yupela, ol i givim gude long yupela. Na pikinini bilong mi, Mak, em tu i gude long yupela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1PE">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1PE">
+      <verse num="14" />
+      <text>Greet one another with a kiss of love. Peace be to you all who are in Christ Jesus. Amen.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Yupela olgeta i mas givim kis long ol arapela Kristen, bilong soim olsem yupela i laikim ol tru na givim bel bilong yupela long ol.</text>
   </block>

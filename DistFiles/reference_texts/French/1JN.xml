@@ -1,440 +1,878 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1JN" singlevoice="false" pageheader="1 JOHN">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
+      <text>1 JOHN</text>
+    </ReferenceBlocks>
     <text>1 JOHN</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+  <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>1 JOHN 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1JN">
+      <verse num="1" />
+      <text>That which was from the beginning, that which we have heard, that which we have seen with our eyes, that which we saw, and our hands touched, concerning the Word of life.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Nous vous annonçons la Parole qui donne la vie et qui existe depuis toujours. Nous l'avons entendue, nous l'avons vue de nos yeux, nous l'avons regardée avec attention, nous l'avons touchée de nos mains.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1JN">
+      <verse num="2" />
+      <text>(Christ who is life was revealed to us, and we have seen, and testify, and declare to you the life, the eternal life, which was with the Father, and was revealed to us).</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Oui, la vie s'est montrée, et nous l'avons vue. Nous en sommes témoins, et nous vous annonçons cette vie avec Dieu pour toujours. Elle était près du Père et elle s'est montrée à nous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1JN">
+      <verse num="3" />
+      <text>That which we have seen and heard we declare to you, that you also may have fellowship with us. Yes, and our fellowship is with the Father, and with his Son, Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Cette vie, nous l'avons vue et nous l'avons entendue. Nous vous l'annonçons à vous aussi, ainsi vous serez unis à nous. Ensemble, nous serons unis au Père et à son Fils Jésus-Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1JN">
+      <verse num="4" />
+      <text>And we write these things to you, that our joy may be fulfilled.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Nous vous écrivons cela pour que notre joie soit totale. Marcher dans la lumière</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1JN">
+      <verse num="5" />
+      <text>This is the message which we have heard from him and announce to you, that God is light, and in him is no darkness at all.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Voici le message que nous avons entendu de la bouche de Jésus-Christ, et nous vous l'annonçons: Dieu est lumière, en lui, il n'y a pas de nuit.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
+      <verse num="6" />
+      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don’t tell the truth.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Nous disons peut-être: nous sommes unis à Dieu. Mais si, en même temps, nous marchons dans la nuit, nous mentons et nous ne faisons pas sa volonté.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1JN">
+      <verse num="7" />
+      <text>But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus Christ, his Son, cleanses us from all sin.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Dieu est dans la lumière. Alors, si nous aussi, nous marchons dans la lumière, nous sommes unis les uns aux autres, et le sang de Jésus, son Fils, nous purifie de tous les péchés.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1JN">
+      <verse num="8" />
+      <text>If we say that we have no sin, we deceive ourselves, and the truth is not in us.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Nous disons peut-être: &lt;&lt;Nous n'avons pas de péché.&gt;&gt; Mais nous nous trompons, et la vérité n'est pas en nous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1JN">
+      <verse num="9" />
+      <text>If we confess our sins, he is faithful and righteous to forgive us the sins, and to cleanse us from all unrighteousness.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Dieu fait ce qu'il promet et il est juste. Alors, si nous avouons nos péchés, il nous les pardonnera et il enlèvera tout le mal qui est en nous.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
+      <verse num="10" />
+      <text>If we say that we haven’t sinned, we make him a liar, and his word is not in us.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Nous disons peut-être: &lt;&lt;Nous n'avons pas commis de péchés.&gt;&gt; Dans ce cas, nous faisons de Dieu un menteur, et sa parole n'est pas en nous.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+  <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>1 JOHN 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1JN">
+      <verse num="1" />
+      <text>My little children, I write these things to you so that you may not sin. If anyone sins, we have a Counselor with the Father, Jesus Christ, the righteous.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Mes enfants, je vous écris ces choses-là pour que vous évitiez de commettre des péchés. Mais si quelqu'un commet des péchés, nous avons un défenseur devant le Père: c'est Jésus-Christ, le juste.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1JN">
+      <verse num="2" />
+      <text>And he is the atoning sacrifice for our sins, and not for ours only, but also for the whole world.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Lui, il s'est offert en sacrifice, pour que Dieu pardonne nos péchés. Et Dieu pardonne non seulement nos péchés à nous, mais aussi les péchés du monde entier.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1JN">
+      <verse num="3" />
+      <text>This is how we know that we know him: if we keep his commandments.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Si nous gardons les commandements de Dieu, nous savons que nous connaissons Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
+      <verse num="4" />
+      <text>One who says, “I know him,” and doesn’t keep his commandments, is a liar, and the truth isn’t in him.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Si quelqu'un dit: &lt;&lt;Je connais Dieu&gt;&gt;, mais s'il n'obéit pas à ses commandements, c'est un menteur, la vérité n'est pas en lui.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
+      <verse num="5" />
+      <text>But whoever keeps his word, God’s love has most certainly been perfected in him. This is how we know that we are in him:</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Mais celui qui obéit à la parole de Dieu, son amour pour Dieu est vraiment parfait. Ainsi nous savons que nous sommes unis à Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1JN">
+      <verse num="6" />
+      <text>He who says he remains in him ought himself also to walk just like he walked.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Si quelqu'un dit: &lt;&lt;Je reste uni à Dieu&gt;&gt;, il doit vivre comme Jésus-Christ a vécu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1JN">
+      <verse num="7" />
+      <text>Brothers, I write no new commandment to you, but an old commandment which you had from the beginning. The old commandment is the word which you heard from the beginning.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Amis très chers, ce n'est pas un commandement nouveau que je vous écris, c'est un commandement ancien. Vous l'avez reçu depuis le début. Ce commandement ancien, c'est la parole que vous avez entendue.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1JN">
+      <verse num="8" />
+      <text>Again, I write a new commandment to you, which is true in him and in you; because the darkness is passing away, and the true light already shines.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Et pourtant, je vous écris un commandement nouveau, qui est vraiment nouveau en Jésus et doit l'être en vous. En effet, la nuit s'en va et la vraie lumière brille déjà.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1JN">
+      <verse num="9" />
+      <text>He who says he is in the light and hates his brother, is in the darkness even until now.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Si quelqu'un dit: &lt;&lt;Je suis dans la lumière&gt;&gt;, mais s'il déteste son frère ou sa sœur, celui-là est encore dans la nuit.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1JN">
+      <verse num="10" />
+      <text>He who loves his brother remains in the light, and there is no occasion for stumbling in him.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Celui qui aime son frère ou sa sœur reste dans la lumière, il ne risque pas de tomber dans le péché.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
+      <verse num="11" />
+      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn’t know where he is going, because the darkness has blinded his eyes.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Mais celui qui déteste son frère ou sa sœur est dans la nuit, il marche dans la nuit. Il ne sait pas où il va, la nuit l'a rendu aveugle.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
+      <verse num="12" />
+      <text>I write to you, little children, because your sins are forgiven you for his name’s sake.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Mes enfants, dans cette lettre, je vous dis: &lt;&lt;Dieu pardonne vos péchés grâce au nom du Christ.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1JN">
+      <verse num="13" />
+      <text>I write to you, fathers, because you know him who is from the beginning. I write to you, young men, because you have overcome the evil one. I write to you, little children, because you know the Father.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Vous, les parents, je vous dis: &lt;&lt;Vous connaissez celui qui existe depuis toujours.&gt;&gt; Vous, les jeunes, je vous dis: &lt;&lt;Vous avez vaincu le Mauvais.&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1JN">
+      <verse num="14" />
+      <text>I have written to you, fathers, because you know him who is from the beginning. I have written to you, young men, because you are strong, and the word of God remains in you, and you have overcome the evil one.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Vous, les enfants, je vous dis encore: &lt;&lt;Vous connaissez le Père.&gt;&gt; Vous, les parents, je vous dis encore: &lt;&lt;Vous connaissez celui qui existe depuis toujours.&gt;&gt; Vous, les jeunes, je vous dis encore: &lt;&lt;Vous êtes forts, la parole de Dieu reste en vous, et vous avez vaincu le Mauvais.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
+      <verse num="15" />
+      <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>N'aimez pas le monde ni ce qui est dans le monde. Si quelqu'un aime le monde, il n'aime pas Dieu le Père.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
+      <verse num="16" />
+      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn’t the Father’s, but is the world’s.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Voici ce qu'on trouve dans le monde: les mauvais désirs que chacun porte en soi, l'envie de posséder ce qu'on voit, et l'orgueil qui vient de la richesse. Eh bien, tout cela ne vient pas du Père, mais du monde.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
+      <verse num="17" />
+      <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Le monde ne dure pas, et les mauvais désirs ne durent pas non plus. Mais celui qui fait ce que Dieu veut, celui-là vit pour toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-1JN">
+      <verse num="18" />
+      <text>Little children, these are the end times, and as you heard that the Antichrist is coming, even now many antichrists have arisen. By this we know that it is the final hour.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Mes enfants, c'est bientôt la fin des temps. Vous avez entendu dire: &lt;&lt;L'ennemi du Christ arrive.&gt;&gt; Maintenant, beaucoup d'ennemis du Christ sont déjà là. C'est pourquoi nous le savons: c'est bientôt la fin des temps.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
+      <verse num="19" />
+      <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Ces gens-là sont partis de notre communauté, mais ils n'étaient pas nos frères et nos sœurs. S'ils avaient été nos frères et nos sœurs, ils seraient restés avec nous. Maintenant, c'est clair: ces gens-là n'étaient pas nos frères et nos sœurs.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1JN">
+      <verse num="20" />
+      <text>You have an anointing from the Holy One, and you all have knowledge.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Mais vous, vous avez reçu l'Esprit de Dieu, c'est le Christ qui vous l'a donné. Voilà pourquoi vous tous, vous connaissez la vérité.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
+      <verse num="21" />
+      <text>I have not written to you because you don’t know the truth, but because you know it, and because no lie is of the truth.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Je ne vous ai pas écrit: &lt;&lt;Vous ignorez la vérité&gt;&gt;, mais je vous ai écrit: &lt;&lt;Vous connaissez la vérité, et aucun mensonge ne peut venir de la vérité.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-1JN">
+      <verse num="22" />
+      <text>Who is the liar but he who denies that Jesus is the Christ? This is the Antichrist, he who denies the Father and the Son.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Qui est le menteur? C'est celui qui dit: &lt;&lt;Jésus n'est pas le Christ.&gt;&gt; Voilà l'ennemi du Christ, il rejette et le Père et le Fils!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
+      <verse num="23" />
+      <text>Whoever denies the Son, the same doesn’t have the Father. He who confesses the Son has the Father also.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Tous ceux qui rejettent Jésus le Fils, rejettent aussi le Père. Celui qui accepte le Fils accepte aussi le Père.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-1JN">
+      <verse num="24" />
+      <text>Therefore, as for you, let that remain in you which you heard from the beginning. If that which you heard from the beginning remains in you, you also will remain in the Son, and in the Father.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>C'est pourquoi, gardez en vous les paroles entendues depuis le début. Si les paroles entendues depuis le début restent en vous, vous aussi, vous resterez unis au Fils et au Père.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-1JN">
+      <verse num="25" />
+      <text>This is the promise which he promised us, the eternal life.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Oui, le Christ nous l'a promis: nous vivrons avec Dieu pour toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-1JN">
+      <verse num="26" />
+      <text>These things I have written to you concerning those who would lead you astray.</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>Voilà ce que je voulais vous écrire sur ceux qui veulent vous tromper.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
+      <verse num="27" />
+      <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
+    </ReferenceBlocks>
     <verse num="27" />
     <text>Quant à vous, le Christ vous a donné son Esprit, et cet Esprit habite en vous. Alors vous n'avez pas besoin d'un maître. En effet, c'est l'Esprit Saint qui vous apprend tout, et ce qu'il vous apprend est vrai, ce n'est pas un mensonge. C'est pourquoi, restez unis au Christ, comme l'Esprit Saint vous l'a appris.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-1JN">
+      <verse num="28" />
+      <text>Now, little children, remain in him, that when he appears, we may have boldness, and not be ashamed before him at his coming.</text>
+    </ReferenceBlocks>
     <verse num="28" />
     <text>Oui, mes enfants, restez unis au Christ. Alors, quand il paraîtra, nous serons pleins de confiance. Ce jour-là, nous ne serons pas couverts de honte devant lui.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-1JN">
+      <verse num="29" />
+      <text>If you know that he is righteous, you know that everyone who practices righteousness is born of him.</text>
+    </ReferenceBlocks>
     <verse num="29" />
     <text>Vous savez que le Christ est juste. Alors reconnaissez ceci: tous ceux qui font ce qui est juste, sont enfants de Dieu.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+  <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>1 JOHN 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
+      <verse num="1" />
+      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn’t know us, because it didn’t know him.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Voyez: le Père nous aime tellement qu'il nous appelle ses enfants, et c'est vrai, nous sommes ses enfants! Mais le monde ne nous connaît pas, parce qu'il n'a pas connu Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1JN">
+      <verse num="2" />
+      <text>Beloved, now we are children of God, and it is not yet revealed what we will be. But we know that, when he is revealed, we will be like him; for we will see him just as he is.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Amis très chers, dès maintenant, nous sommes enfants de Dieu, mais ce que nous serons plus tard, cela reste encore caché. Voici ce que nous savons: quand le Christ paraîtra, nous le verrons comme il est, alors nous lui ressemblerons.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1JN">
+      <verse num="3" />
+      <text>Everyone who has this hope set on him purifies himself, even as he is pure.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Tous ceux qui espèrent cela du Christ se rendent purs comme lui est pur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1JN">
+      <verse num="4" />
+      <text>Everyone who sins also commits lawlessness. Sin is lawlessness.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Tous ceux qui commettent des péchés luttent contre Dieu. En effet, commettre des péchés, c'est lutter contre Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1JN">
+      <verse num="5" />
+      <text>You know that he was revealed to take away our sins, and in him is no sin.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Vous le savez: Jésus-Christ est venu pour enlever les péchés, et en lui il n'y a pas de péché.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
+      <verse num="6" />
+      <text>Whoever remains in him doesn’t sin. Whoever sins hasn’t seen him, neither knows him.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Tous ceux qui restent unis à lui ne commettent plus de péchés. Tous ceux qui commettent des péchés ne voient pas Jésus-Christ, ils ne le connaissent pas non plus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1JN">
+      <verse num="7" />
+      <text>Little children, let no one lead you astray. He who does righteousness is righteous, even as he is righteous.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Mes enfants, faites attention, ne vous laissez pas tromper! Si quelqu'un fait ce qui est juste, il est juste comme Jésus-Christ est juste.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1JN">
+      <verse num="8" />
+      <text>He who sins is of the devil, for the devil has been sinning from the beginning. And the Son of God was revealed, that he might destroy the works of the devil.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Si quelqu'un commet des péchés, il appartient à l'esprit du mal, parce que l'esprit du mal est pécheur depuis le début. Pourquoi le Fils de Dieu est-il venu? Il est venu pour détruire les actions de l'esprit du mal.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
+      <verse num="9" />
+      <text>Whoever is born of God doesn’t commit sin, because his seed remains in him; and he can’t sin, because he is born of God.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Tous ceux qui sont enfants de Dieu ne commettent plus de péchés. En effet, la parole de Dieu reste en eux comme une semence. Ils ne peuvent plus commettre de péchés, parce qu'ils sont enfants de Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
+      <verse num="10" />
+      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn’t do righteousness is not of God, neither is he who doesn’t love his brother.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Voici comment on distingue les enfants de Dieu et les enfants de l'esprit du mal: tous ceux qui ne font pas ce qui est juste, ou qui n'aiment pas leurs frères et leurs sœurs, ils n'appartiennent pas à Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1JN">
+      <verse num="11" />
+      <text>For this is the message which you heard from the beginning, that we should love one another.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>En effet, voici le message que vous avez entendu depuis le début: aimons-nous les uns les autres.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
+      <verse num="12" />
+      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother’s righteous.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Ne faisons pas comme Caïn. Il appartenait au Mauvais et il a tué son frère. Pourquoi est-ce qu'il l'a tué? Parce que les actions de Caïn étaient mauvaises, et celles de son frère étaient justes.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
+      <verse num="13" />
+      <text>Don’t be surprised, my brothers, if the world hates you.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Frères et sœurs chrétiens, le monde vous déteste, ne soyez pas surpris de cela.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
+      <verse num="14" />
+      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn’t love his brother remains in death.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Mais nous, nous avons de l'amour les uns pour les autres. C'est pourquoi, nous le savons: autrefois, nous étions morts, mais maintenant, nous sommes entrés dans la vie. En effet, celui qui n'aime pas reste dans la mort.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1JN">
+      <verse num="15" />
+      <text>Whoever hates his brother is a murderer, and you know that no murderer has eternal life remaining in him.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Tous ceux qui détestent un frère ou une sœur sont des assassins, et, vous le savez, un assassin n'a pas en lui la vie avec Dieu pour toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1JN">
+      <verse num="16" />
+      <text>By this we know the love of God, because he laid down his life for us. And we ought to lay down our lives for the brothers.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Aimer, qu'est-ce que c'est? Maintenant, nous le savons: Jésus a donné sa vie pour nous. Donc, nous aussi, nous devons donner notre vie pour nos frères et nos sœurs.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
+      <verse num="17" />
+      <text>But whoever has the world’s goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Voici un exemple: quelqu'un est riche. Il voit un frère ou une sœur qui est dans le besoin et il ferme son cœur. Est-ce qu'on peut dire qu'il aime Dieu?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
+      <verse num="18" />
+      <text>My little children, let’s not love in word only, neither with the tongue only, but in deed and truth.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Mes enfants, n'aimons pas avec des paroles et avec de beaux discours, mais avec des actes. Ces actes montrent que notre amour est vrai.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-1JN">
+      <verse num="19" />
+      <text>And by this we know that we are of the truth, and persuade our hearts before him,</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Par là, nous saurons que nous appartenons à la vérité, et devant Dieu, nous rendrons la paix à notre cœur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1JN">
+      <verse num="20" />
+      <text>because if our heart condemns us, God is greater than our heart, and knows all things.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>En effet, si notre cœur nous accuse, nous le savons, Dieu est plus grand que notre cœur et il connaît tout.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
+      <verse num="21" />
+      <text>Beloved, if our hearts don’t condemn us, we have boldness toward God;</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Amis très chers, si notre cœur ne nous accuse pas, nous sommes pleins de confiance devant Dieu</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-1JN">
+      <verse num="22" />
+      <text>and whatever we ask, we receive from him, because we keep his commandments and do the things that are pleasing in his sight.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>et nous recevons de lui tout ce que nous demandons. Pourquoi? Parce que nous obéissons à ses commandements et nous faisons ce qui lui plaît.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="23" characterId="narrator-1JN">
+      <verse num="23" />
+      <text>This is his commandment, that we should believe in the name of his Son, Jesus Christ, and love one another, even as he commanded.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Voici ce que Dieu commande: nous devons croire au nom de son Fils, Jésus-Christ, et nous aimer les uns les autres, comme le Christ l'a commandé.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="24" characterId="narrator-1JN">
+      <verse num="24" />
+      <text>He who keeps his commandments remains in him, and he in him. By this we know that he remains in us, by the Spirit which he gave us.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Celui qui obéit aux commandements de Dieu, il vit en Dieu et Dieu vit en lui. Oui, Dieu vit en nous, à cause de l'Esprit Saint qu'il nous a donné.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+  <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>1 JOHN 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
+      <verse num="1" />
+      <text>Beloved, don’t believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Amis très chers, ne croyez pas tous ceux qui disent: &lt;&lt;Nous avons l'Esprit Saint.&gt;&gt; Mais examinez-les avec attention pour savoir si ces gens ont vraiment l'Esprit de Dieu. En effet, beaucoup de faux prophètes sont venus dans le monde.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1JN">
+      <verse num="2" />
+      <text>By this you know the Spirit of God: every spirit who confesses that Jesus Christ has come in the flesh is of God.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Voici comment vous reconnaissez l'Esprit de Dieu. Tous ceux qui affirment: &lt;&lt;Jésus-Christ est vraiment devenu un être humain&gt;&gt;, ceux-là appartiennent à Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
+      <verse num="3" />
+      <text>And every spirit who doesn’t confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Mais ceux qui ne veulent pas affirmer cela n'appartiennent pas à Dieu, ils appartiennent à l'ennemi du Christ. Vous avez entendu dire: &lt;&lt;L'ennemi du Christ arrive&gt;&gt;, et maintenant, il est déjà dans le monde.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1JN">
+      <verse num="4" />
+      <text>You are of God, little children, and have overcome them; because greater is he who is in you than he who is in the world.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Vous, mes enfants, vous appartenez à Dieu et vous avez vaincu les faux prophètes. Voici pourquoi: l'Esprit de Dieu qui est en vous est plus puissant que l'ennemi du Christ qui est dans le monde.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1JN">
+      <verse num="5" />
+      <text>They are of the world. Therefore they speak of the world, and the world hears them.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Les faux prophètes, eux, appartiennent au monde. C'est pourquoi ils parlent comme le monde, et le monde les écoute.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
+      <verse num="6" />
+      <text>We are of God. He who knows God listens to us. He who is not of God doesn’t listen to us. By this we know the spirit of truth, and the spirit of error.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Nous, au contraire, nous appartenons à Dieu. Celui qui connaît Dieu nous écoute, celui qui n'appartient pas à Dieu ne nous écoute pas. Voilà comment nous reconnaissons l'Esprit de Dieu, qui est vrai, et l'esprit du mal, qui est menteur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1JN">
+      <verse num="7" />
+      <text>Beloved, let us love one another, for love is of God; and everyone who loves is born of God, and knows God.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Amis très chers, aimons-nous les uns les autres, parce que l'amour vient de Dieu. Tous ceux qui aiment sont enfants de Dieu et ils connaissent Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
+      <verse num="8" />
+      <text>He who doesn’t love doesn’t know God, for God is love.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Ceux qui n'aiment pas ne connaissent pas Dieu, parce que Dieu est amour.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
+      <verse num="9" />
+      <text>By this God’s love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Voici comment Dieu nous a montré son amour: il a envoyé son Fils unique dans le monde, pour que nous vivions par lui.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1JN">
+      <verse num="10" />
+      <text>In this is love, not that we loved God, but that he loved us, and sent his Son as the atoning sacrifice for our sins.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Alors, l'amour, qu'est-ce que c'est? Ce n'est pas nous qui avons aimé Dieu, c'est lui qui nous a aimés. Il nous a tellement aimés qu'il a envoyé son Fils. Celui-ci s'est offert en sacrifice pour nous, c'est pourquoi Dieu pardonne nos péchés.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1JN">
+      <verse num="11" />
+      <text>Beloved, if God loved us in this way, we also ought to love one another.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Amis très chers, puisque Dieu nous a aimés de cette façon, nous aussi, nous devons nous aimer les uns les autres.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1JN">
+      <verse num="12" />
+      <text>No one has seen God at any time. If we love one another, God remains in us, and his love has been perfected in us.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Personne n'a jamais vu Dieu, mais si nous nous aimons les uns les autres, Dieu vit en nous, et son amour en nous est parfait.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1JN">
+      <verse num="13" />
+      <text>By this we know that we remain in him and he in us, because he has given us of his Spirit.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Voici comment nous reconnaissons que nous vivons en Dieu et que Dieu vit en nous: il nous a donné son Esprit Saint.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1JN">
+      <verse num="14" />
+      <text>We have seen and testify that the Father has sent the Son as the Savior of the world.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Le Père a envoyé son Fils pour sauver le monde. Nous, nous avons vu cela et nous en rendons témoignage.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1JN">
+      <verse num="15" />
+      <text>Whoever confesses that Jesus is the Son of God, God remains in him, and he in God.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Si quelqu'un affirme: &lt;&lt;Jésus est le Fils de Dieu&gt;&gt;, Dieu vit en lui, et lui, il vit en Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1JN">
+      <verse num="16" />
+      <text>We know and have believed the love which God has for us. God is love, and he who remains in love remains in God, and God remains in him.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Et nous, nous avons connu l'amour que Dieu a pour nous, et nous avons cru à cet amour. Dieu est amour. Si quelqu'un vit dans l'amour, il vit en Dieu, et Dieu vit en lui.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1JN">
+      <verse num="17" />
+      <text>In this love has been made perfect among us, that we may have boldness in the day of judgment, because as he is, even so are we in this world.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Si l'amour est parfait en nous, nous pouvons être pleins de confiance pour le jour où Dieu nous jugera. Pourquoi? Parce que notre vie dans le monde ressemble à celle de Jésus-Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1JN">
+      <verse num="18" />
+      <text>There is no fear in love; but perfect love casts out fear, because fear has punishment. He who fears is not made perfect in love.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Quand on aime, on n'a pas peur. L'amour parfait chasse la peur. En fait, on a peur quand on attend une punition. Celui qui a peur n'aime donc pas de façon parfaite.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-1JN">
+      <verse num="19" />
+      <text>We love him, because he first loved us.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Mais nous, nous aimons, parce que Dieu nous a aimés le premier.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
+      <verse num="20" />
+      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn’t love his brother whom he has seen, how can he love God whom he has not seen?</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Si quelqu'un dit: &lt;&lt;J'aime Dieu&gt;&gt;, et s'il déteste son frère ou sa sœur, c'est un menteur. En effet, celui qui n'aime pas un frère ou une sœur qu'il voit, il ne peut pas aimer Dieu qu'il ne voit pas.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-1JN">
+      <verse num="21" />
+      <text>This commandment we have from him, that he who loves God should also love his brother.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Voici le commandement que Dieu nous a donné: celui qui aime Dieu doit aussi aimer son frère et sa sœur.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN">
+  <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>1 JOHN 5</text>
+    </ReferenceBlocks>
     <text>5</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1JN">
+      <verse num="1" />
+      <text>Whoever believes that Jesus is the Christ is born of God. Whoever loves the Father also loves the child who is born of him.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Tous ceux qui croient que Jésus est le Christ sont enfants de Dieu. Et ceux qui aiment Dieu le Père aiment aussi ses enfants.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1JN">
+      <verse num="2" />
+      <text>By this we know that we love the children of God, when we love God and keep his commandments.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Comment savoir que nous aimons les enfants de Dieu? Nous les aimons si nous aimons Dieu et si nous obéissons à ses commandements.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1JN">
+      <verse num="3" />
+      <text>For this is the love of God, that we keep his commandments. His commandments are not grievous.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Oui, aimer Dieu, c'est garder ses commandements. Et ses commandements ne sont pas difficiles,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1JN">
+      <verse num="4" />
+      <text>For whatever is born of God overcomes the world. This is the victory that has overcome the world: your faith.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>parce que tous ceux qui sont enfants de Dieu peuvent vaincre le monde. Et ce qui nous rend vainqueurs du monde, c'est notre foi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1JN">
+      <verse num="5" />
+      <text>Who is he who overcomes the world, but he who believes that Jesus is the Son of God?</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Qui donc est vainqueur du monde? C'est seulement celui qui croit que Jésus est le Fils de Dieu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1JN">
+      <verse num="6" />
+      <text>This is he who came by water and blood, Jesus Christ; not with the water only, but with the water and the blood. It is the Spirit who testifies, because the Spirit is the truth.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Jésus-Christ, c'est lui qui est venu avec l'eau et le sang. Il est venu, non pas avec l'eau seulement, mais avec l'eau et aussi avec le sang. L'Esprit de Dieu est témoin que cela est vrai. En effet, l'Esprit de Dieu est la vérité.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1JN">
+      <verse num="7" />
+      <text>For there are three who testify in heaven, the Father, the Word, and the Holy Spirit and these three are one.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Il y a trois témoins:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1JN">
+      <verse num="8" />
+      <text>And there are three that bear witness in the earth, the Spirit, the water, and the blood; and the three agree as one.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>l'Esprit, l'eau et le sang, et les trois sont d'accord.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
+      <verse num="9" />
+      <text>If we receive the witness of men, the witness of God is greater; for this is God’s testimony which he has testified concerning his Son.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Quand des êtres humains sont témoins de quelque chose, nous les croyons. Mais quand Dieu est témoin, c'est bien plus fort! Et voici le témoignage de Dieu: il a rendu témoignage à son Fils.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
+      <verse num="10" />
+      <text>He who believes in the Son of God has the testimony in himself. He who doesn’t believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Celui qui croit au Fils de Dieu porte ce témoignage dans son cœur. Celui qui ne croit pas en Dieu, celui-là fait de Dieu un menteur! Il ne croit pas au témoignage que Dieu a rendu à son Fils.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1JN">
+      <verse num="11" />
+      <text>The testimony is this, that God gave to us eternal life, and this life is in his Son.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Voici ce témoignage: Dieu nous a donné la vie avec lui pour toujours, et son Fils est la source de cette vie.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
+      <verse num="12" />
+      <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Celui qui a le Fils a la vie, celui qui n'a pas le Fils n'a pas la vie.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1JN">
+      <verse num="13" />
+      <text>These things I have written to you who believe on the name of the Son of God, that you may know that you have eternal life, and that you may continue to believe in the name of the Son of God.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Je vous ai écrit cette lettre pour vous faire savoir ceci: vous qui croyez au Fils de Dieu, vous avez la vie avec Dieu pour toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1JN">
+      <verse num="14" />
+      <text>This is the boldness which we have toward him, that, if we ask anything according to his will, he listens to us.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Voici pourquoi nous sommes pleins de confiance devant Dieu: quand nous lui demandons quelque chose qu'il trouve bon pour nous, il nous écoute.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1JN">
+      <verse num="15" />
+      <text>And if we know that he listens to us, whatever we ask, we know that we have the petitions which we have asked of him.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Nous le savons, Dieu écoute toutes nos demandes. Alors, ce que nous lui demandons, nous l'obtenons, c'est sûr!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
+      <verse num="16" />
+      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don’t say that he should make a request concerning this.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Si quelqu'un voit son frère ou sa sœur commettre un péché, un péché qui ne conduit pas à la mort, il doit prier. Alors Dieu donnera la vie à ce frère ou à cette sœur, si vraiment son péché ne conduit pas à la mort. Mais il y a un péché qui conduit à la mort, et je ne dis pas de prier pour ce péché-là.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1JN">
+      <verse num="17" />
+      <text>All unrighteousness is sin, and there is a sin not leading to death.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Toutes les actions mauvaises sont des péchés, mais il y a des péchés qui ne conduisent pas à la mort.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
+      <verse num="18" />
+      <text>We know that whoever is born of God doesn’t sin, but he who was born of God keeps himself, and the evil one doesn’t touch him.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Nous le savons, tous ceux qui sont enfants de Dieu ne commettent plus de péché. En effet, le Fils de Dieu les protège, et le Mauvais ne peut pas les toucher</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1JN">
+      <verse num="19" />
+      <text>We know that we are of God, and the whole world lies in the power of the evil one.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Nous le savons, nous appartenons à Dieu, mais le monde entier est sous le pouvoir du Mauvais.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1JN">
+      <verse num="20" />
+      <text>We know that the Son of God has come, and has given us an understanding, that we know him who is true, and we are in him who is true, in his Son Jesus Christ. This is the true God, and eternal life.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Nous le savons, le Fils de Dieu est venu. Il nous a donné l'intelligence pour connaître le vrai Dieu, et nous restons unis au vrai Dieu par son Fils Jésus-Christ. Lui, il est le vrai Dieu et il est la vie pour toujours.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1JN">
+      <verse num="21" />
+      <text>Little children, keep yourselves from idols.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Mes enfants, faites attention! Ne suivez pas les faux dieux!</text>
   </block>

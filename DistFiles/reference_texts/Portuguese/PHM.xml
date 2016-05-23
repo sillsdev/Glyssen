@@ -1,108 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="PHM" singlevoice="false" pageheader="PHILEMON">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHM">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHM">
+      <text>PHILEMON</text>
+    </ReferenceBlocks>
     <text>PHILEMON</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="PHM" initialStartVerse="0" characterId="BC-PHM">
+  <block style="c" paragraphStart="true" chapter="1" book="PHM" initialStartVerse="0" characterId="BC-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>PHILEMON 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHM">
+      <verse num="1" />
+      <text>Paul, a prisoner of Christ Jesus, and Timothy our brother, to Philemon, our beloved fellow worker,</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Eu, Paulo, prisioneiro por causa de Cristo Jesus, junto com o irmão Timóteo, escrevo a você, Filemom, nosso amigo e companheiro de trabalho,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHM">
+      <verse num="2" />
+      <text>to the beloved Apphia, to Archippus, our fellow soldier, and to the assembly in your house:</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>e à igreja que se reúne na sua casa. Esta carta vai também para a nossa irmã Áfia e para Arquipo, nosso companheiro de lutas.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHM">
+      <verse num="3" />
+      <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Que a * graça e a paz de Deus, o nosso Pai, e do Senhor Jesus Cristo estejam com vocês!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHM">
+      <verse num="4" />
+      <text>I thank my God always, making mention of you in my prayers,</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Meu caro Filemom, sempre que eu oro, lembro de você e agradeço ao meu Deus</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHM">
+      <verse num="5" />
+      <text>hearing of your love, and of the faith which you have toward the Lord Jesus, and toward all the saints;</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>porque tenho ouvido falar do seu amor por todo o povo de Deus e da fé que você tem no Senhor Jesus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHM">
+      <verse num="6" />
+      <text>that the fellowship of your faith may become effective, in the knowledge of every good thing which is in us in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Peço a Deus que a fé que une você a nós faça com que compreendamos mais profundamente todas as bênçãos que temos recebido na nossa vida, por estarmos unidos com Cristo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHM">
+      <verse num="7" />
+      <text>For we have much joy and comfort in your love, because the hearts of the saints have been refreshed through you, brother.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Meu caro irmão, o seu amor tem me dado grande alegria e muita coragem, pois você tem animado o coração de todo o povo de Deus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHM">
+      <verse num="8" />
+      <text>Therefore though I have all boldness in Christ to command you that which is appropriate,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Por isso, como seu irmão em Cristo, eu sei que tenho o direito de exigir o que você deve fazer.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHM">
+      <verse num="9" />
+      <text>yet for love’s sake I rather beg. I am Paul, an old man, here in prison because of Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Mas o amor que tenho por você me obriga a lhe fazer apenas um pedido. E faço isso, embora eu seja Paulo, o representante de Cristo Jesus e agora também prisioneiro por causa dele.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHM">
+      <verse num="10" />
+      <text>I beg you for my child, whom I have become the father of in my chains, Onesimus,</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Portanto, eu lhe faço um pedido em favor de Onésimo, que é meu filho por estarmos unidos com Cristo, pois, enquanto eu estava na cadeia, tornei-me o pai espiritual dele.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHM">
+      <verse num="11" />
+      <text>who once was useless to you, but now is useful to you and to me.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Antes ele era inútil para você, mas agora é útil a para você e para mim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHM">
+      <verse num="12" />
+      <text>I am sending him back. Therefore receive him, that is, my own heart,</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Eu estou mandando Onésimo de volta para você, e com ele vai o meu coração.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHM">
+      <verse num="13" />
+      <text>whom I desired to keep with me, that on your behalf he might serve me in my chains for the Good News.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Gostaria de obrigá-lo a ficar aqui comigo, enquanto estou nesta cadeia por causa do * evangelho, a fim de que ele me ajudasse em lugar de você.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHM">
+      <verse num="14" />
+      <text>But I was willing to do nothing without your consent, that your goodness would not be as of necessity, but of free will.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Porém não vou fazer nada sem a aprovação de você, para que o favor que eu lhe estou pedindo não seja feito por obrigação, mas por sua livre vontade.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHM">
+      <verse num="15" />
+      <text>For perhaps he was therefore separated from you for a while, that you would have him forever.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Pode ser que Onésimo tenha sido afastado de você por algum tempo a fim de que você o tenha de volta para sempre.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHM">
+      <verse num="16" />
+      <text>Do not think of him any longer as a slave, but more than a slave, a beloved brother. Especially to me, but how much rather to you, both in the flesh and in the Lord.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Pois agora ele não é mais um escravo, porém muito mais do que isso: é um querido irmão em Cristo. De fato, para mim ele é muito querido. E para você agora ele é mais querido ainda, não só como escravo, mas também como irmão no Senhor.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHM">
+      <verse num="17" />
+      <text>If then you count me a partner, receive him as you would receive me.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Por isso, se você me considera seu companheiro de trabalho, receba Onésimo de volta como se estivesse recebendo a mim mesmo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHM">
+      <verse num="18" />
+      <text>But if he has wronged you at all, or owes you anything, put that to my account.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Se ele deu algum prejuízo b a você ou lhe deve alguma coisa, ponha isso na minha conta.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHM">
+      <verse num="19" />
+      <text>I, Paul, write this with my own hand: I will repay it (not to mention to you that you owe to me even your own self besides).</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Aqui, com a minha própria mão escrevo isto: Eu, Paulo, pagarei tudo. É claro que não preciso fazer com que você lembre que me deve a sua própria vida c.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHM">
+      <verse num="20" />
+      <text>Yes, brother, let me have joy from you in the Lord. Refresh my heart in the Lord.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Portanto, meu irmão, me faça esse favor, por causa do Senhor. Anime o meu coração, como irmão em Cristo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHM">
+      <verse num="21" />
+      <text>Having confidence in your obedience, I write to you, knowing that you will do even beyond what I say.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Ao escrever isso, estou certo de que você vai fazer o que lhe estou pedindo e sei até que você fará ainda mais d.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHM">
+      <verse num="22" />
+      <text>Also, prepare a guest room for me, for I hope that through your prayers I will be restored to you.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Peço também que prepare um quarto para mim, pois espero que Deus responda às orações de todos vocês e me deixe ir outra vez até aí.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHM">
+      <verse num="23" />
+      <text>Epaphras, my fellow prisoner in Christ Jesus, greets you,</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Epafras, o irmão que está na cadeia comigo por causa de Cristo Jesus, envia saudações a você.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHM">
+      <verse num="24" />
+      <text>as do Mark, Aristarchus, Demas, and Luke, my fellow workers.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>E Marcos, Aristarco, Demas e Lucas, meus companheiros de trabalho, também enviam saudações.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHM">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHM" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHM">
+      <verse num="25" />
+      <text>The grace of our Lord Jesus Christ be with your spirit. Amen.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Que a * graça do Senhor Jesus Cristo esteja com vocês!</text>
   </block>
