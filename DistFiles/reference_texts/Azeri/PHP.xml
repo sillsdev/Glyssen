@@ -1,433 +1,864 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="PHP" singlevoice="false" pageheader="PHILIPPIANS">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP">
+      <text>PHILIPPIANS</text>
+    </ReferenceBlocks>
     <text>PHILIPPIANS</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+  <block style="c" paragraphStart="true" chapter="1" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>PHILIPPIANS 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-PHP">
+      <verse num="1" />
+      <text>Paul and Timothy, servants of Jesus Christ; To all the saints in Christ Jesus who are at Philippi, with the overseers and servants:</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Paul and Timothy, servants of Christ Jesus, To all the saints in Christ Jesus at Philippi, Together with the overseers and deacons:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-PHP">
+      <verse num="2" />
+      <text>Grace to you, and peace from God, our Father, and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Atamız Allahdan vә Rәbb İsa Mәsihdәn sizә lütf vә sülh olsun!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-PHP">
+      <verse num="3" />
+      <text>I thank my God whenever I remember you,</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Sizi hәr dәfә yada salanda Allahıma şükür edirәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-PHP">
+      <verse num="4" />
+      <text>always in every request of mine on behalf of you all making my requests with joy.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Hәmişә hamınız üçün hәr bir dilәyimdә sevinә-sevinә dua edirәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-PHP">
+      <verse num="5" />
+      <text>I thank God for your partnership in furtherance of the Good News from the first day until now.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Çünki ilk gündәn indiyәdәk Müjdәni yaymaqda şәrik oldunuz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-PHP">
+      <verse num="6" />
+      <text>I am confident of this very thing, that he who began a good work in you will complete it until the day of Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Әminәm ki, sizdә xeyirli işә başlayan Allah Mәsih İsanın zühur edәcәyi günәdәk bunu başa çatdıracaq.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-PHP">
+      <verse num="7" />
+      <text>It is even right for me to think this way on behalf of all of you, because I have you in my heart. Both in my bonds and in the defense and confirmation of the Good News, you all are partakers with me of grace.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Hamınız haqqında belә düşünmәkdә haqlıyam, çünki qәlbimdә yeriniz var. İstәr hәbsdә olsam, istәr Müjdәni müdafiә vә tәsdiq etsәm, hamınız mәnimlә bәrabәr Allahın lütfünә şәriksiniz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-PHP">
+      <verse num="8" />
+      <text>For God is my witness, how I long after all of you in the tender mercies of Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Allah şahidimdir ki, Mәsih İsanın duyğusu ilә hәr birinizin hәsrәtini çәkirәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-PHP">
+      <verse num="9" />
+      <text>This I pray, that your love may abound yet more and more in knowledge and all discernment.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Dua edirәm ki, mәhәbbәtiniz bilik vә hәr cür idrak baxımından get-gedә daha çox artsın.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-PHP">
+      <verse num="10" />
+      <text>That way you may approve the things that are excellent; that you may be sincere and without offense to the day of Christ.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>That way you may approve the things that are excellent; that you may be sincere and without offense to the day of Christ.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-PHP">
+      <verse num="11" />
+      <text>I pray that you will be filled with the fruits of righteousness, which are through Jesus Christ, to the glory and praise of God.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>I pray that you will be filled with the fruits of righteousness, which are through Jesus Christ, to the glory and praise of God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-PHP">
+      <verse num="12" />
+      <text>Now I desire to have you know, brothers, that the things which happened to me have turned out rather to the progress of the Good News.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Qardaşlar, bunu sizә bildirmәk istәyirәm ki, başıma gәlәnlәr Müjdә yaymağı daha da irәli apardı.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-PHP">
+      <verse num="13" />
+      <text>It has become evident to the whole palace guard, and to all the rest, that my bonds are in Christ.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Belә olanda bütün saray mühafizәçilәri daxil olmaqla hamıya mәlum oldu ki, Mәsihdә olduğuma görә hәbs olunmuşam.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-PHP">
+      <verse num="14" />
+      <text>Most of the brothers in the Lord, being confident through my bonds, are more abundantly bold to speak the word of God without fear.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Hәmçinin qardaşlardan әksәriyyәti mәnim hәbsimdәn ötrü Rәbbә güvәnәrәk kәlamı qorxmadan bәyan etmәk üçün daha çox cәsarәt göstәrdi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-PHP">
+      <verse num="15" />
+      <text>Some indeed preach Christ even out of envy and strife, and some also out of good will.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Doğrusu, bәzilәri paxıllıq vә rәqabәt, bәzilәri isә yaxşı niyyәtlә Mәsihi vәz edirlәr.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-PHP">
+      <verse num="16" />
+      <text>The former insincerely preach Christ from selfish ambition, thinking that they add affliction to my chains.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Bәzilәri bunu mәhәbbәtlә edirlәr, çünki bilirlәr ki, mәn Müjdәni müdafiә etmәk üçün tәyin edilmişәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-PHP">
+      <verse num="17" />
+      <text>But the latter out of love, knowing that I am appointed for the defense of the Good News.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Bәzilәri isә Mәsihi sәmimiliklә deyil, mәhbus halımda guya mәnә әziyyәt vermәklә özlәrini göstәrmәk üçün bәyan edirlәr.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-PHP">
+      <verse num="18" />
+      <text>What does it matter? Only that in every way, whether in pretense or in truth, Christ is proclaimed. I rejoice in this, yes, and will rejoice.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Nә olar? İstәr riyakarlıqla, istәrsә dә sәmimiliklә, nә cür olursa-olsun, әsasәn Mәsih bәyan edilir, mәn buna sevinirәm. Әlbәttә, sevinәcәyәm,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-PHP">
+      <verse num="19" />
+      <text>For I know that this will turn out to my salvation, through your supplication and the supply of the Spirit of Jesus Christ,</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>çünki bilirәm ki, bunun nәticәsi dualarınızla vә İsa Mәsihin Ruhunun kömәyi ilә mәnim xilasım olacaq.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-PHP">
+      <verse num="20" />
+      <text>according to my earnest expectation and hope, that I will in no way be disappointed. but with all boldness, as always, now also Christ will be magnified in my body, whether by life, or by death.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Böyük hәvәslә gözlәyir vә ümidvaram ki, heç bir vәziyyәtdә utandırılmayacağam, yaşasam da, ölsәm dә, hәmişәki kimi indi dә bәdәnimdә Mәsihin ucalması üçün tam cәsarәt göstәrә bilәcәyәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-PHP">
+      <verse num="21" />
+      <text>For to me to live is Christ, and to die is gain.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Çünki mәnim üçün yaşamaq Mәsihdir, ölmәksә qazancdır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
+      <verse num="22" />
+      <text>But if I live on in the flesh, this will bring fruit from my work; yet I don’t know what I will choose.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Lakin cismәn yaşasam, faydalı işlәr görә bilәcәyәm. Buna görә nә seçәcәyimi bilmirәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP">
+      <verse num="23" />
+      <text>But I am in a dilemma between the two, having the desire to depart and be with Christ, which is far better.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Hәr iki tәrәfdәn yolum kәsilib. Arzum buranı tәrk edib Mәsihlә olmaqdır, çünki bu lap yaxşıdır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-PHP">
+      <verse num="24" />
+      <text>Yet, to remain in the flesh is more needful for your sake.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Amma sağ qalmağım sizin üçün daha lazımlıdır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-PHP">
+      <verse num="25" />
+      <text>Having this confidence, I know that I will remain, yes, and remain with you all, for your progress and joy in the faith.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Buna әmin olaraq bilirәm: sağ qalacağam vә hamınızla birlikdә qalmaqda davam edәcәyәm ki, imanda hәm irәlilәyәsiniz, hәm dә sevinәsiniz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-PHP">
+      <verse num="26" />
+      <text>That way your rejoicing may abound in Christ Jesus in me through my presence with you again.</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>Belә ki bir dә yanınıza gәldiyim üçün mәnә görә Mәsih İsada fәxriniz artsın.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-PHP">
+      <verse num="27" />
+      <text>Only let your way of life be worthy of the Good News of Christ, whether I come and see you or am absent. That I may hear of your state, that you stand firm in one spirit, with one soul striving for the faith of the Good News;</text>
+    </ReferenceBlocks>
     <verse num="27" />
     <text>Lakin hәyat tәrziniz Mәsihin Müjdәsinә layiq olsun. Gәlib sizi görsәm dә, gәlmәyib haqqınızda eşitsәm dә, bilim ki, siz bir ruhda möhkәm dayanıb Müjdәyә әsaslanan imanda canbir olaraq sәy göstәrirsiniz</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="28" characterId="narrator-PHP">
+      <verse num="28" />
+      <text>and in nothing frightened by the adversaries, which is for them a proof of destruction, but to you of salvation, and that from God.</text>
+    </ReferenceBlocks>
     <verse num="28" />
     <text>vә heç bir şәkildә әleyhdarlarınızdan qorxmursunuz. Bu onlar üçün hәlak, sizin üçünsә xilas әlamәtidir. Bu da Allahın işidir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="29" characterId="narrator-PHP">
+      <verse num="29" />
+      <text>Because it has been granted to you on behalf of Christ, not only to believe in him, but also to suffer on his behalf.</text>
+    </ReferenceBlocks>
     <verse num="29" />
     <text>Çünki sizә yalnız Mәsihә iman etmәk deyil, Onun uğrunda әzab çәkmәk üstünlüyü dә ehsan olundu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-PHP">
+      <verse num="30" />
+      <text>You have the same conflict which you saw in me, and now hear is in me.</text>
+    </ReferenceBlocks>
     <verse num="30" />
     <text>Apardığım mübarizәni әvvәldәn gördünüz, indi dә bunun haqqında eşidir vә siz dә hәmin mübarizәni aparırsınız.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+  <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>PHILIPPIANS 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-PHP">
+      <verse num="1" />
+      <text>Is there any exhortation in Christ, any consolation of love, any fellowship of the Spirit, or any tender mercies and compassion?</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Belәliklә, Mәsihdә bir ruhlandırılma, mәhәbbәtdәn yaranan bir tәsәlli, Ruha bir şәriklik, bir rәhm vә mәrhәmәt varsa,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-PHP">
+      <verse num="2" />
+      <text>If so, make my joy full, by being like-minded, having the same love, being of one accord, of one mind;</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>hәmfikir olub bir-birinizә eyni mәhәbbәti göstәrәrәk canbir vә hәmrәy olmağınızla sevincimi bütövlәşdirin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-PHP">
+      <verse num="3" />
+      <text>Do nothing through rivalry or through conceit, but in humility, each counting others better than himself.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Heç bir işi özünü göstәrәrәk vә ya lovğalıqla etmәyin. Qoy hәr biriniz itaәtkarlıqda digәrini özündәn üstün saysın</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-PHP">
+      <verse num="4" />
+      <text>Do not just look to your own things, but each of you look to the things of others as well.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>vә yalnız öz mәnfәәtini deyil, başqalarının da mәnfәәtini güdsün.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-PHP">
+      <verse num="5" />
+      <text>Have this in your mind, which was also in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Mәsih İsa necә düşündü, siz dә elә düşünün.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-PHP">
+      <verse num="6" />
+      <text>He existed in the form of God, thought it not robbery to be equal with God.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Allah surәtindә olduğu halda O Özünü Allaha bәrabәr tutmağı bir haqq saymadı.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-PHP">
+      <verse num="7" />
+      <text>He made himself of no reputation, taking the form of a servant. He was made in the likeness of men.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Lakin Özünü heç etdi vә qul surәtinә salıb insanlara oxşar oldu. İnsan şәklini alıb</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-PHP">
+      <verse num="8" />
+      <text>Being found in human form, he humbled himself, becoming obedient to death, yes, the death of the cross.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Özünü aşağı tutdu vә ölümә qәdәr – çarmıx üzәrindә ölümә qәdәr itaәt göstәrdi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-PHP">
+      <verse num="9" />
+      <text>Therefore God also highly exalted him, and gave to him the name which is above every name;</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Buna görә dә Allah Onu çox ucaltdı vә Ona lütflә bütün adlardan ali bir ad verdi ki,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-PHP">
+      <verse num="10" />
+      <text>that at the name of Jesus every knee should bow, of those in heaven, those on earth, and those under the earth,</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>göydә, yerdә vә yerin altında olanların hamısı İsanın adına ehtiram edәrәk diz çöksün</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-PHP">
+      <verse num="11" />
+      <text>and that every tongue should confess that Jesus Christ is Lord, to the glory of God the Father.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>vә hәr dil Ata Allahın izzәti üçün İsa Mәsihin Rәbb olduğunu bәyan etsin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-PHP">
+      <verse num="12" />
+      <text>So then, my beloved, do as you have always done. Obey, not only in my presence, but now much more in my absence, work out your own salvation with fear and trembling.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Belә isә, ey sevimlilәrim, hәmişә itaәtli olduğunuz kimi yalnız mәn yanınızda olanda yox, xüsusәn yanınızda olmadığım bu anda belә, qorxu vә lәrzә ilә xilasınızı әmәllәrinizdә göstәrin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-PHP">
+      <verse num="13" />
+      <text>For it is God who works in you both to will and to work, for his good pleasure.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Çünki sizdә fәaliyyәt göstәrәn Allahdır, belә ki Onun xoş mәramını hәm istәyәsiniz, hәm dә bunun üçün fәaliyyәt göstәrәsiniz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-PHP">
+      <verse num="14" />
+      <text>Do all things without murmurings and disputes,</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Hәr şeyi şikayәtlәnmәdәn, mübahisә etmәdәn yerinә yetirin ki,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-PHP">
+      <verse num="15" />
+      <text>that you may become blameless and harmless. You will bechildren of God without blemish in the midst of a crooked and perverse generation, among whom you are seen as lights in the world,</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>nöqsansız vә saf olaraq bu әyri vә azmış nәsil arasında Allahın lәkәsiz övladları olasınız. Onların arasında dünyanın nuru kimi parlayın.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
+      <verse num="16" />
+      <text>holding up the word of life; that I may have something to boast in the day of Christ, that I didn’t run in vain nor labor in vain.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Hәyat sözünü tәqdim edin. Qoy Mәsihin zühur edәcәyi gündә fәxr edә bilim ki, nә boş yerә cәhd etdim, nә dә boş yerә zәhmәt çәkdim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP">
+      <verse num="17" />
+      <text>Yes, and if I am poured out on the sacrifice and service of your faith, I rejoice, and rejoice with you all.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Lakin sizin imanınızın qurban vә xidmәti üzәrinә içmә tәqdimi kimi tökülәcәyәmsә dә, sevinirәm vә hamınızın sevincinә şәrikәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-PHP">
+      <verse num="18" />
+      <text>In the same way, you also rejoice, and rejoice with me.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Siz dә mәhz bunun üçün sevinin vә mәnim sevincimә şәrik olun.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-PHP">
+      <verse num="19" />
+      <text>But I hope in the Lord Jesus to send Timothy to you soon, that I also may be cheered up when I know how you are doing.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Vәziyyәtinizdәn xәbәrdar olub ürәyim sakitlәşsin deyә bu yaxınlarda Timoteyi yanınıza göndәrәcәyim üçün Rәbb İsada ümidim var.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-PHP">
+      <verse num="20" />
+      <text>For I have no one else like-minded, who will truly care about you.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Çünki Timotey kimi mәnimlә canbir olan, hәqiqәtәn qayğınıza qalan başqa kimsәm yoxdur.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-PHP">
+      <verse num="21" />
+      <text>For they all seek their own, not the things of Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Ona görә ki hәr kәs İsa Mәsihin xeyrini deyil, öz xeyrini güdür.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-PHP">
+      <verse num="22" />
+      <text>But you know the proof of him, that, as a child serves a father, so he served with me in furtherance of the Good News.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Amma Timoteyin öz dәyәrini necә sübut etdiyini, atasının yanında qulluq edәn oğul kimi Müjdәni yaymaq işindә mәnimlә birgә qulluq etdiyini bilirsiniz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-PHP">
+      <verse num="23" />
+      <text>Therefore I hope to send him at once, as soon as I see how it will go with me.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Belәliklә, işlәrimin nә yerdә olduğunu bilәn kimi onu yanınıza göndәrmәk ümidindәyәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-PHP">
+      <verse num="24" />
+      <text>But I trust in the Lord that I myself also will come shortly.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Mәn dә yaxında yanınıza gәlmәyim barәdә Rәbbә güvәnirәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-PHP">
+      <verse num="25" />
+      <text>But I counted it necessary to send to you Epaphroditus, my brother, fellow worker, fellow soldier, and your apostle and servant of my need.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Lakin ehtiyacımın tәminatına görә mәnә yardım etmәk üçün göndәrdiyiniz nümayәndәni, qardaşım, әmәkdaşım vә birlikdә mübarizә apardığım Epafroditi yanınıza qaytarmağı lazım bildim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-PHP">
+      <verse num="26" />
+      <text>He longed for you all, and was very troubled, because you had heard that he was sick.</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>Çünki o hәr birinizdәn ötrü darıxır vә onun xәstә olduğunu eşitdiyinizә görә çox narahat idi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-PHP">
+      <verse num="27" />
+      <text>For indeed he was sick, nearly to death, but God had mercy on him; and not on him only, but on me also, that I might not have sorrow on sorrow.</text>
+    </ReferenceBlocks>
     <verse num="27" />
     <text>O, hәqiqәtәn, elә xәstәlәnmişdi ki, az qala ölsün. Lakin Allahın ona, yalnız ona deyil, kәdәrimin üstünә kәdәr gәlmәsin deyә hәm dә mәnә rәhmi gәldi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="28" characterId="narrator-PHP">
+      <verse num="28" />
+      <text>I have sent him therefore the more diligently, that, when you see him again, you may rejoice, and that I may be the less sorrowful.</text>
+    </ReferenceBlocks>
     <verse num="28" />
     <text>Onu yanınıza göndәrmәyә daha çox buna görә razılıq verdim ki, onu yenidәn görüb sevinәsiniz vә mәnim dә kәdәrim yüngüllәşsin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="29" characterId="narrator-PHP">
+      <verse num="29" />
+      <text>Receive him therefore in the Lord with all joy, and hold such in honor.</text>
+    </ReferenceBlocks>
     <verse num="29" />
     <text>Rәbdә olan bu adamı tam sevinclә qәbul edin vә belәlәrini qiymәtlәndirin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="narrator-PHP">
+      <verse num="30" />
+      <text>He came near to death while working for Christ, risking his life to supply that which was lacking in your service toward me.</text>
+    </ReferenceBlocks>
     <verse num="30" />
     <text>Çünki o, Mәsihin işi uğrunda az qala ölәcәkdi. Sizin mәnә edә bilmәdiyiniz kömәyi etmәk üçün canını tәhlükәyә atdı.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+  <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>PHILIPPIANS 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-PHP">
+      <verse num="1" />
+      <text>Finally, my brothers, rejoice in the Lord. To write the same things to you, to me indeed is not tiresome, but for you it is safe.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Nәhayәt, qardaşlarım, Rәbdә sevinin! Sizә eyni şeylәri yazmaq mәni yormaz, amma sizi qoruyar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-PHP">
+      <verse num="2" />
+      <text>Beware of the dogs, beware of the evil workers, beware of the false circumcision.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Özünüzü &lt;&lt;itlәr&gt;&gt; dәn qoruyun, pis iş görәnlәrdәn qoruyun, bәdәni sünnәt edәrәk kәsib-atanlardan qoruyun.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-PHP">
+      <verse num="3" />
+      <text>For we are the circumcision, who worship God in the Spirit, and rejoice in Christ Jesus, and have no confidence in the flesh;</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Çünki әsl sünnәtlilәr Allahın Ruhu vasitәsilә ibadәt edәn, Mәsih İsa ilә fәxr edәn vә cismani şeylәrә güvәnmәyәn bizlәrik.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-PHP">
+      <verse num="4" />
+      <text>though I myself might have confidence even in the flesh. If any other man thinks that he has confidence in the flesh, I yet more:</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Әslindә mәn cismani şeylәrә dә güvәnә bilәrdim. Әgәr başqası cismani şeylәrә güvәnmәyi düşünürsә, mәn daha çox güvәnә bilәrәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-PHP">
+      <verse num="5" />
+      <text>circumcised the eighth day, of the stock of Israel, of the tribe of Benjamin, a Hebrew of Hebrews; concerning the law, a Pharisee.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Mәn sәkkizgünlük ikәn sünnәt olundum. İsrail nәslindәn, Binyamin qәbilәsindәn, İbranilәrdәn törәmiş bir İbraniyәm. Qanuna münasibәtdә farisey idim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-PHP">
+      <verse num="6" />
+      <text>Concerning zeal, I persecuted the assembly. Concerning the righteousness which is in the law, I was found blamelss.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Qeyrәt çәkmәyә gәlincә, Allahın cәmiyyәtini tәqib edirdim. Qanuna әsaslanan salehliyә gәlincә, nöqsansız idim.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-PHP">
+      <verse num="7" />
+      <text>However, what things were gain to me, these have I counted loss for Christ.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Amma mәnә fayda gәtirәn nә varsa, Mәsih uğrunda ziyan saymışam.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-PHP">
+      <verse num="8" />
+      <text>Yes most certainly, and I count all things to be loss for the excellency of the knowledge of Christ Jesus, my Lord, for whom I suffered the loss of all things, and count them nothing but dung, that I may gain Christ,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Bundan әlavә, Rәbbim Mәsih İsanı tanımağın ali dәyәrinin yanında hәr şeyi ziyan hesab edirәm. Onun uğrunda var-yoxumu atıb tullantı sayıram ki, Mәsihi qazanıb</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-PHP">
+      <verse num="9" />
+      <text>that I may be found in him, not having a righteousness of my own, that which is of the law, but that which is through faith in Christ, the righteousness which is from God by faith;</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Onda hesab olunum. Belә ki Qanunla gәlәn öz salehliyimә deyil, Mәsihә imandan yaranan, imanla Allahdan gәlәn salehliyә malik olum.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-PHP">
+      <verse num="10" />
+      <text>that I may know him, and the power of his resurrection. And the fellowship of his sufferings, becoming conformed to his death;</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Belә ki Mәsihi vә Onun dirilmә qüdrәtini, әzablarına şәrikliyi dә dәrk edim vә Onun ölümündә Ona bәnzәyim ki,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-PHP">
+      <verse num="11" />
+      <text>if, by any means, I may attain the resurrection from the dead.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>nә olursa-olsun, ölülәr arasından dirilmәyә nail olum.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-PHP">
+      <verse num="12" />
+      <text>Not that I have already obtained, or am already made perfect; but I press on, if it is so that I may take hold of that for which also I was taken hold of by Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Demirәm ki, indi bunlara malik olmuşam vә yaxud kamillәşmişәm. Amma hәdәfdәn tutmaq üçün qaçıram. Çünki Mәsih İsa mәni bu mәqsәd üçün tutub.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
+      <verse num="13" />
+      <text>Brothers, I don’t regard myself as yet having taken hold, but one thing I do. Forgetting the things which are behind, and stretching forward to the things which are before,</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Qardaşlar, hesab etmirәm ki, bunu tutmuşam. Yalnız bir şey edirәm: arxada qalanları unudub qarşımda olana çatmaq üçün cәhd edirәm</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP">
+      <verse num="14" />
+      <text>I press on toward the goal for the prize of the high calling of God in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>vә hәdәfә doğru qaçıram ki, mükafatı alım, yәni Allahın Mәsih İsada yuxarıya çağırışına nail olum.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-PHP">
+      <verse num="15" />
+      <text>Let us therefore, as many as are perfect, think this way. If in anything you think otherwise, God will also reveal that to you.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Belәliklә, aramızda kim kamildirsә, qoy belә düşünsün. Hәr hansı bir mövzuda fәrqli düşüncәlәriniz varsa, Allah bunu da sizә açacaq.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-PHP">
+      <verse num="16" />
+      <text>Nevertheless, to the extent that we have already attained, let us walk by the same rule. Let us mind the same thing.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Ancaq çatdığımız sәviyyәyә uyğun hәyat sürәk.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-PHP">
+      <verse num="17" />
+      <text>Brothers, be imitators together of me, and note those who walk this way, even as you have us for an example.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Qardaşlar, hamınız birlikdә mәndәn nümunә götürün vә sizә göstәrdiyimiz nümunәyә uyğun hәyat sürәnlәrә diqqәtlә baxın.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-PHP">
+      <verse num="18" />
+      <text>For many walk, of whom I told you often, and now tell you even weeping, as the enemies of the cross of Christ,</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Sizә dәfәlәrlә söylәdiyim kimi indi dә göz yaşları içindә tәkrar deyirәm: bir çoxları Mәsihin çarmıxına düşmәn olaraq hәyat sürür.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-PHP">
+      <verse num="19" />
+      <text>whose end is destruction, whose god is the belly, and whose glory is in their shame, who think about earthly things.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Onların sonu hәlakdır. Onların allahı qarınlarıdır. Öz rüsvayçılıqları ilә fәxr edir, yalnız dünyәvi şeylәr barәdә düşünürlәr.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-PHP">
+      <verse num="20" />
+      <text>For our citizenship is in heaven, from where we also wait for a Savior, the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Bizsә sәma vәtәndaşlarıyıq vә oradan Xilaskar olan Rәbb İsa Mәsihi hәvәslә gözlәyirik.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-PHP">
+      <verse num="21" />
+      <text>He will change the body of our humiliation to be conformed to the body of his glory, according to the working by which he is able even to subject all things to himself.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>O hәr şeyi Özünә tabe etmәyә qadir olan qüvvәsinin tәsiri ilә bizim yazıq bәdәnimizi dәyişdirib Öz izzәtli bәdәninә bәnzәr hala gәtirәcәk.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP">
+  <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>PHILIPPIANS 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-PHP">
+      <verse num="1" />
+      <text>Therefore, my brothers, beloved and longed for, my joy and crown, so stand firm in the Lord, my beloved.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Belәliklә, ey hәsrәtini çәkdiyim sevimli qardaşlarım, sevincim vә başımın tacı, Rәbdә olaraq bu cür dönmәz durun, ey sevimlilәr!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-PHP">
+      <verse num="2" />
+      <text>I exhort Euodia, and I exhort Syntyche, to think the same way in the Lord.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Evodiyaya yalvarıram, Sintixiyә yalvarıram ki, Rәbdә hәmfikir olsunlar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-PHP">
+      <verse num="3" />
+      <text>Yes, I beg you also, true yokefellow, help these women, for they labored with me in the Good News, with Clement also, and the rest of my fellow workers, whose names are in the book of life.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Bәli, ey әsl әmәkdaşım, sәndәn dә xahişim var, bu qadınlara kömәk et. Çünki onlar mәnimlә, Klementlә vә adları hәyat kitabında olan digәr әmәkdaşlarımla bәrabәr Müjdәni yaymaq üçün sәy göstәriblәr.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-PHP">
+      <verse num="4" />
+      <text>Rejoice in the Lord always! Again I will say, “Rejoice!”</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Rәbdә hәmişә sevinin! Bir dә deyirәm: sevinin!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-PHP">
+      <verse num="5" />
+      <text>Let your gentleness be known to all men. The Lord is at hand.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Qoy sizin mülayimliyiniz bütün insanlara mәlum olsun. Rәbb yaxındır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-PHP">
+      <verse num="6" />
+      <text>In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Heç nәyin qayğısını çәkmәyin, amma hәr barәdә xahişlәrinizi Allaha dualarla, yalvarışlarla, şükür edә-edә bildirin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-PHP">
+      <verse num="7" />
+      <text>And the peace of God, which surpasses all understanding, will guard your hearts and your thoughts in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Onda Allahın ağlagәlmәz sülhü ürәklәrinizi vә düşüncәlәrinizi Mәsih İsada qoruyacaq.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-PHP">
+      <verse num="8" />
+      <text>Finally, brothers, whatever things are true, whatever things are honorable, whatever things are just, whatever things are pure, whatever things are lovely, whatever things are of good report; if there is any virtue, and if there is any praise, think about these things.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Nәhayәt, qardaşlar, doğru, lәyaqәtli, saleh, pak, cazibәli, etibarlı nә varsa, әgәr әla vә tәrifә layiq nә varsa, bunları düşünün.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-PHP">
+      <verse num="9" />
+      <text>The things which you learned, received, heard, and saw in me: do these things, and the God of peace will be with you.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Mәndәn öyrәndiyiniz, qәbul etdiyiniz, eşitdiyiniz vә mәndә gördüyünüz nә varsa, bunları hәyata keçirin. Onda sülh qaynağı olan Allah sizinlә olacaq.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-PHP">
+      <verse num="10" />
+      <text>But I rejoice in the Lord greatly, that now at length you have revived your thought for me; in which you did indeed take thought, but you lacked opportunity.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Mәn Rәbdә bol-bol sevinirәm ki, nәhayәt indi mәnim barәmdәki qayğınızı yenidәn canlandırdınız. Әslindә qayğınız vardı, amma bunu göstәrmәyә fürsәt tapa bilmirdiniz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-PHP">
+      <verse num="11" />
+      <text>Not that I speak in respect to lack, for I have learned in whatever state I am, to be content in it.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Ehtiyaca düşdüyüm üçün bunları söylәmirәm, çünki hansı şәraitdә yaşasam, ondan razı qalmağa alışmışam.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-PHP">
+      <verse num="12" />
+      <text>I know how to be humbled, and I know also how to abound. In everything and in all things I have learned the secret both to be filled and to be hungry, both to abound and to be in need.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Mәn mәzlumluğun da, bolluğun da nә olduğunu bilirәm. İstәr tox, istәr ac, istәr bolluq, istәr ehtiyac içindә olum, hәr şәraitdә, hәr vәziyyәtdә razı qalmağın sirrini öyrәnmişәm.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-PHP">
+      <verse num="13" />
+      <text>I can do all things through Christ, who strengthens me.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Mәnә qüvvәt verәn Mәsihin kömәyi ilә hәr işә gücüm çatır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-PHP">
+      <verse num="14" />
+      <text>However you did well that you shared in my affliction.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Buna baxmayaraq nә yaxşı ki әziyyәtimә şәrik oldunuz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-PHP">
+      <verse num="15" />
+      <text>You yourselves also know, you Philippians, that in the beginning of the Good News, when I departed from Macedonia, no assembly shared with me in the matter of giving and receiving but you only.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Ey Filipililәr, özünüz dә bilirsiniz ki, aranızda Müjdә yayımının başlanğıcında, mәn Makedoniyanı tәrk edәn zaman sizdәn başqa heç bir cәmiyyәt nәzir vermәk vә toplamaq üçün mәnimlә şәrik iş görmәdi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-PHP">
+      <verse num="16" />
+      <text>For even in Thessalonica you sent once and again to my need.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Mәn Salonikdә olanda belә, ehtiyacım üçün dәfәlәrlә siz mәnә yardım göndәrdiniz.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-PHP">
+      <verse num="17" />
+      <text>Not that I seek for the gift, but I seek for the fruit that increases to your account.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Bu o demәk deyil ki, mәn bәxşiş axtarıram. Mәn ancaq sizin hesabınıza yazıla bilәn sәmәrәni axtarıram.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-PHP">
+      <verse num="18" />
+      <text>But I have all things, and abound. I am filled, having received from Epaphroditus the things that came from you, a sweet-smelling fragrance, an acceptable and well-pleasing sacrifice to God.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Mәnsә tamamilә tәmin olunmuşam vә bolluq içindәyәm. Epafroditin әli ilә göndәrdiyiniz hәdiyyәlәri alandan sonra ehtiyacım qalmadı. Bu, Allahın xoşuna gәlәn әtirli tәqdim, Ona mәqbul olan vә razı salan qurbandır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-PHP">
+      <verse num="19" />
+      <text>My God will supply every need of yours according to his riches in glory in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Sizin hәr ehtiyacınızı isә Allahım Mәsih İsada olan Öz izzәtli zәnginliyinә görә ödәyәcәk.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-PHP">
+      <verse num="20" />
+      <text>Now to our God and Father be the glory forever and ever! Amen.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Qoy Atamız Allaha әbәdi izzәt olsun! Amin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-PHP">
+      <verse num="21" />
+      <text>Greet every saint in Christ Jesus. The brothers who are with me greet you.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Mәsih İsada müqәddәs olan hәr kәsi salamlayın. Mәnimlә olan qardaşlar sizә salam göndәrir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
+      <verse num="22" />
+      <text>All the saints greet you, especially those who are of Caesar’s household.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Sizi bütün müqәddәslәr, xüsusәn qeysәrin sarayında işlәyәnlәr salamlayır.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
+      <verse num="23" />
+      <text>The grace of the Lord Jesus Christ be with you all. Amen.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Rәbb İsa Mәsihin lütfü ruhunuza yar olsun!</text>
   </block>

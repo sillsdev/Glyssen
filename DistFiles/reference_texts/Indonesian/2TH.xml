@@ -1,202 +1,402 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="2TH" singlevoice="false" pageheader="2 THESSALONIANS">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH">
+      <text>2 THESSALONIANS</text>
+    </ReferenceBlocks>
     <text>2 THESSALONIANS</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="2TH" initialStartVerse="0" characterId="BC-2TH">
+  <block style="c" paragraphStart="true" chapter="1" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>2 THESSALONIANS 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-2TH">
+      <verse num="1" />
+      <text>Paul, Silvanus, and Timothy, to the assembly of the Thessalonians in God our Father, and the Lord Jesus Christ:</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Dari Paulus, Silwanus dan Timotius, kepada jemaat orang-orang Tesalonika di dalam Allah Bapa kita dan di dalam Tuhan Yesus Kristus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-2TH">
+      <verse num="2" />
+      <text>Grace to you and peace from God our Father and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Kasih karunia dan damai sejahtera dari Allah, Bapa kita, dan dari Tuhan Yesus Kristus menyertai kamu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-2TH">
+      <verse num="3" />
+      <text>We are bound to always give thanks to God for you, brothers, even as it is appropriate, because your faith grows exceedingly, and the love of each and every one of you towards one another abounds.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Kami wajib selalu mengucap syukur kepada Allah karena kamu, saudara-saudara. Dan memang patutlah demikian, karena imanmu makin bertambah dan kasihmu seorang akan yang lain makin kuat di antara kamu,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-2TH">
+      <verse num="4" />
+      <text>Therefore we ourselves boast about you in the assemblies of God. We boast of your patience and faith in all your persecutions and in the afflictions which you endure.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>sehingga dalam jemaat-jemaat Allah kami sendiri bermegah tentang kamu karena ketabahanmu dan imanmu dalam segala penganiayaan dan penindasan yang kamu derita:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-2TH">
+      <verse num="5" />
+      <text>This is an obvious sign of the righteous judgment of God, to the end that you may be counted worthy of the Kingdom of God, for which you also suffer.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>suatu bukti tentang adilnya penghakiman Allah, yang menyatakan bahwa kamu layak menjadi warga Kerajaan Allah, kamu yang sekarang menderita karena Kerajaan itu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-2TH">
+      <verse num="6" />
+      <text>Since it is a righteous thing with God to repay affliction to those who afflict you,</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Sebab memang adil bagi Allah untuk membalaskan penindasan kepada mereka yang menindas kamu</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TH">
+      <verse num="7" />
+      <text>and to give relief to you who are afflicted with us. This will happen when the Lord Jesus is revealed from heaven with his mighty angels in flaming fire:</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>dan untuk memberikan kelegaan kepada kamu yang ditindas, dan juga kepada kami, pada waktu Tuhan Yesus dari dalam sorga menyatakan diri-Nya bersama-sama dengan malaikat-malaikat-Nya, dalam kuasa-Nya, di dalam api yang bernyala-nyala,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH">
+      <verse num="8" />
+      <text>He will give vengeance to those who don’t know God, and to those who don’t obey the Good News of our Lord Jesus Christ,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>dan mengadakan pembalasan terhadap mereka yang tidak mau mengenal Allah dan tidak mentaati Injil Yesus, Tuhan kita.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TH">
+      <verse num="9" />
+      <text>They will pay the penalty: eternal destruction from the face of the Lord and from the glory of his might.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Mereka ini akan menjalani hukuman kebinasaan selama-lamanya, dijauhkan dari hadirat Tuhan dan dari kemuliaan kekuatan-Nya,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2TH">
+      <verse num="10" />
+      <text>When he comes, his glory will be seen in his saints. He will receive honor from all those who put their trust in him. This includes you because you believed our testimony to you.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>apabila Ia datang pada hari itu untuk dimuliakan di antara orang-orang kudus-Nya dan untuk dikagumi oleh semua orang yang percaya, sebab kesaksian yang kami bawa kepadamu telah kamu percayai.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-2TH">
+      <verse num="11" />
+      <text>To this end we also pray always for you, that our God may count you worthy of your calling, and fulfill every desire of goodness and work of faith, with power.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Karena itu kami senantiasa berdoa juga untuk kamu, supaya Allah kita menganggap kamu layak bagi panggilan-Nya dan dengan kekuatan-Nya menyempurnakan kehendakmu untuk berbuat baik dan menyempurnakan segala pekerjaan imanmu,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2TH">
+      <verse num="12" />
+      <text>In this way, the name of our Lord Jesus Christ may be glorified in you, and you in him. Aaccording to the grace of our God and the Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>sehingga nama Yesus, Tuhan kita, dimuliakan di dalam kamu dan kamu di dalam Dia, menurut kasih karunia Allah kita dan Tuhan Yesus Kristus.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH">
+  <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>2 THESSALONIANS 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-2TH">
+      <verse num="1" />
+      <text>Now, brothers, concerning the coming of our Lord Jesus Christ, and our gathering together to him, here is what we ask:</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Tentang kedatangan Tuhan kita Yesus Kristus dan terhimpunnya kita dengan Dia kami minta kepadamu, saudara-saudara,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-2TH">
+      <verse num="2" />
+      <text>Do not be quickly shaken in your mind, nor yet be troubled, either by spirit, or by word. Nor by letter as from us, saying that the day of Christ had come.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>supaya kamu jangan lekas bingung dan gelisah, baik oleh ilham roh, maupun oleh pemberitaan atau surat yang dikatakan dari kami, seolah-olah hari Tuhan telah tiba.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2TH">
+      <verse num="3" />
+      <text>Let no one deceive you in any way. For it will not be, unless the departure comes first, and the man of sin is revealed. He is the son of destruction.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Janganlah kamu memberi dirimu disesatkan orang dengan cara yang bagaimanapun juga! Sebab sebelum Hari itu haruslah datang dahulu murtad dan haruslah dinyatakan dahulu manusia durhaka, yang harus binasa,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2TH">
+      <verse num="4" />
+      <text>He opposes and exalts himself against all that is called God or that is worshiped; so that he sits as God in the temple of God, setting himself up as God.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>yaitu lawan yang meninggikan diri di atas segala yang disebut atau yang disembah sebagai Allah. Bahkan ia duduk di Bait Allah dan mau menyatakan diri sebagai Allah.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH">
+      <verse num="5" />
+      <text>Don’t you remember that, when I was still with you, I told you these things?</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Tidakkah kamu ingat, bahwa hal itu telah kerapkali kukatakan kepadamu, ketika aku masih bersama-sama dengan kamu?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TH">
+      <verse num="6" />
+      <text>Now you know what is restraining him, to the end that he may be revealed in his own season.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Dan sekarang kamu tahu apa yang menahan dia, sehingga ia baru akan menyatakan diri pada waktu yang telah ditentukan baginya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-2TH">
+      <verse num="7" />
+      <text>For the mystery of lawlessness already works. Only there is one who restrains now, until he is taken out of the way.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Karena secara rahasia kedurhakaan telah mulai bekerja, tetapi sekarang masih ada yang menahan. Kalau yang menahannya itu telah disingkirkan,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-2TH">
+      <verse num="8" />
+      <text>Then the lawless one will be revealed, whom the Lord will kill with the breath of his mouth, and destroy by the manifestation of his coming.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>pada waktu itulah si pendurhaka baru akan menyatakan dirinya, tetapi Tuhan Yesus akan membunuhnya dengan nafas mulut-Nya dan akan memusnahkannya, kalau Ia datang kembali.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TH">
+      <verse num="9" />
+      <text>The coming of the lawless one will be in accordance with the working of Satan with all power and signs and lying wonders.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Kedatangan si pendurhaka itu adalah pekerjaan Iblis, dan akan disertai rupa-rupa perbuatan ajaib, tanda-tanda dan mujizat-mujizat palsu,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH">
+      <verse num="10" />
+      <text>Those who are lost in sin will be deceived by the things he can do because they didn’t receive the love of the truth, that they might be saved.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>dengan rupa-rupa tipu daya jahat terhadap orang-orang yang harus binasa karena mereka tidak menerima dan mengasihi kebenaran yang dapat menyelamatkan mereka.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TH">
+      <verse num="11" />
+      <text>Because of this, God sends them a working of error, that they should believe a lie.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Dan itulah sebabnya Allah mendatangkan kesesatan atas mereka, yang menyebabkan mereka percaya akan dusta,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH">
+      <verse num="12" />
+      <text>They will all be judged because they didn’t believe the truth, but had pleasure in unrighteousness.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>supaya dihukum semua orang yang tidak percaya akan kebenaran dan yang suka kejahatan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TH">
+      <verse num="13" />
+      <text>But we are bound to always give thanks to God for you, brothers loved by the Lord, because God chose you from the beginning for salvation through sanctification of the Spirit and belief in the truth.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Akan tetapi kami harus selalu mengucap syukur kepada Allah karena kamu, saudara-saudara, yang dikasihi Tuhan, sebab Allah dari mulanya telah memilih kamu untuk diselamatkan dalam Roh yang menguduskan kamu dan dalam kebenaran yang kamu percayai.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TH">
+      <verse num="14" />
+      <text>He called you to this through our Good News, for the obtaining of the glory of our Lord Jesus Christ.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Untuk itulah Ia telah memanggil kamu oleh Injil yang kami beritakan, sehingga kamu boleh memperoleh kemuliaan Yesus Kristus, Tuhan kita.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TH">
+      <verse num="15" />
+      <text>So then, brothers, stand firm, and hold the traditions which you were taught by us, whether by word, or by letter.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Sebab itu, berdirilah teguh dan berpeganglah pada ajaran-ajaran yang kamu terima dari ajaran-ajaran yang kamu terima dari kami, baik secara lisan, maupun secara tertulis.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2TH">
+      <verse num="16" />
+      <text>Now our Lord Jesus Christ himself, and God our Father, who loved us and gave us eternal comfort and good hope through grace,</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Dan Ia, Tuhan kita Yesus Kristus, dan Allah, Bapa kita, yang dalam kasih karunia-Nya telah mengasihi kita dan yang telah menganugerahkan penghiburan abadi dan pengharapan baik kepada kita,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-2TH">
+      <verse num="17" />
+      <text>comfort your hearts and establish you in every good work and word.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>kiranya menghibur dan menguatkan hatimu dalam pekerjaan dan perkataan yang baik.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH">
+  <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>2 THESSALONIANS 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-2TH">
+      <verse num="1" />
+      <text>Finally, brothers, pray for us, that the word of the Lord may spread rapidly and be glorified, even as also with you;</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Selanjutnya, saudara-saudara, berdoalah untuk kami, supaya firman Tuhan beroleh kemajuan dan dimuliakan, sama seperti yang telah terjadi di antara kamu,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-2TH">
+      <verse num="2" />
+      <text>and that we may be delivered from unreasonable and evil men; for not all have faith.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>dan supaya kami terlepas dari para pengacau dan orang-orang jahat, sebab bukan semua orang beroleh iman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-2TH">
+      <verse num="3" />
+      <text>But the Lord is faithful, who will establish you, and guard you from the evil one.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Tetapi Tuhan adalah setia. Ia akan menguatkan hatimu dan memelihara kamu terhadap yang jahat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-2TH">
+      <verse num="4" />
+      <text>We have confidence in the Lord concerning you, that you both do and will do the things we command.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Dan kami percaya dalam Tuhan, bahwa apa yang kami pesankan kepadamu, kamu lakukan dan akan kamu lakukan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-2TH">
+      <verse num="5" />
+      <text>May the Lord direct your hearts into the love of God, and into the patience of Christ.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Kiranya Tuhan tetap menujukan hatimu kepada kasih Allah dan kepada ketabahan Kristus.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-2TH">
+      <verse num="6" />
+      <text>Now we command you, brothers, in the name of our Lord Jesus Christ. Withdraw yourselves from every brother who walks in rebellion, and not after the tradition which they received from us.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Tetapi kami berpesan kepadamu, saudara-saudara, dalam nama Tuhan Yesus Kristus, supaya kamu menjauhkan diri dari setiap saudara yang tidak melakukan pekerjaannya dan yang tidak menurut ajaran yang telah kamu terima dari kami.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH">
+      <verse num="7" />
+      <text>For you know how you ought to imitate us. For we didn’t behave ourselves rebelliously among you,</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Sebab kamu sendiri tahu, bagaimana kamu harus mengikuti teladan kami, karena kami tidak lalai bekerja di antara kamu,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH">
+      <verse num="8" />
+      <text>neither did we eat bread from anyone’s hand without paying for it. In labor and travail we worked night and day, that we might not burden any of you.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>dan tidak makan roti orang dengan percuma, tetapi kami berusaha dan berjerih payah siang malam, supaya jangan menjadi beban bagi siapapun di antara kamu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH">
+      <verse num="9" />
+      <text>We did this, not because we don’t have the right, but to make ourselves an example to you, that you should imitate us.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Bukan karena kami tidak berhak untuk itu, melainkan karena kami mau menjadikan diri kami teladan bagi kamu, supaya kamu ikuti.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TH">
+      <verse num="10" />
+      <text>For even when we were with you, we commanded you this: “If anyone will not work, neither let him eat.”</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Sebab, juga waktu kami berada di antara kamu, kami memberi peringatan ini kepada kamu: &lt;&lt;jika seorang tidak mau bekerja, janganlah ia makan.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH">
+      <verse num="11" />
+      <text>For we hear of some who walk among you in rebellion, who don’t work at all, but are busybodies.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Kami katakan ini karena kami dengar, bahwa ada orang yang tidak tertib hidupnya dan tidak bekerja, melainkan sibuk dengan hal-hal yang tidak berguna.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TH">
+      <verse num="12" />
+      <text>Now those who are that way, we command and exhort in the Lord Jesus Christ, that with quietness they work, and eat their own bread.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Orang-orang yang demikian kami peringati dan nasihati dalam Tuhan Yesus Kristus, supaya mereka tetap tenang melakukan pekerjaannya dan dengan demikian makan makanannya sendiri.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH">
+      <verse num="13" />
+      <text>But you, brothers, don’t be weary in doing well.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Dan kamu, saudara-saudara, janganlah jemu-jemu berbuat apa yang baik.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH">
+      <verse num="14" />
+      <text>If any man doesn’t obey our word in this letter, note that man, that you have no company with him, to the end that he may be ashamed.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Jika ada orang yang tidak mau mendengarkan apa yang kami katakan dalam surat ini, tandailah dia dan jangan bergaul dengan dia, supaya ia menjadi malu,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH">
+      <verse num="15" />
+      <text>Don’t count him as an enemy, but admonish him as a brother.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>tetapi janganlah anggap dia sebagai musuh, tetapi tegorlah dia sebagai seorang saudara.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TH">
+      <verse num="16" />
+      <text>Now may the Lord of peace himself give you peace at all times in all ways. The Lord be with you all.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Dan Ia, Tuhan damai sejahtera, kiranya mengaruniakan damai sejahtera-Nya terus-menerus, dalam segala hal, kepada kamu. Tuhan menyertai kamu sekalian.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-2TH">
+      <verse num="17" />
+      <text>The greeting of me, Paul, with my own hand, which is the sign in every letter: this is how I write.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Salam dari padaku, Paulus. Salam ini kutulis dengan tanganku sendiri. Inilah tanda dalam setiap surat: beginilah tulisanku.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-2TH">
+      <verse num="18" />
+      <text>The grace of our Lord Jesus Christ be with you all. Amen.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Kasih karunia Yesus Kristus, Tuhan kita, menyertai kamu sekalian!</text>
   </block>

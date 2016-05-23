@@ -1,482 +1,962 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="1TI" singlevoice="false" pageheader="1 TIMOTHY">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TI">
+      <text>1 TIMOTHY</text>
+    </ReferenceBlocks>
     <text>1 TIMOTHY</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+  <block style="c" paragraphStart="true" chapter="1" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>1 TIMOTHY 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-1TI">
+      <verse num="1" />
+      <text>Paul, an apostle of Christ Jesus according to the commandment of God our Savior, and Lord Christ Jesus our hope;</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Pablo, apóstol de Cristo Jesús, enviado por mandato de Dios nuestro Salvador y de Cristo Jesús, nuestra esperanza,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-1TI">
+      <verse num="2" />
+      <text>to Timothy, my true child in faith: Grace, mercy, and peace, from God our Father and Christ Jesus our Lord.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>saluda a Timoteo, verdadero hijo en la fe. Que Dios nuestro Padre y Cristo Jesús nuestro Señor derramen su gracia, su misericordia y su paz sobre ti.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-1TI">
+      <verse num="3" />
+      <text>As I urged you when I was going into Macedonia, stay at Ephesus that you might command certain men not to teach a different doctrine,</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Como ya te rogué al irme a la región de Macedonia, quédate en Éfeso, para ordenar a ciertas personas que no enseñen ideas falsas</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI">
+      <verse num="4" />
+      <text>neither to pay attention to myths and endless genealogies, which cause disputes, rather than God’s stewardship, which is in faith.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>ni presten atención a cuentos y cuestiones interminables acerca de los antepasados. Estas cosas llevan solamente a la discusión y no ayudan a conocer el designio de Dios, que se vive en la fe.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-1TI">
+      <verse num="5" />
+      <text>The goal of this command is love, out of a pure heart and a good conscience and sincere faith.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>El propósito de esa orden es que nos amemos unos a otros con el amor que proviene de un corazón limpio, de una buena conciencia y de una fe sincera.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1TI">
+      <verse num="6" />
+      <text>Some have wandered away from these things and have turned aside to vain talking.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Algunos se han desviado de esto y se han perdido en inútiles discusiones.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-1TI">
+      <verse num="7" />
+      <text>They want to be teachers of the law, though they understand neither what they say, nor about what they strongly affirm.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Quieren ser maestros de la ley de Dios, cuando no entienden lo que ellos mismos dicen ni lo que enseñan con tanta seguridad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-1TI">
+      <verse num="8" />
+      <text>But we know that the law is good, if a man uses it lawfully.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Sabemos que la ley es buena, si se usa de ella conforme al propósito que tiene.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-1TI">
+      <verse num="9" />
+      <text>We also know that law is not made for a righteous man, but for the lawless and insubordinate, for the ungodly and sinners, for the unholy and profane, for murderers of fathers and murderers of mothers, for manslayers,</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Hay que recordar que ninguna ley se da para quienes hacen lo bueno. La ley tiene en cuenta a los rebeldes y desobedientes, a los malvados y pecadores, a los que no respetan a Dios ni a la religión, a los que matan a su padre o a su madre, a todos los asesinos,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1TI">
+      <verse num="10" />
+      <text>for the sexually immoral, for homosexuals, for slave-traders, for liars, for perjurers, and for any other thing contrary to the sound doctrine.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>a los que cometen inmoralidades sexuales, a los homosexuales, a los traficantes de esclavos, a los mentirosos y a los que juran en falso; es decir, a los que hacen cosas que van en contra de la sana enseñanza.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1TI">
+      <verse num="11" />
+      <text>This sound doctrine conforms to the Good News of the glory of the blessed God, and it was entrusted to me.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Y esto es lo que enseña el glorioso evangelio que el Dios bienaventurado me ha encargado.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1TI">
+      <verse num="12" />
+      <text>And I thank him who enabled me, Christ Jesus our Lord, because he counted me faithful, appointing me to service;</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Doy gracias a aquel que me ha dado fuerzas, a Cristo Jesús nuestro Señor, porque me ha considerado fiel y me ha puesto a su servicio,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-1TI">
+      <verse num="13" />
+      <text>Even though before I was a a blasphemer, a persecutor, and insolent, I was shown mercy because I did it ignorantly, in unbelief.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>a pesar de que yo antes decía cosas ofensivas contra él, lo perseguía y lo insultaba. Pero Dios tuvo misericordia de mí, porque yo todavía no era creyente y no sabía lo que hacía.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-1TI">
+      <verse num="14" />
+      <text>The grace of our Lord abounded exceedingly with faith and love which is in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Y nuestro Señor derramó abundantemente su gracia sobre mí, y me dio la fe y el amor que podemos tener gracias a Cristo Jesús.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-1TI">
+      <verse num="15" />
+      <text>The saying is faithful and worthy of all acceptance, that Christ Jesus came into the world to save sinners; of whom I am chief.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Esto es muy cierto, y todos deben creerlo: que Cristo Jesús vino al mundo para salvar a los pecadores, de los cuales yo soy el primero.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1TI">
+      <verse num="16" />
+      <text>However, for this cause I obtained mercy, that in me first, Jesus Christ might display all his patience, for an example of those who were going to believe in him for eternal life.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Pero Dios tuvo misericordia de mí, para que Jesucristo mostrara en mí toda su paciencia. Así yo vine a ser ejemplo de los que habían de creer en él para obtener la vida eterna.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1TI">
+      <verse num="17" />
+      <text>Now to the King eternal, immortal, invisible, to God who alone is wise, be honor and glory forever and ever. Amen.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>¡Honor y gloria para siempre al Rey eterno, al inmortal, invisible y único Dios! Amén.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1TI">
+      <verse num="18" />
+      <text>This instruction I commit to you, my child Timothy, according to the prophecies which were once made about you. So that by following them you may fight the good fight.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Esta instrucción me comprometo a ti, hijo Timoteo, conforme a las profecías que se hicieron una vez acerca de ti, para que en pos de ellas puede pelear la buena batalla.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-1TI">
+      <verse num="19" />
+      <text>Keep hold of faith and a good conscience. Some, having thrust these away, have shipwrecked their faith.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Conservar la fe y buena conciencia. Algunos han puesto estas cosas a un lado, y los náufragos por lo tanto, su fe.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1TI">
+      <verse num="20" />
+      <text>This happened to Hymenaeus and Alexander; whom I delivered to Satan, that they might be taught not to blaspheme.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Esto les ha pasado a Himeneo y Alejandro, a quienes he entregado a Satanás para que aprendan a no decir cosas ofensivas contra Dios.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+  <block style="c" paragraphStart="true" chapter="2" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>1 TIMOTHY 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TI">
+      <verse num="1" />
+      <text>I exhort therefore, first of all, that petitions, prayers, intercessions, and givings of thanks, be made for all men:</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Ante todo recomiendo que se hagan peticiones, oraciones, súplicas y acciones de gracias a Dios por toda la humanidad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TI">
+      <verse num="2" />
+      <text>for kings and all who are in high places; that we may lead a tranquil and quiet life in all godliness and reverence.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Se debe orar por los que gobiernan y por todas las autoridades, para que podamos gozar de una vida tranquila y pacífica, con toda piedad y dignidad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TI">
+      <verse num="3" />
+      <text>For this is good and acceptable in the sight of God our Savior;</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Esto es bueno y agrada a Dios nuestro Salvador,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1TI">
+      <verse num="4" />
+      <text>who desires all people to be saved and come to full knowledge of the truth.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>pues él quiere que todos se salven y lleguen a conocer la verdad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1TI">
+      <verse num="5" />
+      <text>For there is one God, and one mediator between God and men, the man Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Porque no hay más que un Dios, y un solo hombre que sea el mediador entre Dios y los hombres: Cristo Jesús.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1TI">
+      <verse num="6" />
+      <text>He gave himself as a ransom for all. God made this known to the world at the right time.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Porque él se entregó a la muerte como rescate por la salvación de todos y como testimonio dado por él a su debido tiempo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1TI">
+      <verse num="7" />
+      <text>For this purpose, I was appointed a preacher and an apostle. (I am telling the truth in Christ, not lying), a teacher of the Gentiles in faith and truth.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Para anunciar esto, yo he sido nombrado mensajero y apóstol, y se me ha encargado que enseñe acerca de la fe y de la verdad a los que no son judíos. Lo que digo es cierto; no miento.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1TI">
+      <verse num="8" />
+      <text>I desire therefore that the men in every place pray, lifting up holy hands without anger and doubting.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Así pues, quiero que los hombres oren en todas partes, y que eleven sus manos a Dios con pureza de corazón y sin enojos ni discusiones.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1TI">
+      <verse num="9" />
+      <text>In the same way, that women also adorn themselves in decent clothing, with modesty and propriety; not just with braided hair, gold, pearls, or expensive clothing;</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Y quiero que las mujeres se vistan decentemente, que se adornen con modestia y sencillez, no con peinados exagerados, ni con oro, perlas o vestidos costosos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1TI">
+      <verse num="10" />
+      <text>but with good works appropriate for women who profess to worship God.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Que su adorno sean las buenas obras, como corresponde a las mujeres que quieren honrar a Dios.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1TI">
+      <verse num="11" />
+      <text>Let a woman learn in quietness with all subjection.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>La mujer debe escuchar la instrucción en silencio, con toda sumisión;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI">
+      <verse num="12" />
+      <text>I don’t permit a woman to teach, nor to exercise authority over a man, but to be in quietness.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>y no permito que la mujer enseñe en público ni domine al hombre. Quiero que permanezca callada,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1TI">
+      <verse num="13" />
+      <text>For Adam was first formed, then Eve.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>porque Dios hizo primero a Adán y después a Eva;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI">
+      <verse num="14" />
+      <text>Adam wasn’t deceived, but the woman, being deceived, has fallen into disobedience.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>y Adán no fue el engañado, sino la mujer; y al ser engañada, cayó en pecado.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TI">
+      <verse num="15" />
+      <text>But she will be saved through her childbearing, if they continue in faith, love, and sanctification with sobriety.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Pero la mujer se salvará si cumple sus deberes como madre, y si con buen juicio se mantiene en la fe, el amor y la santidad.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+  <block style="c" paragraphStart="true" chapter="3" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>1 TIMOTHY 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TI">
+      <verse num="1" />
+      <text>This is a faithful saying: if a man seeks the office of an overseer, he desires a good work.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Esto es muy cierto. Si alguien aspira al cargo de presidir la comunidad, a un buen trabajo aspira.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TI">
+      <verse num="2" />
+      <text>The overseer therefore must be without reproach, the husband of one wife, temperate, sensible, modest, hospitable, good at teaching;</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Por eso, el que tiene este cargo ha de ser irreprensible. Debe ser esposo de una sola mujer y llevar una vida seria, juiciosa y respetable. Debe estar siempre dispuesto a hospedar gente en su casa; debe ser apto para enseñar;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TI">
+      <verse num="3" />
+      <text>not a drinker, not violent, not greedy for money, but gentle, not quarrelsome, not covetous;</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>no debe ser borracho ni amigo de peleas, sino bondadoso, pacífico y desinteresado en cuanto al dinero.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1TI">
+      <verse num="4" />
+      <text>one who rules his own house well, having children in subjection with all reverence;</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Debe saber gobernar bien su casa y hacer que sus hijos sean obedientes y de conducta digna;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI">
+      <verse num="5" />
+      <text>(If a man doesn’t know how to rule his own house, how will he take care of the assembly of God?)</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>porque si uno no sabe gobernar su propia casa, ¿cómo podrá cuidar de la iglesia de Dios?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TI">
+      <verse num="6" />
+      <text>He must not be a new convert, lest being puffed up he fall into the same condemnation as the devil.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Por lo tanto, el dirigente no debe ser un recién convertido, no sea que se llene de orgullo y caiga bajo la misma condenación en que cayó el diablo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-1TI">
+      <verse num="7" />
+      <text>Moreover he must have good testimony from those who are outside, to avoid falling into reproach and the snare of the devil.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>También debe ser respetado entre los no creyentes, para que no caiga en deshonra y en alguna trampa del diablo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-1TI">
+      <verse num="8" />
+      <text>Servants, in the same way, must be reverent, not double-tongued, not addicted to much wine, not greedy for money;</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Asimismo, los diáconos deben ser hombres respetables, que nunca falten a su palabra ni sean dados a emborracharse ni a desear ganancias mal habidas.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1TI">
+      <verse num="9" />
+      <text>They must hold the mystery of the faith in a pure conscience.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Deben apegarse a la verdad revelada en la cual creemos, y vivir con conciencia limpia.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1TI">
+      <verse num="10" />
+      <text>Let them also first be tested; then let them serve if they are blameless.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Primero deben pasar un periodo de prueba, y después, si no hay nada en contra de ellos, podrán servir como diáconos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-1TI">
+      <verse num="11" />
+      <text>Their wives in the same way must be reverent, not slanderers, temperate, faithful in all things.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Igualmente, las mujeres deben ser respetables, no chismosas, serias y fieles en todo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1TI">
+      <verse num="12" />
+      <text>Let servants be husbands of one wife, ruling their children and their own houses well.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Un diácono debe ser esposo de una sola mujer, y saber gobernar bien a sus hijos y su propia casa.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1TI">
+      <verse num="13" />
+      <text>For those who have served well gain for themselves a good standing, and great boldness in the faith which is in Christ Jesus.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Porque los diáconos que realizan bien su trabajo, se hacen dignos de un lugar de honor, y podrán gozar de gran tranquilidad gracias a su fe en Cristo Jesús.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1TI">
+      <verse num="14" />
+      <text>These things I write to you, hoping to come to you shortly;</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Espero ir pronto a verte; pero te escribo esto</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI">
+      <verse num="15" />
+      <text>but if I wait long, I want you to know how men ought to behave themselves in God’s house. It is the assembly of the living God, the pillar and ground of the truth.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>para que, si me retraso, sepas cómo debe portarse uno en la familia de Dios, que es la iglesia del Dios viviente, la cual sostiene y defiende la verdad.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1TI">
+      <verse num="16" />
+      <text>Without controversy, the mystery of godliness is great: God was revealed in the flesh, justified in the spirit, seen by angels, preached among the nations, believed on in the world, and received up in glory.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>No hay duda de que la verdad revelada de nuestra religión es algo muy grande: Cristo se manifestó en su condición de hombre, triunfó en su condición de espíritu y fue visto por los ángeles. Fue anunciado a las naciones, creído en el mundo y recibido en la gloria.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+  <block style="c" paragraphStart="true" chapter="4" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>1 TIMOTHY 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1TI">
+      <verse num="1" />
+      <text>But the Spirit says expressly that in later times some will fall away from the faith, paying attention to seducing spirits and doctrines of demons.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Pero el Espíritu dice claramente que en los últimos tiempos algunos renegarán de la fe, siguiendo a espíritus engañadores y enseñanzas que vienen de los demonios.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1TI">
+      <verse num="2" />
+      <text>Such teachings come through hypocritical liars, whose consciences have been seared as with a hot iron.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Harán caso a gente hipócrita y mentirosa, cuya conciencia está marcada con el hierro de sus malas acciones.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1TI">
+      <verse num="3" />
+      <text>They will forbid marriage and command you to abstain from foods. Things which God created to be received with thanksgiving by those who believe and know the truth.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Esta gente prohíbe casarse y comer ciertos alimentos que Dios ha creado para que los creyentes y los que conocen la verdad los coman, dándole gracias.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1TI">
+      <verse num="4" />
+      <text>For every creature of God is good, and nothing is to be rejected, if it is received with thanksgiving.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Pues todo lo que Dios ha creado es bueno; y nada debe ser rechazado si lo aceptamos dando gracias a Dios,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TI">
+      <verse num="5" />
+      <text>For it is sanctified through the word of God and prayer.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>porque la palabra de Dios y la oración lo hacen puro.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TI">
+      <verse num="6" />
+      <text>If you instruct the brothers of these things, you will be a good servant of Christ Jesus. You will be nourished in the words of the faith, and of the good doctrine which you have followed.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Enseña estas cosas a los hermanos, y serás un buen servidor de Cristo Jesús, un servidor alimentado con las palabras de la fe y de la buena enseñanza que has seguido.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1TI">
+      <verse num="7" />
+      <text>But refuse profane and old wives’ fables. Exercise yourself toward godliness.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Pero no hagas caso de cuentos mundanos y tontos. Ejercítate en la piedad;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TI">
+      <verse num="8" />
+      <text>For bodily exercise has some value, but godliness has value in all things, having the promise of the life which is now, and of that which is to come.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>pues aunque el ejercicio físico sirve para algo, la piedad es útil para todo, porque tiene promesas de vida para el presente y para el futuro.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TI">
+      <verse num="9" />
+      <text>This saying is faithful and worthy of all acceptance.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Esto es muy cierto, y todos deben creerlo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1TI">
+      <verse num="10" />
+      <text>For to this end we both labor and suffer reproach, because we have set our trust in the living God. He is the Savior of all men, especially of those who believe.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Por eso mismo trabajamos y luchamos, porque hemos puesto nuestra esperanza en el Dios viviente, que es el Salvador de todos, especialmente de los que creen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1TI">
+      <verse num="11" />
+      <text>Command and teach these things.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Estas cosas tienes que mandar y enseñar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1TI">
+      <verse num="12" />
+      <text>Let no man despise your youth; but be an example to those who believe, in word, in your way of life, in love, in spirit, in faith, and in purity.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Evita que te desprecien por ser joven; más bien debes ser un ejemplo para los creyentes en tu modo de hablar y de portarte, y en amor, fe y pureza de vida.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TI">
+      <verse num="13" />
+      <text>Until I come, pay attention to reading, to exhortation, and to teaching.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Mientras llego, dedícate a leer en público las Escrituras, a animar a los hermanos y a instruirlos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI">
+      <verse num="14" />
+      <text>Don’t neglect the gift that is in you, which was given to you by prophecy, with the laying on of the hands of the elders.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>No descuides los dones que tienes y que Dios te concedió cuando, por inspiración profética, los ancianos de la iglesia te impusieron las manos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1TI">
+      <verse num="15" />
+      <text>Be diligent in these things. Give yourself wholly to them, that your progress may be revealed to all.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Pon tu cuidado y tu atención en estas cosas, para que todos puedan ver cómo adelantas.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TI">
+      <verse num="16" />
+      <text>Pay attention to yourself, and to your teaching. Continue in these things, for in doing this you will save both yourself and those who hear you.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Ten cuidado de ti mismo y de lo que enseñas a otros, y sigue firme en todo. Si lo haces así, te salvarás a ti mismo y salvarás también a los que te escuchan.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="5" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+  <block style="c" paragraphStart="true" chapter="5" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>1 TIMOTHY 5</text>
+    </ReferenceBlocks>
     <text>5</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI">
+      <verse num="1" />
+      <text>Don’t rebuke an older man, but exhort him as a father; the younger men as brothers;</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>No trates con dureza al anciano; al contrario, aconséjalo como si fuera tu padre; y trata a los jóvenes como si fueran tus hermanos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1TI">
+      <verse num="2" />
+      <text>the elder women as mothers; the younger as sisters, in all purity.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>A las ancianas trátalas como a tu propia madre; y a las jóvenes, como si fueran tus hermanas, con toda pureza.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1TI">
+      <verse num="3" />
+      <text>Honor widows who are widows indeed.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Ayuda a las viudas que no tengan a quien recurrir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TI">
+      <verse num="4" />
+      <text>But if any widow has children or grandchildren, let them learn first to show piety towards their own family. They should first repay their parents, for this is acceptable in the sight of God.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Pero si una viuda tiene hijos o nietos, ellos son quienes primero deben aprender a cumplir sus obligaciones con los de su propia familia y a corresponder al amor de sus padres, porque esto agrada a Dios.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TI">
+      <verse num="5" />
+      <text>Now she who is a widow indeed, and desolate, has her hope set on God, and continues in petitions and prayers night and day.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>La verdadera viuda, la que se ha quedado sola, pone su esperanza en Dios y no deja de rogar, orando día y noche.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TI">
+      <verse num="6" />
+      <text>But she who gives herself to pleasure is dead while she lives.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Pero la viuda que se entrega al placer, está muerta en vida.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TI">
+      <verse num="7" />
+      <text>Also command these things, that they may be without reproach.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Mándales también estas cosas, para que sean irreprensibles.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI">
+      <verse num="8" />
+      <text>But if anyone doesn’t provide for his own, and especially his own household, he has denied the faith, and is worse than an unbeliever.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Pues quien no se preocupa de los suyos, y sobre todo de los de su propia familia, ha negado la fe y es peor que los que no creen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TI">
+      <verse num="9" />
+      <text>Let no one be enrolled as a widow under sixty years old, having been the wife of one man.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>En la lista de las viudas deben estar únicamente las que tengan más de sesenta años y no hayan tenido sino un solo esposo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TI">
+      <verse num="10" />
+      <text>She must be known for doing good works, if she has brought up children, if she has been hospitable to strangers, if she has washed the saints’ feet, if she has relieved the afflicted, and if she has diligently followed every good work.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Deben ser conocidas por sus buenas acciones, por haber criado bien a sus hijos, por haber recibido bien a los que llegan a su casa, por haber lavado los pies a los del pueblo santo y haber ayudado a los que sufren. En fin, por haberse dedicado a hacer toda clase de obras buenas.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1TI">
+      <verse num="11" />
+      <text>But refuse younger widows, for when they have grown wanton against Christ, they desire to marry.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Pero no pongas en la lista a viudas de menos edad; porque cuando sus propios deseos las apartan de Cristo, quieren casarse de nuevo</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1TI">
+      <verse num="12" />
+      <text>Thus they bring judgement on themselves because they have rejected their first pledge.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>y resultan culpables de haber faltado a su compromiso.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TI">
+      <verse num="13" />
+      <text>Besides, they also learn to be idle, going about from house to house. Not only idle, but also gossips and busybodies, saying things which they ought not.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Además andan de casa en casa, y se vuelven perezosas; y no solo perezosas, sino también chismosas, metiéndose en todo y diciendo cosas que no convienen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TI">
+      <verse num="14" />
+      <text>I desire therefore that the younger widows marry, bear children, rule the household, and give no occasion to the adversary for insulting.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Por eso quiero que las viudas jóvenes se casen, que tengan hijos, que sean amas de casa y que no den lugar a las críticas del enemigo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-1TI">
+      <verse num="15" />
+      <text>For already some have turned aside after Satan.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Pues algunas viudas ya se han apartado y han seguido a Satanás.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI">
+      <verse num="16" />
+      <text>If any man or woman who believes has widows, let them relieve them. Don’t let the assembly be burdened; that it might relieve those who are widows indeed.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Si alguna mujer creyente tiene viudas en su familia, debe ayudarlas, para que no sean una carga para la iglesia; así la iglesia podrá ayudar a las viudas que de veras no tengan a quien recurrir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-1TI">
+      <verse num="17" />
+      <text>Let the elders who rule well be counted worthy of double honor, especially those who labor in the word and in teaching. </text>
+      <verse num="18" />
+      <text>For the Scripture says,</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Los ancianos que gobiernan bien la iglesia deben ser doblemente apreciados, especialmente los que se dedican a predicar y enseñar. </text>
     <verse num="18" />
     <text>Pues la Escritura dice:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+      <text>“You shall not muzzle the ox when it treads out the grain.”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;No le pongas bozal al buey que trilla.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1TI">
+      <text>And,</text>
+    </ReferenceBlocks>
     <text>Y también:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="scripture">
+      <text>“The laborer is worthy of his wages.”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;El trabajador tiene derecho a su paga.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI">
+      <verse num="19" />
+      <text>Don’t receive an accusation against an elder, except at the word of two or three witnesses.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>No hagas caso de acusaciones contra un anciano, si no están apoyadas por dos o tres testigos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-1TI">
+      <verse num="20" />
+      <text>Those who sin, reprove in the sight of all, that the rest also may be in fear.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>A los que siguen pecando, debes reprenderlos delante de todos, para que los demás tengan temor.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TI">
+      <verse num="21" />
+      <text>I command you in the sight of God, and Lord Christ Jesus, and the chosen angels. Observe these things without prejudice, doing nothing by partiality.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Te encargo delante de Dios, de Jesucristo y de los ángeles escogidos, que sigas estas reglas sin hacer discriminaciones ni tener preferencias.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI">
+      <verse num="22" />
+      <text>Lay hands hastily on no one, neither be a participant in other men’s sins. Keep yourself pure.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>No impongas las manos a nadie sin haberlo pensado bien, para no hacerte cómplice de los pecados de otros. Consérvate limpio de todo mal.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI">
+      <verse num="23" />
+      <text>Be no longer a drinker of water only, but use a little wine for your stomach’s sake and your frequent infirmities.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Puesto que a menudo estás enfermo del estómago, no bebas agua sola, sino bebe también un poco de vino.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI">
+      <verse num="24" />
+      <text>Some men’s sins are evident, preceding them to judgment, and some also follow later.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Los pecados de algunos se ven claramente antes del juicio, pero en otros casos solo se ven después.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI">
+      <verse num="25" />
+      <text>In the same way also there are good works that are obvious, and those that are otherwise can’t be hidden.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Del mismo modo, las obras buenas se ven claramente; y las que no son buenas no podrán quedar siempre escondidas.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="6" book="1TI" initialStartVerse="0" characterId="BC-1TI">
+  <block style="c" paragraphStart="true" chapter="6" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
+      <text>1 TIMOTHY 6</text>
+    </ReferenceBlocks>
     <text>6</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-1TI">
+      <verse num="1" />
+      <text>Let as many as are bondservants under the yoke count their own masters worthy of all honor, that the name of God and the doctrine not be blasphemed.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Los que están sometidos a esclavitud, deben considerar a sus amos como dignos de todo respeto, para que no se hable mal del nombre de Dios ni de nuestra enseñanza.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1TI">
+      <verse num="2" />
+      <text>Those who have believing masters, let them not despise them, because they are brothers, but rather let them serve them. Those who partake of the benefit are believing and beloved. Teach and exhort these things.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Y si algunos tienen amos creyentes, que no dejen de respetarlos por ser sus hermanos en la fe. Al contrario, deben servirlos mejor todavía, porque los que reciben sus buenos servicios son creyentes y hermanos amados. Enseña y predica esto:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI">
+      <verse num="3" />
+      <text>If anyone teaches a different doctrine, and doesn’t consent to sound words, the words of our Lord Jesus Christ, and to the doctrine which is according to godliness,</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Si alguien enseña ideas extrañas y no está de acuerdo con la sana enseñanza de nuestro Señor Jesucristo ni con lo que enseña nuestra religión,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1TI">
+      <verse num="4" />
+      <text>he is conceited, knowing nothing, but obsessed with arguments, disputes, and word battles, from which come envy, strife, insulting, evil suspicions,</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>es un orgulloso que no sabe nada. Discutir es en él como una enfermedad; y de ahí vienen envidias, discordias, insultos, desconfianzas</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1TI">
+      <verse num="5" />
+      <text>and constant friction of people of corrupt minds, and destitute of the truth, who suppose that gain is godliness. Withdraw yourself from such.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>y peleas sin fin entre gente que tiene la mente pervertida y no conoce la verdad, y que toma la religión por una fuente de riqueza.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1TI">
+      <verse num="6" />
+      <text>But godliness with contentment is great gain.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Y claro está que la piedad es una fuente de gran riqueza, pero solo para el que se contenta con lo que tiene.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI">
+      <verse num="7" />
+      <text>For we brought nothing into the world, and we certainly can’t carry anything out.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Porque nada trajimos a este mundo, y nada podremos llevarnos;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-1TI">
+      <verse num="8" />
+      <text>But having food and clothing, we will be content with that.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>si tenemos qué comer y con qué vestirnos, ya nos podemos dar por satisfechos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1TI">
+      <verse num="9" />
+      <text>But those who are determined to be rich fall into a temptation and a snare and many foolish and harmful lusts, such as drown men in ruin and destruction.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>En cambio, los que quieren hacerse ricos caen en la tentación como en una trampa, y se ven asaltados por muchos deseos insensatos y perjudiciales, que hunden a los hombres en la ruina y la condenación.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1TI">
+      <verse num="10" />
+      <text>For the love of money is a root of all evil. Some have been led astray from the faith in their greed, and have pierced themselves through with many sorrows.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Porque el amor al dinero es raíz de toda clase de males; y hay quienes, por codicia, se han desviado de la fe y se han causado terribles sufrimientos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-1TI">
+      <verse num="11" />
+      <text>But you, man of God, flee these things, and follow after righteousness, godliness, faith, love, patience, and gentleness.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Pero tú, hombre de Dios, huye de todo esto. Lleva una vida de rectitud, de piedad, de fe, de amor, de fortaleza en el sufrimiento y de humildad de corazón.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-1TI">
+      <verse num="12" />
+      <text>Fight the good fight of faith. Lay hold of the eternal life to which you were called, and you confessed the good confession in the sight of many witnesses.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Pelea la buena batalla de la fe; no dejes escapar la vida eterna, pues para eso te llamó Dios y por eso hiciste una buena declaración de tu fe delante de muchos testigos.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-1TI">
+      <verse num="13" />
+      <text>I command you before God, who gives life to all things, and before Christ Jesus, who before Pontius Pilate testified the good confession.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Ahora, delante de Dios, que da vida a todo lo que existe, y delante de Jesucristo, que también hizo una buena declaración y dio testimonio ante Poncio Pilato, te mando</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-1TI">
+      <verse num="14" />
+      <text>Keep the commandment without spot, blameless, until the appearing of our Lord Jesus Christ;</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>que obedezcas lo que te ordeno, manteniendo una conducta pura e irreprensible hasta la venida gloriosa de nuestro Señor Jesucristo.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1TI">
+      <verse num="15" />
+      <text>At the right time we will be shown that God is the blessed and only Ruler, the King of kings, and Lord of lords;</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>A su debido tiempo, Dios llevará esto a cabo, porque él es el único y bienaventurado Soberano, Rey de reyes y Señor de señores.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1TI">
+      <verse num="16" />
+      <text>He alone has immortality, dwelling in unapproachable light; whom no man has seen, nor can see: to whom be honor and eternal power. Amen.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Es el único inmortal, que vive en una luz a la que nadie puede acercarse. Ningún hombre lo ha visto ni lo puede ver. ¡A él pertenecen para siempre el honor y el poder! Amén.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1TI">
+      <verse num="17" />
+      <text>Charge those who are rich in this present world. They should not be haughty, nor have their hope set on the uncertainty of riches, but on the living God, who richly provides us with everything to enjoy.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>A los que tienen riquezas de esta vida, mándales que no sean orgullosos ni pongan su esperanza en sus riquezas, porque las riquezas no son seguras. Antes bien, que pongan su esperanza en Dios, el cual nos da todas las cosas con abundancia y para nuestro provecho.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-1TI">
+      <verse num="18" />
+      <text>Tell them to do good and to be rich in good works, and to be generous and willing to share.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Mándales que hagan el bien, que se hagan ricos en buenas obras y que estén dispuestos a dar y compartir lo que tienen.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1TI">
+      <verse num="19" />
+      <text>In this way they will lay up in store for themselves a good foundation against the time to come, that they may lay hold of eternal life.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Así tendrán riquezas que les proporcionarán una base firme para el futuro, y alcanzarán la vida verdadera.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1TI">
+      <verse num="20" />
+      <text>Timothy, guard that which is committed to you, turning away from the empty chatter and oppositions of science which is falsely so called;</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Timoteo, cuida bien lo que se te ha confiado. No escuches palabrerías mundanas y vacías, ni los argumentos que opone el falsamente llamado conocimiento de la verdad;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-1TI">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-1TI" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="21" characterId="narrator-1TI">
+      <verse num="21" />
+      <text>Some people have gone after much learning and have erred concerning the faith. Grace be with you. Amen.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>pues algunos que profesan esa clase de conocimiento, se han desviado de la fe. Que el Señor derrame su gracia sobre ustedes.</text>
   </block>

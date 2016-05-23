@@ -1,475 +1,948 @@
 <?xml version="1.0" encoding="utf-8"?>
 <book id="JAS" singlevoice="false" pageheader="JAMES">
-  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+  <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
+      <text>JAMES</text>
+    </ReferenceBlocks>
     <text>JAMES</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+  <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
+      <text>JAMES 1</text>
+    </ReferenceBlocks>
     <text>1</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-JAS">
+      <verse num="1" />
+      <text>James, a servant of God and of the Lord Jesus Christ, to the twelve tribes which are in the Dispersion: Greetings.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Salam dari Yakobus, hamba Allah dan Tuhan Yesus Kristus, kepada kedua belas suku di perantauan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-JAS">
+      <verse num="2" />
+      <text>Count it all joy, my brothers, when you fall into various temptations.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Saudara-saudaraku, anggaplah sebagai suatu kebahagiaan, apabila kamu jatuh ke dalam berbagai-bagai pencobaan,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-JAS">
+      <verse num="3" />
+      <text>Know that the testing of your faith produces endurance.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>sebab kamu tahu, bahwa ujian terhadap imanmu itu menghasilkan ketekunan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-JAS">
+      <verse num="4" />
+      <text>Let endurance have its perfect work, that you may be perfect and complete, lacking in nothing.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Dan biarkanlah ketekunan itu memperoleh buah yang matang, supaya kamu menjadi sempurna dan utuh dan tak kekurangan suatu apapun.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JAS">
+      <verse num="5" />
+      <text>But if any of you lacks wisdom, let him ask of God, who gives to all liberally and without reproach; and it will be given to him.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Tetapi apabila di antara kamu ada yang kekurangan hikmat, hendaklah ia memintakannya kepada Allah, —yang memberikan kepada semua orang dengan murah hati dan dengan tidak membangkit-bangkit—,maka hal itu akan diberikan kepadanya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JAS">
+      <verse num="6" />
+      <text>But let him ask in faith, without any doubting, for he who doubts is like a wave of the sea, driven by the wind and tossed.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Hendaklah ia memintanya dalam iman, dan sama sekali jangan bimbang, sebab orang yang bimbang sama dengan gelombang laut, yang diombang-ambingkan kian ke mari oleh angin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-JAS">
+      <verse num="7" />
+      <text>For let that man not think that he will receive anything from the Lord.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Orang yang demikian janganlah mengira, bahwa ia akan menerima sesuatu dari Tuhan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-JAS">
+      <verse num="8" />
+      <text>He is a double-minded man, unstable in all his ways.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Sebab orang yang mendua hati tidak akan tenang dalam hidupnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-JAS">
+      <verse num="9" />
+      <text>But let the brother in humble circumstances glory in his high position;</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Baiklah saudara yang berada dalam keadaan yang rendah bermegah karena kedudukannya yang tinggi,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JAS">
+      <verse num="10" />
+      <text>and the rich, in that he is made humble, because like the flower in the grass, he will pass away.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>dan orang kaya karena kedudukannya yang rendah sebab ia akan lenyap seperti bunga rumput.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JAS">
+      <verse num="11" />
+      <text>For the sun arises with the scorching wind, and withers the grass, and the flower in it falls, and the beauty of its appearance perishes. So also will the rich man fade away in his pursuits.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Karena matahari terbit dengan panasnya yang terik dan melayukan rumput itu, sehingga gugurlah bunganya dan hilanglah semaraknya. Demikian jugalah halnya dengan orang kaya; di tengah-tengah segala usahanya ia akan lenyap.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JAS">
+      <verse num="12" />
+      <text>Blessed is the man who endures temptation. When he has been approved, he will receive the crown of life, which the Lord promised to those who love him.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Berbahagialah orang yang bertahan dalam pencobaan, sebab apabila ia sudah tahan uji, ia akan menerima mahkota kehidupan yang dijanjikan Allah kepada barangsiapa yang mengasihi Dia.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
+      <verse num="13" />
+      <text>Let no man say when he is tempted, “I am tempted by God,” for God can’t be tempted by evil, and he himself tempts no one.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Apabila seorang dicobai, janganlah ia berkata: &lt;&lt;Pencobaan ini datang dari Allah!&gt;&gt; Sebab Allah tidak dapat dicobai oleh yang jahat, dan Ia sendiri tidak mencobai siapapun.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
+      <verse num="14" />
+      <text>But each one is tempted, when he is drawn away by his own lust, and enticed.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Tetapi tiap-tiap orang dicobai oleh keinginannya sendiri, karena ia diseret dan dipikat olehnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-JAS">
+      <verse num="15" />
+      <text>Then the lust, when it has conceived, bears sin; and the sin, when it is full grown, brings forth death.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Dan apabila keinginan itu telah dibuahi, ia melahirkan dosa; dan apabila dosa itu sudah matang, ia melahirkan maut.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
+      <verse num="16" />
+      <text>Don’t be deceived, my beloved brothers.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Saudara-saudara yang kukasihi, janganlah sesat!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
+      <verse num="17" />
+      <text>Every good gift and every perfect gift is from above, coming down from the Father of lights, with whom can be no variation, nor turning shadow.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Setiap pemberian yang baik dan setiap anugerah yang sempurna, datangnya dari atas, diturunkan dari Bapa segala terang; pada-Nya tidak ada perubahan atau bayangan karena pertukaran.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-JAS">
+      <verse num="18" />
+      <text>Of his own will he brought us forth by the word of truth, that we should be a kind of first fruits of his creatures.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Atas kehendak-Nya sendiri Ia telah menjadikan kita oleh firman kebenaran, supaya kita pada tingkat yang tertentu menjadi anak sulung di antara semua ciptaan-Nya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JAS">
+      <verse num="19" />
+      <text>So, then, my beloved brothers, let every man be swift to hear, slow to speak, and slow to anger.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Hai saudara-saudara yang kukasihi, ingatlah hal ini: setiap orang hendaklah cepat untuk mendengar, tetapi lambat untuk berkata-kata, dan juga lambat untuk marah;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
+      <verse num="20" />
+      <text>For the anger of man doesn’t produce the righteousness of God.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>sebab amarah manusia tidak mengerjakan kebenaran di hadapan Allah.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
+      <verse num="21" />
+      <text>Therefore, put away all filthiness and overflowing of wickedness. Receive with humility the implanted word, which is able to save your souls.</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Sebab itu buanglah segala sesuatu yang kotor dan kejahatan yang begitu banyak itu dan terimalah dengan lemah lembut firman yang tertanam di dalam hatimu, yang berkuasa menyelamatkan jiwamu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-JAS">
+      <verse num="22" />
+      <text>But be doers of the word, and not only hearers, deluding your own selves.</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Tetapi hendaklah kamu menjadi pelaku firman dan bukan hanya pendengar saja; sebab jika tidak demikian kamu menipu diri sendiri.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-JAS">
+      <verse num="23" />
+      <text>For if anyone is a hearer of the word and not a doer, he is like a man looking at his natural face in a mirror.</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Sebab jika seorang hanya mendengar firman saja dan tidak melakukannya, ia adalah seumpama seorang yang sedang mengamat-amati mukanya yang sebenarnya di depan cermin.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-JAS">
+      <verse num="24" />
+      <text>He sees himself and goes away, and immediately forgets what kind of man he was.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Baru saja ia memandang dirinya, ia sudah pergi atau ia segera lupa bagaimana rupanya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-JAS">
+      <verse num="25" />
+      <text>But he who looks into the perfect law of freedom, and continues, not being a hearer who forgets, but a doer of the work, this man will be blessed in what he does.</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Tetapi barangsiapa meneliti hukum yang sempurna, yaitu hukum yang memerdekakan orang, dan ia bertekun di dalamnya, jadi bukan hanya mendengar untuk melupakannya, tetapi sungguh-sungguh melakukannya, ia akan berbahagia oleh perbuatannya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
+      <verse num="26" />
+      <text>If anyone among you thinks himself to be religious while he doesn’t bridle his tongue, but deceives his heart, this man’s religion is worthless.</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>Jikalau ada seorang menganggap dirinya beribadah, tetapi tidak mengekang lidahnya, ia menipu dirinya sendiri, maka sia-sialah ibadahnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
+      <verse num="27" />
+      <text>Pure religion and undefiled before our God and Father is this: to visit the fatherless and widows in their affliction, and to keep oneself unstained by the world.</text>
+    </ReferenceBlocks>
     <verse num="27" />
     <text>Ibadah yang murni dan yang tak bercacat di hadapan Allah, Bapa kita, ialah mengunjungi yatim piatu dan janda-janda dalam kesusahan mereka, dan menjaga supaya dirinya sendiri tidak dicemarkan oleh dunia.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+  <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
+      <text>JAMES 2</text>
+    </ReferenceBlocks>
     <text>2</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
+      <verse num="1" />
+      <text>My brothers, don’t hold the faith of our Lord Jesus Christ of glory with partiality.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Saudara-saudaraku, sebagai orang yang beriman kepada Yesus Kristus, Tuhan kita yang mulia, janganlah iman itu kamu amalkan dengan memandang muka.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
+      <verse num="2" />
+      <text>For if a man with a gold ring, in fine clothing, comes into your synagogue, and a poor man in filthy clothing also comes in;</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Sebab, jika ada seorang masuk ke dalam kumpulanmu dengan memakai cincin emas dan pakaian indah dan datang juga seorang miskin ke situ dengan memakai pakaian buruk,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-JAS">
+      <verse num="3" />
+      <text>and if you pay special attention to him who wears the fine clothing, and say, “Sit here in a good place”; and you tell the poor man, “Stand there,” or “Sit by my footstool”</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>dan kamu menghormati orang yang berpakaian indah itu dan berkata kepadanya: &lt;&lt;Silakan tuan duduk di tempat yang baik ini!&gt;&gt;, sedang kepada orang yang miskin itu kamu berkata: &lt;&lt;Berdirilah di sana!&gt;&gt; atau: &lt;&lt;Duduklah di lantai ini dekat tumpuan kakiku!&gt;&gt;,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
+      <verse num="4" />
+      <text>haven’t you shown partiality among yourselves, and become judges with evil thoughts?</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>bukankah kamu telah membuat pembedaan di dalam hatimu dan bertindak sebagai hakim dengan pikiran yang jahat?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
+      <verse num="5" />
+      <text>Listen, my beloved brothers. Didn’t God choose those who are poor in this world to be rich in faith. And heirs of the Kingdom which he promised to those who love him?</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Dengarkanlah, hai saudara-saudara yang kukasihi! Bukankah Allah memilih orang-orang yang dianggap miskin oleh dunia ini untuk menjadi kaya dalam iman dan menjadi ahli waris Kerajaan yang telah dijanjikan-Nya kepada barangsiapa yang mengasihi Dia?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
+      <verse num="6" />
+      <text>But you have dishonored the poor man. Don’t the rich oppress you, and personally drag you before the courts?</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Tetapi kamu telah menghinakan orang-orang miskin. Bukankah justru orang-orang kaya yang menindas kamu dan yang menyeret kamu ke pengadilan?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
+      <verse num="7" />
+      <text>Don’t they blaspheme the honorable name by which you are called?</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Bukankah mereka yang menghujat Nama yang mulia, yang oleh-Nya kamu menjadi milik Allah?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+      <verse num="8" />
+      <text>However, if you fulfill the royal law, according to the Scripture,</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Akan tetapi, jikalau kamu menjalankan hukum utama yang tertulis dalam Kitab Suci:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
+      <text>“You shall love your neighbor as yourself,”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Kasihilah sesamamu manusia seperti dirimu sendiri&gt;&gt; ,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
+      <text>you do well. </text>
+      <verse num="9" />
+      <text>But if you show partiality, you commit sin, being convicted by the law as transgressors.</text>
+    </ReferenceBlocks>
     <text>kamu berbuat baik. </text>
     <verse num="9" />
     <text>Tetapi, jikalau kamu memandang muka, kamu berbuat dosa, dan oleh hukum itu menjadi nyata, bahwa kamu melakukan pelanggaran.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-JAS">
+      <verse num="10" />
+      <text>For whoever keeps the whole law, and yet stumbles in one point, he has become guilty of all. </text>
+      <verse num="11" />
+      <text>For he who said,</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Sebab barangsiapa menuruti seluruh hukum itu, tetapi mengabaikan satu bagian dari padanya, ia bersalah terhadap seluruhnya. </text>
     <verse num="11" />
     <text>Sebab Ia yang mengatakan:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+      <text>“Do not commit adultery,”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Jangan berzinah&gt;&gt; ,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+      <text>also said,</text>
+    </ReferenceBlocks>
     <text>Ia mengatakan juga:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
+      <text>“Do not commit murder.”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Jangan membunuh&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
+      <text>Now if you do not commit adultery, but murder, you have become a transgressor of the law.</text>
+    </ReferenceBlocks>
     <text>Jadi jika kamu tidak berzinah tetapi membunuh, maka kamu menjadi pelanggar hukum juga.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-JAS">
+      <verse num="12" />
+      <text>So speak, and so do, as men who are to be judged by a law of freedom.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Berkatalah dan berlakulah seperti orang-orang yang akan dihakimi oleh hukum yang memerdekakan orang.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-JAS">
+      <verse num="13" />
+      <text>For judgment is without mercy to him who has shown no mercy. Mercy triumphs over judgment.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Sebab penghakiman yang tak berbelas kasihan akan berlaku atas orang yang tidak berbelas kasihan. Tetapi belas kasihan akan menang atas penghakiman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-JAS">
+      <verse num="14" />
+      <text>What good is it, my brothers, if a man says he has faith, but has no works? Can faith save him?</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Apakah gunanya, saudara-saudaraku, jika seorang mengatakan, bahwa ia mempunyai iman, padahal ia tidak mempunyai perbuatan? Dapatkah iman itu menyelamatkan dia?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-JAS">
+      <verse num="15" />
+      <text>For example, a brother or sister is naked and in lack of daily food.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Jika seorang saudara atau saudari tidak mempunyai pakaian dan kekurangan makanan sehari-hari,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
+      <verse num="16" />
+      <text>One of you tells them, “Go in peace, be warmed and filled”; and yet you didn’t give them the things the body needs, what good is it?</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>dan seorang dari antara kamu berkata: &lt;&lt;Selamat jalan, kenakanlah kain panas dan makanlah sampai kenyang!&gt;&gt;, tetapi ia tidak memberikan kepadanya apa yang perlu bagi tubuhnya, apakah gunanya itu?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
+      <verse num="17" />
+      <text>Even so faith, if it has no works, is dead in itself.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Demikian juga halnya dengan iman: Jika iman itu tidak disertai perbuatan, maka iman itu pada hakekatnya adalah mati.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-JAS">
+      <verse num="18" />
+      <text>Yes, a man will say, “You have faith, and I have works.” Show me your faith without works, and I by my works will show you my faith.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Tetapi mungkin ada orang berkata: &lt;&lt;Padamu ada iman dan padaku ada perbuatan&gt;&gt;, aku akan menjawab dia: &lt;&lt;Tunjukkanlah kepadaku imanmu itu tanpa perbuatan, dan aku akan menunjukkan kepadamu imanku dari perbuatan-perbuatanku.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-JAS">
+      <verse num="19" />
+      <text>You believe that God is one. You do well. The demons also believe, and shudder.</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Engkau percaya, bahwa hanya ada satu Allah saja? Itu baik! Tetapi setan-setanpun juga percaya akan hal itu dan mereka gemetar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-JAS">
+      <verse num="20" />
+      <text>But do you want to know, vain man, that faith apart from works is dead?</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>Hai manusia yang bebal, maukah engkau mengakui sekarang, bahwa iman tanpa perbuatan adalah iman yang kosong?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
+      <verse num="21" />
+      <text>Wasn’t Abraham our father justified by works, in that he offered up Isaac his son on the altar?</text>
+    </ReferenceBlocks>
     <verse num="21" />
     <text>Bukankah Abraham, bapa kita, dibenarkan karena perbuatan-perbuatannya, ketika ia mempersembahkan Ishak, anaknya, di atas mezbah?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
+      <verse num="22" />
+      <text>You see that faith worked with his works, and by works faith was perfected;</text>
+    </ReferenceBlocks>
     <verse num="22" />
     <text>Kamu lihat, bahwa iman bekerjasama dengan perbuatan-perbuatan dan oleh perbuatan-perbuatan itu iman menjadi sempurna.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+      <verse num="23" />
+      <text>and the Scripture was fulfilled which says,</text>
+    </ReferenceBlocks>
     <verse num="23" />
     <text>Dengan jalan demikian genaplah nas yang mengatakan:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
+      <text>“Abraham believed God, and it was accounted to him as righteousness”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Lalu percayalah Abraham kepada Allah, maka Allah memperhitungkan hal itu kepadanya sebagai kebenaran.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
+      <text>and he was called the friend of God.</text>
+    </ReferenceBlocks>
     <text>Karena itu Abraham disebut: &lt;&lt;Sahabat Allah.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JAS">
+      <verse num="24" />
+      <text>You see then that by works, a man is justified, and not only by faith.</text>
+    </ReferenceBlocks>
     <verse num="24" />
     <text>Jadi kamu lihat, bahwa manusia dibenarkan karena perbuatan-perbuatannya dan bukan hanya karena iman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
+      <verse num="25" />
+      <text>In the same way, wasn’t Rahab the prostitute also justified by works, in that she received the messengers, and sent them out another way?</text>
+    </ReferenceBlocks>
     <verse num="25" />
     <text>Dan bukankah demikian juga Rahab, pelacur itu, dibenarkan karena perbuatan-perbuatannya, ketika ia menyembunyikan orang-orang yang disuruh itu di dalam rumahnya, lalu menolong mereka lolos melalui jalan yang lain?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
+      <verse num="26" />
+      <text>For as the body apart from the spirit is dead, even so faith apart from works is dead.</text>
+    </ReferenceBlocks>
     <verse num="26" />
     <text>Sebab seperti tubuh tanpa roh adalah mati, demikian jugalah iman tanpa perbuatan-perbuatan adalah mati.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+  <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
+      <text>JAMES 3</text>
+    </ReferenceBlocks>
     <text>3</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-JAS">
+      <verse num="1" />
+      <text>Let not many of you be teachers, my brothers, knowing that we will receive heavier judgment.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Saudara-saudaraku, janganlah banyak orang di antara kamu mau menjadi guru; sebab kita tahu, bahwa sebagai guru kita akan dihakimi menurut ukuran yang lebih berat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
+      <verse num="2" />
+      <text>For in many things we all stumble. If anyone doesn’t stumble in word, the same is a perfect man, able to bridle the whole body also.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Sebab kita semua bersalah dalam banyak hal; barangsiapa tidak bersalah dalam perkataannya, ia adalah orang sempurna, yang dapat juga mengendalikan seluruh tubuhnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
+      <verse num="3" />
+      <text>Indeed, we put bits into the horses’ mouths so that they may obey us, and we guide their whole body.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Kita mengenakan kekang pada mulut kuda, sehingga ia menuruti kehendak kita, dengan jalan demikian kita dapat juga mengendalikan seluruh tubuhnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-JAS">
+      <verse num="4" />
+      <text>Behold, the ships also, though they are so big and are driven by fierce winds, are yet guided by a very small rudder, wherever the pilot desires.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Dan lihat saja kapal-kapal, walaupun amat besar dan digerakkan oleh angin keras, namun dapat dikendalikan oleh kemudi yang amat kecil menurut kehendak jurumudi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-JAS">
+      <verse num="5" />
+      <text>So the tongue is also a little member, and boasts great things. See how a small fire can spread to a large forest!</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Demikian juga lidah, walaupun suatu anggota kecil dari tubuh, namun dapat memegahkan perkara-perkara yang besar. Lihatlah, betapapun kecilnya api, ia dapat membakar hutan yang besar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-JAS">
+      <verse num="6" />
+      <text>And the tongue is a fire. The world of iniquity among our members is the tongue, which defiles the whole body, and sets on fire the course of nature, and is set on fire by Gehenna.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Lidahpun adalah api; ia merupakan suatu dunia kejahatan dan mengambil tempat di antara anggota-anggota tubuh kita sebagai sesuatu yang dapat menodai seluruh tubuh dan menyalakan roda kehidupan kita, sedang ia sendiri dinyalakan oleh api neraka.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-JAS">
+      <verse num="7" />
+      <text>For every kind of animal, bird, creeping thing, and thing in the sea, is tamed, and has been tamed by mankind.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Semua jenis binatang liar, burung-burung, serta binatang-binatang menjalar dan binatang-binatang laut dapat dijinakkan dan telah dijinakkan oleh sifat manusia,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-JAS">
+      <verse num="8" />
+      <text>But nobody can tame the tongue. It is a restless evil, full of deadly poison.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>tetapi tidak seorangpun yang berkuasa menjinakkan lidah; ia adalah sesuatu yang buas, yang tak terkuasai, dan penuh racun yang mematikan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-JAS">
+      <verse num="9" />
+      <text>With it we bless our God and Father, and with it we curse men, who are made in the image of God.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Dengan lidah kita memuji Tuhan, Bapa kita; dan dengan lidah kita mengutuk manusia yang diciptakan menurut rupa Allah,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-JAS">
+      <verse num="10" />
+      <text>Out of the same mouth comes forth blessing and cursing. My brothers, these things ought not to be so.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>dari mulut yang satu keluar berkat dan kutuk. Hal ini, saudara-saudaraku, tidak boleh demikian terjadi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-JAS">
+      <verse num="11" />
+      <text>Does a spring send out from the same opening fresh and bitter water?</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Adakah sumber memancarkan air tawar dan air pahit dari mata air yang sama?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-JAS">
+      <verse num="12" />
+      <text>Can a fig tree, my brothers, yield olives, or a vine figs? Thus no spring yields both salt water and fresh water.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Saudara-saudaraku, adakah pohon ara dapat menghasilkan buah zaitun dan adakah pokok anggur dapat menghasilkan buah ara? Demikian juga mata air asin tidak dapat mengeluarkan air tawar.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-JAS">
+      <verse num="13" />
+      <text>Who is wise and understanding among you? Let him show by his good conduct that his deeds are done in gentleness of wisdom.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Siapakah di antara kamu yang bijak dan berbudi? Baiklah ia dengan cara hidup yang baik menyatakan perbuatannya oleh hikmat yang lahir dari kelemahlembutan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
+      <verse num="14" />
+      <text>But if you have bitter jealousy and selfish ambition in your heart, don’t boast and don’t lie against the truth.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Jika kamu menaruh perasaan iri hati dan kamu mementingkan diri sendiri, janganlah kamu memegahkan diri dan janganlah berdusta melawan kebenaran!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
+      <verse num="15" />
+      <text>This wisdom is not that which comes down from above, but is earthly, sensual, and demonic.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Itu bukanlah hikmat yang datang dari atas, tetapi dari dunia, dari nafsu manusia, dari setan-setan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-JAS">
+      <verse num="16" />
+      <text>For where jealousy and selfish ambition are, there is confusion and every evil deed.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Sebab di mana ada iri hati dan mementingkan diri sendiri di situ ada kekacauan dan segala macam perbuatan jahat.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-JAS">
+      <verse num="17" />
+      <text>But the wisdom that is from above is first pure, then peaceful, gentle, reasonable, full of mercy and good fruits, without partiality, and without hypocrisy.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Tetapi hikmat yang dari atas adalah pertama-tama murni, selanjutnya pendamai, peramah, penurut, penuh belas kasihan dan buah-buah yang baik, tidak memihak dan tidak munafik.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-JAS">
+      <verse num="18" />
+      <text>Now the fruit of righteousness is sown in peace by those who make peace.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Dan buah yang terdiri dari kebenaran ditaburkan dalam damai untuk mereka yang mengadakan damai.</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+  <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
+      <text>JAMES 4</text>
+    </ReferenceBlocks>
     <text>4</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
+      <verse num="1" />
+      <text>Where do wars and fightings among you come from? Don’t they come from your pleasures that war in your members?</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Dari manakah datangnya sengketa dan pertengkaran di antara kamu? Bukankah datangnya dari hawa nafsumu yang saling berjuang di dalam tubuhmu?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
+      <verse num="2" />
+      <text>You lust, and don’t have. You kill, covet, and can’t obtain. You fight and make war. You don’t have, because you don’t ask.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Kamu mengingini sesuatu, tetapi kamu tidak memperolehnya, lalu kamu membunuh; kamu iri hati, tetapi kamu tidak mencapai tujuanmu, lalu kamu bertengkar dan kamu berkelahi. Kamu tidak memperoleh apa-apa, karena kamu tidak berdoa.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
+      <verse num="3" />
+      <text>You ask, and don’t receive, because you ask with wrong motives, so that you may spend it for your pleasures.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Atau kamu berdoa juga, tetapi kamu tidak menerima apa-apa, karena kamu salah berdoa, sebab yang kamu minta itu hendak kamu habiskan untuk memuaskan hawa nafsumu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
+      <verse num="4" />
+      <text>You adulterers and adulteresses, don’t you know that friendship with the world is enmity with God? Whoever therefore wants to be a friend of the world makes himself an enemy of God.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Hai kamu, orang-orang yang tidak setia! Tidakkah kamu tahu, bahwa persahabatan dengan dunia adalah permusuhan dengan Allah? Jadi barangsiapa hendak menjadi sahabat dunia ini, ia menjadikan dirinya musuh Allah.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
+      <verse num="5" />
+      <text>Or do you think that the Scripture says in vain, “The Spirit who lives in us yearns jealously”?</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Janganlah kamu menyangka, bahwa Kitab Suci tanpa alasan berkata: &lt;&lt;Roh yang ditempatkan Allah di dalam diri kita, diingini-Nya dengan cemburu!&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JAS">
+      <verse num="6" />
+      <text>But he gives more grace. Therefore it says,</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Tetapi kasih karunia, yang dianugerahkan-Nya kepada kita, lebih besar dari pada itu. Karena itu Ia katakan:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
+      <text>“God resists the proud, but gives grace to the humble.”</text>
+    </ReferenceBlocks>
     <text>&lt;&lt;Allah menentang orang yang congkak, tetapi mengasihani orang yang rendah hati.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">
+      <verse num="7" />
+      <text>Be subject therefore to God. But resist the devil, and he will flee from you.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Karena itu tunduklah kepada Allah, dan lawanlah Iblis, maka ia akan lari dari padamu!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-JAS">
+      <verse num="8" />
+      <text>Draw near to God, and he will draw near to you. Cleanse your hands, you sinners; and purify your hearts, you double-minded.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Mendekatlah kepada Allah, dan Ia akan mendekat kepadamu. Tahirkanlah tanganmu, hai kamu orang-orang berdosa! dan sucikanlah hatimu, hai kamu yang mendua hati!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-JAS">
+      <verse num="9" />
+      <text>Lament, mourn, and weep. Let your laughter be turned to mourning, and your joy to gloom.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Sadarilah kemalanganmu, berdukacita dan merataplah; hendaklah tertawamu kamu ganti dengan ratap dan sukacitamu dengan dukacita.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-JAS">
+      <verse num="10" />
+      <text>Humble yourselves in the sight of the Lord, and he will exalt you.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Rendahkanlah dirimu di hadapan Tuhan, dan Ia akan meninggikan kamu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
+      <verse num="11" />
+      <text>Don’t speak against one another, brothers. He who speaks against a brother and judges his brother, speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Saudara-saudaraku, janganlah kamu saling memfitnah! Barangsiapa memfitnah saudaranya atau menghakiminya, ia mencela hukum dan menghakiminya; dan jika engkau menghakimi hukum, maka engkau bukanlah penurut hukum, tetapi hakimnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
+      <verse num="12" />
+      <text>Only one is the lawgiver, who is able to save and to destroy. But who are you to judge another?</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Hanya ada satu Pembuat hukum dan Hakim, yaitu Dia yang berkuasa menyelamatkan dan membinasakan. Tetapi siapakah engkau, sehingga engkau mau menghakimi sesamamu manusia?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
+      <verse num="13" />
+      <text>Come now, you who say, “Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.”</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Jadi sekarang, hai kamu yang berkata: &lt;&lt;Hari ini atau besok kami berangkat ke kota anu, dan di sana kami akan tinggal setahun dan berdagang serta mendapat untung&gt;&gt; ,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
+      <verse num="14" />
+      <text>Whereas you don’t know what your life will be like tomorrow. For what is your life? For you are a vapor, that appears for a little time, and then vanishes away.</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>sedang kamu tidak tahu apa yang akan terjadi besok. Apakah arti hidupmu? Hidupmu itu sama seperti uap yang sebentar saja kelihatan lalu lenyap.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
+      <verse num="15" />
+      <text>For you ought to say, “If the Lord wills, we will both live, and do this or that.”</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Sebenarnya kamu harus berkata: &lt;&lt;Jika Tuhan menghendakinya</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-JAS">
+      <verse num="16" />
+      <text>But now you glory in your boasting. All such boasting is evil.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Tetapi sekarang kamu memegahkan diri dalam congkakmu, dan semua kemegahan yang demikian adalah salah.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
+      <verse num="17" />
+      <text>To him therefore who knows to do good, and doesn’t do it, to him it is sin.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Jadi jika seorang tahu bagaimana ia harus berbuat baik, tetapi ia tidak melakukannya, ia berdosa. , kami akan hidup dan berbuat ini dan itu.&gt;&gt;</text>
   </block>
-  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
+  <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
+      <text>JAMES 5</text>
+    </ReferenceBlocks>
     <text>5</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-JAS">
+      <verse num="1" />
+      <text>Come now, you rich, weep and howl for your miseries that are coming on you.</text>
+    </ReferenceBlocks>
     <verse num="1" />
     <text>Jadi sekarang hai kamu orang-orang kaya, menangislah dan merataplah atas sengsara yang akan menimpa kamu!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-JAS">
+      <verse num="2" />
+      <text>Your riches are corrupted and your garments are moth-eaten.</text>
+    </ReferenceBlocks>
     <verse num="2" />
     <text>Kekayaanmu sudah busuk, dan pakaianmu telah dimakan ngengat!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-JAS">
+      <verse num="3" />
+      <text>Your gold and your silver are corroded, and their corrosion will be for a testimony against you, and will eat your flesh like fire. You have laid up your treasure in the last days.</text>
+    </ReferenceBlocks>
     <verse num="3" />
     <text>Emas dan perakmu sudah berkarat, dan karatnya akan menjadi kesaksian terhadap kamu dan akan memakan dagingmu seperti api. Kamu telah mengumpulkan harta pada hari-hari yang sedang berakhir.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-JAS">
+      <verse num="4" />
+      <text>Behold, the wages of the laborers who mowed your fields, which you have kept back by fraud, cry out. And the cries of those who reaped have entered into the ears of the Lord of Armies.</text>
+    </ReferenceBlocks>
     <verse num="4" />
     <text>Sesungguhnya telah terdengar teriakan besar, karena upah yang kamu tahan dari buruh yang telah menuai hasil ladangmu, dan telah sampai ke telinga Tuhan semesta alam keluhan mereka yang menyabit panenmu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-JAS">
+      <verse num="5" />
+      <text>You have lived delicately on the earth, and taken your pleasure. You have nourished your hearts as in a day of slaughter.</text>
+    </ReferenceBlocks>
     <verse num="5" />
     <text>Dalam kemewahan kamu telah hidup dan berfoya-foya di bumi, kamu telah memuaskan hatimu sama seperti pada hari penyembelihan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
+      <verse num="6" />
+      <text>You have condemned, you have murdered the righteous one. He doesn’t resist you.</text>
+    </ReferenceBlocks>
     <verse num="6" />
     <text>Kamu telah menghukum, bahkan membunuh orang yang benar dan ia tidak dapat melawan kamu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
+      <verse num="7" />
+      <text>Be patient therefore, brothers, until the coming of the Lord. Behold, the farmer waits for the precious fruit of the earth, being patient over it, until it receives the early and late rain.</text>
+    </ReferenceBlocks>
     <verse num="7" />
     <text>Karena itu, saudara-saudara, bersabarlah sampai kepada kedatangan Tuhan! Sesungguhnya petani menantikan hasil yang berharga dari tanahnya dan ia sabar sampai telah turun hujan musim gugur dan hujan musim semi.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-JAS">
+      <verse num="8" />
+      <text>You also be patient. Establish your hearts, for the coming of the Lord is at hand.</text>
+    </ReferenceBlocks>
     <verse num="8" />
     <text>Kamu juga harus bersabar dan harus meneguhkan hatimu, karena kedatangan Tuhan sudah dekat!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
+      <verse num="9" />
+      <text>Don’t grumble, brothers, against one another, so that you won’t be judged. Behold, the judge stands at the door.</text>
+    </ReferenceBlocks>
     <verse num="9" />
     <text>Saudara-saudara, janganlah kamu bersungut-sungut dan saling mempersalahkan, supaya kamu jangan dihukum. Sesungguhnya Hakim telah berdiri di ambang pintu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
+      <verse num="10" />
+      <text>Take, brothers, for an example of suffering and of patience, the prophets who spoke in the name of the Lord.</text>
+    </ReferenceBlocks>
     <verse num="10" />
     <text>Saudara-saudara, turutilah teladan penderitaan dan kesabaran para nabi yang telah berbicara demi nama Tuhan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-JAS">
+      <verse num="11" />
+      <text>Behold, we call them blessed who endured. You have heard of the patience of Job, and have seen the Lord in the outcome, and how the Lord is full of compassion and mercy.</text>
+    </ReferenceBlocks>
     <verse num="11" />
     <text>Sesungguhnya kami menyebut mereka berbahagia, yaitu mereka yang telah bertekun; kamu telah mendengar tentang ketekunan Ayub dan kamu telah tahu apa yang pada akhirnya disediakan Tuhan baginya, karena Tuhan maha penyayang dan penuh belas kasihan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
+      <verse num="12" />
+      <text>But above all things, my brothers, don’t swear, neither by heaven, nor by the earth, nor by any other oath; but let your “yes” be “yes,” and your “no,” “no”; so that you don’t fall into hypocrisy.</text>
+    </ReferenceBlocks>
     <verse num="12" />
     <text>Tetapi yang terutama, saudara-saudara, janganlah kamu bersumpah demi sorga maupun demi bumi atau demi sesuatu yang lain. Jika ya, hendaklah kamu katakan ya, jika tidak hendaklah kamu katakan tidak, supaya kamu jangan kena hukuman.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
+      <verse num="13" />
+      <text>Is any among you suffering? Let him pray. Is any cheerful? Let him sing praises.</text>
+    </ReferenceBlocks>
     <verse num="13" />
     <text>Kalau ada seorang di antara kamu yang menderita, baiklah ia berdoa! Kalau ada seorang yang bergembira baiklah ia menyanyi!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-JAS">
+      <verse num="14" />
+      <text>Is any among you sick? Let him call for the elders of the assembly, and let them pray over him, anointing him with oil in the name of the Lord,</text>
+    </ReferenceBlocks>
     <verse num="14" />
     <text>Kalau ada seorang di antara kamu yang sakit, baiklah ia memanggil para penatua jemaat, supaya mereka mendoakan dia serta mengolesnya dengan minyak dalam nama Tuhan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-JAS">
+      <verse num="15" />
+      <text>and the prayer of faith will heal him who is sick, and the Lord will raise him up. If he has committed sins, he will be forgiven.</text>
+    </ReferenceBlocks>
     <verse num="15" />
     <text>Dan doa yang lahir dari iman akan menyelamatkan orang sakit itu dan Tuhan akan membangunkan dia; dan jika ia telah berbuat dosa, maka dosanya itu akan diampuni.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-JAS">
+      <verse num="16" />
+      <text>Confess your offenses to one another, and pray for one another, that you may be healed. The insistent prayer of a righteous person is powerfully effective.</text>
+    </ReferenceBlocks>
     <verse num="16" />
     <text>Karena itu hendaklah kamu saling mengaku dosamu dan saling mendoakan, supaya kamu sembuh. Doa orang yang benar, bila dengan yakin didoakan, sangat besar kuasanya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
+      <verse num="17" />
+      <text>Elijah was a man with a nature like ours, and he prayed earnestly that it might not rain, and it didn’t rain on the earth for three years and six months.</text>
+    </ReferenceBlocks>
     <verse num="17" />
     <text>Elia adalah manusia biasa sama seperti kita, dan ia telah bersungguh-sungguh berdoa, supaya hujan jangan turun, dan hujanpun tidak turun di bumi selama tiga tahun dan enam bulan.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
+      <verse num="18" />
+      <text>He prayed again, and the sky gave rain, and the earth brought forth its fruit.</text>
+    </ReferenceBlocks>
     <verse num="18" />
     <text>Lalu ia berdoa pula dan langit menurunkan hujan dan bumipun mengeluarkan buahnya.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-JAS">
+      <verse num="19" />
+      <text>Brothers, if any among you wanders from the truth, and someone turns him back,</text>
+    </ReferenceBlocks>
     <verse num="19" />
     <text>Saudara-saudaraku, jika ada di antara kamu yang menyimpang dari kebenaran dan ada seorang yang membuat dia berbalik,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="20" characterId="narrator-JAS">
+      <verse num="20" />
+      <text>let him know that he who turns a sinner from the error of his way will save a soul from death, and will cover a multitude of sins.</text>
+    </ReferenceBlocks>
     <verse num="20" />
     <text>ketahuilah, bahwa barangsiapa membuat orang berdosa berbalik dari jalannya yang sesat, ia akan menyelamatkan jiwa orang itu dari maut dan menutupi banyak dosa.</text>
   </block>
