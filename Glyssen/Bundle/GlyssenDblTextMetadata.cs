@@ -14,6 +14,7 @@ namespace Glyssen.Bundle
 	{
 		private int m_fontSizeInPointsTemp;
 		private string m_fontFamilyTemp;
+		private ReferenceTextType m_referenceTextType = ReferenceTextType.English;
 
 		#region public Properties
 		[XmlElement("language")]
@@ -174,6 +175,16 @@ namespace Glyssen.Bundle
 				}
 				return Revision.ToString(CultureInfo.InvariantCulture);
 			}
+		}
+
+		/// <summary>
+		/// The secondary reference text for this project.
+		/// </summary>
+		[XmlAttribute("referenceText")]
+		public ReferenceTextType ReferenceText
+		{
+			get { return m_referenceTextType; }
+			set { m_referenceTextType = value; }
 		}
 		#endregion
 
