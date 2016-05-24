@@ -10,7 +10,6 @@ using OfficeOpenXml;
 using SIL.IO;
 using SIL.Scripture;
 using SIL.Windows.Forms;
-using SIL.Windows.Forms.FolderBrowserControl;
 using SIL.Xml;
 
 namespace DevTools
@@ -40,9 +39,8 @@ namespace DevTools
 
 		public static bool Go()
 		{
-			//var pathToFCBHDirGuide = @"C:\Users\Polk\Documents\Protoscript Generator\DGNTEnglishSimplified.xlsx";
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			var pathToFCBHDirGuide = Path.Combine(myDocuments, @"Protoscript Generator\DGNTAllSimplified.xlsx");
+			var pathToFCBHDirGuide = Path.Combine(myDocuments, @"Protoscript Generator\DGNTAllSimplified_71.xlsx");
 
 			if (!File.Exists(pathToFCBHDirGuide))
 			{
@@ -90,7 +88,7 @@ namespace DevTools
 				List<BookScript> refBooks = s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= startBook).ToList();
 				List<BookScript> newBooks = new List<BookScript>();
 				List<Block> newBlocks = new List<Block>();
-				foreach (var referenceTextRow in list.Where(r => BCVRef.BookToNumber(r.Book) >= startBook))
+				foreach (var referenceTextRow in list.Where(r => BCVRef.BookToNumber(ConvertFcbhBookCodeToSilBookCode(r.Book)) >= startBook))
 				{
 					if (prevBook != referenceTextRow.Book)
 					{
@@ -136,19 +134,20 @@ namespace DevTools
 					}
 					else
 					{
-//						var newText = referenceTextRow.EnglishText;
 						string newText = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
-						var filteredText = Regex.Replace(newText, "[\u007c][\u007c][\u007c].*?[\u007c][\u007c][\u007c]", "");
+						var filteredText = Regex.Replace(newText, " [|][|][|].*?[|][|][|] ", "");
 						filteredText = Regex.Replace(filteredText, "{(\\d*?)} ", "[$1]\u00A0");
-						filteredText = Regex.Replace(filteredText, "{.*?}", "");
-						filteredText = Regex.Replace(filteredText, "\r?\n", "");
+						//var filteredText = Regex.Replace(newText, "{(\\d*?)} ", "[$1]\u00A0");
+						//filteredText = Regex.Replace(filteredText, "\r?\n", "");
 						//filteredText = Regex.Replace(filteredText, "(\\w)'(\\w)", "$1\u2019$2");
 //					filteredText = Regex.Replace(filteredText, "\"([A-Z])", "“$1");
 //					filteredText = Regex.Replace(filteredText, "([\\w\\.\\?\\!])\"", "$1”");
 						filteredText = Regex.Replace(filteredText, "  ", " ");
+						var filteredTextWithoutInlineAnnotations = Regex.Replace(filteredText, "{.*?}", "");
+						filteredTextWithoutInlineAnnotations = Regex.Replace(filteredTextWithoutInlineAnnotations, "  ", " ");
 
 						var blockText = block.GetText(true);
-						if (true || Compare(filteredText, blockText))
+						if (true || Compare(filteredTextWithoutInlineAnnotations, blockText))
 						{
 							Debug.WriteLine(referenceTextRow);
 							var newBlock = new Block(block.StyleTag, int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse))
@@ -164,7 +163,7 @@ namespace DevTools
 								if (string.IsNullOrWhiteSpace(split))
 								{
 									if (splits.Length == 1)
-										newBlock.BlockElements.Add(new ScriptText(" "));
+										Debug.Fail("");//newBlock.BlockElements.Add(new ScriptText(" ")));
 									continue;
 								}
 								var match = Regex.Match(split, "\\[(\\d*?)\\]\u00A0");
@@ -172,10 +171,32 @@ namespace DevTools
 									newBlock.BlockElements.Add(new Verse(match.Groups[1].Value));
 								else
 								{
-									string text = split.TrimStart();
-									newBlock.BlockElements.Add(new ScriptText(text));
+									var splits2 = Regex.Split(split, "({.*?})");
+									foreach (var s in splits2)
+									{
+										if (string.IsNullOrWhiteSpace(s))
+											continue;
+										var match2 = Regex.Match(s, "{.*?}");
+										if (match2.Success)
+										{
+											if (splits2.IndexOf(s) == 0 || splits2.IndexOf(s) == splits2.Length-1)
+												continue;
+											ScriptAnnotation annotation;
+											if (AnnotationExtractor.ConvertTextToScriptAnnotationElement(s, out annotation))
+												newBlock.BlockElements.Add(annotation);
+										}
+										else
+										{
+											string text = s.TrimStart();
+											if (string.IsNullOrWhiteSpace(text))
+												Debug.Fail("");
+											newBlock.BlockElements.Add(new ScriptText(text));
+										}
+									}
 								}
 							}
+							//if (!newBlock.BlockElements.Any())
+							//	Debug.Fail("");
 							newBlocks.Add(newBlock);
 						}
 						else
@@ -191,6 +212,19 @@ namespace DevTools
 				}
 			}
 			return false;
+		}
+
+		private static string ConvertFcbhBookCodeToSilBookCode(string bookCode)
+		{
+			switch (bookCode)
+			{
+				case "TTS":
+					return "TIT";
+				case "JMS":
+					return "JAS";
+				default:
+					return bookCode;
+			}
 		}
 
 		private static bool Compare(string str1, string str2)
