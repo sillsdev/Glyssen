@@ -70,7 +70,7 @@ namespace Glyssen.Dialogs
 			catch (Exception ex)
 			{
 				Analytics.ReportException(ex);
-				ErrorReport.ReportNonFatalExceptionWithMessage(ex,
+				ErrorReport.NotifyUserOfProblem(ex,
 					string.Format(LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.CouldNotExport",
 						"Could not save Roles for Voice Actors data to {0}", "{0} is a file name."), FileName));
 				dialogResult = DialogResult.None;

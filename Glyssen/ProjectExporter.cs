@@ -156,7 +156,7 @@ namespace Glyssen
 				catch (Exception ex)
 				{
 					Analytics.ReportException(ex);
-					ErrorReport.ReportNonFatalExceptionWithMessage(ex,
+					ErrorReport.NotifyUserOfProblem(ex,
 						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
 						"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."), ActorDirectory));
 				}
@@ -171,7 +171,7 @@ namespace Glyssen
 				catch (Exception ex)
 				{
 					Analytics.ReportException(ex);
-					ErrorReport.ReportNonFatalExceptionWithMessage(ex,
+					ErrorReport.NotifyUserOfProblem(ex,
 						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 						"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
 				}
@@ -381,7 +381,7 @@ namespace Glyssen
 					if (IncludeVoiceActors)
 					{
 						voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
-						includeInOutput = (voiceActorId == -1 || voiceActor.Id == voiceActorId);
+						includeInOutput = voiceActorId == -1 || voiceActor.Id == voiceActorId;
 					}
 
 					if (includeInOutput)
@@ -421,7 +421,7 @@ namespace Glyssen
 				row.Add(null);
 			row.Add(refBlock.Delivery);
 			row.Add(null);
-			row.Add(refBlock.GetText(true));
+			row.Add(refBlock.GetText(true, true));
 			row.Add(0);
 			return row;
 		}
