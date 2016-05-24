@@ -1,4 +1,4 @@
-Control File Version	100
+Control File Version	101
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -14280,7 +14280,7 @@ JHN	4	35	Jesus			Normal
 JHN	4	36	Jesus			Normal		
 JHN	4	37	Jesus			Normal		
 JHN	4	38	Jesus			Normal		
-JHN	4	39	woman, Samaritan			Normal		
+JHN	4	39	woman, Samaritan			Quotation		
 JHN	4	40	many Samaritans			Indirect		
 JHN	4	42	many Samaritans			Dialogue		
 JHN	4	44	Jesus			Indirect		
@@ -14291,7 +14291,7 @@ JHN	4	50	Jesus			Dialogue
 JHN	4	51	servants of royal official (father)	excited		Indirect		
 JHN	4	52	servants of royal official (father)	excited		Dialogue		
 JHN	4	52	official, royal (father)			Indirect		
-JHN	4	53	Jesus	giving orders		Normal		
+JHN	4	53	Jesus	giving orders		Quotation		
 JHN	5	2	narrator-JHN			Potential		
 JHN	5	6	Jesus	questioning		Dialogue		
 JHN	5	7	invalid for 38 years	whining		Dialogue		
@@ -14632,7 +14632,7 @@ JHN	13	8	Jesus			Dialogue
 JHN	13	8	Peter (Simon)	declare		Dialogue		
 JHN	13	9	Peter (Simon)	humble		Dialogue		
 JHN	13	10	Jesus			Dialogue		
-JHN	13	11	Jesus			Indirect		
+JHN	13	11	Jesus			Quotation		
 JHN	13	12	Jesus			Dialogue		
 JHN	13	13	Jesus			Normal		
 JHN	13	14	Jesus			Normal		
@@ -14647,7 +14647,7 @@ JHN	13	24	Peter (Simon)	stage whisper		Normal
 JHN	13	25	John	sad	John (disciple whom Jesus loved)	Dialogue		
 JHN	13	26	Jesus			Dialogue		
 JHN	13	27	Jesus	giving orders		Dialogue		
-JHN	13	29	Jesus			Indirect		
+JHN	13	29	Jesus			Quotation		
 JHN	13	31	Jesus			Dialogue		
 JHN	13	32	Jesus			Normal		
 JHN	13	33	Jesus			Normal		
@@ -14777,11 +14777,11 @@ JHN	17	26	Jesus	praying		Normal
 JHN	18	4	Jesus	questioning		Dialogue		
 JHN	18	5	Jesus			Dialogue		
 JHN	18	5	soldiers/officials from chief priests/Pharisees	rowdy		Dialogue		
-JHN	18	6	Jesus			Normal		
+JHN	18	6	Jesus			Quotation		
 JHN	18	7	Jesus	questioning		Dialogue		
 JHN	18	7	soldiers/officials from chief priests/Pharisees	afraid		Dialogue		
 JHN	18	8	Jesus			Dialogue		
-JHN	18	9	Jesus			Normal		
+JHN	18	9	Jesus			Quotation		
 JHN	18	11	Jesus			Dialogue		
 JHN	18	14	Caiaphas, the high priest			Indirect		
 JHN	18	16	John		the other disciple (John)	Indirect		
@@ -14808,7 +14808,7 @@ JHN	18	37	Jesus			Dialogue
 JHN	18	37	Pilate	to Jesus		Dialogue		
 JHN	18	38	Pilate	to Jesus		Dialogue		
 JHN	18	38	Pilate	to crowd		Dialogue		
-JHN	18	39	Pilate			Dialogue		
+JHN	18	39	Pilate	to crowd		Dialogue		
 JHN	18	40	Jews, the			Dialogue		
 JHN	19	3	soldiers, Roman	mocking		Dialogue		
 JHN	19	4	Pilate	to crowd		Dialogue		
@@ -14883,7 +14883,7 @@ JHN	21	19	Jesus			Dialogue
 JHN	21	20	John		John (who had asked the Lord who was going to betray Him)	Quotation		
 JHN	21	21	Peter (Simon)	defensive		Dialogue		
 JHN	21	22	Jesus			Dialogue		
-JHN	21	23	Jesus			Normal		
+JHN	21	23	Jesus			Quotation		
 ACT	1	4	Jesus			Dialogue		
 ACT	1	5	Jesus			Normal		
 ACT	1	6	apostles			Dialogue		
@@ -15571,7 +15571,7 @@ ROM	4	18	scripture			Quotation	God
 ROM	4	22	scripture			Quotation		
 ROM	4	23	narrator-ROM			Quotation		
 ROM	7	7	scripture			Quotation	God	
-ROM	8	15	we (believers)	crying		Normal		
+ROM	8	15	we (believers)	crying		Quotation		
 ROM	8	36	scripture			Quotation	sons of Korah	
 ROM	9	7	scripture			Quotation	God	
 ROM	9	9	scripture			Quotation	God	
@@ -15580,7 +15580,7 @@ ROM	9	13	scripture			Quotation	God
 ROM	9	15	scripture			Quotation	God	
 ROM	9	17	scripture			Quotation	God	
 ROM	9	19	one of you			Hypothetical		
-ROM	9	20	scripture			Quotation	Isaiah	
+ROM	9	20	molded thing			Hypothetical		
 ROM	9	25	scripture			Quotation	God	
 ROM	9	26	scripture			Quotation	Hosea	
 ROM	9	27	scripture			Quotation	Isaiah	
@@ -15693,10 +15693,10 @@ ROM	16	22	Tertius			Indirect
 2CO	9	7	each one			Hypothetical		
 2CO	9	9	scripture			Quotation	psalmist	
 2CO	10	1	narrator-2CO			Quotation		
-2CO	10	10	some people (quoted by Paul)			Normal		
+2CO	10	10	some people (quoted by Paul)			Quotation		
 2CO	10	17	scripture			Quotation	God	
 2CO	11	5	narrator-2CO			Quotation		
-2CO	12	9	Jesus		Lord Jesus	Normal		
+2CO	12	9	Jesus		Lord Jesus	Quotation		
 2CO	12	11	narrator-2CO			Quotation		
 2CO	12	16	someone (hypothetical argument)			Hypothetical		
 2CO	13	1	scripture			Quotation	Moses	

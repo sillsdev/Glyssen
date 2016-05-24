@@ -1370,15 +1370,6 @@
         <seg>Gabriel</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Gad, the prophet, David's seer">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Gad, the prophet, David's seer</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Gad, profeta, vidente de David</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Gadarene (or Gerasenes) people">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -1782,15 +1773,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Isaías</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Isaiah, the prophet">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Isaiah, the prophet</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Isaías, profeta</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Ish-Bosheth, son of Saul">
@@ -2972,15 +2954,6 @@
         <seg>Natán</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.Nathan, the prophet">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Nathan, the prophet</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>Natán, el profeta</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.Nathanael">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3159,15 +3132,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Fariseo (experto en la ley religiosa)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.Pharisee, a">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>Pharisee, a</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>fariseo</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Pharisees">
@@ -4043,24 +4007,6 @@
         <seg>ángel (uno de los siete)</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.angel Gabriel, sent by God">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel Gabriel, sent by God</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel Gabriel, enviado por Dios</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of God, an">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of God, an</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel de Dios</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.angel of God, the">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -4068,15 +4014,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>ángel de Dios</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.angel of the LORD, an">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>angel of the LORD, an</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>ángel del Señor</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.angel of the LORD, the">
@@ -4817,15 +4754,6 @@
         <seg>profeta que confronta al rey Acab</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.prophet, a">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>prophet, a</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>profeta, a</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.prophets">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5267,15 +5195,6 @@
         <seg>incrédulos</seg>
       </tuv>
     </tu>
-    <tu tuid="CharacterName.voice from cloud">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>voice from cloud</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>voz de la nube</seg>
-      </tuv>
-    </tu>
     <tu tuid="CharacterName.voice from cloud (God)">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5346,15 +5265,6 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>jovenes (consejeros de Roboám)</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CharacterName.youths">
-      <prop type="x-dynamic">true</prop>
-      <tuv xml:lang="en">
-        <seg>youths</seg>
-      </tuv>
-      <tuv xml:lang="es">
-        <seg>jóvenes</seg>
       </tuv>
     </tu>
     <tu tuid="Common.Cancel">
@@ -6496,6 +6406,114 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>De derecha a izquierda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Agur">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Agur</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Agur</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Ananias of Jerusalem">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ananias of Jerusalem</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ananías de Jerusalén</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Claudius">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Claudius</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Claudio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Elymas">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Elymas</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Elimas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gabriel (angel)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gabriel (angel)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gabriel (ángel)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Gad the prophet, David's seer">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Gad the prophet, David's seer</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gad el profeta, vidente de David</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Heman, Jeduthun and the rest of those chosen to give thanks">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Heman, Jeduthun and the rest of those chosen to give thanks</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hemam, Jedutún y los demás que fueron escogidos para dar gracias</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Isaiah the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaiah the prophet</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Isaías el profeta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.king">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>king</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>rey</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Nathan the prophet">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nathan the prophet</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Natán el profeta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Peter">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Pedro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Pharisee">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Pharisee</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>fariseo</seg>
       </tuv>
     </tu>
   </body>
