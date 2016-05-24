@@ -26,7 +26,7 @@ namespace DevTools.TermTranslator
 		private static List<Tu> s_englishTranslationUnits;
 		private static readonly Dictionary<string, TmxFormat> s_conflictingLocalizations = new Dictionary<string, TmxFormat>();
 
-		private const string kLocalizationFolder = @"..\..\..\DistFiles\localization";
+		private const string kLocalizationFolder = @"..\..\DistFiles\localization";
 
 		public static void Process()
 		{
@@ -111,7 +111,7 @@ namespace DevTools.TermTranslator
 		private static BiblicalTermsLocalizations DeserializeBiblicalTermsForLanguage(string langAbbr)
 		{
 			return XmlSerializationHelper.DeserializeFromFile<BiblicalTermsLocalizations>(
-				"..\\..\\Resources\\BiblicalTerms" + langAbbr + ".xml");
+				"..\\..\\DevTools\\Resources\\BiblicalTerms" + langAbbr + ".xml");
 		}
 
 		private static void AddEnglishTerm(TmxFormat newTmx, Tu tmxTermEntry, string name)

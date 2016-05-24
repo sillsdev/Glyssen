@@ -66,12 +66,12 @@ namespace DevTools
 		private static void WriteFile(string fileText)
 		{
 			fileText = "#Character ID\tMax Speakers\tGender\tAge\tStatus\tComment\tReference Comment" + Environment.NewLine + fileText;
-			File.WriteAllText("..\\..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
+			File.WriteAllText("..\\..\\Glyssen\\Resources\\CharacterDetail.txt", fileText);
 		}
 
 		private static List<CharacterDetailLine> ReadFile()
 		{
-			return File.ReadAllLines("..\\..\\..\\Glyssen\\Resources\\CharacterDetail.txt").Select(ReadLine).Where(l => l != null).ToList();
+			return File.ReadAllLines("..\\..\\Glyssen\\Resources\\CharacterDetail.txt").Select(ReadLine).Where(l => l != null).ToList();
 		}
 
 		private static CharacterDetailLine ReadLine(string line)

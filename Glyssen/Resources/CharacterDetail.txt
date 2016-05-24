@@ -702,6 +702,7 @@ Moabite officials, more distinguished	-1	Male				NUM 22:16 & NUM 22:17
 Moabites	-1	Male				NUM 22:4 <-(2 more)-> ISA 16:4
 Moabitesses (female)	-1	Female				ISA 16:3 & ISA 16:4
 mob	-1	PreferMale				ACT 17:6 & ACT 17:7
+molded thing	1					ROM 9:20
 Mordecai, cousin of Esther	1	Male				EST 4:13 & EST 4:14
 Moses	1	Male				EXO 2:13 <-(401 more)-> DEU 33:29
 mother of cured man, blind from birth	1	Female				
@@ -942,7 +943,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13
 scoffers	-1	PreferMale				2PE 3:4
 scoundrels	-1	Male				1KI 21:13
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
-scripture	-1					2CH 25:4 <-(224 more)-> REV 19:15
+scripture	-1					2CH 25:4 <-(223 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 <-(1 more)-> REV 18:20
 second person to accuse Peter (man)	1	Male				LUK 22:58
