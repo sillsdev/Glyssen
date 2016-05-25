@@ -9081,10 +9081,13 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
-      <text>When the ship was caught, and couldn’t face the wind,  we gave way to it, and were driven along.</text>
+      <text>When the ship was caught, and couldn’t face the wind, </text>
+      <sound start="true" userSpecifiesLocation="true" />
+      <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>y comenzó a arrastrarlo. Como no podíamos mantener el barco de cara al viento, </text>
+    <sound start="true" userSpecifiesLocation="true" />
     <text>tuvimos que dejarnos llevar por él.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">

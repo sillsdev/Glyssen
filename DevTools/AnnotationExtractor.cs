@@ -61,6 +61,10 @@ namespace DevTools
 			}
 		}
 
+		private static readonly Regex UserSfxRegex = new Regex("{F8 SFX--(.*)}", RegexOptions.Compiled);
+		private static readonly Regex UserMusicStartsRegex = new Regex("{F8 Music--Starts}", RegexOptions.Compiled);
+		private static readonly Regex UserMusicEndsRegex = new Regex("{F8 Music--Ends}", RegexOptions.Compiled);
+
 		public static bool ConvertTextToScriptAnnotationElement(string text, out ScriptAnnotation annotation)
 		{
 //			var pauseRegex = new Regex("||| \\+(?:/d) |||");
@@ -90,13 +94,26 @@ namespace DevTools
 //			{
 //				annotation = new Sound { EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
 //				return true;
-//			}
+			//			}
 
-			var sfxRegex = new Regex("{F8 SFX--(.*)}");
-			var match = sfxRegex.Match(text);
+			var match = UserSfxRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { EffectName = match.Groups[1].Value, UserSpecifiesLocation = true };
+				return true;
+			}
+
+			match = UserMusicStartsRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { UserSpecifiesLocation = true, Start = true};
+				return true;
+			}
+
+			match = UserMusicEndsRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { UserSpecifiesLocation = true };
 				return true;
 			}
 

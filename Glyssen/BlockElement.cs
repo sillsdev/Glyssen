@@ -104,6 +104,10 @@ namespace Glyssen
 
 	public class Sound : ScriptAnnotation
 	{
+		[XmlAttribute("start")]
+		[DefaultValue(false)]
+		public bool Start { get; set; }
+
 		[XmlAttribute("startVerse")]
 		[DefaultValue(0)]
 		public int StartVerse { get; set; }
@@ -124,8 +128,14 @@ namespace Glyssen
 		public override string ToDisplay {
 			get
 			{
-				if (UserSpecifiesLocation && !string.IsNullOrEmpty(EffectName))
-					return string.Format("{{F8 SFX--{0}}} ", EffectName);
+				if (UserSpecifiesLocation)
+				{
+					if (!string.IsNullOrEmpty(EffectName))
+						return string.Format("{{F8 SFX--{0}}} ", EffectName);
+					if (Start)
+						return "{F8 Music--Starts} ";
+					return "{F8 Music--Ends} ";
+				}
 				if (StartVerse != 0)
 					return string.Format(" ||| DO NOT COMBINE ||| {{Music--Starts @ v{0}}}", StartVerse);
 				return string.Empty;

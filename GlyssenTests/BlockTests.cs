@@ -76,6 +76,32 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetText_BlockContainsAnnotation_IncludeAnnotationsFalse_ReturnsAllText()
+		{
+			const string text1 = "text1 ";
+			const string text2 = "text2 ";
+			var block = new Block("p", 1, 1);
+			block.BlockElements.Add(new ScriptText(text1));
+			block.BlockElements.Add(new Sound { EffectName = "effect name", UserSpecifiesLocation = true });
+			block.BlockElements.Add(new ScriptText(text2));
+
+			Assert.AreEqual(text1 + text2, block.GetText(true));
+		}
+
+		[Test]
+		public void GetText_BlockContainsAnnotation_IncludeAnnotationsTrue_ReturnsAllTextIncludingAnnotation()
+		{
+			const string text1 = "text1 ";
+			const string text2 = "text2 ";
+			var block = new Block("p", 1, 1);
+			block.BlockElements.Add(new ScriptText(text1));
+			block.BlockElements.Add(new Sound { EffectName = "effect name", UserSpecifiesLocation = true });
+			block.BlockElements.Add(new ScriptText(text2));
+
+			Assert.AreEqual(text1 + "{F8 SFX--effect name} " + text2, block.GetText(true, true));
+		}
+
+		[Test]
 		public void GetAsXml_VerseAndTextElements_XmlHasCorrectAttributesAndAlternatingVerseAndTextElements()
 		{
 			var block = new Block("p", 4);

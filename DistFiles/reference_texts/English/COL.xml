@@ -148,6 +148,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-COL">
     <verse num="6" />
     <text>As therefore you received Christ Jesus, the Lord, walk in him. </text>
+    <sound start="true" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL">
     <verse num="7" />

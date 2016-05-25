@@ -1924,9 +1924,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
       <verse num="4" />
       <text>His tail drew one third of the stars of the sky, and threw them to the earth. </text>
+      <sound userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="4" />
     <text>Dan ekornya menyeret sepertiga dari bintang-bintang di langit dan melemparkannya ke atas bumi. </text>
+    <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
@@ -2915,8 +2917,10 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
       <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
+      <sound start="true" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <text>&lt;&lt;Sudah rubuh, sudah rubuh Babel, kota besar itu, dan ia telah menjadi tempat kediaman roh-roh jahat dan tempat bersembunyi semua roh najis dan tempat bersembunyi segala burung yang najis dan yang dibenci, </text>
+    <sound start="true" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation">
@@ -3485,10 +3489,13 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
       <verse num="11" />
-      <text>I saw a great white throne, and him who sat on it, from whose face the  earth and the heaven fled away. There was found no place for them.</text>
+      <text>I saw a great white throne, and him who sat on it, from whose face the </text>
+      <sound start="true" userSpecifiesLocation="true" />
+      <text>earth and the heaven fled away. There was found no place for them.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Lalu aku melihat suatu takhta putih yang besar dan Dia, yang duduk di atasnya. Dari hadapan-Nya </text>
+    <sound start="true" userSpecifiesLocation="true" />
     <text>lenyaplah bumi dan langit dan tidak ditemukan lagi tempatnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
@@ -3646,10 +3653,13 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
-      <text>He carried me away in the Spirit to a great and high mountain,  and showed me the holy city, Jerusalem, coming down out of heaven from God.</text>
+      <text>He carried me away in the Spirit to a great and high mountain, </text>
+      <sound start="true" userSpecifiesLocation="true" />
+      <text>and showed me the holy city, Jerusalem, coming down out of heaven from God.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Lalu, di dalam roh ia membawa aku ke atas sebuah gunung yang besar lagi tinggi </text>
+    <sound start="true" userSpecifiesLocation="true" />
     <text>dan ia menunjukkan kepadaku kota yang kudus itu, Yerusalem, turun dari sorga, dari Allah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
