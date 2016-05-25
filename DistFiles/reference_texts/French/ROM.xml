@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="ROM" singlevoice="false" pageheader="ROMANS">
+<book id="ROM" singlevoice="false" pageheader="ROMAINS CHAPITRE">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-ROM">
       <text>ROMANS</text>
     </ReferenceBlocks>
-    <text>ROMANS</text>
+    <text>ROMAINS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

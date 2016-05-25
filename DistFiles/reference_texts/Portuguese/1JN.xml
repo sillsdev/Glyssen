@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="1JN" singlevoice="false" pageheader="1 JOHN">
+<book id="1JN" singlevoice="false" pageheader="1 JOÃO">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1JN">
       <text>1 JOHN</text>
     </ReferenceBlocks>
-    <text>1 JOHN</text>
+    <text>PRIMEIRA CARTA DE JOÃO</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

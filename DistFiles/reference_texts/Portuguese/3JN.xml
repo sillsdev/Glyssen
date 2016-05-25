@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="3JN" singlevoice="false" pageheader="3 JOHN">
+<book id="3JN" singlevoice="false" pageheader="TERCEIRA CARTA DE JOÃO">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
       <text>3 JOHN</text>
     </ReferenceBlocks>
-    <text>3 JOHN</text>
+    <text>TERCEIRA CARTA DE JOÃO</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

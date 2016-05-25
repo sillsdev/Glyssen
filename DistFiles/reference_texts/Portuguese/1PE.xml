@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="1PE" singlevoice="false" pageheader="1 PETER">
+<book id="1PE" singlevoice="false" pageheader="1 PEDRO">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1PE">
       <text>1 PETER</text>
     </ReferenceBlocks>
-    <text>1 PETER</text>
+    <text>PRIMEIRA CARTA DE PEDRO</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

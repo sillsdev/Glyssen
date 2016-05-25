@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="2CO" singlevoice="false" pageheader="2 CORINTHIANS">
+<book id="2CO" singlevoice="false" pageheader="2-е Коринфянам">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2CO">
       <text>2 CORINTHIANS</text>
     </ReferenceBlocks>
-    <text>2 CORINTHIANS</text>
+    <text>2-е Коринфянам</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
