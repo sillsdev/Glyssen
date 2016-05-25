@@ -64,6 +64,11 @@ namespace Glyssen
 			return referenceText;
 		}
 
+		public static ReferenceText CreateCustomReferenceText(GlyssenDblTextMetadata metadata)
+		{
+			return new ReferenceText(metadata, ReferenceTextType.Custom);
+		}
+
 		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			string languageName = LocalizationManager.GetDynamicString("Glyssen", "ReferenceText." + referenceTextType, referenceTextType.ToString());
@@ -104,7 +109,7 @@ namespace Glyssen
 
 		private readonly ReferenceTextType m_referenceTextType;
 
-		public ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
+		private ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;

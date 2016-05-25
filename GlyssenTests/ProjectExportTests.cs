@@ -23,7 +23,9 @@ namespace GlyssenTests
 		const int kDelivery = 6;
 		const int kVernacularText = 7;
 		const int kPrimaryReferenceText = 8;
-		const int kVernacularTextLength = 9;
+		const int kSecondaryReferenceText = 9;
+		const int kVernacularTextLengthWithNoSecondaryRef = 9;
+		const int kVernacularTextLengthWithSecondaryRef = 10;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -168,7 +170,7 @@ namespace GlyssenTests
 			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
 			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			var jude = project.IncludedBooks.Single();
-			jude.Blocks = new List<Block>(new []
+			jude.Blocks = new List<Block>(new[]
 				{
 					new Block("p", 1, 1) {CharacterId = narrator }.AddVerse("1", "A"),
 					new Block("s", 1, 1) {CharacterId = sectionHead, BlockElements = new List<BlockElement> {new ScriptText("Jude complains")}},
@@ -178,7 +180,7 @@ namespace GlyssenTests
 					new Block("p", 1, 5) {CharacterId = narrator }.AddVerse("5", "E ").AddVerse("6", "F"),
 				});
 
-			var primaryReferenceText = new ReferenceText(new GlyssenDblTextMetadata(), ReferenceTextType.Custom);
+			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(new GlyssenDblTextMetadata());
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var blocks = new List<Block>
@@ -237,7 +239,7 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
 			Assert.AreEqual("[2-3]\u00A0Bee Cee", row[kPrimaryReferenceText]);
-			Assert.AreEqual(0, row[kVernacularTextLength]);
+			Assert.AreEqual(0, row[kVernacularTextLengthWithNoSecondaryRef]);
 
 			row = data[i++];
 			Assert.AreEqual(5, row[kBlockId]); // Row 5
@@ -254,7 +256,7 @@ namespace GlyssenTests
 			Assert.AreEqual("Michael", row[kCharacterId]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
 			Assert.AreEqual("[4]\u00A0Dee, ", row[kPrimaryReferenceText]);
-			Assert.AreEqual(0, row[kVernacularTextLength]);
+			Assert.AreEqual(0, row[kVernacularTextLengthWithNoSecondaryRef]);
 
 			row = data[i++];
 			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
@@ -263,7 +265,7 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
 			Assert.AreEqual("Michael said.", row[kPrimaryReferenceText]);
-			Assert.AreEqual(0, row[kVernacularTextLength]);
+			Assert.AreEqual(0, row[kVernacularTextLengthWithNoSecondaryRef]);
 
 			row = data[i++];
 			Assert.AreEqual(6, row[kBlockId]);
@@ -282,6 +284,31 @@ namespace GlyssenTests
 			Assert.AreEqual("[6]\u00A0Ef", row[kPrimaryReferenceText]);
 
 			Assert.AreEqual(i, data.Count);
+		}
+
+		[Test]
+		public void GetExportData_BlocksAreJoinedToStandardNonEnglishReferenceText_OutputContainsPrimaryAndEnglishReferenceText()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+			var jude = project.IncludedBooks.Single();
+
+			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish);
+			project.PrimaryReferenceText = primaryReferenceText;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData().ToList();
+
+			Assert.IsTrue(data.All(d => (string)d[kBookId] == "JUD"));
+			Assert.AreEqual("Judas", data[0][kPrimaryReferenceText]);
+			Assert.AreEqual("Jude", data[0][kSecondaryReferenceText]);
+			Assert.IsTrue(data.Skip(1).All(d => (int)d[kChapter] == 1));
+			Assert.AreEqual("Judas 1", data[1][kPrimaryReferenceText]);
+			Assert.AreEqual("Jude 1", data[1][kSecondaryReferenceText]);
+			var matchedRows = data.Where(d => (string)d[kPrimaryReferenceText] != null).ToList();
+			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbirary, but I just want to say we got a reasonable number of matches
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[kPrimaryReferenceText]).Contains(" por "))); // A word that should be in Spanish, but not English
+			Assert.IsTrue(matchedRows.All(d => (string)d[kSecondaryReferenceText] != null));
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Spanish
 		}
 
 		[Test]

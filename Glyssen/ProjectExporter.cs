@@ -13,6 +13,7 @@ using OfficeOpenXml.Style;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
+using SIL.Xml;
 
 namespace Glyssen
 {
@@ -481,6 +482,12 @@ namespace Glyssen
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.PrimaryReferenceText);
+			if (block.MatchesReferenceText)
+			{
+				var primaryRefBlock = block.ReferenceBlocks.Single();
+				if (primaryRefBlock.MatchesReferenceText)
+					list.Add(primaryRefBlock.PrimaryReferenceText);
+			}
 			list.Add(block.GetText(false).Length);
 			return list;
 		}

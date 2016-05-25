@@ -1206,7 +1206,7 @@ namespace GlyssenTests
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Which means, God with us.", true));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
-			var primaryReferenceText = new ReferenceText(new GlyssenDblTextMetadata(), ReferenceTextType.Custom);
+			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(new GlyssenDblTextMetadata());
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript("JUD", referenceBlocks);
@@ -1234,7 +1234,7 @@ namespace GlyssenTests
 		{
 			var metadata = new GlyssenDblTextMetadata();
 
-			var referenceText = new ReferenceText(metadata, ReferenceTextType.Custom);
+			var referenceText = ReferenceText.CreateCustomReferenceText(metadata);
 			ReflectionHelper.SetField(referenceText, "m_vers", ScrVers.English);
 
 			List<BookScript> books = (List<BookScript>)referenceText.Books;
