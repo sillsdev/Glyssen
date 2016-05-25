@@ -2431,12 +2431,15 @@
       <verse num="16" />
       <text>When evening came, his disciples went down to the sea, </text>
       <verse num="17" />
-      <text>and they entered into the boat, and were going over the sea to Capernaum.  It was now dark, and Jesus had not come to them.</text>
+      <text>and they entered into the boat, and were going over the sea to Capernaum. </text>
+      <sound start="true" userSpecifiesLocation="true" />
+      <text>It was now dark, and Jesus had not come to them.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Quand le soir arrive, les disciples de Jésus descendent au bord du lac. </text>
     <verse num="17" />
     <text>Ils montent dans une barque et ils vont vers Capernaüm, de l'autre côté du lac. </text>
+    <sound start="true" userSpecifiesLocation="true" />
     <text>Il fait déjà nuit, Jésus ne les a pas encore rejoints.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-JHN" matchesReferenceText="true">

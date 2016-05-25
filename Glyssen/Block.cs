@@ -222,7 +222,7 @@ namespace Glyssen
 			if (IsChapterAnnouncement && BookCode != null && FormatChapterAnnouncement != null)
 				return FormatChapterAnnouncement(BookCode, ChapterNumber) ?? ((ScriptText)BlockElements.First()).Content;
 
-			return GetTextFromBlockElements(includeVerseNumbers);
+			return GetTextFromBlockElements(includeVerseNumbers, includeAnnotations);
 		}
 
 		private string GetTextFromBlockElements(bool includeVerseNumbers, bool includeAnnotations = false)

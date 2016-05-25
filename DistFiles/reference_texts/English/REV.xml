@@ -963,6 +963,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
     <verse num="4" />
     <text>His tail drew one third of the stars of the sky, and threw them to the earth. </text>
+    <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV">
     <text>The dragon stood before the woman who was about to give birth, so that when she gave birth he might devour her child.</text>
@@ -1458,6 +1459,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
     <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
+    <sound start="true" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation">
     <verse num="3" />
@@ -1743,7 +1745,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />
-    <text>I saw a great white throne, and him who sat on it, from whose face the  earth and the heaven fled away. There was found no place for them.</text>
+    <text>I saw a great white throne, and him who sat on it, from whose face the </text>
+    <sound start="true" userSpecifiesLocation="true" />
+    <text>earth and the heaven fled away. There was found no place for them.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV">
     <verse num="12" />
@@ -1823,7 +1827,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
     <verse num="10" />
-    <text>He carried me away in the Spirit to a great and high mountain,  and showed me the holy city, Jerusalem, coming down out of heaven from God.</text>
+    <text>He carried me away in the Spirit to a great and high mountain, </text>
+    <sound start="true" userSpecifiesLocation="true" />
+    <text>and showed me the holy city, Jerusalem, coming down out of heaven from God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV">
     <verse num="11" />

@@ -194,9 +194,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
       <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks, </text>
+      <sound start="true" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="23" />
     <text>tetapi kami memberitakan Kristus yang disalibkan: untuk orang-orang Yahudi suatu batu sandungan dan untuk orang-orang bukan Yahudi suatu kebodohan, </text>
+    <sound start="true" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO">

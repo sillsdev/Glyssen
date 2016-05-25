@@ -149,7 +149,7 @@ namespace DevTools
 						var blockText = block.GetText(true);
 						if (true || Compare(filteredTextWithoutInlineAnnotations, blockText))
 						{
-							Debug.WriteLine(referenceTextRow);
+							//Debug.WriteLine(referenceTextRow);
 							var newBlock = new Block(block.StyleTag, int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse))
 							{
 								CharacterId = block.CharacterId,
@@ -183,7 +183,14 @@ namespace DevTools
 												continue;
 											ScriptAnnotation annotation;
 											if (AnnotationExtractor.ConvertTextToScriptAnnotationElement(s, out annotation))
+											{
 												newBlock.BlockElements.Add(annotation);
+												Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
+											}
+											else
+											{
+												//Debug.WriteLine("");
+											}
 										}
 										else
 										{

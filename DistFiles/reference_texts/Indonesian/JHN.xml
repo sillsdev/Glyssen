@@ -2433,12 +2433,15 @@
       <verse num="16" />
       <text>When evening came, his disciples went down to the sea, </text>
       <verse num="17" />
-      <text>and they entered into the boat, and were going over the sea to Capernaum.  It was now dark, and Jesus had not come to them.</text>
+      <text>and they entered into the boat, and were going over the sea to Capernaum. </text>
+      <sound start="true" userSpecifiesLocation="true" />
+      <text>It was now dark, and Jesus had not come to them.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Dan ketika hari sudah mulai malam, murid-murid Yesus pergi ke danau, lalu naik ke perahu </text>
     <verse num="17" />
     <text>dan menyeberang ke Kapernaum. </text>
+    <sound start="true" userSpecifiesLocation="true" />
     <text>Ketika hari sudah gelap Yesus belum juga datang mendapatkan mereka,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-JHN" matchesReferenceText="true">
