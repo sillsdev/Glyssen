@@ -348,18 +348,13 @@ namespace DevTools
 										var match2 = Regex.Match(s, "{.*?}");
 										if (match2.Success)
 										{
-											if (splits2.IndexOf(s) == 0 || splits2.IndexOf(s) == splits2.Length-1)
+											if (splits2.IndexOf(s) == 0 || splits2.IndexOf(s) == splits2.Length - 1)
 												continue;
 											ScriptAnnotation annotation;
 											if (AnnotationExtractor.ConvertTextToScriptAnnotationElement(s, out annotation))
+											{
 												newBlock.BlockElements.Add(annotation);
 												Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
-										}
-										else
-										{
-											string text = s.TrimStart();
-											if (string.IsNullOrWhiteSpace(text))
-												Debug.Fail("");
 											}
 										}
 										else
@@ -445,19 +440,6 @@ namespace DevTools
 				}
 			}
 			return false;
-		}
-
-		private static string ConvertFcbhBookCodeToSilBookCode(string bookCode)
-		{
-			switch (bookCode)
-			{
-				case "TTS":
-					return "TIT";
-				case "JMS":
-					return "JAS";
-				default:
-					return bookCode;
-			}
 		}
 
 		private static string ConvertFcbhBookCodeToSilBookCode(string bookCode)
