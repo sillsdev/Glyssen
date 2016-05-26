@@ -342,6 +342,12 @@ namespace Glyssen
 				sheet.Column(columnNum).Style.WrapText = true; // primaryReferenceText text
 				sheet.Column(columnNum++).Width = 50d;
 
+				if (Project.ReferenceText.HasSecondaryReferenceText)
+				{
+					sheet.Column(columnNum).Style.WrapText = true; // secondaryReferenceText text
+					sheet.Column(columnNum++).Width = 50d;
+				}
+
 				// this is the last column, no need to increment columNum
 				sheet.Column(columnNum).AutoFit(2d, sheet.DefaultColWidth); // block length
 
