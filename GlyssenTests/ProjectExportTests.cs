@@ -290,25 +290,26 @@ namespace GlyssenTests
 		public void GetExportData_BlocksAreJoinedToStandardNonEnglishReferenceText_OutputContainsPrimaryAndEnglishReferenceText()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
-			var jude = project.IncludedBooks.Single();
-
-			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish);
-			project.PrimaryReferenceText = primaryReferenceText;
+			var primaryReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Azeri);
+			project.ReferenceText = primaryReferenceText;
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
+
 			var data = exporter.GetExportData().ToList();
 
 			Assert.IsTrue(data.All(d => (string)d[kBookId] == "JUD"));
-			Assert.AreEqual("Judas", data[0][kPrimaryReferenceText]);
-			Assert.AreEqual("Jude", data[0][kSecondaryReferenceText]);
+			Assert.AreEqual("YӘHUDANIN MӘKTUBU", data[0][kPrimaryReferenceText]);
+			Assert.AreEqual("JUDE", data[0][kSecondaryReferenceText]);
 			Assert.IsTrue(data.Skip(1).All(d => (int)d[kChapter] == 1));
-			Assert.AreEqual("Judas 1", data[1][kPrimaryReferenceText]);
-			Assert.AreEqual("Jude 1", data[1][kSecondaryReferenceText]);
-			var matchedRows = data.Where(d => (string)d[kPrimaryReferenceText] != null).ToList();
+			Assert.AreEqual("YӘHUDA 1", data[1][kPrimaryReferenceText]);
+			Assert.AreEqual("JUDE 1", data[1][kSecondaryReferenceText]);
+			var matchedRows = data.Where(d => (string)d[kVernacularText] != null && (string)d[kPrimaryReferenceText] != null).ToList();
 			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbirary, but I just want to say we got a reasonable number of matches
-			Assert.IsTrue(matchedRows.Any(d => ((string)d[kPrimaryReferenceText]).Contains(" por "))); // A word that should be in Spanish, but not English
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[kPrimaryReferenceText]).Contains("Ә"))); // A letter that should be in Azeri, but not English
 			Assert.IsTrue(matchedRows.All(d => (string)d[kSecondaryReferenceText] != null));
-			Assert.IsTrue(matchedRows.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Spanish
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Azeri
 		}
 
 		[Test]
