@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 TIMOTHY 1</text>
+      <text>1 TIMOTHY CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -39,7 +39,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1TI">
       <verse num="4" />
-      <text>neither to pay attention to myths and endless genealogies, which cause disputes, rather than God’s stewardship, which is in faith.</text>
+      <text>neither to pay attention to myths and endless genealogies, which cause disputes, rather than God's stewardship, which is in faith.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>и не занимались баснями и родословиями бесконечными, которые производят больше споры, нежели Божие назидание в вере.</text>
@@ -174,7 +174,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 TIMOTHY 2</text>
+      <text>1 TIMOTHY CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1TI">
       <verse num="12" />
-      <text>I don’t permit a woman to teach, nor to exercise authority over a man, but to be in quietness.</text>
+      <text>I don't permit a woman to teach, nor to exercise authority over a man, but to be in quietness.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>а учить жене не позволяю, ни властвовать над мужем, но быть в безмолвии.</text>
@@ -285,7 +285,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1TI">
       <verse num="14" />
-      <text>Adam wasn’t deceived, but the woman, being deceived, has fallen into disobedience.</text>
+      <text>Adam wasn't deceived, but the woman, being deceived, has fallen into disobedience.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>и не Адам прельщен; но жена, прельстившись, впала в преступление;</text>
@@ -300,7 +300,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 TIMOTHY 3</text>
+      <text>1 TIMOTHY CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -339,7 +339,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TI">
       <verse num="5" />
-      <text>(If a man doesn’t know how to rule his own house, how will he take care of the assembly of God?)</text>
+      <text>(If a man doesn't know how to rule his own house, how will he take care of the assembly of God?)</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>ибо, кто не умеет управлять собственным домом, тот будет ли пещись о Церкви Божией?</text>
@@ -419,7 +419,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1TI">
       <verse num="15" />
-      <text>but if I wait long, I want you to know how men ought to behave themselves in God’s house. It is the assembly of the living God, the pillar and ground of the truth.</text>
+      <text>but if I wait long, I want you to know how men ought to behave themselves in God's house. It is the assembly of the living God, the pillar and ground of the truth.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>чтобы, если замедлю, ты знал, как должно поступать в доме Божием, который есть Церковь Бога живаго, столп и утверждение истины.</text>
@@ -434,7 +434,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 TIMOTHY 4</text>
+      <text>1 TIMOTHY CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -545,7 +545,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TI">
       <verse num="14" />
-      <text>Don’t neglect the gift that is in you, which was given to you by prophecy, with the laying on of the hands of the elders.</text>
+      <text>Don't neglect the gift that is in you, which was given to you by prophecy, with the laying on of the hands of the elders.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Не неради о пребывающем в тебе даровании, которое дано тебе по пророчеству с возложением рук священства.</text>
@@ -568,14 +568,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 TIMOTHY 5</text>
+      <text>1 TIMOTHY CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1TI">
       <verse num="1" />
-      <text>Don’t rebuke an older man, but exhort him as a father; the younger men as brothers;</text>
+      <text>Don't rebuke an older man, but exhort him as a father; the younger men as brothers;</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Старца не укоряй, но увещевай, как отца; младших, как братьев;</text>
@@ -631,7 +631,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-1TI">
       <verse num="8" />
-      <text>But if anyone doesn’t provide for his own, and especially his own household, he has denied the faith, and is worse than an unbeliever.</text>
+      <text>But if anyone doesn't provide for his own, and especially his own household, he has denied the faith, and is worse than an unbeliever.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Если же кто о своих и особенно о домашних не печется, тот отрекся от веры и хуже неверного.</text>
@@ -695,7 +695,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1TI">
       <verse num="16" />
-      <text>If any man or woman who believes has widows, let them relieve them. Don’t let the assembly be burdened; that it might relieve those who are widows indeed.</text>
+      <text>If any man or woman who believes has widows, let them relieve them. Don't let the assembly be burdened; that it might relieve those who are widows indeed.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Если какой верный или верная имеет вдов, то должны их довольствовать и не обременять Церкви, чтобы она могла довольствовать истинных вдовиц.</text>
@@ -733,7 +733,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TI">
       <verse num="19" />
-      <text>Don’t receive an accusation against an elder, except at the word of two or three witnesses.</text>
+      <text>Don't receive an accusation against an elder, except at the word of two or three witnesses.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Обвинение на пресвитера не иначе принимай, как при двух или трех свидетелях.</text>
@@ -757,7 +757,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-1TI">
       <verse num="22" />
-      <text>Lay hands hastily on no one, neither be a participant in other men’s sins. Keep yourself pure.</text>
+      <text>Lay hands hastily on no one, neither be a participant in other men's sins. Keep yourself pure.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Рук ни на кого не возлагай поспешно, и не делайся участником в чужих грехах. Храни себя чистым.</text>
@@ -765,7 +765,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="23" characterId="narrator-1TI">
       <verse num="23" />
-      <text>Be no longer a drinker of water only, but use a little wine for your stomach’s sake and your frequent infirmities.</text>
+      <text>Be no longer a drinker of water only, but use a little wine for your stomach's sake and your frequent infirmities.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Впредь пей не одну воду, но употребляй немного вина, ради желудка твоего и частых твоих недугов.</text>
@@ -773,7 +773,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-1TI">
       <verse num="24" />
-      <text>Some men’s sins are evident, preceding them to judgment, and some also follow later.</text>
+      <text>Some men's sins are evident, preceding them to judgment, and some also follow later.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Грехи некоторых людей явны и прямо ведут к осуждению, а некоторых открываются впоследствии.</text>
@@ -781,14 +781,14 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-1TI">
       <verse num="25" />
-      <text>In the same way also there are good works that are obvious, and those that are otherwise can’t be hidden.</text>
+      <text>In the same way also there are good works that are obvious, and those that are otherwise can't be hidden.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Равным образом и добрые дела явны; а если и не таковы, скрыться не могут.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1TI" initialStartVerse="0" characterId="BC-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>1 TIMOTHY 6</text>
+      <text>1 TIMOTHY CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -811,7 +811,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1TI">
       <verse num="3" />
-      <text>If anyone teaches a different doctrine, and doesn’t consent to sound words, the words of our Lord Jesus Christ, and to the doctrine which is according to godliness,</text>
+      <text>If anyone teaches a different doctrine, and doesn't consent to sound words, the words of our Lord Jesus Christ, and to the doctrine which is according to godliness,</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Кто учит иному и не следует здравым словам Господа нашего Иисуса Христа и учению о благочестии,</text>
@@ -843,7 +843,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-1TI">
       <verse num="7" />
-      <text>For we brought nothing into the world, and we certainly can’t carry anything out.</text>
+      <text>For we brought nothing into the world, and we certainly can't carry anything out.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Ибо мы ничего не принесли в мир; явно, что ничего не можем и вынести из него.</text>

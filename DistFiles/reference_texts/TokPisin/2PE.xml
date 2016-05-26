@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 PETER 1</text>
+      <text>2 PETER CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -182,7 +182,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 PETER 2</text>
+      <text>2 PETER CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -205,7 +205,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE">
       <verse num="3" />
-      <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn’t linger, and their destruction will not slumber.</text>
+      <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn't linger, and their destruction will not slumber.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Ol dispela man ol i man bilong mangal tru, olsem na ol bai i mekim planti tok giaman bilong pulim mani samting bilong yupela. Tasol bipo tru God i makim de bilong kotim ol na em i tok long ol bai i lus. Na dispela bagarap i laik kamap long ol, em i no slip. Nogat. Em i wet i stap.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE">
       <verse num="4" />
-      <text>For God didn’t spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
+      <text>For God didn't spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Yupela save, bipo sampela ensel i bin mekim sin, na God i no larim ol. Nogat. Em i kalabusim ol i stap long hel, long dispela hul i tudak nogut tru. Na ol i kalabus i stap yet na wetim De bilong bikpela kot bilong God.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE">
       <verse num="5" />
-      <text>And God didn’t spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
+      <text>And God didn't spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ol manmeri bilong bipo tu, ol i bin givim baksait long God, na em i no larim ol. Nogat. Em i mekim bikpela tait i kamap long ol, na ol i lus. Tasol Noa em i man bilong tokaut long stretpela pasin. Na God i lukautim em wantaim 7 -pela manmeri, na ol i stap gut.</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE">
       <verse num="11" />
-      <text>Whereas angels, though greater in might and power, don’t bring a railing judgment against them before the Lord.</text>
+      <text>Whereas angels, though greater in might and power, don't bring a railing judgment against them before the Lord.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Ol ensel i winim tru ol dispela man, na ol i gat bikpela strong moa. Tasol ol i no save tok nogut long ol na kotim ol long ai bilong Bikpela.</text>
@@ -293,7 +293,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE">
       <verse num="14" />
-      <text>With eyes full of adultery, they can’t cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
+      <text>With eyes full of adultery, they can't cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Oltaim ol i save aigris long ol meri na tingting long mekim pasin pamuk. Ol i no inap pinisim laik bilong ol long mekim sin. Ol i save grisim ol man bilip bilong ol i no strong, na pulim ol long mekim sin. Ol i skul pinis long pasin bilong mangalim ol samting bilong ol arapela man. Olsem na God bai i bagarapim ol tru.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE">
       <verse num="16" />
-      <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man’s voice and stopped the madness of the prophet.</text>
+      <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man's voice and stopped the madness of the prophet.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Ol donki i no save toktok, tasol wanpela donki i mekim toktok olsem man, na em i krosim Balam long pasin nogut bilong em. Na long dispela pasin, donki i mekim dispela profet i lusim dispela longlong pasin em i bin ting long mekim.</text>
@@ -370,7 +370,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 PETER 3</text>
+      <text>2 PETER CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -433,7 +433,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE">
       <verse num="8" />
-      <text>But don’t forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
+      <text>But don't forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Ol pren tru, yupela i no ken lusim tingting long dispela wanpela samting. Long tingting bilong Bikpela wanpela de i olsem 1,000 yia, na 1,000 yia i olsem wanpela de.</text>

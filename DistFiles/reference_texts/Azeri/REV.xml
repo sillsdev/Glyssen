@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>REVELATION 1</text>
+      <text>REVELATION CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -23,7 +23,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-REV">
       <verse num="2" />
-      <text>John testified to God’s word, and of the testimony of Jesus Christ, about everything that he saw.</text>
+      <text>John testified to God's word, and of the testimony of Jesus Christ, about everything that he saw.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Yәhya Allahın kәlamı vә İsa Mәsihin şәhadәti, yәni gördüyü hәr şey barәdә şәhadәt etdi.</text>
@@ -91,7 +91,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV">
       <verse num="9" />
-      <text>I am John, your brother and partner with you in oppression, Kingdom, and perseverance in Christ Jesus. I was on the isle that is called Patmos because of God’s Word and the testimony of Jesus Christ.</text>
+      <text>I am John, your brother and partner with you in oppression, Kingdom, and perseverance in Christ Jesus. I was on the isle that is called Patmos because of God's Word and the testimony of Jesus Christ.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Әziyyәtә, Allahın Padşahlığına vә dözümә sizinlә İsada şәrik olan mәn – qardaşınız Yәhya Allahın kәlamından ötrü vә İsa barәdә şәhadәt etdiyimә görә Patmos adlanan adada idim.</text>
@@ -99,7 +99,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
-      <text>I was in the Spirit on the Lord’s day, and I heard behind me a loud voice, like a trumpet </text>
+      <text>I was in the Spirit on the Lord's day, and I heard behind me a loud voice, like a trumpet </text>
       <verse num="11" />
       <text>saying,</text>
     </ReferenceBlocks>
@@ -164,7 +164,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Don’t be afraid. I am the first and the last, </text>
+      <text>“Don't be afraid. I am the first and the last, </text>
       <verse num="18" />
       <text>and the Living one. I was dead, and behold, I am alive forevermore. Amen. I have the keys of Death and of Hades.</text>
     </ReferenceBlocks>
@@ -190,7 +190,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>REVELATION 2</text>
+      <text>REVELATION CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -205,7 +205,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
       <verse num="2" />
-      <text>“I know your works, and your toil and perseverance, and that you can’t tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.</text>
+      <text>“I know your works, and your toil and perseverance, and that you can't tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>sәnin әmәllәrindәn, zәhmәtindәn, dözümündәn vә şәr adamlara dözmәdiyindәn xәbәrdaram. Hәvari olmadıqları halda özlәrini hәvari adlandıranları sınaqdan keçirdin vә onların yalançı olduğunu müәyyәn etdin.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>You have perseverance and have endured for my name’s sake, and have not grown weary.</text>
+      <text>You have perseverance and have endured for my name's sake, and have not grown weary.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Sәn dözümlü oldun, Mәnim adım naminә tab gәtirdin vә yorulmadın.</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>Don’t be afraid of the things which you are about to suffer. Behold, the devil is about to throw some of you into prison, that you may be tested; and you will have oppression for ten days. Be faithful to death, and I will give you the crown of life.</text>
+      <text>Don't be afraid of the things which you are about to suffer. Behold, the devil is about to throw some of you into prison, that you may be tested; and you will have oppression for ten days. Be faithful to death, and I will give you the crown of life.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Çәkәcәyin әzabdan heç qorxma. Bax iblis aranızdan bәzisini zindana atacaq ki, sınaqdan keçәsiniz. Siz on gün әziyyәt çәkәcәksiniz. Ölüm bahasına olsa da, sadiq qal, Mәn sәnә hәyat tacını verәcәyәm.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>He who has an ear, let him hear what the Spirit says to the assemblies. He who overcomes won’t be harmed by the second death.”</text>
+      <text>He who has an ear, let him hear what the Spirit says to the assemblies. He who overcomes won't be harmed by the second death.”</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәn ikinci ölümdәn heç zәrәr görmәyәcәk.</text>
@@ -293,7 +293,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
       <verse num="13" />
-      <text>“I know your works and where you dwell, where Satan’s seat is. You hold firmly to my name, and didn’t deny my faith in the days of Antipas my witness, my faithful one, who was killed among you, where Satan dwells.</text>
+      <text>“I know your works and where you dwell, where Satan's seat is. You hold firmly to my name, and didn't deny my faith in the days of Antipas my witness, my faithful one, who was killed among you, where Satan dwells.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>gör harada, Şeytanın taxtı olan yerdә yaşadığın halda Mәnim adıma bağlı qaldığından xәbәrdaram. Barәmdә sәdaqәtlә şәhadәt edәn, aranızda, Şeytanın yaşadığı yerdә öldürülәn Antipanın günlәrindә belә, Mәnә olan imanından imtina etmәdin.</text>
@@ -381,7 +381,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>But to you I say, to the rest who are in Thyatira, as many as don’t have this teaching, who don’t know what some call ‘the deep things of Satan,’ to you I say, I am not putting any other burden on you.</text>
+      <text>But to you I say, to the rest who are in Thyatira, as many as don't have this teaching, who don't know what some call ‘the deep things of Satan,’ to you I say, I am not putting any other burden on you.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Amma siz Tiatirada olan digәrlәrinә, yәni bu tәlimi qәbul etmәyәnlәrә vә Şeytanın dәrin sirri adlandırılan şeylәri öyrәnmәyәnlәrә deyirәm: üstünüzә başqa bir yük qoymuram;</text>
@@ -428,7 +428,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>REVELATION 3</text>
+      <text>REVELATION CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>Remember therefore how you have received and heard. Keep it, and repent. If therefore you won’t watch, I will come as a thief, and you won’t know what hour I will come upon you.</text>
+      <text>Remember therefore how you have received and heard. Keep it, and repent. If therefore you won't watch, I will come as a thief, and you won't know what hour I will come upon you.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Buna görә dә nә aldığını vә nә eşitdiyini yadına sal. Bunlara riayәt et vә tövbә elә. Әgәr oyaq olmasan, bir oğru kimi gәlәcәyәm vә hansı saat sәnin üstünә gәlәcәyimi dә bilmәyәcәksәn.</text>
@@ -491,7 +491,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
       <verse num="8" />
-      <text>“I know your works (behold, I have set before you an open door, which no one can shut), that you have a little power, and kept my word, and didn’t deny my name.</text>
+      <text>“I know your works (behold, I have set before you an open door, which no one can shut), that you have a little power, and kept my word, and didn't deny my name.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>sәnin әmәllәrindәn xәbәrdaram. Bax Mәn sәnin üzünә elә bir qapı açmışam ki, heç kәs onu bağlaya bilmәz. Gücün az olduğu halda Mәnim sözümә riayәt etmisәn vә Mәnim adımdan imtina etmәmisәn.</text>
@@ -539,7 +539,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Jesus">
       <verse num="14" />
-      <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God’s creation, says these things:”</text>
+      <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God's creation, says these things:”</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Laodikeyada olan cәmiyyәtin mәlәyinә yaz: Amin Olan, sadiq vә etibarlı Şahid, Allahın yaratdıqlarının Mәnşәyi belә deyir:</text>
@@ -563,7 +563,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>Because you say, ‘I am rich, and have gotten riches, and have need of nothing;’ You don’t know that you are the wretched one, miserable, poor, blind, and naked;</text>
+      <text>Because you say, ‘I am rich, and have gotten riches, and have need of nothing;’ You don't know that you are the wretched one, miserable, poor, blind, and naked;</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Çünki deyirsәn: “Varlıyam, zәngin olmuşam vә heç nәyә möhtac deyilәm”. Amma bilmirsәn ki, zәlil, yazıq, yoxsul, kor vә çılpaqsan.</text>
@@ -610,7 +610,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>REVELATION 4</text>
+      <text>REVELATION CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -720,7 +720,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>REVELATION 5</text>
+      <text>REVELATION CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -772,7 +772,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="elders, one of the" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="elders, one of the">
-      <text>“Don’t weep. Behold, the Lion who is of the tribe of Judah, the Root of David, has overcome; he who opens the book and its seven seals.”</text>
+      <text>“Don't weep. Behold, the Lion who is of the tribe of Judah, the Root of David, has overcome; he who opens the book and its seven seals.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ağlama! Budur, Yәhuda qәbilәsindәn olan Aslan, Davudun Kökü qalib gәlib; buna görә dә O, tumarı vә onun yeddi möhürünü aça bilir&gt;&gt;.</text>
   </block>
@@ -896,7 +896,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>REVELATION 6</text>
+      <text>REVELATION CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -974,7 +974,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="voice from among living creatures" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="voice from among living creatures">
-      <text>“A quart of wheat for a denarius, and three choenix of barley for a denarius! Don’t damage the oil and the wine!”</text>
+      <text>“A quart of wheat for a denarius, and three choenix of barley for a denarius! Don't damage the oil and the wine!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bir xiniks buğda bir dinara, üç xiniks arpa da bir dinaradır; amma zeytun yağına vә şәraba ziyan vurma&gt;&gt;.</text>
   </block>
@@ -1086,7 +1086,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>REVELATION 7</text>
+      <text>REVELATION CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1109,7 +1109,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="angel standing in sun" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="angel standing in sun">
       <verse num="3" />
-      <text>“Don’t harm the earth, neither the sea, nor the trees, until we have sealed the bondservants of our God on their foreheads!”</text>
+      <text>“Don't harm the earth, neither the sea, nor the trees, until we have sealed the bondservants of our God on their foreheads!”</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>&lt;&lt;Biz Allahımızın qullarının alnını möhürlәyәnә qәdәr quruya, dәnizә vә ağaclara ziyan vurmayın&gt;&gt;.</text>
@@ -1218,7 +1218,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="elders, one of the" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="elders, one of the" multiBlockQuote="Start">
-      <text>“These are those who came out of the great tribulation. They washed their robes, and made them white in the Lamb’s blood.</text>
+      <text>“These are those who came out of the great tribulation. They washed their robes, and made them white in the Lamb's blood.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bunlar böyük әziyyәtdәn keçib gәlәnlәrdir. Onlar öz xalatlarını yuyub Quzunun qanı ilә ağartdılar.</text>
   </block>
@@ -1248,7 +1248,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>REVELATION 8</text>
+      <text>REVELATION CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1279,7 +1279,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="narrator-REV">
       <verse num="4" />
-      <text>The smoke of the incense, with the prayers of the saints, went up before God out of the angel’s hand.</text>
+      <text>The smoke of the incense, with the prayers of the saints, went up before God out of the angel's hand.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Buxurun tüstüsü müqәddәslәrin duaları ilә birgә mәlәyin әlindәn Allahın önünә yüksәldi.</text>
@@ -1380,7 +1380,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>REVELATION 9</text>
+      <text>REVELATION CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1415,7 +1415,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-REV">
       <verse num="4" />
-      <text>They were told that they should not hurt the grass of the earth, neither any green thing, neither any tree, but only those people who don’t have God’s seal on their foreheads.</text>
+      <text>They were told that they should not hurt the grass of the earth, neither any green thing, neither any tree, but only those people who don't have God's seal on their foreheads.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Onlara deyildi ki, yer üzündәki otlara, heç bir yaşıllığa, heç bir ağaca deyil, yalnız alınlarında Allahın möhürü olmayan insanlara zәrәr vursunlar.</text>
@@ -1439,7 +1439,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-REV">
       <verse num="7" />
-      <text>The shapes of the locusts were like horses prepared for war. On their heads were something like golden crowns, and their faces were like people’s faces.</text>
+      <text>The shapes of the locusts were like horses prepared for war. On their heads were something like golden crowns, and their faces were like people's faces.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Çәyirtkәlәrin görünüşü döyüşә hazırlanan atlara bәnzәyirdi. Başlarında sanki qızıl tac var idi, üzlәri dә insan üzü kimi idi.</text>
@@ -1447,7 +1447,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
-      <text>They had hair like women’s hair, and their teeth were like those of lions.</text>
+      <text>They had hair like women's hair, and their teeth were like those of lions.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Onların qadınlarda olan kimi saçları var idi, dişlәri dә aslan dişlәri kimi idi.</text>
@@ -1553,7 +1553,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-REV">
       <verse num="20" />
-      <text>The rest of mankind, who were not killed with these plagues, didn’t repent of the works of their hands, that they wouldn’t worship demons, and the idols of gold, and of silver, and of brass, and of stone, and of wood; which can neither see, nor hear, nor walk.</text>
+      <text>The rest of mankind, who were not killed with these plagues, didn't repent of the works of their hands, that they wouldn't worship demons, and the idols of gold, and of silver, and of brass, and of stone, and of wood; which can neither see, nor hear, nor walk.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Bu bәlalardan hәlak olmayıb sağ qalan adamlar öz әllәri ilә düzәltdiklәri şeylәrdәn dönüb tövbә etmәdilәr. Cinlәrә vә görmәyә, eşitmәyә, yerimәyә qadir olmayan qızıl, gümüş, tunc, daş, taxta bütlәrә sәcdә etmәkdәn әl çәkmәdilәr.</text>
@@ -1561,14 +1561,14 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-REV">
       <verse num="21" />
-      <text>They didn’t repent of their murders, nor of their sorceries, nor of their sexual immorality, nor of their thefts.</text>
+      <text>They didn't repent of their murders, nor of their sorceries, nor of their sexual immorality, nor of their thefts.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Hәmçinin onlar nә qatilliklәrindәn, nә sehrbazlıqlarından, nә әxlaqsızlıqlarından, nә dә oğurluqlarından tövbә etdilәr.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>REVELATION 10</text>
+      <text>REVELATION CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1614,7 +1614,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="voice from heaven (God?)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="voice from heaven (God?)">
-      <text>“Seal up the things which the seven thunders said, and don’t write them.”</text>
+      <text>“Seal up the things which the seven thunders said, and don't write them.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Yeddi göy gurultusunun söylәdiklәrini möhürlü saxla, onları yazma&gt;&gt;.</text>
   </block>
@@ -1679,7 +1679,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
-      <text>I took the little book out of the angel’s hand, and ate it up. It was as sweet as honey in my mouth. When I had eaten it, my stomach was made bitter. </text>
+      <text>I took the little book out of the angel's hand, and ate it up. It was as sweet as honey in my mouth. When I had eaten it, my stomach was made bitter. </text>
       <verse num="11" />
       <text>He told me,</text>
     </ReferenceBlocks>
@@ -1696,7 +1696,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>REVELATION 11</text>
+      <text>REVELATION CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -1710,14 +1710,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="1" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Start">
-      <text>“Rise, and measure God’s temple, and the altar, and those who worship in it.</text>
+      <text>“Rise, and measure God's temple, and the altar, and those who worship in it.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Qalx Allahın mәbәdini, qurbangahı ölç vә orada sәcdә edәnlәri say.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="angel or messenger (Greek variant: someone speaking to John)" multiBlockQuote="Continuation">
       <verse num="2" />
-      <text>Leave out the court which is outside of the temple. Don’t measure it, for it has been given to the nations. They will tread the holy city under foot for forty-two months.</text>
+      <text>Leave out the court which is outside of the temple. Don't measure it, for it has been given to the nations. They will tread the holy city under foot for forty-two months.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Amma mәbәdin bayır hәyәtini nәzәrә alma vә oranı ölçmә. Çünki ora başqa millәtlәrә verildi vә onlar müqәddәs şәhәri qırx iki ay tapdaq edәcәk.</text>
@@ -1859,7 +1859,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-REV">
       <verse num="16" />
-      <text>The twenty-four elders, who sit on their thrones before God’s throne, fell on their faces and worshiped God, </text>
+      <text>The twenty-four elders, who sit on their thrones before God's throne, fell on their faces and worshiped God, </text>
       <verse num="17" />
       <text>saying:</text>
     </ReferenceBlocks>
@@ -1885,14 +1885,14 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
       <verse num="19" />
-      <text>God’s temple that is in heaven was opened, and the ark of the Lord’s covenant was seen in his temple. Lightnings, sounds, thunders, an earthquake, and great hail followed.</text>
+      <text>God's temple that is in heaven was opened, and the ark of the Lord's covenant was seen in his temple. Lightnings, sounds, thunders, an earthquake, and great hail followed.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Allahın göydәki mәbәdi açıldı vә Onun Әhd sandığı orada zahir oldu. Onda şimşәk, uğultu, göy gurultusu, zәlzәlә vә güclü dolu gәldi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>REVELATION 12</text>
+      <text>REVELATION CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -1963,7 +1963,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
-      <text>They didn’t prevail, neither was a place found for him any more in heaven.</text>
+      <text>They didn't prevail, neither was a place found for him any more in heaven.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>amma güclәri çatmadı. Göydә artıq onlara yer qalmadı.</text>
@@ -1993,7 +1993,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="voice in heaven, loud" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="voice in heaven, loud" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>They overcame him because of the Lamb’s blood, and because of the word of their testimony. They didn’t love their life, even to death.</text>
+      <text>They overcame him because of the Lamb's blood, and because of the word of their testimony. They didn't love their life, even to death.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Onlar Quzunun qanı vә öz şәhadәt sözlәri vasitәsilә Ona qalib gәldilәr. Hәtta ölümlә üzbәüz olanda da Öz canlarını sevmәdilәr.</text>
@@ -2041,7 +2041,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-REV">
       <verse num="17" />
-      <text>The dragon grew angry with the woman, and went away to make war with the rest of her seed, who keep God’s commandments and have the testimony of Jesus Christ.</text>
+      <text>The dragon grew angry with the woman, and went away to make war with the rest of her seed, who keep God's commandments and have the testimony of Jesus Christ.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Onda әjdaha qadına qәzәblәndi, onun nәslindәn Allahın әmrlәrinә riayәt edәn vә İsa barәdә şәhadәt edәn başqaları ilә döyüşmәk üçün getdi </text>
@@ -2050,7 +2050,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>REVELATION 13</text>
+      <text>REVELATION CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2181,7 +2181,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV">
       <verse num="15" />
-      <text>It was given to him to give breath to it, to the image of the beast, that the image of the beast should both speak, and cause as many as wouldn’t worship the image of the beast to be killed.</text>
+      <text>It was given to him to give breath to it, to the image of the beast, that the image of the beast should both speak, and cause as many as wouldn't worship the image of the beast to be killed.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Ona hәmin vәhşi heyvanın surәtinә nәfәs vermәk qüdrәti verildi ki, bu surәt dә danışsın vә ona sәcdә etmәyәn hәr kәsin öldürülmәsini әmr etsin.</text>
@@ -2212,7 +2212,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>REVELATION 14</text>
+      <text>REVELATION CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -2414,7 +2414,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="angel, coming out of temple, another" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="angel, coming out of temple, another">
-      <text>“Send forth your sharp sickle, and gather the clusters of the vine of the earth, for the earth’s grapes are fully ripe!”</text>
+      <text>“Send forth your sharp sickle, and gather the clusters of the vine of the earth, for the earth's grapes are fully ripe!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;İti orağını işә sal vә yer üzündәki üzüm tәnәyindәn salxımları kәs yığ, çünki üzümlәri yetişib&gt;&gt;.</text>
   </block>
@@ -2436,14 +2436,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>REVELATION 15</text>
+      <text>REVELATION CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="narrator-REV">
       <verse num="1" />
-      <text>I saw another great and marvelous sign in the sky: seven angels having the seven last plagues, for in them God’s wrath is finished.</text>
+      <text>I saw another great and marvelous sign in the sky: seven angels having the seven last plagues, for in them God's wrath is finished.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Mәn göydә başqa bir böyük vә heyrәtli әlamәt – yeddi bәlanı gәtirәn yeddi mәlәk gördüm. Bunlar son bәlalardır, çünki Allahın hiddәti bunlarla tamamlanırdı.</text>
@@ -2473,7 +2473,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="conquerors of beast, image &amp; his name" delivery="singing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="conquerors of beast, image &amp; his name" delivery="singing" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>Who wouldn’t fear you, Lord, and glorify your name? For you only are holy. For all the nations will come and worship before you. For your righteous acts have been revealed.”</text>
+      <text>Who wouldn't fear you, Lord, and glorify your name? For you only are holy. For all the nations will come and worship before you. For your righteous acts have been revealed.”</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Ya Rәbb, kim Sәndәn qorxmaz, Kim Sәnin adını izzәtlәndirmәz? Çünki yalnız Sәn müqәddәssәn. Bütün millәtlәr gәlib Sәnin önündә sәcdә edәcәk, Çünki Sәnin әdalәtli hökmlәrin aşkar oldu&gt;&gt;.</text>
@@ -2512,7 +2512,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>REVELATION 16</text>
+      <text>REVELATION CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -2601,7 +2601,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="narrator-REV">
       <verse num="9" />
-      <text>People were scorched with great heat, and people blasphemed the name of God who has the power over these plagues. They didn’t repent and give him glory.</text>
+      <text>People were scorched with great heat, and people blasphemed the name of God who has the power over these plagues. They didn't repent and give him glory.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Adamları qızmar isti qarsaladı vә onlar bu bәlaları idarә edәn Allahın adına küfr etdilәr, lakin tövbә edib Onu izzәtlәndirmәdilәr.</text>
@@ -2617,7 +2617,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="narrator-REV">
       <verse num="11" />
-      <text>and they blasphemed the God of heaven because of their pains and their sores. They didn’t repent of their works.</text>
+      <text>and they blasphemed the God of heaven because of their pains and their sores. They didn't repent of their works.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>vә öz iztirab vә yaralarına görә göylәrin Allahına küfr etdilәr, lakin öz әmәllәrindәn tövbә etmәdilәr.</text>
@@ -2661,7 +2661,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
-      <text>“Behold, I come like a thief. Blessed is he who watches, and keeps his clothes, so that he doesn’t walk naked, and they see his shame.”</text>
+      <text>“Behold, I come like a thief. Blessed is he who watches, and keeps his clothes, so that he doesn't walk naked, and they see his shame.”</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>&lt;&lt;Budur, oğru kimi gәlirәm; oyaq qalan, çılpaq gәzәrәk ayıbını göstәrmәmәk üçün paltarlarını әynindә saxlayan kәs nә bәxtiyardır!&gt;&gt;</text>
@@ -2722,7 +2722,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="17" initialStartVerse="0">
-      <text>REVELATION 17</text>
+      <text>REVELATION CHP 17</text>
     </ReferenceBlocks>
     <text>17</text>
   </block>
@@ -2896,7 +2896,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="18" initialStartVerse="0">
-      <text>REVELATION 18</text>
+      <text>REVELATION CHP 18</text>
     </ReferenceBlocks>
     <text>18</text>
   </block>
@@ -2942,7 +2942,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
-      <text>“Come out of her, my people, that you have no participation in her sins, and that you don’t receive of her plagues,  </text>
+      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,  </text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ey Mәnim xalqım, oradan çıxın ki, Onun günahlarına şәrik olmayasınız, Onun uğrayacağı bәlalara düçar olmayasınız.</text>
   </block>
@@ -3035,7 +3035,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="narrator-REV">
       <verse num="13" />
-      <text>and cinnamon, incense, perfume, frankincense, wine, olive oil, fine flour, wheat, sheep, horses, chariots, and people’s bodies and souls.</text>
+      <text>and cinnamon, incense, perfume, frankincense, wine, olive oil, fine flour, wheat, sheep, horses, chariots, and people's bodies and souls.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>darçın, hil, buxur, әtirli yağ vә kündürü; şәrab, zeytun yağı, narın un vә buğdanı; mal-qara, qoyunlar, atlar vә arabaları; insan bәdәnlәri vә canlarını da artıq heç kәs almır.</text>
@@ -3158,7 +3158,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="19" initialStartVerse="0">
-      <text>REVELATION 19</text>
+      <text>REVELATION CHP 19</text>
     </ReferenceBlocks>
     <text>19</text>
   </block>
@@ -3294,7 +3294,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="angel (one of the seven)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="angel (one of the seven)">
-      <text>“Look! Don’t do it! I am a fellow bondservant with you and with your brothers who hold the testimony of Jesus. Worship God, for the testimony of Jesus is the Spirit of Prophecy.”</text>
+      <text>“Look! Don't do it! I am a fellow bondservant with you and with your brothers who hold the testimony of Jesus. Worship God, for the testimony of Jesus is the Spirit of Prophecy.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Yox, olmaz! Mәn dә sәninlә vә İsa barәdә şәhadәt edәn qardaşlarınla birgә Allahın quluyam. Allaha sәcdә et. Çünki İsanın şәhadәti peyğәmbәrlәrә ilham verir&gt;&gt;.</text>
   </block>
@@ -3404,7 +3404,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="20" initialStartVerse="0">
-      <text>REVELATION 20</text>
+      <text>REVELATION CHP 20</text>
     </ReferenceBlocks>
     <text>20</text>
   </block>
@@ -3435,7 +3435,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="4" characterId="narrator-REV">
       <verse num="4" />
-      <text>I saw thrones, and they sat on them, and judgment was given to them. I saw the souls of those who had been beheaded for the testimony of Jesus, and for the word of God, and such as didn’t worship the beast nor his image, and didn’t receive the mark on their forehead and on their hand. They lived, and reigned with Christ for a thousand years.</text>
+      <text>I saw thrones, and they sat on them, and judgment was given to them. I saw the souls of those who had been beheaded for the testimony of Jesus, and for the word of God, and such as didn't worship the beast nor his image, and didn't receive the mark on their forehead and on their hand. They lived, and reigned with Christ for a thousand years.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Taxtları vә onların üzәrindә oturanları da gördüm. Onlara hökm etmәk ixtiyarı verildi. İsa barәdә şәhadәt vә Allahın kәlamı uğrunda boynu vurulmuş canları da gördüm. Vәhşi heyvana vә onun surәtinә sәcdә etmәyib alınlarına vә әllәrinә damğanı qәbul etmәmişdilәr. Onlar dirilib Mәsihlә birgә min il padşahlıq etdi.</text>
@@ -3443,7 +3443,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="narrator-REV">
       <verse num="5" />
-      <text>The rest of the dead didn’t live until the thousand years were finished. This is the first resurrection.</text>
+      <text>The rest of the dead didn't live until the thousand years were finished. This is the first resurrection.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Bu, birinci dirilmәdir. Qalan ölülәrsә min il bitmәyincә dirilmәdi.</text>
@@ -3539,7 +3539,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="21" initialStartVerse="0">
-      <text>REVELATION 21</text>
+      <text>REVELATION CHP 21</text>
     </ReferenceBlocks>
     <text>21</text>
   </block>
@@ -3569,7 +3569,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="voice from throne" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="voice from throne" multiBlockQuote="Start">
-      <text>“Behold, God’s dwelling is with people, and he will dwell with them, and they will be his people, and God himself will be with them as their God.</text>
+      <text>“Behold, God's dwelling is with people, and he will dwell with them, and they will be his people, and God himself will be with them as their God.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Budur, Allahın mәskәni insanların arasındadır. Allah onlarla birgә mәskәn salacaq; onlar Onun xalqı olacaq, Allah Özü onların Allahı olaraq aralarında yaşayacaq.</text>
   </block>
@@ -3730,7 +3730,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="19" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="19" characterId="narrator-REV">
       <verse num="19" />
-      <text>The foundations of the city’s wall were adorned with all kinds of precious stones. The first foundation was jasper; the second, sapphire; the third, chalcedony; the fourth, emerald;</text>
+      <text>The foundations of the city's wall were adorned with all kinds of precious stones. The first foundation was jasper; the second, sapphire; the third, chalcedony; the fourth, emerald;</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Şәhәr divarının tәmәllәri hәr cür qiymәtli daşla – birinci tәmәl yәşәmlә, ikincisi göy yaqutla, üçüncüsü әqiqlә, dördüncüsü zümrüdlә,</text>
@@ -3794,14 +3794,14 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-REV">
       <verse num="27" />
-      <text>There will in no way enter into it anything profane, or one who causes an abomination or a lie. Only those who are written in the Lamb’s book of life.</text>
+      <text>There will in no way enter into it anything profane, or one who causes an abomination or a lie. Only those who are written in the Lamb's book of life.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Oraya murdar olan heç bir şey, iyrәnc iş görәn vә yalan danışan heç kim әsla girmәyәcәk, yalnız adları Quzunun hәyat kitabına yazılanlar girәcәk.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="22" initialStartVerse="0">
-      <text>REVELATION 22</text>
+      <text>REVELATION CHP 22</text>
     </ReferenceBlocks>
     <text>22</text>
   </block>
@@ -3885,7 +3885,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="angel (one of the seven)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="angel (one of the seven)">
-      <text>“See you don’t do it! I am a fellow bondservant with you and with your brothers, the prophets, and with those who keep the words of this book. Worship God.”</text>
+      <text>“See you don't do it! I am a fellow bondservant with you and with your brothers, the prophets, and with those who keep the words of this book. Worship God.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Yox, olmaz! Mәn sәninlә, peyğәmbәr qardaşlarınla vә bu kitabın sözlәrinә riayәt edәnlәrlә birgә Allah quluyam. Allaha sәcdә et&gt;&gt;.</text>
   </block>
@@ -3899,7 +3899,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="angel (one of the seven)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="angel (one of the seven)" multiBlockQuote="Start">
-      <text>“Don’t seal up the words of the prophecy of this book, for the time is at hand.</text>
+      <text>“Don't seal up the words of the prophecy of this book, for the time is at hand.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bu kitabın peyğәmbәrlik sözlәrini möhürlәmә, çünki vaxt yaxındır.</text>
   </block>

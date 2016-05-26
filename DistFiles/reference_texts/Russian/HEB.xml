@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>HEBREWS 1</text>
+      <text>HEBREWS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -167,14 +167,14 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
       <verse num="14" />
-      <text>Aren’t they all serving spirits, sent out to do service for the sake of those who will inherit salvation?</text>
+      <text>Aren't they all serving spirits, sent out to do service for the sake of those who will inherit salvation?</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Не все ли они суть служебные духи, посылаемые на служение для тех, которые имеют наследовать спасение?</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>HEBREWS 2</text>
+      <text>HEBREWS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-HEB">
       <verse num="5" />
-      <text>For he didn’t subject the world to come, of which we speak, to angels.</text>
+      <text>For he didn't subject the world to come, of which we speak, to angels.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ибо не Ангелам Бог покорил будущую вселенную, о которой говорим;</text>
@@ -250,7 +250,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-HEB">
-      <text>For in that he subjected all things to him, he left nothing that is not subject to him. But now we don’t see all things subjected to him, yet.</text>
+      <text>For in that he subjected all things to him, he left nothing that is not subject to him. But now we don't see all things subjected to him, yet.</text>
     </ReferenceBlocks>
     <text>Когда же покорил ему все, то не оставил ничего непокоренным ему. Ныне же еще не видим, чтобы все было ему покорено;</text>
   </block>
@@ -332,7 +332,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-HEB">
       <verse num="16" />
-      <text>For most certainly, he doesn’t give help to angels, but he gives help to the seed of Abraham.</text>
+      <text>For most certainly, he doesn't give help to angels, but he gives help to the seed of Abraham.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Ибо не Ангелов восприемлет Он, но восприемлет семя Авраамово.</text>
@@ -355,7 +355,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>HEBREWS 3</text>
+      <text>HEBREWS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -419,7 +419,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
       <text>“Today if you will hear his voice, </text>
       <verse num="8" />
-      <text>don’t harden your hearts, as in the rebellion, like as in the day of the trial in the wilderness.</text>
+      <text>don't harden your hearts, as in the rebellion, like as in the day of the trial in the wilderness.</text>
     </ReferenceBlocks>
     <text>ныне, когда услышите глас Его, </text>
     <verse num="8" />
@@ -436,7 +436,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>Therefore I was displeased with that generation, and said, ‘They always err in their heart, but they didn’t know my ways.’</text>
+      <text>Therefore I was displeased with that generation, and said, ‘They always err in their heart, but they didn't know my ways.’</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Посему Я вознегодовал на оный род и сказал: непрестанно заблуждаются сердцем, не познали они путей Моих;</text>
@@ -479,14 +479,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture">
-      <text>“Today if you will hear his voice, don’t harden your hearts, as in the rebellion.”</text>
+      <text>“Today if you will hear his voice, don't harden your hearts, as in the rebellion.”</text>
     </ReferenceBlocks>
     <text>'ныне, когда услышите глас Его, не ожесточите сердец ваших, как во время ропота'.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-HEB">
       <verse num="16" />
-      <text>For who, when they heard, rebelled? No, didn’t all those who came out of Egypt by Moses?</text>
+      <text>For who, when they heard, rebelled? No, didn't all those who came out of Egypt by Moses?</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Ибо некоторые из слышавших возроптали; но не все вышедшие из Египта с Моисеем.</text>
@@ -494,7 +494,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-HEB">
       <verse num="17" />
-      <text>With whom was he displeased forty years? Wasn’t it with those who sinned, whose bodies fell in the wilderness?</text>
+      <text>With whom was he displeased forty years? Wasn't it with those who sinned, whose bodies fell in the wilderness?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>На кого же негодовал Он сорок лет? Не на согрешивших ли, которых кости пали в пустыне?</text>
@@ -502,7 +502,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-HEB">
       <verse num="18" />
-      <text>To whom did he swear that they wouldn’t enter into his rest, but to those who were disobedient?</text>
+      <text>To whom did he swear that they wouldn't enter into his rest, but to those who were disobedient?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Против кого же клялся, что не войдут в покой Его, как не против непокорных?</text>
@@ -517,7 +517,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>HEBREWS 4</text>
+      <text>HEBREWS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -532,7 +532,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-HEB">
       <verse num="2" />
-      <text>For indeed we have had good news preached to us, even as they also did, but the word they heard didn’t profit them, because it wasn’t mixed with faith by those who heard.</text>
+      <text>For indeed we have had good news preached to us, even as they also did, but the word they heard didn't profit them, because it wasn't mixed with faith by those who heard.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Ибо и нам оно возвещено, как и тем; но не принесло им пользы слово слышанное, не растворенное верою слышавших.</text>
@@ -588,7 +588,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-HEB">
       <verse num="6" />
-      <text>Those who received the good news first did not obey. So they do not enter God’s rest. Others may therefore still enter.</text>
+      <text>Those who received the good news first did not obey. So they do not enter God's rest. Others may therefore still enter.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Итак, как некоторым остается войти в него, а те, которым прежде возвещено, не вошли в него за непокорность,</text>
@@ -603,7 +603,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
-      <text>“Today if you will hear his voice, don’t harden your hearts.”</text>
+      <text>“Today if you will hear his voice, don't harden your hearts.”</text>
     </ReferenceBlocks>
     <text>'ныне, когда услышите глас Его, не ожесточите сердец ваших'.</text>
   </block>
@@ -666,7 +666,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-HEB">
       <verse num="15" />
-      <text>For we don’t have a high priest who can’t be touched with the feeling of our infirmities. But one who has been in all points tempted like we are, yet without sin.</text>
+      <text>For we don't have a high priest who can't be touched with the feeling of our infirmities. But one who has been in all points tempted like we are, yet without sin.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Ибо мы имеем не такого первосвященника, который не может сострадать нам в немощах наших, но Который, подобно нам, искушен во всем, кроме греха.</text>
@@ -681,7 +681,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>HEBREWS 5</text>
+      <text>HEBREWS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -720,7 +720,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-HEB">
       <verse num="5" />
-      <text>So also Christ didn’t glorify himself to be made a high priest, but it was he who said to him,</text>
+      <text>So also Christ didn't glorify himself to be made a high priest, but it was he who said to him,</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Так и Христос не Сам Себе присвоил славу быть первосвященником, но Тот, Кто сказал Ему:</text>
@@ -756,7 +756,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-HEB">
       <verse num="8" />
-      <text>Though he was God’s Son, yet he learned obedience by the things which he suffered.</text>
+      <text>Though he was God's Son, yet he learned obedience by the things which he suffered.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>хотя Он и Сын, однако страданиями навык послушанию,</text>
@@ -811,7 +811,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>HEBREWS 6</text>
+      <text>HEBREWS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -979,7 +979,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>HEBREWS 7</text>
+      <text>HEBREWS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1018,7 +1018,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-HEB">
       <verse num="5" />
-      <text>They indeed of the sons of Levi who receive the priest’s office have a commandment to take tithes of the people according to the law. That is, of their brothers, though these have come out of the body of Abraham.</text>
+      <text>They indeed of the sons of Levi who receive the priest's office have a commandment to take tithes of the people according to the law. That is, of their brothers, though these have come out of the body of Abraham.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Получающие священство из сынов Левииных имеют заповедь—брать по закону десятину с народа, то есть со своих братьев, хотя и сии произошли от чресл Авраамовых.</text>
@@ -1206,7 +1206,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-HEB">
       <verse num="27" />
-      <text>who doesn’t need, like those high priests, to offer up sacrifices daily, first for his own sins, and then for the sins of the people. For he did this once for all, when he offered up himself.</text>
+      <text>who doesn't need, like those high priests, to offer up sacrifices daily, first for his own sins, and then for the sins of the people. For he did this once for all, when he offered up himself.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Который не имеет нужды ежедневно, как те первосвященники, приносить жертвы сперва за свои грехи, потом за грехи народа, ибо Он совершил это однажды, принеся в жертву Себя Самого.</text>
@@ -1221,7 +1221,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>HEBREWS 8</text>
+      <text>HEBREWS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1304,7 +1304,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn’t continue in my covenant, and I disregarded them,” says the Lord.</text>
+      <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn't continue in my covenant, and I disregarded them,” says the Lord.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>не такой завет, какой Я заключил с отцами их в то время, когда взял их за руку, чтобы вывести их из земли Египетской, потому что они не пребыли в том завете Моем, и Я пренебрег их, говорит Господь.</text>
@@ -1349,7 +1349,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>HEBREWS 9</text>
+      <text>HEBREWS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1380,7 +1380,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-HEB">
       <verse num="4" />
-      <text>In the Holy of Holies was a golden altar of incense, and the ark of the covenant overlaid on all sides with gold. In this ark was a golden pot holding the manna, Aaron’s rod that budded, and the tablets of the covenant.</text>
+      <text>In the Holy of Holies was a golden altar of incense, and the ark of the covenant overlaid on all sides with gold. In this ark was a golden pot holding the manna, Aaron's rod that budded, and the tablets of the covenant.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>имевшая золотую кадильницу и обложенный со всех сторон золотом ковчег завета, где были золотой сосуд с манною, жезл Ааронов расцветший и скрижали завета,</text>
@@ -1412,7 +1412,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-HEB">
       <verse num="8" />
-      <text>The Holy Spirit is indicating this, that the way into the Holy Place wasn’t yet revealed while the first tabernacle was still standing.</text>
+      <text>The Holy Spirit is indicating this, that the way into the Holy Place wasn't yet revealed while the first tabernacle was still standing.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Сим Дух Святый показывает, что еще не открыт путь во святилище, доколе стоит прежняя скиния.</text>
@@ -1542,7 +1542,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-HEB">
       <verse num="24" />
-      <text>For Christ hasn’t entered into holy places made with hands, which are representations of the true, but into heaven itself, now to appear in the presence of God for us.</text>
+      <text>For Christ hasn't entered into holy places made with hands, which are representations of the true, but into heaven itself, now to appear in the presence of God for us.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Ибо Христос вошел не в рукотворенное святилище, по образу истинного устроенное, но в самое небо, чтобы предстать ныне за нас пред лице Божие,</text>
@@ -1581,7 +1581,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>HEBREWS 10</text>
+      <text>HEBREWS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1596,7 +1596,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-HEB">
       <verse num="2" />
-      <text>Or else wouldn’t they have ceased to be offered, because the worshippers, having been once cleansed, would have had no more consciousness of sins?</text>
+      <text>Or else wouldn't they have ceased to be offered, because the worshippers, having been once cleansed, would have had no more consciousness of sins?</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Иначе перестали бы приносить их, потому что приносящие жертву, быв очищены однажды, не имели бы уже никакого сознания грехов.</text>
@@ -1627,7 +1627,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
-      <text>“Sacrifice and offering you didn’t desire, but you prepared a body for me;</text>
+      <text>“Sacrifice and offering you didn't desire, but you prepared a body for me;</text>
     </ReferenceBlocks>
     <text>жертвы и приношения Ты не восхотел, но тело уготовал Мне.</text>
   </block>
@@ -1657,7 +1657,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
-      <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn’t desire, neither had pleasure in them”</text>
+      <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them”</text>
     </ReferenceBlocks>
     <text>что 'ни жертвы, ни приношения, ни всесожжений, ни жертвы за грех,</text>
   </block>
@@ -1786,7 +1786,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-HEB">
       <verse num="21" />
-      <text>We have a great priest over God’s house.</text>
+      <text>We have a great priest over God's house.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>и имея великого Священника над домом Божиим,</text>
@@ -1794,7 +1794,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-HEB">
       <verse num="22" />
-      <text>Therefore, let’s draw near with a true heart in fullness of faith, having our hearts sprinkled from an evil conscience, and having our body washed with pure water.</text>
+      <text>Therefore, let's draw near with a true heart in fullness of faith, having our hearts sprinkled from an evil conscience, and having our body washed with pure water.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>да приступаем с искренним сердцем, с полною верою, кроплением очистив сердца от порочной совести, и омыв тело водою чистою,</text>
@@ -1916,7 +1916,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="narrator-HEB">
       <verse num="35" />
-      <text>Therefore don’t throw away your boldness, which has a great reward.</text>
+      <text>Therefore don't throw away your boldness, which has a great reward.</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Итак не оставляйте упования вашего, которому предстоит великое воздаяние.</text>
@@ -1957,7 +1957,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>HEBREWS 11</text>
+      <text>HEBREWS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -1996,7 +1996,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-HEB">
       <verse num="5" />
-      <text>By faith, Enoch was taken away, so that he wouldn’t see death, and he was not found, because God translated him. For he has had testimony given to him that before his translation he had been well pleasing to God.</text>
+      <text>By faith, Enoch was taken away, so that he wouldn't see death, and he was not found, because God translated him. For he has had testimony given to him that before his translation he had been well pleasing to God.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Верою Енох переселен был так, что не видел смерти; и не стало его, потому что Бог переселил его. Ибо прежде переселения своего получил он свидетельство, что угодил Богу.</text>
@@ -2146,7 +2146,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-HEB">
       <verse num="23" />
-      <text>By faith, Moses, when he was born, was hidden for three months by his parents. They saw that he was a beautiful child, and they were not afraid of the king’s commandment.</text>
+      <text>By faith, Moses, when he was born, was hidden for three months by his parents. They saw that he was a beautiful child, and they were not afraid of the king's commandment.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Верою Моисей по рождении три месяца скрываем был родителями своими, ибо видели они, что дитя прекрасно, и не устрашились царского повеления.</text>
@@ -2154,7 +2154,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="narrator-HEB">
       <verse num="24" />
-      <text>By faith, Moses, when he had grown up, refused to be called the son of Pharaoh’s daughter.</text>
+      <text>By faith, Moses, when he had grown up, refused to be called the son of Pharaoh's daughter.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Верою Моисей, придя в возраст, отказался называться сыном дочери фараоновой,</text>
@@ -2162,7 +2162,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-HEB">
       <verse num="25" />
-      <text>He choose rather to share ill treatment with God’s people, than to enjoy the pleasures of sin for a time;</text>
+      <text>He choose rather to share ill treatment with God's people, than to enjoy the pleasures of sin for a time;</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>и лучше захотел страдать с народом Божиим, нежели иметь временное греховное наслаждение,</text>
@@ -2210,7 +2210,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-HEB">
       <verse num="31" />
-      <text>By faith, Rahab the prostitute, didn’t perish with those who were disobedient, having received the spies in peace.</text>
+      <text>By faith, Rahab the prostitute, didn't perish with those who were disobedient, having received the spies in peace.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Верою Раав блудница, с миром приняв соглядатаев (и проводив их другим путем), не погибла с неверными.</text>
@@ -2274,7 +2274,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="39" characterId="narrator-HEB">
       <verse num="39" />
-      <text>These all, having had testimony given to them through their faith, didn’t receive the promise.</text>
+      <text>These all, having had testimony given to them through their faith, didn't receive the promise.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>И все сии, свидетельствованные в вере, не получили обещанного,</text>
@@ -2289,7 +2289,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>HEBREWS 12</text>
+      <text>HEBREWS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -2312,7 +2312,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-HEB">
       <verse num="3" />
-      <text>For consider him who has endured such contradiction of sinners against himself, that you don’t grow weary, fainting in your souls.</text>
+      <text>For consider him who has endured such contradiction of sinners against himself, that you don't grow weary, fainting in your souls.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Помыслите о Претерпевшем такое над Собою поругание от грешников, чтобы вам не изнемочь и не ослабеть душами вашими.</text>
@@ -2335,7 +2335,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="scripture" multiBlockQuote="Start">
-      <text>“My son, don’t take lightly the chastening of the Lord, nor faint when you are reproved by him;</text>
+      <text>“My son, don't take lightly the chastening of the Lord, nor faint when you are reproved by him;</text>
     </ReferenceBlocks>
     <text>сын мой! не пренебрегай наказания Господня, и не унывай, когда Он обличает тебя.</text>
   </block>
@@ -2350,7 +2350,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="narrator-HEB">
       <verse num="7" />
-      <text>It is for discipline that you endure. God deals with you as with children, for what son is there whom his father doesn’t discipline?</text>
+      <text>It is for discipline that you endure. God deals with you as with children, for what son is there whom his father doesn't discipline?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Если вы терпите наказание, то Бог поступает с вами, как с сынами. Ибо есть ли какой сын, которого бы не наказывал отец?</text>
@@ -2506,7 +2506,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="25" characterId="narrator-HEB">
       <verse num="25" />
-      <text>See that you don’t refuse him who speaks. For if they didn’t escape when they refused him who warned on the earth, how much more will we not escape who turn away from him who warns from heaven.</text>
+      <text>See that you don't refuse him who speaks. For if they didn't escape when they refused him who warned on the earth, how much more will we not escape who turn away from him who warns from heaven.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Смотрите, не отвратитесь и вы от говорящего. Если те, не послушав глаголавшего на земле, не избегли наказания, то тем более не избежим мы, если отвратимся от Глаголющего с небес,</text>
@@ -2536,7 +2536,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="28" characterId="narrator-HEB">
       <verse num="28" />
-      <text>Therefore, receiving a Kingdom that can’t be shaken, let us have grace, through which we serve God acceptably, with reverence and awe,</text>
+      <text>Therefore, receiving a Kingdom that can't be shaken, let us have grace, through which we serve God acceptably, with reverence and awe,</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>Итак мы, приемля царство непоколебимое, будем хранить благодать, которою будем служить благоугодно Богу, с благоговением и страхом,</text>
@@ -2551,7 +2551,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="HEB" initialStartVerse="0" characterId="BC-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>HEBREWS 13</text>
+      <text>HEBREWS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2566,7 +2566,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-HEB">
       <verse num="2" />
-      <text>Don’t forget to show hospitality to strangers, for in doing so, some have entertained angels without knowing it.</text>
+      <text>Don't forget to show hospitality to strangers, for in doing so, some have entertained angels without knowing it.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Страннолюбия не забывайте, ибо через него некоторые, не зная, оказали гостеприимство Ангелам.</text>
@@ -2634,7 +2634,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="9" characterId="narrator-HEB">
       <verse num="9" />
-      <text>Don’t be carried away by various and strange teachings. It is good that the heart be established by grace, not by food, through which those who were so occupied were not benefited.</text>
+      <text>Don't be carried away by various and strange teachings. It is good that the heart be established by grace, not by food, through which those who were so occupied were not benefited.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Учениями различными и чуждыми не увлекайтесь; ибо хорошо благодатью укреплять сердца, а не яствами, от которых не получили пользы занимающиеся ими.</text>
@@ -2674,7 +2674,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-HEB">
       <verse num="14" />
-      <text>For we don’t have here an enduring city, but we seek that which is to come.</text>
+      <text>For we don't have here an enduring city, but we seek that which is to come.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>ибо не имеем здесь постоянного града, но ищем будущего.</text>
@@ -2690,7 +2690,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-HEB">
       <verse num="16" />
-      <text>But don’t forget to be doing good and sharing, for with such sacrifices God is well pleased.</text>
+      <text>But don't forget to be doing good and sharing, for with such sacrifices God is well pleased.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Не забывайте также благотворения и общительности, ибо таковые жертвы благоугодны Богу.</text>

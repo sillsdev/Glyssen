@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 JOHN 1</text>
+      <text>1 JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -55,7 +55,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don’t tell the truth.</text>
+      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don't tell the truth.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Әgәr biz &lt;&lt;Allahla şәrikliyimiz var&gt;&gt; dediyimiz halda qaranlıqda gәziriksә, demәk, yalan danışırıq vә hәqiqәtә әmәl etmirik.</text>
@@ -87,14 +87,14 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>If we say that we haven’t sinned, we make him a liar, and his word is not in us.</text>
+      <text>If we say that we haven't sinned, we make him a liar, and his word is not in us.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Әgәr günahkar olmadığımızı iddia ediriksә, onda Onu yalançı yerinә qoyuruq vә daxilimizdә Onun sözü olmur.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 JOHN 2</text>
+      <text>1 JOHN CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -125,7 +125,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
       <verse num="4" />
-      <text>One who says, “I know him,” and doesn’t keep his commandments, is a liar, and the truth isn’t in him.</text>
+      <text>One who says, “I know him,” and doesn't keep his commandments, is a liar, and the truth isn't in him.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Kim &lt;&lt;Onu tanıyıram&gt;&gt; deyir, amma Onun әmrlәrinә riayәt etmirsә, yalançıdır vә onun daxilindә hәqiqәt yoxdur.</text>
@@ -133,7 +133,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
       <verse num="5" />
-      <text>But whoever keeps his word, God’s love has most certainly been perfected in him. This is how we know that we are in him:</text>
+      <text>But whoever keeps his word, God's love has most certainly been perfected in him. This is how we know that we are in him:</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Lakin kim Onun sözünә riayәt edirsә, Allah mәhәbbәti onda, hәqiqәtәn, kamilliyә çatıb. Bundan bilirik ki, biz Allahdayıq.</text>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
       <verse num="11" />
-      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn’t know where he is going, because the darkness has blinded his eyes.</text>
+      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn't know where he is going, because the darkness has blinded his eyes.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Amma qardaşına nifrәt edәn qaranlıqdadır. O, qaranlıqda gәzir vә hara getdiyini bilmir, çünki qaranlıq onun gözlәrini kor edib.</text>
@@ -189,7 +189,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>I write to you, little children, because your sins are forgiven you for his name’s sake.</text>
+      <text>I write to you, little children, because your sins are forgiven you for his name's sake.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Ey övladlar, sizә yazıram, çünki Onun adı naminә günahlarınız bağışlanıb.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
       <verse num="15" />
-      <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
+      <text>Don't love the world, neither the things that are in the world. If anyone loves the world, the Father's love isn't in him.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Dünyanı vә dünyada olan şeylәri sevmәyin. Kim dünyanı sevirsә, onda Atadan olan mәhәbbәt yoxdur.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn’t the Father’s, but is the world’s.</text>
+      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn't the Father's, but is the world's.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Çünki dünyada olan hәr şey – cismani ehtiraslar, acgözlük vә dünya malına görә tәkәbbür Atadan yox, dünyadan gәlir.</text>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
+      <text>The world is passing away with its lusts, but he who does God's will remains forever.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Dünya vә ondakı ehtiraslar keçib-gedir, amma Allahın iradәsinә әmәl edәn әbәdi qalır.</text>
@@ -245,7 +245,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
       <verse num="19" />
-      <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
+      <text>They went out from us, but they didn't belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Onlar bizim aramızdan çıxdılar, amma bizә mәxsus deyildilәr. Әgәr bizә mәxsus olsaydılar, bizimlә qalardılar. Amma qalmadılar ki, heç birinin bizә mәxsus olmadığı aşkara çıxsın.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>I have not written to you because you don’t know the truth, but because you know it, and because no lie is of the truth.</text>
+      <text>I have not written to you because you don't know the truth, but because you know it, and because no lie is of the truth.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Mәn sizә hәqiqәti bilmәdiyiniz üçün deyil, onu bildiyiniz üçün yazdım; siz bunu da bilirsiniz ki, heç bir yalanın hәqiqәtlә әlaqәsi yoxdur.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
       <verse num="23" />
-      <text>Whoever denies the Son, the same doesn’t have the Father. He who confesses the Son has the Father also.</text>
+      <text>Whoever denies the Son, the same doesn't have the Father. He who confesses the Son has the Father also.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Oğulu inkar edәn hәr kәs Ataya da malik deyil, lakin Oğulu iqrar edәn kәs Ataya da malikdir.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
       <verse num="27" />
-      <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
+      <text>As for you, the anointing which you received from him remains in you, and you don't need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Sizә gәlincә, Ondan aldığınız mәsh daxilinizdә qalır vә ehtiyacınız yoxdur ki, kimsә sizә tәlim versin. Әksinә, Onun bu mәshi sizә hәr şey barәdә tәlim verir vә bu, yalan deyil, hәqiqәtdir. Ona görә dә sizә öyrәtdiyi kimi Onda qalın.</text>
@@ -332,14 +332,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 JOHN 3</text>
+      <text>1 JOHN CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn’t know us, because it didn’t know him.</text>
+      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn't know us, because it didn't know him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Görün Ata bizә necә mәhәbbәt göstәrib ki, biz Allahın övladları adlanırıq! Doğrudan da, belәyik! Dünya Onu tanımadığına görә bizi dә tanımır.</text>
@@ -379,7 +379,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>Whoever remains in him doesn’t sin. Whoever sins hasn’t seen him, neither knows him.</text>
+      <text>Whoever remains in him doesn't sin. Whoever sins hasn't seen him, neither knows him.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Onda qalan hәr kәs günahını davam etdirmәz. Günahını davam etdirәn hәr kәs nә Onu görüb, nә dә Onu tanıyır.</text>
@@ -403,7 +403,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>Whoever is born of God doesn’t commit sin, because his seed remains in him; and he can’t sin, because he is born of God.</text>
+      <text>Whoever is born of God doesn't commit sin, because his seed remains in him; and he can't sin, because he is born of God.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Allahdan doğulan hәr kәs günahını davam etdirmәz, çünki Allahın toxumu onda qalır. O, günahını davam etdirә bilmәz, çünki Allahdan doğulub.</text>
@@ -411,7 +411,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn’t do righteousness is not of God, neither is he who doesn’t love his brother.</text>
+      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn't do righteousness is not of God, neither is he who doesn't love his brother.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Kimin Allahın övladı, kiminsә iblisin övladı olması bundan aydın olur: saleh iş görmәyәn, hәmçinin qardaşını sevmәyәn hәr kәs Allahdan deyil.</text>
@@ -427,7 +427,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother’s righteous.</text>
+      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother's righteous.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Şәrdәn olub qardaşını öldürәn Qabil kimi olmayaq. O, qardaşını niyә öldürdü? Ona görә ki öz әmәllәri şәr, qardaşının әmәllәri isә saleh idi.</text>
@@ -435,7 +435,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
       <verse num="13" />
-      <text>Don’t be surprised, my brothers, if the world hates you.</text>
+      <text>Don't be surprised, my brothers, if the world hates you.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Belәliklә, qardaşlar, dünya sizә nifrәt edirsә, heyrәt etmәyin.</text>
@@ -443,7 +443,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
       <verse num="14" />
-      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn’t love his brother remains in death.</text>
+      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn't love his brother remains in death.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Qardaşlarımızı sevdiyimizә görә biz bilirik ki, ölümdәn hәyata keçmişik. Sevmәyәnsә ölümdә qalır.</text>
@@ -467,7 +467,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>But whoever has the world’s goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
+      <text>But whoever has the world's goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Әgәr kimsә dünya malına sahib olarkәn qardaşını ehtiyac içindә görüb ona rәhmi gәlmirsә, Allah mәhәbbәti onda necә qala bilәr?</text>
@@ -475,7 +475,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>My little children, let’s not love in word only, neither with the tongue only, but in deed and truth.</text>
+      <text>My little children, let's not love in word only, neither with the tongue only, but in deed and truth.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Ey övladlar, sözdә vә dildә deyil, әmәldә vә hәqiqәtdә sevәk.</text>
@@ -499,7 +499,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>Beloved, if our hearts don’t condemn us, we have boldness toward God;</text>
+      <text>Beloved, if our hearts don't condemn us, we have boldness toward God;</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Ey sevimlilәr, әgәr ürәyimiz bizi mәhkum etmirsә, demәk, Allahın hüzurunda cәsarәtlә danışa bilәrik</text>
@@ -530,14 +530,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 JOHN 4</text>
+      <text>1 JOHN CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Beloved, don’t believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
+      <text>Beloved, don't believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ey sevimlilәr, hәr ruha inanmayın; ruhların Allahdan olub-olmadığını bilmәk üçün onları sınaqdan keçirin. Çünki dünyada çoxlu yalançı peyğәmbәr meydana çıxıb.</text>
@@ -553,7 +553,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
       <verse num="3" />
-      <text>And every spirit who doesn’t confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
+      <text>And every spirit who doesn't confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>İsanı iqrar etmәyәn hәr ruhsa Allahdan deyil. Bu, &lt;&lt;Mәsih әleyhdarı&gt;&gt; nın ruhudur ki, bu ruhun gәlәcәyini eşitmisiniz vә indi dә artıq dünyadadır.</text>
@@ -577,7 +577,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>We are of God. He who knows God listens to us. He who is not of God doesn’t listen to us. By this we know the spirit of truth, and the spirit of error.</text>
+      <text>We are of God. He who knows God listens to us. He who is not of God doesn't listen to us. By this we know the spirit of truth, and the spirit of error.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Bizsә Allahdanıq. Allahı tanıyan bizә qulaq asır, Allahdan olmayansa bizә qulaq asmır. Hәqiqәt ruhunu vә aldatma ruhunu bundan tanıyırıq.</text>
@@ -593,7 +593,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
       <verse num="8" />
-      <text>He who doesn’t love doesn’t know God, for God is love.</text>
+      <text>He who doesn't love doesn't know God, for God is love.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Sevmәyәn kәs Allahı tanımır, çünki Allah mәhәbbәtdir.</text>
@@ -601,7 +601,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>By this God’s love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
+      <text>By this God's love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Allahın bizә olan mәhәbbәti belә zahir oldu: Allah Öz vahid Oğlunu dünyaya göndәrdi ki, biz Onun vasitәsilә yaşayaq.</text>
@@ -689,7 +689,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
       <verse num="20" />
-      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn’t love his brother whom he has seen, how can he love God whom he has not seen?</text>
+      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn't love his brother whom he has seen, how can he love God whom he has not seen?</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Kim &lt;&lt;mәn Allahı sevirәm&gt;&gt; deyir, amma öz qardaşına nifrәt edirsә, yalançıdır. Axı gördüyü qardaşını sevmәyәn görmәdiyi Allahı sevә bilmәz.</text>
@@ -704,7 +704,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 JOHN 5</text>
+      <text>1 JOHN CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -775,7 +775,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>If we receive the witness of men, the witness of God is greater; for this is God’s testimony which he has testified concerning his Son.</text>
+      <text>If we receive the witness of men, the witness of God is greater; for this is God's testimony which he has testified concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Biz insanların şәhadәtini qәbul edirik, amma Allahın şәhadәti bundan üstündür. Çünki bu, Allahın şәhadәtidir; O Öz Oğlu barәdә şәhadәt edib.</text>
@@ -783,7 +783,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>He who believes in the Son of God has the testimony in himself. He who doesn’t believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
+      <text>He who believes in the Son of God has the testimony in himself. He who doesn't believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Allahın Oğluna iman edәn kәs öz daxilindә bu şәhadәtә malikdir. Amma Allaha inanmayan Onu yalançı yerinә qoyub. Çünki Allahın Öz Oğlu barәdә verdiyi şәhadәtә inanmayıb.</text>
@@ -799,7 +799,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
+      <text>He who has the Son has the life. He who doesn't have God's Son doesn't have the life.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Oğula malik olan şәxsin hәyatı var, Allahın Oğluna malik olmayan şәxsin isә hәyatı yoxdur.</text>
@@ -831,7 +831,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don’t say that he should make a request concerning this.</text>
+      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don't say that he should make a request concerning this.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Әgәr bir kәs qardaşının ölümә aparmayan günah etdiyini görsә, qoy Allahdan onun sağ qalmasını dilәsin vә belәcә ona – ölümә aparmayan günah edәn kәsә hәyat versin. Ölümә aparan günah da var. Demirәm ki, bu barәdә Allahdan istәsin.</text>
@@ -847,7 +847,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>We know that whoever is born of God doesn’t sin, but he who was born of God keeps himself, and the evil one doesn’t touch him.</text>
+      <text>We know that whoever is born of God doesn't sin, but he who was born of God keeps himself, and the evil one doesn't touch him.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Bilirik ki, Allahdan doğulan hәr kәs günahını davam etdirmәz. Әksinә, Allahdan doğulan Oğul onu qoruyur vә şәr olan ona toxuna bilmir.</text>

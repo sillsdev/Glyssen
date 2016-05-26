@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 TIMOTHY 1</text>
+      <text>2 TIMOTHY CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -63,7 +63,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI">
       <verse num="7" />
-      <text>For God didn’t give us a spirit of fear, but of power, love, and self-control.</text>
+      <text>For God didn't give us a spirit of fear, but of power, love, and self-control.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Sebab Allah memberikan kepada kita bukan roh ketakutan, melainkan roh yang membangkitkan kekuatan, kasih dan ketertiban.</text>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI">
       <verse num="8" />
-      <text>Therefore don’t be ashamed of the testimony of our Lord, nor of me his prisoner; but endure hardship for the Good News according to the power of God.</text>
+      <text>Therefore don't be ashamed of the testimony of our Lord, nor of me his prisoner; but endure hardship for the Good News according to the power of God.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Jadi janganlah malu bersaksi tentang Tuhan kita dan janganlah malu karena aku, seorang hukuman karena Dia, melainkan ikutlah menderita bagi Injil-Nya oleh kekuatan Allah.</text>
@@ -158,7 +158,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 TIMOTHY 2</text>
+      <text>2 TIMOTHY CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -197,7 +197,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI">
       <verse num="5" />
-      <text>Also, if anyone competes in athletics, he isn’t crowned unless he has competed by the rules.</text>
+      <text>Also, if anyone competes in athletics, he isn't crowned unless he has competed by the rules.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Seorang olahragawan hanya dapat memperoleh mahkota sebagai juara, apabila ia bertanding menurut peraturan-peraturan olahraga.</text>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI">
       <verse num="9" />
-      <text>in which I suffer hardship to the point of chains as a criminal. But God’s word isn’t chained.</text>
+      <text>in which I suffer hardship to the point of chains as a criminal. But God's word isn't chained.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Karena pemberitaan Injil inilah aku menderita, malah dibelenggu seperti seorang penjahat, tetapi firman Allah tidak terbelenggu.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI">
       <verse num="13" />
-      <text>If we are faithless, he remains faithful. He can’t deny himself.”</text>
+      <text>If we are faithless, he remains faithful. He can't deny himself.”</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>jika kita tidak setia, Dia tetap setia, karena Dia tidak dapat menyangkal diri-Nya.&gt;&gt;</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI">
       <verse num="14" />
-      <text>Remind them of these things, charging them in the sight of the Lord, that they don’t argue about words. It is of no profit, subverting of those who hear.</text>
+      <text>Remind them of these things, charging them in the sight of the Lord, that they don't argue about words. It is of no profit, subverting of those who hear.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Ingatkanlah dan pesankanlah semuanya itu dengan sungguh-sungguh kepada mereka di hadapan Allah, agar jangan mereka bersilat kata, karena hal itu sama sekali tidak berguna, malah mengacaukan orang yang mendengarnya.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI">
       <verse num="15" />
-      <text>Study to present yourself approved by God, a workman who doesn’t need to be ashamed, properly handling the Word of Truth.</text>
+      <text>Study to present yourself approved by God, a workman who doesn't need to be ashamed, properly handling the Word of Truth.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Usahakanlah supaya engkau layak di hadapan Allah sebagai seorang pekerja yang tidak usah malu, yang berterus terang memberitakan perkataan kebenaran itu.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
       <verse num="19" />
-      <text>However God’s firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
+      <text>However God's firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Tetapi dasar yang diletakkan Allah itu teguh dan meterainya ialah: &lt;&lt;Tuhan mengenal siapa kepunyaan-Nya&gt;&gt; dan &lt;&lt;Setiap orang yang menyebut nama Tuhan hendaklah meninggalkan kejahatan.&gt;&gt;</text>
@@ -325,7 +325,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI">
       <verse num="21" />
-      <text>If anyone therefore purges himself from these, he will be a vessel for honor, sanctified. A vessel suitable for the master’s use, prepared for every good work.</text>
+      <text>If anyone therefore purges himself from these, he will be a vessel for honor, sanctified. A vessel suitable for the master's use, prepared for every good work.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Jika seorang menyucikan dirinya dari hal-hal yang jahat, ia akan menjadi perabot rumah untuk maksud yang mulia, ia dikuduskan, dipandang layak untuk dipakai tuannya dan disediakan untuk setiap pekerjaan yang mulia.</text>
@@ -349,7 +349,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI">
       <verse num="24" />
-      <text>The Lord’s servant must not quarrel, but be gentle towards all, able to teach, and be patient.</text>
+      <text>The Lord's servant must not quarrel, but be gentle towards all, able to teach, and be patient.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>sedangkan seorang hamba Tuhan tidak boleh bertengkar, tetapi harus ramah terhadap semua orang. Ia harus cakap mengajar, sabar</text>
@@ -365,14 +365,14 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI">
       <verse num="26" />
-      <text>Then they may recover themselves out of the devil’s snare, having been taken captive by him to his will.</text>
+      <text>Then they may recover themselves out of the devil's snare, having been taken captive by him to his will.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>dan dengan demikian mereka menjadi sadar kembali, karena terlepas dari jerat Iblis yang telah mengikat mereka pada kehendaknya.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 TIMOTHY 3</text>
+      <text>2 TIMOTHY CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -514,7 +514,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>2 TIMOTHY 4</text>
+      <text>2 TIMOTHY CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>

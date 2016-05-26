@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>PHILIPPIANS 1</text>
+      <text>PHILIPPIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -183,7 +183,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
       <verse num="22" />
-      <text>But if I live on in the flesh, this will bring fruit from my work; yet I don’t know what I will choose.</text>
+      <text>But if I live on in the flesh, this will bring fruit from my work; yet I don't know what I will choose.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Mas, se eu continuar vivendo, poderei ainda fazer algum trabalho útil. Então não sei o que devo escolher.</text>
@@ -254,7 +254,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>PHILIPPIANS 2</text>
+      <text>PHILIPPIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -381,7 +381,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
       <verse num="16" />
-      <text>holding up the word of life; that I may have something to boast in the day of Christ, that I didn’t run in vain nor labor in vain.</text>
+      <text>holding up the word of life; that I may have something to boast in the day of Christ, that I didn't run in vain nor labor in vain.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>entregando a elas a mensagem da vida. Se agirem assim, eu terei motivo de sentir orgulho de vocês no Dia de Cristo b, pois isso mostrará que todo o meu esforço e todo o meu trabalho não foram inúteis.</text>
@@ -500,7 +500,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>PHILIPPIANS 3</text>
+      <text>PHILIPPIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -603,7 +603,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
       <verse num="13" />
-      <text>Brothers, I don’t regard myself as yet having taken hold, but one thing I do. Forgetting the things which are behind, and stretching forward to the things which are before,</text>
+      <text>Brothers, I don't regard myself as yet having taken hold, but one thing I do. Forgetting the things which are behind, and stretching forward to the things which are before,</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>É claro, irmãos, que eu não penso que já consegui isso. Porém uma coisa eu faço: esqueço aquilo que fica para trás e avanço para o que está na minha frente.</text>
@@ -674,7 +674,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="PHP" initialStartVerse="0" characterId="BC-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>PHILIPPIANS 4</text>
+      <text>PHILIPPIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -849,7 +849,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
       <verse num="22" />
-      <text>All the saints greet you, especially those who are of Caesar’s household.</text>
+      <text>All the saints greet you, especially those who are of Caesar's household.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Todo o povo de Deus daqui manda saudações, especialmente os do palácio do Imperador e.</text>

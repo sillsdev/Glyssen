@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 CORINTHIANS 1</text>
+      <text>1 CORINTHIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -95,7 +95,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1CO">
       <verse num="11" />
-      <text>For it has been reported to me concerning you, my brothers, by those who are from Chloe’s household, that there are contentions among you.</text>
+      <text>For it has been reported to me concerning you, my brothers, by those who are from Chloe's household, that there are contentions among you.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Ol brata bilong mi, ol lain bilong Kloe ol i bin tokim mi olsem yupela i gat kros i stap namel long yupela.</text>
@@ -135,7 +135,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>(I also baptized the household of Stephanas; besides them, I don’t know whether I baptized any other.)</text>
+      <text>(I also baptized the household of Stephanas; besides them, I don't know whether I baptized any other.)</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Tru, mi bin baptaisim narapela lain tu, em ol lain i stap long haus bilong Stefanas. Na mi baptaisim ol arapela tu, o nogat, em mi no save.</text>
@@ -143,7 +143,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO">
       <verse num="17" />
-      <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
+      <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn't be made void.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Krais i no bin salim mi bilong baptaisim ol man. Nogat. Em i salim mi bilong autim gutnius. Na mi no ken autim long kain smatpela tok ol saveman i save mekim. Nogat. Nogut mi mekim diwai kros bilong Krais em i kamap olsem samting nating.</text>
@@ -169,7 +169,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
       <verse num="20" />
-      <text>Where is the wise? Where is the scribe? Where is the lawyer of this world? Hasn’t God made foolish the wisdom of this world?</text>
+      <text>Where is the wise? Where is the scribe? Where is the lawyer of this world? Hasn't God made foolish the wisdom of this world?</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Orait nau bai yumi tok wanem long ol gutpela tingting na save bilong ol saveman bilong dispela graun? Bai yumi tok wanem long ol man i save tumas long lo bilong Moses? Na long ol man i save tumas long pait long toktok? God i bin mekim olgeta save bilong ol man bilong dispela graun i kamap olsem kranki toktok tasol.</text>
@@ -177,7 +177,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1CO">
       <verse num="21" />
-      <text>For seeing that in the wisdom of God, the world through its wisdom didn’t know God. It was God’s good pleasure through the foolishness of the preaching to save those who believe.</text>
+      <text>For seeing that in the wisdom of God, the world through its wisdom didn't know God. It was God's good pleasure through the foolishness of the preaching to save those who believe.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Long gutpela tingting na save bilong en, God i save olsem, long save bilong ol yet ol man bilong graun i no inap kisim save long em. Olsem na God i makim narapela rot bilong em i ken kisim bek ol, em dispela "kranki toktok" mipela i save autim. Ol man i harim dispela toktok na ol i bilip long God, orait God i save kisim bek ol.</text>
@@ -272,14 +272,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 CORINTHIANS 2</text>
+      <text>1 CORINTHIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>When I came to you, brothers, I didn’t come with excellence of speech or of wisdom, proclaiming to you the testimony of God.</text>
+      <text>When I came to you, brothers, I didn't come with excellence of speech or of wisdom, proclaiming to you the testimony of God.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ol brata, taim mi bin i kam long yupela na mi autim tok hait bilong God long yupela, mi no bin mekim ol kain kain bikpela toktok olsem ol saveman i save mekim.</text>
@@ -311,7 +311,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1CO">
       <verse num="5" />
-      <text>That way, your faith wouldn’t stand in the wisdom of men, but in the power of God.</text>
+      <text>That way, your faith wouldn't stand in the wisdom of men, but in the power of God.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Mi bin mekim olsem, long wanem, mi no laik bai save bilong man i kamapim bilip bilong yupela. Nogat. Mi laik bai strong bilong God tasol i kamapim dispela bilip.</text>
@@ -327,7 +327,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1CO">
       <verse num="7" />
-      <text>But we speak God’s wisdom in a mystery, the wisdom that has been hidden, which God foreordained before the worlds for our glory.</text>
+      <text>But we speak God's wisdom in a mystery, the wisdom that has been hidden, which God foreordained before the worlds for our glory.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Nogat. Mipela i autim tok long gutpela tingting na save bilong God. Taim God i no wokim graun yet, na long save bilong em, em i bin makim rot bilong mekim yumi i sindaun gut wantaim em long heven. Tasol tok bilong dispela rot i bin i stap hait,</text>
@@ -335,7 +335,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1CO">
       <verse num="8" />
-      <text>None of the rulers of this world has understood. For had they known it, they wouldn’t have crucified the Lord of glory. </text>
+      <text>None of the rulers of this world has understood. For had they known it, they wouldn't have crucified the Lord of glory. </text>
       <verse num="9" />
       <text>But as it is written,</text>
     </ReferenceBlocks>
@@ -346,7 +346,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
-      <text>“Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.”</text>
+      <text>“Things which an eye didn't see, and an ear didn't hear, which didn't enter into the heart of man, these God has prepared for those who love him.”</text>
     </ReferenceBlocks>
     <text>"ol samting bipo i no gat man i bin lukim o harim tok long en, na i no bin kamap long tingting bilong man tu, em ol samting God i bin redim i stap bilong ol man i save laikim em tru."</text>
   </block>
@@ -361,7 +361,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1CO">
       <verse num="11" />
-      <text>For who among men knows the things of a man, except the spirit of the man, which is in him? Even so, no one knows the things of God, except God’s Spirit.</text>
+      <text>For who among men knows the things of a man, except the spirit of the man, which is in him? Even so, no one knows the things of God, except God's Spirit.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>I no gat man i save long tingting bilong narapela man. Nogat. Spirit bilong dispela man yet, em i stap insait long em, em tasol i save. Olsem tasol, i no gat wanpela man i save long tingting bilong God. Spirit bilong God yet, em tasol i save.</text>
@@ -377,7 +377,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>Which things also we speak, not in words which man’s wisdom teaches, but which the Holy Spirit teaches, comparing spiritual things with spiritual things.</text>
+      <text>Which things also we speak, not in words which man's wisdom teaches, but which the Holy Spirit teaches, comparing spiritual things with spiritual things.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Mipela i save tokaut long ol dispela presen. Tasol tok bilong mipela i no kam long save bilong man. Nogat. Holi Spirit yet i bin skulim mipela, na mipela i mekim dispela tok. Mipela i save autim tok bilong Holi Spirit long ol man Holi Spirit i stap long ol.</text>
@@ -385,7 +385,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1CO">
       <verse num="14" />
-      <text>Now the natural man doesn’t receive the things of God’s Spirit, for they are foolishness to him. He can’t know them, because they are spiritually discerned.</text>
+      <text>Now the natural man doesn't receive the things of God's Spirit, for they are foolishness to him. He can't know them, because they are spiritually discerned.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Tasol man i no gat Holi Spirit, em i no inap kisim ol presen bilong Spirit bilong God, long wanem, em i save ting ol dispela presen i kranki samting tasol. Yumi save kisim ol dispela presen long Holi Spirit tasol, olsem na ol man i gat Holi Spirit, ol tasol inap skelim na save tru long ol dispela presen.</text>
@@ -408,20 +408,20 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
-      <text>But we have Christ’s mind.</text>
+      <text>But we have Christ's mind.</text>
     </ReferenceBlocks>
     <text>Tasol tingting bilong Krais i stap long yumi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 CORINTHIANS 3</text>
+      <text>1 CORINTHIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>Brothers, I couldn’t speak to you as to spiritual, but as to fleshly, as to babies in Christ.</text>
+      <text>Brothers, I couldn't speak to you as to spiritual, but as to fleshly, as to babies in Christ.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ol brata, bipo mi no inap givim tok long yupela olsem mi save givim long ol man i save bihainim Holi Spirit. Nogat. Mi bin givim tok long yupela olsem mi save givim long ol man i bihainim pasin bilong olpela bel. Long dispela taim yupela i bin i stap yet olsem ol pikinini long pasin bilong Krais.</text>
@@ -429,7 +429,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1CO">
       <verse num="2" />
-      <text>I fed you with milk, not with meat; for you weren’t yet ready. Indeed, not even now are you ready.</text>
+      <text>I fed you with milk, not with meat; for you weren't yet ready. Indeed, not even now are you ready.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Mi bin givim susu long yupela. Mi no bin givim strongpela kaikai long yupela, long wanem, yupela i no redi yet long kisim strongpela kaikai. Na nau tu yupela i no redi yet,</text>
@@ -437,7 +437,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1CO">
       <verse num="3" />
-      <text>You are still fleshly. For insofar as there is jealousy, strife, and factions among you, aren’t you fleshly, and don’t you walk in the ways of men?</text>
+      <text>You are still fleshly. For insofar as there is jealousy, strife, and factions among you, aren't you fleshly, and don't you walk in the ways of men?</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>long wanem, yupela i bihainim yet pasin bilong olpela bel. Yes, pasin bilong bel nogut long ol brata na tok pait, em i stap yet long yupela. Na ol dispela pasin yupela i save mekim, ol i pasin bilong olpela bel. Ol i pasin bilong ol man bilong graun tasol.</text>
@@ -445,7 +445,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
       <verse num="4" />
-      <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren’t you fleshly?</text>
+      <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren't you fleshly?</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Wanpela man i save tok, "Mi bilong Pol." Na narapela i tok, "Mi bilong Apolos." Long dispela pasin yupela i stap olsem ol man bilong graun.</text>
@@ -485,7 +485,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1CO">
       <verse num="9" />
-      <text>For we are God’s fellow workers. You are God’s farming, God’s building.</text>
+      <text>For we are God's fellow workers. You are God's farming, God's building.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Mitupela i wanwok bilong God, na yupela i olsem gaden bilong en.</text>
@@ -517,7 +517,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>his work will be shown for what it is, because the Day will bring it to light. It will be revealed with fire; and the fire itself will test what sort of work each man’s work is.</text>
+      <text>his work will be shown for what it is, because the Day will bring it to light. It will be revealed with fire; and the fire itself will test what sort of work each man's work is.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Orait bihain wok bilong olgeta man bai i kamap ples klia long de God i makim bilong kotim ol manmeri. Dispela de bai i kamap olsem paia, na dispela paia bai i traim wok bilong olgeta man wan wan, bilong painimaut wok bilong ol i gutpela o nogat.</text>
@@ -525,7 +525,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1CO">
       <verse num="14" />
-      <text>If any man’s work remains which he built on it, he will receive a reward.</text>
+      <text>If any man's work remains which he built on it, he will receive a reward.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Sapos wanpela man i wokim haus antap long dispela ston, na haus bilong en i no paia, orait dispela wokman bai i kisim pe.</text>
@@ -533,7 +533,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1CO">
       <verse num="15" />
-      <text>If any man’s work is burned, he will suffer loss, but he himself will be saved, but as through fire.</text>
+      <text>If any man's work is burned, he will suffer loss, but he himself will be saved, but as through fire.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Tasol sapos haus bilong wanpela wokman em i paia olgeta, orait olgeta wok bilong dispela man bai i lus. Wokman yet bai i no inap lus, tasol em bai i stap olsem man yumi kisim bek long paia.</text>
@@ -541,7 +541,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>Don’t you know that you are a temple of God, and that God’s Spirit lives in you?</text>
+      <text>Don't you know that you are a temple of God, and that God's Spirit lives in you?</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Yupela i haus bilong God yet, na Spirit bilong God i stap insait long yupela. Ating yupela i no save long dispela?</text>
@@ -549,7 +549,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1CO">
       <verse num="17" />
-      <text>If anyone destroys the temple of God, God will destroy him; for God’s temple is holy, which you are.</text>
+      <text>If anyone destroys the temple of God, God will destroy him; for God's temple is holy, which you are.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Sapos wanpela man i bagarapim haus bilong God, orait God bai i bagarapim dispela man, long wanem, haus bilong God em i samting God i makim bilong em yet. Na dispela haus, em yupela tasol</text>
@@ -616,14 +616,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 CORINTHIANS 4</text>
+      <text>1 CORINTHIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>So let a man think of us as Christ’s servants, and stewards of God’s mysteries.</text>
+      <text>So let a man think of us as Christ's servants, and stewards of God's mysteries.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Yupela i mas ting olsem mipela i wokman bilong Krais na mipela i gat wok bilong lukautim gut ol tok hait bilong God.</text>
@@ -639,7 +639,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1CO">
       <verse num="3" />
-      <text>But with me it is a very small thing that I should be judged by you, or by man’s judgment. Yes, I don’t judge my own self.</text>
+      <text>But with me it is a very small thing that I should be judged by you, or by man's judgment. Yes, I don't judge my own self.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Olsem na sapos yupela i laik skelim pasin bilong mi, o sapos ol man i laik skelim pasin bilong mi long kot, bai mi no wari liklik. Mi tu mi no save skelim pasin bilong mi yet.</text>
@@ -671,7 +671,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1CO">
       <verse num="7" />
-      <text>For who makes you different? And what do you have that you didn’t receive? But if you did receive it, why do you boast as if you had not received it?</text>
+      <text>For who makes you different? And what do you have that you didn't receive? But if you did receive it, why do you boast as if you had not received it?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Pren, olsem wanem? Husat i putim yu i stap bikman? Yu gat wanpela gutpela samting yu no bin kisim long God, a? Na sapos i tru yu bin kisim olgeta samting long han bilong God, orait bilong wanem yu litimapim nem bilong yu yet, olsem yu yet yu bin kamapim ol dispela samting?</text>
@@ -695,7 +695,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1CO">
       <verse num="10" />
-      <text>We are fools for Christ’s sake, but you are wise in Christ. We are weak, but you are strong. You have honor, but we have dishonor.</text>
+      <text>We are fools for Christ's sake, but you are wise in Christ. We are weak, but you are strong. You have honor, but we have dishonor.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Bilong litimapim nem bilong Krais, mipela i stap olsem ol krankiman, tasol yupela i stap saveman long pasin bilong Krais. Mipela i no gat strong, tasol yupela i kamap strong pinis. Mipela i no gat nem, tasol yupela i gat biknem.</text>
@@ -727,7 +727,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1CO">
       <verse num="14" />
-      <text>I don’t write these things to shame you, but to admonish you as my beloved children.</text>
+      <text>I don't write these things to shame you, but to admonish you as my beloved children.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Mi no raitim dispela tok bilong semim yupela. Nogat. Mi raitim, long wanem, mi laikim tumas yupela ol pikinini bilong mi, na mi laik kliaim tingting bilong yupela.</text>
@@ -790,14 +790,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 CORINTHIANS 5</text>
+      <text>1 CORINTHIANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>It is actually reported that there is sexual immorality among you. Such sexual immorality as is not even named among the Gentiles, that one has his father’s wife.</text>
+      <text>It is actually reported that there is sexual immorality among you. Such sexual immorality as is not even named among the Gentiles, that one has his father's wife.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Mi harim ol i stori olsem, wanpela kain pasin pamuk i kamap namel long yupela, em kain pasin nogut tru ol haiden yet i no save mekim. Dispela pasin i olsem, wanpela man i bin kisim meri bilong papa bilong en.</text>
@@ -805,7 +805,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1CO">
       <verse num="2" />
-      <text>You are puffed up, and didn’t rather mourn, that he who had done this deed might be removed from among you.</text>
+      <text>You are puffed up, and didn't rather mourn, that he who had done this deed might be removed from among you.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Tasol yupela i ting yupela i nambawan tru na i winim ol arapela, a? Mobeta yupela i lusim dispela pasin bilong apim nem bilong yupela yet, na yupela i sori na krai. Mobeta yupela i rausim dispela man i bin mekim dispela pasin nogut, na bai em i no i stap moa wantaim yupela.</text>
@@ -837,7 +837,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1CO">
       <verse num="6" />
-      <text>Your boasting is not good. Don’t you know that a little yeast leavens the whole lump?</text>
+      <text>Your boasting is not good. Don't you know that a little yeast leavens the whole lump?</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Yupela i save apim nem bilong yupela yet, na em i no gutpela pasin. Olsem wanem? Ating yupela i no save olsem, liklik yis tasol i save mekim olgeta bret i solap?</text>
@@ -877,7 +877,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1CO">
       <verse num="11" />
-      <text>But as it is, I wrote to you not to associate with anyone who is called a brother who is a sexual sinner, or covetous, or an idolater, or a slanderer, or a drunkard, or an extortioner. Don’t even eat with such a person.</text>
+      <text>But as it is, I wrote to you not to associate with anyone who is called a brother who is a sexual sinner, or covetous, or an idolater, or a slanderer, or a drunkard, or an extortioner. Don't even eat with such a person.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Tasol as bilong tok mi bin raitim em i olsem. Sapos wanpela man yupela i save kolim brata long Krais, em i mekim pasin pamuk o em i mangal long ol samting bilong ol arapela man o em i lotu long ol giaman god o em i tok bilas o em i spak o em i stilim samting bilong narapela man, orait yupela i no ken i stap wantaim em. Nogat. Na tu, yupela i no ken kaikai wantaim kain man olsem.</text>
@@ -885,7 +885,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1CO">
       <verse num="12" />
-      <text>For what have I to do with also judging those who are outside? Don’t you judge those who are within?</text>
+      <text>For what have I to do with also judging those who are outside? Don't you judge those who are within?</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Olsem wanem? Ating mi gat wok bilong skelim pasin bilong ol man i stap ausait long sios, a? Nogat tru. Tasol wok bilong skelim pasin bilong ol man i stap insait long sios, em i wok bilong yupela stret.</text>
@@ -900,7 +900,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>1 CORINTHIANS 6</text>
+      <text>1 CORINTHIANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -915,7 +915,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1CO">
       <verse num="2" />
-      <text>Don’t you know that the saints will judge the world? And if the world is judged by you, are you unworthy to judge the smallest matters?</text>
+      <text>Don't you know that the saints will judge the world? And if the world is judged by you, are you unworthy to judge the smallest matters?</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Ating yupela i no save olsem, yumi manmeri bilong God yumi bai i skelim pasin bilong olgeta manmeri bilong graun? Na sapos yumi bai i mekim olsem, orait bilong wanem yupela i no inap long skelim dispela kain liklik tok i kamap namel long yupela yet?</text>
@@ -923,7 +923,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1CO">
       <verse num="3" />
-      <text>Don’t you know that we will judge angels? How much more, things that pertain to this life?</text>
+      <text>Don't you know that we will judge angels? How much more, things that pertain to this life?</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Na ating yupela i no save olsem yumi bai i skelim pasin bilong ol ensel tu? Orait sapos yumi bai i mekim olsem, ating yumi inap tru long skelim tok bilong ol samting bilong dispela graun.</text>
@@ -939,7 +939,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1CO">
       <verse num="5" />
-      <text>I say this to move you to shame. Isn’t there even one wise man among you who would be able to decide between his brothers?</text>
+      <text>I say this to move you to shame. Isn't there even one wise man among you who would be able to decide between his brothers?</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Mi mekim dispela tok bilong semim yupela. Olsem wanem? Ating namel long yupela i no gat wanpela man i gat save inap long skelim tok i kamap namel long tupela brata?</text>
@@ -971,7 +971,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1CO">
       <verse num="9" />
-      <text>Or don’t you know that the unrighteous will not inherit the Kingdom of God? Don’t be deceived. Neither the sexually immoral, nor idolaters, nor adulterers, nor effeminate, nor homosexuals,</text>
+      <text>Or don't you know that the unrighteous will not inherit the Kingdom of God? Don't be deceived. Neither the sexually immoral, nor idolaters, nor adulterers, nor effeminate, nor homosexuals,</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Ol man i save mekim pasin nogut, ol bai i no inap i go insait long kingdom bilong God. Ating yupela i no save long dispela, a? Nogut yupela i giamanim bel bilong yupela yet. Ol man i save mekim pasin pamuk, na ol man i save lotu long ol giaman god, na ol man i trabel long ol maritmeri, na ol man i save mekim ol kain kain pasin i gat sem wantaim ol arapela man,</text>
@@ -1019,7 +1019,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1CO">
       <verse num="15" />
-      <text>Don’t you know that your bodies are members of Christ? Shall I then take the members of Christ, and make them members of a prostitute? May it never be!</text>
+      <text>Don't you know that your bodies are members of Christ? Shall I then take the members of Christ, and make them members of a prostitute? May it never be!</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Ating yupela i no save olsem, ol bodi bilong yupela i hap hap bilong bodi bilong Krais? Olsem na sapos mi kisim ol hap bodi bilong Krais na mekim i kamap hap bodi bilong pamukmeri, dispela em i gutpela pasin, a? Nogat tru.</text>
@@ -1027,7 +1027,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>Or don’t you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
+      <text>Or don't you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Man i pas wantaim pamukmeri, em i kamap wanpela bodi wantaim em. Ating yupela i no save long dispela? Buk bilong God i tok olsem, "Tupela bai i kamap wanpela bodi tasol."</text>
@@ -1051,7 +1051,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1CO">
       <verse num="19" />
-      <text>Or don’t you know that your body is a temple of the Holy Spirit which is in you, which you have from God? You are not your own.</text>
+      <text>Or don't you know that your body is a temple of the Holy Spirit which is in you, which you have from God? You are not your own.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Ating yupela i no save olsem, bodi bilong yupela em i haus bilong Holi Spirit. God i givim Spirit pinis long yupela, na em i stap insait long yupela. Yupela i no bilong yupela yet.</text>
@@ -1059,14 +1059,14 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1CO">
       <verse num="20" />
-      <text>God bought you with a price. Therefore glorify God in your body and in your spirit, which are God’s.</text>
+      <text>God bought you with a price. Therefore glorify God in your body and in your spirit, which are God's.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Nogat. God i bin baim bek yupela long bikpela pe tumas. Olsem na olgeta samting yupela i mekim long bodi bilong yupela, yupela i mas mekim bilong litimapim nem bilong God.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>1 CORINTHIANS 7</text>
+      <text>1 CORINTHIANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1097,7 +1097,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-1CO">
       <verse num="4" />
-      <text>The wife doesn’t have authority over her own body, but the husband. Likewise also the husband doesn’t have authority over his own body, but the wife.</text>
+      <text>The wife doesn't have authority over her own body, but the husband. Likewise also the husband doesn't have authority over his own body, but the wife.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Meri i no bos bilong bodi bilong em yet. Nogat. Man bilong en em i bos. Na olsem tasol, man i no bos bilong bodi bilong em yet. Nogat. Meri bilong en em i bos.</text>
@@ -1105,7 +1105,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-1CO">
       <verse num="5" />
-      <text>Don’t deprive one another, unless it is by consent for a season, that you may give yourselves to fasting and prayer. Then come together again, that Satan doesn’t tempt you because of your lack of self-control.</text>
+      <text>Don't deprive one another, unless it is by consent for a season, that you may give yourselves to fasting and prayer. Then come together again, that Satan doesn't tempt you because of your lack of self-control.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Sapos yutupela i marit, orait wanpela i no ken givim baksait long arapela na pasim bodi bilong en. Tru, sapos yutupela i wanbel na i laik tambuim bodi long sotpela taim, bai yutupela i ken mekim wok bilong prea, orait dispela pasin em i orait. Tasol bihain yutupela i mas bungim bodi gen. Nogut yupela i no inap bosim laik bilong bodi bilong yupela yet, na Satan i traim yupela.</text>
@@ -1137,7 +1137,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-1CO">
       <verse num="9" />
-      <text>But if they don’t have self-control, let them marry. For it’s better to marry than to burn.</text>
+      <text>But if they don't have self-control, let them marry. For it's better to marry than to burn.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Tasol sapos ol i no inap bosim gut laik bilong bodi bilong ol yet, orait mobeta ol i marit. Nogut bel bilong ol i skrap long mekim pasin pamuk.</text>
@@ -1233,7 +1233,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-1CO">
       <verse num="21" />
-      <text>Were you called being a bondservant? Don’t let that bother you, but if you get an opportunity to become free, use it.</text>
+      <text>Were you called being a bondservant? Don't let that bother you, but if you get an opportunity to become free, use it.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Ating yu bin i stap wokboi o wokmeri nating na God i singautim yu? Orait yu no ken bel hevi long dispela. Tasol sapos i gat rot bilong yu kamap fri, orait i gutpela sapos yu bihainim dispela rot.</text>
@@ -1241,7 +1241,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-1CO">
       <verse num="22" />
-      <text>For he who was called in the Lord being a bondservant is the Lord’s free man. Likewise he who was called being free is Christ’s bondservant.</text>
+      <text>For he who was called in the Lord being a bondservant is the Lord's free man. Likewise he who was called being free is Christ's bondservant.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Tasol man i bin i stap wokboi nating na God i singautim em, nau em i bilong Bikpela na long ai bilong Bikpela em i no moa i stap wokboi nating. Olsem tasol, man i bin i stap fri long taim Bikpela i singautim em, nau em i kamap wokboi nating bilong Krais.</text>
@@ -1249,7 +1249,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
-      <text>You were bought with a price. Don’t become bondservants of men.</text>
+      <text>You were bought with a price. Don't become bondservants of men.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>God i bin baim bek yupela long bikpela pe tru, olsem na yupela i no ken i kamap wokboi nating bilong ol man.</text>
@@ -1281,7 +1281,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-1CO">
       <verse num="27" />
-      <text>Are you bound to a wife? Don’t seek to be freed. Are you free from a wife? Don’t seek a wife.</text>
+      <text>Are you bound to a wife? Don't seek to be freed. Are you free from a wife? Don't seek a wife.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Sapos yu kisim meri pinis, orait yu no ken painim rot bilong lusim em. Na sapos yu no marit yet, orait yu no ken ting long kisim meri.</text>
@@ -1305,7 +1305,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-1CO">
       <verse num="30" />
-      <text>and those who weep, as though they didn’t weep; and those who rejoice, as though they didn’t rejoice; and those who buy, as though they didn’t possess;</text>
+      <text>and those who weep, as though they didn't weep; and those who rejoice, as though they didn't rejoice; and those who buy, as though they didn't possess;</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Na ol man i save krai, ol i mas i stap olsem ol i no krai. Na ol man i save amamas, ol i mas i stap olsem ol i no amamas. Na ol man i save baim samting, ol i mas i stap olsem ol i no gat samting.</text>
@@ -1353,7 +1353,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-1CO">
       <verse num="36" />
-      <text>But if any man thinks that he is behaving inappropriately toward his virgin, if she is past the flower of her age, let them marry. Let him do what he desires. He doesn’t sin. Let them marry.</text>
+      <text>But if any man thinks that he is behaving inappropriately toward his virgin, if she is past the flower of her age, let them marry. Let him do what he desires. He doesn't sin. Let them marry.</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Sapos wanpela man i ting em i mekim pasin i no stret long yangpela meri ol i bin makim bilong em, na sapos laik bilong en i strong tumas, na sapos em i lukim i no gat narapela rot, orait em i ken bihainim laik bilong en na maritim dispela meri. Em i no mekim sin.</text>
@@ -1369,7 +1369,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="38" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="38" characterId="narrator-1CO">
       <verse num="38" />
-      <text>So then both he who gives his own virgin in marriage does well, and he who doesn’t give her in marriage does better.</text>
+      <text>So then both he who gives his own virgin in marriage does well, and he who doesn't give her in marriage does better.</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Olsem na man i maritim yangpela meri ol i makim bilong en, em i mekim gutpela pasin. Tasol man i no maritim yangpela meri ol i makim bilong en, em i mekim pasin i gutpela moa.</text>
@@ -1385,14 +1385,14 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="narrator-1CO">
       <verse num="40" />
-      <text>But she is happier if she stays as she is, in my judgment, and I think that I also have God’s Spirit.</text>
+      <text>But she is happier if she stays as she is, in my judgment, and I think that I also have God's Spirit.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Tasol mi yet mi ting olsem, sapos em i no marit gen, em bai i stap amamas tasol. Mi ting Spirit bilong God i stap long mi, na mi autim ol dispela tok. god, o nogat?</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>1 CORINTHIANS 8</text>
+      <text>1 CORINTHIANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1407,7 +1407,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-1CO">
       <verse num="2" />
-      <text>But if anyone thinks that he knows anything, he doesn’t yet know as he ought to know.</text>
+      <text>But if anyone thinks that he knows anything, he doesn't yet know as he ought to know.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Wanpela man inap ting olsem em i save tru long wanpela samting, tasol save bilong dispela man i no inap yet.</text>
@@ -1447,7 +1447,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-1CO">
       <verse num="7" />
-      <text>However, that knowledge isn’t in all men. But some, with consciousness of the idol until now, eat as of a thing sacrificed to an idol, and their conscience, being weak, is defiled.</text>
+      <text>However, that knowledge isn't in all men. But some, with consciousness of the idol until now, eat as of a thing sacrificed to an idol, and their conscience, being weak, is defiled.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Tasol sampela man i no save long ol dispela samting. Sampela i bin bihainim pasin bilong ol giaman god bipo. Olsem na taim ol i kaikai dispela mit, ol i save ting em i ofa tru bilong giaman god. Tingting bilong ol i no klia, na ol i kaikai, olsem na ol i pilim olsem ol i bin mekim pasin i no stret.</text>
@@ -1455,7 +1455,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-1CO">
       <verse num="8" />
-      <text>But food will not commend us to God. For neither, if we don’t eat, are we the worse; nor, if we eat, are we the better.</text>
+      <text>But food will not commend us to God. For neither, if we don't eat, are we the worse; nor, if we eat, are we the better.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Tru, kaikai i no inap bringim yumi i go klostu long God. Sapos yumi no kaikai, orait dispela i no mekim yumi i stap nogut long ai bilong God. Na sapos yumi kaikai, orait dispela tu i no mekim yumi i stap gut long ai bilong God.</text>
@@ -1471,7 +1471,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-1CO">
       <verse num="10" />
-      <text>For what if a man sees you who have knowledge sitting in an idol’s temple? Won’t his conscience, if he is weak, be emboldened to eat things sacrificed to idols?</text>
+      <text>For what if a man sees you who have knowledge sitting in an idol's temple? Won't his conscience, if he is weak, be emboldened to eat things sacrificed to idols?</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Yu man i gat save, sapos yu go long haus lotu bilong giaman god na yu sindaun kaikai, na sapos wanpela man tingting bilong en i no klia, em i lukim yu, orait ating dispela pasin bilong yu bai i kirapim bel bilong em na em tu bai i kaikai samting ol i bin ofaim long ol giaman god.</text>
@@ -1495,21 +1495,21 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>Therefore if food causes my brother to stumble, I will eat no meat forevermore, that I don’t cause my brother to stumble.</text>
+      <text>Therefore if food causes my brother to stumble, I will eat no meat forevermore, that I don't cause my brother to stumble.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Olsem na sapos kaikai i save mekim brata bilong mi i pundaun long sin, orait mi no inap tru kaikai mit gen long laip bilong mi. Nogut mi mekim brata bilong mi i pundaun long sin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>1 CORINTHIANS 9</text>
+      <text>1 CORINTHIANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>Am I not free? Am I not an apostle? Haven’t I seen Jesus Christ, our Lord? Aren’t you my work in the Lord?</text>
+      <text>Am I not free? Am I not an apostle? Haven't I seen Jesus Christ, our Lord? Aren't you my work in the Lord?</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Yupela lukim pasin bilong mi. Ating i gat wanpela samting i pasim mi? Nogat. Mi inap mekim wanem kain pasin mi laikim. Mi wanpela aposel, o nogat? Ating mi bin lukim Jisas, Bikpela bilong yumi, o nogat? Mi bin mekim wok bilong Bikpela, na ating yupela i bin kamap Kristen long wok bilong mi, o nogat?</text>
@@ -1553,7 +1553,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-1CO">
       <verse num="7" />
-      <text>What soldier ever serves at his own expense? Who plants a vineyard, and doesn’t eat of its fruit? Or who feeds a flock, and doesn’t drink from the flock’s milk?</text>
+      <text>What soldier ever serves at his own expense? Who plants a vineyard, and doesn't eat of its fruit? Or who feeds a flock, and doesn't drink from the flock's milk?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Wanem man i save mekim wok soldia na em yet i painim kaikai bilong en? Wanem man i save planim gaden na i no kisim kaikai bilong en? Na wanem man i save lukautim lain sipsip na em yet i no dring susu bilong ol?</text>
@@ -1561,7 +1561,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-1CO">
       <verse num="8" />
-      <text>Do I speak these things according to the ways of men? Or doesn’t the law also say the same thing?</text>
+      <text>Do I speak these things according to the ways of men? Or doesn't the law also say the same thing?</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Nogut yupela i ting mi bihainim tingting bilong ol man tasol na mi mekim dispela tok. Nogat. Lo tu i gat wankain tok.</text>
@@ -1601,7 +1601,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-1CO">
       <verse num="12" />
-      <text>If others partake of this right over you, don’t we yet more? Nevertheless we did not use this right, but we bear all things, that we may cause no hindrance to the Good News of Christ.</text>
+      <text>If others partake of this right over you, don't we yet more? Nevertheless we did not use this right, but we bear all things, that we may cause no hindrance to the Good News of Christ.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Sapos yupela i orait long ol arapela man i kisim ol samting long yupela, orait yupela i mas orait moa yet long mipela i kisim. i no save kisim. Olsem na mipela i save karim planti hevi. Mipela i no kisim, long wanem, mipela i no laik pasim rot bilong gutnius bilong Krais.</text>
@@ -1609,7 +1609,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-1CO">
       <verse num="13" />
-      <text>Don’t you know that those who serve around sacred things eat from the things of the temple? And those who wait on the altar have their portion with the altar?</text>
+      <text>Don't you know that those who serve around sacred things eat from the things of the temple? And those who wait on the altar have their portion with the altar?</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ol man i mekim wok long haus bilong God, ol i save kisim kaikai long haus bilong God. Na ol man i mekim wok bilong alta, ol i save kisim hap abus bilong ol ofa ol manmeri i mekim long alta. Ating yupela i no save long dispela?</text>
@@ -1625,7 +1625,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-1CO">
       <verse num="15" />
-      <text>But I have used none of these things, and I don’t write these things that it may be done so in my case; for I would rather die, than that anyone should make my boasting void.</text>
+      <text>But I have used none of these things, and I don't write these things that it may be done so in my case; for I would rather die, than that anyone should make my boasting void.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Tasol mi yet mi no save mekim dispela pasin Bikpela i tok long mi inap long mekim. Na nau tu mi no raitim dispela tok bilong kisim wanpela samting long yupela. Nogat tru. Mobeta mi dai pastaim. Mi save amamas long dispela pasin mi mekim. Olsem na mi no laik bai wanpela man i pinisim dispela pasin bilong mi, em mi save amamas long en.</text>
@@ -1633,7 +1633,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>For if I preach the Good News, I have nothing to boast about; for necessity is laid on me; but woe is to me, if I don’t preach the Good News.</text>
+      <text>For if I preach the Good News, I have nothing to boast about; for necessity is laid on me; but woe is to me, if I don't preach the Good News.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Taim mi autim gutnius, mi no inap apim nem bilong mi yet na mi amamas na tok, mi mekim gutpela pasin tru. Nogat. Autim gutnius em wok Bikpela i givim mi na mi mas mekim. Mi no inap lusim dispela wok. Sapos mi no autim gutnius, bai mi stap nogut tru.</text>
@@ -1697,7 +1697,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-1CO">
       <verse num="24" />
-      <text>Don’t you know that those who run in a race all run, but one receives the prize? Run like that, that you may win.</text>
+      <text>Don't you know that those who run in a race all run, but one receives the prize? Run like that, that you may win.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Ol man i ran long resis, olgeta i save ran, na wanpela tasol i save kisim prais. Ating yupela i no save long dispela? Orait yupela tu i mas ran strong bilong kisim prais.</text>
@@ -1728,7 +1728,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>1 CORINTHIANS 10</text>
+      <text>1 CORINTHIANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1829,7 +1829,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-1CO">
       <verse num="12" />
-      <text>Therefore let him who thinks he stands be careful that he doesn’t fall.</text>
+      <text>Therefore let him who thinks he stands be careful that he doesn't fall.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Olsem na sapos wanpela man i ting em i sanap strong, orait em i mas lukaut gut. Nogut em i pundaun.</text>
@@ -1861,7 +1861,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>The cup of blessing which we bless, isn’t it a sharing of the blood of Christ? The bread which we break, isn’t it a sharing of the body of Christ?</text>
+      <text>The cup of blessing which we bless, isn't it a sharing of the blood of Christ? The bread which we break, isn't it a sharing of the body of Christ?</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Dispela kap i gat blesing bilong God, na yumi save tok tenkyu long God long en, taim yumi dring long en, em i save bungim yumi wantaim blut bilong Krais. Na dispela bret yumi save brukim, taim yumi kaikai long en, em i save bungim yumi wantaim bodi bilong Krais.</text>
@@ -1877,7 +1877,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-1CO">
       <verse num="18" />
-      <text>Consider Israel according to the flesh. Don’t those who eat the sacrifices participate in the altar?</text>
+      <text>Consider Israel according to the flesh. Don't those who eat the sacrifices participate in the altar?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Yupela tingim pasin bilong ol Israel. Taim ol i kaikai abus ol i bin kukim antap long alta, dispela i save bungim ol wantaim God bilong dispela alta.</text>
@@ -1893,7 +1893,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-1CO">
       <verse num="20" />
-      <text>But I say that the things which the Gentiles sacrifice, they sacrifice to demons, and not to God. I don’t desire that you would have fellowship with demons.</text>
+      <text>But I say that the things which the Gentiles sacrifice, they sacrifice to demons, and not to God. I don't desire that you would have fellowship with demons.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Nogat. Mi tok olsem. Samting ol haiden i save ofaim, em "ol i ofaim long ol spirit nogut. Ol i no ofaim long God." Na mi no laik bai yupela i bung wantaim ol spirit nogut.</text>
@@ -1901,7 +1901,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-1CO">
       <verse num="21" />
-      <text>You can’t both drink the cup of the Lord and the cup of demons. You can’t both partake of the table of the Lord, and of the table of demons.</text>
+      <text>You can't both drink the cup of the Lord and the cup of demons. You can't both partake of the table of the Lord, and of the table of demons.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>I no inap yupela i dring long kap bilong Bikpela na long kap bilong ol spirit nogut tu. Na i no inap yupela i kaikai long tebol bilong Bikpela na long tebol bilong ol spirit nogut tu.</text>
@@ -1925,7 +1925,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-1CO">
       <verse num="24" />
-      <text>Let no one seek his own, but each one his neighbor’s good.</text>
+      <text>Let no one seek his own, but each one his neighbor's good.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Yumi no ken ting long helpim yumi yet. Nogat. Yumi mas ting long helpim ol arapela.</text>
@@ -1941,7 +1941,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
       <verse num="26" />
-      <text>The scriptures say, for “the earth is the Lord’s, and its fullness.”</text>
+      <text>The scriptures say, for “the earth is the Lord's, and its fullness.”</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Yumi save, "Dispela graun, wantaim olgeta samting i stap long en, em olgeta i bilong Bikpela tasol."</text>
@@ -1949,7 +1949,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
       <verse num="27" />
-      <text>But what if one of those who don’t believe invites you to a meal, and you are inclined to go? Eat whatever is set before you, asking no questions for the sake of conscience.</text>
+      <text>But what if one of those who don't believe invites you to a meal, and you are inclined to go? Eat whatever is set before you, asking no questions for the sake of conscience.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Na tu, sapos wanpela man i no bilip long Jisas, em i askim yupela long i go kaikai wantaim em, na sapos yupela i laik i go, em i orait. Yupela i ken kaikai olgeta samting em i givim long yupela. Na yupela i no ken tingting planti na askim nabaut.</text>
@@ -1957,7 +1957,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
       <verse num="28" />
-      <text>But if anyone says to you, “This was offered to idols, don’t eat it for the sake of the one who told you. And for the sake of conscience. For ‘the earth is the Lord’s, and all its fullness.’”</text>
+      <text>But if anyone says to you, “This was offered to idols, don't eat it for the sake of the one who told you. And for the sake of conscience. For ‘the earth is the Lord's, and all its fullness.’”</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>Tasol sapos wanpela man i stap na i tokim yupela olsem, "Dispela mit ol i bin ofaim long giaman god," orait yupela i mas ting long dispela man i bin tokim yupela, na yupela i no ken kaikai. Nogut yupela i mekim rong.</text>
@@ -1965,7 +1965,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
       <verse num="29" />
-      <text>Conscience, I say, not your own, but the other’s conscience. For why is my liberty judged by another conscience?</text>
+      <text>Conscience, I say, not your own, but the other's conscience. For why is my liberty judged by another conscience?</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Mi no tok long yupela yet bai i mekim rong. Mi tok long dispela arapela man bai i pilim olsem yupela i mekim rong. kaikai wanem samting mi laikim. Bilong wanem mi mas bihainim tingting bilong narapela man long wanem samting i tambu long mi long mekim?</text>
@@ -2004,7 +2004,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>1 CORINTHIANS 11</text>
+      <text>1 CORINTHIANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -2111,7 +2111,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-1CO">
       <verse num="14" />
-      <text>Doesn’t even nature itself teach you that if a man has long hair, it is a dishonor to him?</text>
+      <text>Doesn't even nature itself teach you that if a man has long hair, it is a dishonor to him?</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Pasin bilong yumi manmeri yet i soim yupela olsem, sapos man i gat longpela gras, em i no stret.</text>
@@ -2127,7 +2127,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>But if any man seems to be contentious, we have no such custom, neither do God’s assemblies.</text>
+      <text>But if any man seems to be contentious, we have no such custom, neither do God's assemblies.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Tasol sapos wanpela man i laik pait long toktok long ol dispela tok bilong mi, em i mas save gut olsem, mipela i no save bihainim ol arapela kain pasin, na ol sios bilong God tu i no gat ol arapela pasin.</text>
@@ -2135,7 +2135,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-1CO">
       <verse num="17" />
-      <text>But in giving you this command, I don’t praise you, that you come together not for the better but for the worse.</text>
+      <text>But in giving you this command, I don't praise you, that you come together not for the better but for the worse.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Orait nau mi laik tokim yupela long sampela pasin yupela i mas bihainim. Na long dispela samting mi laik toktok long en, mi no ken tok amamas long ol pasin yupela i save mekim. Nogat. Long taim yupela i bung bilong lotu, gutpela pasin i no save kamap. Nogat. Pasin bilong yupela i no gutpela tumas.</text>
@@ -2159,7 +2159,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-1CO">
       <verse num="20" />
-      <text>When therefore you assemble yourselves together, it is not the Lord’s supper that you eat.</text>
+      <text>When therefore you assemble yourselves together, it is not the Lord's supper that you eat.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Olsem na taim yupela i bung bilong lotu, dispela kaikai yupela i save mekim, em i no kaikai tru bilong Bikpela. Nogat.</text>
@@ -2175,7 +2175,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-1CO">
       <verse num="22" />
-      <text>What, don’t you have houses to eat and to drink in? Or do you despise God’s assembly, and put them to shame who don’t have? What shall I tell you? Shall I praise you? In this I don’t praise you.</text>
+      <text>What, don't you have houses to eat and to drink in? Or do you despise God's assembly, and put them to shame who don't have? What shall I tell you? Shall I praise you? In this I don't praise you.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Olsem wanem? Ating yupela i no gat ol haus bilong kaikai na dring long en, a? Yupela i ting sios bilong God em i samting nating, na yupela i kam bilong mekim ol brata i no gat kaikai i pilim sem? Bai mi tok wanem long yupela? Ating bai mi tok amamas long pasin bilong yupela? Long dispela samting mi no ken tok amamas long yupela. Nogat tru.</text>
@@ -2219,7 +2219,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
       <verse num="26" />
-      <text>For as often as you eat this bread and drink this cup, you proclaim the Lord’s death until he comes.</text>
+      <text>For as often as you eat this bread and drink this cup, you proclaim the Lord's death until he comes.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Dispela tok bilong Jisas i soim olsem, olgeta taim yupela i kaikai dispela bret na dring long dispela kap, yupela i save tokaut long pen na i dai bilong Bikpela, inap long taim em i kam bek.</text>
@@ -2227,7 +2227,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-1CO">
       <verse num="27" />
-      <text>Therefore whoever eats this bread or drinks the Lord’s cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord.</text>
+      <text>Therefore whoever eats this bread or drinks the Lord's cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Olsem na sapos wanpela man i mekim pasin i no stret long taim em i kaikai dispela bret bilong Bikpela na i dring long dispela kap bilong Bikpela, orait i olsem em i mekim nogut long bodi na blut bilong Bikpela yet, na em i gat asua long dispela pasin bilong en.</text>
@@ -2243,7 +2243,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-1CO">
       <verse num="29" />
-      <text>For he who eats and drinks in an unworthy way eats and drinks damnation to himself, if he doesn’t discern the Lord’s body.</text>
+      <text>For he who eats and drinks in an unworthy way eats and drinks damnation to himself, if he doesn't discern the Lord's body.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Long wanem, man i no tingting gut long bodi bilong Bikpela, na em i kaikai na dring, em i bringim asua i kam long em yet, na God bai i mekim save long en.</text>
@@ -2259,7 +2259,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-1CO">
       <verse num="31" />
-      <text>For if we discerned ourselves, we wouldn’t be judged.</text>
+      <text>For if we discerned ourselves, we wouldn't be judged.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Tasol sapos yumi skelim gut bel bilong yumi yet na yumi kaikai na dring, orait bai yumi no gat asua.</text>
@@ -2290,14 +2290,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>1 CORINTHIANS 12</text>
+      <text>1 CORINTHIANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>Now concerning spiritual things, brothers, I don’t want you to be ignorant.</text>
+      <text>Now concerning spiritual things, brothers, I don't want you to be ignorant.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ol brata, nau mi laik tokim yupela gut long ol presen bilong Holi Spirit.</text>
@@ -2313,7 +2313,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
       <verse num="3" />
-      <text>Therefore I make known to you that no man speaking by God’s Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
+      <text>Therefore I make known to you that no man speaking by God's Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Olsem na mi laik bai yupela i tingting gut long wanpela tok olsem. Sapos Spirit bilong God i stap long wanpela man na i givim toktok long em, dispela man i no inap tok, "Jisas i ken bagarap." Na man i no gat Holi Spirit, em i no inap tok, "Jisas em i Bikpela."</text>
@@ -2409,7 +2409,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
       <verse num="15" />
-      <text>If the foot would say, “Because I’m not the hand, I’m not part of the body,” it is not therefore not part of the body.</text>
+      <text>If the foot would say, “Because I'm not the hand, I'm not part of the body,” it is not therefore not part of the body.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Sapos lek i tok olsem, "Mi no han, olsem na mi no hap bilong bodi," maski, em i stap yet olsem hap bilong bodi.</text>
@@ -2417,7 +2417,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>If the ear would say, “Because I’m not the eye, I’m not part of the body,” it’s not therefore not part of the body.</text>
+      <text>If the ear would say, “Because I'm not the eye, I'm not part of the body,” it's not therefore not part of the body.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Na sapos yau i tok, "Mi no ai, olsem na mi no hap bilong bodi," maski, em i stap yet olsem hap bilong bodi.</text>
@@ -2453,7 +2453,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
       <verse num="21" />
-      <text>The eye can’t tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
+      <text>The eye can't tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Na ai i no inap tokim han olsem, "Sapos yu no i stap, mi wanpela bai mi stap gut." Na het tu i no inap tokim lek, "Sapos yu no i stap, mi wanpela bai mi stap gut."</text>
@@ -2540,14 +2540,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>1 CORINTHIANS 13</text>
+      <text>1 CORINTHIANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-1CO">
       <verse num="1" />
-      <text>If I speak with the languages of men and of angels, but don’t have love, I have become sounding brass, or a clanging cymbal.</text>
+      <text>If I speak with the languages of men and of angels, but don't have love, I have become sounding brass, or a clanging cymbal.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Sapos mi save toktok long ol manmeri long kain kain tok ples bilong man na long tok bilong ol ensel tu, tasol mi no givim bel bilong mi long ol, orait mi olsem belo i mekim planti nois, na mi olsem garamut i pairap nating.</text>
@@ -2555,7 +2555,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-1CO">
       <verse num="2" />
-      <text>If I have the gift of prophecy, and know all mysteries and all knowledge; and if I have all faith, so as to remove mountains, but don’t have love, I am nothing.</text>
+      <text>If I have the gift of prophecy, and know all mysteries and all knowledge; and if I have all faith, so as to remove mountains, but don't have love, I am nothing.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Na sapos mi save autim tok profet na mi save pinis long olgeta tingting hait bilong God na mi gat olgeta arapela save tu, na sapos mi gat strongpela bilip tru inap long mekim ol maunten i surik i go long narapela hap, tasol sapos mi no givim bel bilong mi long ol manmeri, orait mi olsem samting nating.</text>
@@ -2563,7 +2563,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-1CO">
       <verse num="3" />
-      <text>If I dole out all my goods to feed the poor, and if I give my body to be burned, but don’t have love, it profits me nothing.</text>
+      <text>If I dole out all my goods to feed the poor, and if I give my body to be burned, but don't have love, it profits me nothing.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Na sapos mi givim olgeta samting bilong mi long ol rabisman, na sapos mi larim ol man i holimpas mi na kukim bodi bilong mi long paia na mi dai pinis, tasol sapos mi no bin givim bel bilong mi long ol, orait dispela olgeta pasin bilong mi bai i no inap helpim mi liklik.</text>
@@ -2571,7 +2571,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-1CO">
       <verse num="4" />
-      <text>Love is patient and is kind; love doesn’t envy. Love doesn’t brag, is not proud.</text>
+      <text>Love is patient and is kind; love doesn't envy. Love doesn't brag, is not proud.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Man i save givim bel bilong en long ol arapela, em i no save kros kwik na bekim pasin nogut ol i mekim long em. Nogat. Em i save mekim gutpela pasin long olgeta man. Em i no save bel nogut long ol man i gat planti samting. Em i no save litimapim nem bilong em yet.</text>
@@ -2579,7 +2579,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-1CO">
       <verse num="5" />
-      <text>Love doesn’t behave itself inappropriately, doesn’t seek its own way, is not provoked, takes no account of evil.</text>
+      <text>Love doesn't behave itself inappropriately, doesn't seek its own way, is not provoked, takes no account of evil.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Em i no save hambak na em i no save bikhet nabaut. Em i no save tingting tumas long em yet. Em i no save belhat kwik. Em i no save tingim rong ol i mekim long em.</text>
@@ -2587,7 +2587,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-1CO">
       <verse num="6" />
-      <text>It doesn’t rejoice in unrighteousness, but rejoices with the truth.</text>
+      <text>It doesn't rejoice in unrighteousness, but rejoices with the truth.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Em i no save amamas long pasin i no stret. Nogat. Em i save amamas long stretpela pasin.</text>
@@ -2650,7 +2650,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>1 CORINTHIANS 14</text>
+      <text>1 CORINTHIANS CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -2705,7 +2705,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-1CO">
       <verse num="7" />
-      <text>Even things without life, giving a voice, whether pipe or harp. If they didn’t give a distinction in the sounds, how would it be known what is piped or harped?</text>
+      <text>Even things without life, giving a voice, whether pipe or harp. If they didn't give a distinction in the sounds, how would it be known what is piped or harped?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Ol samting i no gat laip, olsem mambu na gita, ol tu i no inap mekim gut wok bilong ol sapos krai bilong ol i no kamap gut. Sapos krai bilong ol i no kamap gut, orait olsem wanem bai yumi save ol man i mekim wanem song?</text>
@@ -2737,7 +2737,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-1CO">
       <verse num="11" />
-      <text>If then I don’t know the meaning of the sound, I would be to him who speaks a foreigner, and he who speaks would be a foreigner to me.</text>
+      <text>If then I don't know the meaning of the sound, I would be to him who speaks a foreigner, and he who speaks would be a foreigner to me.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Tasol sapos mi no save long tok wanpela man i mekim, bai em i ting olsem mi man bilong narapela lain. Na bai mi tu mi ting olsem dispela man em i man bilong narapela lain.</text>
@@ -2777,7 +2777,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen” at your giving of thanks? Seeing how he doesn’t know what you say.</text>
+      <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen” at your giving of thanks? Seeing how he doesn't know what you say.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Sapos yu no mekim olsem, na long spirit bilong yu tasol yu tenkyu long God, na sapos wanpela man i stap em i no save long dispela toktok yu mekim, orait olsem wanem bai em i save olsem yu tenkyu long God, na em i tok "I tru" long dispela tenkyu bilong yu? Em bai i no inap, long wanem, em i no save long dispela tok yu mekim.</text>
@@ -2809,7 +2809,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-1CO">
       <verse num="20" />
-      <text>Brothers, don’t be children in thoughts, yet in malice be babies, but in thoughts be mature.</text>
+      <text>Brothers, don't be children in thoughts, yet in malice be babies, but in thoughts be mature.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Ol brata, yupela i no ken i stap olsem ol pikinini long tingting bilong yupela. Nogat. Long olgeta kain pasin nogut yupela i mas i stap olsem ol liklik pikinini. Tasol tingting bilong yupela i mas i stap olsem tingting bilong ol bikpela man.</text>
@@ -2839,7 +2839,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
-      <text>What if therefore the whole assembly is assembled together and all speak with other languages? If unlearned or unbelieving people come in, won’t they say that you are crazy?</text>
+      <text>What if therefore the whole assembly is assembled together and all speak with other languages? If unlearned or unbelieving people come in, won't they say that you are crazy?</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Olsem na sapos olgeta manmeri bilong sios i bung wantaim, na yupela olgeta i mekim tok long narapela narapela tok ples, na sapos ol arapela man i kam insait, em ol man i no bilip, orait ol bai i tok olsem yupela i longlong.</text>
@@ -2967,7 +2967,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="39" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="39" characterId="narrator-1CO">
       <verse num="39" />
-      <text>Therefore, brothers, desire earnestly to prophesy, and don’t forbid speaking with other languages.</text>
+      <text>Therefore, brothers, desire earnestly to prophesy, and don't forbid speaking with other languages.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Olsem na, ol brata bilong mi, yupela i mas laikim tumas long autim tok profet, na yupela i no ken tambuim pasin bilong mekim tok long kain kain tok ples.</text>
@@ -2982,7 +2982,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>1 CORINTHIANS 15</text>
+      <text>1 CORINTHIANS CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -3101,7 +3101,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="narrator-1CO">
       <verse num="15" />
-      <text>Yes, we are found false witnesses of God, because we testified about God that he raised up Christ, whom he didn’t raise up. That is, if it is so that the dead are not raised.</text>
+      <text>Yes, we are found false witnesses of God, because we testified about God that he raised up Christ, whom he didn't raise up. That is, if it is so that the dead are not raised.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Na sapos i olsem, orait mipela i kamap olsem ol man i tok giaman long samting God i mekim. Long wanem, mipela i bin tokaut klia olsem God i bin kirapim Krais. Tasol sapos i tru God i no save kirapim ol man i dai pinis, orait em i no bin kirapim Krais tu.</text>
@@ -3109,7 +3109,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="narrator-1CO">
       <verse num="16" />
-      <text>For if the dead aren’t raised, neither has Christ been raised.</text>
+      <text>For if the dead aren't raised, neither has Christ been raised.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Yes, sapos i tru God i no save kirapim ol man i dai pinis, orait yumi mas tok olsem, "God i no bin kirapim Krais."</text>
@@ -3165,7 +3165,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
-      <text>But each in his own order: Christ the first fruits, then those who are Christ’s, at his coming.</text>
+      <text>But each in his own order: Christ the first fruits, then those who are Christ's, at his coming.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Tasol yumi olgeta bai yumi kirap bek na kisim laip long taim bilong yumi yet. Namba wan em Krais. Na bihain, taim em i kam bek, yumi olgeta lain bilong en bai yumi kirap bek.</text>
@@ -3213,7 +3213,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-1CO">
       <verse num="29" />
-      <text>Or else what will they do who are baptized for the dead? If the dead aren’t raised at all, why then are they baptized for the dead?</text>
+      <text>Or else what will they do who are baptized for the dead? If the dead aren't raised at all, why then are they baptized for the dead?</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Sapos ol man i dai pinis, ol i no inap kirap bek, orait long wanem as tru sampela man i save kisim baptais bilong helpim ol man i dai pinis? Sapos ol i no inap kirap bek, orait bilong wanem ol man i save kisim baptais bilong helpim ol?</text>
@@ -3245,7 +3245,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
       <verse num="33" />
-      <text>Don’t be deceived! “Evil companionships corrupt good morals.”</text>
+      <text>Don't be deceived! “Evil companionships corrupt good morals.”</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Yupela i no ken larim ol arapela man i giamanim yupela. Yupela i save long dispela tok, "Sapos yumi poroman wantaim ol man nogut, bai ol i bagarapim gutpela pasin bilong yumi."</text>
@@ -3253,7 +3253,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-1CO">
       <verse num="34" />
-      <text>Wake up righteously, and don’t sin, for some have no knowledge of God. I say this to your shame.</text>
+      <text>Wake up righteously, and don't sin, for some have no knowledge of God. I say this to your shame.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>Yupela i mas lusim longlong pasin na tingting stret. Yupela i no ken mekim sin moa. Yupela harim. Sampela bilong yupela ol i no save yet long God. Mi mekim dispela tok bai yupela i ken sem long pasin bilong yupela.</text>
@@ -3277,7 +3277,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="narrator-1CO">
       <verse num="37" />
-      <text>That which you sow, you don’t sow the body that will be, but a bare grain, maybe of wheat, or of some other kind.</text>
+      <text>That which you sow, you don't sow the body that will be, but a bare grain, maybe of wheat, or of some other kind.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>Na dispela pikinini yu planim, maski em i pikinini wit o wanem samting, em i pikinini nating, na em i no luk wankain olsem dispela wit samting bai i kamap bihain.</text>
@@ -3357,7 +3357,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="46" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="46" characterId="narrator-1CO">
       <verse num="46" />
-      <text>However that which is spiritual isn’t first, but that which is natural, then that which is spiritual.</text>
+      <text>However that which is spiritual isn't first, but that which is natural, then that which is spiritual.</text>
     </ReferenceBlocks>
     <verse num="46" />
     <text>Laip bilong spirit i no save kamap pastaim. Nogat. Laip bilong dispela graun i save kamap pastaim. Na laip bilong spirit i save kamap bihain.</text>
@@ -3381,7 +3381,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="49" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="49" characterId="narrator-1CO">
       <verse num="49" />
-      <text>As we have borne the image of those made of dust, let’s also bear the image of the heavenly.</text>
+      <text>As we have borne the image of those made of dust, let's also bear the image of the heavenly.</text>
     </ReferenceBlocks>
     <verse num="49" />
     <text>Nau yumi stap wankain olsem dispela man bilong graun, na olsem tasol bihain bai yumi stap wankain olsem dispela man bilong heven.</text>
@@ -3389,7 +3389,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="50" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="50" characterId="narrator-1CO">
       <verse num="50" />
-      <text>Now I say this, brothers, that flesh and blood can’t inherit the Kingdom of God; neither does corruption inherit incorruption.</text>
+      <text>Now I say this, brothers, that flesh and blood can't inherit the Kingdom of God; neither does corruption inherit incorruption.</text>
     </ReferenceBlocks>
     <verse num="50" />
     <text>Ol brata, mi tok stret long yupela, man bilong dispela graun em i no inap i go insait long kingdom bilong God na kisim ol gutpela samting bilong en. Na samting bilong bagarap em i no inap kisim samting i no save bagarap.</text>
@@ -3459,14 +3459,14 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="58" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="58" characterId="narrator-1CO">
       <verse num="58" />
-      <text>Therefore, my beloved brothers, be steadfast, immovable. Be always abounding in the Lord’s work, because you know that your labor is not in vain in the Lord.</text>
+      <text>Therefore, my beloved brothers, be steadfast, immovable. Be always abounding in the Lord's work, because you know that your labor is not in vain in the Lord.</text>
     </ReferenceBlocks>
     <verse num="58" />
     <text>Olsem na, ol brata tru bilong mi, yupela i mas i stap strong, na i no ken surik liklik. Yupela i save olsem, hatwok yupela i save mekim long Bikpela, em bai i no inap lus nating. Olsem na oltaim yupela i mas wok strong long mekim wok bilong Bikpela.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>1 CORINTHIANS 16</text>
+      <text>1 CORINTHIANS CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -3637,7 +3637,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-1CO">
       <verse num="22" />
-      <text>If any man doesn’t love the Lord Jesus Christ, let him be accursed. Come, Lord!</text>
+      <text>If any man doesn't love the Lord Jesus Christ, let him be accursed. Come, Lord!</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Sapos wanpela man i no laik givim bel bilong em long Bikpela, orait em i ken bagarap. Bikpela, yu kam.</text>

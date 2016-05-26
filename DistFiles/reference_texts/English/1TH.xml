@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="1TH" singlevoice="false" pageheader="1 THESSALONIANS">
+<book id="1TH" singlevoice="false" pageheader="1 THESSALONIANS CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1TH">
     <text>1 THESSALONIANS</text>
   </block>
@@ -51,11 +51,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TH">
     <verse num="1" />
-    <text>For you yourselves know, brothers, our visit to you wasn’t in vain.</text>
+    <text>For you yourselves know, brothers, our visit to you wasn't in vain.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TH">
     <verse num="2" />
-    <text>As you know, we suffered and were shamefully treated at Philippi, but with God’s help we preached the gospel to you without fear, even in the midst of much conflict.</text>
+    <text>As you know, we suffered and were shamefully treated at Philippi, but with God's help we preached the gospel to you without fear, even in the midst of much conflict.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-1TH">
     <verse num="3" />
@@ -107,7 +107,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TH">
     <verse num="15" />
-    <text>It was the Jews who killed both the Lord Jesus and their own prophets, and drove us out, and didn’t please God, and are contrary to all men.</text>
+    <text>It was the Jews who killed both the Lord Jesus and their own prophets, and drove us out, and didn't please God, and are contrary to all men.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1TH">
     <verse num="16" />
@@ -123,7 +123,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1TH">
     <verse num="19" />
-    <text>For what is our hope, or joy, or crown of rejoicing? Isn’t it even you, before our Lord Jesus Christ at his coming?</text>
+    <text>For what is our hope, or joy, or crown of rejoicing? Isn't it even you, before our Lord Jesus Christ at his coming?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="narrator-1TH">
     <verse num="20" />
@@ -134,11 +134,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TH">
     <verse num="1" />
-    <text>Therefore when we couldn’t stand it any longer, we thought it good to be left behind at Athens alone.</text>
+    <text>Therefore when we couldn't stand it any longer, we thought it good to be left behind at Athens alone.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TH">
     <verse num="2" />
-    <text>We sent Timothy, our brother and God’s servant in the Good News of Christ, to establish you, and to comfort you concerning your faith;</text>
+    <text>We sent Timothy, our brother and God's servant in the Good News of Christ, to establish you, and to comfort you concerning your faith;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1TH">
     <verse num="3" />
@@ -150,7 +150,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TH">
     <verse num="5" />
-    <text>For this cause I also, when I couldn’t stand it any longer, sent that I might know your faith, for fear that by any means the tempter had tempted you, and our labor would have been in vain.</text>
+    <text>For this cause I also, when I couldn't stand it any longer, sent that I might know your faith, for fear that by any means the tempter had tempted you, and our labor would have been in vain.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1TH">
     <verse num="6" />
@@ -205,7 +205,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TH">
     <verse num="5" />
-    <text>Do not use your body in the passion of lust as the Gentiles who don’t know God do.</text>
+    <text>Do not use your body in the passion of lust as the Gentiles who don't know God do.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1TH">
     <verse num="6" />
@@ -217,7 +217,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TH">
     <verse num="8" />
-    <text>Therefore he who rejects this doesn’t reject man, but God, who has also given his Holy Spirit to you.</text>
+    <text>Therefore he who rejects this doesn't reject man, but God, who has also given his Holy Spirit to you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1TH">
     <verse num="9" />
@@ -237,7 +237,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TH">
     <verse num="13" />
-    <text>But we don’t want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don’t grieve like the rest, who have no hope.</text>
+    <text>But we don't want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don't grieve like the rest, who have no hope.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1TH">
     <verse num="14" />
@@ -249,7 +249,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TH">
     <verse num="16" />
-    <text>For the Lord himself will descend from heaven with a shout, with the voice of the archangel, and with God’s trumpet. The dead in Christ will rise first.</text>
+    <text>For the Lord himself will descend from heaven with a shout, with the voice of the archangel, and with God's trumpet. The dead in Christ will rise first.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1TH">
     <verse num="17" />
@@ -276,15 +276,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH">
     <verse num="4" />
-    <text>But you, brothers, aren’t in darkness, that the day should overtake you like a thief.</text>
+    <text>But you, brothers, aren't in darkness, that the day should overtake you like a thief.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TH">
     <verse num="5" />
-    <text>You are all children of light, and children of the day. We don’t belong to the night, nor to darkness.</text>
+    <text>You are all children of light, and children of the day. We don't belong to the night, nor to darkness.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TH">
     <verse num="6" />
-    <text>So then let’s not sleep, as everyone else does, but let’s watch and be sober.</text>
+    <text>So then let's not sleep, as everyone else does, but let's watch and be sober.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1TH">
     <verse num="7" />
@@ -296,7 +296,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TH">
     <verse num="9" />
-    <text>For God didn’t appoint us to wrath, but to the obtaining of salvation through our Lord Jesus Christ.</text>
+    <text>For God didn't appoint us to wrath, but to the obtaining of salvation through our Lord Jesus Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1TH">
     <verse num="10" />
@@ -312,7 +312,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TH">
     <verse num="13" />
-    <text>and to respect and honor them in love for their work’s sake. Be at peace among yourselves.</text>
+    <text>and to respect and honor them in love for their work's sake. Be at peace among yourselves.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-1TH">
     <verse num="14" />
@@ -334,9 +334,9 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TH">
     <verse num="19" />
-    <text>Don’t quench the Spirit. </text>
+    <text>Don't quench the Spirit. </text>
     <verse num="20" />
-    <text>Don’t despise prophesies.</text>
+    <text>Don't despise prophesies.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="narrator-1TH">
     <verse num="21" />

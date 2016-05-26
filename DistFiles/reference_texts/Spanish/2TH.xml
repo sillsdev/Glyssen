@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 THESSALONIANS 1</text>
+      <text>2 THESSALONIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH">
       <verse num="8" />
-      <text>He will give vengeance to those who don’t know God, and to those who don’t obey the Good News of our Lord Jesus Christ,</text>
+      <text>He will give vengeance to those who don't know God, and to those who don't obey the Good News of our Lord Jesus Christ,</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Vendrá para castigar a los que no reconocen a Dios ni obedecen al evangelio de nuestro Señor Jesús.</text>
@@ -110,7 +110,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 THESSALONIANS 2</text>
+      <text>2 THESSALONIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -149,7 +149,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH">
       <verse num="5" />
-      <text>Don’t you remember that, when I was still with you, I told you these things?</text>
+      <text>Don't you remember that, when I was still with you, I told you these things?</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>¿No recuerdan que yo les hablaba de esto cuando aún estaba con ustedes?</text>
@@ -189,7 +189,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH">
       <verse num="10" />
-      <text>Those who are lost in sin will be deceived by the things he can do because they didn’t receive the love of the truth, that they might be saved.</text>
+      <text>Those who are lost in sin will be deceived by the things he can do because they didn't receive the love of the truth, that they might be saved.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Y usará toda clase de maldad para engañar a los que van a la condenación, porque no quisieron aceptar y amar la verdad para recibir la salvación.</text>
@@ -205,7 +205,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH">
       <verse num="12" />
-      <text>They will all be judged because they didn’t believe the truth, but had pleasure in unrighteousness.</text>
+      <text>They will all be judged because they didn't believe the truth, but had pleasure in unrighteousness.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>a fin de que sean condenados todos los que no han querido creer en la verdad, sino que se complacen en la maldad.</text>
@@ -252,7 +252,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 THESSALONIANS 3</text>
+      <text>2 THESSALONIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -307,7 +307,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH">
       <verse num="7" />
-      <text>For you know how you ought to imitate us. For we didn’t behave ourselves rebelliously among you,</text>
+      <text>For you know how you ought to imitate us. For we didn't behave ourselves rebelliously among you,</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Pues ustedes saben cómo deben vivir para seguir nuestro ejemplo: nosotros no llevamos entre ustedes una conducta indisciplinada,</text>
@@ -315,7 +315,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH">
       <verse num="8" />
-      <text>neither did we eat bread from anyone’s hand without paying for it. In labor and travail we worked night and day, that we might not burden any of you.</text>
+      <text>neither did we eat bread from anyone's hand without paying for it. In labor and travail we worked night and day, that we might not burden any of you.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>ni hemos comido el pan de nadie sin pagarlo. Al contrario, trabajamos y luchamos día y noche para no serle una carga a ninguno de ustedes.</text>
@@ -323,7 +323,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH">
       <verse num="9" />
-      <text>We did this, not because we don’t have the right, but to make ourselves an example to you, that you should imitate us.</text>
+      <text>We did this, not because we don't have the right, but to make ourselves an example to you, that you should imitate us.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Y ciertamente teníamos el derecho de pedirles a ustedes que nos ayudaran, pero trabajamos para darles el ejemplo que ustedes deben seguir.</text>
@@ -339,7 +339,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH">
       <verse num="11" />
-      <text>For we hear of some who walk among you in rebellion, who don’t work at all, but are busybodies.</text>
+      <text>For we hear of some who walk among you in rebellion, who don't work at all, but are busybodies.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Pero hemos sabido que algunos de ustedes llevan una conducta indisciplinada, muy ocupados en no hacer nada.</text>
@@ -355,7 +355,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH">
       <verse num="13" />
-      <text>But you, brothers, don’t be weary in doing well.</text>
+      <text>But you, brothers, don't be weary in doing well.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Pero ustedes, hermanos, no se cansen de hacer el bien.</text>
@@ -363,7 +363,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH">
       <verse num="14" />
-      <text>If any man doesn’t obey our word in this letter, note that man, that you have no company with him, to the end that he may be ashamed.</text>
+      <text>If any man doesn't obey our word in this letter, note that man, that you have no company with him, to the end that he may be ashamed.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Si alguno no hace caso a lo que decimos en esta carta, fíjense en quién es y no se junten con él, para que le dé vergüenza.</text>
@@ -371,7 +371,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH">
       <verse num="15" />
-      <text>Don’t count him as an enemy, but admonish him as a brother.</text>
+      <text>Don't count him as an enemy, but admonish him as a brother.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Pero no lo tengan por enemigo, sino amonéstenlo como a hermano.</text>

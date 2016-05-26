@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 CORINTHIANS 1</text>
+      <text>2 CORINTHIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO">
       <verse num="8" />
-      <text>For we don’t desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
+      <text>For we don't desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Ибо мы не хотим оставить вас, братия, в неведении о скорби нашей, бывшей с нами в Асии, потому что мы отягчены были чрезмерно и сверх силы, так что не надеялись остаться в живых.</text>
@@ -191,7 +191,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO">
       <verse num="23" />
-      <text>But I call God for a witness to my soul, that I didn’t come to Corinth to spare you.</text>
+      <text>But I call God for a witness to my soul, that I didn't come to Corinth to spare you.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Бога призываю во свидетели на душу мою, что, щадя вас, я доселе не приходил в Коринф,</text>
@@ -206,7 +206,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 CORINTHIANS 2</text>
+      <text>2 CORINTHIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>And I wrote this very thing to you, so that, when I came, I wouldn’t have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
+      <text>And I wrote this very thing to you, so that, when I came, I wouldn't have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Это самое и писал я вам, дабы, придя, не иметь огорчения от тех, о которых мне надлежало радоваться: ибо я во всех вас уверен, что моя радость есть радость и для всех вас.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>I had no relief for my spirit, because I didn’t find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
+      <text>I had no relief for my spirit, because I didn't find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>я не имел покоя духу моему, потому что не нашел там брата моего Тита; но, простившись с ними, я пошел в Македонию.</text>
@@ -348,7 +348,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 CORINTHIANS 3</text>
+      <text>2 CORINTHIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn’t look steadfastly on the end of that which was passing away.</text>
+      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn't look steadfastly on the end of that which was passing away.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>а не так, как Моисей, который полагал покрывало на лице свое, чтобы сыны Израилевы не взирали на конец преходящего.</text>
@@ -498,14 +498,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>2 CORINTHIANS 4</text>
+      <text>2 CORINTHIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO">
       <verse num="1" />
-      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don’t faint.</text>
+      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don't faint.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Посему, имея по милости Божией такое служение, мы не унываем;</text>
@@ -513,7 +513,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man’s conscience in the sight of God.</text>
+      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man's conscience in the sight of God.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>но, отвергнув скрытные постыдные дела, не прибегая к хитрости и не искажая слова Божия, а открывая истину, представляем себя совести всякого человека пред Богом.</text>
@@ -537,7 +537,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>For we don’t preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
+      <text>For we don't preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ибо мы не себя проповедуем, но Христа Иисуса, Господа; а мы—рабы ваши для Иисуса,</text>
@@ -633,7 +633,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO">
       <verse num="16" />
-      <text>Therefore we don’t faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
+      <text>Therefore we don't faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Посему мы не унываем; но если внешний наш человек и тлеет, то внутренний со дня на день обновляется.</text>
@@ -649,14 +649,14 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>We don’t look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
+      <text>We don't look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>когда мы смотрим не на видимое, но на невидимое: ибо видимое временно, а невидимое вечно.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>2 CORINTHIANS 5</text>
+      <text>2 CORINTHIANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -830,7 +830,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>2 CORINTHIANS 6</text>
+      <text>2 CORINTHIANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -949,7 +949,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>Don’t be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
+      <text>Don't be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Не преклоняйтесь под чужое ярмо с неверными, ибо какое общение праведности с беззаконием? Что общего у света с тьмою?</text>
@@ -994,7 +994,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>2 CORINTHIANS 7</text>
+      <text>2 CORINTHIANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1128,7 +1128,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>2 CORINTHIANS 8</text>
+      <text>2 CORINTHIANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1223,7 +1223,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO">
       <verse num="12" />
-      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don’t have.</text>
+      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don't have.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Ибо если есть усердие, то оно принимается смотря по тому, кто что имеет, а не по тому, чего не имеет.</text>
@@ -1328,7 +1328,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>2 CORINTHIANS 9</text>
+      <text>2 CORINTHIANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1359,7 +1359,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO">
       <verse num="4" />
-      <text>This is so that I won’t by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
+      <text>This is so that I won't by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>и чтобы, когда придут со мною Македоняне и найдут вас неготовыми, не остались в стыде мы, —не говорю 'вы', —похвалившись с такою уверенностью.</text>
@@ -1456,7 +1456,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>2 CORINTHIANS 10</text>
+      <text>2 CORINTHIANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1479,7 +1479,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>For though we walk in the flesh, we don’t wage war according to the flesh.</text>
+      <text>For though we walk in the flesh, we don't wage war according to the flesh.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Ибо мы, ходя во плоти, не по плоти воинствуем.</text>
@@ -1511,7 +1511,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ’s, let him consider this again with himself, that, even as he is Christ’s, so also we are Christ’s.</text>
+      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ's, let him consider this again with himself, that, even as he is Christ's, so also we are Christ's.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>На личность ли смотрите? Кто уверен в себе, что он Христов, тот сам по себе суди, что, как он Христов, так и мы Христовы.</text>
@@ -1567,7 +1567,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>For we don’t stretch ourselves too much, as though we didn’t reach to you. For we came even as far as to you with the Good News of Christ,</text>
+      <text>For we don't stretch ourselves too much, as though we didn't reach to you. For we came even as far as to you with the Good News of Christ,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Ибо мы не напрягаем себя, как не достигшие до вас, потому что достигли и до вас благовествованием Христовым.</text>
@@ -1575,7 +1575,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO">
       <verse num="15" />
-      <text>not boasting beyond proper limits in other men’s labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
+      <text>not boasting beyond proper limits in other men's labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Мы не без меры хвалимся, не чужими трудами, но надеемся, с возрастанием веры вашей, с избытком увеличить в вас удел наш,</text>
@@ -1599,14 +1599,14 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>For it isn’t he who commends himself who is approved, but whom the Lord commends.</text>
+      <text>For it isn't he who commends himself who is approved, but whom the Lord commends.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Ибо не тот достоин, кто сам себя хвалит, но кого хвалит Господь.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>2 CORINTHIANS 11</text>
+      <text>2 CORINTHIANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -1661,7 +1661,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God’s Good News free of charge?</text>
+      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God's Good News free of charge?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Согрешил ли я тем, что унижал себя, чтобы возвысить вас, потому что безмездно проповедывал вам Евангелие Божие?</text>
@@ -1677,7 +1677,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO">
       <verse num="9" />
-      <text>When I was present with you and was in need, I wasn’t a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
+      <text>When I was present with you and was in need, I wasn't a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>ибо недостаток мой восполнили братия, пришедшие из Македонии; да и во всем я старался и постараюсь не быть вам в тягость.</text>
@@ -1693,7 +1693,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO">
       <verse num="11" />
-      <text>Why? Because I don’t love you? God knows.</text>
+      <text>Why? Because I don't love you? God knows.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Почему же так поступаю? Потому ли, что не люблю вас? Богу известно! Но как поступаю, так и буду поступать,</text>
@@ -1709,7 +1709,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>For such men are false apostles, deceitful workers, masquerading as Christ’s apostles.</text>
+      <text>For such men are false apostles, deceitful workers, masquerading as Christ's apostles.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ибо таковые лжеапостолы, лукавые делатели, принимают вид Апостолов Христовых.</text>
@@ -1741,7 +1741,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO">
       <verse num="17" />
-      <text>That which I speak, I don’t speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
+      <text>That which I speak, I don't speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Что скажу, то скажу не в Господе, но как бы в неразумии при такой отважности на похвалу.</text>
@@ -1837,7 +1837,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO">
       <verse num="29" />
-      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don’t burn with indignation?</text>
+      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don't burn with indignation?</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Кто изнемогает, с кем бы и я не изнемогал? Кто соблазняется, за кого бы я не воспламенялся?</text>
@@ -1853,7 +1853,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO">
       <verse num="31" />
-      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don’t lie.</text>
+      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don't lie.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Бог и Отец Господа нашего Иисуса Христа, благословенный во веки, знает, что я не лгу.</text>
@@ -1876,7 +1876,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>2 CORINTHIANS 12</text>
+      <text>2 CORINTHIANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -1891,7 +1891,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don’t know, or whether out of the body, I don’t know; God knows)</text>
+      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don't know, or whether out of the body, I don't know; God knows)</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Знаю человека во Христе, который назад тому четырнадцать лет (в теле ли—не знаю, вне ли тела—не знаю: Бог знает) восхищен был до третьего неба.</text>
@@ -1899,7 +1899,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>I know such a man (whether in the body, or outside of the body, I don’t know; God knows),</text>
+      <text>I know such a man (whether in the body, or outside of the body, I don't know; God knows),</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>И знаю о таком человеке (только не знаю—в теле, или вне тела: Бог знает),</text>
@@ -1955,7 +1955,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
       <verse num="10" />
-      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ’s sake. For when I am weak, then am I strong.</text>
+      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ's sake. For when I am weak, then am I strong.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Посему я благодушествую в немощах, в обидах, в нуждах, в гонениях, в притеснениях за Христа, ибо, когда я немощен, тогда силен.</text>
@@ -2019,7 +2019,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn’t we walk in the same spirit? Didn’t we walk in the same steps?</text>
+      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn't we walk in the same spirit? Didn't we walk in the same steps?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Я упросил Тита и послал с ним одного из братьев: Тит воспользовался ли чем от вас? Не в одном ли духе мы действовали? Не одним ли путем ходили?</text>
@@ -2035,7 +2035,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO">
       <verse num="20" />
-      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don’t desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
+      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don't desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Ибо я опасаюсь, чтобы мне, по пришествии моем, не найти вас такими, какими не желаю, также чтобы и вам не найти меня таким, каким не желаете: чтобы не найти у вас раздоров, зависти, гнева, ссор, клевет, ябед, гордости, беспорядков,</text>
@@ -2050,7 +2050,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>2 CORINTHIANS 13</text>
+      <text>2 CORINTHIANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2089,7 +2089,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don’t you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
+      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don't you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Испытывайте самих себя, в вере ли вы; самих себя исследывайте. Или вы не знаете самих себя, что Иисус Христос в вас? Разве только вы не то, чем должны быть.</text>
@@ -2097,7 +2097,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO">
       <verse num="6" />
-      <text>But I hope that you will know that we aren’t disqualified.</text>
+      <text>But I hope that you will know that we aren't disqualified.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>О нас же, надеюсь, узнаете, что мы то, чем быть должны.</text>

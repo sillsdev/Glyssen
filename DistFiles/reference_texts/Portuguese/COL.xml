@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>COLOSSIANS 1</text>
+      <text>COLOSSIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -79,7 +79,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-COL">
       <verse num="9" />
-      <text>For this cause, we also, since the day we heard this, don’t cease praying and making requests for you. That you may be filled with the knowledge of his will in all spiritual wisdom and understanding.</text>
+      <text>For this cause, we also, since the day we heard this, don't cease praying and making requests for you. That you may be filled with the knowledge of his will in all spiritual wisdom and understanding.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Por esse motivo, desde o dia em que ficamos sabendo de tudo isso, nunca paramos de orar em favor de vocês. Pedimos a Deus que encha vocês com o conhecimento da sua vontade e com toda a sabedoria e compreensão que o Espírito de Deus dá.</text>
@@ -199,7 +199,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-COL">
       <verse num="24" />
-      <text>Now I rejoice in my sufferings for your sake, and fill up on my part that which is lacking of the afflictions of Christ in my flesh for his body’s sake, which is the assembly;</text>
+      <text>Now I rejoice in my sufferings for your sake, and fill up on my part that which is lacking of the afflictions of Christ in my flesh for his body's sake, which is the assembly;</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Agora eu me sinto feliz pelo que tenho sofrido por vocês. Pois o que eu sofro no meu corpo pela Igreja, que é o corpo de Cristo, está ajudando a completar os sofrimentos de Cristo em favor dela</text>
@@ -246,7 +246,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>COLOSSIANS 2</text>
+      <text>COLOSSIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -311,7 +311,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-COL">
       <verse num="8" />
-      <text>Be careful that you don’t let anyone rob you through his philosophy and vain deceit, after the tradition of men, after the elements of the world, and not after Christ.</text>
+      <text>Be careful that you don't let anyone rob you through his philosophy and vain deceit, after the tradition of men, after the elements of the world, and not after Christ.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Tenham cuidado para que ninguém os torne escravos por meio de argumentos sem valor, que vêm da sabedoria humana. Essas coisas vêm dos ensinamentos de criaturas humanas e dos espíritos que dominam o Universo d e não de Cristo.</text>
@@ -383,7 +383,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-COL">
       <verse num="17" />
-      <text>These things are a shadow of the things to come; but the body is Christ’s.</text>
+      <text>These things are a shadow of the things to come; but the body is Christ's.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Tudo isso é apenas uma sombra daquilo que virá; a realidade é Cristo.</text>
@@ -399,7 +399,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-COL">
       <verse num="19" />
-      <text>and not holding firmly to the Head, from whom all the body, being supplied and knit together through the joints and ligaments, grows with God’s growth.</text>
+      <text>and not holding firmly to the Head, from whom all the body, being supplied and knit together through the joints and ligaments, grows with God's growth.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Elas não estão ligadas a Cristo, que é a cabeça. Cristo controla o corpo todo, o alimenta e mantém unido por meio das juntas e ligamentos, e assim o corpo cresce como Deus quer que cresça</text>
@@ -415,7 +415,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
       <verse num="21" />
-      <text>“Don’t handle, nor taste, nor touch”</text>
+      <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>“Não toque nesta coisa”, “não prove aquela”, “não pegue naquela”.</text>
@@ -431,14 +431,14 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL">
       <verse num="23" />
-      <text>Which things indeed appear like wisdom in self-imposed worship, and humility, and severity to the body; but aren’t of any value against the indulgence of the flesh.</text>
+      <text>Which things indeed appear like wisdom in self-imposed worship, and humility, and severity to the body; but aren't of any value against the indulgence of the flesh.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>De fato, essas regras parecem ser sábias, ao exigirem a adoração forçada dos anjos, a falsa humildade e um modo duro de tratar o corpo. Mas tudo isso não tem nenhum valor para controlar as paixões que levam à imoralidade.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>COLOSSIANS 3</text>
+      <text>COLOSSIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -509,7 +509,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-COL">
       <verse num="9" />
-      <text>Don’t lie to one another, seeing that you have put off the old man with his doings.</text>
+      <text>Don't lie to one another, seeing that you have put off the old man with his doings.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Não mintam uns para os outros, pois vocês já deixaram de lado a natureza velha com os seus costumes</text>
@@ -533,7 +533,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-COL">
       <verse num="12" />
-      <text>Put on therefore, as God’s chosen ones, holy and beloved, a heart of compassion, kindness, lowliness, humility, and perseverance.</text>
+      <text>Put on therefore, as God's chosen ones, holy and beloved, a heart of compassion, kindness, lowliness, humility, and perseverance.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Vocês são o povo de Deus. Ele os amou e os escolheu para serem dele. Portanto, vistam-se de misericórdia, de bondade, de humildade, de delicadeza e de paciência.</text>
@@ -589,7 +589,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-COL">
       <verse num="19" />
-      <text>Husbands, love your wives, and don’t be bitter against them.</text>
+      <text>Husbands, love your wives, and don't be bitter against them.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Marido, ame a sua esposa e não seja grosseiro com ela.</text>
@@ -605,7 +605,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-COL">
       <verse num="21" />
-      <text>Fathers, don’t provoke your children, so that they won’t be discouraged.</text>
+      <text>Fathers, don't provoke your children, so that they won't be discouraged.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Pais, não irritem os seus filhos, para que eles não fiquem desanimados.</text>
@@ -644,7 +644,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>COLOSSIANS 4</text>
+      <text>COLOSSIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
