@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="1CO" singlevoice="false" pageheader="1 CORINTHIANS">
+<book id="1CO" singlevoice="false" pageheader="1 CORINTHIANS CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
     <text>1 CORINTHIANS</text>
   </block>
@@ -48,7 +48,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
-    <text>For it has been reported to me concerning you, my brothers, by those who are from Chloe’s household, that there are contentions among you.</text>
+    <text>For it has been reported to me concerning you, my brothers, by those who are from Chloe's household, that there are contentions among you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
@@ -68,11 +68,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>(I also baptized the household of Stephanas; besides them, I don’t know whether I baptized any other.)</text>
+    <text>(I also baptized the household of Stephanas; besides them, I don't know whether I baptized any other.)</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
-    <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn’t be made void.</text>
+    <text>For Christ sent me not to baptize, but to preach the Good News--not in wisdom of words, so that the cross of Christ wouldn't be made void.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
@@ -85,11 +85,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
-    <text>Where is the wise? Where is the scribe? Where is the lawyer of this world? Hasn’t God made foolish the wisdom of this world?</text>
+    <text>Where is the wise? Where is the scribe? Where is the lawyer of this world? Hasn't God made foolish the wisdom of this world?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>For seeing that in the wisdom of God, the world through its wisdom didn’t know God. It was God’s good pleasure through the foolishness of the preaching to save those who believe.</text>
+    <text>For seeing that in the wisdom of God, the world through its wisdom didn't know God. It was God's good pleasure through the foolishness of the preaching to save those who believe.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -140,7 +140,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>When I came to you, brothers, I didn’t come with excellence of speech or of wisdom, proclaiming to you the testimony of God.</text>
+    <text>When I came to you, brothers, I didn't come with excellence of speech or of wisdom, proclaiming to you the testimony of God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
@@ -156,7 +156,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
-    <text>That way, your faith wouldn’t stand in the wisdom of men, but in the power of God.</text>
+    <text>That way, your faith wouldn't stand in the wisdom of men, but in the power of God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
@@ -164,16 +164,16 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
-    <text>But we speak God’s wisdom in a mystery, the wisdom that has been hidden, which God foreordained before the worlds for our glory.</text>
+    <text>But we speak God's wisdom in a mystery, the wisdom that has been hidden, which God foreordained before the worlds for our glory.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
-    <text>None of the rulers of this world has understood. For had they known it, they wouldn’t have crucified the Lord of glory. </text>
+    <text>None of the rulers of this world has understood. For had they known it, they wouldn't have crucified the Lord of glory. </text>
     <verse num="9" />
     <text>But as it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
-    <text>“Things which an eye didn’t see, and an ear didn’t hear, which didn’t enter into the heart of man, these God has prepared for those who love him.”</text>
+    <text>“Things which an eye didn't see, and an ear didn't hear, which didn't enter into the heart of man, these God has prepared for those who love him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
@@ -181,7 +181,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
-    <text>For who among men knows the things of a man, except the spirit of the man, which is in him? Even so, no one knows the things of God, except God’s Spirit.</text>
+    <text>For who among men knows the things of a man, except the spirit of the man, which is in him? Even so, no one knows the things of God, except God's Spirit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
@@ -189,11 +189,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>Which things also we speak, not in words which man’s wisdom teaches, but which the Holy Spirit teaches, comparing spiritual things with spiritual things.</text>
+    <text>Which things also we speak, not in words which man's wisdom teaches, but which the Holy Spirit teaches, comparing spiritual things with spiritual things.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
-    <text>Now the natural man doesn’t receive the things of God’s Spirit, for they are foolishness to him. He can’t know them, because they are spiritually discerned.</text>
+    <text>Now the natural man doesn't receive the things of God's Spirit, for they are foolishness to him. He can't know them, because they are spiritually discerned.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
@@ -204,26 +204,26 @@
     <text>“For who has known the mind of the Lord, that he should instruct him?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
-    <text>But we have Christ’s mind.</text>
+    <text>But we have Christ's mind.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>Brothers, I couldn’t speak to you as to spiritual, but as to fleshly, as to babies in Christ.</text>
+    <text>Brothers, I couldn't speak to you as to spiritual, but as to fleshly, as to babies in Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
-    <text>I fed you with milk, not with meat; for you weren’t yet ready. Indeed, not even now are you ready.</text>
+    <text>I fed you with milk, not with meat; for you weren't yet ready. Indeed, not even now are you ready.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>You are still fleshly. For insofar as there is jealousy, strife, and factions among you, aren’t you fleshly, and don’t you walk in the ways of men?</text>
+    <text>You are still fleshly. For insofar as there is jealousy, strife, and factions among you, aren't you fleshly, and don't you walk in the ways of men?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
-    <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren’t you fleshly?</text>
+    <text>For when one says, “I follow Paul,” and another, “I follow Apollos,” aren't you fleshly?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
@@ -243,7 +243,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1CO">
     <verse num="9" />
-    <text>For we are God’s fellow workers. You are God’s farming, God’s building.</text>
+    <text>For we are God's fellow workers. You are God's farming, God's building.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
@@ -259,23 +259,23 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>his work will be shown for what it is, because the Day will bring it to light. It will be revealed with fire; and the fire itself will test what sort of work each man’s work is.</text>
+    <text>his work will be shown for what it is, because the Day will bring it to light. It will be revealed with fire; and the fire itself will test what sort of work each man's work is.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
-    <text>If any man’s work remains which he built on it, he will receive a reward.</text>
+    <text>If any man's work remains which he built on it, he will receive a reward.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>If any man’s work is burned, he will suffer loss, but he himself will be saved, but as through fire.</text>
+    <text>If any man's work is burned, he will suffer loss, but he himself will be saved, but as through fire.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Don’t you know that you are a temple of God, and that God’s Spirit lives in you?</text>
+    <text>Don't you know that you are a temple of God, and that God's Spirit lives in you?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
-    <text>If anyone destroys the temple of God, God will destroy him; for God’s temple is holy, which you are.</text>
+    <text>If anyone destroys the temple of God, God will destroy him; for God's temple is holy, which you are.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
@@ -312,7 +312,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>So let a man think of us as Christ’s servants, and stewards of God’s mysteries.</text>
+    <text>So let a man think of us as Christ's servants, and stewards of God's mysteries.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
@@ -320,7 +320,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>But with me it is a very small thing that I should be judged by you, or by man’s judgment. Yes, I don’t judge my own self.</text>
+    <text>But with me it is a very small thing that I should be judged by you, or by man's judgment. Yes, I don't judge my own self.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
@@ -336,7 +336,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
-    <text>For who makes you different? And what do you have that you didn’t receive? But if you did receive it, why do you boast as if you had not received it?</text>
+    <text>For who makes you different? And what do you have that you didn't receive? But if you did receive it, why do you boast as if you had not received it?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
@@ -348,7 +348,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
-    <text>We are fools for Christ’s sake, but you are wise in Christ. We are weak, but you are strong. You have honor, but we have dishonor.</text>
+    <text>We are fools for Christ's sake, but you are wise in Christ. We are weak, but you are strong. You have honor, but we have dishonor.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
@@ -364,7 +364,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
-    <text>I don’t write these things to shame you, but to admonish you as my beloved children.</text>
+    <text>I don't write these things to shame you, but to admonish you as my beloved children.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
@@ -399,11 +399,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>It is actually reported that there is sexual immorality among you. Such sexual immorality as is not even named among the Gentiles, that one has his father’s wife.</text>
+    <text>It is actually reported that there is sexual immorality among you. Such sexual immorality as is not even named among the Gentiles, that one has his father's wife.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
-    <text>You are puffed up, and didn’t rather mourn, that he who had done this deed might be removed from among you.</text>
+    <text>You are puffed up, and didn't rather mourn, that he who had done this deed might be removed from among you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
@@ -419,7 +419,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
-    <text>Your boasting is not good. Don’t you know that a little yeast leavens the whole lump?</text>
+    <text>Your boasting is not good. Don't you know that a little yeast leavens the whole lump?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
@@ -439,11 +439,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
-    <text>But as it is, I wrote to you not to associate with anyone who is called a brother who is a sexual sinner, or covetous, or an idolater, or a slanderer, or a drunkard, or an extortioner. Don’t even eat with such a person.</text>
+    <text>But as it is, I wrote to you not to associate with anyone who is called a brother who is a sexual sinner, or covetous, or an idolater, or a slanderer, or a drunkard, or an extortioner. Don't even eat with such a person.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>For what have I to do with also judging those who are outside? Don’t you judge those who are within?</text>
+    <text>For what have I to do with also judging those who are outside? Don't you judge those who are within?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
@@ -458,11 +458,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
-    <text>Don’t you know that the saints will judge the world? And if the world is judged by you, are you unworthy to judge the smallest matters?</text>
+    <text>Don't you know that the saints will judge the world? And if the world is judged by you, are you unworthy to judge the smallest matters?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>Don’t you know that we will judge angels? How much more, things that pertain to this life?</text>
+    <text>Don't you know that we will judge angels? How much more, things that pertain to this life?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
@@ -470,7 +470,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
-    <text>I say this to move you to shame. Isn’t there even one wise man among you who would be able to decide between his brothers?</text>
+    <text>I say this to move you to shame. Isn't there even one wise man among you who would be able to decide between his brothers?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
@@ -486,7 +486,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-1CO">
     <verse num="9" />
-    <text>Or don’t you know that the unrighteous will not inherit the Kingdom of God? Don’t be deceived. Neither the sexually immoral, nor idolaters, nor adulterers, nor effeminate, nor homosexuals,</text>
+    <text>Or don't you know that the unrighteous will not inherit the Kingdom of God? Don't be deceived. Neither the sexually immoral, nor idolaters, nor adulterers, nor effeminate, nor homosexuals,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
@@ -510,11 +510,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>Don’t you know that your bodies are members of Christ? Shall I then take the members of Christ, and make them members of a prostitute? May it never be!</text>
+    <text>Don't you know that your bodies are members of Christ? Shall I then take the members of Christ, and make them members of a prostitute? May it never be!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Or don’t you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
+    <text>Or don't you know that he who is joined to a prostitute is one body? For, “The two,” says he, “will become one flesh.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -526,11 +526,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-1CO">
     <verse num="19" />
-    <text>Or don’t you know that your body is a temple of the Holy Spirit which is in you, which you have from God? You are not your own.</text>
+    <text>Or don't you know that your body is a temple of the Holy Spirit which is in you, which you have from God? You are not your own.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
-    <text>God bought you with a price. Therefore glorify God in your body and in your spirit, which are God’s.</text>
+    <text>God bought you with a price. Therefore glorify God in your body and in your spirit, which are God's.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>7</text>
@@ -549,11 +549,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
-    <text>The wife doesn’t have authority over her own body, but the husband. Likewise also the husband doesn’t have authority over his own body, but the wife.</text>
+    <text>The wife doesn't have authority over her own body, but the husband. Likewise also the husband doesn't have authority over his own body, but the wife.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
-    <text>Don’t deprive one another, unless it is by consent for a season, that you may give yourselves to fasting and prayer. Then come together again, that Satan doesn’t tempt you because of your lack of self-control.</text>
+    <text>Don't deprive one another, unless it is by consent for a season, that you may give yourselves to fasting and prayer. Then come together again, that Satan doesn't tempt you because of your lack of self-control.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
@@ -569,7 +569,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="narrator-1CO">
     <verse num="9" />
-    <text>But if they don’t have self-control, let them marry. For it’s better to marry than to burn.</text>
+    <text>But if they don't have self-control, let them marry. For it's better to marry than to burn.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
@@ -617,15 +617,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>Were you called being a bondservant? Don’t let that bother you, but if you get an opportunity to become free, use it.</text>
+    <text>Were you called being a bondservant? Don't let that bother you, but if you get an opportunity to become free, use it.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
-    <text>For he who was called in the Lord being a bondservant is the Lord’s free man. Likewise he who was called being free is Christ’s bondservant.</text>
+    <text>For he who was called in the Lord being a bondservant is the Lord's free man. Likewise he who was called being free is Christ's bondservant.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>You were bought with a price. Don’t become bondservants of men.</text>
+    <text>You were bought with a price. Don't become bondservants of men.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
@@ -641,7 +641,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
-    <text>Are you bound to a wife? Don’t seek to be freed. Are you free from a wife? Don’t seek a wife.</text>
+    <text>Are you bound to a wife? Don't seek to be freed. Are you free from a wife? Don't seek a wife.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
@@ -653,7 +653,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="narrator-1CO">
     <verse num="30" />
-    <text>and those who weep, as though they didn’t weep; and those who rejoice, as though they didn’t rejoice; and those who buy, as though they didn’t possess;</text>
+    <text>and those who weep, as though they didn't weep; and those who rejoice, as though they didn't rejoice; and those who buy, as though they didn't possess;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="narrator-1CO">
     <verse num="31" />
@@ -677,7 +677,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-1CO">
     <verse num="36" />
-    <text>But if any man thinks that he is behaving inappropriately toward his virgin, if she is past the flower of her age, let them marry. Let him do what he desires. He doesn’t sin. Let them marry.</text>
+    <text>But if any man thinks that he is behaving inappropriately toward his virgin, if she is past the flower of her age, let them marry. Let him do what he desires. He doesn't sin. Let them marry.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="37" characterId="narrator-1CO">
     <verse num="37" />
@@ -685,7 +685,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="38" characterId="narrator-1CO">
     <verse num="38" />
-    <text>So then both he who gives his own virgin in marriage does well, and he who doesn’t give her in marriage does better.</text>
+    <text>So then both he who gives his own virgin in marriage does well, and he who doesn't give her in marriage does better.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="39" characterId="narrator-1CO">
     <verse num="39" />
@@ -693,7 +693,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="narrator-1CO">
     <verse num="40" />
-    <text>But she is happier if she stays as she is, in my judgment, and I think that I also have God’s Spirit.</text>
+    <text>But she is happier if she stays as she is, in my judgment, and I think that I also have God's Spirit.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>8</text>
@@ -704,7 +704,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
-    <text>But if anyone thinks that he knows anything, he doesn’t yet know as he ought to know.</text>
+    <text>But if anyone thinks that he knows anything, he doesn't yet know as he ought to know.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
@@ -724,11 +724,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
-    <text>However, that knowledge isn’t in all men. But some, with consciousness of the idol until now, eat as of a thing sacrificed to an idol, and their conscience, being weak, is defiled.</text>
+    <text>However, that knowledge isn't in all men. But some, with consciousness of the idol until now, eat as of a thing sacrificed to an idol, and their conscience, being weak, is defiled.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
-    <text>But food will not commend us to God. For neither, if we don’t eat, are we the worse; nor, if we eat, are we the better.</text>
+    <text>But food will not commend us to God. For neither, if we don't eat, are we the worse; nor, if we eat, are we the better.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-1CO">
     <verse num="9" />
@@ -736,7 +736,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-1CO">
     <verse num="10" />
-    <text>For what if a man sees you who have knowledge sitting in an idol’s temple? Won’t his conscience, if he is weak, be emboldened to eat things sacrificed to idols?</text>
+    <text>For what if a man sees you who have knowledge sitting in an idol's temple? Won't his conscience, if he is weak, be emboldened to eat things sacrificed to idols?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
@@ -748,14 +748,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>Therefore if food causes my brother to stumble, I will eat no meat forevermore, that I don’t cause my brother to stumble.</text>
+    <text>Therefore if food causes my brother to stumble, I will eat no meat forevermore, that I don't cause my brother to stumble.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>9</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>Am I not free? Am I not an apostle? Haven’t I seen Jesus Christ, our Lord? Aren’t you my work in the Lord?</text>
+    <text>Am I not free? Am I not an apostle? Haven't I seen Jesus Christ, our Lord? Aren't you my work in the Lord?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
@@ -777,11 +777,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
-    <text>What soldier ever serves at his own expense? Who plants a vineyard, and doesn’t eat of its fruit? Or who feeds a flock, and doesn’t drink from the flock’s milk?</text>
+    <text>What soldier ever serves at his own expense? Who plants a vineyard, and doesn't eat of its fruit? Or who feeds a flock, and doesn't drink from the flock's milk?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
-    <text>Do I speak these things according to the ways of men? Or doesn’t the law also say the same thing?</text>
+    <text>Do I speak these things according to the ways of men? Or doesn't the law also say the same thing?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
     <verse num="9" />
@@ -801,11 +801,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>If others partake of this right over you, don’t we yet more? Nevertheless we did not use this right, but we bear all things, that we may cause no hindrance to the Good News of Christ.</text>
+    <text>If others partake of this right over you, don't we yet more? Nevertheless we did not use this right, but we bear all things, that we may cause no hindrance to the Good News of Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
-    <text>Don’t you know that those who serve around sacred things eat from the things of the temple? And those who wait on the altar have their portion with the altar?</text>
+    <text>Don't you know that those who serve around sacred things eat from the things of the temple? And those who wait on the altar have their portion with the altar?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
@@ -813,11 +813,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>But I have used none of these things, and I don’t write these things that it may be done so in my case; for I would rather die, than that anyone should make my boasting void.</text>
+    <text>But I have used none of these things, and I don't write these things that it may be done so in my case; for I would rather die, than that anyone should make my boasting void.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>For if I preach the Good News, I have nothing to boast about; for necessity is laid on me; but woe is to me, if I don’t preach the Good News.</text>
+    <text>For if I preach the Good News, I have nothing to boast about; for necessity is laid on me; but woe is to me, if I don't preach the Good News.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -849,7 +849,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
-    <text>Don’t you know that those who run in a race all run, but one receives the prize? Run like that, that you may win.</text>
+    <text>Don't you know that those who run in a race all run, but one receives the prize? Run like that, that you may win.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-1CO">
     <verse num="25" />
@@ -915,7 +915,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
-    <text>Therefore let him who thinks he stands be careful that he doesn’t fall.</text>
+    <text>Therefore let him who thinks he stands be careful that he doesn't fall.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="narrator-1CO">
     <verse num="13" />
@@ -931,7 +931,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>The cup of blessing which we bless, isn’t it a sharing of the blood of Christ? The bread which we break, isn’t it a sharing of the body of Christ?</text>
+    <text>The cup of blessing which we bless, isn't it a sharing of the blood of Christ? The bread which we break, isn't it a sharing of the body of Christ?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -939,7 +939,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
-    <text>Consider Israel according to the flesh. Don’t those who eat the sacrifices participate in the altar?</text>
+    <text>Consider Israel according to the flesh. Don't those who eat the sacrifices participate in the altar?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-1CO">
     <verse num="19" />
@@ -947,11 +947,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
-    <text>But I say that the things which the Gentiles sacrifice, they sacrifice to demons, and not to God. I don’t desire that you would have fellowship with demons.</text>
+    <text>But I say that the things which the Gentiles sacrifice, they sacrifice to demons, and not to God. I don't desire that you would have fellowship with demons.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>You can’t both drink the cup of the Lord and the cup of demons. You can’t both partake of the table of the Lord, and of the table of demons.</text>
+    <text>You can't both drink the cup of the Lord and the cup of demons. You can't both partake of the table of the Lord, and of the table of demons.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -963,7 +963,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
-    <text>Let no one seek his own, but each one his neighbor’s good.</text>
+    <text>Let no one seek his own, but each one his neighbor's good.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="narrator-1CO">
     <verse num="25" />
@@ -971,19 +971,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
-    <text>The scriptures say, for “the earth is the Lord’s, and its fullness.”</text>
+    <text>The scriptures say, for “the earth is the Lord's, and its fullness.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
-    <text>But what if one of those who don’t believe invites you to a meal, and you are inclined to go? Eat whatever is set before you, asking no questions for the sake of conscience.</text>
+    <text>But what if one of those who don't believe invites you to a meal, and you are inclined to go? Eat whatever is set before you, asking no questions for the sake of conscience.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
-    <text>But if anyone says to you, “This was offered to idols, don’t eat it for the sake of the one who told you. And for the sake of conscience. For ‘the earth is the Lord’s, and all its fullness.’”</text>
+    <text>But if anyone says to you, “This was offered to idols, don't eat it for the sake of the one who told you. And for the sake of conscience. For ‘the earth is the Lord's, and all its fullness.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />
-    <text>Conscience, I say, not your own, but the other’s conscience. For why is my liberty judged by another conscience?</text>
+    <text>Conscience, I say, not your own, but the other's conscience. For why is my liberty judged by another conscience?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-1CO">
     <verse num="30" />
@@ -1056,7 +1056,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="narrator-1CO">
     <verse num="14" />
-    <text>Doesn’t even nature itself teach you that if a man has long hair, it is a dishonor to him?</text>
+    <text>Doesn't even nature itself teach you that if a man has long hair, it is a dishonor to him?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
@@ -1064,11 +1064,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>But if any man seems to be contentious, we have no such custom, neither do God’s assemblies.</text>
+    <text>But if any man seems to be contentious, we have no such custom, neither do God's assemblies.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
-    <text>But in giving you this command, I don’t praise you, that you come together not for the better but for the worse.</text>
+    <text>But in giving you this command, I don't praise you, that you come together not for the better but for the worse.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-1CO">
     <verse num="18" />
@@ -1080,7 +1080,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
-    <text>When therefore you assemble yourselves together, it is not the Lord’s supper that you eat.</text>
+    <text>When therefore you assemble yourselves together, it is not the Lord's supper that you eat.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
@@ -1088,7 +1088,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
-    <text>What, don’t you have houses to eat and to drink in? Or do you despise God’s assembly, and put them to shame who don’t have? What shall I tell you? Shall I praise you? In this I don’t praise you.</text>
+    <text>What, don't you have houses to eat and to drink in? Or do you despise God's assembly, and put them to shame who don't have? What shall I tell you? Shall I praise you? In this I don't praise you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
@@ -1110,11 +1110,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
     <verse num="26" />
-    <text>For as often as you eat this bread and drink this cup, you proclaim the Lord’s death until he comes.</text>
+    <text>For as often as you eat this bread and drink this cup, you proclaim the Lord's death until he comes.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-1CO">
     <verse num="27" />
-    <text>Therefore whoever eats this bread or drinks the Lord’s cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord.</text>
+    <text>Therefore whoever eats this bread or drinks the Lord's cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-1CO">
     <verse num="28" />
@@ -1122,7 +1122,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />
-    <text>For he who eats and drinks in an unworthy way eats and drinks damnation to himself, if he doesn’t discern the Lord’s body.</text>
+    <text>For he who eats and drinks in an unworthy way eats and drinks damnation to himself, if he doesn't discern the Lord's body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="30" characterId="narrator-1CO">
     <verse num="30" />
@@ -1130,7 +1130,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-1CO">
     <verse num="31" />
-    <text>For if we discerned ourselves, we wouldn’t be judged.</text>
+    <text>For if we discerned ourselves, we wouldn't be judged.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="narrator-1CO">
     <verse num="32" />
@@ -1149,7 +1149,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>Now concerning spiritual things, brothers, I don’t want you to be ignorant.</text>
+    <text>Now concerning spiritual things, brothers, I don't want you to be ignorant.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
@@ -1157,7 +1157,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>Therefore I make known to you that no man speaking by God’s Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
+    <text>Therefore I make known to you that no man speaking by God's Spirit says, “Jesus is accursed.” No one can say, “Jesus is Lord,” but by the Holy Spirit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
@@ -1205,11 +1205,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>If the foot would say, “Because I’m not the hand, I’m not part of the body,” it is not therefore not part of the body.</text>
+    <text>If the foot would say, “Because I'm not the hand, I'm not part of the body,” it is not therefore not part of the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>If the ear would say, “Because I’m not the eye, I’m not part of the body,” it’s not therefore not part of the body.</text>
+    <text>If the ear would say, “Because I'm not the eye, I'm not part of the body,” it's not therefore not part of the body.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1227,7 +1227,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
-    <text>The eye can’t tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
+    <text>The eye can't tell the hand, “I have no need for you,” or again the head to the feet, “I have no need for you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
@@ -1274,27 +1274,27 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="1" characterId="narrator-1CO">
     <verse num="1" />
-    <text>If I speak with the languages of men and of angels, but don’t have love, I have become sounding brass, or a clanging cymbal.</text>
+    <text>If I speak with the languages of men and of angels, but don't have love, I have become sounding brass, or a clanging cymbal.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-1CO">
     <verse num="2" />
-    <text>If I have the gift of prophecy, and know all mysteries and all knowledge; and if I have all faith, so as to remove mountains, but don’t have love, I am nothing.</text>
+    <text>If I have the gift of prophecy, and know all mysteries and all knowledge; and if I have all faith, so as to remove mountains, but don't have love, I am nothing.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="3" characterId="narrator-1CO">
     <verse num="3" />
-    <text>If I dole out all my goods to feed the poor, and if I give my body to be burned, but don’t have love, it profits me nothing.</text>
+    <text>If I dole out all my goods to feed the poor, and if I give my body to be burned, but don't have love, it profits me nothing.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-1CO">
     <verse num="4" />
-    <text>Love is patient and is kind; love doesn’t envy. Love doesn’t brag, is not proud.</text>
+    <text>Love is patient and is kind; love doesn't envy. Love doesn't brag, is not proud.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-1CO">
     <verse num="5" />
-    <text>Love doesn’t behave itself inappropriately, doesn’t seek its own way, is not provoked, takes no account of evil.</text>
+    <text>Love doesn't behave itself inappropriately, doesn't seek its own way, is not provoked, takes no account of evil.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-1CO">
     <verse num="6" />
-    <text>It doesn’t rejoice in unrighteousness, but rejoices with the truth.</text>
+    <text>It doesn't rejoice in unrighteousness, but rejoices with the truth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
@@ -1353,7 +1353,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="narrator-1CO">
     <verse num="7" />
-    <text>Even things without life, giving a voice, whether pipe or harp. If they didn’t give a distinction in the sounds, how would it be known what is piped or harped?</text>
+    <text>Even things without life, giving a voice, whether pipe or harp. If they didn't give a distinction in the sounds, how would it be known what is piped or harped?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-1CO">
     <verse num="8" />
@@ -1369,7 +1369,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-1CO">
     <verse num="11" />
-    <text>If then I don’t know the meaning of the sound, I would be to him who speaks a foreigner, and he who speaks would be a foreigner to me.</text>
+    <text>If then I don't know the meaning of the sound, I would be to him who speaks a foreigner, and he who speaks would be a foreigner to me.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-1CO">
     <verse num="12" />
@@ -1389,7 +1389,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen” at your giving of thanks? Seeing how he doesn’t know what you say.</text>
+    <text>Otherwise if you bless with the spirit, how will he who fills the place of the unlearned say the “Amen” at your giving of thanks? Seeing how he doesn't know what you say.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1405,7 +1405,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-1CO">
     <verse num="20" />
-    <text>Brothers, don’t be children in thoughts, yet in malice be babies, but in thoughts be mature.</text>
+    <text>Brothers, don't be children in thoughts, yet in malice be babies, but in thoughts be mature.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="narrator-1CO">
     <verse num="21" />
@@ -1420,7 +1420,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>What if therefore the whole assembly is assembled together and all speak with other languages? If unlearned or unbelieving people come in, won’t they say that you are crazy?</text>
+    <text>What if therefore the whole assembly is assembled together and all speak with other languages? If unlearned or unbelieving people come in, won't they say that you are crazy?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
@@ -1484,7 +1484,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="39" characterId="narrator-1CO">
     <verse num="39" />
-    <text>Therefore, brothers, desire earnestly to prophesy, and don’t forbid speaking with other languages.</text>
+    <text>Therefore, brothers, desire earnestly to prophesy, and don't forbid speaking with other languages.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="40" characterId="narrator-1CO">
     <verse num="40" />
@@ -1551,11 +1551,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="narrator-1CO">
     <verse num="15" />
-    <text>Yes, we are found false witnesses of God, because we testified about God that he raised up Christ, whom he didn’t raise up. That is, if it is so that the dead are not raised.</text>
+    <text>Yes, we are found false witnesses of God, because we testified about God that he raised up Christ, whom he didn't raise up. That is, if it is so that the dead are not raised.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="narrator-1CO">
     <verse num="16" />
-    <text>For if the dead aren’t raised, neither has Christ been raised.</text>
+    <text>For if the dead aren't raised, neither has Christ been raised.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="narrator-1CO">
     <verse num="17" />
@@ -1583,7 +1583,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />
-    <text>But each in his own order: Christ the first fruits, then those who are Christ’s, at his coming.</text>
+    <text>But each in his own order: Christ the first fruits, then those who are Christ's, at his coming.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="narrator-1CO">
     <verse num="24" />
@@ -1607,7 +1607,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="29" characterId="narrator-1CO">
     <verse num="29" />
-    <text>Or else what will they do who are baptized for the dead? If the dead aren’t raised at all, why then are they baptized for the dead?</text>
+    <text>Or else what will they do who are baptized for the dead? If the dead aren't raised at all, why then are they baptized for the dead?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="30" characterId="narrator-1CO">
     <verse num="30" />
@@ -1623,11 +1623,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="33" characterId="narrator-1CO">
     <verse num="33" />
-    <text>Don’t be deceived! “Evil companionships corrupt good morals.”</text>
+    <text>Don't be deceived! “Evil companionships corrupt good morals.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="narrator-1CO">
     <verse num="34" />
-    <text>Wake up righteously, and don’t sin, for some have no knowledge of God. I say this to your shame.</text>
+    <text>Wake up righteously, and don't sin, for some have no knowledge of God. I say this to your shame.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="narrator-1CO">
     <verse num="35" />
@@ -1639,7 +1639,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="narrator-1CO">
     <verse num="37" />
-    <text>That which you sow, you don’t sow the body that will be, but a bare grain, maybe of wheat, or of some other kind.</text>
+    <text>That which you sow, you don't sow the body that will be, but a bare grain, maybe of wheat, or of some other kind.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="38" characterId="narrator-1CO">
     <verse num="38" />
@@ -1679,7 +1679,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="46" characterId="narrator-1CO">
     <verse num="46" />
-    <text>However that which is spiritual isn’t first, but that which is natural, then that which is spiritual.</text>
+    <text>However that which is spiritual isn't first, but that which is natural, then that which is spiritual.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="47" characterId="narrator-1CO">
     <verse num="47" />
@@ -1691,11 +1691,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="49" characterId="narrator-1CO">
     <verse num="49" />
-    <text>As we have borne the image of those made of dust, let’s also bear the image of the heavenly.</text>
+    <text>As we have borne the image of those made of dust, let's also bear the image of the heavenly.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="50" characterId="narrator-1CO">
     <verse num="50" />
-    <text>Now I say this, brothers, that flesh and blood can’t inherit the Kingdom of God; neither does corruption inherit incorruption.</text>
+    <text>Now I say this, brothers, that flesh and blood can't inherit the Kingdom of God; neither does corruption inherit incorruption.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="51" characterId="narrator-1CO">
     <verse num="51" />
@@ -1730,7 +1730,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="58" characterId="narrator-1CO">
     <verse num="58" />
-    <text>Therefore, my beloved brothers, be steadfast, immovable. Be always abounding in the Lord’s work, because you know that your labor is not in vain in the Lord.</text>
+    <text>Therefore, my beloved brothers, be steadfast, immovable. Be always abounding in the Lord's work, because you know that your labor is not in vain in the Lord.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="1CO" initialStartVerse="0" characterId="BC-1CO">
     <text>16</text>
@@ -1819,7 +1819,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-1CO">
     <verse num="22" />
-    <text>If any man doesn’t love the Lord Jesus Christ, let him be accursed. Come, Lord!</text>
+    <text>If any man doesn't love the Lord Jesus Christ, let him be accursed. Come, Lord!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="narrator-1CO">
     <verse num="23" />

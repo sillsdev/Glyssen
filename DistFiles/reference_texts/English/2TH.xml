@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="2TH" singlevoice="false" pageheader="2 THESSALONIANS">
+<book id="2TH" singlevoice="false" pageheader="2 THESSALONIANS CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH">
     <text>2 THESSALONIANS</text>
   </block>
@@ -36,7 +36,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TH">
     <verse num="8" />
-    <text>He will give vengeance to those who don’t know God, and to those who don’t obey the Good News of our Lord Jesus Christ,</text>
+    <text>He will give vengeance to those who don't know God, and to those who don't obey the Good News of our Lord Jesus Christ,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2TH">
     <verse num="9" />
@@ -75,7 +75,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TH">
     <verse num="5" />
-    <text>Don’t you remember that, when I was still with you, I told you these things?</text>
+    <text>Don't you remember that, when I was still with you, I told you these things?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-2TH">
     <verse num="6" />
@@ -95,7 +95,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-2TH">
     <verse num="10" />
-    <text>Those who are lost in sin will be deceived by the things he can do because they didn’t receive the love of the truth, that they might be saved.</text>
+    <text>Those who are lost in sin will be deceived by the things he can do because they didn't receive the love of the truth, that they might be saved.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2TH">
     <verse num="11" />
@@ -103,7 +103,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-2TH">
     <verse num="12" />
-    <text>They will all be judged because they didn’t believe the truth, but had pleasure in unrighteousness.</text>
+    <text>They will all be judged because they didn't believe the truth, but had pleasure in unrighteousness.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TH">
     <verse num="13" />
@@ -154,15 +154,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-2TH">
     <verse num="7" />
-    <text>For you know how you ought to imitate us. For we didn’t behave ourselves rebelliously among you,</text>
+    <text>For you know how you ought to imitate us. For we didn't behave ourselves rebelliously among you,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2TH">
     <verse num="8" />
-    <text>neither did we eat bread from anyone’s hand without paying for it. In labor and travail we worked night and day, that we might not burden any of you.</text>
+    <text>neither did we eat bread from anyone's hand without paying for it. In labor and travail we worked night and day, that we might not burden any of you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-2TH">
     <verse num="9" />
-    <text>We did this, not because we don’t have the right, but to make ourselves an example to you, that you should imitate us.</text>
+    <text>We did this, not because we don't have the right, but to make ourselves an example to you, that you should imitate us.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-2TH">
     <verse num="10" />
@@ -170,7 +170,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-2TH">
     <verse num="11" />
-    <text>For we hear of some who walk among you in rebellion, who don’t work at all, but are busybodies.</text>
+    <text>For we hear of some who walk among you in rebellion, who don't work at all, but are busybodies.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-2TH">
     <verse num="12" />
@@ -178,15 +178,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2TH">
     <verse num="13" />
-    <text>But you, brothers, don’t be weary in doing well.</text>
+    <text>But you, brothers, don't be weary in doing well.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-2TH">
     <verse num="14" />
-    <text>If any man doesn’t obey our word in this letter, note that man, that you have no company with him, to the end that he may be ashamed.</text>
+    <text>If any man doesn't obey our word in this letter, note that man, that you have no company with him, to the end that he may be ashamed.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-2TH">
     <verse num="15" />
-    <text>Don’t count him as an enemy, but admonish him as a brother.</text>
+    <text>Don't count him as an enemy, but admonish him as a brother.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-2TH">
     <verse num="16" />

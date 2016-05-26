@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>COLOSSIANS 1</text>
+      <text>COLOSSIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -79,7 +79,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-COL">
       <verse num="9" />
-      <text>For this cause, we also, since the day we heard this, don’t cease praying and making requests for you. That you may be filled with the knowledge of his will in all spiritual wisdom and understanding.</text>
+      <text>For this cause, we also, since the day we heard this, don't cease praying and making requests for you. That you may be filled with the knowledge of his will in all spiritual wisdom and understanding.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Ona görә bunu eşitdiyimiz gündәn bәri sizin tam hikmәt vә ruhani idrakla Allahın iradәsini bütünlüklә qavramanız üçün biz dә dualarımızı vә yalvarışlarımızı kәsmәdik.</text>
@@ -199,7 +199,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-COL">
       <verse num="24" />
-      <text>Now I rejoice in my sufferings for your sake, and fill up on my part that which is lacking of the afflictions of Christ in my flesh for his body’s sake, which is the assembly;</text>
+      <text>Now I rejoice in my sufferings for your sake, and fill up on my part that which is lacking of the afflictions of Christ in my flesh for his body's sake, which is the assembly;</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>İndi sizin üçün әzab çәkdiyimә sevinirәm vә Mәsihin Öz bәdәni olan imanlılar cәmiyyәti uğrunda çәkdiyi әziyyәtlәrin qalanını canıma cәfa verәrәk tamamlayıram.</text>
@@ -246,7 +246,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>COLOSSIANS 2</text>
+      <text>COLOSSIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -311,7 +311,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-COL">
       <verse num="8" />
-      <text>Be careful that you don’t let anyone rob you through his philosophy and vain deceit, after the tradition of men, after the elements of the world, and not after Christ.</text>
+      <text>Be careful that you don't let anyone rob you through his philosophy and vain deceit, after the tradition of men, after the elements of the world, and not after Christ.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Baxın, Mәsihә deyil, insan adәt-әnәnәsinә, dünyanın ibtidai tәlimlәrinә istinad edәrәk fәlsәfә vә boş aldadıcı sözlәrlә kimsә sizi әsir etmәsin.</text>
@@ -383,7 +383,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-COL">
       <verse num="17" />
-      <text>These things are a shadow of the things to come; but the body is Christ’s.</text>
+      <text>These things are a shadow of the things to come; but the body is Christ's.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Çünki bunlar gәlәcәk şeylәrin kölgәsidir, әsli isә Mәsihdәdir.</text>
@@ -399,7 +399,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-COL">
       <verse num="19" />
-      <text>and not holding firmly to the Head, from whom all the body, being supplied and knit together through the joints and ligaments, grows with God’s growth.</text>
+      <text>and not holding firmly to the Head, from whom all the body, being supplied and knit together through the joints and ligaments, grows with God's growth.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>O, bәdәnin Başı olan Mәsih ilә әlaqәni itirdi. Bütün bәdәn buğumlar vә bağlarla üzvi surәtdә Mәsihә bağlanaraq tәmin olunur, qurulur vә Allah bәslәdiyinә görә böyüyür.</text>
@@ -415,7 +415,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
       <verse num="21" />
-      <text>“Don’t handle, nor taste, nor touch”</text>
+      <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>&lt;&lt;buna әl vurma, bunu yemә, buna toxunma&gt;&gt;kimi әmrlәrә әmәl edirsiniz?</text>
@@ -431,14 +431,14 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-COL">
       <verse num="23" />
-      <text>Which things indeed appear like wisdom in self-imposed worship, and humility, and severity to the body; but aren’t of any value against the indulgence of the flesh.</text>
+      <text>Which things indeed appear like wisdom in self-imposed worship, and humility, and severity to the body; but aren't of any value against the indulgence of the flesh.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Şübhәsiz, bu qaydalar uydurma dindarlıq, mütilik vә bәdәnә xәtәr yetirmәkdә zahirәn müdrik görünür, amma cismani tәbiәtin hәvәsinin qarşısını almaq üçün onların heç bir dәyәri yoxdur.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>COLOSSIANS 3</text>
+      <text>COLOSSIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -509,7 +509,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-COL">
       <verse num="9" />
-      <text>Don’t lie to one another, seeing that you have put off the old man with his doings.</text>
+      <text>Don't lie to one another, seeing that you have put off the old man with his doings.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Don't lie to one another, seeing that you have put off the old man with his doings.</text>
@@ -533,7 +533,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-COL">
       <verse num="12" />
-      <text>Put on therefore, as God’s chosen ones, holy and beloved, a heart of compassion, kindness, lowliness, humility, and perseverance.</text>
+      <text>Put on therefore, as God's chosen ones, holy and beloved, a heart of compassion, kindness, lowliness, humility, and perseverance.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Belәliklә, Allahın seçilmişlәri, müqәddәslәri vә sevimlilәri kimi ürәk mәrhәmәti, xeyirxahlıq, itaәtkarlıq, hәlimlik vә sәbirә bürünün.</text>
@@ -589,7 +589,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-COL">
       <verse num="19" />
-      <text>Husbands, love your wives, and don’t be bitter against them.</text>
+      <text>Husbands, love your wives, and don't be bitter against them.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Ey әrlәr, öz arvadlarınızı sevin vә onlarla sәrt davranmayın.</text>
@@ -605,7 +605,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-COL">
       <verse num="21" />
-      <text>Fathers, don’t provoke your children, so that they won’t be discouraged.</text>
+      <text>Fathers, don't provoke your children, so that they won't be discouraged.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Ey atalar, övladlarınızı incitmәyin, yoxsa cәsarәtlәri qırılar.</text>
@@ -644,7 +644,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="COL" initialStartVerse="0" characterId="BC-COL" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>COLOSSIANS 4</text>
+      <text>COLOSSIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>

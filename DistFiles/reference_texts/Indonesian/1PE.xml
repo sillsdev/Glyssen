@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 PETER 1</text>
+      <text>1 PETER CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -39,7 +39,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>to an incorruptible and undefiled inheritance that doesn’t fade away, reserved in Heaven for you.</text>
+      <text>to an incorruptible and undefiled inheritance that doesn't fade away, reserved in Heaven for you.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>untuk menerima suatu bagian yang tidak dapat binasa, yang tidak dapat cemar dan yang tidak dapat layu, yang tersimpan di sorga bagi kamu.</text>
@@ -145,7 +145,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>If you call on him as Father, who without respect of persons judges according to each man’s work, pass the time of your living as foreigners here in reverent fear.</text>
+      <text>If you call on him as Father, who without respect of persons judges according to each man's work, pass the time of your living as foreigners here in reverent fear.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Dan jika kamu menyebut-Nya Bapa, yaitu Dia yang tanpa memandang muka menghakimi semua orang menurut perbuatannya, maka hendaklah kamu hidup dalam ketakutan selama kamu menumpang di dunia ini.</text>
@@ -204,14 +204,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
-      <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
+      <text>“All flesh is like grass, and all of man's glory like the flower in the grass. The grass withers, and its flower falls;</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Semua yang hidup adalah seperti rumput dan segala kemuliaannya seperti bunga rumput, rumput menjadi kering, dan bunga gugur,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>but the Lord’s word endures forever.”</text>
+      <text>but the Lord's word endures forever.”</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>tetapi firman Tuhan tetap untuk selama-lamanya.&gt;&gt;</text>
@@ -224,7 +224,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 PETER 2</text>
+      <text>1 PETER CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -319,7 +319,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE">
       <verse num="9" />
-      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
+      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God's own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Tetapi kamulah bangsa yang terpilih, imamat yang rajani, bangsa yang kudus, umat kepunyaan Allah sendiri, supaya kamu memberitakan perbuatan-perbuatan yang besar dari Dia, yang telah memanggil kamu keluar dari kegelapan kepada terang-Nya yang ajaib:</text>
@@ -327,7 +327,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE">
       <verse num="10" />
-      <text>In times past, you were no people, but now you are God’s people. At one time you did not have God’s mercy, but now you have obtained his mercy.</text>
+      <text>In times past, you were no people, but now you are God's people. At one time you did not have God's mercy, but now you have obtained his mercy.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>kamu, yang dahulu bukan umat Allah, tetapi yang sekarang telah menjadi umat-Nya, yang dahulu tidak dikasihani tetapi yang sekarang telah beroleh belas kasihan.</text>
@@ -351,7 +351,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE">
       <verse num="13" />
-      <text>Therefore subject yourselves to every ordinance of man for the Lord’s sake: whether to the king, as supreme;</text>
+      <text>Therefore subject yourselves to every ordinance of man for the Lord's sake: whether to the king, as supreme;</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Tunduklah, karena Allah, kepada semua lembaga manusia, baik kepada raja sebagai pemegang kekuasaan yang tertinggi,</text>
@@ -431,7 +431,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
       <verse num="23" />
-      <text>When he was cursed, he didn’t curse back. When he suffered, he didn’t threaten, but committed himself to him who judges righteously.</text>
+      <text>When he was cursed, he didn't curse back. When he suffered, he didn't threaten, but committed himself to him who judges righteously.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Ketika Ia dicaci maki, Ia tidak membalas dengan mencaci maki; ketika Ia menderita, Ia tidak mengancam, tetapi Ia menyerahkannya kepada Dia, yang menghakimi dengan adil.</text>
@@ -454,14 +454,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 PETER 3</text>
+      <text>1 PETER CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE">
       <verse num="1" />
-      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don’t obey the Word, they may be won by the behavior of their wives without a word;</text>
+      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don't obey the Word, they may be won by the behavior of their wives without a word;</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Demikian juga kamu, hai isteri-isteri, tunduklah kepada suamimu, supaya jika ada di antara mereka yang tidak taat kepada Firman, mereka juga tanpa perkataan dimenangkan oleh kelakuan isterinya,</text>
@@ -567,7 +567,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
       <verse num="14" />
-      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don’t fear what they fear, neither be troubled.”</text>
+      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don't fear what they fear, neither be troubled.”</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Tetapi sekalipun kamu harus menderita juga karena kebenaran, kamu akan berbahagia. &lt;&lt;Sebab itu janganlah kamu takuti apa yang mereka takuti dan janganlah gentar.&gt;&gt;</text>
@@ -591,7 +591,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>For it is better, if it is God’s will, that you suffer for doing well than for doing evil.</text>
+      <text>For it is better, if it is God's will, that you suffer for doing well than for doing evil.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Sebab lebih baik menderita karena berbuat baik, jika hal itu dikehendaki Allah, dari pada menderita karena berbuat jahat.</text>
@@ -638,7 +638,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 PETER 4</text>
+      <text>1 PETER CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -669,7 +669,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>They think it is strange that you don’t run with them into the same excess of riot, blaspheming.</text>
+      <text>They think it is strange that you don't run with them into the same excess of riot, blaspheming.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Sebab itu mereka heran, bahwa kamu tidak turut mencemplungkan diri bersama-sama mereka di dalam kubangan ketidaksenonohan yang sama, dan mereka memfitnah kamu.</text>
@@ -733,7 +733,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
       <verse num="12" />
-      <text>Beloved, don’t be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
+      <text>Beloved, don't be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Saudara-saudara yang kekasih, janganlah kamu heran akan nyala api siksaan yang datang kepadamu sebagai ujian, seolah-olah ada sesuatu yang luar biasa terjadi atas kamu.</text>
@@ -741,7 +741,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE">
       <verse num="13" />
-      <text>But because you are partakers of Christ’s sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
+      <text>But because you are partakers of Christ's sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Sebaliknya, bersukacitalah, sesuai dengan bagian yang kamu dapat dalam penderitaan Kristus, supaya kamu juga boleh bergembira dan bersukacita pada waktu Ia menyatakan kemuliaan-Nya.</text>
@@ -757,7 +757,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE">
       <verse num="15" />
-      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men’s matters.</text>
+      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men's matters.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Janganlah ada di antara kamu yang harus menderita sebagai pembunuh atau pencuri atau penjahat, atau pengacau.</text>
@@ -773,7 +773,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don’t obey the Good News of God?</text>
+      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don't obey the Good News of God?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Karena sekarang telah tiba saatnya penghakiman dimulai, dan pada rumah Allah sendiri yang harus pertama-tama dihakimi. Dan jika penghakiman itu dimulai pada kita, bagaimanakah kesudahannya dengan mereka yang tidak percaya pada Injil Allah?</text>
@@ -796,7 +796,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 PETER 5</text>
+      <text>1 PETER CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -827,7 +827,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn’t fade away.</text>
+      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn't fade away.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Maka kamu, apabila Gembala Agung datang, kamu akan menerima mahkota kemuliaan yang tidak dapat layu.</text>

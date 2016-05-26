@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 PETER 1</text>
+      <text>1 PETER CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -39,7 +39,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>to an incorruptible and undefiled inheritance that doesn’t fade away, reserved in Heaven for you.</text>
+      <text>to an incorruptible and undefiled inheritance that doesn't fade away, reserved in Heaven for you.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>y hará que ustedes reciban la herencia que Dios les tiene guardada en el cielo, la cual no puede destruirse, ni mancharse, ni marchitarse.</text>
@@ -145,7 +145,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>If you call on him as Father, who without respect of persons judges according to each man’s work, pass the time of your living as foreigners here in reverent fear.</text>
+      <text>If you call on him as Father, who without respect of persons judges according to each man's work, pass the time of your living as foreigners here in reverent fear.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Si ustedes llaman &lt;&lt;Padre&gt;&gt; a Dios, que juzga a cada uno según sus hechos y sin parcialidad, deben mostrarle reverencia durante todo el tiempo que vivan en este mundo.</text>
@@ -204,14 +204,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
-      <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
+      <text>“All flesh is like grass, and all of man's glory like the flower in the grass. The grass withers, and its flower falls;</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Todo hombre es como hierba, y su grandeza es como la flor de la hierba. La hierba se seca y la flor se cae,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>but the Lord’s word endures forever.”</text>
+      <text>but the Lord's word endures forever.”</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>pero la palabra del Señor permanece para siempre.&gt;&gt;</text>
@@ -224,7 +224,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 PETER 2</text>
+      <text>1 PETER CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -319,7 +319,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE">
       <verse num="9" />
-      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
+      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God's own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Pero ustedes son una familia escogida, un sacerdocio al servicio del rey, una nación santa, un pueblo adquirido por Dios. Y esto es así para que anuncien las obras maravillosas de Dios, el cual los llamó a salir de la oscuridad para entrar en su luz maravillosa.</text>
@@ -327,7 +327,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE">
       <verse num="10" />
-      <text>In times past, you were no people, but now you are God’s people. At one time you did not have God’s mercy, but now you have obtained his mercy.</text>
+      <text>In times past, you were no people, but now you are God's people. At one time you did not have God's mercy, but now you have obtained his mercy.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Ustedes antes ni siquiera eran pueblo, pero ahora son pueblo de Dios; antes Dios no les tenía compasión, pero ahora les tiene compasión.</text>
@@ -351,7 +351,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE">
       <verse num="13" />
-      <text>Therefore subject yourselves to every ordinance of man for the Lord’s sake: whether to the king, as supreme;</text>
+      <text>Therefore subject yourselves to every ordinance of man for the Lord's sake: whether to the king, as supreme;</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Por causa del Señor, sométanse a toda autoridad humana: tanto al emperador, porque ocupa el cargo más alto,</text>
@@ -431,7 +431,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
       <verse num="23" />
-      <text>When he was cursed, he didn’t curse back. When he suffered, he didn’t threaten, but committed himself to him who judges righteously.</text>
+      <text>When he was cursed, he didn't curse back. When he suffered, he didn't threaten, but committed himself to him who judges righteously.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Cuando lo insultaban, no contestaba con insultos; cuando lo hacían sufrir, no amenazaba, sino que se encomendaba a Dios, que juzga con rectitud.</text>
@@ -454,14 +454,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 PETER 3</text>
+      <text>1 PETER CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE">
       <verse num="1" />
-      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don’t obey the Word, they may be won by the behavior of their wives without a word;</text>
+      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don't obey the Word, they may be won by the behavior of their wives without a word;</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Así también ustedes, las esposas, sométanse a sus esposos, para que, si algunos de ellos no creen en el mensaje, puedan ser convencidos, sin necesidad de palabras, por el comportamiento de ustedes,</text>
@@ -567,7 +567,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
       <verse num="14" />
-      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don’t fear what they fear, neither be troubled.”</text>
+      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don't fear what they fear, neither be troubled.”</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Pero aun si por actuar con rectitud han de sufrir, ¡dichosos ustedes! No tengan miedo a nadie, ni se asusten,</text>
@@ -591,7 +591,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>For it is better, if it is God’s will, that you suffer for doing well than for doing evil.</text>
+      <text>For it is better, if it is God's will, that you suffer for doing well than for doing evil.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Es mejor sufrir por hacer el bien, si así lo quiere Dios, que por hacer el mal.</text>
@@ -638,7 +638,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 PETER 4</text>
+      <text>1 PETER CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -669,7 +669,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>They think it is strange that you don’t run with them into the same excess of riot, blaspheming.</text>
+      <text>They think it is strange that you don't run with them into the same excess of riot, blaspheming.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Ahora, como ustedes ya no los acompañan en los excesos de su mala vida, ellos se extrañan y hablan mal de ustedes.</text>
@@ -733,7 +733,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
       <verse num="12" />
-      <text>Beloved, don’t be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
+      <text>Beloved, don't be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Queridos hermanos, no se extrañen de verse sometidos al fuego de la prueba, como si fuera algo extraordinario.</text>
@@ -741,7 +741,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE">
       <verse num="13" />
-      <text>But because you are partakers of Christ’s sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
+      <text>But because you are partakers of Christ's sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Al contrario, alégrense de tener parte en los sufrimientos de Cristo, para que también se llenen de alegría cuando su gloria se manifieste.</text>
@@ -757,7 +757,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE">
       <verse num="15" />
-      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men’s matters.</text>
+      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men's matters.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Si alguno de ustedes sufre, que no sea por asesino, ladrón o criminal, ni por meterse en asuntos ajenos.</text>
@@ -773,7 +773,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don’t obey the Good News of God?</text>
+      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don't obey the Good News of God?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Ya ha llegado el tiempo en que el juicio comience por la propia familia de Dios. Y si el juicio está comenzando así por nosotros, ¿cómo será el fin de los que no obedecen al evangelio de Dios? Y</text>
@@ -796,7 +796,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 PETER 5</text>
+      <text>1 PETER CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -827,7 +827,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn’t fade away.</text>
+      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn't fade away.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Así, cuando aparezca el Pastor principal, ustedes recibirán la corona de la gloria, una corona que jamás se marchitará.</text>

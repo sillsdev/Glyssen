@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 TIMOTHY 1</text>
+      <text>2 TIMOTHY CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -63,7 +63,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2TI">
       <verse num="7" />
-      <text>For God didn’t give us a spirit of fear, but of power, love, and self-control.</text>
+      <text>For God didn't give us a spirit of fear, but of power, love, and self-control.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Yu save, dispela Spirit God i bin givim long yumi, em i no spirit bilong mekim yumi i pret. Nogat. Em i Spirit bilong givim strong long yumi na bilong mekim yumi i laikim tru ol arapela na bilong helpim yumi long bosim gut laip bilong yumi yet.</text>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2TI">
       <verse num="8" />
-      <text>Therefore don’t be ashamed of the testimony of our Lord, nor of me his prisoner; but endure hardship for the Good News according to the power of God.</text>
+      <text>Therefore don't be ashamed of the testimony of our Lord, nor of me his prisoner; but endure hardship for the Good News according to the power of God.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Olsem na yu no ken sem long autim tok bilong Bikpela bilong yumi. Na yu no ken sem long mi, mi kalabusman bilong em. Nogat. Yu mas kisim strong bilong God na karim hevi wantaim mi long wok bilong autim gutnius.</text>
@@ -158,7 +158,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 TIMOTHY 2</text>
+      <text>2 TIMOTHY CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -197,7 +197,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2TI">
       <verse num="5" />
-      <text>Also, if anyone competes in athletics, he isn’t crowned unless he has competed by the rules.</text>
+      <text>Also, if anyone competes in athletics, he isn't crowned unless he has competed by the rules.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Na man i ran long resis, em i mas bihainim lo bilong resis. Sapos nogat, em bai i no inap kisim prais bilong man i win.</text>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-2TI">
       <verse num="9" />
-      <text>in which I suffer hardship to the point of chains as a criminal. But God’s word isn’t chained.</text>
+      <text>in which I suffer hardship to the point of chains as a criminal. But God's word isn't chained.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Mi save autim dispela gutnius, na long dispela as tasol ol man i save lukim mi olsem man nogut, na ol i givim ol kain kain hevi long mi na putim mi long kalabus. Tasol tok bilong God em i no inap kalabus i stap.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2TI">
       <verse num="13" />
-      <text>If we are faithless, he remains faithful. He can’t deny himself.”</text>
+      <text>If we are faithless, he remains faithful. He can't deny himself.”</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Sapos yumi promis long bihainim em, na yumi no bihainim dispela tok bilong yumi, em bai i bihainim yet tok em i bin mekim. Em i no inap senisim tok bilong em yet. Nogat tru."</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2TI">
       <verse num="14" />
-      <text>Remind them of these things, charging them in the sight of the Lord, that they don’t argue about words. It is of no profit, subverting of those who hear.</text>
+      <text>Remind them of these things, charging them in the sight of the Lord, that they don't argue about words. It is of no profit, subverting of those who hear.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Oltaim yu mas helpim ol manmeri long tingim dispela tok. Na long ai bilong God yu mas tok strong long ol i no ken tok pait long ol liklik samting nating, olsem wanem nem yumi mas givim long ol pasin bilong yumi. Dispela kain tok i no inap helpim wanpela man. Nogat. Em i save bagarapim tasol laip bilong ol man i harim.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-2TI">
       <verse num="15" />
-      <text>Study to present yourself approved by God, a workman who doesn’t need to be ashamed, properly handling the Word of Truth.</text>
+      <text>Study to present yourself approved by God, a workman who doesn't need to be ashamed, properly handling the Word of Truth.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Yu mas wok strong long kamap wokman tru, na bai God i laikim wok bilong yu. Olsem na bai yu autim stret tok tru bilong God, na bai yu no gat sem long ai bilong en.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-2TI">
       <verse num="19" />
-      <text>However God’s firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
+      <text>However God's firm foundation stands, having this seal, “The Lord knows those who are his,” and, “Let every one who names the name of the Lord depart from unrighteousness.”</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Tasol God i planim pinis strongpela pos bilong wokim sios bilong en, na dispela pos i sanap strong i stap. Na long dispela pos em i raitim tok olsem, "Bikpela i save gut long ol manmeri bilong em yet." Na em i raitim dispela tok tu, "Olgeta man i bin kisim nem bilong Bikpela, ol i mas givim baksait long pasin i no stret."</text>
@@ -325,7 +325,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-2TI">
       <verse num="21" />
-      <text>If anyone therefore purges himself from these, he will be a vessel for honor, sanctified. A vessel suitable for the master’s use, prepared for every good work.</text>
+      <text>If anyone therefore purges himself from these, he will be a vessel for honor, sanctified. A vessel suitable for the master's use, prepared for every good work.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Olsem na sapos wanpela man i rausim ol pasin nogut long laip bilong en na em i kamap klin long ai bilong God, orait em bai i stap olsem dis bilong mekim gutpela wok tru. Em bai i stap man bilong God tru, na em bai inap long helpim Bikpela bilong en. Em bai i redi long mekim olgeta kain gutpela wok.</text>
@@ -349,7 +349,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-2TI">
       <verse num="24" />
-      <text>The Lord’s servant must not quarrel, but be gentle towards all, able to teach, and be patient.</text>
+      <text>The Lord's servant must not quarrel, but be gentle towards all, able to teach, and be patient.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Na wokman bilong Bikpela i no ken tok pait na tok kros. Nogat. Em i mas mekim gutpela pasin long olgeta man. Sapos ol man i bikhet long em, em i mas daunim belhat na painim ol gutpela rot bilong skulim ol manmeri long ol pasin God i laikim.</text>
@@ -365,14 +365,14 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-2TI">
       <verse num="26" />
-      <text>Then they may recover themselves out of the devil’s snare, having been taken captive by him to his will.</text>
+      <text>Then they may recover themselves out of the devil's snare, having been taken captive by him to his will.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Satan i kisim ol pinis long umben bilong en, bilong mekim ol i bihainim tok bilong em. Tasol sapos ol i save long tok tru, orait tingting bilong ol i kamap klia gen, na ol bai i lusim umben bilong Satan na i stap fri.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 TIMOTHY 3</text>
+      <text>2 TIMOTHY CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -514,7 +514,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>2 TIMOTHY 4</text>
+      <text>2 TIMOTHY CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>

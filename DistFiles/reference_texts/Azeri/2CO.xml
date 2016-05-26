@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 CORINTHIANS 1</text>
+      <text>2 CORINTHIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO">
       <verse num="8" />
-      <text>For we don’t desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
+      <text>For we don't desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Ey qardaşlar, Asiya vilayәtindә çәkdiyimiz әziyyәtlәrdәn bixәbәr olmağınızı istәmirәm. Gücümüzdәn daha artıq bir yük altında qaldıq. Belә ki yaşamaqdan belә, ümidimizi kәsmişdik.</text>
@@ -191,7 +191,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO">
       <verse num="23" />
-      <text>But I call God for a witness to my soul, that I didn’t come to Corinth to spare you.</text>
+      <text>But I call God for a witness to my soul, that I didn't come to Corinth to spare you.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Allah şahidimdir, canıma and olsun ki, indiyәdәk sizә qıymadığım üçün Korinfә gәlmәdim.</text>
@@ -206,7 +206,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 CORINTHIANS 2</text>
+      <text>2 CORINTHIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>And I wrote this very thing to you, so that, when I came, I wouldn’t have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
+      <text>And I wrote this very thing to you, so that, when I came, I wouldn't have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Bunu yazmışdım ki, gәldiyim zaman mәni sevindirәsi insanlar kәdәrlәndirmәsin. Hamınıza inanıram ki, mәnim sevincim hәr birinizin sevincidir.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>I had no relief for my spirit, because I didn’t find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
+      <text>I had no relief for my spirit, because I didn't find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Amma qardaşım Titi orada tapmayanda ürәyim narahat oldu. Ona görә oradakılarla xudahafizlәşib Makedoniyaya gәldim.</text>
@@ -348,7 +348,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 CORINTHIANS 3</text>
+      <text>2 CORINTHIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn’t look steadfastly on the end of that which was passing away.</text>
+      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn't look steadfastly on the end of that which was passing away.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>İsrail övladları onun üzündәki ötәri ehtişamın keçib-getmәsinә baxmasın deyә üzünә niqab çәkәn Musa kimi deyilik.</text>
@@ -498,14 +498,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>2 CORINTHIANS 4</text>
+      <text>2 CORINTHIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO">
       <verse num="1" />
-      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don’t faint.</text>
+      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don't faint.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Belәliklә, bizә verilәn mәrhәmәtlә bu xidmәtә tәyin olunduğumuz üçün ümidimizi itirmirik.</text>
@@ -513,7 +513,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man’s conscience in the sight of God.</text>
+      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man's conscience in the sight of God.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Xәcalәt gәtirәn gizli yolları rәdd etmişik. Hiylә işlәtmirik, Allahın sözünü tәhrif etmirik, amma hәqiqәti açıq elan etmәklә Allahın önündә, hәr insanın vicdanı qarşısında özümüz barәdә zәmanәt veririk.</text>
@@ -537,7 +537,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>For we don’t preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
+      <text>For we don't preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Biz özümüzü yox, İsa Mәsihi Rәbb olaraq vәz edirik. Özümüzü isә İsa naminә qullarınız olaraq tәqdim edirik.</text>
@@ -633,7 +633,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO">
       <verse num="16" />
-      <text>Therefore we don’t faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
+      <text>Therefore we don't faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Buna görә biz ümidimizi itirmirik. Zahirimiz get-gedә xarab olsa da, daxilimiz gündәn-günә tәzәlәnir.</text>
@@ -649,14 +649,14 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>We don’t look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
+      <text>We don't look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Gözlәrimizi görünәn şeylәrә deyil, görünmәyәn şeylәrә dikirik. Çünki görünәnlәr gәldi-gedәr, görünmәyәnlәrsә әbәdidir.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>2 CORINTHIANS 5</text>
+      <text>2 CORINTHIANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -830,7 +830,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>2 CORINTHIANS 6</text>
+      <text>2 CORINTHIANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -949,7 +949,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>Don’t be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
+      <text>Don't be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>İmansızlarla eyni boyunduruğa girmәyin. Çünki salehliklә qanunsuzluğun nә şәrikliyi var? İşıqla qaranlığın ortaq nәyi var?</text>
@@ -994,7 +994,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>2 CORINTHIANS 7</text>
+      <text>2 CORINTHIANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1128,7 +1128,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>2 CORINTHIANS 8</text>
+      <text>2 CORINTHIANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1223,7 +1223,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO">
       <verse num="12" />
-      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don’t have.</text>
+      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don't have.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Çünki insanın hәvәsi varsa, verdiyi yardım imkanı çatmadığı qәdәr yox, imkanına görә mәqbul sayılır.</text>
@@ -1328,7 +1328,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>2 CORINTHIANS 9</text>
+      <text>2 CORINTHIANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1359,7 +1359,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO">
       <verse num="4" />
-      <text>This is so that I won’t by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
+      <text>This is so that I won't by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Belә ki bәzi Makedoniyalılar mәnimlә gәlib sizin hazır olmadığınızı görәrsә, sizә etibar etdiyimizә görә nә biz utanaq, nә dә siz.</text>
@@ -1456,7 +1456,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>2 CORINTHIANS 10</text>
+      <text>2 CORINTHIANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1479,7 +1479,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>For though we walk in the flesh, we don’t wage war according to the flesh.</text>
+      <text>For though we walk in the flesh, we don't wage war according to the flesh.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Çünki cismәn hәyat sürsәk dә, cismani tәbiәtә görә döyüş aparmırıq.</text>
@@ -1511,7 +1511,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ’s, let him consider this again with himself, that, even as he is Christ’s, so also we are Christ’s.</text>
+      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ's, let him consider this again with himself, that, even as he is Christ's, so also we are Christ's.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Göz qabağında olanlara baxın. Kim Mәsihә aid olduğuna arxalanırsa, yadda saxlasın ki, onun qәdәr biz dә Mәsihә aidik.</text>
@@ -1567,7 +1567,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>For we don’t stretch ourselves too much, as though we didn’t reach to you. For we came even as far as to you with the Good News of Christ,</text>
+      <text>For we don't stretch ourselves too much, as though we didn't reach to you. For we came even as far as to you with the Good News of Christ,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Sizә yetişmәyәnlәr kimi uzaqlara getmirik. Çünki Mәsihin Müjdәsini sizә çatdıran bizik.</text>
@@ -1575,7 +1575,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO">
       <verse num="15" />
-      <text>not boasting beyond proper limits in other men’s labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
+      <text>not boasting beyond proper limits in other men's labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Başqalarının әmәyi ilә öyünüb hәddimizi aşmırıq. Ümidvarıq ki, imanınız böyüdükcә aranızda işimizin әhatә dairәsi daha da genişlәnәcәk.</text>
@@ -1599,14 +1599,14 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>For it isn’t he who commends himself who is approved, but whom the Lord commends.</text>
+      <text>For it isn't he who commends himself who is approved, but whom the Lord commends.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Çünki özü barәdә zәmanәt verәn insan yox, barәsindә Rәbbin zәmanәt verdiyi insan sınaqdan keçmiş olur.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>2 CORINTHIANS 11</text>
+      <text>2 CORINTHIANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -1661,7 +1661,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God’s Good News free of charge?</text>
+      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God's Good News free of charge?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Ucalmanız üçün özümü aşağı tutaraq Allah Müjdәsini müftә yaymaqla günah işlәtdimmi?</text>
@@ -1677,7 +1677,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO">
       <verse num="9" />
-      <text>When I was present with you and was in need, I wasn’t a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
+      <text>When I was present with you and was in need, I wasn't a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Yanınızda olarkәn ehtiyacım olduğu halda heç birinizә yük olmadım. Çünki Makedoniyadan gәlәn qardaşlar ehtiyacımı tamamilә ödәdilәr. Sizә yük olmaqdan özümü saxladım vә gәlәcәkdә dә özümü saxlayacağam.</text>
@@ -1693,7 +1693,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO">
       <verse num="11" />
-      <text>Why? Because I don’t love you? God knows.</text>
+      <text>Why? Because I don't love you? God knows.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Niyә? Sizi sevmәdiyimә görәmi? Allah bilir ki, sevirәm.</text>
@@ -1709,7 +1709,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>For such men are false apostles, deceitful workers, masquerading as Christ’s apostles.</text>
+      <text>For such men are false apostles, deceitful workers, masquerading as Christ's apostles.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Çünki bunlar saxta hәvari, Mәsih hәvarisinin cildinә girәn fırıldaqçılardır.</text>
@@ -1741,7 +1741,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO">
       <verse num="17" />
-      <text>That which I speak, I don’t speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
+      <text>That which I speak, I don't speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Dediklәrimi Rәbbin sözü kimi yox, öyünә-öyünә özünә güvәnәn ağılsız adam kimi deyirәm.</text>
@@ -1837,7 +1837,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO">
       <verse num="29" />
-      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don’t burn with indignation?</text>
+      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don't burn with indignation?</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Kimsә zәif olanda mәn dә zәif olmadımmı? Kimsә büdrәyәndә mәn alışıb-yanmadımmı?</text>
@@ -1853,7 +1853,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO">
       <verse num="31" />
-      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don’t lie.</text>
+      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don't lie.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Rәbb İsanın әbәdi alqışlanan Allah vә Atasına and olsun ki, yalan demirәm.</text>
@@ -1876,7 +1876,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>2 CORINTHIANS 12</text>
+      <text>2 CORINTHIANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -1891,7 +1891,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don’t know, or whether out of the body, I don’t know; God knows)</text>
+      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don't know, or whether out of the body, I don't know; God knows)</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Mәsihdә olaraq on dörd il bundan әvvәl – bәdәndәmi, yoxsa bәdәndәn xaricmi, mәn bilmirәm, Allah bilir – götürülüb göyün üçüncü qatına aparılan bir insanı tanıyıram.</text>
@@ -1899,7 +1899,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>I know such a man (whether in the body, or outside of the body, I don’t know; God knows),</text>
+      <text>I know such a man (whether in the body, or outside of the body, I don't know; God knows),</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Bilirәm ki, bu adam – bәdәndәmi, yoxsa bәdәndәn kәnarmı, mәn bilmirәm, Allah bilir –</text>
@@ -1955,7 +1955,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
       <verse num="10" />
-      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ’s sake. For when I am weak, then am I strong.</text>
+      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ's sake. For when I am weak, then am I strong.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Ona görә dә Mәsih uğrunda zәifliklәrә, tәhqirlәrә, ehtiyaclara, tәqiblәrә vә sıxıntılara mәmnuniyyәtlә dözürәm, çünki mәn zәiflәyәndә qüvvәtlәnirәm.</text>
@@ -2019,7 +2019,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn’t we walk in the same spirit? Didn’t we walk in the same steps?</text>
+      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn't we walk in the same spirit? Didn't we walk in the same steps?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Titi yanınıza gәlmәk hәvәsinә saldım vә o biri qardaşı da onunla göndәrdim. Tit mәnә görә sizi istismar etmәdi, elә deyilmi? Eyni ruhda hәyat sürmәdikmi? Eyni izlә getmәdikmi?</text>
@@ -2035,7 +2035,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO">
       <verse num="20" />
-      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don’t desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
+      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don't desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Qorxuram ki, gәlişimdә sizi istәdiyim vәziyyәtdә tapmayım, siz dә istәdiyinizi mәndә tapmayasınız vә aranızda münaqişә, qısqanclıq, hiddәt, özünü göstәrmә, böhtan, qeybәt, lovğalıq, qarışıqlıq tapam.</text>
@@ -2050,7 +2050,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>2 CORINTHIANS 13</text>
+      <text>2 CORINTHIANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2089,7 +2089,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don’t you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
+      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don't you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Özünüzü yoxlayın vә iman yolunda olub-olmadığınızı bilmәk üçün sınaqdan keçirin. İsa Mәsihin daxilinizdә olduğunu başa düşmürsünüzmü? Yoxsa sınaqdan keçmirsiniz?</text>
@@ -2097,7 +2097,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO">
       <verse num="6" />
-      <text>But I hope that you will know that we aren’t disqualified.</text>
+      <text>But I hope that you will know that we aren't disqualified.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Ümidvaram, bizim sınaqdan keçdiyimizi başa düşәcәksiniz.</text>

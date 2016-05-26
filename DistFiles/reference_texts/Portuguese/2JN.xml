@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 JOHN 1</text>
+      <text>2 JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -63,7 +63,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-2JN">
       <verse num="7" />
-      <text>For many deceivers have gone out into the world, those who don’t confess that Jesus Christ came in the flesh. This is the deceiver and the Antichrist.</text>
+      <text>For many deceivers have gone out into the world, those who don't confess that Jesus Christ came in the flesh. This is the deceiver and the Antichrist.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Muitos enganadores têm se espalhado pelo mundo, afirmando que Jesus Cristo não veio como um ser humano. Quem faz isso é o Enganador e o Inimigo de Cristo b.</text>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2JN">
       <verse num="8" />
-      <text>Watch yourselves, that we don’t lose the things which we have accomplished, but that we receive a full reward.</text>
+      <text>Watch yourselves, that we don't lose the things which we have accomplished, but that we receive a full reward.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Tomem cuidado com vocês mesmos para que não percam o trabalho que já fizemos, mas recebam a recompensa completa.</text>
@@ -79,7 +79,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-2JN">
       <verse num="9" />
-      <text>Whoever transgresses and doesn’t remain in the teaching of Christ, doesn’t have God. He who remains in the teaching, the same has both the Father and the Son.</text>
+      <text>Whoever transgresses and doesn't remain in the teaching of Christ, doesn't have God. He who remains in the teaching, the same has both the Father and the Son.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Quem não fica com o ensinamento de Cristo, mas vai além dele, não tem Deus. Porém quem fica com o ensinamento de Cristo, esse tem tanto o Pai como o Filho.</text>
@@ -87,7 +87,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-2JN">
       <verse num="10" />
-      <text>If anyone comes to you, and doesn’t bring this teaching, don’t receive him into your house, and don’t welcome him.</text>
+      <text>If anyone comes to you, and doesn't bring this teaching, don't receive him into your house, and don't welcome him.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Se alguém for até vocês e não levar o ensinamento de Cristo, não recebam essa pessoa na casa de vocês, nem lhe digam: “Que a paz esteja com você!”</text>
@@ -103,7 +103,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-2JN">
       <verse num="12" />
-      <text>Having many things to write to you, I don’t want to do so with paper and ink. I hope to come to you, and to speak face to face, that our joy may be made full.</text>
+      <text>Having many things to write to you, I don't want to do so with paper and ink. I hope to come to you, and to speak face to face, that our joy may be made full.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Ainda tenho muitas coisas a dizer a vocês, mas não quis fazer isso por carta. Pois espero visitá-los e falar com vocês pessoalmente, para que assim a nossa alegria seja completa.</text>

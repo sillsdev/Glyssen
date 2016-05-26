@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 JOHN 1</text>
+      <text>1 JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -55,7 +55,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don’t tell the truth.</text>
+      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don't tell the truth.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Sapos yumi tok, "Mi wanbel wantaim em," tasol yumi wokabaut long tudak, orait dispela tok bilong yumi em i tok giaman, na yumi no wokabaut long pasin i tru.</text>
@@ -87,14 +87,14 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>If we say that we haven’t sinned, we make him a liar, and his word is not in us.</text>
+      <text>If we say that we haven't sinned, we make him a liar, and his word is not in us.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Sapos yumi tok, "Mi no bin mekim sin," orait long dispela tok yumi kolim God em i man bilong giaman. Olsem na tok bilong God i no i stap long bel bilong yumi.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 JOHN 2</text>
+      <text>1 JOHN CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -125,7 +125,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
       <verse num="4" />
-      <text>One who says, “I know him,” and doesn’t keep his commandments, is a liar, and the truth isn’t in him.</text>
+      <text>One who says, “I know him,” and doesn't keep his commandments, is a liar, and the truth isn't in him.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Sapos wanpela man i tok, "Mi save gut long God," tasol em i no bihainim ol lo bilong God, orait dispela man em i man bilong giaman, na tok tru i no i stap long bel bilong em.</text>
@@ -133,7 +133,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
       <verse num="5" />
-      <text>But whoever keeps his word, God’s love has most certainly been perfected in him. This is how we know that we are in him:</text>
+      <text>But whoever keeps his word, God's love has most certainly been perfected in him. This is how we know that we are in him:</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Na sapos wanpela man i bihainim tok bilong God, orait em i save tru long givim bel bilong en long God, na long dispela pasin yumi save olsem, yumi pas wantaim God.</text>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
       <verse num="11" />
-      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn’t know where he is going, because the darkness has blinded his eyes.</text>
+      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn't know where he is going, because the darkness has blinded his eyes.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Tasol man i save bel nogut long wanpela Kristen brata, em i stap long tudak. Em i wokabaut long tudak, na em i no save long wanem rot em i bihainim. Tudak i pasim pinis ai bilong en.</text>
@@ -189,7 +189,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>I write to you, little children, because your sins are forgiven you for his name’s sake.</text>
+      <text>I write to you, little children, because your sins are forgiven you for his name's sake.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Yupela liklik pikinini bilong mi, long nem bilong Krais God i lusim pinis ol sin bilong yupela. Olsem na mi raitim dispela tok long yupela.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
       <verse num="15" />
-      <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
+      <text>Don't love the world, neither the things that are in the world. If anyone loves the world, the Father's love isn't in him.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Yupela i no ken laikim ol pasin bilong graun na olgeta samting bilong graun. Sapos wanpela man i laikim ol pasin bilong graun, orait em i no save laikim tru Papa.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn’t the Father’s, but is the world’s.</text>
+      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn't the Father's, but is the world's.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Yumi save, olgeta pasin bilong ol man bilong graun, em pasin bilong bel kirap na aigris na bikhet, ol dispela pasin i no kam long Papa. Nogat. Ol i pasin bilong graun tasol.</text>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
+      <text>The world is passing away with its lusts, but he who does God's will remains forever.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Na dispela graun bai i pinis, na olgeta pasin bilong dispela graun, em ol pasin bilong bel i kirap na aigris, ol tu bai i pinis wantaim. Tasol man i bihainim tok bilong God, em bai i stap oltaim.</text>
@@ -245,7 +245,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
       <verse num="19" />
-      <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
+      <text>They went out from us, but they didn't belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Pastaim ol dispela man i bin i stap wantaim yumi, na ol i lusim yumi na i go. Tasol ol i no bin i stap lain bilong yumi tru. Sapos ol i bilong yumi tru, orait ol bai i stap yet wantaim yumi. Tasol ol i lusim yumi pinis, olsem na yumi save gut, dispela olgeta man ol i no bilong yumi tru.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>I have not written to you because you don’t know the truth, but because you know it, and because no lie is of the truth.</text>
+      <text>I have not written to you because you don't know the truth, but because you know it, and because no lie is of the truth.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Olsem na mi no ting yupela i no save long tok tru, na mi raitim dispela tok long yupela. Nogat. Mi rait, long wanem, yupela i save pinis long tok tru, na yupela i save, tok tru i no inap kamapim tok giaman.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
       <verse num="23" />
-      <text>Whoever denies the Son, the same doesn’t have the Father. He who confesses the Son has the Father also.</text>
+      <text>Whoever denies the Son, the same doesn't have the Father. He who confesses the Son has the Father also.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Man i givim baksait long Pikinini, em i givim baksait long Papa tu. Man i bilip long Pikinini, em i bilip long Papa tu.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
       <verse num="27" />
-      <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
+      <text>As for you, the anointing which you received from him remains in you, and you don't need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Tasol yupela i bin kisim Holi Spirit long Krais, na em i stap yet wantaim yupela. Olsem na yupela i no sot long save, na bai mi skulim yupela. Nogat. Holi Spirit yet i save skulim yupela long olgeta samting, na dispela tok bilong Spirit em i tru. Em i no giaman. Olsem na yupela i mas pas wantaim Krais, olsem Spirit i bin skulim yupela.</text>
@@ -332,14 +332,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 JOHN 3</text>
+      <text>1 JOHN CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn’t know us, because it didn’t know him.</text>
+      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn't know us, because it didn't know him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Olaman, Papa i bin laikim yumi na givim bel bilong em moa yet long yumi! Em i kolim yumi ol pikinini bilong God. Na tru tumas, yumi stap pikinini bilong God. Ol man bilong graun i no bin save long God, olsem na ol i no save long yumi tu.</text>
@@ -379,7 +379,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>Whoever remains in him doesn’t sin. Whoever sins hasn’t seen him, neither knows him.</text>
+      <text>Whoever remains in him doesn't sin. Whoever sins hasn't seen him, neither knows him.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Man i pas wantaim Krais, em i no save bihainim pasin bilong sin. Sapos wanpela man i bihainim pasin bilong sin, orait yumi ken save, em i no bin lukim Krais, na em i no save long Krais.</text>
@@ -403,7 +403,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>Whoever is born of God doesn’t commit sin, because his seed remains in him; and he can’t sin, because he is born of God.</text>
+      <text>Whoever is born of God doesn't commit sin, because his seed remains in him; and he can't sin, because he is born of God.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Sapos wanpela man i kamap pikinini bilong God, orait em i no save bihainim pasin bilong sin. Laip bilong God yet em i stap long dispela man, olsem na em i no inap long bihainim pasin bilong sin. Nogat. Em i stap pikinini bilong God.</text>
@@ -411,7 +411,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn’t do righteousness is not of God, neither is he who doesn’t love his brother.</text>
+      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn't do righteousness is not of God, neither is he who doesn't love his brother.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Sapos yumi laik save husat em i pikinini bilong God, na husat em i pikinini bilong Satan, orait yumi ken save olsem, man i no mekim stretpela pasin, em i no bilong God. Na man i no save laikim tru ol arapela pikinini bilong God, em tu i no bilong God.</text>
@@ -427,7 +427,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother’s righteous.</text>
+      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother's righteous.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Yumi no ken i stap olsem Kein. Em i man bilong Satan, na em i kilim i dai brata bilong en. Na bilong wanem em i kilim i dai brata bilong en? Em i kilim em, long wanem, pasin bilong en em i nogut, na pasin bilong brata bilong en em i stretpela.</text>
@@ -435,7 +435,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
       <verse num="13" />
-      <text>Don’t be surprised, my brothers, if the world hates you.</text>
+      <text>Don't be surprised, my brothers, if the world hates you.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ol brata, sapos ol man bilong graun i birua long yupela, orait yupela i no ken kirap nogut long dispela.</text>
@@ -443,7 +443,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
       <verse num="14" />
-      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn’t love his brother remains in death.</text>
+      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn't love his brother remains in death.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Yumi save givim bel bilong yumi long ol arapela manmeri bilong God, olsem na yumi save, yumi lusim pinis pasin bilong i dai, na yumi stap long pasin bilong laip. Man i no save givim bel bilong en long ol brata, em i stap yet long pasin bilong i dai.</text>
@@ -467,7 +467,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>But whoever has the world’s goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
+      <text>But whoever has the world's goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Tasol sapos wanpela man i gat ol samting bilong dispela graun, na em i lukim narapela brata i sot long ol samting, na sapos em i no sori long dispela brata, orait yumi save, pasin bilong God bilong laikim tru ol arapela, em i no i stap long dispela man.</text>
@@ -475,7 +475,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>My little children, let’s not love in word only, neither with the tongue only, but in deed and truth.</text>
+      <text>My little children, let's not love in word only, neither with the tongue only, but in deed and truth.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Ol liklik pikinini bilong mi, yumi no ken laikim ol brata long tok tasol o long maus tasol. Nogat. Yumi mas givim bel bilong yumi tru long ol na mekim gutpela pasin long ol.</text>
@@ -499,7 +499,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>Beloved, if our hearts don’t condemn us, we have boldness toward God;</text>
+      <text>Beloved, if our hearts don't condemn us, we have boldness toward God;</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Ol pren, sapos bel bilong yumi i no kotim yumi, orait yumi save sanap strong long ai bilong God.</text>
@@ -530,14 +530,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 JOHN 4</text>
+      <text>1 JOHN CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Beloved, don’t believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
+      <text>Beloved, don't believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ol pren, planti giaman profet i save raun nabaut long graun. Olsem na yupela i no ken bilip long olgeta man i kam long yupela na i tok, "Spirit bilong God i givim tok long mi." Nogat. Yupela i mas traim olgeta spirit, bai yupela i ken save, ol i kam long God, o nogat.</text>
@@ -553,7 +553,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
       <verse num="3" />
-      <text>And every spirit who doesn’t confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
+      <text>And every spirit who doesn't confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Na sapos man i no mekim dispela kain tok long Jisas, orait dispela man i gat narapela spirit, em i no kam long God. Em i spirit bilong birua bilong Krais, bipo yupela i harim tok long em bai i kam. Na nau em i kam pinis na i stap long graun.</text>
@@ -577,7 +577,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>We are of God. He who knows God listens to us. He who is not of God doesn’t listen to us. By this we know the spirit of truth, and the spirit of error.</text>
+      <text>We are of God. He who knows God listens to us. He who is not of God doesn't listen to us. By this we know the spirit of truth, and the spirit of error.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Tasol yumi bilong God, na ol man i save long God, ol i save harim tok bilong yumi. Tasol man i no bilong God, em i no save harim tok bilong yumi. Long dispela pasin yumi inap save long Spirit bilong tok tru, na long spirit bilong giaman.</text>
@@ -593,7 +593,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
       <verse num="8" />
-      <text>He who doesn’t love doesn’t know God, for God is love.</text>
+      <text>He who doesn't love doesn't know God, for God is love.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>God yet em i as bilong dispela pasin bilong laikim ol arapela. Olsem na man i no save laikim ol arapela, em i no save long God.</text>
@@ -601,7 +601,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>By this God’s love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
+      <text>By this God's love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>God i gat wanpela Pikinini tasol, na em i salim dispela Pikinini i kam long graun, bai yumi kisim laip long em. Long dispela pasin God i soim yumi olsem em i laikim yumi tru.</text>
@@ -689,7 +689,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
       <verse num="20" />
-      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn’t love his brother whom he has seen, how can he love God whom he has not seen?</text>
+      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn't love his brother whom he has seen, how can he love God whom he has not seen?</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Sapos wanpela man i tok, "Mi laikim tru God," tasol em i no laikim wanpela bilong ol arapela manmeri bilong God, orait dispela man em i man bilong giaman. I no gat wanpela man i bin lukim God. Olsem na man i no save laikim ol arapela, em ol manmeri em i lukim pinis, em i no inap laikim God em i no bin lukim.</text>
@@ -704,7 +704,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 JOHN 5</text>
+      <text>1 JOHN CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -775,7 +775,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>If we receive the witness of men, the witness of God is greater; for this is God’s testimony which he has testified concerning his Son.</text>
+      <text>If we receive the witness of men, the witness of God is greater; for this is God's testimony which he has testified concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Yumi save bilipim tok ol man i autim. Tasol tok God i autim, em i winim tru tok bilong ol man. Na dispela tok God i autim pinis, em i tok long Pikinini bilong en.</text>
@@ -783,7 +783,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>He who believes in the Son of God has the testimony in himself. He who doesn’t believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
+      <text>He who believes in the Son of God has the testimony in himself. He who doesn't believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Man i save bilip long Pikinini Bilong God, em i kisim pinis dispela tok God i bin autim, na em i stap long bel bilong en. Tasol man i no bilipim tok bilong God, i olsem em i kolim God em i man bilong giaman, long wanem, em i no bilipim tok God i bin autim long pasin bilong Pikinini bilong en.</text>
@@ -799,7 +799,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
+      <text>He who has the Son has the life. He who doesn't have God's Son doesn't have the life.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Man i pas wantaim Pikinini Bilong God, em i gat dispela laip. Na man i no pas wantaim Pikinini Bilong God, em i no gat dispela laip.</text>
@@ -831,7 +831,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don’t say that he should make a request concerning this.</text>
+      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don't say that he should make a request concerning this.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Sapos wanpela man i lukim narapela Kristen brata i mekim sin, na sapos dispela sin em i no inap long mekim dispela brata i dai, orait dispela man i ken beten long God, na God bai i givim laip long dispela brata. Mi tok long ol man i mekim kain sin em i no inap long mekim ol i dai. I gat kain sin em inap mekim man i dai, na mi no tok long yupela i mas beten long dispela.</text>
@@ -847,7 +847,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>We know that whoever is born of God doesn’t sin, but he who was born of God keeps himself, and the evil one doesn’t touch him.</text>
+      <text>We know that whoever is born of God doesn't sin, but he who was born of God keeps himself, and the evil one doesn't touch him.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Yumi save, olgeta man i stap pikinini bilong God, ol i no save bihainim pasin bilong sin. Nogat. God i save lukautim gut man i stap pikinini bilong em, na Satan i no inap putim han long em.</text>

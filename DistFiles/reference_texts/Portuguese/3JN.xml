@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>3 JOHN 1</text>
+      <text>3 JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -79,7 +79,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN">
       <verse num="9" />
-      <text>I wrote to the assembly, but Diotrephes, who loves to be first among them, doesn’t accept what we say.</text>
+      <text>I wrote to the assembly, but Diotrephes, who loves to be first among them, doesn't accept what we say.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Eu escrevi uma pequena carta à igreja b, mas Diótrefes, que deseja ser o líder, não quer dar atenção ao que eu disse.</text>
@@ -95,7 +95,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN">
       <verse num="11" />
-      <text>Beloved, don’t imitate that which is evil, but that which is good. He who does good is of God. He who does evil hasn’t seen God.</text>
+      <text>Beloved, don't imitate that which is evil, but that which is good. He who does good is of God. He who does evil hasn't seen God.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Gaio, meu querido amigo, imite o que é bom e não o que é mau. Quem faz o bem é de Deus, e quem faz o mal nunca viu Deus.</text>

@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 CORINTHIANS 1</text>
+      <text>2 CORINTHIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO">
       <verse num="8" />
-      <text>For we don’t desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
+      <text>For we don't desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Sebab kami mau, saudara-saudara, supaya kamu tahu akan penderitaan yang kami alami di Asia Kecil. Beban yang ditanggungkan atas kami adalah begitu besar dan begitu berat, sehingga kami telah putus asa juga akan hidup kami.</text>
@@ -191,7 +191,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO">
       <verse num="23" />
-      <text>But I call God for a witness to my soul, that I didn’t come to Corinth to spare you.</text>
+      <text>But I call God for a witness to my soul, that I didn't come to Corinth to spare you.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Tetapi aku memanggil Allah sebagai saksiku—Ia mengenal aku—,bahwa sebabnya aku tidak datang ke Korintus ialah untuk menyayangkan kamu.</text>
@@ -206,7 +206,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 CORINTHIANS 2</text>
+      <text>2 CORINTHIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>And I wrote this very thing to you, so that, when I came, I wouldn’t have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
+      <text>And I wrote this very thing to you, so that, when I came, I wouldn't have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Dan justru itulah maksud suratku ini, yaitu supaya jika aku datang, jangan aku berdukacita oleh mereka, yang harus membuat aku menjadi gembira. Sebab aku yakin tentang kamu semua, bahwa sukacitaku adalah juga sukacitamu.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>I had no relief for my spirit, because I didn’t find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
+      <text>I had no relief for my spirit, because I didn't find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Tetapi hatiku tidak merasa tenang, karena aku tidak menjumpai saudaraku Titus. Sebab itu aku minta diri dan berangkat ke Makedonia.</text>
@@ -348,7 +348,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 CORINTHIANS 3</text>
+      <text>2 CORINTHIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn’t look steadfastly on the end of that which was passing away.</text>
+      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn't look steadfastly on the end of that which was passing away.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>tidak seperti Musa, yang menyelubungi mukanya, supaya mata orang-orang Israel jangan melihat hilangnya cahaya yang sementara itu.</text>
@@ -498,14 +498,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>2 CORINTHIANS 4</text>
+      <text>2 CORINTHIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO">
       <verse num="1" />
-      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don’t faint.</text>
+      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don't faint.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Oleh kemurahan Allah kami telah menerima pelayanan ini. Karena itu kami tidak tawar hati.</text>
@@ -513,7 +513,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man’s conscience in the sight of God.</text>
+      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man's conscience in the sight of God.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Tetapi kami menolak segala perbuatan tersembunyi yang memalukan; kami tidak berlaku licik dan tidak memalsukan firman Allah. Sebaliknya kami menyatakan kebenaran dan dengan demikian kami menyerahkan diri kami untuk dipertimbangkan oleh semua orang di hadapan Allah.</text>
@@ -537,7 +537,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>For we don’t preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
+      <text>For we don't preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Sebab bukan diri kami yang kami beritakan, tetapi Yesus Kristus sebagai Tuhan, dan diri kami sebagai hambamu karena kehendak Yesus.</text>
@@ -633,7 +633,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO">
       <verse num="16" />
-      <text>Therefore we don’t faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
+      <text>Therefore we don't faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Sebab itu kami tidak tawar hati, tetapi meskipun manusia lahiriah kami semakin merosot, namun manusia batiniah kami dibaharui dari sehari ke sehari.</text>
@@ -649,14 +649,14 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>We don’t look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
+      <text>We don't look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Sebab kami tidak memperhatikan yang kelihatan, melainkan yang tak kelihatan, karena yang kelihatan adalah sementara, sedangkan yang tak kelihatan adalah kekal.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>2 CORINTHIANS 5</text>
+      <text>2 CORINTHIANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -830,7 +830,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>2 CORINTHIANS 6</text>
+      <text>2 CORINTHIANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -949,7 +949,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>Don’t be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
+      <text>Don't be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Janganlah kamu merupakan pasangan yang tidak seimbang dengan orang-orang yang tak percaya. Sebab persamaan apakah terdapat antara kebenaran dan kedurhakaan? Atau bagaimanakah terang dapat bersatu dengan gelap?</text>
@@ -994,7 +994,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>2 CORINTHIANS 7</text>
+      <text>2 CORINTHIANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1128,7 +1128,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>2 CORINTHIANS 8</text>
+      <text>2 CORINTHIANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1223,7 +1223,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO">
       <verse num="12" />
-      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don’t have.</text>
+      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don't have.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Sebab jika kamu rela untuk memberi, maka pemberianmu akan diterima, kalau pemberianmu itu berdasarkan apa yang ada padamu, bukan berdasarkan apa yang tidak ada padamu.</text>
@@ -1328,7 +1328,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>2 CORINTHIANS 9</text>
+      <text>2 CORINTHIANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1359,7 +1359,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO">
       <verse num="4" />
-      <text>This is so that I won’t by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
+      <text>This is so that I won't by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>supaya, apabila orang-orang Makedonia datang bersama-sama dengan aku, jangan mereka mendapati kamu belum siap sedia, sehingga kami—untuk tidak mengatakan kamu—merasa malu atas keyakinan kami itu.</text>
@@ -1456,7 +1456,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>2 CORINTHIANS 10</text>
+      <text>2 CORINTHIANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1479,7 +1479,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>For though we walk in the flesh, we don’t wage war according to the flesh.</text>
+      <text>For though we walk in the flesh, we don't wage war according to the flesh.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Memang kami masih hidup di dunia, tetapi kami tidak berjuang secara duniawi,</text>
@@ -1511,7 +1511,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ’s, let him consider this again with himself, that, even as he is Christ’s, so also we are Christ’s.</text>
+      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ's, let him consider this again with himself, that, even as he is Christ's, so also we are Christ's.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Tengoklah yang nyata di depan mata kamu! Kalau ada seorang benar-benar yakin, bahwa ia adalah milik Kristus, hendaklah ia berpikir di dalam hatinya, bahwa kami juga adalah milik Kristus sama seperti dia.</text>
@@ -1567,7 +1567,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>For we don’t stretch ourselves too much, as though we didn’t reach to you. For we came even as far as to you with the Good News of Christ,</text>
+      <text>For we don't stretch ourselves too much, as though we didn't reach to you. For we came even as far as to you with the Good News of Christ,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Sebab dalam memberitakan Injil Kristus kami telah sampai kepada kamu, sehingga kami tidak melewati batas daerah kerja kami, seolah-olah kami belum sampai kepada kamu.</text>
@@ -1575,7 +1575,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO">
       <verse num="15" />
-      <text>not boasting beyond proper limits in other men’s labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
+      <text>not boasting beyond proper limits in other men's labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Kami tidak bermegah atas pekerjaan yang dilakukan oleh orang lain di daerah kerja yang tidak dipatok untuk kami. Tetapi kami berharap, bahwa apabila imanmu makin bertumbuh, kami akan mendapat penghormatan lebih besar lagi di antara kamu, jika dibandingkan dengan daerah kerja yang dipatok untuk kami.</text>
@@ -1599,14 +1599,14 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>For it isn’t he who commends himself who is approved, but whom the Lord commends.</text>
+      <text>For it isn't he who commends himself who is approved, but whom the Lord commends.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Sebab bukan orang yang memuji diri yang tahan uji, melainkan orang yang dipuji Tuhan.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>2 CORINTHIANS 11</text>
+      <text>2 CORINTHIANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -1661,7 +1661,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God’s Good News free of charge?</text>
+      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God's Good News free of charge?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Apakah aku berbuat salah, jika aku merendahkan diri untuk meninggikan kamu, karena aku memberitakan Injil Allah kepada kamu dengan cuma-cuma?</text>
@@ -1677,7 +1677,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO">
       <verse num="9" />
-      <text>When I was present with you and was in need, I wasn’t a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
+      <text>When I was present with you and was in need, I wasn't a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Dan ketika aku dalam kekurangan di tengah-tengah kamu, aku tidak menyusahkan seorangpun, sebab apa yang kurang padaku, dicukupkan oleh saudara-saudara yang datang dari Makedonia. Dalam segala hal aku menjaga diriku, supaya jangan menjadi beban bagi kamu, dan aku akan tetap berbuat demikian.</text>
@@ -1693,7 +1693,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO">
       <verse num="11" />
-      <text>Why? Because I don’t love you? God knows.</text>
+      <text>Why? Because I don't love you? God knows.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Mengapa tidak? Apakah karena aku tidak mengasihi kamu? Allah mengetahuinya.</text>
@@ -1709,7 +1709,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>For such men are false apostles, deceitful workers, masquerading as Christ’s apostles.</text>
+      <text>For such men are false apostles, deceitful workers, masquerading as Christ's apostles.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Sebab orang-orang itu adalah rasul-rasul palsu, pekerja-pekerja curang, yang menyamar sebagai rasul-rasul Kristus.</text>
@@ -1741,7 +1741,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO">
       <verse num="17" />
-      <text>That which I speak, I don’t speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
+      <text>That which I speak, I don't speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Apa yang aku katakan, aku mengatakannya bukan sebagai seorang yang berkata menurut firman Tuhan, melainkan sebagai seorang bodoh yang berkeyakinan, bahwa ia boleh bermegah.</text>
@@ -1837,7 +1837,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO">
       <verse num="29" />
-      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don’t burn with indignation?</text>
+      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don't burn with indignation?</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Jika ada orang merasa lemah, tidakkah aku turut merasa lemah? Jika ada orang tersandung, tidakkah hatiku hancur oleh dukacita?</text>
@@ -1853,7 +1853,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO">
       <verse num="31" />
-      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don’t lie.</text>
+      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don't lie.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Allah, yaitu Bapa dari Yesus, Tuhan kita, yang terpuji sampai selama-lamanya, tahu, bahwa aku tidak berdusta.</text>
@@ -1876,7 +1876,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>2 CORINTHIANS 12</text>
+      <text>2 CORINTHIANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -1891,7 +1891,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don’t know, or whether out of the body, I don’t know; God knows)</text>
+      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don't know, or whether out of the body, I don't know; God knows)</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Aku tahu tentang seorang Kristen; empat belas tahun yang lampau— entah di dalam tubuh, aku tidak tahu, entah di luar tubuh, aku tidak tahu, Allah yang mengetahuinya— orang itu tiba-tiba diangkat ke tingkat yang ketiga dari sorga.</text>
@@ -1899,7 +1899,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>I know such a man (whether in the body, or outside of the body, I don’t know; God knows),</text>
+      <text>I know such a man (whether in the body, or outside of the body, I don't know; God knows),</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Aku juga tahu tentang orang itu, —entah di dalam tubuh entah di luar tubuh, aku tidak tahu, Allah yang mengetahuinya—</text>
@@ -1955,7 +1955,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
       <verse num="10" />
-      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ’s sake. For when I am weak, then am I strong.</text>
+      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ's sake. For when I am weak, then am I strong.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Karena itu aku senang dan rela di dalam kelemahan, di dalam siksaan, di dalam kesukaran, di dalam penganiayaan dan kesesakan oleh karena Kristus. Sebab jika aku lemah, maka aku kuat.</text>
@@ -2019,7 +2019,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn’t we walk in the same spirit? Didn’t we walk in the same steps?</text>
+      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn't we walk in the same spirit? Didn't we walk in the same steps?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Memang aku telah meminta Titus untuk pergi dan bersama-sama dengan dia aku mengutus saudara yang lain itu. Adakah Titus mengambil untung dari pada kamu? Tidakkah kami berdua hidup menurut roh yang sama dan tidakkah kami berlaku menurut cara yang sama?</text>
@@ -2035,7 +2035,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO">
       <verse num="20" />
-      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don’t desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
+      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don't desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Sebab aku kuatir, bahwa apabila aku datang aku mendapati kamu tidak seperti yang kuinginkan dan kamu mendapati aku tidak seperti yang kamu inginkan. Aku kuatir akan adanya perselisihan, iri hati, amarah, kepentingan diri sendiri, fitnah, bisik-bisikan, keangkuhan, dan kerusuhan.</text>
@@ -2050,7 +2050,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>2 CORINTHIANS 13</text>
+      <text>2 CORINTHIANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2089,7 +2089,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don’t you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
+      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don't you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ujilah dirimu sendiri, apakah kamu tetap tegak di dalam iman. Selidikilah dirimu! Apakah kamu tidak yakin akan dirimu, bahwa Kristus Yesus ada di dalam diri kamu? Sebab jika tidak demikian, kamu tidak tahan uji.</text>
@@ -2097,7 +2097,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO">
       <verse num="6" />
-      <text>But I hope that you will know that we aren’t disqualified.</text>
+      <text>But I hope that you will know that we aren't disqualified.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Tetapi aku harap, bahwa kamu tahu, bahwa bukan kami yang tidak tahan uji.</text>

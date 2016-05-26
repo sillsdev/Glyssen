@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 PETER 1</text>
+      <text>1 PETER CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -39,7 +39,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>to an incorruptible and undefiled inheritance that doesn’t fade away, reserved in Heaven for you.</text>
+      <text>to an incorruptible and undefiled inheritance that doesn't fade away, reserved in Heaven for you.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>çürümәz, lәkәsiz, solmaz bir irsә qovuşdurdu. Bu irs sizin üçün göylәrdә saxlanılır.</text>
@@ -145,7 +145,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>If you call on him as Father, who without respect of persons judges according to each man’s work, pass the time of your living as foreigners here in reverent fear.</text>
+      <text>If you call on him as Father, who without respect of persons judges according to each man's work, pass the time of your living as foreigners here in reverent fear.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Tәrәfkeşlik etmәdәn öz әmәlinә görә hәr kәsi mühakimә edәn Allahı &lt;&lt;Ata&gt;&gt; deyә çağırdığınız üçün bu qürbәt dünyadakı vaxtınızı Allah qorxusunda keçirin.</text>
@@ -204,14 +204,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="scripture" multiBlockQuote="Start">
-      <text>“All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls;</text>
+      <text>“All flesh is like grass, and all of man's glory like the flower in the grass. The grass withers, and its flower falls;</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bütün bәşәr ota bәnzәr, Onun bütün gözәlliyi çöl çiçәyi kimidir. Ot quruyar, çiçәk tökülәr,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>but the Lord’s word endures forever.”</text>
+      <text>but the Lord's word endures forever.”</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Amma Rәbbin sözü әbәdi qalar&gt;&gt;.</text>
@@ -224,7 +224,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 PETER 2</text>
+      <text>1 PETER CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -319,7 +319,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="narrator-1PE">
       <verse num="9" />
-      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
+      <text>But you are a chosen race, a royal priesthood, a holy nation. A people for God's own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Amma siz seçilmiş nәsil, Padşahın kahin dәstәsi, müqәddәs millәt, Allaha mәxsus olan xalqsınız. Sizi qaranlıqdan Öz heyrәtamiz nuruna çağıran Allahın çox gözәl işlәrini elan etmәk üçün seçilmisiniz.</text>
@@ -327,7 +327,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1PE">
       <verse num="10" />
-      <text>In times past, you were no people, but now you are God’s people. At one time you did not have God’s mercy, but now you have obtained his mercy.</text>
+      <text>In times past, you were no people, but now you are God's people. At one time you did not have God's mercy, but now you have obtained his mercy.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Bir zamanlar xalq deyildiniz, amma indi Allahın xalqısınız. Bir zamanlar mәrhәmәt tapmamışdınız, indi isә mәrhәmәt almısınız.</text>
@@ -351,7 +351,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-1PE">
       <verse num="13" />
-      <text>Therefore subject yourselves to every ordinance of man for the Lord’s sake: whether to the king, as supreme;</text>
+      <text>Therefore subject yourselves to every ordinance of man for the Lord's sake: whether to the king, as supreme;</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>İnsanın yaratdığı hәr quruma Rәbb naminә tabe olun; hәm ali hakimiyyәt olduğuna görә padşaha,</text>
@@ -431,7 +431,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1PE">
       <verse num="23" />
-      <text>When he was cursed, he didn’t curse back. When he suffered, he didn’t threaten, but committed himself to him who judges righteously.</text>
+      <text>When he was cursed, he didn't curse back. When he suffered, he didn't threaten, but committed himself to him who judges righteously.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Onu söydülәr, O isә cavabında söymürdü, Әzab çәkәrәk heç kimi hәdәlәmirdi, Әksinә, әdalәtli Hakimә Özünü tәslim etdi.</text>
@@ -454,14 +454,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 PETER 3</text>
+      <text>1 PETER CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1PE">
       <verse num="1" />
-      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don’t obey the Word, they may be won by the behavior of their wives without a word;</text>
+      <text>In the same way, wives, be in subjection to your own husbands; so that, even if any don't obey the Word, they may be won by the behavior of their wives without a word;</text>
     </ReferenceBlocks>
     <verse num="1" />
     <verse num="2" />
@@ -567,7 +567,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1PE">
       <verse num="14" />
-      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don’t fear what they fear, neither be troubled.”</text>
+      <text>But even if you should suffer for righteousness’ sake, you are blessed. “Don't fear what they fear, neither be troubled.”</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Amma әgәr salehlik uğrunda әzab çәksәniz belә, siz bәxtiyarsınız. İnsanların hәdә-qorxu gәlmәsindәn qorxmayın vә lәrzәyә düşmәyin.</text>
@@ -591,7 +591,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>For it is better, if it is God’s will, that you suffer for doing well than for doing evil.</text>
+      <text>For it is better, if it is God's will, that you suffer for doing well than for doing evil.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Әgәr Allahın iradәsi budursa, yaxşılıq etdiyi üçün әzab çәkmәk pislik etdiyi üçün әzab çәkmәkdәn yaxşıdır.</text>
@@ -638,7 +638,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 PETER 4</text>
+      <text>1 PETER CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -669,7 +669,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>They think it is strange that you don’t run with them into the same excess of riot, blaspheming.</text>
+      <text>They think it is strange that you don't run with them into the same excess of riot, blaspheming.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>İmanlı olmayanlar onlarla birlikdә eyni cür pozğunluğa uymadığınıza görә tәәccüb edir, sizә şәr atırlar.</text>
@@ -733,7 +733,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-1PE">
       <verse num="12" />
-      <text>Beloved, don’t be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
+      <text>Beloved, don't be astonished at the fiery trial which has come upon you, to test you, as though a strange thing happened to you.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Sevimlilәr, sizi sınamaq üçün aranızda baş verәn odlu imtahana sanki başınıza gәlәn qәribә bir iş kimi tәәccüb etmәyin.</text>
@@ -741,7 +741,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1PE">
       <verse num="13" />
-      <text>But because you are partakers of Christ’s sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
+      <text>But because you are partakers of Christ's sufferings, rejoice; that at the revelation of his glory you also may rejoice with exceeding joy.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Әksinә, Mәsihin әzablarına nә qәdәr şәrik olursunuzsa, o qәdәr sevinin ki, Onun izzәtli zühurunda hәdsiz sevinәsiniz.</text>
@@ -757,7 +757,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-1PE">
       <verse num="15" />
-      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men’s matters.</text>
+      <text>For let none of you suffer as a murderer, or a thief, or an evil doer, or a meddler in other men's matters.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Amma heç biriniz qatil, oğru ya başqa cür cinayәtkar kimi yaxud başqalarının işinә qarışan şәxs kimi әzab çәkmәsin.</text>
@@ -773,7 +773,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-1PE">
       <verse num="17" />
-      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don’t obey the Good News of God?</text>
+      <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don't obey the Good News of God?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Çünki mühakimәnin Allahın ev xalqından başlandığı vaxt gәlir. Әgәr mühakimә әvvәl bizdәn başlanarsa, Allahın Müjdәsinә itaәt etmәyәnlәrin sonu necә olacaq?</text>
@@ -796,7 +796,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1PE" initialStartVerse="0" characterId="BC-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 PETER 5</text>
+      <text>1 PETER CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -827,7 +827,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1PE">
       <verse num="4" />
-      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn’t fade away.</text>
+      <text>When the chief Shepherd is revealed, you will receive the crown of glory that doesn't fade away.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Baş Çoban zühur etdiyi zaman siz solmayan izzәt tacı alacaqsınız.</text>

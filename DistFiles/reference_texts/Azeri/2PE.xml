@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 PETER 1</text>
+      <text>2 PETER CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -182,7 +182,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 PETER 2</text>
+      <text>2 PETER CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -205,7 +205,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE">
       <verse num="3" />
-      <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn’t linger, and their destruction will not slumber.</text>
+      <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn't linger, and their destruction will not slumber.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Tamahkarlıqlarından uydurma sözlәrlә sizi istismar edәcәklәr. Onların mühakimәsi çoxdan davam edir vә hәlakı hazırdır.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE">
       <verse num="4" />
-      <text>For God didn’t spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
+      <text>For God didn't spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Çünki Allah günahkar mәlәklәri cәzasız qoymadı, onları qiyamәt gününә qәdәr saxlanmaq üçün cәhәnnәmә ataraq zülmәtdә buxovladı.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE">
       <verse num="5" />
-      <text>And God didn’t spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
+      <text>And God didn't spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>O, allahsız adamların yaşadığı qәdim dünyaya daşqın göndәrәrәk o dünyanı cәzasız qoymadı, amma sәkkiz nәfәri, o cümlәdәn, salehliyi bәyan edәn Nuhu qoruyub saxladı.</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE">
       <verse num="11" />
-      <text>Whereas angels, though greater in might and power, don’t bring a railing judgment against them before the Lord.</text>
+      <text>Whereas angels, though greater in might and power, don't bring a railing judgment against them before the Lord.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Halbuki onlardan qüvvәt vә qüdrәtdә üstün olan mәlәklәr Rәbbin önündә ehtişamlı varlıqlara şәr ataraq ittiham etmәz.</text>
@@ -293,7 +293,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE">
       <verse num="14" />
-      <text>With eyes full of adultery, they can’t cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
+      <text>With eyes full of adultery, they can't cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Onların gözlәri zina ilә doludur, günahdan doymurlar. Qәrarsız insanları yoldan çıxarırlar. Ürәklәri tamahkarlığa alışdırılmış lәnәtli insanlardır.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE">
       <verse num="16" />
-      <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man’s voice and stopped the madness of the prophet.</text>
+      <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man's voice and stopped the madness of the prophet.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Bilam işlәdiyi günaha görә ifşa olundu: dilsiz-ağızsız eşşәk insan sәsi ilә danışıb bu peyğәmbәri dәlilik etmәkdәn çәkindirdi.</text>
@@ -370,7 +370,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 PETER 3</text>
+      <text>2 PETER CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -433,7 +433,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE">
       <verse num="8" />
-      <text>But don’t forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
+      <text>But don't forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Sevimlilәr, bu bir şeyi yadınızdan çıxarmayın ki, Rәbb üçün bir gün min il kimidir, min ilsә bir gün kimidir.</text>

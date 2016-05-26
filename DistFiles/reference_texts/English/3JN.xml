@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="3JN" singlevoice="false" pageheader="3 JOHN">
+<book id="3JN" singlevoice="false" pageheader="3 JOHN CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
     <text>3 JOHN</text>
   </block>
@@ -40,7 +40,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-3JN">
     <verse num="9" />
-    <text>I wrote to the assembly, but Diotrephes, who loves to be first among them, doesn’t accept what we say.</text>
+    <text>I wrote to the assembly, but Diotrephes, who loves to be first among them, doesn't accept what we say.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-3JN">
     <verse num="10" />
@@ -48,7 +48,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-3JN">
     <verse num="11" />
-    <text>Beloved, don’t imitate that which is evil, but that which is good. He who does good is of God. He who does evil hasn’t seen God.</text>
+    <text>Beloved, don't imitate that which is evil, but that which is good. He who does good is of God. He who does evil hasn't seen God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-3JN">
     <verse num="12" />

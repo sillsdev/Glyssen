@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="EPH" singlevoice="false" pageheader="EPHESIANS">
+<book id="EPH" singlevoice="false" pageheader="EPHESIANS CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-EPH">
     <text>EPHESIANS</text>
   </block>
@@ -60,7 +60,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-EPH">
     <verse num="14" />
-    <text>who is a pledge of our inheritance, to the redemption of God’s own possession, to the praise of his glory.</text>
+    <text>who is a pledge of our inheritance, to the redemption of God's own possession, to the praise of his glory.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-EPH">
     <verse num="15" />
@@ -68,7 +68,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-EPH">
     <verse num="16" />
-    <text>don’t cease to give thanks for you, making mention of you in my prayers.</text>
+    <text>don't cease to give thanks for you, making mention of you in my prayers.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-EPH">
     <verse num="17" />
@@ -266,7 +266,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-EPH">
     <verse num="19" />
-    <text>I pray that you will know Christ’s love which surpasses knowledge, that you may be filled with all the fullness of God.</text>
+    <text>I pray that you will know Christ's love which surpasses knowledge, that you may be filled with all the fullness of God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-EPH">
     <verse num="20" />
@@ -382,7 +382,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="26" characterId="narrator-EPH">
     <verse num="26" />
-    <text>“Be angry, and don’t sin.” Don’t let the sun go down on your wrath, </text>
+    <text>“Be angry, and don't sin.” Don't let the sun go down on your wrath, </text>
     <verse num="27" />
     <text>neither give place to the devil.</text>
   </block>
@@ -396,7 +396,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-EPH">
     <verse num="30" />
-    <text>Don’t grieve the Holy Spirit of God, in whom you were sealed for the day of redemption.</text>
+    <text>Don't grieve the Holy Spirit of God, in whom you were sealed for the day of redemption.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-EPH">
     <verse num="31" />
@@ -435,7 +435,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-EPH">
     <verse num="7" />
-    <text>Therefore don’t be partakers with them.</text>
+    <text>Therefore don't be partakers with them.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-EPH">
     <verse num="8" />
@@ -476,11 +476,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-EPH">
     <verse num="17" />
-    <text>Therefore don’t be foolish, but understand what the will of the Lord is.</text>
+    <text>Therefore don't be foolish, but understand what the will of the Lord is.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-EPH">
     <verse num="18" />
-    <text>Don’t be drunken with wine, in which is dissipation, but be filled with the Spirit.</text>
+    <text>Don't be drunken with wine, in which is dissipation, but be filled with the Spirit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-EPH">
     <verse num="19" />
@@ -562,7 +562,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">
     <verse num="4" />
-    <text>You fathers, don’t provoke your children to wrath, but nurture them in the discipline and instruction of the Lord.</text>
+    <text>You fathers, don't provoke your children to wrath, but nurture them in the discipline and instruction of the Lord.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-EPH">
     <verse num="5" />
@@ -594,7 +594,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-EPH">
     <verse num="12" />
-    <text>For our wrestling is not against flesh and blood, but against the principalities, against the powers, against the world’s rulers of the darkness of this age, and against the spiritual forces of wickedness in the heavenly places.</text>
+    <text>For our wrestling is not against flesh and blood, but against the principalities, against the powers, against the world's rulers of the darkness of this age, and against the spiritual forces of wickedness in the heavenly places.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-EPH">
     <verse num="13" />

@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JUD" initialStartVerse="0" characterId="BC-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>JUDE 1</text>
+      <text>JUDE CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -47,7 +47,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD">
       <verse num="5" />
-      <text>Now I desire to remind you, though you already know this, that the Lord, having saved a people out of the land of Egypt, afterward destroyed those who didn’t believe.</text>
+      <text>Now I desire to remind you, though you already know this, that the Lord, having saved a people out of the land of Egypt, afterward destroyed those who didn't believe.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Aunque ustedes ya lo saben, quiero recordarles que el Señor, después que sacó de Egipto al pueblo de Israel, destruyó a los que no creyeron.</text>
@@ -55,7 +55,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD">
       <verse num="6" />
-      <text>Angels who didn’t keep their first domain, but deserted their own dwelling place, he has kept in everlasting bonds under darkness for the judgment of the great day.</text>
+      <text>Angels who didn't keep their first domain, but deserted their own dwelling place, he has kept in everlasting bonds under darkness for the judgment of the great day.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Y a los ángeles que no conservaron su debido puesto, sino que dejaron su propio hogar, Dios los retiene en prisiones oscuras y eternas para el gran día del juicio.</text>
@@ -93,7 +93,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
       <verse num="10" />
-      <text>But these speak evil of whatever things they don’t know. What they understand naturally, like the creatures without reason, they are destroyed in these things.</text>
+      <text>But these speak evil of whatever things they don't know. What they understand naturally, like the creatures without reason, they are destroyed in these things.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Pero esos hombres hablan mal de las cosas que no conocen; y en cuanto a las que conocen por instinto, como las conocen los animales sin entendimiento, las usan para su propia condenación.</text>
@@ -101,7 +101,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD">
       <verse num="11" />
-      <text>Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah’s rebellion.</text>
+      <text>Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah's rebellion.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>¡Ay de ellos!, porque han seguido el ejemplo de Caín. Por ganar dinero se han desviado, como Balaam, y como Coré, mueren por su rebeldía.</text>

@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>ACTS 1</text>
+      <text>ACTS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -31,7 +31,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="3" characterId="narrator-ACT">
       <verse num="3" />
-      <text>To these he also showed himself alive after he suffered, by many infallible proofs, appearing to them over a period of forty days, and speaking about God’s Kingdom.</text>
+      <text>To these he also showed himself alive after he suffered, by many infallible proofs, appearing to them over a period of forty days, and speaking about God's Kingdom.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Pastaim em i bin karim pen na i dai, na bihain em i kisim laip gen na i kamap long ol aposel. Na em i mekim planti samting, bilong ol i ken save tru, em i stap laip. Inap long 40 de ol i lukim em, na em i tokim ol long kingdom bilong God.</text>
@@ -46,7 +46,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Don’t depart from Jerusalem, but wait for the promise of the Father, which you heard from me.</text>
+      <text>“Don't depart from Jerusalem, but wait for the promise of the Father, which you heard from me.</text>
     </ReferenceBlocks>
     <text>"Yupela i no ken lusim Jerusalem. Yupela i mas wetim dispela samting Papa i tok em i laik givim long yupela, na bipo mi tokim yupela long en.</text>
   </block>
@@ -82,7 +82,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
-      <text>“It isn’t for you to know times or seasons which the Father has set within his own authority.</text>
+      <text>“It isn't for you to know times or seasons which the Father has set within his own authority.</text>
     </ReferenceBlocks>
     <text>"Em i no samting bilong yupela bai yupela i save long ol taim na ol de Papa i makim. Nogat. Em yet i bosim dispela ol samting.</text>
   </block>
@@ -123,7 +123,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ACT">
       <verse num="12" />
-      <text>Then they returned to Jerusalem from the mountain called Olivet, which is near Jerusalem, a Sabbath day’s journey away.</text>
+      <text>Then they returned to Jerusalem from the mountain called Olivet, which is near Jerusalem, a Sabbath day's journey away.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Orait ol aposel i lusim dispela maunten ol i kolim Oliv, na ol i go bek long Jerusalem. Dispela maunten Oliv em i stap klostu tasol long Jerusalem, inap olsem wan kilomita.</text>
@@ -240,7 +240,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>ACTS 2</text>
+      <text>ACTS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -302,7 +302,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Jews, God-fearing from every nation" delivery="amazed" multiBlockQuote="Start">
-      <text>“Behold, aren’t all these who speak Galileans?</text>
+      <text>“Behold, aren't all these who speak Galileans?</text>
     </ReferenceBlocks>
     <text>"Ating dispela olgeta manmeri ol i lain bilong Galili tasol.</text>
   </block>
@@ -383,7 +383,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="Peter (Simon)" multiBlockQuote="Start">
       <verse num="15" />
-      <text>For these aren’t drunken, as you suppose, seeing it is only the third hour of the day.</text>
+      <text>For these aren't drunken, as you suppose, seeing it is only the third hour of the day.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Yupela i ting dispela ol man i spak, a? Nogat tru. Nau em i 9 klok tasol long moning.</text>
@@ -535,7 +535,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <verse num="34" />
-      <text>For David didn’t ascend into the heavens, but he says himself, ‘The Lord said to my Lord, “Sit by my right hand, </text>
+      <text>For David didn't ascend into the heavens, but he says himself, ‘The Lord said to my Lord, “Sit by my right hand, </text>
       <verse num="35" />
       <text>until I make your enemies a footstool for your feet.”’”</text>
     </ReferenceBlocks>
@@ -660,7 +660,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>ACTS 3</text>
+      <text>ACTS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -675,7 +675,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
-      <text>A certain man who was lame from his mother’s womb was being carried, whom they laid daily at the door of the temple which is called Beautiful, to ask gifts for the needy of those who entered into the temple.</text>
+      <text>A certain man who was lame from his mother's womb was being carried, whom they laid daily at the door of the temple which is called Beautiful, to ask gifts for the needy of those who entered into the temple.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Na tupela i lukim sampela man i bringim wanpela man i gat lek nogut i kam. Olgeta de ol i save karim em i kam na putim em klostu long dispela dua bilong tempel ol i kolim Naispela Dua. Na em i save singaut long mani samting long ol manmeri i go insait long tempel. Ol lek bilong dispela man i kamap nogut pinis long taim em i stap long bel bilong mama.</text>
@@ -757,7 +757,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-ACT">
       <verse num="11" />
-      <text>As the lame man who was healed held on to Peter and John, all the people ran together to them in the porch that is called Solomon’s, greatly wondering.</text>
+      <text>As the lame man who was healed held on to Peter and John, all the people ran together to them in the porch that is called Solomon's, greatly wondering.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Ol manmeri i harim tok long dispela samting i kamap, na ol i kirap nogut tru na ol i ran i kam bilong lukim dispela man. Na ol i lukim em i holimpas Pita wantaim Jon na i sanap i stap long dispela veranda bilong tempel ol i kolim Veranda bilong Solomon.</text>
@@ -886,7 +886,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>ACTS 4</text>
+      <text>ACTS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -1028,7 +1028,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin" characterIdOverrideForScript="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Start">
-      <text>“What shall we do to these men? Because indeed a notable miracle has been done through them, as can be plainly seen by all who dwell in Jerusalem, and we can’t deny it.</text>
+      <text>“What shall we do to these men? Because indeed a notable miracle has been done through them, as can be plainly seen by all who dwell in Jerusalem, and we can't deny it.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>"Bai yumi mekim wanem long dispela tupela man? Tupela i wokim wanpela mirakel, na olgeta manmeri long Jerusalem i save pinis long en. Yumi no inap haitim.</text>
@@ -1036,7 +1036,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin" characterIdOverrideForScript="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>But so that this spreads no further among the people, let’s threaten them, that from now on they don’t speak to anyone in this name.”</text>
+      <text>But so that this spreads no further among the people, let's threaten them, that from now on they don't speak to anyone in this name.”</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Tasol nogut dispela tok i go nabaut moa yet long ol manmeri. Olsem na yumi mas tok strong long tupela, na tupela i no ken autim tok moa long dispela nem long ol arapela man."</text>
@@ -1072,7 +1072,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Peter (Simon)/John" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Peter (Simon)/John" characterIdOverrideForScript="John">
       <verse num="20" />
-      <text>“We can’t help telling the things which we saw and heard.”</text>
+      <text>“We can't help telling the things which we saw and heard.”</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Tasol mitupela i no inap pasim maus. Mitupela i mas autim tok long olgeta samting mitupela i bin lukim na harim."</text>
@@ -1213,7 +1213,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>ACTS 5</text>
+      <text>ACTS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -1246,7 +1246,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>While you kept it, didn’t it remain your own? After it was sold, wasn’t it in your power? How is it that you have conceived this thing in your heart? You haven’t lied to men, but to God.”</text>
+      <text>While you kept it, didn't it remain your own? After it was sold, wasn't it in your power? How is it that you have conceived this thing in your heart? You haven't lied to men, but to God.”</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Yu bin salim dispela graun long laik bilong yu tasol. Na mani yu kisim long en, em samting bilong yu tu, na yu ken mekim wanem samting yu laik mekim long en. Olsem wanem na yu kisim dispela tingting nogut? Yu no ken ting yu laik giamanim ol man tasol. Nogat. Yu laik giamanim God yet."</text>
@@ -1342,7 +1342,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-ACT">
       <verse num="12" />
-      <text>By the hands of the apostles many signs and wonders were done among the people. They were all with one accord in Solomon’s porch.</text>
+      <text>By the hands of the apostles many signs and wonders were done among the people. They were all with one accord in Solomon's porch.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Ol aposel i wokim ol kain kain mirakel namel long ol manmeri. Na olgeta manmeri i bilip long Bikpela, ol i wanbel na ol i save go insait long banis bilong tempel, na bung long veranda bilong Solomon.</text>
@@ -1422,7 +1422,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-ACT">
       <verse num="22" />
-      <text>But the officers who came didn’t find them in the prison. They returned and reported,</text>
+      <text>But the officers who came didn't find them in the prison. They returned and reported,</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Orait ol plisman i go long haus kalabus, tasol ol i no lukim ol aposel i stap. Na ol i go bek na ol i tokim ol bikman olsem, l</text>
@@ -1483,14 +1483,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Start">
-      <text>“Didn’t we strictly command you not to teach in this name?</text>
+      <text>“Didn't we strictly command you not to teach in this name?</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>"Mipela i bin tambuim yupela tru long yupela i no ken autim tok long ol manmeri long nem bilong dispela man.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Continuation">
-      <text>Behold, you have filled Jerusalem with your teaching, and intend to bring this man’s blood on us.”</text>
+      <text>Behold, you have filled Jerusalem with your teaching, and intend to bring this man's blood on us.”</text>
     </ReferenceBlocks>
     <text>Tasol yupela i wok yet long autim tok, na ol manmeri long olgeta hap bilong Jerusalem i harim pinis tok bilong yupela. Na yupela i laik sutim tok long mipela i bin kilim dispela man i dai."</text>
   </block>
@@ -1616,7 +1616,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>ACTS 6</text>
+      <text>ACTS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -1701,7 +1701,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-ACT">
       <verse num="10" />
-      <text>They weren’t able to withstand the wisdom and the Spirit by which he spoke.</text>
+      <text>They weren't able to withstand the wisdom and the Spirit by which he spoke.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Na Holi Spirit i givim gutpela save tru long Stiven, olsem na ol dispela man i no inap winim tok bilong em.</text>
@@ -1760,7 +1760,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>ACTS 7</text>
+      <text>ACTS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1875,7 +1875,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="13" />
-      <text>On the second time Joseph was made known to his brothers, and Joseph’s race was revealed to Pharaoh.</text>
+      <text>On the second time Joseph was made known to his brothers, and Joseph's race was revealed to Pharaoh.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Orait taim ol i go long namba 2 taim gen, Josep i tokim ol brata olsem, 'Mi Josep.' Na bihain king tu i save long ol lain bilong Josep.</text>
@@ -1915,7 +1915,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="18" />
-      <text>Then there arose a different king, who didn’t know Joseph.</text>
+      <text>Then there arose a different king, who didn't know Joseph.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Na bihain wanpela man i kamap king bilong Isip, na em i no save long Josep.</text>
@@ -1923,7 +1923,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>The same took advantage of our race, and mistreated our fathers, and forced them to throw out their babies, so that they wouldn’t stay alive.</text>
+      <text>The same took advantage of our race, and mistreated our fathers, and forced them to throw out their babies, so that they wouldn't stay alive.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Dispela king i bin trikim ol lain bilong yumi na mekim pasin nogut long ol. Na em i mekim ol i tromoi ol liklik pikinini bilong ol, bai ol i dai.</text>
@@ -1931,7 +1931,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="Stephen" multiBlockQuote="Start">
       <verse num="20" />
-      <text>At that time Moses was born, and was exceedingly handsome. He was nourished three months in his father’s house.</text>
+      <text>At that time Moses was born, and was exceedingly handsome. He was nourished three months in his father's house.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Long dispela taim mama bilong Moses i karim em. Em i gutpela pikinini, na God i laikim em. Na ol i bin lukautim em long haus bilong papa bilong en inap long tripela mun.</text>
@@ -1939,7 +1939,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="21" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>When he was thrown out, Pharaoh’s daughter took him up, and reared him as her own son.</text>
+      <text>When he was thrown out, Pharaoh's daughter took him up, and reared him as her own son.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Bihain ol i putim em i stap ausait, na pikinini meri bilong king i kisim em na i lukautim em olsem pikinini bilong em yet.</text>
@@ -1971,7 +1971,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>He supposed that his brothers understood that God, by his hand, was giving them deliverance; but they didn’t understand.”</text>
+      <text>He supposed that his brothers understood that God, by his hand, was giving them deliverance; but they didn't understand.”</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Moses i ting ol brata bilong en bai i save olsem, God i laik helpim ol long han bilong en. Tasol ol i no save.</text>
@@ -2091,7 +2091,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="40" />
-      <text>They said to Aaron, ‘Make us gods that will go before us, for as for this Moses, who led us out of the land of Egypt, we don’t know what has become of him.’</text>
+      <text>They said to Aaron, ‘Make us gods that will go before us, for as for this Moses, who led us out of the land of Egypt, we don't know what has become of him.’</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Ol i tokim Aron olsem, 'Mipela i no save wanem samting i bin kamap long Moses, dispela man i bin kisim yumi long Isip na bringim yumi i kam. Olsem na yu mas wokim ol god bilong mipela, na ol i ken i go paslain long mipela na bringim mipela long rot.'</text>
@@ -2155,7 +2155,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="48" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="48" />
-      <text>However, the Most High doesn’t dwell in temples made with hands: The prophet says:</text>
+      <text>However, the Most High doesn't dwell in temples made with hands: The prophet says:</text>
     </ReferenceBlocks>
     <verse num="48" />
     <text>"Tasol God Antap Tru i no save stap long ol haus ol man i wokim. Em i olsem profet i bin tok, 'Bikpela i tok olsem,</text>
@@ -2171,7 +2171,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="50" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="50" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="50" />
-      <text>Didn’t my hand make all these things?’”</text>
+      <text>Didn't my hand make all these things?’”</text>
     </ReferenceBlocks>
     <verse num="50" />
     <text>Mi yet mi bin wokim dispela olgeta samting.' "</text>
@@ -2187,7 +2187,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="52" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="52" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="52" />
-      <text>Which of the prophets didn’t your fathers persecute? They killed those who foretold the coming of the Righteous One, of whom you have now become betrayers and murderers.</text>
+      <text>Which of the prophets didn't your fathers persecute? They killed those who foretold the coming of the Righteous One, of whom you have now become betrayers and murderers.</text>
     </ReferenceBlocks>
     <verse num="52" />
     <text>Wanem profet bipo i stap, na ol tumbuna bilong yupela i no bin mekim pasin nogut long em? Nogat. Ol i bin kilim i dai ol man bipo i bin tokaut olsem, Man Bilong Mekim Stretpela Pasin, em bai i kam. Na nau dispela man i kam pinis na yupela i putim em long han bilong ol birua na kilim em i dai.</text>
@@ -2195,7 +2195,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="53" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="53" characterId="Stephen" multiBlockQuote="Continuation">
       <verse num="53" />
-      <text>You received the law as it was ordained by angels, and didn’t keep it!”</text>
+      <text>You received the law as it was ordained by angels, and didn't keep it!”</text>
     </ReferenceBlocks>
     <verse num="53" />
     <text>Yupela i bin kisim lo bilong God long han bilong ol ensel, tasol yupela i no bihainim."</text>
@@ -2266,7 +2266,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="60" characterId="Stephen" delivery="calling out" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="60" characterId="Stephen" delivery="calling out">
-      <text>“Lord, don’t hold this sin against them!”</text>
+      <text>“Lord, don't hold this sin against them!”</text>
     </ReferenceBlocks>
     <text>"Bikpela, yu no ken bekim dispela sin long ol."</text>
   </block>
@@ -2278,7 +2278,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>ACTS 8</text>
+      <text>ACTS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -2460,7 +2460,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Peter (Simon)" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>You have neither part nor lot in this matter, for your heart isn’t right before God.</text>
+      <text>You have neither part nor lot in this matter, for your heart isn't right before God.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Bel bilong yu i no stret long ai bilong God. Olsem na yu no inap i stap insait long dispela wok bilong God mipela i mekim. Nogat tru.</text>
@@ -2587,7 +2587,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="scripture" multiBlockQuote="Start">
-      <text>“He was led as a sheep to the slaughter. As a lamb before his shearer is silent, so he doesn’t open his mouth.</text>
+      <text>“He was led as a sheep to the slaughter. As a lamb before his shearer is silent, so he doesn't open his mouth.</text>
     </ReferenceBlocks>
     <text>"Em i no bin mekim wanpela tok. Em i pasim maus olsem sipsip ol i kisim i go bilong kilim, na olsem pikinini sipsip ol i laik katim gras bilong en.</text>
   </block>
@@ -2672,7 +2672,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="narrator-ACT">
       <verse num="39" />
-      <text>When they came up out of the water, the Spirit of the Lord caught Philip away, and the eunuch didn’t see him any more, for he went on his way rejoicing.</text>
+      <text>When they came up out of the water, the Spirit of the Lord caught Philip away, and the eunuch didn't see him any more, for he went on his way rejoicing.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Na tupela i lusim wara na i kam antap, na wantu Spirit bilong Bikpela i kisim Filip i go, na dispela man i no lukim em moa. Tasol dispela man i amamas na i bihainim rot bilong en na i go.</text>
@@ -2687,7 +2687,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>ACTS 9</text>
+      <text>ACTS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -2829,7 +2829,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Ananias of Damascus" delivery="awe" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Ananias of Damascus" delivery="awe" userConfirmed="true">
-      <text>“Behold, it’s me, Lord.”</text>
+      <text>“Behold, it's me, Lord.”</text>
     </ReferenceBlocks>
     <text>"Bikpela, mi stap."</text>
   </block>
@@ -2894,7 +2894,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="16" />
-      <text>For I will show him how many things he must suffer for my name’s sake.”</text>
+      <text>For I will show him how many things he must suffer for my name's sake.”</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Bai mi soim em olkain pen na hevi em i mas karim long taim em i autim nem bilong mi."</text>
@@ -2947,7 +2947,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="all who heard (in synagogues)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="all who heard (in synagogues)">
-      <text>“Isn’t this he who in Jerusalem made havoc of those who called on this name? And he had come here intending to bring them bound before the chief priests!”</text>
+      <text>“Isn't this he who in Jerusalem made havoc of those who called on this name? And he had come here intending to bring them bound before the chief priests!”</text>
     </ReferenceBlocks>
     <text>"Em dispela man tasol i bin bagarapim ol manmeri i save lotu na prea long nem bilong Jisas. Em i mekim olsem long Jerusalem, na nau em i kam hia bilong kalabusim ol na bringim ol I go long ol bikpris."</text>
   </block>
@@ -3157,7 +3157,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>ACTS 10</text>
+      <text>ACTS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -3343,7 +3343,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ACT">
-      <text>Meanwhile, the men who were sent by Cornelius, were looking for Simon’s house, and were now standing at the gate. </text>
+      <text>Meanwhile, the men who were sent by Cornelius, were looking for Simon's house, and were now standing at the gate. </text>
       <verse num="18" />
       <text>They called out and asked:</text>
     </ReferenceBlocks>
@@ -3461,7 +3461,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="Peter (Simon)" multiBlockQuote="Start">
-      <text>“You yourselves know how it is an unlawful thing for a man who is a Jew to join himself or come to one of another nation. But God has shown me that I shouldn’t call any man unholy or unclean.</text>
+      <text>“You yourselves know how it is an unlawful thing for a man who is a Jew to join himself or come to one of another nation. But God has shown me that I shouldn't call any man unholy or unclean.</text>
     </ReferenceBlocks>
     <text>"Yupela yet i save, i tambu tru long mipela Juda i stap wantaim ol man bilong ol arapela lain. Na i tambu long mipela i go klostu long ol tu. Tasol God i bin soim mi olsem, mi no ken kolim wanpela man i no klin long ai bilong God, na mi no ken ting em i tambu long mipela i pas wantaim ol.</text>
   </block>
@@ -3521,7 +3521,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Peter (Simon)" multiBlockQuote="Start">
-      <text>“Truly I perceive that God doesn’t show favoritism;</text>
+      <text>“Truly I perceive that God doesn't show favoritism;</text>
     </ReferenceBlocks>
     <text>"Tru tumas, nau mi save, God i save mekim wankain pasin long olgeta manmeri, maski ol i bilong wanem lain.</text>
   </block>
@@ -3639,7 +3639,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>ACTS 11</text>
+      <text>ACTS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -3712,7 +3712,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>But a voice answered me the second time out of heaven, ‘What God has cleansed, don’t you call unclean.’</text>
+      <text>But a voice answered me the second time out of heaven, ‘What God has cleansed, don't you call unclean.’</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Tasol dispela maus i kam long heven em i tok namba 2 taim gen olsem, 'Samting God i bin mekim i kamap klin, dispela yu no ken kolim i no klin.'</text>
@@ -3736,7 +3736,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>The Spirit told me to go with them, without discriminating. These six brothers also accompanied me, and we entered into the man’s house.</text>
+      <text>The Spirit told me to go with them, without discriminating. These six brothers also accompanied me, and we entered into the man's house.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Na Holi Spirit i tokim mi olsem, 'Yu go wantaim ol. Yu no ken tingting planti.' Na dispela 6 -pela brata hia ol tu ol i go wantaim mi, na mipela i go insait long haus bilong dispela man.</text>
@@ -3905,7 +3905,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>ACTS 12</text>
+      <text>ACTS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -4006,7 +4006,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
-      <text>And he went out and followed him. He didn’t know that what was being done by the angel was real, but thought he saw a vision.</text>
+      <text>And he went out and followed him. He didn't know that what was being done by the angel was real, but thought he saw a vision.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Na Pita i lusim dispela rum na i bihainim ensel i go. Tasol em i no save, dispela samting ensel i mekim em i kamap tru. Pita i ting em i driman tasol.</text>
@@ -4052,7 +4052,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ACT">
       <verse num="14" />
-      <text>When she recognized Peter’s voice, she didn’t open the gate for joy, but ran in, and reported that Peter was standing in front of the gate. </text>
+      <text>When she recognized Peter's voice, she didn't open the gate for joy, but ran in, and reported that Peter was standing in front of the gate. </text>
       <verse num="15" />
       <text>They said to her,</text>
     </ReferenceBlocks>
@@ -4130,7 +4130,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ACT">
       <verse num="19" />
-      <text>When Herod had sought for him, and didn’t find him, he examined the guards, and commanded that they should be put to death. He went down from Judea to Caesarea, and stayed there.</text>
+      <text>When Herod had sought for him, and didn't find him, he examined the guards, and commanded that they should be put to death. He went down from Judea to Caesarea, and stayed there.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Herot i painimaut olsem Pita i no i stap, na em i tokim ol man long go painim Pita, tasol ol i no lukim em. Olsem na em i kotim ol dispela soldia i bin was long Pita, na em i tok long ol i mas i dai. Na bihain, Herot i lusim Judia na i go daun long taun Sisaria na i stap.</text>
@@ -4138,7 +4138,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ACT">
       <verse num="20" />
-      <text>Now Herod was very angry with the people of Tyre and Sidon. They came with one accord to him, and, having befriended Blastus, the king’s personal aide, they asked for peace because their country depended on the king’s country for food.</text>
+      <text>Now Herod was very angry with the people of Tyre and Sidon. They came with one accord to him, and, having befriended Blastus, the king's personal aide, they asked for peace because their country depended on the king's country for food.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>King Herot i gat bikpela kros long ol manmeri bilong taun Tair na Saidon. Olsem na ol i bung wantaim na i kam lukim em, long wanem, ol i save kisim kaikai bilong ol long kantri Herot i bosim. Ol i toktok pastaim wantaim Blastus, em ofisa i bosim rum slip bilong king, na em i wanbel wantaim ol. Na bihain, ol i go lukim Herot na askim em long marimari long ol na mekim i dai dispela kros.</text>
@@ -4164,7 +4164,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="23" characterId="narrator-ACT">
       <verse num="23" />
-      <text>Immediately an angel of the Lord struck him, because he didn’t give God the glory, and he was eaten by worms and died.</text>
+      <text>Immediately an angel of the Lord struck him, because he didn't give God the glory, and he was eaten by worms and died.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Herot i harim dispela tok bilong ol, na em i no laik litimapim nem bilong God, olsem na wantu ensel bilong Bikpela i paitim em. Na sik nogut i kamap long en, na ol liklik snek i kaikai em, na em i dai.</text>
@@ -4187,7 +4187,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>ACTS 13</text>
+      <text>ACTS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -4401,7 +4401,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="23" />
-      <text>From this man’s seed, God has brought salvation to Israel according to his promise.</text>
+      <text>From this man's seed, God has brought salvation to Israel according to his promise.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Na God i mekim olsem bipo em i bin promis, na long lain bilong dispela man Devit, God i makim wanpela man bilong kisim bek yumi, na i salim em i kam long Israel. Dispela man em Jisas.</text>
@@ -4598,7 +4598,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="46" characterId="Paul/Barnabas" delivery="boldly" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="46" characterId="Paul/Barnabas" characterIdOverrideForScript="Paul" delivery="boldly" multiBlockQuote="Start">
-      <text>“It was necessary that God’s word should be spoken to you first. Since indeed you thrust it from you, and judge yourselves unworthy of eternal life, behold, we turn to the Gentiles.</text>
+      <text>“It was necessary that God's word should be spoken to you first. Since indeed you thrust it from you, and judge yourselves unworthy of eternal life, behold, we turn to the Gentiles.</text>
     </ReferenceBlocks>
     <text>"Tru, mitupela i mas givim tok bilong God long yupela Juda pastaim. Tasol yupela i givim baksait long dispela tok, na i olsem yupela yet i tok, 'Mipela i no inap long kisim laip i stap gut oltaim.' Olsem na yupela harim. Nau mitupela i no ken autim tok moa long yupela. Mitupela bai i autim tok long ol arapela lain,</text>
   </block>
@@ -4621,7 +4621,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="49" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="49" characterId="narrator-ACT">
       <verse num="49" />
-      <text>The Lord’s word was spread abroad throughout all the region.</text>
+      <text>The Lord's word was spread abroad throughout all the region.</text>
     </ReferenceBlocks>
     <verse num="49" />
     <text>Na ol i kisim tok bilong Bikpela i go nabaut long olgeta hap bilong dispela distrik.</text>
@@ -4652,7 +4652,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>ACTS 14</text>
+      <text>ACTS CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -4805,7 +4805,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="Barnabas/Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="Barnabas/Paul" characterIdOverrideForScript="Paul" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>Yet he didn’t leave himself without witness, in that he did good and gave you rains from the sky and fruitful seasons, filling our hearts with food and gladness.”</text>
+      <text>Yet he didn't leave himself without witness, in that he did good and gave you rains from the sky and fruitful seasons, filling our hearts with food and gladness.”</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Tasol em i no bin hait olgeta bai ol man i no ken save long em. Nogat. Oltaim em i save mekim gutpela pasin long yupela. Em i mekim ren i lusim skai na i kam daun long yupela, na em i mekim planti gutpela kaikai i kamap. Em i givim yupela planti kaikai na i mekim bel bilong yupela i amamas."</text>
@@ -4906,7 +4906,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>ACTS 15</text>
+      <text>ACTS CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -4920,7 +4920,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="men from Judea, some" delivery="harsh" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="men from Judea, some" delivery="harsh">
-      <text>“Unless you are circumcised after the custom of Moses, you can’t be saved.”</text>
+      <text>“Unless you are circumcised after the custom of Moses, you can't be saved.”</text>
     </ReferenceBlocks>
     <text>"Sapos yupela i no bihainim pasin bilong Moses na ol i no katim skin bilong yupela, orait God bai i no inap kisim bek yupela."</text>
   </block>
@@ -5077,7 +5077,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="James" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="James" multiBlockQuote="Start">
       <verse num="19" />
-      <text>“Therefore my judgment is that we don’t trouble those from among the Gentiles who turn to God.</text>
+      <text>“Therefore my judgment is that we don't trouble those from among the Gentiles who turn to God.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>"Olsem na tingting bilong mi em i olsem. Yumi no ken givim hevi long ol dispela man bilong ol arapela lain i bin tanim bel i go long God. Nogat.</text>
@@ -5222,7 +5222,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="Paul">
-      <text>“Let’s return now and visit our brothers in every city in which we proclaimed the word of the Lord, to see how they are doing.”</text>
+      <text>“Let's return now and visit our brothers in every city in which we proclaimed the word of the Lord, to see how they are doing.”</text>
     </ReferenceBlocks>
     <text>"Mitupela i mas i go bek na lukim ol brata long olgeta taun, bipo mitupela i autim tok bilong Bikpela long ol. Olsem bai mitupela i ken save, ol i stap gut, o nogat."</text>
   </block>
@@ -5236,7 +5236,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="Barnabas" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="Barnabas">
-      <text>“Let’s take John who is also called Mark with us.”</text>
+      <text>“Let's take John who is also called Mark with us.”</text>
     </ReferenceBlocks>
     <text>laik kisim Jon, narapela nem bilong en Mak, i go wantaim tupela.</text>
   </block>
@@ -5280,7 +5280,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>ACTS 16</text>
+      <text>ACTS CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -5335,7 +5335,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-ACT">
       <verse num="7" />
-      <text>When they had come opposite Mysia, they tried to go into Bithynia, but the Spirit didn’t allow them.</text>
+      <text>When they had come opposite Mysia, they tried to go into Bithynia, but the Spirit didn't allow them.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Ol i go inap long distrik Misia, na ol i laik wokabaut i go insait long provins Bitinia, tasol Spirit bilong Jisas i pasim ol.</text>
@@ -5529,7 +5529,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="26" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="26" characterId="narrator-ACT">
       <verse num="26" />
-      <text>Suddenly there was a great earthquake, so that the foundations of the prison were shaken. Immediately all the doors were opened, and everyone’s bonds were loosened.</text>
+      <text>Suddenly there was a great earthquake, so that the foundations of the prison were shaken. Immediately all the doors were opened, and everyone's bonds were loosened.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Na wantu wanpela bikpela guria i kamap, na i sakim olgeta pos bilong haus kalabus. Na olgeta dua bilong haus kalabus i op, na ol sen bilong olgeta kalabus i lus.</text>
@@ -5552,7 +5552,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Paul" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Paul" delivery="shouting">
-      <text>“Don’t harm yourself, for we are all here!”</text>
+      <text>“Don't harm yourself, for we are all here!”</text>
     </ReferenceBlocks>
     <text>"Yu no ken bagarapim yu yet. Mipela olgeta i stap."</text>
   </block>
@@ -5683,14 +5683,14 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="40" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="40" characterId="narrator-ACT">
       <verse num="40" />
-      <text>They went out of the prison, and entered into Lydia’s house. When they had seen the brothers, they encouraged them, and departed.</text>
+      <text>They went out of the prison, and entered into Lydia's house. When they had seen the brothers, they encouraged them, and departed.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Bihain long tupela i lusim haus kalabus, tupela i go long haus bilong Lidia. Tupela i lukim ol Kristen na i givim sampela tok long ol bilong strongim bel bilong ol. Na bihain tupela i lusim taun na i go.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="17" initialStartVerse="0">
-      <text>ACTS 17</text>
+      <text>ACTS CHP 17</text>
     </ReferenceBlocks>
     <text>17</text>
   </block>
@@ -5743,7 +5743,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-ACT">
       <verse num="6" />
-      <text>When they didn’t find them, they dragged Jason and certain brothers before the rulers of the city, crying,</text>
+      <text>When they didn't find them, they dragged Jason and certain brothers before the rulers of the city, crying,</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Tasol ol i no lukim tupela, olsem na ol i pulim Jeson wantaim ol arapela Kristen i go long ol hetman bilong dispela taun. Na ol i singaut olsem,</text>
@@ -5929,7 +5929,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>The God who made the world and all things in it, he, being Lord of heaven and earth, doesn’t dwell in temples made with hands.</text>
+      <text>The God who made the world and all things in it, he, being Lord of heaven and earth, doesn't dwell in temples made with hands.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>"God i bin wokim graun wantaim olgeta samting i stap long graun, dispela God em i Bikpela bilong heven na bilong graun. Olsem na em i no save sindaun insait long ol haus lotu ol man i wokim.</text>
@@ -5937,7 +5937,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="25" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="25" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>Neither is he served by men’s hands, as though he needed anything, since he himself gives to all life and breath, and all things.</text>
+      <text>Neither is he served by men's hands, as though he needed anything, since he himself gives to all life and breath, and all things.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Em i no sot long wanpela samting na yumi man i mas mekim wanpela samting long han bilong yumi bilong helpim em. Nogat. Em yet i save givim laip na win na olgeta samting long olgeta manmeri.</text>
@@ -6022,7 +6022,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="18" initialStartVerse="0">
-      <text>ACTS 18</text>
+      <text>ACTS CHP 18</text>
     </ReferenceBlocks>
     <text>18</text>
   </block>
@@ -6106,7 +6106,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus" delivery="in a vision" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="Jesus" delivery="in a vision" multiBlockQuote="Start">
-      <text>“Don’t be afraid, but speak and don’t be silent;</text>
+      <text>“Don't be afraid, but speak and don't be silent;</text>
     </ReferenceBlocks>
     <text>"Yu no ken pret. Nogat. Yu mas tokaut. Yu no ken pasim maus.</text>
   </block>
@@ -6160,7 +6160,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="Gallio, proconsul of Achaia" delivery="sternly" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="Gallio, proconsul of Achaia" delivery="sternly" multiBlockQuote="Continuation">
       <verse num="15" />
-      <text>but if they are questions about words and names and your own law, look to it yourselves. For I don’t want to be a judge of these matters.”</text>
+      <text>but if they are questions about words and names and your own law, look to it yourselves. For I don't want to be a judge of these matters.”</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Tasol yupela i wari long ol pasin bilong toktok na long ol nem na long lo bilong yupela yet, na yupela i kam long mi. Maski, yupela yet i mas stretim dispela tok. Mi no inap harim kot long kain samting olsem."</text>
@@ -6176,7 +6176,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-ACT">
       <verse num="17" />
-      <text>Then all the Greeks laid hold on Sosthenes, the ruler of the synagogue, and beat him before the judgment seat. Gallio didn’t care about any of these things.</text>
+      <text>Then all the Greeks laid hold on Sosthenes, the ruler of the synagogue, and beat him before the judgment seat. Gallio didn't care about any of these things.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Na ol Korin i holimpas Sostenes, em hetman bilong haus lotu bilong ol Juda, na ol I paitim em klostu long ples bilong kot. Tasol Galio i no wari long dispela samting ol i mekim.</text>
@@ -6283,7 +6283,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="19" initialStartVerse="0">
-      <text>ACTS 19</text>
+      <text>ACTS CHP 19</text>
     </ReferenceBlocks>
     <text>19</text>
   </block>
@@ -6313,7 +6313,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="disciples in Ephesus, some" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="disciples in Ephesus, some" userConfirmed="true">
-      <text>“No, we haven’t even heard that there is a Holy Spirit.”</text>
+      <text>“No, we haven't even heard that there is a Holy Spirit.”</text>
     </ReferenceBlocks>
     <text>"Nogat. Mipela i no harim tok long wanpela Holi Spirit i stap."</text>
   </block>
@@ -6339,7 +6339,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="disciples in Ephesus, some" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="disciples in Ephesus, some" userConfirmed="true">
-      <text>“Into John’s baptism.”</text>
+      <text>“Into John's baptism.”</text>
     </ReferenceBlocks>
     <text>"Mipela i kisim baptais bilong Jon."</text>
   </block>
@@ -6582,7 +6582,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="29" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="29" characterId="narrator-ACT">
       <verse num="29" />
-      <text>The whole city was filled with confusion. They rushed with one accord into the theater, having seized Gaius and Aristarchus, men of Macedonia, Paul’s companions in travel.</text>
+      <text>The whole city was filled with confusion. They rushed with one accord into the theater, having seized Gaius and Aristarchus, men of Macedonia, Paul's companions in travel.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Olsem na bikpela singaut moa i kamap long dispela taun, na olgeta manmeri i bikmaus nabaut. Ol i kirap wantaim na i ran i go long ples kibung. Ol i pulim Gaius wantaim Aristarkus i go wantaim ol, em tupela man bilong Masedonia i save wokabaut i go raun wantaim Pol.</text>
@@ -6590,7 +6590,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="30" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="30" characterId="narrator-ACT">
       <verse num="30" />
-      <text>When Paul wanted to enter in to the people, the disciples didn’t allow him.</text>
+      <text>When Paul wanted to enter in to the people, the disciples didn't allow him.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Pol yet i laik i go namel long ol manmeri, tasol ol Kristen i pasim em.</text>
@@ -6606,7 +6606,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="32" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="32" characterId="narrator-ACT">
       <verse num="32" />
-      <text>Some therefore cried one thing, and some another, for the assembly was in confusion. Most of them didn’t know why they had come together.</text>
+      <text>Some therefore cried one thing, and some another, for the assembly was in confusion. Most of them didn't know why they had come together.</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>Dispela bikpela lain manmeri, tingting bilong ol i paul nabaut. Ol i wok long singaut nabaut na mekim ol narapela narapela tok. Na planti manmeri i no save long wanem as tru ol i kam bung.</text>
@@ -6643,14 +6643,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="35" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="35" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Start">
-      <text>“You men of Ephesus, what man is there who doesn’t know that the city of the Ephesians is worshipper of the great goddess Artemis, and of the image which fell down from Zeus?</text>
+      <text>“You men of Ephesus, what man is there who doesn't know that the city of the Ephesians is worshipper of the great goddess Artemis, and of the image which fell down from Zeus?</text>
     </ReferenceBlocks>
     <text>"Yupela man bilong Efesus, harim. Wanem man i no save olsem Efesus em i taun bilong lukautim haus lotu bilong bikpela god meri Artemis, na bilong lukautim dispela ston tambu i bin pundaun long heven?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="36" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="36" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>Seeing then that these things can’t be denied, you ought to be quiet, and to do nothing rash.</text>
+      <text>Seeing then that these things can't be denied, you ought to be quiet, and to do nothing rash.</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>I no gat man inap long sakim dispela tok. Olsem na yupela i mas sarap. Yupela i no ken hariap tumas na mekim wanpela samting.</text>
@@ -6682,7 +6682,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="40" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="40" characterId="city clerk of Ephesus" delivery="diplomatic" multiBlockQuote="Continuation">
       <verse num="40" />
-      <text>For indeed we are in danger of being accused concerning this day’s riot, there being no cause. Concerning it, we wouldn’t be able to give an account of this commotion.”</text>
+      <text>For indeed we are in danger of being accused concerning this day's riot, there being no cause. Concerning it, we wouldn't be able to give an account of this commotion.”</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Olsem na harim. Sapos ol ofisa bilong gavman i harim tok long ol samting yumi bin mekim nau, orait ol inap tru long kotim yumi na tok long yumi laik kirapim bikpela trabel. I no gat as tru bilong dispela pasin yumi bin mekim. Na sapos ol i askim yumi bilong wanem yumi bin kam bung na singaut na bikmaus nabaut, yumi bai i no inap bekim wanpela tok."</text>
@@ -6697,7 +6697,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="20" initialStartVerse="0">
-      <text>ACTS 20</text>
+      <text>ACTS CHP 20</text>
     </ReferenceBlocks>
     <text>20</text>
   </block>
@@ -6783,7 +6783,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="Paul" delivery="calling out" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="Paul" delivery="calling out">
-      <text>“Don’t be troubled, for his life is in him.”</text>
+      <text>“Don't be troubled, for his life is in him.”</text>
     </ReferenceBlocks>
     <text>"Yupela i no ken kirap nogut. Laip i stap yet long em."</text>
   </block>
@@ -6868,7 +6868,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="20" />
-      <text>I didn’t shrink from declaring to you anything that was profitable. I taught you publically, from house to house.</text>
+      <text>I didn't shrink from declaring to you anything that was profitable. I taught you publically, from house to house.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Na mi no surik long autim olkain gutpela tok inap long helpim yupela. Na long ol bung bilong ol manmeri na long olgeta haus bilong yupela tu, mi bin skulim yupela. Em yupela i save.</text>
@@ -6900,7 +6900,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>But these things don’t count; nor do I hold my life dear to myself, so that I may finish my race with joy, and the ministry which I received from the Lord Jesus, to fully testify to the Good News of the grace of God.”</text>
+      <text>But these things don't count; nor do I hold my life dear to myself, so that I may finish my race with joy, and the ministry which I received from the Lord Jesus, to fully testify to the Good News of the grace of God.”</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>"Tasol mi no ting laip bilong mi em i namba wan samting. Mi no strong tumas long holimpas laip bilong mi. Nogat. Mi laik bihainim dispela rot mi wokabaut long en na pinisim dispela wok mi bin kisim long Bikpela Jisas. Dispela wok em bilong autim tok long gutnius bilong marimari bilong God.</text>
@@ -6924,7 +6924,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>For I didn’t shrink from declaring to you the whole counsel of God.</text>
+      <text>For I didn't shrink from declaring to you the whole counsel of God.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>long wanem, mi no bin surik long autim olgeta tingting bilong God long yupela.</text>
@@ -6956,7 +6956,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="31" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>Therefore watch, remembering that for a period of three years I didn’t cease to admonish everyone night and day with tears.</text>
+      <text>Therefore watch, remembering that for a period of three years I didn't cease to admonish everyone night and day with tears.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Olsem na yupela i mas was gut oltaim. Yupela i no ken lusim tingting long pasin mi bin mekim. Long tripela yia, long nait na long san, mi no slek long givim gutpela tingting long yupela olgeta wan wan. Na taim mi skulim yupela, wara bilong ai bilong mi i kapsait wantaim.</text>
@@ -6972,7 +6972,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="33" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="33" />
-      <text>I coveted no one’s silver, or gold, or clothing.</text>
+      <text>I coveted no one's silver, or gold, or clothing.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>"Mi no bin mangal long silva na gol na laplap samting bilong wanpela man.</text>
@@ -7004,7 +7004,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="37" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="37" characterId="narrator-ACT">
       <verse num="37" />
-      <text>They all wept a lot, and fell on Paul’s neck and kissed him.</text>
+      <text>They all wept a lot, and fell on Paul's neck and kissed him.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>Bihain olgeta i krai planti, na ol i holimpas Pol na i givim kis long em.</text>
@@ -7019,7 +7019,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="21" initialStartVerse="0">
-      <text>ACTS 21</text>
+      <text>ACTS CHP 21</text>
     </ReferenceBlocks>
     <text>21</text>
   </block>
@@ -7082,7 +7082,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-ACT">
       <verse num="8" />
-      <text>On the next day, we, who were Paul’s companions, departed, and came to Caesarea. We entered into the house of Philip the evangelist, who was one of the seven, and stayed with him.</text>
+      <text>On the next day, we, who were Paul's companions, departed, and came to Caesarea. We entered into the house of Philip the evangelist, who was one of the seven, and stayed with him.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Long de bihain mipela i lusim Tolemes na mipela i go kamap long taun Sisaria. Na mipela i go long haus bilong Filip, em wanpela man i save autim gutnius long ol manmeri, na mipela i stap wantaim em. Em i wanpela bilong ol 7 -pela man i save helpim ol aposel.</text>
@@ -7106,7 +7106,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-ACT">
       <verse num="11" />
-      <text>Coming to us, and taking Paul’s belt, he bound his own feet and hands, and said,</text>
+      <text>Coming to us, and taking Paul's belt, he bound his own feet and hands, and said,</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Em i kam long mipela na i kisim let bilong Pol na i pasim lek na han bilong em yet. Na em i tok olsem,</text>
@@ -7145,7 +7145,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="Paul's traveling companions, Luke and" delivery="resigned" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="Paul's traveling companions, Luke and" delivery="resigned">
-      <text>“The Lord’s will be done.”</text>
+      <text>“The Lord's will be done.”</text>
     </ReferenceBlocks>
     <text>"Samting Bikpela I laik bai i kamap, em i ken kamap."</text>
   </block>
@@ -7319,7 +7319,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="34" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="34" characterId="narrator-ACT">
       <verse num="34" />
-      <text>Some shouted one thing, and some another, among the crowd. When he couldn’t find out the truth because of the noise, he commanded him to be brought into the barracks.</text>
+      <text>Some shouted one thing, and some another, among the crowd. When he couldn't find out the truth because of the noise, he commanded him to be brought into the barracks.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>Bikpela lain manmeri i stap, na ol i singaut nabaut na i mekim ol narapela narapela tok. Ol i mekim bikpela nois tumas, na ofisa i no inap harim as bilong tok. Olsem na em i tokim ol soldia long bringim Pol i go insait long haus bilong ol.</text>
@@ -7375,7 +7375,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="38" characterId="commander of Roman troops in Jerusalem" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="38" characterId="commander of Roman troops in Jerusalem" multiBlockQuote="Continuation">
       <verse num="38" />
-      <text>Aren’t you then the Egyptian, who before these days stirred up to sedition and led out into the wilderness the four thousand men of the Assassins?”</text>
+      <text>Aren't you then the Egyptian, who before these days stirred up to sedition and led out into the wilderness the four thousand men of the Assassins?”</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Mi ting yu dispela Isip, bipo liklik em I bin kirapim pait long gavman, na em i kisim 4,000 man i save pait long bainat na em i bringim ol i go long graun i no gat man."</text>
@@ -7404,7 +7404,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="22" initialStartVerse="0">
-      <text>ACTS 22</text>
+      <text>ACTS CHP 22</text>
     </ReferenceBlocks>
     <text>22</text>
   </block>
@@ -7475,7 +7475,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Paul" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
       <verse num="9" />
-      <text>“Those who were with me indeed saw the light and were afraid, but they didn’t understand the voice of him who spoke to me.</text>
+      <text>“Those who were with me indeed saw the light and were afraid, but they didn't understand the voice of him who spoke to me.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Ol man i stap wantaim mi ol i lukim lait, tasol ol i no harim maus bilong dispela man i givim tok long mi.</text>
@@ -7491,7 +7491,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>When I couldn’t see for the glory of that light, being led by the hand of those who were with me, I came into Damascus.</text>
+      <text>When I couldn't see for the glory of that light, being led by the hand of those who were with me, I came into Damascus.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Dispela lait em i lait moa yet, na mi no inap lukim wanpela samting. Olsem na ol man i stap wantaim mi ol i holim han bilong mi na ol i bringim mi i go long Damaskus.</text>
@@ -7586,7 +7586,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="22" characterId="crowd in Jerusalem" delivery="screaming" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="22" characterId="crowd in Jerusalem" delivery="screaming">
-      <text>“Rid the earth of this fellow, for he isn’t fit to live!”</text>
+      <text>“Rid the earth of this fellow, for he isn't fit to live!”</text>
     </ReferenceBlocks>
     <text>"Kilim em i dai. Kain man olsem i no ken i stap long graun. Em i no ken i stap laip."</text>
   </block>
@@ -7704,7 +7704,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="23" initialStartVerse="0">
-      <text>ACTS 23</text>
+      <text>ACTS CHP 23</text>
     </ReferenceBlocks>
     <text>23</text>
   </block>
@@ -7754,7 +7754,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="those standing near Paul in Sanhedrin" delivery="angry" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="those standing near Paul in Sanhedrin" delivery="angry">
-      <text>“Do you malign God’s high priest?”</text>
+      <text>“Do you malign God's high priest?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem? Yu laik tok nogut long hetpris bilong God, a?"</text>
   </block>
@@ -7768,7 +7768,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="Paul">
-      <text>“I didn’t know, brothers, that he was high priest. For it is written, ‘You shall not speak evil of a ruler of your people.’”</text>
+      <text>“I didn't know, brothers, that he was high priest. For it is written, ‘You shall not speak evil of a ruler of your people.’”</text>
     </ReferenceBlocks>
     <text>"Ol brata, mi no save dispela man em i hetpris. Mi mekim rong, long wanem, buk bilong God i gat tok olsem, 'Yupela i no ken tok nogut long wanpela hetman bilong yupela.' "</text>
   </block>
@@ -7812,7 +7812,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="9" characterId="Pharisees" delivery="arguing" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="9" characterId="Pharisees" delivery="arguing">
-      <text>“We find no evil in this man. But if a spirit or angel has spoken to him, let’s not fight against God!”</text>
+      <text>“We find no evil in this man. But if a spirit or angel has spoken to him, let's not fight against God!”</text>
     </ReferenceBlocks>
     <text>"Mipela I lukim dispela man i no gat rong. Nogut em i tok tru, na wanpela spirit o wanpela ensel i bin givim tok long em."</text>
   </block>
@@ -7885,7 +7885,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="narrator-ACT">
       <verse num="16" />
-      <text>But Paul’s nephew heard of their lying in wait. He came and entered into the barracks and told Paul.</text>
+      <text>But Paul's nephew heard of their lying in wait. He came and entered into the barracks and told Paul.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Tasol pikinini man bilong susa bilong Pol em i harim tok long dispela samting ol i laik mekim. Olsem na em i go long haus bilong ol soldia na i go insait na i tokim Pol.</text>
@@ -7949,7 +7949,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="son of Paul's sister (young man)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="son of Paul's sister (young man)" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>Therefore don’t yield to them, for more than forty men lie in wait for him, who have bound themselves under a curse neither to eat nor to drink until they have killed him. Now they are ready, looking for the promise from you.”</text>
+      <text>Therefore don't yield to them, for more than forty men lie in wait for him, who have bound themselves under a curse neither to eat nor to drink until they have killed him. Now they are ready, looking for the promise from you.”</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Tasol yu no ken bihainim tok bilong ol. Sampela man bilong ol, namba bilong ol em i winim 40, ol i bin mekim strongpela promis olsem ol i no ken kaikai na dring wanpela samting inap ol i kilim Pol i dai. Na nau ol i wet i stap long yu i orait long tok bilong ol."</text>
@@ -8110,13 +8110,13 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="Felix, governor of Judea" delivery="with authority" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="Felix, governor of Judea" delivery="with authority">
-      <text>“Keep him in Herod’s palace.”</text>
+      <text>“Keep him in Herod's palace.”</text>
     </ReferenceBlocks>
     <text>mas kalabusim Pol long haus gavman bilong Herot.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="24" initialStartVerse="0">
-      <text>ACTS 24</text>
+      <text>ACTS CHP 24</text>
     </ReferenceBlocks>
     <text>24</text>
   </block>
@@ -8153,7 +8153,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Tertullus, lawyer" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Tertullus, lawyer" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>But, that I don’t delay you, I entreat you to bear with us and hear a few words.</text>
+      <text>But, that I don't delay you, I entreat you to bear with us and hear a few words.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>"Tasol nogut mi pasim yu longtaim tumas. Mi laik askim yu long marimari long mipela na harim sotpela tok bilong mipela.</text>
@@ -8223,7 +8223,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="12" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="12" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>In the temple they didn’t find me disputing with anyone or stirring up a crowd, either in the synagogues, or in the city.</text>
+      <text>In the temple they didn't find me disputing with anyone or stirring up a crowd, either in the synagogues, or in the city.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Na ol Juda i no bin lukim mi i pait long toktok wantaim wanpela man insait long banis bilong tempel. Na ol i no lukim mi i kirapim bung bilong ol manmeri insait long ol haus lotu o insait long taun. Nogat.</text>
@@ -8362,7 +8362,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="25" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="25" initialStartVerse="0">
-      <text>ACTS 25</text>
+      <text>ACTS CHP 25</text>
     </ReferenceBlocks>
     <text>25</text>
   </block>
@@ -8462,7 +8462,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="Paul" multiBlockQuote="Start">
-      <text>“I am standing before Caesar’s judgment seat, where I ought to be tried.</text>
+      <text>“I am standing before Caesar's judgment seat, where I ought to be tried.</text>
     </ReferenceBlocks>
     <text>"Dispela haus hia, nau mi sanap long en, em i haus kot bilong Sisar.</text>
   </block>
@@ -8475,7 +8475,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="11" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="11" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>For if I have done wrong, and have committed anything worthy of death, I don’t refuse to die. But if none of those things is true that they accuse me of, no one can give me up to them. I appeal to Caesar!”</text>
+      <text>For if I have done wrong, and have committed anything worthy of death, I don't refuse to die. But if none of those things is true that they accuse me of, no one can give me up to them. I appeal to Caesar!”</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Sapos mi bin mekim wanpela rong inap long mi dai long en, orait mi ken i dai. Tasol sapos dispela tok ol i kotim mi long en, em i no tru, orait i no gat man inap long putim mi long han bilong ol. Mi laik bai Sisar yet i mas harim kot bilong mi."</text>
@@ -8505,7 +8505,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="14" characterId="narrator-ACT">
       <verse num="14" />
-      <text>As he stayed there many days, Festus laid Paul’s case before the king, saying,</text>
+      <text>As he stayed there many days, Festus laid Paul's case before the king, saying,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Tupela i stap long Sisaria planti de, olsem na Festus i toksave long king long tok bilong Pol. Em i tok olsem,</text>
@@ -8535,7 +8535,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="17" characterId="Festus, governor of Judea" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="17" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>When therefore they had come together here, I didn’t delay, but on the next day sat on the judgment seat, and commanded the man to be brought.</text>
+      <text>When therefore they had come together here, I didn't delay, but on the next day sat on the judgment seat, and commanded the man to be brought.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>"Olsem na taim mi kam bek long Sisaria, ol dispela man i kam wantaim mi. Na mi no mekim ol i wet. Long de bihain tasol mi sindaun long haus kot na mi tok long ol i mas bringim dispela man i kam.</text>
@@ -8648,7 +8648,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="26" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="26" initialStartVerse="0">
-      <text>ACTS 26</text>
+      <text>ACTS CHP 26</text>
     </ReferenceBlocks>
     <text>26</text>
   </block>
@@ -8958,7 +8958,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="27" initialStartVerse="0">
-      <text>ACTS 27</text>
+      <text>ACTS CHP 27</text>
     </ReferenceBlocks>
     <text>27</text>
   </block>
@@ -9078,7 +9078,7 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
-      <text>When the ship was caught, and couldn’t face the wind, </text>
+      <text>When the ship was caught, and couldn't face the wind, </text>
       <sound start="true" userSpecifiesLocation="true" />
       <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
@@ -9114,7 +9114,7 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="19" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="19" characterId="narrator-ACT">
       <verse num="19" />
-      <text>On the third day, they threw out the ship’s tackle with their own hands.</text>
+      <text>On the third day, they threw out the ship's tackle with their own hands.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Na long de namba 3, ol boskru i wari tru na ol i stat long tromoi ol sel na mas samting bilong sip.</text>
@@ -9160,7 +9160,7 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="24" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>He said, ‘Don’t be afraid, Paul. You must stand before Caesar. Behold, God has granted you all those who sail with you.’</text>
+      <text>He said, ‘Don't be afraid, Paul. You must stand before Caesar. Behold, God has granted you all those who sail with you.’</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>na em i tok olsem, 'Pol, yu no ken pret. Yu mas i go sanap long pes bilong Sisar. Na harim. God i harim beten bilong yu, na olgeta man i stap wantaim yu long sip, ol bai i no inap lus.'</text>
@@ -9223,7 +9223,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="31" characterId="Paul" delivery="warning" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="31" characterId="Paul" delivery="warning">
-      <text>“Unless these stay in the ship, you can’t be saved.”</text>
+      <text>“Unless these stay in the ship, you can't be saved.”</text>
     </ReferenceBlocks>
     <text>"Sapos ol dispela man i no i stap long sip, orait yupela bai I lus."</text>
   </block>
@@ -9292,7 +9292,7 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="39" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="39" characterId="narrator-ACT">
       <verse num="39" />
-      <text>When it was day, they didn’t recognize the land, but they noticed a certain bay with a beach. They decided to try to drive the ship onto it.</text>
+      <text>When it was day, they didn't recognize the land, but they noticed a certain bay with a beach. They decided to try to drive the ship onto it.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>San i kamap, na ol boskru i lukim dispela nambis mipela i kamap long en, tasol ol i no save, em nambis bilong wanem hap graun. Ol i lukim wanpela pasis i go insait moa na i gat gutpela wesan long en. Na ol i ting, sapos ol inap, ol i laik mekim sip i ran i go sua long dispela nambis.</text>
@@ -9339,7 +9339,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="28" initialStartVerse="0">
-      <text>ACTS 28</text>
+      <text>ACTS CHP 28</text>
     </ReferenceBlocks>
     <text>28</text>
   </block>
@@ -9384,7 +9384,7 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="5" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="5" characterId="narrator-ACT">
       <verse num="5" />
-      <text>However he shook off the creature into the fire, and wasn’t harmed.</text>
+      <text>However he shook off the creature into the fire, and wasn't harmed.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Tasol Pol i sakim dispela snek i go pundaun long paia, na i no gat wanpela samting i kamap long Pol.</text>
@@ -9562,7 +9562,7 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="25" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="25" characterId="narrator-ACT">
       <verse num="25" />
-      <text>When they didn’t agree among themselves, they departed after Paul had spoken one word,</text>
+      <text>When they didn't agree among themselves, they departed after Paul had spoken one word,</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Ol i wok long tok pait namel long ol yet, na ol i go. Tasol pastaim Pol i mekim wanpela tok long ol olsem,</text>
@@ -9584,7 +9584,7 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="27" characterId="Paul" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>For this people’s heart has grown callous. Their ears are dull of hearing. Their eyes they have closed. Lest they should see with their eyes, hear with their ears, understand with their heart, and would turn again, and I would heal them.’”</text>
+      <text>For this people's heart has grown callous. Their ears are dull of hearing. Their eyes they have closed. Lest they should see with their eyes, hear with their ears, understand with their heart, and would turn again, and I would heal them.’”</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Tingting bilong dispela lain manmeri i pas pinis, na yau bilong ol i les long harim toktok, na ol i pasim pinis ai bilong ol, nogut ol i lukim wanpela samting na harim tok na save long as bilong tok, na ol i tanim bel na kam bek long mi, na bai mi mekim ol i kamap orait gen.'"</text>
