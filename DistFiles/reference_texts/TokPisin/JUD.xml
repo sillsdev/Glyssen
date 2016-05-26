@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JUD" initialStartVerse="0" characterId="BC-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>JUDE 1</text>
+      <text>JUDE CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -47,7 +47,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JUD">
       <verse num="5" />
-      <text>Now I desire to remind you, though you already know this, that the Lord, having saved a people out of the land of Egypt, afterward destroyed those who didn’t believe.</text>
+      <text>Now I desire to remind you, though you already know this, that the Lord, having saved a people out of the land of Egypt, afterward destroyed those who didn't believe.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Yupela i save pinis long Bikpela, bipo em i kisim bek ol Israel na bringim ol i lusim Isip na i go. Na bihain em i bagarapim ol manmeri i no bilip long em. Yupela i save pinis, tasol mi laik kirapim yupela long tingim dispela samting gen.</text>
@@ -55,7 +55,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-JUD">
       <verse num="6" />
-      <text>Angels who didn’t keep their first domain, but deserted their own dwelling place, he has kept in everlasting bonds under darkness for the judgment of the great day.</text>
+      <text>Angels who didn't keep their first domain, but deserted their own dwelling place, he has kept in everlasting bonds under darkness for the judgment of the great day.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Na tingim ol dispela ensel ol i no laik i stap gut long dispela wok God i bin givim ol, na ol i lusim ples bilong ol. Olsem na Bikpela i pasim ol long ol sen i save stap oltaim oltaim, na em i kalabusim ol i stap long dispela ples i tudak nogut tru. Ol i wetim De bilong bikpela kot bilong God.</text>
@@ -93,7 +93,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">
       <verse num="10" />
-      <text>But these speak evil of whatever things they don’t know. What they understand naturally, like the creatures without reason, they are destroyed in these things.</text>
+      <text>But these speak evil of whatever things they don't know. What they understand naturally, like the creatures without reason, they are destroyed in these things.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Tasol ol dispela man ol i save tok nogut long olgeta samting ol i no save long as bilong en. Ol i olsem ol abus i no gat tingting, na ol i save bihainim ol laik bilong bodi tasol. Na dispela pasin bilong ol i save bagarapim ol tru.</text>
@@ -101,7 +101,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JUD">
       <verse num="11" />
-      <text>Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah’s rebellion.</text>
+      <text>Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah's rebellion.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Ol i mas lukaut. Ol i save wokabaut long pasin bilong Kein. Ol i save tingting long pe tasol, olsem Balam, na ol i redi long mekim olgeta kain samting bilong kisim mani. Na ol i bin bikhet long God, olsem Kora, na long dispela pasin ol i lus tru.</text>

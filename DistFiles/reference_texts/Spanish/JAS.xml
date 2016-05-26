@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>JAMES 1</text>
+      <text>JAMES CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -111,7 +111,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
       <verse num="13" />
-      <text>Let no man say when he is tempted, “I am tempted by God,” for God can’t be tempted by evil, and he himself tempts no one.</text>
+      <text>Let no man say when he is tempted, “I am tempted by God,” for God can't be tempted by evil, and he himself tempts no one.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Cuando alguno se sienta tentado a hacer lo malo, no piense que es tentado por Dios, porque Dios ni siente la tentación de hacer lo malo, ni tienta a nadie para que lo haga.</text>
@@ -135,7 +135,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
       <verse num="16" />
-      <text>Don’t be deceived, my beloved brothers.</text>
+      <text>Don't be deceived, my beloved brothers.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Queridos hermanos míos, no se engañen:</text>
@@ -167,7 +167,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
       <verse num="20" />
-      <text>For the anger of man doesn’t produce the righteousness of God.</text>
+      <text>For the anger of man doesn't produce the righteousness of God.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Porque el hombre enojado no hace lo que es justo ante Dios.</text>
@@ -215,7 +215,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
       <verse num="26" />
-      <text>If anyone among you thinks himself to be religious while he doesn’t bridle his tongue, but deceives his heart, this man’s religion is worthless.</text>
+      <text>If anyone among you thinks himself to be religious while he doesn't bridle his tongue, but deceives his heart, this man's religion is worthless.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Si alguno cree ser religioso, pero no sabe poner freno a su lengua, se engaña a sí mismo y su religión no sirve de nada.</text>
@@ -230,14 +230,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>JAMES 2</text>
+      <text>JAMES CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
       <verse num="1" />
-      <text>My brothers, don’t hold the faith of our Lord Jesus Christ of glory with partiality.</text>
+      <text>My brothers, don't hold the faith of our Lord Jesus Christ of glory with partiality.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ustedes, hermanos míos, que creen en nuestro glorioso Señor Jesucristo, no deben hacer discriminaciones entre una persona y otra.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
       <verse num="4" />
-      <text>haven’t you shown partiality among yourselves, and become judges with evil thoughts?</text>
+      <text>haven't you shown partiality among yourselves, and become judges with evil thoughts?</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>no hacéis acepción de personas a uno sobre el otro?</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
       <verse num="5" />
-      <text>Listen, my beloved brothers. Didn’t God choose those who are poor in this world to be rich in faith. And heirs of the Kingdom which he promised to those who love him?</text>
+      <text>Listen, my beloved brothers. Didn't God choose those who are poor in this world to be rich in faith. And heirs of the Kingdom which he promised to those who love him?</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Queridos hermanos míos, oigan esto: Dios ha escogido a los que en este mundo son pobres, para que sean ricos en fe y para que reciban como herencia el reino que él ha prometido a los que lo aman;</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
       <verse num="6" />
-      <text>But you have dishonored the poor man. Don’t the rich oppress you, and personally drag you before the courts?</text>
+      <text>But you have dishonored the poor man. Don't the rich oppress you, and personally drag you before the courts?</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>ustedes, en cambio, los humillan. ¿Acaso no son los ricos quienes los explotan a ustedes, y quienes a rastras los llevan ante las autoridades?</text>
@@ -285,7 +285,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
       <verse num="7" />
-      <text>Don’t they blaspheme the honorable name by which you are called?</text>
+      <text>Don't they blaspheme the honorable name by which you are called?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>¿No son ellos quienes hablan mal del precioso nombre que fue invocado sobre ustedes?</text>
@@ -385,7 +385,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
       <verse num="16" />
-      <text>One of you tells them, “Go in peace, be warmed and filled”; and yet you didn’t give them the things the body needs, what good is it?</text>
+      <text>One of you tells them, “Go in peace, be warmed and filled”; and yet you didn't give them the things the body needs, what good is it?</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>si uno de ustedes les dice: &lt;&lt;Que les vaya bien; abríguense y coman todo lo que quieran&gt;&gt;, pero no les da lo que su cuerpo necesita, ¿de qué les sirve?</text>
@@ -425,7 +425,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
       <verse num="21" />
-      <text>Wasn’t Abraham our father justified by works, in that he offered up Isaac his son on the altar?</text>
+      <text>Wasn't Abraham our father justified by works, in that he offered up Isaac his son on the altar?</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Dios aceptó como justo a Abraham, nuestro antepasado, por lo que él hizo cuando ofreció en sacrificio a su hijo Isaac.</text>
@@ -469,7 +469,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
       <verse num="25" />
-      <text>In the same way, wasn’t Rahab the prostitute also justified by works, in that she received the messengers, and sent them out another way?</text>
+      <text>In the same way, wasn't Rahab the prostitute also justified by works, in that she received the messengers, and sent them out another way?</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Lo mismo pasó con Rahab, la prostituta; Dios la aceptó como justa por sus hechos, porque dio alojamiento a los mensajeros y los ayudó a salir por otro camino.</text>
@@ -484,7 +484,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>JAMES 3</text>
+      <text>JAMES CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -499,7 +499,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
       <verse num="2" />
-      <text>For in many things we all stumble. If anyone doesn’t stumble in word, the same is a perfect man, able to bridle the whole body also.</text>
+      <text>For in many things we all stumble. If anyone doesn't stumble in word, the same is a perfect man, able to bridle the whole body also.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Todos cometemos muchos errores; ahora bien, si alguien no comete ningún error en lo que dice, es un hombre perfecto, capaz también de controlar todo su cuerpo.</text>
@@ -595,7 +595,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
       <verse num="14" />
-      <text>But if you have bitter jealousy and selfish ambition in your heart, don’t boast and don’t lie against the truth.</text>
+      <text>But if you have bitter jealousy and selfish ambition in your heart, don't boast and don't lie against the truth.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Pero si ustedes dejan que la envidia les amargue el corazón, y hacen las cosas por rivalidad, entonces no tienen de qué enorgullecerse y están faltando a la verdad.</text>
@@ -634,14 +634,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>JAMES 4</text>
+      <text>JAMES CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
       <verse num="1" />
-      <text>Where do wars and fightings among you come from? Don’t they come from your pleasures that war in your members?</text>
+      <text>Where do wars and fightings among you come from? Don't they come from your pleasures that war in your members?</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>¿De dónde vienen las guerras y las peleas entre ustedes? Pues de los malos deseos que siempre están luchando en su interior.</text>
@@ -649,7 +649,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
       <verse num="2" />
-      <text>You lust, and don’t have. You kill, covet, and can’t obtain. You fight and make war. You don’t have, because you don’t ask.</text>
+      <text>You lust, and don't have. You kill, covet, and can't obtain. You fight and make war. You don't have, because you don't ask.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Ustedes quieren algo, y no lo obtienen; matan, sienten envidia de alguna cosa, y como no la pueden conseguir, luchan y se hacen la guerra. No consiguen lo que quieren porque no se lo piden a Dios;</text>
@@ -657,7 +657,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
       <verse num="3" />
-      <text>You ask, and don’t receive, because you ask with wrong motives, so that you may spend it for your pleasures.</text>
+      <text>You ask, and don't receive, because you ask with wrong motives, so that you may spend it for your pleasures.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>y si se lo piden, no lo reciben porque lo piden mal, pues lo quieren para gastarlo en sus placeres.</text>
@@ -665,7 +665,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
       <verse num="4" />
-      <text>You adulterers and adulteresses, don’t you know that friendship with the world is enmity with God? Whoever therefore wants to be a friend of the world makes himself an enemy of God.</text>
+      <text>You adulterers and adulteresses, don't you know that friendship with the world is enmity with God? Whoever therefore wants to be a friend of the world makes himself an enemy of God.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>¡Oh gente infiel! ¿No saben ustedes que ser amigos del mundo es ser enemigos de Dios? Cualquiera que decide ser amigo del mundo, se vuelve enemigo de Dios.</text>
@@ -727,7 +727,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
       <verse num="11" />
-      <text>Don’t speak against one another, brothers. He who speaks against a brother and judges his brother, speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge.</text>
+      <text>Don't speak against one another, brothers. He who speaks against a brother and judges his brother, speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Hermanos, no hablen mal unos de otros. El que habla mal de su hermano, o lo juzga, habla mal de la ley y la juzga. Y si juzgas a la ley, te haces juez de ella en vez de obedecerla.</text>
@@ -743,7 +743,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
       <verse num="13" />
-      <text>Come now, you who say, “Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.”</text>
+      <text>Come now, you who say, “Today or tomorrow let's go into this city, and spend a year there, trade, and make a profit.”</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ahora oigan esto, ustedes, los que dicen: &lt;&lt;Hoy o mañana iremos a tal o cual ciudad, y allí pasaremos un año haciendo negocios y ganando dinero&gt;&gt;,</text>
@@ -751,7 +751,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
       <verse num="14" />
-      <text>Whereas you don’t know what your life will be like tomorrow. For what is your life? For you are a vapor, that appears for a little time, and then vanishes away.</text>
+      <text>Whereas you don't know what your life will be like tomorrow. For what is your life? For you are a vapor, that appears for a little time, and then vanishes away.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>¡y ni siquiera saben lo que mañana será de su vida! Ustedes son como una neblina que aparece por un momento y en seguida desaparece.</text>
@@ -775,14 +775,14 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
       <verse num="17" />
-      <text>To him therefore who knows to do good, and doesn’t do it, to him it is sin.</text>
+      <text>To him therefore who knows to do good, and doesn't do it, to him it is sin.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>El que sabe hacer el bien y no lo hace, comete pecado.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>JAMES 5</text>
+      <text>JAMES CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -829,7 +829,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
       <verse num="6" />
-      <text>You have condemned, you have murdered the righteous one. He doesn’t resist you.</text>
+      <text>You have condemned, you have murdered the righteous one. He doesn't resist you.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Ustedes han condenado y matado a los inocentes sin que ellos opusieran resistencia.</text>
@@ -853,7 +853,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
       <verse num="9" />
-      <text>Don’t grumble, brothers, against one another, so that you won’t be judged. Behold, the judge stands at the door.</text>
+      <text>Don't grumble, brothers, against one another, so that you won't be judged. Behold, the judge stands at the door.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Hermanos, no se quejen unos de otros, para que no sean juzgados; pues el Juez está ya a la puerta.</text>
@@ -877,7 +877,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
       <verse num="12" />
-      <text>But above all things, my brothers, don’t swear, neither by heaven, nor by the earth, nor by any other oath; but let your “yes” be “yes,” and your “no,” “no”; so that you don’t fall into hypocrisy.</text>
+      <text>But above all things, my brothers, don't swear, neither by heaven, nor by the earth, nor by any other oath; but let your “yes” be “yes,” and your “no,” “no”; so that you don't fall into hypocrisy.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Sobre todo, hermanos míos, no juren: ni por el cielo, ni por la tierra, ni por ninguna otra cosa. Cuando digan &lt;&lt;sí&gt;&gt;, que sea sí; y cuando digan &lt;&lt;no&gt;&gt;, que sea no, para que Dios no los condene.</text>
@@ -917,7 +917,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
       <verse num="17" />
-      <text>Elijah was a man with a nature like ours, and he prayed earnestly that it might not rain, and it didn’t rain on the earth for three years and six months.</text>
+      <text>Elijah was a man with a nature like ours, and he prayed earnestly that it might not rain, and it didn't rain on the earth for three years and six months.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>El profeta Elías era un hombre como nosotros, y cuando oró con fervor pidiendo que no lloviera, dejó de llover sobre la tierra durante tres años y medio.</text>

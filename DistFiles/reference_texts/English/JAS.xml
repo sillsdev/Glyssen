@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="JAS" singlevoice="false" pageheader="JAMES">
+<book id="JAS" singlevoice="false" pageheader="JAMES CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JAS">
     <text>JAMES</text>
   </block>
@@ -56,7 +56,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-JAS">
     <verse num="13" />
-    <text>Let no man say when he is tempted, “I am tempted by God,” for God can’t be tempted by evil, and he himself tempts no one.</text>
+    <text>Let no man say when he is tempted, “I am tempted by God,” for God can't be tempted by evil, and he himself tempts no one.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-JAS">
     <verse num="14" />
@@ -68,7 +68,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-JAS">
     <verse num="16" />
-    <text>Don’t be deceived, my beloved brothers.</text>
+    <text>Don't be deceived, my beloved brothers.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-JAS">
     <verse num="17" />
@@ -84,7 +84,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-JAS">
     <verse num="20" />
-    <text>For the anger of man doesn’t produce the righteousness of God.</text>
+    <text>For the anger of man doesn't produce the righteousness of God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-JAS">
     <verse num="21" />
@@ -108,7 +108,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-JAS">
     <verse num="26" />
-    <text>If anyone among you thinks himself to be religious while he doesn’t bridle his tongue, but deceives his heart, this man’s religion is worthless.</text>
+    <text>If anyone among you thinks himself to be religious while he doesn't bridle his tongue, but deceives his heart, this man's religion is worthless.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-JAS">
     <verse num="27" />
@@ -119,7 +119,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-JAS">
     <verse num="1" />
-    <text>My brothers, don’t hold the faith of our Lord Jesus Christ of glory with partiality.</text>
+    <text>My brothers, don't hold the faith of our Lord Jesus Christ of glory with partiality.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-JAS">
     <verse num="2" />
@@ -131,19 +131,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-JAS">
     <verse num="4" />
-    <text>haven’t you shown partiality among yourselves, and become judges with evil thoughts?</text>
+    <text>haven't you shown partiality among yourselves, and become judges with evil thoughts?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-JAS">
     <verse num="5" />
-    <text>Listen, my beloved brothers. Didn’t God choose those who are poor in this world to be rich in faith. And heirs of the Kingdom which he promised to those who love him?</text>
+    <text>Listen, my beloved brothers. Didn't God choose those who are poor in this world to be rich in faith. And heirs of the Kingdom which he promised to those who love him?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-JAS">
     <verse num="6" />
-    <text>But you have dishonored the poor man. Don’t the rich oppress you, and personally drag you before the courts?</text>
+    <text>But you have dishonored the poor man. Don't the rich oppress you, and personally drag you before the courts?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-JAS">
     <verse num="7" />
-    <text>Don’t they blaspheme the honorable name by which you are called?</text>
+    <text>Don't they blaspheme the honorable name by which you are called?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
     <verse num="8" />
@@ -193,7 +193,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-JAS">
     <verse num="16" />
-    <text>One of you tells them, “Go in peace, be warmed and filled”; and yet you didn’t give them the things the body needs, what good is it?</text>
+    <text>One of you tells them, “Go in peace, be warmed and filled”; and yet you didn't give them the things the body needs, what good is it?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-JAS">
     <verse num="17" />
@@ -213,7 +213,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-JAS">
     <verse num="21" />
-    <text>Wasn’t Abraham our father justified by works, in that he offered up Isaac his son on the altar?</text>
+    <text>Wasn't Abraham our father justified by works, in that he offered up Isaac his son on the altar?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-JAS">
     <verse num="22" />
@@ -235,7 +235,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-JAS">
     <verse num="25" />
-    <text>In the same way, wasn’t Rahab the prostitute also justified by works, in that she received the messengers, and sent them out another way?</text>
+    <text>In the same way, wasn't Rahab the prostitute also justified by works, in that she received the messengers, and sent them out another way?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-JAS">
     <verse num="26" />
@@ -250,7 +250,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-JAS">
     <verse num="2" />
-    <text>For in many things we all stumble. If anyone doesn’t stumble in word, the same is a perfect man, able to bridle the whole body also.</text>
+    <text>For in many things we all stumble. If anyone doesn't stumble in word, the same is a perfect man, able to bridle the whole body also.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="narrator-JAS">
     <verse num="3" />
@@ -298,7 +298,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-JAS">
     <verse num="14" />
-    <text>But if you have bitter jealousy and selfish ambition in your heart, don’t boast and don’t lie against the truth.</text>
+    <text>But if you have bitter jealousy and selfish ambition in your heart, don't boast and don't lie against the truth.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-JAS">
     <verse num="15" />
@@ -321,19 +321,19 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-JAS">
     <verse num="1" />
-    <text>Where do wars and fightings among you come from? Don’t they come from your pleasures that war in your members?</text>
+    <text>Where do wars and fightings among you come from? Don't they come from your pleasures that war in your members?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-JAS">
     <verse num="2" />
-    <text>You lust, and don’t have. You kill, covet, and can’t obtain. You fight and make war. You don’t have, because you don’t ask.</text>
+    <text>You lust, and don't have. You kill, covet, and can't obtain. You fight and make war. You don't have, because you don't ask.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-JAS">
     <verse num="3" />
-    <text>You ask, and don’t receive, because you ask with wrong motives, so that you may spend it for your pleasures.</text>
+    <text>You ask, and don't receive, because you ask with wrong motives, so that you may spend it for your pleasures.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-JAS">
     <verse num="4" />
-    <text>You adulterers and adulteresses, don’t you know that friendship with the world is enmity with God? Whoever therefore wants to be a friend of the world makes himself an enemy of God.</text>
+    <text>You adulterers and adulteresses, don't you know that friendship with the world is enmity with God? Whoever therefore wants to be a friend of the world makes himself an enemy of God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-JAS">
     <verse num="5" />
@@ -364,7 +364,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="11" characterId="narrator-JAS">
     <verse num="11" />
-    <text>Don’t speak against one another, brothers. He who speaks against a brother and judges his brother, speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge.</text>
+    <text>Don't speak against one another, brothers. He who speaks against a brother and judges his brother, speaks against the law and judges the law. But if you judge the law, you are not a doer of the law, but a judge.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="12" characterId="narrator-JAS">
     <verse num="12" />
@@ -372,11 +372,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-JAS">
     <verse num="13" />
-    <text>Come now, you who say, “Today or tomorrow let’s go into this city, and spend a year there, trade, and make a profit.”</text>
+    <text>Come now, you who say, “Today or tomorrow let's go into this city, and spend a year there, trade, and make a profit.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-JAS">
     <verse num="14" />
-    <text>Whereas you don’t know what your life will be like tomorrow. For what is your life? For you are a vapor, that appears for a little time, and then vanishes away.</text>
+    <text>Whereas you don't know what your life will be like tomorrow. For what is your life? For you are a vapor, that appears for a little time, and then vanishes away.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-JAS">
     <verse num="15" />
@@ -388,7 +388,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-JAS">
     <verse num="17" />
-    <text>To him therefore who knows to do good, and doesn’t do it, to him it is sin.</text>
+    <text>To him therefore who knows to do good, and doesn't do it, to him it is sin.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="JAS" initialStartVerse="0" characterId="BC-JAS">
     <text>5</text>
@@ -415,7 +415,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-JAS">
     <verse num="6" />
-    <text>You have condemned, you have murdered the righteous one. He doesn’t resist you.</text>
+    <text>You have condemned, you have murdered the righteous one. He doesn't resist you.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-JAS">
     <verse num="7" />
@@ -427,7 +427,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-JAS">
     <verse num="9" />
-    <text>Don’t grumble, brothers, against one another, so that you won’t be judged. Behold, the judge stands at the door.</text>
+    <text>Don't grumble, brothers, against one another, so that you won't be judged. Behold, the judge stands at the door.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-JAS">
     <verse num="10" />
@@ -439,7 +439,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-JAS">
     <verse num="12" />
-    <text>But above all things, my brothers, don’t swear, neither by heaven, nor by the earth, nor by any other oath; but let your “yes” be “yes,” and your “no,” “no”; so that you don’t fall into hypocrisy.</text>
+    <text>But above all things, my brothers, don't swear, neither by heaven, nor by the earth, nor by any other oath; but let your “yes” be “yes,” and your “no,” “no”; so that you don't fall into hypocrisy.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JAS">
     <verse num="13" />
@@ -459,7 +459,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-JAS">
     <verse num="17" />
-    <text>Elijah was a man with a nature like ours, and he prayed earnestly that it might not rain, and it didn’t rain on the earth for three years and six months.</text>
+    <text>Elijah was a man with a nature like ours, and he prayed earnestly that it might not rain, and it didn't rain on the earth for three years and six months.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-JAS">
     <verse num="18" />

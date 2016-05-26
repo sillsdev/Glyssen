@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 JOHN 1</text>
+      <text>1 JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -55,7 +55,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don’t tell the truth.</text>
+      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don't tell the truth.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Jika kita katakan, bahwa kita beroleh persekutuan dengan Dia, namun kita hidup di dalam kegelapan, kita berdusta dan kita tidak melakukan kebenaran.</text>
@@ -87,14 +87,14 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>If we say that we haven’t sinned, we make him a liar, and his word is not in us.</text>
+      <text>If we say that we haven't sinned, we make him a liar, and his word is not in us.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Jika kita berkata, bahwa kita tidak ada berbuat dosa, maka kita membuat Dia menjadi pendusta dan firman-Nya tidak ada di dalam kita.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 JOHN 2</text>
+      <text>1 JOHN CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -125,7 +125,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
       <verse num="4" />
-      <text>One who says, “I know him,” and doesn’t keep his commandments, is a liar, and the truth isn’t in him.</text>
+      <text>One who says, “I know him,” and doesn't keep his commandments, is a liar, and the truth isn't in him.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Barangsiapa berkata: &lt;&lt;Aku mengenal Dia,&gt;&gt; tetapi ia tidak menuruti perintah-Nya, ia adalah seorang pendusta dan di dalamnya tidak ada kebenaran.</text>
@@ -133,7 +133,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
       <verse num="5" />
-      <text>But whoever keeps his word, God’s love has most certainly been perfected in him. This is how we know that we are in him:</text>
+      <text>But whoever keeps his word, God's love has most certainly been perfected in him. This is how we know that we are in him:</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Tetapi barangsiapa menuruti firman-Nya, di dalam orang itu sungguh sudah sempurna kasih Allah; dengan itulah kita ketahui, bahwa kita ada di dalam Dia.</text>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
       <verse num="11" />
-      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn’t know where he is going, because the darkness has blinded his eyes.</text>
+      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn't know where he is going, because the darkness has blinded his eyes.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Tetapi barangsiapa membenci saudaranya, ia berada di dalam kegelapan dan hidup di dalam kegelapan. Ia tidak tahu ke mana ia pergi, karena kegelapan itu telah membutakan matanya.</text>
@@ -189,7 +189,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>I write to you, little children, because your sins are forgiven you for his name’s sake.</text>
+      <text>I write to you, little children, because your sins are forgiven you for his name's sake.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Aku menulis kepada kamu, hai anak-anak, sebab dosamu telah diampuni oleh karena nama-Nya.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
       <verse num="15" />
-      <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
+      <text>Don't love the world, neither the things that are in the world. If anyone loves the world, the Father's love isn't in him.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Janganlah kamu mengasihi dunia dan apa yang ada di dalamnya. Jikalau orang mengasihi dunia, maka kasih akan Bapa tidak ada di dalam orang itu.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn’t the Father’s, but is the world’s.</text>
+      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn't the Father's, but is the world's.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Sebab semua yang ada di dalam dunia, yaitu keinginan daging dan keinginan mata serta keangkuhan hidup, bukanlah berasal dari Bapa, melainkan dari dunia.</text>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
+      <text>The world is passing away with its lusts, but he who does God's will remains forever.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Dan dunia ini sedang lenyap dengan keinginannya, tetapi orang yang melakukan kehendak Allah tetap hidup selama-lamanya.</text>
@@ -245,7 +245,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
       <verse num="19" />
-      <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
+      <text>They went out from us, but they didn't belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Memang mereka berasal dari antara kita, tetapi mereka tidak sungguh-sungguh termasuk pada kita; sebab jika mereka sungguh-sungguh termasuk pada kita, niscaya mereka tetap bersama-sama dengan kita. Tetapi hal itu terjadi, supaya menjadi nyata, bahwa tidak semua mereka sungguh-sungguh termasuk pada kita.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>I have not written to you because you don’t know the truth, but because you know it, and because no lie is of the truth.</text>
+      <text>I have not written to you because you don't know the truth, but because you know it, and because no lie is of the truth.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Aku menulis kepadamu, bukan karena kamu tidak mengetahui kebenaran, tetapi justru karena kamu mengetahuinya dan karena kamu juga mengetahui, bahwa tidak ada dusta yang berasal dari kebenaran.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
       <verse num="23" />
-      <text>Whoever denies the Son, the same doesn’t have the Father. He who confesses the Son has the Father also.</text>
+      <text>Whoever denies the Son, the same doesn't have the Father. He who confesses the Son has the Father also.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Sebab barangsiapa menyangkal Anak, ia juga tidak memiliki Bapa. Barangsiapa mengaku Anak, ia juga memiliki Bapa.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
       <verse num="27" />
-      <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
+      <text>As for you, the anointing which you received from him remains in you, and you don't need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Sebab di dalam diri kamu tetap ada pengurapan yang telah kamu terima dari pada-Nya. Karena itu tidak perlu kamu diajar oleh orang lain. Tetapi sebagaimana pengurapan-Nya mengajar kamu tentang segala sesuatu—dan pengajaran-Nya itu benar, tidak dusta—dan sebagaimana Ia dahulu telah mengajar kamu, demikianlah hendaknya kamu tetap tinggal di dalam Dia.</text>
@@ -332,14 +332,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 JOHN 3</text>
+      <text>1 JOHN CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn’t know us, because it didn’t know him.</text>
+      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn't know us, because it didn't know him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Lihatlah, betapa besarnya kasih yang dikaruniakan Bapa kepada kita, sehingga kita disebut anak-anak Allah, dan memang kita adalah anak-anak Allah. Karena itu dunia tidak mengenal kita, sebab dunia tidak mengenal Dia.</text>
@@ -379,7 +379,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>Whoever remains in him doesn’t sin. Whoever sins hasn’t seen him, neither knows him.</text>
+      <text>Whoever remains in him doesn't sin. Whoever sins hasn't seen him, neither knows him.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Karena itu setiap orang yang tetap berada di dalam Dia, tidak berbuat dosa lagi; setiap orang yang tetap berbuat dosa, tidak melihat dan tidak mengenal Dia.</text>
@@ -403,7 +403,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>Whoever is born of God doesn’t commit sin, because his seed remains in him; and he can’t sin, because he is born of God.</text>
+      <text>Whoever is born of God doesn't commit sin, because his seed remains in him; and he can't sin, because he is born of God.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Setiap orang yang lahir dari Allah, tidak berbuat dosa lagi; sebab benih ilahi tetap ada di dalam dia dan ia tidak dapat berbuat dosa, karena ia lahir dari Allah.</text>
@@ -411,7 +411,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn’t do righteousness is not of God, neither is he who doesn’t love his brother.</text>
+      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn't do righteousness is not of God, neither is he who doesn't love his brother.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Inilah tandanya anak-anak Allah dan anak-anak Iblis: setiap orang yang tidak berbuat kebenaran, tidak berasal dari Allah, demikian juga barangsiapa yang tidak mengasihi saudaranya.</text>
@@ -427,7 +427,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother’s righteous.</text>
+      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother's righteous.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>bukan seperti Kain, yang berasal dari si jahat dan yang membunuh adiknya. Dan apakah sebabnya ia membunuhnya? Sebab segala perbuatannya jahat dan perbuatan adiknya benar.</text>
@@ -435,7 +435,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
       <verse num="13" />
-      <text>Don’t be surprised, my brothers, if the world hates you.</text>
+      <text>Don't be surprised, my brothers, if the world hates you.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Janganlah kamu heran, saudara-saudara, apabila dunia membenci kamu.</text>
@@ -443,7 +443,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
       <verse num="14" />
-      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn’t love his brother remains in death.</text>
+      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn't love his brother remains in death.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Kita tahu, bahwa kita sudah berpindah dari dalam maut ke dalam hidup, yaitu karena kita mengasihi saudara kita. Barangsiapa tidak mengasihi, ia tetap di dalam maut.</text>
@@ -467,7 +467,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>But whoever has the world’s goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
+      <text>But whoever has the world's goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Barangsiapa mempunyai harta duniawi dan melihat saudaranya menderita kekurangan tetapi menutup pintu hatinya terhadap saudaranya itu, bagaimanakah kasih Allah dapat tetap di dalam dirinya?</text>
@@ -475,7 +475,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>My little children, let’s not love in word only, neither with the tongue only, but in deed and truth.</text>
+      <text>My little children, let's not love in word only, neither with the tongue only, but in deed and truth.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Anak-anakku, marilah kita mengasihi bukan dengan perkataan atau dengan lidah, tetapi dengan perbuatan dan dalam kebenaran.</text>
@@ -499,7 +499,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>Beloved, if our hearts don’t condemn us, we have boldness toward God;</text>
+      <text>Beloved, if our hearts don't condemn us, we have boldness toward God;</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Saudara-saudaraku yang kekasih, jikalau hati kita tidak menuduh kita, maka kita mempunyai keberanian percaya untuk mendekati Allah,</text>
@@ -530,14 +530,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 JOHN 4</text>
+      <text>1 JOHN CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Beloved, don’t believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
+      <text>Beloved, don't believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Saudara-saudaraku yang kekasih, janganlah percaya akan setiap roh, tetapi ujilah roh-roh itu, apakah mereka berasal dari Allah; sebab banyak nabi-nabi palsu yang telah muncul dan pergi ke seluruh dunia.</text>
@@ -553,7 +553,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
       <verse num="3" />
-      <text>And every spirit who doesn’t confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
+      <text>And every spirit who doesn't confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>dan setiap roh, yang tidak mengaku Yesus, tidak berasal dari Allah. Roh itu adalah roh antikristus dan tentang dia telah kamu dengar, bahwa ia akan datang dan sekarang ini ia sudah ada di dalam dunia.</text>
@@ -577,7 +577,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>We are of God. He who knows God listens to us. He who is not of God doesn’t listen to us. By this we know the spirit of truth, and the spirit of error.</text>
+      <text>We are of God. He who knows God listens to us. He who is not of God doesn't listen to us. By this we know the spirit of truth, and the spirit of error.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Kami berasal dari Allah: barangsiapa mengenal Allah, ia mendengarkan kami; barangsiapa tidak berasal dari Allah, ia tidak mendengarkan kami. Itulah tandanya Roh kebenaran dan roh yang menyesatkan.</text>
@@ -593,7 +593,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
       <verse num="8" />
-      <text>He who doesn’t love doesn’t know God, for God is love.</text>
+      <text>He who doesn't love doesn't know God, for God is love.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Barangsiapa tidak mengasihi, ia tidak mengenal Allah, sebab Allah adalah kasih.</text>
@@ -601,7 +601,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>By this God’s love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
+      <text>By this God's love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Dalam hal inilah kasih Allah dinyatakan di tengah-tengah kita, yaitu bahwa Allah telah mengutus Anak-Nya yang tunggal ke dalam dunia, supaya kita hidup oleh-Nya.</text>
@@ -689,7 +689,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
       <verse num="20" />
-      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn’t love his brother whom he has seen, how can he love God whom he has not seen?</text>
+      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn't love his brother whom he has seen, how can he love God whom he has not seen?</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Jikalau seorang berkata: &lt;&lt;Aku mengasihi Allah,&gt;&gt; dan ia membenci saudaranya, maka ia adalah pendusta, karena barangsiapa tidak mengasihi saudaranya yang dilihatnya, tidak mungkin mengasihi Allah, yang tidak dilihatnya.</text>
@@ -704,7 +704,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 JOHN 5</text>
+      <text>1 JOHN CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -775,7 +775,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>If we receive the witness of men, the witness of God is greater; for this is God’s testimony which he has testified concerning his Son.</text>
+      <text>If we receive the witness of men, the witness of God is greater; for this is God's testimony which he has testified concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Kita menerima kesaksian manusia, tetapi kesaksian Allah lebih kuat. Sebab demikianlah kesaksian yang diberikan Allah tentang Anak-Nya.</text>
@@ -783,7 +783,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>He who believes in the Son of God has the testimony in himself. He who doesn’t believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
+      <text>He who believes in the Son of God has the testimony in himself. He who doesn't believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Barangsiapa percaya kepada Anak Allah, ia mempunyai kesaksian itu di dalam dirinya; barangsiapa tidak percaya kepada Allah, ia membuat Dia menjadi pendusta, karena ia tidak percaya akan kesaksian yang diberikan Allah tentang Anak-Nya.</text>
@@ -799,7 +799,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
+      <text>He who has the Son has the life. He who doesn't have God's Son doesn't have the life.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Barangsiapa memiliki Anak, ia memiliki hidup; barangsiapa tidak memiliki Anak, ia tidak memiliki hidup.</text>
@@ -831,7 +831,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don’t say that he should make a request concerning this.</text>
+      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don't say that he should make a request concerning this.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Kalau ada seorang melihat saudaranya berbuat dosa, yaitu dosa yang tidak mendatangkan maut, hendaklah ia berdoa kepada Allah dan Dia akan memberikan hidup kepadanya, yaitu mereka, yang berbuat dosa yang tidak mendatangkan maut. Ada dosa yang mendatangkan maut: tentang itu tidak kukatakan, bahwa ia harus berdoa.</text>
@@ -847,7 +847,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>We know that whoever is born of God doesn’t sin, but he who was born of God keeps himself, and the evil one doesn’t touch him.</text>
+      <text>We know that whoever is born of God doesn't sin, but he who was born of God keeps himself, and the evil one doesn't touch him.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Kita tahu, bahwa setiap orang yang lahir dari Allah, tidak berbuat dosa; tetapi Dia yang lahir dari Allah melindunginya, dan si jahat tidak dapat menjamahnya.</text>

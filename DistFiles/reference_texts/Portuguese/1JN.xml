@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 JOHN 1</text>
+      <text>1 JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -55,7 +55,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don’t tell the truth.</text>
+      <text>If we say that we have fellowship with him and walk in the darkness, we lie, and don't tell the truth.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Portanto, se dizemos que estamos unidos com Deus e ao mesmo tempo vivemos na escuridão, então estamos mentindo com palavras e ações.</text>
@@ -87,14 +87,14 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>If we say that we haven’t sinned, we make him a liar, and his word is not in us.</text>
+      <text>If we say that we haven't sinned, we make him a liar, and his word is not in us.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Se dizemos que não temos cometido pecados, fazemos de Deus um mentiroso, e a sua mensagem não está em nós.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 JOHN 2</text>
+      <text>1 JOHN CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -125,7 +125,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-1JN">
       <verse num="4" />
-      <text>One who says, “I know him,” and doesn’t keep his commandments, is a liar, and the truth isn’t in him.</text>
+      <text>One who says, “I know him,” and doesn't keep his commandments, is a liar, and the truth isn't in him.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Se alguém diz: “Eu o conheço”, mas não obedece aos seus mandamentos, é mentiroso, e não há verdade nele.</text>
@@ -133,7 +133,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-1JN">
       <verse num="5" />
-      <text>But whoever keeps his word, God’s love has most certainly been perfected in him. This is how we know that we are in him:</text>
+      <text>But whoever keeps his word, God's love has most certainly been perfected in him. This is how we know that we are in him:</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Porém, se obedecemos aos ensinamentos de Deus, sabemos que amamos a Deus de todo o nosso coração. É assim que podemos ter certeza de que estamos vivendo unidos com Deus:</text>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-1JN">
       <verse num="11" />
-      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn’t know where he is going, because the darkness has blinded his eyes.</text>
+      <text>But he who hates his brother is in the darkness, and walks in the darkness. He doesn't know where he is going, because the darkness has blinded his eyes.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Mas quem odeia o seu irmão está na escuridão, anda nela e não sabe para onde está indo, porque a escuridão não deixa que essa pessoa enxergue</text>
@@ -189,7 +189,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>I write to you, little children, because your sins are forgiven you for his name’s sake.</text>
+      <text>I write to you, little children, because your sins are forgiven you for his name's sake.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Filhinhos d, escrevo a vocês porque os seus pecados são perdoados por causa de Cristo.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1JN">
       <verse num="15" />
-      <text>Don’t love the world, neither the things that are in the world. If anyone loves the world, the Father’s love isn’t in him.</text>
+      <text>Don't love the world, neither the things that are in the world. If anyone loves the world, the Father's love isn't in him.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Não amem o mundo, nem as coisas que há nele. Se vocês amam o mundo, não amam a Deus, o Pai.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn’t the Father’s, but is the world’s.</text>
+      <text>For all that is in the world, the lust of the flesh, the lust of the eyes, and the pride of life, isn't the Father's, but is the world's.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Nada que é deste mundo vem do Pai. Os maus desejos da natureza humana, a vontade de ter o que agrada aos olhos e o orgulho pelas coisas da vida, tudo isso não vem do Pai, mas do mundo.</text>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>The world is passing away with its lusts, but he who does God’s will remains forever.</text>
+      <text>The world is passing away with its lusts, but he who does God's will remains forever.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>E o mundo passa, com tudo aquilo que as pessoas cobiçam; porém aquele que faz a vontade de Deus vive para sempre.</text>
@@ -245,7 +245,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1JN">
       <verse num="19" />
-      <text>They went out from us, but they didn’t belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
+      <text>They went out from us, but they didn't belong to us; for if they had belonged to us, they would have continued with us. But they left, that they might be revealed that none of them belong to us.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>De fato, essas pessoas nos deixaram porque não eram do nosso grupo. Se fossem do nosso grupo, teriam ficado conosco. Mas elas nos deixaram para que ficasse bem claro que nenhuma delas pertencia mesmo ao nosso grupo.</text>
@@ -261,7 +261,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>I have not written to you because you don’t know the truth, but because you know it, and because no lie is of the truth.</text>
+      <text>I have not written to you because you don't know the truth, but because you know it, and because no lie is of the truth.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Portanto, eu escrevo a vocês, mas não é porque não conhecem a verdade. Pelo contrário, é porque a conhecem e sabem que nunca nenhuma mentira vem da verdade.</text>
@@ -277,7 +277,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-1JN">
       <verse num="23" />
-      <text>Whoever denies the Son, the same doesn’t have the Father. He who confesses the Son has the Father also.</text>
+      <text>Whoever denies the Son, the same doesn't have the Father. He who confesses the Son has the Father also.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Pois quem rejeita o Filho rejeita também o Pai; e quem aceita o Filho tem também o Pai.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-1JN">
       <verse num="27" />
-      <text>As for you, the anointing which you received from him remains in you, and you don’t need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
+      <text>As for you, the anointing which you received from him remains in you, and you don't need for anyone to teach you. But as his anointing teaches you concerning all things, and is true, and is no lie, and even as it taught you, you will remain in him.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Mas sobre vocês Cristo tem derramado o seu Espírito. Enquanto o seu Espírito estiver em vocês, não é preciso que ninguém os ensine. Pois o Espírito ensina a respeito de tudo, e os seus ensinamentos não são falsos, mas verdadeiros. Portanto, obedeçam aos ensinamentos do Espírito e continuem unidos com Cristo.</text>
@@ -332,14 +332,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 JOHN 3</text>
+      <text>1 JOHN CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn’t know us, because it didn’t know him.</text>
+      <text>Behold, how great a love the Father has bestowed on us, that we should be called children of God! For this cause the world doesn't know us, because it didn't know him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Vejam como é grande o amor do Pai por nós! O seu amor é tão grande, que somos chamados de filhos de Deus e somos, de fato, seus filhos. É por isso que o mundo não nos conhece, pois não conheceu a Deus.</text>
@@ -379,7 +379,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>Whoever remains in him doesn’t sin. Whoever sins hasn’t seen him, neither knows him.</text>
+      <text>Whoever remains in him doesn't sin. Whoever sins hasn't seen him, neither knows him.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Assim, quem vive unido com Cristo não continua pecando. Porém quem continua pecando nunca o viu e nunca o conheceu.</text>
@@ -403,7 +403,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>Whoever is born of God doesn’t commit sin, because his seed remains in him; and he can’t sin, because he is born of God.</text>
+      <text>Whoever is born of God doesn't commit sin, because his seed remains in him; and he can't sin, because he is born of God.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Quem é filho de Deus não continua pecando, porque a vida que Deus dá permanece nessa pessoa. E ela não pode continuar pecando, porque Deus é o seu Pai.</text>
@@ -411,7 +411,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn’t do righteousness is not of God, neither is he who doesn’t love his brother.</text>
+      <text>In this the children of God are revealed, and the children of the devil. Whoever doesn't do righteousness is not of God, neither is he who doesn't love his brother.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>A diferença clara que existe entre os filhos de Deus e os filhos do Diabo é esta: quem não faz o que é correto ou não ama o seu irmão não é filho de Deus.</text>
@@ -427,7 +427,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother’s righteous.</text>
+      <text>Do not be like Cain, who was of the evil one, and killed his brother. Why did he kill him? Because his works were evil, and his brother's righteous.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Não sejamos como Caim, que pertencia ao Maligno l e matou o próprio irmão. E por que o matou? Porque o que Caim fazia era mau, e o que o seu irmão fazia era bom.</text>
@@ -435,7 +435,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1JN">
       <verse num="13" />
-      <text>Don’t be surprised, my brothers, if the world hates you.</text>
+      <text>Don't be surprised, my brothers, if the world hates you.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Meus irmãos, não estranhem se as pessoas do mundo os odeiam.</text>
@@ -443,7 +443,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-1JN">
       <verse num="14" />
-      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn’t love his brother remains in death.</text>
+      <text>We know that we have passed out of death into life, because we love the brothers. He who doesn't love his brother remains in death.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Nós sabemos que já passamos da morte para a vida e sabemos isso porque amamos os nossos irmãos. Quem não ama está ainda morto.</text>
@@ -467,7 +467,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-1JN">
       <verse num="17" />
-      <text>But whoever has the world’s goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
+      <text>But whoever has the world's goods, and sees his brother in need, and closes his heart of compassion against him, how does the love of God remain in him?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Se alguém é rico e vê o seu irmão passando necessidade, mas fecha o seu coração para essa pessoa, como pode afirmar que, de fato, ama a Deus?</text>
@@ -475,7 +475,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>My little children, let’s not love in word only, neither with the tongue only, but in deed and truth.</text>
+      <text>My little children, let's not love in word only, neither with the tongue only, but in deed and truth.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Meus filhinhos m, o nosso amor não deve ser somente de palavras e de conversa. Deve ser um amor verdadeiro, que se mostra por meio de ações.</text>
@@ -499,7 +499,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1JN">
       <verse num="21" />
-      <text>Beloved, if our hearts don’t condemn us, we have boldness toward God;</text>
+      <text>Beloved, if our hearts don't condemn us, we have boldness toward God;</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Portanto, meus queridos amigos, se o nosso coração não nos condena, temos coragem na presença de Deus.</text>
@@ -530,14 +530,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 JOHN 4</text>
+      <text>1 JOHN CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-1JN">
       <verse num="1" />
-      <text>Beloved, don’t believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
+      <text>Beloved, don't believe every spirit, but test the spirits, whether they are of God, because many false prophets have gone out into the world.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Meus queridos amigos, não acreditem em todos os que dizem que têm o Espírito de Deus. Ponham à prova essas pessoas para saber se o espírito que elas têm vem mesmo de Deus; pois muitos falsos * profetas já se espalharam por toda parte.</text>
@@ -553,7 +553,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="narrator-1JN">
       <verse num="3" />
-      <text>And every spirit who doesn’t confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
+      <text>And every spirit who doesn't confess that Jesus Christ has come in the flesh is not of God, and this is the spirit of the Antichrist. Of whom you have heard that it comes. Now it is in the world already.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Mas quem nega isso a respeito de Jesus não tem o Espírito de Deus; o que ele tem é o espírito do Inimigo de Cristo o. Vocês ouviram dizer que esse espírito viria, e agora ele já está no mundo.</text>
@@ -577,7 +577,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-1JN">
       <verse num="6" />
-      <text>We are of God. He who knows God listens to us. He who is not of God doesn’t listen to us. By this we know the spirit of truth, and the spirit of error.</text>
+      <text>We are of God. He who knows God listens to us. He who is not of God doesn't listen to us. By this we know the spirit of truth, and the spirit of error.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Mas nós q somos de Deus. Quem conhece a Deus nos ouve, mas quem não pertence a Deus não nos ouve. É desse modo, então, que podemos saber a diferença que existe entre o Espírito da verdade e o espírito do erro.</text>
@@ -593,7 +593,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1JN">
       <verse num="8" />
-      <text>He who doesn’t love doesn’t know God, for God is love.</text>
+      <text>He who doesn't love doesn't know God, for God is love.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Quem não ama não o conhece, pois Deus é amor.</text>
@@ -601,7 +601,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>By this God’s love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
+      <text>By this God's love was revealed in us, that God has sent his only begotten Son into the world that we might live through him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Foi assim que Deus mostrou o seu amor por nós: ele mandou o seu único Filho ao mundo para que pudéssemos ter vida por meio dele.</text>
@@ -689,7 +689,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-1JN">
       <verse num="20" />
-      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn’t love his brother whom he has seen, how can he love God whom he has not seen?</text>
+      <text>If a man says, “I love God,” and hates his brother, he is a liar; for he who doesn't love his brother whom he has seen, how can he love God whom he has not seen?</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Se alguém diz: “Eu amo a Deus”, mas odeia o seu irmão, é mentiroso. Pois ninguém pode amar a Deus, a quem não vê, se não amar o seu irmão, a quem vê.</text>
@@ -704,7 +704,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1JN" initialStartVerse="0" characterId="BC-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 JOHN 5</text>
+      <text>1 JOHN CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -775,7 +775,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1JN">
       <verse num="9" />
-      <text>If we receive the witness of men, the witness of God is greater; for this is God’s testimony which he has testified concerning his Son.</text>
+      <text>If we receive the witness of men, the witness of God is greater; for this is God's testimony which he has testified concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Nós aceitamos o testemunho dos seres humanos, mas o testemunho de Deus tem mais valor. E esse é o testemunho que Deus deu a respeito do seu Filho.</text>
@@ -783,7 +783,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-1JN">
       <verse num="10" />
-      <text>He who believes in the Son of God has the testimony in himself. He who doesn’t believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
+      <text>He who believes in the Son of God has the testimony in himself. He who doesn't believe God has made him a liar, because he has not believed in the testimony that God has given concerning his Son.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Aquele que crê no Filho de Deus tem esse testemunho no seu próprio coração. Mas quem não crê em Deus faz de Deus um mentiroso, porque não crê no testemunho que Deus deu a respeito do seu Filho.</text>
@@ -799,7 +799,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="narrator-1JN">
       <verse num="12" />
-      <text>He who has the Son has the life. He who doesn’t have God’s Son doesn’t have the life.</text>
+      <text>He who has the Son has the life. He who doesn't have God's Son doesn't have the life.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Quem tem o Filho tem a vida; quem não tem o Filho de Deus não tem a vida.</text>
@@ -831,7 +831,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-1JN">
       <verse num="16" />
-      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don’t say that he should make a request concerning this.</text>
+      <text>If anyone sees his brother sinning a sin not leading to death, he shall ask, and God will give him life for those who sin not leading to death. There is a sin leading to death. I don't say that he should make a request concerning this.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Se alguém vê o seu irmão cometer algum pecado que não traz a morte, deve orar a Deus, e ele dará a vida a essa pessoa. Isso, no caso de pecados que não trazem a morte. Mas há pecado que traz a morte, e eu não digo que vocês orem a respeito desse pecado.</text>
@@ -847,7 +847,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-1JN">
       <verse num="18" />
-      <text>We know that whoever is born of God doesn’t sin, but he who was born of God keeps himself, and the evil one doesn’t touch him.</text>
+      <text>We know that whoever is born of God doesn't sin, but he who was born of God keeps himself, and the evil one doesn't touch him.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Sabemos que os filhos de Deus não continuam pecando, porque o Filho de Deus os guarda, e o Maligno r não pode tocar neles.</text>

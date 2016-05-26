@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="GAL" singlevoice="false" pageheader="GALATIANS">
+<book id="GAL" singlevoice="false" pageheader="GALATIANS CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-GAL">
     <text>GALATIANS</text>
   </block>
@@ -32,7 +32,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />
-    <text>There isn’t another “good news.” Only there are some who trouble you, and want to pervert the Good News of Christ.</text>
+    <text>There isn't another “good news.” Only there are some who trouble you, and want to pervert the Good News of Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-GAL">
     <verse num="8" />
@@ -44,7 +44,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-GAL">
     <verse num="10" />
-    <text>For am I now seeking the favor of men, or of God? Or am I striving to please men? For if I were still pleasing men, I wouldn’t be a servant of Christ.</text>
+    <text>For am I now seeking the favor of men, or of God? Or am I striving to please men? For if I were still pleasing men, I wouldn't be a servant of Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-GAL">
     <verse num="11" />
@@ -64,11 +64,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
-    <text>But when it was the good pleasure of God, who separated me from my mother’s womb, and called me through his grace,</text>
+    <text>But when it was the good pleasure of God, who separated me from my mother's womb, and called me through his grace,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />
-    <text>to reveal his Son in me, that I might preach him among the Gentiles, I didn’t immediately confer with flesh and blood,</text>
+    <text>to reveal his Son in me, that I might preach him among the Gentiles, I didn't immediately confer with flesh and blood,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-GAL">
     <verse num="17" />
@@ -80,7 +80,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-GAL">
     <verse num="19" />
-    <text>But of the other apostles I saw no one, except James, the Lord’s brother.</text>
+    <text>But of the other apostles I saw no one, except James, the Lord's brother.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-GAL">
     <verse num="20" />
@@ -127,7 +127,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-GAL">
     <verse num="6" />
-    <text>But from those who were reputed to be important (whatever they were, it makes no difference to me; God doesn’t show partiality to man)-- they, I say, who were respected imparted nothing to me,</text>
+    <text>But from those who were reputed to be important (whatever they were, it makes no difference to me; God doesn't show partiality to man)-- they, I say, who were respected imparted nothing to me,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />
@@ -159,7 +159,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
-    <text>But when I saw that they didn’t walk uprightly according to the truth of the Good News, I said to Peter before them all, “If you, being a Jew, live as the Gentiles do, and not as the Jews do, why do you compel the Gentiles to live as the Jews do?”</text>
+    <text>But when I saw that they didn't walk uprightly according to the truth of the Good News, I said to Peter before them all, “If you, being a Jew, live as the Gentiles do, and not as the Jews do, why do you compel the Gentiles to live as the Jews do?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
@@ -187,7 +187,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-GAL">
     <verse num="21" />
-    <text>I don’t make void the grace of God. For if righteousness is through the law, then Christ died for nothing!”</text>
+    <text>I don't make void the grace of God. For if righteousness is through the law, then Christ died for nothing!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>3</text>
@@ -239,7 +239,7 @@
     <text>For as many as are of the works of the law are under a curse. For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture">
-    <text>“Cursed is everyone who doesn’t continue in all things that are written in the book of the law, to do them.”</text>
+    <text>“Cursed is everyone who doesn't continue in all things that are written in the book of the law, to do them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL">
     <verse num="11" />
@@ -268,11 +268,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
-    <text>Brothers, speaking of human terms, though it is only a man’s covenant, yet when it has been confirmed, no one makes it void, or adds to it.</text>
+    <text>Brothers, speaking of human terms, though it is only a man's covenant, yet when it has been confirmed, no one makes it void, or adds to it.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />
-    <text>Now the promises were spoken to Abraham and to his seed. He doesn’t say, “To seeds,” as of many, but as of one, “To your seed,” which is Christ.</text>
+    <text>Now the promises were spoken to Abraham and to his seed. He doesn't say, “To seeds,” as of many, but as of one, “To your seed,” which is Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="narrator-GAL">
     <verse num="17" />
@@ -324,7 +324,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-GAL">
     <verse num="29" />
-    <text>If you are Christ’s, then you are Abraham’s seed and heirs according to promise.</text>
+    <text>If you are Christ's, then you are Abraham's seed and heirs according to promise.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>4</text>
@@ -383,7 +383,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
-    <text>That which was a temptation to you in my flesh, you didn’t despise nor reject; but you received me as an angel of God, even as Christ Jesus.</text>
+    <text>That which was a temptation to you in my flesh, you didn't despise nor reject; but you received me as an angel of God, even as Christ Jesus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
@@ -411,7 +411,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-GAL">
     <verse num="21" />
-    <text>Tell me, you that desire to be under the law, don’t you listen to the law?</text>
+    <text>Tell me, you that desire to be under the law, don't you listen to the law?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-GAL">
     <verse num="22" />
@@ -436,7 +436,7 @@
     <text>For it is written,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="scripture">
-    <text>“Rejoice, you barren who don’t bear. Break forth and shout, you that don’t travail. For more are the children of the desolate than of her who has a husband.”</text>
+    <text>“Rejoice, you barren who don't bear. Break forth and shout, you that don't travail. For more are the children of the desolate than of her who has a husband.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="narrator-GAL">
     <verse num="28" />
@@ -462,7 +462,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-GAL">
     <verse num="1" />
-    <text>Stand firm therefore in the liberty by which Christ has made us free, and don’t be entangled again with a yoke of bondage.</text>
+    <text>Stand firm therefore in the liberty by which Christ has made us free, and don't be entangled again with a yoke of bondage.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-GAL">
     <verse num="2" />
@@ -510,7 +510,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-GAL">
     <verse num="13" />
-    <text>For you, brothers, were called for freedom. Only don’t use your freedom for gain to the flesh, but through love be servants to one another.</text>
+    <text>For you, brothers, were called for freedom. Only don't use your freedom for gain to the flesh, but through love be servants to one another.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
@@ -521,11 +521,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-GAL">
     <verse num="15" />
-    <text>But if you bite and devour one another, be careful that you don’t consume one another.</text>
+    <text>But if you bite and devour one another, be careful that you don't consume one another.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />
-    <text>But I say, walk by the Spirit, and you won’t fulfill the lust of the flesh.</text>
+    <text>But I say, walk by the Spirit, and you won't fulfill the lust of the flesh.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="narrator-GAL">
     <verse num="17" />
@@ -561,22 +561,22 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-GAL">
     <verse num="25" />
-    <text>If we live by the Spirit, let’s also walk by the Spirit.</text>
+    <text>If we live by the Spirit, let's also walk by the Spirit.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-GAL">
     <verse num="26" />
-    <text>Let’s not become conceited, provoking one another, and envying one another.</text>
+    <text>Let's not become conceited, provoking one another, and envying one another.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="GAL" initialStartVerse="0" characterId="BC-GAL">
     <text>6</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="narrator-GAL">
     <verse num="1" />
-    <text>Brothers, even if a man is caught in some fault, you who are spiritual must restore such a one in a spirit of gentleness; looking to yourself so that you also aren’t tempted.</text>
+    <text>Brothers, even if a man is caught in some fault, you who are spiritual must restore such a one in a spirit of gentleness; looking to yourself so that you also aren't tempted.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-GAL">
     <verse num="2" />
-    <text>Bear one another’s burdens, and so fulfill the law of Christ.</text>
+    <text>Bear one another's burdens, and so fulfill the law of Christ.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-GAL">
     <verse num="3" />
@@ -596,7 +596,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-GAL">
     <verse num="7" />
-    <text>Don’t be deceived. God is not mocked, for whatever a man sows, that he will also reap.</text>
+    <text>Don't be deceived. God is not mocked, for whatever a man sows, that he will also reap.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-GAL">
     <verse num="8" />
@@ -604,11 +604,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="narrator-GAL">
     <verse num="9" />
-    <text>Let us not be weary in doing good, for we will reap in due season, if we don’t give up.</text>
+    <text>Let us not be weary in doing good, for we will reap in due season, if we don't give up.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-GAL">
     <verse num="10" />
-    <text>So then, as we have opportunity, let’s do what is good toward all men, and especially toward those who are of the household of the faith.</text>
+    <text>So then, as we have opportunity, let's do what is good toward all men, and especially toward those who are of the household of the faith.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-GAL">
     <verse num="11" />
@@ -620,7 +620,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="13" characterId="narrator-GAL">
     <verse num="13" />
-    <text>For even they who receive circumcision don’t keep the law themselves, but they desire to have you circumcised, that they may boast in your flesh.</text>
+    <text>For even they who receive circumcision don't keep the law themselves, but they desire to have you circumcised, that they may boast in your flesh.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-GAL">
     <verse num="14" />
@@ -632,7 +632,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="narrator-GAL">
     <verse num="16" />
-    <text>As many as walk by this rule, peace and mercy be on them, and on God’s Israel.</text>
+    <text>As many as walk by this rule, peace and mercy be on them, and on God's Israel.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-GAL">
     <verse num="17" />

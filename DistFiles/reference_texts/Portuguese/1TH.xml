@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>1 THESSALONIANS 1</text>
+      <text>1 THESSALONIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -94,14 +94,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>1 THESSALONIANS 2</text>
+      <text>1 THESSALONIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="1" characterId="narrator-1TH">
       <verse num="1" />
-      <text>For you yourselves know, brothers, our visit to you wasn’t in vain.</text>
+      <text>For you yourselves know, brothers, our visit to you wasn't in vain.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Vocês sabem muito bem, irmãos, que a nossa visita não ficou sem proveito.</text>
@@ -109,7 +109,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="narrator-1TH">
       <verse num="2" />
-      <text>As you know, we suffered and were shamefully treated at Philippi, but with God’s help we preached the gospel to you without fear, even in the midst of much conflict.</text>
+      <text>As you know, we suffered and were shamefully treated at Philippi, but with God's help we preached the gospel to you without fear, even in the midst of much conflict.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Sabem também como fomos maltratados e insultados na cidade de Filipos, antes de chegarmos aí em Tessalônica. Fomos muito combatidos, mas o nosso Deus nos deu coragem para anunciar a vocês a boa notícia que vem dele.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="15" characterId="narrator-1TH">
       <verse num="15" />
-      <text>It was the Jews who killed both the Lord Jesus and their own prophets, and drove us out, and didn’t please God, and are contrary to all men.</text>
+      <text>It was the Jews who killed both the Lord Jesus and their own prophets, and drove us out, and didn't please God, and are contrary to all men.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Foram os judeus que mataram o Senhor Jesus e os * profetas a e também nos perseguiram. Eles desagradam a Deus e são inimigos de todos.</text>
@@ -245,7 +245,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="narrator-1TH">
       <verse num="19" />
-      <text>For what is our hope, or joy, or crown of rejoicing? Isn’t it even you, before our Lord Jesus Christ at his coming?</text>
+      <text>For what is our hope, or joy, or crown of rejoicing? Isn't it even you, before our Lord Jesus Christ at his coming?</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Afinal, quando o nosso Senhor Jesus vier, vocês e ninguém mais são de modo todo especial a nossa esperança, a nossa alegria e o nosso motivo de satisfação, diante dele, pela nossa vitória.</text>
@@ -260,14 +260,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>1 THESSALONIANS 3</text>
+      <text>1 THESSALONIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="1" characterId="narrator-1TH">
       <verse num="1" />
-      <text>Therefore when we couldn’t stand it any longer, we thought it good to be left behind at Athens alone.</text>
+      <text>Therefore when we couldn't stand it any longer, we thought it good to be left behind at Athens alone.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Então não pudemos agüentar mais sem ter notícias de vocês. Por isso Silas e eu resolvemos ficar sozinhos em Atenas.</text>
@@ -275,7 +275,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="narrator-1TH">
       <verse num="2" />
-      <text>We sent Timothy, our brother and God’s servant in the Good News of Christ, to establish you, and to comfort you concerning your faith;</text>
+      <text>We sent Timothy, our brother and God's servant in the Good News of Christ, to establish you, and to comfort you concerning your faith;</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>e enviar a vocês o nosso irmão Timóteo. Ele tem trabalhado conosco no serviço de Deus, anunciando o evangelho de Cristo. Nós o enviamos para animar e ajudar vocês na fé,</text>
@@ -299,7 +299,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-1TH">
       <verse num="5" />
-      <text>For this cause I also, when I couldn’t stand it any longer, sent that I might know your faith, for fear that by any means the tempter had tempted you, and our labor would have been in vain.</text>
+      <text>For this cause I also, when I couldn't stand it any longer, sent that I might know your faith, for fear that by any means the tempter had tempted you, and our labor would have been in vain.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Por isso não pude agüentar mais sem ter notícias de vocês e enviei Timóteo para saber como vai a fé que vocês têm. É que eu tinha medo de que o Diabo os tivesse tentado de tal modo, que todo o nosso trabalho tivesse ficado inútil.</text>
@@ -370,7 +370,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>1 THESSALONIANS 4</text>
+      <text>1 THESSALONIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -409,7 +409,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-1TH">
       <verse num="5" />
-      <text>Do not use your body in the passion of lust as the Gentiles who don’t know God do.</text>
+      <text>Do not use your body in the passion of lust as the Gentiles who don't know God do.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>e não com paixões sexuais baixas, como fazem os incrédulos, que não conhecem a Deus.</text>
@@ -433,7 +433,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-1TH">
       <verse num="8" />
-      <text>Therefore he who rejects this doesn’t reject man, but God, who has also given his Holy Spirit to you.</text>
+      <text>Therefore he who rejects this doesn't reject man, but God, who has also given his Holy Spirit to you.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Portanto, quem rejeita esse ensinamento não está rejeitando um ser humano, mas a Deus, que dá a vocês o seu Espírito Santo.</text>
@@ -473,7 +473,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-1TH">
       <verse num="13" />
-      <text>But we don’t want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don’t grieve like the rest, who have no hope.</text>
+      <text>But we don't want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don't grieve like the rest, who have no hope.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Irmãos, queremos que vocês saibam a verdade a respeito dos que já morreram, para que não fiquem tristes como ficam aqueles que não têm esperança.</text>
@@ -497,7 +497,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-1TH">
       <verse num="16" />
-      <text>For the Lord himself will descend from heaven with a shout, with the voice of the archangel, and with God’s trumpet. The dead in Christ will rise first.</text>
+      <text>For the Lord himself will descend from heaven with a shout, with the voice of the archangel, and with God's trumpet. The dead in Christ will rise first.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Porque haverá o grito de comando, e a voz do * arcanjo, e o som da trombeta de Deus, e então o próprio Senhor descerá do céu. Aqueles que morreram crendo em Cristo ressuscitarão primeiro.</text>
@@ -520,7 +520,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="1TH" initialStartVerse="0" characterId="BC-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>1 THESSALONIANS 5</text>
+      <text>1 THESSALONIANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -551,7 +551,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="4" characterId="narrator-1TH">
       <verse num="4" />
-      <text>But you, brothers, aren’t in darkness, that the day should overtake you like a thief.</text>
+      <text>But you, brothers, aren't in darkness, that the day should overtake you like a thief.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Mas vocês, irmãos, não estão na escuridão, e o Dia do Senhor não deverá pegá-los como um ladrão, que ataca de surpresa.</text>
@@ -559,7 +559,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-1TH">
       <verse num="5" />
-      <text>You are all children of light, and children of the day. We don’t belong to the night, nor to darkness.</text>
+      <text>You are all children of light, and children of the day. We don't belong to the night, nor to darkness.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Todos vocês são da luz e do dia. Nós não somos da noite nem da escuridão.</text>
@@ -567,7 +567,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1TH">
       <verse num="6" />
-      <text>So then let’s not sleep, as everyone else does, but let’s watch and be sober.</text>
+      <text>So then let's not sleep, as everyone else does, but let's watch and be sober.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Por isso não vamos ficar dormindo, como os outros, mas vamos estar acordados e em nosso perfeito juízo.</text>
@@ -591,7 +591,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-1TH">
       <verse num="9" />
-      <text>For God didn’t appoint us to wrath, but to the obtaining of salvation through our Lord Jesus Christ.</text>
+      <text>For God didn't appoint us to wrath, but to the obtaining of salvation through our Lord Jesus Christ.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Deus não nos escolheu para sofrermos o castigo da sua * ira, mas para nos dar a salvação por meio do nosso Senhor Jesus Cristo,</text>
@@ -623,7 +623,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-1TH">
       <verse num="13" />
-      <text>and to respect and honor them in love for their work’s sake. Be at peace among yourselves.</text>
+      <text>and to respect and honor them in love for their work's sake. Be at peace among yourselves.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Tratem essas pessoas com o maior respeito e amor, por causa do trabalho que fazem. E vivam em paz uns com os outros</text>
@@ -667,9 +667,9 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-1TH">
       <verse num="19" />
-      <text>Don’t quench the Spirit. </text>
+      <text>Don't quench the Spirit. </text>
       <verse num="20" />
-      <text>Don’t despise prophesies.</text>
+      <text>Don't despise prophesies.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Não atrapalhem a ação do Espírito Santo. </text>

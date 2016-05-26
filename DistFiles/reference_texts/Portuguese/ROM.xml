@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>ROMANS 1</text>
+      <text>ROMANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -47,7 +47,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-ROM">
       <verse num="5" />
-      <text>through whom we received grace and apostleship, for obedience of faith among all the nations, for his name’s sake;</text>
+      <text>through whom we received grace and apostleship, for obedience of faith among all the nations, for his name's sake;</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Por meio de Cristo, Deus me deu a honra de ser apóstolo no serviço de Cristo para levar pessoas de todas as nações a crerem em Cristo e a serem obedientes a ele.</text>
@@ -87,7 +87,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-ROM">
       <verse num="10" />
-      <text>I pray that at last, by God’s will, the way may be opened for me to visit you.</text>
+      <text>I pray that at last, by God's will, the way may be opened for me to visit you.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>e oro por vocês. E peço a Deus que, se for da sua vontade, ele faça com que agora eu possa ir visitá-los.</text>
@@ -103,7 +103,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ROM">
       <verse num="12" />
-      <text>that is, that I with you may be encouraged in you, each of us by the other’s faith, both yours and mine.</text>
+      <text>that is, that I with you may be encouraged in you, each of us by the other's faith, both yours and mine.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>quer dizer, para que nos animemos uns aos outros por meio da fé que vocês e eu temos.</text>
@@ -111,7 +111,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>Now I don’t desire to have you unaware, brothers, that I often planned to come to you, and was hindered so far, that I might have some fruit among you also, even as among the rest of the Gentiles.</text>
+      <text>Now I don't desire to have you unaware, brothers, that I often planned to come to you, and was hindered so far, that I might have some fruit among you also, even as among the rest of the Gentiles.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Meus irmãos, quero que saibam que muitas vezes resolvi ir visitá-los, mas fui impedido até agora de fazer isso. Pois eu gostaria que o meu trabalho produzisse resultados entre vocês também, como tem acontecido entre outros não-judeus.</text>
@@ -143,7 +143,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-ROM">
       <verse num="17" />
-      <text>For in it is revealed God’s righteousness from faith to faith. As it is written,</text>
+      <text>For in it is revealed God's righteousness from faith to faith. As it is written,</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Pois o evangelho mostra como é que Deus nos aceita: é por meio da fé, do começo ao fim. Como dizem as * Escrituras Sagradas:</text>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>Because, knowing God, they didn’t glorify him as God, neither did they give thanks. Instead, they became vain in their reasoning, and their senseless heart was darkened.</text>
+      <text>Because, knowing God, they didn't glorify him as God, neither did they give thanks. Instead, they became vain in their reasoning, and their senseless heart was darkened.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Eles sabem quem Deus é, mas não lhe dão a * glória que ele merece e não lhe são agradecidos. Pelo contrário, os seus pensamentos se tornaram tolos, e a sua mente vazia está coberta de escuridão.</text>
@@ -276,7 +276,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>ROMANS 2</text>
+      <text>ROMANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -307,7 +307,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>Will you ignore the wealth of His mercy, his patience and his broad-mindedness? Do you not know that God’s purpose of grace is to lead you to repentance?</text>
+      <text>Will you ignore the wealth of His mercy, his patience and his broad-mindedness? Do you not know that God's purpose of grace is to lead you to repentance?</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Ou será que você despreza a grande bondade, a tolerância e a paciência de Deus? Você sabe muito bem que ele é bom e que quer fazer com que você mude de vida.</text>
@@ -339,7 +339,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>But to those who are self-seeking, and don’t obey the truth, but obey unrighteousness, there will be wrath and indignation.</text>
+      <text>But to those who are self-seeking, and don't obey the truth, but obey unrighteousness, there will be wrath and indignation.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Mas fará cair a sua ira e o seu castigo sobre os egoístas e sobre os que rejeitam o que é justo a fim de seguir o que é mau.</text>
@@ -379,7 +379,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>For it isn’t the hearers of the law who are righteous before God, but the doers of the law will be justified.</text>
+      <text>For it isn't the hearers of the law who are righteous before God, but the doers of the law will be justified.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Porque as pessoas que Deus aceita não são aquelas que somente ouvem a lei, mas aquelas que fazem o que a lei manda.</text>
@@ -387,7 +387,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ROM">
       <verse num="14" />
-      <text>(For when Gentiles who don’t have the law do by nature the things of the law, they are a law to themselves, even though they do not have the law.</text>
+      <text>(For when Gentiles who don't have the law do by nature the things of the law, they are a law to themselves, even though they do not have the law.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Os não-judeus não têm a lei. Mas, quando fazem pela sua própria vontade o que a lei manda, eles são a sua própria lei, embora não tenham a lei.</text>
@@ -443,7 +443,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>You therefore who teach another, don’t you teach yourself? You who preach that a man shouldn’t steal, do you steal?</text>
+      <text>You therefore who teach another, don't you teach yourself? You who preach that a man shouldn't steal, do you steal?</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Você, que ensina os outros, por que é que não ensina a você mesmo? Se afirma que não se deve roubar, por que é que você mesmo rouba?</text>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-ROM">
       <verse num="22" />
-      <text>You who say a man shouldn’t commit adultery. Do you commit adultery? You who abhor idols, do you rob temples?</text>
+      <text>You who say a man shouldn't commit adultery. Do you commit adultery? You who abhor idols, do you rob temples?</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Se você diz que não se deve cometer adultério, por que é que você mesmo comete adultério? Você odeia os ídolos, mas rouba as coisas dos templos.</text>
@@ -485,7 +485,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-ROM">
       <verse num="26" />
-      <text>If therefore the uncircumcised keep the ordinances of the law, won’t his uncircumcision be accounted as circumcision?</text>
+      <text>If therefore the uncircumcised keep the ordinances of the law, won't his uncircumcision be accounted as circumcision?</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>E, se um homem que não foi circuncidado obedecer aos mandamentos da lei, Deus o tratará como se ele fosse circuncidado.</text>
@@ -493,7 +493,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-ROM">
       <verse num="27" />
-      <text>Won’t the uncircumcision which is by nature, if it fulfills the law, judge you, who with the letter and circumcision are a transgressor of the law?</text>
+      <text>Won't the uncircumcision which is by nature, if it fulfills the law, judge you, who with the letter and circumcision are a transgressor of the law?</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Assim vocês, judeus, serão condenados pelos não-judeus, pois vocês desobedecem à lei apesar de terem essa lei escrita e de serem circuncidados, enquanto que os não-judeus obedecem à lei, embora não sejam circuncidados.</text>
@@ -516,7 +516,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>ROMANS 3</text>
+      <text>ROMANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -647,7 +647,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>The way of peace, they haven’t known.” </text>
+      <text>The way of peace, they haven't known.” </text>
       <verse num="18" />
       <text>“There is no fear of God before their eyes.”</text>
     </ReferenceBlocks>
@@ -707,7 +707,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>God gave him to be an atoning sacrifice, through faith in his blood, for a demonstration of his righteousness through the passing over of prior sins, in God’s forbearance;</text>
+      <text>God gave him to be an atoning sacrifice, through faith in his blood, for a demonstration of his righteousness through the passing over of prior sins, in God's forbearance;</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Deus lhe deu para ser um sacrifício expiatório, pela fé no seu sangue, para uma demonstração de sua justiça através da passagem ao longo de pecados anteriores, na paciência de Deus;</text>
@@ -739,7 +739,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-ROM">
       <verse num="29" />
-      <text>Or is God the God of Jews only? Isn’t he the God of Gentiles also? Yes, of Gentiles also.</text>
+      <text>Or is God the God of Jews only? Isn't he the God of Gentiles also? Yes, of Gentiles also.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Ou será que Deus é somente Deus dos judeus? Será que não é também Deus dos não-judeus? Claro que é!</text>
@@ -762,7 +762,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>ROMANS 4</text>
+      <text>ROMANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -803,7 +803,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-ROM">
       <verse num="5" />
-      <text>But to him who doesn’t work, but believes in him who justifies the ungodly, his faith is accounted for righteousness.</text>
+      <text>But to him who doesn't work, but believes in him who justifies the ungodly, his faith is accounted for righteousness.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Porém a pessoa que não põe a sua esperança nas coisas que faz, mas simplesmente crê em Deus, é a fé dessa pessoa que faz com que ela seja aceita por Deus, o Deus que trata o culpado como se ele fosse inocente.</text>
@@ -893,7 +893,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>Therefore, God’s promise depends on faith, in order that the promise may be guaranteed as God’s gift to all the descendants of Abraham.</text>
+      <text>Therefore, God's promise depends on faith, in order that the promise may be guaranteed as God's gift to all the descendants of Abraham.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Portanto, a promessa de Deus depende da fé, a fim de que a promessa seja garantida como presente de Deus a todos os descendentes de Abraão.</text>
@@ -937,7 +937,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>Without being weakened in faith, he didn’t consider his own body, already having been worn out, (he being about a hundred years old), and the deadness of Sarah’s womb.</text>
+      <text>Without being weakened in faith, he didn't consider his own body, already having been worn out, (he being about a hundred years old), and the deadness of Sarah's womb.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Abraão tinha quase cem anos. Mas, mesmo quando ele pensou a respeito do seu corpo, que já estava como morto, ou quando lembrou que Sara não podia ter filhos, a sua fé não enfraqueceu.</text>
@@ -945,7 +945,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>Yet, looking to the promise of God, he didn’t waver through unbelief, but grew strong through faith, giving glory to God.</text>
+      <text>Yet, looking to the promise of God, he didn't waver through unbelief, but grew strong through faith, giving glory to God.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Abraão não perdeu a fé, nem duvidou da promessa de Deus. A sua fé o encheu de poder, e ele louvou a Deus</text>
@@ -992,7 +992,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>ROMANS 5</text>
+      <text>ROMANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -1029,7 +1029,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ROM">
       <verse num="5" />
-      <text>and hope doesn’t disappoint us, because God’s love has been poured out into our hearts through the Holy Spirit who was given to us.</text>
+      <text>and hope doesn't disappoint us, because God's love has been poured out into our hearts through the Holy Spirit who was given to us.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Essa esperança não nos deixa decepcionados, pois Deus derramou o seu amor no nosso coração, por meio do Espírito Santo, que ele nos deu.</text>
@@ -1061,7 +1061,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ROM">
       <verse num="9" />
-      <text>Much more then, being now justified by his blood, we will be saved from God’s wrath through him.</text>
+      <text>Much more then, being now justified by his blood, we will be saved from God's wrath through him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>E, agora que fomos aceitos por Deus por meio da morte de Cristo na cruz, é mais certo ainda que ficaremos livres, por meio dele, do castigo de Deus.</text>
@@ -1101,7 +1101,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-ROM">
       <verse num="14" />
-      <text>Nevertheless death reigned from Adam until Moses, even over those whose sins weren’t like Adam’s disobedience, who is a foreshadowing of him who was to come.</text>
+      <text>Nevertheless death reigned from Adam until Moses, even over those whose sins weren't like Adam's disobedience, who is a foreshadowing of him who was to come.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Mas, desde o tempo de Adão até Moisés, a morte dominou todos os seres humanos, mesmo os que não pecaram como Adão, quando ele desobedeceu à ordem de Deus. Adão era a figura daquele que havia de vir,</text>
@@ -1109,7 +1109,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>But the free gift isn’t like the trespass. For if by the trespass of the one the many died, much more did the grace of God, and the gift by the grace of the one man, Jesus Christ, abound to the many.</text>
+      <text>But the free gift isn't like the trespass. For if by the trespass of the one the many died, much more did the grace of God, and the gift by the grace of the one man, Jesus Christ, abound to the many.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>mas existe uma diferença entre o pecado de Adão e o presente que Deus nos dá. De fato, muitos morreram por causa do pecado de um só homem; mas a * graça de Deus é muito maior, e ele dá a salvação gratuitamente a muitos, por meio da graça de um só homem, que é Jesus Cristo.</text>
@@ -1141,7 +1141,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>For as through the one man’s disobedience many were made sinners, even so through the obedience of the one, many will be made righteous.</text>
+      <text>For as through the one man's disobedience many were made sinners, even so through the obedience of the one, many will be made righteous.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>E assim como muitos seres humanos se tornaram pecadores por causa da desobediência de um só homem, assim também muitos serão aceitos por Deus por causa da obediência de um só homem.</text>
@@ -1164,7 +1164,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>ROMANS 6</text>
+      <text>ROMANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -1187,7 +1187,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>Or don’t you know that all we who were baptized into Christ Jesus were baptized into his death?</text>
+      <text>Or don't you know that all we who were baptized into Christ Jesus were baptized into his death?</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Com certeza vocês sabem que, quando fomos batizados para ficarmos unidos com Cristo Jesus, fomos batizados para ficarmos unidos também com a sua morte.</text>
@@ -1259,7 +1259,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-ROM">
       <verse num="12" />
-      <text>Therefore don’t let sin reign in your mortal body, that you should obey it in its lusts.</text>
+      <text>Therefore don't let sin reign in your mortal body, that you should obey it in its lusts.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Portanto, não deixem que o pecado domine o corpo mortal de vocês e faça com que vocês obedeçam aos desejos pecaminosos da natureza humana.</text>
@@ -1360,14 +1360,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>ROMANS 7</text>
+      <text>ROMANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-ROM">
       <verse num="1" />
-      <text>Or don’t you know, brothers (for I speak to men who know the law), that the law has dominion over a man for as long as he lives?</text>
+      <text>Or don't you know, brothers (for I speak to men who know the law), that the law has dominion over a man for as long as he lives?</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Meus irmãos, vocês todos podem compreender muito bem o que vou dizer. Vocês conhecem as * leis e sabem que elas só têm poder sobre uma pessoa enquanto essa pessoa está viva.</text>
@@ -1415,7 +1415,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>What shall we say then? Is the law sin? May it never be! However, I wouldn’t have known sin, except through the law. For I wouldn’t have known coveting, unless the law had said,</text>
+      <text>What shall we say then? Is the law sin? May it never be! However, I wouldn't have known sin, except through the law. For I wouldn't have known coveting, unless the law had said,</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>O que vamos dizer então? Que a própria * lei é pecado? É claro que não! Mas foi a lei que me fez saber o que é pecado. Pois eu não saberia o que é a cobiça se a lei não tivesse dito:</text>
@@ -1481,7 +1481,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>For I don’t know what I am doing. For I don’t practice what I desire to do; but what I hate, that I do.</text>
+      <text>For I don't know what I am doing. For I don't practice what I desire to do; but what I hate, that I do.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Eu não entendo o que faço, pois não faço o que gostaria de fazer. Pelo contrário, faço justamente aquilo que odeio.</text>
@@ -1489,7 +1489,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>But if what I don’t desire, that I do, I consent to the law that it is good.</text>
+      <text>But if what I don't desire, that I do, I consent to the law that it is good.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Se faço o que não quero, isso prova que reconheço que a lei diz o que é certo.</text>
@@ -1505,7 +1505,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>For I know that in me, that is, in my flesh, dwells no good thing. For desire is present with me, but I don’t find it doing that which is good.</text>
+      <text>For I know that in me, that is, in my flesh, dwells no good thing. For desire is present with me, but I don't find it doing that which is good.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Pois eu sei que aquilo que é bom não vive em mim, isto é, na minha natureza humana. Porque, mesmo tendo dentro de mim a vontade de fazer o bem, eu não consigo fazê-lo.</text>
@@ -1513,7 +1513,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>For the good which I desire, I don’t do; but the evil which I don’t desire, that I practice.</text>
+      <text>For the good which I desire, I don't do; but the evil which I don't desire, that I practice.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Pois não faço o bem que quero, mas justamente o mal que não quero fazer é que eu faço.</text>
@@ -1521,7 +1521,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>But if what I don’t desire, that I do, it is no more I that do it, but sin which dwells in me.</text>
+      <text>But if what I don't desire, that I do, it is no more I that do it, but sin which dwells in me.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Mas, se faço o que não quero, já não sou eu quem faz isso, mas o pecado que vive em mim é que faz.</text>
@@ -1537,7 +1537,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-ROM">
       <verse num="22" />
-      <text>For in my inward man, I delight in God’s law.</text>
+      <text>For in my inward man, I delight in God's law.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Dentro de mim eu sei que gosto da lei de Deus.</text>
@@ -1561,21 +1561,21 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>I thank God through Jesus Christ, our Lord! So then with the mind, I myself serve God’s law, but with the flesh, the sin’s law.</text>
+      <text>I thank God through Jesus Christ, our Lord! So then with the mind, I myself serve God's law, but with the flesh, the sin's law.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Que Deus seja louvado, pois ele fará isso por meio do nosso Senhor Jesus Cristo! Portanto, esta é a minha situação: no meu pensamento eu sirvo à lei de Deus, mas na prática sirvo à lei do pecado.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>ROMANS 8</text>
+      <text>ROMANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-ROM">
       <verse num="1" />
-      <text>There is therefore now no condemnation to those who are in Christ Jesus, who don’t walk according to the flesh, but according to the Spirit.</text>
+      <text>There is therefore now no condemnation to those who are in Christ Jesus, who don't walk according to the flesh, but according to the Spirit.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Agora já não existe nenhuma condenação para as pessoas que estão unidas com Cristo Jesus.</text>
@@ -1591,7 +1591,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>For what the law couldn’t do because it was weak through the flesh, God did. By sending his own Son in the likeness of sinful flesh and for sin, He condemned sin in the flesh.</text>
+      <text>For what the law couldn't do because it was weak through the flesh, God did. By sending his own Son in the likeness of sinful flesh and for sin, He condemned sin in the flesh.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Deus fez o que a * lei não pôde fazer porque a natureza humana era fraca. Deus condenou o pecado na natureza humana b, enviando o seu próprio Filho, que veio na forma da nossa natureza pecaminosa a fim de acabar com o pecado.</text>
@@ -1623,7 +1623,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>The mind of the flesh is hostile towards God; for it is not subject to God’s law, neither indeed can it be.</text>
+      <text>The mind of the flesh is hostile towards God; for it is not subject to God's law, neither indeed can it be.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Por isso as pessoas que têm a mente controlada pela natureza humana se tornam inimigas de Deus, pois não obedecem à lei de Deus e, de fato, não podem obedecer a ela.</text>
@@ -1631,7 +1631,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>Those who are in the flesh can’t please God.</text>
+      <text>Those who are in the flesh can't please God.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>As pessoas que vivem de acordo com a sua natureza humana não podem agradar a Deus.</text>
@@ -1687,7 +1687,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>For you didn’t receive the spirit of slavery that leads you back into fear again. You received the Spirit of adoption, by whom we cry, “Abba! Father!”</text>
+      <text>For you didn't receive the spirit of slavery that leads you back into fear again. You received the Spirit of adoption, by whom we cry, “Abba! Father!”</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Porque o Espírito que vocês receberam de Deus não torna vocês escravos e não faz com que tenham medo. Pelo contrário, o Espírito torna vocês filhos de Deus; e pelo poder do Espírito dizemos com fervor a Deus: “Pai, meu Pai!”</text>
@@ -1767,7 +1767,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>But if we hope for that which we don’t see, we wait for it with patience.</text>
+      <text>But if we hope for that which we don't see, we wait for it with patience.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Porém, se estamos esperando alguma coisa que ainda não podemos ver, então esperamos com paciência.</text>
@@ -1775,7 +1775,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ROM">
       <verse num="26" />
-      <text>In the same way, the Spirit also helps our weaknesses, for we don’t know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can’t be uttered.</text>
+      <text>In the same way, the Spirit also helps our weaknesses, for we don't know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can't be uttered.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Assim também o Espírito de Deus vem nos ajudar na nossa fraqueza. Pois não sabemos como devemos orar, mas o Espírito de Deus, com gemidos que não podem ser explicados por palavras, pede a Deus em nosso favor.</text>
@@ -1783,7 +1783,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ROM">
       <verse num="27" />
-      <text>He who searches the hearts knows what is on the Spirit’s mind, because he makes intercession for the saints according to God.</text>
+      <text>He who searches the hearts knows what is on the Spirit's mind, because he makes intercession for the saints according to God.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>E Deus, que vê o que está dentro do coração, sabe qual é o pensamento do Espírito. Porque o Espírito pede em favor do povo de Deus e pede de acordo com a vontade de Deus.</text>
@@ -1823,7 +1823,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-ROM">
       <verse num="32" />
-      <text>He who didn’t spare his own Son, but delivered him up for us all, how would he not also with him freely give us all things?</text>
+      <text>He who didn't spare his own Son, but delivered him up for us all, how would he not also with him freely give us all things?</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>Porque ele nem mesmo deixou de entregar o próprio Filho, mas o ofereceu por todos nós! Se ele nos deu o seu Filho, será que não nos dará também todas as coisas?</text>
@@ -1831,7 +1831,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-ROM">
       <verse num="33" />
-      <text>Who could bring a charge against God’s chosen ones? It is God who justifies.</text>
+      <text>Who could bring a charge against God's chosen ones? It is God who justifies.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Quem acusará aqueles que Deus escolheu? Ninguém! Porque o próprio Deus declara que eles não são culpados.</text>
@@ -1892,7 +1892,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>ROMANS 9</text>
+      <text>ROMANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1947,7 +1947,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>Neither, because they are Abraham’s seed, are they all children. But,</text>
+      <text>Neither, because they are Abraham's seed, are they all children. But,</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Nem todos os descendentes de Abraão são filhos de Deus. Pois Deus disse a Abraão:</text>
@@ -2078,7 +2078,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>Or hasn’t the potter a right over the clay, from the same lump to make one part a vessel for honor, and another for dishonor?</text>
+      <text>Or hasn't the potter a right over the clay, from the same lump to make one part a vessel for honor, and another for dishonor?</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Pois o homem que faz o pote tem o direito de usar o barro como quer. Do mesmo barro ele pode fazer dois potes: um pote para uso especial e outro para uso comum.</text>
@@ -2168,7 +2168,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM">
       <verse num="30" />
-      <text>What shall we say then? That the Gentiles, who didn’t follow after righteousness, attained to righteousness, even the righteousness which is of faith.</text>
+      <text>What shall we say then? That the Gentiles, who didn't follow after righteousness, attained to righteousness, even the righteousness which is of faith.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>O que vamos dizer, então? Vamos dizer isto: os não-judeus, que não procuravam ser aceitos por Deus, foram aceitos por meio da fé.</text>
@@ -2176,7 +2176,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="narrator-ROM">
       <verse num="31" />
-      <text>But Israel, following after a law of righteousness, didn’t arrive at the law of righteousness.</text>
+      <text>But Israel, following after a law of righteousness, didn't arrive at the law of righteousness.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Porém o povo de Israel, que procurava uma * lei para ser aceito por Deus, não encontrou o que estava procurando.</text>
@@ -2184,7 +2184,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ROM">
       <verse num="32" />
-      <text>Why? Because they didn’t seek it by faith, but as it were by works of the law. They stumbled over the stumbling stone; </text>
+      <text>Why? Because they didn't seek it by faith, but as it were by works of the law. They stumbled over the stumbling stone; </text>
       <verse num="33" />
       <text>even as it is written,</text>
     </ReferenceBlocks>
@@ -2201,14 +2201,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>ROMANS 10</text>
+      <text>ROMANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-ROM">
       <verse num="1" />
-      <text>Brothers, my heart’s desire and my prayer to God is for Israel, that they may be saved.</text>
+      <text>Brothers, my heart's desire and my prayer to God is for Israel, that they may be saved.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Meus irmãos, desejo de todo o coração que o meu próprio povo seja salvo. E peço a Deus em favor deles</text>
@@ -2224,7 +2224,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>For being ignorant of God’s righteousness, and seeking to establish their own righteousness, they didn’t subject themselves to the righteousness of God.</text>
+      <text>For being ignorant of God's righteousness, and seeking to establish their own righteousness, they didn't subject themselves to the righteousness of God.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>pois eles não conhecem a maneira como Deus aceita as pessoas e assim têm procurado conseguir isso da sua própria maneira. Eles rejeitaram o modo de Deus aceitar as pessoas.</text>
@@ -2254,7 +2254,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>But the righteousness which is of faith says this, “Don’t say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
+      <text>But the righteousness which is of faith says this, “Don't say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Porém, quanto a ser aceito por Deus por meio da fé, Moisés diz o seguinte: “Não fique pensando assim: quem vai subir até o céu?”, isto é, para trazer Cristo do céu.</text>
@@ -2352,7 +2352,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>But they didn’t all listen to the glad news. For Isaiah says,</text>
+      <text>But they didn't all listen to the glad news. For Isaiah says,</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Mas nem todos aceitam a boa notícia do * evangelho. Foi Isaías quem disse:</text>
@@ -2374,7 +2374,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>But I ask, didn’t they hear? Yes, most certainly,</text>
+      <text>But I ask, didn't they hear? Yes, most certainly,</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Mas eu pergunto: será que eles não ouviram a mensagem? É claro que ouviram! Como dizem as Escrituras:</text>
@@ -2388,7 +2388,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>But I ask, didn’t Israel know? First Moses says,</text>
+      <text>But I ask, didn't Israel know? First Moses says,</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Eu pergunto ainda: será que o povo de Israel não soube disso? Moisés foi o primeiro a dar uma resposta. Ele disse:</text>
@@ -2409,7 +2409,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture">
-      <text>“I was found by those who didn’t seek me. I was revealed to those who didn’t ask for me.”</text>
+      <text>“I was found by those who didn't seek me. I was revealed to those who didn't ask for me.”</text>
     </ReferenceBlocks>
     <text>“Eu fui achado por aqueles que não me procuravam e apareci aos que não perguntavam por mim.”</text>
   </block>
@@ -2429,7 +2429,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>ROMANS 11</text>
+      <text>ROMANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -2444,7 +2444,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-ROM">
       <verse num="2" />
-      <text>God didn’t reject his people, which he foreknew. Or don’t you know what the Scripture says about Elijah? How he pleads with God against Israel:</text>
+      <text>God didn't reject his people, which he foreknew. Or don't you know what the Scripture says about Elijah? How he pleads with God against Israel:</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Deus não rejeitou o seu povo, que ele havia escolhido desde o princípio. Vocês sabem muito bem o que as * Escrituras Sagradas dizem naquele trecho em que Elias acusa o povo de Israel diante de Deus. Elias diz assim:</text>
@@ -2490,7 +2490,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>What then? That which Israel seeks for, that he didn’t obtain, but the chosen ones obtained it, and the rest were hardened. </text>
+      <text>What then? That which Israel seeks for, that he didn't obtain, but the chosen ones obtained it, and the rest were hardened. </text>
       <verse num="8" />
       <text>According as it is written,</text>
     </ReferenceBlocks>
@@ -2586,7 +2586,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>Don’t boast over the branches. If you boast, it is not you who support the root, but the root supports you.</text>
+      <text>Don't boast over the branches. If you boast, it is not you who support the root, but the root supports you.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Portanto, vocês não devem desprezar os galhos que foram quebrados. Como é que vocês podem estar orgulhosos? Vocês são somente galhos. Não são vocês que sustentam a raiz — é a raiz que sustenta vocês.</text>
@@ -2602,7 +2602,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>True; by their unbelief they were broken off, and you stand by your faith. Don’t be conceited, but fear;</text>
+      <text>True; by their unbelief they were broken off, and you stand by your faith. Don't be conceited, but fear;</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Isso é verdade. Mas lembrem que eles foram quebrados porque não creram; no entanto vocês continuam na oliveira porque crêem. E não tenham orgulho disso; pelo contrário, tenham medo.</text>
@@ -2610,7 +2610,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>for if God didn’t spare the natural branches, neither will he spare you.</text>
+      <text>for if God didn't spare the natural branches, neither will he spare you.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Se Deus não deixou de castigar os judeus, que são como galhos naturais, vocês acham que ele vai deixar de castigar vocês?</text>
@@ -2626,7 +2626,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-ROM">
       <verse num="23" />
-      <text>They also, if they don’t continue in their unbelief, will be grafted in, for God is able to graft them in again.</text>
+      <text>They also, if they don't continue in their unbelief, will be grafted in, for God is able to graft them in again.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>E, se os judeus abandonarem a sua descrença, serão enxertados na oliveira cultivada, pois Deus pode enxertá-los de novo.</text>
@@ -2642,7 +2642,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>For I don’t desire you to be ignorant, brothers, of this mystery, so that you won’t be wise in your own conceits: A partial hardening has happened to Israel until the fullness of the Gentiles has come in.</text>
+      <text>For I don't desire you to be ignorant, brothers, of this mystery, so that you won't be wise in your own conceits: A partial hardening has happened to Israel until the fullness of the Gentiles has come in.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Meus irmãos, quero que vocês conheçam uma verdade secreta para que não pensem que são muito sábios. A verdade é esta: a teimosia do povo de Israel não durará para sempre, mas somente até que o número completo de não-judeus venha para Deus.</text>
@@ -2743,7 +2743,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>ROMANS 12</text>
+      <text>ROMANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -2758,7 +2758,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM">
       <verse num="2" />
-      <text>Don’t be conformed to this world, but be transformed by the renewing of your mind. That way you may prove what is the good, well-pleasing, and perfect will of God.</text>
+      <text>Don't be conformed to this world, but be transformed by the renewing of your mind. That way you may prove what is the good, well-pleasing, and perfect will of God.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Não vivam como vivem as pessoas deste mundo, mas deixem que Deus os transforme por meio de uma completa mudança da mente de vocês. Assim vocês conhecerão a vontade de Deus, isto é, aquilo que é bom, perfeito e agradável a ele.</text>
@@ -2774,7 +2774,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>For we have many members in one body, and all the members don’t have the same function.</text>
+      <text>For we have many members in one body, and all the members don't have the same function.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Porque, assim como em um só corpo temos muitas partes, e todas elas têm funções diferentes,</text>
@@ -2854,7 +2854,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ROM">
       <verse num="14" />
-      <text>Bless those who persecute you; bless, and don’t curse.</text>
+      <text>Bless those who persecute you; bless, and don't curse.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Peçam que Deus abençoe os que perseguem vocês. Sim, peçam que ele abençoe e não que amaldiçoe.</text>
@@ -2870,7 +2870,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>Be of the same mind one toward another. Don’t set your mind on high things, but associate with the humble. Don’t be wise in your own conceits.</text>
+      <text>Be of the same mind one toward another. Don't set your mind on high things, but associate with the humble. Don't be wise in your own conceits.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Tenham por todos o mesmo cuidado. Não sejam orgulhosos, mas aceitem serviços humildes. Que nenhum de vocês fique pensando que é sábio!</text>
@@ -2894,7 +2894,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>Don’t seek revenge yourselves, beloved, but give place to God’s wrath. For it is written,</text>
+      <text>Don't seek revenge yourselves, beloved, but give place to God's wrath. For it is written,</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Meus queridos irmãos, nunca se vinguem de ninguém; pelo contrário, deixem que seja Deus quem dê o castigo. Pois as * Escrituras Sagradas dizem:</text>
@@ -2922,14 +2922,14 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>Don’t be overcome by evil, but overcome evil with good.</text>
+      <text>Don't be overcome by evil, but overcome evil with good.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Não deixem que o mal vença vocês, mas vençam o mal com o bem.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>ROMANS 13</text>
+      <text>ROMANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2960,7 +2960,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>A leader is a servant of God to you for good. But if you do that which is evil, be afraid, for he doesn’t bear the sword in vain; for he is a servant of God, an avenger for wrath to him who does evil.</text>
+      <text>A leader is a servant of God to you for good. But if you do that which is evil, be afraid, for he doesn't bear the sword in vain; for he is a servant of God, an avenger for wrath to him who does evil.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Porque as autoridades estão a serviço de Deus para o bem de você. Mas, se você faz o mal, então tenha medo, pois as autoridades, de fato, têm poder para castigar. Elas estão a serviço de Deus e trazem o castigo dele sobre os que fazem o mal.</text>
@@ -2976,7 +2976,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>For this reason you also pay taxes, for they are servants of God’s service, attending continually on this very thing.</text>
+      <text>For this reason you also pay taxes, for they are servants of God's service, attending continually on this very thing.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>É por isso também que vocês pagam impostos. Pois, quando as autoridades cumprem os seus deveres, elas estão a serviço de Deus.</text>
@@ -3008,7 +3008,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
       <verse num="10" />
-      <text>Love doesn’t harm a neighbor. Love therefore is the fulfillment of the law.</text>
+      <text>Love doesn't harm a neighbor. Love therefore is the fulfillment of the law.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Quem ama os outros não faz mal a eles. Portanto, amar é obedecer a toda a lei.</text>
@@ -3024,7 +3024,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-ROM">
       <verse num="12" />
-      <text>The night is far gone, and the day is near. Let’s therefore throw off the works of darkness, and let’s put on the armor of light.</text>
+      <text>The night is far gone, and the day is near. Let's therefore throw off the works of darkness, and let's put on the armor of light.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>A noite está terminando, e o dia vem chegando. Por isso paremos de fazer o que pertence à escuridão e peguemos as armas espirituais para lutar na luz.</text>
@@ -3047,7 +3047,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>ROMANS 14</text>
+      <text>ROMANS CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -3070,7 +3070,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>Don’t let him who eats despise him who doesn’t eat. Don’t let him who doesn’t eat judge him who eats, for God has accepted him.</text>
+      <text>Don't let him who eats despise him who doesn't eat. Don't let him who doesn't eat judge him who eats, for God has accepted him.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Quem come de tudo não deve desprezar quem não faz isso, e quem só come verduras e legumes não deve condenar quem come de tudo, pois Deus o aceitou.</text>
@@ -3078,7 +3078,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>Who are you who judge another’s servant? To his own lord he stands or falls. Yes, he will be made to stand, for God has power to make him stand.</text>
+      <text>Who are you who judge another's servant? To his own lord he stands or falls. Yes, he will be made to stand, for God has power to make him stand.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Quem é você para julgar o escravo de alguém? Se ele vai vencer ou fracassar, isso é da conta do dono dele. E ele vai vencer porque o Senhor pode fazê-lo vencer.</text>
@@ -3094,7 +3094,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>He who observes the day, observes it to the Lord; and he who does not observe the day, to the Lord he does not observe it. He who eats, eats to the Lord, for he gives God thanks. He who doesn’t eat, to the Lord he doesn’t eat, and gives God thanks.</text>
+      <text>He who observes the day, observes it to the Lord; and he who does not observe the day, to the Lord he does not observe it. He who eats, eats to the Lord, for he gives God thanks. He who doesn't eat, to the Lord he doesn't eat, and gives God thanks.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Quem dá mais valor a certo dia faz isso para honrar o Senhor. E também quem come de tudo faz isso para honrar o Senhor, pois agradece a Deus o alimento. E quem evita comer certas coisas faz isso para honrar o Senhor e dá graças a Deus.</text>
@@ -3110,7 +3110,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>For if we live, we live to the Lord. Or if we die, we die to the Lord. If therefore we live or die, we are the Lord’s.</text>
+      <text>For if we live, we live to the Lord. Or if we die, we die to the Lord. If therefore we live or die, we are the Lord's.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Se vivemos, é para o Senhor que vivemos; e, se morremos, também é para o Senhor que morremos. Assim, tanto se vivemos como se morremos, somos do Senhor.</text>
@@ -3152,7 +3152,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>Therefore let’s not judge one another any more. But judge this rather, that no man put a stumbling block in his brother’s way, or an occasion for falling.</text>
+      <text>Therefore let's not judge one another any more. But judge this rather, that no man put a stumbling block in his brother's way, or an occasion for falling.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Por isso paremos de criticar uns aos outros. Pelo contrário, cada um de vocês resolva não fazer nada que leve o seu irmão a tropeçar ou cair em pecado.</text>
@@ -3168,7 +3168,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>Yet if because of food your brother is grieved, you walk no longer in love. Don’t destroy with your food him for whom Christ died.</text>
+      <text>Yet if because of food your brother is grieved, you walk no longer in love. Don't destroy with your food him for whom Christ died.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Se você faz com que um irmão fique triste por causa do que você come, então você não está agindo com amor. Não deixe que a pessoa por quem Cristo morreu se perca por causa da comida que você come.</text>
@@ -3176,7 +3176,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>Then don’t let your good be slandered,</text>
+      <text>Then don't let your good be slandered,</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Não dêem motivo para os outros falarem mal daquilo que vocês acham bom.</text>
@@ -3208,7 +3208,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>Don’t overthrow God’s work for food’s sake. All things indeed are clean, however it is evil for that man who creates a stumbling block by eating.</text>
+      <text>Don't overthrow God's work for food's sake. All things indeed are clean, however it is evil for that man who creates a stumbling block by eating.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Por uma questão de comida, não destrua o que Deus fez. Todos os alimentos podem ser comidos, mas é errado comer alguma coisa quando isso faz com que outra pessoa caia em pecado.</text>
@@ -3224,7 +3224,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-ROM">
       <verse num="22" />
-      <text>Do you have faith? Have it to yourself before God. Happy is he who doesn’t judge himself in that which he approves.</text>
+      <text>Do you have faith? Have it to yourself before God. Happy is he who doesn't judge himself in that which he approves.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Mas guarde entre você mesmo e Deus o que você crê a respeito desse assunto. Feliz a pessoa que não é condenada pela consciência quando faz o que acha que deve fazer!</text>
@@ -3232,7 +3232,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ROM">
       <verse num="23" />
-      <text>But he who doubts is damned if he eats, because it isn’t of faith; and whatever is not of faith is sin.</text>
+      <text>But he who doubts is damned if he eats, because it isn't of faith; and whatever is not of faith is sin.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Mas quem tem dúvidas a respeito do que come é condenado por Deus quando come, pois aquilo que ele faz não se baseia na fé. E o que não se baseia na fé é pecado.</text>
@@ -3263,7 +3263,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>ROMANS 15</text>
+      <text>ROMANS CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -3286,7 +3286,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>For even Christ didn’t please himself. But, as it is written,</text>
+      <text>For even Christ didn't please himself. But, as it is written,</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Pois nem o próprio Cristo procurou agradar a si mesmo; pelo contrário, como dizem as * Escrituras Sagradas:</text>
@@ -3444,7 +3444,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>in the power of signs and wonders, in the power of God’s Spirit; so that from Jerusalem, and around as far as to Illyricum, I have fully preached the Good News of Christ;</text>
+      <text>in the power of signs and wonders, in the power of God's Spirit; so that from Jerusalem, and around as far as to Illyricum, I have fully preached the Good News of Christ;</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>pelo poder de sinais e milagres e pelo poder do Espírito de Deus. Assim, viajando desde Jerusalém até a * província da Ilíria, tenho anunciado de modo completo o evangelho a respeito de Cristo.</text>
@@ -3452,7 +3452,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>yes, making it my aim to preach the Good News, not where Christ was already named, that I might not build on another’s foundation. </text>
+      <text>yes, making it my aim to preach the Good News, not where Christ was already named, that I might not build on another's foundation. </text>
       <verse num="21" />
       <text>But, as it is written,</text>
     </ReferenceBlocks>
@@ -3463,7 +3463,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture">
-      <text>“They will see, to whom no news of him came. They who haven’t heard will understand.”</text>
+      <text>“They will see, to whom no news of him came. They who haven't heard will understand.”</text>
     </ReferenceBlocks>
     <text>“Aqueles que nunca ouviram falar a respeito dele o verão, e os que não tinham ouvido falar sobre ele o entenderão.”</text>
   </block>
@@ -3565,7 +3565,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>ROMANS 16</text>
+      <text>ROMANS CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -3708,7 +3708,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>For those who are such don’t serve our Lord, Jesus Christ, but their own belly; and by their smooth and flattering speech, they deceive the hearts of the innocent.</text>
+      <text>For those who are such don't serve our Lord, Jesus Christ, but their own belly; and by their smooth and flattering speech, they deceive the hearts of the innocent.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>porque os que fazem essas coisas não estão servindo a Cristo, o nosso Senhor, mas a si mesmos. Por meio de conversa macia e com bajulação, eles enganam o coração das pessoas simples.</text>

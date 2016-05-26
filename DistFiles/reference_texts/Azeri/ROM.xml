@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>ROMANS 1</text>
+      <text>ROMANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -47,7 +47,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-ROM">
       <verse num="5" />
-      <text>through whom we received grace and apostleship, for obedience of faith among all the nations, for his name’s sake;</text>
+      <text>through whom we received grace and apostleship, for obedience of faith among all the nations, for his name's sake;</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Biz Onun vasitәsilә lütfә vә hәvariliyә nail olduq ki, Onun adı naminә bütün millәtlәrdәn olan insanları imana itaәt etmәyә çağıraq.</text>
@@ -87,7 +87,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-ROM">
       <verse num="10" />
-      <text>I pray that at last, by God’s will, the way may be opened for me to visit you.</text>
+      <text>I pray that at last, by God's will, the way may be opened for me to visit you.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Dualarımda hәmişә yalvarıram ki, Allahın iradәsi ilә nәhayәt yanınıza gәlmәyә nail olum.</text>
@@ -103,7 +103,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ROM">
       <verse num="12" />
-      <text>that is, that I with you may be encouraged in you, each of us by the other’s faith, both yours and mine.</text>
+      <text>that is, that I with you may be encouraged in you, each of us by the other's faith, both yours and mine.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Daha doğrusu, mәn aranızda olarkәn bir-birimizin imanı ilә qarşılıqlı halda ruhlanaq.</text>
@@ -111,7 +111,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>Now I don’t desire to have you unaware, brothers, that I often planned to come to you, and was hindered so far, that I might have some fruit among you also, even as among the rest of the Gentiles.</text>
+      <text>Now I don't desire to have you unaware, brothers, that I often planned to come to you, and was hindered so far, that I might have some fruit among you also, even as among the rest of the Gentiles.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ey qardaşlar, bixәbәr olmağınızı istәmirәm ki, başqa millәtlәrdәn olan digәrlәri arasında etdiyim kimi sizin aranızda da әmәyimin bәhrәsini götürüm deyә dәfәlәrlә yanınıza gәlmәk niyyәtindә olmuşam, amma indiyәdәk maneәlәrә rast gәldim.</text>
@@ -143,7 +143,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-ROM">
       <verse num="17" />
-      <text>For in it is revealed God’s righteousness from faith to faith. As it is written,</text>
+      <text>For in it is revealed God's righteousness from faith to faith. As it is written,</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Müjdәdә Allahın salehliyi aşkar olur vә bu salehlik tamamilә imanla әldә edilir. Necә ki yazılıb:</text>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>Because, knowing God, they didn’t glorify him as God, neither did they give thanks. Instead, they became vain in their reasoning, and their senseless heart was darkened.</text>
+      <text>Because, knowing God, they didn't glorify him as God, neither did they give thanks. Instead, they became vain in their reasoning, and their senseless heart was darkened.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Adamlar Allahı tanıdıqları halda Ona nә Allah kimi izzәt verdilәr, nә dә şükür etdilәr. Әksinә, boş düşüncәlәrә uydular vә axmaq ürәklәrini qaranlıq bürüdü.</text>
@@ -276,7 +276,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>ROMANS 2</text>
+      <text>ROMANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -307,7 +307,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>Will you ignore the wealth of His mercy, his patience and his broad-mindedness? Do you not know that God’s purpose of grace is to lead you to repentance?</text>
+      <text>Will you ignore the wealth of His mercy, his patience and his broad-mindedness? Do you not know that God's purpose of grace is to lead you to repentance?</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Yaxud sәn Allahın zәngin xeyirxahlığına, hәlimliyinә vә sәbirli olmağına xor baxırsan? Bәs anlamırsan ki, Onun xeyirxahlığı sәni tövbәyә yönәldir?</text>
@@ -339,7 +339,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>But to those who are self-seeking, and don’t obey the truth, but obey unrighteousness, there will be wrath and indignation.</text>
+      <text>But to those who are self-seeking, and don't obey the truth, but obey unrighteousness, there will be wrath and indignation.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>özlәrini göstәrәrәk hәqiqәtә tabe olmayıb haqsızlığa baş әyәnlәrә isә qәzәb vә hiddәt göndәrәcәk.</text>
@@ -379,7 +379,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>For it isn’t the hearers of the law who are righteous before God, but the doers of the law will be justified.</text>
+      <text>For it isn't the hearers of the law who are righteous before God, but the doers of the law will be justified.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Çünki Allahın nәzәrindә Qanunu eşidәnlәr deyil, ona әmәl edәnlәr saleh sayılır.</text>
@@ -387,7 +387,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ROM">
       <verse num="14" />
-      <text>(For when Gentiles who don’t have the law do by nature the things of the law, they are a law to themselves, even though they do not have the law.</text>
+      <text>(For when Gentiles who don't have the law do by nature the things of the law, they are a law to themselves, even though they do not have the law.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Belәcә Qanuna malik olmayan başqa millәtlәr tәbiәtlәrinә görә Qanuna әmәl edәndә Qanuna malik olmadıqları halda onlar özlәri üçün qanun olur.</text>
@@ -443,7 +443,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>You therefore who teach another, don’t you teach yourself? You who preach that a man shouldn’t steal, do you steal?</text>
+      <text>You therefore who teach another, don't you teach yourself? You who preach that a man shouldn't steal, do you steal?</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Bәs nә üçün başqalarını öyrәtdiyin halda özün öyrәnmirsәn? Oğurlamamağı bәyan edәrkәn özün oğurlayırsan?</text>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="narrator-ROM">
       <verse num="22" />
-      <text>You who say a man shouldn’t commit adultery. Do you commit adultery? You who abhor idols, do you rob temples?</text>
+      <text>You who say a man shouldn't commit adultery. Do you commit adultery? You who abhor idols, do you rob temples?</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>&lt;&lt;Zina etmә&gt;&gt;dediyin halda özün zina edirsәn? Bütlәrdәn iyrәnәrkәn mәbәdlәri soyursan?</text>
@@ -485,7 +485,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="narrator-ROM">
       <verse num="26" />
-      <text>If therefore the uncircumcised keep the ordinances of the law, won’t his uncircumcision be accounted as circumcision?</text>
+      <text>If therefore the uncircumcised keep the ordinances of the law, won't his uncircumcision be accounted as circumcision?</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Elәcә dә әgәr sünnәt olunmamış adam Qanunun әdalәtli tәlәblәrinә riayәt edirsә, sünnәt olunmamasına baxmayaraq, sünnәtli sayılır.</text>
@@ -493,7 +493,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="27" characterId="narrator-ROM">
       <verse num="27" />
-      <text>Won’t the uncircumcision which is by nature, if it fulfills the law, judge you, who with the letter and circumcision are a transgressor of the law?</text>
+      <text>Won't the uncircumcision which is by nature, if it fulfills the law, judge you, who with the letter and circumcision are a transgressor of the law?</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Onda cismәn sünnәt olunmadığı halda Qanuna әmәl edәn adam sәni mühakimә edәcәk; sәn ki yazılı Qanuna vә sünnәtә malik olduğun halda Qanunu pozursan.</text>
@@ -516,7 +516,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>ROMANS 3</text>
+      <text>ROMANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -647,7 +647,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>The way of peace, they haven’t known.” </text>
+      <text>The way of peace, they haven't known.” </text>
       <verse num="18" />
       <text>“There is no fear of God before their eyes.”</text>
     </ReferenceBlocks>
@@ -707,7 +707,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>God gave him to be an atoning sacrifice, through faith in his blood, for a demonstration of his righteousness through the passing over of prior sins, in God’s forbearance;</text>
+      <text>God gave him to be an atoning sacrifice, through faith in his blood, for a demonstration of his righteousness through the passing over of prior sins, in God's forbearance;</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Allah İsanı kәffarә qurbanı olaraq tәqdim etdi ki, iman edәnlәrin günahları Onun qanı vasitәsilә bağışlansın. Bunu Öz salehliyini göstәrmәk üçün etdi. Çünki sәbirli olub qabaqca edilәn günahları cәzasız qoymuşdu.</text>
@@ -739,7 +739,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="narrator-ROM">
       <verse num="29" />
-      <text>Or is God the God of Jews only? Isn’t he the God of Gentiles also? Yes, of Gentiles also.</text>
+      <text>Or is God the God of Jews only? Isn't he the God of Gentiles also? Yes, of Gentiles also.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Mәgәr Allah yalnız Yәhudilәrin Allahıdır? Başqa millәtlәrin dә Allahı deyilmi? Әlbәttә, başqa millәtlәrin dә Allahıdır.</text>
@@ -762,7 +762,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>ROMANS 4</text>
+      <text>ROMANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -803,7 +803,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-ROM">
       <verse num="5" />
-      <text>But to him who doesn’t work, but believes in him who justifies the ungodly, his faith is accounted for righteousness.</text>
+      <text>But to him who doesn't work, but believes in him who justifies the ungodly, his faith is accounted for righteousness.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Lakin әmәl etmәyib allahsız adamları saleh sayan Allaha iman edәn şәxsin imanı ona salehlik sayılır.</text>
@@ -893,7 +893,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>Therefore, God’s promise depends on faith, in order that the promise may be guaranteed as God’s gift to all the descendants of Abraham.</text>
+      <text>Therefore, God's promise depends on faith, in order that the promise may be guaranteed as God's gift to all the descendants of Abraham.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Therefore, God's promise depends on faith, in order that the promise may be guaranteed as God's gift to all the descendants of Abraham.</text>
@@ -937,7 +937,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>Without being weakened in faith, he didn’t consider his own body, already having been worn out, (he being about a hundred years old), and the deadness of Sarah’s womb.</text>
+      <text>Without being weakened in faith, he didn't consider his own body, already having been worn out, (he being about a hundred years old), and the deadness of Sarah's womb.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Hәtta tәxminәn yüz yaşında ikәn öz bәdәninin artıq ölüyә bәnzәdiyini, arvadı Saranın da bәtninin ölü olduğunu anladı, amma imanı azalmadı.</text>
@@ -945,7 +945,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>Yet, looking to the promise of God, he didn’t waver through unbelief, but grew strong through faith, giving glory to God.</text>
+      <text>Yet, looking to the promise of God, he didn't waver through unbelief, but grew strong through faith, giving glory to God.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Allahın vәdinә imansızlıqla şübhә etmәdi, әksinә, imanında möhkәm durub Allahı izzәtlәndirdi.</text>
@@ -992,7 +992,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>ROMANS 5</text>
+      <text>ROMANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -1029,7 +1029,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ROM">
       <verse num="5" />
-      <text>and hope doesn’t disappoint us, because God’s love has been poured out into our hearts through the Holy Spirit who was given to us.</text>
+      <text>and hope doesn't disappoint us, because God's love has been poured out into our hearts through the Holy Spirit who was given to us.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ümidimiz dә boşa çıxmır, çünki Allah mәhәbbәti bizә verilәn Müqәddәs Ruh vasitәsilә ürәklәrimizә tökülüb.</text>
@@ -1061,7 +1061,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ROM">
       <verse num="9" />
-      <text>Much more then, being now justified by his blood, we will be saved from God’s wrath through him.</text>
+      <text>Much more then, being now justified by his blood, we will be saved from God's wrath through him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Belәcә Onun qanı ilә indi saleh sayıldığımıza görә Onun vasitәsilә dә Allahın qәzәbindәn mütlәq xilas olacağıq.</text>
@@ -1101,7 +1101,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-ROM">
       <verse num="14" />
-      <text>Nevertheless death reigned from Adam until Moses, even over those whose sins weren’t like Adam’s disobedience, who is a foreshadowing of him who was to come.</text>
+      <text>Nevertheless death reigned from Adam until Moses, even over those whose sins weren't like Adam's disobedience, who is a foreshadowing of him who was to come.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Lakin Adәmdәn Musaya qәdәr ölüm hamıya, hәtta Adәmin әmri pozmasına bәnzәr bir günah etmәyәnlәrә dә hökmranlıq etdi. Adәm o gәlәcәk İnsanın әvvәlcәdәn göstәrilәn tәsviri idi.</text>
@@ -1109,7 +1109,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>But the free gift isn’t like the trespass. For if by the trespass of the one the many died, much more did the grace of God, and the gift by the grace of the one man, Jesus Christ, abound to the many.</text>
+      <text>But the free gift isn't like the trespass. For if by the trespass of the one the many died, much more did the grace of God, and the gift by the grace of the one man, Jesus Christ, abound to the many.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Amma Allahın әnamı tәqsir kimi deyil. Çünki bir adamın tәqsiri üzündәn çox adam öldüsә dә, Allahın lütfü vә bir Adamın, yәni İsa Mәsihin lütfü ilә verilәn әnam bir çoxları üçün daha böyük tәsir göstәrdi.</text>
@@ -1141,7 +1141,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>For as through the one man’s disobedience many were made sinners, even so through the obedience of the one, many will be made righteous.</text>
+      <text>For as through the one man's disobedience many were made sinners, even so through the obedience of the one, many will be made righteous.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Necә ki bir adamın itaәtsizliyi üzündәn bir çoxları günahkar sayıldı, elәcә dә bir Adamın itaәti sayәsindә bir çoxları saleh sayılacaq.</text>
@@ -1164,7 +1164,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>ROMANS 6</text>
+      <text>ROMANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -1187,7 +1187,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>Or don’t you know that all we who were baptized into Christ Jesus were baptized into his death?</text>
+      <text>Or don't you know that all we who were baptized into Christ Jesus were baptized into his death?</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Mәgәr bilmirsiniz ki, biz hamımız Mәsih İsa ilә birlәşmәk üçün vәftiz olunarkәn hәmin vәftizlә Onun ölümü ilә birlәşdik?</text>
@@ -1259,7 +1259,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-ROM">
       <verse num="12" />
-      <text>Therefore don’t let sin reign in your mortal body, that you should obey it in its lusts.</text>
+      <text>Therefore don't let sin reign in your mortal body, that you should obey it in its lusts.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Ona görә dә qoymayın ki, günah sizin fani bәdәninizә hökmranlıq etsin vә siz dә bәdәninizin ehtiraslarına itaәt edәsiniz.</text>
@@ -1360,14 +1360,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>ROMANS 7</text>
+      <text>ROMANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-ROM">
       <verse num="1" />
-      <text>Or don’t you know, brothers (for I speak to men who know the law), that the law has dominion over a man for as long as he lives?</text>
+      <text>Or don't you know, brothers (for I speak to men who know the law), that the law has dominion over a man for as long as he lives?</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ey qardaşlar, bunu Qanunu bilәnlәrә söylәyirәm, mәgәr bilmirsiniz ki, insan yalnız sağ ikәn qanun onun üzәrindә hökmә malikdir?</text>
@@ -1415,7 +1415,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>What shall we say then? Is the law sin? May it never be! However, I wouldn’t have known sin, except through the law. For I wouldn’t have known coveting, unless the law had said,</text>
+      <text>What shall we say then? Is the law sin? May it never be! However, I wouldn't have known sin, except through the law. For I wouldn't have known coveting, unless the law had said,</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Bәs nә deyә bilәrik? Qanun günahdırmı? Әsla! Qanun olmasaydı, günahın nә olduğunu bilmәzdim. Әgәr Qanun demәsәydi, tamahın nә olduğunu anlamazdım:</text>
@@ -1481,7 +1481,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>For I don’t know what I am doing. For I don’t practice what I desire to do; but what I hate, that I do.</text>
+      <text>For I don't know what I am doing. For I don't practice what I desire to do; but what I hate, that I do.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Çünki nә iş gördüyümü anlamıram; istәdiyimi deyil, nifrәt etdiyim şeyi edirәm.</text>
@@ -1489,7 +1489,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>But if what I don’t desire, that I do, I consent to the law that it is good.</text>
+      <text>But if what I don't desire, that I do, I consent to the law that it is good.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Әgәr istәmәdiyimi edirәmsә, onda tәsdiq edirәm ki, Qanun yaxşıdır.</text>
@@ -1505,7 +1505,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>For I know that in me, that is, in my flesh, dwells no good thing. For desire is present with me, but I don’t find it doing that which is good.</text>
+      <text>For I know that in me, that is, in my flesh, dwells no good thing. For desire is present with me, but I don't find it doing that which is good.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Bilirәm ki, daxilimdә, yәni cismani tәbiәtimdә yaxşı bir şey yaşamır; çünki yaxşı şey etmәk istәyi mәndә var, amma onu yerinә yetirmәyә qadir deyilәm.</text>
@@ -1513,7 +1513,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>For the good which I desire, I don’t do; but the evil which I don’t desire, that I practice.</text>
+      <text>For the good which I desire, I don't do; but the evil which I don't desire, that I practice.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>İstәdiyim yaxşı şeyi etmirәm, amma istәmәdiyim pis şeyi edirәm.</text>
@@ -1521,7 +1521,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>But if what I don’t desire, that I do, it is no more I that do it, but sin which dwells in me.</text>
+      <text>But if what I don't desire, that I do, it is no more I that do it, but sin which dwells in me.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Әgәr istәmәdiyim şeyi edirәmsә, onda artıq mәn deyil, daxilimdә yaşayan günah bu işi görür.</text>
@@ -1537,7 +1537,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="narrator-ROM">
       <verse num="22" />
-      <text>For in my inward man, I delight in God’s law.</text>
+      <text>For in my inward man, I delight in God's law.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Bir yandan daxili varlığım Allahın qanunundan zövq alır.</text>
@@ -1561,21 +1561,21 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>I thank God through Jesus Christ, our Lord! So then with the mind, I myself serve God’s law, but with the flesh, the sin’s law.</text>
+      <text>I thank God through Jesus Christ, our Lord! So then with the mind, I myself serve God's law, but with the flesh, the sin's law.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Rәbbimiz İsa Mәsihin vasitәsilә Allaha şükür olsun! Belәcә mәn ağlımla Allahın qanununa, cismani tәbiәtimlә isә günah qanununa qulluq edirәm.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>ROMANS 8</text>
+      <text>ROMANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="1" characterId="narrator-ROM">
       <verse num="1" />
-      <text>There is therefore now no condemnation to those who are in Christ Jesus, who don’t walk according to the flesh, but according to the Spirit.</text>
+      <text>There is therefore now no condemnation to those who are in Christ Jesus, who don't walk according to the flesh, but according to the Spirit.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Demәli, indi Mәsih İsada olanlara heç bir mәhkumluq yoxdur.</text>
@@ -1591,7 +1591,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>For what the law couldn’t do because it was weak through the flesh, God did. By sending his own Son in the likeness of sinful flesh and for sin, He condemned sin in the flesh.</text>
+      <text>For what the law couldn't do because it was weak through the flesh, God did. By sending his own Son in the likeness of sinful flesh and for sin, He condemned sin in the flesh.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Belәcә cismani tәbiәt üzündәn gücsüz olan Qanunun edә bilmәdiyi şeyi Allah etdi: Öz Oğlunu günahlı cismin bәnzәrindә günah qurbanı olaraq göndәrib günahı Onun cismi ilә mәhkum etdi ki,</text>
@@ -1623,7 +1623,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>The mind of the flesh is hostile towards God; for it is not subject to God’s law, neither indeed can it be.</text>
+      <text>The mind of the flesh is hostile towards God; for it is not subject to God's law, neither indeed can it be.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Çünki cismani tәbiәtә uyan fikirlәr Allaha qarşı düşmәnçilik edir; belә ki bunlar Allahın qanununa tabe deyil vә ola da bilmәz.</text>
@@ -1631,7 +1631,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>Those who are in the flesh can’t please God.</text>
+      <text>Those who are in the flesh can't please God.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Hәmçinin cismani tәbiәtdә olanlar Allahı razı sala bilmәz.</text>
@@ -1687,7 +1687,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>For you didn’t receive the spirit of slavery that leads you back into fear again. You received the Spirit of adoption, by whom we cry, “Abba! Father!”</text>
+      <text>For you didn't receive the spirit of slavery that leads you back into fear again. You received the Spirit of adoption, by whom we cry, “Abba! Father!”</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Axı siz kölәlik ruhunu almadınız ki, yenә dә qorxu içindә yaşayasınız; övladlıq Ruhunu aldınız. Elә o Ruhun vasitәsilә Allaha &lt;&lt;Abba, Ata&gt;&gt; deyә nida edirik.</text>
@@ -1767,7 +1767,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>But if we hope for that which we don’t see, we wait for it with patience.</text>
+      <text>But if we hope for that which we don't see, we wait for it with patience.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Amma görmәdiyimiz şeyә ümid edәndә onu sәbirlә gözlәyirik.</text>
@@ -1775,7 +1775,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ROM">
       <verse num="26" />
-      <text>In the same way, the Spirit also helps our weaknesses, for we don’t know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can’t be uttered.</text>
+      <text>In the same way, the Spirit also helps our weaknesses, for we don't know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can't be uttered.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Belәcә Ruh da bizә zәif olarkәn kömәk edir. Biz nә üçün vә necә dua etmәk lazım olduğunu bilmirik, lakin Ruh Özü dillә deyilmәyәn ahlarla vәsatәtçilik edir.</text>
@@ -1783,7 +1783,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ROM">
       <verse num="27" />
-      <text>He who searches the hearts knows what is on the Spirit’s mind, because he makes intercession for the saints according to God.</text>
+      <text>He who searches the hearts knows what is on the Spirit's mind, because he makes intercession for the saints according to God.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Ürәklәri sınayan Allah da Ruhun nә düşündüyünü bilir, çünki Ruh Allahın iradәsinә görә müqәddәslәr üçün vәsatәtçilik edir.</text>
@@ -1823,7 +1823,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-ROM">
       <verse num="32" />
-      <text>He who didn’t spare his own Son, but delivered him up for us all, how would he not also with him freely give us all things?</text>
+      <text>He who didn't spare his own Son, but delivered him up for us all, how would he not also with him freely give us all things?</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>O Öz Oğlunu belә, әsirgәmәyib Onu hamımızın uğrunda ölümә tәslim etdisә, Onunla birgә bütün şeylәri dә bizә lütf etmәyәcәkmi?</text>
@@ -1831,7 +1831,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-ROM">
       <verse num="33" />
-      <text>Who could bring a charge against God’s chosen ones? It is God who justifies.</text>
+      <text>Who could bring a charge against God's chosen ones? It is God who justifies.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Allahın seçdiyi adamları kim ittiham edә bilәr? Onları saleh sayan Allahdır!</text>
@@ -1892,7 +1892,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>ROMANS 9</text>
+      <text>ROMANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1947,7 +1947,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>Neither, because they are Abraham’s seed, are they all children. But,</text>
+      <text>Neither, because they are Abraham's seed, are they all children. But,</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>İbrahimin nәslindәn olanların heç dә hamısı İbrahimin övladları deyil. Amma deyilib:</text>
@@ -2078,7 +2078,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>Or hasn’t the potter a right over the clay, from the same lump to make one part a vessel for honor, and another for dishonor?</text>
+      <text>Or hasn't the potter a right over the clay, from the same lump to make one part a vessel for honor, and another for dishonor?</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Mәgәr dulusçunun işlәtdiyi gilә ixtiyarı çatmır ki, hәmin gildәn bir qabı şәrәfli iş üçün, o biri qabı isә şәrәfsiz iş üçün düzәltsin?</text>
@@ -2168,7 +2168,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM">
       <verse num="30" />
-      <text>What shall we say then? That the Gentiles, who didn’t follow after righteousness, attained to righteousness, even the righteousness which is of faith.</text>
+      <text>What shall we say then? That the Gentiles, who didn't follow after righteousness, attained to righteousness, even the righteousness which is of faith.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Bәs nә deyә bilәrik? Salehliyin ardınca getmәyәn başqa millәtlәr salehliyi, yәni imanla gәlәn salehliyi әldә etdilәr.</text>
@@ -2176,7 +2176,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="narrator-ROM">
       <verse num="31" />
-      <text>But Israel, following after a law of righteousness, didn’t arrive at the law of righteousness.</text>
+      <text>But Israel, following after a law of righteousness, didn't arrive at the law of righteousness.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Amma salehlik göstәrәn Qanunun ardınca gedәn İsrail xalqı bu Qanuna çata bilmәdi.</text>
@@ -2184,7 +2184,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-ROM">
       <verse num="32" />
-      <text>Why? Because they didn’t seek it by faith, but as it were by works of the law. They stumbled over the stumbling stone; </text>
+      <text>Why? Because they didn't seek it by faith, but as it were by works of the law. They stumbled over the stumbling stone; </text>
       <verse num="33" />
       <text>even as it is written,</text>
     </ReferenceBlocks>
@@ -2201,14 +2201,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>ROMANS 10</text>
+      <text>ROMANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-ROM">
       <verse num="1" />
-      <text>Brothers, my heart’s desire and my prayer to God is for Israel, that they may be saved.</text>
+      <text>Brothers, my heart's desire and my prayer to God is for Israel, that they may be saved.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Ey qardaşlar, İsraillilәrin xilasını ürәkdәn arzulayıram vә bunun üçün Allaha dua edirәm.</text>
@@ -2224,7 +2224,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>For being ignorant of God’s righteousness, and seeking to establish their own righteousness, they didn’t subject themselves to the righteousness of God.</text>
+      <text>For being ignorant of God's righteousness, and seeking to establish their own righteousness, they didn't subject themselves to the righteousness of God.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Çünki onlar Allahdan gәlәn salehliyi anlamayıb öz salehliklәrini bәrqәrar etmәyә çalışmaqla Allahın salehliyinә tabe olmadılar.</text>
@@ -2254,7 +2254,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>But the righteousness which is of faith says this, “Don’t say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
+      <text>But the righteousness which is of faith says this, “Don't say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Amma imanla gәlәn salehlik barәdә belә deyilir: &lt;&lt;Ürәyindә demә ki, “Kim göylәrә, yәni Mәsihi endirmәyә çıxacaq?”</text>
@@ -2352,7 +2352,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>But they didn’t all listen to the glad news. For Isaiah says,</text>
+      <text>But they didn't all listen to the glad news. For Isaiah says,</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Amma Müjdәyә hamı qulaq asmadı. Çünki Yeşaya deyir:</text>
@@ -2374,7 +2374,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>But I ask, didn’t they hear? Yes, most certainly,</text>
+      <text>But I ask, didn't they hear? Yes, most certainly,</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Lakin soruşuram: mәgәr onlar eşitmәdilәr? Әlbәttә ki, eşitdilәr:</text>
@@ -2388,7 +2388,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>But I ask, didn’t Israel know? First Moses says,</text>
+      <text>But I ask, didn't Israel know? First Moses says,</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Bir dә soruşuram: mәgәr İsrail anlamadı? Musa ilk olaraq deyir:</text>
@@ -2409,7 +2409,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture">
-      <text>“I was found by those who didn’t seek me. I was revealed to those who didn’t ask for me.”</text>
+      <text>“I was found by those who didn't seek me. I was revealed to those who didn't ask for me.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Rәbb deyir: “Mәni axtarmayanlar tәrәfindәn tapıldım, Mәni soruşmayanlara Mәn zühur etdim”&gt;&gt;.</text>
   </block>
@@ -2429,7 +2429,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>ROMANS 11</text>
+      <text>ROMANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -2444,7 +2444,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="2" characterId="narrator-ROM">
       <verse num="2" />
-      <text>God didn’t reject his people, which he foreknew. Or don’t you know what the Scripture says about Elijah? How he pleads with God against Israel:</text>
+      <text>God didn't reject his people, which he foreknew. Or don't you know what the Scripture says about Elijah? How he pleads with God against Israel:</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Allah qabaqcadan tanıdığı Öz xalqını rәdd etmәdi. Mәgәr siz bilmirsiniz ki, Müqәddәs Yazıda İlyas barәdә nә deyilir? İlyas İsraildәn Allaha şikayәt edib deyir:</text>
@@ -2490,7 +2490,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-ROM">
       <verse num="7" />
-      <text>What then? That which Israel seeks for, that he didn’t obtain, but the chosen ones obtained it, and the rest were hardened. </text>
+      <text>What then? That which Israel seeks for, that he didn't obtain, but the chosen ones obtained it, and the rest were hardened. </text>
       <verse num="8" />
       <text>According as it is written,</text>
     </ReferenceBlocks>
@@ -2586,7 +2586,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>Don’t boast over the branches. If you boast, it is not you who support the root, but the root supports you.</text>
+      <text>Don't boast over the branches. If you boast, it is not you who support the root, but the root supports you.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>filial artıq öyünə etməyin. Siz öymək, bu kök dəstək sizə deyil, kök siz dəstəkləyir.</text>
@@ -2602,7 +2602,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>True; by their unbelief they were broken off, and you stand by your faith. Don’t be conceited, but fear;</text>
+      <text>True; by their unbelief they were broken off, and you stand by your faith. Don't be conceited, but fear;</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Doğrudur; onlar imansızlıqlarına görә qoparıldı, amma sәn imanına görә yerindә durursan. Buna görә tәkәbbürlü olma, әksinә, qorx!</text>
@@ -2610,7 +2610,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>for if God didn’t spare the natural branches, neither will he spare you.</text>
+      <text>for if God didn't spare the natural branches, neither will he spare you.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Çünki Allah tәbii budaqlara rәhm etmәdisә, bәlkә sәnә dә rәhm etmәyәcәk.</text>
@@ -2626,7 +2626,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="narrator-ROM">
       <verse num="23" />
-      <text>They also, if they don’t continue in their unbelief, will be grafted in, for God is able to graft them in again.</text>
+      <text>They also, if they don't continue in their unbelief, will be grafted in, for God is able to graft them in again.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Әgәr imansızlıqda qalmasalar, onlar da peyvәnd olunacaqlar, çünki Allah onları yenә dә peyvәnd etmәyә qadirdir.</text>
@@ -2642,7 +2642,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-ROM">
       <verse num="25" />
-      <text>For I don’t desire you to be ignorant, brothers, of this mystery, so that you won’t be wise in your own conceits: A partial hardening has happened to Israel until the fullness of the Gentiles has come in.</text>
+      <text>For I don't desire you to be ignorant, brothers, of this mystery, so that you won't be wise in your own conceits: A partial hardening has happened to Israel until the fullness of the Gentiles has come in.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Ey qardaşlar, özünüzü ağıllı saymayasınız deyә bu sirdәn bixәbәr olmağınızı istәmirәm: İsrailin bәzisi o vaxta qәdәr inadkar qalacaq ki, başqa millәtlәrdәn xilas olanların sayı tamamlansın.</text>
@@ -2743,7 +2743,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>ROMANS 12</text>
+      <text>ROMANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -2758,7 +2758,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-ROM">
       <verse num="2" />
-      <text>Don’t be conformed to this world, but be transformed by the renewing of your mind. That way you may prove what is the good, well-pleasing, and perfect will of God.</text>
+      <text>Don't be conformed to this world, but be transformed by the renewing of your mind. That way you may prove what is the good, well-pleasing, and perfect will of God.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Bu dövrә uyğunlaşmayın, әksinә, düşüncәnizin tәzәlәnmәsi ilә dәyişin ki, Allahın yaxşı, razı salan vә kamil iradәsini ayırd edәsiniz.</text>
@@ -2774,7 +2774,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>For we have many members in one body, and all the members don’t have the same function.</text>
+      <text>For we have many members in one body, and all the members don't have the same function.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Çünki bizim bir bәdәnimizdә çoxlu üzvlәr olduğu halda onların hәr birinin vәzifәsi heç dә eyni deyil.</text>
@@ -2854,7 +2854,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="narrator-ROM">
       <verse num="14" />
-      <text>Bless those who persecute you; bless, and don’t curse.</text>
+      <text>Bless those who persecute you; bless, and don't curse.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Sizi tәqib edәnlәrә xeyir-dua verin; lәnәt yox, xeyir-dua verin.</text>
@@ -2870,7 +2870,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>Be of the same mind one toward another. Don’t set your mind on high things, but associate with the humble. Don’t be wise in your own conceits.</text>
+      <text>Be of the same mind one toward another. Don't set your mind on high things, but associate with the humble. Don't be wise in your own conceits.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Bir-birinizlә hәmfikir olun; tәkәbbürlü olmayın, mәzlumlarla dostluq edin. Özünüzü ağıllı saymayın.</text>
@@ -2894,7 +2894,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>Don’t seek revenge yourselves, beloved, but give place to God’s wrath. For it is written,</text>
+      <text>Don't seek revenge yourselves, beloved, but give place to God's wrath. For it is written,</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Ey sevimlilәr, heç kәsdәn qisas almayın, Allahın qәzәbinә yer verin. Çünki yazılıb ki, Rәbb belә deyir:</text>
@@ -2922,14 +2922,14 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM">
       <verse num="21" />
-      <text>Don’t be overcome by evil, but overcome evil with good.</text>
+      <text>Don't be overcome by evil, but overcome evil with good.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Pislik sәnә üstün gәlmәsin, pisliyә yaxşılıqla qalib gәl.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>ROMANS 13</text>
+      <text>ROMANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2960,7 +2960,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>A leader is a servant of God to you for good. But if you do that which is evil, be afraid, for he doesn’t bear the sword in vain; for he is a servant of God, an avenger for wrath to him who does evil.</text>
+      <text>A leader is a servant of God to you for good. But if you do that which is evil, be afraid, for he doesn't bear the sword in vain; for he is a servant of God, an avenger for wrath to him who does evil.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Hökmdar sәnin xeyrin üçün Allaha xidmәt edir. Amma pis iş görürsәnsә, qorx! Çünki o, әbәs yerә qılınc daşımır, Allaha xidmәt edir ki, pis iş görәndәn qisas alsın vә Allahın qәzәbini onun başına gәtirsin.</text>
@@ -2976,7 +2976,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>For this reason you also pay taxes, for they are servants of God’s service, attending continually on this very thing.</text>
+      <text>For this reason you also pay taxes, for they are servants of God's service, attending continually on this very thing.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Vergini dә siz buna görә ödәyirsiniz. Çünki hökmdarlar Allahın xidmәtçisidir vә mәhz bu işlә daim mәşğuldurlar.</text>
@@ -3008,7 +3008,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="10" characterId="narrator-ROM">
       <verse num="10" />
-      <text>Love doesn’t harm a neighbor. Love therefore is the fulfillment of the law.</text>
+      <text>Love doesn't harm a neighbor. Love therefore is the fulfillment of the law.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Sevәn insan qonşusuna qarşı pis iş görmәz, buna görә dә mәhәbbәt Qanunun tamamlanmasıdır.</text>
@@ -3024,7 +3024,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="narrator-ROM">
       <verse num="12" />
-      <text>The night is far gone, and the day is near. Let’s therefore throw off the works of darkness, and let’s put on the armor of light.</text>
+      <text>The night is far gone, and the day is near. Let's therefore throw off the works of darkness, and let's put on the armor of light.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Gecә keçdi, gündüz isә yaxınlaşdı; buna görә dә qaranlığın әmәllәrini üzәrimizdәn ataq vә nurun silahlarına bürünәk.</text>
@@ -3047,7 +3047,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>ROMANS 14</text>
+      <text>ROMANS CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -3070,7 +3070,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>Don’t let him who eats despise him who doesn’t eat. Don’t let him who doesn’t eat judge him who eats, for God has accepted him.</text>
+      <text>Don't let him who eats despise him who doesn't eat. Don't let him who doesn't eat judge him who eats, for God has accepted him.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Yeyәn yemәyәnә xor baxmasın, yemәyәn dә yeyәni mühakimә etmәsin. Çünki Allah onu qәbul edib.</text>
@@ -3078,7 +3078,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-ROM">
       <verse num="4" />
-      <text>Who are you who judge another’s servant? To his own lord he stands or falls. Yes, he will be made to stand, for God has power to make him stand.</text>
+      <text>Who are you who judge another's servant? To his own lord he stands or falls. Yes, he will be made to stand, for God has power to make him stand.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Sәn kimsәn ki, başqasının xidmәtçisini mühakimә edirsәn? O xidmәtçini haqlı yaxud haqsız çıxarmaq ixtiyarı ağasına mәxsusdur. Xidmәtçi haqlı çıxacaq, çünki Rәbb onu haqlı çıxarmağa qadirdir.</text>
@@ -3094,7 +3094,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-ROM">
       <verse num="6" />
-      <text>He who observes the day, observes it to the Lord; and he who does not observe the day, to the Lord he does not observe it. He who eats, eats to the Lord, for he gives God thanks. He who doesn’t eat, to the Lord he doesn’t eat, and gives God thanks.</text>
+      <text>He who observes the day, observes it to the Lord; and he who does not observe the day, to the Lord he does not observe it. He who eats, eats to the Lord, for he gives God thanks. He who doesn't eat, to the Lord he doesn't eat, and gives God thanks.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Bir günü fәrqlәndirәn adam onu Rәbb üçün fәrqlәndirir. Yeyәn Rәbb üçün yeyir, çünki Allaha şükür edir. Yemәyәn dә Rәbb üçün yemir vә Allaha şükür edir.</text>
@@ -3110,7 +3110,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-ROM">
       <verse num="8" />
-      <text>For if we live, we live to the Lord. Or if we die, we die to the Lord. If therefore we live or die, we are the Lord’s.</text>
+      <text>For if we live, we live to the Lord. Or if we die, we die to the Lord. If therefore we live or die, we are the Lord's.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Yaşayırıqsa, Rәbb üçün yaşayırıq, ölürüksә, Rәbb üçün ölürük. Buna görә yaşasaq da, ölsәk dә Rәbbә mәxsusuq.</text>
@@ -3152,7 +3152,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-ROM">
       <verse num="13" />
-      <text>Therefore let’s not judge one another any more. But judge this rather, that no man put a stumbling block in his brother’s way, or an occasion for falling.</text>
+      <text>Therefore let's not judge one another any more. But judge this rather, that no man put a stumbling block in his brother's way, or an occasion for falling.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Buna görә dә daha bir-birimizi mühakimә etmәyәk, әksinә, qәrara alın ki, heç bir qardaşın önünә onu büdrәdәn yaxud pis yola çәkәn bir şey qoymayasınız.</text>
@@ -3168,7 +3168,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="narrator-ROM">
       <verse num="15" />
-      <text>Yet if because of food your brother is grieved, you walk no longer in love. Don’t destroy with your food him for whom Christ died.</text>
+      <text>Yet if because of food your brother is grieved, you walk no longer in love. Don't destroy with your food him for whom Christ died.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Әgәr sәnin qardaşın yediyin bir şeydәn ötrü kәdәrlәnirsә, onda sәn mәhәbbәtә görә hәyat sürmürsәn. Uğrunda Mәsihin öldüyü adamı öz yemәyinә görә hәlaka tәslim etmә.</text>
@@ -3176,7 +3176,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-ROM">
       <verse num="16" />
-      <text>Then don’t let your good be slandered,</text>
+      <text>Then don't let your good be slandered,</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>İmkan vermәyin ki, sizin yaxşı hesab etdiyiniz bir şey pislәnsin.</text>
@@ -3208,7 +3208,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>Don’t overthrow God’s work for food’s sake. All things indeed are clean, however it is evil for that man who creates a stumbling block by eating.</text>
+      <text>Don't overthrow God's work for food's sake. All things indeed are clean, however it is evil for that man who creates a stumbling block by eating.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Qidaya görә Allahın işlәrini pozma! Hamısı tәmizdir. Amma yemәyi ilә başqasının büdrәmәsinә sәbәb olan adam pislik edir.</text>
@@ -3224,7 +3224,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-ROM">
       <verse num="22" />
-      <text>Do you have faith? Have it to yourself before God. Happy is he who doesn’t judge himself in that which he approves.</text>
+      <text>Do you have faith? Have it to yourself before God. Happy is he who doesn't judge himself in that which he approves.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Bu mәsәlәlәrdә etiqadını Allahın önündә öz ürәyindә saxla. Seçdiyi bir işdә özünü mühakimә etmәyәn adam nә bәxtiyardır!</text>
@@ -3232,7 +3232,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ROM">
       <verse num="23" />
-      <text>But he who doubts is damned if he eats, because it isn’t of faith; and whatever is not of faith is sin.</text>
+      <text>But he who doubts is damned if he eats, because it isn't of faith; and whatever is not of faith is sin.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Amma bir yemәyә şübhә edәn adam o yemәyi yeyirsә, mәhkum olur. Çünki gördüyü iş imana әsaslanmır vә imana әsaslanmayan hәr şey günahdır</text>
@@ -3263,7 +3263,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>ROMANS 15</text>
+      <text>ROMANS CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -3286,7 +3286,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-ROM">
       <verse num="3" />
-      <text>For even Christ didn’t please himself. But, as it is written,</text>
+      <text>For even Christ didn't please himself. But, as it is written,</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Çünki Mәsih dә Özünü razı salmadı. Necә ki yazılıb:</text>
@@ -3444,7 +3444,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="narrator-ROM">
       <verse num="19" />
-      <text>in the power of signs and wonders, in the power of God’s Spirit; so that from Jerusalem, and around as far as to Illyricum, I have fully preached the Good News of Christ;</text>
+      <text>in the power of signs and wonders, in the power of God's Spirit; so that from Jerusalem, and around as far as to Illyricum, I have fully preached the Good News of Christ;</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>әlamәt vә xariqәlәrin qüvvәti ilә, Allahın Ruhunun qüdrәti ilә etdiklәrindәn başqa bir şey barәdә danışmağa cәsarәt etmәrәm. Belә ki mәn Yerusәlimdәn başlayıb İllirikum diyarına qәdәr hәr tәrәfdә Mәsihin Müjdәsini yayıb qurtardım.</text>
@@ -3452,7 +3452,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
-      <text>yes, making it my aim to preach the Good News, not where Christ was already named, that I might not build on another’s foundation. </text>
+      <text>yes, making it my aim to preach the Good News, not where Christ was already named, that I might not build on another's foundation. </text>
       <verse num="21" />
       <text>But, as it is written,</text>
     </ReferenceBlocks>
@@ -3463,7 +3463,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture">
-      <text>“They will see, to whom no news of him came. They who haven’t heard will understand.”</text>
+      <text>“They will see, to whom no news of him came. They who haven't heard will understand.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Onun haqqında xәbәri olmayanlar görәcәk, Eşitmәyәnlәr anlayacaq&gt;&gt;.</text>
   </block>
@@ -3565,7 +3565,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>ROMANS 16</text>
+      <text>ROMANS CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -3708,7 +3708,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ROM">
       <verse num="18" />
-      <text>For those who are such don’t serve our Lord, Jesus Christ, but their own belly; and by their smooth and flattering speech, they deceive the hearts of the innocent.</text>
+      <text>For those who are such don't serve our Lord, Jesus Christ, but their own belly; and by their smooth and flattering speech, they deceive the hearts of the innocent.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Çünki belә adamlar Rәbbimiz Mәsihә deyil, öz qarınlarına qulluq edirlәr; onlar yağlı vә yaltaq nitqlәri ilә sadәlövh adamların ürәklәrini tovlayırlar.</text>

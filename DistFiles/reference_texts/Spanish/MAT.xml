@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>MATTHEW 1</text>
+      <text>MATTHEW CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -174,7 +174,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="angel" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="angel" multiBlockQuote="Start">
-      <text>“Joseph, son of David, don’t be afraid to take to yourself Mary, your wife, for that which is conceived in her is of the Holy Spirit. </text>
+      <text>“Joseph, son of David, don't be afraid to take to yourself Mary, your wife, for that which is conceived in her is of the Holy Spirit. </text>
     </ReferenceBlocks>
     <text>&lt;&lt;José, descendiente de David, no tengas miedo de tomar a María por esposa, porque su hijo lo ha concebido por el poder del Espíritu Santo.</text>
   </block>
@@ -215,14 +215,14 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-MAT">
       <verse num="25" />
-      <text>and didn’t know her sexually until she had brought forth her firstborn son. He named him Jesus.</text>
+      <text>and didn't know her sexually until she had brought forth her firstborn son. He named him Jesus.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Y sin haber tenido relaciones conyugales, ella dio a luz a su hijo, al que José puso por nombre Jesús.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>MATTHEW 2</text>
+      <text>MATTHEW CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -349,7 +349,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-MAT">
       <verse num="12" />
-      <text>Being warned in a dream that they shouldn’t return to Herod, they went back to their own country another way.</text>
+      <text>Being warned in a dream that they shouldn't return to Herod, they went back to their own country another way.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Después, advertidos en sueños de que no debían volver a donde estaba Herodes, regresaron a su tierra por otro camino.</text>
@@ -409,7 +409,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="scripture">
       <verse num="18" />
-      <text>“A voice was heard in Ramah, lamentation, weeping and great mourning, Rachel weeping for her children; she wouldn’t be comforted, because they are no more.”</text>
+      <text>“A voice was heard in Ramah, lamentation, weeping and great mourning, Rachel weeping for her children; she wouldn't be comforted, because they are no more.”</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>&lt;&lt;Se oyó una voz en Ramá, llantos y grandes lamentos. Era Raquel, que lloraba por sus hijos y no quería ser consolada porque ya estaban muertos.&gt;&gt;</text>
@@ -425,7 +425,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="angel" delivery="commanding" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="angel" delivery="commanding">
       <verse num="20" />
-      <text>“Arise and take the young child and his mother, and go into the land of Israel, for those who sought the young child’s life are dead.”</text>
+      <text>“Arise and take the young child and his mother, and go into the land of Israel, for those who sought the young child's life are dead.”</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>&lt;&lt;Levántate, toma contigo al niño y a su madre, y regresa a Israel, porque ya han muerto los que querían matar al niño.&gt;&gt;</text>
@@ -462,7 +462,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>MATTHEW 3</text>
+      <text>MATTHEW CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -499,7 +499,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="narrator-MAT">
       <verse num="4" />
-      <text>Now John himself wore clothing made of camel’s hair, with a leather belt around his waist. His food was locusts and wild honey.</text>
+      <text>Now John himself wore clothing made of camel's hair, with a leather belt around his waist. His food was locusts and wild honey.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>La ropa de Juan estaba hecha de pelo de camello, y se la sujetaba al cuerpo con un cinturón de cuero; su comida era langostas y miel del monte.</text>
@@ -545,7 +545,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="John the Baptist" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="John the Baptist" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>Don’t think to yourselves, ‘We have Abraham for our father,’ for I tell you that God is able to raise up children to Abraham from these stones.</text>
+      <text>Don't think to yourselves, ‘We have Abraham for our father,’ for I tell you that God is able to raise up children to Abraham from these stones.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>y no presuman diciéndose a sí mismos: &lt;Nosotros somos descendientes de Abraham&gt;; porque les aseguro que incluso a estas piedras Dios puede convertirlas en descendientes de Abraham.</text>
@@ -553,7 +553,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="John the Baptist" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="John the Baptist" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>Even now the axe lies at the root of the trees. Therefore every tree that doesn’t bring forth good fruit is cut down, and cast into the fire.</text>
+      <text>Even now the axe lies at the root of the trees. Therefore every tree that doesn't bring forth good fruit is cut down, and cast into the fire.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>El hacha ya está lista para cortar los árboles de raíz. Todo árbol que no da buen fruto, se corta y se echa al fuego.</text>
@@ -640,7 +640,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>MATTHEW 4</text>
+      <text>MATTHEW CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -702,7 +702,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Satan (Devil)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="Satan (Devil)">
-      <text>“If you are the Son of God, throw yourself down, for it is written, ‘He will put his angels in charge of you.’ and, ‘On their hands they will bear you up, so that you don’t dash your foot against a stone.’”</text>
+      <text>“If you are the Son of God, throw yourself down, for it is written, ‘He will put his angels in charge of you.’ and, ‘On their hands they will bear you up, so that you don't dash your foot against a stone.’”</text>
     </ReferenceBlocks>
     <text>Si de veras eres Hijo de Dios, tírate abajo; porque la Escritura dice: &lt;Dios mandará que sus ángeles te cuiden. Te levantarán con sus manos, para que no tropieces con piedra alguna.&gt;</text>
   </block>
@@ -882,7 +882,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>MATTHEW 5</text>
+      <text>MATTHEW CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -989,7 +989,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>You are the light of the world. A city located on a hill can’t be hidden.</text>
+      <text>You are the light of the world. A city located on a hill can't be hidden.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>&lt;&lt;Ustedes son la luz de este mundo. Una ciudad en lo alto de un cerro no puede esconderse.</text>
@@ -1013,7 +1013,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>Don’t think that I came to destroy the law or the prophets. I didn’t come to destroy, but to fulfill.</text>
+      <text>Don't think that I came to destroy the law or the prophets. I didn't come to destroy, but to fulfill.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>&lt;&lt;No crean ustedes que yo he venido a suprimir la ley o los profetas; no he venido a ponerles fin, sino a darles su pleno valor.</text>
@@ -1145,7 +1145,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="34" />
-      <text>but I tell you, don’t swear at all: neither by heaven, for it is the throne of God;</text>
+      <text>but I tell you, don't swear at all: neither by heaven, for it is the throne of God;</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>Pero yo les digo: simplemente, no juren. No juren por el cielo, porque es el trono de Dios;</text>
@@ -1161,7 +1161,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="36" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="36" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>Neither shall you swear by your head, for you can’t make one hair white or black.</text>
+      <text>Neither shall you swear by your head, for you can't make one hair white or black.</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Ni juren ustedes tampoco por su propia cabeza, porque no pueden hacer blanco o negro ni un solo cabello.</text>
@@ -1185,7 +1185,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="39" />
-      <text>But I tell you, don’t resist him who is evil; but whoever strikes you on your right cheek, turn to him the other also.</text>
+      <text>But I tell you, don't resist him who is evil; but whoever strikes you on your right cheek, turn to him the other also.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Pero yo les digo: No resistas al que te haga algún mal; al contrario, si alguien te pega en la mejilla derecha, ofrécele también la otra.</text>
@@ -1209,7 +1209,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="42" />
-      <text>Give to him who asks you, and don’t turn away him who desires to borrow from you.</text>
+      <text>Give to him who asks you, and don't turn away him who desires to borrow from you.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>A cualquiera que te pida algo, dáselo; y no le vuelvas la espalda al que te pida prestado.</text>
@@ -1241,7 +1241,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="46" />
-      <text>For if you love those who love you, what reward do you have? Don’t even the tax collectors do the same?</text>
+      <text>For if you love those who love you, what reward do you have? Don't even the tax collectors do the same?</text>
     </ReferenceBlocks>
     <verse num="46" />
     <text>Porque si ustedes aman solamente a quienes los aman, ¿qué premio recibirán? Hasta los que cobran impuestos para Roma se portan así.</text>
@@ -1249,7 +1249,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="47" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="47" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="47" />
-      <text>If you only greet your friends, what more do you do than others? Don’t even the tax collectors do the same?</text>
+      <text>If you only greet your friends, what more do you do than others? Don't even the tax collectors do the same?</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>Y si saludan solamente a sus hermanos, ¿qué hacen de extraordinario? Hasta los paganos se portan así.</text>
@@ -1264,14 +1264,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>MATTHEW 6</text>
+      <text>MATTHEW CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="Jesus" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
       <verse num="1" />
-      <text>“Be careful that you don’t do your charitable giving before men, to be seen by them. Otherwise you will have no reward from your Father who is in heaven.</text>
+      <text>“Be careful that you don't do your charitable giving before men, to be seen by them. Otherwise you will have no reward from your Father who is in heaven.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>&lt;&lt;No hagan sus buenas obras delante de la gente solo para que los demás los vean. Si lo hacen así, su Padre que está en el cielo no les dará ningún premio.</text>
@@ -1279,7 +1279,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="2" />
-      <text>Therefore when you do merciful deeds, don’t sound a trumpet before yourself, as the hypocrites do in the synagogues and in the streets, that they may get glory from men. Most certainly I tell you, they have received their reward.</text>
+      <text>Therefore when you do merciful deeds, don't sound a trumpet before yourself, as the hypocrites do in the synagogues and in the streets, that they may get glory from men. Most certainly I tell you, they have received their reward.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>&lt;&lt;Por eso, cuando ayudes a los necesitados, no lo publiques a los cuatro vientos, como hacen los hipócritas en las sinagogas y en las calles para que la gente hable bien de ellos. Les aseguro que con eso ya tienen su premio.</text>
@@ -1287,7 +1287,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>But when you do merciful deeds, don’t let your left hand know what your right hand does.</text>
+      <text>But when you do merciful deeds, don't let your left hand know what your right hand does.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Cuando tú ayudes a los necesitados, no se lo cuentes ni siquiera a tu amigo más íntimo;</text>
@@ -1319,7 +1319,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
       <verse num="7" />
-      <text>In praying, don’t use vain repetitions, as the Gentiles do; for they think that they will be heard for their much speaking.</text>
+      <text>In praying, don't use vain repetitions, as the Gentiles do; for they think that they will be heard for their much speaking.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>&lt;&lt;Y al orar no repitan ustedes palabras inútiles, como hacen los paganos, que se imaginan que cuanto más hablen más caso les hará Dios.</text>
@@ -1327,7 +1327,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>Therefore don’t be like them, for your Father knows what things you need, before you ask him.</text>
+      <text>Therefore don't be like them, for your Father knows what things you need, before you ask him.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>No sean como ellos, porque su Padre ya sabe lo que ustedes necesitan, antes que se lo pidan.</text>
@@ -1383,7 +1383,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="15" />
-      <text>But if you don’t forgive men their trespasses, neither will your Father forgive your trespasses.</text>
+      <text>But if you don't forgive men their trespasses, neither will your Father forgive your trespasses.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>pero si no perdonan a otros, tampoco su Padre les perdonará a ustedes sus pecados.</text>
@@ -1391,7 +1391,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="Jesus" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="Jesus" delivery="preaching" multiBlockQuote="Start">
       <verse num="16" />
-      <text>Moreover when you fast, don’t be like the hypocrites, with sad faces. For they disfigure their faces, that they may be seen by men to be fasting. Most certainly I tell you, they have received their reward.</text>
+      <text>Moreover when you fast, don't be like the hypocrites, with sad faces. For they disfigure their faces, that they may be seen by men to be fasting. Most certainly I tell you, they have received their reward.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>&lt;&lt;Cuando ustedes ayunen, no pongan cara triste, como los hipócritas, que aparentan tristeza para que la gente vea que están ayunando. Les aseguro que con eso ya tienen su premio.</text>
@@ -1415,7 +1415,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>Don’t lay up treasures for yourselves on the earth, where moth and rust consume, and where thieves break through and steal;</text>
+      <text>Don't lay up treasures for yourselves on the earth, where moth and rust consume, and where thieves break through and steal;</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>&lt;&lt;No amontonen riquezas aquí en la tierra, donde la polilla destruye y las cosas se echan a perder, y donde los ladrones entran a robar.</text>
@@ -1423,7 +1423,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="20" />
-      <text>but lay up for yourselves treasures in heaven, where neither moth nor rust consume, and where thieves don’t break through and steal.</text>
+      <text>but lay up for yourselves treasures in heaven, where neither moth nor rust consume, and where thieves don't break through and steal.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Más bien amontonen riquezas en el cielo, donde la polilla no destruye ni las cosas se echan a perder ni los ladrones entran a robar.</text>
@@ -1455,7 +1455,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>No one can serve two masters, for either he will hate the one and love the other; or else he will be devoted to one and despise the other. You can’t serve both God and Mammon.</text>
+      <text>No one can serve two masters, for either he will hate the one and love the other; or else he will be devoted to one and despise the other. You can't serve both God and Mammon.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>&lt;&lt;Nadie puede servir a dos amos, porque odiará a uno y querrá al otro, o será fiel a uno y despreciará al otro. No se puede servir a Dios y a las riquezas.</text>
@@ -1463,7 +1463,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>Therefore I tell you, don’t be anxious for your life: what you will eat, or what you will drink; nor yet for your body, what you will wear. Isn’t life more than food, and the body more than clothing?</text>
+      <text>Therefore I tell you, don't be anxious for your life: what you will eat, or what you will drink; nor yet for your body, what you will wear. Isn't life more than food, and the body more than clothing?</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>&lt;&lt;Por lo tanto, yo les digo: No se preocupen por lo que han de comer o beber para vivir, ni por la ropa que necesitan para el cuerpo. ¿No vale la vida más que la comida y el cuerpo más que la ropa?</text>
@@ -1471,7 +1471,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="26" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="26" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>See the birds of the sky, that they don’t sow, neither do they reap, nor gather into barns. Your heavenly Father feeds them. Aren’t you of much more value than they?</text>
+      <text>See the birds of the sky, that they don't sow, neither do they reap, nor gather into barns. Your heavenly Father feeds them. Aren't you of much more value than they?</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Miren las aves que vuelan por el aire: no siembran ni cosechan ni guardan la cosecha en graneros; sin embargo, el Padre de ustedes que está en el cielo les da de comer. ¡Y ustedes valen más que las aves!</text>
@@ -1487,7 +1487,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="28" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="28" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="28" />
-      <text>Why are you anxious about clothing? Consider the lilies of the field, how they grow. They don’t toil, neither do they spin,</text>
+      <text>Why are you anxious about clothing? Consider the lilies of the field, how they grow. They don't toil, neither do they spin,</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>&lt;&lt;¿Y por qué se preocupan ustedes por la ropa? Fíjense cómo crecen los lirios del campo: no trabajan ni hilan.</text>
@@ -1503,7 +1503,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="30" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="30" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="30" />
-      <text>But if God so clothes the grass of the field, which today exists, and tomorrow is thrown into the oven, won’t he much more clothe you, you of little faith?</text>
+      <text>But if God so clothes the grass of the field, which today exists, and tomorrow is thrown into the oven, won't he much more clothe you, you of little faith?</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Pues si Dios viste así a la hierba, que hoy está en el campo y mañana se quema en el horno, ¡con mayor razón los vestirá a ustedes, gente falta de fe!</text>
@@ -1511,7 +1511,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="31" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="31" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>Therefore don’t be anxious, saying, ‘What will we eat?’, ‘What will we drink?’ or, ‘With what will we be clothed?’</text>
+      <text>Therefore don't be anxious, saying, ‘What will we eat?’, ‘What will we drink?’ or, ‘With what will we be clothed?’</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Así que no se preocupen, preguntándose: &lt;¿Qué vamos a comer?&gt; o &lt;¿Qué vamos a beber?&gt; o &lt;¿Con qué vamos a vestirnos?&gt;</text>
@@ -1527,7 +1527,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="33" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="33" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="33" />
-      <text>But seek first God’s Kingdom, and his righteousness; and all these things will be given to you as well.</text>
+      <text>But seek first God's Kingdom, and his righteousness; and all these things will be given to you as well.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Por lo tanto, pongan toda su atención en el reino de los cielos y en hacer lo que es justo ante Dios, y recibirán también todas estas cosas.</text>
@@ -1535,21 +1535,21 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="34" />
-      <text>Therefore don’t be anxious for tomorrow, for tomorrow will be anxious for itself. Each day’s own evil is sufficient.”</text>
+      <text>Therefore don't be anxious for tomorrow, for tomorrow will be anxious for itself. Each day's own evil is sufficient.”</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>No se preocupen por el día de mañana, porque mañana habrá tiempo para preocuparse. Cada día tiene bastante con sus propios problemas.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>MATTHEW 7</text>
+      <text>MATTHEW CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="Jesus" delivery="preaching" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="Jesus" delivery="preaching">
       <verse num="1" />
-      <text>“Don’t judge, so that you won’t be judged.</text>
+      <text>“Don't judge, so that you won't be judged.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>&lt;&lt;No juzguen a otros, para que Dios no los juzgue a ustedes.</text>
@@ -1565,7 +1565,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>Why do you see the speck that is in your brother’s eye, but don’t consider the beam that is in your own eye?</text>
+      <text>Why do you see the speck that is in your brother's eye, but don't consider the beam that is in your own eye?</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>¿Por qué te pones a mirar la astilla que tiene tu hermano en el ojo, y no te fijas en el tronco que tú tienes en el tuyo?</text>
@@ -1581,7 +1581,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="5" />
-      <text>You hypocrite! First remove the beam out of your own eye, and then you can see clearly to remove the speck out of your brother’s eye.</text>
+      <text>You hypocrite! First remove the beam out of your own eye, and then you can see clearly to remove the speck out of your brother's eye.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>¡Hipócrita!, saca primero el tronco de tu propio ojo, y así podrás ver bien para sacar la astilla que tiene tu hermano en el suyo.</text>
@@ -1589,7 +1589,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="6" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="6" />
-      <text>Don’t give that which is holy to the dogs, neither throw your pearls before the pigs, lest perhaps they trample them under their feet, and turn and tear you to pieces.</text>
+      <text>Don't give that which is holy to the dogs, neither throw your pearls before the pigs, lest perhaps they trample them under their feet, and turn and tear you to pieces.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>&lt;&lt;No den las cosas sagradas a los perros, no sea que se vuelvan contra ustedes y los hagan pedazos. Y no echen sus perlas a los cerdos, no sea que las pisoteen.</text>
@@ -1661,7 +1661,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="15" />
-      <text>Beware of false prophets, who come to you in sheep’s clothing, but inwardly are ravening wolves.</text>
+      <text>Beware of false prophets, who come to you in sheep's clothing, but inwardly are ravening wolves.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>&lt;&lt;Cuídense de esos mentirosos que pretenden hablar de parte de Dios. Vienen a ustedes disfrazados de ovejas, pero por dentro son lobos feroces.</text>
@@ -1685,7 +1685,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="18" />
-      <text>A good tree can’t produce evil fruit, neither can a corrupt tree produce good fruit.</text>
+      <text>A good tree can't produce evil fruit, neither can a corrupt tree produce good fruit.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>El árbol bueno no puede dar fruto malo, ni el árbol malo dar fruto bueno.</text>
@@ -1693,7 +1693,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>Every tree that doesn’t grow good fruit is cut down, and thrown into the fire.</text>
+      <text>Every tree that doesn't grow good fruit is cut down, and thrown into the fire.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Todo árbol que no da buen fruto, se corta y se echa al fuego.</text>
@@ -1717,7 +1717,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="22" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="22" />
-      <text>Many will tell me in that day, ‘Lord, Lord, didn’t we prophesy in your name, in your name cast out demons, and in your name do many mighty works?’</text>
+      <text>Many will tell me in that day, ‘Lord, Lord, didn't we prophesy in your name, in your name cast out demons, and in your name do many mighty works?’</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Aquel día muchos me dirán: &lt;Señor, Señor, nosotros comunicamos mensajes en tu nombre, y en tu nombre expulsamos demonios, y en tu nombre hicimos muchos milagros.&gt;</text>
@@ -1741,7 +1741,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>The rain came down, the floods came, and the winds blew, and beat on that house; and it didn’t fall, for it was founded on the rock.</text>
+      <text>The rain came down, the floods came, and the winds blew, and beat on that house; and it didn't fall, for it was founded on the rock.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Vino la lluvia, crecieron los ríos y soplaron los vientos contra la casa; pero no cayó, porque tenía su base sobre la roca.</text>
@@ -1749,7 +1749,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>Everyone who hears these words of mine, and doesn’t do them will be like a foolish man, who built his house on the sand.</text>
+      <text>Everyone who hears these words of mine, and doesn't do them will be like a foolish man, who built his house on the sand.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Pero el que me oye y no hace lo que yo digo, es como un tonto que construyó su casa sobre la arena.</text>
@@ -1780,7 +1780,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>MATTHEW 8</text>
+      <text>MATTHEW CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1878,7 +1878,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="centurion with great faith" delivery="humbly" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="centurion with great faith" delivery="humbly" multiBlockQuote="Start">
-      <text>“Lord, I’m not worthy for you to come under my roof. Just say the word, and my servant will be healed.</text>
+      <text>“Lord, I'm not worthy for you to come under my roof. Just say the word, and my servant will be healed.</text>
     </ReferenceBlocks>
     <text>Señor, yo no merezco que entres en mi casa; solamente da la orden, y mi criado quedará sano.</text>
   </block>
@@ -1900,7 +1900,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="Jesus">
-      <text>“Most certainly I tell you, I haven’t found so great a faith, not even in Israel.</text>
+      <text>“Most certainly I tell you, I haven't found so great a faith, not even in Israel.</text>
     </ReferenceBlocks>
     <text>Les aseguro que no he encontrado a nadie en Israel con tanta fe como este hombre.</text>
   </block>
@@ -1943,7 +1943,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-MAT">
       <verse num="14" />
-      <text>When Jesus came into Peter’s house, he saw his wife’s mother lying sick with a fever.</text>
+      <text>When Jesus came into Peter's house, he saw his wife's mother lying sick with a fever.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Jesús fue a casa de Pedro, donde encontró a la suegra de este en cama y con fiebre.</text>
@@ -2202,7 +2202,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>MATTHEW 9</text>
+      <text>MATTHEW CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -2367,14 +2367,14 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-MAT">
       <verse num="14" />
-      <text>Then John’s disciples came to him, saying,</text>
+      <text>Then John's disciples came to him, saying,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Los seguidores de Juan el Bautista se acercaron a Jesús y le preguntaron:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="disciples of John the Baptist" delivery="puzzled" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="disciples of John the Baptist" delivery="puzzled">
-      <text>“Why do we and the Pharisees fast often, but your disciples don’t fast?”</text>
+      <text>“Why do we and the Pharisees fast often, but your disciples don't fast?”</text>
     </ReferenceBlocks>
     <text>Nosotros y los fariseos ayunamos mucho, ¿por qué tus discípulos no ayunan?</text>
   </block>
@@ -2471,7 +2471,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="23" characterId="narrator-MAT">
       <verse num="23" />
-      <text>When Jesus came into the ruler’s house and saw the flute players and the noisy crowd, </text>
+      <text>When Jesus came into the ruler's house and saw the flute players and the noisy crowd, </text>
       <verse num="24" />
       <text>he said to them,</text>
     </ReferenceBlocks>
@@ -2482,7 +2482,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="Jesus" delivery="giving orders" userConfirmed="true">
-      <text>“Go away. The girl isn’t dead, but sleeping.”</text>
+      <text>“Go away. The girl isn't dead, but sleeping.”</text>
     </ReferenceBlocks>
     <text>Sálganse de aquí, pues la muchacha no está muerta, sino dormida.</text>
   </block>
@@ -2666,7 +2666,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>MATTHEW 10</text>
+      <text>MATTHEW CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -2712,7 +2712,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" delivery="instructing" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" delivery="instructing" multiBlockQuote="Start">
-      <text>“Don’t go among the Gentiles, and don’t enter into any city of the Samaritans.</text>
+      <text>“Don't go among the Gentiles, and don't enter into any city of the Samaritans.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;No vayan a las regiones de los paganos ni entren en los pueblos de Samaria;</text>
   </block>
@@ -2743,7 +2743,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>Don’t take any gold, nor silver, nor brass in your money belts.</text>
+      <text>Don't take any gold, nor silver, nor brass in your money belts.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>&lt;&lt;No lleven oro ni plata ni cobre</text>
@@ -2775,7 +2775,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="13" />
-      <text>If the household is worthy, let your peace come on it, but if it isn’t worthy, let your peace return to you.</text>
+      <text>If the household is worthy, let your peace come on it, but if it isn't worthy, let your peace return to you.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Si la gente de la casa lo merece, su deseo de paz se cumplirá; pero si no lo merece, ustedes nada perderán.</text>
@@ -2783,7 +2783,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>Whoever doesn’t receive you, nor hear your words, as you go out of that house or that city, shake off the dust from your feet.</text>
+      <text>Whoever doesn't receive you, nor hear your words, as you go out of that house or that city, shake off the dust from your feet.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Y si no los reciben ni los quieren oir, salgan de la casa o del pueblo y sacúdanse el polvo de los pies.</text>
@@ -2823,7 +2823,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>But when they deliver you up, don’t be anxious how or what you will say, for it will be given you in that hour what you will say.</text>
+      <text>But when they deliver you up, don't be anxious how or what you will say, for it will be given you in that hour what you will say.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Pero cuando los entreguen a las autoridades, no se preocupen ustedes por lo que han de decir o cómo han de decirlo, porque cuando les llegue el momento de hablar, Dios les dará las palabras.</text>
@@ -2847,7 +2847,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="22" />
-      <text>You will be hated by all men for my name’s sake, but he who endures to the end will be saved.</text>
+      <text>You will be hated by all men for my name's sake, but he who endures to the end will be saved.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Todo el mundo los odiará a ustedes por causa mía; pero el que se mantenga firme hasta el fin, se salvará.</text>
@@ -2879,7 +2879,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>Therefore don’t be afraid of them, for there is nothing covered that will not be revealed; and hidden that will not be known.</text>
+      <text>Therefore don't be afraid of them, for there is nothing covered that will not be revealed; and hidden that will not be known.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>&lt;&lt;No tengan, pues, miedo de la gente. Porque no hay nada secreto que no llegue a descubrirse, ni nada escondido que no llegue a saberse.</text>
@@ -2895,7 +2895,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="28" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="28" />
-      <text>Don’t be afraid of those who kill the body, but are not able to kill the soul. Rather, fear the one who is able to destroy both soul and body in Gehenna.</text>
+      <text>Don't be afraid of those who kill the body, but are not able to kill the soul. Rather, fear the one who is able to destroy both soul and body in Gehenna.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>No tengan miedo de los que matan el cuerpo pero no pueden matar el alma; teman más bien al que puede hacer perecer alma y cuerpo en el infierno.</text>
@@ -2903,7 +2903,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>Aren’t two sparrows sold for a penny? Not one of them falls on the ground apart from your Father’s will.</text>
+      <text>Aren't two sparrows sold for a penny? Not one of them falls on the ground apart from your Father's will.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>&lt;&lt;¿No se venden dos pajarillos por una monedita? Sin embargo, ni uno de ellos cae a tierra sin que el Padre de ustedes lo permita.</text>
@@ -2919,7 +2919,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="31" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>Therefore don’t be afraid. You are of more value than many sparrows.</text>
+      <text>Therefore don't be afraid. You are of more value than many sparrows.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Por lo tanto no tengas miedo. Usted está de más valor que muchos pajarillos.</text>
@@ -2943,7 +2943,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="34" />
-      <text>Don’t think that I came to send peace on the earth. I didn’t come to send peace, but a sword.</text>
+      <text>Don't think that I came to send peace on the earth. I didn't come to send peace, but a sword.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>&lt;&lt;No crean que yo he venido a traer paz al mundo; no he venido a traer paz, sino guerra.</text>
@@ -2959,7 +2959,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>A man’s foes will be those of his own household.</text>
+      <text>A man's foes will be those of his own household.</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>de modo que los enemigos de cada cual serán sus propios parientes.</text>
@@ -2967,7 +2967,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="37" />
-      <text>He who loves father or mother more than me is not worthy of me; and he who loves son or daughter more than me isn’t worthy of me.</text>
+      <text>He who loves father or mother more than me is not worthy of me; and he who loves son or daughter more than me isn't worthy of me.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>&lt;&lt;El que quiere a su padre o a su madre más que a mí, no merece ser mío; el que quiere a su hijo o a su hija más que a mí, no merece ser mío;</text>
@@ -2975,7 +2975,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="38" />
-      <text>He who doesn’t take his cross and follow after me, isn’t worthy of me.</text>
+      <text>He who doesn't take his cross and follow after me, isn't worthy of me.</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>y el que no toma su cruz y me sigue, no merece ser mío.</text>
@@ -2999,7 +2999,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="41" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="41" characterId="Jesus" delivery="instructing" multiBlockQuote="Continuation">
       <verse num="41" />
-      <text>He who receives a prophet in the name of a prophet will receive a prophet’s reward. He who receives a righteous man in the name of a righteous man will receive a righteous man’s reward.</text>
+      <text>He who receives a prophet in the name of a prophet will receive a prophet's reward. He who receives a righteous man in the name of a righteous man will receive a righteous man's reward.</text>
     </ReferenceBlocks>
     <verse num="41" />
     <text>El que recibe a un profeta por ser profeta, recibirá igual premio que el profeta; y el que recibe a un justo por ser justo, recibirá el mismo premio que el justo.</text>
@@ -3014,7 +3014,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>MATTHEW 11</text>
+      <text>MATTHEW CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -3091,7 +3091,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>But what did you go out to see? A man in soft clothing? Behold, those who wear soft clothing are in king’s houses.</text>
+      <text>But what did you go out to see? A man in soft clothing? Behold, those who wear soft clothing are in king's houses.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Y si no, ¿qué salieron a ver? ¿Un hombre vestido lujosamente? Ustedes saben que los que se visten lujosamente están en las casas de los reyes.</text>
@@ -3163,7 +3163,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>‘We played the flute for you, and you didn’t dance. We mourned for you, and you didn’t lament.’</text>
+      <text>‘We played the flute for you, and you didn't dance. We mourned for you, and you didn't lament.’</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>&lt;Tocamos la flauta, pero ustedes no bailaron; cantamos canciones tristes, pero ustedes no lloraron.&gt;</text>
@@ -3187,7 +3187,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="20" characterId="narrator-MAT">
       <verse num="20" />
-      <text>Then he began to denounce the cities in which most of his mighty works had been done, because they didn’t repent.</text>
+      <text>Then he began to denounce the cities in which most of his mighty works had been done, because they didn't repent.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Entonces Jesús comenzó a reprender a los pueblos donde había hecho la mayor parte de sus milagros, porque no se habían vuelto a Dios. Decía Jesús:</text>
@@ -3280,7 +3280,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>MATTHEW 12</text>
+      <text>MATTHEW CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -3316,14 +3316,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Haven’t you read what David did, when he was hungry, and those who were with him;</text>
+      <text>“Haven't you read what David did, when he was hungry, and those who were with him;</text>
     </ReferenceBlocks>
     <text>¿No han leído ustedes lo que hizo David en una ocasión en que él y sus compañeros tuvieron hambre?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>how he entered into God’s house, and ate the show bread, which was not lawful for him to eat, neither for those who were with him, but only for the priests?</text>
+      <text>how he entered into God's house, and ate the show bread, which was not lawful for him to eat, neither for those who were with him, but only for the priests?</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Pues entró en la casa de Dios y comieron los panes consagrados a Dios, los cuales no les estaba permitido comer ni a él ni a sus compañeros, sino solamente a los sacerdotes.</text>
@@ -3392,7 +3392,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
-      <text>“What man is there among you, who has one sheep, and if this one falls into a pit on the Sabbath day, won’t he grab on to it, and lift it out?</text>
+      <text>“What man is there among you, who has one sheep, and if this one falls into a pit on the Sabbath day, won't he grab on to it, and lift it out?</text>
     </ReferenceBlocks>
     <text>¿Quién de ustedes, si tiene una oveja y se le cae a un pozo en sábado, no va y la saca?</text>
   </block>
@@ -3477,7 +3477,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture" multiBlockQuote="Continuation">
       <verse num="20" />
-      <text>He won’t break a bruised reed. He won’t quench a smoking flax, until he leads justice to victory.</text>
+      <text>He won't break a bruised reed. He won't quench a smoking flax, until he leads justice to victory.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>No romperá la caña quebrada ni apagará la mecha que apenas humea, hasta que haga triunfar la justicia.</text>
@@ -3575,7 +3575,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start">
       <verse num="30" />
-      <text>“He who is not with me is against me, and he who doesn’t gather with me, scatters.</text>
+      <text>“He who is not with me is against me, and he who doesn't gather with me, scatters.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>&lt;&lt;El que no está a mi favor, está en contra mía; y el que conmigo no recoge, desparrama.</text>
@@ -3691,7 +3691,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
       <verse num="43" />
-      <text>But the unclean spirit, when he is gone out of the man, passes through waterless places, seeking rest, and doesn’t find it.</text>
+      <text>But the unclean spirit, when he is gone out of the man, passes through waterless places, seeking rest, and doesn't find it.</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>&lt;&lt;Cuando un espíritu impuro sale de un hombre, anda por lugares secos buscando descanso; y si no lo encuentra, piensa:</text>
@@ -3768,7 +3768,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>MATTHEW 13</text>
+      <text>MATTHEW CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -3809,7 +3809,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="5" />
-      <text>Others fell on rocky ground, where they didn’t have much soil, and immediately they sprang up, because they had no depth of earth.</text>
+      <text>Others fell on rocky ground, where they didn't have much soil, and immediately they sprang up, because they had no depth of earth.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Otra parte cayó entre las piedras, donde no había mucha tierra; esa semilla brotó pronto, porque la tierra no era muy honda;</text>
@@ -3877,7 +3877,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>For whoever has, to him will be given, and he will have abundance, but whoever doesn’t have, from him will be taken away even that which he has.</text>
+      <text>For whoever has, to him will be given, and he will have abundance, but whoever doesn't have, from him will be taken away even that which he has.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Pues al que tiene, se le dará más, y tendrá bastante; pero al que no tiene, hasta lo poco que tiene se le quitará.</text>
@@ -3885,7 +3885,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="13" />
-      <text>Therefore I speak to them in parables, because seeing they don’t see, and hearing, they don’t hear, neither do they understand.</text>
+      <text>Therefore I speak to them in parables, because seeing they don't see, and hearing, they don't hear, neither do they understand.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Por eso les hablo por medio de parábolas; porque ellos miran, pero no ven; escuchan, pero no oyen ni entienden.</text>
@@ -3901,7 +3901,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="15" />
-      <text>for this people’s heart has grown callous, their ears are dull of hearing, they have closed their eyes; or else perhaps they might perceive with their eyes, hear with their ears, understand with their heart, and should turn again; and I would heal them.’”</text>
+      <text>for this people's heart has grown callous, their ears are dull of hearing, they have closed their eyes; or else perhaps they might perceive with their eyes, hear with their ears, understand with their heart, and should turn again; and I would heal them.’”</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Pues la mente de este pueblo está entorpecida, tienen tapados los oídos y han cerrado sus ojos, para no ver ni oir, para no entender ni volverse a mí, para que yo no los sane.&gt;</text>
@@ -3917,7 +3917,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>For most certainly I tell you that many prophets and righteous men desired to see the things which you see, and didn’t see them; and to hear the things which you hear, and didn’t hear them.”</text>
+      <text>For most certainly I tell you that many prophets and righteous men desired to see the things which you see, and didn't see them; and to hear the things which you hear, and didn't hear them.”</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Les aseguro que muchos profetas y personas justas quisieron ver esto que ustedes ven, y no lo vieron; quisieron oir esto que ustedes oyen, y no lo oyeron.</text>
@@ -3933,7 +3933,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>When anyone hears the word of the Kingdom, and doesn’t understand it, the evil one comes, and snatches away that which has been sown in his heart. This is what was sown by the roadside.</text>
+      <text>When anyone hears the word of the Kingdom, and doesn't understand it, the evil one comes, and snatches away that which has been sown in his heart. This is what was sown by the roadside.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Los que oyen el mensaje del reino y no lo entienden, son como la semilla que cayó en el camino; viene el maligno y les quita el mensaje sembrado en su corazón.</text>
@@ -4003,7 +4003,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>The servants of the householder came and said to him, ‘Sir, didn’t you sow good seed in your field? Where did these weeds come from?’”</text>
+      <text>The servants of the householder came and said to him, ‘Sir, didn't you sow good seed in your field? Where did these weeds come from?’”</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Entonces los trabajadores fueron a decirle al dueño: &lt;Señor, si la semilla que sembró usted en el campo era buena, ¿de dónde ha salido la mala hierba?&gt;</text>
@@ -4071,7 +4071,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="narrator-MAT">
       <verse num="34" />
-      <text>Jesus spoke all these things in parables to the multitudes; He didn’t say anything to them without using a parable.</text>
+      <text>Jesus spoke all these things in parables to the multitudes; He didn't say anything to them without using a parable.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>Jesús habló de todo esto a la gente por medio de parábolas, y sin parábolas no les hablaba.</text>
@@ -4287,7 +4287,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="55" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="55" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="ChangeOfDelivery">
       <verse num="55" />
-      <text>Isn’t this the carpenter’s son? Isn’t his mother called Mary, and his brothers, James, Joses, Simon, and Judas?</text>
+      <text>Isn't this the carpenter's son? Isn't his mother called Mary, and his brothers, James, Joses, Simon, and Judas?</text>
     </ReferenceBlocks>
     <verse num="55" />
     <text>¿No es este el hijo del carpintero, y no es María su madre? ¿No es el hermano de Santiago, José, Simón y Judas,</text>
@@ -4295,7 +4295,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="56" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="56" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="Continuation">
       <verse num="56" />
-      <text>Aren’t all of his sisters with us? Where then did this man get all of these things?”</text>
+      <text>Aren't all of his sisters with us? Where then did this man get all of these things?”</text>
     </ReferenceBlocks>
     <verse num="56" />
     <text>y no viven sus hermanas también aquí entre nosotros? ¿De dónde le viene todo esto?</text>
@@ -4317,14 +4317,14 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="58" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="58" characterId="narrator-MAT">
       <verse num="58" />
-      <text>He didn’t do many mighty works there because of their unbelief.</text>
+      <text>He didn't do many mighty works there because of their unbelief.</text>
     </ReferenceBlocks>
     <verse num="58" />
     <text>Y no hizo allí muchos milagros porque aquella gente no tenía fe en él.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>MATTHEW 14</text>
+      <text>MATTHEW CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -4349,7 +4349,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="3" characterId="narrator-MAT">
       <verse num="3" />
-      <text>For Herod had captured John, bound him, and put him in prison because of Herodias, his brother Philip’s wife. </text>
+      <text>For Herod had captured John, bound him, and put him in prison because of Herodias, his brother Philip's wife. </text>
       <verse num="4" />
       <text>For John said to him,</text>
     </ReferenceBlocks>
@@ -4375,7 +4375,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="6" characterId="narrator-MAT">
       <verse num="6" />
-      <text>But when Herod’s birthday came, the daughter of Herodias danced among them and pleased Herod. </text>
+      <text>But when Herod's birthday came, the daughter of Herodias danced among them and pleased Herod. </text>
       <verse num="7" />
       <text>Then he promised her with an oath:</text>
     </ReferenceBlocks>
@@ -4476,7 +4476,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="Jesus">
-      <text>“They don’t need to go away. You give them something to eat.”</text>
+      <text>“They don't need to go away. You give them something to eat.”</text>
     </ReferenceBlocks>
     <text>No es necesario que se vayan; denles ustedes de comer.</text>
   </block>
@@ -4574,7 +4574,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="disciples" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="disciples">
-      <text>“It’s a ghost!”</text>
+      <text>“It's a ghost!”</text>
     </ReferenceBlocks>
     <text>¡Es un fantasma!</text>
   </block>
@@ -4590,7 +4590,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" delivery="forcefully" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" delivery="forcefully">
-      <text>“Cheer up! It is I! Don’t be afraid.”</text>
+      <text>“Cheer up! It is I! Don't be afraid.”</text>
     </ReferenceBlocks>
     <text>¡Calma! ¡Soy yo: no tengan miedo!</text>
   </block>
@@ -4704,7 +4704,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>MATTHEW 15</text>
+      <text>MATTHEW CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -4719,7 +4719,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" delivery="critical" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="critical">
       <verse num="2" />
-      <text>“Why do your disciples disobey the tradition of the elders? For they don’t wash their hands when they eat bread.”</text>
+      <text>“Why do your disciples disobey the tradition of the elders? For they don't wash their hands when they eat bread.”</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>¿Por qué tus discípulos desobedecen la tradición de nuestros antepasados? ¿Por qué no cumplen con la ceremonia de lavarse las manos antes de comer?</text>
@@ -4798,7 +4798,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Jesus">
       <text>“Hear, and understand. </text>
       <verse num="11" />
-      <text>That which enters into the mouth doesn’t defile the man; but that which proceeds out of the mouth, this defiles the man.”</text>
+      <text>That which enters into the mouth doesn't defile the man; but that which proceeds out of the mouth, this defiles the man.”</text>
     </ReferenceBlocks>
     <text>Escuchen y entiendan: </text>
     <verse num="11" />
@@ -4828,7 +4828,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Every plant which my heavenly Father didn’t plant will be uprooted.</text>
+      <text>“Every plant which my heavenly Father didn't plant will be uprooted.</text>
     </ReferenceBlocks>
     <text>Cualquier planta que mi Padre celestial no haya plantado, será arrancada de raíz.</text>
   </block>
@@ -4871,7 +4871,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>Don’t you see that whatever goes into the mouth passes into the belly, and then out of the body?</text>
+      <text>Don't you see that whatever goes into the mouth passes into the belly, and then out of the body?</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>¿No entienden que todo lo que entra por la boca va al vientre, para después salir del cuerpo?</text>
@@ -4895,7 +4895,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="20" />
-      <text>These are the things which defile the man; but to eat with unwashed hands doesn’t defile the man.”</text>
+      <text>These are the things which defile the man; but to eat with unwashed hands doesn't defile the man.”</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Estas cosas son las que hacen impuro al hombre; pero el comer sin cumplir con la ceremonia de lavarse las manos, no lo hace impuro.</text>
@@ -4946,7 +4946,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="Jesus">
-      <text>“I wasn’t sent to anyone but the lost sheep of the house of Israel.”</text>
+      <text>“I wasn't sent to anyone but the lost sheep of the house of Israel.”</text>
     </ReferenceBlocks>
     <text>Dios me ha enviado solamente a las ovejas perdidas del pueblo de Israel.</text>
   </block>
@@ -4974,7 +4974,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus" delivery="testing faith" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus" delivery="testing faith">
-      <text>“It is not appropriate to take the children’s bread and throw it to the dogs.”</text>
+      <text>“It is not appropriate to take the children's bread and throw it to the dogs.”</text>
     </ReferenceBlocks>
     <text>No está bien quitarles el pan a los hijos y dárselo a los perros.</text>
   </block>
@@ -5046,7 +5046,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="Jesus" delivery="compassionately" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="Jesus" delivery="compassionately">
-      <text>“I have compassion on the multitude, because they continue with me now three days and have nothing to eat. I don’t want to send them away fasting, or they might faint on the way.”</text>
+      <text>“I have compassion on the multitude, because they continue with me now three days and have nothing to eat. I don't want to send them away fasting, or they might faint on the way.”</text>
     </ReferenceBlocks>
     <text>Siento compasión de esta gente, porque ya hace tres días que están aquí conmigo y no tienen nada que comer. No quiero mandarlos sin comer a sus casas, porque pueden desmayarse por el camino.</text>
   </block>
@@ -5138,7 +5138,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>MATTHEW 16</text>
+      <text>MATTHEW CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -5173,7 +5173,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>In the morning, ‘It will be foul weather today, for the sky is red and threatening.’ Hypocrites! You know how to discern the appearance of the sky, but you can’t discern the signs of the times!</text>
+      <text>In the morning, ‘It will be foul weather today, for the sky is red and threatening.’ Hypocrites! You know how to discern the appearance of the sky, but you can't discern the signs of the times!</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>y por la mañana dicen: &lt;Hoy va a hacer mal tiempo, porque el cielo está rojo y nublado.&gt; Pues si ustedes saben interpretar tan bien el aspecto del cielo, ¿cómo es que no saben interpretar las señales de estos tiempos?</text>
@@ -5241,7 +5241,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>Don’t you yet not understand nor remember the five loaves for the five thousand, and how many baskets you took up?</text>
+      <text>Don't you yet not understand nor remember the five loaves for the five thousand, and how many baskets you took up?</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>¿Todavía no entienden, ni se acuerdan de los cinco panes que repartí entre cinco mil hombres, y cuántas canastas recogieron?</text>
@@ -5257,7 +5257,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>How is it that you don’t perceive that I didn’t speak to you concerning bread? But beware of the yeast of the Pharisees and Sadducees.”</text>
+      <text>How is it that you don't perceive that I didn't speak to you concerning bread? But beware of the yeast of the Pharisees and Sadducees.”</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>¿Cómo no se dan cuenta ustedes de que yo no estaba hablando del pan? Cuídense de la levadura de los fariseos y de los saduceos.</text>
@@ -5265,7 +5265,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="narrator-MAT">
       <verse num="12" />
-      <text>Then they understood that he didn’t tell them to beware of the yeast of bread, but of the teaching of the Pharisees and Sadducees.</text>
+      <text>Then they understood that he didn't tell them to beware of the yeast of bread, but of the teaching of the Pharisees and Sadducees.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Entonces comprendieron que Jesús no les había dicho que se cuidaran de la levadura del pan, sino de la enseñanza de los fariseos y de los saduceos.</text>
@@ -5448,7 +5448,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="17" initialStartVerse="0">
-      <text>MATTHEW 17</text>
+      <text>MATTHEW CHP 17</text>
     </ReferenceBlocks>
     <text>17</text>
   </block>
@@ -5486,7 +5486,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="Peter (Simon)" delivery="afraid" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="Peter (Simon)" delivery="afraid">
-      <text>“Lord, it is good for us to be here. If you want, let’s make three tents here: one for you, one for Moses, and one for Elijah.”</text>
+      <text>“Lord, it is good for us to be here. If you want, let's make three tents here: one for you, one for Moses, and one for Elijah.”</text>
     </ReferenceBlocks>
     <text>Señor, ¡qué bien que estemos aquí! Si quieres, haré tres chozas: una para ti, otra para Moisés y otra para Elías.</text>
   </block>
@@ -5522,7 +5522,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="7" characterId="Jesus" delivery="giving orders">
-      <text>“Get up, and don’t be afraid.”</text>
+      <text>“Get up, and don't be afraid.”</text>
     </ReferenceBlocks>
     <text>Levántense; no tengan miedo.</text>
   </block>
@@ -5544,7 +5544,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="Jesus" delivery="forcefully" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="Jesus" delivery="forcefully">
-      <text>“Don’t tell anyone what you saw, until the Son of Man has risen from the dead.”</text>
+      <text>“Don't tell anyone what you saw, until the Son of Man has risen from the dead.”</text>
     </ReferenceBlocks>
     <text>No cuenten a nadie esta visión, hasta que el Hijo del hombre haya resucitado.</text>
   </block>
@@ -5579,7 +5579,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>But I tell you that Elijah has come already, and they didn’t recognize him, but did to him whatever they wanted to. Even so the Son of Man will also suffer by them.”</text>
+      <text>But I tell you that Elijah has come already, and they didn't recognize him, but did to him whatever they wanted to. Even so the Son of Man will also suffer by them.”</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Pero yo les digo que Elías ya vino, y que ellos no lo reconocieron, sino que hicieron con él todo lo que quisieron. Del mismo modo, el Hijo del hombre va a sufrir a manos de ellos.</text>
@@ -5652,7 +5652,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="disciples" delivery="upset" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="disciples" delivery="upset">
-      <text>“Why weren’t we able to cast it out?”</text>
+      <text>“Why weren't we able to cast it out?”</text>
     </ReferenceBlocks>
     <text>¿Por qué no pudimos nosotros expulsar el demonio?</text>
   </block>
@@ -5673,7 +5673,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>But this kind doesn’t go out except by prayer and fasting.”</text>
+      <text>But this kind doesn't go out except by prayer and fasting.”</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Pero esta clase no sale sino con oración y ayuno.</text>
@@ -5712,7 +5712,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="collectors of temple tax" delivery="demanding" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="24" characterId="collectors of temple tax" delivery="demanding">
-      <text>“Doesn’t your teacher pay the temple tax?”</text>
+      <text>“Doesn't your teacher pay the temple tax?”</text>
     </ReferenceBlocks>
     <text>¿Tu maestro no paga el impuesto para el templo?</text>
   </block>
@@ -5778,7 +5778,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="18" initialStartVerse="0">
-      <text>MATTHEW 18</text>
+      <text>MATTHEW CHP 18</text>
     </ReferenceBlocks>
     <text>18</text>
   </block>
@@ -5865,7 +5865,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="warning" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="warning" multiBlockQuote="ChangeOfDelivery">
       <verse num="10" />
-      <text>See that you don’t despise one of these little ones, for I tell you that in heaven their angels always see the face of my Father who is in heaven.</text>
+      <text>See that you don't despise one of these little ones, for I tell you that in heaven their angels always see the face of my Father who is in heaven.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Mirad que no menospreciéis a uno de estos pequeños, porque os digo que sus ángeles en los cielos ven siempre el rostro de mi Padre que está en los cielos.</text>
@@ -5881,7 +5881,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
       <verse num="12" />
-      <text>“What do you think? If a man has one hundred sheep, and one of them goes astray, doesn’t he leave the ninety-nine, go to the mountains, and seek that which has gone astray?</text>
+      <text>“What do you think? If a man has one hundred sheep, and one of them goes astray, doesn't he leave the ninety-nine, go to the mountains, and seek that which has gone astray?</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>&lt;&lt;¿Qué les parece? Si un hombre tiene cien ovejas y se le extravía una de ellas, ¿acaso no dejará las otras noventa y nueve en el monte, para ir a buscar la oveja extraviada?</text>
@@ -5913,7 +5913,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="16" />
-      <text>But if he doesn’t listen, take one or two more with you, that at the mouth of two or three witnesses every word may be established.</text>
+      <text>But if he doesn't listen, take one or two more with you, that at the mouth of two or three witnesses every word may be established.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Si no te hace caso, llama a una o dos personas más, para que toda acusación se base en el testimonio de dos o tres testigos.</text>
@@ -5997,7 +5997,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>But because he couldn’t pay, his lord commanded him to be sold, with his wife, his children, and all that he had, and payment to be made.</text>
+      <text>But because he couldn't pay, his lord commanded him to be sold, with his wife, his children, and all that he had, and payment to be made.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Como aquel funcionario no tenía con qué pagar, el rey ordenó que lo vendieran como esclavo, junto con su esposa, sus hijos y todo lo que tenía, para que quedara pagada la deuda.</text>
@@ -6061,7 +6061,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="33" />
-      <text>Shouldn’t you also have had mercy on your fellow servant, even as I had mercy on you?’</text>
+      <text>Shouldn't you also have had mercy on your fellow servant, even as I had mercy on you?’</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Pues tú también debiste tener compasión de tu compañero, del mismo modo que yo tuve compasión de ti.&gt;</text>
@@ -6077,14 +6077,14 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="35" />
-      <text>So my heavenly Father will also do to you, if you don’t each forgive your brother from your hearts for his misdeeds.”</text>
+      <text>So my heavenly Father will also do to you, if you don't each forgive your brother from your hearts for his misdeeds.”</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Así hará también con ustedes mi Padre celestial, si cada uno de ustedes no perdona de corazón a su hermano.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="19" initialStartVerse="0">
-      <text>MATTHEW 19</text>
+      <text>MATTHEW CHP 19</text>
     </ReferenceBlocks>
     <text>19</text>
   </block>
@@ -6128,7 +6128,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Haven’t you read that he who made them from the beginning made them male and female?</text>
+      <text>“Haven't you read that he who made them from the beginning made them male and female?</text>
     </ReferenceBlocks>
     <text>¿No han leído ustedes en la Escritura que el que los creó en el principio, &lt;hombre y mujer los creó&gt;?</text>
   </block>
@@ -6143,7 +6143,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="6" />
-      <text>So that they are no more two, but one flesh. What therefore God has joined together, don’t let man tear apart.”</text>
+      <text>So that they are no more two, but one flesh. What therefore God has joined together, don't let man tear apart.”</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Así que ya no son dos, sino uno solo. De modo que el hombre no debe separar lo que Dios ha unido.</text>
@@ -6215,7 +6215,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>For there are eunuchs who were born that way from their mother’s womb, and there are eunuchs who were made eunuchs by men; and there are eunuchs who made themselves eunuchs for the Kingdom of Heaven’s sake. He who is able to receive it, let him receive it.”</text>
+      <text>For there are eunuchs who were born that way from their mother's womb, and there are eunuchs who were made eunuchs by men; and there are eunuchs who made themselves eunuchs for the Kingdom of Heaven's sake. He who is able to receive it, let him receive it.”</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Hay diferentes razones que impiden a los hombres casarse: unos ya nacen incapacitados para el matrimonio, a otros los incapacitan los hombres, y otros viven como incapacitados por causa del reino de los cielos. El que pueda entender esto, que lo entienda.</text>
@@ -6234,7 +6234,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="14" characterId="Jesus">
-      <text>“Allow the little children, and don’t forbid them to come to me; for the Kingdom of Heaven belongs to ones like these.”</text>
+      <text>“Allow the little children, and don't forbid them to come to me; for the Kingdom of Heaven belongs to ones like these.”</text>
     </ReferenceBlocks>
     <text>Dejen que los niños vengan a mí, y no se lo impidan, porque el reino de los cielos es de quienes son como ellos.</text>
   </block>
@@ -6357,7 +6357,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>Again I tell you, it is easier for a camel to go through a needle’s eye, than for a rich man to enter into the Kingdom of God.”</text>
+      <text>Again I tell you, it is easier for a camel to go through a needle's eye, than for a rich man to enter into the Kingdom of God.”</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Les repito que es más fácil para un camello pasar por el ojo de una aguja, que para un rico entrar en el reino de Dios.</text>
@@ -6421,7 +6421,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>Everyone who has left houses, or brothers, or sisters, or father, or mother, or wife, or children, or lands, for my name’s sake, will receive one hundred times, and will inherit eternal life.</text>
+      <text>Everyone who has left houses, or brothers, or sisters, or father, or mother, or wife, or children, or lands, for my name's sake, will receive one hundred times, and will inherit eternal life.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Y todos los que por causa mía hayan dejado casa, o hermanos, o hermanas, o padre, o madre, o hijos, o terrenos, recibirán cien veces más, y también recibirán la vida eterna.</text>
@@ -6436,7 +6436,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="20" initialStartVerse="0">
-      <text>MATTHEW 20</text>
+      <text>MATTHEW CHP 20</text>
     </ReferenceBlocks>
     <text>20</text>
   </block>
@@ -6535,7 +6535,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
       <verse num="13" />
-      <text>“But he answered one of them, ‘Friend, I am doing you no wrong. Didn’t you agree with me for a denarius?</text>
+      <text>“But he answered one of them, ‘Friend, I am doing you no wrong. Didn't you agree with me for a denarius?</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Pero el dueño contestó a uno de ellos: &lt;Amigo, no te estoy haciendo ninguna injusticia. ¿Acaso no te arreglaste conmigo por el salario de un día?</text>
@@ -6551,7 +6551,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="15" />
-      <text>Isn’t it lawful for me to do what I want to with what I own? Or is your eye evil, because I am good?’</text>
+      <text>Isn't it lawful for me to do what I want to with what I own? Or is your eye evil, because I am good?’</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>es porque tengo el derecho de hacer lo que quiera con mi dinero. ¿O es que te da envidia que yo sea bondadoso?&gt;</text>
@@ -6628,7 +6628,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="22" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="22" characterId="Jesus" userConfirmed="true">
-      <text>“You don’t know what you are asking. Are you able to drink the cup that I am about to drink, and be baptized with the baptism that I am baptized with?”</text>
+      <text>“You don't know what you are asking. Are you able to drink the cup that I am about to drink, and be baptized with the baptism that I am baptized with?”</text>
     </ReferenceBlocks>
     <text>Ustedes no saben lo que piden. ¿Pueden beber el trago amargo que voy a beber yo?</text>
   </block>
@@ -6790,7 +6790,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="21" initialStartVerse="0">
-      <text>MATTHEW 21</text>
+      <text>MATTHEW CHP 21</text>
     </ReferenceBlocks>
     <text>21</text>
   </block>
@@ -7026,7 +7026,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Most certainly I tell you, if you have faith, and don’t doubt, you will not only do what was done to the fig tree, but even if you told this mountain, ‘Be taken up and cast into the sea,’ it would be done.</text>
+      <text>“Most certainly I tell you, if you have faith, and don't doubt, you will not only do what was done to the fig tree, but even if you told this mountain, ‘Be taken up and cast into the sea,’ it would be done.</text>
     </ReferenceBlocks>
     <text>Les aseguro que si tienen fe y no dudan, no solamente podrán hacer esto que le hice a la higuera, sino que aun si a este cerro le dicen: &lt;Quítate de ahí y arrójate al mar&gt;, así sucederá.</text>
   </block>
@@ -7104,7 +7104,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="chief priests/teachers of religious law/elders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" userConfirmed="true">
-      <text>“We don’t know.”</text>
+      <text>“We don't know.”</text>
     </ReferenceBlocks>
     <text>No lo sabemos.</text>
   </block>
@@ -7139,7 +7139,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="30" />
-      <text>He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn’t go.</text>
+      <text>He came to the second, and said the same thing. He answered, ‘I go, sir,’ but he didn't go.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Luego el padre se dirigió al otro, y le dijo lo mismo. Este contestó: &lt;Sí, señor, yo iré.&gt; Pero no fue.</text>
@@ -7179,7 +7179,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="32" />
-      <text>For John came to you in the way of righteousness, and you didn’t believe him, but the tax collectors and the prostitutes believed him. When you saw it, you didn’t even repent afterward, that you might believe him.”</text>
+      <text>For John came to you in the way of righteousness, and you didn't believe him, but the tax collectors and the prostitutes believed him. When you saw it, you didn't even repent afterward, that you might believe him.”</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>Porque Juan el Bautista vino a enseñarles el camino de la justicia, y ustedes no le creyeron; en cambio, esos cobradores de impuestos y esas prostitutas sí le creyeron. Pero ustedes, aunque vieron todo esto, no cambiaron de actitud para creerle.</text>
@@ -7227,7 +7227,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="38" />
-      <text>But the farmers, when they saw the son, said among themselves, ‘This is the heir. Come, let’s kill him, and seize his inheritance.’</text>
+      <text>But the farmers, when they saw the son, said among themselves, ‘This is the heir. Come, let's kill him, and seize his inheritance.’</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Pero cuando vieron al hijo, los labradores se dijeron unos a otros: &lt;Este es el que ha de recibir la herencia; matémoslo y nos quedaremos con su propiedad.&gt;</text>
@@ -7316,7 +7316,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="22" initialStartVerse="0">
-      <text>MATTHEW 22</text>
+      <text>MATTHEW CHP 22</text>
     </ReferenceBlocks>
     <text>22</text>
   </block>
@@ -7379,7 +7379,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
       <verse num="8" />
-      <text>“Then he said to his servants, ‘The wedding is ready, but those who were invited weren’t worthy.</text>
+      <text>“Then he said to his servants, ‘The wedding is ready, but those who were invited weren't worthy.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Luego dijo a sus criados: &lt;El banquete está listo, pero aquellos invitados no merecían venir.</text>
@@ -7403,7 +7403,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>But when the king came in to see the guests, he saw there a man who didn’t have on wedding clothing,</text>
+      <text>But when the king came in to see the guests, he saw there a man who didn't have on wedding clothing,</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>&lt;&lt;Cuando el rey entró a ver a los invitados, se fijó en un hombre que no iba vestido con traje de boda.</text>
@@ -7450,7 +7450,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)" multiBlockQuote="Start">
-      <text>“Teacher, we know that you are honest, and teach the way of God in truth, no matter whom you teach, for you aren’t partial to anyone.</text>
+      <text>“Teacher, we know that you are honest, and teach the way of God in truth, no matter whom you teach, for you aren't partial to anyone.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Maestro, sabemos que tú dices la verdad, y que enseñas de veras el camino de Dios, sin dejarte llevar por lo que diga la gente, porque no hablas para darles gusto.</text>
   </block>
@@ -7506,7 +7506,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="spies (from Pharisees and Herodians)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="spies (from Pharisees and Herodians)" userConfirmed="true">
-      <text>“Caesar’s.”</text>
+      <text>“Caesar's.”</text>
     </ReferenceBlocks>
     <text>Del emperador.</text>
   </block>
@@ -7518,7 +7518,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="21" characterId="Jesus" userConfirmed="true">
-      <text>“Give therefore to Caesar the things that are Caesar’s, and to God the things that are God’s.”</text>
+      <text>“Give therefore to Caesar the things that are Caesar's, and to God the things that are God's.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Pues den al emperador lo que es del emperador, y a Dios lo que es de Dios.&gt;&gt;</text>
   </block>
@@ -7597,7 +7597,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="30" />
-      <text>For in the resurrection they neither marry, nor are given in marriage, but are like God’s angels in heaven.</text>
+      <text>For in the resurrection they neither marry, nor are given in marriage, but are like God's angels in heaven.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Cuando los muertos resuciten, los hombres y las mujeres no se casarán, pues serán como los ángeles que están en el cielo.</text>
@@ -7605,7 +7605,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>But concerning the resurrection of the dead, haven’t you read that which was spoken to you by God when He said:</text>
+      <text>But concerning the resurrection of the dead, haven't you read that which was spoken to you by God when He said:</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Y en cuanto a que los muertos resucitan, ¿no han leído ustedes que Dios mismo dijo:</text>
@@ -7758,7 +7758,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="23" initialStartVerse="0">
-      <text>MATTHEW 23</text>
+      <text>MATTHEW CHP 23</text>
     </ReferenceBlocks>
     <text>23</text>
   </block>
@@ -7782,7 +7782,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>All things therefore whatever they tell you to observe, observe and do, but don’t do their works; for they say, and don’t do.</text>
+      <text>All things therefore whatever they tell you to observe, observe and do, but don't do their works; for they say, and don't do.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Por lo tanto, obedézcanlos ustedes y hagan todo lo que les digan; pero no sigan su ejemplo, porque ellos dicen una cosa y hacen otra.</text>
@@ -7790,7 +7790,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>For they bind heavy burdens that are grievous to be borne, and lay them on men’s shoulders; but they themselves will not lift a finger to help them.</text>
+      <text>For they bind heavy burdens that are grievous to be borne, and lay them on men's shoulders; but they themselves will not lift a finger to help them.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Atan cargas tan pesadas que es imposible soportarlas, y las echan sobre los hombros de los demás, mientras que ellos mismos no quieren tocarlas ni siquiera con un dedo.</text>
@@ -7822,7 +7822,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>But don’t you be called ‘Rabbi,’ for one is your teacher, the Christ, and all of you are brothers.</text>
+      <text>But don't you be called ‘Rabbi,’ for one is your teacher, the Christ, and all of you are brothers.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>&lt;&lt;Pero ustedes no deben pretender que la gente los llame maestros, porque todos ustedes son hermanos y tienen solamente un Maestro.</text>
@@ -7870,7 +7870,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
       <verse num="14" />
-      <text>“But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don’t enter in yourselves, neither do you allow those who are entering in to enter.</text>
+      <text>“But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don't enter in yourselves, neither do you allow those who are entering in to enter.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>¡Ay de ustedes, maestros de la ley y fariseos, hipócritas!, porque les quitan sus casas a las viudas, y para disimularlo hacen largas oraciones. Por esto ustedes recibirán mayor castigo.</text>
@@ -7974,7 +7974,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
       <verse num="27" />
-      <text>“Woe to you, scribes and Pharisees, hypocrites! For you are like whitened tombs, which outwardly appear beautiful, but inwardly are full of dead men’s bones, and of all uncleanness.</text>
+      <text>“Woe to you, scribes and Pharisees, hypocrites! For you are like whitened tombs, which outwardly appear beautiful, but inwardly are full of dead men's bones, and of all uncleanness.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>&lt;&lt;¡Ay de ustedes, maestros de la ley y fariseos, hipócritas!, que son como sepulcros blanqueados, bien arreglados por fuera, pero llenos por dentro de huesos de muertos y de toda clase de impureza.</text>
@@ -7998,7 +7998,7 @@
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="30" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="30" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="30" />
-      <text>You say, ‘If we had lived in the days of our fathers, we wouldn’t have been partakers with them in the blood of the prophets.’</text>
+      <text>You say, ‘If we had lived in the days of our fathers, we wouldn't have been partakers with them in the blood of the prophets.’</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>y luego dicen: &lt;Si nosotros hubiéramos vivido en tiempos de nuestros antepasados, no habríamos tomado parte en la muerte de los profetas.&gt;</text>
@@ -8077,7 +8077,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="24" initialStartVerse="0">
-      <text>MATTHEW 24</text>
+      <text>MATTHEW CHP 24</text>
     </ReferenceBlocks>
     <text>24</text>
   </block>
@@ -8105,7 +8105,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="2" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="2" characterId="Jesus">
-      <text>“You see all of these things, don’t you? Most certainly I tell you, there will not be left here one stone on another, that will not be thrown down.”</text>
+      <text>“You see all of these things, don't you? Most certainly I tell you, there will not be left here one stone on another, that will not be thrown down.”</text>
     </ReferenceBlocks>
     <text>¿Ven ustedes todo esto? Pues les aseguro que aquí no va a quedar ni una piedra sobre otra. Todo será destruido.</text>
   </block>
@@ -8148,7 +8148,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="6" />
-      <text>You will hear of wars and rumors of wars. See that you aren’t troubled, for all this must happen, but the end is not yet.</text>
+      <text>You will hear of wars and rumors of wars. See that you aren't troubled, for all this must happen, but the end is not yet.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Ustedes tendrán noticias de que hay guerras aquí y allá; pero no se asusten, pues así tiene que ocurrir; sin embargo, aún no será el fin.</text>
@@ -8172,7 +8172,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>Then they will deliver you up to oppression, and will kill you. You will be hated by all of the nations for my name’s sake.</text>
+      <text>Then they will deliver you up to oppression, and will kill you. You will be hated by all of the nations for my name's sake.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>&lt;&lt;Entonces los entregarán a ustedes para que los maltraten; y los matarán, y todo el mundo los odiará por causa mía.</text>
@@ -8284,7 +8284,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Jesus">
       <verse num="23" />
-      <text>“Then if anyone tells you, ‘Behold, here is the Christ,’ or, ‘There,’ don’t believe it.</text>
+      <text>“Then if anyone tells you, ‘Behold, here is the Christ,’ or, ‘There,’ don't believe it.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>&lt;&lt;Si entonces alguien les dice a ustedes: &lt;Miren, aquí está el Mesías&gt;, o &lt;Miren, allí está&gt;, no lo crean.</text>
@@ -8308,7 +8308,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>If therefore they tell you, ‘Behold, he is in the wilderness,’ don’t go out; ‘Behold, he is in the inner rooms,’ don’t believe it.</text>
+      <text>If therefore they tell you, ‘Behold, he is in the wilderness,’ don't go out; ‘Behold, he is in the inner rooms,’ don't believe it.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Por eso, si les dicen: &lt;Miren, allí está, en el desierto&gt;, no vayan; o si les dicen: &lt;Miren, aquí está escondido&gt;, no lo crean.</text>
@@ -8412,7 +8412,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="39" />
-      <text>and they didn’t know until the flood came, and took them all away, so will be the coming of the Son of Man.</text>
+      <text>and they didn't know until the flood came, and took them all away, so will be the coming of the Son of Man.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Pero cuando menos lo esperaban, vino el diluvio y se los llevó a todos. Así sucederá también cuando regrese el Hijo del hombre.</text>
@@ -8436,7 +8436,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="42" />
-      <text>Watch therefore, for you don’t know in what hour your Lord comes.</text>
+      <text>Watch therefore, for you don't know in what hour your Lord comes.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>&lt;&lt;Manténganse ustedes despiertos, porque no saben qué día va a venir su Señor.</text>
@@ -8452,7 +8452,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="44" />
-      <text>Therefore also be ready, for in an hour that you don’t expect, the Son of Man will come.”</text>
+      <text>Therefore also be ready, for in an hour that you don't expect, the Son of Man will come.”</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>Por eso, ustedes también estén preparados; porque el Hijo del hombre vendrá cuando menos lo esperen.</text>
@@ -8500,7 +8500,7 @@
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="50" />
-      <text>The lord of that servant will come in a day when he doesn’t expect it, and in an hour when he doesn’t know it.</text>
+      <text>The lord of that servant will come in a day when he doesn't expect it, and in an hour when he doesn't know it.</text>
     </ReferenceBlocks>
     <verse num="50" />
     <text>el día que menos lo espere y a una hora que no sabe, llegará su amo</text>
@@ -8515,7 +8515,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="25" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="25" initialStartVerse="0">
-      <text>MATTHEW 25</text>
+      <text>MATTHEW CHP 25</text>
     </ReferenceBlocks>
     <text>25</text>
   </block>
@@ -8586,7 +8586,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>But the wise answered, saying, ‘What if there isn’t enough oil for us and you? You go rather to those who sell oil, and buy some for yourselves.’</text>
+      <text>But the wise answered, saying, ‘What if there isn't enough oil for us and you? You go rather to those who sell oil, and buy some for yourselves.’</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Pero las muchachas previsoras contestaron: &lt;No, porque así no alcanzará ni para nosotras ni para ustedes. Más vale que vayan a donde lo venden, y compren para ustedes mismas.&gt;</text>
@@ -8610,7 +8610,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>But he answered, ‘Most certainly I tell you, I don’t know you.’</text>
+      <text>But he answered, ‘Most certainly I tell you, I don't know you.’</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Pero él les contestó: &lt;Les aseguro que no las conozco.&gt;</text>
@@ -8618,7 +8618,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="13" />
-      <text>Watch therefore, for you don’t know the day nor the hour in which the Son of Man is coming.”</text>
+      <text>Watch therefore, for you don't know the day nor the hour in which the Son of Man is coming.”</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>&lt;&lt;Manténganse ustedes despiertos añadió Jesús, porque no saben ni el día ni la hora.</text>
@@ -8658,7 +8658,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="18" />
-      <text>But he who received the one went away and dug a hole in the ground and hid his lord’s money.”</text>
+      <text>But he who received the one went away and dug a hole in the ground and hid his lord's money.”</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Pero el que recibió mil fue y escondió el dinero de su jefe en un hoyo que hizo en la tierra.</text>
@@ -8722,7 +8722,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start">
       <verse num="26" />
-      <text>“But his lord answered him, ‘You wicked and slothful servant. You knew that I reap where I didn’t sow, and gather where I didn’t scatter.</text>
+      <text>“But his lord answered him, ‘You wicked and slothful servant. You knew that I reap where I didn't sow, and gather where I didn't scatter.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>El jefe le contestó: &lt;Tú eres un empleado malo y perezoso, pues si sabías que yo cosecho donde no sembré y que recojo donde no esparcí,</text>
@@ -8746,7 +8746,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>For to everyone who has will be given, and he will have abundance, but from him who doesn’t have, even that which he has will be taken away.</text>
+      <text>For to everyone who has will be given, and he will have abundance, but from him who doesn't have, even that which he has will be taken away.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Porque al que tiene, se le dará más, y tendrá de sobra; pero al que no tiene, hasta lo poco que tiene se le quitará.</text>
@@ -8850,7 +8850,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="42" />
-      <text>for I was hungry, and you didn’t give me food to eat; I was thirsty, and you gave me no drink.</text>
+      <text>for I was hungry, and you didn't give me food to eat; I was thirsty, and you gave me no drink.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>Pues tuve hambre, y ustedes no me dieron de comer; tuve sed, y no me dieron de beber;</text>
@@ -8858,7 +8858,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="43" />
-      <text>I was a stranger, and you didn’t take me in; naked, and you didn’t clothe me; sick, and in prison, and you didn’t visit me.’”</text>
+      <text>I was a stranger, and you didn't take me in; naked, and you didn't clothe me; sick, and in prison, and you didn't visit me.’”</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>anduve como forastero, y no me dieron alojamiento; sin ropa, y no me la dieron; estuve enfermo, y en la cárcel, y no vinieron a visitarme.&gt;</text>
@@ -8866,7 +8866,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="44" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="44" characterId="Jesus">
       <verse num="44" />
-      <text>“Then they will also answer, saying, ‘Lord, when did we see you hungry, or thirsty, or a stranger, or naked, or sick, or in prison, and didn’t help you?’”</text>
+      <text>“Then they will also answer, saying, ‘Lord, when did we see you hungry, or thirsty, or a stranger, or naked, or sick, or in prison, and didn't help you?’”</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>Entonces ellos le preguntarán: &lt;Señor, ¿cuándo te vimos con hambre o con sed, o como forastero, o falto de ropa, o enfermo, o en la cárcel, y no te ayudamos?&gt;</text>
@@ -8874,7 +8874,7 @@
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
       <verse num="45" />
-      <text>“Then he will answer them, saying, ‘Most certainly I tell you, inasmuch as you didn’t do it to one of the least of these, you didn’t do it to me.’</text>
+      <text>“Then he will answer them, saying, ‘Most certainly I tell you, inasmuch as you didn't do it to one of the least of these, you didn't do it to me.’</text>
     </ReferenceBlocks>
     <verse num="45" />
     <text>El Rey les contestará: &lt;Les aseguro que todo lo que no hicieron por una de estas personas más humildes, tampoco por mí lo hicieron.&gt;</text>
@@ -8889,7 +8889,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="26" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="26" initialStartVerse="0">
-      <text>MATTHEW 26</text>
+      <text>MATTHEW CHP 26</text>
     </ReferenceBlocks>
     <text>26</text>
   </block>
@@ -8986,7 +8986,7 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>For you always have the poor with you; but you don’t always have me.</text>
+      <text>For you always have the poor with you; but you don't always have me.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Pues a los pobres los tendrán siempre entre ustedes, pero a mí no siempre me van a tener.</text>
@@ -9107,7 +9107,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="22" characterId="disciples" delivery="sad" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="22" characterId="disciples" delivery="sad">
-      <text>“It isn’t me, is it, Lord?”</text>
+      <text>“It isn't me, is it, Lord?”</text>
     </ReferenceBlocks>
     <text>Señor, ¿acaso seré yo?</text>
   </block>
@@ -9143,7 +9143,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="25" characterId="Judas Iscariot" delivery="fake innocence" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="25" characterId="Judas Iscariot" delivery="fake innocence" userConfirmed="true">
-      <text>“It isn’t me, is it, Rabbi?”</text>
+      <text>“It isn't me, is it, Rabbi?”</text>
     </ReferenceBlocks>
     <text>Maestro, ¿acaso seré yo?</text>
   </block>
@@ -9194,7 +9194,7 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>But I tell you that I will not drink of this fruit of the vine from now on, until that day when I drink it anew with you in my Father’s Kingdom.”</text>
+      <text>But I tell you that I will not drink of this fruit of the vine from now on, until that day when I drink it anew with you in my Father's Kingdom.”</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Pero les digo que no volveré a beber de este producto de la vid, hasta el día en que beba con ustedes el vino nuevo en el reino de mi Padre.</text>
@@ -9329,14 +9329,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Start">
-      <text>“What, couldn’t you watch with me for one hour?</text>
+      <text>“What, couldn't you watch with me for one hour?</text>
     </ReferenceBlocks>
     <text>¿Ni siquiera una hora pudieron ustedes mantenerse despiertos conmigo?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="41" />
-      <text>Watch and pray, that you don’t enter into temptation. The spirit indeed is willing, but the flesh is weak.”</text>
+      <text>Watch and pray, that you don't enter into temptation. The spirit indeed is willing, but the flesh is weak.”</text>
     </ReferenceBlocks>
     <verse num="41" />
     <text>Manténganse despiertos y oren, para que no caigan en tentación. Ustedes tienen buena voluntad, pero son débiles.</text>
@@ -9351,7 +9351,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="42" characterId="Jesus" delivery="deeply distressed" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="42" characterId="Jesus" delivery="deeply distressed">
-      <text>“My Father, if this cup can’t pass away from me unless I drink it, your desire be done.”</text>
+      <text>“My Father, if this cup can't pass away from me unless I drink it, your desire be done.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Padre mío, si no es posible evitar que yo sufra esta prueba, hágase tu voluntad.&gt;&gt;</text>
   </block>
@@ -9388,7 +9388,7 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="46" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="46" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
       <verse num="46" />
-      <text>Arise, let’s be going. Behold, he who betrays me is at hand.”</text>
+      <text>Arise, let's be going. Behold, he who betrays me is at hand.”</text>
     </ReferenceBlocks>
     <verse num="46" />
     <text>Levántense, vámonos; ya se acerca el que me traiciona.</text>
@@ -9476,7 +9476,7 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="53" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="53" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="53" />
-      <text>Or do you think that I couldn’t ask my Father, and he would even now send me more than twelve legions of angels?</text>
+      <text>Or do you think that I couldn't ask my Father, and he would even now send me more than twelve legions of angels?</text>
     </ReferenceBlocks>
     <verse num="53" />
     <text>¿No sabes que yo podría rogarle a mi Padre, y él me mandaría ahora mismo más de doce ejércitos de ángeles?</text>
@@ -9499,7 +9499,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="55" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="55" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Have you come out as against a robber with swords and clubs to seize me? I sat daily in the temple teaching, and you didn’t arrest me.</text>
+      <text>“Have you come out as against a robber with swords and clubs to seize me? I sat daily in the temple teaching, and you didn't arrest me.</text>
     </ReferenceBlocks>
     <text>¿Por qué han venido ustedes con espadas y con palos a arrestarme, como si yo fuera un bandido? Todos los días he estado enseñando en el templo, y nunca me arrestaron.</text>
   </block>
@@ -9673,7 +9673,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial">
-      <text>“I don’t know what you are talking about.”</text>
+      <text>“I don't know what you are talking about.”</text>
     </ReferenceBlocks>
     <text>No sé de qué estás hablando.</text>
   </block>
@@ -9701,7 +9701,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="72" characterId="Peter (Simon)" delivery="denial, stronger" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="72" characterId="Peter (Simon)" delivery="denial, stronger">
-      <text>“I don’t know the man.”</text>
+      <text>“I don't know the man.”</text>
     </ReferenceBlocks>
     <text>¡No conozco a ese hombre!</text>
   </block>
@@ -9729,7 +9729,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="Peter (Simon)" delivery="denial, strongest" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="Peter (Simon)" delivery="denial, strongest">
-      <text>“I don’t know the man!”</text>
+      <text>“I don't know the man!”</text>
     </ReferenceBlocks>
     <text>¡No conozco a ese hombre!</text>
   </block>
@@ -9760,7 +9760,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="27" initialStartVerse="0">
-      <text>MATTHEW 27</text>
+      <text>MATTHEW CHP 27</text>
     </ReferenceBlocks>
     <text>27</text>
   </block>
@@ -9832,7 +9832,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="chief priests" delivery="disdain" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="chief priests" delivery="disdain">
-      <text>“It’s not lawful to put them into the treasury, since it is the price of blood.”</text>
+      <text>“It's not lawful to put them into the treasury, since it is the price of blood.”</text>
     </ReferenceBlocks>
     <text>Este dinero está manchado de sangre; no podemos ponerlo en el cofre de las ofrendas</text>
   </block>
@@ -9846,7 +9846,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="7" characterId="chief priests" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="7" characterId="chief priests">
-      <text>“We shall use the money to buy the land called the Potter’s Field so that strangers can be buried there.”</text>
+      <text>“We shall use the money to buy the land called the Potter's Field so that strangers can be buried there.”</text>
     </ReferenceBlocks>
     <text>"Compremos el terreno llamado el Campo del Alfarero, para tener un lugar donde enterrar a los extranjeros."</text>
   </block>
@@ -9870,7 +9870,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="9" characterId="scripture">
       <text>“They took the thirty pieces of silver, the price of him upon whom a price had been set, whom some of the children of Israel priced, </text>
       <verse num="10" />
-      <text>and they gave them for the potter’s field, as the Lord commanded me.”</text>
+      <text>and they gave them for the potter's field, as the Lord commanded me.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tomaron las treinta monedas de plata, el precio que los israelitas le habían puesto, </text>
     <verse num="10" />
@@ -9916,7 +9916,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="13" characterId="Pilate" delivery="to Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="13" characterId="Pilate" delivery="to Jesus">
-      <text>“Don’t you hear how many things they testify against you?”</text>
+      <text>“Don't you hear how many things they testify against you?”</text>
     </ReferenceBlocks>
     <text>¿No oyes todo lo que están diciendo contra ti?</text>
   </block>
@@ -10105,7 +10105,7 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-MAT">
       <verse num="27" />
-      <text>Then the governor’s soldiers took Jesus into the Praetorium, and gathered the whole garrison together against him.</text>
+      <text>Then the governor's soldiers took Jesus into the Praetorium, and gathered the whole garrison together against him.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Los soldados del gobernador llevaron a Jesús al palacio y reunieron toda la tropa alrededor de él.</text>
@@ -10239,7 +10239,7 @@
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="42" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="42" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering" multiBlockQuote="Start">
       <verse num="42" />
-      <text>“He saved others, but he can’t save himself. If he is the King of Israel, let him come down from the cross now, and we will believe in him.</text>
+      <text>“He saved others, but he can't save himself. If he is the King of Israel, let him come down from the cross now, and we will believe in him.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>Salvó a otros, pero a sí mismo no puede salvarse. Es el Rey de Israel: ¡pues que baje de la cruz, y creeremos en él!</text>
@@ -10322,7 +10322,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="49" characterId="bystanders at Calvary, the rest" delivery="jeering" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="49" characterId="bystanders at Calvary, the rest" delivery="jeering">
-      <text>“Let him be. Let’s see whether Elijah comes to save him.”</text>
+      <text>“Let him be. Let's see whether Elijah comes to save him.”</text>
     </ReferenceBlocks>
     <text>Déjalo, a ver si Elías viene a salvarlo.</text>
   </block>
@@ -10482,7 +10482,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="28" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="28" initialStartVerse="0">
-      <text>MATTHEW 28</text>
+      <text>MATTHEW CHP 28</text>
     </ReferenceBlocks>
     <text>28</text>
   </block>
@@ -10528,7 +10528,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="5" characterId="angels in white, two" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="5" characterId="angels in white, two" multiBlockQuote="Start">
-      <text>“Don’t be afraid, for I know that you seek Jesus, who has been crucified.</text>
+      <text>“Don't be afraid, for I know that you seek Jesus, who has been crucified.</text>
     </ReferenceBlocks>
     <text>No tengan miedo. Yo sé que están buscando a Jesús, el que fue crucificado.</text>
   </block>
@@ -10582,7 +10582,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="10" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="10" characterId="Jesus">
-      <text>“Don’t be afraid. Go tell my brothers that they should go into Galilee, and there they will see me.”</text>
+      <text>“Don't be afraid. Go tell my brothers that they should go into Galilee, and there they will see me.”</text>
     </ReferenceBlocks>
     <text>No tengan miedo. Vayan a decir a mis hermanos que se dirijan a Galilea, y que allá me verán.</text>
   </block>
@@ -10615,7 +10615,7 @@
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="14" characterId="chief priests/elders" delivery="bribing" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="14" characterId="chief priests/elders" characterIdOverrideForScript="chief priests" delivery="bribing" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>If this comes to the governor’s ears, we will persuade him and make you free of worry.”</text>
+      <text>If this comes to the governor's ears, we will persuade him and make you free of worry.”</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Y si el gobernador se entera de esto, nosotros lo convenceremos, y a ustedes les evitaremos dificultades.</text>

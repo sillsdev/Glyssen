@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>MARK 1</text>
+      <text>MARK CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -67,7 +67,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-MRK">
       <verse num="6" />
-      <text>John was clothed with camel’s hair and a leather belt around his waist. He ate locusts and wild honey. </text>
+      <text>John was clothed with camel's hair and a leather belt around his waist. He ate locusts and wild honey. </text>
       <verse num="7" />
       <text>He preached, saying,</text>
     </ReferenceBlocks>
@@ -288,7 +288,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="30" characterId="narrator-MRK">
       <verse num="30" />
-      <text>Now Simon’s wife’s mother lay sick with a fever, and immediately they told him about her.</text>
+      <text>Now Simon's wife's mother lay sick with a fever, and immediately they told him about her.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Ibu mertua Simon terbaring karena sakit demam. Mereka segera memberitahukan keadaannya kepada Yesus.</text>
@@ -320,7 +320,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="34" characterId="narrator-MRK">
       <verse num="34" />
-      <text>He healed many who were sick with various diseases, and cast out many demons. He didn’t allow the demons to speak, because they knew him.</text>
+      <text>He healed many who were sick with various diseases, and cast out many demons. He didn't allow the demons to speak, because they knew him.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>Ia menyembuhkan banyak orang yang menderita bermacam-macam penyakit dan mengusir banyak setan; Ia tidak memperbolehkan setan-setan itu berbicara, sebab mereka mengenal Dia. "</text>
@@ -365,7 +365,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Jesus">
-      <text>“Let’s go elsewhere into the next towns, that I may preach there also, because I came out for this reason.”</text>
+      <text>“Let's go elsewhere into the next towns, that I may preach there also, because I came out for this reason.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Marilah kita pergi ke tempat lain, ke kota-kota yang berdekatan, supaya di sana juga Aku memberitakan Injil, karena untuk itu Aku telah datang.&gt;&gt;</text>
   </block>
@@ -441,7 +441,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>MARK 2</text>
+      <text>MARK CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -632,14 +632,14 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="narrator-MRK">
       <verse num="18" />
-      <text>John’s disciples and the Pharisees were fasting, and they came and asked him,</text>
+      <text>John's disciples and the Pharisees were fasting, and they came and asked him,</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Pada suatu kali ketika murid-murid Yohanes dan orang-orang Farisi sedang berpuasa, datanglah orang-orang dan mengatakan kepada Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="people, some" delivery="critical" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="people, some" delivery="critical">
-      <text>“Why do John’s disciples and the disciples of the Pharisees fast, but your disciples don’t fast?”</text>
+      <text>“Why do John's disciples and the disciples of the Pharisees fast, but your disciples don't fast?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mengapa murid-murid Yohanes dan murid-murid orang Farisi berpuasa, tetapi murid-murid-Mu tidak?&gt;&gt;</text>
   </block>
@@ -653,7 +653,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Can the groomsmen fast while the bridegroom is with them? As long as they have the bridegroom with them, they can’t fast.</text>
+      <text>“Can the groomsmen fast while the bridegroom is with them? As long as they have the bridegroom with them, they can't fast.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Dapatkah sahabat-sahabat mempelai laki-laki berpuasa sedang mempelai itu bersama mereka? Selama mempelai itu bersama mereka, mereka tidak dapat berpuasa.</text>
   </block>
@@ -716,7 +716,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>In the days when Abiathar was high priest, David entered into God’s house and ate the consecrated bread, which is lawful only for the priests to eat. He also gave some to those who were with him?”</text>
+      <text>In the days when Abiathar was high priest, David entered into God's house and ate the consecrated bread, which is lawful only for the priests to eat. He also gave some to those who were with him?”</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>bagaimana ia masuk ke dalam Rumah Allah waktu Abyatar menjabat sebagai Imam Besar lalu makan roti sajian itu—yang tidak boleh dimakan kecuali oleh imam-imam—dan memberinya juga kepada pengikut-pengikutnya.&gt;&gt;</text>
@@ -745,7 +745,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>MARK 3</text>
+      <text>MARK CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -846,7 +846,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="narrator-MRK">
       <verse num="9" />
-      <text>He spoke to his disciples that a little boat should stay near him because of the crowd, so that they wouldn’t press on him.</text>
+      <text>He spoke to his disciples that a little boat should stay near him because of the crowd, so that they wouldn't press on him.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Ia menyuruh murid-murid-Nya menyediakan sebuah perahu bagi-Nya karena orang banyak itu, supaya mereka jangan sampai menghimpit-Nya.</text>
@@ -1021,7 +1021,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>If Satan has risen up against himself, and is divided, he can’t stand, but has an end.</text>
+      <text>If Satan has risen up against himself, and is divided, he can't stand, but has an end.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Demikianlah juga kalau Iblis berontak melawan dirinya sendiri dan kalau ia terbagi-bagi, ia tidak dapat bertahan, melainkan sudahlah tiba kesudahannya.</text>
@@ -1124,7 +1124,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>MARK 4</text>
+      <text>MARK CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -1242,7 +1242,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Don’t you understand this parable? How will you understand all of the parables?</text>
+      <text>“Don't you understand this parable? How will you understand all of the parables?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tidakkah kamu mengerti perumpamaan ini? Kalau demikian bagaimana kamu dapat memahami semua perumpamaan yang lain?</text>
   </block>
@@ -1313,7 +1313,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Is the lamp brought to be put under a basket or under a bed? Isn’t it put on a stand?</text>
+      <text>“Is the lamp brought to be put under a basket or under a bed? Isn't it put on a stand?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Orang membawa pelita bukan supaya ditempatkan di bawah gantang atau di bawah tempat tidur, melainkan supaya ditaruh di atas kaki dian.</text>
   </block>
@@ -1350,7 +1350,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>For whoever has, to him will more be given, and he who doesn’t have, even that which he has will be taken away from him.”</text>
+      <text>For whoever has, to him will more be given, and he who doesn't have, even that which he has will be taken away from him.”</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Karena siapa yang mempunyai, kepadanya akan diberi, tetapi siapa yang tidak mempunyai, apapun juga yang ada padanya akan diambil dari padanya.&gt;&gt;</text>
@@ -1372,7 +1372,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>Night and day, whether he sleeps or gets up, the seed sprouts and grows, he doesn’t know how.</text>
+      <text>Night and day, whether he sleeps or gets up, the seed sprouts and grows, he doesn't know how.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>lalu pada malam hari ia tidur dan pada siang hari ia bangun, dan benih itu mengeluarkan tunas dan tunas itu makin tinggi, bagaimana terjadinya tidak diketahui orang itu.</text>
@@ -1410,7 +1410,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>It’s like a grain of mustard seed, which, when it is sown in the earth, it is less than all the seeds that are on the earth.</text>
+      <text>It's like a grain of mustard seed, which, when it is sown in the earth, it is less than all the seeds that are on the earth.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Hal Kerajaan itu seumpama biji sesawi yang ditaburkan di tanah. Memang biji itu yang paling kecil dari pada segala jenis benih yang ada di bumi.</text>
@@ -1434,7 +1434,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="34" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="34" characterId="narrator-MRK">
       <verse num="34" />
-      <text>Without a parable he didn’t speak to them; but privately to his own disciples he explained everything.</text>
+      <text>Without a parable he didn't speak to them; but privately to his own disciples he explained everything.</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>dan tanpa perumpamaan Ia tidak berkata-kata kepada mereka, tetapi kepada murid-murid-Nya Ia menguraikan segala sesuatu secara tersendiri.</text>
@@ -1449,7 +1449,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="Jesus" delivery="giving orders">
-      <text>“Let’s go over to the other side.”</text>
+      <text>“Let's go over to the other side.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Marilah kita bertolak ke seberang.&gt;&gt;</text>
   </block>
@@ -1479,7 +1479,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="38" characterId="disciples" delivery="terrified" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="38" characterId="disciples" delivery="terrified">
-      <text>“Teacher, don’t you care that we are dying?”</text>
+      <text>“Teacher, don't you care that we are dying?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Guru, Engkau tidak perduli kalau kita binasa?&gt;&gt;</text>
   </block>
@@ -1529,7 +1529,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>MARK 5</text>
+      <text>MARK CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -1591,7 +1591,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="demons (Legion)/man delivered from Legion of demons" delivery="shrieking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="shrieking">
-      <text>“What have I to do with you, Jesus, you Son of the Most High God? I adjure you by God, don’t torment me.”</text>
+      <text>“What have I to do with you, Jesus, you Son of the Most High God? I adjure you by God, don't torment me.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Hai engkau roh jahat! Keluar dari orang ini!&gt;&gt;</text>
   </block>
@@ -1746,7 +1746,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-MRK">
       <verse num="19" />
-      <text>He didn’t allow him, but said to him,</text>
+      <text>He didn't allow him, but said to him,</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Yesus tidak memperkenankannya, tetapi Ia berkata kepada orang itu:</text>
@@ -1903,7 +1903,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="35" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="35" characterId="narrator-MRK">
       <verse num="35" />
-      <text>While he was still speaking, people came from the synagogue ruler’s house saying,</text>
+      <text>While he was still speaking, people came from the synagogue ruler's house saying,</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Ketika Yesus masih berbicara datanglah orang dari keluarga kepala rumah ibadat itu dan berkata:</text>
@@ -1924,7 +1924,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="36" characterId="Jesus">
-      <text>“Don’t be afraid, only believe.”</text>
+      <text>“Don't be afraid, only believe.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jangan takut, percaya saja!&gt;&gt;</text>
   </block>
@@ -1939,7 +1939,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="38" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="38" characterId="narrator-MRK">
       <verse num="38" />
-      <text>He came to the synagogue ruler’s house, and he saw an uproar, weeping, and great wailing.</text>
+      <text>He came to the synagogue ruler's house, and he saw an uproar, weeping, and great wailing.</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Mereka tiba di rumah kepala rumah ibadat, dan di sana dilihat-Nya orang-orang ribut, menangis dan meratap dengan suara nyaring.</text>
@@ -2028,7 +2028,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>MARK 6</text>
+      <text>MARK CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -2057,7 +2057,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
       <verse num="3" />
-      <text>Isn’t this the carpenter, the son of Mary, and brother of James, Joses, Judah, and Simon? Aren’t his sisters here with us?”</text>
+      <text>Isn't this the carpenter, the son of Mary, and brother of James, Joses, Judah, and Simon? Aren't his sisters here with us?”</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>&lt;&lt;Bukankah Ia ini tukang kayu, anak Maria, saudara Yakobus, Yoses, Yudas dan Simon? Dan bukankah saudara-saudara-Nya yang perempuan ada bersama kita?&gt;&gt;</text>
@@ -2225,7 +2225,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="narrator-MRK">
       <verse num="17" />
-      <text>Herod himself had given orders to have John arrested and put in prison. He did this because he had married Herodius, his brother Philip’s wife.</text>
+      <text>Herod himself had given orders to have John arrested and put in prison. He did this because he had married Herodius, his brother Philip's wife.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Sebab memang Herodeslah yang menyuruh orang menangkap Yohanes dan membelenggunya di penjara berhubung dengan peristiwa Herodias, isteri Filipus saudaranya, karena Herodes telah mengambilnya sebagai isteri.</text>
@@ -2240,14 +2240,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="John the Baptist" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="John the Baptist" delivery="rebuking">
-      <text>“It is not lawful for you to have your brother’s wife.”</text>
+      <text>“It is not lawful for you to have your brother's wife.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tidak halal engkau mengambil isteri saudaramu!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="19" characterId="narrator-MRK">
       <verse num="19" />
-      <text>Herodias set herself against him, and desired to kill him, but she couldn’t.</text>
+      <text>Herodias set herself against him, and desired to kill him, but she couldn't.</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Karena itu Herodias menaruh dendam pada Yohanes dan bermaksud untuk membunuh dia, tetapi tidak dapat.</text>
@@ -2339,7 +2339,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="26" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
-      <text>The king was exceedingly sorry, but for the sake of his oaths, and of his dinner guests, he didn’t wish to refuse her.</text>
+      <text>The king was exceedingly sorry, but for the sake of his oaths, and of his dinner guests, he didn't wish to refuse her.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Lalu sangat sedihlah hati raja, tetapi karena sumpahnya dan karena tamu-tamunya ia tidak mau menolaknya.</text>
@@ -2347,7 +2347,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="27" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="27" characterId="narrator-MRK">
       <verse num="27" />
-      <text>Immediately the king sent out a soldier of his guard, and commanded to bring John’s head, and he went and beheaded him in the prison,</text>
+      <text>Immediately the king sent out a soldier of his guard, and commanded to bring John's head, and he went and beheaded him in the prison,</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Raja segera menyuruh seorang pengawal dengan perintah supaya mengambil kepala Yohanes. Orang itu pergi dan memenggal kepala Yohanes di penjara.</text>
@@ -2598,7 +2598,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="49" characterId="disciples" delivery="terrified" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="49" characterId="disciples" delivery="terrified">
-      <text>“It’s a ghost!”</text>
+      <text>“It's a ghost!”</text>
     </ReferenceBlocks>
     <text>"Itu hantu!"</text>
   </block>
@@ -2612,7 +2612,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="50" characterId="Jesus" delivery="reassuring" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="50" characterId="Jesus" delivery="reassuring">
-      <text>“Cheer up! It is I! Don’t be afraid.”</text>
+      <text>“Cheer up! It is I! Don't be afraid.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tenanglah! Aku ini, jangan takut!&gt;&gt;</text>
   </block>
@@ -2627,7 +2627,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="52" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="52" characterId="narrator-MRK">
       <verse num="52" />
-      <text>for they hadn’t understood about the loaves, but their hearts were hardened.</text>
+      <text>for they hadn't understood about the loaves, but their hearts were hardened.</text>
     </ReferenceBlocks>
     <verse num="52" />
     <text>sebab sesudah peristiwa roti itu mereka belum juga mengerti, dan hati mereka tetap degil.</text>
@@ -2684,7 +2684,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>MARK 7</text>
+      <text>MARK CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -2707,7 +2707,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="3" characterId="narrator-MRK">
       <verse num="3" />
-      <text>(For the Pharisees, and all the Jews, don’t eat unless they wash their hands and forearms, holding to the tradition of the elders.</text>
+      <text>(For the Pharisees, and all the Jews, don't eat unless they wash their hands and forearms, holding to the tradition of the elders.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Sebab orang-orang Farisi seperti orang-orang Yahudi lainnya tidak makan kalau tidak melakukan pembasuhan tangan lebih dulu, karena mereka berpegang pada adat istiadat nenek moyang mereka;</text>
@@ -2715,7 +2715,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-MRK">
       <verse num="4" />
-      <text>They don’t eat when they come from the marketplace, unless they bathe themselves, and there are many other things, which they have received to hold to: washings of cups, pitchers, bronze vessels, and couches.)</text>
+      <text>They don't eat when they come from the marketplace, unless they bathe themselves, and there are many other things, which they have received to hold to: washings of cups, pitchers, bronze vessels, and couches.)</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>dan kalau pulang dari pasar mereka juga tidak makan kalau tidak lebih dahulu membersihkan dirinya. Banyak warisan lain lagi yang mereka pegang, umpamanya hal mencuci cawan, kendi dan perkakas-perkakas tembaga.</text>
@@ -2730,7 +2730,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Pharisees/teachers of religious law" delivery="critical" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="critical">
-      <text>“Why don’t your disciples walk according to the tradition of the elders, but eat their bread with unwashed hands?”</text>
+      <text>“Why don't your disciples walk according to the tradition of the elders, but eat their bread with unwashed hands?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mengapa murid-murid-Mu tidak hidup menurut adat istiadat nenek moyang kita, tetapi makan dengan tangan najis?&gt;&gt;</text>
   </block>
@@ -2854,14 +2854,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Are you thus without understanding also? Don’t you see that whatever goes into a man from outside can’t defile him?</text>
+      <text>“Are you thus without understanding also? Don't you see that whatever goes into a man from outside can't defile him?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Apakah kamu juga tidak dapat memahaminya? Tidak tahukah kamu bahwa segala sesuatu dari luar yang masuk ke dalam seseorang tidak dapat menajiskannya,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>This is because it doesn’t go into his heart, but into his stomach, then into the latrine, thus purifying all foods.”</text>
+      <text>This is because it doesn't go into his heart, but into his stomach, then into the latrine, thus purifying all foods.”</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>karena bukan masuk ke dalam hati tetapi ke dalam perutnya, lalu dibuang di jamban?&gt;&gt;</text>
@@ -2909,7 +2909,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="narrator-MRK">
       <verse num="24" />
-      <text>From there he arose, and went away into the borders of Tyre and Sidon. He entered into a house, and didn’t want anyone to know it, but he couldn’t escape notice.</text>
+      <text>From there he arose, and went away into the borders of Tyre and Sidon. He entered into a house, and didn't want anyone to know it, but he couldn't escape notice.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Lalu Yesus berangkat dari situ dan pergi ke daerah Tirus. Ia masuk ke sebuah rumah dan tidak mau bahwa ada orang yang mengetahuinya, tetapi kedatangan-Nya tidak dapat dirahasiakan.</text>
@@ -2947,7 +2947,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="Jesus" delivery="instructing" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="Jesus" delivery="instructing">
-      <text>“Let the children be filled first, for it is not appropriate to take the children’s bread and throw it to the dogs.”</text>
+      <text>“Let the children be filled first, for it is not appropriate to take the children's bread and throw it to the dogs.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Biarlah anak-anak kenyang dahulu, sebab tidak patut mengambil roti yang disediakan bagi anak-anak dan melemparkannya kepada anjing.&gt;&gt;</text>
   </block>
@@ -2961,7 +2961,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="Canaanite (Syrophoenician) mother of possessed girl" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="Canaanite (Syrophoenician) mother of possessed girl">
-      <text>“Yes, Lord. Yet even the dogs under the table eat the children’s crumbs.”</text>
+      <text>“Yes, Lord. Yet even the dogs under the table eat the children's crumbs.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Benar, Tuhan. Tetapi anjing yang di bawah meja juga makan remah-remah yang dijatuhkan anak-anak.&gt;&gt;</text>
   </block>
@@ -3081,7 +3081,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>MARK 8</text>
+      <text>MARK CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -3240,7 +3240,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="narrator-MRK">
       <verse num="14" />
-      <text>They forgot to take bread; and they didn’t have more than one loaf in the boat with them. </text>
+      <text>They forgot to take bread; and they didn't have more than one loaf in the boat with them. </text>
       <verse num="15" />
       <text>He warned them, saying,</text>
     </ReferenceBlocks>
@@ -3265,7 +3265,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="disciples" delivery="defensive" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="disciples" delivery="defensive">
-      <text>“It’s because we have no bread.”</text>
+      <text>“It's because we have no bread.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Itu dikatakan-Nya karena kita tidak mempunyai roti.&gt;&gt;</text>
   </block>
@@ -3279,14 +3279,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" userConfirmed="true" multiBlockQuote="Start">
-      <text>“Why do you reason that it’s because you have no bread? Don’t you perceive yet, neither understand? Is your heart still hardened?</text>
+      <text>“Why do you reason that it's because you have no bread? Don't you perceive yet, neither understand? Is your heart still hardened?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mengapa kamu memperbincangkan soal tidak ada roti? Belum jugakah kamu faham dan mengerti? Telah degilkah hatimu?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" userConfirmed="true" multiBlockQuote="ChangeOfDelivery">
       <verse num="18" />
-      <text>Having eyes, don’t you see? Having ears, don’t you hear? Don’t you remember?</text>
+      <text>Having eyes, don't you see? Having ears, don't you hear? Don't you remember?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Kamu mempunyai mata, tidakkah kamu melihat dan kamu mempunyai telinga, tidakkah kamu mendengar? Tidakkah kamu ingat lagi,</text>
@@ -3341,7 +3341,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" delivery="questioning">
-      <text>“Don’t you understand, yet?”</text>
+      <text>“Don't you understand, yet?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Masihkah kamu belum mengerti?&gt;&gt;</text>
   </block>
@@ -3399,7 +3399,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="Jesus" delivery="giving orders">
-      <text>“Don’t enter into the village, nor tell anyone in the village.”</text>
+      <text>“Don't enter into the village, nor tell anyone in the village.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jangan masuk ke kampung!&gt;&gt;</text>
   </block>
@@ -3556,7 +3556,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>MARK 9</text>
+      <text>MARK CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -3604,14 +3604,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Peter (Simon)" delivery="afraid" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Peter (Simon)" delivery="afraid">
-      <text>“Rabbi, it is good for us to be here. Let’s make three tents: one for you, one for Moses, and one for Elijah.”</text>
+      <text>“Rabbi, it is good for us to be here. Let's make three tents: one for you, one for Moses, and one for Elijah.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Rabi, betapa bahagianya kami berada di tempat ini. Baiklah kami dirikan tiga kemah, satu untuk Engkau, satu untuk Musa dan satu untuk Elia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-MRK">
       <verse num="6" />
-      <text>For he didn’t know what to say, for they were very afraid.</text>
+      <text>For he didn't know what to say, for they were very afraid.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Ia berkata demikian, sebab tidak tahu apa yang harus dikatakannya, karena mereka sangat ketakutan.</text>
@@ -3775,7 +3775,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-MRK">
       <verse num="21" />
-      <text>Jesus asked the boy’s father,</text>
+      <text>Jesus asked the boy's father,</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Lalu Yesus bertanya kepada ayah anak itu:</text>
@@ -3880,7 +3880,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="disciples" delivery="upset" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="disciples" delivery="upset">
-      <text>“Why couldn’t we cast it out?”</text>
+      <text>“Why couldn't we cast it out?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mengapa kami tidak dapat mengusir roh itu?&gt;&gt;</text>
   </block>
@@ -3901,7 +3901,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-MRK">
       <verse num="30" />
-      <text>They went out from there, and passed through Galilee. He didn’t want anyone to know it.</text>
+      <text>They went out from there, and passed through Galilee. He didn't want anyone to know it.</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Yesus dan murid-murid-Nya berangkat dari situ dan melewati Galilea, dan Yesus tidak mau hal itu diketahui orang;</text>
@@ -3923,7 +3923,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="32" characterId="narrator-MRK">
       <verse num="32" />
-      <text>But they didn’t understand the saying, and were afraid to ask him.</text>
+      <text>But they didn't understand the saying, and were afraid to ask him.</text>
     </ReferenceBlocks>
     <verse num="32" />
     <text>Mereka tidak mengerti perkataan itu, namun segan menanyakannya kepada-Nya.</text>
@@ -3975,7 +3975,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="37" characterId="Jesus" delivery="instructing" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="37" characterId="Jesus" delivery="instructing">
       <verse num="37" />
-      <text>“Whoever receives one such little child in my name, receives me, and whoever receives me, doesn’t receive me, but him who sent me.”</text>
+      <text>“Whoever receives one such little child in my name, receives me, and whoever receives me, doesn't receive me, but him who sent me.”</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>&lt;&lt;Barangsiapa menyambut seorang anak seperti ini dalam nama-Ku, ia menyambut Aku. Dan barangsiapa menyambut Aku, bukan Aku yang disambutnya, tetapi Dia yang mengutus Aku.&gt;&gt;</text>
@@ -3990,7 +3990,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="38" characterId="John" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="38" characterId="John">
-      <text>“Teacher, we saw someone who doesn’t follow us casting out demons in your name; and we forbade him, because he doesn’t follow us.”</text>
+      <text>“Teacher, we saw someone who doesn't follow us casting out demons in your name; and we forbade him, because he doesn't follow us.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Guru, kami lihat seorang yang bukan pengikut kita mengusir setan demi nama-Mu, lalu kami cegah orang itu, karena ia bukan pengikut kita.&gt;&gt;</text>
   </block>
@@ -4004,7 +4004,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Don’t forbid him, for there is no one who will do a mighty work in my name, and be able quickly to speak evil of me.</text>
+      <text>“Don't forbid him, for there is no one who will do a mighty work in my name, and be able quickly to speak evil of me.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jangan kamu cegah dia! Sebab tidak seorangpun yang telah mengadakan mujizat demi nama-Ku, dapat seketika itu juga mengumpat Aku.</text>
   </block>
@@ -4019,7 +4019,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="41" />
-      <text>For whoever will give you a cup of water to drink in my name, because you are Christ’s, most certainly I tell you, he will in no way lose his reward.</text>
+      <text>For whoever will give you a cup of water to drink in my name, because you are Christ's, most certainly I tell you, he will in no way lose his reward.</text>
     </ReferenceBlocks>
     <verse num="41" />
     <text>Aku berkata kepadamu: Sesungguhnya barangsiapa memberi kamu minum secangkir air oleh karena kamu adalah pengikut Kristus, ia tidak akan kehilangan upahnya.&gt;&gt;</text>
@@ -4043,7 +4043,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="44" />
-      <text>‘where their worm doesn’t die, and the fire is not quenched.’</text>
+      <text>‘where their worm doesn't die, and the fire is not quenched.’</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>(di tempat itu ulatnya tidak akan mati, dan apinya tidak akan padam.)</text>
@@ -4059,7 +4059,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="46" />
-      <text>‘where their worm doesn’t die, and the fire is not quenched.’</text>
+      <text>‘where their worm doesn't die, and the fire is not quenched.’</text>
     </ReferenceBlocks>
     <verse num="46" />
     <text>(di tempat itu ulatnya tidak akan mati, dan apinya tidak akan padam.)</text>
@@ -4075,7 +4075,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="48" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="48" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="48" />
-      <text>‘where their worm doesn’t die, and the fire is not quenched.’</text>
+      <text>‘where their worm doesn't die, and the fire is not quenched.’</text>
     </ReferenceBlocks>
     <verse num="48" />
     <text>&lt;di mana ulat-ulat bangkai tidak mati dan api tidak padam.&gt;</text>
@@ -4098,7 +4098,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>MARK 10</text>
+      <text>MARK CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -4234,7 +4234,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="disciples" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="disciples">
-      <text>“Don’t bother the teacher!”</text>
+      <text>“Don't bother the teacher!”</text>
     </ReferenceBlocks>
     <text>orang-orang itu.</text>
   </block>
@@ -4248,7 +4248,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Allow the little children to come to me! Don’t forbid them, for the Kingdom of God belongs to such as these.</text>
+      <text>“Allow the little children to come to me! Don't forbid them, for the Kingdom of God belongs to such as these.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Biarkan anak-anak itu datang kepada-Ku, jangan menghalang-halangi mereka, sebab orang-orang yang seperti itulah yang empunya Kerajaan Allah.</text>
   </block>
@@ -4371,7 +4371,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>It is easier for a camel to go through a needle’s eye than for a rich man to enter into the Kingdom of God.”</text>
+      <text>It is easier for a camel to go through a needle's eye than for a rich man to enter into the Kingdom of God.”</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Lebih mudah seekor unta melewati lobang jarum dari pada seorang kaya masuk ke dalam Kerajaan Allah.&gt;&gt;</text>
@@ -4525,7 +4525,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Jesus">
-      <text>“You don’t know what you are asking. Are you able to drink the cup that I drink, and to be baptized with the baptism that I am baptized with?”</text>
+      <text>“You don't know what you are asking. Are you able to drink the cup that I drink, and to be baptized with the baptism that I am baptized with?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Kamu tidak tahu apa yang kamu minta. Dapatkah kamu meminum cawan yang harus Kuminum dan dibaptis dengan baptisan yang harus Kuterima?&gt;&gt;</text>
   </block>
@@ -4735,7 +4735,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>MARK 11</text>
+      <text>MARK CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -4917,7 +4917,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="Jesus">
-      <text>“Isn’t it written, ‘My house will be called a house of prayer for all the nations?’ But you have made it a den of robbers!”</text>
+      <text>“Isn't it written, ‘My house will be called a house of prayer for all the nations?’ But you have made it a den of robbers!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bukankah ada tertulis: &lt;Rumah-Ku akan disebut rumah doa bagi segala bangsa?&gt; Tetapi kamu ini telah menjadikannya &lt;sarang penyamun!&gt; &gt;&gt;</text>
   </block>
@@ -4971,7 +4971,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Start">
       <text>“Have faith in God. </text>
       <verse num="23" />
-      <text>For most certainly I tell you, whoever may tell this mountain, ‘Be taken up and cast into the sea,’ and doesn’t doubt in his heart, but believes that what he says is happening; he shall have whatever he says.</text>
+      <text>For most certainly I tell you, whoever may tell this mountain, ‘Be taken up and cast into the sea,’ and doesn't doubt in his heart, but believes that what he says is happening; he shall have whatever he says.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Percayalah kepada Allah! </text>
     <verse num="23" />
@@ -5075,7 +5075,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="chief priests/teachers of religious law/elders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" userConfirmed="true">
-      <text>“We don’t know.”</text>
+      <text>“We don't know.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Kami tidak tahu.&gt;&gt;</text>
   </block>
@@ -5093,7 +5093,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>MARK 12</text>
+      <text>MARK CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -5154,7 +5154,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="7" />
-      <text>But those farmers said among themselves, ‘This is the heir. Come, let’s kill him, and the inheritance will be ours.’</text>
+      <text>But those farmers said among themselves, ‘This is the heir. Come, let's kill him, and the inheritance will be ours.’</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Tetapi penggarap-penggarap itu berkata seorang kepada yang lain: &lt;Ia adalah ahli waris, mari kita bunuh dia, maka warisan ini menjadi milik kita.&gt;</text>
@@ -5178,7 +5178,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>Haven’t you even read this Scripture: ‘The stone which the builders rejected, the same was made the head of the corner.</text>
+      <text>Haven't you even read this Scripture: ‘The stone which the builders rejected, the same was made the head of the corner.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Tidak pernahkah kamu membaca nas ini: &lt;Batu yang dibuang oleh tukang-tukang bangunan telah menjadi batu penjuru:</text>
@@ -5217,7 +5217,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="spies (from Pharisees and Herodians)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="14" characterId="spies (from Pharisees and Herodians)">
-      <text>“Teacher, we know that you are honest, and don’t defer to anyone; for you aren’t partial to anyone, but truly teach the way of God. Is it lawful to pay taxes to Caesar, or not? </text>
+      <text>“Teacher, we know that you are honest, and don't defer to anyone; for you aren't partial to anyone, but truly teach the way of God. Is it lawful to pay taxes to Caesar, or not? </text>
       <verse num="15" />
       <text>Shall we give, or shall we not give?”</text>
     </ReferenceBlocks>
@@ -5258,7 +5258,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)" userConfirmed="true">
-      <text>“Caesar’s.”</text>
+      <text>“Caesar's.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Gambar dan tulisan Kaisar.&gt;&gt;</text>
   </block>
@@ -5272,7 +5272,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="Jesus">
-      <text>“Render to Caesar the things that are Caesar’s, and to God the things that are God’s.”</text>
+      <text>“Render to Caesar the things that are Caesar's, and to God the things that are God's.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Berikanlah kepada Kaisar apa yang wajib kamu berikan kepada Kaisar dan kepada Allah apa yang wajib kamu berikan kepada Allah!&gt;&gt;</text>
   </block>
@@ -5293,7 +5293,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="Sadducees" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="Sadducees" multiBlockQuote="Start">
       <verse num="19" />
-      <text>“Teacher, Moses wrote to us, ‘If a man’s brother dies, and leaves a wife behind him, and leaves no children, that his brother should take his wife, and raise up offspring for his brother.’</text>
+      <text>“Teacher, Moses wrote to us, ‘If a man's brother dies, and leaves a wife behind him, and leaves no children, that his brother should take his wife, and raise up offspring for his brother.’</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>&lt;&lt;Guru, Musa menuliskan perintah ini untuk kita: Jika seorang, yang mempunyai saudara laki-laki, mati dengan meninggalkan seorang isteri tetapi tidak meninggalkan anak, saudaranya harus kawin dengan isterinya itu dan membangkitkan keturunan bagi saudaranya itu.</text>
@@ -5340,7 +5340,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Isn’t this because you are mistaken, not knowing the Scriptures, nor the power of God?</text>
+      <text>“Isn't this because you are mistaken, not knowing the Scriptures, nor the power of God?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Kamu sesat, justru karena kamu tidak mengerti Kitab Suci maupun kuasa Allah.</text>
   </block>
@@ -5355,7 +5355,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>But about the dead, that they are raised; haven’t you read in the book of Moses, about the Bush, how God spoke to him, saying, ‘I am the God of Abraham, the God of Isaac, and the God of Jacob’?</text>
+      <text>But about the dead, that they are raised; haven't you read in the book of Moses, about the Bush, how God spoke to him, saying, ‘I am the God of Abraham, the God of Isaac, and the God of Jacob’?</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Dan juga tentang bangkitnya orang-orang mati, tidakkah kamu baca dalam kitab Musa, dalam ceritera tentang semak duri, bagaimana bunyi firman Allah kepadanya: &lt;Akulah Allah Abraham, Allah Ishak dan Allah Yakub?&gt;</text>
@@ -5560,7 +5560,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>MARK 13</text>
+      <text>MARK CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -5633,7 +5633,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
       <verse num="7" />
-      <text>“When you hear of wars and rumors of wars, don’t be troubled. For those must happen, but the end is not yet.</text>
+      <text>“When you hear of wars and rumors of wars, don't be troubled. For those must happen, but the end is not yet.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Dan apabila kamu mendengar deru perang atau kabar-kabar tentang perang, janganlah kamu gelisah. Semuanya itu harus terjadi, tetapi itu belum kesudahannya.</text>
@@ -5665,7 +5665,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>When they lead you away and deliver you up, don’t be anxious beforehand, or premeditate what you will say, but say whatever will be given you in that hour. For it is not you who speak, but the Holy Spirit.”</text>
+      <text>When they lead you away and deliver you up, don't be anxious beforehand, or premeditate what you will say, but say whatever will be given you in that hour. For it is not you who speak, but the Holy Spirit.”</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Dan jika kamu digiring dan diserahkan, janganlah kamu kuatir akan apa yang harus kamu katakan, tetapi katakanlah apa yang dikaruniakan kepadamu pada saat itu juga, sebab bukan kamu yang berkata-kata, melainkan Roh Kudus.&gt;&gt;</text>
@@ -5681,7 +5681,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="13" />
-      <text>You will be hated by all men for my name’s sake, but he who endures to the end, the same will be saved.</text>
+      <text>You will be hated by all men for my name's sake, but he who endures to the end, the same will be saved.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Kamu akan dibenci semua orang oleh karena nama-Ku. Tetapi orang yang bertahan sampai pada kesudahannya ia akan selamat.&gt;&gt;</text>
@@ -5721,7 +5721,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="18" />
-      <text>Pray that your flight won’t be in the winter.</text>
+      <text>Pray that your flight won't be in the winter.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Berdoalah, supaya semuanya itu jangan terjadi pada musim dingin.</text>
@@ -5745,7 +5745,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>Then if anyone tells you, ‘Look, here is the Christ!’ or, ‘Look, there!’ don’t believe it.</text>
+      <text>Then if anyone tells you, ‘Look, here is the Christ!’ or, ‘Look, there!’ don't believe it.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Pada waktu itu jika orang berkata kepada kamu: &lt;Lihat, Mesias ada di sini,&gt; atau: &lt;Lihat, Mesias ada di sana,&gt; jangan kamu percaya.</text>
@@ -5842,7 +5842,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="33" />
-      <text>Watch, keep alert, and pray; for you don’t know when the time is.”</text>
+      <text>Watch, keep alert, and pray; for you don't know when the time is.”</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Hati-hatilah dan berjaga-jagalah! Sebab kamu tidak tahu bilamanakah waktunya tiba.</text>
@@ -5858,7 +5858,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="35" />
-      <text>Watch therefore, for you don’t know when the lord of the house is coming, whether at evening, or at midnight, or when the rooster crows, or in the morning;</text>
+      <text>Watch therefore, for you don't know when the lord of the house is coming, whether at evening, or at midnight, or when the rooster crows, or in the morning;</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Karena itu berjaga-jagalah, sebab kamu tidak tahu bilamanakah tuan rumah itu pulang, menjelang malam, atau tengah malam, atau larut malam, atau pagi-pagi buta,</text>
@@ -5881,7 +5881,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>MARK 14</text>
+      <text>MARK CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
@@ -6287,7 +6287,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Simon, are you sleeping? Couldn’t you watch one hour?</text>
+      <text>“Simon, are you sleeping? Couldn't you watch one hour?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Simon, sedang tidurkah engkau? Tidakkah engkau sanggup berjaga-jaga satu jam?</text>
   </block>
@@ -6310,7 +6310,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="40" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="40" characterId="narrator-MRK">
       <verse num="40" />
-      <text>Again he returned, and found them sleeping, for their eyes were very heavy, and they didn’t know what to answer him.</text>
+      <text>Again he returned, and found them sleeping, for their eyes were very heavy, and they didn't know what to answer him.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Dan ketika Ia kembali pula, Ia mendapati mereka sedang tidur, sebab mata mereka sudah berat dan mereka tidak tahu jawab apa yang harus mereka berikan kepada-Nya.</text>
@@ -6408,7 +6408,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
       <verse num="49" />
-      <text>I was daily with you in the temple teaching, and you didn’t arrest me. But this is so that the Scriptures might be fulfilled.”</text>
+      <text>I was daily with you in the temple teaching, and you didn't arrest me. But this is so that the Scriptures might be fulfilled.”</text>
     </ReferenceBlocks>
     <verse num="49" />
     <text>Padahal tiap-tiap hari Aku ada di tengah-tengah kamu mengajar di Bait Allah, dan kamu tidak menangkap Aku. Tetapi haruslah digenapi yang tertulis dalam Kitab Suci.&gt;&gt;</text>
@@ -6464,7 +6464,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="56" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="56" characterId="narrator-MRK">
       <verse num="56" />
-      <text>For many gave false testimony against him, and their testimony didn’t agree with each other.</text>
+      <text>For many gave false testimony against him, and their testimony didn't agree with each other.</text>
     </ReferenceBlocks>
     <verse num="56" />
     <text>Banyak juga orang yang mengucapkan kesaksian palsu terhadap Dia, tetapi kesaksian-kesaksian itu tidak sesuai yang satu dengan yang lain.</text>
@@ -6651,7 +6651,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial, stronger" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial, stronger" userConfirmed="true">
-      <text>“I don’t know him!”</text>
+      <text>“I don't know him!”</text>
     </ReferenceBlocks>
     <text>menyangkalnya pula.</text>
   </block>
@@ -6677,7 +6677,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="71" characterId="Peter (Simon)" delivery="denial, strongest" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="71" characterId="Peter (Simon)" delivery="denial, strongest">
-      <text>“I don’t know this man of whom you speak!”</text>
+      <text>“I don't know this man of whom you speak!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Aku tidak kenal orang yang kamu sebut-sebut ini!&gt;&gt;</text>
   </block>
@@ -6703,7 +6703,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>MARK 15</text>
+      <text>MARK CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -6956,7 +6956,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="23" characterId="narrator-MRK">
       <verse num="23" />
-      <text>They offered him wine mixed with myrrh to drink, but he didn’t take it.</text>
+      <text>They offered him wine mixed with myrrh to drink, but he didn't take it.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Lalu mereka memberi anggur bercampur mur kepada-Nya, tetapi Ia menolaknya.</text>
@@ -7035,7 +7035,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering" multiBlockQuote="Start">
-      <text>“He saved others. He can’t save himself.</text>
+      <text>“He saved others. He can't save himself.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Orang lain Ia selamatkan, tetapi diri-Nya sendiri tidak dapat Ia selamatkan!</text>
   </block>
@@ -7111,7 +7111,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="man with sponge" delivery="jeering" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="man with sponge" delivery="jeering">
-      <text>“Let him be. Let’s see whether Elijah comes to take him down.”</text>
+      <text>“Let him be. Let's see whether Elijah comes to take him down.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Baiklah kita tunggu dan melihat apakah Elia datang untuk menurunkan Dia.&gt;&gt;</text>
   </block>
@@ -7237,7 +7237,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>MARK 16</text>
+      <text>MARK CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
@@ -7293,7 +7293,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angels in white, two" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="6" characterId="angels in white, two" multiBlockQuote="Start">
-      <text>“Don’t be alarmed. You seek Jesus, the Nazarene, who has been crucified. He has risen. He is not here. Behold, the place where they laid him!</text>
+      <text>“Don't be alarmed. You seek Jesus, the Nazarene, who has been crucified. He has risen. He is not here. Behold, the place where they laid him!</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jangan takut! Kamu mencari Yesus orang Nazaret, yang disalibkan itu. Ia telah bangkit. Ia tidak ada di sini. Lihat! Inilah tempat mereka membaringkan Dia.</text>
   </block>
@@ -7348,7 +7348,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-MRK">
       <verse num="13" />
-      <text>They went away and told it to the rest. They didn’t believe them, either.</text>
+      <text>They went away and told it to the rest. They didn't believe them, either.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Lalu kembalilah mereka dan memberitahukannya kepada teman-teman yang lain, tetapi kepada merekapun teman-teman itu tidak percaya.</text>

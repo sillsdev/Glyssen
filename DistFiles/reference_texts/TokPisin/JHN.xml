@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>JOHN 1</text>
+      <text>JOHN CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -47,7 +47,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-JHN">
       <verse num="5" />
-      <text>The light shines in the darkness, and the darkness hasn’t overcome it.</text>
+      <text>The light shines in the darkness, and the darkness hasn't overcome it.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Dispela lait i save lait i stap long tudak, na tudak i no bin daunim em.</text>
@@ -87,7 +87,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JHN">
       <verse num="10" />
-      <text>He was in the world, and the world was made through him, and the world didn’t recognize him.</text>
+      <text>He was in the world, and the world was made through him, and the world didn't recognize him.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Orait Tok em i stap long graun. Long dispela Tok tasol God i bin wokim graun, tasol ol manmeri bilong graun ol i no luksave long em.</text>
@@ -95,7 +95,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-JHN">
       <verse num="11" />
-      <text>He came to his own, and those who were his own didn’t receive him.</text>
+      <text>He came to his own, and those who were his own didn't receive him.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Em i go long as ples bilong em yet, tasol ol lain bilong en ol i no kisim em.</text>
@@ -103,7 +103,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-JHN">
       <verse num="12" />
-      <text>But as many as received him, to them he gave the right to become God’s children, to those who believe in his name.</text>
+      <text>But as many as received him, to them he gave the right to become God's children, to those who believe in his name.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Tasol sampela manmeri i kisim em, em ol lain i bilip long nem bilong em. Na em i givim namba long ol bai ol i ken kamap pikinini bilong God.</text>
@@ -165,7 +165,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="narrator-JHN">
       <verse num="19" />
-      <text>This is John’s testimony, when the Jews sent priests and Levites from Jerusalem to ask him,</text>
+      <text>This is John's testimony, when the Jews sent priests and Levites from Jerusalem to ask him,</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>Ol Juda i salim ol pris na Livai na ol i lusim Jerusalem na i kam askim Jon olsem,</text>
@@ -296,14 +296,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="John the Baptist" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="John the Baptist" multiBlockQuote="Start">
-      <text>“I baptize in water, but among you stands one whom you don’t know.</text>
+      <text>“I baptize in water, but among you stands one whom you don't know.</text>
     </ReferenceBlocks>
     <text>"Mi save baptaisim ol long wara. Tasol i gat wanpela man i stap namel long yupela, na yupela i no save long em.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="John the Baptist" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="John the Baptist" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>He is the one who comes after me, who is preferred before me, whose sandal strap I’m not worthy to loosen.”</text>
+      <text>He is the one who comes after me, who is preferred before me, whose sandal strap I'm not worthy to loosen.”</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Em i dispela man i kam bihain long mi. Mi yet mi no gutpela man inap long mi lusim string i pasim su bilong en.</text>
@@ -341,7 +341,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="John the Baptist" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="John the Baptist" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>I didn’t know him, but for this reason I came baptizing in water: that he would be revealed to Israel.”</text>
+      <text>I didn't know him, but for this reason I came baptizing in water: that he would be revealed to Israel.”</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Mi yet mi no bin save long em i husat tru. Tasol mi kam baptaisim ol man long wara bai ol manmeri bilong Israel i ken save long dispela man."</text>
@@ -363,7 +363,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="33" characterId="John the Baptist" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="33" characterId="John the Baptist" multiBlockQuote="Continuation">
       <verse num="33" />
-      <text>I didn’t recognize him, but he who sent me to baptize in water, he said to me, ‘On whomever you will see the Spirit descending, and remaining on him, the same is he who baptizes in the Holy Spirit.’</text>
+      <text>I didn't recognize him, but he who sent me to baptize in water, he said to me, ‘On whomever you will see the Spirit descending, and remaining on him, the same is he who baptizes in the Holy Spirit.’</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Mi yet mi no bin save long em. Tasol God i bin salim mi na mi kam bilong baptaisim ol manmeri long wara, bipo em i bin tokim mi olsem, 'Taim yu lukim Holi Spirit i kam daun na i stap long wanpela man, orait em dispela man tasol i kam bilong baptaisim ol manmeri long Holi Spirit.'</text>
@@ -467,7 +467,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="40" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="40" characterId="narrator-JHN">
       <verse num="40" />
-      <text>One of the two who heard John, and followed him, was Andrew, Simon Peter’s brother.</text>
+      <text>One of the two who heard John, and followed him, was Andrew, Simon Peter's brother.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Andru, em brata bilong Saimon Pita, em i wanpela bilong dispela tupela man i harim tok bilong Jon na i go bihainim Jisas.</text>
@@ -654,7 +654,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>JOHN 2</text>
+      <text>JOHN CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -754,7 +754,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JHN">
       <text>So they took it. </text>
       <verse num="9" />
-      <text>When the ruler of the feast tasted the water now become wine, and didn’t know where it came from (but the servants who had drawn the water knew), the ruler of the feast called the bridegroom, </text>
+      <text>When the ruler of the feast tasted the water now become wine, and didn't know where it came from (but the servants who had drawn the water knew), the ruler of the feast called the bridegroom, </text>
       <verse num="10" />
       <text>and said to him,</text>
     </ReferenceBlocks>
@@ -816,7 +816,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="Jesus" delivery="giving orders">
-      <text>“Take these things out of here! Don’t make my Father’s house a marketplace!”</text>
+      <text>“Take these things out of here! Don't make my Father's house a marketplace!”</text>
     </ReferenceBlocks>
     <text>"Kisim ol pisin bilong yupela I go. Yupela i no ken mekim haus bilong Papa bilong mi i kamap olsem haus bilong maket."</text>
   </block>
@@ -903,9 +903,9 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-JHN">
       <verse num="24" />
-      <text>But Jesus didn’t trust himself to them, because he knew everyone, </text>
+      <text>But Jesus didn't trust himself to them, because he knew everyone, </text>
       <verse num="25" />
-      <text>and because he didn’t need for anyone to testify concerning man; for he himself knew what was in man.</text>
+      <text>and because he didn't need for anyone to testify concerning man; for he himself knew what was in man.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Tasol Jisas i no bilip long ol, </text>
@@ -914,7 +914,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>JOHN 3</text>
+      <text>JOHN CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -950,7 +950,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="3" characterId="Jesus">
-      <text>“Most certainly, I tell you, unless one is born anew, he can’t see the Kingdom of God.”</text>
+      <text>“Most certainly, I tell you, unless one is born anew, he can't see the Kingdom of God.”</text>
     </ReferenceBlocks>
     <text>"Tru tumas mi tokim yu, sapos man i no kamap nupela gen, em i no inap lukim kingdom bilong God."</text>
   </block>
@@ -964,7 +964,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="Nicodemus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="Nicodemus">
-      <text>“How can a man be born when he is old? Can he enter a second time into his mother’s womb, and be born?”</text>
+      <text>“How can a man be born when he is old? Can he enter a second time into his mother's womb, and be born?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem na man i lapun pinis em inap long kamap nupela gen? Ating em inap i go insait gen long bel bilong mama bilong en na mama i karim em gen?"</text>
   </block>
@@ -978,7 +978,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Most certainly I tell you, unless one is born of water and spirit, he can’t enter into the Kingdom of God!</text>
+      <text>“Most certainly I tell you, unless one is born of water and spirit, he can't enter into the Kingdom of God!</text>
     </ReferenceBlocks>
     <text>"Tru tumas mi tokim yu, sapos man i no kamap nupela long wara na long Holi Spirit, em i no inap i go insait long kingdom bilong God.</text>
   </block>
@@ -993,7 +993,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="7" />
-      <text>Don’t marvel that I said to you, ‘You must be born anew.’</text>
+      <text>Don't marvel that I said to you, ‘You must be born anew.’</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Yu no ken kirap nogut long dispela tok mi tokim yu, 'Yupela i mas kamap nupela gen.'</text>
@@ -1001,7 +1001,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>The wind blows where it wants to, and you hear its sound, but don’t know where it comes from and where it is going. So is everyone who is born of the Spirit.”</text>
+      <text>The wind blows where it wants to, and you hear its sound, but don't know where it comes from and where it is going. So is everyone who is born of the Spirit.”</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Win em i save bihainim laik bilong em yet na i go long narapela narapela hap. Yu save harim nois bilong en, tasol yu no save em i kam we na em i go we. Na olgeta man i kamap nupela long Holi Spirit, ol i olsem tasol."</text>
@@ -1030,14 +1030,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Are you the teacher of Israel, and don’t understand these things?</text>
+      <text>“Are you the teacher of Israel, and don't understand these things?</text>
     </ReferenceBlocks>
     <text>"Olsem wanem? Yu tisa bilong Israel na yu no klia long dispela samting?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
-      <text>Most certainly I tell you, we speak that which we know, and testify of that which we have seen, and you don’t receive our witness.</text>
+      <text>Most certainly I tell you, we speak that which we know, and testify of that which we have seen, and you don't receive our witness.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Tru tumas mi tokim yu, mipela i toktok long samting mipela i save long en. Na mipela i autim tok long samting mipela i lukim pinis. Tasolyupela i save givim baksait long dispela tok mipela i autim.</text>
@@ -1045,7 +1045,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>If I told you earthly things and you don’t believe, how will you believe if I tell you heavenly things?</text>
+      <text>If I told you earthly things and you don't believe, how will you believe if I tell you heavenly things?</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Mi bin tokim yupela long ol samting bilong graun, na yupela i no bilipim. Olsem na sapos mi tokim yupela long ol samting bilong heven, bai yupela i bilipim olsem wanem?</text>
@@ -1081,7 +1081,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>For God didn’t send his Son into the world to judge the world, but that the world should be saved through him.</text>
+      <text>For God didn't send his Son into the world to judge the world, but that the world should be saved through him.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>God i no salim Pikinini bilong en i kam long graun bilong skelim pasin bilong ol manmeri bilong graun olsem jas. Nogat. Em i salim em i kam bilong kisim bek ol.</text>
@@ -1089,7 +1089,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="18" />
-      <text>He who believes in him is not judged. He who doesn’t believe has been judged already, because he has not believed in the name of the only begotten Son of God.</text>
+      <text>He who believes in him is not judged. He who doesn't believe has been judged already, because he has not believed in the name of the only begotten Son of God.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Man i bilip long em, em i no gat kot. Man i no bilip, em i lus pinis long kot, long wanem, em i no bin bilip long nem bilong dispela wanpela Pikinini Bilong God.</text>
@@ -1105,7 +1105,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="20" />
-      <text>For everyone who does evil hates the light, and doesn’t come to the light, lest his works would be exposed.</text>
+      <text>For everyone who does evil hates the light, and doesn't come to the light, lest his works would be exposed.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Olgeta man i save mekim pasin nogut, ol i birua bilong lait. Ol i no laik bai pasin bilong ol i kamap ples klia. Olsem na ol i no save kam long lait.</text>
@@ -1145,7 +1145,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="25" characterId="narrator-JHN">
       <verse num="25" />
-      <text>There arose therefore a questioning on the part of John’s disciples with some Jews about purification.</text>
+      <text>There arose therefore a questioning on the part of John's disciples with some Jews about purification.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Wanpela tok pait i kirap namel long ol disaipel bilong Jon na wanpela Juda. Ol i toktok long wanem pasin bilong waswas ol i mas bihainim long kamap klin long ai bilong God.</text>
@@ -1189,7 +1189,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="John the Baptist" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="29" characterId="John the Baptist" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>He who has the bride is the bridegroom; but the friend of the bridegroom, who stands and hears him, rejoices greatly because of the bridegroom’s voice. This, my joy, therefore is made full.</text>
+      <text>He who has the bride is the bridegroom; but the friend of the bridegroom, who stands and hears him, rejoices greatly because of the bridegroom's voice. This, my joy, therefore is made full.</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Sapos wanpela man i maritim meri, orait dispela meri em i bilong dispela man i maritim em. Na poroman bilong dispela man em i save sanap na putim yau na amamas tru long harim tok bilong dispela man i marit. Olsem tasol nau amamas i pulap long bel bilong mi.</text>
@@ -1245,14 +1245,14 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="36" characterId="John the Baptist" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="36" characterId="John the Baptist" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>One who believes in the Son has eternal life, but one who disobeys the Son won’t see life, but the wrath of God remains on him.”</text>
+      <text>One who believes in the Son has eternal life, but one who disobeys the Son won't see life, but the wrath of God remains on him.”</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Man i bilip long Pikinini, em i gat laip i stap gut oltaim oltaim. Tasol man i no bihainim tok bilong Pikinini, em bai i no inap kisim laip. Nogat. Belhat bilong God i stap long em.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>JOHN 4</text>
+      <text>JOHN CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
@@ -1261,7 +1261,7 @@
       <verse num="1" />
       <text>Therefore when the Lord knew that the Pharisees had heard that Jesus was making and baptizing more disciples than John </text>
       <verse num="2" />
-      <text>(although Jesus himself didn’t baptize, but his disciples), </text>
+      <text>(although Jesus himself didn't baptize, but his disciples), </text>
       <verse num="3" />
       <text>he left Judea, and departed into Galilee.</text>
     </ReferenceBlocks>
@@ -1289,7 +1289,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-JHN">
       <verse num="6" />
-      <text>Jacob’s well was there. Jesus therefore, being tired from his journey, sat down by the well. It was about the sixth hour.</text>
+      <text>Jacob's well was there. Jesus therefore, being tired from his journey, sat down by the well. It was about the sixth hour.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Wanpela hul wara, bipo Jekop i bin wokim, em i stap long dispela ples. Jisas i wokabaut i kam na em i tait. Olsem na em i sindaun klostu long dispela hul wara. Em i olsem 12 klok belo.</text>
@@ -1400,7 +1400,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="woman, Samaritan" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="15" characterId="woman, Samaritan">
-      <text>“Sir, give me this water, so that I don’t get thirsty, neither come all the way here to draw.”</text>
+      <text>“Sir, give me this water, so that I don't get thirsty, neither come all the way here to draw.”</text>
     </ReferenceBlocks>
     <text>"Bikman, givim dispela wara long mi. Na bihain nek bilong mi i no ken drai moa, na mi no ken i kam hia bilong pulimapim wara."</text>
   </block>
@@ -1487,7 +1487,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="22" />
-      <text>You worship that which you don’t know. We worship that which we know; for salvation is from the Jews.</text>
+      <text>You worship that which you don't know. We worship that which we know; for salvation is from the Jews.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Yupela Samaria i save lotu long samting yupela i no save long en. Tasol mipela Juda i save lotu long samting mipela i save long en, long wanem, God i bin makim mipela Juda long i go pas long dispela wok bilong kisim bek ol manmeri.</text>
@@ -1592,7 +1592,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="32" characterId="Jesus">
-      <text>“I have food to eat that you don’t know about.”</text>
+      <text>“I have food to eat that you don't know about.”</text>
     </ReferenceBlocks>
     <text>"Mi gat kaikai yupela i no save long en."</text>
   </block>
@@ -1627,7 +1627,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="35" />
-      <text>Don’t you say, ‘There are yet four months until the harvest?’ Behold, I tell you, lift up your eyes, and look at the fields, that they are white for harvest already.</text>
+      <text>Don't you say, ‘There are yet four months until the harvest?’ Behold, I tell you, lift up your eyes, and look at the fields, that they are white for harvest already.</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>"Yupela i save tok olsem, 'I gat 4 -pela mun i stap yet na taim bilong kisim kaikai bai i kamap.' Tasol mi tokim yupela, yupela i mas lukluk nabaut na lukim gut ol gaden. Ol kaikai i redi pinis.</text>
@@ -1651,7 +1651,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="38" />
-      <text>I sent you to reap that for which you haven’t labored. Others have labored, and you have entered into their labor.”</text>
+      <text>I sent you to reap that for which you haven't labored. Others have labored, and you have entered into their labor.”</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Mi bin salim yupela i go bilong kisim kaikai long gaden bipo yupela i no bin wok long en. Ol arapela man i bin wokim gaden, na yupela i go insait bilong kisim kaikai i kamap long hatwok bilong ol."</text>
@@ -1846,7 +1846,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>JOHN 5</text>
+      <text>JOHN CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -1914,7 +1914,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="invalid for 38 years" delivery="whining" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="invalid for 38 years" delivery="whining">
-      <text>“Sir, I have no one to put me into the pool when the water is stirred up, but while I’m coming, another steps down before me.”</text>
+      <text>“Sir, I have no one to put me into the pool when the water is stirred up, but while I'm coming, another steps down before me.”</text>
     </ReferenceBlocks>
     <text>"Bikman, taim wara i mekim nais, mi no gat man i ken kisim mi i go na putim mi insait long hul wara. Mi yet mi laik i go, tasol ol arapela man i save go daun pastaim na i winim mi."</text>
   </block>
@@ -1985,7 +1985,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-JHN">
       <verse num="13" />
-      <text>But he who was healed didn’t know who it was, for Jesus had withdrawn, a crowd being in the place.</text>
+      <text>But he who was healed didn't know who it was, for Jesus had withdrawn, a crowd being in the place.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Tasol dispela man i kamap orait gen em i no save husat tru i bin tokim em, long wanem, planti manmeri i stap long dispela ples, na Jisas i go pinis.</text>
@@ -2073,7 +2073,7 @@
       <verse num="22" />
       <text>For the Father judges no one, but he has given all judgment to the Son, </text>
       <verse num="23" />
-      <text>that all may honor the Son, even as they honor the Father. He who doesn’t honor the Son doesn’t honor the Father who sent him.”</text>
+      <text>that all may honor the Son, even as they honor the Father. He who doesn't honor the Son doesn't honor the Father who sent him.”</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Papa i no save skelim wanpela man long kot. Olgeta wok bilong harim kot, em i givim pinis long Pikinini. </text>
@@ -2083,7 +2083,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
       <verse num="24" />
-      <text>“Most certainly I tell you, he who hears my word, and believes him who sent me, has eternal life, and doesn’t come into judgment, but has passed out of death into life.</text>
+      <text>“Most certainly I tell you, he who hears my word, and believes him who sent me, has eternal life, and doesn't come into judgment, but has passed out of death into life.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>"Tru tumas mi tokim yupela, man i harim tok bilong mi, na i bilip long Papa, em i bin salim mi na mi kam, em i gat laip i stap gut oltaim oltaim. Em bai i no gat kot. Nogat. Em i lusim dai pinis, na nau em i stap laip.</text>
@@ -2091,7 +2091,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>Most certainly, I tell you, the hour comes, and now is, when the dead will hear the Son of God’s voice; and those who hear will live.</text>
+      <text>Most certainly, I tell you, the hour comes, and now is, when the dead will hear the Son of God's voice; and those who hear will live.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>"Tru tumas mi tokim yupela, taim i laik kamap, na nau i kamap pinis, na ol manmeri i dai pinis bai i harim maus bilong Pikinini Bilong God. Na ol manmeri i harim, ol bai i kisim laip.</text>
@@ -2115,7 +2115,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="28" />
-      <text>Don’t marvel at this, for the hour comes, in which all that are in the tombs will hear his voice, </text>
+      <text>Don't marvel at this, for the hour comes, in which all that are in the tombs will hear his voice, </text>
       <verse num="29" />
       <text>and will come out; those who have done good, to the resurrection of life; and those who have done evil, to the resurrection of damnation.</text>
     </ReferenceBlocks>
@@ -2127,7 +2127,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="30" />
-      <text>I can of myself do nothing. As I hear, I judge, and my judgment is righteous; because I don’t seek my own will, but the will of my Father who sent me.”</text>
+      <text>I can of myself do nothing. As I hear, I judge, and my judgment is righteous; because I don't seek my own will, but the will of my Father who sent me.”</text>
     </ReferenceBlocks>
     <verse num="30" />
     <text>Jisas i tok moa olsem, "Mi no inap mekim wanpela samting long tingting bilong mi yet. Mi save bihainim tok mi kisim long Papa na mi skelim pasin bilong ol manmeri. Na kot bilong mi em i stret, long wanem, mi no save bihainim laik bilong mi yet. Nogat. Mi bihainim laik bilong Papa, em i bin salim mi na mi kam.</text>
@@ -2191,7 +2191,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="38" />
-      <text>You don’t have his word living in you; because you don’t believe him whom he sent.”</text>
+      <text>You don't have his word living in you; because you don't believe him whom he sent.”</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Na tok bilong em tu i no i stap long yupela, long wanem, yupela i no bilipim tok bilong dispela man Papa i bin salim i kam.</text>
@@ -2209,7 +2209,7 @@
       <verse num="40" />
       <text>Yet you will not come to me, that you may have life. </text>
       <verse num="41" />
-      <text>I don’t receive glory from men.</text>
+      <text>I don't receive glory from men.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>na yupela i no laik i kam long mi bilong kisim laip. </text>
@@ -2219,7 +2219,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="42" />
-      <text>But I know you, that you don’t have God’s love in yourselves.</text>
+      <text>But I know you, that you don't have God's love in yourselves.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>Tasol mi save long yupela. Long bel bilong yupela, yupela i no gat laik long God.</text>
@@ -2227,7 +2227,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="43" />
-      <text>I have come in my Father’s name, and you don’t receive me. If another comes in his own name, you will receive him.</text>
+      <text>I have come in my Father's name, and you don't receive me. If another comes in his own name, you will receive him.</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>Mi bin i kam long nem bilong Papa bilong mi, na yupela i no kisim tok bilong mi. Tasol sapos wanpela man i kam long nem bilong em yet, orait wantu bai yupela i kisim tok bilong em.</text>
@@ -2235,7 +2235,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="44" />
-      <text>How can you believe, who receive glory from one another, and you don’t seek the glory that comes from the only God?”</text>
+      <text>How can you believe, who receive glory from one another, and you don't seek the glory that comes from the only God?”</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>Yupela i save kisim biknem long ol lain bilong yupela yet. Tasol dispela biknem God wanpela tasol i save givim, em yupela i no laik kisim. Sapos yupela i mekim ol dispela kain pasin, orait bai yupela i bilip olsem wanem?</text>
@@ -2243,7 +2243,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
       <verse num="45" />
-      <text>“Don’t think that I will accuse you to the Father. There is one who accuses you, even Moses, on whom you have set your hope.</text>
+      <text>“Don't think that I will accuse you to the Father. There is one who accuses you, even Moses, on whom you have set your hope.</text>
     </ReferenceBlocks>
     <verse num="45" />
     <text>"Yupela i no ken ting bai mi kotim yupela long ai bilong Papa. Nogat. Man i kotim yupela em Moses yet, em dispela man yupela i ting em bai i helpim yupela.</text>
@@ -2259,14 +2259,14 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="47" />
-      <text>But if you don’t believe his writings, how will you believe my words?”</text>
+      <text>But if you don't believe his writings, how will you believe my words?”</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>Tasol sapos yupela i no bilipim tok em i bin raitim, orait olsem wanem bai yupela i bilipim tok bilong mi?"</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>JOHN 6</text>
+      <text>JOHN CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -2341,7 +2341,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-JHN">
       <verse num="8" />
-      <text>One of his disciples, Andrew, Simon Peter’s brother, said to him,</text>
+      <text>One of his disciples, Andrew, Simon Peter's brother, said to him,</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Orait wanpela disaipel bilong Jisas, em Andru, brata bilong Saimon Pita, em i tokim Jisas olsem,</text>
@@ -2464,7 +2464,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="20" characterId="Jesus">
-      <text>“It is I. Don’t be afraid.”</text>
+      <text>“It is I. Don't be afraid.”</text>
     </ReferenceBlocks>
     <text>"Em mi yet mi i kam. Yupela I no ken pret."</text>
   </block>
@@ -2479,7 +2479,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="22" characterId="narrator-JHN">
       <verse num="22" />
-      <text>On the next day, the multitude that stood on the other side of the sea saw that there was no other boat there, except the one in which his disciples had embarked, and that Jesus hadn’t entered with his disciples into the boat, but his disciples had gone away alone.</text>
+      <text>On the next day, the multitude that stood on the other side of the sea saw that there was no other boat there, except the one in which his disciples had embarked, and that Jesus hadn't entered with his disciples into the boat, but his disciples had gone away alone.</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Long de bihain, ol manmeri i stap yet long hapsait bilong raunwara. Ol i save, asde i no gat narapela bot. Wanpela bot tasol i stap, na Jisas i no bin kalap long dispela bot wantaim ol disaipel bilong en. Nogat. Ol disaipel tasol ol i bin kalap long dispela bot na i go.</text>
@@ -2495,7 +2495,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="narrator-JHN">
       <verse num="24" />
-      <text>When the multitude therefore saw that Jesus wasn’t there, nor his disciples, they themselves got into the boats, and came to Capernaum, seeking Jesus.</text>
+      <text>When the multitude therefore saw that Jesus wasn't there, nor his disciples, they themselves got into the boats, and came to Capernaum, seeking Jesus.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>na ol manmeri i lukim olsem, Jisas wantaim ol disaipel i no i stap. Olsem na ol i kalap long ol dispela bot, na ol i go long Kaperneam bilong painim Jisas.</text>
@@ -2531,7 +2531,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>Don’t work for the food which perishes, but for the food which remains to eternal life, which the Son of Man will give to you. For God the Father has sealed him.”</text>
+      <text>Don't work for the food which perishes, but for the food which remains to eternal life, which the Son of Man will give to you. For God the Father has sealed him.”</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>Yupela i no ken wok long kisim kain kaikai i save bagarap. Nogat. Yupela i mas wok long kisim kaikai i save stap oltaim, em kaikai bilong laip i stap gut oltaim oltaim. Dispela kain kaikai, Pikinini Bilong Man bai i givim long yupela. God Papa i givim namba pinis long em long mekim olsem."</text>
@@ -2596,7 +2596,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Most certainly, I tell you, it wasn’t Moses who gave you the bread out of heaven, but my Father gives you the true bread out of heaven.</text>
+      <text>“Most certainly, I tell you, it wasn't Moses who gave you the bread out of heaven, but my Father gives you the true bread out of heaven.</text>
     </ReferenceBlocks>
     <text>"Tru tumas mi tokim yupela, i no Moses i bin givim bret bilong heven long yupela. Nogat. Papa bilong mi em i save givim bret tru bilong heven long yupela.</text>
   </block>
@@ -2639,7 +2639,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="36" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>But I told you that you have seen me, and yet you don’t believe.</text>
+      <text>But I told you that you have seen me, and yet you don't believe.</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>"Mi bin tokim yupela, yupela i lukim mi pinis, tasol yupela i no bilip.</text>
@@ -2701,7 +2701,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="Jews, the" delivery="grumbling" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="Jews, the" delivery="grumbling">
-      <text>“Isn’t this Jesus, the son of Joseph, whose father and mother we know? How then does he say, ‘I have come down out of heaven?’”</text>
+      <text>“Isn't this Jesus, the son of Joseph, whose father and mother we know? How then does he say, ‘I have come down out of heaven?’”</text>
     </ReferenceBlocks>
     <text>"Dispela man em Jisas, pikinini bilong Josep. Yumi save long papa wantaim mama bilong en. Orait olsem wanem na nau em i tok, 'Mi bin lusim heven na mi kam daun'?"</text>
   </block>
@@ -2715,7 +2715,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Don’t murmur among yourselves.</text>
+      <text>“Don't murmur among yourselves.</text>
     </ReferenceBlocks>
     <text>"Yupela i no ken toktok planti namel long yupela yet.</text>
   </block>
@@ -2803,7 +2803,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="53" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="53" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Most certainly I tell you, unless you eat the flesh of the Son of Man and drink his blood, you don’t have life in yourselves.</text>
+      <text>“Most certainly I tell you, unless you eat the flesh of the Son of Man and drink his blood, you don't have life in yourselves.</text>
     </ReferenceBlocks>
     <text>"Tru tumas mi tokim yupela, sapos yupela i no kaikai bodi bilong Pikinini Bilong Man, na sapos yupela i no dringim blut bilong em, bai yupela i no gat laip i stap long yupela.</text>
   </block>
@@ -2902,14 +2902,14 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="64" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="64" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="64" />
-      <text>But there are some of you who don’t believe.”</text>
+      <text>But there are some of you who don't believe.”</text>
     </ReferenceBlocks>
     <verse num="64" />
     <text>Tasol sampela man namel long yupela ol i no bilip."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="64" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="64" characterId="narrator-JHN">
-      <text>For Jesus knew from the beginning who they were who didn’t believe, and who it was who would betray him. </text>
+      <text>For Jesus knew from the beginning who they were who didn't believe, and who it was who would betray him. </text>
       <verse num="65" />
       <text>He said,</text>
     </ReferenceBlocks>
@@ -2941,7 +2941,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="67" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="67" characterId="Jesus" delivery="questioning">
-      <text>“You don’t also want to go away, do you?”</text>
+      <text>“You don't also want to go away, do you?”</text>
     </ReferenceBlocks>
     <text>"Ating yupela tu i laik lusim mi na i go?"</text>
   </block>
@@ -2977,7 +2977,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="70" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="70" characterId="Jesus">
-      <text>“Didn’t I choose you, the twelve, and yet one of you is a devil?”</text>
+      <text>“Didn't I choose you, the twelve, and yet one of you is a devil?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem? Mi yet mi bin makim yupela ol 12 -pela disaipel. Tasol wanpela namel long yupela em i olsem wanpela spirit nogut."</text>
   </block>
@@ -2991,14 +2991,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>JOHN 7</text>
+      <text>JOHN CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="1" characterId="narrator-JHN">
       <verse num="1" />
-      <text>After these things, Jesus was walking in Galilee, for he wouldn’t walk in Judea, because the Jews sought to kill him.</text>
+      <text>After these things, Jesus was walking in Galilee, for he wouldn't walk in Judea, because the Jews sought to kill him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Long sampela taim bihain, Jisas i raun insait long distrik Galili tasol. Em i no laik i go raun moa insait long distrik Judia, long wanem, ol Juda i laik kilim em i dai.</text>
@@ -3036,7 +3036,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="narrator-JHN">
       <verse num="5" />
-      <text>For even his brothers didn’t believe in him. </text>
+      <text>For even his brothers didn't believe in him. </text>
       <verse num="6" />
       <text>Jesus therefore said to them,</text>
     </ReferenceBlocks>
@@ -3054,7 +3054,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="7" />
-      <text>The world can’t hate you, but it hates me, because I testify about it, that its works are evil.</text>
+      <text>The world can't hate you, but it hates me, because I testify about it, that its works are evil.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Ol manmeri bilong graun ol i no inap birua long yupela. Tasol ol i birua long mi, long wanem, mi save autim tok long ol pasin nogut ol i save mekim.</text>
@@ -3186,7 +3186,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="19" />
-      <text>Didn’t Moses give you the law, and yet none of you keeps the law? Why do you seek to kill me?”</text>
+      <text>Didn't Moses give you the law, and yet none of you keeps the law? Why do you seek to kill me?”</text>
     </ReferenceBlocks>
     <verse num="19" />
     <text>"Bipo Moses i bin givim lo long yupela. Tasol i no gat wanpela man namel long yupela i save bihainim dispela lo. Watpo yupela i laik kilim mi i dai?"</text>
@@ -3238,7 +3238,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>Don’t judge according to appearance, but judge righteous judgment.”</text>
+      <text>Don't judge according to appearance, but judge righteous judgment.”</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Yupela i no ken skelim ol samting long ai nating. Yupela i mas skelim olgeta samting long pasin i stret."</text>
@@ -3253,7 +3253,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="people of Jerusalem, some" delivery="questioning" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="25" characterId="people of Jerusalem, some" delivery="questioning" multiBlockQuote="Start">
-      <text>“Isn’t this he whom they seek to kill? </text>
+      <text>“Isn't this he whom they seek to kill? </text>
       <verse num="26" />
       <text>Behold, he speaks openly, and they say nothing to him. Can it be that the rulers indeed know that this is truly the Christ?</text>
     </ReferenceBlocks>
@@ -3279,7 +3279,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Yes you know me and you know where I am from. I have not come of myself, but he who sent me is true, whom you don’t know.</text>
+      <text>“Yes you know me and you know where I am from. I have not come of myself, but he who sent me is true, whom you don't know.</text>
     </ReferenceBlocks>
     <text>"Yupela i ting yupela i save long mi, na yupela i save long as ples bilong mi, a? Tasol mi no kam long laik bilong mi yet. Papa i salim mi na mi kam. Pasin bilong en i tru, tasol yupela i no save long em.</text>
   </block>
@@ -3309,7 +3309,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="crowd at Festival of Tabernacles in Jerusalem, many in the" delivery="defending Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="31" characterId="crowd at Festival of Tabernacles in Jerusalem, many in the" delivery="defending Jesus">
-      <text>“When the Christ comes, he won’t do more signs than those which this man has done, will he?”</text>
+      <text>“When the Christ comes, he won't do more signs than those which this man has done, will he?”</text>
     </ReferenceBlocks>
     <text>"Taim dispela man God i bin promis long salim i kam, em i kamap, ating em bai i wokim planti mirakel i winim ol mirakel dispela man hia i wokim?"</text>
   </block>
@@ -3334,7 +3334,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="34" />
-      <text>You will seek me, and won’t find me; and where I am, you can’t come.”</text>
+      <text>You will seek me, and won't find me; and where I am, you can't come.”</text>
     </ReferenceBlocks>
     <verse num="34" />
     <text>Na bai yupela i wok long painim mi, tasol bai yupela i no lukim mi. Na yupela i no inap i go long ples mi stap long en."</text>
@@ -3349,7 +3349,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="Jews, the" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="35" characterId="Jews, the" multiBlockQuote="Start">
-      <text>“Where will this man go that we won’t find him?</text>
+      <text>“Where will this man go that we won't find him?</text>
     </ReferenceBlocks>
     <text>"Bai em i go we na yumi no inap lukim em?</text>
   </block>
@@ -3362,7 +3362,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jews, the" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jews, the" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>What is this word that he said, ‘You will seek me, and won’t find me; and where I am, you can’t come’?”</text>
+      <text>What is this word that he said, ‘You will seek me, and won't find me; and where I am, you can't come’?”</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Em i tok, 'Bai yupela i wok long painim mi, tasol bai yupela i no lukim mi.' Na em i tok, 'Yupela i no inap i go long ples mi stap long en.' Wanem as bilong dispela tok?"</text>
@@ -3388,7 +3388,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="39" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="39" characterId="narrator-JHN">
       <verse num="39" />
-      <text>But he said this about the Spirit, which those believing in him were to receive. For the Holy Spirit was not yet given, because Jesus wasn’t yet glorified.</text>
+      <text>But he said this about the Spirit, which those believing in him were to receive. For the Holy Spirit was not yet given, because Jesus wasn't yet glorified.</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Jisas i tok long Holi Spirit ol man i bilip long em ol bai i kisim. Long dispela taim Jisas i no kisim biknem yet, olsem na Holi Spirit i no kam yet.</text>
@@ -3436,7 +3436,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="42" characterId="crowd at Festival of Tabernacles in Jerusalem, still others" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="42" characterId="crowd at Festival of Tabernacles in Jerusalem, still others" multiBlockQuote="Continuation">
       <verse num="42" />
-      <text>Hasn’t the Scripture said that the Christ comes of the seed of David, and from Bethlehem, the village where David was?”</text>
+      <text>Hasn't the Scripture said that the Christ comes of the seed of David, and from Bethlehem, the village where David was?”</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>Buk bilong God i tok olsem dispela man i mas kamap long lain bilong King Devit, na em bai i kamap long Betlehem, dispela taun bipo Devit i stap long en."</text>
@@ -3467,7 +3467,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="45" characterId="chief priests/Pharisees" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="45" characterId="chief priests/Pharisees" characterIdOverrideForScript="chief priests">
-      <text>“Why didn’t you bring him?”</text>
+      <text>“Why didn't you bring him?”</text>
     </ReferenceBlocks>
     <text>"Bilong wanem yupela i no bringim em i kam?"</text>
   </block>
@@ -3495,7 +3495,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Pharisees" delivery="angry" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="47" characterId="Pharisees" delivery="angry" multiBlockQuote="Start">
-      <text>“You aren’t also led astray, are you? </text>
+      <text>“You aren't also led astray, are you? </text>
       <verse num="48" />
       <text>Have any of the rulers believed in him, or of the Pharisees?</text>
     </ReferenceBlocks>
@@ -3506,7 +3506,7 @@
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="49" characterId="Pharisees" delivery="angry" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="49" characterId="Pharisees" delivery="angry" multiBlockQuote="Continuation">
       <verse num="49" />
-      <text>But this multitude that doesn’t know the law is accursed.”</text>
+      <text>But this multitude that doesn't know the law is accursed.”</text>
     </ReferenceBlocks>
     <verse num="49" />
     <text>Ol lain i bilip long em, em ol dispela lain manmeri ol i no save long lo. God i tok pinis long ol bai i bagarap."</text>
@@ -3551,7 +3551,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>JOHN 8</text>
+      <text>JOHN CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -3713,7 +3713,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Even if I do testify about myself, my testimony is true because I know where I came from, and where I am going; but you don’t know where I came from or where I am going.</text>
+      <text>“Even if I do testify about myself, my testimony is true because I know where I came from, and where I am going; but you don't know where I came from or where I am going.</text>
     </ReferenceBlocks>
     <text>"I tru, mi autim tok long pasin bilong mi yet. Tasol ol man i ken bilipim tok bilong mi, long wanem, mi save long ples mi kirap long en na mi kam, na mi save long ples mi bai i go long en. Tasol yupela i no save long as ples bilong mi. Na mi go we, em tu yupela i no save.</text>
   </block>
@@ -3736,7 +3736,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>It’s also written in your law that the testimony of two people is valid.</text>
+      <text>It's also written in your law that the testimony of two people is valid.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Long lo bilong yupela, tok i stap olsem. Sapos tupela man i autim wankain tok, orait tok bilong tupela em i tru.</text>
@@ -3793,7 +3793,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="21" characterId="Jesus">
-      <text>“I am going away, and you will seek me, and you will die in your sins. Where I go, you can’t come.”</text>
+      <text>“I am going away, and you will seek me, and you will die in your sins. Where I go, you can't come.”</text>
     </ReferenceBlocks>
     <text>"Mi go nau, na bai yupela i no inap lukim mi. Na sin bilong yupela bai i stap yet, na yupela bai i dai. Yupela i no inap i go long ples mi go long en."</text>
   </block>
@@ -3807,7 +3807,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Jews, the" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="22" characterId="Jews, the">
-      <text>“Will he kill himself, that he says, ‘Where I am going, you can’t come?’”</text>
+      <text>“Will he kill himself, that he says, ‘Where I am going, you can't come?’”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem na em i tok, Yupela i no inap i go long ples mi go long en'? Ating em bai i kilim I dai em yet?"</text>
   </block>
@@ -3870,7 +3870,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-JHN">
       <verse num="27" />
-      <text>They didn’t understand that he spoke to them about the Father. </text>
+      <text>They didn't understand that he spoke to them about the Father. </text>
       <verse num="28" />
       <text>Jesus therefore said to them,</text>
     </ReferenceBlocks>
@@ -3888,7 +3888,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>He who sent me is with me. The Father hasn’t left me alone, for I always do the things that are pleasing to him.”</text>
+      <text>He who sent me is with me. The Father hasn't left me alone, for I always do the things that are pleasing to him.”</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Papa i bin salim mi na mi kam, em i stap wantaim mi. Em i no lusim mi, na larim mi i stap wanpis. Nogat. Em i no lusim mi, long wanem, oltaim mi save mekim ol samting em i laikim."</text>
@@ -3933,7 +3933,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="Jews who had believed Jesus" delivery="superior" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="Jews who had believed Jesus" delivery="superior">
-      <text>“We are Abraham’s seed, and have never been in bondage to anyone. How do you say, ‘You will be made free?’”</text>
+      <text>“We are Abraham's seed, and have never been in bondage to anyone. How do you say, ‘You will be made free?’”</text>
     </ReferenceBlocks>
     <text>"Mipela i lain bilong Abraham. I no gat wanpela taim mipela i bin i stap wokboi nating bilong wanpela man. Olsem na bilong wanem yu tok, 'Yupela bai i kamap fri'?"</text>
   </block>
@@ -3954,7 +3954,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="35" />
-      <text>A bondservant doesn’t live in the house forever. A son remains forever.</text>
+      <text>A bondservant doesn't live in the house forever. A son remains forever.</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Ol wokboi nating ol i no save stap long haus oltaim. Nogat. Pikinini tasol i save stap oltaim.</text>
@@ -3970,7 +3970,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="37" />
-      <text>I know that you are Abraham’s seed, yet you seek to kill me, because my word finds no place in you.</text>
+      <text>I know that you are Abraham's seed, yet you seek to kill me, because my word finds no place in you.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>"Mi save, yupela i lain bilong Abraham. Tasol tok bilong mi em i no i stap insait long yupela. Olsem na yupela i laik kilim mi i dai.</text>
@@ -4005,14 +4005,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
-      <text>“If you were Abraham’s children, you would do the works of Abraham.</text>
+      <text>“If you were Abraham's children, you would do the works of Abraham.</text>
     </ReferenceBlocks>
     <text>"Sapos i tru yupela ol tumbuna pikinini bilong Abraham, orait yupela bai i mekim wankain pasin olsem Abraham i bin mekim.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="40" />
-      <text>But now you seek to kill me, a man who has told you the truth, which I heard from God. Abraham didn’t do this.</text>
+      <text>But now you seek to kill me, a man who has told you the truth, which I heard from God. Abraham didn't do this.</text>
     </ReferenceBlocks>
     <verse num="40" />
     <text>Mi bin autim long yupela olgeta tok tru mi bin harim long God. Na nau yupela i laik kilim mi i dai. Dispela kain pasin em i no pasin bilong Abraham.</text>
@@ -4047,14 +4047,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="42" characterId="Jesus" multiBlockQuote="Start">
-      <text>“If God were your father, you would love me, for I came out and have come from God. For I haven’t come of myself, but he sent me.</text>
+      <text>“If God were your father, you would love me, for I came out and have come from God. For I haven't come of myself, but he sent me.</text>
     </ReferenceBlocks>
     <text>"Sapos i tru God em i Papa bilong yupela, orait yupela bai i laikim mi, long wanem, mi stap wantaim God na mi kam. Mi no kam long tingting bilong mi yet. Nogat. God i salim mi na mi kam.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="43" />
-      <text>Why don’t you understand my speech? Because you can’t hear my word.</text>
+      <text>Why don't you understand my speech? Because you can't hear my word.</text>
     </ReferenceBlocks>
     <verse num="43" />
     <text>"Tasol bilong wanem yupela i no klia gut long tok bilong mi? As bilong dispela em i olsem. Yupela i no inap long harim tok bilong mi.</text>
@@ -4062,7 +4062,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="44" />
-      <text>You are of your father, the devil, and you want to do the desires of your father. He was a murderer from the beginning, and doesn’t stand in the truth, because there is no truth in him. When he speaks a lie, he speaks on his own; for he is a liar, and the father of lies.</text>
+      <text>You are of your father, the devil, and you want to do the desires of your father. He was a murderer from the beginning, and doesn't stand in the truth, because there is no truth in him. When he speaks a lie, he speaks on his own; for he is a liar, and the father of lies.</text>
     </ReferenceBlocks>
     <verse num="44" />
     <text>Yupela i pikinini bilong papa bilong yupela, em Satan. Na yupela i strong long bihainim ol laik bilong papa bilong yupela. Bipo yet em i stap man bilong kilim ol man i dai. Na em i no bihainim pasin i tru, long wanem, pasin i tru em i no i stap long em. Tok giaman em i save mekim, dispela em i tok bilong em stret. Em i man bilong tok giaman, na em i papa tru bilong pasin bilong tok giaman.</text>
@@ -4070,7 +4070,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="45" />
-      <text>But because I tell the truth, you don’t believe me.</text>
+      <text>But because I tell the truth, you don't believe me.</text>
     </ReferenceBlocks>
     <verse num="45" />
     <text>Tasol mi save autim tok tru, na yupela i no bilipim tok bilong mi.</text>
@@ -4086,7 +4086,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="47" />
-      <text>He who is of God hears the words of God. For this cause you don’t hear, because you are not of God.”</text>
+      <text>He who is of God hears the words of God. For this cause you don't hear, because you are not of God.”</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>Ol pikinini bilong God i save harim olgeta tok bilong God. Yupela i no pikinini bilong God, olsem na yupela i no save harim tok bilong em."</text>
@@ -4101,7 +4101,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="48" characterId="Jews, the" delivery="angry" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="48" characterId="Jews, the" delivery="angry">
-      <text>“Aren’t we right when we say that you are a Samaritan, and have a demon?”</text>
+      <text>“Aren't we right when we say that you are a Samaritan, and have a demon?”</text>
     </ReferenceBlocks>
     <text>"Mipela i tok yu man bilong Samaria na wanpela spirit nogut i stap long yu, em i tru, a?"</text>
   </block>
@@ -4115,14 +4115,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Start">
-      <text>“I don’t have a demon, but I honor my Father, and you dishonor me.</text>
+      <text>“I don't have a demon, but I honor my Father, and you dishonor me.</text>
     </ReferenceBlocks>
     <text>"Mi no gat spirit nogut i stap long mi. Nogat. Mi litimapim nem bilong Papa bilong mi tasol, na yupela i daunim nem bilong mi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="50" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="50" />
-      <text>But I don’t seek my own glory. There is one who seeks and judges.</text>
+      <text>But I don't seek my own glory. There is one who seeks and judges.</text>
     </ReferenceBlocks>
     <verse num="50" />
     <text>Mi no wok long litimapim nem bilong mi yet. I gat wanpela Man i laik litimapim nem bilong mi, na em i jas.</text>
@@ -4174,7 +4174,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="55" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="55" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="55" />
-      <text>You have not known him, but I know him. If I said, ‘I don’t know him,’ I would be like you, a liar. But I know him, and keep his word.</text>
+      <text>You have not known him, but I know him. If I said, ‘I don't know him,’ I would be like you, a liar. But I know him, and keep his word.</text>
     </ReferenceBlocks>
     <verse num="55" />
     <text>Tasol yupela i no save long em. Mi, mi save long em. Sapos mi tok, 'Mi no save long em,' orait mi bai kamap man bilong giaman olsem yupela. Tasol mi save pinis long em, na mi bihainim gut tok bilong em.</text>
@@ -4225,7 +4225,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>JOHN 9</text>
+      <text>JOHN CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -4280,7 +4280,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-JHN">
       <verse num="6" />
-      <text>When he had said this, he spat on the ground, made mud with the saliva, anointed the blind man’s eyes with the mud, </text>
+      <text>When he had said this, he spat on the ground, made mud with the saliva, anointed the blind man's eyes with the mud, </text>
       <verse num="7" />
       <text>and said to him,</text>
     </ReferenceBlocks>
@@ -4311,7 +4311,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="neighbors of man blind from birth" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="neighbors of man blind from birth">
-      <text>“Isn’t this he who sat and begged?”</text>
+      <text>“Isn't this he who sat and begged?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem? Ating em dispela man tasol bipo i save sindaun na askim ol man long mani?"</text>
   </block>
@@ -4403,7 +4403,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="cured man, blind from birth" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="cured man, blind from birth" userConfirmed="true">
-      <text>“I don’t know.”</text>
+      <text>“I don't know.”</text>
     </ReferenceBlocks>
     <text>"Mi no save."</text>
   </block>
@@ -4459,7 +4459,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Pharisees, some" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="Pharisees, some" userConfirmed="true">
-      <text>“This man is not from God, because he doesn’t keep the Sabbath.”</text>
+      <text>“This man is not from God, because he doesn't keep the Sabbath.”</text>
     </ReferenceBlocks>
     <text>"Yumi save, God i no salim dispela man i kam, long wanem, em i no save bihainim lo bilong de Sabat."</text>
   </block>
@@ -4542,7 +4542,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="parents of cured man, blind from birth" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="parents of cured man, blind from birth" multiBlockQuote="ChangeOfDelivery">
       <verse num="21" />
-      <text>but how he now sees, we don’t know; or who opened his eyes, we don’t know. He is of age. Ask him. He will speak for himself.”</text>
+      <text>but how he now sees, we don't know; or who opened his eyes, we don't know. He is of age. Ask him. He will speak for himself.”</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Tasol nau ai bilong en i op olsem wanem, em mitupela i no save. Na husat i opim ai bilong em, em tu mitupela i no save. Yupela i mas askim em. Em i bikpela pinis. Em i ken autim tok bilong em yet."</text>
@@ -4587,7 +4587,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="cured man, blind from birth" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="cured man, blind from birth">
-      <text>“I don’t know if he is a sinner. One thing I do know: that though I was blind, now I see.”</text>
+      <text>“I don't know if he is a sinner. One thing I do know: that though I was blind, now I see.”</text>
     </ReferenceBlocks>
     <text>"Em i man bilong mekim sin, o nogat, em mi no ken save. Wanpela samting tasol mi save. Bipo mi stap aipas, tasol nau ai bilong mi i op."</text>
   </block>
@@ -4615,7 +4615,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="cured man, blind from birth" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="cured man, blind from birth">
-      <text>“I told you already, and you didn’t listen. Why do you want to hear it again? You don’t also want to become his disciples, do you?”</text>
+      <text>“I told you already, and you didn't listen. Why do you want to hear it again? You don't also want to become his disciples, do you?”</text>
     </ReferenceBlocks>
     <text>"Mi tokim yupela pinis, tasol yupela i no laik harim. Bilong wanem na yupela i laik harim planti taim? Ating yupela tu i laik kamap disaipel bilong en, a?"</text>
   </block>
@@ -4636,7 +4636,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="Jews, the" delivery="harsh" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="Jews, the" delivery="harsh" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>We know that God has spoken to Moses. But as for this man, we don’t know where he comes from.”</text>
+      <text>We know that God has spoken to Moses. But as for this man, we don't know where he comes from.”</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Mipela i save pinis, God i bin givim tok long Moses. Tasol dispela man i kamap we, em mipela i no save."</text>
@@ -4651,14 +4651,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="cured man, blind from birth" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="cured man, blind from birth" multiBlockQuote="Start">
-      <text>“How amazing! You don’t know where he comes from, yet he opened my eyes.</text>
+      <text>“How amazing! You don't know where he comes from, yet he opened my eyes.</text>
     </ReferenceBlocks>
     <text>"Yupela i mekim narakain tok tru. Dispela man i mekim ai bilong mi i op, na yupela i tok, yupela i no save, em i kamap we.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="cured man, blind from birth" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="31" characterId="cured man, blind from birth" multiBlockQuote="Continuation">
       <verse num="31" />
-      <text>We know that God doesn’t listen to sinners, but if anyone is a worshipper of God, and does his will, he listens to him.</text>
+      <text>We know that God doesn't listen to sinners, but if anyone is a worshipper of God, and does his will, he listens to him.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Yumi save, God i no save harim tok bilong ol man bilong mekim sin. Tasol sapos wanpela man i save lotu long God na i bihainim laik bilong God, orait God i save harim tok bilong em.</text>
@@ -4767,7 +4767,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="Jesus">
-      <text>“I came into this world for judgment, that those who don’t see may see; and that those who see may become blind.”</text>
+      <text>“I came into this world for judgment, that those who don't see may see; and that those who see may become blind.”</text>
     </ReferenceBlocks>
     <text>"Mi kam long dispela graun bilong skelim pasin bilong ol manmeri. Olsem na ol man i stap aipas, ol bai i lukluk. Na ol man i save lukluk, ol bai i kamap aipas."</text>
   </block>
@@ -4801,7 +4801,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>JOHN 10</text>
+      <text>JOHN CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -4815,7 +4815,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Most certainly, I tell you, one who doesn’t enter by the door into the sheep fold, but climbs up some other way, the same is a thief and a robber.</text>
+      <text>“Most certainly, I tell you, one who doesn't enter by the door into the sheep fold, but climbs up some other way, the same is a thief and a robber.</text>
     </ReferenceBlocks>
     <text>"Tru tumas mi tokim yupela, man i no save go insait long dua bilong banis bilong sipsip, tasol em i kalapim banis long narapela hap na i go insait, kain man olsem em i stilman na man bilong pulim ol samting bilong ol arapela man.</text>
   </block>
@@ -4846,7 +4846,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="5" />
-      <text>They will by no means follow a stranger, but will flee from him; for they don’t know the voice of strangers.”</text>
+      <text>They will by no means follow a stranger, but will flee from him; for they don't know the voice of strangers.”</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ol i no save bihainim ol arapela man. Nogat. Sapos narapela man i singautim ol, ol sipsip bai i ranawe long em, long wanem, ol i no save long maus bilong ol arapela man."</text>
@@ -4854,7 +4854,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-JHN">
       <verse num="6" />
-      <text>Jesus spoke this parable to them, but they didn’t understand what he was telling them. </text>
+      <text>Jesus spoke this parable to them, but they didn't understand what he was telling them. </text>
       <verse num="7" />
       <text>Jesus therefore said to them again,</text>
     </ReferenceBlocks>
@@ -4865,14 +4865,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Most certainly, I tell you, I am the sheep’s door.</text>
+      <text>“Most certainly, I tell you, I am the sheep's door.</text>
     </ReferenceBlocks>
     <text>"Mi tok tru tumas long yupela, mi yet mi dua bilong sipsip.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>All who came before me are thieves and robbers, but the sheep didn’t listen to them.</text>
+      <text>All who came before me are thieves and robbers, but the sheep didn't listen to them.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Olgeta man i bin kam paslain long mi, ol i stilman na man bilong pulim ol samting. Tasol ol sipsip i no bin harim maus bilong ol.</text>
@@ -4904,7 +4904,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="12" />
-      <text>He who is a hired hand, and not a shepherd, who doesn’t own the sheep, sees the wolf coming, leaves the sheep, and flees. The wolf snatches the sheep, and scatters them.</text>
+      <text>He who is a hired hand, and not a shepherd, who doesn't own the sheep, sees the wolf coming, leaves the sheep, and flees. The wolf snatches the sheep, and scatters them.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Sapos man i wok mani tasol, na em i no wasman tru bilong ol sipsip, na em i no papa bilong ol sipsip, orait taim em i lukim weldok i kam, em bai i lusim ol sipsip na ranawe. Na weldok bai i kaikaim ol sipsip na ranim ol i go nabaut.</text>
@@ -4912,7 +4912,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="13" />
-      <text>The hired hand flees because he is a hired hand, and doesn’t care for the sheep.</text>
+      <text>The hired hand flees because he is a hired hand, and doesn't care for the sheep.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Dispela man bai i mekim olsem, long wanem, em i wok long kisim pe tasol. Em i no tingting tru long ol sipsip.</text>
@@ -4920,7 +4920,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>I am the good shepherd. I know my own, and I’m known by my own; </text>
+      <text>I am the good shepherd. I know my own, and I'm known by my own; </text>
       <verse num="15" />
       <text>even as the Father knows me, and I know the Father. I lay down my life for the sheep.</text>
     </ReferenceBlocks>
@@ -4981,7 +4981,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Jews, other" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Jews, other">
-      <text>“These are not the sayings of one possessed by a demon. It isn’t possible for a demon to open the eyes of the blind, is it?”</text>
+      <text>“These are not the sayings of one possessed by a demon. It isn't possible for a demon to open the eyes of the blind, is it?”</text>
     </ReferenceBlocks>
     <text>"Dispela em i no tok bilong man i gat spirit nogut. Ating spirit nogut em inap long opim ai bilong ol man i aipas, a?"</text>
   </block>
@@ -4996,7 +4996,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-JHN">
       <verse num="23" />
-      <text>It was winter, and Jesus was walking in the temple, in Solomon’s porch.</text>
+      <text>It was winter, and Jesus was walking in the temple, in Solomon's porch.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Orait Jisas i wokabaut insait long banis bilong tempel, long veranda bilong Solomon.</text>
@@ -5025,14 +5025,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start">
-      <text>“I told you, and you don’t believe. The works that I do in my Father’s name, these testify about me.</text>
+      <text>“I told you, and you don't believe. The works that I do in my Father's name, these testify about me.</text>
     </ReferenceBlocks>
     <text>"Mi tokim yupela pinis, na yupela i no bilip. Olgeta wok mi mekim long nem bilong Papa bilong mi, dispela i soim yupela olsem mi husat tru.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="26" />
-      <text>But you don’t believe, because you are not of my sheep, as I told you.</text>
+      <text>But you don't believe, because you are not of my sheep, as I told you.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Tasol yupela i no bilong ol lain sipsip bilong mi. Olsem na yupela i no save bilip.</text>
@@ -5056,7 +5056,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="29" />
-      <text>My Father, who has given them to me, is greater than all. No one is able to snatch them out of my Father’s hand. </text>
+      <text>My Father, who has given them to me, is greater than all. No one is able to snatch them out of my Father's hand. </text>
       <verse num="30" />
       <text>I and the Father are one.”</text>
     </ReferenceBlocks>
@@ -5093,7 +5093,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Jews, the" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="33" characterId="Jews, the">
-      <text>“We don’t stone you for a good work, but for blasphemy: because you, being a man, make yourself God.”</text>
+      <text>“We don't stone you for a good work, but for blasphemy: because you, being a man, make yourself God.”</text>
     </ReferenceBlocks>
     <text>"Mipela i no ting long wanpela gutpela wok na mipela i laik tromoi ston long yu. Nogat. Yu laik kisim ples bilong God, na long dispela as mipela i laik tromoi ston long yu. Yu man nating, tasol yu tok olsem yu yet yu God."</text>
   </block>
@@ -5107,14 +5107,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Isn’t it written in your law, ‘I said, you are gods?’</text>
+      <text>“Isn't it written in your law, ‘I said, you are gods?’</text>
     </ReferenceBlocks>
     <text>"Long lo bilong yupela i gat wanpela tok bilong God i stap olsem, 'Mi tok olsem, "Yupela i god.'"</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="35" />
-      <text>God called them gods to whom the word of God came (and the Scripture can’t be broken).</text>
+      <text>God called them gods to whom the word of God came (and the Scripture can't be broken).</text>
     </ReferenceBlocks>
     <verse num="35" />
     <text>Bipo God i bin autim dispela tok long ol man, na em i bin tok long ol i god. Na tok i stap long buk bilong God em i no save senis.</text>
@@ -5130,7 +5130,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="37" />
-      <text>If I don’t do the works of my Father, don’t believe me.</text>
+      <text>If I don't do the works of my Father, don't believe me.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>"Sapos mi no mekim wok bilong Papa bilong mi, orait yupela i no ken bilipim tok bilong mi.</text>
@@ -5138,7 +5138,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="38" />
-      <text>But if I do them, though you don’t believe me, believe the works; that you may know and believe that the Father is in me, and I in the Father.”</text>
+      <text>But if I do them, though you don't believe me, believe the works; that you may know and believe that the Father is in me, and I in the Father.”</text>
     </ReferenceBlocks>
     <verse num="38" />
     <text>Tasol mi mekim wok bilong em. Na sapos yupela i no laik bilipim tok bilong mi, orait yupela i ken bilip long ol wok mi mekim. Olsem na yupela i ken kisim save na tingting gut olsem, Papa i stap long mi, na mi stap long Papa."</text>
@@ -5183,7 +5183,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>JOHN 11</text>
+      <text>JOHN CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -5227,7 +5227,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="Jesus">
-      <text>“This sickness is not to death, but for the glory of God, that God’s Son may be glorified by it.”</text>
+      <text>“This sickness is not to death, but for the glory of God, that God's Son may be glorified by it.”</text>
     </ReferenceBlocks>
     <text>"Dispela sik em I no bilong man i dai. Nogat. Em i bilong mekim ol manmeri i lukim strong bilong God na givim biknem long em. Na long dispela rot tasol Pikinini Bilong God tu bai i kisim biknem."</text>
   </block>
@@ -5257,7 +5257,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="Jesus">
-      <text>“Let’s go into Judea again.”</text>
+      <text>“Let's go into Judea again.”</text>
     </ReferenceBlocks>
     <text>"Yumi go bek long distrik Judia."</text>
   </block>
@@ -5285,14 +5285,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Aren’t there twelve hours of daylight? If a man walks in the day, he doesn’t stumble, because he sees the light of this world.</text>
+      <text>“Aren't there twelve hours of daylight? If a man walks in the day, he doesn't stumble, because he sees the light of this world.</text>
     </ReferenceBlocks>
     <text>"Ating i no gat 12 -pela aua long wanpela san, a? Sapos man i wokabaut long san, em i no save pundaun, long wanem, em i lukim lait bilong dispela graun.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>But if a man walks in the night, he stumbles, because the light isn’t in him.”</text>
+      <text>But if a man walks in the night, he stumbles, because the light isn't in him.”</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Tasol sapos man i wokabaut long nait, em i save pundaun, long wanem, em i no gat lait bilong lukluk."</text>
@@ -5345,7 +5345,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="14" characterId="Jesus">
       <text>“Lazarus is dead. </text>
       <verse num="15" />
-      <text>I am glad for your sakes that I was not there, so that you may believe. Nevertheless, let’s go to him.”</text>
+      <text>I am glad for your sakes that I was not there, so that you may believe. Nevertheless, let's go to him.”</text>
     </ReferenceBlocks>
     <text>"Lasarus i dai pinis. </text>
     <verse num="15" />
@@ -5361,7 +5361,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Thomas" delivery="resigned" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Thomas" delivery="resigned">
-      <text>“Let’s go also, that we may die with him.”</text>
+      <text>“Let's go also, that we may die with him.”</text>
     </ReferenceBlocks>
     <text>"Goan, yumi olgeta i go na i dai wantaim em."</text>
   </block>
@@ -5413,7 +5413,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="Martha" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="Martha" multiBlockQuote="Start">
-      <text>“Lord, if you would have been here, my brother wouldn’t have died.</text>
+      <text>“Lord, if you would have been here, my brother wouldn't have died.</text>
     </ReferenceBlocks>
     <text>"Bikpela, sapos yu bin i stap hia, bai brata bilong mi i no inap i dai.</text>
   </block>
@@ -5485,7 +5485,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="Martha" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="Martha">
-      <text>“Yes, Lord. I have come to believe that you are the Christ, God’s Son, he who comes into the world.”</text>
+      <text>“Yes, Lord. I have come to believe that you are the Christ, God's Son, he who comes into the world.”</text>
     </ReferenceBlocks>
     <text>"Yes, Bikpela. Mi bilip yu Pikinini Bilong God. Yu dispela man God i bin tok long em bai i salim i kam long graun bilong kisim bek ol manmeri bilong en."</text>
   </block>
@@ -5537,7 +5537,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="Mary, sister of Martha" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="Mary, sister of Martha">
-      <text>“Lord, if you would have been here, my brother wouldn’t have died.”</text>
+      <text>“Lord, if you would have been here, my brother wouldn't have died.”</text>
     </ReferenceBlocks>
     <text>"Bikpela, sapos yu bin i stap hia, bai brata bilong mi i no inap i dai."</text>
   </block>
@@ -5599,7 +5599,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="Jews who had been with Mary and Martha, some" delivery="skeptical" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="Jews who had been with Mary and Martha, some" delivery="skeptical">
-      <text>“Couldn’t this man, who opened the eyes of him who was blind, have also kept this man from dying?”</text>
+      <text>“Couldn't this man, who opened the eyes of him who was blind, have also kept this man from dying?”</text>
     </ReferenceBlocks>
     <text>"Em i bin opim ai bilong ol aipas na mekim ol i lukluk. Tasol bilong wanem em i no laik helpim dispela man bai em i no dai?"</text>
   </block>
@@ -5643,7 +5643,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="40" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="40" characterId="Jesus">
-      <text>“Didn’t I tell you that if you believed, you would see God’s glory?”</text>
+      <text>“Didn't I tell you that if you believed, you would see God's glory?”</text>
     </ReferenceBlocks>
     <text>"Pastaim mi tokim yu pinis, sapos yu bilip, orait yu bai lukim bikpela strong bilong God."</text>
   </block>
@@ -5752,7 +5752,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="51" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="51" characterId="narrator-JHN">
       <verse num="51" />
-      <text>Now he didn’t say this of himself, but being high priest that year, he prophesied that Jesus would die for the nation,</text>
+      <text>Now he didn't say this of himself, but being high priest that year, he prophesied that Jesus would die for the nation,</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Kaiafas i no mekim dispela tok long tingting bilong em yet. Nogat. Em i stap hetpris long dispela yia, olsem na em i mekim dispela tok profet long Jisas bai i dai bilong helpim ol Juda.</text>
@@ -5799,7 +5799,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="56" characterId="Jews, the" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="56" characterId="Jews, the">
-      <text>“What do you think--that he isn’t coming to the feast at all?”</text>
+      <text>“What do you think--that he isn't coming to the feast at all?”</text>
     </ReferenceBlocks>
     <text>"Yupela i ting wanem? Em bai i kam lukim ol bikpela de bilong lotu, o nogat?"</text>
   </block>
@@ -5813,7 +5813,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>JOHN 12</text>
+      <text>JOHN CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -5844,7 +5844,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-JHN">
       <verse num="4" />
-      <text>Then Judas Iscariot, Simon’s son, one of his disciples, who would betray him, said,</text>
+      <text>Then Judas Iscariot, Simon's son, one of his disciples, who would betray him, said,</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Tasol wanpela disaipel bilong en, em Judas Iskariot, em dispela man bihain em i putim Jisas long han bilong ol birua, em i tok olsem,</text>
@@ -5852,7 +5852,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="Judas Iscariot" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="5" characterId="Judas Iscariot" delivery="rebuking">
       <verse num="5" />
-      <text>“Why wasn’t this ointment sold for three hundred denarii, and given to the poor?”</text>
+      <text>“Why wasn't this ointment sold for three hundred denarii, and given to the poor?”</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>"Bilong wanem yumi no larim ol man i baim dispela sanda na yumi kisim 300 mani silva long en, na yumi givim long ol rabisman?"</text>
@@ -5878,7 +5878,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="8" />
-      <text>For you always have the poor with you, but you don’t always have me.”</text>
+      <text>For you always have the poor with you, but you don't always have me.”</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Ol rabisman bai i stap wantaim yupela oltaim. Tasol mi, bai mi no inap i stap wantaim yupela oltaim."</text>
@@ -5936,7 +5936,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="scripture">
       <verse num="15" />
-      <text>“Don’t be afraid, daughter of Zion. Behold, your King comes, sitting on a donkey’s colt.”</text>
+      <text>“Don't be afraid, daughter of Zion. Behold, your King comes, sitting on a donkey's colt.”</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>"Yupela ol manmeri bilong taun Saion, yupela i no ken pret. Lukim. King bilong yupela em i kam nau. Em i sindaun long yangpela donki na i kam."</text>
@@ -5944,7 +5944,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-JHN">
       <verse num="16" />
-      <text>His disciples didn’t understand these things at first, but when Jesus was glorified, then they remembered that these things were written about him, and that they had done these things to him.</text>
+      <text>His disciples didn't understand these things at first, but when Jesus was glorified, then they remembered that these things were written about him, and that they had done these things to him.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Pastaim ol disaipel bilong en, ol i no save long as bilong dispela tok. Tasol bihain long God i givim biknem pinis long Jisas, ol i tingim dispela tok i stap long buk bilong God, na ol i save, em i tok long Jisas stret. Na ol i tingim gen dispela samting ol man i bin mekim long em.</text>
@@ -6103,7 +6103,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start">
-      <text>“This voice hasn’t come for my sake, but for your sakes.</text>
+      <text>“This voice hasn't come for my sake, but for your sakes.</text>
     </ReferenceBlocks>
     <text>"Dispela tok nau yupela i harim, em i no bilong helpim mi. Nogat. Em i bilong helpim yupela.</text>
   </block>
@@ -6151,7 +6151,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Yet a little while the light is with you. Walk while you have the light, that darkness doesn’t overtake you. He who walks in the darkness doesn’t know where he is going.</text>
+      <text>“Yet a little while the light is with you. Walk while you have the light, that darkness doesn't overtake you. He who walks in the darkness doesn't know where he is going.</text>
     </ReferenceBlocks>
     <text>"Liklik taim tasol bai lait i stap yet wantaim yupela. Nau yupela i gat lait yet, olsem na yupela i mas wokabaut long lait, nogut tudak i karamapim yupela. Man i wokabaut long tudak, em i no save, em i go we.</text>
   </block>
@@ -6172,7 +6172,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="narrator-JHN">
       <verse num="37" />
-      <text>But though he had done so many signs before them, yet they didn’t believe in him.</text>
+      <text>But though he had done so many signs before them, yet they didn't believe in him.</text>
     </ReferenceBlocks>
     <verse num="37" />
     <text>Ol i bin lukim em i wokim planti mirakel o mak, tasol ol I no bilip long em.</text>
@@ -6194,7 +6194,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="39" characterId="narrator-JHN">
       <verse num="39" />
-      <text>For this cause they couldn’t believe, for Isaiah said again,</text>
+      <text>For this cause they couldn't believe, for Isaiah said again,</text>
     </ReferenceBlocks>
     <verse num="39" />
     <text>Ol i no inap bilip long Jisas. As bilong dispela em Aisaia i raitim long narapela tok. Em i bin tok olsem,</text>
@@ -6218,7 +6218,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="42" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="42" characterId="narrator-JHN">
       <verse num="42" />
-      <text>Nevertheless even of the rulers many believed in him, but because of the Pharisees they didn’t confess it, so that they wouldn’t be put out of the synagogue.</text>
+      <text>Nevertheless even of the rulers many believed in him, but because of the Pharisees they didn't confess it, so that they wouldn't be put out of the synagogue.</text>
     </ReferenceBlocks>
     <verse num="42" />
     <text>Tru, planti hetman tu ol i bilip long Jisas. Tasol ol i pret long ol Farisi, na ol i no tokaut long bilip bilong ol. Ol i pret, nogut ol Farisi i tambuim ol long lotu wantaim ol arapela Juda.</text>
@@ -6226,7 +6226,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="narrator-JHN">
       <verse num="43" />
-      <text>They loved men’s praise more than God’s praise. </text>
+      <text>They loved men's praise more than God's praise. </text>
       <verse num="44" />
       <text>Jesus cried out and said,</text>
     </ReferenceBlocks>
@@ -6260,7 +6260,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="47" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="47" />
-      <text>If anyone listens to my sayings, and doesn’t believe, I don’t judge him. For I came not to judge the world, but to save the world.</text>
+      <text>If anyone listens to my sayings, and doesn't believe, I don't judge him. For I came not to judge the world, but to save the world.</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>Sapos wanpela man i harim tok bilong mi na em i no bihainim, orait bai mi no skelim em olsem jas. Mi no kam bilong mi stap jas bilong ol man-meri bilong graun. Nogat. Mi kam bilong kisim bek ol.</text>
@@ -6268,7 +6268,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="48" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="48" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="48" />
-      <text>He who rejects me, and doesn’t receive my sayings, has one who judges him. The word that I spoke, the same will judge him in the last day.</text>
+      <text>He who rejects me, and doesn't receive my sayings, has one who judges him. The word that I spoke, the same will judge him in the last day.</text>
     </ReferenceBlocks>
     <verse num="48" />
     <text>Tasol man i givim baksait long mi na i no kisim tok bilong mi, em i gat jas bilong skelim em. Tok mi bin autim, em bai i stap jas bilong dis\-pela man long las de</text>
@@ -6291,7 +6291,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>JOHN 13</text>
+      <text>JOHN CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -6306,7 +6306,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="2" characterId="narrator-JHN">
       <verse num="2" />
-      <text>During supper, the devil having already put into the heart of Judas Iscariot, Simon’s son, to betray him,</text>
+      <text>During supper, the devil having already put into the heart of Judas Iscariot, Simon's son, to betray him,</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Long apinun tru ol i kaikai i stap. Satan i putim tingting pinis long bel bilong Judas, em pikinini bilong Saimon Iskariot, bilong em i mas putim Jisas long han bilong ol birua.</text>
@@ -6359,7 +6359,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus">
-      <text>“You don’t know what I am doing now, but you will understand later.”</text>
+      <text>“You don't know what I am doing now, but you will understand later.”</text>
     </ReferenceBlocks>
     <text>"Samting mi mekim, nau yu no klia long en. Tasol bihain bai yu klia."</text>
   </block>
@@ -6385,7 +6385,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" userConfirmed="true">
-      <text>“If I don’t wash you, you have no part with me.”</text>
+      <text>“If I don't wash you, you have no part with me.”</text>
     </ReferenceBlocks>
     <text>"Sapos mi no wasim yu, orait yu no inap i stap wantaim mi."</text>
   </block>
@@ -6450,7 +6450,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>If I then, the Lord and the Teacher has washed your feet, you also ought to wash one another’s feet.</text>
+      <text>If I then, the Lord and the Teacher has washed your feet, you also ought to wash one another's feet.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Mi Bikpela na mi Tisa, na mi wasim lek bilong yupela. Orait yupela tu i mas wasim lek bilong ol arapela man bilong lain bilong yumi.</text>
@@ -6482,7 +6482,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="18" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="18" />
-      <text>I don’t speak concerning all of you. I know whom I have chosen. But that the Scripture may be fulfilled, ‘He who eats bread with me has lifted up his heel against me.’</text>
+      <text>I don't speak concerning all of you. I know whom I have chosen. But that the Scripture may be fulfilled, ‘He who eats bread with me has lifted up his heel against me.’</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>"Mi no tok long yupela olgeta. Mi save long yupela ol man mi bin makim bilong mi, na mi save olsem tok i stap long buk bilong God, em bai i kamap tru. Dispela tok i olsem, 'Man i kaikai bret wantaim mi, em i litimapim lek bilong krungutim mi.'</text>
@@ -6644,7 +6644,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="33" />
-      <text>Little children, I will be with you a little while longer. You will seek me, and as I said to the Jews, ‘Where I am going, you can’t come,’ so now I tell you.</text>
+      <text>Little children, I will be with you a little while longer. You will seek me, and as I said to the Jews, ‘Where I am going, you can't come,’ so now I tell you.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Ol pikinini, liklik taim tasol bai mi stap wantaim yupela. Na bai yupela i wok long painim mi. Mi bin tokim ol Juda, na nau mi mekim wankain tok long yupela tu, yupela i no inap i go long ples mi go long en.</text>
@@ -6687,7 +6687,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="36" characterId="Jesus" userConfirmed="true">
-      <text>“Where I am going, you can’t follow now, but you will follow afterwards.”</text>
+      <text>“Where I am going, you can't follow now, but you will follow afterwards.”</text>
     </ReferenceBlocks>
     <text>"Ples mi go long en, em nau yu no inap bihainim mi na yu go long en. Tasol bihain bai yu bihainim mi i kam."</text>
   </block>
@@ -6701,7 +6701,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Peter (Simon)" delivery="declare" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="37" characterId="Peter (Simon)" delivery="declare">
-      <text>“Lord, why can’t I follow you now? I will lay down my life for you.”</text>
+      <text>“Lord, why can't I follow you now? I will lay down my life for you.”</text>
     </ReferenceBlocks>
     <text>"Bikpela, olsem wanem na mi no inap bihainim yu nau? Bai mi inap lusim laip bilong mi bilong helpim yu."</text>
   </block>
@@ -6715,20 +6715,20 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="38" characterId="Jesus">
-      <text>“Will you lay down your life for me? Most certainly I tell you, the rooster won’t crow until you have denied me three times.”</text>
+      <text>“Will you lay down your life for me? Most certainly I tell you, the rooster won't crow until you have denied me three times.”</text>
     </ReferenceBlocks>
     <text>"Yu ting yu inap lusim laip bilong yu bilong helpim mi, a? Tru tumas mi tokim yu, taim kakaruk i no krai yet, yu bai tok tripela taim olsem, yu no save long mi."</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
-      <text>JOHN 14</text>
+      <text>JOHN CHP 14</text>
     </ReferenceBlocks>
     <text>14</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start">
       <verse num="1" />
-      <text>“Don’t let your heart be troubled. Believe in God. Believe also in me.</text>
+      <text>“Don't let your heart be troubled. Believe in God. Believe also in me.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Jisas i tok moa olsem, "Yupela i no ken bel hevi na tingting planti. Yupela i bilip long God. Yupela i mas bilip long mi tu.</text>
@@ -6736,7 +6736,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="2" />
-      <text>In my Father’s house are many rooms. If it weren’t so, I would have told you. I am going to prepare a place for you.</text>
+      <text>In my Father's house are many rooms. If it weren't so, I would have told you. I am going to prepare a place for you.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Long haus bilong Papa bilong mi i gat planti rum i stap, na mi go bilong redim ples bilong yupela. Sapos i no olsem, orait mi no inap mekim dispela tok long yupela.</text>
@@ -6767,7 +6767,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="Thomas" delivery="frustrated" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="Thomas" delivery="frustrated">
-      <text>“Lord, we don’t know where you are going. How can we know the way?”</text>
+      <text>“Lord, we don't know where you are going. How can we know the way?”</text>
     </ReferenceBlocks>
     <text>"Bikpela, yu go we, em mipela i no save. Olsem wanem na mipela inap save long rot?"</text>
   </block>
@@ -6824,7 +6824,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>Don’t you believe that I am in the Father, and the Father in me? The words that I tell you, I speak not from myself; but the Father who lives in me does his works.</text>
+      <text>Don't you believe that I am in the Father, and the Father in me? The words that I tell you, I speak not from myself; but the Father who lives in me does his works.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Ating yu no bilip long mi stap long Papa, na Papa i stap long mi? Tok mi givim long yupela, em mi no mekim long tingting bilong mi yet. Nogat. Papa i stap long mi, em i save mekim ol wok bilong en.</text>
@@ -6880,7 +6880,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>He is the Spirit of truth, whom the world can’t receive; for it doesn’t see him, neither knows him. You know him, for he lives with you, and will be in you.</text>
+      <text>He is the Spirit of truth, whom the world can't receive; for it doesn't see him, neither knows him. You know him, for he lives with you, and will be in you.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Dispela Helpim em i Spirit bilong tok tru. Ol manmeri bilong graun ol i no inap kisim em. Ol i no lukim em, na ol i no save long em. Tasol yupela i save long em. Em i stap wantaim yupela, na em bai i stap insait long yupela.</text>
@@ -6948,7 +6948,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>He who doesn’t love me doesn’t keep my words. The word which you hear isn’t mine, but the Father’s who sent me.</text>
+      <text>He who doesn't love me doesn't keep my words. The word which you hear isn't mine, but the Father's who sent me.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Man i no laikim mi tru, em i no save bihainim gut tok bilong mi. Dispela tok yupela i harim, em i no tok bilong mi yet. Nogat. Em i tok bilong Papa, em i bin salim mi na mi kam.</text>
@@ -6972,7 +6972,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="27" />
-      <text>Peace I leave with you. My peace I give to you; not as the world gives, give I to you. Don’t let your heart be troubled, neither let it be fearful.</text>
+      <text>Peace I leave with you. My peace I give to you; not as the world gives, give I to you. Don't let your heart be troubled, neither let it be fearful.</text>
     </ReferenceBlocks>
     <verse num="27" />
     <text>"Mi laik lusim yupela, na mi givim bel isi long yupela bai em i ken i stap long yupela. Bel isi bilong mi, em mi givim long yupela. Na bel isi mi givim long yupela, em i no wankain olsem ol manmeri bilong graun i save givim. Olsem na yupela i no ken bel hevi na tingting planti, na yupela i no ken pret.</text>
@@ -7011,7 +7011,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
-      <text>JOHN 15</text>
+      <text>JOHN CHP 15</text>
     </ReferenceBlocks>
     <text>15</text>
   </block>
@@ -7026,7 +7026,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="2" />
-      <text>Every branch in me that doesn’t bear fruit, he takes away. Every branch that bears fruit, he prunes, that it may bear more fruit.</text>
+      <text>Every branch in me that doesn't bear fruit, he takes away. Every branch that bears fruit, he prunes, that it may bear more fruit.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Olgeta han bilong mi i no save karim kaikai, em Papa i save rausim. Na olgeta han i save karim kaikai, em Papa i save rausim ol lip samting bilong en i nogut, na mekim em i kamap klin, bai em i ken karim planti kaikai.</text>
@@ -7042,7 +7042,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>Remain in me, and I in you. As the branch can’t bear fruit by itself, unless it remains in the vine, so neither can you, unless you remain in me.</text>
+      <text>Remain in me, and I in you. As the branch can't bear fruit by itself, unless it remains in the vine, so neither can you, unless you remain in me.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Yupela i mas pas long mi, na bai mi pas long yupela. Sapos han bilong diwai wain em i no pas long diwai, orait em i no inap karim kaikai. Olsem tasol, sapos yupela i no pas long mi, yupela tu i no inap karim kaikai.</text>
@@ -7058,7 +7058,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="6" />
-      <text>If a man doesn’t remain in me, he is thrown out as a branch, and is withered; and they gather them, throw them into the fire, and they are burned.</text>
+      <text>If a man doesn't remain in me, he is thrown out as a branch, and is withered; and they gather them, throw them into the fire, and they are burned.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Sapos wanpela man i no pas long mi, orait ol bai i rausim em olsem ol i save rausim han bilong diwai, na em bai i drai. Na ol i save bungim ol dispela han na tromoi long paia na kukim.</text>
@@ -7090,7 +7090,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>If you keep my commandments, you will remain in my love; even as I have kept my Father’s commandments, and remain in his love.</text>
+      <text>If you keep my commandments, you will remain in my love; even as I have kept my Father's commandments, and remain in his love.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Sapos yupela i bihainim gut ol lo na tok bilong mi, orait yupela bai i stap insait long laikim bilong mi, olsem mi bin bihainim gut ol lo na tok bilong Papa bilong mi, na mi stap insait long laikim bilong em.</text>
@@ -7130,7 +7130,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="15" />
-      <text>No longer do I call you servants, for the servant doesn’t know what his lord does. But I have called you friends, for everything that I heard from my Father, I have made known to you.</text>
+      <text>No longer do I call you servants, for the servant doesn't know what his lord does. But I have called you friends, for everything that I heard from my Father, I have made known to you.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Wokboi i no save long ol samting bikman bilong en i save mekim. Olsem na mi no kolim yupela 'wokboi' moa. Nogat. Olgeta tok mi harim long Papa bilong mi, em mi tokim yupela pinis. Olsem na mi kolim yupela 'pren.'</text>
@@ -7138,7 +7138,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="16" />
-      <text>You didn’t choose me, but I chose you, and appointed you, that you should go and bear fruit, and that your fruit should remain; that whatever you will ask of the Father in my name, he may give it to you.”</text>
+      <text>You didn't choose me, but I chose you, and appointed you, that you should go and bear fruit, and that your fruit should remain; that whatever you will ask of the Father in my name, he may give it to you.”</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>"Yupela i no bin makim mi bilong i stap wantaim yupela. Nogat. Mi makim yupela bilong i stap ol lain bilong mi. Na mi givim wok long yupela, bai yupela i ken i go na karim kaikai, na bai kaikai bilong yupela i ken i stap gut. Olsem na sapos yupela i beten long Papa long nem bilong mi na askim em long givim wanpela samting long yupela, em bai i givim long yupela.</text>
@@ -7178,7 +7178,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>But all these things will they do to you for my name’s sake, because they don’t know him who sent me.</text>
+      <text>But all these things will they do to you for my name's sake, because they don't know him who sent me.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Tasol ol i no save long Papa, em i bin salim mi na mi kam. Olsem na ol bai i mekim olgeta dispela pasin nogut long yupela, long wanem, ol i save olsem yupela i lain bilong mi.</text>
@@ -7202,7 +7202,7 @@
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="24" />
-      <text>If I hadn’t done among them the works which no one else did, they wouldn’t have had sin. But now have they seen and also hated both me and my Father.</text>
+      <text>If I hadn't done among them the works which no one else did, they wouldn't have had sin. But now have they seen and also hated both me and my Father.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Sapos mi no bin i stap namel long ol na mekim ol dispela strongpela wok i no gat narapela man i bin mekim bipo, orait ol bai i no gat asua bilong sin bilong ol. Tasol ol i lukim pinis ol dispela wok bilong mi, na ol i birua long mi na long Papa bilong mi wantaim.</text>
@@ -7233,14 +7233,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
-      <text>JOHN 16</text>
+      <text>JOHN CHP 16</text>
     </ReferenceBlocks>
     <text>16</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start">
       <verse num="1" />
-      <text>“These things have I spoken to you, so that you wouldn’t be caused to stumble.</text>
+      <text>“These things have I spoken to you, so that you wouldn't be caused to stumble.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>"Mi no laik bai yupela i lusim bilip, olsem na mi bin mekim dispela tok long yupela.</text>
@@ -7264,7 +7264,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="4" />
-      <text>But I have told you these things, so that when the time comes, you may remember that I told you about them. I didn’t tell you these things from the beginning, because I was with you.</text>
+      <text>But I have told you these things, so that when the time comes, you may remember that I told you about them. I didn't tell you these things from the beginning, because I was with you.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Tasol nau mi tokim yupela pinis long ol dispela samting bai i kamap. Na bihain, taim ol man i mekim ol dispela pasin long yupela, orait yupela i ken tingim dispela tok mi bin givim yupela." Jisas i tok moa olsem,"Bipo mi yet mi stap wantaim yupela, olsem na mi no tokim yupela long ol dispela samting.</text>
@@ -7288,7 +7288,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="7" />
-      <text>Nevertheless I tell you the truth: It is to your advantage that I go away, for if I don’t go away, the Counselor won’t come to you. But if I go, I will send him to you.</text>
+      <text>Nevertheless I tell you the truth: It is to your advantage that I go away, for if I don't go away, the Counselor won't come to you. But if I go, I will send him to you.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Tasol mi tok tru long yupela, mi lusim yupela na mi go, em i bilong helpim yupela. Sapos mi no i go, orait Spirit bilong strongim yupela em bai i no inap i kam long yupela. Tasol sapos mi go, orait bai mi salim em i kam long yupela.</text>
@@ -7304,7 +7304,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>about sin, because they don’t believe in me;</text>
+      <text>about sin, because they don't believe in me;</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>As bilong sin, em i olsem, ol i no bilip long mi.</text>
@@ -7312,7 +7312,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="10" />
-      <text>about righteousness, because I am going to my Father, and you won’t see me any more;</text>
+      <text>about righteousness, because I am going to my Father, and you won't see me any more;</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>As bilong stretpela pasin, em i olsem, mi go long Papa, na bai yupela i no lukim mi moa.</text>
@@ -7328,7 +7328,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
       <verse num="12" />
-      <text>“I have yet many things to tell you, but you can’t bear them now.</text>
+      <text>“I have yet many things to tell you, but you can't bear them now.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>"Mi gat planti tok moa mi laik givim yupela, tasol yupela i no inap kisim nau.</text>
@@ -7375,7 +7375,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="disciples" delivery="puzzled" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="disciples" delivery="puzzled">
-      <text>“What is this that he says to us, ‘A little while, and you won’t see me, and again a little while, and you will see me;’ and, ‘Because I go to the Father?’”</text>
+      <text>“What is this that he says to us, ‘A little while, and you won't see me, and again a little while, and you will see me;’ and, ‘Because I go to the Father?’”</text>
     </ReferenceBlocks>
     <text>"Wanem as bilong dispela tok em i mekim long yumi? Em i tok, 'Liklik taim tasol na bai yupela i no lukim mi, na bihain liklik taim gen na bai yupela i lukim mi.' Na tu em i tok, 'As bilong dispela, em i olsem. Mi go long Papa.' "</text>
   </block>
@@ -7389,7 +7389,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="disciples" delivery="frustrated" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="disciples" delivery="frustrated">
-      <text>“What does he mean by, ‘A little while?’ We don’t know what he is saying.”</text>
+      <text>“What does he mean by, ‘A little while?’ We don't know what he is saying.”</text>
     </ReferenceBlocks>
     <text>"Dispela 'liklik taim' em i tok long en, em i wanem samting? Yumi no save as bilong dispela tok em i mekim."</text>
   </block>
@@ -7403,7 +7403,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
-      <text>“Do you inquire among yourselves concerning this, that I said, ‘A little while, and you won’t see me, and again a little while, and you will see me?’</text>
+      <text>“Do you inquire among yourselves concerning this, that I said, ‘A little while, and you won't see me, and again a little while, and you will see me?’</text>
     </ReferenceBlocks>
     <text>"Ating yupela i wok long askim nabaut long as bilong dispela tok mi mekim? Mi tok olsem, 'Liklik taim tasol na bai yupela i no lukim mi. Na bihain liklik taim gen na bai yupela i lukim mi.'</text>
   </block>
@@ -7418,7 +7418,7 @@
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="21" />
-      <text>A woman, when she gives birth, has sorrow, because her time has come. But when she has delivered the child, she doesn’t remember the anguish any more, for the joy that a human being is born into the world.</text>
+      <text>A woman, when she gives birth, has sorrow, because her time has come. But when she has delivered the child, she doesn't remember the anguish any more, for the joy that a human being is born into the world.</text>
     </ReferenceBlocks>
     <verse num="21" />
     <text>Meri i laik karim pikinini, em i save, taim bilong en i kamap pinis. Olsem na em i bel hevi. Tasol taim em i karim pikinini pinis, em i no tingting moa long dispela pen. Nogat. Em i amamas tasol long pikinini i kamap pinis long graun.</text>
@@ -7491,7 +7491,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="29" characterId="disciples" delivery="relieved">
       <text>“Behold, now you speak plainly, and speak no figures of speech. </text>
       <verse num="30" />
-      <text>Now we know that you know all things, and don’t need for anyone to question you. By this we believe that you came forth from God.”</text>
+      <text>Now we know that you know all things, and don't need for anyone to question you. By this we believe that you came forth from God.”</text>
     </ReferenceBlocks>
     <text>"Yes, nau yu tok klia. Nau yu no mekim tok bokis. </text>
     <verse num="30" />
@@ -7525,7 +7525,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="17" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="17" initialStartVerse="0">
-      <text>JOHN 17</text>
+      <text>JOHN CHP 17</text>
     </ReferenceBlocks>
     <text>17</text>
   </block>
@@ -7602,7 +7602,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="Jesus" delivery="praying" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="9" characterId="Jesus" delivery="praying" multiBlockQuote="Continuation">
       <verse num="9" />
-      <text>I pray for them. I don’t pray for the world, but for those whom you have given me, for they are yours.</text>
+      <text>I pray for them. I don't pray for the world, but for those whom you have given me, for they are yours.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>"Mi beten bilong helpim ol. Mi no beten bilong helpim olgeta manmeri bilong graun. Mi beten bilong helpim ol dispela man yu bin givim mi, long wanem, ol i bilong yu.</text>
@@ -7726,7 +7726,7 @@
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="25" characterId="Jesus" delivery="praying" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="25" characterId="Jesus" delivery="praying" multiBlockQuote="Continuation">
       <verse num="25" />
-      <text>Righteous Father, the world hasn’t known you, but I knew you; and these knew that you sent me.</text>
+      <text>Righteous Father, the world hasn't known you, but I knew you; and these knew that you sent me.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Stretpela Papa, ol manmeri bilong graun ol i no save long yu. Tasol mi save long yu. Na ol dispela lain bilong mi, ol i save, yu bin salim mi na mi kam.</text>
@@ -7741,7 +7741,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="18" initialStartVerse="0">
-      <text>JOHN 18</text>
+      <text>JOHN CHP 18</text>
     </ReferenceBlocks>
     <text>18</text>
   </block>
@@ -7881,7 +7881,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
-      <text>The servant’s name was Malchus. </text>
+      <text>The servant's name was Malchus. </text>
       <verse num="11" />
       <text>Jesus therefore said to Peter,</text>
     </ReferenceBlocks>
@@ -7945,7 +7945,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="servant girl at high priest's courtyard" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="servant girl at high priest's courtyard" userConfirmed="true">
-      <text>“Are you also one of this man’s disciples?”</text>
+      <text>“Are you also one of this man's disciples?”</text>
     </ReferenceBlocks>
     <text>"Ating yu tu yu disaipel bilong dispela man?"</text>
   </block>
@@ -8045,7 +8045,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="people in high priest's courtyard" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="people in high priest's courtyard" userConfirmed="true">
-      <text>“You aren’t also one of his disciples, are you?”</text>
+      <text>“You aren't also one of his disciples, are you?”</text>
     </ReferenceBlocks>
     <text>"Ating yu tu yu disaipel bilong en, a?"</text>
   </block>
@@ -8071,7 +8071,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="26" characterId="high priest's servant (relative of the man whose ear Peter cut off)" delivery="accusing" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="26" characterId="high priest's servant (relative of the man whose ear Peter cut off)" delivery="accusing">
-      <text>“Didn’t I see you in the garden with him?”</text>
+      <text>“Didn't I see you in the garden with him?”</text>
     </ReferenceBlocks>
     <text>"Ating mi bin lukim yu i stap wantaim em long gaden, a?"</text>
   </block>
@@ -8088,7 +8088,7 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
       <verse num="28" />
-      <text>They led Jesus therefore from Caiaphas into the Praetorium. It was early, and they themselves didn’t enter into the Praetorium, that they might not be defiled, but might eat the Passover.</text>
+      <text>They led Jesus therefore from Caiaphas into the Praetorium. It was early, and they themselves didn't enter into the Praetorium, that they might not be defiled, but might eat the Passover.</text>
     </ReferenceBlocks>
     <verse num="28" />
     <text>Orait ol Juda i kisim Jisas na ol i lusim haus bilong Kaiafas na ol i bringim em i go long haus bilong namba wan gavman. Em i moningtaim tru. Na ol i ting, "Nogut mipela i kamap doti long ai bilong God na bai mipela i no inap kaikai abus bilong tingim De God I Larim Ol Israel I Stap Gut," olsem na ol yet i no i go insait long haus bilong namba wan gavman.</text>
@@ -8117,7 +8117,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="30" characterId="Jews, the" delivery="offended" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="30" characterId="Jews, the" delivery="offended">
-      <text>“If this man weren’t an evildoer, we wouldn’t have delivered him up to you.”</text>
+      <text>“If this man weren't an evildoer, we wouldn't have delivered him up to you.”</text>
     </ReferenceBlocks>
     <text>"Sapos em i no man bilong mekim pasin nogut, orait mipela i no inap bringim em i kam long yu."</text>
   </block>
@@ -8193,7 +8193,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="Pilate" delivery="to Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="35" characterId="Pilate" delivery="to Jesus">
-      <text>“I’m not a Jew, am I? Your own nation and the chief priests delivered you to me. What have you done?”</text>
+      <text>“I'm not a Jew, am I? Your own nation and the chief priests delivered you to me. What have you done?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem? Mi wanpela Juda, a? Lain bilong yu yet wantaim ol bikpris ol i bringim yu i kam long mi. Yu bin mekim wanem?"</text>
   </block>
@@ -8207,7 +8207,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="36" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="36" characterId="Jesus">
-      <text>“My Kingdom is not of this world. If my Kingdom were of this world, then my servants would fight, that I wouldn’t be delivered to the Jews. But now my Kingdom is not from here.”</text>
+      <text>“My Kingdom is not of this world. If my Kingdom were of this world, then my servants would fight, that I wouldn't be delivered to the Jews. But now my Kingdom is not from here.”</text>
     </ReferenceBlocks>
     <text>"Kingdom bilong mi em i no bilong dispela graun. Sapos kingdom bilong mi em i bilong dispela graun, orait inap ol wokman bilong mi i pait, na i no gat wanpela man inap putim mi long han bilong ol Juda. Tasol kingdom bilong mi em i no bilong dispela graun."</text>
   </block>
@@ -8293,7 +8293,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="19" initialStartVerse="0">
-      <text>JOHN 19</text>
+      <text>JOHN CHP 19</text>
     </ReferenceBlocks>
     <text>19</text>
   </block>
@@ -8427,7 +8427,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="Pilate" delivery="to Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="Pilate" delivery="to Jesus">
-      <text>“Aren’t you speaking to me? Don’t you know that I have power to release you, and have power to crucify you?”</text>
+      <text>“Aren't you speaking to me? Don't you know that I have power to release you, and have power to crucify you?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem? Yu no laik bekim tok bilong mi, a? Mi gat strong inap long lusim yu, na mi gat strong inap long nilim yu long diwai kros. Ating yu no save long dispela?"</text>
   </block>
@@ -8455,7 +8455,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="12" characterId="Jews, the" delivery="insisting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="12" characterId="Jews, the" delivery="insisting">
-      <text>“If you release this man, you aren’t Caesar’s friend! Everyone who makes himself a king speaks against Caesar!”</text>
+      <text>“If you release this man, you aren't Caesar's friend! Everyone who makes himself a king speaks against Caesar!”</text>
     </ReferenceBlocks>
     <text>"Sapos yu lusim dispela man i go, orait yu no pren bilong Sisar. Man i tok long em yet em i king, em i birua bilong Sisar."</text>
   </block>
@@ -8569,7 +8569,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="chief priests" delivery="protesting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="chief priests" delivery="protesting">
-      <text>“Don’t write, ‘The King of the Jews,’ but, ‘he said, I am King of the Jews.’”</text>
+      <text>“Don't write, ‘The King of the Jews,’ but, ‘he said, I am King of the Jews.’”</text>
     </ReferenceBlocks>
     <text>"Yu no ken raitim olsem, 'King bilong ol Juda.' Nogat. Yu mas raitim tok olsem, 'Dispela man i bin tok, "Mi king bilong ol Juda.' "</text>
   </block>
@@ -8607,7 +8607,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="soldiers, Roman" delivery="gruff" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="24" characterId="soldiers, Roman" delivery="gruff" userConfirmed="true">
-      <text>“Let’s not tear it, but cast lots for it to decide whose it will be,”</text>
+      <text>“Let's not tear it, but cast lots for it to decide whose it will be,”</text>
     </ReferenceBlocks>
     <text>"Yumi no ken brukim dispela siot. Nogat. Yumi mas pilai satu bilong makim wanem man bai i kisim."</text>
   </block>
@@ -8632,7 +8632,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="25" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="25" characterId="narrator-JHN">
       <verse num="25" />
-      <text>But there were standing by the cross of Jesus his mother, and his mother’s sister, Mary the wife of Clopas, and Mary Magdalene.</text>
+      <text>But there were standing by the cross of Jesus his mother, and his mother's sister, Mary the wife of Clopas, and Mary Magdalene.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>Mama bilong Jisas wantaim susa bilong en na Maria, em meri bilong Klopas, na Maria bilong taun Makdala, ol dispela meri i sanap i stap klostu long diwai kros bilong Jisas.</text>
@@ -8717,7 +8717,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="31" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="31" characterId="narrator-JHN">
       <verse num="31" />
-      <text>Therefore the Jews, because it was the Preparation Day, so that the bodies wouldn’t remain on the cross on the Sabbath (for that Sabbath was a special one), asked of Pilate that their legs might be broken, and that they might be taken away.</text>
+      <text>Therefore the Jews, because it was the Preparation Day, so that the bodies wouldn't remain on the cross on the Sabbath (for that Sabbath was a special one), asked of Pilate that their legs might be broken, and that they might be taken away.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Em i de bilong redim ol samting bilong de Sabat. Dispela de Sabat em i bikpela de tru, olsem na ol Juda i no laik bai ol bodi i stap long diwai kros long dispela de. Olsem na ol i tokim Pailat long brukim lek bilong ol man i stap long diwai kros, bai ol i ken dai hariap na ol i ken rausim bodi bilong ol.</text>
@@ -8733,7 +8733,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="33" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="33" characterId="narrator-JHN">
       <verse num="33" />
-      <text>but when they came to Jesus, and saw that he was already dead, they didn’t break his legs.</text>
+      <text>but when they came to Jesus, and saw that he was already dead, they didn't break his legs.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Tasol taim ol i kamap long Jisas, ol i lukim em i dai pinis. Olsem na ol i no brukim lek bilong em.</text>
@@ -8836,7 +8836,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="20" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="20" initialStartVerse="0">
-      <text>JOHN 20</text>
+      <text>JOHN CHP 20</text>
     </ReferenceBlocks>
     <text>20</text>
   </block>
@@ -8858,7 +8858,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="Mary Magdalene" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="Mary Magdalene">
-      <text>“They have taken away the Lord out of the tomb, and we don’t know where they have laid him!”</text>
+      <text>“They have taken away the Lord out of the tomb, and we don't know where they have laid him!”</text>
     </ReferenceBlocks>
     <text>"Ol i rausim Bikpela pinis long matmat, na mipela i no save, wanem hap ol i putim em."</text>
   </block>
@@ -8881,7 +8881,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="narrator-JHN">
       <verse num="5" />
-      <text>Stooping and looking in, he saw the linen cloths lying, yet he didn’t enter in.</text>
+      <text>Stooping and looking in, he saw the linen cloths lying, yet he didn't enter in.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Em i lindaun na i lukluk i go insait long matmat, na em i lukim ol dispela gutpela laplap ol i bin karamapim bodi bilong Jisas long en. Tasol em i no i go insait.</text>
@@ -8909,7 +8909,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="narrator-JHN">
       <verse num="9" />
-      <text>For as yet they didn’t know the Scripture, that he must rise from the dead.</text>
+      <text>For as yet they didn't know the Scripture, that he must rise from the dead.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Long dispela taim ol i no save gut yet long tok i stap long buk bilong God, long Jisas i mas kirap bek long matmat.</text>
@@ -8956,14 +8956,14 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="Mary Magdalene" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="Mary Magdalene" userConfirmed="true">
-      <text>“Because they have taken away my Lord, and I don’t know where they have laid him.”</text>
+      <text>“Because they have taken away my Lord, and I don't know where they have laid him.”</text>
     </ReferenceBlocks>
     <text>"Ol i rausim Bikpela bilong mi, na mi no save wanem hap ol i bin putim em."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-JHN">
       <verse num="14" />
-      <text>When she had said this, she turned around and saw Jesus standing, and didn’t know that it was Jesus. </text>
+      <text>When she had said this, she turned around and saw Jesus standing, and didn't know that it was Jesus. </text>
       <verse num="15" />
       <text>Jesus said to her,</text>
     </ReferenceBlocks>
@@ -9028,7 +9028,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="Jesus">
-      <text>“Don’t hold me, for I haven’t yet ascended to my Father; but go to my brothers, and tell them, ‘I am ascending to my Father and your Father, to my God and your God.’”</text>
+      <text>“Don't hold me, for I haven't yet ascended to my Father; but go to my brothers, and tell them, ‘I am ascending to my Father and your Father, to my God and your God.’”</text>
     </ReferenceBlocks>
     <text>"Yu no ken holim mi, long wanem, mi no i go antap yet long Papa bilong mi. Tasol yu mas i go long ol brata bilong mi na tokim ol olsem, mi bai go antap, na mi go long Papa bilong mi na Papa bilong yupela. Na mi go long God bilong mi na God bilong yupela."</text>
   </block>
@@ -9096,7 +9096,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="22" characterId="Jesus">
       <text>“Receive the Holy Spirit! </text>
       <verse num="23" />
-      <text>If you forgive anyone’s sins, they have been forgiven them. If you retain anyone’s sins, they have been retained.”</text>
+      <text>If you forgive anyone's sins, they have been forgiven them. If you retain anyone's sins, they have been retained.”</text>
     </ReferenceBlocks>
     <text>"Yupela kisim Holi Spirit. </text>
     <verse num="23" />
@@ -9105,7 +9105,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="narrator-JHN">
       <verse num="24" />
-      <text>But Thomas, one of the twelve, called Didymus, wasn’t with them when Jesus came.</text>
+      <text>But Thomas, one of the twelve, called Didymus, wasn't with them when Jesus came.</text>
     </ReferenceBlocks>
     <verse num="24" />
     <text>Taim Jisas i kamap long ol disaipel, wanpela bilong ol 12 -pela disaipel em i no i stap wantaim ol. Em Tomas, narapela nem bilong en Didimus.</text>
@@ -9160,7 +9160,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="27" characterId="Jesus">
-      <text>“Reach here your finger, and see my hands. Reach here your hand, and put it into my side. Don’t be unbelieving, but believing.”</text>
+      <text>“Reach here your finger, and see my hands. Reach here your hand, and put it into my side. Don't be unbelieving, but believing.”</text>
     </ReferenceBlocks>
     <text>"Yu kam putim pinga bilong yu hia, na yu lukim han bilong mi. Na yu putim han bilong yu i kam stret long sait bilong mi. Maski long tubel long bilip. Yu mas bilip tasol."</text>
   </block>
@@ -9210,7 +9210,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="21" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="21" initialStartVerse="0">
-      <text>JOHN 21</text>
+      <text>JOHN CHP 21</text>
     </ReferenceBlocks>
     <text>21</text>
   </block>
@@ -9236,7 +9236,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="Peter (Simon)" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="3" characterId="Peter (Simon)" userConfirmed="true">
-      <text>“I’m going fishing.”</text>
+      <text>“I'm going fishing.”</text>
     </ReferenceBlocks>
     <text>"Mi bai go painim pis."</text>
   </block>
@@ -9261,7 +9261,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="4" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="4" characterId="narrator-JHN">
       <verse num="4" />
-      <text>But when day had already come, Jesus stood on the beach, yet the disciples didn’t know that it was Jesus. </text>
+      <text>But when day had already come, Jesus stood on the beach, yet the disciples didn't know that it was Jesus. </text>
       <verse num="5" />
       <text>Jesus therefore said to them,</text>
     </ReferenceBlocks>
@@ -9304,7 +9304,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-JHN">
-      <text>They cast it therefore, and now they weren’t able to draw it in for the multitude of fish.</text>
+      <text>They cast it therefore, and now they weren't able to draw it in for the multitude of fish.</text>
     </ReferenceBlocks>
     <text>Olsem na ol i tromoi umben i go daun, na ol i kisim planti pis moa, na ol i no inap pulim umben i kam antap.</text>
   </block>
@@ -9318,7 +9318,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="John" delivery="amazed" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="John" delivery="amazed" userConfirmed="true">
-      <text>“It’s the Lord!”</text>
+      <text>“It's the Lord!”</text>
     </ReferenceBlocks>
     <text>"Em Bikpela tasol."</text>
   </block>
@@ -9359,7 +9359,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-JHN">
       <verse num="11" />
-      <text>Simon Peter went up, and drew the net to land, full of great fish, one hundred fifty-three; and even though there were so many, the net wasn’t torn. </text>
+      <text>Simon Peter went up, and drew the net to land, full of great fish, one hundred fifty-three; and even though there were so many, the net wasn't torn. </text>
       <verse num="12" />
       <text>Jesus said to them,</text>
     </ReferenceBlocks>
@@ -9516,7 +9516,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="18" characterId="Jesus" delivery="speaking to Peter (Simon)" multiBlockQuote="Continuation">
-      <text>But when you are old, you will stretch out your hands, and another will dress you, and carry you where you don’t want to go.”</text>
+      <text>But when you are old, you will stretch out your hands, and another will dress you, and carry you where you don't want to go.”</text>
     </ReferenceBlocks>
     <text>Tasol taim yu kamap lapun, bai yu litimapim han bilong yu, na narapela man bai i pasim let long yu na i kisim yu i go long ples yu no laik i go long en."</text>
   </block>
@@ -9573,7 +9573,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="23" characterId="narrator-JHN">
       <verse num="23" />
-      <text>This saying therefore went out among the brothers, that this disciple wouldn’t die. Yet Jesus didn’t say to him that he wouldn’t die, but, “If I desire that he stay until I come, what is that to you?”</text>
+      <text>This saying therefore went out among the brothers, that this disciple wouldn't die. Yet Jesus didn't say to him that he wouldn't die, but, “If I desire that he stay until I come, what is that to you?”</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Olsem na tok i go nabaut long ol brata olsem, "Dispela disaipel bai em i no inap i dai." Tasol Jisas i no bin tok long em i no inap i dai. Nogat. Em i bin tok, "Sapos mi laik bai em i stap inap long taim mi kam bek, ating em i samting bilong yu, a?"</text>
@@ -9589,7 +9589,7 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="25" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="25" characterId="narrator-JHN">
       <verse num="25" />
-      <text>There are also many other things which Jesus did, which if they would all be written, I suppose that even the world itself wouldn’t have room for the books that would be written.</text>
+      <text>There are also many other things which Jesus did, which if they would all be written, I suppose that even the world itself wouldn't have room for the books that would be written.</text>
     </ReferenceBlocks>
     <verse num="25" />
     <text>I gat planti arapela samting tu Jisas i bin mekim. Tasol sapos ol i laik raitim ol buk i gat tok long olgeta dispela samting wan wan, ating graun bilong yumi bai i no gat ples inap long yumi ken putim ol dispela buk.</text>

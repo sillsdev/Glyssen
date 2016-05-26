@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 CORINTHIANS 1</text>
+      <text>2 CORINTHIANS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -71,7 +71,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-2CO">
       <verse num="8" />
-      <text>For we don’t desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
+      <text>For we don't desire to have you uninformed, brothers, concerning our affliction which happened to us in Asia. We were weighed down exceedingly, beyond our power, so much that we despaired even of life.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Oui, frères et sœurs chrétiens, nous voulons vous faire connaître ceci: dans la province d'Asie, nous avons supporté de grandes souffrances. Leur poids était très lourd, il a dépassé nos forces, nous avons même cru mourir.</text>
@@ -191,7 +191,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-2CO">
       <verse num="23" />
-      <text>But I call God for a witness to my soul, that I didn’t come to Corinth to spare you.</text>
+      <text>But I call God for a witness to my soul, that I didn't come to Corinth to spare you.</text>
     </ReferenceBlocks>
     <verse num="23" />
     <text>Je prends Dieu comme témoin, je dis la vérité. Plutôt mourir que mentir! Je ne suis pas revenu à Corinthe, parce que je n'ai pas voulu vous faire de la peine.</text>
@@ -206,7 +206,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 CORINTHIANS 2</text>
+      <text>2 CORINTHIANS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -229,7 +229,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>And I wrote this very thing to you, so that, when I came, I wouldn’t have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
+      <text>And I wrote this very thing to you, so that, when I came, I wouldn't have sorrow from them of whom I ought to rejoice; having confidence in you all, that my joy would be shared by all of you.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>A mon arrivée chez vous, certains risquaient de me rendre triste. Pourtant, c'est eux qui devaient me donner de la joie. C'est la raison pour laquelle je vous ai écrit. J'en suis sûr: quand je suis joyeux, vous pouvez être joyeux, vous aussi.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>I had no relief for my spirit, because I didn’t find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
+      <text>I had no relief for my spirit, because I didn't find Titus, my brother, but taking my leave of them, I went out into Macedonia.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Pourtant, j'étais très inquiet, parce que je n'avais pas trouvé Tite, mon frère. C'est pourquoi j'ai dit au revoir aux gens de Troas et je suis parti pour la Macédoine.</text>
@@ -348,7 +348,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 CORINTHIANS 3</text>
+      <text>2 CORINTHIANS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -451,7 +451,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn’t look steadfastly on the end of that which was passing away.</text>
+      <text>We do not do as Moses, who put a veil on his face, that the children of Israel wouldn't look steadfastly on the end of that which was passing away.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Nous ne faisons pas comme Moïse qui mettait un voile sur son visage. De cette façon, les Israélites ne pouvaient pas voir la fin d'une gloire qui ne durait pas.</text>
@@ -498,14 +498,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
-      <text>2 CORINTHIANS 4</text>
+      <text>2 CORINTHIANS CHP 4</text>
     </ReferenceBlocks>
     <text>4</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="narrator-2CO">
       <verse num="1" />
-      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don’t faint.</text>
+      <text>Therefore seeing we have this ministry, even as we obtained mercy, we don't faint.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Dieu, dans sa bonté, nous a confié ce service, c'est pourquoi nous ne sommes pas découragés.</text>
@@ -513,7 +513,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man’s conscience in the sight of God.</text>
+      <text>But we have renounced the hidden things of shame, not walking in craftiness, nor handling the word of God deceitfully; but by the manifestation of the truth commending ourselves to every man's conscience in the sight of God.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Nous avons rejeté les moyens malhonnêtes qu'on utilise en se cachant. Nous agissons honnêtement et nous ne déformons pas la parole de Dieu. Au contraire, nous montrons clairement la vérité, et ainsi, nous faisons appel à la conscience de tous devant Dieu.</text>
@@ -537,7 +537,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>For we don’t preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
+      <text>For we don't preach ourselves, but Christ Jesus as Lord, and ourselves as your servants for Jesus’ sake.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Non, ce que nous annonçons, ce n'est pas nous-mêmes, mais Jésus-Christ le Seigneur. Et nous, nous sommes vos serviteurs à cause de Jésus.</text>
@@ -633,7 +633,7 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="16" characterId="narrator-2CO">
       <verse num="16" />
-      <text>Therefore we don’t faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
+      <text>Therefore we don't faint, but though our outward man is decaying, yet our inward man is renewed day by day.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>C'est pourquoi nous ne sommes pas découragés. Et même si notre corps s'use petit à petit, ce qui est au fond de nous devient chaque jour nouveau.</text>
@@ -649,14 +649,14 @@
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>We don’t look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
+      <text>We don't look at the things which are seen, but at the things which are not seen. For the things which are seen are temporal, but the things which are not seen are eternal.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Nous, nous ne cherchons pas ce qu'on peut voir, nous cherchons les choses qu'on ne voit pas. En effet, ce qu'on peut voir ne dure pas longtemps, mais les choses qu'on ne voit pas durent toujours.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="5" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="5" initialStartVerse="0">
-      <text>2 CORINTHIANS 5</text>
+      <text>2 CORINTHIANS CHP 5</text>
     </ReferenceBlocks>
     <text>5</text>
   </block>
@@ -830,7 +830,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
-      <text>2 CORINTHIANS 6</text>
+      <text>2 CORINTHIANS CHP 6</text>
     </ReferenceBlocks>
     <text>6</text>
   </block>
@@ -949,7 +949,7 @@
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>Don’t be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
+      <text>Don't be unequally yoked with unbelievers, for what fellowship have righteousness and iniquity? Or what fellowship has light with darkness?</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>N'allez pas avec ceux qui ne croient pas en Dieu, vous ne pouvez pas vivre ensemble. Ce qui est juste et ce qui est contraire à Dieu, est-ce que cela va ensemble? Est-ce que la lumière va avec la nuit?</text>
@@ -994,7 +994,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
-      <text>2 CORINTHIANS 7</text>
+      <text>2 CORINTHIANS CHP 7</text>
     </ReferenceBlocks>
     <text>7</text>
   </block>
@@ -1128,7 +1128,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
-      <text>2 CORINTHIANS 8</text>
+      <text>2 CORINTHIANS CHP 8</text>
     </ReferenceBlocks>
     <text>8</text>
   </block>
@@ -1223,7 +1223,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-2CO">
       <verse num="12" />
-      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don’t have.</text>
+      <text>For if the readiness is there, it is acceptable according to what you have, not according to what you don't have.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Quand on donne de bon cœur, les gens nous reçoivent bien avec ce qu'on a. Ils ne nous demandent pas ce qu'on n'a pas.</text>
@@ -1328,7 +1328,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
-      <text>2 CORINTHIANS 9</text>
+      <text>2 CORINTHIANS CHP 9</text>
     </ReferenceBlocks>
     <text>9</text>
   </block>
@@ -1359,7 +1359,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="4" characterId="narrator-2CO">
       <verse num="4" />
-      <text>This is so that I won’t by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
+      <text>This is so that I won't by any means, if there come with me any of Macedonia and find you unprepared, we (to say nothing of you) should be disappointed in this confident boasting.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>En effet, si les gens de Macédoine viennent avec moi et ne vous trouvent pas prêts, j'ai peur d'une chose: nous qui sommes sûrs de vous, nous allons être couverts de honte, et vous aussi, évidemment!</text>
@@ -1456,7 +1456,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
-      <text>2 CORINTHIANS 10</text>
+      <text>2 CORINTHIANS CHP 10</text>
     </ReferenceBlocks>
     <text>10</text>
   </block>
@@ -1479,7 +1479,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>For though we walk in the flesh, we don’t wage war according to the flesh.</text>
+      <text>For though we walk in the flesh, we don't wage war according to the flesh.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Nous sommes des hommes, c'est vrai, pourtant, nous ne luttons pas d'une façon humaine.</text>
@@ -1511,7 +1511,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ’s, let him consider this again with himself, that, even as he is Christ’s, so also we are Christ’s.</text>
+      <text>Do you look at things only as they appear in front of your face? If anyone trusts in himself that he is Christ's, let him consider this again with himself, that, even as he is Christ's, so also we are Christ's.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Regardez les choses en face! Si quelqu'un est persuadé d'appartenir au Christ, il doit être sûr d'une chose une fois pour toutes: s'il appartient au Christ, nous aussi!</text>
@@ -1567,7 +1567,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
-      <text>For we don’t stretch ourselves too much, as though we didn’t reach to you. For we came even as far as to you with the Good News of Christ,</text>
+      <text>For we don't stretch ourselves too much, as though we didn't reach to you. For we came even as far as to you with the Good News of Christ,</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Quand nous sommes allés chez vous, nous n'avons pas dépassé ces limites. Nous sommes vraiment arrivés les premiers jusqu'à vous avec la Bonne Nouvelle du Christ.</text>
@@ -1575,7 +1575,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="narrator-2CO">
       <verse num="15" />
-      <text>not boasting beyond proper limits in other men’s labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
+      <text>not boasting beyond proper limits in other men's labors. But having hope that as your faith grows, we will be abundantly enlarged by you in our sphere of influence.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Nous ne dépassons pas la mesure en nous vantant à cause du travail des autres. Mais nous espérons une chose: votre foi fera des progrès, et nous pourrons agrandir notre champ d'action, parmi vous, mais sans dépasser les limites fixées.</text>
@@ -1599,14 +1599,14 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>For it isn’t he who commends himself who is approved, but whom the Lord commends.</text>
+      <text>For it isn't he who commends himself who is approved, but whom the Lord commends.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Qui a de la valeur? Ce n'est pas celui qui se félicite lui-même, c'est celui que le Seigneur félicite.</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
-      <text>2 CORINTHIANS 11</text>
+      <text>2 CORINTHIANS CHP 11</text>
     </ReferenceBlocks>
     <text>11</text>
   </block>
@@ -1661,7 +1661,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-2CO">
       <verse num="7" />
-      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God’s Good News free of charge?</text>
+      <text>Or did I commit a sin in humbling myself that you might be exalted, because I preached to you God's Good News free of charge?</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Quand je vous ai annoncé la Bonne Nouvelle de Dieu, je me suis fait petit pour vous rendre grands, en vous l'annonçant gratuitement. Est-ce que c'est une faute?</text>
@@ -1677,7 +1677,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-2CO">
       <verse num="9" />
-      <text>When I was present with you and was in need, I wasn’t a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
+      <text>When I was present with you and was in need, I wasn't a burden on anyone, for the brothers, when they came from Macedonia, supplied the measure of my need. In everything I kept myself from being burdensome to you, and I will continue to do so.</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Quand j'étais chez vous, j'ai eu besoin d'argent, mais je ne vous ai rien demandé. Les frères venus de Macédoine m'ont apporté ce qu'il me fallait. J'ai toujours évité d'être un poids pour vous et je l'éviterai toujours.</text>
@@ -1693,7 +1693,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-2CO">
       <verse num="11" />
-      <text>Why? Because I don’t love you? God knows.</text>
+      <text>Why? Because I don't love you? God knows.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Pourquoi est-ce que je dis cela? Parce que je ne vous aime pas? Mais si, Dieu sait que je vous aime.</text>
@@ -1709,7 +1709,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="13" characterId="narrator-2CO">
       <verse num="13" />
-      <text>For such men are false apostles, deceitful workers, masquerading as Christ’s apostles.</text>
+      <text>For such men are false apostles, deceitful workers, masquerading as Christ's apostles.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ce sont de faux apôtres, des ouvriers malhonnêtes. Ils font semblant d'être des apôtres du Christ.</text>
@@ -1741,7 +1741,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-2CO">
       <verse num="17" />
-      <text>That which I speak, I don’t speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
+      <text>That which I speak, I don't speak according to the Lord, but as in foolishness, in this confidence of boasting.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Ce que je vais dire, je ne le dis pas comme le Seigneur le veut, je le dis comme un fou. En effet, je suis sûr d'avoir des raisons de me vanter.</text>
@@ -1837,7 +1837,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="narrator-2CO">
       <verse num="29" />
-      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don’t burn with indignation?</text>
+      <text>Who is weak, and I am not weak? Who is caused to stumble, and I don't burn with indignation?</text>
     </ReferenceBlocks>
     <verse num="29" />
     <text>Quand quelqu'un est faible, moi aussi, je me sens faible. Quand quelqu'un commet des péchés, cela me fait mal à moi aussi.</text>
@@ -1853,7 +1853,7 @@
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="narrator-2CO">
       <verse num="31" />
-      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don’t lie.</text>
+      <text>The God and Father of the Lord Jesus Christ, he who is blessed forevermore, knows that I don't lie.</text>
     </ReferenceBlocks>
     <verse num="31" />
     <text>Je ne mens pas, Dieu, le Père du Seigneur Jésus le sait bien. Gloire à lui pour toujours!</text>
@@ -1876,7 +1876,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="12" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="12" initialStartVerse="0">
-      <text>2 CORINTHIANS 12</text>
+      <text>2 CORINTHIANS CHP 12</text>
     </ReferenceBlocks>
     <text>12</text>
   </block>
@@ -1891,7 +1891,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="2" characterId="narrator-2CO">
       <verse num="2" />
-      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don’t know, or whether out of the body, I don’t know; God knows)</text>
+      <text>I know a man in Christ, fourteen years ago he was caught up into the third heaven. (whether in the body, I don't know, or whether out of the body, I don't know; God knows)</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Je connais un disciple du Christ. Il y a 14 ans, Dieu a enlevé cet homme jusqu'au plus haut des cieux. Est-ce que c'était avec son corps? Je n'en sais rien. Est-ce que c'était sans son corps? Je n'en sais rien, mais Dieu le sait.</text>
@@ -1899,7 +1899,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="3" characterId="narrator-2CO">
       <verse num="3" />
-      <text>I know such a man (whether in the body, or outside of the body, I don’t know; God knows),</text>
+      <text>I know such a man (whether in the body, or outside of the body, I don't know; God knows),</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Je le sais, Dieu a enlevé cet homme jusqu'au paradis. Est-ce que c'était avec son corps ou sans son corps? Je n'en sais rien, mais Dieu le sait.</text>
@@ -1955,7 +1955,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="10" characterId="narrator-2CO">
       <verse num="10" />
-      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ’s sake. For when I am weak, then am I strong.</text>
+      <text>Therefore I take pleasure in weaknesses, in injuries, in necessities, in persecutions, in distresses, for Christ's sake. For when I am weak, then am I strong.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>C'est pourquoi les faiblesses, les insultes, les difficultés, les souffrances et les soucis que je connais pour le Christ, je les accepte avec joie. Oui, quand je suis faible, c'est à ce moment-là que je suis fort.</text>
@@ -2019,7 +2019,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="18" characterId="narrator-2CO">
       <verse num="18" />
-      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn’t we walk in the same spirit? Didn’t we walk in the same steps?</text>
+      <text>I exhorted Titus, and I sent the brother with him. Did Titus take any advantage of you? Didn't we walk in the same spirit? Didn't we walk in the same steps?</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>J'ai insisté pour que Tite aille vous voir, et j'ai envoyé un frère avec lui. Est-ce que Tite a profité de vous? Est-ce que lui et moi, nous n'avons pas marché dans la même direction, en suivant le même chemin?</text>
@@ -2035,7 +2035,7 @@
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-2CO">
       <verse num="20" />
-      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don’t desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
+      <text>For I am afraid that by any means, when I come, I might find you not the way I want to, and that I might be found by you as you don't desire; that by any means there would be strife, jealousy, outbursts of anger, factions, slander, whisperings, proud thoughts, riots;</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>J'ai bien peur de ceci: quand j'arriverai chez vous, vous serez peut-être différents de ce que j'attends. Et moi, je serai peut-être différent de ce que vous attendez. J'ai peur de trouver chez vous des disputes, de la jalousie, de la colère, des querelles de personnes, des jugements mauvais sur les autres, des bavardages méchants, de l'orgueil, du désordre.</text>
@@ -2050,7 +2050,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="13" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="13" initialStartVerse="0">
-      <text>2 CORINTHIANS 13</text>
+      <text>2 CORINTHIANS CHP 13</text>
     </ReferenceBlocks>
     <text>13</text>
   </block>
@@ -2089,7 +2089,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-2CO">
       <verse num="5" />
-      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don’t you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
+      <text>Test your own selves, whether you are in the faith. Test your own selves. Or don't you know as to your own selves, that Jesus Christ is in you?--unless indeed you are disqualified.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Interrogez-vous, voyez si vous vivez comme des croyants, examinez-vous. Vous reconnaissez bien que Jésus-Christ est en vous, n'est-ce pas? Ou alors, vous ne pouvez pas donner des preuves de votre foi.</text>
@@ -2097,7 +2097,7 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="6" characterId="narrator-2CO">
       <verse num="6" />
-      <text>But I hope that you will know that we aren’t disqualified.</text>
+      <text>But I hope that you will know that we aren't disqualified.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Mais nous, nous pouvons en donner, et j'espère que vous le reconnaîtrez.</text>

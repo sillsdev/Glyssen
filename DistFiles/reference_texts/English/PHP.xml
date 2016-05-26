@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="PHP" singlevoice="false" pageheader="PHILIPPIANS">
+<book id="PHP" singlevoice="false" pageheader="PHILIPPIANS CHP">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHP">
     <text>PHILIPPIANS</text>
   </block>
@@ -92,7 +92,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-PHP">
     <verse num="22" />
-    <text>But if I live on in the flesh, this will bring fruit from my work; yet I don’t know what I will choose.</text>
+    <text>But if I live on in the flesh, this will bring fruit from my work; yet I don't know what I will choose.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-PHP">
     <verse num="23" />
@@ -191,7 +191,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-PHP">
     <verse num="16" />
-    <text>holding up the word of life; that I may have something to boast in the day of Christ, that I didn’t run in vain nor labor in vain.</text>
+    <text>holding up the word of life; that I may have something to boast in the day of Christ, that I didn't run in vain nor labor in vain.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="17" characterId="narrator-PHP">
     <verse num="17" />
@@ -302,7 +302,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-PHP">
     <verse num="13" />
-    <text>Brothers, I don’t regard myself as yet having taken hold, but one thing I do. Forgetting the things which are behind, and stretching forward to the things which are before,</text>
+    <text>Brothers, I don't regard myself as yet having taken hold, but one thing I do. Forgetting the things which are behind, and stretching forward to the things which are before,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-PHP">
     <verse num="14" />
@@ -425,7 +425,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="22" characterId="narrator-PHP">
     <verse num="22" />
-    <text>All the saints greet you, especially those who are of Caesar’s household.</text>
+    <text>All the saints greet you, especially those who are of Caesar's household.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="23" characterId="narrator-PHP">
     <verse num="23" />

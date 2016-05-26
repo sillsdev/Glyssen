@@ -8,14 +8,14 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="TIT" initialStartVerse="0" characterId="BC-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>TITUS 1</text>
+      <text>TITUS CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="1" characterId="narrator-TIT">
       <verse num="1" />
-      <text>Paul, a servant of God, and an apostle of Jesus Christ. According to the faith of God’s chosen ones, and the knowledge of the truth which is according to godliness.</text>
+      <text>Paul, a servant of God, and an apostle of Jesus Christ. According to the faith of God's chosen ones, and the knowledge of the truth which is according to godliness.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Moi, Paul, je suis serviteur de Dieu et apôtre de Jésus-Christ. Dieu m'a chargé d'amener à la foi ceux qu'il a choisis. Il m'a chargé de leur faire connaître la vérité, pour qu'ils vivent en étant fidèles à Dieu.</text>
@@ -23,7 +23,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="2" characterId="narrator-TIT">
       <verse num="2" />
-      <text>This truth gives hope of eternal life, which God, who can’t lie, promised before time began.</text>
+      <text>This truth gives hope of eternal life, which God, who can't lie, promised before time began.</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Ainsi ils peuvent espérer la vie avec Dieu pour toujours. Dieu, qui ne ment pas, nous a promis cette vie depuis toujours.</text>
@@ -63,7 +63,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-TIT">
       <verse num="7" />
-      <text>For the overseer must be blameless, as God’s steward; not self-pleasing, not easily angered, not given to wine, not violent, not greedy for dishonest gain.</text>
+      <text>For the overseer must be blameless, as God's steward; not self-pleasing, not easily angered, not given to wine, not violent, not greedy for dishonest gain.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Le principal responsable de l'Eglise est chargé des affaires de Dieu, il doit donc mener une vie sans faute. Qu'il ne soit pas orgueilleux, ni coléreux, ni buveur, ni violent. Qu'il ne cherche pas à gagner de l'argent de façon malhonnête.</text>
@@ -95,7 +95,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="narrator-TIT">
       <verse num="11" />
-      <text>Their mouths must be stopped because they overthrow whole houses, teaching things which they ought not, for dishonest gain’s sake.</text>
+      <text>Their mouths must be stopped because they overthrow whole houses, teaching things which they ought not, for dishonest gain's sake.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Il faut leur fermer la bouche. En effet, ils bouleversent des familles entières. Ils enseignent ce qu'il ne faut pas, pour gagner de l'argent de façon malhonnête.</text>
@@ -142,7 +142,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="TIT" initialStartVerse="0" characterId="BC-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>TITUS 2</text>
+      <text>TITUS CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -181,7 +181,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-TIT">
       <verse num="5" />
-      <text>to be sober minded, chaste, workers at home, kind, being in subjection to their own husbands, that God’s word may not be blasphemed.</text>
+      <text>to be sober minded, chaste, workers at home, kind, being in subjection to their own husbands, that God's word may not be blasphemed.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>à être des personnes raisonnables et pures. Elles doivent s'occuper de leur maison, être aimables, obéir à leur mari. Alors on ne pourra pas dire du mal de la parole de Dieu.</text>
@@ -205,7 +205,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-TIT">
       <verse num="8" />
-      <text>and soundness of speech that can’t be condemned; that he who opposes you may be ashamed, having no evil thing to say about us.</text>
+      <text>and soundness of speech that can't be condemned; that he who opposes you may be ashamed, having no evil thing to say about us.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Que tes paroles soient justes pour qu'on ne les critique pas. Ainsi, nos ennemis ne trouveront aucun mal à dire de nous et ils seront couverts de honte.</text>
@@ -268,7 +268,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="TIT" initialStartVerse="0" characterId="BC-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>TITUS 3</text>
+      <text>TITUS CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>

@@ -8,7 +8,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
-      <text>2 PETER 1</text>
+      <text>2 PETER CHP 1</text>
     </ReferenceBlocks>
     <text>1</text>
   </block>
@@ -182,7 +182,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
-      <text>2 PETER 2</text>
+      <text>2 PETER CHP 2</text>
     </ReferenceBlocks>
     <text>2</text>
   </block>
@@ -205,7 +205,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="narrator-2PE">
       <verse num="3" />
-      <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn’t linger, and their destruction will not slumber.</text>
+      <text>In covetousness they will exploit you with deceptive words: whose sentence now from of old doesn't linger, and their destruction will not slumber.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>En su ambición de dinero, los explotarán a ustedes con falsas enseñanzas; pero la condenación los espera a ellos sin remedio, pues desde hace mucho tiempo están sentenciados.</text>
@@ -213,7 +213,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="narrator-2PE">
       <verse num="4" />
-      <text>For God didn’t spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
+      <text>For God didn't spare angels when they sinned, but cast them down to Tartarus, and committed them to pits of darkness, to be reserved for judgment.</text>
     </ReferenceBlocks>
     <verse num="4" />
     <text>Dios no perdonó a los ángeles que pecaron, sino que los arrojó al infierno y los dejó en tinieblas, encadenados y guardados para el juicio.</text>
@@ -221,7 +221,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-2PE">
       <verse num="5" />
-      <text>And God didn’t spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
+      <text>And God didn't spare the ancient world, but preserved Noah with seven others, a preacher of righteousness, when he brought a flood on the world of the ungodly.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Ni tampoco perdonó Dios al mundo antiguo, sino que mandó el diluvio sobre aquellos hombres malos, y salvó solamente a Noé, que predicó una vida de rectitud, y a otras siete personas.</text>
@@ -269,7 +269,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-2PE">
       <verse num="11" />
-      <text>Whereas angels, though greater in might and power, don’t bring a railing judgment against them before the Lord.</text>
+      <text>Whereas angels, though greater in might and power, don't bring a railing judgment against them before the Lord.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>en cambio, los ángeles, aunque tienen más fuerza y autoridad, no se atreven, de parte del Señor, a condenar con insultos a esos poderes.</text>
@@ -293,7 +293,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-2PE">
       <verse num="14" />
-      <text>With eyes full of adultery, they can’t cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
+      <text>With eyes full of adultery, they can't cease from sin; enticing unsettled souls; having a heart trained in greed; children of cursing.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>No pueden ver a una mujer sin desearla; no se cansan de pecar. Seducen a las almas débiles; son expertos en la avaricia; son gente maldita.</text>
@@ -309,7 +309,7 @@
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-2PE">
       <verse num="16" />
-      <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man’s voice and stopped the madness of the prophet.</text>
+      <text>But he was rebuked for his own disobedience. A mute donkey spoke with a man's voice and stopped the madness of the prophet.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>y fue reprendido por su pecado: una asna muda le habló con voz humana y no lo dejó seguir con su locura.</text>
@@ -370,7 +370,7 @@
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
-      <text>2 PETER 3</text>
+      <text>2 PETER CHP 3</text>
     </ReferenceBlocks>
     <text>3</text>
   </block>
@@ -433,7 +433,7 @@
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="narrator-2PE">
       <verse num="8" />
-      <text>But don’t forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
+      <text>But don't forget this one thing, beloved, that one day is with the Lord as a thousand years, and a thousand years as one day.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Además, queridos hermanos, no olviden que para el Señor un día es como mil años, y mil años como un día.</text>
