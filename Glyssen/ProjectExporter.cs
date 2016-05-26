@@ -393,7 +393,8 @@ namespace Glyssen
 								yield return GetExportDataForReferenceBlock(refBlock, book.BookId);
 							pendingMismatchedReferenceBlocks = null;
 						}
-						yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors);
+						yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
+							Project.ReferenceText.HasSecondaryReferenceText);
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
@@ -423,6 +424,8 @@ namespace Glyssen
 			row.Add(refBlock.Delivery);
 			row.Add(null);
 			row.Add(refBlock.GetText(true, true));
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+				row.Add(refBlock.PrimaryReferenceText);
 			row.Add(0);
 			return row;
 		}
@@ -451,13 +454,20 @@ namespace Glyssen
 
 			headers.Add("Delivery");
 			headers.Add("Text");
-			headers.Add("Primary Reference Text");
+			AddDirectorsGuideHeader(headers, Project.ReferenceText.LanguageName);
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+				AddDirectorsGuideHeader(headers, Project.ReferenceText.SecondaryReferenceTextLanguageName);
 			headers.Add("Size");
 			return headers;
 		}
 
+		private void AddDirectorsGuideHeader(List<object> headers, string languageName)
+		{
+			headers.Add(String.Format("{0} Director's Guide", languageName));
+		}
+
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
-			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript)
+			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript, bool includeSecondaryDirectorsGuide)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -482,11 +492,13 @@ namespace Glyssen
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.PrimaryReferenceText);
-			if (block.MatchesReferenceText)
+			if (includeSecondaryDirectorsGuide)
 			{
-				var primaryRefBlock = block.ReferenceBlocks.Single();
-				if (primaryRefBlock.MatchesReferenceText)
+				var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
+				if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
 					list.Add(primaryRefBlock.PrimaryReferenceText);
+				else
+					list.Add(null);
 			}
 			list.Add(block.GetText(false).Length);
 			return list;

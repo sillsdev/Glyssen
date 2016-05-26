@@ -69,22 +69,29 @@ namespace Glyssen
 			return new ReferenceText(metadata, ReferenceTextType.Custom);
 		}
 
-		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
+		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType, out string referenceProjectFilePath,
+			Action<Exception, string, string> reportError = null)
 		{
-			string languageName = LocalizationManager.GetDynamicString("Glyssen", "ReferenceText." + referenceTextType, referenceTextType.ToString());
-
-			string referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
+			referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
 			Exception exception;
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
 			if (exception != null)
 			{
-				Analytics.ReportException(exception);
-				ErrorReport.ReportNonFatalExceptionWithMessage(
-					exception,
-					LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded: {1}"),
-						languageName, referenceProjectFilePath);
+				if (reportError != null)
+					reportError(exception, referenceTextType.ToString(), referenceProjectFilePath);
 				return null;
 			}
+			return metadata;
+		}
+
+		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
+		{
+			string referenceProjectFilePath;
+			var metadata = LoadMetadata(referenceTextType, out referenceProjectFilePath, (exception, token, path) =>
+			{
+				Analytics.ReportException(exception);
+				ReportNonFatalLoadError(exception, token, path);
+			});
 
 			var referenceText = new ReferenceText(metadata, referenceTextType);
 
@@ -107,6 +114,68 @@ namespace Glyssen
 			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
 
+		// ENHANCE: Change the key from ReferenceTextType to some kind of token that can represent either a standard
+		// reference text or a specific custom one.
+		public static Dictionary<string, ReferenceTextType> AllAvailable
+		{
+			get
+			{
+				var items = new Dictionary<string, ReferenceTextType>();
+				Tuple<Exception, string, string> firstLoadError = null;
+				var additionalErrors = new List<string>();
+
+				foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
+				{
+					if (itm == ReferenceTextType.Custom) continue;
+
+					string refProjectPath;
+					var metadata = LoadMetadata(itm, out refProjectPath, (exception, token, path) =>
+					{
+						Analytics.ReportException(exception);
+						if (firstLoadError == null)
+							firstLoadError = new Tuple<Exception, string, string>(exception, token, path);
+						else
+							additionalErrors.Add(token);
+					});
+					if (metadata == null) continue;
+
+					items.Add(metadata.Language.Name, itm);
+				}
+
+				if (firstLoadError != null)
+				{
+					if (!items.Any())
+					{
+						throw new Exception(
+							String.Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
+							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
+							"for more details."), Program.kProduct),
+							firstLoadError.Item1);
+					}
+					if (additionalErrors.Any())
+					{
+						ErrorReport.ReportNonFatalExceptionWithMessage(firstLoadError.Item1,
+							String.Format(LocalizationManager.GetString("ReferenceText.MultipleLoadErrors",
+							"The following reference texts could not be loaded: {0}, {1}"), firstLoadError.Item2,
+							String.Join(", ", additionalErrors)));
+					}
+					else
+					{
+						ReportNonFatalLoadError(firstLoadError.Item1, firstLoadError.Item2, firstLoadError.Item3);
+					}
+				}
+
+				return items;
+			}
+		}
+
+		private static void ReportNonFatalLoadError(Exception exception, string token, string path)
+		{
+			ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+				LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
+				token, path);
+		}
+
 		private readonly ReferenceTextType m_referenceTextType;
 
 		private ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
@@ -119,6 +188,16 @@ namespace Glyssen
 				var book = Books.FirstOrDefault(b => b.BookId == bookId);
 				return book == null ? null : book.PageHeader;
 			};
+		}
+
+		public bool HasSecondaryReferenceText
+		{
+			get { return m_referenceTextType != ReferenceTextType.English; }
+		}
+
+		public string SecondaryReferenceTextLanguageName
+		{
+			get { return HasSecondaryReferenceText ? "English" : null; }
 		}
 
 		/// <summary>
