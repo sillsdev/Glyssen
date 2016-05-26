@@ -581,6 +581,30 @@ namespace Glyssen
 			return newBlock;
 		}
 
+		public bool TrySplitBlockAtEndOfVerse(Block vernBlock, int verseNum)
+		{
+			var verseString = verseNum.ToString();
+
+			if (vernBlock.BlockElements.First() is Verse ||
+				!(vernBlock.InitialEndVerseNumber == verseNum || (vernBlock.InitialEndVerseNumber == 0 && vernBlock.InitialStartVerseNumber == verseNum)))
+			{
+				foreach (var verse in vernBlock.BlockElements.OfType<Verse>())
+				{
+					if (verse.Number == verseString)
+						break;
+					if (verse.EndVerse == verseNum)
+					{
+						verseString = verse.Number;
+						break;
+					}
+					if (verse.StartVerse >= verseNum)
+						return false;
+				}
+			}
+			SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
+			return true;
+		}
+
 		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
 		{
 			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)

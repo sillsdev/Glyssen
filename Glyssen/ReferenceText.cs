@@ -400,7 +400,13 @@ namespace Glyssen
 				if (vernInitEndVerse.CompareTo(vernLastVerse) != 0 && vernLastVerse >= versesToSplitBefore[iSplit])
 				{
 					vernacularVersification.ChangeVersification(verseToSplitAfter);
-					vernacularBook.SplitBlock(vernBlock, verseToSplitAfter.VerseNum.ToString(), BookScript.kSplitAtEndOfVerse, false);
+					if (!vernacularBook.TrySplitBlockAtEndOfVerse(vernBlock, verseToSplitAfter.VerseNum))
+					{
+						if (iSplit == versesToSplitAfter.Count - 1)
+							return;
+						verseToSplitAfter = versesToSplitAfter[++iSplit];
+						index--;
+					}
 				}
 			}
 		}
