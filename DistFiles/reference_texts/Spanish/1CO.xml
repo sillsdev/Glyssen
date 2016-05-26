@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="1CO" singlevoice="false" pageheader="1 CORINTHIANS">
+<book id="1CO" singlevoice="false" pageheader="1 CORINTIOS">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-1CO">
       <text>1 CORINTHIANS</text>
     </ReferenceBlocks>
-    <text>1 CORINTHIANS</text>
+    <text>PRIMERA CARTA de SAN PABLO a los CORINTIOS</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

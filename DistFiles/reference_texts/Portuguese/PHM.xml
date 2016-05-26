@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="PHM" singlevoice="false" pageheader="PHILEMON">
+<book id="PHM" singlevoice="false" pageheader="CARTA DE PAULO A FILEMOM">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHM" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-PHM">
       <text>PHILEMON</text>
     </ReferenceBlocks>
-    <text>PHILEMON</text>
+    <text>CARTA DE PAULO A FILEMOM</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="PHM" initialStartVerse="0" characterId="BC-PHM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

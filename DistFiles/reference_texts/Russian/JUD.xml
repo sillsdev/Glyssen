@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="JUD" singlevoice="false" pageheader="JUDE">
+<book id="JUD" singlevoice="false" pageheader="Иуда">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-JUD">
       <text>JUDE</text>
     </ReferenceBlocks>
-    <text>JUDE</text>
+    <text>Иуда</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JUD" initialStartVerse="0" characterId="BC-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

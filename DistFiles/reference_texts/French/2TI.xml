@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="2TI" singlevoice="false" pageheader="2 TIMOTHY">
+<book id="2TI" singlevoice="false" pageheader="2 TIMOTHEE CHAPITRE">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TI">
       <text>2 TIMOTHY</text>
     </ReferenceBlocks>
-    <text>2 TIMOTHY</text>
+    <text>2 TIMOTHEE</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2TI" initialStartVerse="0" characterId="BC-2TI" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

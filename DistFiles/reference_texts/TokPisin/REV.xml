@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="REV" singlevoice="false">
+<book id="REV" singlevoice="false" pageheader="KAMAPIM TOK HAIT">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-REV">
       <text>REVELATION</text>
     </ReferenceBlocks>
-    <text>REVELATION</text>
+    <text>KAMAPIM TOK HAIT</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="2TH" singlevoice="false" pageheader="2 THESSALONIANS">
+<book id="2TH" singlevoice="false" pageheader="2 TESALONAIKA SAPTA">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2TH">
       <text>2 THESSALONIANS</text>
     </ReferenceBlocks>
-    <text>2 THESSALONIANS</text>
+    <text>2 TESALONAIKA</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2TH" initialStartVerse="0" characterId="BC-2TH" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

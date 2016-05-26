@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="JHN" singlevoice="false" pageheader="JOHN">
+<book id="JHN" singlevoice="false" pageheader="JEAN CHAPITRE">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-JHN">
       <text>JOHN</text>
     </ReferenceBlocks>
-    <text>JOHN</text>
+    <text>JEAN</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

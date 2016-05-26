@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="TIT" singlevoice="false" pageheader="TITUS">
+<book id="TIT" singlevoice="false" pageheader="TITO">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-TIT">
       <text>TITUS</text>
     </ReferenceBlocks>
-    <text>TITUS</text>
+    <text>CARTA DE PAULO A TITO</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="TIT" initialStartVerse="0" characterId="BC-TIT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

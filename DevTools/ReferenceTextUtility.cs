@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen;
 using Glyssen.Character;
@@ -16,8 +17,6 @@ namespace DevTools
 {
 	static class ReferenceTextUtility
 	{
-		private const string kOutputDir = @"C:\projects\_Glyssen\DistFiles\reference_texts";
-
 		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
 		{
 			{"English", "NewEnglish"},
@@ -37,10 +36,30 @@ namespace DevTools
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 		}
 
+		private class TitleAndChapterLabelInfo
+		{
+			public string Language { get; set; }
+			public string TitleAndChapterOneInfoFromXls { get; set; }
+			public string ChapterTwoInfoFromXls { get; set; }
+			public string BookTitle { get; set; }
+			public string ChapterLabel { get; set; }
+
+		}
+
+		private class BookTitleAndChapterLabelInfo
+		{
+			private readonly List<TitleAndChapterLabelInfo> m_details = new List<TitleAndChapterLabelInfo>(8);
+			public string BookId { get; set; }
+			public List<TitleAndChapterLabelInfo> Details
+			{
+				get { return m_details; }
+			}
+		}
+
 		public static bool Go()
 		{
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			var pathToFCBHDirGuide = Path.Combine(myDocuments, @"Protoscript Generator\DGNTAllSimplified_71.xlsx");
+			var pathToFCBHDirGuide = Path.Combine(myDocuments, "Protoscript Generator", "DGNTAllSimplified_71.xlsx");
 
 			if (!File.Exists(pathToFCBHDirGuide))
 			{
@@ -75,8 +94,15 @@ namespace DevTools
 				}).ToList();
 			}
 
+			bool errorsOccurred = false;
+			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
+
 			foreach (var language in s_allLanguages)
 			{
+				Console.WriteLine("Processing " + language + "...");
+
+				const string kOutputDir = @"..\..\DistFiles\reference_texts";
+
 				string languageOutputDir = Path.Combine(kOutputDir, language.Value);
 				Directory.CreateDirectory(languageOutputDir);
 
@@ -84,21 +110,27 @@ namespace DevTools
 				int iBook = 0;
 				int iBlock = 0;
 				BookScript existingBook = null;
+				string chapterLabel = null;
+				string chapterLabelForPrevBook = null;
+				string justTheWordForChapter = null;
 				int startBook = BCVRef.BookToNumber("MAT");
 				List<BookScript> refBooks = s_existingEnglish.Books.Where(b => BCVRef.BookToNumber(b.BookId) >= startBook).ToList();
 				List<BookScript> newBooks = new List<BookScript>();
 				List<Block> newBlocks = new List<Block>();
+				TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo = null;
 				foreach (var referenceTextRow in list.Where(r => BCVRef.BookToNumber(ConvertFcbhBookCodeToSilBookCode(r.Book)) >= startBook))
 				{
 					if (prevBook != referenceTextRow.Book)
 					{
 						if (existingBook != null)
 						{
-							newBooks.Add(new BookScript(existingBook.BookId, newBlocks) {PageHeader = existingBook.PageHeader});
+							newBooks.Add(new BookScript(existingBook.BookId, newBlocks) {PageHeader = chapterLabel});
 							newBlocks.Clear();
 						}
 						existingBook = refBooks[iBook++];
 						iBlock = 0;
+						chapterLabelForPrevBook = chapterLabel;
+						chapterLabel = null;
 
 						var newBlock = new Block("mt")
 						{
@@ -106,7 +138,57 @@ namespace DevTools
 								CharacterVerseData.GetStandardCharacterId(existingBook.BookId,
 									CharacterVerseData.StandardCharacter.BookOrChapter),
 						};
-						newBlock.BlockElements.Add(new ScriptText(existingBook.PageHeader));
+						var bookTitleAndchapter1Announcement = (string)ReflectionHelper.GetProperty(referenceTextRow, language.Key);
+						var summaryForBook = resultSummary.SingleOrDefault(b => b.BookId == existingBook.BookId);
+						if (summaryForBook == null)
+						{
+							summaryForBook = new BookTitleAndChapterLabelInfo {BookId = existingBook.BookId};
+							resultSummary.Add(summaryForBook);
+						}
+						currentTitleAndChapterLabelInfo = new TitleAndChapterLabelInfo
+						{
+							Language = language.Key,
+							TitleAndChapterOneInfoFromXls = bookTitleAndchapter1Announcement
+						};
+						summaryForBook.Details.Add(currentTitleAndChapterLabelInfo);
+
+						var bookName = bookTitleAndchapter1Announcement.TrimEnd(' ', '1').TrimStart(' ');
+
+						if (!JustGetHalfOfRepeated(ref bookName) && IsSingleChapterBook(referenceTextRow))
+						{
+							var iFirstSpace = bookTitleAndchapter1Announcement.IndexOf(" ", StringComparison.Ordinal);
+							if (iFirstSpace > 0)
+							{
+								var firstWord = bookTitleAndchapter1Announcement.Substring(0, iFirstSpace);
+								var iStartOfChapterAnnouncement = bookTitleAndchapter1Announcement.IndexOf(firstWord,
+									iFirstSpace, StringComparison.Ordinal);
+								if (iStartOfChapterAnnouncement > 0)
+								{
+									bookName = bookTitleAndchapter1Announcement.Substring(0, iStartOfChapterAnnouncement).TrimEnd();
+									chapterLabel = bookTitleAndchapter1Announcement.Substring(iStartOfChapterAnnouncement);
+								}
+							}
+							if (chapterLabel == null)
+							{
+								if (justTheWordForChapter != null)
+								{
+									chapterLabel = bookName + " " + justTheWordForChapter;
+									//Console.WriteLine("Guessing at chapter label: " + chapterLabel);
+								}
+								else if (IsSingleChapterBook(referenceTextRow))
+								{
+									chapterLabel = bookName;
+								}
+								else
+								{
+									Console.WriteLine("Could not distinguish book title and chapter label: " + bookTitleAndchapter1Announcement);
+									errorsOccurred = true;
+								}
+							}
+							currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
+						}
+						newBlock.BlockElements.Add(new ScriptText(bookName));
+						currentTitleAndChapterLabelInfo.BookTitle = bookName;
 						newBlocks.Add(newBlock);
 					}
 					var block = existingBook.GetScriptBlocks(false)[iBlock++];
@@ -119,6 +201,93 @@ namespace DevTools
 					if (referenceTextRow.Verse == "<<")
 					{
 						int chapter = int.Parse(referenceTextRow.Chapter);
+						if (chapter ==  2)
+						{
+							currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
+							var chapterLabelForCurrentBook = currentTitleAndChapterLabelInfo.ChapterTwoInfoFromXls.TrimEnd(' ', '2');
+							if (justTheWordForChapter == null && chapterLabelForPrevBook != null && iBook == 2)
+							{
+								// We're going to try to find just the word for chapter in case we later hit a single-chapter book that doesn't have it.
+								int istartOfWord = chapterLabelForPrevBook.Length;
+								int i = istartOfWord;
+								int j = chapterLabelForCurrentBook.Length;
+								while (--i > 0 && --j > 0)
+								{
+									if (chapterLabelForPrevBook[i] != chapterLabelForCurrentBook[j])
+										break;
+									if (chapterLabelForPrevBook[i] == ' ')
+										istartOfWord = i + 1;
+								}
+								if (istartOfWord > 0 && istartOfWord < chapterLabelForPrevBook.Length - 2)
+									justTheWordForChapter = chapterLabelForPrevBook.Substring(istartOfWord);
+							}
+							
+							if (justTheWordForChapter != null)
+								JustGetHalfOfRepeated(ref chapterLabelForCurrentBook, justTheWordForChapter);
+							
+							chapterLabel = chapterLabelForCurrentBook;
+
+							var mainTitleElement = (ScriptText) newBlocks.First().BlockElements[0];
+							var bookName = mainTitleElement.Content;
+							int startOfChapterLabel = bookName.LastIndexOf(chapterLabel, StringComparison.Ordinal);
+							if (startOfChapterLabel == -1)
+							{
+								if (chapterLabel.StartsWith("1 "))
+								{
+									var sb = new StringBuilder(chapterLabel);
+									sb[0] = 'I';
+									startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+									if (startOfChapterLabel == -1)
+									{
+										sb.Remove(0, 2);
+										startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+									}
+								}
+								else if (chapterLabel.StartsWith("2 "))
+								{
+									var sb = new StringBuilder(chapterLabel);
+									sb.Insert(1, "nd");
+									startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+									if (startOfChapterLabel == -1)
+									{
+										sb = new StringBuilder(chapterLabel);
+										sb[0] = 'I';
+										sb.Insert(1, "I");
+										startOfChapterLabel = bookName.LastIndexOf(sb.ToString(), StringComparison.Ordinal);
+									}
+								}
+							}
+							if (startOfChapterLabel > 0)
+							{
+								bookName = bookName.Substring(0, startOfChapterLabel).Trim();
+								mainTitleElement.Content = bookName;
+							}
+							else
+							{
+								if (justTheWordForChapter != null)
+								{
+									if (bookName.StartsWith(chapterLabel, StringComparison.Ordinal) && chapterLabel != null &&
+										chapterLabel.Contains(justTheWordForChapter))
+									{
+										bookName = chapterLabel.Substring(0, chapterLabel.IndexOf(justTheWordForChapter, StringComparison.Ordinal)).TrimEnd();
+										mainTitleElement.Content = bookName;
+									}
+									else
+									{
+										chapterLabel = bookName + " " + justTheWordForChapter;
+										//Console.WriteLine("Book title being left as \"" + bookName + "\" and chapter label set to: " + chapterLabel);
+									}
+								}
+								else if (bookName != chapterLabel)
+								{
+									Console.WriteLine("Could not figure out book title: " + bookName);
+									errorsOccurred = true;
+								}
+							}
+
+							currentTitleAndChapterLabelInfo.BookTitle = bookName;
+							currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
+						}
 						var newBlock = new Block("c", chapter)
 						{
 							CharacterId =
@@ -179,17 +348,13 @@ namespace DevTools
 										var match2 = Regex.Match(s, "{.*?}");
 										if (match2.Success)
 										{
-											if (splits2.IndexOf(s) == 0 || splits2.IndexOf(s) == splits2.Length-1)
+											if (splits2.IndexOf(s) == 0 || splits2.IndexOf(s) == splits2.Length - 1)
 												continue;
 											ScriptAnnotation annotation;
 											if (AnnotationExtractor.ConvertTextToScriptAnnotationElement(s, out annotation))
 											{
 												newBlock.BlockElements.Add(annotation);
 												Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
-											}
-											else
-											{
-												//Debug.WriteLine("");
 											}
 										}
 										else
@@ -211,11 +376,67 @@ namespace DevTools
 					}
 					prevBook = referenceTextRow.Book;
 				}
-				newBooks.Add(new BookScript(existingBook.BookId, newBlocks));
+				newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = chapterLabel });
 
 				foreach (var bookScript in newBooks)
 				{
 					XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
+				}
+			}
+			if (!errorsOccurred)
+			{
+					Console.WriteLine("Write book title and chapter label summary to file? Y/N");
+					var answer = Console.ReadLine();
+				if (answer == "Y" || answer == "y")
+				{
+					var path = Path.Combine(myDocuments, "Protoscript Generator", "book title and chapter label summary.txt");
+					using (var w = new StreamWriter(path))
+					{
+						foreach (var info in resultSummary)
+						{
+							w.WriteLine(info.BookId);
+							w.WriteLine(String.Join("\t", info.Details.Select(d => d.Language)));
+							w.WriteLine(String.Join("\t", info.Details.Select(d => d.TitleAndChapterOneInfoFromXls)));
+							w.WriteLine(String.Join("\t", info.Details.Select(d => d.BookTitle)));
+							if (info.Details.Any(d => d.ChapterTwoInfoFromXls != null))
+								w.WriteLine(String.Join("\t", info.Details.Select(d => d.ChapterTwoInfoFromXls)));
+							w.WriteLine(String.Join("\t", info.Details.Select(d => d.ChapterLabel)));
+						}
+					}
+					Process.Start(path);
+				}
+
+				return LinkToEnglish();
+			}
+			return errorsOccurred;
+		}
+
+		private static bool IsSingleChapterBook(ReferenceTextRow referenceTextRow)
+		{
+			return s_existingEnglish.Versification.LastChapter(BCVRef.BookToNumber(referenceTextRow.Book)) == 1;
+		}
+
+		private static bool JustGetHalfOfRepeated(ref string stringWithPossibleReduplication, string suffix = null)
+		{
+			string temp;
+			if (suffix == null)
+				temp = stringWithPossibleReduplication;
+			else
+			{
+				int iWordForChapter = stringWithPossibleReduplication.IndexOf(suffix, StringComparison.Ordinal);
+				if (iWordForChapter > 0)
+					temp = stringWithPossibleReduplication.Substring(0, iWordForChapter).TrimEnd();
+				else
+					return false;
+			}
+			if (temp.Length % 2 == 1)
+			{
+				if (temp.Substring(0, temp.Length / 2) == temp.Substring(1 + temp.Length / 2))
+				{
+					stringWithPossibleReduplication = temp.Substring(1 + temp.Length / 2);
+					if (suffix != null)
+						stringWithPossibleReduplication += " " + suffix;
+					return true;
 				}
 			}
 			return false;
@@ -250,7 +471,6 @@ namespace DevTools
 
 				var refText = ReferenceText.GetStandardReferenceText(language);
 
-				//string languageOutputDir = Path.Combine(kOutputDir, language.Value);
 				if (refText == null)
 				{
 					errorOcurred = true;

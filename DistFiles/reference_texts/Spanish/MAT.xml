@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="MAT" singlevoice="false" pageheader="MATTHEW">
+<book id="MAT" singlevoice="false" pageheader="SAN MATEO">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-MAT">
       <text>MATTHEW</text>
     </ReferenceBlocks>
-    <text>MATTHEW</text>
+    <text>SAN MATEO</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
