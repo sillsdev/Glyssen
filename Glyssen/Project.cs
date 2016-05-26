@@ -167,11 +167,6 @@ namespace Glyssen
 			get { return m_metadata.Language.Iso; }
 		}
 
-		public string LanguageName
-		{
-			get { return m_metadata.Language.Name; }
-		}
-
 		public string FontFamily
 		{
 			get { return m_metadata.FontFamily; }

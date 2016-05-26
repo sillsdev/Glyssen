@@ -57,22 +57,7 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			var items = new Dictionary<string, ReferenceTextType>();
-
-			foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
-			{
-				if (itm == ReferenceTextType.Custom) continue;
-
-				var itemValue = itm.ToString();
-
-				var itemText = LocalizationManager.GetDynamicString(Program.kApplicationId,
-					"DialogBoxes.ProjectSettingsDlg.ReferenceTextDropdown." + itemValue,
-					itemValue);
-
-				items.Add(itemText, itm);
-			}
-
-			m_ReferenceText.DataSource = new BindingSource(items, null);
+			m_ReferenceText.DataSource = new BindingSource(ReferenceText.AllAvailable, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
 		}

@@ -13,6 +13,7 @@ using OfficeOpenXml.Style;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
+using SIL.Xml;
 
 namespace Glyssen
 {
@@ -341,6 +342,12 @@ namespace Glyssen
 				sheet.Column(columnNum).Style.WrapText = true; // primaryReferenceText text
 				sheet.Column(columnNum++).Width = 50d;
 
+				if (Project.ReferenceText.HasSecondaryReferenceText)
+				{
+					sheet.Column(columnNum).Style.WrapText = true; // secondaryReferenceText text
+					sheet.Column(columnNum++).Width = 50d;
+				}
+
 				// this is the last column, no need to increment columNum
 				sheet.Column(columnNum).AutoFit(2d, sheet.DefaultColWidth); // block length
 
@@ -392,7 +399,8 @@ namespace Glyssen
 								yield return GetExportDataForReferenceBlock(refBlock, book.BookId);
 							pendingMismatchedReferenceBlocks = null;
 						}
-						yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors);
+						yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
+							Project.ReferenceText.HasSecondaryReferenceText);
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
@@ -422,6 +430,8 @@ namespace Glyssen
 			row.Add(refBlock.Delivery);
 			row.Add(null);
 			row.Add(refBlock.GetText(true, true));
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+				row.Add(refBlock.PrimaryReferenceText);
 			row.Add(0);
 			return row;
 		}
@@ -450,13 +460,20 @@ namespace Glyssen
 
 			headers.Add("Delivery");
 			headers.Add("Text");
-			headers.Add("Primary Reference Text");
+			AddDirectorsGuideHeader(headers, Project.ReferenceText.LanguageName);
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+				AddDirectorsGuideHeader(headers, Project.ReferenceText.SecondaryReferenceTextLanguageName);
 			headers.Add("Size");
 			return headers;
 		}
 
+		private void AddDirectorsGuideHeader(List<object> headers, string languageName)
+		{
+			headers.Add(String.Format("{0} Director's Guide", languageName));
+		}
+
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
-			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript)
+			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript, bool includeSecondaryDirectorsGuide)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -481,6 +498,14 @@ namespace Glyssen
 			list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.PrimaryReferenceText);
+			if (includeSecondaryDirectorsGuide)
+			{
+				var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
+				if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
+					list.Add(primaryRefBlock.PrimaryReferenceText);
+				else
+					list.Add(null);
+			}
 			list.Add(block.GetText(false).Length);
 			return list;
 		}

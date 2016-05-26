@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -23,7 +24,9 @@ namespace GlyssenTests
 		const int kDelivery = 6;
 		const int kVernacularText = 7;
 		const int kPrimaryReferenceText = 8;
-		const int kVernacularTextLength = 9;
+		const int kSecondaryReferenceText = 9;
+		const int kVernacularTextLengthWithNoSecondaryRef = 9;
+		const int kVernacularTextLengthWithSecondaryRef = 10;
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -168,7 +171,7 @@ namespace GlyssenTests
 			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
 			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			var jude = project.IncludedBooks.Single();
-			jude.Blocks = new List<Block>(new []
+			jude.Blocks = new List<Block>(new[]
 				{
 					new Block("p", 1, 1) {CharacterId = narrator }.AddVerse("1", "A"),
 					new Block("s", 1, 1) {CharacterId = sectionHead, BlockElements = new List<BlockElement> {new ScriptText("Jude complains")}},
@@ -178,7 +181,7 @@ namespace GlyssenTests
 					new Block("p", 1, 5) {CharacterId = narrator }.AddVerse("5", "E ").AddVerse("6", "F"),
 				});
 
-			var primaryReferenceText = new ReferenceText(new GlyssenDblTextMetadata(), ReferenceTextType.Custom);
+			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(new GlyssenDblTextMetadata());
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var blocks = new List<Block>
@@ -190,6 +193,17 @@ namespace GlyssenTests
 				new Block("p", 1, 5) { CharacterId = narrator }.AddVerse(5, "Ey"),
 				new Block("p", 1, 6) { CharacterId = narrator }.AddVerse(6, "Ef"),
 			};
+			foreach (var refBlock in blocks)
+			{
+				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber)
+					{ CharacterId = refBlock.CharacterId };
+				Verse verseElement = refBlock.BlockElements.First() as Verse;
+				if (verseElement != null)
+					secondaryRefBlock.AddVerse(verseElement.Number, "Secondary");
+				else
+					secondaryRefBlock.BlockElements = new List<BlockElement> { new ScriptText("the angel named Mike verbalized.") };
+				refBlock.SetMatchedReferenceBlock(secondaryRefBlock);
+			}
 			var refBook = new BookScript("JUD", blocks);
 			books.Add(refBook);
 			project.ReferenceText = primaryReferenceText;
@@ -205,6 +219,7 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.AreEqual("[1]\u00A0A", row[kVernacularText]);
 			Assert.AreEqual("[1]\u00A0Ayy", row[kPrimaryReferenceText]);
+			Assert.AreEqual("[1]\u00A0Secondary", row[kSecondaryReferenceText]);
 
 			row = data[i++];
 			Assert.AreEqual(i, row[kBlockId]); // Row 2
@@ -213,6 +228,7 @@ namespace GlyssenTests
 			Assert.AreEqual("section head (JUD)", row[kCharacterId]);
 			Assert.AreEqual("Jude complains", row[kVernacularText]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+			Assert.IsTrue(string.IsNullOrEmpty(row[kSecondaryReferenceText] as string));
 
 			row = data[i++];
 			Assert.AreEqual(i, row[kBlockId]); // Row 3
@@ -221,6 +237,7 @@ namespace GlyssenTests
 			Assert.AreEqual("Enoch", row[kCharacterId]);
 			Assert.AreEqual("[2]\u00A0B", row[kVernacularText]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+			Assert.IsTrue(string.IsNullOrEmpty(row[kSecondaryReferenceText] as string));
 
 			row = data[i++];
 			Assert.AreEqual(i, row[kBlockId]); // Row 4
@@ -229,6 +246,7 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.AreEqual("[3]\u00A0C", row[kVernacularText]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+			Assert.IsTrue(string.IsNullOrEmpty(row[kSecondaryReferenceText] as string));
 
 			row = data[i++];
 			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
@@ -237,7 +255,8 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
 			Assert.AreEqual("[2-3]\u00A0Bee Cee", row[kPrimaryReferenceText]);
-			Assert.AreEqual(0, row[kVernacularTextLength]);
+			Assert.AreEqual("[2-3]\u00A0Secondary", row[kSecondaryReferenceText]);
+			Assert.AreEqual(0, row[kVernacularTextLengthWithSecondaryRef]);
 
 			row = data[i++];
 			Assert.AreEqual(5, row[kBlockId]); // Row 5
@@ -246,6 +265,7 @@ namespace GlyssenTests
 			Assert.AreEqual("Michael", row[kCharacterId]);
 			Assert.AreEqual("[4]\u00A0D", row[kVernacularText]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kPrimaryReferenceText] as string));
+			Assert.IsTrue(string.IsNullOrEmpty(row[kSecondaryReferenceText] as string));
 
 			row = data[i++];
 			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
@@ -254,7 +274,8 @@ namespace GlyssenTests
 			Assert.AreEqual("Michael", row[kCharacterId]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
 			Assert.AreEqual("[4]\u00A0Dee, ", row[kPrimaryReferenceText]);
-			Assert.AreEqual(0, row[kVernacularTextLength]);
+			Assert.AreEqual("[4]\u00A0Secondary", row[kSecondaryReferenceText]);
+			Assert.AreEqual(0, row[kVernacularTextLengthWithSecondaryRef]);
 
 			row = data[i++];
 			Assert.IsTrue(string.IsNullOrEmpty(row[kBlockId] as string));
@@ -263,7 +284,8 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[kVernacularText] as string));
 			Assert.AreEqual("Michael said.", row[kPrimaryReferenceText]);
-			Assert.AreEqual(0, row[kVernacularTextLength]);
+			Assert.AreEqual("the angel named Mike verbalized.", row[kSecondaryReferenceText]);
+			Assert.AreEqual(0, row[kVernacularTextLengthWithSecondaryRef]);
 
 			row = data[i++];
 			Assert.AreEqual(6, row[kBlockId]);
@@ -272,6 +294,7 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.AreEqual("[5]\u00A0E ", row[kVernacularText]);
 			Assert.AreEqual("[5]\u00A0Ey", row[kPrimaryReferenceText]);
+			Assert.AreEqual("[5]\u00A0Secondary", row[kSecondaryReferenceText]);
 
 			row = data[i++];
 			Assert.AreEqual(7, row[kBlockId]);
@@ -280,12 +303,80 @@ namespace GlyssenTests
 			Assert.AreEqual("narrator (JUD)", row[kCharacterId]);
 			Assert.AreEqual("[6]\u00A0F", row[kVernacularText]);
 			Assert.AreEqual("[6]\u00A0Ef", row[kPrimaryReferenceText]);
+			Assert.AreEqual("[6]\u00A0Secondary", row[kSecondaryReferenceText]);
 
 			Assert.AreEqual(i, data.Count);
 		}
 
 		[Test]
-		public void GetTabSeparatedLine_GetExportDataForBlock_VerseAndTextElements_ExpectedColumnsIncludingJoinedText()
+		public void GetExportData_BlocksAreJoinedToStandardNonEnglishReferenceText_OutputContainsPrimaryAndEnglishReferenceText()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Azeri);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
+			var exporter = new ProjectExporter(project);
+
+			var data = exporter.GetExportData().ToList();
+
+			Assert.IsTrue(data.All(d => (string)d[kBookId] == "JUD"));
+			Assert.IsTrue(data.All(d => d.Count == kVernacularTextLengthWithSecondaryRef + 1));
+			Assert.AreEqual("YӘHUDANIN MӘKTUBU", data[0][kPrimaryReferenceText]);
+			Assert.AreEqual("JUDE", data[0][kSecondaryReferenceText]);
+			Assert.IsTrue(data.Skip(1).All(d => (int)d[kChapter] == 1));
+			Assert.AreEqual("YӘHUDA 1", data[1][kPrimaryReferenceText]);
+			Assert.AreEqual("JUDE CHP 1", data[1][kSecondaryReferenceText]);
+			var matchedRows = data.Where(d => (string)d[kVernacularText] != null && (string)d[kPrimaryReferenceText] != null).ToList();
+			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbirary, but I just want to say we got a reasonable number of matches
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[kPrimaryReferenceText]).Contains("Ә"))); // A letter that should be in Azeri, but not English
+			Assert.IsTrue(matchedRows.All(d => (string)d[kSecondaryReferenceText] != null));
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Azeri
+			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect some rows
+			// to come from those mis-matches.
+			var rowsWithNoVernacular = data.Where(d => d[kVernacularText] == null).ToList();
+			Assert.IsTrue(rowsWithNoVernacular.Any());
+			Assert.IsTrue(rowsWithNoVernacular.All(d => d.Count == kVernacularTextLengthWithSecondaryRef + 1));
+			Assert.IsTrue(rowsWithNoVernacular.All(d => d[kSecondaryReferenceText] != null));
+			Assert.IsTrue(rowsWithNoVernacular.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Azeri
+		}
+
+		[Test]
+		public void GeneratePreviewTable_BlocksAreJoinedToStandardNonEnglishReferenceText_HeadersIncludeNonEnglishAndEnglishDirectorsGuide()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish);
+			var exporter = new ProjectExporter(project);
+
+			var data = exporter.GeneratePreviewTable();
+
+			var iCol = 0;
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "#");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Tag");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Book");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Chapter");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Verse");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Character");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Delivery");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Text");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "Spanish Director's Guide");
+			Assert.IsTrue(data.Columns[iCol++].ColumnName == "English Director's Guide");
+			Assert.IsTrue(data.Columns[iCol].ColumnName == "Size");
+			//Assert.AreEqual("YӘHUDANIN MӘKTUBU", data[0][kPrimaryReferenceText]);
+			//Assert.AreEqual("JUDE", data[0][kSecondaryReferenceText]);
+			//Assert.IsTrue(data.Skip(1).All(d => (int)d[kChapter] == 1));
+			//Assert.AreEqual("YӘHUDA 1", data[1][kPrimaryReferenceText]);
+			//Assert.AreEqual("JUDE CHP 1", data[1][kSecondaryReferenceText]);
+			//var matchedRows = data.Where(d => (string)d[kVernacularText] != null && (string)d[kPrimaryReferenceText] != null).ToList();
+			//Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbirary, but I just want to say we got a reasonable number of matches
+			//Assert.IsTrue(matchedRows.Any(d => ((string)d[kPrimaryReferenceText]).Contains("Ә"))); // A letter that should be in Azeri, but not English
+			//Assert.IsTrue(matchedRows.All(d => (string)d[kSecondaryReferenceText] != null));
+			//Assert.IsTrue(matchedRows.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Azeri
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetTabSeparatedLine_GetExportDataForBlock_VerseAndTextElements_ExpectedColumnsIncludingJoinedText(bool includeSecondaryReferenceText)
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -299,14 +390,20 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true)));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			if (includeSecondaryReferenceText)
+				expectedLine.Append("\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, includeSecondaryReferenceText)));
+			expectedLine.Insert(1, "\tActorGuy1");
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, includeSecondaryReferenceText)));
 		}
 
-		[Test]
-		public void GetTabSeparatedLine_GetExportDataForBlock_TextBeginsMidVerse_ResultHasCorrectVerseInfo()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetTabSeparatedLine_GetExportDataForBlock_TextBeginsMidVerse_ResultHasCorrectVerseInfo(bool includeSecondaryReferenceText)
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text of verse three, part two. "));
@@ -318,14 +415,20 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true)));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t\t");
+			if (includeSecondaryReferenceText)
+				expectedLine.Append("\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, includeSecondaryReferenceText)));
+			expectedLine.Insert(1, "\tActorGuy1");
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, includeSecondaryReferenceText)));
 		}
 
-		[Test]
-		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyNarratorCharacter_OutputContainsNarrator()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyNarratorCharacter_OutputContainsNarrator(bool includeSecondaryReferenceText)
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -339,10 +442,15 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true)));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true)));
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			if (includeSecondaryReferenceText)
+				expectedLine.Append("\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true, includeSecondaryReferenceText)));
+			expectedLine.Insert(1, "\tActorGuy1");
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true, includeSecondaryReferenceText)));
 		}
 
 		[Test]
@@ -361,10 +469,13 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true)));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, false)));
+			expectedLine.Insert(1, "\tActorGuy1");
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, false)));
 		}
 
 		[Test]
@@ -383,14 +494,18 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false)));
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false)));
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false, false)));
+			expectedLine.Insert(1, "\tActorGuy1");
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false, false)));
 		}
 
-		[Test]
-		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyReferenceText_OutputContainsReferenceText()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void GetTabSeparatedLine_GetExportDataForBlock_SpecifyReferenceText_OutputContainsReferenceText(bool includeSecondaryReferenceText)
 		{
 			var block = new Block("p", 4);
 			block.IsParagraphStart = true;
@@ -405,8 +520,12 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			Assert.AreEqual("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t[1-2]\u00A0Text of verses one and two bridged in harmony and goodness.\t" + textLength,
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true)));
+			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t[1-2]\u00A0Text of verses one and two bridged in harmony and goodness.\t");
+			if (includeSecondaryReferenceText)
+				expectedLine.Append("\t");
+			expectedLine.Append(textLength);
+			Assert.AreEqual(expectedLine.ToString(),
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, includeSecondaryReferenceText)));
 		}
 	}
 }

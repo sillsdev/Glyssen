@@ -40,6 +40,11 @@ namespace Glyssen
 			get { return m_vers; }
 		}
 
+		public string LanguageName
+		{
+			get { return m_metadata.Language.Name; }
+		}
+
 		protected abstract string ProjectFolder { get; }
 
 		protected Func<string, string> GetBookName { get; set; }
