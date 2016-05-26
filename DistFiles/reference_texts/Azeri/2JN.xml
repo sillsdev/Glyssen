@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="2JN" singlevoice="false" pageheader="YӘHYANIN İKİNCİ MӘKTUBU 2 YӘHYA">
+<book id="2JN" singlevoice="false" pageheader="YӘHYA">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-2JN">
       <text>2 JOHN</text>
     </ReferenceBlocks>
-    <text>YӘHYANIN İKİNCİ MӘKTUBU 2 YӘHYA</text>
+    <text>YӘHYANIN İKİNCİ MӘKTUBU 2</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="2JN" initialStartVerse="0" characterId="BC-2JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">

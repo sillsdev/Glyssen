@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<book id="3JN" singlevoice="false" pageheader="YӘHYANIN ÜÇÜNCÜ MӘKTUBU 3 YӘHYA">
+<book id="3JN" singlevoice="false" pageheader="YӘHYA">
   <block style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="mt" chapter="0" initialStartVerse="0" characterId="BC-3JN">
       <text>3 JOHN</text>
     </ReferenceBlocks>
-    <text>YӘHYANIN ÜÇÜNCÜ MӘKTUBU 3 YӘHYA</text>
+    <text>YӘHYANIN ÜÇÜNCÜ MӘKTUBU 3</text>
   </block>
   <block style="c" paragraphStart="true" chapter="1" book="3JN" initialStartVerse="0" characterId="BC-3JN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="1" initialStartVerse="0">
