@@ -175,14 +175,20 @@ namespace DevTools
 									chapterLabel = bookName + " " + justTheWordForChapter;
 									//Console.WriteLine("Guessing at chapter label: " + chapterLabel);
 								}
-								else if (IsSingleChapterBook(referenceTextRow))
-								{
-									chapterLabel = bookName;
-								}
 								else
 								{
-									Console.WriteLine("Could not distinguish book title and chapter label: " + bookTitleAndchapter1Announcement);
-									errorsOccurred = true;
+									var iLastSpace = bookName.LastIndexOf(' ');
+									if (iLastSpace > 0)
+									{
+										var lastWord = bookName.Substring(iLastSpace + 1);
+										if (bookName.StartsWith(lastWord, StringComparison.Ordinal))
+										{
+											chapterLabel = lastWord;
+											bookName = bookName.Substring(0, iLastSpace);
+										}
+									}
+									if (chapterLabel == null)
+										chapterLabel = bookName;
 								}
 							}
 							currentTitleAndChapterLabelInfo.ChapterLabel = chapterLabel;
