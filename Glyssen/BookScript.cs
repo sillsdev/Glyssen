@@ -605,7 +605,15 @@ namespace Glyssen
 						return false;
 				}
 			}
-			SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
+			try
+			{
+				SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
+			}
+			catch (ArgumentException)
+			{
+				// This is a stop-gap until we can get the issues resolved with splitting for reference texts
+				return false;
+			}
 			return true;
 		}
 
