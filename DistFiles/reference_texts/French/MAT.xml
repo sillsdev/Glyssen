@@ -2163,19 +2163,19 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
       <text>They came out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and went into the herd of pigs: and behold, the whole herd of pigs rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the cliff into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and died in the water.</text>
     </ReferenceBlocks>
     <text>Les esprits mauvais sortent </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>des deux hommes et ils entrent dans les cochons. Alors tout le troupeau se précipite </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>du haut de la pente dans le lac, </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>et les cochons se noient.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT" matchesReferenceText="true">
@@ -5634,12 +5634,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
       <verse num="18" />
       <text>Jesus rebuked him, the demon went out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>of him, and the boy was cured from that hour.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Jésus menace l'esprit mauvais, et il sort </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>de l'enfant. Au même moment, l'enfant est guéri.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT" matchesReferenceText="true">
@@ -9454,14 +9454,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, one of those who were with Jesus stretched out his hand, and drew his sword, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>struck the servant of the high priest, and struck off his ear. </text>
       <verse num="52" />
       <text>Then Jesus said to him,</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Un des disciples de Jésus prend son épée. Il </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>attaque le serviteur du grand-prêtre et lui coupe l'oreille. </text>
     <verse num="52" />
     <text>Jésus lui dit:</text>
@@ -9734,13 +9734,13 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
       <text>Immediately the rooster </text>
-      <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
       <text>crowed. </text>
       <verse num="75" />
       <text>Peter remembered the word which Jesus had said to him,</text>
     </ReferenceBlocks>
     <text>Et au même moment un coq </text>
-    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     <text>chante. </text>
     <verse num="75" />
     <text>Pierre se souvient que Jésus lui a dit:</text>
@@ -9813,12 +9813,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
       <verse num="5" />
       <text>He threw </text>
-      <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
       <text>down the pieces of silver in the sanctuary, and departed. He went away and hanged himself.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Judas jette </text>
-    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
     <text>l'argent dans le temple et il part. Ensuite il va se pendre.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT" matchesReferenceText="true">
@@ -10337,12 +10337,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, the veil of the temple was torn </text>
-      <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
       <text>in two from the top to the bottom. The earth quaked and the rocks were split.</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>A ce moment-là, le grand rideau qui est dans le temple se déchire </text>
-    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
     <text>en deux morceaux, depuis le haut jusqu'en bas. La terre tremble, les rochers se fendent.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT" matchesReferenceText="true">

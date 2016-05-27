@@ -1273,6 +1273,7 @@
       <verse num="1" />
       <text>“Be careful that you don't do your charitable giving before men, to be seen by them. Otherwise you will have no reward from your Father who is in heaven.</text>
     </ReferenceBlocks>
+    <verse num="1" />
     <text>&lt;&lt;Ingatlah, jangan kamu melakukan &lt;kewajiban agamamu&gt; di hadapan orang supaya dilihat mereka, karena jika demikian, kamu tidak beroleh upah dari Bapamu yang di sorga.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
@@ -2162,19 +2163,19 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
       <text>They came out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and went into the herd of pigs: and behold, the whole herd of pigs rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the cliff into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and died in the water.</text>
     </ReferenceBlocks>
     <text>Lalu keluarlah mereka </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>dan masuk ke dalam babi-babi itu. Maka terjunlah </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>seluruh kawanan babi itu dari tepi jurang ke dalam danau </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>dan mati di dalam air.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT" matchesReferenceText="true">
@@ -5639,12 +5640,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
       <verse num="18" />
       <text>Jesus rebuked him, the demon went out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>of him, and the boy was cured from that hour.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Dengan keras Yesus menegor dia, lalu keluarlah </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>setan itu dari padanya dan anak itupun sembuh seketika itu juga.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT" matchesReferenceText="true">
@@ -9464,14 +9465,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, one of those who were with Jesus stretched out his hand, and drew his sword, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>struck the servant of the high priest, and struck off his ear. </text>
       <verse num="52" />
       <text>Then Jesus said to him,</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Tetapi seorang dari mereka yang menyertai Yesus mengulurkan tangannya, menghunus pedangnya dan </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>menetakkannya kepada hamba Imam Besar sehingga putus telinganya. </text>
     <verse num="52" />
     <text>Maka kata Yesus kepadanya:</text>
@@ -9745,13 +9746,13 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
       <text>Immediately the rooster </text>
-      <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
       <text>crowed. </text>
       <verse num="75" />
       <text>Peter remembered the word which Jesus had said to him,</text>
     </ReferenceBlocks>
     <text>Dan pada saat itu berkokoklah </text>
-    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     <text>ayam. </text>
     <verse num="75" />
     <text>Maka teringatlah Petrus akan apa yang dikatakan Yesus kepadanya:</text>
@@ -9825,12 +9826,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
       <verse num="5" />
       <text>He threw </text>
-      <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
       <text>down the pieces of silver in the sanctuary, and departed. He went away and hanged himself.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Maka iapun melemparkan </text>
-    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
     <text>uang perak itu ke dalam Bait Suci, lalu pergi dari situ dan menggantung diri.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT" matchesReferenceText="true">
@@ -10354,12 +10355,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, the veil of the temple was torn </text>
-      <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
       <text>in two from the top to the bottom. The earth quaked and the rocks were split.</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Dan lihatlah, tabir Bait Suci terbelah </text>
-    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
     <text>dua dari atas sampai ke bawah dan terjadilah gempa bumi, dan bukit-bukit batu terbelah,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT" matchesReferenceText="true">

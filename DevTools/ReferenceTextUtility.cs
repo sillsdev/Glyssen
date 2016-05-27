@@ -17,6 +17,8 @@ namespace DevTools
 {
 	static class ReferenceTextUtility
 	{
+		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
+
 		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
 		{
 			{"English", "NewEnglish"},
@@ -43,38 +45,38 @@ namespace DevTools
 			public string ChapterTwoInfoFromXls { get; set; }
 			public string BookTitle { get; set; }
 			public string ChapterLabel { get; set; }
-
 		}
 
 		private class BookTitleAndChapterLabelInfo
 		{
 			private readonly List<TitleAndChapterLabelInfo> m_details = new List<TitleAndChapterLabelInfo>(8);
 			public string BookId { get; set; }
-			public List<TitleAndChapterLabelInfo> Details
-			{
-				get { return m_details; }
-			}
+			public List<TitleAndChapterLabelInfo> Details { get { return m_details; } }
 		}
 
-		public static bool Go()
+		public static bool GenerateReferenceTexts()
 		{
+			// When running with this true, I have simply been putting a breakpoint on 'return false'
+			// statement in CompareIgnoringQuoteMarkDifferences and looking at each case
+			const bool onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish = false;
+
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			var pathToFCBHDirGuide = Path.Combine(myDocuments, "Protoscript Generator", "DGNTAllSimplified_71.xlsx");
 
 			if (!File.Exists(pathToFCBHDirGuide))
 			{
 				Console.WriteLine("File does not exist: " + pathToFCBHDirGuide);
-				return true;
+				return false;
 			}
 
-			List<ReferenceTextRow> list;
+			List<ReferenceTextRow> referenceTextRowsFromExcelSpreadsheet;
 			using (var xls = new ExcelPackage(new FileInfo(pathToFCBHDirGuide)))
 			{
 				var worksheet = xls.Workbook.Worksheets["Sheet1"];
 
 				//Cells only contains references to cells with actual data
 				var cells = worksheet.Cells;
-				list = cells.GroupBy(c => c.Start.Row).Select(r =>
+				referenceTextRowsFromExcelSpreadsheet = cells.GroupBy(c => c.Start.Row).Select(r =>
 				{
 					var row = r.Key;
 					var verseStr = cells[row, 3].Value as string ?? ((double) cells[row, 3].Value).ToString();
@@ -97,6 +99,7 @@ namespace DevTools
 			bool errorsOccurred = false;
 			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
 
+			var annotationsToOutput = new List<string>();
 			foreach (var language in s_allLanguages)
 			{
 				Console.WriteLine("Processing " + language + "...");
@@ -118,7 +121,7 @@ namespace DevTools
 				List<BookScript> newBooks = new List<BookScript>();
 				List<Block> newBlocks = new List<Block>();
 				TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo = null;
-				foreach (var referenceTextRow in list.Where(r => BCVRef.BookToNumber(ConvertFcbhBookCodeToSilBookCode(r.Book)) >= startBook))
+				foreach (var referenceTextRow in referenceTextRowsFromExcelSpreadsheet.Where(r => BCVRef.BookToNumber(ConvertFcbhBookCodeToSilBookCode(r.Book)) >= startBook))
 				{
 					if (prevBook != referenceTextRow.Book)
 					{
@@ -309,20 +312,17 @@ namespace DevTools
 					}
 					else
 					{
-						string newText = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
-						var filteredText = Regex.Replace(newText, " [|][|][|].*?[|][|][|] ", "");
-						filteredText = Regex.Replace(filteredText, "{(\\d*?)} ", "[$1]\u00A0");
-						//var filteredText = Regex.Replace(newText, "{(\\d*?)} ", "[$1]\u00A0");
-						//filteredText = Regex.Replace(filteredText, "\r?\n", "");
-						//filteredText = Regex.Replace(filteredText, "(\\w)'(\\w)", "$1\u2019$2");
-//					filteredText = Regex.Replace(filteredText, "\"([A-Z])", "“$1");
-//					filteredText = Regex.Replace(filteredText, "([\\w\\.\\?\\!])\"", "$1”");
-						filteredText = Regex.Replace(filteredText, "  ", " ");
-						var filteredTextWithoutInlineAnnotations = Regex.Replace(filteredText, "{.*?}", "");
-						filteredTextWithoutInlineAnnotations = Regex.Replace(filteredTextWithoutInlineAnnotations, "  ", " ");
+						string originalText = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
+						//var modifiedText = Regex.Replace(originalText, " \\|\\|\\|.*?\\|\\|\\| ", "");
+						//modifiedText = Regex.Replace(modifiedText, "{(\\d*?)} ", "[$1]\u00A0");
+						var modifiedText = Regex.Replace(originalText, "{(\\d*?)} ?", "[$1]\u00A0");
+						var modifiedTextWithoutAnnotations = Regex.Replace(modifiedText, " \\|\\|\\|.*?\\|\\|\\| ", "");
+						modifiedTextWithoutAnnotations = Regex.Replace(modifiedTextWithoutAnnotations, "{.*?}", "");
+						modifiedTextWithoutAnnotations = Regex.Replace(modifiedTextWithoutAnnotations, "  ", " ");
 
 						var blockText = block.GetText(true);
-						if (true || Compare(filteredTextWithoutInlineAnnotations, blockText))
+						if (!onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish ||
+							CompareIgnoringQuoteMarkDifferences(modifiedTextWithoutAnnotations, blockText))
 						{
 							//Debug.WriteLine(referenceTextRow);
 							var newBlock = new Block(block.StyleTag, int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse))
@@ -332,35 +332,77 @@ namespace DevTools
 								IsParagraphStart = block.IsParagraphStart,
 								MultiBlockQuote = block.MultiBlockQuote
 							};
-							var splits = Regex.Split(filteredText, "(\\[\\d*?\\]\u00A0)");
+							BlockElement lastElementInBlock = null;
+							var splits = Regex.Split(modifiedText, "(\\[\\d*?\\]\u00A0)");
 							foreach (var split in splits)
 							{
 								if (string.IsNullOrWhiteSpace(split))
 								{
 									if (splits.Length == 1)
-										Debug.Fail("");//newBlock.BlockElements.Add(new ScriptText(" ")));
+										Debug.Fail(""); //newBlock.BlockElements.Add(new ScriptText(" ")));
 									continue;
 								}
 								var match = Regex.Match(split, "\\[(\\d*?)\\]\u00A0");
 								if (match.Success)
-									newBlock.BlockElements.Add(new Verse(match.Groups[1].Value));
+									newBlock.BlockElements.Add(lastElementInBlock = new Verse(match.Groups[1].Value));
 								else
 								{
-									var splits2 = Regex.Split(split, "({.*?})");
+									var splits2 = Regex.Split(split, "( \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
 									foreach (var s in splits2)
 									{
 										if (string.IsNullOrWhiteSpace(s))
 											continue;
-										var match2 = Regex.Match(s, "{.*?}");
+										var match2 = Regex.Match(s, " \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
 										if (match2.Success)
 										{
-											if (splits2.IndexOf(s) == 0 || splits2.IndexOf(s) == splits2.Length - 1)
-												continue;
 											ScriptAnnotation annotation;
-											if (AnnotationExtractor.ConvertTextToScriptAnnotationElement(s, out annotation))
+											if (ConvertTextToUserSpecifiedScriptAnnotationElement(s, out annotation))
 											{
-												newBlock.BlockElements.Add(annotation);
-												Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
+												newBlock.BlockElements.Add(lastElementInBlock = annotation);
+												//Debug.WriteLine(newBlock.ToString(true, existingBook.BookId) + " (" + annotation.ToDisplay + ")");
+											}
+											else if (ConvertTextToControlScriptAnnotationElement(s, out annotation))
+											{
+												if (language.Key == "English")
+												{
+													string serializedAnnotation;
+													if (annotation is Pause)
+														serializedAnnotation = XmlSerializationHelper.SerializeToString((Pause)annotation, true);
+													else
+														serializedAnnotation = XmlSerializationHelper.SerializeToString((Sound)annotation, true);
+
+													if (string.IsNullOrWhiteSpace(annotation.ToDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
+													{
+														Console.WriteLine("Annotation not formatted correctly (is null or whitespace): {0}", referenceTextRow.English);
+														Console.WriteLine();
+														errorsOccurred = true;
+													}
+													var trimmedEnglish = referenceTextRow.English.TrimEnd();
+													if ((annotation is Pause && !trimmedEnglish.EndsWith(annotation.ToDisplay)) ||
+														(annotation is Sound && !trimmedEnglish.StartsWith(annotation.ToDisplay)))
+													{
+														var bcv = new BCVRef(BCVRef.BookToNumber(existingBook.BookId), block.ChapterNumber, block.InitialStartVerseNumber);
+														Console.WriteLine("(warning) Annotation not formatted the same as FCBH: ({0}) {1} => {2}", bcv.AsString, referenceTextRow.English, annotation.ToDisplay);
+														Console.WriteLine();
+														// This is a good check to run for sanity. But we can't fail as
+														// a few of the annotations are actually displayed slightly differently by FCBH
+														// (due to what we are assuming are insignificant differences like 'before' vs. '@')
+														//errorsOccurred = true;
+													}
+													int offset = 0;
+													if ((existingBook.BookId == "MRK" && block.ChapterNumber == 4 && block.InitialVerseNumberOrBridge == "39") ||
+														(existingBook.BookId == "ACT" && block.ChapterNumber == 10 && block.InitialVerseNumberOrBridge == "23"))
+													{
+														offset = -1;
+													}
+													annotationsToOutput.Add(existingBook.BookId + "\t" + block.ChapterNumber + "\t" +
+														block.InitialVerseNumberOrBridge + "\t" + offset + "\t" + serializedAnnotation);
+												}
+											}
+											else
+											{
+												Console.WriteLine("Could not parse annotation: " + referenceTextRow);
+												errorsOccurred = true;
 											}
 										}
 										else
@@ -368,20 +410,20 @@ namespace DevTools
 											string text = s.TrimStart();
 											if (string.IsNullOrWhiteSpace(text))
 												Debug.Fail("");
-											newBlock.BlockElements.Add(new ScriptText(text));
+											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
 										}
 									}
 								}
 							}
-							//if (!newBlock.BlockElements.Any())
-							//	Debug.Fail("");
+							if (lastElementInBlock is Verse)
+								newBlock.BlockElements.Add(new ScriptText("…"));
 							newBlocks.Add(newBlock);
 						}
-						else
-							Debug.WriteLine(referenceTextRow);
 					}
 					prevBook = referenceTextRow.Book;
 				}
+				if (onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish)
+					return true;
 				newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = chapterLabel });
 
 				foreach (var bookScript in newBooks)
@@ -389,10 +431,12 @@ namespace DevTools
 					XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
 				}
 			}
+			WriteAnnotationsFile(annotationsToOutput);
+
 			if (!errorsOccurred)
 			{
-					Console.WriteLine("Write book title and chapter label summary to file? Y/N");
-					var answer = Console.ReadLine();
+				Console.WriteLine("Write book title and chapter label summary to file? Y/N");
+				var answer = Console.ReadLine();
 				if (answer == "Y" || answer == "y")
 				{
 					var path = Path.Combine(myDocuments, "Protoscript Generator", "book title and chapter label summary.txt");
@@ -414,7 +458,15 @@ namespace DevTools
 
 				return LinkToEnglish();
 			}
-			return errorsOccurred;
+			return !errorsOccurred;
+		}
+
+		private static void WriteAnnotationsFile(List<string> annotationsToOutput)
+		{
+			var sb = new StringBuilder();
+			foreach (string annotation in annotationsToOutput)
+				sb.Append(annotation).Append(Environment.NewLine);
+			File.WriteAllText(kOutputFileForAnnotations, sb.ToString());
 		}
 
 		private static bool IsSingleChapterBook(ReferenceTextRow referenceTextRow)
@@ -461,15 +513,17 @@ namespace DevTools
 			}
 		}
 
-		private static bool Compare(string str1, string str2)
+		private static bool CompareIgnoringQuoteMarkDifferences(string str1, string str2)
 		{
-			return Regex.Replace(str1, "[’‘'“”\"]", "").Trim() ==
-					Regex.Replace(Regex.Replace(str2, "  ", " "), "[’‘'“”\"]", "").Trim();
+			if (Regex.Replace(str1, "[“”\"]", "").Trim() == Regex.Replace(str2, "[“”\"]", "").Trim())
+				return true;
+			// When onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish is true, put a breakpoint here to look at diffs
+			return false;
 		}
 
 		public static bool LinkToEnglish()
 		{
-			bool errorOcurred = false;
+			bool errorOccurred = false;
 			foreach (ReferenceTextType language in Enum.GetValues(typeof(ReferenceTextType)))
 			{
 				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom)
@@ -479,7 +533,7 @@ namespace DevTools
 
 				if (refText == null)
 				{
-					errorOcurred = true;
+					errorOccurred = true;
 					Console.Error.WriteLine("No data available to create " + language + " reference text.");
 					continue;
 				}
@@ -491,7 +545,7 @@ namespace DevTools
 					var referenceBook = s_existingEnglish.Books.SingleOrDefault(b => b.BookId == book.BookId);
 					if (referenceBook == null)
 					{
-						errorOcurred = true;
+						errorOccurred = true;
 						Console.Error.WriteLine("English reference text does not contain book: " + book.BookId + ".");
 					}
 					else
@@ -512,13 +566,137 @@ namespace DevTools
 						}
 						if (error != null)
 						{
-							errorOcurred = true;
+							errorOccurred = true;
 							Console.Error.WriteLine(error.Message);
 						}
 					}
 				}
 			}
-			return errorOcurred;
+			return !errorOccurred;
+		}
+
+		private static readonly Regex UserSfxRegex = new Regex("{F8 SFX ?-?- ?(.*)}", RegexOptions.Compiled);
+		private static readonly Regex UserMusicStartsRegex = new Regex("{F8 Music--Starts}", RegexOptions.Compiled);
+		private static readonly Regex UserMusicEndsRegex = new Regex("{F8 Music--Ends}", RegexOptions.Compiled);
+
+		public static bool ConvertTextToUserSpecifiedScriptAnnotationElement(string text, out ScriptAnnotation annotation)
+		{
+			var match = UserSfxRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, UserSpecifiesLocation = true };
+				return true;
+			}
+
+			match = UserMusicStartsRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = Sound.kNonSpecificStartOrStop };
+				return true;
+			}
+
+			match = UserMusicEndsRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true };
+				return true;
+			}
+
+			annotation = null;
+			return false;
+		}
+
+		private static readonly Regex DoNotCombineRegex = new Regex(" \\|\\|\\| DO NOT COMBINE \\|\\|\\| ", RegexOptions.Compiled);
+		private static readonly Regex PauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
+		private static readonly Regex PauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
+		private static readonly Regex MusicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex MusicStartRegex = new Regex("{Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex MusicStopAndStartRegex = new Regex("{Music--Ends & New Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex SfxStartRegex = new Regex("{SFX--(.*?)(?:--Starts)? (?:@|before) v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex SfxEndRegex = new Regex("{SFX--Ends before v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex SfxEndRegex2 = new Regex("{SFX--(.*?)--Ends before v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex SfxRangeRegex = new Regex("{SFX--(.*?) @ v(\\d*?)-(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex MusicSfxRegex = new Regex("{Music \\+ SFX--(.*?) Starts? @ v(\\d*?)}", RegexOptions.Compiled);
+
+		public static bool ConvertTextToControlScriptAnnotationElement(string text, out ScriptAnnotation annotation)
+		{
+			if (string.IsNullOrWhiteSpace(text))
+				throw new ArgumentException("text must contain non-whitespace", "text");
+
+			var match = DoNotCombineRegex.Match(text);
+			if (match.Success)
+				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), out annotation);
+
+			match = PauseRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Pause { TimeUnits = TimeUnits.Seconds, Time = double.Parse(match.Groups[1].Value) };
+				return true;
+			}
+			match = PauseMinuteRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Pause { TimeUnits = TimeUnits.Minutes, Time = double.Parse(match.Groups[1].Value) };
+				return true;
+			}
+
+			match = MusicEndRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Music, EndVerse = int.Parse(match.Groups[1].Value) };
+				return true;
+			}
+
+			match = MusicStartRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Music, StartVerse = int.Parse(match.Groups[1].Value) };
+				return true;
+			}
+
+			match = MusicStopAndStartRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Music, StartVerse = int.Parse(match.Groups[1].Value), EndVerse = Sound.kNonSpecificStartOrStop};
+				return true;
+			}
+
+			match = SfxEndRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Sfx, EndVerse = int.Parse(match.Groups[1].Value) };
+				return true;
+			}
+			match = SfxEndRegex2.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, EndVerse = int.Parse(match.Groups[2].Value) };
+				return true;
+			}
+
+			match = SfxStartRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
+				return true;
+			}
+
+			match = SfxRangeRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value), EndVerse = int.Parse(match.Groups[3].Value) };
+				return true;
+			}
+
+			match = MusicSfxRegex.Match(text);
+			if (match.Success)
+			{
+				annotation = new Sound { SoundType = SoundType.MusicSfx, EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
+				return true;
+			}
+
+			annotation = null;
+			return false;
 		}
 	}
 

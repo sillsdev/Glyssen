@@ -501,7 +501,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="1" characterId="narrator-ROM">
     <verse num="1" />
     <text>Being therefore justified by faith, we have peace with God through our Lord Jesus Christ; </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM">
     <verse num="2" />

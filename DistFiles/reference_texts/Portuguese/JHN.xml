@@ -2434,14 +2434,14 @@
       <text>When evening came, his disciples went down to the sea, </text>
       <verse num="17" />
       <text>and they entered into the boat, and were going over the sea to Capernaum. </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>It was now dark, and Jesus had not come to them.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>De tardinha, os discípulos de Jesus desceram até o lago. </text>
     <verse num="17" />
     <text>Subiram num barco e começaram a atravessar o lago na direção da cidade de Cafarnaum. </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>Quando já estava escuro, Jesus ainda não tinha vindo se encontrar com eles.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-JHN" matchesReferenceText="true">
@@ -7871,12 +7871,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN">
       <verse num="10" />
       <text>Simon Peter therefore, having a sword, drew it, and struck the high priest's servant, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>cut off his right ear.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Aí Simão Pedro tirou a espada, atacou um empregado do * Grande Sacerdote e </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>cortou a orelha direita dele.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-JHN" matchesReferenceText="true">
@@ -7999,12 +7999,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="narrator-JHN">
       <verse num="22" />
       <text>When he had said this, one of the officers standing by </text>
-      <sound effectName="Slap" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Slap" userSpecifiesLocation="true" />
       <text>slapped Jesus with his hand, saying,</text>
     </ReferenceBlocks>
     <verse num="22" />
     <text>Quando Jesus disse isso, um dos guardas do Templo que estavam ali </text>
-    <sound effectName="Slap" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Slap" userSpecifiesLocation="true" />
     <text>deu-lhe uma bofetada e disse:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="22" characterId="officials of high priest, one of the" delivery="gruff" matchesReferenceText="true">
@@ -8079,11 +8079,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="27" characterId="narrator-JHN">
       <verse num="27" />
       <text>Peter therefore denied it again, and immediately the rooster crowed. </text>
-      <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="27" />
     <text>E outra vez Pedro disse que não. E no mesmo instante o galo cantou. </text>
-    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="narrator-JHN">
@@ -9324,10 +9324,10 @@
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="narrator-JHN">
       <text>So when Simon Peter heard that it was the Lord, he wrapped his coat around him (for he was naked), and threw himself into the sea. </text>
-      <sound effectName="Splash and swim" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Splash and swim" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <text>Quando Simão Pedro ouviu dizer que era o Senhor, vestiu a * capa, pois havia tirado a roupa, e se jogou na água. </text>
-    <sound effectName="Splash and swim" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Splash and swim" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-JHN">

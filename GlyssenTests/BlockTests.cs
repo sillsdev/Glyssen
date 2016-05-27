@@ -95,7 +95,7 @@ namespace GlyssenTests
 			const string text2 = "text2 ";
 			var block = new Block("p", 1, 1);
 			block.BlockElements.Add(new ScriptText(text1));
-			block.BlockElements.Add(new Sound { EffectName = "effect name", UserSpecifiesLocation = true });
+			block.BlockElements.Add(new Sound { SoundType = SoundType.Sfx, EffectName = "effect name", UserSpecifiesLocation = true });
 			block.BlockElements.Add(new ScriptText(text2));
 
 			Assert.AreEqual(text1 + "{F8 SFX--effect name} " + text2, block.GetText(true, true));
@@ -586,7 +586,7 @@ namespace GlyssenTests
 			block.BlockElements = new List<BlockElement>
 			{
 				new ScriptText("script text"),
-				new Sound { EffectName = "effect name" },
+				new Sound { SoundType = SoundType.Sfx, EffectName = "effect name", StartVerse = 2 },
 				new Verse("2"),
 				new ScriptText("script text 2"),
 			};

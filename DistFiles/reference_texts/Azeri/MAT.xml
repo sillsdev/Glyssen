@@ -2161,19 +2161,19 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
       <text>They came out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and went into the herd of pigs: and behold, the whole herd of pigs rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the cliff into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and died in the water.</text>
     </ReferenceBlocks>
     <text>Cinlәr dә adamlardan çıxıb </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>donuzların içinә girdi. Belәliklә, bütün sürü uçurumdan aşağı, </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>gölә atılıb suda boğuldu. </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT">
@@ -5631,12 +5631,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
       <verse num="18" />
       <text>Jesus rebuked him, the demon went out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>of him, and the boy was cured from that hour.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>İsa cinә qadağan etdi vә cin uşaqdan çıxdı. </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>Oğlan o saatda şәfa tapdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT" matchesReferenceText="true">
@@ -9452,14 +9452,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, one of those who were with Jesus stretched out his hand, and drew his sword, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>struck the servant of the high priest, and struck off his ear. </text>
       <verse num="52" />
       <text>Then Jesus said to him,</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Budur, İsa ilә birlikdә olanlardan biri әl atıb qılıncını çәkdi vә </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>baş kahinin qulunu vurub qulağını qopartdı. </text>
     <verse num="52" />
     <text>İsa ona dedi:</text>
@@ -9733,13 +9733,13 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
       <text>Immediately the rooster </text>
-      <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
       <text>crowed. </text>
       <verse num="75" />
       <text>Peter remembered the word which Jesus had said to him,</text>
     </ReferenceBlocks>
     <text>Hәmin anda xoruz </text>
-    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     <text>banladı. </text>
     <verse num="75" />
     <text>Peter İsanın dediyi sözü yadına saldı.</text>
@@ -9812,12 +9812,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
       <verse num="5" />
       <text>He threw </text>
-      <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
       <text>down the pieces of silver in the sanctuary, and departed. He went away and hanged himself.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Yәhuda gümüş pulları mәbәdin içinә atıb </text>
-    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
     <text>oradan çıxdı, gedib özünü asdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT" matchesReferenceText="true">
@@ -10336,12 +10336,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, the veil of the temple was torn </text>
-      <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
       <text>in two from the top to the bottom. The earth quaked and the rocks were split.</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>O anda mәbәdin pәrdәsi yuxarıdan aşağıya qәdәr iki yerә </text>
-    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
     <text>parçalandı. Yer sarsıldı, qayalar yarıldı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT" matchesReferenceText="true">

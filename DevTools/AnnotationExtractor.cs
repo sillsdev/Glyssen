@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Xml;
 using Glyssen;
 using SIL.DblBundle.Usx;
@@ -13,10 +11,14 @@ namespace DevTools
 {
 	class AnnotationExtractor
 	{
+		// This class is basically useless now as the annotations are now handled in ReferenceTextUtility.
+		// It turns out that the project from Amgad does not seem to have all the annotations (Mark 4:14, for example)
 		public static void ExtractAll()
 		{
 			ExtractAnnotationsMarkedWithSTag();
-			ExtractAnnotationsMarkedWithRqTag();
+
+			// Don't really need this anymore as the F8 ones are all handled directly in ReferenceTextUtility
+			//ExtractAnnotationsMarkedWithRqTag();
 		}
 
 		private static void ExtractAnnotationsMarkedWithSTag()
@@ -25,10 +27,35 @@ namespace DevTools
 
 			var bookList = Directory.GetFiles(directoryWithXmlFiles, "*.xml").Select(XmlSerializationHelper.DeserializeFromFile<BookScript>).ToList();
 
+			Block prevRealBlock = null;
 			foreach (var book in bookList.OrderBy(b => BCVRef.BookToNumber(b.BookId)))
-				foreach (var block in book.Blocks)
+			{
+				var blocks = book.GetScriptBlocks();
+				for (int i = 0; i < blocks.Count; i++)
+				{
+					var block = blocks[i];
 					if (block.StyleTag == "s")
-						Debug.WriteLine(book.BookId + "\t" + block.ChapterNumber + "\t" + (block.InitialStartVerseNumber + 1) + "\t" + block.GetText(true));
+					{
+						int lastVerseOfPreviousBlock = 0;
+						if (prevRealBlock != null)
+							lastVerseOfPreviousBlock = prevRealBlock.LastVerse;
+						string firstVerseOfNextRealBlock = null;
+						int j = 1;
+						while (i + j < blocks.Count)
+						{
+							if (blocks[i + j].StyleTag != "s")
+							{
+								firstVerseOfNextRealBlock = blocks[i + j].InitialVerseNumberOrBridge;
+								break;
+							}
+							j++;
+						}
+						Debug.WriteLine(book.BookId + "\t" + block.ChapterNumber + "\t" + lastVerseOfPreviousBlock + "\t" + firstVerseOfNextRealBlock + "\t" + block.GetText(true));
+					}
+					else
+						prevRealBlock = block;
+				}
+			}
 		}
 
 		private static void ExtractAnnotationsMarkedWithRqTag()
@@ -59,67 +86,6 @@ namespace DevTools
 					}
 				}
 			}
-		}
-
-		private static readonly Regex UserSfxRegex = new Regex("{F8 SFX--(.*)}", RegexOptions.Compiled);
-		private static readonly Regex UserMusicStartsRegex = new Regex("{F8 Music--Starts}", RegexOptions.Compiled);
-		private static readonly Regex UserMusicEndsRegex = new Regex("{F8 Music--Ends}", RegexOptions.Compiled);
-
-		public static bool ConvertTextToScriptAnnotationElement(string text, out ScriptAnnotation annotation)
-		{
-//			var pauseRegex = new Regex("||| \\+(?:/d) |||");
-//			var match = pauseRegex.Match(text);
-//			if (match.Success)
-//				return new Pause { Seconds = int.Parse(match.Groups[0].Value) };
-//
-//			var musicEndRegex = new Regex("{Music--Ends before v(\\d*)}");
-//			var match = musicEndRegex.Match(text);
-//			if (match.Success)
-//			{
-//				annotation = new Sound { EndVerse = int.Parse(match.Groups[1].Value) };
-//				return true;
-//			}
-//
-//			var musicStartRegex = new Regex("{Music--Starts @ v(\\d*)}");
-//			match = musicStartRegex.Match(text);
-//			if (match.Success)
-//			{
-//				annotation = new Sound { StartVerse = int.Parse(match.Groups[1].Value) };
-//				return true;
-//			}
-//
-//			var sfxStartRegex = new Regex("{SFX--(.*)--Starts @ v(\\d*)}");
-//			match = sfxStartRegex.Match(text);
-//			if (match.Success)
-//			{
-//				annotation = new Sound { EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
-//				return true;
-			//			}
-
-			var match = UserSfxRegex.Match(text);
-			if (match.Success)
-			{
-				annotation = new Sound { EffectName = match.Groups[1].Value, UserSpecifiesLocation = true };
-				return true;
-			}
-
-			match = UserMusicStartsRegex.Match(text);
-			if (match.Success)
-			{
-				annotation = new Sound { UserSpecifiesLocation = true, Start = true};
-				return true;
-			}
-
-			match = UserMusicEndsRegex.Match(text);
-			if (match.Success)
-			{
-				annotation = new Sound { UserSpecifiesLocation = true };
-				return true;
-			}
-
-			annotation = null;
-			return false;
-
 		}
 	}
 }

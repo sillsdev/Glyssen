@@ -2351,11 +2351,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
       <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
-      <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="9" />
     <text>Pero había allí un hombre llamado Simón, que antes había practicado la brujería y que había engañado a la gente de Samaria haciéndose pasar por una persona importante. </text>
-    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
@@ -7729,14 +7729,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
       <text>The high priest, Ananias, commanded those who stood by him to </text>
-      <sound effectName="Hit" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
       <text>strike him on the mouth. </text>
       <verse num="3" />
       <text>Then Paul said to him,</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Entonces Ananías, que era sumo sacerdote, mandó a los que estaban cerca de Pablo: </text>
-    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
     <text>&lt;&lt;Peguenle en la boca!&gt;&gt; </text>
     <verse num="3" />
     <text>Pero Pablo le contestó:</text>
@@ -9082,12 +9082,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
       <text>When the ship was caught, and couldn't face the wind, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>y comenzó a arrastrarlo. Como no podíamos mantener el barco de cara al viento, </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>tuvimos que dejarnos llevar por él.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">

@@ -247,12 +247,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
       <text>The unclean spirit, convulsing him and crying with </text>
-      <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
       <text>a loud voice, came out of him.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Na spirit nogut i sakim dispela man, na i singaut bikmaus tru, </text>
-    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
     <text>na i lusim dispela man.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK" matchesReferenceText="true">
@@ -1674,20 +1674,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
       <verse num="13" />
       <text>At once Jesus gave them permission. The unclean spirits came out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and entered into the pigs. The herd of about two thousand rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the steep bank into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and they were drowned in the sea.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Orait Jisas i larim ol i go. Na ol spirit nogut i lusim dispela man,</text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>na ol i go insait long ol pik. Na ol dispela lain pik i ran strong tru </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>i go daun long wanpela ples nogut. Na ol i pundaun long raunwara, na ol i dring wara na i dai. </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>Namba bilong olgeta pik em inap olsem 2,000 .</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
@@ -2225,6 +2225,8 @@
       <verse num="17" />
       <text>Herod himself had given orders to have John arrested and put in prison. He did this because he had married Herodius, his brother Philip's wife.</text>
     </ReferenceBlocks>
+    <verse num="17" />
+    <text>…</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="18" characterId="narrator-MRK">
@@ -3842,12 +3844,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
       <text>Having cried out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and convulsed greatly, it came out of him. The boy became like one dead; so much that most of them said,</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Na dispela spirit i singaut nogut, </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>na em i sakim pikinini moa yet, na em i lusim em na i go. Na pikinini i stap olsem em i dai pinis. Na planti man i lukim na i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring" matchesReferenceText="true">
@@ -6381,14 +6383,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
       <verse num="47" />
       <text>But a certain one of those who stood by drew his sword, and struck the servant of the high priest, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>cut off his ear. </text>
       <verse num="48" />
       <text>Jesus answered them,</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>Wanpela bilong ol man i sanap klostu, em i pulim bainat bilong en na i paitim wokboi bilong hetpris, na bainat i </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>katim yau bilong en na yau i pundaun. </text>
     <verse num="48" />
     <text>Na Jisas i tokim ol olsem,</text>

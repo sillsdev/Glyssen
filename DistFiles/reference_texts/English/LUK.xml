@@ -1922,11 +1922,11 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-LUK">
     <verse num="33" />
     <text>The demons came out </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>from the man, and entered into the pigs, and the herd rushed </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>down the steep bank into the lake, </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>and were drowned.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-LUK">
@@ -2031,7 +2031,7 @@
     <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.  </text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
-    <sound effectName="Women crying" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Women crying" userSpecifiesLocation="true" />
     <verse num="52" />
     <text>All were weeping and mourning her but he said,</text>
   </block>
@@ -2041,7 +2041,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="53" characterId="narrator-LUK">
     <verse num="53" />
     <text>They were ridiculing </text>
-    <sound effectName="Women laughing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Women laughing" userSpecifiesLocation="true" />
     <text>him, knowing that she was dead.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="54" characterId="narrator-LUK">
@@ -2126,7 +2126,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
     <verse num="10" />
     <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida. </text>
-    <sound effectName="Crowd" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK">
     <verse num="11" />
@@ -5113,7 +5113,7 @@
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="50" characterId="narrator-LUK">
     <verse num="50" />
     <text>A certain one of them struck the servant of the high priest, and </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>cut off his right ear. </text>
     <verse num="51" />
     <text>But Jesus answered,</text>

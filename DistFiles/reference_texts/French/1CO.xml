@@ -194,11 +194,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="23" characterId="narrator-1CO">
       <verse num="23" />
       <text>But we preach Christ crucified; a stumbling block to Jews, and foolishness to Greeks, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="23" />
     <text>Mais nous, nous annonçons un Messie cloué sur une croix. Les Juifs ne peuvent absolument pas accepter cela, et ceux qui ne sont pas juifs pensent que c'est une folie. </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO">

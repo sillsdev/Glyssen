@@ -664,12 +664,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
       <text>Before the throne was something like a sea of glass, </text>
-      <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Sea of glass" userSpecifiesLocation="true" />
       <text>similar to crystal. In the midst of the throne, and around the throne were four living creatures full of eyes before and behind.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Dan di hadapan takhta itu ada lautan kaca bagaikan kristal </text>
-    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Sea of glass" userSpecifiesLocation="true" />
     <text>; di tengah-tengah takhta itu dan di sekelilingnya ada empat makhluk penuh dengan mata, di sebelah muka dan di sebelah belakang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
@@ -786,10 +786,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
-      <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="In the midst of elders" userSpecifiesLocation="true" />
       <text>A Lamb standing, as though it had been slain, having seven horns, and seven eyes, which are the seven Spirits of God, sent out into all the earth.</text>
     </ReferenceBlocks>
-    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>berdiri seekor Anak Domba seperti telah disembelih, bertanduk tujuh dan bermata tujuh: itulah ketujuh Roh Allah yang diutus ke seluruh bumi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
@@ -810,10 +810,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
-      <sound effectName="Harp" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Harp" userSpecifiesLocation="true" />
       <text>each one having a harp, and golden bowls full of incense, which are the prayers of the saints.</text>
     </ReferenceBlocks>
-    <sound effectName="Harp" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Harp" userSpecifiesLocation="true" />
     <text>masing-masing memegang satu kecapi dan satu cawan emas, penuh dengan kemenyan: itulah doa orang-orang kudus.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
@@ -1304,24 +1304,24 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
       <verse num="7" />
       <text>The first sounded, and there followed </text>
-      <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hail and fire" userSpecifiesLocation="true" />
       <text>hail and fire, mixed with blood, and they were thrown to the earth. One third of the earth was burnt up, and one third of the trees were burnt up, and all green grass was burnt up.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Lalu malaikat yang pertama meniup sangkakalanya dan terjadilah </text>
-    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hail and fire" userSpecifiesLocation="true" />
     <text>hujan es, dan api, bercampur darah; dan semuanya itu dilemparkan ke bumi; maka terbakarlah sepertiga dari bumi dan sepertiga dari pohon-pohon dan hanguslah seluruh rumput-rumputan hijau.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
       <text>The second angel sounded, </text>
-      <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
       <text>and something like a great burning mountain was thrown into the sea. One third of the sea became blood.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Lalu malaikat yang kedua meniup sangkakalanya </text>
-    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
     <text>dan ada sesuatu seperti gunung besar, yang menyala-nyala oleh api, dilemparkan ke dalam laut. Dan sepertiga dari laut itu menjadi darah,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
@@ -1336,12 +1336,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
       <text>The third angel sounded, and </text>
-      <sound effectName="Star falling" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
       <text>a great star fell from the sky, burning like a torch, and it fell on one third of the rivers, and on the springs of the waters.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Lalu malaikat yang ketiga meniup sangkakalanya </text>
-    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
     <text>dan jatuhlah dari langit sebuah bintang besar, menyala-nyala seperti obor, dan ia menimpa sepertiga dari sungai-sungai dan mata-mata air.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
@@ -1356,12 +1356,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
       <verse num="12" />
       <text>The fourth angel sounded, and one third of </text>
-      <sound effectName="Sun struck" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Sun struck" userSpecifiesLocation="true" />
       <text>the sun was struck, and one third of the moon, and one third of the stars; so that one third of them would be darkened, and the day wouldn't shine for one third of it, and the night in the same way.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Lalu malaikat yang keempat meniup sangkakalanya dan terpukullah sepertiga dari </text>
-    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Sun struck" userSpecifiesLocation="true" />
     <text>matahari dan sepertiga dari bulan dan sepertiga dari bintang-bintang, sehingga sepertiga dari padanya menjadi gelap dan sepertiga dari siang hari tidak terang dan demikian juga malam hari.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
@@ -1388,12 +1388,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
       <verse num="1" />
       <text>The fifth angel sounded, and I saw a </text>
-      <sound effectName="Star falling" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
       <text>star from the sky which had fallen to the earth. The key to the pit of the abyss was given to him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Lalu malaikat yang kelima meniup sangkakalanya, dan aku melihat sebuah </text>
-    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
     <text>bintang yang jatuh dari langit ke atas bumi, dan kepadanya diberikan anak kunci lobang jurang maut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
@@ -1526,12 +1526,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
       <verse num="17" />
       <text>Thus I saw the horses in the vision, and those who sat on them, having breastplates of fiery red, hyacinth blue, and sulfur yellow; and the heads of lions. Out of their mouths </text>
-      <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Sounds from their mouths" userSpecifiesLocation="true" />
       <text>proceed fire, smoke, and sulfur.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Maka demikianlah aku melihat dalam penglihatan ini kuda-kuda dan orang-orang yang menungganginya; mereka memakai baju zirah, merah api dan biru dan kuning belerang warnanya; kepala kuda-kuda itu sama seperti kepala singa, dan dari mulutnya </text>
-    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Sounds from their mouths" userSpecifiesLocation="true" />
     <text>keluar api, dan asap dan belerang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV" matchesReferenceText="true">
@@ -1576,12 +1576,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
       <verse num="1" />
       <text>I saw a mighty angel coming down out of the sky, clothed with a cloud. A rainbow was on his head. His face was like the sun, </text>
-      <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pilars of Fire" userSpecifiesLocation="true" />
       <text>and his feet like pillars of fire.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Dan aku melihat seorang malaikat lain yang kuat turun dari sorga, berselubungkan awan, dan pelangi ada di atas kepalanya dan mukanya sama seperti matahari, </text>
-    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pilars of Fire" userSpecifiesLocation="true" />
     <text>dan kakinya bagaikan tiang api.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
@@ -1596,12 +1596,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
       <verse num="3" />
       <text>He cried with a loud voice, as a lion </text>
-      <sound effectName="Lion roar" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Lion roar" userSpecifiesLocation="true" />
       <text>roars. When he cried, the seven thunders uttered their voices.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>dan ia berseru dengan suara nyaring sama seperti singa yang mengaum. </text>
-    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Lion roar" userSpecifiesLocation="true" />
     <text>Dan sesudah ia berseru, ketujuh guruh itu memperdengarkan suaranya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
@@ -1742,24 +1742,24 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
       <verse num="5" />
       <text>If anyone desires to harm them, </text>
-      <sound effectName="Fire" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Fire" userSpecifiesLocation="true" />
       <text>fire proceeds out of their mouth and devours their enemies. If anyone desires to harm them, he must be killed in this way.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Dan jikalau ada orang yang hendak menyakiti mereka, </text>
-    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Fire" userSpecifiesLocation="true" />
     <text>keluarlah api dari mulut mereka menghanguskan semua musuh mereka. Dan jikalau ada orang yang hendak menyakiti mereka, maka orang itu harus mati secara itu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
       <text>These have the power to shut up the sky, that it may not rain during the days of their prophecy. </text>
-      <sound effectName="Power over waters" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Power over waters" userSpecifiesLocation="true" />
       <text>They have power over the waters, to turn them into blood, and to strike the earth with every plague, as often as they desire.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Mereka mempunyai kuasa menutup langit, supaya jangan turun hujan selama mereka bernubuat; </text>
-    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Power over waters" userSpecifiesLocation="true" />
     <text>dan mereka mempunyai kuasa atas segala air untuk mengubahnya menjadi darah, dan untuk memukul bumi dengan segala jenis malapetaka, setiap kali mereka menghendakinya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
@@ -1798,12 +1798,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
       <verse num="11" />
       <text>After the three and a half days, </text>
-      <sound effectName="Wind" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Wind" userSpecifiesLocation="true" />
       <text>the breath of life from God entered into them, and they stood on their feet. Great fear fell on those who saw them.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Tiga setengah hari kemudian </text>
-    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Wind" userSpecifiesLocation="true" />
     <text>masuklah roh kehidupan dari Allah ke dalam mereka, sehingga mereka bangkit dan semua orang yang melihat mereka menjadi sangat takut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
@@ -2386,12 +2386,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
       <verse num="16" />
       <text>He who sat on the cloud thrust his </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>sickle on the earth, and the earth was reaped.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Dan Ia, yang duduk di atas awan itu, mengayunkan </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>sabit-Nya ke atas bumi, dan bumipun dituailah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
@@ -2632,20 +2632,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
       <verse num="13" />
       <text>I saw coming </text>
-      <sound effectName="Low pitch" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Low pitch" userSpecifiesLocation="true" />
       <text>out of the mouth of the dragon, and </text>
-      <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Medium pitch" userSpecifiesLocation="true" />
       <text>out of the mouth of the beast, and </text>
-      <sound effectName="High Pitch" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="High Pitch" userSpecifiesLocation="true" />
       <text>out of the mouth of the false prophet, three unclean spirits, something like frogs.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Dan aku melihat </text>
-    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Low pitch" userSpecifiesLocation="true" />
     <text>dari mulut naga </text>
-    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Medium pitch" userSpecifiesLocation="true" />
     <text>dan dari mulut binatang </text>
-    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="High Pitch" userSpecifiesLocation="true" />
     <text>dan dari mulut nabi palsu itu keluar tiga roh najis yang menyerupai katak.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
@@ -2917,10 +2917,10 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
       <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <text>&lt;&lt;Sudah rubuh, sudah rubuh Babel, kota besar itu, dan ia telah menjadi tempat kediaman roh-roh jahat dan tempat bersembunyi semua roh najis dan tempat bersembunyi segala burung yang najis dan yang dibenci, </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation">
@@ -2946,11 +2946,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <verse num="5" />
       <text>for her sins have reached to the sky, and God has remembered her iniquities.</text>
     </ReferenceBlocks>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>Sebab dosa-dosanya telah bertimbun-timbun sampai ke langit, dan Allah telah mengingat segala kejahatannya.</text>
   </block>
@@ -2980,24 +2980,24 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
       <verse num="8" />
       <text>Therefore in one day her plagues will come: </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong."</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Sebab itu segala malapetakanya akan datang dalam satu hari, </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>yaitu sampar dan perkabungan dan kelaparan; dan ia akan dibakar dengan api, karena Tuhan Allah, yang menghakimi dia, adalah kuat.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
       <verse num="9" />
       <text>The kings of the earth, who committed sexual immorality and lived wantonly with her, will weep and wail over her, when they look at the </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>smoke of her burning,</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>Dan raja-raja di bumi, yang telah berbuat cabul dan hidup dalam kelimpahan dengan dia, akan menangisi dan meratapinya, apabila mereka melihat </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>asap api yang membakarnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
@@ -3384,12 +3384,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
       <verse num="20" />
       <text>The beast was taken, and with him the false prophet who worked the signs in his sight, with which he deceived those who had received the mark of the beast and those who worshiped his image. </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>These two were thrown alive into the lake of fire that burns with sulfur.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Maka tertangkaplah binatang itu dan bersama-sama dengan dia nabi palsu, yang telah mengadakan tanda-tanda di depan matanya, dan dengan demikian ia menyesatkan mereka yang telah menerima tanda dari binatang itu dan yang telah menyembah patungnya. </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>Keduanya dilemparkan hidup-hidup ke dalam lautan api yang menyala-nyala oleh belerang.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV" matchesReferenceText="true">
@@ -3490,12 +3490,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
       <verse num="11" />
       <text>I saw a great white throne, and him who sat on it, from whose face the </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>earth and the heaven fled away. There was found no place for them.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Lalu aku melihat suatu takhta putih yang besar dan Dia, yang duduk di atasnya. Dari hadapan-Nya </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>lenyaplah bumi dan langit dan tidak ditemukan lagi tempatnya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
@@ -3510,22 +3510,22 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
       <verse num="13" />
       <text>The sea gave up the dead who were in it. Death and Hades gave up the dead who were in them. They were judged, each one according to his works. </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="13" />
     <text>Maka laut menyerahkan orang-orang mati yang ada di dalamnya, dan maut dan kerajaan maut menyerahkan orang-orang mati yang ada di dalamnya, dan mereka dihakimi masing-masing menurut perbuatannya. </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
       <verse num="14" />
       <text>Death and Hades were thrown into the lake of fire. The lake of fire </text>
-      <sound effectName="Weird2" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
       <text>is the second death.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Lalu maut dan kerajaan maut itu dilemparkanlah ke dalam lautan api. Itulah kematian yang kedua: </text>
-    <sound effectName="Weird2" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
     <text>lautan api.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
@@ -3654,12 +3654,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
       <text>He carried me away in the Spirit to a great and high mountain, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>and showed me the holy city, Jerusalem, coming down out of heaven from God.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Lalu, di dalam roh ia membawa aku ke atas sebuah gunung yang besar lagi tinggi </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>dan ia menunjukkan kepadaku kota yang kudus itu, Yerusalem, turun dari sorga, dari Allah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">

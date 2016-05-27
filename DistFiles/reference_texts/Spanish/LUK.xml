@@ -3842,20 +3842,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-LUK">
       <verse num="33" />
       <text>The demons came out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>from the man, and entered into the pigs, and the herd rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the steep bank into the lake, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and were drowned.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Los demonios salieron </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>entonces del hombre y entraron en los cerdos, </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>y estos echaron a correr pendiente abajo hasta el lago, </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>y allí se ahogaron.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-LUK" matchesReferenceText="true">
@@ -4062,11 +4062,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
-      <sound effectName="Women crying" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Women crying" userSpecifiesLocation="true" />
       <verse num="52" />
       <text>All were weeping and mourning her but he said,</text>
     </ReferenceBlocks>
-    <sound effectName="Women crying" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Women crying" userSpecifiesLocation="true" />
     <verse num="52" />
     <text>Todos estaban llorando y lamentándose por ella, pero Jesús les dijo:</text>
   </block>
@@ -4080,12 +4080,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="53" characterId="narrator-LUK">
       <verse num="53" />
       <text>They were ridiculing </text>
-      <sound effectName="Women laughing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Women laughing" userSpecifiesLocation="true" />
       <text>him, knowing that she was dead.</text>
     </ReferenceBlocks>
     <verse num="53" />
     <text>Todos se rieron </text>
-    <sound effectName="Women laughing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Women laughing" userSpecifiesLocation="true" />
     <text>de él, porque sabían que estaba muerta.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="54" characterId="narrator-LUK" matchesReferenceText="true">
@@ -4250,11 +4250,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
       <verse num="10" />
       <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida. </text>
-      <sound effectName="Crowd" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="10" />
     <text>Cuando los apóstoles regresaron, contaron a Jesús lo que habían hecho. él, tomándolos aparte, los llevó a un pueblo llamado Betsaida. </text>
-    <sound effectName="Crowd" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK">
@@ -10223,14 +10223,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="50" characterId="narrator-LUK">
       <verse num="50" />
       <text>A certain one of them struck the servant of the high priest, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>cut off his right ear. </text>
       <verse num="51" />
       <text>But Jesus answered,</text>
     </ReferenceBlocks>
     <verse num="50" />
     <text>Y uno de ellos hirió al criado del sumo sacerdote, </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>cortándole la oreja derecha. </text>
     <verse num="51" />
     <text>Jesús dijo:</text>
