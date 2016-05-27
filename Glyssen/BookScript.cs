@@ -550,7 +550,7 @@ namespace Glyssen
 			}
 
 			if (newBlock == null)
-				throw new ArgumentException("Verse not found in given block.", "verseToSplit");
+				throw new ArgumentException(String.Format("Verse {0} not found in given block: {1}", verseToSplit, blockToSplit.GetText(true)), "verseToSplit");
 
 			if (indexOfFirstElementToRemove >= 0)
 			{
@@ -585,8 +585,12 @@ namespace Glyssen
 		{
 			var verseString = verseNum.ToString();
 
-			if (vernBlock.BlockElements.First() is Verse ||
-				!(vernBlock.InitialEndVerseNumber == verseNum || (vernBlock.InitialEndVerseNumber == 0 && vernBlock.InitialStartVerseNumber == verseNum)))
+			if (vernBlock.InitialEndVerseNumber == verseNum)
+			{
+				verseString = vernBlock.InitialVerseNumberOrBridge;
+			}
+			else if (vernBlock.BlockElements.First() is Verse ||
+				!(vernBlock.InitialEndVerseNumber == 0 && vernBlock.InitialStartVerseNumber == verseNum))
 			{
 				foreach (var verse in vernBlock.BlockElements.OfType<Verse>())
 				{

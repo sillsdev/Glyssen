@@ -1617,6 +1617,29 @@ namespace GlyssenTests
 			Assert.AreEqual(0, blocks[2].SplitId);
 			Assert.AreEqual(0, blocks[3].SplitId);
 		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_BlockStartsInTheMiddleOfAVerseBridgeThatEndsWithTheVerseNumberToSplitAfter_SplitsAtEndOfVerseBridge()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var precedingBlock = NewVerseBridgePara(1, 2,
+				"This is the part of the bridged verse that occurs in the preceding paragraph.");
+			mrkBlocks.Add(precedingBlock);
+			var blockToSplit = NewPara("p", "This is the remainder of the verse bridge in the block to split. ");
+			blockToSplit.AddVerse("3", "This is the text of the following verse.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual("This is the remainder of the verse bridge in the block to split. ", blocks[2].GetText(true));
+			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual(2, blocks[2].InitialEndVerseNumber);
+			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[3].GetText(true));
+			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
+			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);
+		}
 		#endregion
 
 		#region CleanUpMultiBlockQuotes Tests
