@@ -585,6 +585,47 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ApplyTo_VernacularHasVerseBridgeWithSubVerseLetter_ReferenceBrokenAtVerses_VernacularSplitAtEndOfLastSubVerseChunk()
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = new Block("p", 1, 1, 1)
+			{
+				IsParagraphStart = true,
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+			};
+			block.BlockElements.Add(new Verse("1"));
+			block.BlockElements.Add(new ScriptText("Entonces Jesús dijo que los reducirían un burro. "));
+			block.BlockElements.Add(new Verse("2-3a"));
+			block.BlockElements.Add(new ScriptText("El número de ellos dónde encontrarlo. Y todo salió bien. "));
+			block.BlockElements.Add(new Verse("3f")); // Using "f" instead of "b" just to demonstrate that we aren't hardcoding "b"
+			block.BlockElements.Add(new ScriptText("La segunda parte del versiculo."));
+			block.BlockElements.Add(new Verse("4"));
+			block.BlockElements.Add(new ScriptText("El cuarto versiculo."));
+			vernacularBlocks.Add(block);
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
+
+			ReferenceText.ApplyTo(vernBook, referenceBlocks, GetFormattedChapterAnnouncement, m_vernVersification, ScrVers.English);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+			Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Skip(1).Take(2).Select(r => r.GetText(true))));
+			Assert.IsNull(result[1].PrimaryReferenceText);
+			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+		}
+
+		[Test]
 		public void ApplyTo_ReferenceHasVerseBridge_VernacularBrokenAtEndOfBridge()
 		{
 			var vernacularBlocks = new List<Block>();
