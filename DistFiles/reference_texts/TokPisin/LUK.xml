@@ -3841,20 +3841,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-LUK">
       <verse num="33" />
       <text>The demons came out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>from the man, and entered into the pigs, and the herd rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the steep bank into the lake, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and were drowned.</text>
     </ReferenceBlocks>
     <verse num="33" />
     <text>Na ol dispela spirit nogut i lusim </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>dispela man na ol i go insait long ol pik. Na ol dispela lain pik i ran </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>strong tru i go daun long wanpela ples nogut. Na ol i pundaun long raunwara,</text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>na ol i dring wara na i dai.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="narrator-LUK" matchesReferenceText="true">
@@ -4061,11 +4061,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
-      <sound effectName="Women crying" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Women crying" userSpecifiesLocation="true" />
       <verse num="52" />
       <text>All were weeping and mourning her but he said,</text>
     </ReferenceBlocks>
-    <sound effectName="Women crying" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Women crying" userSpecifiesLocation="true" />
     <verse num="52" />
     <text>Na olgeta manmeri i stap pinis long haus, ol i sori tru long dispela pikinini, na ol i wok long krai i stap. Tasol Jisas i tokim ol olsem,</text>
   </block>
@@ -4079,12 +4079,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="53" characterId="narrator-LUK">
       <verse num="53" />
       <text>They were ridiculing </text>
-      <sound effectName="Women laughing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Women laughing" userSpecifiesLocation="true" />
       <text>him, knowing that she was dead.</text>
     </ReferenceBlocks>
     <verse num="53" />
     <text>Na ol i lap nogut long </text>
-    <sound effectName="Women laughing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Women laughing" userSpecifiesLocation="true" />
     <text>em, long wanem, ol i save, pikinini i dai pinis.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="54" characterId="narrator-LUK" matchesReferenceText="true">
@@ -4249,11 +4249,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-LUK">
       <verse num="10" />
       <text>The apostles, when they had returned, told him what things they had done. He took them, and withdrew apart to a deserted place of a city called Bethsaida. </text>
-      <sound effectName="Crowd" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="10" />
     <text>Ol aposel i kam bek pinis, na ol i tokim Jisas long olgeta samting ol i bin mekim. Na Jisas i kisim ol, na ol i lusim ol arapela manmeri, na ol tasol i go long wanpela taun, nem bilong en Betsaida. </text>
-    <sound effectName="Crowd" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK">
@@ -10221,14 +10221,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="50" characterId="narrator-LUK">
       <verse num="50" />
       <text>A certain one of them struck the servant of the high priest, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>cut off his right ear. </text>
       <verse num="51" />
       <text>But Jesus answered,</text>
     </ReferenceBlocks>
     <verse num="50" />
     <text>Na wanpela bilong ol i kisim bainat na i paitim wokboi bilong hetpris, na bainat i </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>katim yau long han sut bilong dispela wokboi na yau i pundaun. </text>
     <verse num="51" />
     <text>Tasol Jisas i lukim na i tok,</text>

@@ -13,7 +13,6 @@ using OfficeOpenXml.Style;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
-using SIL.Xml;
 
 namespace Glyssen
 {
@@ -358,8 +357,10 @@ namespace Glyssen
 		}
 
 		// internal for testing
-		internal IEnumerable<List<object>> GetExportData(string bookId = null, int voiceActorId = -1)
+		internal List<List<object>> GetExportData(string bookId = null, int voiceActorId = -1)
 		{
+			var result = new List<List<object>>();
+
 			int blockNumber = 1;
 
 			IEnumerable<BookScript> booksToInclude = bookId == null
@@ -396,11 +397,11 @@ namespace Glyssen
 						if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
 						{
 							foreach (var refBlock in pendingMismatchedReferenceBlocks)
-								yield return GetExportDataForReferenceBlock(refBlock, book.BookId);
+								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 							pendingMismatchedReferenceBlocks = null;
 						}
-						yield return GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
-							Project.ReferenceText.HasSecondaryReferenceText);
+						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
+							Project.ReferenceText.HasSecondaryReferenceText));
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
@@ -408,9 +409,87 @@ namespace Glyssen
 				if (pendingMismatchedReferenceBlocks != null)
 				{
 					foreach (var refBlock in pendingMismatchedReferenceBlocks)
-						yield return GetExportDataForReferenceBlock(refBlock, book.BookId);
+						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 				}
 			}
+			if (bookId == null && voiceActorId == -1)
+				AddAnnotations(result);
+			return result;
+		}
+
+		private void AddAnnotations(List<List<object>> data)
+		{
+			int lastIndexOfPreviousVerse = 0;
+			BCVRef previousReferenceTextVerse = null;
+			IEnumerable<VerseAnnotation> annotationsForPreviousVerse = null;
+			for (int i = 0; i < data.Count; i++)
+			{
+				var row = data[i];
+				if (HasReferenceText(row))
+				{
+					var referenceTextVerse = GetBcvRefForRow(row);
+					if (referenceTextVerse != previousReferenceTextVerse)
+					{
+						if (previousReferenceTextVerse != null && annotationsForPreviousVerse != null)
+						{
+							foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
+							{
+								data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
+									GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book), previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
+								i++;
+							}
+						}
+						if (referenceTextVerse != previousReferenceTextVerse)
+						{
+							var annotationsForVerse = ControlAnnotations.Singleton.GetAnnotationsForVerse(referenceTextVerse);
+							foreach (var verseAnnotation in annotationsForVerse.Where(va => va.Annotation is Sound))
+							{
+								data.Insert(i++ + verseAnnotation.Offset,
+									GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(referenceTextVerse.Book), referenceTextVerse.Chapter, referenceTextVerse.Verse.ToString()));
+							}
+
+							annotationsForPreviousVerse = annotationsForVerse;
+							previousReferenceTextVerse = referenceTextVerse;
+						}
+					}
+					lastIndexOfPreviousVerse = i;
+				}
+			}
+		}
+
+		private bool HasReferenceText(List<object> dataRow)
+		{
+			int offset = IncludeVoiceActors ? 1 : 0;
+			offset += LocalizationManager.UILanguageId != "en" ? 1 : 0;
+			return !string.IsNullOrEmpty((string)dataRow[8 + offset]);
+		}
+
+		private BCVRef GetBcvRefForRow(List<object> row)
+		{
+			int offset = IncludeVoiceActors ? 1 : 0;
+			return new BCVRef(BCVRef.BookToNumber((string)row[2 + offset]), (int)row[3 + offset], ScrReference.VerseToIntStart((string)row[4 + offset]));
+		}
+
+		private List<object> GetExportDataForAnnotation(VerseAnnotation verseAnnotation, string bookId, int chapter, string verse)
+		{
+			var row = new List<object>();
+			row.Add(null);
+			if (IncludeVoiceActors)
+				row.Add(null);
+			row.Add(null);
+			row.Add(bookId);
+			row.Add(chapter);
+			row.Add(verse);
+			row.Add(null);
+			if (LocalizationManager.UILanguageId != "en")
+				row.Add(null);
+			row.Add(null);
+			row.Add(null);
+			row.Add(verseAnnotation.Annotation.ToDisplay);
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+				row.Add(verseAnnotation.Annotation.ToDisplay);
+			row.Add(null);
+			return row;
 		}
 
 		private List<object> GetExportDataForReferenceBlock(Block refBlock, string bookId)

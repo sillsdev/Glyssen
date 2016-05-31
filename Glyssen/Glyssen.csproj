@@ -168,6 +168,7 @@
     <Compile Include="Character\ProjectCharacterDetailData.cs" />
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Character\RelatedCharacters.cs" />
+    <Compile Include="ControlAnnotations.cs" />
     <Compile Include="Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -581,6 +582,7 @@
     </Content>
     <None Include="Resources\CameoStar.png" />
     <None Include="Resources\AddCharacter.png" />
+    <Content Include="Resources\Annotations.txt" />
     <Content Include="Resources\BiblicalAuthors.txt" />
     <Content Include="Resources\CharacterVerse.txt" />
     <None Include="Resources\grid-icon.png" />

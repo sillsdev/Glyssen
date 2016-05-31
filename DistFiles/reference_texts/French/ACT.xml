@@ -2352,11 +2352,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
       <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
-      <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="9" />
     <text>Un homme appelé Simon habite dans cette ville depuis un certain temps. Il pratique la magie et il étonne beaucoup les gens de Samarie. Il dit qu'il est quelqu'un d'important, </text>
-    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
@@ -7730,14 +7730,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
       <text>The high priest, Ananias, commanded those who stood by him to </text>
-      <sound effectName="Hit" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
       <text>strike him on the mouth. </text>
       <verse num="3" />
       <text>Then Paul said to him,</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Mais le grand-prêtre Ananias commande à ceux qui sont près de Paul: </text>
-    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
     <text>&lt;&lt;Frappez-le sur la bouche!&gt;&gt; </text>
     <verse num="3" />
     <text>Alors Paul lui dit:</text>
@@ -9084,12 +9084,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
       <text>When the ship was caught, and couldn't face the wind, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Le bateau est entraîné, il ne peut pas résister au vent, </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>et nous nous laissons emporter.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">

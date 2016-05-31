@@ -15,13 +15,12 @@ namespace DevTools
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");
-			Console.WriteLine("8) Output annotations (sound effects, etc.)");
-			Console.WriteLine("9) ReferenceTextUtility.Go()");
-			Console.WriteLine("10) Link standard reference texts to English");
+			Console.WriteLine("8) Generate standard reference texts from Excel spreadsheet");
+			Console.WriteLine("9) Link standard reference texts to English");
 			Console.WriteLine();
 
 			string line = Console.ReadLine();
-			bool errorOcurred = false;
+			bool errorOccurred = false;
 
 			switch (line)
 			{
@@ -32,12 +31,11 @@ namespace DevTools
 				case "5": BiblicalTerms.Processor.Process(); break;
 				case "6": CharacterListProcessing.Process(); break;
 				case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
-				case "8": AnnotationExtractor.ExtractAll(); break;
-				case "9": errorOcurred = ReferenceTextUtility.Go(); break;
-				case "10": errorOcurred = ReferenceTextUtility.LinkToEnglish(); break;
+				case "8": errorOccurred = !ReferenceTextUtility.GenerateReferenceTexts(); break;
+				case "9": errorOccurred = !ReferenceTextUtility.LinkToEnglish(); break;
 			}
 
-			if (errorOcurred)
+			if (errorOccurred)
 			{
 				Console.WriteLine("Review errors above, then press any key to close.");
 				Console.ReadLine();

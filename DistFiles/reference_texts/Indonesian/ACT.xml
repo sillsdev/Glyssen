@@ -2353,11 +2353,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
       <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
-      <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="9" />
     <text>Seorang yang bernama Simon telah sejak dahulu melakukan sihir di kota itu dan mentakjubkan rakyat Samaria, serta berlagak seolah-olah ia seorang yang sangat penting. </text>
-    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
@@ -7731,14 +7731,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
       <text>The high priest, Ananias, commanded those who stood by him to </text>
-      <sound effectName="Hit" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
       <text>strike him on the mouth. </text>
       <verse num="3" />
       <text>Then Paul said to him,</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Tetapi Imam Besar Ananias menyuruh orang-orang yang berdiri dekat Paulus </text>
-    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
     <text>menampar mulut Paulus. </text>
     <verse num="3" />
     <text>Membalas itu Paulus berkata kepadanya:</text>
@@ -9084,12 +9084,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
       <text>When the ship was caught, and couldn't face the wind, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Kapal itu dilandanya dan tidak tahan menghadapi angin </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>haluan. Karena itu kami menyerah saja dan membiarkan kapal kami terombang-ambing.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">

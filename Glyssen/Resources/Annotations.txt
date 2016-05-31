@@ -1,0 +1,651 @@
+MAT	1	2	0	<Sound startVerse="2" />
+MAT	1	17	0	<Pause time="2" />
+MAT	1	25	0	<Pause time="2" />
+MAT	2	8	0	<Sound startVerse="8" />
+MAT	2	23	0	<Pause time="2" />
+MAT	3	17	0	<Pause time="2" />
+MAT	4	11	0	<Pause time="2" />
+MAT	4	17	0	<Pause time="2" />
+MAT	4	22	0	<Pause time="2" />
+MAT	4	25	0	<Pause time="2" />
+MAT	5	48	0	<Pause time="2" />
+MAT	6	7	0	<Sound endVerse="7" />
+MAT	6	15	0	<Pause time="2" />
+MAT	6	34	0	<Pause time="2" />
+MAT	7	2	0	<Sound startVerse="2" />
+MAT	7	29	0	<Pause time="2" />
+MAT	8	4	0	<Pause time="1.5" />
+MAT	8	11	0	<Sound endVerse="11" />
+MAT	8	13	0	<Pause time="2" />
+MAT	8	17	0	<Pause time="2" />
+MAT	8	22	0	<Pause time="2" />
+MAT	8	27	0	<Sound endVerse="27" />
+MAT	8	34	0	<Pause time="2" />
+MAT	9	2	0	<Sound soundType="Sfx" startVerse="2" effectName="Men talking" />
+MAT	9	8	0	<Pause time="1.5" />
+MAT	9	9	0	<Pause time="1.5" />
+MAT	9	17	0	<Pause time="1.5" />
+MAT	9	23	0	<Sound soundType="Sfx" startVerse="23" effectName="Women crying" />
+MAT	9	26	0	<Pause time="2" />
+MAT	9	31	0	<Pause time="2" />
+MAT	9	34	0	<Pause time="1.5" />
+MAT	9	38	0	<Pause time="2" />
+MAT	10	24	0	<Sound endVerse="24" />
+MAT	10	42	0	<Pause time="2" />
+MAT	11	15	0	<Pause time="2" />
+MAT	11	30	0	<Pause time="2" />
+MAT	12	14	0	<Sound soundType="Sfx" startVerse="14" endVerse="18" effectName="Crowd, excited" />
+MAT	12	50	0	<Pause time="2" />
+MAT	13	9	0	<Pause time="1.5" />
+MAT	13	52	0	<Pause time="2" />
+MAT	13	58	0	<Pause time="2" />
+MAT	14	21	0	<Pause time="1.5" />
+MAT	14	25	0	<Sound startVerse="25" />
+MAT	14	36	0	<Pause time="2" />
+MAT	15	7	0	<Sound startVerse="7" />
+MAT	15	20	0	<Pause time="2" />
+MAT	15	28	0	<Pause time="2" />
+MAT	15	31	0	<Pause time="1.5" />
+MAT	15	39	0	<Pause time="2" />
+MAT	16	4	0	<Pause time="2" />
+MAT	16	12	0	<Pause time="2" />
+MAT	16	20	0	<Pause time="2" />
+MAT	16	28	0	<Pause time="2" />
+MAT	17	2	0	<Sound startVerse="2" />
+MAT	17	13	0	<Pause time="2" />
+MAT	17	23	0	<Pause time="2" />
+MAT	17	27	0	<Pause time="2" />
+MAT	18	20	0	<Pause time="2" />
+MAT	18	26	0	<Sound endVerse="26" />
+MAT	18	35	0	<Pause time="2" />
+MAT	19	15	0	<Pause time="2" />
+MAT	19	30	0	<Pause time="2" />
+MAT	20	16	0	<Pause time="2" />
+MAT	20	28	0	<Pause time="2" />
+MAT	20	34	0	<Pause time="2" />
+MAT	21	11	0	<Pause time="2" />
+MAT	21	17	0	<Pause time="2" />
+MAT	21	22	0	<Pause time="2" />
+MAT	21	43	0	<Sound endVerse="43" />
+MAT	21	46	0	<Pause time="2" />
+MAT	22	22	0	<Pause time="2" />
+MAT	22	33	0	<Pause time="2" />
+MAT	22	46	0	<Pause time="2" />
+MAT	23	26	0	<Sound endVerse="26" />
+MAT	23	36	0	<Pause time="1.5" />
+MAT	23	39	0	<Pause time="2" />
+MAT	24	24	0	<Sound endVerse="24" />
+MAT	24	51	0	<Pause time="2" />
+MAT	25	11	0	<Sound endVerse="11" />
+MAT	25	20	0	<Sound startVerse="20" />
+MAT	25	46	0	<Pause time="2" />
+MAT	26	5	0	<Pause time="1.5" />
+MAT	26	16	0	<Pause time="2" />
+MAT	26	56	0	<Pause time="2" />
+MAT	26	68	0	<Pause time="2" />
+MAT	26	75	0	<Pause time="2" />
+MAT	27	26	0	<Pause time="2" />
+MAT	27	31	0	<Sound soundType="Sfx" endVerse="31" effectName="Men jeering" />
+MAT	27	31	0	<Pause time="1.5" />
+MAT	27	35	0	<Sound startVerse="35" />
+MAT	27	44	0	<Pause time="2" />
+MAT	27	51	0	<Sound startVerse="51" />
+MAT	27	56	0	<Pause time="2" />
+MAT	27	57	0	<Sound startVerse="57" />
+MAT	27	61	0	<Pause time="2" />
+MAT	27	66	0	<Pause time="2" />
+MAT	28	2	0	<Sound endVerse="2" />
+MAT	28	10	0	<Pause time="2" />
+MAT	28	15	0	<Pause time="2" />
+MAT	28	20	0	<Pause time="5" />
+MRK	1	8	0	<Pause time="2" />
+MRK	1	11	0	<Sound soundType="Sfx" startVerse="11" effectName="Thunder" />
+MRK	1	13	0	<Pause time="2" />
+MRK	1	20	0	<Pause time="2" />
+MRK	1	28	0	<Pause time="2" />
+MRK	1	34	0	<Pause time="2" />
+MRK	1	39	0	<Pause time="2" />
+MRK	1	45	0	<Pause time="2" />
+MRK	2	12	0	<Pause time="2" />
+MRK	2	14	0	<Sound soundType="Sfx" startVerse="14" effectName="Crowd" />
+MRK	2	22	0	<Pause time="2" />
+MRK	2	28	0	<Pause time="2" />
+MRK	3	6	0	<Pause time="2" />
+MRK	3	9	0	<Sound startVerse="9" />
+MRK	3	12	0	<Pause time="2" />
+MRK	3	27	0	<Sound endVerse="27" />
+MRK	3	35	0	<Pause time="2" />
+MRK	4	9	0	<Pause time="2" />
+MRK	4	34	0	<Pause time="2" />
+MRK	4	37	0	<Sound soundType="MusicSfx" startVerse="37" effectName="Wind/waves" />
+MRK	4	39	-1	<Pause time="1.5" />
+MRK	4	41	0	<Pause time="2" />
+MRK	5	14	0	<Sound soundType="Sfx" startVerse="14" effectName="Crowd" />
+MRK	5	20	0	<Pause time="2" />
+MRK	5	43	0	<Pause time="2" />
+MRK	6	2	0	<Sound startVerse="2" />
+MRK	6	6	0	<Pause time="2" />
+MRK	6	7	0	<Sound soundType="Sfx" startVerse="7" effectName="Birds" />
+MRK	6	21	0	<Sound startVerse="21" />
+MRK	6	28	0	<Sound soundType="Sfx" endVerse="28" />
+MRK	6	29	0	<Pause time="2" />
+MRK	6	33	0	<Sound soundType="Sfx" startVerse="33" effectName="Crowd" />
+MRK	6	47	0	<Sound soundType="MusicSfx" startVerse="47" effectName="Wind" />
+MRK	6	56	0	<Pause time="2" />
+MRK	7	23	0	<Pause time="2" />
+MRK	7	30	0	<Pause time="2" />
+MRK	7	37	0	<Pause time="2" />
+MRK	8	10	0	<Pause time="2" />
+MRK	8	21	0	<Pause time="2" />
+MRK	8	23	0	<Sound startVerse="23" />
+MRK	8	26	0	<Pause time="2" />
+MRK	8	38	0	<Pause time="2" />
+MRK	9	13	0	<Pause time="2" />
+MRK	9	29	0	<Pause time="2" />
+MRK	9	32	0	<Pause time="2" />
+MRK	9	33	0	<Sound startVerse="33" />
+MRK	9	50	0	<Pause time="2" />
+MRK	10	16	0	<Pause time="2" />
+MRK	10	31	0	<Pause time="2" />
+MRK	10	45	0	<Pause time="2" />
+MRK	10	52	0	<Pause time="2" />
+MRK	11	11	0	<Pause time="2" />
+MRK	11	14	0	<Pause time="1.5" />
+MRK	11	19	0	<Pause time="2" />
+MRK	11	26	0	<Pause time="2" />
+MRK	11	33	0	<Pause time="2" />
+MRK	12	12	0	<Pause time="2" />
+MRK	12	17	0	<Pause time="2" />
+MRK	12	34	0	<Pause time="2" />
+MRK	12	35	0	<Sound soundType="Sfx" startVerse="35" effectName="Men talking" />
+MRK	12	40	0	<Pause time="2" />
+MRK	12	44	0	<Pause time="2" />
+MRK	13	37	0	<Pause time="2" />
+MRK	14	11	0	<Pause time="2" />
+MRK	14	16	0	<Pause time="2" />
+MRK	14	21	0	<Pause time="1.5" />
+MRK	14	31	0	<Pause time="2" />
+MRK	14	52	0	<Pause time="2" />
+MRK	14	54	0	<Sound startVerse="54" />
+MRK	14	59	0	<Sound soundType="Sfx" startVerse="59" effectName="Men talking" />
+MRK	14	65	0	<Pause time="2" />
+MRK	14	69	0	<Sound soundType="Sfx" startVerse="69" effectName="Rooster crowing" />
+MRK	14	72	0	<Pause time="2" />
+MRK	15	5	0	<Pause time="2" />
+MRK	15	32	0	<Pause time="2" />
+MRK	15	41	0	<Pause time="2" />
+MRK	15	47	0	<Pause time="2" />
+MRK	16	8	0	<Pause time="2" />
+MRK	16	13	0	<Pause time="1.5" />
+MRK	16	20	0	<Pause time="5" />
+LUK	1	25	0	<Pause time="2" />
+LUK	1	38	0	<Pause time="2" />
+LUK	1	56	0	<Pause time="2" />
+LUK	1	58	0	<Sound soundType="Sfx" startVerse="58" effectName="People talking" />
+LUK	1	59	0	<Sound endVerse="59" />
+LUK	1	80	0	<Pause time="2" />
+LUK	2	27	0	<Sound soundType="Sfx" startVerse="27" effectName="Crowd" />
+LUK	2	38	0	<Sound startVerse="38" />
+LUK	2	38	0	<Pause time="2" />
+LUK	2	52	0	<Pause time="2" />
+LUK	3	20	0	<Pause time="2" />
+LUK	3	38	0	<Pause time="2" />
+LUK	4	13	0	<Pause time="1.5" />
+LUK	4	15	0	<Pause time="2" />
+LUK	4	30	0	<Pause time="2" />
+LUK	4	37	0	<Pause time="2" />
+LUK	4	44	0	<Pause time="2" />
+LUK	5	11	0	<Pause time="2" />
+LUK	5	16	0	<Pause time="2" />
+LUK	5	18	0	<Sound startVerse="18" />
+LUK	5	26	0	<Pause time="2" />
+LUK	5	39	0	<Pause time="2" />
+LUK	6	5	0	<Pause time="2" />
+LUK	6	11	0	<Pause time="2" />
+LUK	6	49	0	<Pause time="2" />
+LUK	7	10	0	<Pause time="2" />
+LUK	7	17	0	<Pause time="2" />
+LUK	7	32	0	<Sound startVerse="32" />
+LUK	7	35	0	<Pause time="2" />
+LUK	7	50	0	<Pause time="2" />
+LUK	8	3	0	<Pause time="2" />
+LUK	8	21	0	<Pause time="2" />
+LUK	8	27	0	<Sound startVerse="27" />
+LUK	8	39	0	<Pause time="2" />
+LUK	8	56	0	<Pause time="2" />
+LUK	9	6	0	<Pause time="2" />
+LUK	9	9	0	<Pause time="2" />
+LUK	9	17	0	<Pause time="2" />
+LUK	9	27	0	<Pause time="2" />
+LUK	9	36	0	<Pause time="2" />
+LUK	9	45	0	<Pause time="2" />
+LUK	9	50	0	<Pause time="2" />
+LUK	9	62	0	<Pause time="2" />
+LUK	10	16	0	<Pause time="2" />
+LUK	10	24	0	<Pause time="2" />
+LUK	10	37	0	<Pause time="2" />
+LUK	10	41	0	<Pause time="2" />
+LUK	11	13	0	<Pause time="2" />
+LUK	11	28	0	<Pause time="1.5" />
+LUK	11	36	0	<Pause time="2" />
+LUK	11	54	0	<Pause time="2" />
+LUK	12	11	0	<Sound endVerse="11" />
+LUK	12	31	0	<Pause time="2" />
+LUK	12	59	0	<Pause time="2" />
+LUK	13	9	0	<Pause time="2" />
+LUK	13	21	0	<Pause time="2" />
+LUK	13	35	0	<Pause time="2" />
+LUK	14	24	0	<Pause time="2" />
+LUK	14	35	0	<Pause time="2" />
+LUK	15	13	0	<Sound startVerse="13" />
+LUK	15	32	0	<Pause time="2" />
+LUK	16	31	0	<Pause time="2" />
+LUK	17	10	0	<Pause time="2" />
+LUK	17	19	0	<Pause time="2" />
+LUK	17	37	0	<Pause time="2" />
+LUK	18	29	0	<Pause time="1.5" />
+LUK	18	34	0	<Pause time="2" />
+LUK	18	43	0	<Pause time="2" />
+LUK	19	27	0	<Pause time="1.5" />
+LUK	19	44	0	<Pause time="1.5" />
+LUK	19	48	0	<Pause time="2" />
+LUK	20	10	0	<Sound startVerse="10" />
+LUK	20	19	0	<Pause time="2" />
+LUK	20	26	0	<Pause time="2" />
+LUK	20	27	0	<Sound startVerse="27" />
+LUK	20	47	0	<Pause time="2" />
+LUK	21	38	0	<Pause time="2" />
+LUK	22	6	0	<Pause time="2" />
+LUK	22	13	0	<Pause time="2" />
+LUK	22	14	0	<Sound startVerse="14" />
+LUK	22	38	0	<Pause time="2" />
+LUK	22	62	0	<Pause time="1.5" />
+LUK	22	65	0	<Pause time="2" />
+LUK	22	71	0	<Pause time="2" />
+LUK	23	12	0	<Pause time="2" />
+LUK	23	56	0	<Pause time="2" />
+LUK	24	12	0	<Pause time="2" />
+LUK	24	53	0	<Pause time="5" />
+JHN	1	18	0	<Pause time="2" />
+JHN	1	28	0	<Pause time="2" />
+JHN	1	42	0	<Pause time="2" />
+JHN	1	51	0	<Pause time="2" />
+JHN	2	12	0	<Sound startVerse="12" />
+JHN	2	12	0	<Pause time="2" />
+JHN	2	14	0	<Sound soundType="Sfx" startVerse="14" effectName="Overturn tables" />
+JHN	2	22	0	<Pause time="2" />
+JHN	2	24	0	<Pause time="2" />
+JHN	3	36	0	<Pause time="2" />
+JHN	4	4	0	<Sound startVerse="4" />
+JHN	4	26	0	<Pause time="2" />
+JHN	4	42	0	<Pause time="2" />
+JHN	4	54	0	<Pause time="2" />
+JHN	5	13	0	<Pause time="2" />
+JHN	5	47	0	<Pause time="2" />
+JHN	6	15	0	<Pause time="2" />
+JHN	6	16	0	<Sound soundType="Sfx" startVerse="16" effectName="Waves slapping" />
+JHN	6	21	0	<Pause time="2" />
+JHN	6	25	0	<Sound soundType="MusicSfx" startVerse="25" effectName="Men talking" />
+JHN	6	71	0	<Pause time="2" />
+JHN	7	11	0	<Sound soundType="Sfx" startVerse="11" effectName="Men talking" />
+JHN	7	15	0	<Sound startVerse="15" />
+JHN	7	36	0	<Pause time="2" />
+JHN	7	53	0	<Pause time="2" />
+JHN	8	11	0	<Pause time="2" />
+JHN	8	59	0	<Pause time="2" />
+JHN	9	41	0	<Pause time="2" />
+JHN	10	21	0	<Pause time="2" />
+JHN	10	42	0	<Pause time="2" />
+JHN	11	16	0	<Pause time="2" />
+JHN	11	32	0	<Sound soundType="Sfx" startVerse="32" effectName="Wailing" />
+JHN	11	46	0	<Pause time="2" />
+JHN	11	57	0	<Pause time="2" />
+JHN	12	2	0	<Sound soundType="Sfx" startVerse="2" effectName="Crowd, dinner" />
+JHN	12	12	0	<Sound soundType="MusicSfx" startVerse="12" effectName="Crowd" />
+JHN	12	18	0	<Sound soundType="Sfx" startVerse="18" effectName="Crowd" />
+JHN	12	19	0	<Pause time="2" />
+JHN	12	36	0	<Pause time="2" />
+JHN	12	50	0	<Pause time="2" />
+JHN	13	11	0	<Pause time="2" />
+JHN	13	38	0	<Pause time="2" />
+JHN	14	31	0	<Pause time="2" />
+JHN	15	27	0	<Pause time="2" />
+JHN	16	33	0	<Pause time="2" />
+JHN	17	26	0	<Pause time="2" />
+JHN	18	14	0	<Sound startVerse="14" />
+JHN	18	14	0	<Pause time="2" />
+JHN	18	18	0	<Pause time="2" />
+JHN	18	25	0	<Sound soundType="Sfx" startVerse="14" effectName="Crickets" />
+JHN	18	27	0	<Pause time="2" />
+JHN	18	40	0	<Pause time="2" />
+JHN	19	14	0	<Sound startVerse="14" />
+JHN	19	16	0	<Pause time="2" />
+JHN	19	24	0	<Pause time="1.5" />
+JHN	19	25	0	<Sound soundType="Sfx" startVerse="25" effectName="Wailing" />
+JHN	19	27	0	<Pause time="2" />
+JHN	19	30	0	<Pause time="2" />
+JHN	19	42	0	<Pause time="2" />
+JHN	20	18	0	<Pause time="2" />
+JHN	20	25	0	<Pause time="2" />
+JHN	20	31	0	<Pause time="2" />
+JHN	21	4	0	<Sound soundType="Sfx" startVerse="4" effectName="Waves" />
+JHN	21	14	0	<Pause time="2" />
+JHN	21	25	0	<Pause time="5" />
+ACT	1	13	0	<Sound soundType="Sfx" startVerse="4" effectName="Men talking" />
+ACT	1	26	0	<Pause time="2" />
+ACT	2	2	0	<Sound startVerse="2" />
+ACT	2	15	0	<Sound startVerse="15" />
+ACT	2	24	0	<Sound startVerse="24" />
+ACT	2	47	0	<Pause time="2" />
+ACT	3	26	0	<Pause time="2" />
+ACT	4	4	0	<Sound startVerse="4" />
+ACT	4	22	0	<Pause time="2" />
+ACT	4	31	0	<Pause time="2" />
+ACT	4	36	0	<Pause time="2" />
+ACT	5	11	0	<Pause time="2" />
+ACT	5	15	0	<Sound soundType="Sfx" startVerse="15" effectName="Crowd" />
+ACT	5	17	0	<Sound endVerse="17" />
+ACT	5	42	0	<Pause time="2" />
+ACT	6	7	0	<Pause time="2" />
+ACT	6	15	0	<Pause time="2" />
+ACT	7	20	0	<Sound startVerse="20" />
+ACT	7	60	0	<Pause time="2" />
+ACT	8	8	0	<Pause time="2" />
+ACT	8	9	0	<Sound endVerse="9" />
+ACT	8	25	0	<Pause time="2" />
+ACT	8	40	0	<Pause time="2" />
+ACT	9	25	0	<Pause time="2" />
+ACT	9	31	0	<Pause time="2" />
+ACT	9	34	0	<Pause time="2" />
+ACT	9	43	0	<Pause time="2" />
+ACT	10	3	0	<Sound startVerse="3" />
+ACT	10	8	0	<Pause time="2" />
+ACT	10	11	0	<Sound startVerse="11" />
+ACT	10	23	-1	<Pause time="2" />
+ACT	10	48	0	<Pause time="2" />
+ACT	11	18	0	<Pause time="2" />
+ACT	11	30	0	<Pause time="2" />
+ACT	12	7	0	<Sound startVerse="7" />
+ACT	12	8	0	<Sound soundType="Sfx" startVerse="8" effectName="Chains falling off" />
+ACT	12	13	0	<Sound soundType="Sfx" startVerse="13" effectName="Knocking on door" />
+ACT	12	25	0	<Pause time="2" />
+ACT	13	3	0	<Pause time="2" />
+ACT	13	34	0	<Sound startVerse="34" endVerse="-999" />
+ACT	13	43	0	<Sound soundType="Sfx" startVerse="43" effectName="Crowd" />
+ACT	13	52	0	<Pause time="2" />
+ACT	14	20	0	<Pause time="2" />
+ACT	14	21	0	<Sound endVerse="21" />
+ACT	14	28	0	<Pause time="2" />
+ACT	15	34	0	<Pause time="2" />
+ACT	15	36	0	<Sound endVerse="36" />
+ACT	15	41	0	<Pause time="2" />
+ACT	16	5	0	<Pause time="2" />
+ACT	16	12	0	<Pause time="2" />
+ACT	16	15	0	<Pause time="2" />
+ACT	16	26	0	<Sound soundType="Sfx" startVerse="26" effectName="Earthquake" />
+ACT	16	35	0	<Sound endVerse="35" />
+ACT	16	40	0	<Pause time="2" />
+ACT	17	5	0	<Sound soundType="Sfx" startVerse="5" effectName="Riot" />
+ACT	17	9	0	<Pause time="2" />
+ACT	17	12	0	<Sound startVerse="12" />
+ACT	17	18	0	<Sound soundType="Sfx" startVerse="18" effectName="Men talking" />
+ACT	17	34	0	<Pause time="2" />
+ACT	18	6	0	<Sound startVerse="6" />
+ACT	18	12	0	<Sound soundType="Sfx" startVerse="12" effectName="Men talking" />
+ACT	18	28	0	<Pause time="2" />
+ACT	19	10	0	<Pause time="2" />
+ACT	19	21	0	<Sound endVerse="21" />
+ACT	19	22	0	<Pause time="2" />
+ACT	19	23	0	<Sound soundType="Sfx" startVerse="23" effectName="Men talking" />
+ACT	19	41	0	<Pause time="2" />
+ACT	20	3	0	<Pause time="2" />
+ACT	20	6	0	<Pause time="2" />
+ACT	20	12	0	<Pause time="1.5" />
+ACT	20	16	0	<Pause time="1.5" />
+ACT	20	38	0	<Pause time="2" />
+ACT	21	16	0	<Pause time="2" />
+ACT	21	18	0	<Sound soundType="Sfx" startVerse="18" effectName="Men talking" />
+ACT	21	26	0	<Pause time="2" />
+ACT	21	27	0	<Sound endVerse="27" />
+ACT	21	40	0	<Pause time="2" />
+ACT	22	21	0	<Pause time="1.5" />
+ACT	22	29	0	<Pause time="1.5" />
+ACT	22	30	0	<Pause time="2" />
+ACT	23	7	0	<Sound soundType="Sfx" startVerse="7" effectName="Riot" />
+ACT	23	35	0	<Pause time="2" />
+ACT	24	23	0	<Pause time="2" />
+ACT	24	27	0	<Pause time="2" />
+ACT	25	12	0	<Pause time="2" />
+ACT	25	22	0	<Pause time="2" />
+ACT	25	27	0	<Pause time="2" />
+ACT	26	32	0	<Pause time="2" />
+ACT	27	3	0	<Sound startVerse="3" />
+ACT	27	14	0	<Sound soundType="Sfx" startVerse="14" effectName="Wind" />
+ACT	27	26	0	<Pause time="2" />
+ACT	27	28	0	<Sound startVerse="28" />
+ACT	27	44	0	<Pause time="2" />
+ACT	28	16	0	<Sound endVerse="16" />
+ACT	28	16	0	<Pause time="2" />
+ACT	28	29	0	<Pause time="1.5" />
+ACT	28	31	0	<Pause time="5" />
+ROM	1	32	0	<Pause time="2" />
+ROM	2	2	0	<Sound startVerse="2" />
+ROM	2	29	0	<Pause time="2" />
+ROM	3	31	0	<Pause time="2" />
+ROM	4	25	0	<Pause time="2" />
+ROM	5	21	0	<Pause time="2" />
+ROM	6	23	0	<Pause time="2" />
+ROM	7	2	0	<Sound startVerse="2" />
+ROM	7	25	0	<Pause time="2" />
+ROM	8	19	0	<Sound startVerse="19" />
+ROM	8	39	0	<Pause time="2" />
+ROM	9	33	0	<Pause time="2" />
+ROM	10	21	0	<Pause time="2" />
+ROM	11	36	0	<Pause time="2" />
+ROM	12	3	0	<Sound startVerse="3" />
+ROM	12	21	0	<Pause time="2" />
+ROM	13	14	0	<Pause time="2" />
+ROM	14	23	0	<Pause time="2" />
+ROM	14	26	0	<Pause time="2" />
+ROM	15	13	0	<Pause time="2" />
+ROM	15	14	0	<Sound endVerse="14" />
+ROM	15	33	0	<Pause time="2" />
+ROM	16	21	0	<Sound endVerse="21" />
+ROM	16	27	0	<Pause time="5" />
+1CO	1	3	0	<Pause time="1.5" />
+1CO	1	31	0	<Pause time="2" />
+1CO	2	16	0	<Pause time="2" />
+1CO	3	17	0	<Sound endVerse="17" />
+1CO	3	23	0	<Pause time="2" />
+1CO	4	9	0	<Sound startVerse="9" endVerse="-999" />
+1CO	4	21	0	<Pause time="2" />
+1CO	5	13	0	<Pause time="2" />
+1CO	6	20	0	<Pause time="2" />
+1CO	7	15	0	<Sound startVerse="15" />
+1CO	7	40	0	<Pause time="2" />
+1CO	8	13	0	<Pause time="2" />
+1CO	9	27	0	<Pause time="2" />
+1CO	10	33	0	<Pause time="2" />
+1CO	11	2	0	<Sound startVerse="2" />
+1CO	11	34	0	<Pause time="2" />
+1CO	12	31	0	<Pause time="2" />
+1CO	13	13	0	<Pause time="2" />
+1CO	14	3	0	<Sound startVerse="3" />
+1CO	14	40	0	<Pause time="2" />
+1CO	15	33	0	<Sound endVerse="33" />
+1CO	15	42	0	<Sound endVerse="42" />
+1CO	15	58	0	<Pause time="2" />
+1CO	16	24	0	<Pause time="5" />
+2CO	1	24	0	<Pause time="2" />
+2CO	2	7	0	<Sound startVerse="7" />
+2CO	2	17	0	<Pause time="2" />
+2CO	3	18	0	<Pause time="2" />
+2CO	4	18	0	<Pause time="2" />
+2CO	5	21	0	<Pause time="2" />
+2CO	6	18	0	<Pause time="2" />
+2CO	7	16	0	<Pause time="2" />
+2CO	8	24	0	<Pause time="2" />
+2CO	9	15	0	<Pause time="2" />
+2CO	10	16	0	<Pause time="2" />
+2CO	10	18	0	<Pause time="2" />
+2CO	11	33	0	<Pause time="2" />
+2CO	12	2	0	<Sound startVerse="2" />
+2CO	12	21	0	<Pause time="2" />
+2CO	13	14	0	<Pause time="5" />
+GAL	1	13	0	<Sound endVerse="13" />
+GAL	1	24	0	<Pause time="2" />
+GAL	2	21	0	<Pause time="2" />
+GAL	3	29	0	<Pause time="2" />
+GAL	4	2	0	<Sound startVerse="2" />
+GAL	4	19	0	<Sound endVerse="19" />
+GAL	4	31	0	<Pause time="2" />
+GAL	5	16	0	<Sound endVerse="16" />
+GAL	5	26	0	<Pause time="2" />
+GAL	6	18	0	<Pause time="5" />
+EPH	1	9	0	<Sound startVerse="9" endVerse="-999" />
+EPH	1	23	0	<Pause time="2" />
+EPH	2	22	0	<Pause time="2" />
+EPH	3	2	0	<Sound startVerse="2" />
+EPH	3	13	0	<Sound endVerse="13" />
+EPH	3	21	0	<Pause time="2" />
+EPH	4	32	0	<Pause time="2" />
+EPH	5	22	0	<Sound endVerse="22" />
+EPH	5	33	0	<Pause time="2" />
+EPH	6	24	0	<Pause time="5" />
+PHP	1	30	0	<Pause time="2" />
+PHP	2	18	0	<Sound endVerse="18" />
+PHP	2	30	0	<Pause time="2" />
+PHP	3	10	0	<Sound endVerse="10" />
+PHP	3	21	0	<Pause time="2" />
+PHP	4	23	0	<Pause time="5" />
+COL	1	29	0	<Pause time="2" />
+COL	2	23	0	<Pause time="2" />
+COL	3	25	0	<Pause time="2" />
+COL	4	18	0	<Pause time="5" />
+1TH	1	1	0	<Pause time="1.5" />
+1TH	1	10	0	<Pause time="2" />
+1TH	2	20	0	<Pause time="2" />
+1TH	3	13	0	<Pause time="2" />
+1TH	4	18	0	<Pause time="2" />
+1TH	5	28	0	<Pause time="5" />
+2TH	1	12	0	<Pause time="2" />
+2TH	2	17	0	<Pause time="2" />
+2TH	3	18	0	<Pause time="5" />
+1TI	1	20	0	<Pause time="2" />
+1TI	2	15	0	<Pause time="2" />
+1TI	3	16	0	<Pause time="2" />
+1TI	4	16	0	<Pause time="2" />
+1TI	5	25	0	<Pause time="2" />
+1TI	6	21	0	<Pause time="5" />
+2TI	1	18	0	<Pause time="2" />
+2TI	2	26	0	<Pause time="2" />
+2TI	3	17	0	<Pause time="2" />
+2TI	4	22	0	<Pause time="5" />
+TIT	1	16	0	<Pause time="2" />
+TIT	2	15	0	<Pause time="2" />
+TIT	3	10	0	<Sound endVerse="10" />
+TIT	3	15	0	<Pause time="5" />
+PHM	1	25	0	<Pause time="5" />
+HEB	1	14	0	<Pause time="2" />
+HEB	2	18	0	<Pause time="2" />
+HEB	3	19	0	<Pause time="2" />
+HEB	4	16	0	<Pause time="2" />
+HEB	5	14	0	<Pause time="2" />
+HEB	6	20	0	<Pause time="2" />
+HEB	7	28	0	<Pause time="2" />
+HEB	8	13	0	<Pause time="2" />
+HEB	9	28	0	<Pause time="2" />
+HEB	10	39	0	<Pause time="2" />
+HEB	11	40	0	<Pause time="2" />
+HEB	12	29	0	<Pause time="2" />
+HEB	13	24	0	<Pause time="5" />
+JAS	1	27	0	<Pause time="2" />
+JAS	2	26	0	<Pause time="2" />
+JAS	3	18	0	<Pause time="2" />
+JAS	4	17	0	<Pause time="2" />
+JAS	5	20	0	<Pause time="5" />
+1PE	1	25	0	<Pause time="2" />
+1PE	2	25	0	<Pause time="2" />
+1PE	3	7	0	<Pause time="2" />
+1PE	3	22	0	<Pause time="2" />
+1PE	4	11	0	<Pause time="1.5" />
+1PE	4	19	0	<Pause time="2" />
+1PE	5	14	0	<Pause time="5" />
+2PE	1	21	0	<Pause time="2" />
+2PE	2	22	0	<Pause time="2" />
+2PE	3	18	0	<Pause time="5" />
+1JN	1	10	0	<Pause time="2" />
+1JN	2	15	0	<Sound startVerse="15" />
+1JN	2	17	0	<Pause time="2" />
+1JN	2	20	0	<Sound startVerse="20" />
+1JN	2	27	0	<Pause time="2" />
+1JN	2	29	0	<Pause time="2" />
+1JN	3	24	0	<Pause time="2" />
+1JN	4	13	0	<Sound startVerse="13" />
+1JN	4	21	0	<Pause time="2" />
+1JN	5	12	0	<Pause time="1.5" />
+1JN	5	15	0	<Sound startVerse="15" />
+1JN	5	21	0	<Pause time="5" />
+2JN	1	11	0	<Pause time="2" />
+2JN	1	13	0	<Pause time="5" />
+3JN	1	4	0	<Pause time="2" />
+3JN	1	15	0	<Pause time="5" />
+JUD	1	12	0	<Sound soundType="Sfx" startVerse="12" effectName="Eerie" />
+JUD	1	17	0	<Sound startVerse="17" />
+JUD	1	25	0	<Pause time="5" />
+REV	1	3	0	<Pause time="2" />
+REV	1	7	0	<Sound startVerse="7" />
+REV	1	20	0	<Pause time="2" />
+REV	2	29	0	<Pause time="2" />
+REV	3	6	0	<Pause time="2" />
+REV	3	22	0	<Pause time="2" />
+REV	4	5	0	<Sound startVerse="5" />
+REV	4	11	0	<Pause time="2" />
+REV	5	14	0	<Pause time="2" />
+REV	6	10	0	<Sound soundType="Sfx" startVerse="7" effectName="Crying" />
+REV	6	12	0	<Sound startVerse="12" />
+REV	6	17	0	<Pause time="2" />
+REV	7	17	0	<Pause time="2" />
+REV	8	4	0	<Sound startVerse="4" />
+REV	8	7	0	<Sound startVerse="7" />
+REV	8	8	0	<Sound startVerse="8" />
+REV	8	12	0	<Sound startVerse="12" />
+REV	8	13	0	<Pause time="2" />
+REV	9	3	0	<Sound soundType="Sfx" startVerse="3" effectName="Locusts" />
+REV	9	9	0	<Sound soundType="Sfx" startVerse="9" effectName="Horses w/music" />
+REV	9	19	0	<Sound startVerse="19" />
+REV	9	21	0	<Pause time="2" />
+REV	10	11	0	<Pause time="2" />
+REV	11	13	0	<Sound soundType="Sfx" startVerse="13" effectName="Earthquake" />
+REV	11	14	0	<Pause time="2" />
+REV	11	19	0	<Pause time="2" />
+REV	12	3	0	<Sound soundType="Sfx" startVerse="3" effectName="Dragon" />
+REV	12	15	0	<Sound soundType="Sfx" startVerse="15" effectName="Spewing Water" />
+REV	12	17	0	<Pause time="2" />
+REV	13	9	0	<Pause time="2" />
+REV	13	13	0	<Sound soundType="Sfx" startVerse="13" effectName="Fire" />
+REV	13	14	0	<Sound soundType="Sfx" startVerse="14" effectName="Wind" />
+REV	13	18	0	<Pause time="2" />
+REV	14	2	0	<Sound soundType="Sfx" startVerse="2" effectName="Water" />
+REV	14	11	0	<Sound soundType="Sfx" startVerse="11" effectName="Smoke ascending" />
+REV	14	20	0	<Pause time="2" />
+REV	15	2	0	<Sound soundType="Sfx" startVerse="2" effectName="Sea of Glass + Fire" />
+REV	15	8	0	<Pause time="2" />
+REV	16	3	0	<Sound soundType="Sfx" startVerse="3" effectName="Pouring" />
+REV	16	4	0	<Sound soundType="Sfx" startVerse="4" effectName="Pouring" />
+REV	16	10	0	<Sound soundType="Sfx" startVerse="10" effectName="Pouring" />
+REV	16	12	0	<Sound soundType="Sfx" startVerse="12" effectName="Pouring" />
+REV	16	17	0	<Sound startVerse="17" />
+REV	16	21	0	<Pause time="2" />
+REV	17	18	0	<Pause time="2" />
+REV	18	24	0	<Pause time="2" />
+REV	19	15	0	<Sound soundType="Sfx" startVerse="15" effectName="Drawing of sword" />
+REV	19	21	0	<Pause time="2" />
+REV	20	2	0	<Sound soundType="Sfx" startVerse="2" effectName="Chains" />
+REV	20	7	0	<Sound soundType="Sfx" startVerse="7" effectName="Satan/Beast" />
+REV	20	15	0	<Pause time="2" />
+REV	21	18	0	<Sound startVerse="18" />
+REV	21	27	0	<Pause time="2" />
+REV	22	13	0	<Sound startVerse="13" />
+REV	22	17	0	<Pause time="2" />
+REV	22	21	0	<Pause timeUnits="Minutes" time="1" />

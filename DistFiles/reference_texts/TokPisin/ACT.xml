@@ -2350,11 +2350,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
       <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
-      <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="9" />
     <text>Wanpela man i stap long dispela taun, nem bilong en Saimon. Bipo em i save mekim ol kain kain pasin bilong soim strong na pawa na mekim olkain marila samting, na ol manmeri bilong Samaria i lukim na ol i tingting planti. Em i save tok olsem, "Mi bikman." </text>
-    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
@@ -7726,14 +7726,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
       <text>The high priest, Ananias, commanded those who stood by him to </text>
-      <sound effectName="Hit" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
       <text>strike him on the mouth. </text>
       <verse num="3" />
       <text>Then Paul said to him,</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Em i tok olsem, na hetpris Ananaias i tokim ol man i sanap klostu long em </text>
-    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
     <text>long paitim maus bilong en. </text>
     <verse num="3" />
     <text>Na Pol i tokim em olsem,</text>
@@ -9079,12 +9079,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
       <text>When the ship was caught, and couldn't face the wind, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>na i sakim sip strong tru. Ol boskru i laik tanim sip na i go bek, tasol ol i no inap. </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>Olsem na ol i larim win i sakim sip i go.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">

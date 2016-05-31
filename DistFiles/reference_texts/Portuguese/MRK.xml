@@ -247,12 +247,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
       <text>The unclean spirit, convulsing him and crying with </text>
-      <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
       <text>a loud voice, came out of him.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Aí o espírito sacudiu o homem com violência e, </text>
-    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
     <text>dando um grito, saiu dele.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK" matchesReferenceText="true">
@@ -1672,20 +1672,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
       <verse num="13" />
       <text>At once Jesus gave them permission. The unclean spirits came out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and entered into the pigs. The herd of about two thousand rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the steep bank into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and they were drowned in the sea.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Ele deixou, e os espíritos saíram do homem e </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>entraram nos porcos. E estes, que eram quase dois mil, se atiraram </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>morro abaixo, para dentro do lago, </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>e se afogaram.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
@@ -3842,12 +3842,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
       <text>Having cried out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and convulsed greatly, it came out of him. The boy became like one dead; so much that most of them said,</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>O espírito gritou, </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>sacudiu o menino e saiu dele, deixando-o como morto. Por isso todos diziam:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring" matchesReferenceText="true">
@@ -6380,14 +6380,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
       <verse num="47" />
       <text>But a certain one of those who stood by drew his sword, and struck the servant of the high priest, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>cut off his ear. </text>
       <verse num="48" />
       <text>Jesus answered them,</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>Mas um dos que estavam ali tirou a espada, atacou um empregado do * Grande Sacerdote e </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>cortou uma orelha dele. </text>
     <verse num="48" />
     <text>Então Jesus disse para aquela gente:</text>

@@ -2352,11 +2352,11 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-ACT">
       <verse num="9" />
       <text>But there was a certain man, Simon by name, who used to practice sorcery in the city, and amazed the people of Samaria, making himself out to be some great one. </text>
-      <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="9" />
     <text>Находился же в городе некоторый муж, именем Симон, который перед тем волхвовал и изумлял народ Самарийский, выдавая себя за кого-то великого. </text>
-    <sound effectName="Crowd cheering" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Crowd cheering" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-ACT">
@@ -6391,6 +6391,7 @@
       <verse num="8" />
       <text>He entered into the synagogue, and spoke boldly for a period of three months. He reasoned persuasively with them concerning the Kingdom of God.</text>
     </ReferenceBlocks>
+    <verse num="8" />
     <text>Он вошел в синагогу, и говорил смело в течение трех месяцев. Он рассуждал убедительно с ними о Царствии Божием.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
@@ -7729,14 +7730,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
       <verse num="2" />
       <text>The high priest, Ananias, commanded those who stood by him to </text>
-      <sound effectName="Hit" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
       <text>strike him on the mouth. </text>
       <verse num="3" />
       <text>Then Paul said to him,</text>
     </ReferenceBlocks>
     <verse num="2" />
     <text>Первосвященник же Анания стоявшим перед ним приказал </text>
-    <sound effectName="Hit" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hit" userSpecifiesLocation="true" />
     <text>бить его по устам. </text>
     <verse num="3" />
     <text>Тогда Павел сказал ему:</text>
@@ -9083,12 +9084,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="15" characterId="narrator-ACT">
       <verse num="15" />
       <text>When the ship was caught, and couldn't face the wind, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>we gave way to it, and were driven along.</text>
     </ReferenceBlocks>
     <verse num="15" />
     <text>Корабль схватило так, что он не мог противиться ветру, </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>и мы носились, отдавшись волнам.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">

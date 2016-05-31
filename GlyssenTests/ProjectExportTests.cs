@@ -328,7 +328,7 @@ namespace GlyssenTests
 			Assert.AreEqual("YӘHUDA 1", data[1][kPrimaryReferenceText]);
 			Assert.AreEqual("JUDE CHP 1", data[1][kSecondaryReferenceText]);
 			var matchedRows = data.Where(d => (string)d[kVernacularText] != null && (string)d[kPrimaryReferenceText] != null).ToList();
-			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbirary, but I just want to say we got a reasonable number of matches
+			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[kPrimaryReferenceText]).Contains("Ә"))); // A letter that should be in Azeri, but not English
 			Assert.IsTrue(matchedRows.All(d => (string)d[kSecondaryReferenceText] != null));
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Azeri
@@ -339,6 +339,77 @@ namespace GlyssenTests
 			Assert.IsTrue(rowsWithNoVernacular.All(d => d.Count == kVernacularTextLengthWithSecondaryRef + 1));
 			Assert.IsTrue(rowsWithNoVernacular.All(d => d[kSecondaryReferenceText] != null));
 			Assert.IsTrue(rowsWithNoVernacular.Any(d => ((string)d[kSecondaryReferenceText]).Contains(" the "))); // A word that should be in English, but not Azeri
+		}
+
+		[Test]
+		public void GetExportData_ReferenceTextsContainAnnotations()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Azeri);
+			var exporter = new ProjectExporter(project);
+
+			var data = exporter.GetExportData().ToList();
+
+			//SFX (sfx come before verse text)
+			var rowsForVerse12 = data.Where(d => (string)d[kBookId] == "JUD" && (int)d[kChapter] == 1 && (string)d[kVerse] == "12").ToList();
+			Assert.AreEqual(2, rowsForVerse12.Count);
+			var annotationRowForVerse12 = rowsForVerse12[0];
+			var textRowForVerse12 = rowsForVerse12[1];
+			Assert.IsTrue(annotationRowForVerse12[kPrimaryReferenceText].Equals(annotationRowForVerse12[kSecondaryReferenceText]) &&
+				((string)annotationRowForVerse12[kPrimaryReferenceText]).StartsWith(Sound.kDoNotCombine + "{SFX"));
+			Assert.IsTrue(!((string)textRowForVerse12[kPrimaryReferenceText]).Contains("|||"));
+
+			//Pause for final verse in book (pauses come after verse text)
+			var rowsForJude25 = data.Where(d => (string)d[kBookId] == "JUD" && (int)d[kChapter] == 1 && (string)d[kVerse] == "25").ToList();
+			Assert.AreEqual(2, rowsForJude25.Count);
+			var textRowForJude25 = rowsForJude25[0];
+			var annotationRowForJude25 = rowsForJude25[1];
+			Assert.IsTrue(!((string)textRowForJude25[kPrimaryReferenceText]).Contains("|||"));
+			Assert.IsTrue(annotationRowForJude25[kPrimaryReferenceText].Equals(annotationRowForJude25[kSecondaryReferenceText]) &&
+				((string)annotationRowForJude25[kPrimaryReferenceText]).Equals(string.Format(Pause.kPauseSecondsFormat, "5")));
+
+			//Pause for non-final verse in book (pauses come after verse text)
+			var rowsForRev1V3 = data.Where(d => (string)d[kBookId] == "REV" && (int)d[kChapter] == 1 && (string)d[kVerse] == "3").ToList();
+			Assert.AreEqual(3, rowsForRev1V3.Count);
+			var textRowForRev1V3 = rowsForRev1V3[0];
+			var annotationRowForRev1V3 = rowsForRev1V3[1];
+			var sectionHeadRowForRev1V3 = rowsForRev1V3[2];
+			Assert.IsTrue(!((string)textRowForRev1V3[kPrimaryReferenceText]).Contains("|||"));
+			Assert.IsTrue(annotationRowForRev1V3[kPrimaryReferenceText].Equals(annotationRowForRev1V3[kSecondaryReferenceText]) &&
+				((string)annotationRowForRev1V3[kPrimaryReferenceText]).Equals(string.Format(Pause.kPauseSecondsFormat, "2")));
+			Assert.IsTrue(sectionHeadRowForRev1V3[kCharacterId].Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
+
+			//Pause for final verse in chapter (pauses come after verse text)
+			var rowsForRev1V20 = data.Where(d => (string)d[kBookId] == "REV" && (int)d[kChapter] == 1 && (string)d[kVerse] == "20").ToList();
+			Assert.AreEqual(2, rowsForRev1V20.Count);
+			var textRowForRev1V20 = rowsForRev1V20[0];
+			var annotationRowForRev1V20 = rowsForRev1V20[1];
+			Assert.IsTrue(!((string)textRowForRev1V20[kPrimaryReferenceText]).Contains("|||"));
+			Assert.IsTrue(annotationRowForRev1V20[kPrimaryReferenceText].Equals(annotationRowForRev1V20[kSecondaryReferenceText]) &&
+				((string)annotationRowForRev1V20[kPrimaryReferenceText]).Equals(string.Format(Pause.kPauseSecondsFormat, "2")));
+		}
+
+		[Test]
+		public void GetExportData_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.French);
+			var exporter = new ProjectExporter(project);
+
+			var data = exporter.GetExportData().ToList();
+
+			//Pause mid-verse
+			var rowsForMark4V39 = data.Where(d => (string)d[kBookId] == "MRK" && (int)d[kChapter] == 4 && (string)d[kVerse] == "39").ToList();
+			Assert.AreEqual(4, rowsForMark4V39.Count);
+			var narratorTextRow1ForMark4V39 = rowsForMark4V39[0];
+			var jesusTextRowForMark4V39 = rowsForMark4V39[0];
+			var annotationRowForMark4V39 = rowsForMark4V39[2];
+			var narratorTextRow2ForMark4V39 = rowsForMark4V39[3];
+			Assert.IsFalse(((string)narratorTextRow1ForMark4V39[kPrimaryReferenceText]).Contains("|||"));
+			Assert.IsFalse(((string)jesusTextRowForMark4V39[kPrimaryReferenceText]).Contains("|||"));
+			Assert.IsTrue(annotationRowForMark4V39[kPrimaryReferenceText].Equals(annotationRowForMark4V39[kSecondaryReferenceText]) &&
+				((string)annotationRowForMark4V39[kPrimaryReferenceText]).Equals(string.Format(Pause.kPauseSecondsFormat, "1.5")));
+			Assert.IsFalse(((string)narratorTextRow2ForMark4V39[kPrimaryReferenceText]).Contains("|||"));
 		}
 
 		[Test]

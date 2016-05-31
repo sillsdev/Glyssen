@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Xml.Serialization;
 using SIL.Scripture;
 
@@ -7,6 +8,7 @@ namespace Glyssen
 {
 	[XmlInclude(typeof(ScriptText))]
 	[XmlInclude(typeof(Verse))]
+	[XmlInclude(typeof(ScriptAnnotation))]
 	public abstract class BlockElement
 	{
 		public virtual BlockElement Clone()
@@ -26,8 +28,21 @@ namespace Glyssen
 				return yAsVerse != null && xAsVerse.Number == yAsVerse.Number;
 			}
 
-			var yAsScriptText = y as ScriptText;
-			return yAsScriptText != null && ((ScriptText)x).Content == yAsScriptText.Content;
+			var xAsScriptText = x as ScriptText;
+			if (xAsScriptText != null)
+			{
+				var yAsScriptText = y as ScriptText;
+				return yAsScriptText != null && xAsScriptText.Content == yAsScriptText.Content;
+			}
+
+			var xAsScriptAnnotation = x as ScriptAnnotation;
+			if (xAsScriptAnnotation != null)
+			{
+				var yAsScriptAnnotation = y as ScriptAnnotation;
+				return yAsScriptAnnotation != null && xAsScriptAnnotation.Equals(yAsScriptAnnotation);
+			}
+
+			return false;
 		}
 
 		public int GetHashCode(BlockElement obj)
@@ -86,6 +101,8 @@ namespace Glyssen
 		}
 	}
 
+	[XmlInclude(typeof(Pause))]
+	[XmlInclude(typeof(Sound))]
 	public abstract class ScriptAnnotation : BlockElement
 	{
 		public abstract string ToDisplay { get; }
@@ -93,20 +110,68 @@ namespace Glyssen
 
 	public class Pause : ScriptAnnotation
 	{
-		[XmlAttribute("seconds")]
-		public double Seconds { get; set; }
+		public const string kPauseSecondsFormat = "||| + {0} SECs |||";
+		[XmlAttribute("timeUnits")]
+		[DefaultValue(TimeUnits.Seconds)]
+		public TimeUnits TimeUnits { get; set; }
 
+		[XmlAttribute("time")]
+		public double Time { get; set; }
+
+		[XmlIgnore]
 		public override string ToDisplay
 		{
-			get { return string.Format("||| + {0} SECs |||", Seconds); }
+			get
+			{
+				if (TimeUnits == TimeUnits.Seconds)
+					return string.Format(kPauseSecondsFormat, Time);
+				if (Time == 1.0d)
+					return "||| + 1 MINUTE |||";
+				Debug.Fail("No code for displaying this annotation: " + ToString());
+				return string.Empty;
+			}
 		}
+
+		public override string ToString()
+		{
+			return string.Format("TimeUnits: {0}, Time: {1}", TimeUnits, Time);
+		}
+
+		#region Equality members
+		protected bool Equals(Pause other)
+		{
+			return TimeUnits == other.TimeUnits && Time.Equals(other.Time);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (ReferenceEquals(this, obj))
+				return true;
+			if (obj.GetType() != GetType())
+				return false;
+			return Equals((Pause)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				return ((int)TimeUnits * 397) ^ Time.GetHashCode();
+			}
+		}
+		#endregion
 	}
 
 	public class Sound : ScriptAnnotation
 	{
-		[XmlAttribute("start")]
-		[DefaultValue(false)]
-		public bool Start { get; set; }
+		public const string kDoNotCombine = " ||| DO NOT COMBINE ||| ";
+		public const int kNonSpecificStartOrStop = -999;
+
+		[XmlAttribute("soundType")]
+		[DefaultValue(SoundType.Music)]
+		public SoundType SoundType { get; set; }
 
 		[XmlAttribute("startVerse")]
 		[DefaultValue(0)]
@@ -130,16 +195,101 @@ namespace Glyssen
 			{
 				if (UserSpecifiesLocation)
 				{
-					if (!string.IsNullOrEmpty(EffectName))
-						return string.Format("{{F8 SFX--{0}}} ", EffectName);
-					if (Start)
-						return "{F8 Music--Starts} ";
-					return "{F8 Music--Ends} ";
+					switch (SoundType)
+					{
+						case SoundType.Music:
+							if (StartVerse == kNonSpecificStartOrStop)
+								return "{F8 Music--Starts} ";
+							return "{F8 Music--Ends} ";
+						case SoundType.Sfx:
+							if (!string.IsNullOrEmpty(EffectName))
+								return string.Format("{{F8 SFX--{0}}} ", EffectName);
+							return "{F8 SFX}";
+						default:
+							Debug.Fail("No code for displaying this annotation: " + ToString());
+							return string.Empty;
+					}
 				}
-				if (StartVerse != 0)
-					return string.Format(" ||| DO NOT COMBINE ||| {{Music--Starts @ v{0}}}", StartVerse);
-				return string.Empty;
+				switch (SoundType)
+				{
+					case SoundType.Music:
+						if (StartVerse > 0 && EndVerse == kNonSpecificStartOrStop)
+							return kDoNotCombine + string.Format("{{Music--Ends & New Music--Starts @ v{0}}}", StartVerse);
+						if (StartVerse > 0)
+							return kDoNotCombine + string.Format("{{Music--Starts @ v{0}}}", StartVerse);
+						if (EndVerse > 0)
+							return kDoNotCombine + string.Format("{{Music--Ends before v{0}}}", EndVerse);
+						goto default;
+					case SoundType.Sfx:
+						if (StartVerse != 0)
+						{
+							if (EndVerse != 0)
+								return kDoNotCombine + string.Format("{{SFX--{0} @ v{1}-{2}}}", EffectName, StartVerse, EndVerse);
+							return kDoNotCombine + string.Format("{{SFX--{0}--Starts @ v{1}}}", EffectName, StartVerse);
+						}
+						if (EndVerse != 0)
+						{
+							if (!string.IsNullOrEmpty(EffectName))
+								return kDoNotCombine + string.Format("{{SFX--{0}--Ends before v{1}}}", EffectName, EndVerse);
+							return kDoNotCombine + string.Format("{{SFX--Ends before v{0}}}", EndVerse);
+						}
+						goto default;
+					case SoundType.MusicSfx:
+						return kDoNotCombine + string.Format("{{Music + SFX--{0} Start @ v{1}}}", EffectName, StartVerse);
+					default:
+						Debug.Fail("No code for displaying this annotation: " + ToString());
+						return string.Empty;
+				}
 			}
 		}
+
+		public override string ToString()
+		{
+			return string.Format("SoundType: {0}, StartVerse: {1}, EndVerse: {2}, EffectName: {3}, UserSpecifiesLocation: {4}", SoundType, StartVerse, EndVerse, EffectName, UserSpecifiesLocation);
+		}
+
+		#region Equality members
+		protected bool Equals(Sound other)
+		{
+			return SoundType == other.SoundType && StartVerse == other.StartVerse && EndVerse == other.EndVerse && string.Equals(EffectName, other.EffectName) && UserSpecifiesLocation == other.UserSpecifiesLocation;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return false;
+			if (ReferenceEquals(this, obj))
+				return true;
+			if (obj.GetType() != GetType())
+				return false;
+			return Equals((Sound)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				var hashCode = (int)SoundType;
+				hashCode = (hashCode * 397) ^ StartVerse;
+				hashCode = (hashCode * 397) ^ EndVerse;
+				hashCode = (hashCode * 397) ^ (EffectName != null ? EffectName.GetHashCode() : 0);
+				hashCode = (hashCode * 397) ^ UserSpecifiesLocation.GetHashCode();
+				return hashCode;
+			}
+		}
+		#endregion
+	}
+
+	public enum SoundType
+	{
+		Music,
+		Sfx,
+		MusicSfx
+	}
+
+	public enum TimeUnits
+	{
+		Seconds,
+		Minutes
 	}
 }

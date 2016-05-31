@@ -246,12 +246,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
       <text>The unclean spirit, convulsing him and crying with </text>
-      <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
       <text>a loud voice, came out of him.</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Natәmiz ruh bu adamı sarsıdıb </text>
-    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
     <text>bәrkdәn çığıraraq ondan çıxdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK" matchesReferenceText="true">
@@ -1672,20 +1672,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
       <verse num="13" />
       <text>At once Jesus gave them permission. The unclean spirits came out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and entered into the pigs. The herd of about two thousand rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the steep bank into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and they were drowned in the sea.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>İsa onlara izin verdi. Natәmiz ruhlar adamdan çıxıb </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>donuzların içinә girdi. İki minәdәk sürü dә </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>uçurumdan aşağı, gölә atılıb orada </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>boğuldu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
@@ -3842,12 +3842,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
       <verse num="26" />
       <text>Having cried out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and convulsed greatly, it came out of him. The boy became like one dead; so much that most of them said,</text>
     </ReferenceBlocks>
     <verse num="26" />
     <text>Ruh çığırıb </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>uşağı sarsıdaraq çıxdı. Uşaq ölü kimi düşdü vә çoxları dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring" matchesReferenceText="true">
@@ -6380,14 +6380,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
       <verse num="47" />
       <text>But a certain one of those who stood by drew his sword, and struck the servant of the high priest, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>cut off his ear. </text>
       <verse num="48" />
       <text>Jesus answered them,</text>
     </ReferenceBlocks>
     <verse num="47" />
     <text>İsanın yanındakılardan biri qılınc çәkdi vә baş kahinin </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>qulunu vurub qulağını qopartdı. </text>
     <verse num="48" />
     <text>İsa onlara dedi:</text>

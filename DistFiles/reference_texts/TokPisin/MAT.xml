@@ -2163,19 +2163,19 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MAT">
       <text>They came out, </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>and went into the herd of pigs: and behold, the whole herd of pigs rushed </text>
-      <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
       <text>down the cliff into the sea, </text>
-      <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
       <text>and died in the water.</text>
     </ReferenceBlocks>
     <text>Orait ol spirit nogut i lusim </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>dispela tupela man, na ol i go insait long ol pik. Na dispela olgeta lain pik i ran strong tru </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>i go daun long wanpela ples nogut. Na ol i pundaun long raunwara, </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>na ol i dring wara na i dai.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="33" characterId="narrator-MAT" matchesReferenceText="true">
@@ -5635,12 +5635,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-MAT">
       <verse num="18" />
       <text>Jesus rebuked him, the demon went out </text>
-      <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
       <text>of him, and the boy was cured from that hour.</text>
     </ReferenceBlocks>
     <verse num="18" />
     <text>Na Jisas i krosim dispela spirit nogut, na spirit nogut i lusim </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>dispela pikinini na wantu sik bilong en i pinis.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="19" characterId="narrator-MAT" matchesReferenceText="true">
@@ -9455,14 +9455,14 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, one of those who were with Jesus stretched out his hand, and drew his sword, and </text>
-      <sound effectName="Man crying out" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
       <text>struck the servant of the high priest, and struck off his ear. </text>
       <verse num="52" />
       <text>Then Jesus said to him,</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Orait wanpela man i stap wantaim Jisas, em i pulim bainat bilong en. Na em i paitim wokboi bilong hetpris na bainat </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>i katim yau bilong en na yau i pundaun. </text>
     <verse num="52" />
     <text>Tasol Jisas i tokim em olsem,</text>
@@ -9736,13 +9736,13 @@
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="74" characterId="narrator-MAT">
       <text>Immediately the rooster </text>
-      <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
       <text>crowed. </text>
       <verse num="75" />
       <text>Peter remembered the word which Jesus had said to him,</text>
     </ReferenceBlocks>
     <text>Em i tok pinis, na wantu kakaruk </text>
-    <sound effectName="Rooster crowing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Rooster crowing" userSpecifiesLocation="true" />
     <text>i krai. </text>
     <verse num="75" />
     <text>Na Pita i tingim gen dispela tok Jisas i bin mekim,</text>
@@ -9815,12 +9815,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="5" characterId="narrator-MAT">
       <verse num="5" />
       <text>He threw </text>
-      <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
       <text>down the pieces of silver in the sanctuary, and departed. He went away and hanged himself.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Na Judas i tromoi </text>
-    <sound effectName="Coins being thrown down" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Coins being thrown down" userSpecifiesLocation="true" />
     <text>ol dispela mani silva insait long banis bilong tempel, na em i go hangamapim em yet na em i dai.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="6" characterId="narrator-MAT" matchesReferenceText="true">
@@ -10339,12 +10339,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="51" characterId="narrator-MAT">
       <verse num="51" />
       <text>Behold, the veil of the temple was torn </text>
-      <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
       <text>in two from the top to the bottom. The earth quaked and the rocks were split.</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Long dispela taim tasol dispela bikpela laplap i hangamap i stap insait long tempel em i bruk </text>
-    <sound effectName="Temple curtain tearing" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Temple curtain tearing" userSpecifiesLocation="true" />
     <text>long antap i go inap long daunbilo bilong en, na i kamap tupela hap. Na graun i guria, na ol bikpela ston i bruk.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="52" characterId="narrator-MAT" matchesReferenceText="true">

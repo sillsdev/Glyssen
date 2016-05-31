@@ -664,12 +664,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
       <text>Before the throne was something like a sea of glass, </text>
-      <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Sea of glass" userSpecifiesLocation="true" />
       <text>similar to crystal. In the midst of the throne, and around the throne were four living creatures full of eyes before and behind.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Long pes bilong sia king i gat wanpela samting i stap, em i olsem bikpela solwara ol i bin wokim long glas, </text>
-    <sound effectName="Sea of glass" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Sea of glass" userSpecifiesLocation="true" />
     <text>na em i klia tru. bilong sia king. Dispela 4 -pela samting i stap laip ol i gat planti ai i karamapim olgeta hap bilong bodi bilong ol, em long baksait tu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
@@ -787,10 +787,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
-      <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="In the midst of elders" userSpecifiesLocation="true" />
       <text>A Lamb standing, as though it had been slain, having seven horns, and seven eyes, which are the seven Spirits of God, sent out into all the earth.</text>
     </ReferenceBlocks>
-    <sound effectName="In the midst of elders" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="In the midst of elders" userSpecifiesLocation="true" />
     <text>Em i gat 7 -pela kom na 7 -pela ai, em ol 7 -pela spirit bilong God. God i bin salim ol i go nabaut long olgeta hap bilong graun.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
@@ -811,10 +811,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
-      <sound effectName="Harp" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Harp" userSpecifiesLocation="true" />
       <text>each one having a harp, and golden bowls full of incense, which are the prayers of the saints.</text>
     </ReferenceBlocks>
-    <sound effectName="Harp" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Harp" userSpecifiesLocation="true" />
     <text>Olgeta hetman wan wan i holim wanpela musik olsem gita na wanpela dis gol, na smok i gat gutpela smel i kamap long olgeta dis. Dispela em i makim ol beten bilong ol manmeri bilong God.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
@@ -1305,24 +1305,24 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="7" characterId="narrator-REV">
       <verse num="7" />
       <text>The first sounded, and there followed </text>
-      <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Hail and fire" userSpecifiesLocation="true" />
       <text>hail and fire, mixed with blood, and they were thrown to the earth. One third of the earth was burnt up, and one third of the trees were burnt up, and all green grass was burnt up.</text>
     </ReferenceBlocks>
     <verse num="7" />
     <text>Namba wan ensel i winim biugel bilong en, </text>
-    <sound effectName="Hail and fire" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Hail and fire" userSpecifiesLocation="true" />
     <text>na ren ais na paia wantaim blut em i kamap, na i go pundaun long graun. I olsem ol i tilim olgeta hap graun na olgeta diwai long tripela hap, na paia i kukim olgeta wanpela hap bilong graun na wanpela hap bilong ol diwai. Na olgeta grinpela gras, em tu paia i kukim olgeta.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
       <text>The second angel sounded, </text>
-      <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
       <text>and something like a great burning mountain was thrown into the sea. One third of the sea became blood.</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Orait namba 2 ensel i winim biugel bilong en, </text>
-    <sound effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Mountain thrown into sea" userSpecifiesLocation="true" />
     <text>na ol i tromoi wanpela samting olsem bikpela maunten i paia, na em i go pundaun long solwara. I olsem ol i tilim solwara long tripela hap, na wanpela hap bilong solwara i kamap blut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
@@ -1337,12 +1337,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
       <text>The third angel sounded, and </text>
-      <sound effectName="Star falling" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
       <text>a great star fell from the sky, burning like a torch, and it fell on one third of the rivers, and on the springs of the waters.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Orait namba 3 ensel i winim biugel bilong en, </text>
-    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
     <text>na wanpela bikpela sta i paia tru olsem bombom, em i lusim heven na i pundaun. I olsem ol i tilim olgeta wara long tripela lain, na dispela sta i pundaun antap long wanpela lain bilong ol wara na ol hul wara.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
@@ -1357,12 +1357,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-REV">
       <verse num="12" />
       <text>The fourth angel sounded, and one third of </text>
-      <sound effectName="Sun struck" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Sun struck" userSpecifiesLocation="true" />
       <text>the sun was struck, and one third of the moon, and one third of the stars; so that one third of them would be darkened, and the day wouldn't shine for one third of it, and the night in the same way.</text>
     </ReferenceBlocks>
     <verse num="12" />
     <text>Orait namba 4 ensel i winim biugel bilong en, na i olsem ol i tilim </text>
-    <sound effectName="Sun struck" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Sun struck" userSpecifiesLocation="true" />
     <text>san na mun na olgeta sta long tripela hap. Na ol i bagarapim wanpela hap bilong san na wanpela hap bilong mun na wanpela hap bilong olgeta sta. Na wanpela hap bilong lait bilong ol i kamap tudak, olsem na wanpela hap bilong san na bilong nait i no gat lait.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
@@ -1389,12 +1389,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="1" characterId="narrator-REV">
       <verse num="1" />
       <text>The fifth angel sounded, and I saw a </text>
-      <sound effectName="Star falling" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
       <text>star from the sky which had fallen to the earth. The key to the pit of the abyss was given to him.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Orait namba 5 ensel i winim biugel bilong en, na mi lukim wanpela </text>
-    <sound effectName="Star falling" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Star falling" userSpecifiesLocation="true" />
     <text>sta i lusim heven na i pundaun long graun. Na ol i givim em ki bilong dispela hul i go daun moa na i no gat as bilong en.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
@@ -1527,12 +1527,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="narrator-REV">
       <verse num="17" />
       <text>Thus I saw the horses in the vision, and those who sat on them, having breastplates of fiery red, hyacinth blue, and sulfur yellow; and the heads of lions. Out of their mouths </text>
-      <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Sounds from their mouths" userSpecifiesLocation="true" />
       <text>proceed fire, smoke, and sulfur.</text>
     </ReferenceBlocks>
     <verse num="17" />
     <text>Na long dispela samting olsem driman mi lukim ol hos na ol man i sindaun long ol hos, na pasin bilong ol i olsem. Ol man ol i putim ol siot kapa, na kala bilong ol dispela siot em retpela na blupela na yelopela. Het bilong ol hos i olsem het bilong ol laion. </text>
-    <sound effectName="Sounds from their mouths" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Sounds from their mouths" userSpecifiesLocation="true" />
     <text>Na paia na smok na ol ston salfa i paia, ol i kamap long maus bilong ol hos na i sut i go nabaut.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-REV" matchesReferenceText="true">
@@ -1577,12 +1577,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="narrator-REV">
       <verse num="1" />
       <text>I saw a mighty angel coming down out of the sky, clothed with a cloud. A rainbow was on his head. His face was like the sun, </text>
-      <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Pilars of Fire" userSpecifiesLocation="true" />
       <text>and his feet like pillars of fire.</text>
     </ReferenceBlocks>
     <verse num="1" />
     <text>Orait mi lukim narapela strongpela ensel i kam daun long heven. Em i karamapim skin bilong en long klaut, na wanpela renbo i stap antap long het bilong en. Pes bilong en i lait olsem san, </text>
-    <sound effectName="Pilars of Fire" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pilars of Fire" userSpecifiesLocation="true" />
     <text>na tupela lek bilong en i luk olsem paia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
@@ -1597,12 +1597,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="3" characterId="narrator-REV">
       <verse num="3" />
       <text>He cried with a loud voice, as a lion </text>
-      <sound effectName="Lion roar" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Lion roar" userSpecifiesLocation="true" />
       <text>roars. When he cried, the seven thunders uttered their voices.</text>
     </ReferenceBlocks>
     <verse num="3" />
     <text>Na em i singaut strong tru, </text>
-    <sound effectName="Lion roar" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Lion roar" userSpecifiesLocation="true" />
     <text>olsem laion i singaut bikmaus. Em i singaut pinis, orait ol 7 -pela klaut i pairap na ol i mekim toktok bilong ol.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
@@ -1743,24 +1743,24 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-REV">
       <verse num="5" />
       <text>If anyone desires to harm them, </text>
-      <sound effectName="Fire" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Fire" userSpecifiesLocation="true" />
       <text>fire proceeds out of their mouth and devours their enemies. If anyone desires to harm them, he must be killed in this way.</text>
     </ReferenceBlocks>
     <verse num="5" />
     <text>Sapos ol man i laik mekim nogut long tupela, </text>
-    <sound effectName="Fire" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Fire" userSpecifiesLocation="true" />
     <text>orait paia bai i kamap long maus bilong tupela na kukim tru ol birua bilong tupela. Olsem na wanem man i laik mekim nogut long tupela, em bai i dai long dispela pasin tasol.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
       <text>These have the power to shut up the sky, that it may not rain during the days of their prophecy. </text>
-      <sound effectName="Power over waters" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Power over waters" userSpecifiesLocation="true" />
       <text>They have power over the waters, to turn them into blood, and to strike the earth with every plague, as often as they desire.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Tupela i gat strong bilong pasim skai, bai ren i no ken pundaun long olgeta taim tupela i wok long autim tok profet bilong God. </text>
-    <sound effectName="Power over waters" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Power over waters" userSpecifiesLocation="true" />
     <text>Na tupela i gat strong bilong mekim olgeta wara i kamap blut, na bilong mekim ol kain kain samting nogut i kamap bilong bagarapim ol manmeri bilong graun. Tupela i ken mekim ol dispela kain samting i kamap long laik bilong tupela.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
@@ -1799,12 +1799,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-REV">
       <verse num="11" />
       <text>After the three and a half days, </text>
-      <sound effectName="Wind" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Wind" userSpecifiesLocation="true" />
       <text>the breath of life from God entered into them, and they stood on their feet. Great fear fell on those who saw them.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Dispela 3 na hap de i pinis, </text>
-    <sound effectName="Wind" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Wind" userSpecifiesLocation="true" />
     <text>orait God i salim win bilong laip i go insait long tupela, na tupela i kirap na i sanap. Na ol man i lukim tupela, ol i pret nogut tru.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
@@ -2387,12 +2387,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
       <verse num="16" />
       <text>He who sat on the cloud thrust his </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>sickle on the earth, and the earth was reaped.</text>
     </ReferenceBlocks>
     <verse num="16" />
     <text>Orait dispela man i sindaun long klaut em i </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>holim naip bilong en na em i lindaun i go daun long graun, na em i katim ol kaikai i mau i stap long graun.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
@@ -2633,20 +2633,20 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="narrator-REV">
       <verse num="13" />
       <text>I saw coming </text>
-      <sound effectName="Low pitch" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Low pitch" userSpecifiesLocation="true" />
       <text>out of the mouth of the dragon, and </text>
-      <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Medium pitch" userSpecifiesLocation="true" />
       <text>out of the mouth of the beast, and </text>
-      <sound effectName="High Pitch" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="High Pitch" userSpecifiesLocation="true" />
       <text>out of the mouth of the false prophet, three unclean spirits, something like frogs.</text>
     </ReferenceBlocks>
     <verse num="13" />
     <text>Na mi lukim </text>
-    <sound effectName="Low pitch" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Low pitch" userSpecifiesLocation="true" />
     <text>tripela spirit nogut olsem rokrok, ol </text>
-    <sound effectName="Medium pitch" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Medium pitch" userSpecifiesLocation="true" />
     <text>i kamap long maus bilong dispela traipela snek na long maus bilong wel animal na </text>
-    <sound effectName="High Pitch" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="High Pitch" userSpecifiesLocation="true" />
     <text>long maus bilong giaman profet.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
@@ -2918,10 +2918,10 @@
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="2" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Start">
       <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <text>"Bikpela taun Babilon em i bagarap pinis! Em i bagarap pinis! Nau em i kamap ples bilong ol spirit nogut i stap long en. Ol spirit nogut, na ol pisin i doti, na ol pisin nogut tru, </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>ol tu i stap long en.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation" matchesReferenceText="true">
@@ -2948,11 +2948,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="5" characterId="voice from heaven, another" multiBlockQuote="Continuation">
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <verse num="5" />
       <text>for her sins have reached to the sky, and God has remembered her iniquities.</text>
     </ReferenceBlocks>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <verse num="5" />
     <text>Em i hipim ol sin bilong en i kam antap inap long heven. Na God i tingim gut olgeta pasin nogut em i bin mekim.</text>
   </block>
@@ -2982,24 +2982,24 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="voice from heaven, another" multiBlockQuote="Continuation">
       <verse num="8" />
       <text>Therefore in one day her plagues will come: </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>death, mourning, and famine; and she will be utterly burned with fire; for the Lord God who has judged her is strong."</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Olsem na ol kain kain samting nogut tru bai i kamap long em long wanpela de tasol. </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>Planti sik bai i kamap, na planti man bai i krai nogut, na bikpela hangre bai i kamap. Na paia bai i kukim Babilon olgeta. God, Bikpela em i gat bikpela strong na em i skelim pinis pasin bilong Babilon na em tok long em i mas bagarap.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
       <verse num="9" />
       <text>The kings of the earth, who committed sexual immorality and lived wantonly with her, will weep and wail over her, when they look at the </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>smoke of her burning,</text>
     </ReferenceBlocks>
     <verse num="9" />
     <text>"Ol king bilong graun ol i bin mekim pasin pamuk wantaim em, na ol i bin mekim planti kain pasin nogut wantaim em. Olsem na taim ol dispela king i lukim </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>smok i kamap long paia i kukim em, ol bai i krai sori na i stap bel hevi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
@@ -3386,12 +3386,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="narrator-REV">
       <verse num="20" />
       <text>The beast was taken, and with him the false prophet who worked the signs in his sight, with which he deceived those who had received the mark of the beast and those who worshiped his image. </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
       <text>These two were thrown alive into the lake of fire that burns with sulfur.</text>
     </ReferenceBlocks>
     <verse num="20" />
     <text>Tasol em i kalabusim dispela wel animal wantaim giaman profet, em dispela giaman profet i bin wokim planti mirakel long ai bilong wel animal, na long dispela pasin em i bin giamanim ol man i bin kisim mak bilong wel animal na i save lotu long piksa bilong en. Wel animal wantaim giaman profet, </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     <text>tupela i stap laip yet, na ol i tromoi tupela i go daun long dispela bikpela raunpela hul ol ston salfa i pulap long en na ol i paia i stap.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="21" characterId="narrator-REV" matchesReferenceText="true">
@@ -3492,12 +3492,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-REV">
       <verse num="11" />
       <text>I saw a great white throne, and him who sat on it, from whose face the </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>earth and the heaven fled away. There was found no place for them.</text>
     </ReferenceBlocks>
     <verse num="11" />
     <text>Orait mi lukim bikpela waitpela sia king i stap, na mi lukim dispela man i save sindaun long dispela sia. </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>Na graun wantaim skai i ranawe long em, na ol i no i stap moa.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
@@ -3512,22 +3512,22 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="narrator-REV">
       <verse num="13" />
       <text>The sea gave up the dead who were in it. Death and Hades gave up the dead who were in them. They were judged, each one according to his works. </text>
-      <sound effectName="Weird" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="13" />
     <text>Solwara i larim olgeta man i dai pinis na i stap long en, ol i go. Na Dai wantaim Ples bilong ol man i dai pinis, tupela tu i larim olgeta man i dai pinis na i stap long han bilong tupela, ol i go. Na man i sindaun long sia king em i lukim pasin olgeta wan wan man i bin mekim, na em i skelim ol long kot bilong en. </text>
-    <sound effectName="Weird" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV">
       <verse num="14" />
       <text>Death and Hades were thrown into the lake of fire. The lake of fire </text>
-      <sound effectName="Weird2" userSpecifiesLocation="true" />
+      <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
       <text>is the second death.</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Na bihain em i tromoi Dai wantaim Ples bilong ol man i dai pinis i go daun long dispela bikpela hul i gat paia. Dispela bikpela hul i gat paia em i namba 2 dai. </text>
-    <sound effectName="Weird2" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV">
@@ -3655,12 +3655,12 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
       <verse num="10" />
       <text>He carried me away in the Spirit to a great and high mountain, </text>
-      <sound start="true" userSpecifiesLocation="true" />
+      <sound startVerse="-999" userSpecifiesLocation="true" />
       <text>and showed me the holy city, Jerusalem, coming down out of heaven from God.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Na Holi Spirit i kamap strong long mi, na ensel i karim mi i go long wanpela bikpela maunten i antap moa. </text>
-    <sound start="true" userSpecifiesLocation="true" />
+    <sound startVerse="-999" userSpecifiesLocation="true" />
     <text>Na em i soim mi Jerusalem, dispela taun bilong God, em i stap wantaim God, na em i lusim heven na i kam daun.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">

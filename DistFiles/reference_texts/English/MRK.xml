@@ -125,7 +125,7 @@
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
     <text>The unclean spirit, convulsing him and crying with </text>
-    <sound effectName="Demon screaming" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demon screaming" userSpecifiesLocation="true" />
     <text>a loud voice, came out of him.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="27" characterId="narrator-MRK">
@@ -838,11 +838,11 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="13" characterId="narrator-MRK">
     <verse num="13" />
     <text>At once Jesus gave them permission. The unclean spirits came out </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>and entered into the pigs. The herd of about two thousand rushed </text>
-    <sound effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs running &amp; snorting" userSpecifiesLocation="true" />
     <text>down the steep bank into the sea, </text>
-    <sound effectName="Pigs run into water" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Pigs run into water" userSpecifiesLocation="true" />
     <text>and they were drowned in the sea.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-MRK">
@@ -1923,7 +1923,7 @@
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="narrator-MRK">
     <verse num="26" />
     <text>Having cried out, </text>
-    <sound effectName="Demons coming out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Demons coming out" userSpecifiesLocation="true" />
     <text>and convulsed greatly, it came out of him. The boy became like one dead; so much that most of them said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="many in crowd" delivery="murmuring">
@@ -3192,7 +3192,7 @@
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="47" characterId="narrator-MRK">
     <verse num="47" />
     <text>But a certain one of those who stood by drew his sword, and struck the servant of the high priest, and </text>
-    <sound effectName="Man crying out" userSpecifiesLocation="true" />
+    <sound soundType="Sfx" effectName="Man crying out" userSpecifiesLocation="true" />
     <text>cut off his ear. </text>
     <verse num="48" />
     <text>Jesus answered them,</text>
