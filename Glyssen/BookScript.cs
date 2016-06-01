@@ -7,6 +7,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
 using SIL.ObjectModel;
+using SIL.Reporting;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
@@ -583,13 +584,24 @@ namespace Glyssen
 
 		public bool TrySplitBlockAtEndOfVerse(Block vernBlock, int verseNum)
 		{
+			var firstVerseElement = vernBlock.BlockElements.OfType<Verse>().FirstOrDefault();
+			if (firstVerseElement == null)
+				return false;
+			var blockBeginsWithVerse = vernBlock.BlockElements.First() is Verse;
 			var verseString = verseNum.ToString();
 
 			if (vernBlock.InitialEndVerseNumber == verseNum)
 			{
 				verseString = vernBlock.InitialVerseNumberOrBridge;
+				if (firstVerseElement.Number != verseString && blockBeginsWithVerse)
+				{
+					var secondPartOfVerse = vernBlock.BlockElements.Skip(2).OfType<Verse>().FirstOrDefault();
+					if (secondPartOfVerse == null)
+						return false;
+					verseString = secondPartOfVerse.Number;
+				}
 			}
-			else if (vernBlock.BlockElements.First() is Verse ||
+			else if (blockBeginsWithVerse ||
 				!(vernBlock.InitialEndVerseNumber == 0 && vernBlock.InitialStartVerseNumber == verseNum))
 			{
 				foreach (var verse in vernBlock.BlockElements.OfType<Verse>())
@@ -609,9 +621,8 @@ namespace Glyssen
 			{
 				SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
 			}
-			catch (ArgumentException)
+			catch (ArgumentException exception)
 			{
-				// This is a stop-gap until we can get the issues resolved with splitting for reference texts
 				return false;
 			}
 			return true;

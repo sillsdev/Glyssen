@@ -556,7 +556,7 @@ namespace DevTools
 
 						try
 						{
-							ReferenceText.ApplyTo(book, referenceBook.GetScriptBlocks(), s_existingEnglish.GetFormattedChapterAnnouncement, refText.Versification, s_existingEnglish.Versification, true);
+							s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
 							var bookXmlFile = FileLocator.GetFileDistributedWithApplication(ReferenceText.kDistFilesReferenceTextDirectoryName, language.ToString(), Path.ChangeExtension(book.BookId, "xml"));
 							XmlSerializationHelper.SerializeToFile(bookXmlFile, book, out error);
 						}
