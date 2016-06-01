@@ -420,7 +420,9 @@ namespace Glyssen
 			else if (characterList.Count == 0)
 			{
 				CharacterId = CharacterVerseData.UnknownCharacter;
+				CharacterIdOverrideForScript = null;
 				Delivery = null;
+				UserConfirmed = false;
 			}
 			else
 			{
@@ -434,7 +436,9 @@ namespace Glyssen
 				else
 				{
 					CharacterId = CharacterVerseData.AmbiguousCharacter;
+					CharacterIdOverrideForScript = null;
 					Delivery = null;
+					UserConfirmed = false;
 				}
 			}
 		}

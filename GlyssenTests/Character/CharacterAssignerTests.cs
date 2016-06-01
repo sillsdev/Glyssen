@@ -28,6 +28,9 @@ namespace GlyssenTests.Character
 	<block style=""p"" chapter=""1"" initialStartVerse=""5"" characterId=""Thomas/Andrew/Bartholomew"" userConfirmed=""true"">
 		<text>«Gobbledy-gook» </text>
 	</block>
+	<block style=""p"" chapter=""1"" initialStartVerse=""6"" characterId=""Soup"" userConfirmed=""true"">
+		<text>«Blah blah blah» </text>
+	</block>
 </book>";
 
 			return XmlSerializationHelper.DeserializeFromString<BookScript>(bookScript);
@@ -76,6 +79,7 @@ namespace GlyssenTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false) });
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 5), "King Saul", null, null, false) });
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, true);
 			Assert.AreEqual("John the Baptist", bookScript[1].CharacterId);
 			Assert.AreEqual("King Saul", bookScript[2].CharacterId);
@@ -88,6 +92,7 @@ namespace GlyssenTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "Thomas/Andrew/Bartholomew", null, null, false, QuoteType.Normal, "Andrew") });
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 5), "James/John", null, null, false) });
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, true, true);
 			Assert.AreEqual("Thomas/Andrew/Bartholomew", bookScript[1].CharacterId);
 			Assert.AreEqual("Andrew", bookScript[1].CharacterIdInScript);
@@ -134,8 +139,32 @@ namespace GlyssenTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "John the Baptist", null, null, false) });
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 5), "King Saul", null, null, false) });
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, true);
 			Assert.AreEqual("narrator-MRK", bookScript[0].CharacterId);
+		}
+
+		[Test]
+		public void AssignAll_ContainsSimpleQuoteWithNoCharactersAndSimpleQuoteWithMoreThanOneCharacter_PerformsCleanUpByAssigningBlocksToUnknownAndAmbiguousAndUserConfirmedToFalse()
+		{
+			var bookScript = GetSimpleBookScript();
+			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new List<CharacterVerse>());
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 5, 0, 5, ScrVers.English)).Return(new[]
+			{
+				new CharacterVerse(new BCVRef(41, 1, 5), "John the Baptist", null, null, false),
+				new CharacterVerse(new BCVRef(41, 1, 5), "King Saul", null, null, false)
+			});
+			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 6, 0, 6, ScrVers.English)).Return(new List<CharacterVerse>());
+
+			Assert.True(bookScript[2].UserConfirmed);
+			Assert.True(bookScript[3].UserConfirmed);
+
+			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, true);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, bookScript[2].CharacterId);
+			Assert.False(bookScript[2].UserConfirmed);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, bookScript[3].CharacterId);
+			Assert.False(bookScript[3].UserConfirmed);
 		}
 
 		[Test]
@@ -145,9 +174,13 @@ namespace GlyssenTests.Character
 			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 4, 0, 4, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 4), "irrelevant", null, null, false) });
 			cvInfo.Stub(x => x.GetCharacters("MRK", 1, 5, 0, 5, ScrVers.English)).Return(new[] { new CharacterVerse(new BCVRef(41, 1, 5), "irrelevant", null, null, false) });
+
+			Assert.True(bookScript[0].UserConfirmed);
+			Assert.True(bookScript[1].UserConfirmed);
+
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, false);
-			Assert.AreEqual("Ambiguous", bookScript[0].CharacterId);
-			Assert.AreEqual("Ambiguous", bookScript[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, bookScript[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, bookScript[1].CharacterId);
 			Assert.AreEqual("firstCharacter", bookScript[2].CharacterId);
 			Assert.AreEqual("firstCharacter", bookScript[3].CharacterId);
 			Assert.False(bookScript[0].UserConfirmed);

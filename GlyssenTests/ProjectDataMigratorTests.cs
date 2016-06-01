@@ -536,23 +536,31 @@ namespace GlyssenTests
 		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
+			block1.UserConfirmed = true;
 			block1.CharacterId = unclearCharacterId;
 			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
 			Assert.AreEqual("Andrew", block1.CharacterIdInScript);
 
 			var block2 = CreateTestBlock("Peter");
+			block2.UserConfirmed = true;
 			block2.CharacterId = unclearCharacterId;
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 
 			var book = new BookScript { Blocks = new List<Block> { block1, block2 } };
 			var books = new List<BookScript> { book };
+
+			Assert.True(block1.UserConfirmed);
+			Assert.True(block2.UserConfirmed);
+
 			ProjectDataMigrator.MigrateInvalidCharacterIdForScriptData(books);
 
 			Assert.AreEqual(unclearCharacterId, block1.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block1.CharacterIdInScript);
+			Assert.False(block1.UserConfirmed);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block2.CharacterIdInScript);
+			Assert.False(block2.UserConfirmed);
 		}
 
 		[Test]
@@ -562,13 +570,16 @@ namespace GlyssenTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var johnSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(1);
 			johnSpeakingInRev714.SetCharacterAndCharacterIdInScript("John", 66);
+			johnSpeakingInRev714.UserConfirmed = true;
 			var elderSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(3);
 			elderSpeakingInRev714.SetCharacterAndCharacterIdInScript("elders, one of the", 66);
+			Assert.True(johnSpeakingInRev714.UserConfirmed);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
 			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, johnSpeakingInRev714.CharacterId);
 			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, johnSpeakingInRev714.CharacterIdInScript);
+			Assert.False(johnSpeakingInRev714.UserConfirmed);
 			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterId);
 			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterIdInScript);
 		}
@@ -618,16 +629,35 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void MigrateDeprecatedCharacterIds_CharacterIdRemoved_CharacterIdInScriptSetToUnknown()
+		public void MigrateDeprecatedCharacterIds_CharacterIdRemoved_NoOtherCharactersInVerse_CharacterIdInScriptSetToUnknown()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var blockInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
 			blockInRev711.SetCharacterAndCharacterIdInScript("angels, all the", 66);
+			blockInRev711.CharacterIdOverrideForScript = "angels, all, the";
+			Assert.AreEqual("angels, all, the", blockInRev711.CharacterIdInScript);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
 			Assert.AreEqual(CharacterVerseData.UnknownCharacter, blockInRev711.CharacterId);
+			Assert.AreEqual(CharacterVerseData.UnknownCharacter, blockInRev711.CharacterIdInScript);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_CharacterIdRemoved_MultipleCharactersStillInVerse_CharacterIdInScriptSetToAmbiguous()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var blockInRev13V10 = testProject.IncludedBooks.Single().GetBlocksForVerse(13, 10).First();
+			blockInRev13V10.SetCharacterAndCharacterIdInScript("angels, all the", 66);
+			blockInRev13V10.CharacterIdOverrideForScript = "angels, all, the";
+			Assert.AreEqual("angels, all, the", blockInRev13V10.CharacterIdInScript);
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, blockInRev13V10.CharacterId);
+			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
 		}
 
 		/// <summary>
