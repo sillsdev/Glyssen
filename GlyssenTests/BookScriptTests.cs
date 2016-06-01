@@ -1619,6 +1619,19 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void TrySplitBlockAtEndOfVerse_NoVerseElementsInBlock_ReturnsFalse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
+			blockToSplit.BlockElements.Add(new ScriptText("Blah."));
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
+			Assert.AreEqual(2, bookScript.GetScriptBlocks().Count);
+		}
+
+		[Test]
 		public void TrySplitBlockAtEndOfVerse_BlockStartsInTheMiddleOfAVerseBridgeThatEndsWithTheVerseNumberToSplitAfter_SplitsAtEndOfVerseBridge()
 		{
 			var mrkBlocks = new List<Block>();
@@ -1636,6 +1649,74 @@ namespace GlyssenTests
 			Assert.AreEqual("This is the remainder of the verse bridge in the block to split. ", blocks[2].GetText(true));
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual(2, blocks[2].InitialEndVerseNumber);
+			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[3].GetText(true));
+			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
+			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);
+		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_VerseToSplitAfterHasABridgeAndASubVerseLetter_SplitsAtEndOfLastPartOfVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1, 2) { IsParagraphStart = true }.AddVerse(
+				"1-2a", "This is the bridge that has the first part of verse 2. ")
+				.AddVerse("2b", "This is the rest of verse two. ")
+				.AddVerse("3", "This is the text of the following verse.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual("[1-2a]\u00A0This is the bridge that has the first part of verse 2. [2b]\u00A0This is the rest of verse two. ",
+				blocks[1].GetText(true));
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(2, blocks[1].InitialEndVerseNumber);
+			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[2].GetText(true));
+			Assert.AreEqual(3, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual(0, blocks[2].InitialEndVerseNumber);
+		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_VerseToSplitAfterHasABridgeAndASubVerseLetterButSecondOPartOfVerseIsInFollowingBlock_ReturnsFalse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1, 2) { IsParagraphStart = true }
+				.AddVerse("1-2a", "This is the bridge that has the first part of verse 2. ");
+			mrkBlocks.Add(blockToSplit);
+			var followingBlock = new Block("p", m_curSetupChapter, 2) { CharacterId = "Jesus" }
+				.AddVerse("2b", "This is the rest of verse two. ")
+				.AddVerse("3", "This is the text of the following verse.");
+			mrkBlocks.Add(followingBlock);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
+			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
+		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_VerseToSplitBeginsWithSecondOPartOfVerseToSplit_SplitsAtEndOfLastPartOfVerse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var precedingBlock = new Block("p", m_curSetupChapter, 1, 2) { IsParagraphStart = true }
+				.AddVerse("1-2a", "This is the bridge that has the first part of verse 2. ");
+			mrkBlocks.Add(precedingBlock);
+			var blockToSplit = new Block("p", m_curSetupChapter, 2) { CharacterId = "Jesus" }
+				.AddVerse("2b", "This is the rest of verse two. ")
+				.AddVerse("3", "This is the text of the following verse.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual("[1-2a]\u00A0This is the bridge that has the first part of verse 2. ",
+				blocks[1].GetText(true));
+			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
+			Assert.AreEqual(2, blocks[1].InitialEndVerseNumber);
+			Assert.AreEqual("[2b]\u00A0This is the rest of verse two. ", blocks[2].GetText(true));
+			Assert.AreEqual(2, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual(0, blocks[2].InitialEndVerseNumber);
 			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[3].GetText(true));
 			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);

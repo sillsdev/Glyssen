@@ -178,7 +178,7 @@ namespace Glyssen
 
 		private readonly ReferenceTextType m_referenceTextType;
 
-		private ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
+		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;
@@ -217,37 +217,33 @@ namespace Glyssen
 				else
 				{
 					var clone = book.Clone(true);
-					ApplyTo(clone, referenceBook.GetScriptBlocks(), GetFormattedChapterAnnouncement, project.Versification, Versification);
+					ApplyTo(clone, project.Versification);
 					yield return clone;
 				}
 			}
 		}
 
-		public static void ApplyTo(BookScript vernacularBook, IEnumerable<Block> referenceTextBlocks,
-			Func<string, int, string> formatReferenceTextChapterAnnouncement,
-			ScrVers vernacularVersification, ScrVers referenceVersification, bool oneToOneMatchingOnly = false)
+		public void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification, bool oneToOneMatchingOnly = false)
 		{
-			var refBlockList = referenceTextBlocks.ToList();
-
 			if (!oneToOneMatchingOnly)
-				SplitVernBlocksToMatchReferenceText(vernacularBook, refBlockList, vernacularVersification, referenceVersification);
+				SplitVernBlocksToMatchReferenceText(vernacularBook, vernacularVersification);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook, refBlockList, formatReferenceTextChapterAnnouncement, vernacularVersification, referenceVersification, oneToOneMatchingOnly);
+			MatchVernBlocksToReferenceTextBlocks(vernacularBook, vernacularVersification, oneToOneMatchingOnly);
 		}
 
-		private static void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, List<Block> refBlockList,
-			Func<string, int, string> formatReferenceTextChapterAnnouncement,
-			ScrVers vernacularVersification, ScrVers referenceVersification, bool oneToOneMatchingOnly)
+		private void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, ScrVers vernacularVersification, bool oneToOneMatchingOnly)
 		{
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
 			var vernBlockList = vernacularBook.GetScriptBlocks();
+			var refBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+			var refBlockList = refBook.GetScriptBlocks();
 
 			for (int iVernBlock = 0, iRefBlock = 0; iVernBlock < vernBlockList.Count && iRefBlock < refBlockList.Count; iVernBlock++, iRefBlock++)
 			{
 				var currentVernBlock = vernBlockList[iVernBlock];
 				var currentRefBlock = refBlockList[iRefBlock];
 				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
-				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, referenceVersification);
+				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, Versification);
 
 				if (oneToOneMatchingOnly)
 				{
@@ -263,7 +259,7 @@ namespace Glyssen
 						if (currentVernBlock.IsChapterAnnouncement)
 						{
 							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
-							refChapterBlock.BlockElements.Add(new ScriptText(formatReferenceTextChapterAnnouncement(vernacularBook.BookId, currentVernBlock.ChapterNumber)));
+							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(vernacularBook.BookId, currentVernBlock.ChapterNumber)));
 							if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
 								refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
@@ -308,10 +304,10 @@ namespace Glyssen
 				var vernInitEndVerse = (currentVernBlock.InitialEndVerseNumber == 0) ? vernInitStartVerse :
 					new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialEndVerseNumber, vernacularVersification);
 				var refInitEndVerse = (currentRefBlock.InitialEndVerseNumber == 0) ? refInitStartVerse :
-					new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialEndVerseNumber, referenceVersification);
+					new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialEndVerseNumber, Versification);
 
 				FindAllScriptureBlocksThroughVerse(vernBlockList, vernInitEndVerse, ref iVernBlock, bookNum, vernacularVersification);
-				FindAllScriptureBlocksThroughVerse(refBlockList, vernInitEndVerse, ref iRefBlock, bookNum, referenceVersification);
+				FindAllScriptureBlocksThroughVerse(refBlockList, vernInitEndVerse, ref iRefBlock, bookNum, Versification);
 
 				int numberOfVernBlocksInVerse = iVernBlock - indexOfVernVerseStart + 1;
 				int numberOfRefBlocksInVerse = iRefBlock - indexOfRefVerseStart + 1;
@@ -348,15 +344,15 @@ namespace Glyssen
 			}
 		}
 
-		private static void SplitVernBlocksToMatchReferenceText(BookScript vernacularBook, List<Block> refBlockList,
-			ScrVers vernacularVersification, ScrVers referenceVersification)
+		private void SplitVernBlocksToMatchReferenceText(BookScript vernacularBook, ScrVers vernacularVersification)
 		{
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
 
 			var versesToSplitAfter = new List<VerseRef>();
 			var versesToSplitBefore = new List<VerseRef>();
 			Block prevBlock = null;
-			foreach (var refBlock in refBlockList)
+			foreach (var refBlock in referenceBook.GetScriptBlocks())
 			{
 				if (prevBlock == null)
 				{
@@ -365,8 +361,8 @@ namespace Glyssen
 				}
 				if (refBlock.BlockElements.First() is Verse)
 				{
-					versesToSplitAfter.Add(new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerse, referenceVersification));
-					versesToSplitBefore.Add(new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, referenceVersification));
+					versesToSplitAfter.Add(new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerse, Versification));
+					versesToSplitBefore.Add(new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification));
 				}
 				prevBlock = refBlock;
 			}
@@ -402,6 +398,9 @@ namespace Glyssen
 					vernacularVersification.ChangeVersification(verseToSplitAfter);
 					if (!vernacularBook.TrySplitBlockAtEndOfVerse(vernBlock, verseToSplitAfter.VerseNum))
 					{
+						ErrorReport.NotifyUserOfProblem("Attempt to split vernacular block to match breaks in the {0} text failed. Book: {1}; Verse: {2}; Block: {3}",
+							LanguageName, vernacularBook.BookId, verseToSplitAfter.VerseNum, vernBlock.GetText(true));
+
 						if (iSplit == versesToSplitAfter.Count - 1)
 							return;
 						verseToSplitAfter = versesToSplitAfter[++iSplit];

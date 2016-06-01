@@ -144,9 +144,6 @@ namespace Glyssen.Bundle
 		[DefaultValue("English")]
 		public string Versification;
 
-		/// <summary>
-		/// If a project does not come with a versification file, this is the name of the standard versification to be used.
-		/// </summary>
 		[XmlAttribute("chapterannouncement")]
 		[DefaultValue(ChapterAnnouncement.PageHeader)]
 		public ChapterAnnouncement ChapterAnnouncementStyle;
