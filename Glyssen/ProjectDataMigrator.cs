@@ -37,8 +37,10 @@ namespace Glyssen
 				{
 					MigrateInvalidMultiBlockQuoteData(project.Books);
 					CleanUpOrphanedMultiBlockQuoteStati(project.Books);
-					MigrateInvalidCharacterIdForScriptData(project.Books);
 				}
+				if (fromControlFileVersion < 102)
+					MigrateInvalidCharacterIdForScriptData(project.Books);
+
 				MigrateDeprecatedCharacterIds(project);
 			}
 
@@ -144,6 +146,7 @@ namespace Glyssen
 				block.CharacterIdOverrideForScript != null)))
 			{
 				block.CharacterIdInScript = null;
+				block.UserConfirmed = false;
 			}
 		}
 
