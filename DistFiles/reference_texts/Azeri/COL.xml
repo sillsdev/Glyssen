@@ -412,8 +412,8 @@
     <verse num="20" />
     <text>Mәsihlә birgә ölüb dünyanın ibtidai tәlimlәrindәn qurtulduğunuz halda nә üçün dünyadakılar kimi yaşayaraq</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

@@ -778,8 +778,8 @@
     <verse num="17" />
     <text>Pois o tempo de começar o julgamento já chegou, e os que pertencem ao povo de Deus serão os primeiros a serem julgados. Se esse julgamento vai começar conosco, qual será o fim daqueles que não crêem no evangelho de Deus? Como dizem as Escrituras Sagradas:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
       <verse num="18" />
       <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
     </ReferenceBlocks>

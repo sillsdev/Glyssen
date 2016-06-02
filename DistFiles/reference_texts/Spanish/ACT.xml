@@ -2767,8 +2767,8 @@
     <verse num="6" />
     <text>Saulo preguntó:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled" userConfirmed="true">
       <text>“Lord, what should I do?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt; &lt;&lt;¿Qué quires que yo haga? &gt;&gt;</text>

@@ -778,8 +778,8 @@
     <verse num="17" />
     <text>Taim bilong God i kirapim kot long yumi ol lain bilong em yet, dispela taim i kamap pinis. Na sapos kot i stat long yumi pastaim, orait bai em i pinis olsem wanem long ol man i save sakim gutnius bilong God? Buk bilong God i tok olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
       <verse num="18" />
       <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
     </ReferenceBlocks>

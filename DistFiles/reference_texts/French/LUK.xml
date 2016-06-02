@@ -1367,8 +1367,8 @@
     <verse num="15" />
     <text>Le peuple attend ce qui va arriver, et tous se demandent en eux-mêmes :</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
       <text>Could John be the Messiah?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jean est peut-être le Messie?&gt;&gt;</text>
@@ -8411,8 +8411,8 @@
     <verse num="43" />
     <text>Et aussitôt, l'aveugle voit comme avant. Il suit Jésus en disant:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Gloire à Dieu!&gt;&gt;</text>
