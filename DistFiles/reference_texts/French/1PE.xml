@@ -778,8 +778,8 @@
     <verse num="17" />
     <text>Oui, c'est le début du jugement, et il commence par la famille de Dieu. S'il commence par nous, qu'est-ce qui va arriver à la fin à ceux qui ne veulent pas croire à la Bonne Nouvelle de Dieu?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
       <verse num="18" />
       <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
     </ReferenceBlocks>

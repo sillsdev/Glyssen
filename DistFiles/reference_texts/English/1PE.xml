@@ -389,7 +389,7 @@
     <verse num="17" />
     <text>For the time has come for judgment to begin with the household of God. If it begins first with us, what will happen to those who don't obey the Good News of God?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
     <verse num="18" />
     <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
   </block>

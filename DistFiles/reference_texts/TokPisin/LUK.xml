@@ -1367,8 +1367,8 @@
     <verse num="15" />
     <text>Ol manmeri i lukim ol dispela samting na bel bilong ol i kirap na ol i tingting planti olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
       <text>Could John be the Messiah?</text>
     </ReferenceBlocks>
     <text>"Ating Jon em i dispela man God i makim bilong kisim bek ol manmeri bilong en?"</text>
@@ -8411,8 +8411,8 @@
     <verse num="43" />
     <text>Na wantu tasol ai bilong en i orait na em i lukluk. Na em i bihainim Jisas i go, na em i litimapim nem bilong God.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
     <text>…</text>

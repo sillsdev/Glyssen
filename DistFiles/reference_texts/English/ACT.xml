@@ -1384,7 +1384,7 @@
     <verse num="6" />
     <text>And he trembling and astonished said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled" userConfirmed="true">
     <text>“Lord, what should I do?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="narrator-ACT">

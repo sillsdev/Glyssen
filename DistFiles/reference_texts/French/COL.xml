@@ -412,8 +412,8 @@
     <verse num="20" />
     <text>Vous êtes morts avec le Christ, et les forces du monde ne comptent plus pour vous. Mais vous faites comme si votre vie était encore sous le pouvoir de ces choses-là. Pourquoi est-ce que vous obéissez à ces règles:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

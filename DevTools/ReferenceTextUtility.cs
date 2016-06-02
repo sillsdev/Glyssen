@@ -38,6 +38,8 @@ namespace DevTools
 		// (this is not a const to prevent compiler warnings)
 		private static readonly bool s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish = false;
 
+		private static readonly bool s_onlyCreateCharacterMapping = false;
+
 		static ReferenceTextUtility()
 		{
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
@@ -59,10 +61,32 @@ namespace DevTools
 			public List<TitleAndChapterLabelInfo> Details { get { return m_details; } }
 		}
 
+		private class CharacterMapping
+		{
+			public CharacterMapping(string glyssenId, string fcbhId, BCVRef verse)
+			{
+				GlyssenId = glyssenId;
+				FcbhId = fcbhId;
+				Verse = verse;
+			}
+
+			private string GlyssenId { get; set; }
+			private string FcbhId { get; set; }
+			private BCVRef Verse { get; set; }
+
+			public override string ToString()
+			{
+				return string.Format("{0}\t{1}\t{2}", Verse.AsString, GlyssenId, FcbhId);
+			}
+		}
+
 		public static bool GenerateReferenceTexts()
 		{
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			var pathToFCBHDirGuide = Path.Combine(myDocuments, "Protoscript Generator", "DGNTAllSimplified_71.xlsx");
+			var characterMappings = new List<CharacterMapping>();
+			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
+			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
 
 			if (!File.Exists(pathToFCBHDirGuide))
 			{
@@ -313,9 +337,29 @@ namespace DevTools
 					}
 					else
 					{
+						if (s_onlyCreateCharacterMapping)
+						{
+							if (!CharacterVerseData.IsCharacterOfType(block.CharacterId, CharacterVerseData.StandardCharacter.Narrator) || !referenceTextRow.CharacterId.StartsWith("Narr_0"))
+							{
+								var verse = new BCVRef(BCVRef.BookToNumber(existingBook.BookId), int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse));
+								characterMappings.Add(new CharacterMapping(block.CharacterId, referenceTextRow.CharacterId, verse));
+
+								SortedSet<string> fcbhIds;
+								if (glyssenToFcbhIds.TryGetValue(block.CharacterId, out fcbhIds))
+									fcbhIds.Add(referenceTextRow.CharacterId);
+								else
+									glyssenToFcbhIds.Add(block.CharacterId, new SortedSet<string> { referenceTextRow.CharacterId });
+
+								SortedSet<string> glyssenIds;
+								if (fcbhToGlyssenIds.TryGetValue(referenceTextRow.CharacterId, out glyssenIds))
+									glyssenIds.Add(block.CharacterId);
+								else
+									fcbhToGlyssenIds.Add(referenceTextRow.CharacterId, new SortedSet<string> { block.CharacterId });
+							}
+							continue;
+						}
+
 						string originalText = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
-						//var modifiedText = Regex.Replace(originalText, " \\|\\|\\|.*?\\|\\|\\| ", "");
-						//modifiedText = Regex.Replace(modifiedText, "{(\\d*?)} ", "[$1]\u00A0");
 						var modifiedText = Regex.Replace(originalText, "{(\\d*?)} ?", "[$1]\u00A0");
 						var modifiedTextWithoutAnnotations = Regex.Replace(modifiedText, " \\|\\|\\|.*?\\|\\|\\| ", "");
 						modifiedTextWithoutAnnotations = Regex.Replace(modifiedTextWithoutAnnotations, "{.*?}", "");
@@ -340,7 +384,7 @@ namespace DevTools
 								if (string.IsNullOrWhiteSpace(split))
 								{
 									if (splits.Length == 1)
-										Debug.Fail(""); //newBlock.BlockElements.Add(new ScriptText(" ")));
+										Debug.Fail("");
 									continue;
 								}
 								var match = Regex.Match(split, "\\[(\\d*?)\\]\u00A0");
@@ -423,6 +467,13 @@ namespace DevTools
 					}
 					prevBook = referenceTextRow.Book;
 				}
+
+				if (s_onlyCreateCharacterMapping)
+				{
+					WriteCharacterMappingFile(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
+					return true;
+				}
+
 				if (s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish)
 					return true;
 				newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = chapterLabel });
@@ -432,6 +483,7 @@ namespace DevTools
 					XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
 				}
 			}
+
 			WriteAnnotationsFile(annotationsToOutput);
 
 			if (!errorsOccurred)
@@ -460,6 +512,38 @@ namespace DevTools
 				return LinkToEnglish();
 			}
 			return !errorsOccurred;
+		}
+
+		private static void WriteCharacterMappingFile(List<CharacterMapping> characterMappings, SortedDictionary<string, SortedSet<string>> glyssenToFcbhIds, SortedDictionary<string, SortedSet<string>> fcbhToGlyssenIds)
+		{
+			const string kOutputDirForCharacterMapping = @"..\..\DevTools\Resources\temporary";
+			const string kOutputFileForCharacterMapping = @"CharacterMappingToFcbh.txt";
+			const string kOutputFileForGlyssenToFcbhMultiMap = @"GlyssenToFcbhMultiMap.txt";
+			const string kOutputFileForFcbhToGlyssenMultiMap = @"FcbhToGlyssenMultiMap.txt";
+
+			Directory.CreateDirectory(kOutputDirForCharacterMapping);
+			var sb = new StringBuilder();
+			foreach (CharacterMapping characterMapping in characterMappings)
+				sb.Append(characterMapping).Append(Environment.NewLine);
+			File.WriteAllText(Path.Combine(kOutputDirForCharacterMapping, kOutputFileForCharacterMapping), sb.ToString());
+
+			sb.Clear();
+			foreach (var glyssenToFcbhIdsEntry in glyssenToFcbhIds)
+				if (glyssenToFcbhIdsEntry.Value.Count > 1 ||
+					CharacterVerseData.IsCharacterOfType(glyssenToFcbhIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
+					glyssenToFcbhIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
+				{
+					sb.Append(string.Format("{0}\t{1}", glyssenToFcbhIdsEntry.Key, glyssenToFcbhIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
+				}
+			File.WriteAllText(Path.Combine(kOutputDirForCharacterMapping, kOutputFileForGlyssenToFcbhMultiMap), sb.ToString());
+
+			sb.Clear();
+			foreach (var fcbhToGlyssenIdsEntry in fcbhToGlyssenIds)
+				if (fcbhToGlyssenIdsEntry.Value.Count > 1 ||
+					CharacterVerseData.IsCharacterOfType(fcbhToGlyssenIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
+					fcbhToGlyssenIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
+					sb.Append(string.Format("{0}\t{1}", fcbhToGlyssenIdsEntry.Key, fcbhToGlyssenIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
+			File.WriteAllText(Path.Combine(kOutputDirForCharacterMapping, kOutputFileForFcbhToGlyssenMultiMap), sb.ToString());
 		}
 
 		private static void WriteAnnotationsFile(List<string> annotationsToOutput)
@@ -736,6 +820,18 @@ namespace DevTools
 		public override string ToString()
 		{
 			return string.Format("{0} {1} {2} {3} {4}", Book, Chapter, Verse, CharacterId, English);
+		}
+	}
+
+	static class Extensions
+	{
+		public static string TabSeparated(this SortedSet<string> strings)
+		{
+			var sb = new StringBuilder();
+			foreach (var str in strings)
+				sb.Append(str).Append("\t");
+			sb.Length--;
+			return sb.ToString();
 		}
 	}
 }

@@ -1368,8 +1368,8 @@
     <verse num="15" />
     <text>Когда же народ был в ожидании, и все помышляли в сердцах своих об Иоанне,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
       <text>Could John be the Messiah?</text>
     </ReferenceBlocks>
     <text>не Христос ли он, —</text>
@@ -8413,8 +8413,8 @@
     <verse num="43" />
     <text>И он тотчас прозрел и пошел за Ним, и сказал:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
     <text>“Слава Богу!”</text>
