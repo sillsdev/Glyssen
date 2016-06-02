@@ -181,9 +181,6 @@ namespace GlyssenTests
 					new Block("p", 1, 5) {CharacterId = narrator }.AddVerse("5", "E ").AddVerse("6", "F"),
 				});
 
-			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(new GlyssenDblTextMetadata());
-			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
-			var books = (List<BookScript>)primaryReferenceText.Books;
 			var blocks = new List<Block>
 			{
 				new Block("p", 1, 1) { CharacterId = narrator }.AddVerse("1", "Ayy"),
@@ -204,8 +201,7 @@ namespace GlyssenTests
 					secondaryRefBlock.BlockElements = new List<BlockElement> { new ScriptText("the angel named Mike verbalized.") };
 				refBlock.SetMatchedReferenceBlock(secondaryRefBlock);
 			}
-			var refBook = new BookScript("JUD", blocks);
-			books.Add(refBook);
+			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("JUD", blocks);
 			project.ReferenceText = primaryReferenceText;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData().ToList();
