@@ -11,7 +11,6 @@ using Paratext;
 using SIL.Reporting;
 using SIL.IO;
 using SIL.Scripture;
-using SIL.Windows.Forms.Scripture;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
@@ -19,6 +18,7 @@ namespace Glyssen
 {
 	public enum ReferenceTextType
 	{
+		Unknown,
 		English,
 		Azeri,
 		French,
@@ -43,7 +43,7 @@ namespace Glyssen
 		{
 			ReferenceText referenceText;
 			if (s_standardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
-				referenceText.LoadBooks(true);
+				referenceText.ReloadModifiedBooks();
 			else
 			{
 				ScrVers versification;
@@ -109,33 +109,38 @@ namespace Glyssen
 			return fileName != null ? XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName) : null;
 		}
 
-		private void LoadBooks(bool reload = false)
+		private string[] BookScriptFiles { get { return Directory.GetFiles(ProjectFolder, "???" + kBookScriptFileExtension); } }
+
+		private void LoadBooks()
 		{
-			var files = Directory.GetFiles(ProjectFolder, "???" + kBookScriptFileExtension);
-			if (reload)
+			var files = BookScriptFiles;
+
+			for (int i = 1; i <= BCVRef.LastBook; i++)
 			{
-				for (int i = 1; i <= m_books.Count; i++)
-				{
-					var bookId = m_books[i].BookId;
-					if (m_modifiedBooks.Contains(bookId))
-					{
-						var bookScript = TryLoadBook(files, bookId);
-						Debug.Assert(bookScript != null);
-						m_books[i] = bookScript;
-					}
-				}
-				m_modifiedBooks.Clear();
+				string bookCode = BCVRef.NumberToBookCode(i);
+				var bookScript = TryLoadBook(files, bookCode);
+				if (bookScript != null)
+					m_books.Add(bookScript);
 			}
-			else
+		}
+
+		private void ReloadModifiedBooks()
+		{
+			if (!m_modifiedBooks.Any())
+				return;
+
+			var files = BookScriptFiles;
+			for (int i = 0; i < m_books.Count; i++)
 			{
-				for (int i = 1; i <= BCVRef.LastBook; i++)
+				var bookId = m_books[i].BookId;
+				if (m_modifiedBooks.Contains(bookId))
 				{
-					string bookCode = BCVRef.NumberToBookCode(i);
-					var bookScript = TryLoadBook(files, bookCode);
-					if (bookScript != null)
-						m_books.Add(bookScript);
+					var bookScript = TryLoadBook(files, bookId);
+					Debug.Assert(bookScript != null);
+					m_books[i] = bookScript;
 				}
 			}
+			m_modifiedBooks.Clear();
 		}
 
 		public static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
@@ -156,7 +161,7 @@ namespace Glyssen
 
 				foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
 				{
-					if (itm == ReferenceTextType.Custom) continue;
+					if (itm == ReferenceTextType.Custom || itm == ReferenceTextType.Unknown) continue;
 
 					var metadata = LoadMetadata(itm, (exception, token, path) =>
 					{
@@ -254,6 +259,8 @@ namespace Glyssen
 		{
 			if (!oneToOneMatchingOnly)
 			{
+				ReloadModifiedBooks();
+
 				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
 				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
 
@@ -333,7 +340,7 @@ namespace Glyssen
 				{
 					iRefBlock++;
 					currentRefBlock = refBlockList[iRefBlock];
-					refInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, vernacularVersification);
+					refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, vernacularVersification);
 				}
 
 				var indexOfVernVerseStart = iVernBlock;
@@ -476,7 +483,8 @@ namespace Glyssen
 			{
 				if (m_projectFolder == null)
 				{
-					Debug.Assert(m_referenceTextType != ReferenceTextType.Custom);
+					if (m_referenceTextType == ReferenceTextType.Custom || m_referenceTextType == ReferenceTextType.Unknown)
+						throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
 					m_projectFolder = FileLocator.GetDirectoryDistributedWithApplication(kDistFilesReferenceTextDirectoryName,
 						m_referenceTextType.ToString());
 				}

@@ -29,8 +29,6 @@ namespace Glyssen
 		{
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName;
-			if (File.Exists(VersificationFilePath))
-				m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public IReadOnlyList<BookScript> Books { get { return m_books; } }

@@ -1157,6 +1157,34 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ApplyTo_StandardReferenceTextSplitToMatchVernacular_ModifiedBooksGetReloadedWhenStandardReferenceTextIsGottenAgain()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
+				"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
+				"gubino i Jerucalem, kun gipenyo ni, ", true, 2));
+			vernacularBlocks.Add(CreateBlockForVerse("magi (wise men from East)", 2,
+				"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
+				"ci man wabino ka wore.”", true, 2));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var origBlockCountForMatthew = refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count;
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(2, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+
+			Assert.AreNotEqual(origBlockCountForMatthew, refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
+			
+			Assert.AreEqual(origBlockCountForMatthew,
+				ReferenceText.GetStandardReferenceText(ReferenceTextType.English).Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
+		}
+
+		[Test]
 		public void ApplyTo_FirstTwoVersesLinkedNtoM_RemainingVersesMatchedCorrectly()
 		{
 			//Acholi MAT 9:23-26
