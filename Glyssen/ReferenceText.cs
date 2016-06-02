@@ -11,6 +11,7 @@ using Paratext;
 using SIL.Reporting;
 using SIL.IO;
 using SIL.Scripture;
+using SIL.Windows.Forms.Scripture;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
@@ -32,13 +33,18 @@ namespace Glyssen
 	public class ReferenceText : ProjectBase
 	{
 		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
+		private readonly ReferenceTextType m_referenceTextType;
+		private string m_projectFolder;
+		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
 		private static readonly Dictionary<ReferenceTextType, ReferenceText> s_standardReferenceTexts = new Dictionary<ReferenceTextType, ReferenceText>();
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			ReferenceText referenceText;
-			if (!s_standardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
+			if (s_standardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
+				referenceText.LoadBooks(true);
+			else
 			{
 				ScrVers versification;
 				switch (referenceTextType)
@@ -69,10 +75,10 @@ namespace Glyssen
 			return new ReferenceText(metadata, ReferenceTextType.Custom);
 		}
 
-		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType, out string referenceProjectFilePath,
+		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
 			Action<Exception, string, string> reportError = null)
 		{
-			referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
+			var referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
 			Exception exception;
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
 			if (exception != null)
@@ -86,26 +92,50 @@ namespace Glyssen
 
 		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
 		{
-			string referenceProjectFilePath;
-			var metadata = LoadMetadata(referenceTextType, out referenceProjectFilePath, (exception, token, path) =>
+			var metadata = LoadMetadata(referenceTextType, (exception, token, path) =>
 			{
 				Analytics.ReportException(exception);
 				ReportNonFatalLoadError(exception, token, path);
 			});
 
 			var referenceText = new ReferenceText(metadata, referenceTextType);
-
-			var projectDir = Path.GetDirectoryName(referenceProjectFilePath);
-			Debug.Assert(projectDir != null);
-			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				string possibleFileName = Path.Combine(projectDir, bookCode + kBookScriptFileExtension);
-				if (files.Contains(possibleFileName))
-					referenceText.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
-			}
+			referenceText.LoadBooks();
 			return referenceText;
+		}
+
+		private BookScript TryLoadBook(string[] files, string bookCode)
+		{
+			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + kBookScriptFileExtension);
+			return fileName != null ? XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName) : null;
+		}
+
+		private void LoadBooks(bool reload = false)
+		{
+			var files = Directory.GetFiles(ProjectFolder, "???" + kBookScriptFileExtension);
+			if (reload)
+			{
+				for (int i = 1; i <= m_books.Count; i++)
+				{
+					var bookId = m_books[i].BookId;
+					if (m_modifiedBooks.Contains(bookId))
+					{
+						var bookScript = TryLoadBook(files, bookId);
+						Debug.Assert(bookScript != null);
+						m_books[i] = bookScript;
+					}
+				}
+				m_modifiedBooks.Clear();
+			}
+			else
+			{
+				for (int i = 1; i <= BCVRef.LastBook; i++)
+				{
+					string bookCode = BCVRef.NumberToBookCode(i);
+					var bookScript = TryLoadBook(files, bookCode);
+					if (bookScript != null)
+						m_books.Add(bookScript);
+				}
+			}
 		}
 
 		public static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
@@ -128,8 +158,7 @@ namespace Glyssen
 				{
 					if (itm == ReferenceTextType.Custom) continue;
 
-					string refProjectPath;
-					var metadata = LoadMetadata(itm, out refProjectPath, (exception, token, path) =>
+					var metadata = LoadMetadata(itm, (exception, token, path) =>
 					{
 						Analytics.ReportException(exception);
 						if (firstLoadError == null)
@@ -175,8 +204,6 @@ namespace Glyssen
 				LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
 				token, path);
 		}
-
-		private readonly ReferenceTextType m_referenceTextType;
 
 		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
 			: base(metadata, referenceTextType.ToString())
@@ -226,7 +253,17 @@ namespace Glyssen
 		public void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification, bool oneToOneMatchingOnly = false)
 		{
 			if (!oneToOneMatchingOnly)
-				SplitVernBlocksToMatchReferenceText(vernacularBook, vernacularVersification);
+			{
+				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+
+				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+				var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
+				MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
+
+				if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
+					m_modifiedBooks.Add(referenceBook.BookId);
+			}
 
 			MatchVernBlocksToReferenceTextBlocks(vernacularBook, vernacularVersification, oneToOneMatchingOnly);
 		}
@@ -344,75 +381,107 @@ namespace Glyssen
 			}
 		}
 
-		private void SplitVernBlocksToMatchReferenceText(BookScript vernacularBook, ScrVers vernacularVersification)
+		private class VerseSplitLocation
 		{
-			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+			private readonly VerseRef m_after;
+			private readonly VerseRef m_before;
+			public VerseRef After { get { return m_after; } }
+			public VerseRef Before { get { return m_before; } }
 
-			var versesToSplitAfter = new List<VerseRef>();
-			var versesToSplitBefore = new List<VerseRef>();
+			public VerseSplitLocation(int bookNum, Block prevBlock, Block splitStartBlock, ScrVers versification)
+			{
+				m_after = new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerse, versification);
+				m_before = new VerseRef(bookNum, splitStartBlock.ChapterNumber, splitStartBlock.InitialStartVerseNumber, versification);
+			}
+
+			public static implicit operator VerseRef(VerseSplitLocation location)
+			{
+				return location.After;
+			}
+		}
+		private List<VerseSplitLocation> GetVerseSplitLocations(BookScript referenceBook, int bookNum)
+		{
+			var splitLocations = new List<VerseSplitLocation>();
 			Block prevBlock = null;
 			foreach (var refBlock in referenceBook.GetScriptBlocks())
 			{
-				if (prevBlock == null)
-				{
-					prevBlock = refBlock;
-					continue;
-				}
-				if (refBlock.BlockElements.First() is Verse)
-				{
-					versesToSplitAfter.Add(new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerse, Versification));
-					versesToSplitBefore.Add(new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification));
-				}
+				if (prevBlock != null && refBlock.BlockElements.First() is Verse)
+					splitLocations.Add(new VerseSplitLocation(bookNum, prevBlock, refBlock, Versification));
 				prevBlock = refBlock;
 			}
+			return splitLocations;
+		}
 
-			if (!versesToSplitAfter.Any())
-				return;
-
+		/// <summary>
+		/// Split blocks in the given book to match verse split locations
+		/// </summary>
+		/// <returns>A value indicating whether any splits were made</returns>
+		private static bool MakesSplits(BookScript bookToSplit, int bookNum, ScrVers versification,
+			List<VerseSplitLocation> verseSplitLocations, string descriptionOfProjectBeingSplit,
+			string descriptionOfProjectUsedToDetermineSplitLocations)
+		{
+			if (!verseSplitLocations.Any())
+				return false;
+			bool splitsMade = false;
 			var iSplit = 0;
-			var verseToSplitAfter = versesToSplitAfter[iSplit];
-			for (int index = 0; index < vernacularBook.Blocks.Count; index++)
+			VerseRef verseToSplitAfter = verseSplitLocations[iSplit];
+			for (int index = 0; index < bookToSplit.Blocks.Count; index++)
 			{
-				var vernBlock = vernacularBook.Blocks[index];
-				var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
-				VerseRef vernInitEndVerse;
-				if (vernBlock.InitialEndVerseNumber != 0)
-					vernInitEndVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialEndVerseNumber, vernacularVersification);
+				var block = bookToSplit.Blocks[index];
+				var initStartVerse = new VerseRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+					versification);
+				VerseRef initEndVerse;
+				if (block.InitialEndVerseNumber != 0)
+					initEndVerse = new VerseRef(bookNum, block.ChapterNumber, block.InitialEndVerseNumber,
+						versification);
 				else
-					vernInitEndVerse = vernInitStartVerse;
+					initEndVerse = initStartVerse;
 
-				while (vernInitStartVerse > verseToSplitAfter)
+				while (initStartVerse > verseToSplitAfter)
 				{
-					if (iSplit == versesToSplitAfter.Count - 1)
-						return;
-					verseToSplitAfter = versesToSplitAfter[++iSplit];
+					if (iSplit == verseSplitLocations.Count - 1)
+						return splitsMade;
+					verseToSplitAfter = verseSplitLocations[++iSplit];
 				}
 
-				var vernLastVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerse, vernacularVersification);
-				if (vernLastVerse < verseToSplitAfter)
+				var lastVerse = new VerseRef(bookNum, block.ChapterNumber, block.LastVerse, versification);
+				if (lastVerse < verseToSplitAfter)
 					continue;
 
-				if (vernInitEndVerse.CompareTo(vernLastVerse) != 0 && vernLastVerse >= versesToSplitBefore[iSplit])
+				if (initEndVerse.CompareTo(lastVerse) != 0 && lastVerse >= verseSplitLocations[iSplit].Before)
 				{
-					vernacularVersification.ChangeVersification(verseToSplitAfter);
-					if (!vernacularBook.TrySplitBlockAtEndOfVerse(vernBlock, verseToSplitAfter.VerseNum))
+					versification.ChangeVersification(verseToSplitAfter);
+					if (bookToSplit.TrySplitBlockAtEndOfVerse(block, verseToSplitAfter.VerseNum))
+						splitsMade = true;
+					else
 					{
-						ErrorReport.NotifyUserOfProblem("Attempt to split vernacular block to match breaks in the {0} text failed. Book: {1}; Verse: {2}; Block: {3}",
-							LanguageName, vernacularBook.BookId, verseToSplitAfter.VerseNum, vernBlock.GetText(true));
+						ErrorReport.NotifyUserOfProblem(
+							"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Verse: {3}; Block: {4}",
+							descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
+							bookToSplit.BookId, verseToSplitAfter.VerseNum, block.GetText(true));
 
-						if (iSplit == versesToSplitAfter.Count - 1)
-							return;
-						verseToSplitAfter = versesToSplitAfter[++iSplit];
+						if (iSplit == verseSplitLocations.Count - 1)
+							break;
+						verseToSplitAfter = verseSplitLocations[++iSplit];
 						index--;
 					}
 				}
 			}
+			return splitsMade;
 		}
 
 		protected override string ProjectFolder
 		{
-			get { return FileLocator.GetDirectoryDistributedWithApplication(kDistFilesReferenceTextDirectoryName, m_referenceTextType.ToString()); }
+			get
+			{
+				if (m_projectFolder == null)
+				{
+					Debug.Assert(m_referenceTextType != ReferenceTextType.Custom);
+					m_projectFolder = FileLocator.GetDirectoryDistributedWithApplication(kDistFilesReferenceTextDirectoryName,
+						m_referenceTextType.ToString());
+				}
+				return m_projectFolder;
+			}
 		}
 	}
 }
