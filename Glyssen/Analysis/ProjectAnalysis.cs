@@ -48,9 +48,9 @@ namespace Glyssen.Analysis
 
 					if (block.CharacterIs(book.BookId, CharacterVerseData.StandardCharacter.Narrator))
 						NarratorBlocks++;
-					else if (block.CharacterId == CharacterVerseData.UnknownCharacter)
+					else if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
 						UnknownBlocks++;
-					else if (block.CharacterId == CharacterVerseData.AmbiguousCharacter)
+					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 						AmbiguousBlocks++;
 					if (block.UserConfirmed)
 						UserAssignedBlocks++;

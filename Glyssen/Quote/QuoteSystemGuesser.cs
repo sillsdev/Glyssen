@@ -59,6 +59,7 @@ namespace Glyssen.Quote
 			bool foundEndQuote = false;
 			bool foundSecondLevelQuoteCloser = false;
 
+			// ReSharper disable once InconsistentNaming
 			int kVerseValue = Math.Min(kStartQuoteValue + kEndQuoteValue, kQuotationDashValue);
 
 			List<string> followingVerses = new List<string>(kMaxFollowingVersesToSearchForEndQuote);

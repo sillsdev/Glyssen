@@ -295,7 +295,7 @@ namespace GlyssenTests.Dialogs
 		public void IsModified_BlockCharacterAmbiguousCharacterNull_ReturnsFalse()
 		{
 			var block1 = m_model.CurrentBlock;
-			block1.CharacterId = CharacterVerseData.AmbiguousCharacter;
+			block1.CharacterId = CharacterVerseData.kAmbiguousCharacter;
 			Assert.IsFalse(m_model.IsModified(null, null));
 		}
 
@@ -303,7 +303,7 @@ namespace GlyssenTests.Dialogs
 		public void IsModified_BlockCharacterUnknownCharacterNull_ReturnsFalse()
 		{
 			var block1 = m_model.CurrentBlock;
-			block1.CharacterId = CharacterVerseData.UnknownCharacter;
+			block1.CharacterId = CharacterVerseData.kUnknownCharacter;
 			Assert.IsFalse(m_model.IsModified(null, null));
 		}
 
@@ -596,10 +596,10 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(currentBlockCharacterId, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, m_model.CurrentBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.True(m_model.CurrentBlock.ChapterNumber == 1 && m_model.CurrentBlock.InitialStartVerseNumber == 5);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, m_model.CurrentBlock.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, m_model.CurrentBlock.CharacterId);
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(firstRelevantBlockAfterTheBlockToSplit, m_model.CurrentBlock);
 		}

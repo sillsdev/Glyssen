@@ -161,9 +161,9 @@ namespace GlyssenTests.Character
 			Assert.True(bookScript[3].UserConfirmed);
 
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, true);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, bookScript[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[2].CharacterId);
 			Assert.False(bookScript[2].UserConfirmed);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, bookScript[3].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, bookScript[3].CharacterId);
 			Assert.False(bookScript[3].UserConfirmed);
 		}
 
@@ -179,8 +179,8 @@ namespace GlyssenTests.Character
 			Assert.True(bookScript[1].UserConfirmed);
 
 			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, false);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, bookScript[0].CharacterId);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, bookScript[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[1].CharacterId);
 			Assert.AreEqual("firstCharacter", bookScript[2].CharacterId);
 			Assert.AreEqual("firstCharacter", bookScript[3].CharacterId);
 			Assert.False(bookScript[0].UserConfirmed);

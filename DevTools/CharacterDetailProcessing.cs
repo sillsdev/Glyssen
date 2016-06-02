@@ -11,8 +11,8 @@ namespace DevTools
 {
 	class CharacterDetailProcessing
 	{
-		private const char Tab = '\t';
-		private static readonly Regex FindTabsRegex = new Regex("\t", RegexOptions.Compiled);
+		private const char kTab = '\t';
+		private static readonly Regex s_findTabsRegex = new Regex("\t", RegexOptions.Compiled);
 
 		public static void GenerateReferences()
 		{
@@ -56,8 +56,8 @@ namespace DevTools
 
 		private static string GetNewLine(CharacterDetailLine line)
 		{
-			if (FindTabsRegex.Matches(line.CurrentLine).Count == 5)
-				return line.CurrentLine + Tab + line.ReferenceComment;
+			if (s_findTabsRegex.Matches(line.CurrentLine).Count == 5)
+				return line.CurrentLine + kTab + line.ReferenceComment;
 
 			int finalTabIndex = line.CurrentLine.LastIndexOf("\t", StringComparison.Ordinal);
 			return line.CurrentLine.Substring(0, finalTabIndex + 1) + line.ReferenceComment;
@@ -79,7 +79,7 @@ namespace DevTools
 			if (line.StartsWith("#"))
 				return null;
 
-			string characterId = line.Substring(0, line.IndexOf(Tab));
+			string characterId = line.Substring(0, line.IndexOf(kTab));
 			return new CharacterDetailLine
 			{
 				CharacterId = characterId,

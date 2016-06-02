@@ -142,7 +142,7 @@ namespace Glyssen
 		public static void MigrateInvalidCharacterIdForScriptData(IReadOnlyList<BookScript> books)
 		{
 			foreach (var block in books.SelectMany(book => book.GetScriptBlocks().Where(block =>
-				(block.CharacterId == CharacterVerseData.AmbiguousCharacter || block.CharacterId == CharacterVerseData.UnknownCharacter) &&
+				(block.CharacterId == CharacterVerseData.kAmbiguousCharacter || block.CharacterId == CharacterVerseData.kUnknownCharacter) &&
 				block.CharacterIdOverrideForScript != null)))
 			{
 				block.CharacterIdInScript = null;
@@ -161,8 +161,8 @@ namespace Glyssen
 				int bookNum = BCVRef.BookToNumber(book.BookId);
 
 				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-					block.CharacterId != CharacterVerseData.AmbiguousCharacter &&
-					block.CharacterId != CharacterVerseData.UnknownCharacter &&
+					block.CharacterId != CharacterVerseData.kAmbiguousCharacter &&
+					block.CharacterId != CharacterVerseData.kUnknownCharacter &&
 					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
 				{
 					var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
@@ -174,7 +174,7 @@ namespace Glyssen
 						// but was subsequently removed or renamed from the master character detail list.
 						project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
 							block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
-						block.CharacterId = CharacterVerseData.UnknownCharacter;
+						block.CharacterId = CharacterVerseData.kUnknownCharacter;
 						block.CharacterIdInScript = null;
 						numberOfChangesMade++;
 					}

@@ -531,8 +531,8 @@ namespace GlyssenTests
 			Assert.AreEqual("Peter", block2.CharacterIdInScript);
 		}
 
-		[TestCase(CharacterVerseData.AmbiguousCharacter)]
-		[TestCase(CharacterVerseData.UnknownCharacter)]
+		[TestCase(CharacterVerseData.kAmbiguousCharacter)]
+		[TestCase(CharacterVerseData.kUnknownCharacter)]
 		public void MigrateInvalidCharacterIdForScriptDataToVersion88_CharacterIdUnclearAndCharacterIdInScriptNotNull_CharacterIdInScriptSetToNull(string unclearCharacterId)
 		{
 			var block1 = CreateTestBlock("Andrew");
@@ -577,8 +577,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, johnSpeakingInRev714.CharacterId);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, johnSpeakingInRev714.CharacterIdInScript);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, johnSpeakingInRev714.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, johnSpeakingInRev714.CharacterIdInScript);
 			Assert.False(johnSpeakingInRev714.UserConfirmed);
 			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterId);
 			Assert.AreEqual("elders, one of the", elderSpeakingInRev714.CharacterIdInScript);
@@ -640,8 +640,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, blockInRev711.CharacterId);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, blockInRev711.CharacterIdInScript);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev711.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev711.CharacterIdInScript);
 		}
 
 		[Test]
@@ -656,8 +656,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, blockInRev13V10.CharacterId);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, blockInRev13V10.CharacterIdInScript);
 		}
 
 		/// <summary>
@@ -674,7 +674,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, unexpectedPeterInRev711.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, unexpectedPeterInRev711.CharacterId);
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
 		}
 

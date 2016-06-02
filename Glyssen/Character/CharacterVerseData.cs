@@ -12,12 +12,12 @@ namespace Glyssen.Character
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{
 		/// <summary>Blocks represents a quote whose character has not been set (usually represents an unexpected quote)</summary>
-		public const string UnknownCharacter = "Unknown";
+		public const string kUnknownCharacter = "Unknown";
 		/// <summary>
 		/// Blocks represents a quote whose character has not been set.
 		/// Used when the user needs to disambiguate between multiple potential characters.
 		/// </summary>
-		public const string AmbiguousCharacter = "Ambiguous";
+		public const string kAmbiguousCharacter = "Ambiguous";
 
 		public const int kiMinRequiredFields = 5;
 		protected const int kiQuoteType = kiMinRequiredFields + 1;
@@ -25,7 +25,7 @@ namespace Glyssen.Character
 		protected const int kiParallelPassageInfo = kiDefaultCharacter + 1;
 		protected const int kMaxItems = kiParallelPassageInfo + 1;
 
-		private static Dictionary<string, string> m_singletonLocalizedCharacterIdToCharacterIdDictionary;
+		private static Dictionary<string, string> s_singletonLocalizedCharacterIdToCharacterIdDictionary;
 
 		public enum StandardCharacter
 		{
@@ -128,7 +128,7 @@ namespace Glyssen.Character
 			get
 			{
 				return
-					m_singletonLocalizedCharacterIdToCharacterIdDictionary ?? (m_singletonLocalizedCharacterIdToCharacterIdDictionary =
+					s_singletonLocalizedCharacterIdToCharacterIdDictionary ?? (s_singletonLocalizedCharacterIdToCharacterIdDictionary =
 						new Dictionary<string, string>());
 			}
 		}

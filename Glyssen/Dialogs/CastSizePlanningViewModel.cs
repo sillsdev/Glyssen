@@ -554,9 +554,9 @@ namespace Glyssen.Dialogs
 
 	public class CastSizeValueChangedEventArgs : EventArgs
 	{
-		public CastSizeOption Row;
+		public CastSizeOption Row { get; set; }
 		public CastSizeRowValues RowValues { get; private set; }
-		public readonly bool KeepSelection;
+		public bool KeepSelection { get; private set; }
 
 		public CastSizeValueChangedEventArgs(CastSizeOption row, CastSizeRowValues values, bool keepSelection)
 		{
@@ -568,7 +568,7 @@ namespace Glyssen.Dialogs
 
 	public class CastSizeOptionChangedEventArgs : EventArgs
 	{
-		public CastSizeOption Row;
+		public CastSizeOption Row { get; set; }
 
 		public CastSizeOptionChangedEventArgs(CastSizeOption row)
 		{

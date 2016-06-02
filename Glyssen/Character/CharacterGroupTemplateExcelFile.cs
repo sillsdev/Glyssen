@@ -7,9 +7,9 @@ namespace Glyssen.Character
 {
 	public class CharacterGroupTemplateExcelFile : ICharacterGroupSource
 	{
-		private const int CharacterIdColumn = 4;
-		private const int ColumnsBeforeGroupNumbers = 4;
-		private const int FirstRowWithData = 2;
+		private const int kCharacterIdColumn = 4;
+		private const int kColumnsBeforeGroupNumbers = 4;
+		private const int kFirstRowWithData = 2;
 
 		private readonly Project m_project;
 		private readonly string m_filePath;
@@ -34,20 +34,20 @@ namespace Glyssen.Character
 			using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(m_filePath)))
 			using (ExcelWorksheet ws = excelPackage.Workbook.Worksheets[1])
 			{
-				object numActorsColumnHeader = ws.Cells[1, numberOfActors + ColumnsBeforeGroupNumbers].Value;
+				object numActorsColumnHeader = ws.Cells[1, numberOfActors + kColumnsBeforeGroupNumbers].Value;
 				if (!(numActorsColumnHeader is double) || Convert.ToInt32(numActorsColumnHeader) != numberOfActors)
 					throw new ArgumentException("Invalid number of actors.", "numberOfActors");
 
-				int row = FirstRowWithData;
+				int row = kFirstRowWithData;
 				while (true)
 				{
-					string characterId = (string)(ws.Cells[row, CharacterIdColumn].Value);
+					string characterId = (string)(ws.Cells[row, kCharacterIdColumn].Value);
 					if (string.IsNullOrWhiteSpace(characterId))
 						break;
 					if (!characterIds.Contains(characterId))
 					{
 						characterIds.Add(characterId);
-						double groupNumber = (double)ws.Cells[row, numberOfActors + ColumnsBeforeGroupNumbers].Value;
+						double groupNumber = (double)ws.Cells[row, numberOfActors + kColumnsBeforeGroupNumbers].Value;
 						template.AddCharacterToGroup(characterId, Convert.ToInt32(groupNumber));
 					}
 					row++;
@@ -68,9 +68,9 @@ namespace Glyssen.Character
 				using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(m_filePath)))
 				using (ExcelWorksheet ws = excelPackage.Workbook.Worksheets[1])
 				{
-					for (int i = ColumnsBeforeGroupNumbers + 1;; i++)
+					for (int i = kColumnsBeforeGroupNumbers + 1;; i++)
 					{
-						object numActorsColumnHeader = ws.Cells[1, ColumnsBeforeGroupNumbers + i].Value;
+						object numActorsColumnHeader = ws.Cells[1, kColumnsBeforeGroupNumbers + i].Value;
 						if (numActorsColumnHeader is double)
 							max = Convert.ToInt32(numActorsColumnHeader);
 						else

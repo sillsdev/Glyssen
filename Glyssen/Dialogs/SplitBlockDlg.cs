@@ -23,7 +23,7 @@ namespace Glyssen.Dialogs
 		private string m_htmlFilePath;
 		private int m_blockSplitIdCounter;
 
-		private const string Css = "body {cursor:col-resize;} .split-line {cursor:url(DeleteCursor.png),not-allowed;height:21px;width:100%;} .split-line-top {height:10px;border-bottom: 1px solid gray;}";
+		private const string kCss = "body {cursor:col-resize;} .split-line {cursor:url(DeleteCursor.png),not-allowed;height:21px;width:100%;} .split-line-top {height:10px;border-bottom: 1px solid gray;}";
 
 		public SplitBlockDlg(IWritingSystemDisplayInfo wsInfo, IEnumerable<Block> originalBlocks)
 		{
@@ -46,7 +46,7 @@ namespace Glyssen.Dialogs
 		{
 			base.OnLoad(e);
 			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
-			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + Css;
+			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + kCss;
 
 			SetHtml();
 		}

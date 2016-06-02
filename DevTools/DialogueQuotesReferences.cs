@@ -7,7 +7,7 @@ namespace DevTools
 {
 	public class DialogueQuotesReferences
 	{
-		private readonly static HashSet<string> References = new HashSet<string>();
+		private static readonly HashSet<string> s_references = new HashSet<string>();
 
 		static DialogueQuotesReferences()
 		{
@@ -21,13 +21,13 @@ namespace DevTools
 				if (!BCVRef.ParseRefRange(reference , ref start, ref end) || start != end)
 					Debug.Fail("Line was not a valid scripture reference: " + line);
 
-				References.Add(reference);
+				s_references.Add(reference);
 			}
 		}
 
 		public static bool Contains(string book, string chapter, string verse)
 		{
-			return References.Contains(String.Format("{0} {1}:{2}", book, chapter, verse));
+			return s_references.Contains(String.Format("{0} {1}:{2}", book, chapter, verse));
 		}
 	}
 }

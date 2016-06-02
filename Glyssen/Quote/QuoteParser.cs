@@ -274,7 +274,7 @@ namespace Glyssen.Quote
 									foreach (var multiBlock in m_currentMultiBlockQuote)
 									{
 										multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-										multiBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+										multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 										multiBlock.Delivery = null;
 									}
 									m_currentMultiBlockQuote.Clear();
@@ -471,7 +471,7 @@ namespace Glyssen.Quote
 				foreach (var multiBlock in m_currentMultiBlockQuote)
 				{
 					multiBlock.MultiBlockQuote = MultiBlockQuote.None;
-					multiBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+					multiBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 					multiBlock.Delivery = null;
 				}
 			}
@@ -672,7 +672,7 @@ namespace Glyssen.Quote
 			}
 			if (characterUnknown)
 			{
-				m_workingBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+				m_workingBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 				m_workingBlock.Delivery = null;
 			}
 			else
@@ -821,8 +821,8 @@ namespace Glyssen.Quote
 		#region CharacterDelivery utility class
 		public class CharacterDelivery
 		{
-			public readonly string Character;
-			public readonly string Delivery;
+			public string Character { get; private set; }
+			public string Delivery { get; private set; }
 
 			public CharacterDelivery(string character, string delivery)
 			{
@@ -854,11 +854,11 @@ namespace Glyssen.Quote
 				}
 			}
 
-			private static readonly IEqualityComparer<CharacterDelivery> CharacterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
+			private static readonly IEqualityComparer<CharacterDelivery> s_characterDeliveryComparerInstance = new CharacterDeliveryEqualityComparer();
 
 			public static IEqualityComparer<CharacterDelivery> CharacterDeliveryComparer
 			{
-				get { return CharacterDeliveryComparerInstance; }
+				get { return s_characterDeliveryComparerInstance; }
 			}
 		}
 		#endregion

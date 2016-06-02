@@ -21,7 +21,7 @@ namespace Glyssen.Rules
 		private readonly Proximity m_proximity;
 		private readonly BackgroundWorker m_worker;
 
-		private static readonly SortedDictionary<int, IList<HashSet<string>>> DeityCharacters;
+		private static readonly SortedDictionary<int, IList<HashSet<string>>> s_deityCharacters;
 
 		private IList<CharacterGroup> ProjectCharacterGroups
 		{
@@ -30,20 +30,20 @@ namespace Glyssen.Rules
 
 		public static bool ContainsDeityCharacter(CharacterGroup group)
 		{
-			return group.CharacterIds.Any(c => DeityCharacters.First().Value[0].Contains(c));
+			return group.CharacterIds.Any(c => s_deityCharacters.First().Value[0].Contains(c));
 		}
 
 		static CharacterGroupGenerator()
 		{
 			// REVIEW: Should these numbers be hard-coded like this (which probably assumes a NT recording project), or should they
 			// really be based on the percentage that these characters speak compared to the total recording time for the project?
-			DeityCharacters = new SortedDictionary<int, IList<HashSet<string>>>();
-			DeityCharacters.Add(1, new List<HashSet<string>> { new HashSet<string> { "Jesus", "God", "Holy Spirit, the", "scripture" } });
+			s_deityCharacters = new SortedDictionary<int, IList<HashSet<string>>>();
+			s_deityCharacters.Add(1, new List<HashSet<string>> { new HashSet<string> { "Jesus", "God", "Holy Spirit, the", "scripture" } });
 			var jesusSet = new HashSet<string> { "Jesus" };
-			DeityCharacters.Add(4, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "Holy Spirit, the", "scripture" } });
+			s_deityCharacters.Add(4, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "Holy Spirit, the", "scripture" } });
 			var holySpiritSet = new HashSet<string> { "Holy Spirit, the" };
-			DeityCharacters.Add(7, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "scripture" }, holySpiritSet });
-			DeityCharacters.Add(17, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { "scripture" } });
+			s_deityCharacters.Add(7, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God", "scripture" }, holySpiritSet });
+			s_deityCharacters.Add(17, new List<HashSet<string>> { jesusSet, new HashSet<string> { "God" }, holySpiritSet, new HashSet<string> { "scripture" } });
 		}
 
 		public CharacterGroupGenerator(Project project, CastSizeRowValues ghostCastSize = null, BackgroundWorker worker = null)
@@ -930,7 +930,7 @@ namespace Glyssen.Rules
 					g.VoiceActor.Gender == ActorGender.Male &&
 					g.VoiceActor.Age != ActorAge.Child).ToList();
 
-				var setsOfCharactersToGroup = DeityCharacters.LastOrDefault(kvp => kvp.Key <= groupsAvailableForDiety.Count).Value;
+				var setsOfCharactersToGroup = s_deityCharacters.LastOrDefault(kvp => kvp.Key <= groupsAvailableForDiety.Count).Value;
 				if (setsOfCharactersToGroup == null)
 					return;
 

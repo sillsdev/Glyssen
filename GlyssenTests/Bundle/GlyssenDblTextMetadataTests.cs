@@ -11,7 +11,7 @@ namespace GlyssenTests.Bundle
 		private GlyssenDblTextMetadata m_metadata;
 		private GlyssenDblTextMetadata m_metadataWithDeprecatedFields;
 
-		private const string TestXml =
+		private const string kTestXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
 	<projectStatus>
@@ -25,7 +25,7 @@ namespace GlyssenTests.Bundle
 	</language>
 </DBLMetadata>";
 
-		private const string TestWithDeprecatedFieldsXml =
+		private const string kTestWithDeprecatedFieldsXml =
 @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <DBLMetadata id=""3b9fdc679b9319c3"" revision=""1"" mediatype=""text"" typeVersion=""1.3"">
 	<fontFamily>Charis SIL</fontFamily>
@@ -40,9 +40,9 @@ namespace GlyssenTests.Bundle
 		public void TestFixtureSetup()
 		{
 			var xs = new XmlSerializer(typeof(GlyssenDblTextMetadata));
-			using (TextReader reader = new StringReader(TestXml))
+			using (TextReader reader = new StringReader(kTestXml))
 				m_metadata = (GlyssenDblTextMetadata)xs.Deserialize(reader);
-			using (TextReader reader = new StringReader(TestWithDeprecatedFieldsXml))
+			using (TextReader reader = new StringReader(kTestWithDeprecatedFieldsXml))
 				m_metadataWithDeprecatedFields = (GlyssenDblTextMetadata)xs.Deserialize(reader);
 		}
 

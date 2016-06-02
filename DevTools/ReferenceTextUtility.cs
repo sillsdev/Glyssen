@@ -33,6 +33,11 @@ namespace DevTools
 
 		private static readonly ReferenceText s_existingEnglish;
 
+		// When running with this true, I have simply been putting a breakpoint on 'return false'
+		// statement in CompareIgnoringQuoteMarkDifferences and looking at each case
+		// (this is not a const to prevent compiler warnings)
+		private static readonly bool s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish = false;
+
 		static ReferenceTextUtility()
 		{
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
@@ -56,10 +61,6 @@ namespace DevTools
 
 		public static bool GenerateReferenceTexts()
 		{
-			// When running with this true, I have simply been putting a breakpoint on 'return false'
-			// statement in CompareIgnoringQuoteMarkDifferences and looking at each case
-			const bool onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish = false;
-
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			var pathToFCBHDirGuide = Path.Combine(myDocuments, "Protoscript Generator", "DGNTAllSimplified_71.xlsx");
 
@@ -321,7 +322,7 @@ namespace DevTools
 						modifiedTextWithoutAnnotations = Regex.Replace(modifiedTextWithoutAnnotations, "  ", " ");
 
 						var blockText = block.GetText(true);
-						if (!onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish ||
+						if (!s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish ||
 							CompareIgnoringQuoteMarkDifferences(modifiedTextWithoutAnnotations, blockText))
 						{
 							//Debug.WriteLine(referenceTextRow);
@@ -422,7 +423,7 @@ namespace DevTools
 					}
 					prevBook = referenceTextRow.Book;
 				}
-				if (onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish)
+				if (s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish)
 					return true;
 				newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = chapterLabel });
 
@@ -575,27 +576,27 @@ namespace DevTools
 			return !errorOccurred;
 		}
 
-		private static readonly Regex UserSfxRegex = new Regex("{F8 SFX ?-?- ?(.*)}", RegexOptions.Compiled);
-		private static readonly Regex UserMusicStartsRegex = new Regex("{F8 Music--Starts}", RegexOptions.Compiled);
-		private static readonly Regex UserMusicEndsRegex = new Regex("{F8 Music--Ends}", RegexOptions.Compiled);
+		private static readonly Regex s_userSfxRegex = new Regex("{F8 SFX ?-?- ?(.*)}", RegexOptions.Compiled);
+		private static readonly Regex s_userMusicStartsRegex = new Regex("{F8 Music--Starts}", RegexOptions.Compiled);
+		private static readonly Regex s_userMusicEndsRegex = new Regex("{F8 Music--Ends}", RegexOptions.Compiled);
 
 		public static bool ConvertTextToUserSpecifiedScriptAnnotationElement(string text, out ScriptAnnotation annotation)
 		{
-			var match = UserSfxRegex.Match(text);
+			var match = s_userSfxRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, UserSpecifiesLocation = true };
 				return true;
 			}
 
-			match = UserMusicStartsRegex.Match(text);
+			match = s_userMusicStartsRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = Sound.kNonSpecificStartOrStop };
 				return true;
 			}
 
-			match = UserMusicEndsRegex.Match(text);
+			match = s_userMusicEndsRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true };
@@ -606,89 +607,89 @@ namespace DevTools
 			return false;
 		}
 
-		private static readonly Regex DoNotCombineRegex = new Regex(" \\|\\|\\| DO NOT COMBINE \\|\\|\\| ", RegexOptions.Compiled);
-		private static readonly Regex PauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
-		private static readonly Regex PauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
-		private static readonly Regex MusicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex MusicStartRegex = new Regex("{Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex MusicStopAndStartRegex = new Regex("{Music--Ends & New Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex SfxStartRegex = new Regex("{SFX--(.*?)(?:--Starts)? (?:@|before) v(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex SfxEndRegex = new Regex("{SFX--Ends before v(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex SfxEndRegex2 = new Regex("{SFX--(.*?)--Ends before v(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex SfxRangeRegex = new Regex("{SFX--(.*?) @ v(\\d*?)-(\\d*?)}", RegexOptions.Compiled);
-		private static readonly Regex MusicSfxRegex = new Regex("{Music \\+ SFX--(.*?) Starts? @ v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_doNotCombineRegex = new Regex(" \\|\\|\\| DO NOT COMBINE \\|\\|\\| ", RegexOptions.Compiled);
+		private static readonly Regex s_pauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
+		private static readonly Regex s_pauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
+		private static readonly Regex s_musicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_musicStartRegex = new Regex("{Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_musicStopAndStartRegex = new Regex("{Music--Ends & New Music--Starts @ v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_sfxStartRegex = new Regex("{SFX--(.*?)(?:--Starts)? (?:@|before) v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_sfxEndRegex = new Regex("{SFX--Ends before v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_sfxEndRegex2 = new Regex("{SFX--(.*?)--Ends before v(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_sfxRangeRegex = new Regex("{SFX--(.*?) @ v(\\d*?)-(\\d*?)}", RegexOptions.Compiled);
+		private static readonly Regex s_musicSfxRegex = new Regex("{Music \\+ SFX--(.*?) Starts? @ v(\\d*?)}", RegexOptions.Compiled);
 
 		public static bool ConvertTextToControlScriptAnnotationElement(string text, out ScriptAnnotation annotation)
 		{
 			if (string.IsNullOrWhiteSpace(text))
 				throw new ArgumentException("text must contain non-whitespace", "text");
 
-			var match = DoNotCombineRegex.Match(text);
+			var match = s_doNotCombineRegex.Match(text);
 			if (match.Success)
 				return ConvertTextToControlScriptAnnotationElement(text.Substring(match.Length), out annotation);
 
-			match = PauseRegex.Match(text);
+			match = s_pauseRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Pause { TimeUnits = TimeUnits.Seconds, Time = double.Parse(match.Groups[1].Value) };
 				return true;
 			}
-			match = PauseMinuteRegex.Match(text);
+			match = s_pauseMinuteRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Pause { TimeUnits = TimeUnits.Minutes, Time = double.Parse(match.Groups[1].Value) };
 				return true;
 			}
 
-			match = MusicEndRegex.Match(text);
+			match = s_musicEndRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Music, EndVerse = int.Parse(match.Groups[1].Value) };
 				return true;
 			}
 
-			match = MusicStartRegex.Match(text);
+			match = s_musicStartRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Music, StartVerse = int.Parse(match.Groups[1].Value) };
 				return true;
 			}
 
-			match = MusicStopAndStartRegex.Match(text);
+			match = s_musicStopAndStartRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Music, StartVerse = int.Parse(match.Groups[1].Value), EndVerse = Sound.kNonSpecificStartOrStop};
 				return true;
 			}
 
-			match = SfxEndRegex.Match(text);
+			match = s_sfxEndRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Sfx, EndVerse = int.Parse(match.Groups[1].Value) };
 				return true;
 			}
-			match = SfxEndRegex2.Match(text);
+			match = s_sfxEndRegex2.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, EndVerse = int.Parse(match.Groups[2].Value) };
 				return true;
 			}
 
-			match = SfxStartRegex.Match(text);
+			match = s_sfxStartRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
 				return true;
 			}
 
-			match = SfxRangeRegex.Match(text);
+			match = s_sfxRangeRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.Sfx, EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value), EndVerse = int.Parse(match.Groups[3].Value) };
 				return true;
 			}
 
-			match = MusicSfxRegex.Match(text);
+			match = s_musicSfxRegex.Match(text);
 			if (match.Success)
 			{
 				annotation = new Sound { SoundType = SoundType.MusicSfx, EffectName = match.Groups[1].Value, StartVerse = int.Parse(match.Groups[2].Value) };
