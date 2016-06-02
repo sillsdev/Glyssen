@@ -1063,6 +1063,127 @@ namespace GlyssenTests
 			Assert.IsTrue(result[2].MatchesReferenceText);
 		}
 
+		/// <summary>
+		/// PG-699: Note that this test expects results that are actually less than ideal, since in this case it just so happens
+		/// that we would actually prefer for everything to just match up (as it used to).
+		/// </summary>
+		[Test]
+		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_NarratorIntroducesQuoteAtStartOfVerseTwo_ReferenceTextIsBrokenCorrectly()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
+				"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
+				"gubino i Jerucalem, kun gipenyo ni, ", true, 2));
+			vernacularBlocks.Add(CreateBlockForVerse("magi (wise men from East)", 2,
+				"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
+				"ci man wabino ka wore.”", true, 2));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
+				"behold, wise men from the east came to Jerusalem, ", true, 2).AddVerse(2, "saying, "));
+			AddBlockForVerseInProgress(referenceBlocks, "magi (wise men from East)", "“Where is the one who is born King of the Jews? For we saw his star in the east, " +
+				"and have come to worship him.”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(2, result.Count);
+
+			Assert.AreEqual("[1]\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
+				"behold, wise men from the east came to Jerusalem, ", result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[0].MatchesReferenceText);
+
+			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+			Assert.AreEqual("[2]\u00A0saying, ", result[1].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[1].GetText(true));
+			Assert.IsFalse(result[1].MatchesReferenceText);
+		}
+
+		/// <summary>
+		/// PG-699: This test illustrates the real reason we want to be able to break the reference text at the end of
+		/// any verses that have breaks in the vernacular.
+		/// </summary>
+		[Test]
+		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(16, "diciendo: ", true, 18, "REV"));
+			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¡Ay, ay, la gran ciudad, que estaba vestida de " +
+				"lino fino, púrpura y escarlata, y adornada de oro, piedras preciosas y perlas!»");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(17,
+				"Porque en una hora ha sido arrasada tanta riqueza. Y todos los capitanes, pasajeros y marineros, y todos los que viven " +
+				"del mar, se pararon a lo lejos, ", false, 18, "REV"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(18, "y al ver el humo de su incendio gritaban, diciendo: ", false, 18, "REV"));
+			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¿Qué ciudad es semejante a la gran ciudad?»");
+			var vernBook = new BookScript("REV", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV"));
+			AddBlockForVerseInProgress(referenceBlocks, "merchants of the earth", "“Woe, woe, the great city, she who was dressed in " +
+				"fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!");
+			referenceBlocks.Add(CreateBlockForVerse("merchants of the earth", 17, "For in an hour such great riches are made desolate.”", false, 18));
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "Every shipmaster, and everyone who sails anywhere, and mariners, and " +
+				"as many as gain their living by sea, stood far away, ", "REV")
+				.AddVerse(18, "and cried out as they looked at the smoke of her burning, saying, ");
+			AddBlockForVerseInProgress(referenceBlocks, "merchants of the earth", "“What is like the great city?”");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(5, result.Count);
+
+			Assert.AreEqual("[16]\u00A0saying, ", result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[0].MatchesReferenceText);
+
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[1].MatchesReferenceText);
+
+			Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual("Every shipmaster, and everyone who sails anywhere, and mariners, and " +
+				"as many as gain their living by sea, stood far away, ", result[2].ReferenceBlocks[1].GetText(true));
+			Assert.IsFalse(result[2].MatchesReferenceText);
+
+			Assert.AreEqual("[18]\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[3].MatchesReferenceText);
+
+			Assert.AreEqual(referenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[4].MatchesReferenceText);
+		}
+
+		[Test]
+		public void ApplyTo_StandardReferenceTextSplitToMatchVernacular_ModifiedBooksGetReloadedWhenStandardReferenceTextIsGottenAgain()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
+				"Ka doŋ ginywalo Yecu i Beterekem ma i Judaya i kare me loc pa kabaka Kerode, nen, luryeko mogo ma gua yo tuŋ wokceŋ " +
+				"gubino i Jerucalem, kun gipenyo ni, ", true, 2));
+			vernacularBlocks.Add(CreateBlockForVerse("magi (wise men from East)", 2,
+				"“En latin ma ginywalo me bedo kabaka pa Lujudaya-ni tye kwene? Pien onoŋo waneno lakalatwene yo tuŋ wokceŋ, " +
+				"ci man wabino ka wore.”", true, 2));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var origBlockCountForMatthew = refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count;
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(2, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+
+			Assert.AreNotEqual(origBlockCountForMatthew, refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
+			
+			Assert.AreEqual(origBlockCountForMatthew,
+				ReferenceText.GetStandardReferenceText(ReferenceTextType.English).Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
+		}
+
 		[Test]
 		public void ApplyTo_FirstTwoVersesLinkedNtoM_RemainingVersesMatchedCorrectly()
 		{
@@ -1276,7 +1397,7 @@ namespace GlyssenTests
 				"[25]\u00A0to God our Savior, who alone is wise, be glory and majesty, dominion and power, both now and forever. Amen.",
 			};
 
-			var jude = CreateTestReferenceText().GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject()).Single();
+			var jude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD).GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject()).Single();
 			StringBuilder sbForVernacularResults = new StringBuilder();
 			StringBuilder sbForReferenceTextResults = new StringBuilder();
 			for (int i = 0; i < jude.Blocks.Count; i++)
@@ -1321,7 +1442,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_ReferenceTextDoesNotContainBook_NoChangeToVernacular()
 		{
-			var refTextForJude = CreateTestReferenceText();
+			var refTextForJude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD);
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			var blocksBeforeCall = testProject.IncludedBooks[0].GetScriptBlocks();
 			var result = refTextForJude.GetBooksWithBlocksConnectedToReferenceText(testProject);
@@ -1342,7 +1463,9 @@ namespace GlyssenTests
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Which means, God with us.", true));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
-			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(new GlyssenDblTextMetadata());
+			var metadata = new GlyssenDblTextMetadata();
+			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
+			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(metadata);
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript("JUD", referenceBlocks);
@@ -1366,19 +1489,6 @@ namespace GlyssenTests
 		}
 
 		#region private helper methods
-		private ReferenceText CreateTestReferenceText()
-		{
-			var metadata = new GlyssenDblTextMetadata();
-
-			var referenceText = ReferenceText.CreateCustomReferenceText(metadata);
-			ReflectionHelper.SetField(referenceText, "m_vers", ScrVers.English);
-
-			List<BookScript> books = (List<BookScript>)referenceText.Books;
-			books.Add(XmlSerializationHelper.DeserializeFromString<BookScript>(Resources.TestReferenceTextJUD));
-
-			return referenceText;
-		}
-
 		private Block CreateBlockForVerse(string characterId, int verseNumber, string text, bool paraStart = false, int chapter = 1, string styleTag = "p")
 		{
 			var block = new Block(styleTag, chapter, verseNumber)
@@ -1426,19 +1536,31 @@ namespace GlyssenTests
 
 	public class TestReferenceText : ReferenceText
 	{
-		private TestReferenceText(GlyssenDblTextMetadata metadata, string bookId, IList<Block> blocks)
+		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
 			: base(metadata, ReferenceTextType.Custom)
 		{
-			m_books.Add(new BookScript(bookId, blocks));
+			m_books.Add(book);
 			m_vers = ScrVers.English;
-			GetBookName = b => "The Gospel According to Thomas";
 		}
 
+		private static GlyssenDblTextMetadata NewMetadata
+		{
+			get
+			{
+				var metadata = new GlyssenDblTextMetadata();
+				metadata.Language = new GlyssenDblMetadataLanguage { Iso = "~tst~", Name = "Test Language" };
+				return metadata;
+			}
+		}
+			
 		public static TestReferenceText CreateTestReferenceText(string bookId, IList<Block> blocks)
 		{
-			var metadata = new GlyssenDblTextMetadata();
-			metadata.Language = new GlyssenDblMetadataLanguage { Iso = "~tst~", Name = "Test Language" };
-			return new TestReferenceText(metadata, bookId, blocks);
+			return new TestReferenceText(NewMetadata, new BookScript(bookId, blocks)) { GetBookName = b => "The Gospel According to Thomas" };
+		}
+
+		public static TestReferenceText CreateTestReferenceText(string bookScriptXml)
+		{
+			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
 		}
 	}
 }

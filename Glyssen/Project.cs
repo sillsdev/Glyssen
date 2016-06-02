@@ -75,6 +75,8 @@ namespace Glyssen
 			m_wsDefinition = ws;
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
+			if (File.Exists(VersificationFilePath))
+				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
 				InstallFontsIfNecessary();
 		}
@@ -613,7 +615,8 @@ namespace Glyssen
 
 		public ReferenceText ReferenceText
 		{
-			get {
+			get
+			{
 				return m_referenceText ?? (m_referenceText = ReferenceText.GetStandardReferenceText(m_metadata.ReferenceText));
 			}
 			set
