@@ -20,7 +20,7 @@
 *.xml -whitespace
 changelog -whitespace
 *.lift* -whitespace
-*.csproj.DotSettings -whitespace
+*.DotSettings -whitespace
 *.tmx -whitespace
 
 *.glyssen -whitespace

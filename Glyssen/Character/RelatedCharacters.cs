@@ -131,15 +131,15 @@ namespace Glyssen.Character
 		{
 			var setOfCharactersForAlreadyReturnedIndividuals = new HashSet<string>();
 			ISet<string> alterEgos;
-			foreach (var characterID in characterSet)
+			foreach (var characterId in characterSet)
 			{
-				if (setOfCharactersForAlreadyReturnedIndividuals.Contains(characterID))
+				if (setOfCharactersForAlreadyReturnedIndividuals.Contains(characterId))
 					continue;
-				if (TryGetMatchingCharacterIdsOfADifferentAge(characterID, out alterEgos))
+				if (TryGetMatchingCharacterIdsOfADifferentAge(characterId, out alterEgos))
 				{
 					setOfCharactersForAlreadyReturnedIndividuals.AddRange(alterEgos);
 				}
-				yield return characterID;
+				yield return characterId;
 			}
 		}
 	}

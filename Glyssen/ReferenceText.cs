@@ -33,12 +33,12 @@ namespace Glyssen
 	{
 		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 
-		private static readonly Dictionary<ReferenceTextType, ReferenceText> StandardReferenceTexts = new Dictionary<ReferenceTextType, ReferenceText>();
+		private static readonly Dictionary<ReferenceTextType, ReferenceText> s_standardReferenceTexts = new Dictionary<ReferenceTextType, ReferenceText>();
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			ReferenceText referenceText;
-			if (!StandardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
+			if (!s_standardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
 			{
 				ScrVers versification;
 				switch (referenceTextType)
@@ -59,7 +59,7 @@ namespace Glyssen
 				referenceText = GenerateStandardReferenceText(referenceTextType);
 				referenceText.m_vers = versification;
 
-				StandardReferenceTexts[referenceTextType] = referenceText;
+				s_standardReferenceTexts[referenceTextType] = referenceText;
 			}
 			return referenceText;
 		}

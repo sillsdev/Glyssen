@@ -67,7 +67,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(10, output[0].InitialStartVerseNumber);
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("«Do not be afraid!", output[1].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(10, output[1].InitialStartVerseNumber);
 		}
@@ -1324,7 +1324,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("[1]\u00A0Jesus said, ", output[5].GetText(true));
 			Assert.IsTrue(output[5].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual("“Is that John?”", output[6].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[6].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[6].CharacterId);
 		}
 
 		[Test]
@@ -1927,7 +1927,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(1, output.Count);
 
 			Assert.AreEqual("—Wína nemartustaram: “Turaram namak achiarme nunisrumek aints ainau wína chichamur ujakmintrum,” —timiayi.", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(1, output[0].ChapterNumber);
 			Assert.AreEqual(17, output[0].InitialStartVerseNumber);
 		}
@@ -1982,12 +1982,12 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(5, output[0].InitialStartVerseNumber);
 
 			Assert.AreEqual("[6]\u00A0Yus chichaak: “Judá nungkanam yakat Belén tutai mianchauka achatnuitai. Antsu nu yaktanam juun apu akiinatnua nuka Israela weari ainaun inartinuitai. Tura asamtai nu yaktaka chikich yakat Judá nungkanam aa nuna nangkamasang juun atinuitai,”", output[1].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(2, output[1].ChapterNumber);
 			Assert.AreEqual(6, output[1].InitialStartVerseNumber);
 
 			Assert.AreEqual("Yus timiayi. Tu aarmawaitai, —tusar aimkarmiayi.", output[2].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[2].CharacterId);
 			Assert.AreEqual(2, output[2].ChapterNumber);
 			Assert.AreEqual(6, output[2].InitialStartVerseNumber);
 		}
@@ -2134,7 +2134,7 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 
 			Assert.AreEqual("—Nintimrataram splintaram" + spuriousOpener, output[1].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 		}
 
 		[TestCase("—“", true)]
@@ -3094,7 +3094,7 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[1].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 
 			Assert.AreEqual("[49]\u00A0“Nintimrataram, —Jesús timiayi.", output[2].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[2].CharacterId);
 		}
 
 #if HANDLE_SENTENCE_ENDING_PUNCTUATION_FOR_DIALOGUE_QUOTES
@@ -3606,7 +3606,7 @@ namespace GlyssenTests.Quote
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
 			Assert.AreEqual(1, output.Count);
-			Assert.AreEqual(CharacterVerseData.AmbiguousCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[0].CharacterId);
 		}
 
 		[Test]
@@ -3628,7 +3628,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 		}
@@ -3657,7 +3657,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
@@ -3687,11 +3687,11 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[2].CharacterId);
 		}
 
 		[Test]
@@ -3738,9 +3738,9 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 		}
 
 		[Test]
@@ -3763,9 +3763,9 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 		}
 
 		[Test]
@@ -4051,7 +4051,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Quote.", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 
 			Assert.AreEqual("Back to narrator.  No one in the control file for this verse. ", output[1].GetText(false));
@@ -4073,7 +4073,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[2-3]\u00A0«Quote.", output[0].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(3, output[0].InitialEndVerseNumber);
 			Assert.AreEqual(3, output[0].LastVerse);
@@ -4099,7 +4099,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[3]\u00A0«Quote. ", output[0].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[0].InitialEndVerseNumber);
@@ -4129,7 +4129,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("[1-2]\u00A0«Quote. [3]\u00A0Possible continuation of quote. ", output[0].GetText(true));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 			Assert.AreEqual(1, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(2, output[0].InitialEndVerseNumber);
@@ -4156,7 +4156,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Quote.", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 
 			Assert.AreEqual("Back to narrator.  Narrator is explicitly in the control file for this verse. ", output[1].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
@@ -4180,10 +4180,10 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 
 			Assert.AreEqual("Still probably in a quote. ", output[1].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 
 			Assert.AreEqual("Back to narrator.  No one in the control file for this verse. ", output[2].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
@@ -4204,7 +4204,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 
 			Assert.AreEqual("Different character in the control file here but no quote marks, so set to narrator. ", output[1].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
@@ -4225,7 +4225,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 
 			Assert.AreEqual("«Quote by different character.» ", output[1].GetText(false));
 			Assert.AreEqual("Adam", output[1].CharacterId);
@@ -4249,10 +4249,10 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("«Ambiguous quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 
 			Assert.AreEqual("Could still be a quote. ", output[1].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 
 			Assert.AreEqual("Back to narrator. ", output[2].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
@@ -4270,7 +4270,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 		}
 
 		[Test]
@@ -4290,7 +4290,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 
 			Assert.AreEqual("Section Header", output[1].GetText(false));
@@ -4320,7 +4320,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(4, output.Count);
 			Assert.AreEqual("«Quote. But where does it end? ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 
 			Assert.AreEqual("Section Header", output[1].GetText(false));
@@ -4328,7 +4328,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 
 			Assert.AreEqual("Verse and quote continues after section header. ", output[2].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[2].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[2].CharacterId);
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 
 			Assert.AreEqual("No character in control file for this verse. ", output[3].GetText(false));
@@ -4363,7 +4363,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 
 			Assert.AreEqual("<<Quote. But where does it end? Quote continues after verse break.", output[1].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(16, output[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
 			Assert.AreEqual(17, output[1].LastVerse);
@@ -4399,7 +4399,7 @@ namespace GlyssenTests.Quote
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("—Quote. ", output[0].GetText(false));
-			Assert.AreEqual(CharacterVerseData.UnknownCharacter, output[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 
 			Assert.AreEqual("No one in the control file for this verse. ", output[1].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));

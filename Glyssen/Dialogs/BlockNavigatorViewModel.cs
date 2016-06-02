@@ -54,7 +54,7 @@ namespace Glyssen.Dialogs
 		private readonly IEnumerable<string> m_includedBooks;
 		protected List<BookBlockIndices> m_relevantBlocks;
 		protected BookBlockIndices m_temporarilyIncludedBlock;
-		private static readonly BookBlockTupleComparer BookBlockComparer = new BookBlockTupleComparer();
+		private static readonly BookBlockTupleComparer s_bookBlockComparer = new BookBlockTupleComparer();
 		private int m_currentBlockIndex = -1;
 		private BlocksToDisplay m_mode;
 
@@ -446,7 +446,7 @@ namespace Glyssen.Dialogs
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block before it.
 				var firstRelevantBlock = m_relevantBlocks[0];
-				return BookBlockComparer.Compare(firstRelevantBlock, m_temporarilyIncludedBlock) < 0;
+				return s_bookBlockComparer.Compare(firstRelevantBlock, m_temporarilyIncludedBlock) < 0;
 			}
 		}
 
@@ -462,7 +462,7 @@ namespace Glyssen.Dialogs
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
 				var lastRelevantBlock = m_relevantBlocks.Last();
-				return BookBlockComparer.Compare(lastRelevantBlock, m_temporarilyIncludedBlock) > 0;
+				return s_bookBlockComparer.Compare(lastRelevantBlock, m_temporarilyIncludedBlock) > 0;
 			}
 		}
 
@@ -567,13 +567,13 @@ namespace Glyssen.Dialogs
 			if (min > max)
 			{
 				if (prev)
-					return (max >= 0 && max < list.Count && BookBlockComparer.Compare(key, list[max]) > 0) ? max : -1;
+					return (max >= 0 && max < list.Count && s_bookBlockComparer.Compare(key, list[max]) > 0) ? max : -1;
 
-				return (min >= 0 && min < list.Count && BookBlockComparer.Compare(key, list[min]) < 0) ? min : -1;
+				return (min >= 0 && min < list.Count && s_bookBlockComparer.Compare(key, list[min]) < 0) ? min : -1;
 			}
 			int mid = (min + max) / 2;
 
-			int comparison = BookBlockComparer.Compare(key, list[mid]);
+			int comparison = s_bookBlockComparer.Compare(key, list[mid]);
 
 			if (comparison == 0)
 				throw new ArgumentException("Block not expected to be in existing list", "key");

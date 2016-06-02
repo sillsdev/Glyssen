@@ -46,21 +46,21 @@ namespace Glyssen.Bundle
 		/// not match the stored parser version, then we know to re-parse the original USX data.</summary>
 		[XmlAttribute("usxparserversion")]
 		[DefaultValue(0)]
-		public int ParserVersion;
+		public int ParserVersion { get; set; }
 
 		/// <summary>
 		/// If we attempt to upgrade the project, and the user decides to opt out,
 		/// we need to store the version he opted out of so we don't ask again.</summary>
 		[XmlAttribute("parserupgradeoptoutversion")]
 		[DefaultValue(0)]
-		public int ParserUpgradeOptOutVersion;
+		public int ParserUpgradeOptOutVersion { get; set; }
 
 		/// <summary>
 		/// We add this when we parse the USX to create a script.
 		/// This tells us the original (local) path of the Text Release Bundle file used to create this project.
 		/// </summary>
 		[XmlAttribute("origdblpath")]
-		public string OriginalPathBundlePath;
+		public string OriginalPathBundlePath { get; set; }
 
         /// <summary>
         /// Optional ID for tracking a project (used by FCBH's internal database)
@@ -72,7 +72,7 @@ namespace Glyssen.Bundle
 		/// We use this to know if character assignments should be reprocessed.
 		/// </summary>
 		[XmlAttribute("controlfileversion")]
-		public int ControlFileVersion;
+		public int ControlFileVersion { get; set; }
 
 		/// <summary>
 		/// If true, the project is hidden from the user unless he chooses to view inactive projects
@@ -142,11 +142,11 @@ namespace Glyssen.Bundle
 		/// </summary>
 		[XmlAttribute("versification")]
 		[DefaultValue("English")]
-		public string Versification;
+		public string Versification { get; set; }
 
 		[XmlAttribute("chapterannouncement")]
 		[DefaultValue(ChapterAnnouncement.PageHeader)]
-		public ChapterAnnouncement ChapterAnnouncementStyle;
+		public ChapterAnnouncement ChapterAnnouncementStyle { get; set; }
 
 		[XmlAttribute("firstchapterannouncement")]
 		[DefaultValue(false)]
@@ -263,10 +263,10 @@ namespace Glyssen.Bundle
 		private QuoteSystemStatus m_quoteSystemStatus = QuoteSystemStatus.Unknown;
 
 		[XmlElement("assignCharacterBlock")]
-		public BookBlockIndices AssignCharacterBlock;
+		public BookBlockIndices AssignCharacterBlock { get; set; }
 
 		[XmlElement("assignCharacterMode")]
-		public BlocksToDisplay AssignCharacterMode;
+		public BlocksToDisplay AssignCharacterMode { get; set; }
 
 		[XmlElement("quoteSystemStatus")]
 		[DefaultValue(QuoteSystemStatus.Unknown)]

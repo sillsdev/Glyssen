@@ -138,11 +138,11 @@ namespace DevTools.BiblicalTerms
 			}
 		}
 
-		private static readonly IEqualityComparer<Term> DomainComparerInstance = new DomainEqualityComparer();
+		private static readonly IEqualityComparer<Term> s_domainComparerInstance = new DomainEqualityComparer();
 
 		public static IEqualityComparer<Term> DomainComparer
 		{
-			get { return DomainComparerInstance; }
+			get { return s_domainComparerInstance; }
 		}
 		#endregion
 
@@ -168,11 +168,11 @@ namespace DevTools.BiblicalTerms
 			}
 		}
 
-		private static readonly IEqualityComparer<Term> GlossComparerInstance = new GlossEqualityComparer();
+		private static readonly IEqualityComparer<Term> s_glossComparerInstance = new GlossEqualityComparer();
 
 		public static IEqualityComparer<Term> GlossComparer
 		{
-			get { return GlossComparerInstance; }
+			get { return s_glossComparerInstance; }
 		}
 		#endregion
 

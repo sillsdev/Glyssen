@@ -51,7 +51,7 @@ namespace Glyssen.Controls
 			}
 		}
 
-		public EventHandler Saved;
+		public EventHandler Saved { get; set; }
 
 		public enum ActorValidationState
 		{

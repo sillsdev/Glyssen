@@ -529,7 +529,7 @@ namespace Glyssen
 						initialStartVerse, initialEndVerse);
 					if (userSplit)
 					{
-						newBlock.CharacterId = CharacterVerseData.UnknownCharacter;
+						newBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
 					}
 					else
 					{
@@ -621,7 +621,7 @@ namespace Glyssen
 			{
 				SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
 			}
-			catch (ArgumentException exception)
+			catch (ArgumentException)
 			{
 				return false;
 			}
@@ -657,16 +657,16 @@ namespace Glyssen
 			int numUniqueCharacterDeliveries = uniqueCharacterDeliveries.Count;
 			if (numUniqueCharacterDeliveries > 1)
 			{
-				var unclearCharacters = new[] { CharacterVerseData.AmbiguousCharacter, CharacterVerseData.UnknownCharacter };
+				var unclearCharacters = new[] { CharacterVerseData.kAmbiguousCharacter, CharacterVerseData.kUnknownCharacter };
 				if (numUniqueCharacters > unclearCharacters.Count(uniqueCharacters.Contains) + 1)
 				{
 					// More than one real character. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.AmbiguousCharacter, null, versification);
+					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
 				}
 				else if (numUniqueCharacters == 2 && unclearCharacters.All(uniqueCharacters.Contains))
 				{
 					// Only values are Ambiguous and Unique. Set to Ambiguous.
-					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.AmbiguousCharacter, null, versification);
+					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
 				}
 				else if (numUniqueCharacterDeliveries > numUniqueCharacters)
 				{
@@ -685,7 +685,7 @@ namespace Glyssen
 				else
 				{
 					// Only one real character (and delivery). Set to that character (and delivery).
-					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.AmbiguousCharacter && c.Character != CharacterVerseData.UnknownCharacter);
+					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnknownCharacter);
 					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, realCharacter.Character, realCharacter.Delivery, versification);
 				}
 			}
@@ -698,7 +698,7 @@ namespace Glyssen
 				block.SetCharacterAndCharacterIdInScript(character, bookNum, versification);
 				block.Delivery = delivery;
 
-				if (character == CharacterVerseData.AmbiguousCharacter || character == CharacterVerseData.UnknownCharacter)
+				if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
 					block.UserConfirmed = false;
 			}
 		}

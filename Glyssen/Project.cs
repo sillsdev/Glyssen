@@ -1391,7 +1391,7 @@ namespace Glyssen
 					var character = singleVoice ? CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) : block.CharacterIdInScript;
 
 					// REVIEW: It's possible that we should throw an exception if this happens (in production code).
-					if (character == CharacterVerseData.AmbiguousCharacter || character == CharacterVerseData.UnknownCharacter)
+					if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
 						continue;
 
 					if (!m_keyStrokesByCharacterId.ContainsKey(character))

@@ -16,9 +16,9 @@ namespace DevTools.TermTranslator
 		// The following three variables need to be updated as appropriate whenever:
 		// A) New/modified localizations of the Biblical Terms files (from Paratext) become available.
 		// B) New HUMAN localizations of TMX files are done for Glyssen.
-		private static readonly List<string> LanguagesToProcess = new List<string> { "Es", "Fr", "Pt", "zh-Hans", "zh-Hant" };
-		private static readonly List<string> LanguagesWithCustomizedTranslations = new List<string> {"es", "fr", "pt"};
-		private static readonly bool ProcessingUpdatedBiblicalTermsFiles = false;
+		private static readonly List<string> s_languagesToProcess = new List<string> { "Es", "Fr", "Pt", "zh-Hans", "zh-Hant" };
+		private static readonly List<string> s_languagesWithCustomizedTranslations = new List<string> {"es", "fr", "pt"};
+		private static readonly bool s_processingUpdatedBiblicalTermsFiles = false;
 
 		private static readonly Regex s_partOfChineseOrFrenchGlossThatIsNotTheGloss = new Regex("((（|。).+)|(\\[1\\] )", RegexOptions.Compiled);
 		private static readonly SortedSet<string> s_names = new SortedSet<string>();
@@ -44,11 +44,11 @@ namespace DevTools.TermTranslator
 
 			s_englishTranslationUnits = ProcessLanguage("en", AddEnglishTerm);
 
-			foreach (string langAbbr in LanguagesToProcess)
+			foreach (string langAbbr in s_languagesToProcess)
 			{
 				BiblicalTermsLocalizations localTermsList = DeserializeBiblicalTermsForLanguage(langAbbr);
 				var modifiedLangAbbr = Char.ToLowerInvariant(langAbbr[0]) + langAbbr.Substring(1);
-				Action<TmxFormat, Tu, Tuv> processLocalizedGloss = LanguagesWithCustomizedTranslations.Contains(modifiedLangAbbr)
+				Action<TmxFormat, Tu, Tuv> processLocalizedGloss = s_languagesWithCustomizedTranslations.Contains(modifiedLangAbbr)
 					? (Action<TmxFormat, Tu, Tuv>)UpdateEntryWithLocalizedGloss : AddEntryWithLocalizedGloss;
 				ProcessLanguage(modifiedLangAbbr,
 					(tmx, tu, name) => { AddLocalizedTerm(tmx, modifiedLangAbbr, localTermsList, tu, name, processLocalizedGloss); });
@@ -67,7 +67,7 @@ namespace DevTools.TermTranslator
 				s_names.Add(individual);
 		}
 
-		private static List<Tu> ProcessLanguage(string modifiedLangAbbr, Action<TmxFormat, Tu, string> AddTerm)
+		private static List<Tu> ProcessLanguage(string modifiedLangAbbr, Action<TmxFormat, Tu, string> addTerm)
 		{
 			string outputFileName = Path.Combine(kLocalizationFolder, "Glyssen." + modifiedLangAbbr + ".tmx");
 
@@ -81,7 +81,7 @@ namespace DevTools.TermTranslator
 				// If this is not a language that has been worked on by a localizer, we can safely blow
 				// away everything and start from scratch. Otherwise, we only want to remove translation units
 				// which no longer exist in English.
-				if (LanguagesWithCustomizedTranslations.Contains(modifiedLangAbbr))
+				if (s_languagesWithCustomizedTranslations.Contains(modifiedLangAbbr))
 					tus.RemoveAll(lt => lt.Tuid.StartsWith("CharacterName.") && !s_englishTranslationUnits.Any(ent => ent.Tuid == lt.Tuid));
 				else
 					tus.RemoveAll(t => t.Tuid.StartsWith("CharacterName."));
@@ -100,7 +100,7 @@ namespace DevTools.TermTranslator
 				Tu tmxTermEntry = new Tu("CharacterName." + name) { Prop = new Prop("x-dynamic", "true") };
 				tmxTermEntry.Tuvs.Add(new Tuv("en", name));
 
-				AddTerm(newTmx, tmxTermEntry, name);
+				addTerm(newTmx, tmxTermEntry, name);
 			}
 
 			XmlSerializationHelper.SerializeToFile(outputFileName, newTmx);
@@ -121,7 +121,7 @@ namespace DevTools.TermTranslator
 		}
 
 		private static void AddLocalizedTerm(TmxFormat newTmx, string modifiedLangAbbr, BiblicalTermsLocalizations localTermsList,
-			Tu tmxTermEntry, string name, Action<TmxFormat, Tu, Tuv> ProcessLocalizedGloss)
+			Tu tmxTermEntry, string name, Action<TmxFormat, Tu, Tuv> processLocalizedGloss)
 		{
 			// We only want to break a character ID into separate words for individual localization if it begins with a
 			// proper name.
@@ -196,7 +196,7 @@ namespace DevTools.TermTranslator
 						}
 
 						var newTuv = new Tuv(modifiedLangAbbr, String.Join(" ", parts));
-						ProcessLocalizedGloss(newTmx, tmxTermEntry, newTuv);
+						processLocalizedGloss(newTmx, tmxTermEntry, newTuv);
 					}
 				}
 			}
@@ -218,7 +218,7 @@ namespace DevTools.TermTranslator
 			}
 			if (existingtuv != null)
 			{
-				if (ProcessingUpdatedBiblicalTermsFiles && existingtuv.LocalizedTerm != newTuv.LocalizedTerm)
+				if (s_processingUpdatedBiblicalTermsFiles && existingtuv.LocalizedTerm != newTuv.LocalizedTerm)
 				{
 					// Unless we're processing new updates to the Paratext Biblical Terms, any conflicts must come
 					// from previous human localization work, so we'll just leave them as they are and not even bother
@@ -236,7 +236,7 @@ namespace DevTools.TermTranslator
 				AddEntryWithLocalizedGloss(newTmx, tmxTermEntry, newTuv);
 
 				TmxFormat conflictingTmx;
-				if (ProcessingUpdatedBiblicalTermsFiles && s_conflictingLocalizations.TryGetValue(newTuv.Lang, out conflictingTmx))
+				if (s_processingUpdatedBiblicalTermsFiles && s_conflictingLocalizations.TryGetValue(newTuv.Lang, out conflictingTmx))
 					conflictingTmx.Body.Tus.Add(tmxTermEntry.Clone());
 			}
 		}

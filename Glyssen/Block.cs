@@ -28,7 +28,7 @@ namespace Glyssen
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
 		public const string kSplitElementIdPrefix = "split";
-		private const string SplitLineFrame = "<div id=\"" + kSplitElementIdPrefix + "{0}\" class=\"split-line\"><div class=\"split-line-top\"></div></div>";
+		private const string kSplitLineFrame = "<div id=\"" + kSplitElementIdPrefix + "{0}\" class=\"split-line\"><div class=\"split-line-top\"></div></div>";
 
 		/// <summary>Random string which will (hopefully) never appear in real text</summary>
 		private const string kAwooga = "^~^";
@@ -395,7 +395,7 @@ namespace Glyssen
 
 		public bool CharacterIsUnclear()
 		{
-			return CharacterId == CharacterVerseData.UnknownCharacter || CharacterId == CharacterVerseData.AmbiguousCharacter;
+			return CharacterId == CharacterVerseData.kUnknownCharacter || CharacterId == CharacterVerseData.kAmbiguousCharacter;
 		}
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
@@ -419,7 +419,7 @@ namespace Glyssen
 			}
 			else if (characterList.Count == 0)
 			{
-				CharacterId = CharacterVerseData.UnknownCharacter;
+				CharacterId = CharacterVerseData.kUnknownCharacter;
 				CharacterIdOverrideForScript = null;
 				Delivery = null;
 				UserConfirmed = false;
@@ -435,7 +435,7 @@ namespace Glyssen
 				}
 				else
 				{
-					CharacterId = CharacterVerseData.AmbiguousCharacter;
+					CharacterId = CharacterVerseData.kAmbiguousCharacter;
 					CharacterIdOverrideForScript = null;
 					Delivery = null;
 					UserConfirmed = false;
@@ -450,7 +450,7 @@ namespace Glyssen
 
 		private void SetCharacterAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
-			if (characterId == CharacterVerseData.AmbiguousCharacter || characterId == CharacterVerseData.UnknownCharacter)
+			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
 			{
 				CharacterId = characterId;
 				CharacterIdInScript = null;
@@ -490,7 +490,7 @@ namespace Glyssen
 
 		public static string BuildSplitLineHtml(int id)
 		{
-			return string.Format(SplitLineFrame, id);
+			return string.Format(kSplitLineFrame, id);
 		}
 	}
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -19,6 +20,7 @@ namespace GlyssenTests
 {
 	static class TestProject
 	{
+		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
 		{
 			JOS,
@@ -217,11 +219,11 @@ namespace GlyssenTests
 				var bookNum = BCVRef.BookToNumber(book.BookId);
 				foreach (var block in book.GetScriptBlocks())
 				{
-					if (block.CharacterId == CharacterVerseData.UnknownCharacter)
+					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
 					{
 						block.SetCharacterAndCharacterIdInScript(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum, testProject.Versification);
 					}
-					else if (block.CharacterId == CharacterVerseData.AmbiguousCharacter)
+					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 					{
 						var cvEntry =
 							cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
