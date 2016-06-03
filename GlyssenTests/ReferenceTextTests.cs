@@ -11,6 +11,7 @@ using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
 using SIL.IO;
+using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Xml;
@@ -22,6 +23,8 @@ namespace GlyssenTests
 	class ReferenceTextTests
 	{
 		private ScrVers m_vernVersification;
+		//private TestErrorReporter m_errorHandler;
+
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
 		{
@@ -33,7 +36,51 @@ namespace GlyssenTests
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
 				m_vernVersification = Versification.Table.Load(tempFile.Path);
 			}
+
+			//m_errorHandler = new TestErrorReporter();
+			//ErrorReport.SetErrorReporter(m_errorHandler);
+			//ErrorReport.NonFatalExceptionWouldHaveBeenMessageShownToUserException
 		}
+
+		//private class TestErrorReporter : IErrorReporter
+		//{
+		//	public void ReportFatalException(Exception e)
+		//	{
+		//		throw e;
+		//	}
+
+		//	public ErrorResult NotifyUserOfProblem(IRepeatNoticePolicy policy, string alternateButton1Label,
+		//		ErrorResult resultIfAlternateButtonPressed, string message)
+		//	{
+		//		throw new NotImplementedException();
+		//	}
+
+		//	public void ReportNonFatalException(Exception exception, IRepeatNoticePolicy policy)
+		//	{
+		//		throw exception;
+		//	}
+
+		//	public void ReportNonFatalExceptionWithMessage(Exception error, string message, params object[] args)
+		//	{
+		//		throw error;
+		//	}
+
+		//	public void ReportNonFatalMessageWithStackTrace(string message, params object[] args)
+		//	{
+		//		throw new Exception(String.Format(message, args));
+		//	}
+
+		//	public void ReportFatalMessageWithStackTrace(string message, object[] args)
+		//	{
+		//		throw new Exception(String.Format(message, args));
+		//	}
+		//}
+
+		//[SetUp]
+		//public void Setup()
+		//{
+		//	m_errorMessage = null;
+		//}
 
 		[TestCase(ReferenceTextType.English)]
 		[TestCase(ReferenceTextType.Azeri)]
@@ -564,42 +611,83 @@ namespace GlyssenTests
 		[Test]
 		public void ApplyTo_VernacularHasVerseBridgeNotAtStartOfBlock_ReferenceBrokenAtVerses_VernacularSplitForNonBridgedVerses()
 		{
-			var vernacularBlocks = new List<Block>();
-			var block = new Block("p", 1, 1, 1)
+			using (var doNotReportError = new ErrorReport.NoNonFatalErrorReportExpected())
 			{
-				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
-			};
-			block.BlockElements.Add(new Verse("1"));
-			block.BlockElements.Add(new ScriptText("Entonces Jesús dijo que los reducirían un burro. "));
-			block.BlockElements.Add(new Verse("2-3"));
-			block.BlockElements.Add(new ScriptText("El número de ellos dónde encontrarlo. Y todo salió bien. "));
-			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("El cuarto versiculo."));
-			vernacularBlocks.Add(block);
-			var vernBook = new BookScript("MAT", vernacularBlocks);
+				var vernacularBlocks = new List<Block>();
+				var block = new Block("p", 1, 1, 1)
+				{
+					IsParagraphStart = true,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				};
+				block.AddVerse(1, "Entonces Jesús dijo que los reducirían un burro. ")
+					.AddVerse("2-3", "El número de ellos dónde encontrarlo. Y todo salió bien. ")
+					.AddVerse(4, "El cuarto versiculo.");
+				vernacularBlocks.Add(block);
+				var vernBook = new BookScript("MAT", vernacularBlocks);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
-			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
+				var referenceBlocks = new List<Block>();
+				referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
+				referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
+				referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
+				referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+				var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			refText.ApplyTo(vernBook, m_vernVersification);
+				refText.ApplyTo(vernBook, m_vernVersification);
 
-			var result = vernBook.GetScriptBlocks();
-			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
-			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
-			Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Skip(1).Take(2).Select(r => r.GetText(true))));
-			Assert.IsNull(result[1].PrimaryReferenceText);
-			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
-			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+				var result = vernBook.GetScriptBlocks();
+				Assert.AreEqual(3, result.Count);
+				Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+				Assert.IsTrue(result[0].MatchesReferenceText);
+				Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+				Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+				Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true))
+					.SequenceEqual(referenceBlocks.Skip(1).Take(2).Select(r => r.GetText(true))));
+				Assert.IsNull(result[1].PrimaryReferenceText);
+				Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
+				Assert.IsTrue(result[2].MatchesReferenceText);
+				Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			}
+		}
+
+		[Test]
+		public void ApplyTo_VernacularHasVerseBridgeAtStartOfBlockFollowedByOtherVerses_ReferenceBrokenAtVerses_VernacularSplitAtEndOfBridgeAndSubsequentVerses()
+		{
+			using (var doNotReportError = new ErrorReport.NoNonFatalErrorReportExpected())
+			{
+				var vernacularBlocks = new List<Block>();
+				vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Jesús les dijo donde encontrar un burro. ", true));
+				var block = new Block("p", 1, 2, 3)
+				{
+					IsParagraphStart = true,
+					CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
+				};
+				block.AddVerse("2-3", "El número de ellos dónde encontrarlo. Y todo salió bien. ").AddVerse(4, "El cuarto versiculo.");
+				vernacularBlocks.Add(block);
+				var vernBook = new BookScript("MAT", vernacularBlocks);
+
+				var referenceBlocks = new List<Block>();
+				referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Jesus told them where to find a donkey. ", true));
+				referenceBlocks.Add(CreateNarratorBlockForVerse(2, "He said that they should bring it, and it would all work out. "));
+				referenceBlocks.Add(CreateNarratorBlockForVerse(3, "It did. "));
+				referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Fourth verse."));
+
+				var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+				refText.ApplyTo(vernBook, m_vernVersification);
+
+				var result = vernBook.GetScriptBlocks();
+				Assert.AreEqual(3, result.Count);
+				Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+				Assert.IsTrue(result[0].MatchesReferenceText);
+				Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+				Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
+				Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Skip(1).Take(2).Select(r => r.GetText(true))));
+				Assert.IsNull(result[1].PrimaryReferenceText);
+				Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
+				Assert.IsTrue(result[2].MatchesReferenceText);
+				Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			}
 		}
 
 		[Test]
