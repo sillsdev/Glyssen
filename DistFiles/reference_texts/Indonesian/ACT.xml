@@ -2770,8 +2770,8 @@
     <verse num="6" />
     <text>Dan ia gemetar dan heran berkata,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="6" characterId="Paul" delivery="trembled" userConfirmed="true">
       <text>“Lord, what should I do?”</text>
     </ReferenceBlocks>
     <text>"Tuhan, apa yang harus saya lakukan?"</text>

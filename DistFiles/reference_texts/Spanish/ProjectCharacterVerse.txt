@@ -3,3 +3,4 @@ LUK	1	22	people	wondering
 1PE	2	3	scripture		
 REV	18	18	merchants of the earth	wailing	
 REV	18	19	merchants of the earth	wailing	
+ACT	9	6	Paul	trembled	Saul (Paul)

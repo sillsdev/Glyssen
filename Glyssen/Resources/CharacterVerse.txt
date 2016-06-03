@@ -15741,7 +15741,7 @@ EPH	5	31	scripture			Quotation
 EPH	6	2	scripture			Quotation	God	
 EPH	6	3	scripture			Quotation	God	
 PHP	2	11	everyone			Hypothetical		
-COL	2	21	rules of the world			Normal		
+COL	2	21	rules of the world			Hypothetical		
 COL	4	17	Paul			Normal		
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Hypothetical		

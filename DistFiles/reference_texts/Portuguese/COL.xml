@@ -412,8 +412,8 @@
     <verse num="20" />
     <text>Vocês morreram com Cristo e por isso estão livres dos espíritos maus que dominam o Universo h. Então, por que é que vocês estão vivendo como se fossem deste mundo? Não obedeçam mais a regras como estas:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

@@ -412,8 +412,8 @@
     <verse num="20" />
     <text>Yupela i dai pinis wantaim Krais na yupela i no i stap moa aninit long strong bilong ol spirit i save bosim ol samting bilong skai na graun. Olsem na watpo nau yupela i save wokabaut olsem ol man bilong graun? Bilong wanem yupela i save bihainim ol kain lo olsem,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

@@ -1365,8 +1365,8 @@
     <verse num="15" />
     <text>Xalq ümidlә gözlәyirdi vә hamı ürәyindә Yәhya haqqında öz-özündәn soruşurdu:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
       <text>Could John be the Messiah?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Görәsәn bu, Mәsihdirmi?&gt;&gt;</text>
@@ -8408,8 +8408,8 @@
     <verse num="43" />
     <text>Dərhal onun yanında almış və ona tabe, Allah mədh edib dedi:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="people" delivery="praising" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
     <text>"Şöhrət Allah olsun!"</text>

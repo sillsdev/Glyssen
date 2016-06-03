@@ -206,7 +206,7 @@
     <verse num="20" />
     <text>If you died with Christ from the elements of the world, why, as though living in the world, do you subject yourselves to ordinances,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="rules of the world">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
     <verse num="21" />
     <text>“Don't handle, nor taste, nor touch”</text>
   </block>
