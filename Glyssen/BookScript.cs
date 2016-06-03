@@ -489,27 +489,46 @@ namespace Glyssen
 				{
 					ScriptText text = blockElement as ScriptText;
 
+					string content;
 					if (text == null)
-						continue;
-
-					var content = text.Content;
-
-					if (blockToSplit.BlockElements.Count > i + 1)
-						indexOfFirstElementToRemove = i + 1;
-
-					if (characterOffsetToSplit == kSplitAtEndOfVerse)
-						characterOffsetToSplit = content.Length;
-
-					if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
 					{
-						throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
-							"Value must be greater than 0 and less than or equal to the length (" + content.Length +
-							") of the text of verse " + currVerse + ".");
+						if (blockToSplit.BlockElements.Count > i + 1 && blockToSplit.BlockElements[i + 1] is Verse)
+						{
+							content = string.Empty;
+							characterOffsetToSplit = 0;
+							indexOfFirstElementToRemove = i + 1;
+						}
+						else
+							continue;
 					}
-					if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
+					else
 					{
-						SplitBeforeBlock(iBlock + 1, splitId);
-						return m_blocks[iBlock + 1];
+						content = text.Content;
+
+						if (blockToSplit.BlockElements.Count > i + 1)
+						{
+							if (!(blockToSplit.BlockElements[i + 1] is Verse) && (characterOffsetToSplit == kSplitAtEndOfVerse || characterOffsetToSplit > content.Length))
+							{
+								// Some kind of annotation. We can skip this. If we're splitting at
+								continue;
+							}
+							indexOfFirstElementToRemove = i + 1;
+						}
+
+						if (characterOffsetToSplit == kSplitAtEndOfVerse)
+							characterOffsetToSplit = content.Length;
+
+						if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
+						{
+							throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
+								"Value must be greater than 0 and less than or equal to the length (" + content.Length +
+								") of the text of verse " + currVerse + ".");
+						}
+						if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
+						{
+							SplitBeforeBlock(iBlock + 1, splitId);
+							return m_blocks[iBlock + 1];
+						}
 					}
 
 					int initialStartVerse, initialEndVerse;
@@ -540,7 +559,8 @@ namespace Glyssen
 					}
 					if (characterOffsetToSplit < content.Length)
 						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
-					text.Content = content.Substring(0, characterOffsetToSplit);
+					if (text != null)
+						text.Content = content.Substring(0, characterOffsetToSplit);
 					m_blocks.Insert(iBlock + 1, newBlock);
 					var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
 					foreach (var chapterNum in chapterNumbersToIncrement)
