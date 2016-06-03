@@ -444,7 +444,7 @@ namespace Glyssen
 				else
 					initEndVerse = initStartVerse;
 
-				while (initStartVerse > verseToSplitAfter)
+				while (initEndVerse > verseToSplitAfter)
 				{
 					if (iSplit == verseSplitLocations.Count - 1)
 						return splitsMade;
