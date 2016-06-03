@@ -462,11 +462,12 @@ namespace Glyssen
 						splitsMade = true;
 					else
 					{
+#if DEBUG
 						ErrorReport.NotifyUserOfProblem(
 							"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Verse: {3}; Block: {4}",
 							descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
 							bookToSplit.BookId, verseToSplitAfter.VerseNum, block.GetText(true));
-
+#endif
 						if (iSplit == verseSplitLocations.Count - 1)
 							break;
 						verseToSplitAfter = verseSplitLocations[++iSplit];

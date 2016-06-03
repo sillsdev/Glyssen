@@ -23,7 +23,6 @@ namespace GlyssenTests
 	class ReferenceTextTests
 	{
 		private ScrVers m_vernVersification;
-		//private TestErrorReporter m_errorHandler;
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
@@ -36,51 +35,7 @@ namespace GlyssenTests
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
 				m_vernVersification = Versification.Table.Load(tempFile.Path);
 			}
-
-			//m_errorHandler = new TestErrorReporter();
-			//ErrorReport.SetErrorReporter(m_errorHandler);
-			//ErrorReport.NonFatalExceptionWouldHaveBeenMessageShownToUserException
 		}
-
-		//private class TestErrorReporter : IErrorReporter
-		//{
-		//	public void ReportFatalException(Exception e)
-		//	{
-		//		throw e;
-		//	}
-
-		//	public ErrorResult NotifyUserOfProblem(IRepeatNoticePolicy policy, string alternateButton1Label,
-		//		ErrorResult resultIfAlternateButtonPressed, string message)
-		//	{
-		//		throw new NotImplementedException();
-		//	}
-
-		//	public void ReportNonFatalException(Exception exception, IRepeatNoticePolicy policy)
-		//	{
-		//		throw exception;
-		//	}
-
-		//	public void ReportNonFatalExceptionWithMessage(Exception error, string message, params object[] args)
-		//	{
-		//		throw error;
-		//	}
-
-		//	public void ReportNonFatalMessageWithStackTrace(string message, params object[] args)
-		//	{
-		//		throw new Exception(String.Format(message, args));
-		//	}
-
-		//	public void ReportFatalMessageWithStackTrace(string message, object[] args)
-		//	{
-		//		throw new Exception(String.Format(message, args));
-		//	}
-		//}
-
-		//[SetUp]
-		//public void Setup()
-		//{
-		//	m_errorMessage = null;
-		//}
 
 		[TestCase(ReferenceTextType.English)]
 		[TestCase(ReferenceTextType.Azeri)]
@@ -687,6 +642,39 @@ namespace GlyssenTests
 				Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 				Assert.IsTrue(result[2].MatchesReferenceText);
 				Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			}
+		}
+
+		/// <summary>
+		/// PG-742
+		/// </summary>
+		[Test]
+		public void ApplyTo_MissingVerseNumberInVernacular_DoesNotFail()
+		{
+#if DEBUG
+			using (var doNotReportError = new ErrorReport.NonFatalErrorReportExpected())
+#else
+			using (var doNotReportError = new ErrorReport.NoNonFatalErrorReportExpected())
+#endif
+			{
+				var vernacularBlocks = new List<Block>();
+				vernacularBlocks.Add(CreateNarratorBlockForVerse(1,
+					"E mbaŋako iyako, Herod, iye Galili gharambarombaro i loŋweya Jisas le vakatha utuutuniye. ", true, 14)
+					.AddVerse(2, "I dage weŋgiya le rakakaiwo e raberabe iŋa, "));
+				AddBlockForVerseInProgress(vernacularBlocks, "Herod Antipas (the tetrarch)",
+					"“Loloko iyako mbema emunjoru Jon Rabapɨtaiso, i thuweiru na tembe e yawayawaliyeva. Iya kaiwae valɨkaiwae i vakathaŋgiya vakatha ghamba rotaele ŋgoranjiyako.”");
+				var block = new Block("p", 14, 3);
+				block.BlockElements.Add(new Verse("3,"));
+				block.BlockElements.Add(new ScriptText("4 Kaiwae Herod va i viwe ghagha Pilip levo Herodiyas na i ghe weiye, Jon vambe i vathivalaŋa wevara, iŋa, "));
+				vernacularBlocks.Add(block);
+				AddBlockForVerseInProgress(vernacularBlocks, "John the Baptist", "“Ghanda Mbaro ma i vatomwe e ghen na u vaŋgwa Herodiyas!” ");
+				AddNarratorBlockForVerseInProgress(vernacularBlocks, "Iyako kaiwae, Herod va iŋa na thɨ yalawe Jon, thɨ ŋgarɨ na thɨ woruwo e thiyo. ")
+					.AddVerse(5, "Herod va nuwaiya iŋa na Jon i mare, ko va i mararuŋgiya Jiu kaiwae va thɨŋa Jon iye Loi ghalɨŋae gharautu.");
+				var vernBook = new BookScript("MAT", vernacularBlocks);
+
+				var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+				refText.ApplyTo(vernBook, m_vernVersification);
 			}
 		}
 
