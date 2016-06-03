@@ -395,7 +395,7 @@ hearers	-1					ISA 28:9 & ISA 28:10
 herald	1	Male				DAN 3:4 <-(1 more)-> DAN 3:6
 herdsman	1	Male				GEN 26:20
 herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36
-Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(9 more)-> LUK 9:9
+Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(10 more)-> LUK 9:9
 Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16
 Herodias	1	Female				MRK 6:24
 Herodias' daughter	1	Female				MAT 14:8 <-(1 more)-> MRK 6:25
@@ -779,7 +779,7 @@ owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
 parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(1 more)-> JHN 9:23
 Pashur	1	Male			son of Malkijah	
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
-Paul	1	Male				ACT 9:1 <-(191 more)-> 1TH 5:27
+Paul	1	Male				ACT 9:1 <-(192 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 people	-1					2CH 26:23 <-(17 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22

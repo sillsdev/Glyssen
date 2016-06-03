@@ -1,4 +1,4 @@
-Control File Version	102
+Control File Version	103
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12889,6 +12889,7 @@ MRK	6	10	Jesus			Normal
 MRK	6	11	Jesus			Normal		
 MRK	6	12	disciples			Indirect		
 MRK	6	14	people, some	excited		Normal		
+MRK	6	14	Herod Antipas (the tetrarch)			Normal		
 MRK	6	15	people, other	guessing		Normal		
 MRK	6	15	people, still others			Normal		
 MRK	6	16	Herod Antipas (the tetrarch)	fearful		Normal		
@@ -15092,6 +15093,7 @@ ACT	9	4	Jesus	questioning		Normal
 ACT	9	5	Jesus			Normal		
 ACT	9	5	Paul	awe	Saul (Paul)	Normal		
 ACT	9	6	Jesus			Normal		
+ACT	9	6	Paul	trembled	Saul (Paul)	Potential		
 ACT	9	10	Ananias of Damascus	awe		Normal		
 ACT	9	10	Jesus		Lord	Normal		
 ACT	9	11	Jesus		Lord	Normal		
