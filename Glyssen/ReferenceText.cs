@@ -359,10 +359,18 @@ namespace Glyssen
 				if (vernInitStartVerse.CompareTo(refInitStartVerse) == 0 && vernInitEndVerse.CompareTo(refInitEndVerse) == 0 &&
 					((numberOfVernBlocksInVerse == 1 && numberOfRefBlocksInVerse == 1) ||
 					(numberOfVernBlocksInVerse == numberOfRefBlocksInVerse &&
-					vernBlockList.Skip(indexOfVernVerseStart).Take(numberOfVernBlocksInVerse).Select(b => b.CharacterId).SequenceEqual(refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerse).Select(b => b.CharacterId)))))
+					VerseBlocksMatch(vernBlockList.Skip(indexOfVernVerseStart), refBlockList.Skip(indexOfRefVerseStart), numberOfVernBlocksInVerse)) ||
+					(!oneToOneMatchingOnly &&
+					numberOfVernBlocksInVerse == numberOfRefBlocksInVerse + 1 &&
+					VerseBlocksMatch(vernBlockList.Skip(indexOfVernVerseStart), refBlockList.Skip(indexOfRefVerseStart), numberOfRefBlocksInVerse) &&
+					!vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerse - 2].CharacterIsStandard &&
+					vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerse - 1].CharacterIs(vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator))))
 				{
-					for (int i = 0; i < numberOfVernBlocksInVerse; i++)
+					int i = 0;
+					for (; i < numberOfRefBlocksInVerse; i++)
 						vernBlockList[indexOfVernVerseStart + i].SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
+					while (i < numberOfVernBlocksInVerse)
+						vernBlockList[indexOfVernVerseStart + i++].MatchesReferenceText = false;
 				}
 				else
 				{
@@ -372,6 +380,12 @@ namespace Glyssen
 					currentVernBlock.ReferenceBlocks = new List<Block>(refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerse));
 				}
 			}
+		}
+
+		private static bool VerseBlocksMatch(IEnumerable<Block> listA, IEnumerable<Block> listB, int numberOfBlocksToCompare)
+		{
+			return listA.Take(numberOfBlocksToCompare).Select(b => b.CharacterId).SequenceEqual(
+				listB.Take(numberOfBlocksToCompare).Select(b => b.CharacterId));
 		}
 
 		private static void FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, int bookNum, ScrVers versification)

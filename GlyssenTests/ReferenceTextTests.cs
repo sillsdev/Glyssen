@@ -344,19 +344,10 @@ namespace GlyssenTests
 			};
 			block.BlockElements.Add(new ScriptText("1"));
 			vernacularBlocks.Add(block);
-			block = new Block("p", 1, 1)
-			{
-				IsParagraphStart = true,
-				CharacterId = "Paul",
-			};
-			block.AddVerse(1, "This is versiculo uno.").AddVerse(2, "This is versiculo dos.").AddVerse(3, "This is versiculo tres.");
-			vernacularBlocks.Add(block);
-			block = new Block("p", 1, 4)
-			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
-			};
-			block.AddVerse(4, "Now the narrator butts in.");
-			vernacularBlocks.Add(block);
+			vernacularBlocks.Add(CreateBlockForVerse("Paul", 1, "This is versiculo uno.", true)
+				.AddVerse(2, "This is versiculo dos.")
+				.AddVerse(3, "This is versiculo tres."));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(4, "Now the narrator butts in."));
 			block = new Block("c", 2)
 			{
 				BookCode = "MAT",
@@ -370,13 +361,7 @@ namespace GlyssenTests
 			};
 			block.BlockElements.Add(new ScriptText("This is una historia about a scruffy robot jugando volleybol"));
 			vernacularBlocks.Add(block);
-			block = new Block("q", 2, 1)
-			{
-				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
-			};
-			block.AddVerse(1, "El robot agarro la pelota.");
-			vernacularBlocks.Add(block);
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "El robot agarro la pelota.", true, 2, "MAT", "q"));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 
 			var referenceBlocks = new List<Block>();
@@ -391,33 +376,12 @@ namespace GlyssenTests
 				BookCode = "MAT",
 				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
 			};
+			referenceBlocks.Add(block);
 			block.BlockElements.Add(new ScriptText("1"));
-			referenceBlocks.Add(block);
-			block = new Block("p", 1, 1)
-			{
-				IsParagraphStart = true,
-				CharacterId = "Paul",
-			};
-			block.AddVerse(1, "This is verse one.");
-			referenceBlocks.Add(block);
-			block = new Block("p", 1, 2)
-			{
-				CharacterId = "Paul",
-			};
-			block.AddVerse(2, "This is verse two.");
-			referenceBlocks.Add(block);
-			block = new Block("p", 1, 3)
-			{
-				CharacterId = "Paul",
-			};
-			block.AddVerse(3, "This is verse three.");
-			referenceBlocks.Add(block);
-			block = new Block("p", 1, 4)
-			{
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)
-			};
-			block.AddVerse(4, "Now the narrator butts in.");
-			referenceBlocks.Add(block);
+			referenceBlocks.Add(CreateBlockForVerse("Paul", 1, "This is verse one.", true));
+			referenceBlocks.Add(CreateBlockForVerse("Paul", 2, "This is verse two.", true));
+			referenceBlocks.Add(CreateBlockForVerse("Paul", 3, "This is verse three.", true));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(4, "Now the narrator butts in."));
 			block = new Block("c", 2)
 			{
 				BookCode = "MAT",
@@ -431,13 +395,7 @@ namespace GlyssenTests
 			};
 			block.BlockElements.Add(new ScriptText("This is a story about a scruffy robot playing volleyball"));
 			referenceBlocks.Add(block);
-			block = new Block("q", 2, 1)
-			{
-				IsParagraphStart = true,
-				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
-			};
-			block.AddVerse(1, "The robot grabbed the ball.");
-			referenceBlocks.Add(block);
+			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "The robot grabbed the ball.", true, 2, "MAT", "q"));
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
@@ -463,6 +421,44 @@ namespace GlyssenTests
 			Assert.AreEqual(referenceBlocks[7].GetText(true), result[7].PrimaryReferenceText);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[8].CharacterId);
 			Assert.AreEqual(referenceBlocks[8].GetText(true), result[8].PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ApplyTo_VernacularHasExtraTrailingNarratorBlock_AllBlocksMatchExceptTrailingNarratorBlock()
+		{
+			Block.FormatChapterAnnouncement = (s, i) => s + i;
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Entonces dijo Jesus: ", true));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo uno, ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "asi dijo. Pero Paul replico: ");
+			AddBlockForVerseInProgress(vernacularBlocks, "Paul", "Asi pense, ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "asi dijo.");
+			var originalVernBlockCount = vernacularBlocks.Count;
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Then Jesus said, ", true));
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“This is verse one.” ");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "But Paul replied, ");
+			AddBlockForVerseInProgress(referenceBlocks, "Paul", "“That's what I thought.”");
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(originalVernBlockCount, result.Count);
+			for (int i = 0; i < referenceBlocks.Count; i++)
+			{
+				var desc = "Block " + i + ": " + result[i].GetText(true);
+				Assert.AreEqual(vernacularBlocks[i].CharacterId, result[i].CharacterId, desc);
+				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].ReferenceBlocks.Single().GetText(true), desc);
+				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].PrimaryReferenceText, desc);
+				Assert.IsTrue(result[i].MatchesReferenceText, desc);
+			}
+			
+			Assert.AreEqual(vernacularBlocks.Last().CharacterId, result.Last().CharacterId);
+			Assert.IsFalse(result.Last().ReferenceBlocks.Any());
+			Assert.IsFalse(result.Last().MatchesReferenceText);
 		}
 
 		[Test]
