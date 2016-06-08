@@ -416,18 +416,20 @@ namespace DevTools
 													else
 														serializedAnnotation = XmlSerializationHelper.SerializeToString((Sound)annotation, true);
 
-													if (string.IsNullOrWhiteSpace(annotation.ToDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
+													var formattedAnnotationForDisplay = annotation.ToDisplay(" ");
+
+													if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
 													{
 														Console.WriteLine("Annotation not formatted correctly (is null or whitespace): {0}", referenceTextRow.English);
 														Console.WriteLine();
 														errorsOccurred = true;
 													}
 													var trimmedEnglish = referenceTextRow.English.TrimEnd();
-													if ((annotation is Pause && !trimmedEnglish.EndsWith(annotation.ToDisplay)) ||
-														(annotation is Sound && !trimmedEnglish.StartsWith(annotation.ToDisplay)))
+													if ((annotation is Pause && !trimmedEnglish.EndsWith(formattedAnnotationForDisplay)) ||
+														(annotation is Sound && !trimmedEnglish.StartsWith(formattedAnnotationForDisplay)))
 													{
 														var bcv = new BCVRef(BCVRef.BookToNumber(existingBook.BookId), block.ChapterNumber, block.InitialStartVerseNumber);
-														Console.WriteLine("(warning) Annotation not formatted the same as FCBH: ({0}) {1} => {2}", bcv.AsString, referenceTextRow.English, annotation.ToDisplay);
+														Console.WriteLine("(warning) Annotation not formatted the same as FCBH: ({0}) {1} => {2}", bcv.AsString, referenceTextRow.English, formattedAnnotationForDisplay);
 														Console.WriteLine();
 														// This is a good check to run for sanity. But we can't fail as
 														// a few of the annotations are actually displayed slightly differently by FCBH

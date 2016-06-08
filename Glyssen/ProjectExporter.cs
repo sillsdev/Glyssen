@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,26 @@ namespace Glyssen
 		TabSeparated
 	}
 
+	public enum ExportColumn
+	{
+		BlockId = 0,
+		Actor = 1,
+		ParaTag = 2,
+		BookId = 3,
+		Chapter = 4,
+		Verse = 5,
+		CharacterId = 6,
+		Delivery = 7,
+		VernacularText = 8,
+		PrimaryReferenceText = 9,
+		SecondaryReferenceText = 10,
+		VernacularTextLength = 11,
+	}
+
 	public class ProjectExporter
 	{
+		private const string kExcelLineBreak = "\r\n"; ///????????????????????
+		private const string kTabFileAnnotationElementSeparator = " ";
 		public const string kExcelFileExtension = ".xlsx";
 		public const string kTabDelimitedFileExtension = ".txt";
 
@@ -43,6 +62,7 @@ namespace Glyssen
 		public bool IncludeVoiceActors { get { return m_includeVoiceActors; } }
 		public bool IncludeActorBreakdown { get; set; }
 		public bool IncludeBookBreakdown { get; set; }
+		public bool ExportAnnotationsInSeparateRows { get; set; }
 		
 		internal ExportFileType SelectedFileType { get; set; }
 
@@ -114,6 +134,10 @@ namespace Glyssen
 				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.BookDirectoryNameSuffix", "Books");
 				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
+		}
+		public string AnnotationElementSeparator
+		{
+			get { return SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator; }
 		}
 
 		//internal  GetListOfFilesInUse()
@@ -357,6 +381,20 @@ namespace Glyssen
 		}
 
 		// internal for testing
+		internal int GetColumnIndex(ExportColumn column)
+		{
+			int columnNumber = (int) column;
+			if (column != ExportColumn.BlockId && !IncludeVoiceActors)
+				columnNumber--;
+			if (column == ExportColumn.VernacularTextLength)
+			{
+				if (!Project.ReferenceText.HasSecondaryReferenceText)
+					columnNumber--;
+			}
+			return columnNumber;
+		}
+
+		// internal for testing
 		internal List<List<object>> GetExportData(string bookId = null, int voiceActorId = -1)
 		{
 			var result = new List<List<object>>();
@@ -434,9 +472,15 @@ namespace Glyssen
 						{
 							foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
 							{
-								data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
-									GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book), previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
-								i++;
+								if (ExportAnnotationsInSeparateRows)
+								{
+									data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
+										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
+											previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
+									i++;
+								}
+								else
+									AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation);
 							}
 						}
 						if (referenceTextVerse != previousReferenceTextVerse)
@@ -444,8 +488,14 @@ namespace Glyssen
 							var annotationsForVerse = ControlAnnotations.Singleton.GetAnnotationsForVerse(referenceTextVerse);
 							foreach (var verseAnnotation in annotationsForVerse.Where(va => va.Annotation is Sound))
 							{
-								data.Insert(i++ + verseAnnotation.Offset,
-									GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(referenceTextVerse.Book), referenceTextVerse.Chapter, referenceTextVerse.Verse.ToString()));
+								if (ExportAnnotationsInSeparateRows)
+								{
+									data.Insert(i++ + verseAnnotation.Offset,
+										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(referenceTextVerse.Book),
+											referenceTextVerse.Chapter, referenceTextVerse.Verse.ToString()));
+								}
+								else
+									AddAnnotationData(data, i, verseAnnotation);
 							}
 
 							annotationsForPreviousVerse = annotationsForVerse;
@@ -457,6 +507,36 @@ namespace Glyssen
 			}
 		}
 
+		private void AddAnnotationData(List<List<object>> data, int relativeIndex, VerseAnnotation verseAnnotation)
+		{
+			Func<string, string, string> modify = (verseAnnotation.Annotation is Sound)
+				? (Func<string, string, string>)PrependAnnotationInfo : (Func<string, string, string>)AppendAnnotationInfo;
+
+			var rowToModify = data[relativeIndex + verseAnnotation.Offset];
+			var col = GetColumnIndex(ExportColumn.PrimaryReferenceText);
+			var annotationInfo = verseAnnotation.Annotation.ToDisplay(AnnotationElementSeparator);
+
+			rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
+			if (Project.ReferenceText.HasSecondaryReferenceText)
+			{
+				col = GetColumnIndex(ExportColumn.SecondaryReferenceText);
+				rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
+			}
+		}
+
+		private string AppendAnnotationInfo(string text, string annotationInfo)
+		{
+			var separator = char.IsWhiteSpace(text.LastOrDefault()) || char.IsWhiteSpace(annotationInfo.FirstOrDefault()) ?
+				string.Empty : " ";
+			return text + separator + annotationInfo;
+		}
+
+		private string PrependAnnotationInfo(string text, string annotationInfo)
+		{
+			var separator = char.IsWhiteSpace(annotationInfo.LastOrDefault()) || char.IsWhiteSpace(text.FirstOrDefault()) ?
+				string.Empty : " ";
+			return annotationInfo + separator + text;
+		}
 		private bool HasReferenceText(List<object> dataRow)
 		{
 			int offset = IncludeVoiceActors ? 1 : 0;
@@ -485,9 +565,10 @@ namespace Glyssen
 				row.Add(null);
 			row.Add(null);
 			row.Add(null);
-			row.Add(verseAnnotation.Annotation.ToDisplay);
+			var annotationInfo = verseAnnotation.Annotation.ToDisplay(AnnotationElementSeparator);
+			row.Add(annotationInfo);
 			if (Project.ReferenceText.HasSecondaryReferenceText)
-				row.Add(verseAnnotation.Annotation.ToDisplay);
+				row.Add(annotationInfo);
 			row.Add(null);
 			return row;
 		}
