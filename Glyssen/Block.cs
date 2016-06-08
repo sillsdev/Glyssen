@@ -250,7 +250,7 @@ namespace Glyssen
 					{
 						ScriptAnnotation annotation = blockElement as ScriptAnnotation;
 						if (annotation != null)
-							bldr.Append(annotation.ToDisplay);
+							bldr.Append(annotation.ToDisplay(" "));
 					}
 				}
 			}
