@@ -478,9 +478,9 @@ namespace Glyssen
 					{
 #if DEBUG
 						ErrorReport.NotifyUserOfProblem(
-							"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Verse: {3}; Block: {4}",
+							"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Chapter: {3}; Verse: {4}; Block: {5}",
 							descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
-							bookToSplit.BookId, verseToSplitAfter.VerseNum, block.GetText(true));
+							bookToSplit.BookId, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
 #endif
 						if (iSplit == verseSplitLocations.Count - 1)
 							break;
