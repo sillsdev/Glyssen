@@ -651,7 +651,7 @@ namespace Glyssen
 		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
 		{
 			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
-				throw new InvalidOperationException("Split allowed only between blocks that are part of a multi-block quote");
+				throw new ArgumentException("Split allowed only between blocks that are part of a multi-block quote");
 
 			if (m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.Start)
 				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote = MultiBlockQuote.None;

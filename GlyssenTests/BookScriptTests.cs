@@ -1212,7 +1212,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void SplitBlock_AttemptToSplitAtBeginningOfBlockThatIsNotPartOfMultiBlockQuote_ThrowsInvalidOperationException()
+		public void SplitBlock_AttemptToSplitAtBeginningOfBlockThatIsNotPartOfMultiBlockQuote_ThrowsArgumentException()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1221,12 +1221,12 @@ namespace GlyssenTests
 			mrkBlocks.Add(splitBeforeBlock);
 			mrkBlocks.Add(NewSingleVersePara(3));
 			var bookScript = new BookScript("MRK", mrkBlocks);
-			Assert.Throws<InvalidOperationException>(() => bookScript.SplitBlock(splitBeforeBlock, null, 0));
+			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(splitBeforeBlock, null, 0));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
 
 		[Test]
-		public void SplitBlock_AttemptToSplitAtEndOfBlockThatIsNotPartOfMultiBlockQuote_ThrowsInvalidOperationException()
+		public void SplitBlock_AttemptToSplitAtEndOfBlockThatIsNotPartOfMultiBlockQuote_ThrowsArgumentException()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -1235,7 +1235,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(splitAfterBlock);
 			mrkBlocks.Add(NewSingleVersePara(3));
 			var bookScript = new BookScript("MRK", mrkBlocks);
-			Assert.Throws<InvalidOperationException>(() => bookScript.SplitBlock(splitAfterBlock, "2", "Verse text".Length));
+			Assert.Throws<ArgumentException>(() => bookScript.SplitBlock(splitAfterBlock, "2", "Verse text".Length));
 			Assert.IsTrue(bookScript.GetScriptBlocks().SequenceEqual(mrkBlocks));
 		}
 
