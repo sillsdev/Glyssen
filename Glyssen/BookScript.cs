@@ -7,7 +7,6 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
 using SIL.ObjectModel;
-using SIL.Reporting;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
@@ -448,7 +447,7 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
-		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true)
+		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true, string characterId = null)
 		{
 			var iBlock = m_blocks.IndexOf(blockToSplit);
 
@@ -548,7 +547,7 @@ namespace Glyssen
 						initialStartVerse, initialEndVerse);
 					if (userSplit)
 					{
-						newBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+						newBlock.CharacterId = string.IsNullOrEmpty(characterId) ? CharacterVerseData.kUnknownCharacter : characterId;
 					}
 					else
 					{

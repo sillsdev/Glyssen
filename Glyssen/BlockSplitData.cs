@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Glyssen
 {
@@ -13,6 +14,9 @@ namespace Glyssen
 
 		public BlockSplitData(int id, Block blockToSplit, string verseToSplit, int characterOffsetToSplit)
 		{
+			if (id < 1)
+				throw new ArgumentException(@"The value for id must be greater than zero", "id");
+
 			Id = id;
 			BlockToSplit = blockToSplit;
 			VerseToSplit = verseToSplit;
