@@ -8,6 +8,7 @@ using Glyssen.Dialogs;
 using Glyssen.Quote;
 using SIL.ObjectModel;
 using SIL.Scripture;
+using SIL.Unicode;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
@@ -20,6 +21,7 @@ namespace Glyssen
 		private int m_blockCount;
 		private List<Block> m_blocks;
 		private List<List<Block>> m_unappliedSplitBlocks = new List<List<Block>>();
+		private ScrStylesheetAdapter m_styleSheet;
 
 		public BookScript()
 		{
@@ -102,34 +104,49 @@ namespace Glyssen
 			if (!join || m_blockCount == 0)
 				return m_blocks;
 
-			var list = new List<Block>(m_blockCount);
-			list.Add(m_blocks[0]);
-			for (int i = 1; i < m_blockCount; i++)
+			var list = new List<Block>(m_blockCount) {m_blocks[0]};
+
+			if (m_styleSheet == null)
+				m_styleSheet = SfmLoader.GetUsfmStylesheet();
+
+			for (var i = 1; i < m_blockCount; i++)
 			{
 				var block = m_blocks[i];
-				if (!block.IsParagraphStart)
+				var prevBlock = list.Last();
+				var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
+
+				if (!block.IsParagraphStart
+					|| (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))
+					)
 				{
-					var prevBlock = list.Last();
-					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? String.Empty))
+					
+					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? string.Empty))
 					{
-						var newBlock = prevBlock.Clone();
-						int skip = 0;
-						if (prevBlock.BlockElements.Last() is ScriptText && block.BlockElements.First() is ScriptText)
-						{
-							var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
-							lastScriptText.Content += ((ScriptText)block.BlockElements.First()).Content;
-							skip = 1;
-						}
-						foreach (var blockElement in block.BlockElements.Skip(skip))
-							newBlock.BlockElements.Add(blockElement.Clone());
-						newBlock.UserConfirmed &= block.UserConfirmed;
-						list[list.Count - 1] = newBlock;
+						list[list.Count - 1] = CombineBlockWithPreviousBlock(block, prevBlock);
 						continue;
 					}
 				}
+
 				list.Add(block);
 			}
 			return list;
+		}
+
+		private Block CombineBlockWithPreviousBlock(Block block, Block prevBlock)
+		{
+			var newBlock = prevBlock.Clone();
+			var skip = 0;
+			if (prevBlock.BlockElements.Last() is ScriptText && block.BlockElements.First() is ScriptText)
+			{
+				var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
+				lastScriptText.Content += ((ScriptText)block.BlockElements.First()).Content;
+				skip = 1;
+			}
+			foreach (var blockElement in block.BlockElements.Skip(skip))
+				newBlock.BlockElements.Add(blockElement.Clone());
+			newBlock.UserConfirmed &= block.UserConfirmed;
+
+			return newBlock;
 		}
 
 		public string GetVerseText(int chapter, int verse)
@@ -364,7 +381,7 @@ namespace Glyssen
 				var i = GetIndexOfFirstBlockThatStartsWithVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
 				var iFirstMatchingBlock = i;
 				var iUnapplied = 0;
-				bool blocksMatch = false;
+				bool blocksMatch;
 				do
 				{
 					var splitBlock = unappliedSplit[iUnapplied];
@@ -452,7 +469,7 @@ namespace Glyssen
 			var iBlock = m_blocks.IndexOf(blockToSplit);
 
 			if (iBlock < 0)
-				throw new ArgumentException("Block not found in the list for " + BookId, "blockToSplit");
+				throw new ArgumentException(@"Block not found in the list for " + BookId, "blockToSplit");
 
 			int splitId;
 			if (blockToSplit.SplitId != Block.kNotSplit)
@@ -520,8 +537,8 @@ namespace Glyssen
 						if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
 						{
 							throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
-								"Value must be greater than 0 and less than or equal to the length (" + content.Length +
-								") of the text of verse " + currVerse + ".");
+								@"Value must be greater than 0 and less than or equal to the length (" + content.Length +
+								@") of the text of verse " + currVerse + @".");
 						}
 						if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
 						{

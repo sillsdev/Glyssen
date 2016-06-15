@@ -25,7 +25,7 @@ namespace Glyssen
 			var tag = m_scrStylesheet.GetTag(styleId);
 			if (tag == null)
 			{
-				style = new Style
+				style = new StyleAdapter
 				{
 					Id = styleId,
 				};
@@ -33,11 +33,12 @@ namespace Glyssen
 			}
 			else
 			{
-				style = new Style
+				style = new StyleAdapter
 				{
 					Id = styleId,
 					IsPublishable = ((tag.TextProperties & TextProperties.scPublishable) > 0),
 					IsVerseText = ((tag.TextType & ScrTextType.scVerseText) > 0),
+					IsPoetic = ((tag.TextProperties & TextProperties.scPoetic) > 0)
 				};
 			}
 			m_styleLookup[styleId] = style;
@@ -46,5 +47,10 @@ namespace Glyssen
 
 		public string FontFamily { get; set; }
 		public int FontSizeInPoints { get; set; }
+	}
+
+	public class StyleAdapter : Style
+	{
+		public bool IsPoetic { get; set; }
 	}
 }
