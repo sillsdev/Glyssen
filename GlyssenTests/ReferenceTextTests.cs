@@ -1651,6 +1651,35 @@ namespace GlyssenTests
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
 		}
 
+		[Test]
+		public void GetScriptBlocks_VernacularContainsQBlocks_ReferenceTextSingleBlock_VernacularBlocksCombined()
+		{
+			const string expected = "[1] John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'";
+
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("Peter", 1, "John said, ", true));
+			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "'This is line 1, ", "q1");
+			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "This is line 2, ", "q2");
+			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "This is line 3, ", "q1");
+			AddBlockForVerseInProgress(vernacularBlocks, "Peter", "This is line 4.'", "q2");
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateBlockForVerse("Peter", 1, "John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'", true));
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+			Assert.AreEqual(1, referenceBlocks.Count);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(1, result.Count);
+			Assert.AreEqual(expected, result[0].GetText(true));
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.AreEqual(expected, result[0].ReferenceBlocks[0].GetText(true));
+		}
+
 		#region private helper methods
 		private Block CreateBlockForVerse(string characterId, int verseNumber, string text, bool paraStart = false, int chapter = 1, string styleTag = "p")
 		{
@@ -1663,7 +1692,7 @@ namespace GlyssenTests
 			return block;
 		}
 
-		private Block AddBlockForVerseInProgress(IList<Block> list, string characterId, string text)
+		private Block AddBlockForVerseInProgress(IList<Block> list, string characterId, string text, string styleTag = "")
 		{
 			var lastBlock = list.Last();
 			var initialStartVerse = lastBlock.InitialStartVerseNumber;
@@ -1675,7 +1704,10 @@ namespace GlyssenTests
 				initialEndVerse = ScrReference.VerseToIntEnd(lastVerseElement.Number);
 			}
 
-			var block = new Block(lastBlock.StyleTag, lastBlock.ChapterNumber, initialStartVerse, initialEndVerse)
+			if (string.IsNullOrEmpty(styleTag))
+				styleTag = lastBlock.StyleTag;
+
+			var block = new Block(styleTag, lastBlock.ChapterNumber, initialStartVerse, initialEndVerse)
 			{
 				CharacterId = characterId
 			};
