@@ -4961,7 +4961,7 @@
     <verse num="22" />
     <text>Иисус, отвечая, говорит им:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Start">
       <text>“Have faith in God. </text>
       <verse num="23" />

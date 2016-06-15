@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\DGNTAllSimplified_71.xlsx" />
     <None Include="Resources\DialogQuotes.txt" />
     <Content Include="Resources\BiblicalTerms.xml">
       <SubType>Designer</SubType>

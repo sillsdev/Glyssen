@@ -2521,7 +2521,7 @@
     </ReferenceBlocks>
     <text>&lt;&lt;Bangunlah dan berangkatlah ke sebelah selatan, menurut jalan yang turun dari Yerusalem ke Gaza.&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ACT" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="27" characterId="narrator-ACT">
       <verse num="27" />
       <text>He arose and went; and behold, there was a man of Ethiopia, a eunuch of great authority under Candace, queen of the Ethiopians, who was over all her treasure, who had come to Jerusalem to worship.</text>

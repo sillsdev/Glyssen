@@ -2905,7 +2905,7 @@
     </ReferenceBlocks>
     <text>&lt;&lt;Pembalasan itu adalah hak-Ku. Akulah yang akan menuntut pembalasan,&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">
       <verse num="20" />
       <text>Therefore</text>

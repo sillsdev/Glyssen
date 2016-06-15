@@ -9110,7 +9110,7 @@
     <verse num="23" />
     <text>Jesús, dándose cuenta de la mala intención que llevaban, les dijo:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus">
       <text>“Why do you test me? </text>
       <verse num="24" />

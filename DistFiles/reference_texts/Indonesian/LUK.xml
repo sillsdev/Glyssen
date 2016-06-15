@@ -6590,7 +6590,7 @@
     </ReferenceBlocks>
     <text>&lt;&lt;Tuhan, sedikit sajakah orang yang diselamatkan?&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="narrator-LUK" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="24" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="23" characterId="narrator-LUK">
       <text>He said to them,</text>
     </ReferenceBlocks>
@@ -9112,7 +9112,7 @@
     <verse num="23" />
     <text>Tetapi Yesus mengetahui maksud mereka yang licik itu, lalu berkata kepada mereka:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus">
       <text>“Why do you test me? </text>
       <verse num="24" />
@@ -9480,9 +9480,8 @@
       <verse num="14" />
       <text>Settle it therefore in your hearts not to meditate beforehand how to answer.</text>
     </ReferenceBlocks>
-    <text>&lt;&lt; </text>
     <verse num="14" />
-    <text>Sebab itu tetapkanlah di dalam hatimu, supaya kamu jangan memikirkan lebih dahulu pembelaanmu.</text>
+    <text>&lt;&lt; Sebab itu tetapkanlah di dalam hatimu, supaya kamu jangan memikirkan lebih dahulu pembelaanmu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">
@@ -10003,9 +10002,8 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start">
       <text>“Simon, Simon, behold, Satan asked to have you, that he might sift you as wheat,</text>
     </ReferenceBlocks>
-    <text>&lt;&lt; </text>
     <verse num="31" />
-    <text>Simon, Simon, lihat, Iblis telah menuntut untuk menampi kamu seperti gandum,</text>
+    <text>&lt;&lt; Simon, Simon, lihat, Iblis telah menuntut untuk menampi kamu seperti gandum,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation">
@@ -10057,7 +10055,7 @@
     </ReferenceBlocks>
     <text>&lt;&lt;Ketika Aku mengutus kamu dengan tiada membawa pundi-pundi, bekal dan kasut, adakah kamu kekurangan apa-apa?&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="narrator-LUK" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="36" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="narrator-LUK">
       <text>They said,</text>
     </ReferenceBlocks>

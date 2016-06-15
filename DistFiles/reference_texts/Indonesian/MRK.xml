@@ -374,7 +374,6 @@
       <verse num="39" />
       <text>He went into their synagogues throughout all Galilee, preaching and casting out demons.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="39" />
     <text>Lalu pergilah Ia ke seluruh Galilea dan memberitakan Injil dalam rumah-rumah ibadat mereka dan mengusir setan-setan.</text>
   </block>
@@ -961,7 +960,7 @@
     </ReferenceBlocks>
     <text>mereka datang hendak mengambil Dia, sebab kata mereka</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK">
       <verse num="22" />
       <text>The scribes who came down from Jerusalem said,</text>
@@ -1283,9 +1282,8 @@
       <verse num="18" />
       <text>Others are those who are sown among the thorns. These are those who have heard the word,</text>
     </ReferenceBlocks>
-    <text>&lt;&lt; </text>
     <verse num="18" />
-    <text>Dan yang lain ialah yang ditaburkan di tengah semak duri, itulah yang mendengar firman itu,</text>
+    <text>&lt;&lt; Dan yang lain ialah yang ditaburkan di tengah semak duri, itulah yang mendengar firman itu,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Continuation">
@@ -1800,7 +1798,6 @@
       <verse num="24" />
       <text>He went with him, and a great multitude followed him, and they pressed upon him on all sides.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="24" />
     <text>Lalu pergilah Yesus dengan orang itu. Orang banyak berbondong-bondong mengikuti Dia dan berdesak-desakan di dekat-Nya.</text>
   </block>
@@ -2941,7 +2938,6 @@
       <verse num="27" />
       <text>But Jesus said to her,</text>
     </ReferenceBlocks>
-    <text>…. </text>
     <verse num="27" />
     <text>Lalu Yesus berkata kepadanya:</text>
   </block>
@@ -3462,7 +3458,6 @@
       <verse num="30" />
       <text>Jesus commanded them, saying:</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="30" />
     <text>Lalu Yesus melarang mereka dengan keras supaya jangan memberitahukan</text>
   </block>
@@ -5803,7 +5798,6 @@
       <verse num="28" />
       <text>“Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="28" />
     <text>&lt;&lt;Tariklah pelajaran dari perumpamaan tentang pohon ara. Apabila ranting-rantingnya melembut dan mulai bertunas, kamu tahu, bahwa musim panas sudah dekat.</text>
   </block>

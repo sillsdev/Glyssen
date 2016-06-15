@@ -440,7 +440,7 @@
     <verse num="46" />
     <text>Mәryәm isә dedi:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="46" characterId="Mary, Jesus' mother" multiBlockQuote="Start" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="47" characterId="Mary, Jesus' mother" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="46" characterId="Mary, Jesus' mother" multiBlockQuote="Start">
       <text>“My soul magnifies the Lord. </text>
       <verse num="47" />
@@ -9106,7 +9106,7 @@
     <verse num="23" />
     <text>Amma İsa onların hiylәsini başa düşüb belә dedi:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus">
       <text>“Why do you test me? </text>
       <verse num="24" />

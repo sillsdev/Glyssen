@@ -694,7 +694,7 @@
     </ReferenceBlocks>
     <text>"Bikpela, em God I Gat Olgeta Strong, em i holi, em i holi, em i holi. Bipo em i stap, na nau em i stap, na bihain bai em i kam."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-REV">
       <verse num="9" />
       <text>When the living creatures give glory, honor, and thanks to him who sits on the throne, to him who lives forever and ever,</text>
@@ -3867,7 +3867,7 @@
     <verse num="7" />
     <text>'Bai mi kam long yupela kwiktaim.' "</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
       <text>Now I, John, am the one who heard and saw these things. When I heard and saw, I fell down to worship before the feet of the angel who had shown me these things.</text>

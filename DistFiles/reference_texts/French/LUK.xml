@@ -9109,7 +9109,7 @@
     <verse num="23" />
     <text>Mais Jésus comprend que c'est un piège et il leur dit:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="23" characterId="Jesus">
       <text>“Why do you test me? </text>
       <verse num="24" />

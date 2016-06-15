@@ -496,7 +496,7 @@
     </ReferenceBlocks>
     <text>"Ol man i bilip, bai God i kolim ol stretpela man na ol bai i stap laip."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-GAL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="narrator-GAL">
       <verse num="12" />
       <text>The law is not of faith, but,</text>
@@ -907,7 +907,7 @@
     </ReferenceBlocks>
     <text>"Rausim dispela wokmeri wantaim pikinini bilong en. Pikinini bilong wokmeri em i no ken kisim ol hap samting bilong papa wantaim pikinini bilong meri i stap fri."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="30" characterId="narrator-GAL" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="31" characterId="narrator-GAL">
       <verse num="31" />
       <text>So then, brothers, we are not children of a handmaid, but of the free woman.</text>

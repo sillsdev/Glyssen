@@ -4364,7 +4364,7 @@
     </ReferenceBlocks>
     <text>"Yu kisim dispela meri, em i no stret."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="narrator-MAT" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="4" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="5" characterId="narrator-MAT">
       <verse num="5" />
       <text>Herod wanted to kill John but he was afraid of the people because they considered John to be a prophet.</text>
@@ -4579,7 +4579,7 @@
     </ReferenceBlocks>
     <text>"Em wanpela masalai."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-MAT" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="27" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="26" characterId="narrator-MAT">
       <text>and they cried in fear. </text>
       <verse num="27" />

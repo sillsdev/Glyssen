@@ -11269,7 +11269,7 @@
     </ReferenceBlocks>
     <text>о чем это вы, идя, рассуждаете между собою, и отчего вы печальны?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="17" characterId="narrator-LUK" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="18" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="17" characterId="narrator-LUK">
       <text>They were very sad. </text>
       <verse num="18" />

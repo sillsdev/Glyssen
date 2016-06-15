@@ -2690,7 +2690,7 @@
     </ReferenceBlocks>
     <text>"Mi yet, mi dispela bret i bin lusim heven na i kam daun,"</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="narrator-JHN" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="41" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="42" characterId="narrator-JHN">
       <verse num="42" />
       <text>They said,</text>
@@ -8685,7 +8685,7 @@
     </ReferenceBlocks>
     <text>"Nek bilong mi i drai."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="29" characterId="narrator-JHN" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="28" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="29" characterId="narrator-JHN">
       <verse num="29" />
       <text>Now a vessel full of vinegar was set there; so they put a sponge full of the vinegar on hyssop, and held it at his mouth.</text>
