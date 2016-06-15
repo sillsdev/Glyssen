@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
@@ -24,7 +25,7 @@ using Paratext;
 
 namespace Glyssen.Dialogs
 {
-	public partial class AssignCharacterDlg : FormWithPersistedSettings
+	public partial class AssignCharacterDlg : FormWithPersistedSettings, IMessageFilter
 	{
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
@@ -575,6 +576,40 @@ namespace Glyssen.Dialogs
 		private void m_btnAddDelivery_Click(object sender, EventArgs e)
 		{
 			AddNewDelivery(m_txtDeliveryFilter.Text);
+		}
+
+		protected override void OnActivated(EventArgs e)
+		{
+			base.OnActivated(e);
+			Application.AddMessageFilter(this);
+		}
+
+		protected override void OnDeactivate(EventArgs e)
+		{
+			Application.RemoveMessageFilter(this);
+			base.OnDeactivate(e);
+		}
+
+		[DllImport("user32.dll")]
+		private static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+		/// <summary>
+		/// If the block view has focus and is in the browser mode, it will eat the keystrokes, so we need to ensure
+		/// they post to this window so we can do the accelartor-key thing.
+		/// </summary>
+		/// <remarks>This is invoked because we implement IMessagFilter and call Application.AddMessageFilter(this)</remarks>
+		public bool PreFilterMessage(ref Message m)
+		{
+			const int WM_KEYDOWN = 0x100;
+
+			if (m.Msg == WM_KEYDOWN && m_blocksViewer.ContainsFocus && (((Keys)m.WParam) | Keys.Control) == 0)
+			{
+				m_listBoxCharacters.Focus();
+				PostMessage(Handle, (uint) m.Msg, m.WParam, m.LParam);
+				return true;
+			}
+
+			return false;
 		}
 
 		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
