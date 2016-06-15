@@ -2152,7 +2152,7 @@
     <verse num="12" />
     <text>Berilah salam seorang kepada yang lain dengan cium yang kudus. Salam dari semua orang kudus kepada kamu.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-2CO" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-2CO">
       <verse num="14" />
       <text>The grace of the Lord Jesus Christ, the love of God, and the fellowship of the Holy Spirit, be with you all. Amen.</text>

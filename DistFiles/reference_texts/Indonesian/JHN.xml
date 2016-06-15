@@ -558,7 +558,7 @@
     </ReferenceBlocks>
     <text>&lt;&lt;Mungkinkah sesuatu yang baik datang dari Nazaret?&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="46" characterId="narrator-JHN" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="47" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="46" characterId="narrator-JHN">
       <text>Philip said to him,</text>
     </ReferenceBlocks>
@@ -8049,7 +8049,7 @@
     </ReferenceBlocks>
     <text>&lt;&lt;Bukankah engkau juga seorang murid-Nya?&gt;&gt;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="narrator-JHN" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="26" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="25" characterId="narrator-JHN">
       <text>He denied it, and said,</text>
     </ReferenceBlocks>

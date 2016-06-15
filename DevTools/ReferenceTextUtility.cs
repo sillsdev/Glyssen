@@ -18,6 +18,7 @@ namespace DevTools
 	static class ReferenceTextUtility
 	{
 		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
+		private const string kDirectorGuideInput = @"..\..\DevTools\Resources\DGNTAllSimplified_71.xlsx";
 
 		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
 		{
@@ -83,19 +84,18 @@ namespace DevTools
 		public static bool GenerateReferenceTexts()
 		{
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			var pathToFCBHDirGuide = Path.Combine(myDocuments, "Protoscript Generator", "DGNTAllSimplified_71.xlsx");
 			var characterMappings = new List<CharacterMapping>();
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
 			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
 
-			if (!File.Exists(pathToFCBHDirGuide))
+			if (!File.Exists(kDirectorGuideInput))
 			{
-				Console.WriteLine("File does not exist: " + pathToFCBHDirGuide);
+				Console.WriteLine("File does not exist: " + kDirectorGuideInput);
 				return false;
 			}
 
 			List<ReferenceTextRow> referenceTextRowsFromExcelSpreadsheet;
-			using (var xls = new ExcelPackage(new FileInfo(pathToFCBHDirGuide)))
+			using (var xls = new ExcelPackage(new FileInfo(kDirectorGuideInput)))
 			{
 				var worksheet = xls.Workbook.Worksheets["Sheet1"];
 
@@ -369,7 +369,17 @@ namespace DevTools
 						if (!s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish ||
 							CompareIgnoringQuoteMarkDifferences(modifiedTextWithoutAnnotations, blockText))
 						{
-							//Debug.WriteLine(referenceTextRow);
+							if (int.Parse(referenceTextRow.Chapter) != block.ChapterNumber)
+							{
+								Console.WriteLine("Chapters do not match. Book: {0}, DG: {1}, block: {2}", existingBook.BookId, referenceTextRow.Chapter, block.ChapterNumber);
+								errorsOccurred = true;
+							}
+							if (int.Parse(referenceTextRow.Verse) != block.InitialStartVerseNumber)
+							{
+								Console.WriteLine("Verse numbers do not match. Book: {0}, Ch: {1}, DG: {2}, block: {3}", existingBook.BookId, referenceTextRow.Chapter, referenceTextRow.Verse, block.InitialStartVerseNumber);
+								errorsOccurred = true;
+							}
+
 							var newBlock = new Block(block.StyleTag, int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse))
 							{
 								CharacterId = block.CharacterId,
@@ -389,7 +399,22 @@ namespace DevTools
 								}
 								var match = Regex.Match(split, "\\[(\\d*?)\\]\u00A0");
 								if (match.Success)
-									newBlock.BlockElements.Add(lastElementInBlock = new Verse(match.Groups[1].Value));
+								{
+									var verseNum = match.Groups[1].Value;
+									var nonAnnotations = newBlock.BlockElements.Where(be => be.GetType() == typeof(Verse) || be.GetType() == typeof(ScriptText));
+									var processingFirstElement = !nonAnnotations.Any();
+									newBlock.BlockElements.Add(lastElementInBlock = new Verse(verseNum));
+									if (processingFirstElement)
+										newBlock.InitialStartVerseNumber = int.Parse(verseNum);
+									else if (newBlock.InitialStartVerseNumber == int.Parse(verseNum))
+									{
+										//Console.WriteLine();
+										//Console.WriteLine("Verse number incorrect. Language: {3}, Bk: {0}, Ch: {1}, Vrs: {2}", existingBook.BookId, newBlock.ChapterNumber, newBlock.InitialStartVerseNumber, language);
+										//Console.WriteLine(newBlock.GetText(true));
+										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerse;
+										//Console.WriteLine("Corrected verse number to {0}", newBlock.InitialStartVerseNumber);
+									}
+								}
 								else
 								{
 									var splits2 = Regex.Split(split, "( \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
@@ -613,7 +638,7 @@ namespace DevTools
 			bool errorOccurred = false;
 			foreach (ReferenceTextType language in Enum.GetValues(typeof(ReferenceTextType)))
 			{
-				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom)
+				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom || language == ReferenceTextType.Unknown)
 					continue;
 
 				var refText = ReferenceText.GetStandardReferenceText(language);
@@ -643,7 +668,8 @@ namespace DevTools
 
 						try
 						{
-							s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
+							LinkBlockByBlockInOrder(book);
+							//s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
 							var bookXmlFile = FileLocator.GetFileDistributedWithApplication(ReferenceText.kDistFilesReferenceTextDirectoryName, language.ToString(), Path.ChangeExtension(book.BookId, "xml"));
 							XmlSerializationHelper.SerializeToFile(bookXmlFile, book, out error);
 						}
@@ -660,6 +686,24 @@ namespace DevTools
 				}
 			}
 			return !errorOccurred;
+		}
+
+		private static void LinkBlockByBlockInOrder(BookScript book)
+		{
+			var blocks = book.GetScriptBlocks();
+			var englishBlocks = s_existingEnglish.Books.Single(b => b.BookId == book.BookId).GetScriptBlocks();
+			for (int i = 0; i < blocks.Count; i++)
+			{
+				var block = blocks[i];
+				if (block.IsChapterAnnouncement)
+				{
+					var refChapterBlock = new Block(block.StyleTag, block.ChapterNumber);
+					refChapterBlock.BlockElements.Add(new ScriptText(s_existingEnglish.GetFormattedChapterAnnouncement(book.BookId, block.ChapterNumber)));
+					block.SetMatchedReferenceBlock(refChapterBlock);
+				}
+				else
+					block.SetMatchedReferenceBlock(englishBlocks[i]);
+			}
 		}
 
 		private static readonly Regex s_userSfxRegex = new Regex("{F8 SFX ?-?- ?(.*)}", RegexOptions.Compiled);

@@ -1944,7 +1944,6 @@
       <verse num="14" />
       <text>When Jesus came into Peter's house, he saw his wife's mother lying sick with a fever.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="14" />
     <text>Setibanya di rumah Petrus, Yesuspun melihat ibu mertua Petrus terbaring karena sakit demam.</text>
   </block>
@@ -3125,7 +3124,6 @@
       <verse num="12" />
       <text>From the days of John the Baptizer until now, the Kingdom of Heaven suffers violence, and the violent take it by force.</text>
     </ReferenceBlocks>
-    <text>&lt; </text>
     <verse num="12" />
     <text>Sejak tampilnya Yohanes Pembaptis hingga sekarang, Kerajaan Sorga diserong dan orang yang menyerongnya mencoba menguasainya.</text>
   </block>
@@ -4290,18 +4288,16 @@
       <verse num="55" />
       <text>Isn't this the carpenter's son? Isn't his mother called Mary, and his brothers, James, Joses, Simon, and Judas?</text>
     </ReferenceBlocks>
-    <text>&lt;&lt; </text>
     <verse num="55" />
-    <text>Bukankah Ia ini anak tukang kayu? Bukankah ibu-Nya bernama Maria dan saudara-saudara-Nya: Yakobus, Yusuf, Simon dan Yudas?&gt;&gt;</text>
+    <text>&lt;&lt; Bukankah Ia ini anak tukang kayu? Bukankah ibu-Nya bernama Maria dan saudara-saudara-Nya: Yakobus, Yusuf, Simon dan Yudas?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="56" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="56" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="Continuation">
       <verse num="56" />
       <text>Aren't all of his sisters with us? Where then did this man get all of these things?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt; </text>
     <verse num="56" />
-    <text>Dan bukankah saudara-saudara-Nya perempuan semuanya ada bersama kita? Jadi dari mana diperoleh-Nya semuanya itu?&gt;&gt;</text>
+    <text>&lt;&lt; Dan bukankah saudara-saudara-Nya perempuan semuanya ada bersama kita? Jadi dari mana diperoleh-Nya semuanya itu?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="57" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="57" characterId="narrator-MAT">
@@ -4797,7 +4793,7 @@
     <verse num="10" />
     <text>Lalu Yesus memanggil orang banyak dan berkata kepada mereka:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Jesus" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="Jesus">
       <text>“Hear, and understand. </text>
       <verse num="11" />
@@ -5019,7 +5015,6 @@
       <verse num="29" />
       <text>Jesus departed there, and came near to the sea of Galilee; and he went up into the mountain, and sat there.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="29" />
     <text>Setelah meninggalkan daerah itu, Yesus menyusur pantai danau Galilea dan naik ke atas bukit lalu duduk di situ.</text>
   </block>
@@ -5364,7 +5359,6 @@
       <verse num="20" />
       <text>Then he commanded the disciples that they should tell no one that he was Jesus the Christ.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="20" />
     <text>Lalu Yesus melarang murid-murid-Nya supaya jangan memberitahukan kepada siapapun bahwa Ia Mesias.</text>
   </block>
@@ -5593,7 +5587,6 @@
       <verse num="13" />
       <text>Then the disciples understood that he spoke to them of John the Baptizer.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="13" />
     <text>Pada waktu itu mengertilah murid-murid Yesus bahwa Ia berbicara tentang Yohanes Pembaptis.</text>
   </block>
@@ -6507,9 +6500,8 @@
       <verse num="8" />
       <text>When evening had come, the lord of the vineyard said to his manager, ‘Call the laborers and pay them their wages, beginning from the last to the first.’”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt; </text>
     <verse num="8" />
-    <text>Ketika hari malam tuan itu berkata kepada mandurnya: &lt;Panggillah pekerja-pekerja itu dan bayarkan upah mereka, mulai dengan mereka yang masuk terakhir hingga mereka yang masuk terdahulu.&gt;</text>
+    <text>&lt;&lt; Ketika hari malam tuan itu berkata kepada mandurnya: &lt;Panggillah pekerja-pekerja itu dan bayarkan upah mereka, mulai dengan mereka yang masuk terakhir hingga mereka yang masuk terdahulu.&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start">
@@ -6840,7 +6832,6 @@
       <verse num="5" />
       <text>“Tell the daughter of Zion, behold, your King comes to you, humble, and riding on a donkey, on a colt, the foal of a donkey.”</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="5" />
     <text>&lt;&lt;Katakanlah kepada puteri Sion: &lt;Lihat, Rajamu datang kepadamu, Ia lemah lembut dan mengendarai seekor keledai, seekor keledai beban yang muda.&gt; &gt;&gt;</text>
   </block>
@@ -6849,7 +6840,6 @@
       <verse num="6" />
       <text>The disciples went, and did just as Jesus commanded them.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="6" />
     <text>Maka pergilah murid-murid itu dan berbuat seperti yang ditugaskan Yesus kepada mereka.</text>
   </block>
@@ -7536,7 +7526,6 @@
       <verse num="22" />
       <text>When they heard it, they marveled, and left him, and went away.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="22" />
     <text>Mendengar itu heranlah mereka dan meninggalkan Yesus lalu pergi. "</text>
   </block>
@@ -7632,7 +7621,6 @@
       <verse num="33" />
       <text>When the multitudes heard it, they were astonished at his teaching.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="33" />
     <text>Orang banyak yang mendengar itu takjub akan pengajaran-Nya.</text>
   </block>
@@ -7873,7 +7861,6 @@
       <verse num="13" />
       <text>“Woe to you, scribes and Pharisees, hypocrites! For you devour widows’ houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.”</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="13" />
     <text>&lt;&lt;Celakalah kamu, hai ahli-ahli Taurat dan orang-orang Farisi, hai kamu orang-orang munafik, karena kamu menutup pintu-pintu Kerajaan Sorga di depan orang. Sebab kamu sendiri tidak masuk dan kamu merintangi mereka yang berusaha untuk masuk.</text>
   </block>
@@ -9780,7 +9767,6 @@
       <verse num="1" />
       <text>Now when morning had come, all the chief priests and the elders of the people took counsel against Jesus to put him to death.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="1" />
     <text>Ketika hari mulai siang, semua imam kepala dan tua-tua bangsa Yahudi berkumpul dan mengambil keputusan untuk membunuh Yesus.</text>
   </block>
@@ -9937,7 +9923,6 @@
       <verse num="14" />
       <text>He gave him no answer, not even one word, so that the governor marveled greatly.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="14" />
     <text>Tetapi Ia tidak menjawab suatu katapun, sehingga wali negeri itu sangat heran.</text>
   </block>
@@ -10112,7 +10097,6 @@
       <verse num="26" />
       <text>Then he released to them Barabbas, but Jesus he flogged and delivered to be crucified.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="26" />
     <text>Lalu ia membebaskan Barabas bagi mereka, tetapi Yesus disesahnya lalu diserahkannya untuk disalibkan.</text>
   </block>
@@ -10151,7 +10135,6 @@
       <verse num="30" />
       <text>They spat on him, and took the reed and struck him on the head.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="30" />
     <text>Mereka meludahi-Nya dan mengambil buluh itu dan memukulkannya ke kepala-Nya.</text>
   </block>
@@ -10272,7 +10255,6 @@
       <verse num="44" />
       <text>The robbers also who were crucified with him cast on him the same reproach.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="44" />
     <text>Bahkan penyamun-penyamun yang disalibkan bersama-sama dengan Dia mencela-Nya demikian juga.</text>
   </block>
@@ -10347,7 +10329,6 @@
       <verse num="50" />
       <text>Jesus cried again with a loud voice, and yielded up his spirit.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="50" />
     <text>Yesus berseru pula dengan suara nyaring lalu menyerahkan nyawa-Nya.</text>
   </block>
@@ -10414,7 +10395,6 @@
       <verse num="57" />
       <text>When evening had come, a rich man from Arimathaea, named Joseph, who himself was also Jesus’ disciple came.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="57" />
     <text>Menjelang malam datanglah seorang kaya, orang Arimatea, yang bernama Yusuf dan yang telah menjadi murid Yesus juga.</text>
   </block>
@@ -10643,7 +10623,6 @@
       <verse num="15" />
       <text>So they took the money and did as they were told. This saying was spread abroad among the Jews, and continues until this day.</text>
     </ReferenceBlocks>
-    <text>" </text>
     <verse num="15" />
     <text>Mereka menerima uang itu dan berbuat seperti yang dipesankan kepada mereka. Dan ceritera ini tersiar di antara orang Yahudi sampai sekarang ini.</text>
   </block>

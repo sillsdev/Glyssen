@@ -70,7 +70,7 @@
     </ReferenceBlocks>
     <text>"Bai mi stap papa bilong em, na em bai i stap pikinini bilong mi."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
       <verse num="6" />
       <text>Again, when he brings in the firstborn into the world he says,</text>
@@ -165,7 +165,7 @@
     </ReferenceBlocks>
     <text>"Yu sindaun long han sut bilong mi inap mi putim ol birua bilong yu i stap aninit long yu."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="13" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="14" characterId="narrator-HEB">
       <verse num="14" />
       <text>Aren't they all serving spirits, sent out to do service for the sake of those who will inherit salvation?</text>
@@ -1664,7 +1664,7 @@
     </ReferenceBlocks>
     <text>"Yu no laik bai ol i kilim abus na mekim ofa. Ol ofa ol i save kukim olgeta long paia na ol ofa bilong tekewe sin, em yu no save laikim."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
       <text>(although the law required them to be made), </text>
       <verse num="9" />
@@ -2113,7 +2113,7 @@
     </ReferenceBlocks>
     <text>"Long Aisak tasol bai ol lain tumbuna pikinini bilong yu i kamap."</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB" matchesReferenceText="true">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-HEB">
       <verse num="19" />
       <text>concluding that God is able to raise up even from the dead. Figuratively speaking, he also did receive him back from the dead.</text>
