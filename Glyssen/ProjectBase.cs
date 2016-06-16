@@ -12,6 +12,7 @@ namespace Glyssen
 	public abstract class ProjectBase
 	{
 		public const string kProjectFileExtension = ".glyssen";
+		public const string kShareFileExtension = ".glyssenshare";
 		protected const string kBookScriptFileExtension = ".xml";
 
 		public static ScrVers LoadVersification(string vrsPath)

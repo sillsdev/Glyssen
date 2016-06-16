@@ -38,7 +38,7 @@ namespace Glyssen
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		static void Main(string[] args)
 		{
 			IsRunning = true;
 
@@ -107,7 +107,7 @@ namespace Glyssen
 
 				try
 				{
-					Application.Run(new MainForm());
+					Application.Run(new MainForm(args));
 				}
 				finally
 				{
