@@ -1,4 +1,4 @@
-Control File Version	103
+Control File Version	104
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -14978,6 +14978,7 @@ ACT	4	28	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Pet
 ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	32	no one			Hypothetical		
+ACT	4	33	apostles			Indirect		
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	2	Ananias of Jerusalem			Indirect		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
@@ -15166,6 +15167,8 @@ ACT	11	18	believers, circumcised (in Jerusalem)	rejoicing		Dialogue
 ACT	11	23	Barnabas			Indirect		
 ACT	11	28	Agabus the prophet			Indirect		
 ACT	11	29	disciples			Indirect		
+ACT	11	26	Barnabas/Paul		Barnabas/Paul (Saul)	Indirect		
+ACT	11	26	narrator-ACT			Quotation		
 ACT	12	7	angel	commanding	angel of the LORD	Normal		
 ACT	12	8	angel	commanding	angel of the LORD	Normal		
 ACT	12	11	Peter (Simon)	speaking or thinking to himself		Normal		
@@ -15306,6 +15309,7 @@ ACT	18	15	Gallio, proconsul of Achaia	sternly		Normal
 ACT	18	18	Paul			Indirect		
 ACT	18	20	Paul			Indirect		
 ACT	18	21	Paul			Normal		
+ACT	18	27	brothers at Ephesus			Indirect		
 ACT	18	28	Apollos			Indirect		
 ACT	19	2	disciples in Ephesus, some			Dialogue		
 ACT	19	2	Paul	to new believers		Dialogue		
@@ -15544,6 +15548,8 @@ ACT	28	28	Paul			Normal
 ROM	1	17	scripture			Quotation	God	
 ROM	2	1	Jews, the	accusing		Hypothetical		
 ROM	2	6	scripture			Quotation	David	
+ROM	2	17	narrator-ROM			Quotation		
+ROM	2	17	you (hypothetical)			Hypothetical		
 ROM	2	21	you (hypothetical)			Hypothetical		
 ROM	2	22	you (hypothetical)			Hypothetical		
 ROM	2	23	you (hypothetical)			Hypothetical		
@@ -15707,6 +15713,7 @@ GAL	1	7	narrator-GAL			Quotation
 GAL	1	8	narrator-GAL			Quotation		
 GAL	1	9	narrator-GAL			Quotation		
 GAL	1	23	report concerning Paul			Normal		
+GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation		
 GAL	2	14	Paul			Normal		
 GAL	2	15	Paul			Normal		
 GAL	2	16	Paul			Normal		
@@ -15726,6 +15733,7 @@ GAL	3	16	scripture		scripture (God)	Quotation	God
 GAL	3	17	God		God (the LORD)	Potential		
 GAL	3	22	scripture			Indirect		
 GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	Quotation		
+GAL	4	8	narrator-GAL			Quotation		
 GAL	4	25	narrator-GAL			Quotation		
 GAL	4	27	scripture			Quotation	God	
 GAL	4	30	scripture			Quotation	Sarah (Sarai)	
@@ -15743,6 +15751,7 @@ EPH	5	31	scripture			Quotation
 EPH	6	2	scripture			Quotation	God	
 EPH	6	3	scripture			Quotation	God	
 PHP	2	11	everyone			Hypothetical		
+PHP	4	4	Paul			Potential		
 COL	2	21	rules of the world			Hypothetical		
 COL	4	17	Paul			Normal		
 1TH	4	12	unbelievers			Indirect		
@@ -15823,6 +15832,7 @@ HEB	10	37	scripture			Quotation	God
 HEB	10	38	scripture			Quotation	God	
 HEB	11	5	scripture			Quotation		
 HEB	11	18	scripture			Quotation	God	
+HEB	11	20	Isaac			Quotation		
 HEB	12	5	scripture			Quotation	Solomon, king	
 HEB	12	6	scripture			Quotation	Solomon, king	
 HEB	12	13	scripture			Quotation		
@@ -15852,6 +15862,7 @@ JAS	4	15	you ought to say			Hypothetical
 JAS	5	12	narrator-JAS			Hypothetical		
 JAS	5	17	Elijah	praying		Indirect		
 1PE	1	16	scripture			Quotation	God	
+1PE	1	17	you (hypothetical)			Hypothetical		
 1PE	1	24	scripture			Quotation	Isaiah	
 1PE	1	25	scripture			Quotation	Isaiah	
 1PE	2	6	scripture			Quotation	God	
@@ -15874,6 +15885,7 @@ JAS	5	17	Elijah	praying		Indirect
 1JN	2	4	man who says 'I know him'			Hypothetical		
 1JN	2	6	man who says 'we remain in union with God'			Hypothetical		
 1JN	2	18	narrator-1JN			Hypothetical		
+1JN	4	15	anyone			Hypothetical		
 1JN	4	20	anyone			Hypothetical		
 1JN	4	21	Jesus			Quotation		
 2JN	1	6	Jesus		Jesus in 2 John	Quotation		
