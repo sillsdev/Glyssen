@@ -640,6 +640,88 @@ namespace GlyssenTests
 			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
 		}
 
+		[Test]
+		public void ApplyTo_VernacularHasVerseBridgeNotAtStartOfBlock_ReferenceNotBrokenAtStartOfVernacularBridge_NoSplitAndNoErrorReport()
+		{
+			// PG-746 Chikunda
+			var vernacularBlocks = new List<Block>();
+			var block = CreateNarratorBlockForVerse(17, "Paadasiya gunyenye ndiye adapita munyumba, wakufundila wake adamubvunza kuti alewe dzvadzvikalewa dzvaalewa. ", true, 7 ,"MRK");
+			block.AddVerse("18-19", "Jesu adati kwa iwo, ");
+			vernacularBlocks.Add(block);
+			var vernBook = new BookScript("MRK", vernacularBlocks);
+
+			// Indonesian
+			var referenceBlocks = new List<Block>();
+			block = CreateNarratorBlockForVerse(17, "Sesudah Ia masuk ke sebuah rumah untuk menyingkir dari orang banyak, murid-murid-Nya bertanya kepada-Nya tentang arti perumpamaan itu. ", true, 7, "MRK");
+			block.AddVerse(18, "Maka jawab-Nya:");
+			referenceBlocks.Add(block);
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "&lt;&lt;Apakah kamu juga tidak dapat memahaminya? Tidak tahukah kamu bahwa segala sesuatu dari luar yang masuk ke dalam seseorang tidak dapat menajiskannya,");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			using (new ErrorReport.NoNonFatalErrorReportExpected())
+				refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(1, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
+			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.AreEqual("[17]\u00A0Sesudah Ia masuk ke sebuah rumah untuk menyingkir dari orang banyak, murid-murid-Nya bertanya kepada-Nya tentang arti perumpamaan itu. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("[18]\u00A0&lt;&lt;Apakah kamu juga tidak dapat memahaminya? Tidak tahukah kamu bahwa segala sesuatu dari luar yang masuk ke dalam seseorang tidak dapat menajiskannya,", result[1].PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ApplyTo_()
+		{
+			// PG-746 Chikunda (Acts 8:26-29)
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Ngilozi ... Filipi, ", true, 8, "ACT"));
+			AddBlockForVerseInProgress(vernacularBlocks, "angel", "“Konzekela ... Gaza.” ");
+			var block = AddNarratorBlockForVerseInProgress(vernacularBlocks, "(Njila ... zino.) ", "ACT");
+			block.AddVerse("27-28", "Saka ... Ayizaya. ");
+			block.AddVerse(29, "Mzimu ... Filipi, ");
+			AddBlockForVerseInProgress(vernacularBlocks, "Holy Spirit, the", "“Yenda ... iyo.” ");
+			var vernBook = new BookScript("ACT", vernacularBlocks);
+
+			// Indonesian
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(26, "Kemudian ..., katanya:", true, 8, "ACT"));
+			AddBlockForVerseInProgress(referenceBlocks, "angel", "&lt;&lt;Bangunlah ... Gaza.&gt;&gt;");
+			block = AddNarratorBlockForVerseInProgress(referenceBlocks, "Jalan ... sunyi. ", "ACT");
+			block.AddVerse(27, "Lalu ... beribadah.");
+			referenceBlocks.Add(block = CreateNarratorBlockForVerse(28, "Sekarang ... Yesaya. ", true, 8, "ACT"));
+			block.AddVerse(29, "Lalu ... Filipus:");
+			AddBlockForVerseInProgress(referenceBlocks, "Holy Spirit, the", "&lt;&lt;Pergilah ... itu!&gt;&gt;");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			using (new ErrorReport.NoNonFatalErrorReportExpected())
+				refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.True(result[0].MatchesReferenceText);
+			Assert.AreEqual("[26]\u00A0Kemudian ..., katanya:", result[0].ReferenceBlocks[0].GetText(true));
+
+			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
+			Assert.True(result[1].MatchesReferenceText);
+			Assert.AreEqual("&lt;&lt;Bangunlah ... Gaza.&gt;&gt;", result[1].ReferenceBlocks[0].GetText(true));
+
+			Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
+			Assert.False(result[2].MatchesReferenceText);
+			Assert.AreEqual("Jalan ... sunyi. [27]\u00A0Lalu ... beribadah.", result[2].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual("Sekarang ... Yesaya. [28]\u00A0Lalu ... Filipus:", result[2].ReferenceBlocks[1].GetText(true));
+
+			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
+			Assert.True(result[3].MatchesReferenceText);
+			Assert.AreEqual("&lt;&lt;Pergilah ... itu!&gt;&gt;", result[3].ReferenceBlocks[0].GetText(true));
+		}
+
 		/// <summary>
 		/// PG-742
 		/// </summary>
