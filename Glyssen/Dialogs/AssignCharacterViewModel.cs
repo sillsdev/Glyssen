@@ -373,7 +373,7 @@ namespace Glyssen.Dialogs
 					var characterId = characters.First(c => c.Key == blockSplitData.Id).Value;
 
 					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit, 
-						blockSplitData.CharacterOffsetToSplit, true, characterId);
+						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
 
 					AddToRelevantBlocksIfNeeded(newBlock);
 				}

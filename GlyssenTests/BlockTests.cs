@@ -1,17 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
 using SIL.Xml;
+using GlyssenTests.Properties;
+using Paratext;
+using SIL.IO;
+using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests
 {
 	[TestFixture]
 	class BlockTests
 	{
+		private ScrVers m_testVersification;
+
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				m_testVersification = Versification.Table.Load(tempFile.Path);
+			}
+		}
+
 		[SetUp]
 		public void Setup()
 		{
@@ -550,13 +570,13 @@ namespace GlyssenTests
 		public void UseDefaultForMultipleChoiceCharacter_ExplicitDefault_UseDefault()
 		{
 			var block = new Block("p", 9, 11);
-			block.CharacterId = "Peter (Simon)/James, the disciple/John";
+			block.CharacterId = "Peter (Simon)/James/John";
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
 			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
 
 		[Test]
-		public void UseDefaultForMultipleChoiceCharacter_AlreadySetToAnotherVlaue_OverwriteWithDefault()
+		public void UseDefaultForMultipleChoiceCharacter_AlreadySetToAnotherValue_OverwriteWithDefault()
 		{
 			var block = new Block("p", 40, 8);
 			block.CharacterId = "chief cupbearer/chief baker";
@@ -613,6 +633,17 @@ namespace GlyssenTests
 			block.SetCharacterAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer/chief baker", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_ControlFileHasOverriddenDefault_VersificationShift_CharacterIdInScriptBasedOnOverride()
+		{
+			// MRK 9:10 in the Vulgate should translate to 9:11 in the "original"
+			// The control file overrides the default speaker in MRK 9:11 to be John.
+			var block = new Block("p", 9, 10);
+			block.SetCharacterAndCharacterIdInScript("Peter (Simon)/James/John", BCVRef.BookToNumber("MRK"), m_testVersification);
+			Assert.AreEqual("Peter (Simon)/James/John", block.CharacterId);
+			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
 
 		[Test]
