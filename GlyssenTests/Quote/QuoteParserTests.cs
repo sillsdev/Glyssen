@@ -1204,6 +1204,31 @@ namespace GlyssenTests.Quote
 							"[14]\u00A0Behold, while you are still talking there with the king, I will also come in after you and confirm your words.”", output[1].GetText(true));
 		}
 
+
+		/// <summary>
+		/// PG-751
+		/// </summary>
+		[Test]
+		public void Parse_ParagraphContainsFirstLevelQuoteWithNestedSecondLevelQuoteFolloweByAnotherFirstLevelQuote_SecondLevelCloserNotTreatedAsAnApostrophe()
+		{
+			var quoteSystem = new QuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			var block = new Block("p", 13) { IsParagraphStart = true };
+			block.BlockElements.Add(new Verse("14"));
+			block.BlockElements.Add(new ScriptText("“Oona gwine see ‘De Horrible Bad Ting wa mek God place empty’ da stanop een de place weh e ain oughta dey.” (Leh oona wa da read ondastan wa dis mean.) “Wen dat time come, de people een Judea mus ron way quick ta de hill country.”"));
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("[14]\u00A0“Oona gwine see ‘De Horrible Bad Ting wa mek God place empty’ da stanop een de place weh e ain oughta dey.” ", output[0].GetText(true));
+			Assert.AreEqual("Jesus", output[0].CharacterId);
+			Assert.AreEqual("(Leh oona wa da read ondastan wa dis mean.) ", output[1].GetText(true));
+			Assert.IsTrue(output[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual("“Wen dat time come, de people een Judea mus ron way quick ta de hill country.”", output[2].GetText(true));
+			Assert.AreEqual("Jesus", output[2].CharacterId);
+		}
+
 		[Test]
 		public void Parse_Level3_Level1QuoteFollows_BrokenCorrectly()
 		{

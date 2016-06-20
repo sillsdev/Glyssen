@@ -536,7 +536,8 @@ namespace Glyssen.Quote
 			var match = regex.Match(content, pos + 1);
 			return (match.Success &&
 					(match.Value == CloserForCurrentLevel ||
-					(m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) ||
+					((m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) &&
+					(m_quoteLevel == 0 || !m_regexes[m_quoteLevel - 1].Match(content, pos + 1, match.Index - (pos + 1)).Success)) ||
 					(m_quoteLevel > 0 && match.Value == s_quoteSystem.NormalLevels[m_quoteLevel - 1].Open)));
 		}
 
