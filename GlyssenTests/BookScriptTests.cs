@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen;
 using Glyssen.Character;
+using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
+using SIL.IO;
 using SIL.Xml;
 
 namespace GlyssenTests
@@ -19,10 +22,19 @@ namespace GlyssenTests
 		private int m_curSetupVerseEnd;
 		private string m_curStyleTag;
 
+		private ScrVers m_testVersification;
+
 		[TestFixtureSetUp]
-		public void TestFixtureSetUp()
+		public void FixtureSetup()
 		{
-			ScrTextCollection.Initialize();
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				m_testVersification = Versification.Table.Load(tempFile.Path);
+			}
 		}
 
 		#region GetVerseText Tests
@@ -1203,7 +1215,7 @@ namespace GlyssenTests
 				.AddVerse(10, "So they kept the matter to themselves, questioning: What does rising from the dead mean?");
 			mrkBlocks.Add(blockToSplit);
 			var bookScript = new BookScript("MRK", mrkBlocks);
-			var newBlock = bookScript.SplitBlock(blockToSplit, "10", 52, true, "Peter (Simon)/James, the disciple/John", ScrVers.Vulgate);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "10", 52, true, "Peter (Simon)/James/John", m_testVersification);
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
@@ -1211,7 +1223,7 @@ namespace GlyssenTests
 				"until the Son of Man had risen from the dead. [10]\u00A0So they kept the matter to themselves, questioning: ", blocks[1].GetText(true));
 			Assert.AreEqual(10, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual("What does rising from the dead mean?", newBlock.GetText(true));
-			Assert.AreEqual("Peter (Simon)/James, the disciple/John", newBlock.CharacterId);
+			Assert.AreEqual("Peter (Simon)/James/John", newBlock.CharacterId);
 			Assert.AreEqual("John", newBlock.CharacterIdInScript);
 			Assert.IsTrue(newBlock.UserConfirmed);
 		}
