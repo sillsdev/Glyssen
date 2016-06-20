@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -697,7 +698,123 @@ namespace GlyssenTests.Dialogs
 
 			model.SetCurrentBookSingleVoice(true);
 			Assert.AreEqual("ACT", model.CurrentBookId);
+		}
 
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_Narrator_ReturnsGenericNarratorCharacter()
+		{
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003010)));
+			var characters = m_model.GetCharactersForCurrentReference(false).ToList();
+			Assert.AreEqual(1, characters.Count);
+			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual(AssignCharacterViewModel.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
+		}
+
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_BlockHasAssignedCharacter_ReturnsAssignedCharacter()
+		{
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
+			while (m_model.CurrentBlock.CharacterId != "Jesus")
+				m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.GetCharactersForCurrentReference(false).Any(c => c.CharacterId == "Jesus"));
+			Assert.IsTrue(m_model.GetCharacterToSelectForCurrentBlock(m_model.GetCharactersForCurrentReference(false)).CharacterId == "Jesus");
+		}
+
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_BlockHasAssignedCharacterThatIsNotInEnumeration_ThisShouldNeverHappenInRealLife_ReturnsNull()
+		{
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
+			while (m_model.CurrentBlock.CharacterId != "Jesus")
+				m_model.LoadNextRelevantBlock();
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(new List<AssignCharacterViewModel.Character>()));
+		}
+
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsOneOfTwoAmbiguousQuotesInVerse_ReturnsNull()
+		{
+			FindRefInMark(5, 9);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.AreEqual(3, m_model.GetCharactersForCurrentReference(false).Count()); // Includes narrator
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(m_model.GetCharactersForCurrentReference(false)));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfTwoDialogueQuotesInVerse_ReturnsOtherExpectedCharacter(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+
+			FindRefInMark(5, 9);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			var posibleCharactersForMark59 = m_model.GetCharactersForCurrentReference(false).ToList();
+			var posibleSpeakingCharactersForMark59 = posibleCharactersForMark59.Where(c => !c.IsNarrator).ToList();
+			Assert.AreEqual(2, posibleSpeakingCharactersForMark59.Count);
+			m_model.SetCharacterAndDelivery(posibleSpeakingCharactersForMark59[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
+			posibleSpeakingCharactersForMark59.RemoveAt(indexOfCharacterToAssignToFirstBlock);
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.AreEqual(5, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(9, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(posibleSpeakingCharactersForMark59.Single(), m_model.GetCharacterToSelectForCurrentBlock(posibleCharactersForMark59));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneDialogueQuoteAndOneNarratorQuotationInVerse_ReturnsOtherCharacter(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+
+			FindRefInMark(5, 41);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			var posibleCharactersForMark541 = m_model.GetCharactersForCurrentReference(false).ToList();
+			var unusedCharactersForMark541 = posibleCharactersForMark541.ToList();
+			Assert.AreEqual(2, unusedCharactersForMark541.Count);
+			m_model.SetCharacterAndDelivery(unusedCharactersForMark541[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
+			unusedCharactersForMark541.RemoveAt(indexOfCharacterToAssignToFirstBlock);
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.AreEqual(5, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(41, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(unusedCharactersForMark541.Single(), m_model.GetCharacterToSelectForCurrentBlock(posibleCharactersForMark541));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneIndirectAndOnePotentialInVerse_ReturnsNull(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+
+			try
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+				m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+				SetUp();
+
+				while (m_model.CurrentBlock.ChapterNumber != 8 || m_model.CurrentBlock.InitialStartVerseNumber != 37)
+					m_model.LoadNextRelevantBlock();
+				Assert.AreEqual("ACT", m_model.CurrentBookId);
+				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+				var posibleCharactersForActs837 = m_model.GetCharactersForCurrentReference(false).ToList();
+				Assert.AreEqual(3, posibleCharactersForActs837.Count);
+				m_model.SetCharacterAndDelivery(posibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
+					AssignCharacterViewModel.Delivery.Normal);
+				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+				m_model.LoadNextRelevantBlock();
+				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+				Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(posibleCharactersForActs837));
+			}
+			finally
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			}
 		}
 
 		private void FindRefInMark(int chapter, int verse)
