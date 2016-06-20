@@ -616,5 +616,30 @@ namespace Glyssen.Dialogs
 			}
 		}
 		#endregion
+
+		public Character GetCharacterToSelectForCurrentBlock(IEnumerable<Character> currentCharacters)
+		{
+			if (CurrentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
+				return Character.Narrator;
+			if (CurrentBlock.CharacterIsUnclear())
+			{
+				if (!CurrentBlock.BlockElements.OfType<Verse>().Any())
+				{
+					var charactersForCurrentVerse = GetUniqueCharactersForCurrentReference();
+					// ENHANCE: Some "Quotations" in the control file may represent text that is typically rendered as
+					// indirect speech (and should therefore be marked as Indirect|Quotation). We really don't want to
+					// include these, but in practice it probably won't matter much.
+					charactersForCurrentVerse.RemoveWhere(c => !c.IsExpected && c.QuoteType != QuoteType.Quotation);
+					if (charactersForCurrentVerse.Count != 2)
+						return null;
+					var blocks = CurrentBook.GetBlocksForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber).Where(b => b.UserConfirmed).ToList();
+					if (blocks.Count != 1)
+						return null;
+					charactersForCurrentVerse.RemoveWhere(c => c.Character == blocks[0].CharacterId);
+					return currentCharacters.FirstOrDefault(item => item.LocalizedCharacterId == charactersForCurrentVerse.Single().LocalizedCharacter);
+				}
+			}
+			return currentCharacters.FirstOrDefault(item => item.CharacterId == CurrentBlock.CharacterId);
+		}
 	}
 }

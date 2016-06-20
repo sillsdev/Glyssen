@@ -296,6 +296,25 @@ namespace GlyssenTests
 			Assert.AreEqual(3, list.Count);
 			Assert.AreEqual(expected, list[0]);
 		}
+
+		[Test]
+		public void GetBlocksForVerse_VerseNumberPrecededBySquareBracket_ReturnsBlocksForVerse()
+		{
+			var blocks = new List<Block>();
+			blocks.Add(NewChapterBlock(8));
+			blocks.Add(NewSingleVersePara(36, "Ka guwoto kacel i yo, ci guo ka ma pii tye iye. Laco ma gikolo owacci, "));
+			blocks.Add(NewBlock("“Nen pii doŋ ene! Gin aŋo ma geŋa limo batija?” "));
+			Block expected;
+			blocks.Add(expected = NewSingleVersePara(37, "Ci Pilipo owacce ni, "));
+			expected.BlockElements.Insert(0, new ScriptText("[ "));
+			blocks.Add(NewBlock("“Ka iye ki cwinyi ducu ci itwero.” "));
+			blocks.Add(NewBlock("En odok iye ni, "));
+			blocks.Add(NewBlock("“An aye Yecu Kricito, ni en Wod pa Lubaŋa.”] "));
+			var bookScript = new BookScript("ACT", blocks);
+			var list = bookScript.GetBlocksForVerse(8, 37).ToList();
+			Assert.AreEqual(4, list.Count);
+			Assert.AreEqual(expected, list[0]);
+		}
 		#endregion
 
 		#region GetScriptBlocks Tests
