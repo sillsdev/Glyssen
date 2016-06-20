@@ -467,7 +467,8 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
-		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true, string characterId = null)
+		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
+			string characterId = null, ScrVers versification = null)
 		{
 			var iBlock = m_blocks.IndexOf(blockToSplit);
 
@@ -567,7 +568,15 @@ namespace Glyssen
 						initialStartVerse, initialEndVerse);
 					if (userSplit)
 					{
-						newBlock.CharacterId = string.IsNullOrEmpty(characterId) ? CharacterVerseData.kUnknownCharacter : characterId;
+						if (string.IsNullOrEmpty(characterId))
+							newBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+						else
+						{
+							if (versification == null)
+								throw new ArgumentNullException("versification");
+							newBlock.SetCharacterAndCharacterIdInScript(characterId, BCVRef.BookToNumber(BookId), versification);
+							newBlock.UserConfirmed = true;
+						}
 					}
 					else
 					{

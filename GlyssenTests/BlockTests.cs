@@ -6,12 +6,21 @@ using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
 using SIL.Xml;
+using GlyssenTests.Properties;
+using Paratext;
+using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests
 {
 	[TestFixture]
 	class BlockTests
 	{
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			ScrTextCollection.Initialize();
+		}
+
 		[SetUp]
 		public void Setup()
 		{
@@ -613,6 +622,17 @@ namespace GlyssenTests
 			block.SetCharacterAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer/chief baker", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_ControlFileHasOverriddenDefault_VersificationShift_CharacterIdInScriptBasedOnOverride()
+		{
+			// MRK 9:10 in the Vulgate should translate to 9:11 in the "original"
+			// The control file overrides the default speaker in MRK 9:11 to be John.
+			var block = new Block("p", 9, 10);
+			block.SetCharacterAndCharacterIdInScript("Peter (Simon)/James, the disciple/John", BCVRef.BookToNumber("MRK"), ScrVers.Vulgate);
+			Assert.AreEqual("Peter (Simon)/James, the disciple/John", block.CharacterId);
+			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
 
 		[Test]

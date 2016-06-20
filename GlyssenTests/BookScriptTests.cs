@@ -19,6 +19,12 @@ namespace GlyssenTests
 		private int m_curSetupVerseEnd;
 		private string m_curStyleTag;
 
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			ScrTextCollection.Initialize();
+		}
+
 		#region GetVerseText Tests
 		[Test]
 		public void GetVerseText_NoBlocks_ReturnsEmptyString()
@@ -1138,6 +1144,76 @@ namespace GlyssenTests
 			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
 			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_AssignCharacterId_CharacterAssignedAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "Jesus", ScrVers.English);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+			Assert.AreEqual("Jesus", newBlock.CharacterId);
+			Assert.IsNull(newBlock.CharacterIdOverrideForScript);
+			Assert.IsTrue(newBlock.UserConfirmed);
+		}
+
+		[Test]
+		public void SplitBlock_AssignMultiCharacterId_CharacterAndCharacterInScriptAssignedAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, they told that synagogue ruler: Don't be afraid; just believe.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "James/John", ScrVers.English);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[36]\u00A0Ignoring what they said, they told that synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+			Assert.AreEqual("James/John", newBlock.CharacterId);
+			Assert.AreEqual("James", newBlock.CharacterIdInScript);
+			Assert.IsTrue(newBlock.UserConfirmed);
+		}
+
+		[Test]
+		public void SplitBlock_AssignMultiCharacterIdWithDefaultOverriddenInControlFile_VersificationShift_CharacterAndCharacterInScriptAssignedAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(9));
+			var blockToSplit = NewSingleVersePara(9, "And as they were coming down the mountain, he charged them to tell no one what they had seen, until the Son of Man had risen from the dead. ")
+				//            0         1         2         3         4         5         6         7         8
+				//            012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+				.AddVerse(10, "So they kept the matter to themselves, questioning: What does rising from the dead mean?");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "10", 52, true, "Peter (Simon)/James, the disciple/John", ScrVers.Vulgate);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("[9]\u00A0And as they were coming down the mountain, he charged them to tell no one what they had seen, " +
+				"until the Son of Man had risen from the dead. [10]\u00A0So they kept the matter to themselves, questioning: ", blocks[1].GetText(true));
+			Assert.AreEqual(10, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual("What does rising from the dead mean?", newBlock.GetText(true));
+			Assert.AreEqual("Peter (Simon)/James, the disciple/John", newBlock.CharacterId);
+			Assert.AreEqual("John", newBlock.CharacterIdInScript);
+			Assert.IsTrue(newBlock.UserConfirmed);
 		}
 
 		[Test]
