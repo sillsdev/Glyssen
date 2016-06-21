@@ -368,7 +368,15 @@ namespace Glyssen.Dialogs
 			int childCharacterCount = 0;
 			foreach (var character in Project.AllCharacterIds.Where(c => !CharacterVerseData.IsCharacterStandard(c)))
 			{
-				var characterInfo = characterDetails[character];
+				CharacterDetail characterInfo;
+				try
+				{
+					characterInfo = characterDetails[character];
+				}
+				catch (KeyNotFoundException e)
+				{
+					throw new KeyNotFoundException(String.Format("Unable to find details for character {0}", character), e);
+				}
 				if (characterInfo.Age == CharacterAge.Child)
 					childCharacterCount++;
 				else
