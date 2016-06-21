@@ -2292,7 +2292,6 @@ LEV	23	40	God		God (the LORD)	Normal
 LEV	23	41	God		God (the LORD)	Normal		
 LEV	23	42	God		God (the LORD)	Normal		
 LEV	23	43	God		God (the LORD)	Normal		
-LEV	23	44	God		God (the LORD)	Normal		
 LEV	24	2	God		God (the LORD)	Normal		
 LEV	24	3	God		God (the LORD)	Normal		
 LEV	24	4	God		God (the LORD)	Normal		
