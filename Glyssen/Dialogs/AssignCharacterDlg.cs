@@ -182,7 +182,7 @@ namespace Glyssen.Dialogs
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
 
-			LoadCharacterListBox(m_viewModel.GetCharactersForCurrentReference());
+			LoadCharacterListBox(m_viewModel.GetUniqueCharactersForCurrentReference());
 			UpdateShortcutDisplay();
 
 			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
