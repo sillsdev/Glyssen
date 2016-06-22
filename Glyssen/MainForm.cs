@@ -22,6 +22,7 @@ using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
 using SIL.Windows.Forms.Miscellaneous;
+using Ionic.Zip;
 
 namespace Glyssen
 {
@@ -34,7 +35,7 @@ namespace Glyssen
 		private string m_castSizeFmt;
 		private readonly List<Tuple<Button, string>> m_buttonFormats = new List<Tuple<Button, string>>();
 
-		public MainForm()
+		public MainForm(IReadOnlyList<string> args)
 		{
 			InitializeComponent();
 
@@ -46,6 +47,12 @@ namespace Glyssen
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 
 			m_lastExportLocationLink.Text = string.Empty;
+
+			// Did the user start Glyssen by double-clicking a share file?
+			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(ProjectBase.kShareFileExtension))
+			{
+				ImportShare(args[0]);
+			}
 		}
 
 		public static void SetChildFormLocation(Form childForm)
@@ -180,6 +187,8 @@ namespace Glyssen
 			m_btnAssignVoiceActors.Enabled = m_btnAssignVoiceActors.Visible && !readOnly && m_imgCastSizePlanning.Visible;
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = !readOnly;
+
+			m_exportMenu.Enabled = validProject;
 		}
 
 		private void ResetUi()
@@ -206,6 +215,8 @@ namespace Glyssen
 			m_lastExportLocationLink.Text = string.Empty;
 
 			m_lblFilesAreHere.Visible = false;
+
+			m_exportMenu.Enabled = false;
 		}
 
 		private void HandleOpenProject_Click(object sender, EventArgs e)
@@ -290,7 +301,7 @@ namespace Glyssen
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
 			var publicationFolder = Project.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
-				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Project.kProjectFileExtension)
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + ProjectBase.kProjectFileExtension)
 					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
@@ -790,6 +801,108 @@ namespace Glyssen
 				}
 			}
 			base.OnKeyDown(e);
+		}
+
+		/// <summary>
+		/// Zip the project directory into a zip file with the same name
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Export_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				m_tableLayoutPanel.Enabled = false;
+				Cursor.Current = Cursors.WaitCursor;
+
+				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
+
+				// ReSharper disable once PossibleNullReferenceException
+				var nameInZip = sourceDir.Substring(Program.BaseDataFolder.Length);
+
+				// make sure the share directory exists
+				var share = Path.Combine(Program.BaseDataFolder, "share");
+				Directory.CreateDirectory(share);
+
+				var parts = nameInZip.Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+				var saveAsName = Path.Combine(share, parts[0] + "_" + parts[parts.Length - 1] + ProjectBase.kShareFileExtension);
+
+				using (var zip = new ZipFile())
+				{
+					zip.AddDirectory(sourceDir, nameInZip);
+					zip.Save(saveAsName);
+				}
+
+				PathUtilities.SelectFileInExplorer(saveAsName);
+			}
+			finally
+			{
+				Cursor.Current = Cursors.Default;
+				m_tableLayoutPanel.Enabled = true;
+			}
+			
+		}
+
+		private void Import_Click(object sender, EventArgs e)
+		{
+
+			string importFile = null;
+
+			// show the user an Open File dialog
+			using (var ofd = new OpenFileDialog())
+			{
+				ofd.InitialDirectory = Path.Combine(Program.BaseDataFolder, "share");
+				ofd.Filter = string.Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", ProjectBase.kShareFileExtension);
+				ofd.RestoreDirectory = true;
+
+				if (ofd.ShowDialog() == DialogResult.OK)
+					importFile = ofd.FileName;
+			}
+
+			// if nothing was selected, return now
+			if (string.IsNullOrEmpty(importFile))
+				return;
+
+			try
+			{
+				InitializeProgress();
+				ImportShare(importFile);
+			}
+			finally
+			{
+				CloseProgress();
+			}
+		}
+
+		private void ImportShare(string importFile)
+		{
+			// open the zip file
+			using (var zip = new ZipFile(importFile))
+			{
+				if (zip.Entries.Count <= 0) return;
+
+				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
+				var targetDir = Path.Combine(Program.BaseDataFolder, path.FileName);
+
+				// warn the user if data will be overwritten
+				if (Directory.Exists(targetDir))
+				{
+					var msg = LocalizationManager.GetString("MainForm.ImportWarning",
+						"WARNING: If you continue, your existing files will be replaced by the files you are importing, possibly resulting in loss of data. Do you want to continue and overwrite the existing files?");
+					if (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OKCancel) != DialogResult.OK)
+						return;
+				}
+
+				// close the current project
+				SetProject(null);
+
+				zip.ExtractAll(Program.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
+
+				// open the imported project
+				var projectFile = Directory.EnumerateFiles(targetDir, string.Format("*{0}", ProjectBase.kProjectFileExtension)).FirstOrDefault();
+				if (File.Exists(projectFile))
+					LoadProject(projectFile);
+			}
 		}
 	}
 }
