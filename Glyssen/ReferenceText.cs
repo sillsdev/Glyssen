@@ -274,9 +274,13 @@ namespace Glyssen
 
 		private void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, ScrVers vernacularVersification)
 		{
-			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-			var vernBlockList = vernacularBook.GetScriptBlocks();
-			var refBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification);
+		}
+
+		public void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification)
+		{
+			int bookNum = BCVRef.BookToNumber(bookId);
+			var refBook = Books.Single(b => b.BookId == bookId);
 			var refBlockList = refBook.GetScriptBlocks();
 
 			for (int iVernBlock = 0, iRefBlock = 0; iVernBlock < vernBlockList.Count && iRefBlock < refBlockList.Count; iVernBlock++, iRefBlock++)
@@ -293,7 +297,7 @@ namespace Glyssen
 						if (currentVernBlock.IsChapterAnnouncement)
 						{
 							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
-							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(vernacularBook.BookId, currentVernBlock.ChapterNumber)));
+							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
 							if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
 								refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
