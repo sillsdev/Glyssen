@@ -333,73 +333,55 @@ namespace Glyssen
 				var indexOfRefVerseStart = iRefBlock;
 				var vernInitEndVerse = (currentVernBlock.InitialEndVerseNumber == 0) ? vernInitStartVerse :
 					new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialEndVerseNumber, vernacularVersification);
-				var refInitEndVerse = (currentRefBlock.InitialEndVerseNumber == 0) ? refInitStartVerse :
-					new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialEndVerseNumber, Versification);
-
 				var lastVernVerseFound = FindAllScriptureBlocksThroughVerse(vernBlockList, vernInitEndVerse, ref iVernBlock, bookNum, vernacularVersification, true);
 				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, bookNum, Versification, false);
 
 				int numberOfVernBlocksInVerseChunk = iVernBlock - indexOfVernVerseStart + 1;
 				int numberOfRefBlocksInVerseChunk = iRefBlock - indexOfRefVerseStart + 1;
 
-				bool nothingMatched = true;
-				for (int i = 0; i < numberOfVernBlocksInVerseChunk; i++)
+				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
-					if (BlocksMatch(bookNum, vernBlockList[indexOfVernVerseStart + i], refBlockList[indexOfRefVerseStart + i], vernacularVersification))
+					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
+					var refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + i];
+					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) ||
+						(numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk == 1 &&
+						BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification)))
 					{
 						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
 						{
-							vernBlockList[indexOfVernVerseStart + i].MatchesReferenceText = false;
-							vernBlockList[indexOfVernVerseStart + i].ReferenceBlocks =
+							vernBlockInVerseChunk.MatchesReferenceText = false;
+							vernBlockInVerseChunk.ReferenceBlocks =
 								new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+							break;
 						}
-						else
-						{
-							vernBlockList[indexOfVernVerseStart + i].SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
-							nothingMatched = false;
-						}
+						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
 					}
 					else
 					{
 						iVernBlock = indexOfVernVerseStart + i;
-						iRefBlock = indexOfRefVerseStart + i;
+
+						int j = 0;
+						if (numberOfVernBlocksInVerseChunk - i >= 2)
+						{
+							// Look from the bottom up
+							for (; j + 1 < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
+							{
+								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
+								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
+								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
+									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+								else
+									break;
+							}
+						}
+						vernBlockList[iVernBlock].MatchesReferenceText = false;
+						vernBlockList[iVernBlock].ReferenceBlocks =
+							new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i - j));
+						iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
+
 						break;
 					}
 				}
-				if (nothingMatched)
-				{
-					// ENHANCE: Look from the bottom up maybe???
-					vernBlockList[indexOfVernVerseStart].MatchesReferenceText = false;
-					vernBlockList[indexOfVernVerseStart].ReferenceBlocks =
-						new List<Block>(refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk));
-				}
-
-				//var vernBlocks = vernBlockList.Skip(indexOfVernVerseStart).Take(numberOfVernBlocksInVerse);
-				//var refBlocks = refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerse);
-
-				//if (vernInitStartVerse.CompareTo(refInitStartVerse) == 0 && vernInitEndVerse.CompareTo(refInitEndVerse) == 0 &&
-				//	((numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk == 1) ||
-				//	(numberOfVernBlocksInVerseChunk == numberOfRefBlocksInVerseChunk &&
-				//	VerseBlocksMatch(vernBlockList.Skip(indexOfVernVerseStart), refBlockList.Skip(indexOfRefVerseStart), numberOfVernBlocksInVerseChunk) &&
-				//	BlocksEndWithSameVerse(bookNum, vernBlockList.Skip(indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1).Take(1).Single(), refBlockList.Skip(indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1).Take(1).Single(), vernacularVersification)) ||
-				//	(numberOfVernBlocksInVerseChunk == numberOfRefBlocksInVerseChunk + 1 &&
-				//	VerseBlocksMatch(vernBlockList.Skip(indexOfVernVerseStart), refBlockList.Skip(indexOfRefVerseStart), numberOfRefBlocksInVerseChunk) &&
-				//	!vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 2].CharacterIsStandard &&
-				//	vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1].CharacterIs(vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator))))
-				//{
-				//	//for (int i = 0; i < numberOfVernBlocksInVerse; i++)
-				//	//	vernBlockList[indexOfVernVerseStart + i].SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
-				//	int i = 0;
-				//	for (; i < numberOfRefBlocksInVerseChunk; i++)
-				//		vernBlockList[indexOfVernVerseStart + i].SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
-				//	while (i < numberOfVernBlocksInVerseChunk)
-				//		vernBlockList[indexOfVernVerseStart + i++].MatchesReferenceText = false;
-				//}
-				//else
-				//{
-				//	currentVernBlock.MatchesReferenceText = false;
-				//	currentVernBlock.ReferenceBlocks = new List<Block>(refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk));
-				//}
 			}
 		}
 
@@ -410,12 +392,6 @@ namespace Glyssen
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
 				vernBlock.CharacterId == refBlock.CharacterId &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
-		}
-
-		private static bool VerseBlocksMatch(IEnumerable<Block> listA, IEnumerable<Block> listB, int numberOfBlocksToCompare)
-		{
-			return listA.Take(numberOfBlocksToCompare).Select(b => b.CharacterId).SequenceEqual(
-				listB.Take(numberOfBlocksToCompare).Select(b => b.CharacterId));
 		}
 
 		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
