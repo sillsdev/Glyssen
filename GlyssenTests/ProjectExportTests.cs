@@ -290,6 +290,105 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetExportData_AnnotationWithNegativeOffsetInVerseThatDoesNotMatchReferenceText_AnnotationInsertedCorrectlyWithoutCrashing()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var mark = project.IncludedBooks.Single();
+			mark.Blocks = new List<Block>
+				{
+					new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator }.AddVerse(39, "Jedus stanop, taak scrong ta de big breeze say, "),
+					new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> { new ScriptText("“Hush, stop blow.” ") } },
+					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement> { new ScriptText("An e say ta de swellin wata, ") } },
+					new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> { new ScriptText("“Go down.” ") } },
+					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement>
+					{
+						new ScriptText("De big breeze done hush an stop fa blow, an de swellin wata gone down an been peaceable an steady. "),
+						new Verse("40"),
+						new ScriptText("Den Jedus ton roun ta e ciple dem an e say, ")
+					} },
+					new Block("p", 4, 40) {CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
+					{
+						new ScriptText("“Hoccome oona so scaid? Stillyet oona ain bleebe pon God, ainty?”")
+					} }
+				};
+
+			var refBlocks = new List<Block>
+				{
+					new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator }.AddVerse(39, "He awoke, and rebuked the wind, and said to the sea, "),
+					new Block("p", 4, 39) {CharacterId = "Jesus", BlockElements = new List<BlockElement> { new ScriptText("“Peace! Be still!” ") } },
+					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement>
+					{
+						new ScriptText("The wind ceased, and there was a great calm. "),
+						new Verse("40"),
+						new ScriptText("He said to them, ")
+					} },
+					new Block("p", 4, 40) {CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
+					{
+						new ScriptText("“Why are you so afraid? How is it that you have no faith?”")
+					} }
+				};
+			foreach (var refBlock in refBlocks)
+			{
+				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber) { CharacterId = refBlock.CharacterId };
+				Verse verseElement = refBlock.BlockElements.First() as Verse;
+				if (verseElement != null)
+					secondaryRefBlock.AddVerse(verseElement.Number, "Some secondary reference text");
+				else
+					secondaryRefBlock.BlockElements = new List<BlockElement> { new ScriptText("Some secondary reference text") };
+				refBlock.SetMatchedReferenceBlock(secondaryRefBlock);
+			}
+			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("MRK", refBlocks);
+			project.ReferenceText = primaryReferenceText;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData().ToList();
+			Assert.AreEqual(mark.Blocks.Count, data.Count);
+
+			var narratorInOutput = CharacterVerseData.GetCharacterNameForUi(narrator);
+
+			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "MRK" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 4));
+			var i = 0;
+			var row = data[i];
+			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(narratorInOutput, row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
+			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual(refBlocks[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+
+			row = data[++i];
+			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("Jesus", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
+			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual(refBlocks[i].GetText(true) + "||| + 1.5 SECs |||", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("Some secondary reference text ||| + 1.5 SECs |||", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+
+			row = data[++i];
+			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(narratorInOutput, row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
+			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
+
+			row = data[++i];
+			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("Jesus", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
+			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
+
+			row = data[++i];
+			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.BlockId)] as string));
+			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(narratorInOutput, row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
+			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual(refBlocks[i - 2].GetText(true), row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+
+			row = data[++i];
+			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.BlockId)] as string));
+			Assert.AreEqual("40", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("Jesus", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
+			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual(refBlocks[i - 2].GetText(true), row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+		}
+
+		[Test]
 		public void GetExportData_BlocksAreJoinedToStandardNonEnglishReferenceText_OutputContainsPrimaryAndEnglishReferenceText()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
@@ -301,6 +400,7 @@ namespace GlyssenTests
 
 			var data = exporter.GetExportData().ToList();
 
+			Assert.IsTrue(data.All(d => d.Count == 11));
 			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD"));
 			Assert.IsTrue(data.All(d => d.Count == exporter.GetColumnIndex(ExportColumn.VernacularTextLength) + 1));
 			Assert.AreEqual("YӘHUDANIN MӘKTUBU", data[0][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -313,13 +413,17 @@ namespace GlyssenTests
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Contains("Ә"))); // A letter that should be in Azeri, but not English
 			Assert.IsTrue(matchedRows.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] != null));
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).Contains(" the "))); // A word that should be in English, but not Azeri
-			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect some rows
-			// to come from those mis-matches.
-			var rowsWithNoVernacular = data.Where(d => d[exporter.GetColumnIndex(ExportColumn.VernacularText)] == null).ToList();
-			Assert.IsTrue(rowsWithNoVernacular.Any());
-			Assert.IsTrue(rowsWithNoVernacular.All(d => d.Count == exporter.GetColumnIndex(ExportColumn.VernacularTextLength) + 1));
-			Assert.IsTrue(rowsWithNoVernacular.All(d => d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] != null));
-			Assert.IsTrue(rowsWithNoVernacular.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).Contains(" the "))); // A word that should be in English, but not Azeri
+			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two rows
+			// where the vernacular has no corresponding reference text.
+			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(data.Where(d => d[exporter.GetColumnIndex(ExportColumn.ParaTag)] as string == "s1")
+				.All(d => d[exporter.GetColumnIndex(ExportColumn.CharacterId)] as string == extra));
+			var scriptureRowsWithNoReferenceText = data.Where(d => d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] == null &&
+				d[exporter.GetColumnIndex(ExportColumn.ParaTag)] as string != "s1").ToList();
+			Assert.AreEqual(2, scriptureRowsWithNoReferenceText.Count);
+			Assert.AreEqual(1, scriptureRowsWithNoReferenceText.Count(d => d[exporter.GetColumnIndex(ExportColumn.CharacterId)] as string == narrator));
+			Assert.IsTrue(scriptureRowsWithNoReferenceText.All(d => d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] == null));
 		}
 
 		[Test]

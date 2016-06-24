@@ -140,13 +140,14 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(5, result.Count);
 			Assert.AreEqual("[1]\u00A0Cosas que Fred dice, ", result[0].GetText(true));
+			Assert.AreEqual(0, result[0].ReferenceBlocks.Count);
+
 			Assert.AreEqual("dijo Fred. ", result[1].GetText(true));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+
 			Assert.AreEqual("[2]\u00A0Blah blah. ", result[2].GetText(true));
 			Assert.AreEqual("[3]\u00A0More blah blah. ", result[3].GetText(true));
 			Assert.AreEqual("[4]\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual("[1]\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[0].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result.Skip(2).Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
@@ -224,15 +225,24 @@ namespace GlyssenTests
 			Assert.AreEqual(2, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(4, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
 			Assert.AreEqual("[31]\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+
 			Assert.AreEqual("Love", result[1].GetText(true));
-			Assert.AreEqual("And now I will show you...", result[2].GetText(true));
-			Assert.AreEqual("[32]\u00A0This isn't here.", result[3].GetText(true));
-			Assert.AreEqual("[31]\u00A0In this version, there is no section head.", result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsNull(result[1].PrimaryReferenceText);
+
+			Assert.AreEqual("And now I will show you...", result[2].GetText(true));
 			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
-			Assert.IsFalse(result.Take(3).Any(b => b.MatchesReferenceText));
-			Assert.IsTrue(result.Take(3).All(b => b.PrimaryReferenceText == null));
+			Assert.IsFalse(result[2].MatchesReferenceText);
+			Assert.IsNull(result[2].PrimaryReferenceText);
+
+			Assert.AreEqual("[32]\u00A0This isn't here.", result[3].GetText(true));
 			Assert.AreEqual("[32]\u00A0The verse that was never supposed to exist.", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
 			Assert.AreEqual("[32]\u00A0The verse that was never supposed to exist.", result[3].PrimaryReferenceText);
@@ -259,15 +269,19 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual("[31]\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+
 			Assert.AreEqual("And now I will show you...", result[1].GetText(true));
-			Assert.AreEqual("[32]\u00A0This isn't here.", result[2].GetText(true));
-			Assert.AreEqual("[31]\u00A0In this version, there is no paragraph break.", result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result.Take(2).Any(b => b.MatchesReferenceText));
-			Assert.IsTrue(result.Take(2).All(b => b.PrimaryReferenceText == null));
-			Assert.AreEqual("[32]\u00A0The verse that was never supposed to exist.", result[2].ReferenceBlocks.Single().GetText(true));
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsNull(result[1].PrimaryReferenceText);
+
+			Assert.AreEqual("[32]\u00A0This isn't here.", result[2].GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("[32]\u00A0The verse that was never supposed to exist.", result[2].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -560,6 +574,98 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ApplyTo_ReferenceHasVerseBridgeCorrespondingToTwoVernVerses_Mismatched()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+
+			var vernacularBlocks = new List<Block>
+				{
+					new Block("p", 1, 1) {CharacterId = narrator }.AddVerse("1", "A"),
+					new Block("p", 1, 2) {CharacterId = "Enoch" }.AddVerse("2", "B"),
+					new Block("p", 1, 3) {CharacterId = narrator }.AddVerse("3", "C"),
+					new Block("p", 1, 4) {CharacterId = "Michael" }.AddVerse("4", "D")
+				};
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>
+			{
+				new Block("p", 1, 1) { CharacterId = narrator }.AddVerse("1", "Ayy"),
+				new Block("p", 1, 2, 3) {CharacterId = narrator}.AddVerse("2-3", "Bee Cee"),
+				new Block("p", 1, 4) { CharacterId = "Michael" }.AddVerse(4, "Dee, "),
+			};
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+
+			// We don't especially care how the vern blocks for verses 2 and 3 align to the ref block for 2-3 as long as neither one
+			// is considered a match and exactly one of them is hooked up to it.
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsFalse(result[2].MatchesReferenceText);
+			Assert.IsTrue(result.Skip(1).Take(2).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
+				.SequenceEqual(referenceBlocks.Skip(1).Take(1).Select(r => r.GetText(true))));
+
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].ReferenceBlocks.Single().GetText(true));
+		}
+
+		[Test]
+		public void GetExportData_VernVerseHasMorePartsThanReference_FinalBlockOfVersContainsStartOfFollowingVerseInBothVernAndRef_BeginningAndEndMatch()
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+
+			var vernacularBlocks = new List<Block>
+				{
+					new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator }.AddVerse(39, "Jedus stanop, taak scrong ta de big breeze say, "),
+					new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> { new ScriptText("“Hush, stop blow.” ") } },
+					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement> { new ScriptText("An e say ta de swellin wata, ") } },
+					new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> { new ScriptText("“Go down.” ") } },
+					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement>
+					{
+						new ScriptText("De big breeze done hush an stop fa blow, an de swellin wata gone down an been peaceable an steady. "),
+						new Verse("40"),
+						new ScriptText("Den Jedus ton roun ta e ciple dem an e say, ")
+					} },
+					new Block("p", 4, 40) {CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
+					{
+						new ScriptText("“Hoccome oona so scaid? Stillyet oona ain bleebe pon God, ainty?”")
+					} }
+				};
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>
+				{
+					new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator }.AddVerse(39, "He awoke, and rebuked the wind, and said to the sea, "),
+					new Block("p", 4, 39) {CharacterId = "Jesus", BlockElements = new List<BlockElement> { new ScriptText("“Peace! Be still!” ") } },
+					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement>
+					{
+						new ScriptText("The wind ceased, and there was a great calm. "),
+						new Verse("40"),
+						new ScriptText("He said to them, ")
+					} },
+					new Block("p", 4, 40) {CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
+					{
+						new ScriptText("“Why are you so afraid? How is it that you have no faith?”")
+					} }
+				};
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.IsFalse(result[2].ReferenceBlocks.Any());
+			Assert.IsFalse(result[3].ReferenceBlocks.Any());
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[5].ReferenceBlocks.Single().GetText(true));
+		}
+
+		[Test]
 		public void ApplyTo_VernacularHasVerseBridgeNotAtStartOfBlock_ReferenceBrokenAtVerses_VernacularSplitForNonBridgedVerses()
 		{
 			var vernacularBlocks = new List<Block>();
@@ -640,6 +746,91 @@ namespace GlyssenTests
 			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
 		}
 
+		[Test]
+		public void ApplyTo_VernacularHasVerseBridgeNotAtStartOfBlock_ReferenceNotBrokenAtStartOfVernacularBridge_NoSplitAndNoErrorReport()
+		{
+			// PG-746 Chikunda
+			var vernacularBlocks = new List<Block>();
+			var block = CreateNarratorBlockForVerse(17, "Paadasiya gunyenye ndiye adapita munyumba, wakufundila wake adamubvunza kuti alewe dzvadzvikalewa dzvaalewa. ", true, 7 ,"MRK");
+			block.AddVerse("18-19", "Jesu adati kwa iwo, ");
+			vernacularBlocks.Add(block);
+			//AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Munidziwambo lini ninga anango. Palibe chinthu chinipita mwamunthu " +
+			//	"chingamusvipise, pakuti chiniyenda lini mumtima wake, koma mumimba yake, ndiye tsapano chinibula muthupi lake.”");
+
+			var vernBook = new BookScript("MRK", vernacularBlocks);
+
+			// Indonesian
+			var referenceBlocks = new List<Block>();
+			block = CreateNarratorBlockForVerse(17, "Sesudah Ia masuk ke sebuah rumah untuk menyingkir dari orang banyak, murid-murid-Nya bertanya kepada-Nya tentang arti perumpamaan itu. ", true, 7, "MRK");
+			block.AddVerse(18, "Maka jawab-Nya:");
+			referenceBlocks.Add(block);
+			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "<<Apakah kamu juga tidak dapat memahaminya? Tidak tahukah kamu bahwa segala sesuatu dari luar yang masuk " +
+				"ke dalam seseorang tidak dapat menajiskannya, ");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			using (new ErrorReport.NoNonFatalErrorReportExpected())
+				refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(1, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
+			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[0].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+		}
+
+		[Test]
+		public void ApplyTo_VerseBridgeInVernacularPreventsSplitToCorrespondToBreakInReferenceText_MatchTheLeadingAndTrailingBlocksAndMismatchMiddleOnes()
+		{
+			// PG-746 Chikunda (Acts 8:26-29)
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Ngilozi ... Filipi, ", true, 8, "ACT"));
+			AddBlockForVerseInProgress(vernacularBlocks, "angel", "“Konzekela ... Gaza.” ");
+			var block = AddNarratorBlockForVerseInProgress(vernacularBlocks, "(Njila ... zino.) ", "ACT");
+			block.AddVerse("27-28", "Saka ... Ayizaya. ");
+			block.AddVerse(29, "Mzimu ... Filipi, ");
+			AddBlockForVerseInProgress(vernacularBlocks, "Holy Spirit, the", "“Yenda ... iyo.” ");
+			var vernBook = new BookScript("ACT", vernacularBlocks);
+
+			// Indonesian
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(26, "Kemudian ..., katanya:", true, 8, "ACT"));
+			AddBlockForVerseInProgress(referenceBlocks, "angel", "<<Bangunlah ... Gaza.>>");
+			block = AddNarratorBlockForVerseInProgress(referenceBlocks, "Jalan ... sunyi. ", "ACT");
+			block.AddVerse(27, "Lalu ... beribadah.");
+			referenceBlocks.Add(block = CreateNarratorBlockForVerse(28, "Sekarang ... Yesaya. ", true, 8, "ACT"));
+			block.AddVerse(29, "Lalu ... Filipus:");
+			AddBlockForVerseInProgress(referenceBlocks, "Holy Spirit, the", "<<Pergilah ... itu!>>");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			using (new ErrorReport.NoNonFatalErrorReportExpected())
+				refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.True(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+
+			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
+			Assert.True(result[1].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+
+			Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
+			Assert.False(result[2].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[1].GetText(true));
+
+			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
+			Assert.True(result[3].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[4].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
+		}
+
 		/// <summary>
 		/// PG-742
 		/// </summary>
@@ -716,10 +907,12 @@ namespace GlyssenTests
 			Assert.IsTrue(result[0].ReferenceBlocks.Single().BlockElements.OfType<Sound>().Any());
 			Assert.IsTrue(result[0].MatchesReferenceText);
 
+			// We don't especially care how the remaining vern blocks align to the ref blocks as long as the first one
+			// is not a match, and all of the reference blocks are hooked up (in the correct order) with exactly one vern block.
+			var referenceBlocks = refText.Books.Single(b => b.BookId == vernBook.BookId).GetBlocksForVerse(22, 51).ToList();
+			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Select(r => r.GetText(true))
+				.SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
 			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.AreEqual(3, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result[2].MatchesReferenceText);
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
 		}
 
 		/// <summary>
@@ -742,7 +935,7 @@ namespace GlyssenTests
 			var block = CreateNarratorBlockForVerse(50,
 				"A certain one of them struck the servant of the high priest, and cut off his right ear. ", true, 22, "LUK");
 			block.BlockElements.Add(new Sound { SoundType = SoundType.Sfx, EffectName = "Man crying out", UserSpecifiesLocation = true });
-			block.AddVerse(51, "But Jesus answered,");
+			block.AddVerse(51, "But Jesus answered, ");
 			referenceBlocks.Add(block);
 			AddBlockForVerseInProgress(referenceBlocks, "Jesus", "“Permit them to seize me.”");
 			AddNarratorBlockForVerseInProgress(referenceBlocks,
@@ -755,14 +948,19 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
+
 			Assert.IsInstanceOf<Sound>(result[0].ReferenceBlocks.Single().BlockElements.Last());
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("[50]\u00A0A certain one of them struck the servant of the high priest, and cut off his right ear. {F8 SFX--Man crying out} ", result[0].PrimaryReferenceText);
 
+			// We don't especially care how the remaining vern blocks align to the ref blocks as long as the first one
+			// is not a match, and each of the remaining reference blocks is hooked up (in the correct order) to exactly
+			// one vern block in the correct order.
+			Assert.AreEqual(3, result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count());
+			Assert.AreEqual("[51]\u00A0But Jesus answered, ", result.Skip(1).SelectMany(v => v.ReferenceBlocks).First().GetText(true));
+			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Skip(1).Select(r => r.GetText(true))
+				.SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.AreEqual(3, result[1].ReferenceBlocks.Count);
-			Assert.IsFalse(result[2].MatchesReferenceText);
-			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
 		}
 
 		[Test]
@@ -834,13 +1032,15 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsNull(result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(1, result[0].InitialStartVerseNumber);
 			Assert.AreEqual(0, result[0].InitialEndVerseNumber);
 			Assert.AreEqual(3, result[0].LastVerse);
+
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
+			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(4, result[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, result[1].InitialEndVerseNumber);
 			Assert.AreEqual(4, result[1].LastVerse);
@@ -872,6 +1072,8 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
 			Assert.AreEqual(4, result[0].ReferenceBlocks.Count);
 			// Verse 1
 			Assert.IsTrue(result[0].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Take(4).Select(r => r.GetText(true))));
@@ -906,10 +1108,15 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(3, result[0].ReferenceBlocks.Count);
-			Assert.IsTrue(result[0].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.IsTrue(result.All(b => b.PrimaryReferenceText == null));
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(referenceBlocks[0], result[0].ReferenceBlocks.Single());
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+
+			Assert.IsFalse(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
+			Assert.IsNull(result[1].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -1051,13 +1258,21 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+
+			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
+			Assert.IsFalse(result[1].MatchesReferenceText);
 			Assert.IsNull(result[1].PrimaryReferenceText);
+
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[2].MatchesReferenceText);
+
 			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
@@ -1472,13 +1687,14 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(5, result.Count);
 			Assert.AreEqual("[1]\u00A0Cosas que Fred dice, ", result[0].GetText(true));
+			Assert.AreEqual(0, result[0].ReferenceBlocks.Count);
+
 			Assert.AreEqual("dijo Fred. ", result[1].GetText(true));
+			Assert.AreEqual("[5]\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[1].ReferenceBlocks.Single().GetText(true));
+
 			Assert.AreEqual("[2]\u00A0Blah blah. ", result[2].GetText(true));
 			Assert.AreEqual("[3]\u00A0More blah blah. ", result[3].GetText(true));
 			Assert.AreEqual("[4]\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual("[5]\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[0].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result.Skip(2).Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
@@ -1526,7 +1742,7 @@ namespace GlyssenTests
 			{
 				"JUDE",
 				"JUDE 1",
-				"Jude, a servant of Jesus Christ, and brother of James, to those who are called, sanctified by God the Father, and kept for Jesus Christ:",
+				"[1]\u00A0Jude, a servant of Jesus Christ, and brother of James, to those who are called, sanctified by God the Father, and kept for Jesus Christ:",
 				null,
 				"[2]\u00A0Mercy to you and peace and love be multiplied.",
 				null,

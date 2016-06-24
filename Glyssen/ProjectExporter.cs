@@ -512,11 +512,20 @@ namespace Glyssen
 			Func<string, string, string> modify = (verseAnnotation.Annotation is Sound)
 				? (Func<string, string, string>)PrependAnnotationInfo : (Func<string, string, string>)AppendAnnotationInfo;
 
-			var rowToModify = data[relativeIndex + verseAnnotation.Offset];
 			var col = GetColumnIndex(ExportColumn.PrimaryReferenceText);
 			var annotationInfo = verseAnnotation.Annotation.ToDisplay(AnnotationElementSeparator);
 
-			rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
+			List<object> rowToModify;
+			string text;
+			int rowIndex = relativeIndex + verseAnnotation.Offset;
+			do
+			{
+				rowToModify = data[rowIndex];
+				text = (string) rowToModify[col];
+			} while (text == null && --rowIndex >= 0);
+			Debug.Assert(text != null, "We should have been able to find a preceding row with a non-empty reference text");
+
+			rowToModify[col] = modify(text, annotationInfo);
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 			{
 				col = GetColumnIndex(ExportColumn.SecondaryReferenceText);
