@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
@@ -336,6 +338,8 @@ namespace Glyssen
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				sheet.Cells["A1"].LoadFromArrays(dataArray);
 
+				ColorizeAnnotations(sheet.Cells);
+
 				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
 				sheet.Row(1).Style.Font.Bold = true;
 
@@ -377,6 +381,47 @@ namespace Glyssen
 				sheet.View.FreezePanes(2, 1);
 
 				xls.Save();
+			}
+		}
+
+		private static void ColorizeAnnotations(ExcelRange cells)
+		{
+			var splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
+
+			foreach (var cell in cells)
+			{
+				// do nothing if the cell is empty
+				var cellValue = cell.Value as string;
+				if (string.IsNullOrEmpty(cellValue)) continue;
+
+				// do nothing if the cell does not contain any of the strings to be colored
+				var splits = splitRegex.Split(cellValue);
+				if (splits.Length < 2) continue;
+
+				// list of string beginnings of strings to color blue
+				var blueBeginnings = new[] { "|||" };
+
+				// list of string beginnings of strings to color red
+				var redBeginnings = new [] {"{Music", "{F8", "{SFX"};
+
+				cell.RichText.Clear();
+				foreach (var split in splits)
+				{
+					var r = cell.RichText.Add(split);
+
+					if (blueBeginnings.Any(split.StartsWith))
+					{
+						r.Color = Color.Blue;
+					}
+					else if (redBeginnings.Any(split.StartsWith))
+					{
+						r.Color = Color.Red;
+					}
+					else
+					{
+						r.Color = Color.Black;	
+					}
+				}
 			}
 		}
 
