@@ -222,7 +222,7 @@ namespace Glyssen
 			return null;
 		}
 
-		private int GetIndexOfFirstBlockForVerse(int chapter, int verse)
+		public int GetIndexOfFirstBlockForVerse(int chapter, int verse)
 		{
 			EnsureBlockCount();
 			if (m_blockCount == 0)

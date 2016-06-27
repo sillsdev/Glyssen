@@ -277,13 +277,37 @@ namespace Glyssen
 			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification);
 		}
 
-		public void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification)
+		public IReadOnlyList<Block> GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification)
+		{
+			var blocks = vernacularBook.GetScriptBlocks();
+			if (iBlock < 0 || iBlock >= blocks.Count)
+				throw new ArgumentOutOfRangeException("iBlock");
+			var block = blocks[iBlock];
+			blocks = vernacularBook.GetBlocksForVerse(block.ChapterNumber, block.InitialStartVerseNumber).Select(b => b.Clone()).ToList();
+			MatchVernBlocksToReferenceTextBlocks(blocks, vernacularBook.BookId, vernacularVersification);
+			return blocks;
+		}
+
+		private void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification)
 		{
 			int bookNum = BCVRef.BookToNumber(bookId);
 			var refBook = Books.Single(b => b.BookId == bookId);
 			var refBlockList = refBook.GetScriptBlocks();
+			int iRefBlock = 0;
+			// The following is a minor performance enhancement to help when just hooking up one verse's worth of blocks.
+			// In it's current form, it doesn't work for tests that have partial reference texts that don't start at verse 1.
+ 			// Also, it doesn't take versification mappings into consideration.
+			//if (vernBlockList[0].ChapterNumber > 1)
+			//{
+			//	iRefBlock = refBook.GetIndexOfFirstBlockForVerse(vernBlockList[0].ChapterNumber, );
+			//	if (iRefBlock < 0)
+			//	{
+			//		// Apparently there is no reference text for the verse(s) we're interested in.
+			//		return;
+			//	}
+			//}
 
-			for (int iVernBlock = 0, iRefBlock = 0; iVernBlock < vernBlockList.Count && iRefBlock < refBlockList.Count; iVernBlock++, iRefBlock++)
+			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count && iRefBlock < refBlockList.Count; iVernBlock++, iRefBlock++)
 			{
 				var currentVernBlock = vernBlockList[iVernBlock];
 				var currentRefBlock = refBlockList[iRefBlock];
@@ -337,8 +361,8 @@ namespace Glyssen
 				var indexOfRefVerseStart = iRefBlock;
 				var vernInitEndVerse = (currentVernBlock.InitialEndVerseNumber == 0) ? vernInitStartVerse :
 					new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialEndVerseNumber, vernacularVersification);
-				var lastVernVerseFound = FindAllScriptureBlocksThroughVerse(vernBlockList, vernInitEndVerse, ref iVernBlock, bookNum, vernacularVersification, true);
-				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, bookNum, Versification, false);
+				var lastVernVerseFound = FindAllScriptureBlocksThroughVerse(vernBlockList, vernInitEndVerse, ref iVernBlock, vernacularVersification, true);
+				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, Versification, false);
 
 				int numberOfVernBlocksInVerseChunk = iVernBlock - indexOfVernVerseStart + 1;
 				int numberOfRefBlocksInVerseChunk = iRefBlock - indexOfRefVerseStart + 1;
@@ -394,7 +418,7 @@ namespace Glyssen
 			var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
 			var refInitStartVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification);
 			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
-				vernBlock.CharacterId == refBlock.CharacterId &&
+				(vernBlock.CharacterId == refBlock.CharacterId || vernBlock.CharacterIsUnclear() ) &&
 				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}
 
@@ -405,24 +429,24 @@ namespace Glyssen
 			return lastVernVerse.CompareTo(lastRefVerse) == 0;
 		}
 
-		private static VerseRef FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, int bookNum, ScrVers versification, bool forceEndAtVerseBreak)
+		private static VerseRef FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, ScrVers versification, bool forceEndAtVerseBreak)
 		{
 			if (forceEndAtVerseBreak)
-				endVerse = new VerseRef(bookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
+				endVerse = new VerseRef(endVerse.BookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
 			for (; ; )
 			{
 				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterStandard(b.CharacterId, false));
 				if (nextScriptureBlock == null)
 					break;
-				var nextVerseRef = new VerseRef(bookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.InitialStartVerseNumber, versification);
+				var nextVerseRef = new VerseRef(endVerse.BookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.InitialStartVerseNumber, versification);
 				if (nextVerseRef > endVerse)
 					break;
 				i++;
 				if (forceEndAtVerseBreak)
-					endVerse = new VerseRef(bookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.LastVerse, versification);
+					endVerse = new VerseRef(endVerse.BookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.LastVerse, versification);
 			}
 			return forceEndAtVerseBreak ? endVerse :
-				new VerseRef(bookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
+				new VerseRef(endVerse.BookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
 		}
 
 		private class VerseSplitLocation
