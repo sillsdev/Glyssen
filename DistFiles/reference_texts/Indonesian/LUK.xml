@@ -199,7 +199,7 @@
     <text>Ketika ia keluar, ia tidak dapat berkata-kata kepada mereka dan mengertilah mereka,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering">
       <text>“He has seen a vision in the temple!”</text>
     </ReferenceBlocks>
     <text>bahwa ia telah melihat suatu penglihatan di dalam Bait Suci.</text>
@@ -931,7 +931,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-      <text>“Every male who opens the womb shall be called holy to the Lord”), </text>
+      <text>“Every male who opens the womb shall be called holy to the Lord”),</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Semua anak laki-laki sulung harus dikuduskan bagi Allah&gt;&gt;</text>
   </block>
@@ -1344,7 +1344,7 @@
     <text>Dan prajurit-prajurit bertanya juga kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out">
       <text>“What about us? What must we do?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Dan kami, apakah yang harus kami perbuat?&gt;&gt;</text>
@@ -1356,7 +1356,7 @@
     <text>Jawab Yohanes kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist">
       <text>“Extort from no one by violence, neither accuse anyone wrongfully. Be content with your wages.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jangan merampas dan jangan memeras dan cukupkanlah dirimu dengan gajimu.&gt;&gt;</text>
@@ -1370,7 +1370,7 @@
     <text>Tetapi karena orang banyak sedang menanti dan berharap, dan semuanya bertanya dalam hatinya tentang Yohanes,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River">
       <text>Could John be the Messiah?</text>
     </ReferenceBlocks>
     <text>kalau-kalau ia adalah Mesias,</text>
@@ -2250,7 +2250,7 @@
     <text>Tetapi ahli-ahli Taurat dan orang-orang Farisi berpikir dalam hatinya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" delivery="thinking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" characterIdOverrideForScript="teachers of religious law" delivery="thinking">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" delivery="thinking">
       <text>“Who is this that speaks blasphemies? Who can forgive sins, but God alone?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Siapakah orang yang menghujat Allah ini? Siapa yang dapat mengampuni dosa selain dari pada Allah sendiri?&gt;&gt;</text>
@@ -2328,7 +2328,7 @@
     <text>Kemudian, ketika Yesus pergi ke luar, Ia melihat seorang pemungut cukai, yang bernama Lewi, sedang duduk di rumah cukai. Yesus berkata kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus">
       <text>“Follow me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ikutlah Aku!&gt;&gt;</text>
@@ -2358,7 +2358,7 @@
     <text>Orang-orang Farisi dan ahli-ahli Taurat bersungut-sungut kepada murid-murid Yesus, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" delivery="complaining" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="complaining">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" delivery="complaining">
       <text>“Why do you eat and drink with the tax collectors and sinners?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mengapa kamu makan dan minum bersama-sama dengan pemungut cukai dan orang berdosa?&gt;&gt;</text>
@@ -2394,7 +2394,7 @@
     <text>Orang-orang Farisi itu berkata pula kepada Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law">
       <text>“Why do John's disciples often fast and pray, likewise also the disciples of the Pharisees, but yours eat and drink?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Murid-murid Yohanes sering berpuasa dan sembahyang, demikian juga murid-murid orang Farisi, tetapi murid-murid-Mu makan dan minum.&gt;&gt;</text>
@@ -2598,7 +2598,7 @@
     <text>Maka meluaplah amarah mereka, lalu mereka berunding, apakah yang akan</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law">
       <text>“What can we do about Jesus?”</text>
     </ReferenceBlocks>
     <text>mereka lakukan terhadap Yesus.</text>
@@ -3323,7 +3323,7 @@
     <text>Lalu Yesus berkata kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus">
       <text>“Simon, I have something to tell you.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Simon, ada yang hendak Kukatakan kepadamu.&gt;&gt;</text>
@@ -3335,7 +3335,7 @@
     <text>Sahut Simon:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)">
       <text>“Tell me teacher,”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Katakanlah, Guru.&gt;&gt;</text>
@@ -3371,7 +3371,7 @@
     <text>Jawab Simon:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)">
       <text>“He, I suppose, to whom he forgave the most.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Aku kira dia yang paling banyak dihapuskan hutangnya.&gt;&gt;</text>
@@ -3383,7 +3383,7 @@
     <text>Kata Yesus kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus">
       <text>“You have judged correctly.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Betul pendapatmu itu.&gt;&gt;</text>
@@ -3711,7 +3711,7 @@
     <text>Maka datanglah murid-murid-Nya membangunkan Dia, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified">
       <text>“Master, master, we are dying!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Guru, Guru, kita binasa!&gt;&gt;</text>
@@ -3727,7 +3727,7 @@
     <text>Lalu kata-Nya kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning">
       <text>“Where is your faith?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Di manakah kepercayaanmu?&gt;&gt;</text>
@@ -3739,7 +3739,7 @@
     <text>Maka takutlah mereka dan heran, lalu berkata seorang kepada yang lain:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed">
       <text>“Who is this, then, that he commands even the winds and the water, and they obey him?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Siapa gerangan orang ini, sehingga Ia memberi perintah kepada angin dan air dan mereka taat kepada-Nya?&gt;&gt;</text>
@@ -3769,7 +3769,7 @@
     <text>Ketika ia melihat Yesus, ia berteriak lalu tersungkur di hadapan-Nya dan berkata dengan suara keras:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“What do I have to do with you, Jesus, you Son of the Most High God? I beg you, don't torment me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Apa urusan-Mu dengan aku, hai Yesus Anak Allah Yang Mahatinggi? Aku memohon kepada-Mu, supaya Engkau jangan menyiksa aku.&gt;&gt;</text>
@@ -3787,7 +3787,7 @@
     <text>Yesus bertanya kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning">
       <text>“What is your name?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Siapakah namamu?&gt;&gt;</text>
@@ -3799,7 +3799,7 @@
     <text>Jawabnya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“Legion,”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Legion,&gt;&gt;</text>
@@ -3815,7 +3815,7 @@
     <text>Lalu setan-setan itu memohon kepada Yesus, supaya Ia jangan memerintahkan</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“Do not send us into the abyss!”</text>
     </ReferenceBlocks>
     <text>mereka masuk ke dalam jurang maut.</text>
@@ -3829,7 +3829,7 @@
     <text>Adalah di sana sejumlah besar babi sedang mencari makan di lereng gunung, lalu setan-setan itu meminta kepada Yesus,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="begging" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
       <text>“Allow us to enter into the pigs!”</text>
     </ReferenceBlocks>
     <text>supaya Ia memperkenankan mereka memasuki babi-babi itu.</text>
@@ -3965,7 +3965,7 @@
     <text>Lalu kata Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning">
       <text>“Who touched me?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Siapa yang menjamah Aku?&gt;&gt;</text>
@@ -3977,7 +3977,7 @@
     <text>Dan karena tidak ada yang</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd">
       <text>“Not I!”</text>
     </ReferenceBlocks>
     <text>mengakuinya,</text>
@@ -3989,7 +3989,7 @@
     <text>berkatalah Petrus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed">
       <text>“Master, the multitudes press and jostle you, and you say, ‘Who touched me?’”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Guru, orang banyak mengerumuni dan mendesak Engkau.&gt;&gt;</text>
@@ -4057,7 +4057,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK">
       <verse num="51" />
-      <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.  </text>
+      <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Setibanya di rumah Yairus, Yesus tidak memperbolehkan seorangpun ikut masuk dengan Dia, kecuali Petrus, Yohanes dan Yakobus dan ayah anak itu serta ibunya.</text>
@@ -4255,7 +4255,7 @@
       <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Sekembalinya rasul-rasul itu menceriterakan kepada Yesus apa yang telah mereka kerjakan. Lalu Yesus membawa mereka dan menyingkir ke sebuah kota yang bernama Betsaida, sehingga hanya mereka saja bersama Dia. </text>
+    <text>Sekembalinya rasul-rasul itu menceriterakan kepada Yesus apa yang telah mereka kerjakan. Lalu Yesus membawa mereka dan menyingkir ke sebuah kota yang bernama Betsaida, sehingga hanya mereka saja bersama Dia.</text>
     <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK" matchesReferenceText="true">
@@ -4289,7 +4289,7 @@
     <text>Tetapi Ia berkata kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders">
       <text>“You give them something to eat.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Kamu harus memberi mereka makan!&gt;&gt;</text>
@@ -4301,7 +4301,7 @@
     <text>Mereka menjawab:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated">
       <text>“We have no more than five loaves and two fish, unless we should go and buy food for all these people.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Yang ada pada kami tidak lebih dari pada lima roti dan dua ikan, kecuali kalau kami pergi membeli makanan untuk semua orang banyak ini.&gt;&gt;</text>
@@ -4381,7 +4381,7 @@
     <text>Yesus bertanya kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning">
       <text>“But who do you say that I am?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Menurut kamu, siapakah Aku ini?&gt;&gt;</text>
@@ -4393,7 +4393,7 @@
     <text>Jawab Petrus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare">
       <text>“The Christ of God.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mesias dari Allah.&gt;&gt;</text>
@@ -4601,7 +4601,7 @@
     <text>Maka kata Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated">
       <text>“Faithless and perverse generation, how long shall I be with you and bear with you? Bring your son here.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Hai kamu angkatan yang tidak percaya dan yang sesat, berapa lama lagi Aku harus tinggal di antara kamu dan sabar terhadap kamu? Bawa anakmu itu kemari!&gt;&gt;</text>
@@ -4737,7 +4737,7 @@
     <text>Ketika dua murid-Nya, yaitu Yakobus dan Yohanes, melihat hal itu, mereka berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John">
       <text>“Lord, do you want us to command fire to come down from the sky, and destroy them, just as Elijah did?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tuhan, apakah Engkau mau, supaya kami menyuruh api turun dari langit untuk membinasakan mereka?&gt;&gt;</text>
@@ -4799,7 +4799,7 @@
     <text>Lalu Ia berkata kepada seorang lain:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting">
       <text>“Follow me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ikutlah Aku!&gt;&gt;</text>
@@ -4811,7 +4811,7 @@
     <text>Tetapi orang itu berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse">
       <text>“Lord, allow me first to go and bury my father.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Izinkanlah aku pergi dahulu menguburkan bapaku.&gt;&gt;</text>
@@ -5239,7 +5239,7 @@
     <text>Jawab orang itu:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law">
       <text>“He who showed mercy on him.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Orang yang telah menunjukkan belas kasihan kepadanya.&gt;&gt;</text>
@@ -5251,7 +5251,7 @@
     <text>Kata Yesus kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus">
       <text>“Go and do likewise.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Pergilah, dan perbuatlah demikian!&gt;&gt;</text>
@@ -7035,7 +7035,7 @@
     <text>Maka bersungut-sungutlah orang-orang Farisi dan ahli-ahli Taurat, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" delivery="complaining" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="complaining">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" delivery="complaining">
       <text>“This man welcomes sinners, and eats with them.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ia menerima orang-orang berdosa dan makan bersama-sama dengan mereka.&gt;&gt;</text>
@@ -7765,7 +7765,7 @@
     <text>Atas pertanyaan orang-orang Farisi,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning">
       <text>“When will the Kingdom of God come?”</text>
     </ReferenceBlocks>
     <text>apabila Kerajaan Allah akan datang,</text>
@@ -7921,7 +7921,7 @@
     <text>Kata mereka kepada Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled">
       <text>“Where, Lord?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Di mana, Tuhan?&gt;&gt;</text>
@@ -7933,7 +7933,7 @@
     <text>Kata-Nya kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus">
       <text>“Where the dead body is, there will the vultures also be gathered together.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Di mana ada mayat, di situ berkerumun burung nasar.&gt;&gt;</text>
@@ -8347,7 +8347,7 @@
     <text>Maka mereka, yang berjalan di depan,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking">
       <text>“Be quiet!”</text>
     </ReferenceBlocks>
     <text>menegor dia supaya ia diam.</text>
@@ -8359,7 +8359,7 @@
     <text>Namun semakin keras ia berseru:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting">
       <text>“Son of David, have mercy on me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Anak Daud, kasihanilah aku!&gt;&gt;</text>
@@ -8373,7 +8373,7 @@
     <text>Lalu Yesus berhenti dan menyuruh membawa orang itu kepada-Nya. Dan ketika ia telah berada di dekat-Nya, Yesus bertanya kepadanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning">
       <verse num="41" />
       <text>“What do you want me to do?”</text>
     </ReferenceBlocks>
@@ -8387,7 +8387,7 @@
     <text>Jawab orang itu:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading">
       <text>“Lord, that I may see again.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tuhan, supaya aku dapat melihat!&gt;&gt;</text>
@@ -8415,7 +8415,7 @@
     <text>Dan seketika itu juga melihatlah ia, lalu mengikuti Dia sambil</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
     <text>memuliakan Allah.</text>
@@ -8893,7 +8893,7 @@
     <text>dan mereka berkata kepada Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" delivery="challenging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="challenging">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" delivery="challenging">
       <text>“Tell us: by what authority do you do these things? Or who is giving you this authority?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Katakanlah kepada kami dengan kuasa manakah Engkau melakukan hal-hal itu, dan siapa yang memberikan kuasa itu kepada-Mu!&gt;&gt;</text>
@@ -8925,13 +8925,13 @@
     <text>Mereka mempertimbangkannya di antara mereka, dan berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start">
       <text>“If we say, ‘From heaven,’ he will say, ‘Why didn't you believe him?’</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jikalau kita katakan: &lt;Dari sorga,&gt; Ia akan berkata: &lt;Mengapakah kamu tidak percaya kepadanya?&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation">
       <verse num="6" />
       <text>But if we say, ‘From men,’ all the people will stone us, for they are persuaded that John was a prophet.”</text>
     </ReferenceBlocks>
@@ -8947,7 +8947,7 @@
     <text>Lalu mereka menjawab,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders">
       <text>“We don't know.”</text>
     </ReferenceBlocks>
     <text>bahwa mereka tidak tahu dari mana baptisan itu.</text>
@@ -9043,7 +9043,7 @@
     <text>Mendengar itu mereka berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple">
       <text>“May it never be!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Sekali-kali jangan!&gt;&gt;</text>
@@ -9128,7 +9128,7 @@
     <text>Jawab mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)">
       <text>“Caesar's.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Gambar dan tulisan Kaisar.&gt;&gt;</text>
@@ -9410,7 +9410,7 @@
     <text>Dan murid-murid bertanya kepada Yesus, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew" characterIdOverrideForScript="Peter (Simon)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew">
       <text>“Teacher, when will these things be? What is the sign that these things are about to happen?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Guru, bilamanakah itu akan terjadi? Dan apakah tandanya, kalau itu akan terjadi?&gt;&gt;</text>
@@ -9730,7 +9730,7 @@
     <text>Mereka sangat gembira dan bermupakat untuk memberikan</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard" characterIdOverrideForScript="chief priests">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard">
       <text>“We will pay you for this.”</text>
     </ReferenceBlocks>
     <text>sejumlah uang kepadanya.</text>
@@ -9774,7 +9774,7 @@
     <text>Kata mereka kepada-Nya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John">
       <text>“Where do you want us to prepare?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Di manakah Engkau kehendaki kami mempersiapkannya?&gt;&gt;</text>
@@ -10050,7 +10050,7 @@
     <text>Lalu Ia berkata kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus">
       <text>“When I sent you out without purse, and wallet, and shoes, did you lack anything?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ketika Aku mengutus kamu dengan tiada membawa pundi-pundi, bekal dan kasut, adakah kamu kekurangan apa-apa?&gt;&gt;</text>
@@ -10063,7 +10063,7 @@
     <text>Jawab mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples">
       <text>“Nothing.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Suatupun tidak.&gt;&gt;</text>
@@ -10098,7 +10098,7 @@
     <text>Kata mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare">
       <text>“Lord, behold, here are two swords.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tuhan, ini dua pedang.&gt;&gt;</text>
@@ -10110,7 +10110,7 @@
     <text>Jawab-Nya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus">
       <text>“That is enough.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Sudah cukup.&gt;&gt;</text>
@@ -10323,7 +10323,7 @@
     <text>Tidak berapa lama kemudian seorang lain melihat dia lalu berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing">
       <text>“You also are one of them!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Engkau juga seorang dari mereka!&gt;&gt;</text>
@@ -10335,7 +10335,7 @@
     <text>Tetapi Petrus berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger">
       <text>“Man, I am not!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bukan, aku tidak!&gt;&gt;</text>
@@ -10349,7 +10349,7 @@
     <text>Dan kira-kira sejam kemudian seorang lain berkata dengan tegas:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" characterIdOverrideForScript="high priest's servant (relative of the man whose ear Peter cut off)" delivery="accusing">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing">
       <text>“Truly this man also was with him, for he is a Galilean!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Sungguh, orang ini juga bersama-sama dengan Dia, sebab ia juga orang Galilea.&gt;&gt;</text>
@@ -10437,7 +10437,7 @@
     <text>katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="demanding" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding">
       <verse num="67" />
       <text>“If you are the Christ, tell us.”</text>
     </ReferenceBlocks>
@@ -10476,7 +10476,7 @@
     <text>Kata mereka semua:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="demanding" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding">
       <text>“Are you then the Son of God?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Kalau begitu, Engkau ini Anak Allah?&gt;&gt;</text>
@@ -10488,7 +10488,7 @@
     <text>Jawab Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus">
       <text>“You say it, because I am.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Kamu sendiri mengatakan, bahwa Akulah Anak Allah.&gt;&gt;</text>
@@ -10502,7 +10502,7 @@
     <text>Lalu kata mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" delivery="furious" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="furious">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" delivery="furious">
       <text>“Why do we need any more witness? For we ourselves have heard from his own mouth!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Untuk apa kita perlu kesaksian lagi? Kita ini telah mendengarnya dari mulut-Nya sendiri.&gt;&gt;</text>
@@ -10530,7 +10530,7 @@
     <text>Di situ mereka mulai menuduh Dia, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law">
       <text>“We found this man perverting the nation, forbidding paying taxes to Caesar, and saying that he himself is Christ, a king.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Telah kedapatan oleh kami, bahwa orang ini menyesatkan bangsa kami, dan melarang membayar pajak kepada Kaisar, dan tentang diri-Nya Ia mengatakan, bahwa Ia adalah Kristus, yaitu Raja.&gt;&gt;</text>
@@ -10544,7 +10544,7 @@
     <text>Pilatus bertanya kepada-Nya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus">
       <text>“Are you the King of the Jews?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Engkaukah raja orang Yahudi?&gt;&gt;</text>
@@ -10556,7 +10556,7 @@
     <text>Jawab Yesus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus">
       <text>“Yes… It is as you say.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Engkau sendiri mengatakannya.&gt;&gt;</text>
@@ -10584,7 +10584,7 @@
     <text>Tetapi mereka makin kuat mendesak, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" delivery="angry" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" characterIdOverrideForScript="chief priests" delivery="angry">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" delivery="angry">
       <text>“He stirs up the people, teaching throughout all Judea, beginning from Galilee even to this place.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ia menghasut rakyat dengan ajaran-Nya di seluruh Yudea, Ia mulai di Galilea dan sudah sampai ke sini.&gt;&gt;</text>
@@ -10793,7 +10793,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate">
-      <text>“Do what you want with him.” </text>
+      <text>“Do what you want with him.”</text>
     </ReferenceBlocks>
     <text>untuk diperlakukan semau-maunya.</text>
   </block>
@@ -10888,7 +10888,7 @@
     <text>Orang banyak berdiri di situ dan melihat semuanya. Pemimpin-pemimpin mengejek Dia, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" delivery="sneering" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" delivery="sneering">
       <text>“He saved others. Let him save himself, if this is the Christ of God, his chosen one!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Orang lain Ia selamatkan, biarlah sekarang Ia menyelamatkan diri-Nya sendiri, jika Ia adalah Mesias, orang yang dipilih Allah.&gt;&gt;</text>
@@ -11144,7 +11144,7 @@
     <text>Mereka sangat bingung tentang hal ini dan berkata:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome">
       <text>“Where is his body?”</text>
     </ReferenceBlocks>
     <text>"Di mana tubuhnya?"</text>
@@ -11190,7 +11190,7 @@
     <text>Maka teringatlah mereka</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome">
       <text>“Do you remember what he said?”</text>
     </ReferenceBlocks>
     <text>akan perkataan Yesus itu.</text>
@@ -11294,7 +11294,7 @@
     <text>Kata-Nya kepada mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus">
       <text>“What things?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Apakah itu?&gt;&gt;</text>
@@ -11306,13 +11306,13 @@
     <text>Jawab mereka:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Start">
       <text>“The things concerning Jesus, the Nazarene, who was a prophet mighty in deed and word before God and all the people;</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Apa yang terjadi dengan Yesus orang Nazaret. Dia adalah seorang nabi, yang berkuasa dalam pekerjaan dan perkataan di hadapan Allah dan di depan seluruh bangsa kami.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="20" />
       <text>The chief priests and our rulers delivered him up to be condemned to death, and they crucified him.</text>
     </ReferenceBlocks>
@@ -11320,7 +11320,7 @@
     <text>Tetapi imam-imam kepala dan pemimpin-pemimpin kami telah menyerahkan Dia untuk dihukum mati dan mereka telah menyalibkan-Nya.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="21" />
       <text>But we were hoping that it was he who would redeem Israel. Yes, and besides all this, it is now the third day since these things happened.</text>
     </ReferenceBlocks>
@@ -11328,7 +11328,7 @@
     <text>Padahal kami dahulu mengharapkan, bahwa Dialah yang datang untuk membebaskan bangsa Israel. Tetapi sementara itu telah lewat tiga hari, sejak semuanya itu terjadi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="22" />
       <text>Also, certain women of our company amazed us, having arrived early at the tomb.</text>
     </ReferenceBlocks>
@@ -11336,7 +11336,7 @@
     <text>&lt;&lt;Tetapi beberapa perempuan dari kalangan kami telah mengejutkan kami: Pagi-pagi buta mereka telah pergi ke kubur,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="23" />
       <text>And when they didn't find his body, they came saying that they had also seen a vision of angels, who said that he was alive.</text>
     </ReferenceBlocks>
@@ -11344,7 +11344,7 @@
     <text>dan tidak menemukan mayat-Nya. Lalu mereka datang dengan berita, bahwa telah kelihatan kepada mereka malaikat-malaikat, yang mengatakan, bahwa Ia hidup.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="24" />
       <text>Some of us went to the tomb, and found it just like the women had said, but they didn't see him.”</text>
     </ReferenceBlocks>
@@ -11394,7 +11394,7 @@
     <text>Tetapi mereka sangat mendesak-Nya, katanya:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" delivery="urging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" delivery="urging" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" delivery="urging">
       <text>“Stay with us, for it is almost evening, and the day is almost over.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tinggallah bersama-sama dengan kami, sebab hari telah menjelang malam dan matahari hampir terbenam.&gt;&gt;</text>
@@ -11430,7 +11430,7 @@
     <text>Kata mereka seorang kepada yang lain:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)">
       <text>“Weren't our hearts burning within us, while he spoke to us along the way, and while he opened the Scriptures to us?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bukankah hati kita berkobar-kobar, ketika Ia berbicara dengan kita di tengah jalan dan ketika Ia menerangkan Kitab Suci kepada kita?&gt;&gt;</text>
@@ -11448,7 +11448,7 @@
     <text>Kata mereka itu:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven">
       <text>“The Lord is risen indeed, and has appeared to Simon!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Sesungguhnya Tuhan telah bangkit dan telah menampakkan diri kepada Simon.&gt;&gt;</text>

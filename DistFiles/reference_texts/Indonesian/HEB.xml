@@ -603,7 +603,7 @@
     <text>Sebab itu Ia menetapkan pula suatu hari, yaitu &lt;&lt;hari ini&gt;&gt;, ketika Ia setelah sekian lama berfirman dengan perantaraan Daud seperti dikatakan di atas:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
       <text>“Today if you will hear his voice, don't harden your hearts.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Pada hari ini, jika kamu mendengar suara-Nya, janganlah keraskan hatimu!&gt;&gt;</text>
