@@ -393,12 +393,12 @@ namespace Glyssen
 				// Excel row index is 1-based, and a header row has been inserted, so add 2.
 				// Excel column indexes are also 1-based, so add 1.
 				var excelRowIndex = rowIndex + 2;
-				var cell = sheet.Cells[excelRowIndex, (int)ExportColumn.PrimaryReferenceText + 1].First();
+				var cell = sheet.Cells[excelRowIndex, GetColumnIndex(ExportColumn.PrimaryReferenceText) + 1].First();
 				SetAnnotationColors(cell);
 
 				if (Project.ReferenceText.HasSecondaryReferenceText)
 				{
-					cell = sheet.Cells[excelRowIndex, (int)ExportColumn.SecondaryReferenceText + 1].First();
+					cell = sheet.Cells[excelRowIndex, GetColumnIndex(ExportColumn.SecondaryReferenceText) + 1].First();
 					SetAnnotationColors(cell);
 				}
 			}
@@ -449,6 +449,8 @@ namespace Glyssen
 				if (!Project.ReferenceText.HasSecondaryReferenceText)
 					columnNumber--;
 			}
+			if (LocalizationManager.UILanguageId != "en")
+				columnNumber++;
 			return columnNumber;
 		}
 
