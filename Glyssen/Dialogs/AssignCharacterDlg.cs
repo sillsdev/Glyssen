@@ -30,6 +30,7 @@ namespace Glyssen.Dialogs
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
 		private string m_singleVoiceCheckboxFmt;
+		private string m_stateFmt;
 		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
@@ -49,6 +50,7 @@ namespace Glyssen.Dialogs
 
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_lblSingleVoice.Text;
+			m_stateFmt = m_lblStateTemporary.Text;
 
 			Text = string.Format(Text, m_viewModel.ProjectName);
 		}
@@ -176,6 +178,13 @@ namespace Glyssen.Dialogs
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			m_lblSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
+			if (m_viewModel.ReferenceTextMatchup == null)
+				m_lblStateTemporary.Visible = false;
+			else
+			{
+				m_lblStateTemporary.Visible = true;
+				m_lblStateTemporary.Text = string.Format(m_stateFmt, m_viewModel.ReferenceTextMatchup.ReferenceTextMatchState);
+			}
 
 			m_viewModel.GetBlockVerseRef().SendScrReference();
 

@@ -540,7 +540,7 @@ namespace Glyssen.Dialogs
 			HandleCurrentBlockChanged();
 		}
 
-		private void HandleCurrentBlockChanged()
+		protected virtual void HandleCurrentBlockChanged()
 		{
 			if (CurrentBlockChanged != null)
 				CurrentBlockChanged(this, new EventArgs());

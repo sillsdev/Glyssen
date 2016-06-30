@@ -23,6 +23,7 @@ namespace Glyssen.Dialogs
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
+		private BlockMatchup m_currentRefBlockMatchups;
 
 		public event EventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
@@ -64,6 +65,8 @@ namespace Glyssen.Dialogs
 		{
 			get { return CurrentBook.SingleVoice; }
 		}
+
+		public BlockMatchup ReferenceTextMatchup { get { return m_currentRefBlockMatchups; } }
 		#endregion
 
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
@@ -116,6 +119,15 @@ namespace Glyssen.Dialogs
 		}
 
 		#region Overridden methods
+		protected override void HandleCurrentBlockChanged()
+		{
+			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
+				CurrentBook.GetIndexOfFirstBlockForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber),
+				m_project.Versification);
+
+			base.HandleCurrentBlockChanged();
+		}
+
 		protected override void PopulateRelevantBlocks()
 		{
 			m_assignedBlocks = 0;

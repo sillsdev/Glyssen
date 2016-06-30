@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -14,28 +15,29 @@ using ScrVers = Paratext.ScrVers;
 namespace Glyssen
 {
 	[XmlRoot("book")]
-	public class BookScript : IScrBook
+	public class BookScript : PortionScript, IScrBook
 	{
-		public const int kSplitAtEndOfVerse = -999;
 		private Dictionary<int, int> m_chapterStartBlockIndices;
-		private int m_blockCount;
-		private List<Block> m_blocks;
 		private List<List<Block>> m_unappliedSplitBlocks = new List<List<Block>>();
 		private ScrStylesheetAdapter m_styleSheet;
+		private int m_blockCount;
 
-		public BookScript()
+		public BookScript() : base(null, null)
 		{
 			// Needed for deserialization
 		}
 
-		public BookScript(string bookId, IEnumerable<Block> blocks)
+		public BookScript(string bookId, IEnumerable<Block> blocks) : base(bookId, blocks)
 		{
-			BookId = bookId;
-			Blocks = blocks.ToList();
+			OnBlocksReset();
 		}
 
 		[XmlAttribute("id")]
-		public string BookId { get; set; }
+		public string BookId
+		{
+			get { return Id; }
+			set { m_id = value; }
+		}
 
 		[XmlAttribute("singlevoice")]
 		public bool SingleVoice { get; set; }
@@ -57,8 +59,7 @@ namespace Glyssen
 			set
 			{
 				m_blocks = value;
-				m_chapterStartBlockIndices = new Dictionary<int, int>();
-				m_blockCount = m_blocks.Count;
+				OnBlocksReset();
 			}
 		}
 
@@ -97,8 +98,17 @@ namespace Glyssen
 			return newBook;
 		}
 
-		public System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks(bool join = false)
+		public override System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks()
 		{
+			EnsureBlockCount();
+			return base.GetScriptBlocks();
+		}
+
+		public System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks(bool join)
+		{
+			if (!join)
+				return GetScriptBlocks();
+
 			EnsureBlockCount();
 
 			if (!join || m_blockCount == 0)
@@ -115,11 +125,9 @@ namespace Glyssen
 				var prevBlock = list.Last();
 				var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
 
-				if (!block.IsParagraphStart
-					|| (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))
-					)
+				if (!block.MatchesReferenceText && !list[list.Count - 1].MatchesReferenceText &&
+					(!block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))))
 				{
-					
 					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? string.Empty))
 					{
 						list[list.Count - 1] = CombineBlockWithPreviousBlock(block, prevBlock);
@@ -184,6 +192,24 @@ namespace Glyssen
 				}
 			}
 			return bldr.ToString();
+		}
+
+		private void OnBlocksReset()
+		{
+			m_chapterStartBlockIndices = new Dictionary<int, int>();
+			m_blockCount = m_blocks.Count;
+		}
+
+		protected override void OnBlocksInserted(int insertionIndex)
+		{
+			base.OnBlocksInserted(insertionIndex);
+			Debug.Assert(insertionIndex > 0);
+			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum =>
+				chapterNum > m_blocks[insertionIndex - 1].ChapterNumber).ToList();
+			foreach (var chapterNum in  chapterNumbersToIncrement)
+				m_chapterStartBlockIndices[chapterNum]++;
+
+			m_blockCount++;
 		}
 
 		public IEnumerable<Block> GetBlocksForVerse(int chapter, int verse)
@@ -467,34 +493,12 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
-		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
-			string characterId = null, ScrVers versification = null)
-		{
-			var iBlock = m_blocks.IndexOf(blockToSplit);
-
-			if (iBlock < 0)
-				throw new ArgumentException(@"Block not found in the list for " + BookId, "blockToSplit");
-
-			int splitId;
-			if (blockToSplit.SplitId != Block.kNotSplit)
-				splitId = blockToSplit.SplitId;
-			else
-				splitId = m_blocks.Max(b => b.SplitId) + 1;
-
-			if (verseToSplit == null && characterOffsetToSplit == 0)
-			{
-				SplitBeforeBlock(iBlock, splitId);
-				return blockToSplit;
-			}
-
 			Block newBlock = blockToSplit.SplitBlock(verseToSplit, characterOffsetToSplit);
-
 			if (newBlock == null)
 			{
 				SplitBeforeBlock(iBlock + 1, splitId);
 				return m_blocks[iBlock + 1];
 			}
-
 			m_blocks.Insert(iBlock + 1, newBlock);
 			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
 			foreach (var chapterNum in chapterNumbersToIncrement)
@@ -518,65 +522,6 @@ namespace Glyssen
 					newBlock.SetCharacterAndCharacterIdInScript(characterId, BCVRef.BookToNumber(BookId), versification);
 					newBlock.UserConfirmed = true;
 				}
-
-				if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Start)
-				{
-					blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
-					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
-				}
-				else if ((blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation || blockToSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) &&
-					iBlock < m_blockCount - 2 &&
-					(m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation || m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
-				{
-					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
-				}
-
-				blockToSplit.SplitId = newBlock.SplitId = splitId;
-			}
-			else if (blockToSplit.MultiBlockQuote != MultiBlockQuote.None)
-				newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
-			//TODO handle splitId already exists but userSplit == false
-
-			return newBlock;
-		}
-
-		public bool TrySplitBlockAtEndOfVerse(Block vernBlock, int verseNum)
-		{
-			var firstVerseElement = vernBlock.BlockElements.OfType<Verse>().FirstOrDefault();
-			if (firstVerseElement == null)
-				return false;
-			var blockBeginsWithVerse = vernBlock.BlockElements.First() is Verse;
-			var verseString = verseNum.ToString();
-
-			if (vernBlock.InitialEndVerseNumber == verseNum)
-			{
-				verseString = vernBlock.InitialVerseNumberOrBridge;
-				if (firstVerseElement.Number != verseString && blockBeginsWithVerse)
-				{
-					var secondPartOfVerse = vernBlock.BlockElements.Skip(2).OfType<Verse>().FirstOrDefault();
-					if (secondPartOfVerse == null)
-						return false;
-					verseString = secondPartOfVerse.Number;
-				}
-			}
-			else if (blockBeginsWithVerse ||
-				!(vernBlock.InitialEndVerseNumber == 0 && vernBlock.InitialStartVerseNumber == verseNum))
-			{
-				foreach (var verse in vernBlock.BlockElements.OfType<Verse>())
-				{
-					if (verse.Number == verseString)
-						break;
-					if (verse.EndVerse == verseNum)
-					{
-						verseString = verse.Number;
-						break;
-					}
-					if (verse.StartVerse >= verseNum)
-						return false;
-				}
-			}
-			try
-			{
 				var newBlock = SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
 				if (vernBlock.MatchesReferenceText)
 				{
@@ -590,30 +535,6 @@ namespace Glyssen
 						// TODO: Handle English Reference block with different verse number from primary reference block
 					}
 				}
-			}
-			catch (ArgumentException)
-			{
-				return false;
-			}
-
-			return true;
-		}
-
-		private void SplitBeforeBlock(int indexOfBlockToSplit, int splitId)
-		{
-			if (indexOfBlockToSplit == 0 || m_blocks[indexOfBlockToSplit].MultiBlockQuote == MultiBlockQuote.None || m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.None)
-				throw new ArgumentException("Split allowed only between blocks that are part of a multi-block quote");
-
-			if (m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote == MultiBlockQuote.Start)
-				m_blocks[indexOfBlockToSplit - 1].MultiBlockQuote = MultiBlockQuote.None;
-
-			if (indexOfBlockToSplit < m_blockCount - 1 && m_blocks[indexOfBlockToSplit + 1].MultiBlockQuote == MultiBlockQuote.Continuation)
-				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.Start;
-			else
-				m_blocks[indexOfBlockToSplit].MultiBlockQuote = MultiBlockQuote.None;
-
-			m_blocks[indexOfBlockToSplit - 1].SplitId = m_blocks[indexOfBlockToSplit].SplitId = splitId;
-		}
 
 		public void ClearUnappliedSplits()
 		{

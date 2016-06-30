@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="BiblicalAuthorsTests.cs" />
     <Compile Include="BlockElementTests.cs" />
+    <Compile Include="BlockMatchupTests.cs" />
     <Compile Include="BlockNavigatorTests.cs" />
     <Compile Include="BlockTests.cs" />
     <Compile Include="BookMetadataTests.cs" />

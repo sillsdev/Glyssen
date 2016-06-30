@@ -350,7 +350,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetScriptBlocks_JoiningConsecutiveNarratorBlocksInTheSameParagraph_ResultsIncludeJoinedBlocks()
+		public void GetScriptBlocks_Joining_ConsecutiveNarratorBlocksInTheSameParagraph_ResultsIncludeJoinedBlocks()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewChapterBlock(1));
@@ -387,7 +387,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetScriptBlocks_JoiningConsecutiveBcBlocksInDifferentParagraphs_ResultsNotJoined()
+		public void GetScriptBlocks_Joining_ConsecutiveBcBlocksInDifferentParagraphs_ResultsNotJoined()
 		{
 			var mrkBlocks = new List<Block>();
 			mrkBlocks.Add(NewTitleBlock("The Gospel According to Mark"));
@@ -396,6 +396,59 @@ namespace GlyssenTests
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var result = bookScript.GetScriptBlocks(true);
 			Assert.AreEqual(2, result.Count);
+		}
+
+		[Test]
+		public void GetScriptBlocks_Joining_VernacularContainsQBlocks_VernacularBlocksCombined()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(NewSingleVersePara(1, "John said, "));
+			var block = new Block("q1", m_curSetupChapter, m_curSetupVerse) {CharacterId = "Peter"};
+			block.BlockElements.Add(new ScriptText("'This is line 1, "));
+			vernacularBlocks.Add(block);
+			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 2, "));
+			vernacularBlocks.Add(block);
+			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 3, "));
+			vernacularBlocks.Add(block);
+			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 4, "));
+			vernacularBlocks.Add(block);
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(1, result.Count);
+			Assert.AreEqual("[1] John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'",
+				result[0].GetText(true));
+		}
+
+		[Test]
+		public void GetScriptBlocks_Joining_VernacularContainsQBlocksWithReferenceTextBlocks_VernacularBlocksCombined()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(NewSingleVersePara(1, "John said, "));
+			var block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 1, "));
+			block.SetMatchedReferenceBlock(NewBlock("rt1"));
+			vernacularBlocks.Add(block);
+			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 2, "));
+			block.SetMatchedReferenceBlock(NewBlock("rt2"));
+			vernacularBlocks.Add(block);
+			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 3, "));
+			block.SetMatchedReferenceBlock(NewBlock("rt3"));
+			vernacularBlocks.Add(block);
+			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("'This is line 4, "));
+			block.SetMatchedReferenceBlock(NewBlock("rt4"));
+			vernacularBlocks.Add(block);
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(4, result.Count);
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 		}
 		#endregion
 
