@@ -69,7 +69,7 @@
     <text>Olhem! Ele vem com as nuvens! Todos o verão, até mesmo os que o atravessaram com a lança. Todos os povos do mundo chorarão por causa dele. Certamente será assim. * Amém!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <verse num="8" />
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
@@ -83,7 +83,7 @@
     <text>diz o Senhor Deus,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <text>“who is and who was and who is to come, the Almighty.”</text>
     </ReferenceBlocks>
     <text>o Todo-Poderoso, que é, que era e que há de vir.</text>
@@ -779,10 +779,10 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
-      <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders. </text>
+      <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders.</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Então vi um Cordeiro de pé no meio do trono, rodeado pelos quatro seres vivos e pelos líderes. Parecia que o Cordeiro havia sido oferecido em sacrifício. </text>
+    <text>Então vi um Cordeiro de pé no meio do trono, rodeado pelos quatro seres vivos e pelos líderes. Parecia que o Cordeiro havia sido oferecido em sacrifício.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
@@ -803,10 +803,10 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
-      <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb, </text>
+      <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb,</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Quando ele fez isso, os quatro seres vivos e os vinte e quatro líderes caíram de joelhos diante dele. </text>
+    <text>Quando ele fez isso, os quatro seres vivos e os vinte e quatro líderes caíram de joelhos diante dele.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
@@ -825,13 +825,13 @@
     <text>Eles cantavam esta nova canção:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start">
       <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.</text>
     </ReferenceBlocks>
     <text>“Tu és digno de pegar o livro e de quebrar os selos. Pois foste morto na cruz e, por meio da tua morte, compraste para Deus pessoas de todas as tribos, línguas, nações e raças.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
       <verse num="10" />
       <text>You made us kings and priests to our God, and we will reign on earth.”</text>
     </ReferenceBlocks>
@@ -1927,7 +1927,7 @@
       <sound userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Com a cauda ele arrastou do céu a terça parte das estrelas e as jogou sobre a terra. </text>
+    <text>Com a cauda ele arrastou do céu a terça parte das estrelas e as jogou sobre a terra.</text>
     <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
@@ -2339,13 +2339,13 @@
     <text>Então ouvi uma voz do céu, que disse:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)">
       <text>“Write, ‘Blessed are the dead who die in the Lord from now on.’”</text>
     </ReferenceBlocks>
     <text>— Escreva isto: felizes as pessoas que desde agora morrem no serviço do Senhor!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Yes,”</text>
     </ReferenceBlocks>
     <text>— Sim, isso é verdade!</text>
@@ -2357,7 +2357,7 @@
     <text>O Espírito diz:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“that they may rest from their labors; for their works follow with them.”</text>
     </ReferenceBlocks>
     <text>Elas descansarão do seu duro trabalho porque levarão consigo o resultado dos seus serviços.</text>
@@ -2921,7 +2921,7 @@
       <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
-    <text>— Caiu! Caiu a grande Babilônia b! Agora quem vive ali são os demônios e todos os espíritos imundos. Todos os tipos de aves e feras imundas e nojentas vivem nela. </text>
+    <text>— Caiu! Caiu a grande Babilônia b! Agora quem vive ali são os demônios e todos os espíritos imundos. Todos os tipos de aves e feras imundas e nojentas vivem nela.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation" matchesReferenceText="true">
@@ -2942,7 +2942,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
-      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,  </text>
+      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,</text>
     </ReferenceBlocks>
     <text>— Saia dessa cidade, meu povo! Saiam todos dela para não tomarem parte nos seus pecados e para não participarem dos seus castigos!</text>
   </block>
@@ -3011,7 +3011,7 @@
     <text>Eles ficam de longe porque têm medo de tomar parte no castigo que ela vai sofrer e dizem:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
       <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
     </ReferenceBlocks>
     <text>— Ai de você! Ai de você, Babilônia, grande e poderosa cidade! Em apenas uma hora você já foi castigada!</text>
@@ -3049,7 +3049,7 @@
     <text>Os comerciantes dizem à cidade:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth">
       <text>“The fruits which your soul lusted after have been lost to you. All things that were dainty and sumptuous have perished from you, and you will find them no more at all.”</text>
     </ReferenceBlocks>
     <text>— Acabaram todas aquelas coisas boas que você tanto desejava, e você perdeu para sempre toda a riqueza e toda a fama que possuía e não as encontrará mais.</text>
@@ -3067,18 +3067,18 @@
     <text>lamentar assim:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start">
       <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!</text>
     </ReferenceBlocks>
     <text>— Ai da grande cidade! Ai da cidade que estava vestida de linho finíssimo, de púrpura e de lã vermelha e que se enfeitava com jóias de ouro, com pedras preciosas e com pérolas!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>For in an hour such great riches are made desolate. </text>
+      <text>For in an hour such great riches are made desolate.</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Em somente uma hora ela perdeu toda a sua riqueza! </text>
+    <text>Em somente uma hora ela perdeu toda a sua riqueza!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
@@ -3091,7 +3091,7 @@
     <text>Então, vendo a fumaça do incêndio da cidade, gritaram:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing">
       <text>“What is like the great city?”</text>
     </ReferenceBlocks>
     <text>— Nunca houve uma cidade igual a esta grande cidade!</text>
@@ -3105,7 +3105,7 @@
     <text>Em sinal de tristeza eles jogaram pó sobre a cabeça, choraram e gritaram assim:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
     <text>— Ai da grande cidade! Ai da cidade onde, à custa da sua grande riqueza, se enriqueceram todos os que tinham navios no mar! E em apenas uma hora ela perdeu tudo!</text>
@@ -3207,7 +3207,7 @@
     <text>Então os vinte e quatro líderes e os quatro seres vivos caíram de joelhos e adoraram a Deus, que estava sentado no trono, e disseram:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" characterIdOverrideForScript="twenty-four elders">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
       <text>“Amen! Hallelujah!”</text>
     </ReferenceBlocks>
     <text>— * Amém! Aleluia!</text>
@@ -3251,7 +3251,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
       <verse num="8" />
-      <text>“It was given to her that she would array herself in bright, pure, fine linen.” </text>
+      <text>“It was given to her that she would array herself in bright, pure, fine linen.”</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>A ela foi dado linho finíssimo, linho brilhante e puro para se vestir."</text>
@@ -3515,7 +3515,7 @@
       <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Aí o mar entregou os mortos que estavam nele. A morte e o mundo dos mortos também entregaram os que eles tinham em seu poder. E todos foram julgados de acordo com o que cada um tinha feito. </text>
+    <text>Aí o mar entregou os mortos que estavam nele. A morte e o mundo dos mortos também entregaram os que eles tinham em seu poder. E todos foram julgados de acordo com o que cada um tinha feito.</text>
     <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
@@ -3526,7 +3526,7 @@
       <text>is the second death.</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Então a morte e o mundo dos mortos foram jogados no lago de fogo. Esse lago de fogo é a segunda morte. </text>
+    <text>Então a morte e o mundo dos mortos foram jogados no lago de fogo. Esse lago de fogo é a segunda morte.</text>
     <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
@@ -3966,7 +3966,7 @@
     <text>O Espírito e a Noiva dizem:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" characterIdOverrideForScript="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)">
       <text>“Come!”</text>
     </ReferenceBlocks>
     <text>Venha!</text>
@@ -3978,7 +3978,7 @@
     <text>Aquele que ouve isso diga também:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears">
       <text>“Come!”</text>
     </ReferenceBlocks>
     <text>Venha!</text>

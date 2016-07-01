@@ -603,7 +603,7 @@
     <text>C'est pourquoi Dieu fixe de nouveau un jour, et il l'appelle &lt;&lt;aujourd'hui&gt;&gt;. Il a parlé de ce jour-là beaucoup plus tard, par la bouche de David, dans le texte déjà cité:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
       <text>“Today if you will hear his voice, don't harden your hearts.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Aujourd'hui, si vous entendez la voix de Dieu, ne fermez pas votre cœur!&gt;&gt;</text>

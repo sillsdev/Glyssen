@@ -297,7 +297,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Kamu telah menerima Kristus Yesus, Tuhan kita. Karena itu hendaklah hidupmu tetap di dalam Dia. </text>
+    <text>Kamu telah menerima Kristus Yesus, Tuhan kita. Karena itu hendaklah hidupmu tetap di dalam Dia.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL" matchesReferenceText="true">
@@ -413,7 +413,7 @@
     <text>Apabila kamu telah mati bersama-sama dengan Kristus dan bebas dari roh-roh dunia, mengapakah kamu menaklukkan dirimu pada rupa-rupa peraturan, seolah-olah kamu masih hidup di dunia:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>
