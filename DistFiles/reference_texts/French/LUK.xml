@@ -198,7 +198,7 @@
     <text>Quand il sortit, il ne pouvait pas leur parler, et ils ont dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering">
       <text>“He has seen a vision in the temple!”</text>
     </ReferenceBlocks>
     <text>"Il a eu une vision dans le lieu très saint!"</text>
@@ -929,7 +929,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-      <text>“Every male who opens the womb shall be called holy to the Lord”), </text>
+      <text>“Every male who opens the womb shall be called holy to the Lord”),</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Il faut donner au Seigneur le premier garçon né dans une famille.&gt;&gt;</text>
   </block>
@@ -1342,7 +1342,7 @@
     <text>Des militaires demandent à Jean:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out">
       <text>“What about us? What must we do?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Et nous, qu'est-ce que nous devons faire?&gt;&gt;</text>
@@ -1354,7 +1354,7 @@
     <text>Il leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist">
       <text>“Extort from no one by violence, neither accuse anyone wrongfully. Be content with your wages.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ne prenez d'argent à personne, ni par la force, ni par le mensonge. Contentez-vous de votre salaire.&gt;&gt;</text>
@@ -1368,7 +1368,7 @@
     <text>Le peuple attend ce qui va arriver, et tous se demandent en eux-mêmes :</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River">
       <text>Could John be the Messiah?</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jean est peut-être le Messie?&gt;&gt;</text>
@@ -2248,7 +2248,7 @@
     <text>Les maîtres de la loi et les Pharisiens se mettent à penser:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" delivery="thinking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" characterIdOverrideForScript="teachers of religious law" delivery="thinking">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" delivery="thinking">
       <text>“Who is this that speaks blasphemies? Who can forgive sins, but God alone?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Qui est cet homme? Il insulte Dieu! Personne ne peut pardonner les péchés, Dieu seul peut le faire!&gt;&gt;</text>
@@ -2326,7 +2326,7 @@
     <text>Après cela, Jésus sort et il voit un employé des impôts. Cet homme s'appelle Lévi. Il est assis à son bureau. Jésus lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus">
       <text>“Follow me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Suis-moi!&gt;&gt;</text>
@@ -2356,7 +2356,7 @@
     <text>Les Pharisiens et leurs amis, des maîtres de la loi, critiquent cela. Ils disent aux disciples de Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" delivery="complaining" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="complaining">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" delivery="complaining">
       <text>“Why do you eat and drink with the tax collectors and sinners?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Vous mangez et vous buvez avec les employés des impôts et avec les pécheurs. Pourquoi donc?&gt;&gt;</text>
@@ -2392,7 +2392,7 @@
     <text>Les Pharisiens disent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law">
       <text>“Why do John's disciples often fast and pray, likewise also the disciples of the Pharisees, but yours eat and drink?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Les disciples de Jean-Baptiste jeûnent souvent et ils font des prières. Nos disciples font la même chose, mais tes disciples à toi mangent et boivent!&gt;&gt;</text>
@@ -2596,7 +2596,7 @@
     <text>Mais les maîtres de la loi et les Pharisiens sont très en colère. Ils se demandent entre eux:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law">
       <text>“What can we do about Jesus?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Qu'est-ce que nous pouvons faire contre Jésus?&gt;&gt;</text>
@@ -3320,7 +3320,7 @@
     <text>Alors Jésus dit au Pharisien:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus">
       <text>“Simon, I have something to tell you.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Simon, j'ai quelque chose à te dire.&gt;&gt;</text>
@@ -3332,7 +3332,7 @@
     <text>Le Pharisien répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)">
       <text>“Tell me teacher,”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Parle, maître.&gt;&gt;</text>
@@ -3368,7 +3368,7 @@
     <text>Simon répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)">
       <text>“He, I suppose, to whom he forgave the most.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;A mon avis, c'est celui à qui il a supprimé la plus grosse dette.&gt;&gt;</text>
@@ -3380,7 +3380,7 @@
     <text>Jésus lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus">
       <text>“You have judged correctly.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tu as raison.&gt;&gt;</text>
@@ -3708,7 +3708,7 @@
     <text>Les disciples s'approchent de Jésus et ils le réveillent en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified">
       <text>“Master, master, we are dying!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Maître, maître, nous allons mourir!&gt;&gt;</text>
@@ -3724,7 +3724,7 @@
     <text>Jésus dit aux disciples:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning">
       <text>“Where is your faith?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Où est votre foi?&gt;&gt;</text>
@@ -3736,7 +3736,7 @@
     <text>Ils ont très peur et ils sont étonnés. Ils se disent entre eux:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed">
       <text>“Who is this, then, that he commands even the winds and the water, and they obey him?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Qui donc est cet homme? Il commande même au vent et à l'eau, et ils lui obéissent!&gt;&gt;</text>
@@ -3766,7 +3766,7 @@
     <text>Quand l'homme voit Jésus, il tombe à ses pieds en poussant des cris et il dit d'une voix forte:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“What do I have to do with you, Jesus, you Son of the Most High God? I beg you, don't torment me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Jésus, Fils du Dieu très-haut, qu'est-ce que tu me veux? Je t'en prie, ne me fais pas de mal!&gt;&gt;</text>
@@ -3784,7 +3784,7 @@
     <text>Jésus demande à l'homme:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning">
       <text>“What is your name?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Quel est ton nom?&gt;&gt;</text>
@@ -3796,7 +3796,7 @@
     <text>Il répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“Legion,”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Je m'appelle &lt;armée&gt;.&gt;&gt;</text>
@@ -3812,7 +3812,7 @@
     <text>Les esprits supplient Jésus en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“Do not send us into the abyss!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ne nous envoie pas dans la prison des esprits mauvais.&gt;&gt;</text>
@@ -3826,7 +3826,7 @@
     <text>Il y a là un grand troupeau de cochons qui cherchent leur nourriture dans la montagne. Les esprits mauvais supplient Jésus en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="begging" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
       <text>“Allow us to enter into the pigs!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Permets-nous d'entrer dans ces cochons!&gt;&gt;</text>
@@ -3962,7 +3962,7 @@
     <text>Jésus demande:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning">
       <text>“Who touched me?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Qui m'a touché?&gt;&gt;</text>
@@ -3974,7 +3974,7 @@
     <text>Tous répondent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd">
       <text>“Not I!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ce n'est pas nous!&gt;&gt;</text>
@@ -3986,7 +3986,7 @@
     <text>Pierre dit à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed">
       <text>“Master, the multitudes press and jostle you, and you say, ‘Who touched me?’”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Maître, ce sont les gens autour de toi qui te serrent!&gt;&gt;</text>
@@ -4054,7 +4054,7 @@
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK">
       <verse num="51" />
-      <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.  </text>
+      <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.</text>
     </ReferenceBlocks>
     <verse num="51" />
     <text>Jésus arrive à la maison. Avec lui, il laisse entrer seulement Pierre, Jean et Jacques avec le père et la mère de la petite fille.</text>
@@ -4252,7 +4252,7 @@
       <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Les apôtres reviennent et ils racontent à Jésus tout ce qu'ils ont fait. Jésus les emmène loin des gens, vers une ville appelée Bethsaïda, </text>
+    <text>Les apôtres reviennent et ils racontent à Jésus tout ce qu'ils ont fait. Jésus les emmène loin des gens, vers une ville appelée Bethsaïda,</text>
     <sound soundType="Sfx" effectName="Crowd" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-LUK" matchesReferenceText="true">
@@ -4286,7 +4286,7 @@
     <text>Mais Jésus leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders">
       <text>“You give them something to eat.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Donnez-leur vous-mêmes à manger.&gt;&gt;</text>
@@ -4298,7 +4298,7 @@
     <text>Les disciples disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated">
       <text>“We have no more than five loaves and two fish, unless we should go and buy food for all these people.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Nous avons seulement cinq pains et deux poissons. Est-ce que nous devons aller acheter à manger pour tout ce monde?&gt;&gt;</text>
@@ -4378,7 +4378,7 @@
     <text>Jésus leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning">
       <text>“But who do you say that I am?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Mais vous, qu'est-ce que vous dites? Qui suis-je?&gt;&gt;</text>
@@ -4390,7 +4390,7 @@
     <text>Pierre répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare">
       <text>“The Christ of God.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tu es le Messie de Dieu!&gt;&gt;</text>
@@ -4598,7 +4598,7 @@
     <text>Jésus dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated">
       <text>“Faithless and perverse generation, how long shall I be with you and bear with you? Bring your son here.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Vous, les gens d'aujourd'hui, vous n'avez pas la foi et vous faites le mal. Je vais rester avec vous et vous supporter combien de temps encore?&gt;&gt; &lt;&lt;Amène ton fils ici!&gt;&gt;</text>
@@ -4734,7 +4734,7 @@
     <text>En voyant cela, les disciples Jacques et Jean disent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John">
       <text>“Lord, do you want us to command fire to come down from the sky, and destroy them, just as Elijah did?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Seigneur, si tu veux, nous allons commander au feu de descendre du ciel et de détruire ces gens-là!&gt;&gt;</text>
@@ -4796,7 +4796,7 @@
     <text>Jésus dit à quelqu'un d'autre:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting">
       <text>“Follow me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Suis-moi!&gt;&gt;</text>
@@ -4808,7 +4808,7 @@
     <text>Mais l'homme répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse">
       <text>“Lord, allow me first to go and bury my father.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Seigneur, permets-moi d'aller d'abord enterrer mon père.&gt;&gt;</text>
@@ -5236,7 +5236,7 @@
     <text>Le maître de la loi répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law">
       <text>“He who showed mercy on him.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;C'est celui qui a été bon pour lui.&gt;&gt;</text>
@@ -5248,7 +5248,7 @@
     <text>Alors Jésus lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus">
       <text>“Go and do likewise.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Va, et toi aussi, fais la même chose!&gt;&gt;</text>
@@ -7032,7 +7032,7 @@
     <text>Les Pharisiens et les maîtres de la loi critiquent Jésus et disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" delivery="complaining" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="complaining">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" delivery="complaining">
       <text>“This man welcomes sinners, and eats with them.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Cet homme accueille les pécheurs et il mange avec eux!&gt;&gt;</text>
@@ -7762,7 +7762,7 @@
     <text>Les Pharisiens demandent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning">
       <text>“When will the Kingdom of God come?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Quand le Royaume de Dieu va-t-il venir?&gt;&gt;</text>
@@ -7918,7 +7918,7 @@
     <text>Les disciples demandent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled">
       <text>“Where, Lord?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Seigneur, cela se passera à quel endroit?&gt;&gt;</text>
@@ -7930,7 +7930,7 @@
     <text>Il leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus">
       <text>“Where the dead body is, there will the vultures also be gathered together.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Là où il y aura le cadavre, les charognards se rassembleront.&gt;&gt;</text>
@@ -8344,7 +8344,7 @@
     <text>Les gens qui marchent devant lui font des reproches. Ils lui disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking">
       <text>“Be quiet!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tais-toi!&gt;&gt;</text>
@@ -8356,7 +8356,7 @@
     <text>Mais l'aveugle crie encore plus fort:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting">
       <text>“Son of David, have mercy on me!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Fils de David, aie pitié de moi!&gt;&gt;</text>
@@ -8370,7 +8370,7 @@
     <text>Jésus s'arrête et il donne cet ordre aux gens: &lt;&lt;Amenez-le auprès de moi!&gt;&gt; Quand l'aveugle est auprès de lui, Jésus lui demande:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning">
       <verse num="41" />
       <text>“What do you want me to do?”</text>
     </ReferenceBlocks>
@@ -8384,7 +8384,7 @@
     <text>L'aveugle lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading">
       <text>“Lord, that I may see again.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Seigneur, fais que je voie comme avant!&gt;&gt;</text>
@@ -8412,7 +8412,7 @@
     <text>Et aussitôt, l'aveugle voit comme avant. Il suit Jésus en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Gloire à Dieu!&gt;&gt;</text>
@@ -8890,7 +8890,7 @@
     <text>Ils demandent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" delivery="challenging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="challenging">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" delivery="challenging">
       <text>“Tell us: by what authority do you do these things? Or who is giving you this authority?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Dis-nous: de quel droit est-ce que tu fais ces choses? Qui t'a donné le pouvoir de les faire?&gt;&gt;</text>
@@ -8922,13 +8922,13 @@
     <text>Alors ils réfléchissent entre eux et ils se disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start">
       <text>“If we say, ‘From heaven,’ he will say, ‘Why didn't you believe him?’</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Si nous répondons: &lt;C'est Dieu&gt;, Jésus va nous dire: &lt;Vous n'avez pas fait confiance à Jean, pourquoi donc?&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation">
       <verse num="6" />
       <text>But if we say, ‘From men,’ all the people will stone us, for they are persuaded that John was a prophet.”</text>
     </ReferenceBlocks>
@@ -8944,7 +8944,7 @@
     <text>Alors ils répondent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders">
       <text>“We don't know.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Nous ne savons pas.&gt;&gt;</text>
@@ -9040,7 +9040,7 @@
     <text>En entendant cela, les gens disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple">
       <text>“May it never be!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Non, jamais!&gt;&gt;</text>
@@ -9125,7 +9125,7 @@
     <text>Ils répondent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)">
       <text>“Caesar's.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;De l'empereur.&gt;&gt;</text>
@@ -9407,7 +9407,7 @@
     <text>Ils demandent à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew" characterIdOverrideForScript="Peter (Simon)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew">
       <text>“Teacher, when will these things be? What is the sign that these things are about to happen?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Maître, quand est-ce que cela va arriver? Comment allons-nous le savoir?&gt;&gt;</text>
@@ -9727,7 +9727,7 @@
     <text>Ils étaient heureux, et dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard" characterIdOverrideForScript="chief priests">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard">
       <text>“We will pay you for this.”</text>
     </ReferenceBlocks>
     <text>«Nous allons vous payer pour cela."</text>
@@ -9771,7 +9771,7 @@
     <text>Ils lui demandent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John">
       <text>“Where do you want us to prepare?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Où allons-nous le préparer? Qu'est-ce que tu veux?&gt;&gt;</text>
@@ -10047,7 +10047,7 @@
     <text>Ensuite Jésus dit à ses disciples:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus">
       <text>“When I sent you out without purse, and wallet, and shoes, did you lack anything?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Quand je vous ai envoyés sans argent, sans sac ni sandales, est-ce que vous avez manqué de quelque chose?&gt;&gt;</text>
@@ -10059,7 +10059,7 @@
     <text>Ils répondent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples">
       <text>“Nothing.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Nous n'avons manqué de rien.&gt;&gt;</text>
@@ -10095,7 +10095,7 @@
     <text>Les disciples lui disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare">
       <text>“Lord, behold, here are two swords.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Seigneur, voici deux épées.&gt;&gt;</text>
@@ -10107,7 +10107,7 @@
     <text>Jésus leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus">
       <text>“That is enough.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Cela suffit.&gt;&gt;</text>
@@ -10321,7 +10321,7 @@
     <text>Peu de temps après, un autre voit Pierre et il lui dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing">
       <text>“You also are one of them!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Tu es bien un des disciples de Jésus, toi aussi!&gt;&gt;</text>
@@ -10333,7 +10333,7 @@
     <text>Mais Pierre dit à cet homme:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger">
       <text>“Man, I am not!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Non, ce n'est pas vrai!&gt;&gt;</text>
@@ -10347,7 +10347,7 @@
     <text>Une heure plus tard environ, un autre encore insiste en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" characterIdOverrideForScript="high priest's servant (relative of the man whose ear Peter cut off)" delivery="accusing">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing">
       <text>“Truly this man also was with him, for he is a Galilean!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;C'est sûr, celui-là aussi était avec Jésus! En effet, il est de Galilée.&gt;&gt;</text>
@@ -10433,7 +10433,7 @@
     <text>Quand il fait jour, les anciens du peuple, les chefs des prêtres et les maîtres de la loi se réunissent. Ils font amener Jésus devant leur Tribunal, et ils lui demandent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="demanding" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding">
       <verse num="67" />
       <text>“If you are the Christ, tell us.”</text>
     </ReferenceBlocks>
@@ -10473,7 +10473,7 @@
     <text>Alors tous lui disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="demanding" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding">
       <text>“Are you then the Son of God?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Donc, toi, tu es le Fils de Dieu?&gt;&gt;</text>
@@ -10485,7 +10485,7 @@
     <text>Jésus leur répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus">
       <text>“You say it, because I am.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Vous le dites vous-mêmes, je le suis.&gt;&gt;</text>
@@ -10499,7 +10499,7 @@
     <text>Alors ils disent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" delivery="furious" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="furious">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" delivery="furious">
       <text>“Why do we need any more witness? For we ourselves have heard from his own mouth!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Nous n'avons plus besoin de témoins! En effet, nous avons entendu nous-mêmes les paroles de sa bouche.&gt;&gt;</text>
@@ -10527,7 +10527,7 @@
     <text>Là, ils se mettent à accuser Jésus en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law">
       <text>“We found this man perverting the nation, forbidding paying taxes to Caesar, and saying that he himself is Christ, a king.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Nous avons trouvé cet homme en train de pousser notre peuple à la révolte. Il empêche les gens de payer l'impôt à l'empereur. Il dit qu'il est lui-même le Messie, un roi.&gt;&gt;</text>
@@ -10541,7 +10541,7 @@
     <text>Pilate demande à Jésus:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus">
       <text>“Are you the King of the Jews?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Est-ce que tu es le roi des Juifs?&gt;&gt;</text>
@@ -10553,7 +10553,7 @@
     <text>Jésus lui répond:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus">
       <text>“Yes… It is as you say.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;C'est toi qui le dis.&gt;&gt;</text>
@@ -10581,7 +10581,7 @@
     <text>Mais les gens insistent en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" delivery="angry" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" characterIdOverrideForScript="chief priests" delivery="angry">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" delivery="angry">
       <text>“He stirs up the people, teaching throughout all Judea, beginning from Galilee even to this place.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Dans son enseignement, il pousse le peuple à la révolte. Il a commencé en Galilée, puis il est allé dans toute la Judée, et maintenant, il est venu ici.&gt;&gt;</text>
@@ -10790,7 +10790,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate">
-      <text>“Do what you want with him.” </text>
+      <text>“Do what you want with him.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Faites-lui ce que vous voulez!&gt;&gt;</text>
   </block>
@@ -10885,7 +10885,7 @@
     <text>Le peuple est là et il regarde. Les chefs des Juifs se moquent de Jésus en disant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" delivery="sneering" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" delivery="sneering">
       <text>“He saved others. Let him save himself, if this is the Christ of God, his chosen one!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Il a sauvé les autres. Eh bien, il n'a qu'à se sauver lui-même, s'il est vraiment le Messie, celui que Dieu a choisi!&gt;&gt;</text>
@@ -11140,7 +11140,7 @@
     <text>Ils ont été très perplexe à ce sujet et a déclaré:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome">
       <text>“Where is his body?”</text>
     </ReferenceBlocks>
     <text>«Où est son corps?"</text>
@@ -11186,7 +11186,7 @@
     <text>Après avoir entendu ces paroles, les femmes disaient les uns aux autres:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome">
       <text>“Do you remember what he said?”</text>
     </ReferenceBlocks>
     <text>«Vous rappelez-vous ce qu'il a dit?"</text>
@@ -11290,7 +11290,7 @@
     <text>Il leur dit:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus">
       <text>“What things?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Quoi donc?&gt;&gt;</text>
@@ -11302,13 +11302,13 @@
     <text>Ils lui répondent:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Start">
       <text>“The things concerning Jesus, the Nazarene, who was a prophet mighty in deed and word before God and all the people;</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ce qui est arrivé à Jésus de Nazareth. C'était un grand prophète. Sa parole était puissante et il faisait des choses extraordinaires devant Dieu et devant tout le peuple.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="20" />
       <text>The chief priests and our rulers delivered him up to be condemned to death, and they crucified him.</text>
     </ReferenceBlocks>
@@ -11316,7 +11316,7 @@
     <text>Nos chefs des prêtres et nos dirigeants l'ont livré pour le faire condamner à mort. On l'a cloué sur une croix.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="21" />
       <text>But we were hoping that it was he who would redeem Israel. Yes, and besides all this, it is now the third day since these things happened.</text>
     </ReferenceBlocks>
@@ -11324,7 +11324,7 @@
     <text>Et nous, nous espérions que c'était lui qui allait libérer Israël. Mais, voici déjà le troisième jour depuis que c'est arrivé.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="22" />
       <text>Also, certain women of our company amazed us, having arrived early at the tomb.</text>
     </ReferenceBlocks>
@@ -11332,7 +11332,7 @@
     <text>Pourtant, quelques femmes de notre groupe nous ont beaucoup étonnés. Ce matin, très tôt, elles sont allées à la tombe.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="23" />
       <text>And when they didn't find his body, they came saying that they had also seen a vision of angels, who said that he was alive.</text>
     </ReferenceBlocks>
@@ -11340,7 +11340,7 @@
     <text>Elles n'ont pas trouvé le corps de Jésus et elles sont revenues nous dire: &lt;Des anges se sont montrés à nous. Ils nous ont dit: Jésus est vivant!&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
       <verse num="24" />
       <text>Some of us went to the tomb, and found it just like the women had said, but they didn't see him.”</text>
     </ReferenceBlocks>
@@ -11390,7 +11390,7 @@
     <text>Mais les deux hommes lui disent en insistant:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" delivery="urging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" delivery="urging" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" delivery="urging">
       <text>“Stay with us, for it is almost evening, and the day is almost over.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Reste avec nous! C'est le soir et bientôt il va faire nuit.&gt;&gt;</text>
@@ -11426,7 +11426,7 @@
     <text>Ils se disent l'un à l'autre:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)">
       <text>“Weren't our hearts burning within us, while he spoke to us along the way, and while he opened the Scriptures to us?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Oui, il y avait comme un feu dans notre cœur, pendant qu'il nous parlait sur la route et nous expliquait les Livres Saints!&gt;&gt;</text>
@@ -11444,7 +11444,7 @@
     <text>Tous disent aux deux disciples:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven">
       <text>“The Lord is risen indeed, and has appeared to Simon!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;C'est bien vrai, le Seigneur s'est réveillé de la mort! Simon l'a vu!&gt;&gt;</text>

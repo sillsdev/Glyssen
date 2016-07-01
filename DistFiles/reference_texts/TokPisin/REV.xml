@@ -69,7 +69,7 @@
     <text>Lukim. Em i stap namel long ol klaut na i kam, na olgeta man bai i lukim em long ai bilong ol yet. Olgeta man i bin sutim em long spia samting, ol tu bai i lukim em. Na olgeta lain manmeri bilong graun bai i tingting long em, na ol bai i krai sori moa yet. Yes, dispela samting bai i kamap. I tru.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <verse num="8" />
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
@@ -83,7 +83,7 @@
     <text>God, Bikpela, em God I Gat Olgeta Strong em i tok olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <text>“who is and who was and who is to come, the Almighty.”</text>
     </ReferenceBlocks>
     <text>Em dispela God tasol, nau em i stap, na bipo tru em i stap, na bihain bai em i kam.</text>
@@ -780,7 +780,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
-      <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders. </text>
+      <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Na mi lukim wanpela Pikinini Sipsip i sanap i stap. Em i luk olsem ol i bin kilim em i dai. Em i sanap i stap namel long sia king na dispela 4 -pela samting i stap laip, na ol sia bilong ol hetman i raunim em i stap.</text>
@@ -804,10 +804,10 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
-      <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb, </text>
+      <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb,</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Em i kisim pinis dispela buk, orait dispela 4 -pela samting i stap laip na ol 24 hetman ol i brukim skru klostu long Pikinini Sipsip. </text>
+    <text>Em i kisim pinis dispela buk, orait dispela 4 -pela samting i stap laip na ol 24 hetman ol i brukim skru klostu long Pikinini Sipsip.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
@@ -826,13 +826,13 @@
     <text>Na ol i singim wanpela nupela song olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start">
       <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.</text>
     </ReferenceBlocks>
     <text>"Yu inap tru long kisim buk na rausim olgeta gris kandel i pasim buk. Long wanem, ol i bin kilim yu i dai, na long blut bilong yu yu bin baim bek ol manmeri, bilong givim ol long God. Yes, yu baim bek ol manmeri bilong olgeta lain man, na bilong olgeta tok ples, na bilong olgeta kain skin, na bilong olgeta kantri.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
       <verse num="10" />
       <text>You made us kings and priests to our God, and we will reign on earth.”</text>
     </ReferenceBlocks>
@@ -1928,7 +1928,7 @@
       <sound userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Tel bilong en i brumim tru bikpela lain sta bilong skai na tromoi ol i go long graun. </text>
+    <text>Tel bilong en i brumim tru bikpela lain sta bilong skai na tromoi ol i go long graun.</text>
     <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
@@ -2338,13 +2338,13 @@
     <text>Mi harim maus bilong wanpela man i singaut long heven olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)">
       <text>“Write, ‘Blessed are the dead who die in the Lord from now on.’”</text>
     </ReferenceBlocks>
     <text>"Yu raitim tok olsem, 'Nau na olgeta taim bihain, ol manmeri i bilip long Bikpela na ol i dai, ol i ken amamas."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Yes,”</text>
     </ReferenceBlocks>
     <text>…</text>
@@ -2356,7 +2356,7 @@
     <text>Na Holi Spirit em tu i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“that they may rest from their labors; for their works follow with them.”</text>
     </ReferenceBlocks>
     <text>"Ol i ken amamas tru, long wanem, ol i lusim dispela hatwok ol i bin mekim, na ol i ken malolo. Na ol i no i go nating. Nogat. Gutpela pasin ol i bin mekim, em i go wantaim ol."</text>
@@ -2942,7 +2942,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
-      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,  </text>
+      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,</text>
     </ReferenceBlocks>
     <text>"Yupela ol manmeri bilong mi, yupela i mas lusim dispela ples na i kam ausait. Nogut yupela i poroman wantaim em long ol sin em i save mekim. Na nogut yupela bai i poroman wantaim em tu long taim em i kisim pe nogut bilong ol dispela sin.</text>
   </block>
@@ -3011,7 +3011,7 @@
     <text>Ol bai i lukim dispela pen nogut em i kisim, na ol bai i pret tru. Ol bai i sanap longwe long em na tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
       <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
     </ReferenceBlocks>
     <text>‘Sori, sori tumas long yu Babilon, yu bikpela na strongpela taun! Long wanpela aua tasol pe nogut bilong sin bilong yu em i kamap pinis long yu!'</text>
@@ -3049,7 +3049,7 @@
     <text>Ol man i save wok bisnis ol bai i tok olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth">
       <text>“The fruits which your soul lusted after have been lost to you. All things that were dainty and sumptuous have perished from you, and you will find them no more at all.”</text>
     </ReferenceBlocks>
     <text>'Dispela kaikai bel bilong yu i bin kirap long kisim, em olgeta i stap longwe tru long yu. Olgeta gutpela gutpela samting i gat bikpela pe wantaim olgeta gutpela gutpela bilas bilong yu, em olgeta i lus pinis, na bai yu no inap tru long lukim gen.'</text>
@@ -3067,18 +3067,18 @@
     <text>Ol bai i tok olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start">
       <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!</text>
     </ReferenceBlocks>
     <text>‘Sori, sori tumas long dispela bikpela taun! Bipo em i save putim ol naispela waitpela klos na ol kain kain retpela laplap, na em i save bilasim skin bilong en long gol na long ol naispela ston wantaim ol bis i dia tumas.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>For in an hour such great riches are made desolate. </text>
+      <text>For in an hour such great riches are made desolate.</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Long wanpela aua tasol, dispela olgeta mani na bilas em i bagarap olgeta.' </text>
+    <text>Long wanpela aua tasol, dispela olgeta mani na bilas em i bagarap olgeta.'</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
@@ -3091,7 +3091,7 @@
     <text>Na ol bai i lukim smok bilong paia i kukim em, na ol bai i singaut olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing">
       <text>“What is like the great city?”</text>
     </ReferenceBlocks>
     <text>‘Wanem taun i stap na em i wankain olsem dispela bikpela taun?'</text>
@@ -3105,7 +3105,7 @@
     <text>Na ol bai i kisim das bilong graun na tromoi antap long het bilong ol yet, na ol bai i krai sori na bel hevi i stap. Na ol bai i singaut olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
     <text>‘Sori, sori tumas long dispela bikpela taun! Ol papa bilong olgeta sip i save raun long solwara ol i bin kamap maniman tru long bikpela mani bilong dispela taun. Sori tumas! Long wanpela aua tasol em i bagarap olgeta!'</text>
@@ -3207,7 +3207,7 @@
     <text>Na ol 24 hetman wantaim ol 4 -pela samting i stap laip ol i brukim skru na lotu long God i sindaun i stap long sia king bilong en. Ol i tok olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" characterIdOverrideForScript="twenty-four elders">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
       <text>“Amen! Hallelujah!”</text>
     </ReferenceBlocks>
     <text>"I tru. Yumi litimapim nem bilong God!"</text>
@@ -3251,7 +3251,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
       <verse num="8" />
-      <text>“It was given to her that she would array herself in bright, pure, fine linen.” </text>
+      <text>“It was given to her that she would array herself in bright, pure, fine linen.”</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>God i givim naispela waitpela klos long dispela meri, em klos i klin tru na i lait moa yet."</text>
@@ -3515,7 +3515,7 @@
       <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Solwara i larim olgeta man i dai pinis na i stap long en, ol i go. Na Dai wantaim Ples bilong ol man i dai pinis, tupela tu i larim olgeta man i dai pinis na i stap long han bilong tupela, ol i go. Na man i sindaun long sia king em i lukim pasin olgeta wan wan man i bin mekim, na em i skelim ol long kot bilong en. </text>
+    <text>Solwara i larim olgeta man i dai pinis na i stap long en, ol i go. Na Dai wantaim Ples bilong ol man i dai pinis, tupela tu i larim olgeta man i dai pinis na i stap long han bilong tupela, ol i go. Na man i sindaun long sia king em i lukim pasin olgeta wan wan man i bin mekim, na em i skelim ol long kot bilong en.</text>
     <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
@@ -3526,7 +3526,7 @@
       <text>is the second death.</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Na bihain em i tromoi Dai wantaim Ples bilong ol man i dai pinis i go daun long dispela bikpela hul i gat paia. Dispela bikpela hul i gat paia em i namba 2 dai. </text>
+    <text>Na bihain em i tromoi Dai wantaim Ples bilong ol man i dai pinis i go daun long dispela bikpela hul i gat paia. Dispela bikpela hul i gat paia em i namba 2 dai.</text>
     <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
@@ -3967,7 +3967,7 @@
     <text>Holi Spirit wantaim meri bilong Pikinini Sipsip tupela i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" characterIdOverrideForScript="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)">
       <text>“Come!”</text>
     </ReferenceBlocks>
     <text>"Yu kam."</text>
@@ -3979,7 +3979,7 @@
     <text>Na olgeta man i harim dispela tok, ol tu i mas tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears">
       <text>“Come!”</text>
     </ReferenceBlocks>
     <text>"Yu kam."</text>

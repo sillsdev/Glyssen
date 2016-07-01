@@ -500,7 +500,7 @@
     <text>Sampela saveman bilong lo i sindaun i stap long haus, na long bel bilong ol ol i tingting olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="teachers of religious law/Pharisees" delivery="thinking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="teachers of religious law/Pharisees" characterIdOverrideForScript="teachers of religious law" delivery="thinking">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="teachers of religious law/Pharisees" delivery="thinking">
       <verse num="7" />
       <text>“Why does this man speak blasphemies like that? Who can forgive sins but God alone?”</text>
     </ReferenceBlocks>
@@ -1589,7 +1589,7 @@
     <text>Na em i singaut bikmaus tru olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="demons (Legion)/man delivered from Legion of demons" delivery="shrieking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="shrieking">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="7" characterId="demons (Legion)/man delivered from Legion of demons" delivery="shrieking">
       <text>“What have I to do with you, Jesus, you Son of the Most High God? I adjure you by God, don't torment me.”</text>
     </ReferenceBlocks>
     <text>"Jisas, yu Pikinini bilong God Antap Tru, yu laik mekim wanem long mi? Mi askim yu strong long nem bilong God, yu no ken mekim nogut long mi."</text>
@@ -1617,7 +1617,7 @@
     <text>Orait Jisas i askim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Jesus" delivery="questioning">
       <text>“What is your name?”</text>
     </ReferenceBlocks>
     <text>"Wanem nem bilong yu?"</text>
@@ -1629,7 +1629,7 @@
     <text>Na em i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="demons (Legion)/man delivered from Legion of demons" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“My name is Legion, for we are many.”</text>
     </ReferenceBlocks>
     <text>"Nem bilong mi Ami. Long wanem, mipela i bikpela lain."</text>
@@ -1643,7 +1643,7 @@
     <text>Na em i askim Jisas strong long em</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="begging">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
       <text>“Do not send us out of the region.”</text>
     </ReferenceBlocks>
     <text>i no ken rausim ol dispela spirit nogut na mekim ol i lusim dispela hap graun.</text>
@@ -1665,7 +1665,7 @@
     <text>Na ol spirit nogut i askim Jisas strong olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="begging">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="12" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
       <text>“Send us into the pigs, that we may enter into them.”</text>
     </ReferenceBlocks>
     <text>"Yu mas salim mipela i go insait long ol dispela pik."</text>
@@ -1973,7 +1973,7 @@
     <text>Na em i holim han bilong pikinini na i tokim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders">
       <text>“Talitha cumi!”</text>
     </ReferenceBlocks>
     <text>"Talita, kum."</text>
@@ -1985,7 +1985,7 @@
     <text>Mining bilong dispela tok i olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="41" characterId="Jesus" delivery="giving orders">
       <text>“Little girl, I say to you, get up!”</text>
     </ReferenceBlocks>
     <text>"Liklik meri, mi tokim yu, yu kirap."</text>
@@ -2189,7 +2189,7 @@
     <text>Na sampela i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="people, other" delivery="guessing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="people, other" delivery="guessing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="people, other" delivery="guessing">
       <text>“He is Elijah.”</text>
     </ReferenceBlocks>
     <text>"Em Elaija.</text>
@@ -2201,7 +2201,7 @@
     <text>Na sampela i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="people, still others" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="people, still others" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="people, still others">
       <text>“He is a prophet, or like one of the prophets.”</text>
     </ReferenceBlocks>
     <text>"Em i profet, wankain olsem ol profet bilong bipo."</text>
@@ -2303,7 +2303,7 @@
     <text>Na dispela meri i go ausait na I askim mama bilong en olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Herodias' daughter" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Herodias' daughter" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Herodias' daughter">
       <text>“What shall I ask?”</text>
     </ReferenceBlocks>
     <text>"Bai mi tokim em long givim wanem samting long mi?"</text>
@@ -2315,7 +2315,7 @@
     <text>Na mama i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Herodias" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Herodias" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Herodias">
       <text>“The head of John the Baptizer.”</text>
     </ReferenceBlocks>
     <text>"Yu tokim em long kisim het bilong Jon Bilong Baptais na givim yu."</text>
@@ -2445,7 +2445,7 @@
     <text>Tasol Jisas i bekim tok bilong ol disaipel olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="37" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="37" characterId="Jesus">
       <text>“You give them something to eat.”</text>
     </ReferenceBlocks>
     <text>"Yupela yet givim kaikai long ol."</text>
@@ -2457,7 +2457,7 @@
     <text>Na ol I askim em,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="37" characterId="Philip the apostle" delivery="frustrated" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="37" characterId="Philip the apostle" delivery="frustrated" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="37" characterId="Philip the apostle" delivery="frustrated">
       <text>“Shall we go and buy two hundred denarii worth of bread, and give them something to eat?”</text>
     </ReferenceBlocks>
     <text>"Ating yu laik bai mipela i go baim bret long 200 kina na givim long ol, a?"</text>
@@ -2471,7 +2471,7 @@
     <text>Na em i askim ol,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus" delivery="questioning">
       <text>“How many loaves do you have? Go see.”</text>
     </ReferenceBlocks>
     <text>"Yupela i gat hamas bret I stap? Yupela go lukim."</text>
@@ -2483,7 +2483,7 @@
     <text>Ol i lukim pinis, orait ol i kam tok Jisas olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Andrew" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Andrew" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Andrew">
       <text>“Five, and two fish.”</text>
     </ReferenceBlocks>
     <text>"Mipela i gat 5 -pela bret na tupela pis."</text>
@@ -2655,7 +2655,7 @@
     <text>Na ol man i ran i go nabaut long olgeta ples long dispela hap na tokim ol manmeri. Na taim ol manmeri i harim tok long Jisas i stap long wanpela hap, ol i slipim ol sikman long bet,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="55" characterId="crowd" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="55" characterId="crowd" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="55" characterId="crowd">
       <text>“Jesus is here.”</text>
     </ReferenceBlocks>
     <text>na ol i karim ol i go long em.</text>
@@ -2727,7 +2727,7 @@
     <text>Orait na ol Farisi na ol saveman bilong lo i askim Jisas olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Pharisees/teachers of religious law" delivery="critical" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="critical">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="5" characterId="Pharisees/teachers of religious law" delivery="critical">
       <text>“Why don't your disciples walk according to the tradition of the elders, but eat their bread with unwashed hands?”</text>
     </ReferenceBlocks>
     <text>"Olsem wanem na ol disaipel bilong yu ol i no save bihainim pasin bilong ol tumbuna? Han bilong ol i doti na ol I kaikai."</text>
@@ -2828,7 +2828,7 @@
       <text>There is nothing from outside of the man, that going into him can defile him; but the things which proceed out of the man are those that defile the man.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Samting i stap ausait long wanpela man na i go insait long en, em i no inap mekim dispela man i doti. Nogat. Ol samting i stap insait long man na i kam ausait, em tasol i mekim dispela man i doti." </text>
+    <text>Samting i stap ausait long wanpela man na i go insait long en, em i no inap mekim dispela man i doti. Nogat. Ol samting i stap insait long man na i kam ausait, em tasol i mekim dispela man i doti."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2836,7 +2836,7 @@
       <text>If anyone has ears to hear, let him hear!”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>If anyone has ears to hear, let him hear.} </text>
+    <text>If anyone has ears to hear, let him hear.}</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="narrator-MRK">
@@ -3017,7 +3017,7 @@
     <text>Na Jisas i lukluk i go antap long heven, na em i pilim olsem em i laik krai na em i pulim win strong. Na em i tokim dispela man olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders">
       <text>“Ephphatha!”</text>
     </ReferenceBlocks>
     <text>"Efata."</text>
@@ -3029,7 +3029,7 @@
     <text>Mining bilong dispela tok i olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="34" characterId="Jesus" delivery="giving orders">
       <text>“Be opened!”</text>
     </ReferenceBlocks>
     <text>"Yu op."</text>
@@ -3051,7 +3051,7 @@
     <text>Na Jisas i tambuim ol manmeri strong long ol</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jesus" delivery="warning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jesus" delivery="warning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jesus" delivery="warning">
       <text>“Tell no one of this.”</text>
     </ReferenceBlocks>
     <text>i no ken tokim wanpela man long dispela samting ol i lukim.</text>
@@ -3129,7 +3129,7 @@
     <text>Jisas i askim ol,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="Jesus" delivery="questioning">
       <text>“How many loaves do you have?”</text>
     </ReferenceBlocks>
     <text>"Yupela i gat hamas bret I stap?"</text>
@@ -3141,7 +3141,7 @@
     <text>Na ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="disciples" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="disciples" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="disciples">
       <text>“Seven.”</text>
     </ReferenceBlocks>
     <text>" 7 -pela."</text>
@@ -3275,13 +3275,13 @@
     <text>Jisas i save long dispela toktok ol i mekim, na em i tokim ol olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" userConfirmed="true" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="17" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
       <text>“Why do you reason that it's because you have no bread? Don't you perceive yet, neither understand? Is your heart still hardened?</text>
     </ReferenceBlocks>
     <text>"Bilong wanem yupela i toktok nabaut olsem, 'Yumi no gat bret'? Ating yupela i no klia yet? Ating yupela i no gat save yet? Ating tingting bilong yupela i pas, a?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" userConfirmed="true" multiBlockQuote="ChangeOfDelivery">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery">
       <verse num="18" />
       <text>Having eyes, don't you see? Having ears, don't you hear? Don't you remember?</text>
     </ReferenceBlocks>
@@ -3289,7 +3289,7 @@
     <text>Yupela i gat ai, tasol yupela i no lukim ol samting, a? Yupela i gat yau, tasol yupela i no harim tok, a? Yupela i lusim tingting pinis, a?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking" userConfirmed="true" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="19" />
       <text>When I broke the five loaves among the five thousand, how many baskets full of broken pieces did you take up?”</text>
     </ReferenceBlocks>
@@ -3303,13 +3303,13 @@
     <text>Na ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="disciples" delivery="hesitant" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="disciples" delivery="hesitant" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="disciples" delivery="hesitant">
       <text>“Twelve.”</text>
     </ReferenceBlocks>
     <text>" 12 -pela."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="Jesus" delivery="questioning">
       <verse num="20" />
       <text>“When the seven loaves fed the four thousand, how many baskets full of broken pieces did you take up?”</text>
     </ReferenceBlocks>
@@ -3323,7 +3323,7 @@
     <text>Na ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="disciples" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="disciples" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="disciples">
       <text>“Seven.”</text>
     </ReferenceBlocks>
     <text>" 7 -pela."</text>
@@ -3437,7 +3437,7 @@
     <text>Na Jisas i askim ol olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Jesus" delivery="questioning">
       <text>“But who do you say that I am?”</text>
     </ReferenceBlocks>
     <text>"Na yupela yet i tok mi husat?"</text>
@@ -3449,7 +3449,7 @@
     <text>Na Pita i bekim tok bilong en olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Peter (Simon)" delivery="declare" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Peter (Simon)" delivery="declare" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="Peter (Simon)" delivery="declare">
       <text>“You are the Christ.”</text>
     </ReferenceBlocks>
     <text>"Yu dispela man God i bin makim bilong kisim bek ol manmeri bilong en."</text>
@@ -3657,7 +3657,7 @@
     <text>Na ol i holimpas dispela tok, na ol i toktok namel long ol yet olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Peter (Simon)/James, the disciple/John" characterIdOverrideForScript="Peter (Simon)" delivery="puzzled" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled">
       <text>“What does ‘Rising from the dead’ mean?”</text>
     </ReferenceBlocks>
     <text>"Dispela tok bilong lusim matmat na kirap bek, em wanem samting?"</text>
@@ -3671,7 +3671,7 @@
     <text>Na ol i askim Jisas olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="Peter (Simon)/James, the disciple/John" characterIdOverrideForScript="John" delivery="puzzled">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled">
       <text>“Why do the scribes say that Elijah must come first?”</text>
     </ReferenceBlocks>
     <text>"Bilong wanem ol saveman bilong lo i save tok long Elaija i mas i kam pastaim?"</text>
@@ -3755,7 +3755,7 @@
     <text>Jisas i harim dispela tok, na em I tokim ol manmeri olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="Jesus" delivery="exasperated" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="Jesus" delivery="exasperated" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="19" characterId="Jesus" delivery="exasperated">
       <text>“Unbelieving generation, how long shall I be with you? How long shall I bear with you? Bring him to me.”</text>
     </ReferenceBlocks>
     <text>"Yupela lain manmeri i no bilip, hamas taim mi stap yet wantaim yupela? Hamas taim moa bai mi karim hevi bilong yupela? Bringim dispela pikinini i kam long mi."</text>
@@ -3777,7 +3777,7 @@
     <text>Na Jisas i askim papa bilong en olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="Jesus" delivery="questioning">
       <text>“How long has it been since this has come to him?”</text>
     </ReferenceBlocks>
     <text>"Hamas taim em i stap olsem?"</text>
@@ -4034,7 +4034,7 @@
       <text>If your hand causes you to sin, cut it off. It is better for you to enter into life maimed, rather than having your two hands to go into Gehenna, into the unquenchable fire,</text>
     </ReferenceBlocks>
     <verse num="43" />
-    <text>Sapos han bilong yu em i pulim yu long mekim sin, orait yu mas katim na rausim. Mobeta yu gat wanpela han tasol na yu kisim laip bilong i stap oltaim. Nogut yu gat tupela han na ol i tromoi yu i go long hel, long paia i no save dai. </text>
+    <text>Sapos han bilong yu em i pulim yu long mekim sin, orait yu mas katim na rausim. Mobeta yu gat wanpela han tasol na yu kisim laip bilong i stap oltaim. Nogut yu gat tupela han na ol i tromoi yu i go long hel, long paia i no save dai.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4050,7 +4050,7 @@
       <text>If your foot causes you to stumble, cut it off. It is better for you to enter into life lame, rather than having your two feet to be cast into Gehenna, into the fire that will never be quenched--</text>
     </ReferenceBlocks>
     <verse num="45" />
-    <text>Na sapos lek bilong yu em i pulim yu long mekim sin, orait yu mas katim na rausim. Mobeta yu gat wanpela lek tasol na yu kisim laip bilong i stap oltaim. Nogut yu gat tupela lek na ol i tromoi yu i go long hel. </text>
+    <text>Na sapos lek bilong yu em i pulim yu long mekim sin, orait yu mas katim na rausim. Mobeta yu gat wanpela lek tasol na yu kisim laip bilong i stap oltaim. Nogut yu gat tupela lek na ol i tromoi yu i go long hel.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4478,7 +4478,7 @@
     <text>Orait Jems na Jon, tupela pikinini bilong Sebedi, tupela i kam long Jisas na i tokim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="James, the disciple/John" delivery="boldly" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="James, the disciple/John" characterIdOverrideForScript="John" delivery="boldly">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="35" characterId="James, the disciple/John" delivery="boldly">
       <text>“Teacher, we want you to do for us whatever we will ask.”</text>
     </ReferenceBlocks>
     <text>"Tisa, mitupela i laik askim yu long wanpela samting, na mitupela i laik bai yu mas mekim dispela samting long mitupela."</text>
@@ -4506,7 +4506,7 @@
     <text>Tupela i tokim em,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="James, the disciple/John" delivery="boldly" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="James, the disciple/John" characterIdOverrideForScript="John" delivery="boldly">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="James, the disciple/John" delivery="boldly">
       <text>“Grant to us that we may sit, one at your right hand, and one at your left hand, in your glory.”</text>
     </ReferenceBlocks>
     <text>"Taim yu kamap bikpela king pinis, mitupela i laik bai wanpela long mitupela i ken sindaun long han sut bilong yu, na wanpela long han kais."</text>
@@ -4534,7 +4534,7 @@
     <text>Na tupela i tokim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="James, the disciple/John" delivery="boldly" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="James, the disciple/John" characterIdOverrideForScript="John" delivery="boldly" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="39" characterId="James, the disciple/John" delivery="boldly">
       <text>“We are able.”</text>
     </ReferenceBlocks>
     <text>"Mitupela inap."</text>
@@ -4622,7 +4622,7 @@
     <text>Em i harim tok long Jisas bilong Nasaret i kam, na em i stat long singaut strong olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="47" characterId="Bartimaeus (a blind man)" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="47" characterId="Bartimaeus (a blind man)" delivery="shouting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="47" characterId="Bartimaeus (a blind man)" delivery="shouting">
       <text>“Jesus, son of David, have mercy on me!”</text>
     </ReferenceBlocks>
     <text>"Jisas, yu Pikinini Bilong Devit, yu mas sori long mi."</text>
@@ -4636,7 +4636,7 @@
     <text>Planti man ol I krosim em na tokim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="crowd, many in the" delivery="rebuking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="crowd, many in the" delivery="rebuking" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="crowd, many in the" delivery="rebuking">
       <text>“Be quiet!”</text>
     </ReferenceBlocks>
     <text>"Yu pasim maus."</text>
@@ -4648,7 +4648,7 @@
     <text>Tasol em i singaut bikmaus moa yet olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="Bartimaeus (a blind man)" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="Bartimaeus (a blind man)" delivery="shouting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="Bartimaeus (a blind man)" delivery="shouting">
       <text>“Son of David, have mercy on me!”</text>
     </ReferenceBlocks>
     <text>"Pikinini Bilong Devit, yu mas sori long mi."</text>
@@ -4662,7 +4662,7 @@
     <text>Na Jisas i sanap na i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="49" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="49" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="49" characterId="Jesus">
       <text>“Call him.”</text>
     </ReferenceBlocks>
     <text>"Singautim em i kam."</text>
@@ -4674,7 +4674,7 @@
     <text>Na ol I singautim dispela aipas, Na ol I singautim dispela aipas, na ol i tokim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="49" characterId="crowd at Jericho" delivery="encouraging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="49" characterId="crowd at Jericho" delivery="encouraging" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="49" characterId="crowd at Jericho" delivery="encouraging">
       <text>“Cheer up! Get up. He is calling you!”</text>
     </ReferenceBlocks>
     <text>"Bel bilong yu i ken strong. Yu kirap. Em i singautim yu."</text>
@@ -4692,7 +4692,7 @@
     <text>Na Jisas I askim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="51" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="51" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="51" characterId="Jesus">
       <text>“What do you want me to do for you?”</text>
     </ReferenceBlocks>
     <text>"Yu laik bai mi mekim wanem long yu?"</text>
@@ -4704,7 +4704,7 @@
     <text>Na dispela aipas i tokim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="51" characterId="Bartimaeus (a blind man)" delivery="pleading" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="51" characterId="Bartimaeus (a blind man)" delivery="pleading" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="51" characterId="Bartimaeus (a blind man)" delivery="pleading">
       <text>“Rabbi, that I may see again.”</text>
     </ReferenceBlocks>
     <text>"Tisa, mi laik lukluk."</text>
@@ -4792,7 +4792,7 @@
     <text>Na tupela i bekim tok olsem</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="disciples" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="disciples" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="disciples">
       <text>“The Lord needs him.”</text>
     </ReferenceBlocks>
     <text>Jisas i bin tokim tupela.</text>
@@ -4804,7 +4804,7 @@
     <text>Na ol i orait long tupela</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="people" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="people" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="people">
       <text>“You may go.”</text>
     </ReferenceBlocks>
     <text>i ken kisim donki i go.</text>
@@ -5010,7 +5010,7 @@
     <text>Ol i askim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="chief priests/teachers of religious law/elders" delivery="challenging" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="challenging">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="chief priests/teachers of religious law/elders" delivery="challenging">
       <text>“By what authority do you do these things? Or who gave you this authority to do these things?”</text>
     </ReferenceBlocks>
     <text>"Yu kisim dispela namba na strong we na yu mekim ol dispela samting? Husat i givim dispela namba long yu na i tokim yu long mekim dispela wok?"</text>
@@ -5046,13 +5046,13 @@
     <text>Orait ol i toktok long ol yet olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start">
       <text>“If we should say, ‘From heaven’; he will say, ‘Why then did you not believe him?’</text>
     </ReferenceBlocks>
     <text>"Sapos yumi tok, 'Em i samting bilong heven,' em bai i tok, 'Orait bilong wanem yupela i no bin bilip long em?'</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation">
       <verse num="32" />
       <text>If we should say, ‘From men’”</text>
     </ReferenceBlocks>
@@ -5070,7 +5070,7 @@
     <text>Olsem na ol i bekim tok bilong Jisas olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="chief priests/teachers of religious law/elders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="chief priests/teachers of religious law/elders">
       <text>“We don't know.”</text>
     </ReferenceBlocks>
     <text>"Mipela i no save."</text>
@@ -5082,7 +5082,7 @@
     <text>Na Jisas i tokim ol olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus">
       <text>“Neither do I tell you by what authority I do these things.”</text>
     </ReferenceBlocks>
     <text>"Mi tu mi no ken tokim yupela long husat i givim mi namba na mi mekim dispela wok."</text>
@@ -5228,7 +5228,7 @@
     <text>Tasol Jisas i save pinis long giaman bilong ol, na em i tokim ol olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="Jesus">
       <text>“Why do you test me? Bring me a denarius, that I may see it.”</text>
     </ReferenceBlocks>
     <text>"Watpo yupela i traim mi? Kisim wanpela mani i kam na mi lukim."</text>
@@ -5242,7 +5242,7 @@
     <text>Na ol i kisim wanpela mani i kam. Na em i askim ol,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="Jesus" delivery="questioning" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="Jesus" delivery="questioning" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="Jesus" delivery="questioning">
       <text>“Whose is this image and inscription?”</text>
     </ReferenceBlocks>
     <text>"Dispela piksa na dispela nem em i bilong husat?"</text>
@@ -5254,7 +5254,7 @@
     <text>Na ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="spies (from Pharisees and Herodians)">
       <text>“Caesar's.”</text>
     </ReferenceBlocks>
     <text>"Bilong Sisar."</text>
@@ -5598,7 +5598,7 @@
     <text>Jisas i sindaun long maunten Oliv na i lukim tempel i stap long hap. Na Pita na Jems na Jon na Andru tasol ol i kam long em. Na ol i askim em olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="Peter (Simon)/James, the disciple/John/Andrew" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="Peter (Simon)/James, the disciple/John/Andrew" characterIdOverrideForScript="Peter (Simon)">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="Peter (Simon)/James, the disciple/John/Andrew">
       <verse num="4" />
       <text>“Tell us, when will these things be? What is the sign that these things are all about to be fulfilled?”</text>
     </ReferenceBlocks>
@@ -5894,7 +5894,7 @@
     <text>Ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders">
       <text>“Not during the feast, because there might be a riot of the people.”</text>
     </ReferenceBlocks>
     <text>"Yumi no ken mekim dispela samting long ol bikpela de bilong lotu. Nogut ol manmeri i lukim na ol i kros na kirapim pait."</text>
@@ -6012,7 +6012,7 @@
     <text>Namba wan de bilong Ol Bikpela De Bilong Bret I No Gat Yis em i kamap. Long dispela de ol i save kilim pikinini sipsip bilong kaikai long Bikpela De Bilong Tingim De God I Larim Ol Israel I Stap Gut. Na ol disaipel i tokim Jisas olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="Peter (Simon)/John" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="Peter (Simon)/John" characterIdOverrideForScript="John">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="Peter (Simon)/John">
       <text>“Where do you want us to go and prepare that you may eat the Passover?”</text>
     </ReferenceBlocks>
     <text>"Yu laik bai mipela i go redim ol samting we na bai yu mekim bikpela kaikai?"</text>
@@ -6556,7 +6556,7 @@
     <text>Na olgeta i tok olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="64" characterId="chief priests/Sanhedrin" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="64" characterId="chief priests/Sanhedrin" characterIdOverrideForScript="chief priests" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="64" characterId="chief priests/Sanhedrin">
       <text>“He deserves to die!”</text>
     </ReferenceBlocks>
     <text>"Em i gat rong, na em i mas i dai."</text>
@@ -6570,7 +6570,7 @@
     <text>Orait nau sampela man ol i stat long spetim em. Na ol i pasim ai bilong en long laplap, na ol i paitim em, na ol i tok,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="chief priests/Sanhedrin" delivery="mocking" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="chief priests/Sanhedrin" characterIdOverrideForScript="chief priests" delivery="mocking">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="chief priests/Sanhedrin" delivery="mocking">
       <text>“Prophesy!”</text>
     </ReferenceBlocks>
     <text>"Yu mekim tok profet nau."</text>
@@ -6646,7 +6646,7 @@
     <text>Tasol em i tok gen,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial, stronger" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial, stronger" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial, stronger">
       <text>“I don't know him!”</text>
     </ReferenceBlocks>
     <text>"Nogat."</text>
@@ -6658,7 +6658,7 @@
     <text>Bihain liklik, ol man i sanap i stap klostu ol i tok gen long Pita olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" characterIdOverrideForScript="high priest's servant (relative of the man whose ear Peter cut off)" delivery="accusing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing">
       <text>“You truly are one of them, for you are a Galilean, and your speech shows it.”</text>
     </ReferenceBlocks>
     <text>"Tru tumas, yu man bilong lain bilong ol. Yu man bilong Galili tasol."</text>
@@ -6716,7 +6716,7 @@
     <text>Na Pailat i askim Jisas olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pilate" delivery="to Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pilate" delivery="to Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pilate" delivery="to Jesus">
       <text>“Are you the King of the Jews?”</text>
     </ReferenceBlocks>
     <text>"Yu king bilong ol Juda, a?"</text>
@@ -6728,7 +6728,7 @@
     <text>Na Jisas i bekim tok olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus">
       <text>“Yes… It is as you say.”</text>
     </ReferenceBlocks>
     <text>"Yu yet yu tok olsem."</text>
@@ -6820,7 +6820,7 @@
     <text>Tasol ol bikpris i kirapim bel bilong ol manmeri, long ol i mas singaut long Pailat long em i no ken lusim Jisas. Em i mas</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="crowd before Pilate" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="crowd before Pilate" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="crowd before Pilate">
       <text>“Give us Barrabus!”</text>
     </ReferenceBlocks>
     <text>lusim Barabas i kam long ol.</text>
@@ -6862,8 +6862,8 @@
     <text>Na Pailat i askim ol,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="Pilate" delivery="to crowd" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="Pilate" delivery="to crowd" userConfirmed="true">
-      <text>“Why, what evil has he done?” </text>
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="Pilate" delivery="to crowd">
+      <text>“Why, what evil has he done?”</text>
     </ReferenceBlocks>
     <text>"Bilong wanem? Em i mekim wanem rong?"</text>
   </block>
@@ -6874,7 +6874,7 @@
     <text>Tasol ol i singaut strong moa,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="crowd before Pilate" delivery="shouting" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="crowd before Pilate" delivery="shouting" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="14" characterId="crowd before Pilate" delivery="shouting">
       <text>“Crucify him!”</text>
     </ReferenceBlocks>
     <text>"Nilim em long diwai kros."</text>
@@ -7030,13 +7030,13 @@
     <text>Ol bikpris wantaim ol saveman bilong lo, ol tu i tok bilas. Ol i tok namel long ol yet olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="31" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Start">
       <text>“He saved others. He can't save himself.</text>
     </ReferenceBlocks>
     <text>"Em i bin helpim ol arapela man, tasol em i no inap helpim em yet.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="32" characterId="chief priests/teachers of religious law/elders" delivery="sneering" multiBlockQuote="Continuation">
       <verse num="32" />
       <text>Let the Christ, the King of Israel, now come down from the cross, that we may see and believe him.”</text>
     </ReferenceBlocks>
@@ -7066,7 +7066,7 @@
     <text>Na long 3 klok Jisas i singaut strong olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus">
       <text>“Eloi, Eloi, lama sabachthani?”</text>
     </ReferenceBlocks>
     <text>"Eloi, Eloi, lama sabaktani?"</text>
@@ -7078,7 +7078,7 @@
     <text>As bilong dispela tok i olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="34" characterId="Jesus">
       <text>“My God, my God, why have you forsaken me?”</text>
     </ReferenceBlocks>
     <text>"God bilong mi, God bilong mi, bilong wanem yu lusim mi?"</text>
@@ -7197,7 +7197,7 @@
     <text>Pailat i harim pinis tok bilong kepten,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="centurion summoned by Pilate" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="centurion summoned by Pilate" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="centurion summoned by Pilate">
       <text>“Yes, he is dead.”</text>
     </ReferenceBlocks>
     <text>…</text>
@@ -7209,7 +7209,7 @@
     <text>orait em i tokim Josep olsem em</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="Pilate" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="Pilate" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="Pilate">
       <text>“You may take his body.”</text>
     </ReferenceBlocks>
     <text>i ken kisim bodi.</text>
@@ -7261,7 +7261,7 @@
     <text>Na ol i toktok namel long ol yet olsem,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="Mary Magdalene/Mary mother of James/Salome" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="3" characterId="Mary Magdalene/Mary mother of James/Salome">
       <text>“Who will roll away the stone from the door of the tomb for us?”</text>
     </ReferenceBlocks>
     <text>"Husat bai i helpim yumi long tantanim dispela ston na rausim long maus bilong matmat?"</text>

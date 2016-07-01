@@ -779,7 +779,7 @@
     <text>Karena sekarang telah tiba saatnya penghakiman dimulai, dan pada rumah Allah sendiri yang harus pertama-tama dihakimi. Dan jika penghakiman itu dimulai pada kita, bagaimanakah kesudahannya dengan mereka yang tidak percaya pada Injil Allah?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE">
       <verse num="18" />
       <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
     </ReferenceBlocks>

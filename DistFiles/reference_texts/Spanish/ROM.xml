@@ -1003,7 +1003,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Puesto que Dios ya nos ha hecho justos gracias a la fe, tenemos paz con Dios por medio de nuestro Señor Jesucristo. </text>
+    <text>Puesto que Dios ya nos ha hecho justos gracias a la fe, tenemos paz con Dios por medio de nuestro Señor Jesucristo.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
