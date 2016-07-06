@@ -1483,6 +1483,7 @@ namespace GlyssenTests
 		/// <summary>
 		/// PG-699: This test illustrates the real reason we want to be able to break the reference text at the end of
 		/// any verses that have breaks in the vernacular.
+		/// PG-761: Added secondary reference text to show that it needs to be split also.
 		/// </summary>
 		[Test]
 		public void ApplyTo_ReferenceTextNeedsToBeBrokenAtVerseToMatchVernacular_GoodIllustration_ReferenceTextIsBrokenCorrectly()
@@ -1498,40 +1499,60 @@ namespace GlyssenTests
 			AddBlockForVerseInProgress(vernacularBlocks, "merchants of the earth", "«¿Qué ciudad es semejante a la gran ciudad?»");
 			var vernBook = new BookScript("REV", vernacularBlocks);
 
-			var referenceBlocks = new List<Block>();
-			referenceBlocks.Add(CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV"));
-			AddBlockForVerseInProgress(referenceBlocks, "merchants of the earth", "“Woe, woe, the great city, she who was dressed in " +
+			var frenchReferenceBlocks = new List<Block>();
+			frenchReferenceBlocks.Add(CreateNarratorBlockForVerse(16, "en disant, ", true, 18, "REV"));
+			AddBlockForVerseInProgress(frenchReferenceBlocks, "merchants of the earth", "«Malheur, malheur, la grande ville, elle qui était " +
+				"vêtue de fin lin, de pourpre et d'écarlate, et parée d' or et de pierres précieuses et de perles!");
+			frenchReferenceBlocks.Add(CreateBlockForVerse("merchants of the earth", 17, "Pour en une heure tant de richesses sont en souffrance.»", false, 18));
+			AddNarratorBlockForVerseInProgress(frenchReferenceBlocks, "Chaque capitaine, et tout le monde qui navigue partout, et les marins, et " +
+				"autant que gagner leur vie en mer, se tenaient loin, ", "REV")
+				.AddVerse(18, "et pleuré comme ils ont regardé la fumée de son embrasement: ");
+			AddBlockForVerseInProgress(frenchReferenceBlocks, "merchants of the earth", "«Qu'est-ce que la grande ville?»");
+
+			var englishReferenceBlocks = new List<Block>();
+			englishReferenceBlocks.Add(CreateNarratorBlockForVerse(16, "saying, ", true, 18, "REV"));
+			AddBlockForVerseInProgress(englishReferenceBlocks, "merchants of the earth", "“Woe, woe, the great city, she who was dressed in " +
 				"fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!");
-			referenceBlocks.Add(CreateBlockForVerse("merchants of the earth", 17, "For in an hour such great riches are made desolate.”", false, 18));
-			AddNarratorBlockForVerseInProgress(referenceBlocks, "Every shipmaster, and everyone who sails anywhere, and mariners, and " +
+			englishReferenceBlocks.Add(CreateBlockForVerse("merchants of the earth", 17, "For in an hour such great riches are made desolate.”", false, 18));
+			AddNarratorBlockForVerseInProgress(englishReferenceBlocks, "Every shipmaster, and everyone who sails anywhere, and mariners, and " +
 				"as many as gain their living by sea, stood far away, ", "REV")
 				.AddVerse(18, "and cried out as they looked at the smoke of her burning, saying, ");
-			AddBlockForVerseInProgress(referenceBlocks, "merchants of the earth", "“What is like the great city?”");
+			AddBlockForVerseInProgress(englishReferenceBlocks, "merchants of the earth", "“What is like the great city?”");
 
-			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+			for (int i = 0; i < englishReferenceBlocks.Count; i++)
+				frenchReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, frenchReferenceBlocks);
 
 			refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(5, result.Count);
 
-			Assert.AreEqual("[16]\u00A0saying, ", result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(frenchReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("[16]\u00A0saying, ", result[0].ReferenceBlocks.Single().PrimaryReferenceText);
 			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(englishReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().PrimaryReferenceText);
 
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(frenchReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.AreEqual(englishReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().PrimaryReferenceText);
 
 			Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual("Every shipmaster, and everyone who sails anywhere, and mariners, and " +
-				"as many as gain their living by sea, stood far away, ", result[2].ReferenceBlocks[1].GetText(true));
+			Assert.AreEqual(frenchReferenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual("Chaque capitaine, et tout le monde qui navigue partout, et les marins, et " +
+				"autant que gagner leur vie en mer, se tenaient loin, ", result[2].ReferenceBlocks[1].GetText(true));
 			Assert.IsFalse(result[2].MatchesReferenceText);
+			Assert.AreEqual("Every shipmaster, and everyone who sails anywhere, and mariners, and " +
+				"as many as gain their living by sea, stood far away, ", result[2].ReferenceBlocks[1].PrimaryReferenceText);
 
-			Assert.AreEqual("[18]\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("[18]\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
+			Assert.AreEqual("[18]\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().PrimaryReferenceText);
 
-			Assert.AreEqual(referenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual(frenchReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[4].MatchesReferenceText);
+			Assert.AreEqual(englishReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().PrimaryReferenceText);
 		}
 
 		[Test]
