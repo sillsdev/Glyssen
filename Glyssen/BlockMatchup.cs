@@ -19,9 +19,10 @@ namespace Glyssen
 
 		private readonly BookScript m_vernacularBook;
 		private readonly int m_iStartBlock;
-		private PortionScript m_portion;
+		private readonly PortionScript m_portion;
+		private readonly int m_numberOfBlocksAddedBySplitting = 0;
 
-		public BlockMatchup(BookScript vernacularBook, int iBlock)
+		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks)
 		{
 			m_vernacularBook = vernacularBook;
 			var blocks = vernacularBook.GetScriptBlocks();
@@ -42,6 +43,12 @@ namespace Glyssen
 			if (i > iLastBlock)
 				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
 			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
+			if (splitBlocks != null)
+			{
+				int origCount = m_portion.GetScriptBlocks().Count;
+				splitBlocks(m_portion);
+				m_numberOfBlocksAddedBySplitting = m_portion.GetScriptBlocks().Count - origCount;
+			}
 		}
  
 		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
@@ -63,13 +70,30 @@ namespace Glyssen
 
 		public bool AllBlocksMatch { get { return CorrelatedBlocks.All(b => b.MatchesReferenceText); } }
 
-		public void Apply()
+		public int Apply()
 		{
+			if (!AllBlocksMatch)
+				throw new InvalidOperationException("Cannot apply reference blocks unless all blocks have corresponding reference blocks.");
+
+			if (m_numberOfBlocksAddedBySplitting > 0)
+			{
+				m_vernacularBook.ReplaceBlocks(m_iStartBlock, CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting,
+					CorrelatedBlocks);
+			}
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
-				origBlocks[m_iStartBlock + i].SetMatchedReferenceBlock(CorrelatedBlocks[i].ReferenceBlocks.Single());
+				var vernBlock = origBlocks[m_iStartBlock + i];
+				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
+				vernBlock.SetMatchedReferenceBlock(refBlock);
+				if (vernBlock.CharacterId != refBlock.CharacterId)
+				{
+					vernBlock.CharacterId = refBlock.CharacterId;
+					if (refBlock.CharacterIdOverrideForScript != null)
+						vernBlock.CharacterIdOverrideForScript = refBlock.CharacterIdOverrideForScript;
+				}
 			}
+			return m_numberOfBlocksAddedBySplitting;
 		}
 
 		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, ref int i)

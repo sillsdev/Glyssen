@@ -97,7 +97,7 @@ namespace Glyssen
 			return newBlock;
 		}
 
-		protected virtual void OnBlocksInserted(int insertionIndex)
+		protected virtual void OnBlocksInserted(int insertionIndex, int countOfInsertedBlocks = 1)
 		{
 			// No op
 		}

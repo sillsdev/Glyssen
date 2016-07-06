@@ -200,16 +200,16 @@ namespace Glyssen
 			m_blockCount = m_blocks.Count;
 		}
 
-		protected override void OnBlocksInserted(int insertionIndex)
+		protected override void OnBlocksInserted(int insertionIndex, int countOfInsertedBlocks = 1)
 		{
 			base.OnBlocksInserted(insertionIndex);
 			Debug.Assert(insertionIndex > 0);
 			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum =>
 				chapterNum > m_blocks[insertionIndex - 1].ChapterNumber).ToList();
 			foreach (var chapterNum in  chapterNumbersToIncrement)
-				m_chapterStartBlockIndices[chapterNum]++;
+				m_chapterStartBlockIndices[chapterNum] += countOfInsertedBlocks;
 
-			m_blockCount++;
+			m_blockCount += countOfInsertedBlocks;
 		}
 
 		public IEnumerable<Block> GetBlocksForVerse(int chapter, int verse)
@@ -550,6 +550,13 @@ namespace Glyssen
 				if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
 					block.UserConfirmed = false;
 			}
+		}
+
+		public void ReplaceBlocks(int iStartBlock, int i, IEnumerable<Block> correlatedBlocks)
+		{
+			m_blocks.RemoveRange(iStartBlock, i);
+			m_blocks.InsertRange(iStartBlock, correlatedBlocks);
+			OnBlocksInserted(iStartBlock, correlatedBlocks.Count() - i);
 		}
 	}
 }

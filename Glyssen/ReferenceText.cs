@@ -269,11 +269,6 @@ namespace Glyssen
 			if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
 				m_modifiedBooks.Add(referenceBook.BookId);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook, vernacularVersification);
-		}
-
-		private void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, ScrVers vernacularVersification)
-		{
 			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification);
 		}
 
@@ -285,9 +280,19 @@ namespace Glyssen
 			if (!Books.Any(b => b.BookId == vernacularBook.BookId))
 				return null;
 
-			var matchup = new BlockMatchup(vernacularBook, iBlock);
+			var matchup = new BlockMatchup(vernacularBook, iBlock, portion =>
+			{
+				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+
+				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
+
+			});
 			if (!matchup.AllBlocksMatch)
+			{
 				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularVersification);
+			}
 			return matchup;
 		}
 

@@ -2339,7 +2339,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual("[1]\u00A0Partieron de alli para Jerico. ", result[0].GetText(true));
 			Assert.AreEqual("[2]\u00A0Entonces dijo Jesus: ", result[1].GetText(true));
-			Assert.AreEqual("Come to me you who are weary.", result[3].GetText(true));
+			Assert.AreEqual("Come to me you who are weary.", result[2].GetText(true));
 
 			Assert.IsTrue(result.Select(b => b.PrimaryReferenceText).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))));
 		}
