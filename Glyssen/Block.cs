@@ -269,6 +269,29 @@ namespace Glyssen
 			}
 		}
 
+		/// <summary>
+		/// This handles the common case where the first Block Element is a Verse and the more
+		/// unusual case where there is a preceding Script Text consisting only of an opening square
+		/// bracket (which indicates a verse that is often omitted because of weak manuscript evidence).
+		/// Technically, any preceding SciptText element that consists entirely of punctuation will be
+		/// considered as being part of the following verse.)
+		/// </summary>
+		public bool StartsAtVerseStart
+		{
+			get
+			{
+				return BlockElements.First() is Verse || (FirstTextElementIsOnlyPunctuation && BlockElements.OfType<Verse>().Any());
+			}
+		}
+
+		public bool FirstTextElementIsOnlyPunctuation
+		{
+			get
+			{
+				return BlockElements.OfType<ScriptText>().First().Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c));
+			}
+		}
+
 		public string GetTextAsHtml(bool showVerseNumbers, bool rightToLeftScript)
 		{
 			var bldr = new StringBuilder();
@@ -662,8 +685,7 @@ namespace Glyssen
 						initialStartVerse = int.Parse(verseNumParts[0]);
 						initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
 					}
-					newBlock = new Block(StyleTag, ChapterNumber,
-						initialStartVerse, initialEndVerse)
+					newBlock = new Block(StyleTag, ChapterNumber, initialStartVerse, initialEndVerse)
 					{
 						CharacterId = CharacterId,
 						CharacterIdOverrideForScript = CharacterIdOverrideForScript,

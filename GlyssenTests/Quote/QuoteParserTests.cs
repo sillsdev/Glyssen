@@ -1674,6 +1674,68 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("əkwə.)", output[4].GetText(true));
 		}
 
+		[Test]
+		public void Parse_OpeningSquareBracketBeforeVerseThatStartsQuote_OpeningPunctuationGoesWithFollowingBlock()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 8, 36) { IsParagraphStart = true }.AddVerse(36, "As they traveled along the road, they came to some " +
+				"water and the eunuch said, “Look, here is water. Why shouldn't I be baptized?” [").AddVerse(37, "“If you believe with all " +
+				"your heart, you may,” replied Phillip. And he answered and said, “I believe that Jesus Christ is the Son of God.”] ").AddVerse(
+				38, "He ordered the carriage to stop, and they went down into the water, and Philip baptized him.")
+			};
+			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
+				null, null));
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual("“Look, here is water. Why shouldn't I be baptized?” ", output[1].GetText(true));
+			Assert.AreEqual(36, output[1].InitialStartVerseNumber);
+			Assert.IsFalse(output[1].StartsAtVerseStart);
+			Assert.AreEqual("[[37]\u00A0“If you believe with all your heart, you may,” ", output[2].GetText(true));
+			Assert.AreEqual(37, output[2].InitialStartVerseNumber);
+			Assert.IsTrue(output[2].StartsAtVerseStart);
+			Assert.IsFalse(output[2].IsParagraphStart);
+			Assert.AreEqual("replied Phillip. And he answered and said, ", output[3].GetText(true));
+			Assert.AreEqual(37, output[3].InitialStartVerseNumber);
+			Assert.IsFalse(output[3].StartsAtVerseStart);
+			Assert.AreEqual("“I believe that Jesus Christ is the Son of God.”] ", output[4].GetText(true));
+			Assert.AreEqual(37, output[4].InitialStartVerseNumber);
+			Assert.IsFalse(output[4].StartsAtVerseStart);
+		}
+
+		[Test]
+		public void Parse_OpeningSquareBracketWhenPrecedingVerseEndsQuote_OpeningPunctuationGoesWithFollowingBlock()
+		{
+			var input = new List<Block>
+			{
+				new Block("p", 8, 36) { IsParagraphStart = true }.AddVerse(36, "As they traveled along the road, they came to some " +
+				"water and the eunuch said, “Look, here is water. Why shouldn't I be baptized?” [").AddVerse(37, "Phillip replied, “If you believe with all " +
+				"your heart, you may.” The eunuch answered, “I believe that Jesus Christ is the Son of God.”] ").AddVerse(
+				38, "He ordered the carriage to stop, and they went down into the water, and Philip baptized him.")
+			};
+			QuoteParser.SetQuoteSystem(QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal),
+				null, null));
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			Assert.AreEqual(7, output.Count);
+			Assert.AreEqual("“Look, here is water. Why shouldn't I be baptized?” ", output[1].GetText(true));
+			Assert.AreEqual(36, output[1].InitialStartVerseNumber);
+			Assert.IsFalse(output[1].StartsAtVerseStart);
+			Assert.AreEqual("[[37]\u00A0Phillip replied, ", output[2].GetText(true));
+			Assert.AreEqual(37, output[2].InitialStartVerseNumber);
+			Assert.IsTrue(output[2].StartsAtVerseStart);
+			Assert.IsFalse(output[2].IsParagraphStart);
+			Assert.AreEqual("“If you believe with all your heart, you may.” ", output[3].GetText(true));
+			Assert.AreEqual(37, output[3].InitialStartVerseNumber);
+			Assert.IsFalse(output[3].StartsAtVerseStart);
+			Assert.IsFalse(output[3].IsParagraphStart);
+			Assert.AreEqual("The eunuch answered, ", output[4].GetText(true));
+			Assert.AreEqual(37, output[4].InitialStartVerseNumber);
+			Assert.IsFalse(output[4].StartsAtVerseStart);
+			Assert.AreEqual("“I believe that Jesus Christ is the Son of God.”] ", output[5].GetText(true));
+			Assert.AreEqual(37, output[5].InitialStartVerseNumber);
+			Assert.IsFalse(output[5].StartsAtVerseStart);
+		}
+
 		[TestCase("(")]
 		[TestCase("[")]
 		[TestCase("{")]

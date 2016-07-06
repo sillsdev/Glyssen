@@ -468,11 +468,11 @@ namespace Glyssen
 		{
 			var splitLocations = new List<VerseSplitLocation>();
 			Block prevBlock = null;
-			foreach (var refBlock in script.GetScriptBlocks())
+			foreach (var block in script.GetScriptBlocks())
 			{
-				if (prevBlock != null && refBlock.BlockElements.First() is Verse)
-					splitLocations.Add(new VerseSplitLocation(bookNum, prevBlock, refBlock, Versification));
-				prevBlock = refBlock;
+				if (prevBlock != null && block.StartsAtVerseStart)
+					splitLocations.Add(new VerseSplitLocation(bookNum, prevBlock, block, Versification));
+				prevBlock = block;
 			}
 			return splitLocations;
 		}

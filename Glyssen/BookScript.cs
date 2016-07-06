@@ -493,49 +493,6 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
-			Block newBlock = blockToSplit.SplitBlock(verseToSplit, characterOffsetToSplit);
-			if (newBlock == null)
-			{
-				SplitBeforeBlock(iBlock + 1, splitId);
-				return m_blocks[iBlock + 1];
-			}
-			m_blocks.Insert(iBlock + 1, newBlock);
-			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
-			foreach (var chapterNum in chapterNumbersToIncrement)
-				m_chapterStartBlockIndices[chapterNum]++;
-
-			m_blockCount++;
-
-			if (userSplit)
-			{
-				newBlock.Delivery = null;
-				if (string.IsNullOrEmpty(characterId))
-				{
-					newBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
-					newBlock.CharacterIdOverrideForScript = null;
-					newBlock.UserConfirmed = false;
-				}
-				else
-				{
-					if (versification == null)
-						throw new ArgumentNullException("versification");
-					newBlock.SetCharacterAndCharacterIdInScript(characterId, BCVRef.BookToNumber(BookId), versification);
-					newBlock.UserConfirmed = true;
-				}
-				var newBlock = SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
-				if (vernBlock.MatchesReferenceText)
-				{
-					try
-					{
-						// REVIEW: Should this be First or Single, or do we need to possibly handle the case of a sequence?
-						newBlock.SetMatchedReferenceBlock(vernBlock.ReferenceBlocks.First().SplitBlock(verseString, kSplitAtEndOfVerse));
-					}
-					catch (ArgumentException)
-					{
-						// TODO: Handle English Reference block with different verse number from primary reference block
-					}
-				}
-
 		public void ClearUnappliedSplits()
 		{
 			m_unappliedSplitBlocks.Clear();

@@ -29,7 +29,7 @@ namespace Glyssen
 			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(block.ChapterNumber, block.InitialStartVerseNumber).ToList();
 			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(block);
-			while (!(blocksForVersesCoveredByBlock.First().BlockElements.First() is Verse))
+			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
 			{
 				var prepend = vernacularBook.GetBlocksForVerse(block.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
 				prepend.RemoveAt(prepend.Count - 1);
@@ -74,7 +74,7 @@ namespace Glyssen
 
 		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, ref int i)
 		{
-			for (; i < blockList.Count - 1 && !(blockList[i + 1].BlockElements.First() is Verse) && !blockList[i + 1].IsChapterAnnouncement; i++)
+			for (; i < blockList.Count - 1 && !blockList[i + 1].StartsAtVerseStart && !blockList[i + 1].IsChapterAnnouncement; i++)
 			{
 			}
 		}

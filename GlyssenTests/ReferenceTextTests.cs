@@ -115,6 +115,69 @@ namespace GlyssenTests
 			Assert.IsTrue(result.Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
 		}
 
+		[TestCase(MultiBlockQuote.None, MultiBlockQuote.None, MultiBlockQuote.None)]
+		[TestCase(MultiBlockQuote.Start, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.Continuation, MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.Continuation)]
+		public void ApplyTo_SingleBlockOfVernacular_ReferenceTextHasVersePrecededBySquareBracket_VernacularGetsBrokenByVerse(
+			MultiBlockQuote vernMultiBlockQuote, MultiBlockQuote expectedResultForFirstBlock, MultiBlockQuote expectedResultForSubsequentBlocks)
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = new Block("p", 1, 1)
+			{
+				IsParagraphStart = true,
+				CharacterId = "Peter/James/John",
+				CharacterIdInScript = "John",
+				Delivery = "annoyed beyond belief",
+				MultiBlockQuote = vernMultiBlockQuote,
+				UserConfirmed = true,
+			};
+			block.AddVerse(1, "This is versiculo uno.").AddVerse(2, "This is versiculo dos.").AddVerse(3, "This is versiculo tres.");
+			vernacularBlocks.Add(block);
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var referenceBlocks = new List<Block>();
+			block = new Block("p", 1, 1)
+			{
+				IsParagraphStart = true,
+				CharacterId = "Peter/James/John",
+				CharacterIdInScript = "John",
+				Delivery = "annoyed beyond belief",
+			};
+			block.AddVerse(1, "This is verse one.");
+			referenceBlocks.Add(block);
+			block = new Block("p", 1, 2)
+			{
+				CharacterId = "Peter/James/John",
+				CharacterIdInScript = "John",
+				Delivery = "annoyed beyond belief",
+			};
+			block.AddVerse(2, "This is verse two.");
+			referenceBlocks.Add(block);
+			block = new Block("p", 1, 3)
+			{
+				CharacterId = "Peter/James/John",
+				CharacterIdInScript = "John",
+				Delivery = "annoyed beyond belief",
+			};
+			block.AddVerse(3, "This is verse three.");
+			referenceBlocks.Add(block);
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			Assert.AreEqual(3, referenceBlocks.Count);
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result.All(b => b.CharacterId == "Peter/James/John"));
+			Assert.IsTrue(result.All(b => b.CharacterIdInScript == "John"));
+			Assert.IsTrue(result.All(b => b.Delivery == "annoyed beyond belief"));
+			Assert.AreEqual(expectedResultForFirstBlock, result.First().MultiBlockQuote);
+			Assert.IsTrue(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks));
+			Assert.IsTrue(result.All(b => b.UserConfirmed));
+			Assert.IsTrue(result.All(b => b.SplitId == -1));
+			Assert.IsTrue(result.Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+		}
+
 		[Test]
 		public void ApplyTo_VernacularHasVerseSplitIntoMoreBlocksThanReference_ReferenceTextBrokenByVerse_SubsequentBlocksInVernacularGetBrokenByVerse()
 		{
@@ -1551,6 +1614,54 @@ namespace GlyssenTests
 			Assert.AreEqual(frenchReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[4].MatchesReferenceText);
 			Assert.AreEqual(englishReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[TestCase(null)]
+		[TestCase("[")] // PG-760
+		[TestCase("[ ")] // PG-760
+		public void ApplyTo_VernacularHasBlockThatStartsWithVerseNotInReferenceText_ReferenceTextIsBrokenCorrectly(string openingBracket)
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(36, "And as they went on the way, they came unto a certain water; and the eunuch saith, ", true, 8, "ACT"));
+			AddBlockForVerseInProgress(vernacularBlocks, "Ethiopian officer of Queen Candace",
+				"«Behold, here is water; what doth hinder me to be baptized?»");
+			var block = CreateNarratorBlockForVerse(37, "And Philip said, ");
+			if (openingBracket != null)
+				block.BlockElements.Insert(0, new ScriptText(openingBracket));
+			vernacularBlocks.Add(block);
+			AddBlockForVerseInProgress(vernacularBlocks, "Philip the evangelist", "«If you believe with all your heart, you may.» ");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "And he answered and said, ", "ACT");
+			AddBlockForVerseInProgress(vernacularBlocks, "Ethiopian officer of Queen Candace", "«I believe that Jesus Christ is the Son of God.»" +
+				(openingBracket == null ? "" : "]"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(38, "And he gave orders to stop the chariot. Then both Philip and the eunuch went down " +
+				"into the water and Philip baptized him.", false, 8, "ACT"));
+			var vernBook = new BookScript("ACT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(36, "Yendo por el camino, llegaron a un lugar donde había agua; y el eunuco dijo: ", true, 8, "ACT"));
+			AddBlockForVerseInProgress(referenceBlocks, "Ethiopian officer of Queen Candace", "«Mira, agua. ¿Qué impide que yo sea bautizado? ").AddVerse(38, "¡Para el carruaje!» ");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "Ambos descendieron al agua, Felipe y el eunuco, y lo bautizó.", "ACT");
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[0].MatchesReferenceText);
+
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.IsTrue(result[1].MatchesReferenceText);
+
+			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
+			Assert.AreEqual(0, result[3].ReferenceBlocks.Count);
+			Assert.AreEqual(0, result[4].ReferenceBlocks.Count);
+			Assert.AreEqual(0, result[5].ReferenceBlocks.Count);
+
+			Assert.AreEqual(2, result[6].ReferenceBlocks.Count);
+			Assert.AreEqual("[38]\u00A0¡Para el carruaje!» ", result[6].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks.Last().GetText(true), result[6].ReferenceBlocks[1].GetText(true));
 		}
 
 		[Test]

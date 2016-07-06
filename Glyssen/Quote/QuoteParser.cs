@@ -403,7 +403,7 @@ namespace Glyssen.Quote
 							}
 							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
-								if (m_quoteLevel == 0)
+								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(char.IsPunctuation))))
 									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
 								sb.Append(token);
 								IncrementQuoteLevel();
