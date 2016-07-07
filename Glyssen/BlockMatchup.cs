@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Glyssen.Character;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 namespace Glyssen
@@ -42,6 +43,9 @@ namespace Glyssen
 			AdvanceToCleanVerseBreak(blocks, ref i);
 			if (i > iLastBlock)
 				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
+			while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+				blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
+
 			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
 			if (splitBlocks != null)
 			{
@@ -60,20 +64,27 @@ namespace Glyssen
 				bool assignmentsIncomplete = CorrelatedBlocks.Any(b => b.CharacterIsUnclear());
 				if (assignmentsIncomplete)
 				{
-					return AllBlocksMatch ? MatchState.MatchedWithUnassignedCharacters :
+					return AllScriptureBlocksMatch ? MatchState.MatchedWithUnassignedCharacters :
 						MatchState.MismatchedWithUnassignedCharacters;
 				}
-				return AllBlocksMatch ? MatchState.MatchedWithAllAssignmentsComplete :
+				return AllScriptureBlocksMatch ? MatchState.MatchedWithAllAssignmentsComplete :
 					MatchState.MismatchedWithAllAssignmentsComplete;
 			}
 		}
 
-		public bool AllBlocksMatch { get { return CorrelatedBlocks.All(b => b.MatchesReferenceText); } }
+		public bool AllScriptureBlocksMatch
+		{
+			get
+			{
+				return CorrelatedBlocks.All(b => b.MatchesReferenceText ||
+					b.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+			}
+		}
 
 		public int Apply()
 		{
-			if (!AllBlocksMatch)
-				throw new InvalidOperationException("Cannot apply reference blocks unless all blocks have corresponding reference blocks.");
+			if (!AllScriptureBlocksMatch)
+				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
 
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
@@ -83,6 +94,8 @@ namespace Glyssen
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
+				if (!CorrelatedBlocks[i].MatchesReferenceText)
+					continue;
 				var vernBlock = origBlocks[m_iStartBlock + i];
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);

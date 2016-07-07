@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using DesktopAnalytics;
@@ -66,7 +67,13 @@ namespace Glyssen.Dialogs
 			get { return CurrentBook.SingleVoice; }
 		}
 
+		public bool HasSecondaryReferenceText
+		{
+			get { return m_project.ReferenceText.HasSecondaryReferenceText; }
+		}
+
 		public BlockMatchup ReferenceTextMatchup { get { return m_currentRefBlockMatchups; } }
+		public string PrimaryReferenceTextName { get { return m_project.ReferenceText.LanguageName; } }
 		#endregion
 
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
@@ -121,6 +128,7 @@ namespace Glyssen.Dialogs
 		#region Overridden methods
 		protected override void HandleCurrentBlockChanged()
 		{
+			Debug.Assert(!CharacterVerseData.IsCharacterStandard(CurrentBlock.CharacterId, false));
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 				CurrentBook.GetIndexOfFirstBlockForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber),
 				m_project.Versification);

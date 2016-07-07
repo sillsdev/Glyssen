@@ -289,7 +289,7 @@ namespace Glyssen
 				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
 
 			});
-			if (!matchup.AllBlocksMatch)
+			if (!matchup.AllScriptureBlocksMatch)
 			{
 				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularVersification);
 			}

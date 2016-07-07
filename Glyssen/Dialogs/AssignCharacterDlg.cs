@@ -22,6 +22,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -49,7 +50,7 @@ namespace Glyssen.Dialogs
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
 
 			m_xOfYFmt = m_labelXofY.Text;
-			m_singleVoiceCheckboxFmt = m_lblSingleVoice.Text;
+			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
 			m_stateFmt = m_lblStateTemporary.Text;
 
 			Text = string.Format(Text, m_viewModel.ProjectName);
@@ -85,6 +86,9 @@ namespace Glyssen.Dialogs
 
 			UpdateProgressBarForMode();
 
+			m_dataGridReferenceText.DataError += HandleDataGridViewDataError;
+			colPrimary.HeaderText = m_viewModel.PrimaryReferenceTextName;
+
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
@@ -102,6 +106,13 @@ namespace Glyssen.Dialogs
 
 			m_viewModel.CurrentBookSaved += UpdateSavedText;
 			m_viewModel.FilterReset +=m_viewModel_FilterReset;
+		}
+
+		void HandleDataGridViewDataError(object sender, DataGridViewDataErrorEventArgs e)
+		{
+			Analytics.ReportException(e.Exception);
+			ErrorReport.ReportFatalException(e.Exception);
+			throw e.Exception;
 		}
 
 		void m_viewModel_FilterReset(object sender, EventArgs e)
@@ -177,14 +188,7 @@ namespace Glyssen.Dialogs
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
-			m_lblSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
-			if (m_viewModel.ReferenceTextMatchup == null)
-				m_lblStateTemporary.Visible = false;
-			else
-			{
-				m_lblStateTemporary.Visible = true;
-				m_lblStateTemporary.Text = string.Format(m_stateFmt, m_viewModel.ReferenceTextMatchup.ReferenceTextMatchState);
-			}
+			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
 			m_viewModel.GetBlockVerseRef().SendScrReference();
 
@@ -193,6 +197,54 @@ namespace Glyssen.Dialogs
 
 			LoadCharacterListBox(m_viewModel.GetUniqueCharactersForCurrentReference());
 			UpdateShortcutDisplay();
+
+			if (m_viewModel.ReferenceTextMatchup == null)
+				tabPageMatchReferenceText.Visible = false;
+			else
+			{
+				tabPageMatchReferenceText.Visible = true;
+				m_lblStateTemporary.Text = string.Format(m_stateFmt, m_viewModel.ReferenceTextMatchup.ReferenceTextMatchState);
+				m_dataGridReferenceText.RowCount = m_viewModel.ReferenceTextMatchup.CorrelatedBlocks.Count;
+				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
+				colCharacter.Visible = colCharacter.Items.Count > 1;
+				colDelivery.Visible = colDelivery.Items.Count > 1;
+				var primaryColumnIndex = colPrimary.Visible ? colPrimary.Index : colEnglish.Index;
+				int i = 0;
+				foreach (var correlatedBlock in m_viewModel.ReferenceTextMatchup.CorrelatedBlocks)
+				{
+					var row = m_dataGridReferenceText.Rows[i++];
+					if (colPrimary.Visible)
+						row.Cells[colEnglish.Index].Value = String.Join(" ", correlatedBlock.ReferenceBlocks.Select(b => b.PrimaryReferenceText));
+					row.Cells[primaryColumnIndex].Value = String.Join(" ", correlatedBlock.ReferenceBlocks.Select(b => b.GetText(true)));
+					if (colCharacter.Visible)
+					{
+						string characterId = null;
+						if (correlatedBlock.CharacterIsUnclear())
+						{
+							if (correlatedBlock.MatchesReferenceText)
+								characterId = correlatedBlock.ReferenceBlocks[0].CharacterId;
+						}
+						else
+							characterId = correlatedBlock.CharacterId;
+
+						if (characterId != null)
+						{
+							if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+								characterId = colCharacter.Items[0] as string;
+							row.Cells[colCharacter.Index].Value = characterId;
+						}
+					}
+					if (colDelivery.Visible)
+					{
+						string delivery = correlatedBlock.Delivery;
+						if (string.IsNullOrEmpty(delivery) && correlatedBlock.MatchesReferenceText)
+							delivery = correlatedBlock.ReferenceBlocks[0].Delivery;
+						if (string.IsNullOrEmpty(delivery))
+							delivery = colDelivery.Items[0] as string;
+						row.Cells[colDelivery.Index].Value = delivery;
+					}
+				}
+			}
 
 			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
 
@@ -275,11 +327,15 @@ namespace Glyssen.Dialogs
 
 			m_listBoxCharacters.Items.Clear();
 			m_listBoxDeliveries.Items.Clear();
+			m_dataGridReferenceText.RowCount = 0;
+			colCharacter.Items.Clear();
 			HideDeliveryFilter();
 
 			foreach (var character in characters)
+			{
 				m_listBoxCharacters.Items.Add(character);
-
+				colCharacter.Items.Add(character.LocalizedDisplay);
+			}
 			SelectCharacter();
 
 			m_listBoxCharacters.EndUpdate();
@@ -302,9 +358,13 @@ namespace Glyssen.Dialogs
 		{
 			m_listBoxDeliveries.BeginUpdate();
 			m_listBoxDeliveries.Items.Clear();
+			colDelivery.Items.Clear();
 
 			foreach (var delivery in deliveries)
+			{
 				m_listBoxDeliveries.Items.Add(delivery);
+				colDelivery.Items.Add(delivery);
+			}
 
 			SelectDelivery(selectedItem);
 			m_listBoxDeliveries.EndUpdate();
@@ -820,12 +880,10 @@ namespace Glyssen.Dialogs
 			Close();
 		}
 
-		private void m_lblSingleVoice_Click(object sender, EventArgs e)
+		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
-			m_chkSingleVoice.Checked = !m_chkSingleVoice.Checked;
+			m_viewModel.ReferenceTextMatchup.Apply();
 		}
-
 		#endregion
-
 	}
 }

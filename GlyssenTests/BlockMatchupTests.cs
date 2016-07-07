@@ -69,6 +69,25 @@ namespace GlyssenTests
 			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
 		}
 
+		[TestCase(1)]
+		[TestCase(2)]
+		public void Constructor_VernVerseEndsAtSectionHead_CorrelatedBlocksExcludesSectionHead(int iBlock)
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Nice place you got here!");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks,
+				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				"Big change in Topic", "s").IsParagraphStart = true;
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, iBlock, null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
+				.SequenceEqual(vernacularBlocks.Skip(1).Take(2).Select(b => b.GetText(true))));
+			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
+		}
+
 		[TestCase(0)]
 		[TestCase(1)]
 		[TestCase(2)]
@@ -137,6 +156,39 @@ namespace GlyssenTests
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "This is verse two, ", true));
 			Assert.Throws<InvalidOperationException>(() => matchup.Apply());
+		}
+
+		[Test]
+		public void Apply_VernVerseCrossesUnmatchedSectionHead_VerseBlocksButNotSectionHeadSetAsMatchWithReferenceBlocks()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks,
+				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				"Big Change in Topic", "s").IsParagraphStart = true;
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Pedro dijo: ").IsParagraphStart = true;
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Que buen lugar tienes!");
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 1, null);
+
+			var refBlock1 = ReferenceTextTests.CreateBlockForVerse(vernacularBlocks[1].CharacterId, 2, "The left from there for Jericho. ", true);
+			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(refBlock1);
+			var refBlock2 = new Block("p", 1, 2) { CharacterId = vernacularBlocks[1].CharacterId };
+			refBlock2.BlockElements.Add(new ScriptText("Peter said: "));
+			matchup.CorrelatedBlocks[2].SetMatchedReferenceBlock(refBlock2);
+			var refBlock3 = new Block("p", 1, 2) { CharacterId = "Peter" };
+			refBlock2.BlockElements.Add(new ScriptText("Nice place you got here!"));
+			matchup.CorrelatedBlocks[3].SetMatchedReferenceBlock(refBlock3);
+
+			Assert.AreEqual(0, matchup.Apply());
+			var scriptBlocks = vernBook.GetScriptBlocks(true);
+
+			Assert.AreEqual(refBlock1, scriptBlocks[1].ReferenceBlocks.Single());
+			Assert.IsFalse(scriptBlocks[2].MatchesReferenceText);
+			Assert.AreEqual(refBlock2, scriptBlocks[3].ReferenceBlocks.Single());
+			Assert.AreEqual(refBlock3, scriptBlocks[4].ReferenceBlocks.Single());
 		}
 
 		[TestCase(1)]
