@@ -52,12 +52,13 @@ namespace Glyssen.Character
 
 		public static StandardCharacter GetStandardCharacterType(string characterId)
 		{
-			if (String.IsNullOrEmpty(characterId))
+			if (string.IsNullOrEmpty(characterId))
 				return StandardCharacter.NonStandard;
 
-			int i = characterId.IndexOf("-", StringComparison.Ordinal);
+			var i = characterId.IndexOf("-", StringComparison.Ordinal);
 			if (i < 0)
 				return StandardCharacter.NonStandard;
+
 			switch (characterId.Substring(0, i + 1))
 			{
 				case kNarratorPrefix: return StandardCharacter.Narrator;
@@ -65,6 +66,7 @@ namespace Glyssen.Character
 				case kExtraBiblicalPrefix: return StandardCharacter.ExtraBiblical;
 				case kBookOrChapterPrefix: return StandardCharacter.BookOrChapter;
 			}
+
 			return StandardCharacter.NonStandard;
 		}
 
@@ -75,7 +77,21 @@ namespace Glyssen.Character
 
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
-			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
+			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+		}
+
+		public static bool IsCharacterExtraBiblical(string characterId)
+		{
+			if (IsCharacterOfType(characterId, StandardCharacter.BookOrChapter))
+				return true;
+
+			if (IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical))
+				return true;
+
+			if (IsCharacterOfType(characterId, StandardCharacter.Intro))
+				return true;
+
+			return false;
 		}
 
 		public static string GetCharacterNameForUi(string characterId)
@@ -138,7 +154,7 @@ namespace Glyssen.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{
