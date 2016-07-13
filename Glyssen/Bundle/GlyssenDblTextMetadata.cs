@@ -427,7 +427,7 @@ namespace Glyssen.Bundle
 		public ExtraBiblicalMaterialSpeakerOption BookTitleAndChapterDramatization { get; set; }
 
 		[XmlElement("SectionHeadDramatization")]
-		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
+		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Narrator)]
 		public ExtraBiblicalMaterialSpeakerOption SectionHeadDramatization { get; set; }
 
 		[XmlElement("BookIntroductionsDramatization")]
