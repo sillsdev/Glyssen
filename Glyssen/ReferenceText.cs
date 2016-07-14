@@ -232,6 +232,11 @@ namespace Glyssen
 			get { return HasSecondaryReferenceText ? "English" : null; }
 		}
 
+		public ReferenceText SecondaryReferenceText
+		{
+			get { return GetStandardReferenceText(ReferenceTextType.English); }
+		}
+
 		/// <summary>
 		/// This gets the included books from the project. As needed, blocks are broken up and matched to
 		/// correspond to this reference text (in which case, the books and blocks returned are copies, so

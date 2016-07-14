@@ -2385,18 +2385,22 @@ namespace GlyssenTests
 			});
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
-			Assert.AreEqual(BlockMatchup.MatchState.MatchedWithAllAssignmentsComplete, matchup.ReferenceTextMatchState);
+			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
 
 		#region private helper methods
-		internal static Block CreateBlockForVerse(string characterId, int verseNumber, string text, bool paraStart = false, int chapter = 1, string styleTag = "p")
+		internal static Block CreateBlockForVerse(string characterId, int initialStartVerseNumber, string text, bool paraStart = false,
+			int chapter = 1, string styleTag = "p", int initialEndVerseNumber = 0)
 		{
-			var block = new Block(styleTag, chapter, verseNumber)
+			var block = new Block(styleTag, chapter, initialStartVerseNumber, initialEndVerseNumber)
 			{
 				IsParagraphStart = paraStart,
 				CharacterId = characterId,
 			};
-			block.AddVerse(verseNumber, text);
+			if (initialEndVerseNumber > 0)
+				block.AddVerse(String.Format("{0}-{1}", initialStartVerseNumber, initialEndVerseNumber), text);
+			else
+				block.AddVerse(initialStartVerseNumber, text);
 			return block;
 		}
 

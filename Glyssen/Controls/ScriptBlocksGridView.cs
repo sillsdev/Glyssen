@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
+using Glyssen.Utilities;
 
 namespace Glyssen.Controls
 {
@@ -12,7 +13,7 @@ namespace Glyssen.Controls
 		private DataGridViewTextBoxColumn m_colReference;
 		private DataGridViewTextBoxColumn m_colText;
 		private BlockNavigatorViewModel m_viewModel;
-		private Font m_originalDefaultFont;
+		private FontProxy m_originalDefaultFont;
 
 		#region overrides
 		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
@@ -61,12 +62,12 @@ namespace Glyssen.Controls
 
 		protected override void OnCellPainting(DataGridViewCellPaintingEventArgs e)
 		{
-			if (!e.Handled && m_viewModel != null && m_viewModel.RightToLeft && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
+			if (!e.Handled && m_viewModel != null && m_viewModel.Font.RightToLeftScript && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
 			{
 				e.PaintBackground(e.CellBounds, true);
 				TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(),
-				e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
-				 TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.RightToLeft | TextFormatFlags.Right);
+					e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
+					TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.RightToLeft | TextFormatFlags.Right);
 				e.Handled = true;
 			}
 			base.OnCellPainting(e);
@@ -89,7 +90,7 @@ namespace Glyssen.Controls
 			Debug.Assert(m_colText != null);
 			m_viewModel = viewModel;
 
-			m_originalDefaultFont = DefaultCellStyle.Font;
+			m_originalDefaultFont = new FontProxy(DefaultCellStyle.Font);
 			SetFontsFromViewModel();
 
 			m_viewModel.UiFontSizeChanged += (sender, args) => SetFontsFromViewModel();
@@ -101,7 +102,9 @@ namespace Glyssen.Controls
 			SuspendLayout();
 			ClearSelection();
 			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
-			bool multiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
+			var firstRow = m_viewModel.IndexOfFirstBlockInCurrentGroup;
+			var lastRow = m_viewModel.IndexOfLastBlockInCurrentGroup;
+			bool multiSelect = firstRow != lastRow;
 			if (changingRowCount || MultiSelect != multiSelect)
 			{
 				MultiSelect = multiSelect;
@@ -116,21 +119,19 @@ namespace Glyssen.Controls
 				// range for the new book.
 				ClearSelection();
 			}
-			var firstRow = m_viewModel.CurrentBlockIndexInBook;
-			var lastRow = firstRow;
-			Rows[firstRow].Selected = true;
-			if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+
+			for (var i = firstRow; i <= lastRow; i++)
 			{
-				foreach (var i in m_viewModel.GetIndicesOfQuoteContinuationBlocks(m_viewModel.CurrentBlock))
+				Rows[i].Selected = true;
+				if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 				{
-					Rows[i].Selected = true;
-					lastRow = i;
+					Rows[i].DefaultCellStyle.SelectionBackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i - firstRow);
+					Rows[i].DefaultCellStyle.SelectionForeColor = Color.Black;
 				}
 			}
+
 			if (changingRowCount)
-			{
 				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-			}
 			ScrollDesiredRowsIntoView(firstRow, lastRow);
 			ResizeFirstColumn();
 
@@ -163,8 +164,7 @@ namespace Glyssen.Controls
 		private void SetFontsFromViewModel()
 		{
 			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
-			DefaultCellStyle.Font = new Font(m_originalDefaultFont.FontFamily,
-				Math.Max(m_originalDefaultFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, BlockNavigatorViewModel.kMinFontSize), m_originalDefaultFont.Style);
+			DefaultCellStyle.Font = m_originalDefaultFont.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
 		}
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)

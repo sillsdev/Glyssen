@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
@@ -203,20 +204,96 @@ namespace Glyssen
 		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
 		public List<BlockElement> BlockElements { get; set; }
 
-		public bool CharacterIsStandard
-		{
-			get { return CharacterVerseData.IsCharacterStandard(CharacterId); }
-		}
+		public bool CharacterIsStandard { get { return CharacterVerseData.IsCharacterStandard(CharacterId); } }
 
-		public bool IsChapterAnnouncement
-		{
-			get { return StyleTag == "c" || StyleTag == "cl"; }
-		}
+		public bool IsChapterAnnouncement { get { return StyleTag == "c" || StyleTag == "cl"; } }
+
+		public bool ContainsVerseNumber { get { return BlockElements.OfType<Verse>().Any(); } }
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
 			ReferenceBlocks = new List<Block> { referenceBlock };
 			MatchesReferenceText = true;
+		}
+
+		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
+		{
+			int initialStartVerseNumber, initialEndVerseNumber;
+			if (prevRefBlock == null)
+			{
+				// TODO Write test
+				initialStartVerseNumber = InitialStartVerseNumber;
+				initialEndVerseNumber = InitialEndVerseNumber;
+			}
+			else
+			{
+				var lastVerse = prevRefBlock.BlockElements.OfType<Verse>().LastOrDefault();
+				if (lastVerse == null)
+				{
+					initialStartVerseNumber = prevRefBlock.InitialStartVerseNumber;
+					initialEndVerseNumber = prevRefBlock.InitialEndVerseNumber;
+				}
+				else
+				{
+					initialStartVerseNumber = lastVerse.StartVerse;
+					initialEndVerseNumber = lastVerse.EndVerse;
+				}
+			}
+			var refBlock = new Block(StyleTag, ChapterNumber, initialStartVerseNumber, initialEndVerseNumber);
+			refBlock.SetCharacterAndDeliveryInfo(this);
+			refBlock.ParsePlainText(text);
+			SetMatchedReferenceBlock(refBlock);
+
+			return refBlock;
+		}
+
+		private void ParsePlainText(string text)
+		{
+			// TODO: handle in-line annotations
+			var verseNumbers = new Regex(@"\[(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\](\u00A0| )?");
+			var pos = 0;
+			text = text.TrimStart();
+			while (pos < text.Length)
+			{
+				var match = verseNumbers.Match(text, pos);
+				if (match.Success)
+				{
+					int startVerse = Int32.Parse(match.Result("${startVerse}"));
+					if (match.Index == pos)
+					{
+						//	// We don't allow two verses in a row with no text between, so unless this is a verse at the very
+						//	// beginning, just treat it as text and move past it.
+						//	if (match.Index > 0)
+						//	{
+						//		pos = match.Index + match.Length;
+						//		continue;
+						//	}
+						InitialStartVerseNumber = startVerse;
+						int endVerse;
+						if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
+							endVerse = 0;
+						InitialEndVerseNumber = endVerse;
+					}
+					else
+					{
+						if (!ContainsVerseNumber && startVerse < InitialEndVerseNumber)
+						{
+							InitialEndVerseNumber = startVerse - 1;
+							if (InitialEndVerseNumber <= InitialStartVerseNumber)
+								InitialEndVerseNumber = 0;
+						}
+
+						BlockElements.Add(new ScriptText(text.Substring(pos, match.Index - pos)));
+					}
+					BlockElements.Add(new Verse(match.Result("${verse}").Replace(',', '-')));
+					pos = match.Index + match.Length;
+				}
+				else
+				{
+					BlockElements.Add(new ScriptText(text.Substring(pos)));
+					break;
+				}
+			}
 		}
 
 		public string GetText(bool includeVerseNumbers, bool includeAnnotations = false)
@@ -280,7 +357,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return BlockElements.First() is Verse || (FirstTextElementIsOnlyPunctuation && BlockElements.OfType<Verse>().Any());
+				return BlockElements.First() is Verse || (FirstTextElementIsOnlyPunctuation && ContainsVerseNumber);
 			}
 		}
 
@@ -708,6 +785,46 @@ namespace Glyssen
 					BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
 			return newBlock;
+		}
+
+		public void SetCharacterAndDeliveryInfo(Block basedOnBlock)
+		{
+			CharacterId = basedOnBlock.CharacterId;
+			CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
+			Delivery = basedOnBlock.Delivery;
+		}
+
+		public void AppendJoinedBlockElements(List<Block> referenceBlocks)
+		{
+			var nestedRefBlocks = new List<Block>();
+
+			foreach (Block r in referenceBlocks)
+			{
+				if (r.MatchesReferenceText)
+					nestedRefBlocks.Add(r.ReferenceBlocks.Single());
+				foreach (BlockElement element in r.BlockElements)
+				{
+					var scriptText = element as ScriptText;
+					if (scriptText != null)
+					{
+						var prevScriptText = BlockElements.LastOrDefault() as ScriptText;
+						if (prevScriptText != null)
+						{
+							prevScriptText.Content = prevScriptText.Content.TrimEnd() + " " + scriptText.Content;
+							continue;
+						}
+					}
+					BlockElements.Add(element.Clone());
+				}
+			}
+			if (nestedRefBlocks.Any())
+			{
+				var backingRefBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber,
+					InitialEndVerseNumber);
+				backingRefBlock.SetCharacterAndDeliveryInfo(this);
+				backingRefBlock.AppendJoinedBlockElements(nestedRefBlocks);
+				SetMatchedReferenceBlock(backingRefBlock);
+			}
 		}
 	}
 

@@ -1,23 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Glyssen.Character;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 namespace Glyssen
 {
 	public class BlockMatchup
 	{
-		public enum MatchState
-		{
-			MatchedWithAllAssignmentsComplete,
-			MatchedWithUnassignedCharacters,
-			MismatchedWithAllAssignmentsComplete,
-			MismatchedWithUnassignedCharacters,
-		}
-
 		private readonly BookScript m_vernacularBook;
 		private readonly int m_iStartBlock;
 		private readonly PortionScript m_portion;
@@ -52,25 +41,21 @@ namespace Glyssen
 				int origCount = m_portion.GetScriptBlocks().Count;
 				splitBlocks(m_portion);
 				m_numberOfBlocksAddedBySplitting = m_portion.GetScriptBlocks().Count - origCount;
+				HasOutstandingChangesToApply = m_numberOfBlocksAddedBySplitting > 0;
 			}
 		}
- 
-		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
 
-		public MatchState ReferenceTextMatchState
+		public IEnumerable<Block> OriginalBlocks
 		{
 			get
 			{
-				bool assignmentsIncomplete = CorrelatedBlocks.Any(b => b.CharacterIsUnclear());
-				if (assignmentsIncomplete)
-				{
-					return AllScriptureBlocksMatch ? MatchState.MatchedWithUnassignedCharacters :
-						MatchState.MismatchedWithUnassignedCharacters;
-				}
-				return AllScriptureBlocksMatch ? MatchState.MatchedWithAllAssignmentsComplete :
-					MatchState.MismatchedWithAllAssignmentsComplete;
+				return m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting);
 			}
 		}
+
+		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
+
+		public bool HasOutstandingChangesToApply { get; private set; }
 
 		public bool AllScriptureBlocksMatch
 		{
@@ -79,6 +64,10 @@ namespace Glyssen
 				return CorrelatedBlocks.All(b => b.MatchesReferenceText ||
 					b.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
 			}
+		}
+		public int IndexOfStartBlockInBook
+		{
+			get { return m_iStartBlock; }
 		}
 
 		public int Apply()
@@ -109,10 +98,59 @@ namespace Glyssen
 			return m_numberOfBlocksAddedBySplitting;
 		}
 
+		public Block SetReferenceText(int blockIndex, string text, int level = 0)
+		{
+			var block = CorrelatedBlocks[blockIndex];
+			return block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
+		}
+
+		public void SetCharacter(int blockIndex, string character)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetDelivery(int blockIndex, string delivery)
+		{
+			throw new NotImplementedException();
+		}
+
 		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, ref int i)
 		{
 			for (; i < blockList.Count - 1 && !blockList[i + 1].StartsAtVerseStart && !blockList[i + 1].IsChapterAnnouncement; i++)
 			{
+			}
+		}
+
+		public bool IncludesBlock(Block block)
+		{
+			return OriginalBlocks.Contains(block);
+		}
+
+		public void MatchAllBlocks()
+		{
+			foreach (var block in CorrelatedBlocks)
+			{
+				if (block.MatchesReferenceText)
+				{
+					if (block.CharacterIsUnclear())
+					{
+						var refBlock = block.ReferenceBlocks.Single();
+						block.SetCharacterAndDeliveryInfo(refBlock);
+						HasOutstandingChangesToApply = true;
+					}
+				}
+				else
+				{
+					var refBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber,
+						block.InitialEndVerseNumber);
+					refBlock.SetCharacterAndDeliveryInfo(block);
+					if (block.ReferenceBlocks.Any())
+						refBlock.AppendJoinedBlockElements(block.ReferenceBlocks);
+					else
+						refBlock.BlockElements.Add(new ScriptText(""));
+					block.SetMatchedReferenceBlock(refBlock);
+					HasOutstandingChangesToApply = true;
+				}
 			}
 		}
 	}

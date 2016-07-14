@@ -42,8 +42,7 @@ namespace Glyssen.Dialogs
 			SkipChapterAnnouncementForFirstChapter = project.SkipChapterAnnouncementForFirstChapter;
 			SkipChapterAnnouncementForSingleChapterBooks = SkipChapterAnnouncementForFirstChapter || project.SkipChapterAnnouncementForSingleChapterBooks;
 
-			var block = project.IncludedBooks.SelectMany(book => book.GetScriptBlocks().Where(b => b.BlockElements.OfType<Verse>().Any()))
-				.FirstOrDefault();
+			var block = project.IncludedBooks.SelectMany(book => book.GetScriptBlocks().Where(b => b.ContainsVerseNumber)).FirstOrDefault();
 			if (block != null)
 				SampleText = block.GetText(false);
 

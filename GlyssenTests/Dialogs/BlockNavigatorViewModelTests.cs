@@ -530,6 +530,34 @@ namespace GlyssenTests.Dialogs
 			Assert.False(found);
 		}
 
+		[Test]
+		public void SetBlockMatchupForCurrentVerse_NoSplits_NoChangeToNumberOfBlocksCurrentBlockOrRelevantBlocks()
+		{
+			Assert.Fail("Write this test");
+
+			FindRefInMark(6, 2);
+			Assert.AreEqual("MRK 6:2-3", m_model.GetBlockReferenceString());
+			m_model.CurrentBlockIndexInBook = 0;
+
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			FindRefInMark(5, 41);
+			m_model.LoadNextRelevantBlock();
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
+			//End validate setup
+
+			m_model.LoadNextRelevantBlock();
+			// The expected quote is actually in verse 4, but unfortunately, the filter is
+			// actually "verses with expected quotes" so we stop on this block
+			Assert.AreEqual("MRK 6:3-4", m_model.GetBlockReferenceString());
+		}
+
+		[Test]
+		public void SetBlockMatchupForCurrentVerse_ReferenceTextCausesSplitInVernacular_SplitBlocksAddedToNumberOfBlocksAndRelevantBlocks()
+		{
+			Assert.Fail("Write this test");
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			while (m_model.CurrentBlock.ChapterNumber < chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)

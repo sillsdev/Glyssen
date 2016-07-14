@@ -24,7 +24,6 @@ namespace Glyssen.Dialogs
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
-		private BlockMatchup m_currentRefBlockMatchups;
 
 		public event EventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
@@ -72,7 +71,6 @@ namespace Glyssen.Dialogs
 			get { return m_project.ReferenceText.HasSecondaryReferenceText; }
 		}
 
-		public BlockMatchup ReferenceTextMatchup { get { return m_currentRefBlockMatchups; } }
 		public string PrimaryReferenceTextName { get { return m_project.ReferenceText.LanguageName; } }
 		#endregion
 
@@ -129,10 +127,22 @@ namespace Glyssen.Dialogs
 		protected override void HandleCurrentBlockChanged()
 		{
 			Debug.Assert(!CharacterVerseData.IsCharacterStandard(CurrentBlock.CharacterId, false));
-			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				CurrentBook.GetIndexOfFirstBlockForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber),
-				m_project.Versification);
-
+			if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
+			{
+				bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
+				if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+				{
+					var firstVerseInMultiBlockQuote = CurrentBlock.InitialEndVerseNumber == 0 ? CurrentBlock.InitialStartVerseNumber :
+						CurrentBlock.InitialEndVerseNumber;
+					var lastVerseInMultiBlockQuote =
+						GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerse;
+					doMatchup = firstVerseInMultiBlockQuote == lastVerseInMultiBlockQuote;
+					if (!doMatchup)
+						ClearBlockMatchup();
+				}
+				if (doMatchup)
+					SetBlockMatchupForCurrentVerse();
+			}
 			base.HandleCurrentBlockChanged();
 		}
 
@@ -643,7 +653,7 @@ namespace Glyssen.Dialogs
 				return Character.Narrator;
 			if (CurrentBlock.CharacterIsUnclear())
 			{
-				if (!CurrentBlock.BlockElements.OfType<Verse>().Any())
+				if (!CurrentBlock.ContainsVerseNumber)
 				{
 					var charactersForCurrentVerse = GetUniqueCharacterVerseObjectsForCurrentReference();
 					// ENHANCE: Some "Quotations" in the control file may represent text that is typically rendered as

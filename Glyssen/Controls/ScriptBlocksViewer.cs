@@ -18,6 +18,12 @@ namespace Glyssen.Controls
 		Grid,
 	}
 
+	public enum BlockGroupingType
+	{
+		Quote,
+		BlockCorrelation,
+	}
+
 	public partial class ScriptBlocksViewer : UserControl
 	{
 		private const int kContextBlocksBackward = 10;
@@ -103,6 +109,16 @@ namespace Glyssen.Controls
 		{
 			get { return m_title.Text; }
 			set { m_title.Text = value;  }
+		}
+
+		public BlockGroupingType HighlightStyle
+		{
+			get { return m_viewModel.BlockGroupingStyle; }
+			set
+			{
+				m_viewModel.BlockGroupingStyle = value;
+				UpdateContextBlocksDisplay(this, new EventArgs());
+			}
 		}
 		#endregion
 

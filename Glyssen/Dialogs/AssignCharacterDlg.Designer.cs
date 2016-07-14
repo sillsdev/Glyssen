@@ -23,6 +23,17 @@ namespace Glyssen.Dialogs
 				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 				m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
 
+				if (m_primaryReferenceTextFont != null)
+				{
+					m_primaryReferenceTextFont.Dispose();
+					m_primaryReferenceTextFont = null;
+				}
+				if (m_englishReferenceTextFont != null)
+				{
+					m_englishReferenceTextFont.Dispose();
+					m_englishReferenceTextFont = null;
+				}
+
 				if (components != null)
 					components.Dispose();
 			}
@@ -38,10 +49,10 @@ namespace Glyssen.Dialogs
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.m_btnPrevious = new System.Windows.Forms.Button();
@@ -81,7 +92,6 @@ namespace Glyssen.Dialogs
 			this.m_blocksViewer = new Glyssen.Controls.ScriptBlocksViewer();
 			this.m_progressBar = new Glyssen.Controls.BlockProgressBar();
 			this.m_saveStatus = new Glyssen.Controls.SaveStatus();
-			this.m_lblStateTemporary = new System.Windows.Forms.Label();
 			this.tabPageSelectCharacter = new System.Windows.Forms.TabPage();
 			this.m_pnlCharacterAndDeliverySelection = new System.Windows.Forms.TableLayoutPanel();
 			this.m_pnlDeliveryFilter = new System.Windows.Forms.Panel();
@@ -92,16 +102,18 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelCharacter = new System.Windows.Forms.TableLayoutPanel();
 			this.m_listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.tabPageMatchReferenceText = new System.Windows.Forms.TabPage();
+			this.m_btnMoveReferenceTextDown = new System.Windows.Forms.Button();
+			this.m_btnMoveReferenceTextUp = new System.Windows.Forms.Button();
 			this.m_btnApplyReferenceTextMatches = new System.Windows.Forms.Button();
 			this.m_dataGridReferenceText = new System.Windows.Forms.DataGridView();
-			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
-			this.m_tabControlCharacterSelection = new System.Windows.Forms.TabControl();
-			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
-			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.colPrimary = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colEnglish = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
+			this.m_tabControlCharacterSelection = new System.Windows.Forms.TabControl();
+			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
+			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -236,8 +248,8 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreChar, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
@@ -320,8 +332,8 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreDel, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
@@ -821,11 +833,11 @@ namespace Glyssen.Dialogs
 			// m_blocksViewer
 			// 
 			this.m_blocksViewer.AccessibleDescription = "";
-			this.m_blocksViewer.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_blocksViewer.BackColor = System.Drawing.SystemColors.Control;
 			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.glyssenColorPalette.SetForeColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_blocksViewer.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer");
@@ -872,24 +884,6 @@ namespace Glyssen.Dialogs
 			this.m_saveStatus.TabIndex = 33;
 			this.m_saveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_saveStatus, true);
-			// 
-			// m_lblStateTemporary
-			// 
-			this.m_lblStateTemporary.AutoSize = true;
-			this.m_lblStateTemporary.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetBackColor(this.m_lblStateTemporary, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_lblStateTemporary, Glyssen.Utilities.GlyssenColors.Warning);
-			this.m_lblStateTemporary.ForeColor = System.Drawing.Color.Red;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblStateTemporary, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblStateTemporary, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblStateTemporary, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblStateTemporary, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.m_lblStateTemporary");
-			this.m_lblStateTemporary.Location = new System.Drawing.Point(6, 3);
-			this.m_lblStateTemporary.Name = "m_lblStateTemporary";
-			this.m_lblStateTemporary.Size = new System.Drawing.Size(77, 13);
-			this.m_lblStateTemporary.TabIndex = 34;
-			this.m_lblStateTemporary.Text = "Temporary: {0}";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblStateTemporary, true);
 			// 
 			// tabPageSelectCharacter
 			// 
@@ -1084,9 +1078,10 @@ namespace Glyssen.Dialogs
 			// 
 			this.glyssenColorPalette.SetBackColor(this.tabPageMatchReferenceText, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.tabPageMatchReferenceText.BackColor = System.Drawing.Color.Transparent;
+			this.tabPageMatchReferenceText.Controls.Add(this.m_btnMoveReferenceTextDown);
+			this.tabPageMatchReferenceText.Controls.Add(this.m_btnMoveReferenceTextUp);
 			this.tabPageMatchReferenceText.Controls.Add(this.m_btnApplyReferenceTextMatches);
 			this.tabPageMatchReferenceText.Controls.Add(this.m_dataGridReferenceText);
-			this.tabPageMatchReferenceText.Controls.Add(this.m_lblStateTemporary);
 			this.glyssenColorPalette.SetForeColor(this.tabPageMatchReferenceText, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.tabPageMatchReferenceText.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.tabPageMatchReferenceText, null);
@@ -1100,6 +1095,42 @@ namespace Glyssen.Dialogs
 			this.tabPageMatchReferenceText.Text = "Match Reference Text";
 			this.glyssenColorPalette.SetUsePaletteColors(this.tabPageMatchReferenceText, true);
 			this.tabPageMatchReferenceText.UseVisualStyleBackColor = true;
+			// 
+			// m_btnMoveReferenceTextDown
+			// 
+			this.m_btnMoveReferenceTextDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnMoveReferenceTextDown, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnMoveReferenceTextDown, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnMoveReferenceTextDown, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnMoveReferenceTextDown, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnMoveReferenceTextDown, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnMoveReferenceTextDown, "DialogBoxes.AssignCharacterDlg.MoveReferenceTextDown");
+			this.m_btnMoveReferenceTextDown.Location = new System.Drawing.Point(90, 366);
+			this.m_btnMoveReferenceTextDown.Name = "m_btnMoveReferenceTextDown";
+			this.m_btnMoveReferenceTextDown.Size = new System.Drawing.Size(75, 23);
+			this.m_btnMoveReferenceTextDown.TabIndex = 38;
+			this.m_btnMoveReferenceTextDown.Text = "Move Down";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnMoveReferenceTextDown, false);
+			this.m_btnMoveReferenceTextDown.UseVisualStyleBackColor = true;
+			this.m_btnMoveReferenceTextDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			// 
+			// m_btnMoveReferenceTextUp
+			// 
+			this.m_btnMoveReferenceTextUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.glyssenColorPalette.SetBackColor(this.m_btnMoveReferenceTextUp, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnMoveReferenceTextUp, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnMoveReferenceTextUp, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnMoveReferenceTextUp, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnMoveReferenceTextUp, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnMoveReferenceTextUp, "DialogBoxes.AssignCharacterDlg.MoveReferenceTextUp");
+			this.m_btnMoveReferenceTextUp.Location = new System.Drawing.Point(9, 366);
+			this.m_btnMoveReferenceTextUp.Name = "m_btnMoveReferenceTextUp";
+			this.m_btnMoveReferenceTextUp.Size = new System.Drawing.Size(75, 23);
+			this.m_btnMoveReferenceTextUp.TabIndex = 37;
+			this.m_btnMoveReferenceTextUp.Text = "Move Up";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnMoveReferenceTextUp, false);
+			this.m_btnMoveReferenceTextUp.UseVisualStyleBackColor = true;
+			this.m_btnMoveReferenceTextUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
 			// 
 			// m_btnApplyReferenceTextMatches
 			// 
@@ -1142,13 +1173,62 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_dataGridReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_dataGridReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_dataGridReferenceText, "DialogBoxes.AssignCharacterDlg.DataGridReferenceText");
-			this.m_dataGridReferenceText.Location = new System.Drawing.Point(3, 19);
+			this.m_dataGridReferenceText.Location = new System.Drawing.Point(3, 3);
 			this.m_dataGridReferenceText.MultiSelect = false;
 			this.m_dataGridReferenceText.Name = "m_dataGridReferenceText";
-			this.m_dataGridReferenceText.RowHeadersVisible = false;
-			this.m_dataGridReferenceText.Size = new System.Drawing.Size(296, 341);
+			this.m_dataGridReferenceText.RowHeadersWidth = 26;
+			this.m_dataGridReferenceText.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.m_dataGridReferenceText.Size = new System.Drawing.Size(296, 357);
 			this.m_dataGridReferenceText.TabIndex = 35;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_dataGridReferenceText, true);
+			this.m_dataGridReferenceText.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridReferenceText_CellValueChanged);
+			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateUpDownButtonStates);
+			// 
+			// colPrimary
+			// 
+			this.colPrimary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.colPrimary.DefaultCellStyle = dataGridViewCellStyle5;
+			this.colPrimary.FillWeight = 75.31017F;
+			this.colPrimary.HeaderText = "{0}";
+			this.colPrimary.Name = "colPrimary";
+			// 
+			// colEnglish
+			// 
+			this.colEnglish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.colEnglish.DefaultCellStyle = dataGridViewCellStyle6;
+			this.colEnglish.FillWeight = 75.31017F;
+			this.colEnglish.HeaderText = "English";
+			this.colEnglish.Name = "colEnglish";
+			// 
+			// colCharacter
+			// 
+			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
+			this.colCharacter.DefaultCellStyle = dataGridViewCellStyle7;
+			this.colCharacter.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+			this.colCharacter.DropDownWidth = 45;
+			this.colCharacter.FillWeight = 60.32995F;
+			this.colCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.colCharacter.HeaderText = "Character";
+			this.colCharacter.MinimumWidth = 56;
+			this.colCharacter.Name = "colCharacter";
+			// 
+			// colDelivery
+			// 
+			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.Transparent;
+			this.colDelivery.DefaultCellStyle = dataGridViewCellStyle8;
+			this.colDelivery.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+			this.colDelivery.DropDownWidth = 45;
+			this.colDelivery.FillWeight = 39.04972F;
+			this.colDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.colDelivery.HeaderText = "Delivery";
+			this.colDelivery.MinimumWidth = 35;
+			this.colDelivery.Name = "colDelivery";
 			// 
 			// m_splitContainer
 			// 
@@ -1204,6 +1284,7 @@ namespace Glyssen.Dialogs
 			this.m_tabControlCharacterSelection.Size = new System.Drawing.Size(310, 423);
 			this.m_tabControlCharacterSelection.TabIndex = 35;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tabControlCharacterSelection, true);
+			this.m_tabControlCharacterSelection.SelectedIndexChanged += new System.EventHandler(this.HandleCharacterSelectionTabIndexChanged);
 			// 
 			// tableLayoutPanelNavigationControls
 			// 
@@ -1227,48 +1308,6 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(283, 30);
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanelNavigationControls, false);
-			// 
-			// colPrimary
-			// 
-			this.colPrimary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.colPrimary.DefaultCellStyle = dataGridViewCellStyle1;
-			this.colPrimary.FillWeight = 75.31017F;
-			this.colPrimary.HeaderText = "{0}";
-			this.colPrimary.Name = "colPrimary";
-			// 
-			// colEnglish
-			// 
-			this.colEnglish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.colEnglish.DefaultCellStyle = dataGridViewCellStyle2;
-			this.colEnglish.FillWeight = 75.31017F;
-			this.colEnglish.HeaderText = "English";
-			this.colEnglish.Name = "colEnglish";
-			// 
-			// colCharacter
-			// 
-			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			this.colCharacter.DefaultCellStyle = dataGridViewCellStyle3;
-			this.colCharacter.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-			this.colCharacter.DropDownWidth = 45;
-			this.colCharacter.FillWeight = 60.32995F;
-			this.colCharacter.HeaderText = "Character";
-			this.colCharacter.MinimumWidth = 56;
-			this.colCharacter.Name = "colCharacter";
-			// 
-			// colDelivery
-			// 
-			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			this.colDelivery.DefaultCellStyle = dataGridViewCellStyle4;
-			this.colDelivery.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-			this.colDelivery.DropDownWidth = 45;
-			this.colDelivery.FillWeight = 39.04972F;
-			this.colDelivery.HeaderText = "Delivery";
-			this.colDelivery.MinimumWidth = 35;
-			this.colDelivery.Name = "colDelivery";
 			// 
 			// AssignCharacterDlg
 			// 
@@ -1319,7 +1358,6 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelCharacter.ResumeLayout(false);
 			this.tableLayoutPanelCharacter.PerformLayout();
 			this.tabPageMatchReferenceText.ResumeLayout(false);
-			this.tabPageMatchReferenceText.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridReferenceText)).EndInit();
 			this.m_splitContainer.Panel1.ResumeLayout(false);
 			this.m_splitContainer.Panel2.ResumeLayout(false);
@@ -1387,12 +1425,13 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.LinkLabel m_llClose;
 		private SaveStatus m_saveStatus;
 		private GlyssenColorPalette glyssenColorPalette;
-		private System.Windows.Forms.Label m_lblStateTemporary;
 		private System.Windows.Forms.TabControl m_tabControlCharacterSelection;
 		private System.Windows.Forms.TabPage tabPageSelectCharacter;
 		private System.Windows.Forms.TabPage tabPageMatchReferenceText;
 		private System.Windows.Forms.DataGridView m_dataGridReferenceText;
 		private System.Windows.Forms.Button m_btnApplyReferenceTextMatches;
+		private System.Windows.Forms.Button m_btnMoveReferenceTextDown;
+		private System.Windows.Forms.Button m_btnMoveReferenceTextUp;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colPrimary;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colEnglish;
 		private System.Windows.Forms.DataGridViewComboBoxColumn colCharacter;

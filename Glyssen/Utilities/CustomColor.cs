@@ -16,6 +16,8 @@ namespace Glyssen.Utilities
 		Color Highlight1 { get; }
 		Color Highlight2 { get; }
 		Color Highlight3 { get; }
+
+		Color GetMatchColor(int i);
 	}
 
 	public class DefaultColorScheme : IGlyssenColorScheme
@@ -32,6 +34,20 @@ namespace Glyssen.Utilities
 		public Color Highlight1 { get { return Color.DarkBlue; } }
 		public Color Highlight2 { get { return Color.MediumBlue; } }
 		public Color Highlight3 { get { return Color.Blue; } }
+
+		public Color GetMatchColor(int i)
+		{
+			switch (i % 7)
+			{
+				case 0: return Color.LavenderBlush;
+				case 1:	return Color.PaleTurquoise;
+				case 2: return Color.LightSalmon;
+				case 3: return Color.PaleGreen;
+				case 4: return Color.LightYellow;
+				case 5: return Color.Bisque;
+				default: return Color.Azure;
+			}
+		}
 	}
 
 	public class TraditionalBlueColorScheme : IGlyssenColorScheme
@@ -48,6 +64,20 @@ namespace Glyssen.Utilities
 		public Color Highlight1 { get { return Color.Yellow; } }
 		public Color Highlight2 { get { return Color.LawnGreen; } }
 		public Color Highlight3 { get { return Color.Orange; } }
+
+		public Color GetMatchColor(int i)
+		{
+			switch (i % 7)
+			{
+				case 0: return Color.LavenderBlush;
+				case 1: return Color.PaleTurquoise;
+				case 2: return Color.LightSalmon;
+				case 3: return Color.PaleGreen;
+				case 4: return Color.LightYellow;
+				case 5: return Color.Bisque;
+				default: return Color.Azure;
+			}
+		}
 	}
 
 	public enum GlyssenColors

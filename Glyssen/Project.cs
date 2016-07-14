@@ -169,27 +169,6 @@ namespace Glyssen
 			get { return m_metadata.Language.Iso; }
 		}
 
-		public string FontFamily
-		{
-			get { return m_metadata.FontFamily; }
-		}
-
-		public int FontSizeInPoints
-		{
-			get { return m_metadata.FontSizeInPoints; }
-		}
-
-		public int FontSizeUiAdjustment
-		{
-			get { return m_metadata.FontSizeUiAdjustment; }
-			set { m_metadata.FontSizeUiAdjustment = value; }
-		}
-
-		public bool RightToLeftScript
-		{
-			get { return m_metadata.Language.ScriptDirection == "RTL"; }
-		}
-
 		public ChapterAnnouncement ChapterAnnouncementStyle
 		{
 			get { return m_metadata.ChapterAnnouncementStyle; }

@@ -319,6 +319,7 @@
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
+    <Compile Include="Utilities\FontProxy.cs" />
     <Compile Include="Utilities\FormWithPersistedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,7 +338,6 @@
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="DataMigrator.cs" />
-    <Compile Include="Dialogs\IWritingSystemDisplayInfo.cs" />
     <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
     <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
       <SubType>Form</SubType>
