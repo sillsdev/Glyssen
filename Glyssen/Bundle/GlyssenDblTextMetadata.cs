@@ -402,9 +402,12 @@ namespace Glyssen.Bundle
 
 	public class ProjectDramatizationPreferences
 	{
+		private ExtraBiblicalMaterialSpeakerOption test;
+
 		public ProjectDramatizationPreferences()
 		{
-			SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 			BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
@@ -432,7 +435,7 @@ namespace Glyssen.Bundle
 
 		[XmlElement("BookIntroductionsDramatization")]
 		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
-		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization { get; set; }
+		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization{ get; set; }
 	}
 
 	[Flags]

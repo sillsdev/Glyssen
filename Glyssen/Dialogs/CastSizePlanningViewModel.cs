@@ -393,6 +393,16 @@ namespace Glyssen.Dialogs
 			smallCast.Female = Math.Min(femaleCharacterCount, smallCast.Female);
 			smallCast.Child = Math.Min(1, childCharacterCount);
 
+			if (smallCast.Female == 0)
+			{
+				if ((m_project.DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor) ||
+				    (m_project.DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor) ||
+				    (m_project.DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.FemaleActor))
+				{
+					smallCast.Female = 1;
+				}
+			}
+
 			var largeCast = new CastSizeRowValues(smallCast.Male * 2, Math.Min(8, femaleCharacterCount), Math.Min(4, childCharacterCount));
 			if (largeCast.Male > 10)
 				largeCast.Male = Math.Min(39, largeCast.Male);

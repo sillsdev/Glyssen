@@ -275,7 +275,7 @@ namespace Glyssen.Rules
 				// based on a user-contolled option.
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(fallbackPass, characterGroups,
 					maleNarrators, femaleNarrators, !enforceProximityAndGenderConstraints, includedCharacterDetails, m_project.KeyStrokesByCharacterId,
-					m_project, characterDetails);
+					m_project, characterDetails, m_project.DramatizationPreferences);
 
 				if (fallbackPass)
 				{
@@ -328,13 +328,34 @@ namespace Glyssen.Rules
 						Debug.WriteLine("   Narrator Groups:");
 						foreach (var narrGroup in config.NarratorGroups)
 							Debug.WriteLine("      " + narrGroup.VoiceActor.Gender + " group: " + narrGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
-						if (config.ExtraBiblicalGroup != null)
+						if (config.ExtraBiblicalGroups != null)
 						{
-							if (config.NarratorGroups.Contains(config.ExtraBiblicalGroup))
-								Debug.WriteLine("   Extra-biblical group is a narrator group!");
-							else
-								Debug.WriteLine("   Extra-biblical group: " + config.ExtraBiblicalGroup.VoiceActor.Gender + " - " +
-												config.ExtraBiblicalGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
+							//if (config.NarratorGroups.Contains(config.ExtraBiblicalGroup))
+							//	Debug.WriteLine("   Extra-biblical group is a narrator group!");
+							//else
+							//	Debug.WriteLine("   Extra-biblical group: " + config.ExtraBiblicalGroup.VoiceActor.Gender + " - " +
+							//					config.ExtraBiblicalGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
+
+							var intersect = config.ExtraBiblicalGroups.Intersect(config.NarratorGroups).ToList();
+							var except = config.ExtraBiblicalGroups.Except(config.NarratorGroups).ToList();
+							if (intersect.Count > 0)
+							{
+								foreach (var g in intersect)
+								{
+									Debug.WriteLine("   Extra-biblical group {0} is a narrator group!",
+										g.GroupId);
+								}
+							}
+							if (except.Count > 0)
+							{
+								foreach (var g in except)
+								{
+									Debug.WriteLine("   Extra-biblical group {0}: {1} - {2}",
+										g.GroupId,
+										g.VoiceActor.Gender,
+										g.CharacterIds.ToString().Replace("CharacterName.", ""));
+								}
+							}
 						}
 						Debug.WriteLine("   Other Groups:");
 						foreach (
@@ -589,8 +610,7 @@ namespace Glyssen.Rules
 						g.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
 				}
 			}
-			// TODO: Change to List
-			internal CharacterGroup ExtraBiblicalGroup { get; set; }
+			internal List<CharacterGroup> ExtraBiblicalGroups { get; set; }
 			internal List<CharacterGroup> Groups
 			{
 				get { return m_groups; }
@@ -603,7 +623,8 @@ namespace Glyssen.Rules
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups,
 				int numberOfMaleExtraBiblicalGroups, int numberOfFemaleExtraBiblicalGroups,
 				Dictionary<string, int> keyStrokesByCharacterId,
-				List<CharacterDetail> includedCharacterDetails, List<string> includedBooks)
+				List<CharacterDetail> includedCharacterDetails, List<string> includedBooks,
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				m_groups = characterGroups.Select(g => g.Copy()).ToList();
 				m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles = allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles;
@@ -612,7 +633,7 @@ namespace Glyssen.Rules
 				if (Groups.Count == 1)
 				{
 					NarratorGroups = includedBooks.Any() ? Groups.ToList() : new List<CharacterGroup>(0);
-					ExtraBiblicalGroup = Groups[0];
+					ExtraBiblicalGroups.Add(Groups[0]);
 				}
 				else
 				{
@@ -620,7 +641,7 @@ namespace Glyssen.Rules
 					if (availableAdultGroups.Count == 1)
 					{
 						NarratorGroups = availableAdultGroups.ToList();
-						ExtraBiblicalGroup = NarratorGroups[0];
+						ExtraBiblicalGroups.Add(NarratorGroups[0]);
 					}
 					else
 					{
@@ -983,7 +1004,8 @@ namespace Glyssen.Rules
 			internal static List<TrialGroupConfiguration> GeneratePossibilities(bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles,
 				List<CharacterGroup> characterGroups,
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups, bool allowFemaleExtraBiblical, List<CharacterDetail> includedCharacterDetails,
-				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails)
+				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails, 
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				var includedBooks = project.IncludedBooks.Select(b => b.BookId).ToList();
 				int maleGroupsWithExistingNarratorRoles = 0;
@@ -1053,19 +1075,22 @@ namespace Glyssen.Rules
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 						characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
-						Math.Min(1, numberOfExtraBiblicalGroups), 0, keyStrokesByCharacterId, includedCharacterDetails, includedBooks));
+						Math.Min(1, numberOfExtraBiblicalGroups), 0, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
+						dramatizationPreferences));
 				}
 				if (allowFemaleExtraBiblical && numberOfExtraBiblicalGroups > 0 && availableFemaleGroups.Count >= Math.Max(1, numberOfUnassignedFemaleNarrators))
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 						characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
-						0, numberOfExtraBiblicalGroups, keyStrokesByCharacterId, includedCharacterDetails, includedBooks));
+						0, numberOfExtraBiblicalGroups, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
+						dramatizationPreferences));
 				}
 				if (!list.Any() && allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 					characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
-					numberOfExtraBiblicalGroups, 0, keyStrokesByCharacterId, includedCharacterDetails, includedBooks));
+					numberOfExtraBiblicalGroups, 0, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
+					dramatizationPreferences));
 					Debug.Assert(list[0].NarratorGroups.Count + maleGroupsWithExistingNarratorRoles + femaleGroupsWithExistingNarratorRoles == 1);
 				}
 

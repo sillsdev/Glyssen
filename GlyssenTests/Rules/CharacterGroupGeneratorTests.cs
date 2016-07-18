@@ -1152,12 +1152,19 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[Test]
-		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs()
+		[TestCase(ExtraBiblicalMaterialSpeakerOption.FemaleActor, ExtraBiblicalMaterialSpeakerOption.FemaleActor)]
+		//[TestCase(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender, ExtraBiblicalMaterialSpeakerOption.FemaleActor)]
+		//[TestCase(ExtraBiblicalMaterialSpeakerOption.FemaleActor, ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender)]
+		[TestCase(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender, ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender)]
+		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs(
+			ExtraBiblicalMaterialSpeakerOption bookTitleAndChapterOption,
+			ExtraBiblicalMaterialSpeakerOption extraBiblicalOption)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = bookTitleAndChapterOption;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = extraBiblicalOption;
 
 			SetVoiceActors(6, 2);
 			var gen = new CharacterGroupGenerator(m_testProject);
@@ -1167,6 +1174,27 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Count > 3);
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.AreEqual(1, narratorActsGroup.CharacterIds.Count);
+			AssertThatThereAreTwoDistinctNarratorGroups(groups);
+			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
+			Assert.AreEqual(8, groups.Count);
+		}
+		[Test]
+		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsAndMaleExtraWithTooSmallCast_ExtraBiblicalRoleHandledByMaleActorDespiteBadProximity()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+
+			SetVoiceActors(6, 2);
+			var gen = new CharacterGroupGenerator(m_testProject);
+			var groups = gen.GenerateCharacterGroups();
+			var narratorLukeGroup = GetNarratorGroupForBook(groups, "LUK");
+			var narratorActsGroup = GetNarratorGroupForBook(groups, "ACT");
+			Assert.IsFalse(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsFalse(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
 			Assert.AreEqual(1, narratorActsGroup.CharacterIds.Count);
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
@@ -1892,6 +1920,55 @@ namespace GlyssenTests.Rules
 			Assert.True(!CharacterVerseData.IsCharacterOfType(generator.MinimumProximity.FirstCharacterId, CharacterVerseData.StandardCharacter.Narrator) ||
 				!CharacterVerseData.IsCharacterOfType(generator.MinimumProximity.SecondCharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.True(generator.MinimumProximity.NumberOfBlocks > Proximity.kDefaultMinimumProximity);
+		}
+	}
+
+	[TestFixture]
+	public class CharacterGroupGeneratorTestsWithExtrabiblicalCharacterOptions : CharacterGroupGeneratorAndAdjusterTestBase
+	{
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.AllActors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GenerateGroups_NarratorSpeaksAllExtra_AllExtraAssignedToNarrator()
+		{
+			SetVoiceActors(8, 2, 2);
+
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+
+			var generator = new CharacterGroupGenerator(m_testProject);
+			var groups = generator.GenerateCharacterGroups();
+
+			var characterIds = groups[0].CharacterIds;
+			Assert.True(characterIds.Contains("narrator-RUT"));
+			Assert.True(characterIds.Contains("intro-RUT"));
+			Assert.True(characterIds.Contains("extra-RUT"));
+			Assert.True(characterIds.Contains("BC-RUT"));
 		}
 	}
 
