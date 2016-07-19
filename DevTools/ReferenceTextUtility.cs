@@ -443,7 +443,7 @@ namespace DevTools
 										//Console.WriteLine();
 										//Console.WriteLine("Verse number incorrect. Language: {3}, Bk: {0}, Ch: {1}, Vrs: {2}", existingBook.BookId, newBlock.ChapterNumber, newBlock.InitialStartVerseNumber, language);
 										//Console.WriteLine(newBlock.GetText(true));
-										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerse;
+										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerseNum;
 										//Console.WriteLine("Corrected verse number to {0}", newBlock.InitialStartVerseNumber);
 									}
 								}

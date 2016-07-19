@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -119,23 +120,35 @@ namespace Glyssen
 			set { m_initialStartVerseNumber = value; }
 		}
 
-		public int LastVerse
-		{
-			get
-			{
-				var lastVerse = BlockElements.OfType<Verse>().LastOrDefault();
-				if (lastVerse == null)
-					return m_initialEndVerseNumber > 0 ? m_initialEndVerseNumber : m_initialStartVerseNumber;
-				return lastVerse.EndVerse;
-			}
-		}
-
 		[XmlAttribute("initialEndVerse")]
 		[DefaultValue(0)]
 		public int InitialEndVerseNumber {
 			get { return m_initialEndVerseNumber; }
 			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
 		}
+
+		private class VerseNumberFromBlock : IVerse
+		{
+			public static implicit operator VerseNumberFromBlock(Block block)
+			{
+				return new VerseNumberFromBlock
+				{
+					StartVerse = block.InitialStartVerseNumber,
+					LastVerseOfBridge = block.InitialEndVerseNumber
+				 };
+			}
+
+			public int StartVerse { get; private set; }
+			public int EndVerse { get { return LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge; } }
+
+			/// <summary>
+			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
+			/// </summary>
+			public int LastVerseOfBridge { get; private set; }
+		}
+
+		public int LastVerseNum { get { return LastVerse.EndVerse; } }
+		public IVerse LastVerse { get { return BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this; } }
 
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
@@ -218,30 +231,17 @@ namespace Glyssen
 
 		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
 		{
-			int initialStartVerseNumber, initialEndVerseNumber;
-			if (prevRefBlock == null)
-			{
-				// TODO Write test
-				initialStartVerseNumber = InitialStartVerseNumber;
-				initialEndVerseNumber = InitialEndVerseNumber;
-			}
-			else
-			{
-				var lastVerse = prevRefBlock.BlockElements.OfType<Verse>().LastOrDefault();
-				if (lastVerse == null)
-				{
-					initialStartVerseNumber = prevRefBlock.InitialStartVerseNumber;
-					initialEndVerseNumber = prevRefBlock.InitialEndVerseNumber;
-				}
-				else
-				{
-					initialStartVerseNumber = lastVerse.StartVerse;
-					initialEndVerseNumber = lastVerse.EndVerse;
-				}
-			}
-			var refBlock = new Block(StyleTag, ChapterNumber, initialStartVerseNumber, initialEndVerseNumber);
+			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
+			var refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
 			refBlock.SetCharacterAndDeliveryInfo(this);
 			refBlock.ParsePlainText(text);
+			var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
+			if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse < refBlock.InitialEndVerseNumber)
+			{
+				refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
+				if (refBlock.InitialEndVerseNumber == refBlock.InitialStartVerseNumber)
+					refBlock.InitialEndVerseNumber = 0;
+			}
 			SetMatchedReferenceBlock(refBlock);
 
 			return refBlock;
@@ -249,48 +249,50 @@ namespace Glyssen
 
 		private void ParsePlainText(string text)
 		{
-			// TODO: handle in-line annotations
-			var verseNumbers = new Regex(@"\[(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\](\u00A0| )?");
+			var verseNumbers = new Regex(@"((\[(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\])|((\u00A0| )?\{F8 SFX--(?<effectName>.*)\}))(\u00A0| )?");
 			var pos = 0;
 			text = text.TrimStart();
+			var prependSpace = "";
 			while (pos < text.Length)
 			{
 				var match = verseNumbers.Match(text, pos);
 				if (match.Success)
 				{
-					int startVerse = Int32.Parse(match.Result("${startVerse}"));
 					if (match.Index == pos)
 					{
-						//	// We don't allow two verses in a row with no text between, so unless this is a verse at the very
-						//	// beginning, just treat it as text and move past it.
-						//	if (match.Index > 0)
-						//	{
-						//		pos = match.Index + match.Length;
-						//		continue;
-						//	}
-						InitialStartVerseNumber = startVerse;
-						int endVerse;
-						if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
-							endVerse = 0;
-						InitialEndVerseNumber = endVerse;
+						// We don't allow two verses in a row with no text between, so unless this is a verse at the very
+						// beginning, remove the preceding (empty) verse.
+						if (match.Index > 0 && BlockElements.Last() is Verse)
+							BlockElements.RemoveAt(BlockElements.Count - 1);
+
+						if (match.Groups["verse"].Success)
+						{
+							InitialStartVerseNumber = Int32.Parse(match.Result("${startVerse}"));
+							int endVerse;
+							if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
+								endVerse = 0;
+							InitialEndVerseNumber = endVerse;
+						}
 					}
 					else
 					{
-						if (!ContainsVerseNumber && startVerse < InitialEndVerseNumber)
-						{
-							InitialEndVerseNumber = startVerse - 1;
-							if (InitialEndVerseNumber <= InitialStartVerseNumber)
-								InitialEndVerseNumber = 0;
-						}
-
-						BlockElements.Add(new ScriptText(text.Substring(pos, match.Index - pos)));
+						BlockElements.Add(new ScriptText(prependSpace + text.Substring(pos, match.Index - pos)));
 					}
-					BlockElements.Add(new Verse(match.Result("${verse}").Replace(',', '-')));
+					if (match.Groups["verse"].Success)
+						BlockElements.Add(new Verse(match.Result("${verse}").Replace(',', '-')));
+					else
+					{
+						var prevText = BlockElements.LastOrDefault() as ScriptText;
+						if (prevText != null && prevText.Content.Last() != ' ')
+							prevText.Content += " ";
+						BlockElements.Add(new Sound {EffectName = match.Result("${effectName}"), SoundType = SoundType.Sfx});
+						prependSpace = " ";
+					}
 					pos = match.Index + match.Length;
 				}
 				else
 				{
-					BlockElements.Add(new ScriptText(text.Substring(pos)));
+					BlockElements.Add(new ScriptText(prependSpace + text.Substring(pos)));
 					break;
 				}
 			}
@@ -507,7 +509,7 @@ namespace Glyssen
 				bookNum = BCVRef.BookToNumber(bookId);
 
 			var startRef = new BCVRef(bookNum, ChapterNumber, InitialStartVerseNumber);
-			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerse);
+			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerseNum);
 			
 			return BCVRef.MakeReferenceString(bookId, startRef, endRef, ":", "-") + " : " + ToString();
 		}

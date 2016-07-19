@@ -1098,13 +1098,13 @@ namespace GlyssenTests
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(1, result[0].InitialStartVerseNumber);
 			Assert.AreEqual(0, result[0].InitialEndVerseNumber);
-			Assert.AreEqual(3, result[0].LastVerse);
+			Assert.AreEqual(3, result[0].LastVerseNum);
 
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(4, result[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, result[1].InitialEndVerseNumber);
-			Assert.AreEqual(4, result[1].LastVerse);
+			Assert.AreEqual(4, result[1].LastVerseNum);
 		}
 
 		[Test]

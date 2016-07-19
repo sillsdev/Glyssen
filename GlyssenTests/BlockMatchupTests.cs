@@ -356,6 +356,48 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Apply_PrimaryReferenceBlockEndsWithEmptyVerse_ThrowsInvalidOperationException()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y dijo: ", true));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo dos.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null);
+			matchup.SetReferenceText(0, "[1] Then Jesus opened his mouth and said: [2] ");
+			matchup.SetReferenceText(1, "why isn't the verse number at the start of this block?");
+			Assert.Throws<InvalidReferenceTextException>(() => matchup.Apply());
+		}
+
+		[Test]
+		public void Apply_SecondaryReferenceBlockEndsWithEmptyVerse_ThrowsInvalidOperationException()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y dijo: ", true));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es").AddVerse(2, "versiculo dos.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var primaryRefBlock1 = new Block("p", 1, 1).AddVerse(1, "Ceci est un bloc.");
+			vernacularBlocks.First().SetMatchedReferenceBlock(primaryRefBlock1);
+			primaryRefBlock1.SetMatchedReferenceBlock(new Block("p", 1, 1).AddVerse(1, "This is a block."));
+			var primaryRefBlock2 = new Block("p", 1, 1).AddVerse(2, "Ceci est un verset.");
+			vernacularBlocks.Last().SetMatchedReferenceBlock(primaryRefBlock2);
+			primaryRefBlock2.SetMatchedReferenceBlock(new Block("p", 1, 1).AddVerse(2, "This is a verse."));
+			var matchup = new BlockMatchup(vernBook, 0, null);
+			Assert.AreEqual("[2]\u00A0This is a verse.", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().ReferenceBlocks.Single().GetText(true));
+			matchup.SetReferenceText(1, "This is [2]", 1);
+			Assert.AreEqual("This is [2]\u00A0", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().ReferenceBlocks.Single().GetText(true));
+			try
+			{
+				matchup.Apply();
+			}
+			catch (InvalidReferenceTextException e)
+			{
+				Assert.AreEqual("This is [2]\u00A0", e.Message);
+				return;
+			}
+			Assert.Fail("Expected InvalidReferenceTextException for English (secondary) reference block");
+		}
+
+		[Test]
 		public void Apply_VernVerseCrossesUnmatchedSectionHead_VerseBlocksButNotSectionHeadSetAsMatchWithReferenceBlocks()
 		{
 			var vernacularBlocks = new List<Block>();
@@ -505,7 +547,7 @@ namespace GlyssenTests
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newRefBlock.InitialEndVerseNumber);
-			Assert.AreEqual(2, newRefBlock.LastVerse);
+			Assert.AreEqual(2, newRefBlock.LastVerseNum);
 		}
 
 		[Test]
@@ -535,7 +577,71 @@ namespace GlyssenTests
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(3, newRefBlock.InitialEndVerseNumber);
-			Assert.AreEqual(3, newRefBlock.LastVerse);
+			Assert.AreEqual(3, newRefBlock.LastVerseNum);
+		}
+
+		[TestCase("\u00A0")]
+		[TestCase(" ")]
+		[TestCase("")]
+		public void SetReferenceText_VerseNumberAddedToRefBlockOfFirstBlock_FollowingRefBlockDoesNotStartWithVerseNumber_InitialVerseRefOfFollowingReferenceBlockChanged(string separator)
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
+
+			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Yo soy el pan de vida.”", "p");
+			var refBlock2 = new Block("q", 1, 1);
+			refBlock2.CharacterId = "Jesus";
+			refBlock2.BlockElements.Add(new ScriptText("“Continuation of previous verse in ref text. "));
+			refBlock2.AddVerse(3, "Three!”");
+			block2.SetMatchedReferenceBlock(refBlock2);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			matchup.SetReferenceText(0, "Then Jesus told them [2]" + separator + "that verse two was important, too. ");
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			var followingRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
+
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("“Continuation of previous verse in ref text. [3]\u00A0Three!”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual(2, followingRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, followingRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Jesus", followingRefBlock.CharacterId);
+		}
+
+		[Test]
+		public void SetReferenceText_VerseNumberRemovedFromRefBlockOfFirstBlock_FollowingRefBlockDoesNotStartWithVerseNumber_InitialVerseRefOfFollowingReferenceBlockChanged()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 1, "Entonces Jesus hablo, diciendo: ", true, 1, "p", 3));
+			var refBlock1 = new Block("q", 1, 1);
+			refBlock1.CharacterId = "Jesus";
+			refBlock1.BlockElements.Add(new ScriptText("Then Jesus spoke, "));
+			refBlock1.AddVerse(2, "saying, ");
+			vernacularBlocks.Last().SetMatchedReferenceBlock(refBlock1);
+
+			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Yo soy el pan de vida.”", "p");
+			var refBlock2 = new Block("q", 1, 2);
+			refBlock2.CharacterId = "Jesus";
+			refBlock2.BlockElements.Add(new ScriptText("“Continuation of previous verse in ref text. "));
+			refBlock2.AddVerse(3, "Three!”");
+			block2.SetMatchedReferenceBlock(refBlock2);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			matchup.SetReferenceText(0, "Then Jesus spoke, saying: ");
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			var followingRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
+
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("“Continuation of previous verse in ref text. [3]\u00A0Three!”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual(1, followingRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(3, followingRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Jesus", followingRefBlock.CharacterId);
 		}
 
 		[TestCase("\u00A0")]
@@ -563,7 +669,7 @@ namespace GlyssenTests
 			Assert.AreEqual("Jesus", newRefBlock.CharacterId, "Should get character info from vern block");
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newRefBlock.InitialEndVerseNumber);
-			Assert.AreEqual(3, newRefBlock.LastVerse);
+			Assert.AreEqual(3, newRefBlock.LastVerseNum);
 		}
 
 		[TestCase("\u00A0")]
@@ -594,7 +700,7 @@ namespace GlyssenTests
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
 			Assert.AreEqual(3, newRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newRefBlock.InitialEndVerseNumber);
-			Assert.AreEqual(4, newRefBlock.LastVerse);
+			Assert.AreEqual(4, newRefBlock.LastVerseNum);
 		}
 	}
 }

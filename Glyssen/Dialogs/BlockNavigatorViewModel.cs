@@ -433,7 +433,7 @@ namespace Glyssen.Dialogs
 		{
 			block = block ?? m_navigator.CurrentBlock;
 			var startRef = new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
-			var lastVerseInBlock = block.LastVerse;
+			var lastVerseInBlock = block.LastVerseNum;
 			var endRef = (lastVerseInBlock <= block.InitialStartVerseNumber) ? startRef :
 				new BCVRef(startRef.Book, startRef.Chapter, lastVerseInBlock);
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
@@ -450,7 +450,7 @@ namespace Glyssen.Dialogs
 
 		public int GetLastVerseInCurrentQuote()
 		{
-			return GetLastBlockInCurrentQuote().LastVerse;
+			return GetLastBlockInCurrentQuote().LastVerseNum;
 		}
 
 		public Block GetLastBlockInCurrentQuote()
@@ -686,7 +686,7 @@ namespace Glyssen.Dialogs
 				if (!block.IsScripture)
 					return false;
 				return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.LastVerse, versification: Versification).Any(c => c.IsExpected);
+					block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
 			}
 			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)
 			{
@@ -698,7 +698,7 @@ namespace Glyssen.Dialogs
 
 				IEnumerable<BCVRef> versesWithPotentialMissingQuote =
 					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.LastVerse, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
+					block.LastVerseNum, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
 
 				var withPotentialMissingQuote = versesWithPotentialMissingQuote as IList<BCVRef> ?? versesWithPotentialMissingQuote.ToList();
 				if (!withPotentialMissingQuote.Any())
@@ -755,10 +755,10 @@ namespace Glyssen.Dialogs
 		{
 			if (block.ChapterNumber != verse.Chapter) return false;
 
-			if (block.LastVerse == verse.Verse) return true;
+			if (block.LastVerseNum == verse.Verse) return true;
 
 			// check for verse surrounded by the block (can happen if there is a verse bridge)
-			if ((verse.Verse >= block.InitialStartVerseNumber) && (verse.Verse < block.LastVerse))
+			if ((verse.Verse >= block.InitialStartVerseNumber) && (verse.Verse < block.LastVerseNum))
 				return true;
 
 			return false;
@@ -771,7 +771,7 @@ namespace Glyssen.Dialogs
 			if (block.InitialStartVerseNumber == verse.Verse) return true;
 
 			// check for verse surrounded by the block (can happen if there is a verse bridge)
-			if ((verse.Verse > block.InitialStartVerseNumber) && (verse.Verse <= block.LastVerse))
+			if ((verse.Verse > block.InitialStartVerseNumber) && (verse.Verse <= block.LastVerseNum))
 				return true;
 
 			return false;

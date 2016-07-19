@@ -67,7 +67,27 @@ namespace Glyssen
 		public string Content { get; set; }
 	}
 
-	public class Verse : BlockElement
+	public interface IVerse
+	{
+		/// <summary>
+		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
+		/// starting number in the bridge.
+		/// </summary>
+		int StartVerse { get; }
+		
+		/// <summary>
+		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
+		/// ending number in the bridge.
+		/// </summary>
+		int EndVerse { get; }
+
+		/// <summary>
+		/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
+		/// </summary>
+		int LastVerseOfBridge { get; }
+	}
+
+	public class Verse : BlockElement, IVerse
 	{
 		public Verse()
 		{
@@ -98,6 +118,19 @@ namespace Glyssen
 		public int EndVerse
 		{
 			get { return ScrReference.VerseToIntEnd(Number); }
+		}
+
+		/// <summary>
+		/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
+		/// </summary>
+		public int LastVerseOfBridge
+		{
+			get
+			{
+				var endVerse = EndVerse;
+				var startVerse = StartVerse;
+				return endVerse == startVerse ? 0 : endVerse;
+			}
 		}
 	}
 

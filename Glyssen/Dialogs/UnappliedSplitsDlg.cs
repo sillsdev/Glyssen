@@ -98,7 +98,7 @@ namespace Glyssen.Dialogs
 
 			int chapterNumber = unappliedSplit[0].ChapterNumber;
 			BCVRef startRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[0].InitialStartVerseNumber);
-			BCVRef endRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[unappliedSplit.Count-1].LastVerse);
+			BCVRef endRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[unappliedSplit.Count-1].LastVerseNum);
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 

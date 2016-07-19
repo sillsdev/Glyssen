@@ -4163,13 +4163,13 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[0].CharacterId);
 			Assert.AreEqual(2, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(3, output[0].InitialEndVerseNumber);
-			Assert.AreEqual(3, output[0].LastVerse);
+			Assert.AreEqual(3, output[0].LastVerseNum);
 
 			Assert.AreEqual("[4]\u00A0Back to narrator.  No one in the control file for this verse. ", output[1].GetText(true));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
-			Assert.AreEqual(4, output[1].LastVerse);
+			Assert.AreEqual(4, output[1].LastVerseNum);
 		}
 
 		[Test]
@@ -4190,14 +4190,14 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 			Assert.AreEqual(3, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[0].InitialEndVerseNumber);
-			Assert.AreEqual(3, output[0].LastVerse);
+			Assert.AreEqual(3, output[0].LastVerseNum);
 
 			Assert.AreEqual("[4]\u00A0No one in the control file for this verse. ", output[1].GetText(true));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 			Assert.AreEqual(4, output[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
-			Assert.AreEqual(4, output[1].LastVerse);
+			Assert.AreEqual(4, output[1].LastVerseNum);
 		}
 
 		[Test]
@@ -4220,7 +4220,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 			Assert.AreEqual(1, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(2, output[0].InitialEndVerseNumber);
-			Assert.AreEqual(3, output[0].LastVerse);
+			Assert.AreEqual(3, output[0].LastVerseNum);
 
 			Assert.AreEqual("[4]\u00A0Further possible continuation of quote (but it isn't because there is no continuity of characters).»", output[1].GetText(true));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[1].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
@@ -4446,28 +4446,28 @@ namespace GlyssenTests.Quote
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[0].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(16, output[0].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[0].InitialEndVerseNumber);
-			Assert.AreEqual(16, output[0].LastVerse);
+			Assert.AreEqual(16, output[0].LastVerseNum);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
 
 			Assert.AreEqual("<<Quote. But where does it end? Quote continues after verse break.", output[1].GetText(false));
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, output[1].CharacterId);
 			Assert.AreEqual(16, output[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[1].InitialEndVerseNumber);
-			Assert.AreEqual(17, output[1].LastVerse);
+			Assert.AreEqual(17, output[1].LastVerseNum);
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 
 			Assert.AreEqual("Section Header", output[2].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[2].CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical));
 			Assert.AreEqual(17, output[2].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[2].InitialEndVerseNumber);
-			Assert.AreEqual(17, output[2].LastVerse);
+			Assert.AreEqual(17, output[2].LastVerseNum);
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 
 			Assert.AreEqual("No character in control file for this verse. ", output[3].GetText(false));
 			Assert.True(CharacterVerseData.IsCharacterOfType(output[3].CharacterId, CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(18, output[3].InitialStartVerseNumber);
 			Assert.AreEqual(0, output[3].InitialEndVerseNumber);
-			Assert.AreEqual(18, output[3].LastVerse);
+			Assert.AreEqual(18, output[3].LastVerseNum);
 			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 		}
 

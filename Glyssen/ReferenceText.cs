@@ -373,7 +373,7 @@ namespace Glyssen
 				var indexOfVernVerseStart = iVernBlock;
 				var indexOfRefVerseStart = iRefBlock;
 				BlockMatchup.AdvanceToCleanVerseBreak(vernBlockList, ref iVernBlock);
-				var lastVernVerseFound = new VerseRef(bookNum, vernBlockList[iVernBlock].ChapterNumber, vernBlockList[iVernBlock].LastVerse,
+				var lastVernVerseFound = new VerseRef(bookNum, vernBlockList[iVernBlock].ChapterNumber, vernBlockList[iVernBlock].LastVerseNum,
 					vernacularVersification);
 				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, Versification);
 
@@ -437,8 +437,8 @@ namespace Glyssen
 
 		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
-			var lastVernVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerse, vernacularVersification);
-			var lastRefVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.LastVerse, Versification);
+			var lastVernVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerseNum, vernacularVersification);
+			var lastRefVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.LastVerseNum, Versification);
 			return lastVernVerse.CompareTo(lastRefVerse) == 0;
 		}
 
@@ -465,7 +465,7 @@ namespace Glyssen
 
 			public VerseSplitLocation(int bookNum, Block prevBlock, Block splitStartBlock, ScrVers versification)
 			{
-				m_after = new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerse, versification);
+				m_after = new VerseRef(bookNum, prevBlock.ChapterNumber, prevBlock.LastVerseNum, versification);
 				m_before = new VerseRef(bookNum, splitStartBlock.ChapterNumber, splitStartBlock.InitialStartVerseNumber, versification);
 			}
 
@@ -520,7 +520,7 @@ namespace Glyssen
 					verseToSplitAfter = verseSplitLocations[++iSplit];
 				}
 
-				var lastVerse = new VerseRef(bookNum, block.ChapterNumber, block.LastVerse, versification);
+				var lastVerse = new VerseRef(bookNum, block.ChapterNumber, block.LastVerseNum, versification);
 				if (lastVerse < verseToSplitAfter)
 					continue;
 

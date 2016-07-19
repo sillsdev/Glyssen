@@ -286,7 +286,7 @@ namespace Glyssen
 					continue;
 				iFirstBlockToExamine = index;
 				if (block.InitialStartVerseNumber > verse ||
-					(iFirstBlockToExamine > 0 && !(block.BlockElements.First() is Verse) && m_blocks[iFirstBlockToExamine - 1].LastVerse == verse))
+					(iFirstBlockToExamine > 0 && !(block.BlockElements.First() is Verse) && m_blocks[iFirstBlockToExamine - 1].LastVerseNum == verse))
 				{
 					iFirstBlockToExamine--;
 				}

@@ -221,6 +221,8 @@ namespace Glyssen.Dialogs
 
 		private void UpdateReferenceTextTabPageDisplay()
 		{
+			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
+
 			m_tabControlCharacterSelection.SelectedTab = m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation ?
 				tabPageMatchReferenceText : tabPageSelectCharacter;
 
@@ -249,42 +251,36 @@ namespace Glyssen.Dialogs
 				int i = 0;
 				foreach (var correlatedBlock in m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks)
 				{
+					Debug.Assert(correlatedBlock.MatchesReferenceText);
+
 					var row = m_dataGridReferenceText.Rows[i];
 					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 					if (colPrimary.Visible)
 						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().PrimaryReferenceText;
 					row.Cells[primaryColumnIndex].Value = correlatedBlock.PrimaryReferenceText;
-					// TODO: Some of this can be simplified now that MatchAllBlocks has been called.
 					if (colCharacter.Visible)
 					{
-						string characterId = null;
-						if (correlatedBlock.CharacterIsUnclear())
-						{
-							if (correlatedBlock.MatchesReferenceText)
-								characterId = correlatedBlock.ReferenceBlocks[0].CharacterId;
-						}
-						else
-							characterId = correlatedBlock.CharacterId;
+						string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
+							correlatedBlock.CharacterId;
 
-						if (characterId != null)
-						{
-							if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-								characterId = colCharacter.Items[0] as string;
-							Debug.Assert(colCharacter.Items.Contains(characterId), "Trying to select a character that is not in the list.");
-							row.Cells[colCharacter.Index].Value = characterId;
-						}
+						if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+							characterId = colCharacter.Items[0] as string;
+						Debug.Assert(colCharacter.Items.Contains(characterId), "Trying to select a character that is not in the list.");
+						row.Cells[colCharacter.Index].Value = characterId;
 					}
 					if (colDelivery.Visible)
 					{
-						string delivery = correlatedBlock.Delivery;
-						if (string.IsNullOrEmpty(delivery) && correlatedBlock.MatchesReferenceText)
-							delivery = correlatedBlock.ReferenceBlocks[0].Delivery;
+						var delivery = correlatedBlock.Delivery;
+						if (string.IsNullOrEmpty(delivery))
+							delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
 						if (string.IsNullOrEmpty(delivery))
 							delivery = colDelivery.Items[0] as string;
+						Debug.Assert(colDelivery.Items.Contains(delivery), "Trying to select a delivery that is not in the list.");
 						row.Cells[colDelivery.Index].Value = delivery;
 					}
 				}
 			}
+			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
 
 		private void UpdateShortcutDisplay()
@@ -957,7 +953,23 @@ namespace Glyssen.Dialogs
 
 		private void m_dataGridReferenceText_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			m_viewModel.CurrentReferenceTextMatchup.SetReferenceText()
+			var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+			if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) || (!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
+			{
+				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
+			}
+			else if (e.ColumnIndex == colEnglish.Index)
+			{
+				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
+			}
+			else if (colCharacter.Visible && e.ColumnIndex == colCharacter.Index)
+			{
+				m_viewModel.CurrentReferenceTextMatchup.SetCharacter(e.RowIndex, newValue);
+			}
+			else
+			{
+				m_viewModel.CurrentReferenceTextMatchup.SetDelivery(e.RowIndex, newValue);				
+			}
 		}
 	}
 }

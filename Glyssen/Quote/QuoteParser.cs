@@ -694,7 +694,7 @@ namespace Glyssen.Quote
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 					m_workingBlock.SetCharacterAndDelivery(
-						m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse, m_versification));
+						m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification));
 				}
 				else
 				{
@@ -723,8 +723,8 @@ namespace Glyssen.Quote
 			int verseEndNum = m_workingBlock.InitialEndVerseNumber;
 			if (lastVerse != null)
 			{
-				verseStartNum = ScrReference.VerseToIntStart(lastVerse.Number);
-				verseEndNum = ScrReference.VerseToIntEnd(lastVerse.Number);
+				verseStartNum = lastVerse.StartVerse;
+				verseEndNum = lastVerse.EndVerse;
 			}
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}

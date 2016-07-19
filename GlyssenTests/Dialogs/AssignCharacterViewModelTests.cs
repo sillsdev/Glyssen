@@ -477,7 +477,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 			m_model.Mode = BlocksToDisplay.NeedAssignments;
-			while (m_model.CurrentBlock.InitialStartVerseNumber == m_model.CurrentBlock.LastVerse)
+			while (m_model.CurrentBlock.InitialStartVerseNumber == m_model.CurrentBlock.LastVerseNum)
 				m_model.LoadNextRelevantBlock();
 			var currentBlock = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();

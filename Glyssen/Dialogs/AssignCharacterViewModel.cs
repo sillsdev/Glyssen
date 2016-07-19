@@ -135,7 +135,7 @@ namespace Glyssen.Dialogs
 					var firstVerseInMultiBlockQuote = CurrentBlock.InitialEndVerseNumber == 0 ? CurrentBlock.InitialStartVerseNumber :
 						CurrentBlock.InitialEndVerseNumber;
 					var lastVerseInMultiBlockQuote =
-						GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerse;
+						GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerseNum;
 					doMatchup = firstVerseInMultiBlockQuote == lastVerseInMultiBlockQuote;
 					if (!doMatchup)
 						ClearBlockMatchup();
@@ -187,7 +187,7 @@ namespace Glyssen.Dialogs
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
 				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.LastVerse, versification: Versification))
+						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification))
 				{
 					m_currentCharacters.Add(character);
 				}
@@ -322,7 +322,7 @@ namespace Glyssen.Dialogs
 					{ "book", CurrentBookId },
 					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
 					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "lastVerse", block.LastVerse.ToString(CultureInfo.InvariantCulture) },
+					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
 					{ "character", selectedCharacter.CharacterId }
 				});
 

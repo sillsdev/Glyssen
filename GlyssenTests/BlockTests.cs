@@ -501,31 +501,31 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void LastVerse_Intro_ReturnsZero()
+		public void LastVerseNum_Intro_ReturnsZero()
 		{
 			var block = new Block("ip");
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			Assert.AreEqual(0, block.LastVerse);
+			Assert.AreEqual(0, block.LastVerseNum);
 		}
 
 		[Test]
-		public void LastVerse_ScriptureBlockWithSingleStartVerseAndNoVerseElements_ReturnsInitialStartVerse()
+		public void LastVerseNum_ScriptureBlockWithSingleStartVerseAndNoVerseElements_ReturnsInitialStartVerse()
 		{
 			var block = new Block("ip", 3, 15);
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			Assert.AreEqual(15, block.LastVerse);
+			Assert.AreEqual(15, block.LastVerseNum);
 		}
 
 		[Test]
-		public void LastVerse_ScriptureBlockStartingWithVerseBridgeAndNoVerseElements_ReturnsInitialEndVerse()
+		public void LastVerseNum_ScriptureBlockStartingWithVerseBridgeAndNoVerseElements_ReturnsInitialEndVerse()
 		{
 			var block = new Block("ip", 3, 15, 17);
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			Assert.AreEqual(17, block.LastVerse);
+			Assert.AreEqual(17, block.LastVerseNum);
 		}
 
 		[Test]
-		public void LastVerse_ScriptureBlockWithVerseElements_ReturnsEndVerseFromBlockElement()
+		public void LastVerseNum_ScriptureBlockWithVerseElements_ReturnsEndVerseFromBlockElement()
 		{
 			var block = new Block("ip", 3, 15);
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
@@ -533,11 +533,11 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
 			block.BlockElements.Add(new Verse("17"));
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			Assert.AreEqual(17, block.LastVerse);
+			Assert.AreEqual(17, block.LastVerseNum);
 		}
 
 		[Test]
-		public void LastVerse_ScriptureBlockWithVerseElementContainingBridge_ReturnsEndVerseFromBlockElement()
+		public void LastVerseNum_ScriptureBlockWithVerseElementContainingBridge_ReturnsEndVerseFromBlockElement()
 		{
 			var block = new Block("ip", 3, 15);
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
@@ -545,7 +545,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
 			block.BlockElements.Add(new Verse("17-19"));
 			block.BlockElements.Add(new ScriptText("This is a yadda yadda..."));
-			Assert.AreEqual(19, block.LastVerse);
+			Assert.AreEqual(19, block.LastVerseNum);
 		}
 
 		[Test]
@@ -753,10 +753,40 @@ namespace GlyssenTests
 		[TestCase("\u00A0")]
 		[TestCase(" ")]
 		[TestCase("")]
-		public void SetMatchedReferenceBlock_PreviousReferenceBlock_RefBlockGetsStartingAndEndingVerseNumbersFromPreviousReferenceBlock(string separator)
+		public void SetMatchedReferenceBlock_PreviousReferenceBlockWithVerses_RefBlockGetsStartingAndEndingVerseNumbersFromPreviousReferenceBlock(string separator)
 		{
 			var block = new Block("p", 3, 42, 45);
 			var prevRefBlock = new Block("p", 3, 42, 45).AddVerse("42-45", "Initial stuff").AddVerse(46, "Later stuff").AddVerse("47-48", "Final stuff. ");
+			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. [49-50]" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(47, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(48, refBlock.InitialEndVerseNumber);
+		}
+
+		[TestCase("\u00A0")]
+		[TestCase(" ")]
+		[TestCase("")]
+		public void SetMatchedReferenceBlock_PreviousReferenceBlockWithoutVerses_RefBlockGetsStartingAndEndingVerseNumbersFromPreviousReferenceBlock(string separator)
+		{
+			var block = new Block("p", 3, 42, 45);
+			var prevRefBlock = new Block("p", 3, 47, 48);
+			prevRefBlock.BlockElements.Add(new ScriptText("This is some nice text in the middle of a verse bridge"));
+			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. [49-50]" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(47, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(48, refBlock.InitialEndVerseNumber);
+		}
+
+		[TestCase("\u00A0")]
+		[TestCase(" ")]
+		[TestCase("")]
+		public void SetMatchedReferenceBlock_RefBlockHasVerseNumberInTheMiddleOfBridgeForPreviousReferenceBlock_RefBlockGetsStartingAndEndingVerseNumbersFromPreviousReferenceBlock(string separator)
+		{
+			var block = new Block("p", 3, 42, 45);
+			var prevRefBlock = new Block("p", 3, 47, 48);
+			prevRefBlock.BlockElements.Add(new ScriptText("This is some nice text in the middle of a verse bridge"));
 			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. [49-50]" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
@@ -778,10 +808,14 @@ namespace GlyssenTests
 			Assert.AreEqual("3-6", refBlock.BlockElements.OfType<Verse>().Skip(1).Single().Number);
 		}
 
+		/// <summary>
+		/// This is probably not a valid final state, but the user may be in the process of editing and about to cut some text from elsewhere
+		/// and paste it after the verse number, so we don't want to just prune the verse number.
+		/// </summary>
 		[Test]
-		public void SetMatchedReferenceBlock_VerseNumberAtEnd_TrailingVerseNumberRemoved()
+		public void SetMatchedReferenceBlock_VerseNumberAtEnd_RefBlockEndsWithVerseElement()
 		{
-			Assert.Fail("Write this test - is this what we want, or do we somehow want to know what was removed so we can stick it onnto the beginning of the next one?");
+			Assert.Fail("Write this test");
 		}
 
 		[TestCase("", "\u00A0")]
@@ -800,10 +834,45 @@ namespace GlyssenTests
 			Assert.AreEqual("3", refBlock.BlockElements.OfType<Verse>().Single().Number);
 		}
 
-		[Test]
-		public void SetMatchedReferenceBlock_ContainsAnnotation_AnnotationParsedAndIncludedAsBlockElement()
+		[TestCase("", " ")]
+		[TestCase(" ", " ")]
+		[TestCase(" ", "")]
+		[TestCase("", "")]
+		[TestCase("\u00A0", "\u00A0")] // Not very likely, but for good measure
+		public void SetMatchedReferenceBlock_ContainsNamedSoundEffect_AnnotationParsedAndIncludedAsBlockElement(string separatorBeforeEffect, string separatorAfterEffect)
 		{
-			Assert.Fail("Write this test");
+			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
+			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse" + separatorBeforeEffect + "{F8 SFX--Sneezing}" + separatorAfterEffect + "three.");
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, refBlock.InitialEndVerseNumber);
+			Assert.AreEqual("2", refBlock.BlockElements.OfType<Verse>().Single().Number);
+			var effect = refBlock.BlockElements.OfType<Sound>().Single();
+			Assert.AreEqual("Sneezing", effect.EffectName);
+			Assert.AreEqual("Text of verse ", refBlock.BlockElements.OfType<ScriptText>().First().Content);
+			Assert.AreEqual(" three.", refBlock.BlockElements.OfType<ScriptText>().Last().Content);
+		}
+
+		[TestCase("Starts", Sound.kNonSpecificStartOrStop, ?)]
+		[TestCase("Ends", ?, ?)]
+		public void SetMatchedReferenceBlock_ContainsMusicStart_AnnotationParsedAndIncludedAsBlockElement(string startOrEnd, int startVerse, int endVerse)
+		{
+			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
+			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse {F8 Music--" + startOrEnd + "}three.");
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, refBlock.InitialEndVerseNumber);
+			Assert.AreEqual("2", refBlock.BlockElements.OfType<Verse>().Single().Number);
+			var effect = refBlock.BlockElements.OfType<Sound>().Single();
+			Assert.AreEqual(SoundType.Music, effect.SoundType);
+			Assert.AreEqual(startVerse, effect.StartVerse);
+			Assert.AreEqual(endVerse, effect.EndVerse);
+			Assert.IsTrue(effect.UserSpecifiesLocation);
+			Assert.IsNull(effect.EffectName);
+			Assert.AreEqual("Text of verse ", refBlock.BlockElements.OfType<ScriptText>().First().Content);
+			Assert.AreEqual(" three.", refBlock.BlockElements.OfType<ScriptText>().Last().Content);
 		}
 
 		private CharacterVerse JesusQuestioning

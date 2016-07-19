@@ -869,14 +869,14 @@ namespace GlyssenTests
 		{
 			var source = CreateStandardMarkScript();
 			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
-			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerseNum.ToString(), 5);
 
 			var target = CreateStandardMarkScript();
 			var blockToModify = target.Blocks.Last(b => b.InitialStartVerseNumber > 0);
 			blockToModify.AddVerse(12, "This is another verse that was added to the new bundle.");
 
 			target.ApplyUserDecisions(source);
-			Assert.AreEqual(12, blockToModify.LastVerse);
+			Assert.AreEqual(12, blockToModify.LastVerseNum);
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
 			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }));
@@ -887,14 +887,14 @@ namespace GlyssenTests
 		{
 			var source = CreateStandardMarkScript();
 			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
-			source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+			source.SplitBlock(blockToSplit, blockToSplit.LastVerseNum.ToString(), 5);
 
 			var target = CreateStandardMarkScript();
 			var blockToModify = target.Blocks.First(b => b.InitialStartVerseNumber > 0);
 			blockToModify.AddVerse(6, "This is another verse that was added to the new bundle.");
 
 			target.ApplyUserDecisions(source);
-			Assert.AreEqual(6, blockToModify.LastVerse);
+			Assert.AreEqual(6, blockToModify.LastVerseNum);
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 			Assert.AreEqual(source.Blocks.Count, target.Blocks.Count);
@@ -992,7 +992,7 @@ namespace GlyssenTests
 					blockToSplit = block;
 					break;
 				}
-				currentVerse = block.LastVerse;
+				currentVerse = block.LastVerseNum;
 			}
 			Assert.IsNotNull(blockToSplit);
 			return blockToSplit;
@@ -1002,12 +1002,12 @@ namespace GlyssenTests
 		public void ApplyUserDecisions_SplitMultipleVersesInBlock_TargetBlockAlreadyHasSplitsBecauseParserHasBeenImproved_SplitsIgnored()
 		{
 			var source = CreateStandardMarkScript();
-			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerseNum);
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 				blockToSplit = source.SplitBlock(blockToSplit, verse.ToString(), 4);
 
 			var target = CreateStandardMarkScript();
-			blockToSplit = target.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			blockToSplit = target.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerseNum);
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
 				var newBlock = target.SplitBlock(blockToSplit, verse.ToString(), 4);
@@ -1017,7 +1017,7 @@ namespace GlyssenTests
 			}
 
 			var expected = CreateStandardMarkScript();
-			blockToSplit = expected.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			blockToSplit = expected.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerseNum);
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
 				var newBlock = expected.SplitBlock(blockToSplit, verse.ToString(), 4);
@@ -1036,7 +1036,7 @@ namespace GlyssenTests
 		public void ApplyUserDecisions_SplitMultipleVersesInBlock_TargetBlockCorrespondsToSplitSourceBlocks_SplitReapplied()
 		{
 			var source = CreateStandardMarkScript();
-			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerseNum);
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 				blockToSplit = source.SplitBlock(blockToSplit, verse.ToString(), 4);
 
@@ -1053,7 +1053,7 @@ namespace GlyssenTests
 		{
 			var source = CreateStandardMarkScript();
 			List<Block> splits = new List<Block>();
-			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			Block blockToSplit = source.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerseNum);
 			splits.Add(blockToSplit);
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
@@ -1062,7 +1062,7 @@ namespace GlyssenTests
 			}
 
 			var target = CreateStandardMarkScript();
-			blockToSplit = target.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerse);
+			blockToSplit = target.Blocks.First(b => b.InitialEndVerseNumber != b.LastVerseNum);
 			Block newBlock = null;
 			foreach (var verse in blockToSplit.BlockElements.OfType<Verse>().Select(v => v.StartVerse).ToList())
 			{
@@ -1153,28 +1153,28 @@ namespace GlyssenTests
 		{
 			var source = CreateStandardMarkScript();
 			var blockToSplit = source.Blocks.Last(b => b.InitialStartVerseNumber > 0);
-			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerse.ToString(), 5);
+			var newBlock = source.SplitBlock(blockToSplit, blockToSplit.LastVerseNum.ToString(), 5);
 
 			var target = CreateStandardMarkScript();
 			var blockToModify = target.Blocks.Last(b => b.InitialStartVerseNumber > 0);
 			blockToModify.AddVerse(12, "This is another verse that was added to the new bundle.");
 
 			target.ApplyUserDecisions(source);
-			Assert.AreEqual(12, blockToModify.LastVerse);
+			Assert.AreEqual(12, blockToModify.LastVerseNum);
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(1, target.UnappliedSplits.Count);
 			Assert.IsTrue(target.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }));
 
 			var newSource = target;
 			var blockToSplit2 = newSource.Blocks.Last(b => b.InitialStartVerseNumber > 0);
-			var newBlock2 = newSource.SplitBlock(blockToSplit2, blockToSplit2.LastVerse.ToString(), 5);
+			var newBlock2 = newSource.SplitBlock(blockToSplit2, blockToSplit2.LastVerseNum.ToString(), 5);
 
 			var newTarget = CreateStandardMarkScript();
 			var newBlockToModify = newTarget.Blocks.Last(b => b.InitialStartVerseNumber > 0);
 			newBlockToModify.AddVerse(12, "This is another verse that was added to the new bundle, but now the text is different.");
 
 			newTarget.ApplyUserDecisions(newSource);
-			Assert.AreEqual(12, newBlockToModify.LastVerse);
+			Assert.AreEqual(12, newBlockToModify.LastVerseNum);
 			Assert.IsNotNull(newTarget.UnappliedSplits);
 			Assert.AreEqual(2, newTarget.UnappliedSplits.Count);
 			Assert.IsTrue(newTarget.UnappliedSplits[0].SequenceEqual(new[] { blockToSplit, newBlock }, new BlockComparer()));

@@ -106,7 +106,7 @@ namespace Glyssen
 				return null;
 
 			var block = book.Blocks.FirstOrDefault(
-				a => a.ChapterNumber == verseRef.ChapterNum && a.InitialStartVerseNumber <= verseRef.VerseNum && a.LastVerse >= verseRef.VerseNum);
+				a => a.ChapterNumber == verseRef.ChapterNum && a.InitialStartVerseNumber <= verseRef.VerseNum && a.LastVerseNum >= verseRef.VerseNum);
 			if (block == null)
 				return null;
 

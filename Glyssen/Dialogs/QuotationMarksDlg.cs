@@ -639,7 +639,7 @@ namespace Glyssen.Dialogs
 		private void UpdateDisplay()
 		{
 			var blockRef = m_navigatorViewModel.GetBlockVerseRef();
-			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerse - blockRef.VerseNum;
+			int versesInBlock = m_navigatorViewModel.CurrentBlock.LastVerseNum - blockRef.VerseNum;
 			var displayedRefMinusBlockStartRef = m_scriptureReference.VerseControl.VerseRef.BBBCCCVVV - blockRef.BBBCCCVVV;
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInBlock)
 				m_scriptureReference.VerseControl.VerseRef = m_navigatorViewModel.GetBlockVerseRef();

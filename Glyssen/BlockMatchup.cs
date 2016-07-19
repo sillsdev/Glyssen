@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 
@@ -70,10 +71,29 @@ namespace Glyssen
 			get { return m_iStartBlock; }
 		}
 
+		private static Block GetInvalidReferenceBlockAtAnyLevel(IEnumerable<Block> blocks)
+		{
+			var refBlocks = blocks.Select(b => b.ReferenceBlocks.Single()).ToList();
+			var bogusRefBlock = refBlocks.FirstOrDefault(r => r.BlockElements.Last() is Verse);
+			if (bogusRefBlock != null)
+				return bogusRefBlock;
+
+			if (refBlocks.Any(r => r.MatchesReferenceText))
+			{
+				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText), "All reference blocks should have the same number of levels of underlying reference blocks.");
+				return GetInvalidReferenceBlockAtAnyLevel(refBlocks);
+			}
+			return null;
+		}
+
 		public int Apply()
 		{
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
+
+			var bogusRefBlock = GetInvalidReferenceBlockAtAnyLevel(CorrelatedBlocks);
+			if (bogusRefBlock != null)
+				throw new InvalidReferenceTextException(bogusRefBlock);
 
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
@@ -101,7 +121,21 @@ namespace Glyssen
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)
 		{
 			var block = CorrelatedBlocks[blockIndex];
-			return block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
+			for (int i = 0; i < level; i++)
+				block = block.ReferenceBlocks.Single();
+			var newRefBlock = block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
+			if (blockIndex < CorrelatedBlocks.Count - 1)
+			{
+				var followingBlock = CorrelatedBlocks[blockIndex + 1];
+				if (followingBlock.MatchesReferenceText)
+				{
+					var lastVerse = newRefBlock.LastVerse;
+					var followingRefBlock = followingBlock.ReferenceBlocks.Single();
+					followingRefBlock.InitialStartVerseNumber = lastVerse.StartVerse;
+					followingRefBlock.InitialEndVerseNumber = lastVerse.LastVerseOfBridge;
+				}
+			}
+			return newRefBlock;
 		}
 
 		public void SetCharacter(int blockIndex, string character)
@@ -152,6 +186,13 @@ namespace Glyssen
 					HasOutstandingChangesToApply = true;
 				}
 			}
+		}
+	}
+
+	public class InvalidReferenceTextException :  Exception
+	{
+		public InvalidReferenceTextException(Block referenceTextBlock) : base(referenceTextBlock.GetText(true, true))
+		{
 		}
 	}
 }
