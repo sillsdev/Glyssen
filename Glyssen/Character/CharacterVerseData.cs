@@ -138,7 +138,7 @@ namespace Glyssen.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{

@@ -391,6 +391,7 @@ namespace Glyssen.Bundle
 		Required,
 	}
 
+	[Flags]
 	public enum ExtraBiblicalMaterialSpeakerOption
 	{
 		Narrator,
@@ -398,6 +399,9 @@ namespace Glyssen.Bundle
 		MaleActor,
 		FemaleActor,
 		Omitted,
+		MalePermitted = MaleActor | ActorOfEitherGender,
+		FemalePermitted = FemaleActor | ActorOfEitherGender,
+		NotNarratorOrOmitted = MaleActor | FemaleActor | ActorOfEitherGender
 	}
 
 	public class ProjectDramatizationPreferences
