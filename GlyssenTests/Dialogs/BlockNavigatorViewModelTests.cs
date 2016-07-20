@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -533,38 +534,114 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void SetBlockMatchupForCurrentVerse_NoSplits_NoChangeToNumberOfBlocksCurrentBlockOrRelevantBlocks()
 		{
-			Assert.Fail("Write this test");
+			m_model.AttemptRefBlockMatchup = true;
+			FindRefInMark(8, 5);
+			var origBlockCount = m_model.BlockCountForCurrentBook;
+			var origCurrentBlock = m_model.CurrentBlock;
+			var origRelevantBlock = m_model.RelevantBlockCount;
+			m_model.SetBlockMatchupForCurrentVerse();
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			Assert.AreEqual(4, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum);
+			Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
+			Assert.AreEqual(origCurrentBlock, m_model.CurrentBlock);
+			Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount);
+		}
 
-			FindRefInMark(6, 2);
-			Assert.AreEqual("MRK 6:2-3", m_model.GetBlockReferenceString());
-			m_model.CurrentBlockIndexInBook = 0;
+		[Test]
+		public void AttemptRefBlockMatchup_SetToTrue_SetsCurrentReferenceTextMatchup()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			FindRefInMark(8, 5);
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+		}
 
-			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
-			FindRefInMark(5, 41);
-			m_model.LoadNextRelevantBlock();
-			m_model.LoadNextRelevantBlock();
-			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
-			//End validate setup
+		[Test]
+		public void AttemptRefBlockMatchup_SetToFalse_ClearsCurrentReferenceTextMatchup()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			FindRefInMark(8, 5);
+			m_model.AttemptRefBlockMatchup = false;
+			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
+		}
 
-			m_model.LoadNextRelevantBlock();
-			// The expected quote is actually in verse 4, but unfortunately, the filter is
-			// actually "verses with expected quotes" so we stop on this block
-			Assert.AreEqual("MRK 6:3-4", m_model.GetBlockReferenceString());
+		[Test]
+		public void SetBlockMatchupForCurrentVerse_AttemptRefBlockMatchupIsFalse_DoesNothing()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			FindRefInMark(8, 5);
+			m_model.SetBlockMatchupForCurrentVerse();
+			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
 		}
 
 		[Test]
 		public void SetBlockMatchupForCurrentVerse_ReferenceTextCausesSplitInVernacular_SplitBlocksAddedToNumberOfBlocksAndRelevantBlocks()
 		{
+			m_model.AttemptRefBlockMatchup = false;
+			FindRefInMark(9, 21);
+			var origBlockCount = m_model.BlockCountForCurrentBook;
+			var origRelevantBlock = m_model.RelevantBlockCount;
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetBlockMatchupForCurrentVerse();
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			Assert.AreEqual(5, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count,
+				"Original first block (narrator) should have been split at start of verse 21.");
+			Assert.AreEqual(20, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[0].LastVerseNum,
+				"Narrator text at start of verse 21 begins in verse 20.");
+			Assert.AreEqual(21, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1].InitialStartVerseNumber,
+				"Original first block (narrator) should have been split at start of verse 21.");
+			Assert.AreEqual(22, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last().LastVerseNum,
+				"Final quote in vernacular spills over into verse 22");
+			Assert.AreEqual(22, m_model.GetLastVerseInCurrentQuote());
+			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), m_model.GetLastBlockInCurrentQuote());
+			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Take(2).Contains(m_model.CurrentBlock),
+				"I can't think of a good reason (at least for now) why we would particularly care whether we end up in verse 20 or the" +
+				"beginning of verse 21.");
+			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+			Assert.Fail("Research whether we actually want the relevant block count to go up - maybe not.");
+			Assert.AreEqual(origRelevantBlock + 1, m_model.RelevantBlockCount);
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_NoBlockMatchup_ThrowsInvalidOperationException()
+		{
+			Assert.Fail("Write this test");
+			Assert.Throws<InvalidOperationException>(() => m_model.ApplyCurrentReferenceTextMatchup());
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
+		{
+			Assert.Fail("Write this test");
+			Assert.Throws<InvalidOperationException>(() => m_model.ApplyCurrentReferenceTextMatchup());
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_Simple_SetsReferenceTextsForBlocksInGroupAndUpdatesState()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.Fail("Write this test");
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_Splits_BlocksInGroupReplaced()
+		{
+			m_model.AttemptRefBlockMatchup = true;
 			Assert.Fail("Write this test");
 		}
 
 		private void FindRefInMark(int chapter, int verse)
 		{
+			var restore = m_model.AttemptRefBlockMatchup;
+			m_model.AttemptRefBlockMatchup = false;
 			while (m_model.CurrentBlock.ChapterNumber < chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)
 				m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK", m_model.CurrentBookId);
 			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);
 			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);
+			m_model.AttemptRefBlockMatchup = restore;
 		}
 	}
 }

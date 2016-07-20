@@ -54,6 +54,8 @@ namespace Glyssen
 			}
 		}
 
+		public int CountOfBlocksAddedBySplitting { get { return m_numberOfBlocksAddedBySplitting; } }
+
 		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
 
 		public bool HasOutstandingChangesToApply { get; private set; }
@@ -71,16 +73,22 @@ namespace Glyssen
 			get { return m_iStartBlock; }
 		}
 
-		private static Block GetInvalidReferenceBlockAtAnyLevel(IEnumerable<Block> blocks)
+#if !DEBUG
+		static
+#endif
+		private Block GetInvalidReferenceBlockAtAnyLevel(IEnumerable<Block> blocks)
 		{
-			var refBlocks = blocks.Select(b => b.ReferenceBlocks.Single()).ToList();
+			var refBlocks = blocks.Where(b => b.MatchesReferenceText).Select(b => b.ReferenceBlocks.Single()).ToList();
 			var bogusRefBlock = refBlocks.FirstOrDefault(r => r.BlockElements.Last() is Verse);
 			if (bogusRefBlock != null)
 				return bogusRefBlock;
 
 			if (refBlocks.Any(r => r.MatchesReferenceText))
 			{
-				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText), "All reference blocks should have the same number of levels of underlying reference blocks.");
+#if DEBUG
+				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical)),
+					"All reference blocks should have the same number of levels of underlying reference blocks.");
+#endif
 				return GetInvalidReferenceBlockAtAnyLevel(refBlocks);
 			}
 			return null;
@@ -140,12 +148,12 @@ namespace Glyssen
 
 		public void SetCharacter(int blockIndex, string character)
 		{
-			throw new NotImplementedException();
+			CorrelatedBlocks[blockIndex].CharacterId = character;
 		}
 
 		public void SetDelivery(int blockIndex, string delivery)
 		{
-			throw new NotImplementedException();
+			CorrelatedBlocks[blockIndex].Delivery = delivery;
 		}
 
 		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, ref int i)

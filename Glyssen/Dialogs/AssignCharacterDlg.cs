@@ -230,16 +230,16 @@ namespace Glyssen.Dialogs
 			colCharacter.Items.Clear();
 			colDelivery.Items.Clear();
 
-			foreach (AssignCharacterViewModel.Character character in m_listBoxCharacters.Items)
-				colCharacter.Items.Add(character.LocalizedDisplay);
-
-			foreach (AssignCharacterViewModel.Delivery delivery in m_listBoxDeliveries.Items)
-				colDelivery.Items.Add(delivery);
-
 			if (m_viewModel.CurrentReferenceTextMatchup == null)
 				tabPageMatchReferenceText.Visible = false;
 			else
 			{
+				foreach (AssignCharacterViewModel.Character character in m_listBoxCharacters.Items)
+					colCharacter.Items.Add(character.LocalizedDisplay);
+
+				foreach (AssignCharacterViewModel.Delivery delivery in m_listBoxDeliveries.Items)
+					colDelivery.Items.Add(delivery);
+
 				tabPageMatchReferenceText.Visible = true;
 				m_btnApplyReferenceTextMatches.Enabled = m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
 
@@ -789,6 +789,7 @@ namespace Glyssen.Dialogs
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
 				Settings.Default.AssignCharactersShowGridView = false;
+				m_viewModel.AttemptRefBlockMatchup = false;
 			}
 		}
 
@@ -802,6 +803,7 @@ namespace Glyssen.Dialogs
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
 				Settings.Default.AssignCharactersShowGridView = true;
+				m_viewModel.AttemptRefBlockMatchup = true;
 			}
 		}
 
@@ -912,7 +914,7 @@ namespace Glyssen.Dialogs
 
 		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
-			m_viewModel.CurrentReferenceTextMatchup.Apply();
+			m_viewModel.ApplyCurrentReferenceTextMatchup();
 		}
 
 		private void UpdateUpDownButtonStates(object sender, DataGridViewCellEventArgs e)

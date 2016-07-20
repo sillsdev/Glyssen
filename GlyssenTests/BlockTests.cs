@@ -812,10 +812,29 @@ namespace GlyssenTests
 		/// This is probably not a valid final state, but the user may be in the process of editing and about to cut some text from elsewhere
 		/// and paste it after the verse number, so we don't want to just prune the verse number.
 		/// </summary>
-		[Test]
-		public void SetMatchedReferenceBlock_VerseNumberAtEnd_RefBlockEndsWithVerseElement()
+		[TestCase("\u00A0")]
+		[TestCase(" ")]
+		[TestCase("")]
+		public void SetMatchedReferenceBlock_VerseNumberAtEnd_RefBlockEndsWithVerseElement(string trailingWhitespace)
 		{
-			Assert.Fail("Write this test");
+			var block = new Block("p", 3, 2, 3).AddVerse("2-3", "This is verses two and three. ");
+			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse two. [3]" + trailingWhitespace);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, refBlock.InitialEndVerseNumber);
+			Assert.AreEqual("3", ((Verse)refBlock.BlockElements.Last()).Number);
+		}
+
+		[Test]
+		public void SetMatchedReferenceBlock_ContainsInitialEndVerse_RefBlockInitialEndVerseSetBackToZero()
+		{
+			var block = new Block("p", 3, 2, 3).AddVerse("2-3", "This is verses two and three. ");
+			var refBlock = block.SetMatchedReferenceBlock("Text of verse two. [3]Text of verse three.");
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, refBlock.InitialEndVerseNumber);
 		}
 
 		[TestCase("", "\u00A0")]
@@ -842,7 +861,8 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_ContainsNamedSoundEffect_AnnotationParsedAndIncludedAsBlockElement(string separatorBeforeEffect, string separatorAfterEffect)
 		{
 			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
-			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse" + separatorBeforeEffect + "{F8 SFX--Sneezing}" + separatorAfterEffect + "three.");
+			var soundEffect = new Sound {SoundType = SoundType.Sfx, EffectName = "Sneezing", UserSpecifiesLocation = true};
+			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse" + separatorBeforeEffect + soundEffect.ToDisplay() + separatorAfterEffect + "three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
@@ -854,12 +874,13 @@ namespace GlyssenTests
 			Assert.AreEqual(" three.", refBlock.BlockElements.OfType<ScriptText>().Last().Content);
 		}
 
-		[TestCase("Starts", Sound.kNonSpecificStartOrStop, ?)]
-		[TestCase("Ends", ?, ?)]
-		public void SetMatchedReferenceBlock_ContainsMusicStart_AnnotationParsedAndIncludedAsBlockElement(string startOrEnd, int startVerse, int endVerse)
+		[TestCase(Sound.kNonSpecificStartOrStop)]
+		[TestCase(0)]
+		public void SetMatchedReferenceBlock_ContainsMusicStart_AnnotationParsedAndIncludedAsBlockElement(int startVerse)
 		{
 			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
-			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse {F8 Music--" + startOrEnd + "}three.");
+			var music = new Sound {SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = startVerse, EndVerse = 0};
+			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse " + music.ToDisplay() + "three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
@@ -868,7 +889,7 @@ namespace GlyssenTests
 			var effect = refBlock.BlockElements.OfType<Sound>().Single();
 			Assert.AreEqual(SoundType.Music, effect.SoundType);
 			Assert.AreEqual(startVerse, effect.StartVerse);
-			Assert.AreEqual(endVerse, effect.EndVerse);
+			Assert.AreEqual(0, effect.EndVerse);
 			Assert.IsTrue(effect.UserSpecifiesLocation);
 			Assert.IsNull(effect.EffectName);
 			Assert.AreEqual("Text of verse ", refBlock.BlockElements.OfType<ScriptText>().First().Content);

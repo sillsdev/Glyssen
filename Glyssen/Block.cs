@@ -235,12 +235,11 @@ namespace Glyssen
 			var refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
 			refBlock.SetCharacterAndDeliveryInfo(this);
 			refBlock.ParsePlainText(text);
-			var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
-			if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse < refBlock.InitialEndVerseNumber)
+			if (!refBlock.StartsAtVerseStart)
 			{
-				refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
-				if (refBlock.InitialEndVerseNumber == refBlock.InitialStartVerseNumber)
-					refBlock.InitialEndVerseNumber = 0;
+				var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
+				if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse <= refBlock.InitialEndVerseNumber)
+					refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
 			}
 			SetMatchedReferenceBlock(refBlock);
 
@@ -249,7 +248,7 @@ namespace Glyssen
 
 		private void ParsePlainText(string text)
 		{
-			var verseNumbers = new Regex(@"((\[(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\])|((\u00A0| )?\{F8 SFX--(?<effectName>.*)\}))(\u00A0| )?");
+			var verseNumbers = new Regex(@"((\[(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\])|" + Sound.kRegexForUserLocatedSounds + ")(\u00A0| )*");
 			var pos = 0;
 			text = text.TrimStart();
 			var prependSpace = "";
@@ -285,7 +284,7 @@ namespace Glyssen
 						var prevText = BlockElements.LastOrDefault() as ScriptText;
 						if (prevText != null && prevText.Content.Last() != ' ')
 							prevText.Content += " ";
-						BlockElements.Add(new Sound {EffectName = match.Result("${effectName}"), SoundType = SoundType.Sfx});
+						BlockElements.Add(Sound.CreateFromMatchedRegex(match));
 						prependSpace = " ";
 					}
 					pos = match.Index + match.Length;
@@ -331,7 +330,7 @@ namespace Glyssen
 					{
 						ScriptAnnotation annotation = blockElement as ScriptAnnotation;
 						if (annotation != null)
-							bldr.Append(annotation.ToDisplay(" "));
+							bldr.Append(annotation.ToDisplay());
 					}
 				}
 			}

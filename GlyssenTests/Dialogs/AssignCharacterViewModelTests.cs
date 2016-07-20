@@ -700,6 +700,19 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetCurrentBookSingleVoice_BlockMatchupSplitHasTemporarilyReplacedRealBlocksWithCorrelatedBlocks_MatchupResetAndOriginalBlocksRestored()
+		{
+			FindRefInMark(9, 21);
+			m_model.SetBlockMatchupForCurrentVerse();
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0);
+			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+			m_model.SetCurrentBookSingleVoice(true);
+			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
+			Assert.IsTrue(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+		}
+
+		[Test]
 		public void GetCharacterToSelectForCurrentBlock_Narrator_ReturnsGenericNarratorCharacter()
 		{
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003010)));

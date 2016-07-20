@@ -449,12 +449,12 @@ namespace DevTools
 								}
 								else
 								{
-									var splits2 = Regex.Split(split, "( \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
+									var splits2 = Regex.Split(split, "(" + RegexEscapedDoNotCombine + "{.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
 									foreach (var s in splits2)
 									{
 										if (string.IsNullOrWhiteSpace(s))
 											continue;
-										var match2 = Regex.Match(s, " \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
+										var match2 = Regex.Match(s, RegexEscapedDoNotCombine + "{.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
 										if (match2.Success)
 										{
 											ScriptAnnotation annotation;
@@ -471,7 +471,7 @@ namespace DevTools
 													var serializedAnnotation = pause != null ? XmlSerializationHelper.SerializeToString(pause, true) :
 														XmlSerializationHelper.SerializeToString((Sound)annotation, true);
 
-													var formattedAnnotationForDisplay = annotation.ToDisplay(" ");
+													var formattedAnnotationForDisplay = annotation.ToDisplay();
 
 													if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
 													{
@@ -795,7 +795,12 @@ namespace DevTools
 			return false;
 		}
 
-		private static readonly Regex s_doNotCombineRegex = new Regex(" \\|\\|\\| DO NOT COMBINE \\|\\|\\| ", RegexOptions.Compiled);
+		private static string RegexEscapedDoNotCombine
+		{
+			get { return Regex.Escape(Sound.kDoNotCombine) + " "; }
+		}
+
+		private static readonly Regex s_doNotCombineRegex = new Regex(RegexEscapedDoNotCombine, RegexOptions.Compiled);
 		private static readonly Regex s_pauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
 		private static readonly Regex s_pauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
 		private static readonly Regex s_musicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);
