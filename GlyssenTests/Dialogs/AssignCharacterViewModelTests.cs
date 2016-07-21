@@ -700,10 +700,10 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SetCurrentBookSingleVoice_BlockMatchupSplitHasTemporarilyReplacedRealBlocksWithCorrelatedBlocks_MatchupResetAndOriginalBlocksRestored()
+		public void SetCurrentBookSingleVoice_CurrentBlockIsResultOfBlockMatchupSplit_MatchupResetAndOriginalBlocksRestored()
 		{
 			FindRefInMark(9, 21);
-			m_model.SetBlockMatchupForCurrentVerse();
+			m_model.AttemptRefBlockMatchup = true;
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
 			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0);
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));

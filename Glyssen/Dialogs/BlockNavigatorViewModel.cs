@@ -174,7 +174,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (m_currentRefBlockMatchups != null && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
-					return m_currentRefBlockMatchups.CorrelatedBlocks[0];
+					return m_currentRefBlockMatchups.CorrelatedAnchorBlock;
 				return m_navigator.CurrentBlock;
 			} 
 		}
@@ -611,11 +611,11 @@ namespace Glyssen.Dialogs
 
 		public void SetBlockMatchupForCurrentVerse()
 		{
-			if (!AttemptRefBlockMatchup)
+			if (!AttemptRefBlockMatchup || CurrentBook.SingleVoice)
 				return;
+
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				CurrentBook.GetIndexOfFirstBlockForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber),
-				m_project.Versification);
+				CurrentBlockIndexInBook, m_project.Versification);
 			if (m_currentRefBlockMatchups != null)
 			{
 				m_currentRefBlockMatchups.MatchAllBlocks();
@@ -641,12 +641,17 @@ namespace Glyssen.Dialogs
 		public void ApplyCurrentReferenceTextMatchup()
 		{
 			if (m_currentRefBlockMatchups == null)
-				throw new InvalidOperationException("No current reference text block macthup!");
+				throw new InvalidOperationException("No current reference text block matchup!");
 			if (!m_currentRefBlockMatchups.HasOutstandingChangesToApply)
-				throw new InvalidOperationException("Current reference text block macthup has no outstanding changes!");
+				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
+			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
+			foreach (var block in m_currentRefBlockMatchups.OriginalBlocks)
+				m_relevantBlocks.Remove(m_navigator.GetIndicesOfSpecificBlock(block));
 			m_currentRefBlockMatchups.Apply();
-			// TODO: Finish this implementation. Tests needed!!!
-			SetBlockMatchupForCurrentVerse();
+			m_relevantBlocks.InsertRange(m_currentBlockIndex,
+				m_currentRefBlockMatchups.OriginalBlocks.Where(IsRelevant).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
+
+			// TODO: Finish this implementation.
 		}
 
 		protected virtual void HandleCurrentBlockChanged()

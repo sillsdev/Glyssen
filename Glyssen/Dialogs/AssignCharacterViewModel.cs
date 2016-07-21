@@ -89,8 +89,13 @@ namespace Glyssen.Dialogs
 			CurrentBook.SingleVoice = singleVoice;
 			m_project.SaveBook(CurrentBook);
 
-			if (singleVoice) 
+			if (singleVoice)
+			{
 				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
+				ClearBlockMatchup();
+			}
+			else // TODO: Ensure test coverage for this
+				SetBlockMatchupForCurrentVerse();
 
 			ResetFilter(CurrentBlock);
 

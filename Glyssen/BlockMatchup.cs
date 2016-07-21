@@ -11,19 +11,19 @@ namespace Glyssen
 		private readonly BookScript m_vernacularBook;
 		private readonly int m_iStartBlock;
 		private readonly PortionScript m_portion;
-		private readonly int m_numberOfBlocksAddedBySplitting = 0;
+		private int m_numberOfBlocksAddedBySplitting = 0;
 
 		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks)
 		{
 			m_vernacularBook = vernacularBook;
 			var blocks = vernacularBook.GetScriptBlocks();
-			var block = blocks[iBlock];
+			OriginalAnchorBlock = blocks[iBlock];
 			var blocksForVersesCoveredByBlock =
-				vernacularBook.GetBlocksForVerse(block.ChapterNumber, block.InitialStartVerseNumber).ToList();
-			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(block);
+				vernacularBook.GetBlocksForVerse(OriginalAnchorBlock.ChapterNumber, OriginalAnchorBlock.InitialStartVerseNumber).ToList();
+			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(OriginalAnchorBlock);
 			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
 			{
-				var prepend = vernacularBook.GetBlocksForVerse(block.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
+				var prepend = vernacularBook.GetBlocksForVerse(OriginalAnchorBlock.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
 				prepend.RemoveAt(prepend.Count - 1);
 				m_iStartBlock -= prepend.Count;
 				blocksForVersesCoveredByBlock.InsertRange(0, prepend);
@@ -37,12 +37,12 @@ namespace Glyssen
 				blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
 
 			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
+			CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
 			if (splitBlocks != null)
 			{
 				int origCount = m_portion.GetScriptBlocks().Count;
 				splitBlocks(m_portion);
 				m_numberOfBlocksAddedBySplitting = m_portion.GetScriptBlocks().Count - origCount;
-				HasOutstandingChangesToApply = m_numberOfBlocksAddedBySplitting > 0;
 			}
 		}
 
@@ -58,7 +58,25 @@ namespace Glyssen
 
 		public IReadOnlyList<Block> CorrelatedBlocks { get { return m_portion.GetScriptBlocks(); } }
 
-		public bool HasOutstandingChangesToApply { get; private set; }
+		public bool HasOutstandingChangesToApply
+		{
+			get
+			{
+				if (m_numberOfBlocksAddedBySplitting > 0)
+					return true;
+				int i = 0;
+				foreach (var realBlock in OriginalBlocks)
+				{
+					var correlatedBlock = CorrelatedBlocks[i++];
+					if (realBlock.CharacterId != correlatedBlock.CharacterId ||
+						realBlock.Delivery != correlatedBlock.Delivery ||
+						realBlock.PrimaryReferenceText != correlatedBlock.PrimaryReferenceText ||
+						!realBlock.ReferenceBlocks.Select(r => r.PrimaryReferenceText).SequenceEqual(correlatedBlock.ReferenceBlocks.Select(r => r.PrimaryReferenceText)))
+					return true;
+				}
+				return false;
+			}
+		}
 
 		public bool AllScriptureBlocksMatch
 		{
@@ -72,6 +90,10 @@ namespace Glyssen
 		{
 			get { return m_iStartBlock; }
 		}
+
+		public Block CorrelatedAnchorBlock { get; private set; }
+
+		public Block OriginalAnchorBlock { get; private set; }
 
 #if !DEBUG
 		static
@@ -94,7 +116,7 @@ namespace Glyssen
 			return null;
 		}
 
-		public int Apply()
+		public void Apply()
 		{
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
@@ -106,31 +128,39 @@ namespace Glyssen
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
 				m_vernacularBook.ReplaceBlocks(m_iStartBlock, CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting,
-					CorrelatedBlocks);
+					CorrelatedBlocks.Select(b => b.Clone()));
 			}
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
-				if (!CorrelatedBlocks[i].MatchesReferenceText)
+				if (!CorrelatedBlocks[i].MatchesReferenceText) // e.g., section head
 					continue;
 				var vernBlock = origBlocks[m_iStartBlock + i];
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
-				if (vernBlock.CharacterId != refBlock.CharacterId)
-				{
-					vernBlock.CharacterId = refBlock.CharacterId;
-					if (refBlock.CharacterIdOverrideForScript != null)
-						vernBlock.CharacterIdOverrideForScript = refBlock.CharacterIdOverrideForScript;
-				}
+				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i]);
+				if (CorrelatedBlocks[i].UserConfirmed)
+					vernBlock.UserConfirmed = true;
+
+				//if (vernBlock.CharacterId != refBlock.CharacterId)
+				//{
+				//	vernBlock.CharacterId = refBlock.CharacterId;
+				//	if (refBlock.CharacterIdOverrideForScript != null)
+				//		vernBlock.CharacterIdOverrideForScript = refBlock.CharacterIdOverrideForScript;
+				//}
 			}
-			return m_numberOfBlocksAddedBySplitting;
+			m_numberOfBlocksAddedBySplitting = 0;
 		}
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)
 		{
 			var block = CorrelatedBlocks[blockIndex];
 			for (int i = 0; i < level; i++)
-				block = block.ReferenceBlocks.Single();
+			{
+				var clone = block.ReferenceBlocks.Single().Clone();
+				block.SetMatchedReferenceBlock(clone);
+				block = clone;
+			}
 			var newRefBlock = block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
 			if (blockIndex < CorrelatedBlocks.Count - 1)
 			{
@@ -178,7 +208,7 @@ namespace Glyssen
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock);
-						HasOutstandingChangesToApply = true;
+						block.UserConfirmed = true; // This does not affect original block until Apply is called
 					}
 				}
 				else
@@ -191,7 +221,6 @@ namespace Glyssen
 					else
 						refBlock.BlockElements.Add(new ScriptText(""));
 					block.SetMatchedReferenceBlock(refBlock);
-					HasOutstandingChangesToApply = true;
 				}
 			}
 		}
