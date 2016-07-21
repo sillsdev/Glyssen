@@ -632,6 +632,7 @@ namespace Glyssen.Rules
 				m_groups = characterGroups.Select(g => g.Copy()).ToList();
 				m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles = allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles;
 				m_characterDetails = characterDetails;
+				var extraBiblicalIsSet = false;
 
 				if (Groups.Count == 1)
 				{
@@ -644,6 +645,8 @@ namespace Glyssen.Rules
 						SectionHeadGroup = Groups[0];
 					if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
 						BookTitleChapterGroup = Groups[0];
+
+					extraBiblicalIsSet = true;
 				}
 				else
 				{
@@ -659,6 +662,8 @@ namespace Glyssen.Rules
 							SectionHeadGroup = NarratorGroups[0];
 						if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
 							BookTitleChapterGroup = NarratorGroups[0];
+
+						extraBiblicalIsSet = true;
 					}
 					else
 					{
@@ -700,13 +705,18 @@ namespace Glyssen.Rules
 							idealAge = new List<ActorAge> {ActorAge.Elder, ActorAge.YoungAdult};
 						}
 
-						// assign extra-biblical groups
-						InitializeExtraBiblicalGroups(dramatizationPreferences, favorFemaleExtraBiblicalGroups);
+						
 					}
 				}
 
 				AssignNarratorCharactersToNarratorGroups(keyStrokesByCharacterId, includedBooks);
+
+				// assign extra-biblical groups
+				if (!extraBiblicalIsSet)
+					InitializeExtraBiblicalGroups(dramatizationPreferences, favorFemaleExtraBiblicalGroups);
+
 				AssignExtraBiblicalCharactersToExtraBiblicalGroups(includedCharacterDetails);
+
 				AssignDeityCharacters(includedCharacterDetails);
 
 				GroupsAvailableForBiblicalCharacterRoles = Groups.Where(g => !g.Closed &&
@@ -1046,7 +1056,7 @@ namespace Glyssen.Rules
 				var remaining = includedCharacterDetails.Where(cd => !Groups.Any(g => g.CharacterIds.Contains(cd.CharacterId))).Where(
 					cd => CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.BookOrChapter ||
 					      CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.ExtraBiblical ||
-						  CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.Intro);
+						  CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.Intro).ToList();
 
 				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.StandardCharacter.Narrator);
 
