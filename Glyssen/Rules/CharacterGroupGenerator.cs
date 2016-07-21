@@ -503,74 +503,62 @@ namespace Glyssen.Rules
 
 			if (groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 2.3);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.3);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 2.4);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.4);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 2.5);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.5);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 2.7);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.7);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 2.9);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.9);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.BookTitleChapterGroup, configuration.SectionHeadGroup,
-					configuration.BookIntroductionGroup, groupToProximityDict, 3.2);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 3.2);
 			}
 			var bestGroupEntry = groupToProximityDict.Aggregate((l, r) => l.Value.WeightedNumberOfBlocks > r.Value.WeightedNumberOfBlocks ? l : r);
 			var bestGroup = bestGroupEntry.Key;
@@ -586,7 +574,6 @@ namespace Glyssen.Rules
 		}
 
 		private void CalculateProximityForGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups,
-			CharacterGroup bookTitleChapterGroup, CharacterGroup sectionHeadingGroup, CharacterGroup bookIntroductionGroup,
 			Dictionary<CharacterGroup, WeightedMinimumProximity> groupToProximityDict, double weightingFactor = 1.0)
 		{
 			if (!weightingFactor.Equals(1d))
@@ -599,7 +586,7 @@ namespace Glyssen.Rules
 			{
 				HashSet<string> testSet = new HashSet<string>(group.CharacterIds);
 				testSet.Add(characterDetail.CharacterId);
-				var notExtraBiblical = (group != bookTitleChapterGroup) && (group != sectionHeadingGroup) && (group != bookIntroductionGroup);
+				var notExtraBiblical = !group.CharacterIds.Any(CharacterVerseData.IsCharacterExtraBiblical);
 				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet, notExtraBiblical)));
 			}
 		}
@@ -765,7 +752,7 @@ namespace Glyssen.Rules
 
 			private CharacterGroup TryToSetThisExtraBiblicalGroup(ExtraBiblicalMaterialSpeakerOption speakerOption, bool favorFemaleExtraBiblicalGroups)
 			{
-				if (((speakerOption & ExtraBiblicalMaterialSpeakerOption.NotNarratorOrOmitted) == 0))
+				if ((speakerOption & ExtraBiblicalMaterialSpeakerOption.IsNarratorOrOmitted) != 0)
 					return null;
 
 				var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(Groups,

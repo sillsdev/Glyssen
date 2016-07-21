@@ -1077,6 +1077,9 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.EPH);
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 		}
 
@@ -1933,6 +1936,10 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
+
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 		}
 
 		[SetUp]

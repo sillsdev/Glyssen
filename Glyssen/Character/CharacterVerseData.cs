@@ -78,6 +78,20 @@ namespace Glyssen.Character
 			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
 		}
 
+		public static bool IsCharacterExtraBiblical(string characterId)
+		{
+			if (IsCharacterOfType(characterId, StandardCharacter.BookOrChapter))
+				return true;
+
+			if (IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical))
+				return true;
+
+			if (IsCharacterOfType(characterId, StandardCharacter.Intro))
+				return true;
+
+			return false;
+		}
+
 		public static string GetCharacterNameForUi(string characterId)
 		{
 			string localizedCharacterId;
