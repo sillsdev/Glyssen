@@ -647,6 +647,46 @@ namespace Glyssen
 
 		private void Assign_Click(object sender, EventArgs e)
 		{
+			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				var cvData = new CombinedCharacterVerseData(m_project);
+
+				foreach (var book in m_project.IncludedBooks)
+				{
+					var bookNum = SIL.Scripture.BCVRef.BookToNumber(book.BookId);
+					int iCharacter = 0;
+					List<CharacterVerse> charactersForVerse = null;
+					foreach (var block in book.GetScriptBlocks())
+					{
+						if (block.StartsAtVerseStart)
+						{
+							iCharacter = 0;
+							charactersForVerse = null;
+						}
+						if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+						{
+							block.SetCharacterAndCharacterIdInScript(
+								CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
+								m_project.Versification);
+							block.UserConfirmed = true;
+						}
+						else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
+						{
+							if (charactersForVerse == null)
+								charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+									block.InitialEndVerseNumber, versification: m_project.Versification).ToList();
+
+							var cvEntry = charactersForVerse[iCharacter++];
+							if (iCharacter == charactersForVerse.Count)
+								iCharacter = 0;
+							block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, m_project.Versification);
+							block.Delivery = cvEntry.Delivery;
+							block.UserConfirmed = true;
+						}
+					}
+				}
+			}
+
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 				using (var dlg = new AssignCharacterDlg(viewModel))
 					dlg.ShowDialog(this);
