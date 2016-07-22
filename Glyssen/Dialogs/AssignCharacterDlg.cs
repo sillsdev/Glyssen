@@ -231,7 +231,7 @@ namespace Glyssen.Dialogs
 			colDelivery.Items.Clear();
 
 			if (m_viewModel.CurrentReferenceTextMatchup == null)
-				tabPageMatchReferenceText.Visible = false;
+				m_tabControlCharacterSelection.TabPages.Remove(tabPageMatchReferenceText);
 			else
 			{
 				foreach (AssignCharacterViewModel.Character character in m_listBoxCharacters.Items)
@@ -240,7 +240,8 @@ namespace Glyssen.Dialogs
 				foreach (AssignCharacterViewModel.Delivery delivery in m_listBoxDeliveries.Items)
 					colDelivery.Items.Add(delivery);
 
-				tabPageMatchReferenceText.Visible = true;
+				if (!m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
+					m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
 				m_btnApplyReferenceTextMatches.Enabled = m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;

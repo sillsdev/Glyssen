@@ -138,6 +138,7 @@ GEN	13	15	God		God (the LORD)	Normal
 GEN	13	16	God		God (the LORD)	Normal		
 GEN	13	17	God		God (the LORD)	Normal		
 GEN	14	4	Bera, king of Sodom/Birsha, king of Gomorrah/Shinab, king of Admah/Shemeber, king of Zeboiim/king of Bela			Indirect	Bera, king of Sodom	
+GEN	14	17	narrator-GEN			Quotation		
 GEN	14	19	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	20	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	21	Bera, king of Sodom			Normal		

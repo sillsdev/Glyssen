@@ -63,6 +63,33 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void LoadNextRelevantBlock_FollowingInsertionOfBlockByApplyingMatchupWithSplits_LoadsARelevantBlock()
+		{
+			FindRefInMark(9, 21);
+			int displayIndex = m_model.CurrentBlockDisplayIndex;
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
+			try
+			{
+				m_model.ApplyCurrentReferenceTextMatchup();
+				Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
+				Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+				do
+				{
+					m_model.LoadNextRelevantBlock();
+					Assert.AreEqual(++displayIndex, m_model.CurrentBlockDisplayIndex);
+					Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+				} while (m_model.CurrentBookId == "MRK");
+			}
+			finally
+			{
+				// This test modifes the original collection of blocks, so we need to refresh the project to avoid affecting other tests.
+				TestFixtureTearDown();
+				TestFixtureSetUp();
+			}
+		}
+
+		[Test]
 		public void LoadNextRelevantBlockInSubsequentBook_HasFurtherBooks_HasNoFurtherRelevantBlocks_CallingMethodDoesNothing()
 		{
 			// Validate our setup
@@ -597,9 +624,9 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(22, m_model.GetLastVerseInCurrentQuote());
 			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last(), m_model.GetLastBlockInCurrentQuote());
 			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Take(2).Contains(m_model.CurrentBlock),
-				"I can't think of a good reason (at least for now) why we would particularly care whether we end up in verse 20 or the" +
-				"beginning of verse 21.");
+			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock, m_model.CurrentBlock);
+			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.ElementAt(2), m_model.CurrentBlock);
+			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.GetText(true), m_model.CurrentBlock.GetText(true));
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
 			Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount,
 				"The relevant block count should not go up unless/until the existing blocks are replaced by the Correlated Blocks.");
@@ -651,7 +678,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void ApplyCurrentReferenceTextMatchup_Splits_BlocksInBookReplacedAndCurrentBlockNoLongerComesFromMatchup()
+		public void ApplyCurrentReferenceTextMatchup_Splits_BlocksInBookReplacedAndCurrentBlockNoLongerComesFromMatchupAndSubsequentRelevantBlockIndicesIncremented()
 		{
 			FindRefInMark(9, 21);
 			var origBlockCount = m_model.BlockCountForCurrentBook;
@@ -666,7 +693,6 @@ namespace GlyssenTests.Dialogs
 			var origTextOfFirstBlockInVerse = m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true);
 			var origCurrentBlockText = m_model.CurrentBlock.GetText(true);
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
-
 			try
 			{
 				m_model.ApplyCurrentReferenceTextMatchup();
@@ -686,6 +712,32 @@ namespace GlyssenTests.Dialogs
 				TestFixtureTearDown();
 				TestFixtureSetUp();
 			}
+		}
+
+		[Test]
+		public void GetNthBlockInCurrentBook_VernacularBlocksSplitByMatchupWithReferenceText_BlocksComeFromMatchupAndSubsequentBlocksUseAdjustedIndex()
+		{
+			FindRefInMark(9, 21);
+
+			var indexOfPrecedingBlock = m_model.CurrentBlockIndexInBook;
+			while (m_model.GetNthBlockInCurrentBook(indexOfPrecedingBlock).LastVerseNum == 21)
+				indexOfPrecedingBlock--;
+			var origPrecedingBlock = m_model.GetNthBlockInCurrentBook(indexOfPrecedingBlock);
+
+			var origIndexOfFollowingBlock = m_model.CurrentBlockIndexInBook;
+			while (m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock).LastVerseNum <= 22)
+				origIndexOfFollowingBlock++;
+			var origFollowingBlock = m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock);
+
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.AreEqual(origPrecedingBlock, m_model.GetNthBlockInCurrentBook(indexOfPrecedingBlock));
+			int c = 0;
+			foreach (var correlatedBlock in m_model.CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
+				Assert.AreEqual(correlatedBlock, m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup + c), c.ToString());
+				c++;
+			}
+			Assert.AreEqual(origFollowingBlock, m_model.GetNthBlockInCurrentBook(origIndexOfFollowingBlock + m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting));
 		}
 
 		private void FindRefInMark(int chapter, int verse)

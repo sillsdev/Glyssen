@@ -829,6 +829,56 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 
+		[Test]
+		public void SetCharacterAndDelivery_BlockMatchupIsSet_OriginalAndCorrelatedAnchorBlocksAreModified()
+		{
+			m_fullProjectRefreshRequired = true;
+			FindRefInMark(9, 21);
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterIsUnclear());
+			var charactersForVerse = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			var deliveriesForVerse = m_model.GetUniqueDeliveries().ToList();
+			var characterJesus = charactersForVerse.Single(c => c.CharacterId == "Jesus");
+			var deliveryQuestioning = deliveriesForVerse.Single(d => d.Text == "questioning");
+			var characterFather = charactersForVerse.Single(c => c.CharacterId == "father of demon-possessed boy");
+			var deliveryDistraught = deliveriesForVerse.Single(d => d.Text == "distraught");
+
+			// Part I: Assign to Jesus/questioning (which is the automatic matchup)
+			Assert.IsTrue(m_model.IsModified(characterJesus, deliveryQuestioning),
+				"If this isn't true, it is not considered \"dirty\" and the Assign button will not be enabled.");
+			Assert.AreNotEqual("Jesus", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
+			Assert.AreEqual("Jesus", m_model.CurrentBlock.CharacterId);
+
+			m_model.SetCharacterAndDelivery(characterJesus, deliveryQuestioning);
+			Assert.AreEqual("Jesus", m_model.CurrentBlock.CharacterId);
+			Assert.AreEqual("questioning", m_model.CurrentBlock.Delivery);
+			Assert.AreEqual("Jesus", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
+			Assert.AreEqual("questioning", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.Delivery);
+			Assert.AreEqual("Jesus", m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
+			Assert.AreEqual("questioning", m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.Delivery);
+			Assert.IsFalse(m_model.IsModified(characterJesus, deliveryQuestioning),
+				"If this isn't false, it is considered \"dirty\" and the Assign button will be enabled.");
+
+			// Part II: Assign to father of demon-possessed boy/distraught
+			Assert.IsTrue(m_model.IsModified(characterFather, deliveryDistraught),
+				"If this isn't true, it is not considered \"dirty\" and the Assign button will not be enabled.");
+			Assert.AreNotEqual(characterFather.CharacterId, m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
+			Assert.AreNotEqual(characterFather.CharacterId, m_model.CurrentBlock.CharacterId);
+			m_model.SetCharacterAndDelivery(characterFather, deliveryDistraught);
+			Assert.AreEqual(characterFather.CharacterId, m_model.CurrentBlock.CharacterId);
+			Assert.AreEqual("distraught", m_model.CurrentBlock.Delivery);
+			Assert.AreEqual(characterFather.CharacterId, m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
+			Assert.AreEqual("distraught", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.Delivery);
+			Assert.AreEqual(characterFather.CharacterId, m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
+			Assert.AreEqual("distraught", m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.Delivery);
+			Assert.IsFalse(m_model.IsModified(characterFather, deliveryDistraught),
+				"If this isn't false, it is considered \"dirty\" and the Assign button will be enabled.");
+
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber > 9);
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			while (m_model.CurrentBlock.ChapterNumber != chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)

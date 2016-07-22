@@ -295,7 +295,7 @@ namespace Glyssen.Dialogs
 		#region Character/delivery assignment methods
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
-			Block currentBlock = CurrentBlock;
+			Block currentBlock = CurrentBlockInOriginal;
 			if (CharacterVerseData.IsCharacterStandard(currentBlock.CharacterId, false))
 				return false; // Can't change these.
 
@@ -346,14 +346,20 @@ namespace Glyssen.Dialogs
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
 		{
-			if (!CurrentBlock.UserConfirmed)
+			if (!CurrentBlockInOriginal.UserConfirmed)
 			{
 				m_assignedBlocks++;
 				OnAssignedBlocksIncremented();
 			}
 
-			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
+			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlockInOriginal))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
+
+			if (CurrentReferenceTextMatchup != null && CurrentReferenceTextMatchup.HasOutstandingChangesToApply)
+			{
+				foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
+					SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
+			}
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();

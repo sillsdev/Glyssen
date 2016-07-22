@@ -176,8 +176,9 @@ namespace Glyssen.Dialogs
 				if (m_currentRefBlockMatchups != null && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
 					return m_currentRefBlockMatchups.CorrelatedAnchorBlock;
 				return m_navigator.CurrentBlock;
-			} 
+			}
 		}
+		protected Block CurrentBlockInOriginal { get { return m_navigator.CurrentBlock; } }
 		public BlockMatchup CurrentReferenceTextMatchup { get { return m_currentRefBlockMatchups; } }
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
@@ -500,7 +501,13 @@ namespace Glyssen.Dialogs
 		#region Navigation methods
 		public Block GetNthBlockInCurrentBook(int i)
 		{
-			return m_navigator.CurrentBook.GetScriptBlocks()[i];
+			if (m_currentRefBlockMatchups == null)
+				return m_navigator.CurrentBook.GetScriptBlocks()[i];
+			if (m_currentRefBlockMatchups.IndexOfStartBlockInBook > i)
+				return m_navigator.CurrentBook.GetScriptBlocks()[i];
+			if (i < m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count)
+				return m_currentRefBlockMatchups.CorrelatedBlocks[i - m_currentRefBlockMatchups.IndexOfStartBlockInBook];
+			return m_navigator.CurrentBook.GetScriptBlocks()[i - m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting];
 		}
 
 		public bool CanNavigateToPreviousRelevantBlock
