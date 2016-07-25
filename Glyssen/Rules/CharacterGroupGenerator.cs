@@ -303,6 +303,10 @@ namespace Glyssen.Rules
 							if (configuration.Groups.Any(g => g.CharacterIds.Contains(characterId)))
 								continue;
 
+							// if there are any standard characters still not assigned, it is because they are omitted
+							if (CharacterVerseData.GetStandardCharacterType(characterId) != CharacterVerseData.StandardCharacter.NonStandard)
+								continue;
+
 							CharacterDetail characterDetail;
 							if (!characterDetails.TryGetValue(characterId, out characterDetail))
 							{
@@ -715,7 +719,7 @@ namespace Glyssen.Rules
 				if (!extraBiblicalIsSet)
 					InitializeExtraBiblicalGroups(dramatizationPreferences, favorFemaleExtraBiblicalGroups);
 
-				AssignExtraBiblicalCharactersToExtraBiblicalGroups(includedCharacterDetails);
+				AssignExtraBiblicalCharactersToExtraBiblicalGroups(includedCharacterDetails, dramatizationPreferences);
 
 				AssignDeityCharacters(includedCharacterDetails);
 
@@ -762,7 +766,8 @@ namespace Glyssen.Rules
 
 			private CharacterGroup TryToSetThisExtraBiblicalGroup(ExtraBiblicalMaterialSpeakerOption speakerOption, bool favorFemaleExtraBiblicalGroups)
 			{
-				if ((speakerOption & ExtraBiblicalMaterialSpeakerOption.IsNarratorOrOmitted) != 0)
+				if ((speakerOption == ExtraBiblicalMaterialSpeakerOption.Narrator) ||
+					(speakerOption == ExtraBiblicalMaterialSpeakerOption.Omitted))
 					return null;
 
 				var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(Groups,
@@ -1022,7 +1027,8 @@ namespace Glyssen.Rules
 				}
 			}
 
-			private void AssignExtraBiblicalCharactersToExtraBiblicalGroups(List<CharacterDetail> includedCharacterDetails)
+			private void AssignExtraBiblicalCharactersToExtraBiblicalGroups(List<CharacterDetail> includedCharacterDetails,
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				// book titles and chapters
 				if (BookTitleChapterGroup != null)
@@ -1054,9 +1060,12 @@ namespace Glyssen.Rules
 
 				// if there are any left, assign them to the book narrator
 				var remaining = includedCharacterDetails.Where(cd => !Groups.Any(g => g.CharacterIds.Contains(cd.CharacterId))).Where(
-					cd => CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.BookOrChapter ||
-					      CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.ExtraBiblical ||
-						  CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.Intro).ToList();
+					cd => (CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.BookOrChapter &&
+						      dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted) ||
+					      (CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.ExtraBiblical &&
+							  dramatizationPreferences.SectionHeadDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted) ||
+						  (CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.Intro && 
+						      dramatizationPreferences.BookIntroductionsDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)).ToList();
 
 				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.StandardCharacter.Narrator);
 

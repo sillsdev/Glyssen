@@ -836,7 +836,9 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(femaleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.Male)));
 			Assert.IsFalse(femaleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.PreferMale)));
 			Assert.AreEqual(1, groups.Single(g => g.CharacterIds.Contains("Jesus")).CharacterIds.Count);
-			Assert.IsTrue(GetNarratorGroupForBook(groups, "LUK").CharacterIds.All(
+
+			var narratorGroup = GetNarratorGroupForBook(groups, "LUK");
+			Assert.IsTrue(narratorGroup.CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(
 				i => CharacterVerseData.IsCharacterStandard(i, false)));
@@ -1894,6 +1896,10 @@ namespace GlyssenTests.Rules
 			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIJN, TestProject.TestBook.EPH);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 		}
 
 		[SetUp]
