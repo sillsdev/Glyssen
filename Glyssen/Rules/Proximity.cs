@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using SIL.Scripture;
 
@@ -20,7 +21,9 @@ namespace Glyssen.Rules
 		/// <summary>
 		/// Calculate the minimum number of blocks between two character ids in given collection
 		/// </summary>
-		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate, bool treatStandardNonScriptureCharactersAsDistinct = false, bool handleEachBookSeparately = true)
+		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate,
+			ProjectDramatizationPreferences dramatizationPreferences,
+			bool treatStandardNonScriptureCharactersAsDistinct = false)
 		{
 			if (!characterIdsToCalculate.Any())
 				return new MinimumProximity(Int32.MaxValue, null, null, null, null);
@@ -48,6 +51,16 @@ namespace Glyssen.Rules
 				if (breakOutOfBothLoops)
 					break;
 
+				// are there standard characters to treat as one?
+				HashSet<string> matchingOtherCharacterIds = null;
+				var matchingNarratorCharacterIds = GetNarratorCharactersToTreatAsOne(characterIdsToCalculate, book, dramatizationPreferences);
+				if ((matchingNarratorCharacterIds == null) || (matchingNarratorCharacterIds.Count < 3))
+				{
+					matchingOtherCharacterIds = GetOtherCharactersToTreatAsOne(characterIdsToCalculate, book, dramatizationPreferences);
+				}
+				
+
+
 				if (!treatStandardNonScriptureCharactersAsDistinct)
 				{
 					standardCharacterIdsForBook.Clear();
@@ -59,8 +72,7 @@ namespace Glyssen.Rules
 						standardCharacterIdsToTreatAsOne = new HashSet<string>();
 				}
 
-				if (handleEachBookSeparately)
-					currentBlockCount += kDefaultMinimumProximity + 20; // 20 is a pretty arbitrary "magic number"
+				currentBlockCount += kDefaultMinimumProximity + 20; // 20 is a pretty arbitrary "magic number"
 
 				foreach (var block in book.Blocks)
 				{
@@ -120,6 +132,76 @@ namespace Glyssen.Rules
 			}
 
 			return new MinimumProximity(minProximity, firstBook, secondBook, firstBlock, secondBlock);
+		}
+
+		private static HashSet<string> GetNarratorCharactersToTreatAsOne(ISet<string> characterIdsToCalculate, BookScript book,
+			ProjectDramatizationPreferences dramatizationPreferences)
+		{
+			var narratorCharacterIds = new HashSet<string>();
+
+			// is the book title and chapter character also the narrator?
+			var extraBiblicalId = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter);
+			if (characterIdsToCalculate.Contains(extraBiblicalId) &&
+				(dramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Narrator))
+			{
+				narratorCharacterIds.Add(extraBiblicalId);
+			}
+
+			// is the section head character also the narrator?
+			extraBiblicalId = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical);
+			if (characterIdsToCalculate.Contains(extraBiblicalId) &&
+				(dramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Narrator))
+			{
+				narratorCharacterIds.Add(extraBiblicalId);
+			}
+
+			// is the book introduction character also the narrator?
+			extraBiblicalId = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro);
+			if (characterIdsToCalculate.Contains(extraBiblicalId) &&
+				(dramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Narrator))
+			{
+				narratorCharacterIds.Add(extraBiblicalId);
+			}
+
+			if (narratorCharacterIds.Count > 0)
+			{
+				narratorCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator));
+				return narratorCharacterIds;
+			}
+
+			return null;
+		}
+
+		private static HashSet<string> GetOtherCharactersToTreatAsOne(ISet<string> characterIdsToCalculate, BookScript book,
+			ProjectDramatizationPreferences dramatizationPreferences)
+		{
+			var otherCharacterIds = new HashSet<string>();
+
+			if ((dramatizationPreferences.BookTitleAndChapterDramatization & ExtraBiblicalMaterialSpeakerOption.NotNarratorOrOmitted) != 0)
+			{
+				if (dramatizationPreferences.BookTitleAndChapterDramatization == dramatizationPreferences.SectionHeadDramatization)
+				{
+					otherCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+					otherCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+				}
+
+				if (dramatizationPreferences.BookTitleAndChapterDramatization == dramatizationPreferences.BookIntroductionsDramatization)
+				{
+					otherCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
+					otherCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+				}
+			}
+
+			if ((dramatizationPreferences.SectionHeadDramatization & ExtraBiblicalMaterialSpeakerOption.NotNarratorOrOmitted) != 0)
+			{
+				if (dramatizationPreferences.SectionHeadDramatization == dramatizationPreferences.BookIntroductionsDramatization)
+				{
+					otherCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
+					otherCharacterIds.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
+				}
+			}
+
+			return otherCharacterIds.Count > 0 ? otherCharacterIds : null;
 		}
 
 		private static bool ProcessDifferentCharacter(BookScript book, Block block, string characterId, ISet<string> matchingCharacterIds, ref bool foundFirst, ref int currentBlockCount, ref int minProximity, ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock, ref BookScript secondBook, ref Block secondBlock, ref bool breakOutOfBothLoops, ref string prevCharacterId, ref ISet<string> prevMatchingCharacterIds)

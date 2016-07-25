@@ -400,7 +400,8 @@ namespace Glyssen.Bundle
 		FemaleActor,
 		Omitted,
 		MalePermitted = MaleActor | ActorOfEitherGender,
-		FemalePermitted = FemaleActor | ActorOfEitherGender
+		FemalePermitted = FemaleActor | ActorOfEitherGender,
+		NotNarratorOrOmitted = MaleActor | FemaleActor | ActorOfEitherGender
 	}
 
 	public class ProjectDramatizationPreferences
