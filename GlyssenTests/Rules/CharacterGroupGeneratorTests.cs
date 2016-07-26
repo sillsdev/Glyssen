@@ -813,6 +813,10 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 		}
 
 		[TestFixtureTearDown]
@@ -900,6 +904,10 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
 		[TestFixtureTearDown]
@@ -1122,6 +1130,10 @@ namespace GlyssenTests.Rules
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
 			m_testProject.IncludedBooks[0].SingleVoice = true;
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
 		[TestFixtureTearDown]
@@ -1385,6 +1397,10 @@ namespace GlyssenTests.Rules
 				TestProject.TestBook.IIIJN,
 				TestProject.TestBook.JUD,
 				TestProject.TestBook.REV);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
 		[SetUp]
@@ -2012,7 +2028,7 @@ namespace GlyssenTests.Rules
 		protected void VerifyProximityAndGenderConstraintsForAllGroups(List<CharacterGroup> groups,
 			bool allowMaleNarratorsToDoBiblicalCharacterRoles = false, bool allowFemaleNarratorsToDoBiblicalCharacterRoles = false)
 		{
-			var p = new Proximity(m_testProject.IncludedBooks);
+			var p = new Proximity(m_testProject.IncludedBooks, m_testProject.DramatizationPreferences);
 			foreach (var group in groups.Where(g => !CharacterGroupGenerator.ContainsDeityCharacter(g)))
 			{
 				var minProximity = p.CalculateMinimumProximity(group.CharacterIds);

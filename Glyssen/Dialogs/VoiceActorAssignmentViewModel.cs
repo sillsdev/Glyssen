@@ -49,7 +49,7 @@ namespace Glyssen.Dialogs
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
 
 #if DEBUG
-			var p = new Proximity(m_project.IncludedBooks);
+			var p = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
 			foreach (var group in CharacterGroups.OrderBy(g => g.GroupIdForUiDisplay))
 				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + p.CalculateMinimumProximity(group.CharacterIds));
 #endif
@@ -230,7 +230,7 @@ namespace Glyssen.Dialogs
 
 			if (destGroup != null && warnUserAboutProximity && destGroup.CharacterIds.Count > 0)
 			{
-				var proximity = new Proximity(m_project.IncludedBooks);
+				var proximity = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
 
 				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
 				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);

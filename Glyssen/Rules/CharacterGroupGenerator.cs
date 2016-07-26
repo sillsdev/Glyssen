@@ -50,7 +50,7 @@ namespace Glyssen.Rules
 		{
 			m_project = project;
 			m_ghostCastSize = ghostCastSize;
-			m_proximity = new Proximity(project.IncludedBooks);
+			m_proximity = new Proximity(project.IncludedBooks, project.DramatizationPreferences);
 			m_worker = worker ?? new BackgroundWorker();
 		}
 
@@ -591,7 +591,7 @@ namespace Glyssen.Rules
 				HashSet<string> testSet = new HashSet<string>(group.CharacterIds);
 				testSet.Add(characterDetail.CharacterId);
 				var notExtraBiblical = !group.CharacterIds.Any(CharacterVerseData.IsCharacterExtraBiblical);
-				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet, notExtraBiblical)));
+				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet)));
 			}
 		}
 
@@ -1147,7 +1147,7 @@ namespace Glyssen.Rules
 				int femaleGroupsWithExistingNarratorRoles = 0;
 				CharacterGroup groupWithWorstPrioximity = null;
 				MinimumProximity worstProximity = null;
-				var proximity = new Proximity(project.IncludedBooks);
+				var proximity = new Proximity(project.IncludedBooks, dramatizationPreferences);
 				foreach (var characterGroup in characterGroups)
 				{
 					var narratorRoles = characterGroup.CharacterIds.Where(c =>

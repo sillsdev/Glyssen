@@ -27,7 +27,7 @@ namespace GlyssenTests.Rules
 		[SetUp]
 		public void SetUp()
 		{
-			m_proximity = new Proximity(m_testProject.IncludedBooks);
+			m_proximity = new Proximity(m_testProject.IncludedBooks, m_testProject.DramatizationPreferences);
 		}
 
 		[TestFixtureTearDown]
@@ -170,7 +170,7 @@ namespace GlyssenTests.Rules
 			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds, true);
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(0, minProximity.NumberOfBlocks);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
@@ -188,7 +188,7 @@ namespace GlyssenTests.Rules
 			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds, false);
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
 
 			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
