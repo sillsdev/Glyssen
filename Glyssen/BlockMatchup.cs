@@ -17,13 +17,13 @@ namespace Glyssen
 		{
 			m_vernacularBook = vernacularBook;
 			var blocks = vernacularBook.GetScriptBlocks();
-			OriginalAnchorBlock = blocks[iBlock];
+			var originalAnchorBlock = blocks[iBlock];
 			var blocksForVersesCoveredByBlock =
-				vernacularBook.GetBlocksForVerse(OriginalAnchorBlock.ChapterNumber, OriginalAnchorBlock.InitialStartVerseNumber).ToList();
-			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(OriginalAnchorBlock);
+				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
+			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
 			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
 			{
-				var prepend = vernacularBook.GetBlocksForVerse(OriginalAnchorBlock.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
+				var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
 				prepend.RemoveAt(prepend.Count - 1);
 				m_iStartBlock -= prepend.Count;
 				blocksForVersesCoveredByBlock.InsertRange(0, prepend);
@@ -44,6 +44,7 @@ namespace Glyssen
 				splitBlocks(m_portion);
 				m_numberOfBlocksAddedBySplitting = m_portion.GetScriptBlocks().Count - origCount;
 			}
+			Debug.WriteLine("End of constructor. CorrelatedAnchorBlock is block " + CorrelatedBlocks.IndexOf(CorrelatedAnchorBlock) + " of " + CorrelatedBlocks.Count);
 		}
 
 		public IEnumerable<Block> OriginalBlocks
@@ -92,8 +93,6 @@ namespace Glyssen
 		}
 
 		public Block CorrelatedAnchorBlock { get; private set; }
-
-		public Block OriginalAnchorBlock { get; private set; }
 
 #if !DEBUG
 		static
@@ -195,7 +194,8 @@ namespace Glyssen
 
 		public bool IncludesBlock(Block block)
 		{
-			return OriginalBlocks.Contains(block);
+			// TODO: Write tests for the second part of this
+			return OriginalBlocks.Contains(block); // || CorrelatedBlocks.Contains(block);
 		}
 
 		public void MatchAllBlocks()
@@ -223,6 +223,17 @@ namespace Glyssen
 					block.SetMatchedReferenceBlock(refBlock);
 				}
 			}
+		}
+
+		internal void ChangeAnchor(Block block)
+		{
+			if (!CorrelatedBlocks.Contains(block))
+			{
+				return;
+				//throw new ArgumentException("Specified block is not in the collection of correlated blocks: " + block, "block");
+			}
+			CorrelatedAnchorBlock = block;
+			Debug.WriteLine("CorrelatedAnchorBlock changed to block " + CorrelatedBlocks.IndexOf(CorrelatedAnchorBlock) + " of " + CorrelatedBlocks.Count);
 		}
 	}
 

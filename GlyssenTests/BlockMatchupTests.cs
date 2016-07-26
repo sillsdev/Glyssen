@@ -22,7 +22,7 @@ namespace GlyssenTests
 			var matchup = new BlockMatchup(vernBook, iBlock, null);
 			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
 			Assert.IsFalse(vernacularBlocks.Contains(matchup.CorrelatedBlocks.Single()));
-			Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
+			//Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
 			Assert.AreEqual(matchup.CorrelatedBlocks.Single(), matchup.CorrelatedAnchorBlock);
 		}
 
@@ -48,7 +48,7 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(6).Select(b => b.GetText(true))));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
-			Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
+			//Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
 			Assert.AreEqual(matchup.CorrelatedBlocks[iBlock - 1], matchup.CorrelatedAnchorBlock);
 		}
 
@@ -123,7 +123,6 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.IncludesBlock(vernacularBlocks[2]));
 			Assert.IsFalse(matchup.IncludesBlock(vernacularBlocks[3]));
 
-			Assert.AreEqual(vernacularBlocks[1], matchup.OriginalAnchorBlock);
 			Assert.AreEqual(matchup.CorrelatedBlocks.First(), matchup.CorrelatedAnchorBlock);
 		}
 
@@ -147,8 +146,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 
-			Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
-			Assert.AreEqual(matchup.CorrelatedAnchorBlock.GetText(true), matchup.OriginalAnchorBlock.GetText(true));
+			//Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
+			Assert.AreEqual(matchup.CorrelatedAnchorBlock.GetText(true), vernacularBlocks[iBlock].GetText(true));
 			Assert.AreEqual(matchup.CorrelatedBlocks[iBlock], matchup.CorrelatedAnchorBlock);
 		}
 
@@ -171,7 +170,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 
-			Assert.AreEqual(vernacularBlocks[2], matchup.OriginalAnchorBlock);
+			//Assert.AreEqual(vernacularBlocks[2], matchup.OriginalAnchorBlock);
+			Assert.IsTrue(vernacularBlocks[2].GetText(true).StartsWith(matchup.CorrelatedAnchorBlock.GetText(true)));
 			Assert.AreEqual(matchup.CorrelatedBlocks[1], matchup.CorrelatedAnchorBlock);
 		}
 
@@ -939,6 +939,25 @@ namespace GlyssenTests
 
 			Assert.AreEqual("upset", matchup.CorrelatedBlocks[0].Delivery);
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
+		}
+
+		[TestCase(1)]
+		[TestCase(2)]
+		public void ChangeAnchor_StateReflectsCorrectAnchorBlock(int iBlock)
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true).AddVerse(3, "Entonces dijo Jesus: "));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Come to me you who are weary,", "q1");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "And I will give you rest.", "q1");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Pretty sweet invitation!").AddVerse(4, "Start of another verse.");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Okay, I guess I will. ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter.");
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(5, "This is a trailing verse that should not be included.", true));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, iBlock, null);
+			matchup.ChangeAnchor(matchup.CorrelatedBlocks[iBlock]);
+			Assert.AreEqual(matchup.CorrelatedBlocks[iBlock], matchup.CorrelatedAnchorBlock);
 		}
 	}
 }

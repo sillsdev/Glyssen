@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -439,13 +440,6 @@ namespace GlyssenTests.Dialogs
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
 
 			var model = new AssignCharacterViewModel(project);
-			model.SetUiStrings("narrator ({0})",
-				"book title or chapter ({0})",
-				"introduction ({0})",
-				"section head ({0})",
-				"normal");
-			model.BackwardContextBlockCount = 10;
-			model.ForwardContextBlockCount = 10;
 
 			model.Mode = BlocksToDisplay.NeedAssignments;
 			var currentBlock = model.CurrentBlock;
@@ -664,6 +658,56 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SplitBlock_CurrentBlockDoesNotMatchFilter_SubsequentRelevantBlockIndicesUpdated()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers;
+			var currentBlock = model.CurrentBlock;
+			while (currentBlock.CharacterIsUnclear())
+			{
+				model.LoadNextRelevantBlock();
+				currentBlock = model.CurrentBlock;
+			}
+			Assert.IsTrue(model.IsCurrentBlockRelevant, "Couldn't find a block to use for this test.");
+			Assert.AreEqual("MRK", model.CurrentBookId);
+
+			var verse = currentBlock.InitialVerseNumberOrBridge;
+			var splitIndex = currentBlock.BlockElements.OfType<ScriptText>().First().Content.IndexOf(" ", StringComparison.Ordinal);
+			var indexOfBlockToSplit = model.CurrentBlockIndexInBook;
+
+			model.Mode = BlocksToDisplay.NeedAssignments;
+
+			Assert.AreEqual("MRK", model.CurrentBookId);
+			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
+			Assert.IsFalse(model.IsCurrentBlockRelevant);
+
+			model.LoadNextRelevantBlock();
+			var nextBlock = model.CurrentBlock;
+			Assert.AreEqual("MRK", model.CurrentBookId);
+			Assert.IsTrue(indexOfBlockToSplit < model.CurrentBlockIndexInBook);
+
+			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
+			Assert.AreEqual(currentBlock, model.CurrentBlock);
+			
+			model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, verse, splitIndex) }, GetListOfCharacters(2, new string[0]), currentBlock);
+
+			var splitPartA = model.CurrentBlock;
+			model.LoadNextRelevantBlock();
+			//var splitPartB = model.CurrentBlock;
+			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
+			Assert.AreEqual(splitIndex, partALength);
+			//Assert.AreEqual(preSplit.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
+			//	partALength + splitPartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length));
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(nextBlock, model.CurrentBlock);
+			Assert.Fail("Finish writing this test. (See TODO in BlockNavigatorViewModel.AddToRelevantBlocksIfNeeded.)");
+			//model.LoadNextRelevantBlock();
+			//Assert.AreEqual(nextNextBlock, model.CurrentBlock);
+		}
+
+		[Test]
 		public void SetCurrentBookSingleVoice_UnassignedQuotesInOtherBooks_CurrentBlockInNextBook()
 		{
 			var project = TestProject.CreateTestProject(
@@ -834,8 +878,9 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 			FindRefInMark(9, 21);
+			var originalAnchorBlock = m_model.CurrentBlock;
 			m_model.AttemptRefBlockMatchup = true;
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterIsUnclear());
+			Assert.IsTrue(originalAnchorBlock.CharacterIsUnclear());
 			var charactersForVerse = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			var deliveriesForVerse = m_model.GetUniqueDeliveries().ToList();
 			var characterJesus = charactersForVerse.Single(c => c.CharacterId == "Jesus");
@@ -846,14 +891,14 @@ namespace GlyssenTests.Dialogs
 			// Part I: Assign to Jesus/questioning (which is the automatic matchup)
 			Assert.IsTrue(m_model.IsModified(characterJesus, deliveryQuestioning),
 				"If this isn't true, it is not considered \"dirty\" and the Assign button will not be enabled.");
-			Assert.AreNotEqual("Jesus", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
+			Assert.AreNotEqual("Jesus", originalAnchorBlock.CharacterId);
 			Assert.AreEqual("Jesus", m_model.CurrentBlock.CharacterId);
 
 			m_model.SetCharacterAndDelivery(characterJesus, deliveryQuestioning);
 			Assert.AreEqual("Jesus", m_model.CurrentBlock.CharacterId);
 			Assert.AreEqual("questioning", m_model.CurrentBlock.Delivery);
-			Assert.AreEqual("Jesus", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
-			Assert.AreEqual("questioning", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.Delivery);
+			Assert.AreEqual("Jesus", originalAnchorBlock.CharacterId);
+			Assert.AreEqual("questioning", originalAnchorBlock.Delivery);
 			Assert.AreEqual("Jesus", m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
 			Assert.AreEqual("questioning", m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.Delivery);
 			Assert.IsFalse(m_model.IsModified(characterJesus, deliveryQuestioning),
@@ -862,20 +907,20 @@ namespace GlyssenTests.Dialogs
 			// Part II: Assign to father of demon-possessed boy/distraught
 			Assert.IsTrue(m_model.IsModified(characterFather, deliveryDistraught),
 				"If this isn't true, it is not considered \"dirty\" and the Assign button will not be enabled.");
-			Assert.AreNotEqual(characterFather.CharacterId, m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
+			Assert.AreNotEqual(characterFather.CharacterId, originalAnchorBlock.CharacterId);
 			Assert.AreNotEqual(characterFather.CharacterId, m_model.CurrentBlock.CharacterId);
 			m_model.SetCharacterAndDelivery(characterFather, deliveryDistraught);
 			Assert.AreEqual(characterFather.CharacterId, m_model.CurrentBlock.CharacterId);
 			Assert.AreEqual("distraught", m_model.CurrentBlock.Delivery);
-			Assert.AreEqual(characterFather.CharacterId, m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterId);
-			Assert.AreEqual("distraught", m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.Delivery);
+			Assert.AreEqual(characterFather.CharacterId, originalAnchorBlock.CharacterId);
+			Assert.AreEqual("distraught", originalAnchorBlock.Delivery);
 			Assert.AreEqual(characterFather.CharacterId, m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
 			Assert.AreEqual("distraught", m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.Delivery);
 			Assert.IsFalse(m_model.IsModified(characterFather, deliveryDistraught),
 				"If this isn't false, it is considered \"dirty\" and the Assign button will be enabled.");
 
 			m_model.LoadNextRelevantBlock();
-			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.CharacterIsUnclear());
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()));
 			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber > 9);
 		}
 

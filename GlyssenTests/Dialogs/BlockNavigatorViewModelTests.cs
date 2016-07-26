@@ -63,33 +63,6 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void LoadNextRelevantBlock_FollowingInsertionOfBlockByApplyingMatchupWithSplits_LoadsARelevantBlock()
-		{
-			FindRefInMark(9, 21);
-			int displayIndex = m_model.CurrentBlockDisplayIndex;
-			m_model.AttemptRefBlockMatchup = true;
-			Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
-			try
-			{
-				m_model.ApplyCurrentReferenceTextMatchup();
-				Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
-				Assert.IsTrue(m_model.IsCurrentBlockRelevant);
-				do
-				{
-					m_model.LoadNextRelevantBlock();
-					Assert.AreEqual(++displayIndex, m_model.CurrentBlockDisplayIndex);
-					Assert.IsTrue(m_model.IsCurrentBlockRelevant);
-				} while (m_model.CurrentBookId == "MRK");
-			}
-			finally
-			{
-				// This test modifes the original collection of blocks, so we need to refresh the project to avoid affecting other tests.
-				TestFixtureTearDown();
-				TestFixtureSetUp();
-			}
-		}
-
-		[Test]
 		public void LoadNextRelevantBlockInSubsequentBook_HasFurtherBooks_HasNoFurtherRelevantBlocks_CallingMethodDoesNothing()
 		{
 			// Validate our setup
@@ -427,6 +400,33 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetCurrentBlockIndexInBook_BlockPrecedesCurrentMatchup_StateReflectsCorrectBlock()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			FindRefInMark(9, 21);
+
+			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook - 1;
+			var expectedBlock = m_testProject.IncludedBooks.Single(b => b.BookId == "MRK").GetScriptBlocks()[indexOfBlockToSelect];
+			
+			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
+			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void SetCurrentBlockIndexInBook_BlockFollowsCurrentMatchup_StateReflectsCorrectBlock()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			FindRefInMark(9, 21);
+
+			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count + 1;
+			var expectedBlock = m_testProject.IncludedBooks.Single(b => b.BookId == "MRK")
+				.GetScriptBlocks()[indexOfBlockToSelect - m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting];
+
+			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
+			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
 		public void GetIsBlockScripture_ScriptureBlock_ReturnsTrue()
 		{
 			m_model.Mode = BlocksToDisplay.AllScripture;
@@ -604,12 +604,31 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetBlockMatchupForCurrentVerse_VerseHasOnlyOneBlock_CurrentReferenceTextMatchupIsNull()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			// Find Mark 1:12
+			int i;
+			for (i = 0; m_testProject.Books[0].GetScriptBlocks()[i].LastVerseNum < 12; i++) { }
+			m_model.CurrentBlockIndexInBook = i;
+
+			var origBlockCount = m_model.BlockCountForCurrentBook;
+			var origAnchorBlock = m_model.CurrentBlock;
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.SetBlockMatchupForCurrentVerse();
+			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
+			Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
+			Assert.AreEqual(origAnchorBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
 		public void SetBlockMatchupForCurrentVerse_ReferenceTextCausesSplitInVernacular_SplitBlocksAddedToNumberOfBlocksAndRelevantBlocks()
 		{
 			m_model.AttemptRefBlockMatchup = false;
 			FindRefInMark(9, 21);
 			var origBlockCount = m_model.BlockCountForCurrentBook;
 			var origRelevantBlock = m_model.RelevantBlockCount;
+			var origAnchorBlock = m_model.CurrentBlock;
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.SetBlockMatchupForCurrentVerse();
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
@@ -626,7 +645,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
 			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock, m_model.CurrentBlock);
 			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.ElementAt(2), m_model.CurrentBlock);
-			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.OriginalAnchorBlock.GetText(true), m_model.CurrentBlock.GetText(true));
+			Assert.AreEqual(origAnchorBlock.GetText(true), m_model.CurrentBlock.GetText(true));
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
 			Assert.AreEqual(origRelevantBlock, m_model.RelevantBlockCount,
 				"The relevant block count should not go up unless/until the existing blocks are replaced by the Correlated Blocks.");
@@ -742,18 +761,76 @@ namespace GlyssenTests.Dialogs
 
 		private void FindRefInMark(int chapter, int verse)
 		{
-			var restore = m_model.AttemptRefBlockMatchup;
-			m_model.AttemptRefBlockMatchup = false;
-			while (m_model.CurrentBlock.ChapterNumber < chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)
+			FindRefInMark(m_model, chapter, verse);
+		}
+
+		internal static void FindRefInMark(BlockNavigatorViewModel model, int chapter, int verse)
+		{
+			var restore = model.AttemptRefBlockMatchup;
+			model.AttemptRefBlockMatchup = false;
+			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentBlock.InitialStartVerseNumber != verse)
 			{
-				if (m_model.IsCurrentBlockRelevant && m_model.CurrentBlockDisplayIndex == m_model.RelevantBlockCount)
+				if (model.IsCurrentBlockRelevant && model.CurrentBlockDisplayIndex == model.RelevantBlockCount)
 					throw new Exception("Could not find Mark " + chapter + ":" + verse);
-				m_model.LoadNextRelevantBlock();
+				model.LoadNextRelevantBlock();
 			}
-			Assert.AreEqual("MRK", m_model.CurrentBookId);
-			Assert.AreEqual(chapter, m_model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(verse, m_model.CurrentBlock.InitialStartVerseNumber);
-			m_model.AttemptRefBlockMatchup = restore;
+			Assert.AreEqual("MRK", model.CurrentBookId);
+			Assert.AreEqual(chapter, model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(verse, model.CurrentBlock.InitialStartVerseNumber);
+			model.AttemptRefBlockMatchup = restore;
+		}
+	}
+
+	/// <summary>
+	/// JUD doesn't have any ambiguous/unexpected blocks, so we use Acts in this fixture in order to have more than
+	/// one book with relevant blocks. Also, tests in this fixture can modify the test project data, so the folder
+	/// is cleaned up each time.
+	/// </summary>
+	[TestFixture]
+	class BlockNavigatorViewModelTestsForMarkAndActs
+	{
+		private Project m_testProject;
+		private BlockNavigatorViewModel m_model;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void LoadNextRelevantBlock_FollowingInsertionOfBlockByApplyingMatchupWithSplits_LoadsARelevantBlock()
+		{
+			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
+			int displayIndex = m_model.CurrentBlockDisplayIndex;
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			m_model.ApplyCurrentReferenceTextMatchup();
+			Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			do
+			{
+				m_model.LoadNextRelevantBlock();
+				Assert.AreEqual(++displayIndex, m_model.CurrentBlockDisplayIndex);
+				Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			} while (m_model.CurrentBookId == "MRK");
+			Assert.AreEqual("ACT", m_model.CurrentBookId);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 		}
 	}
 }

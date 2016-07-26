@@ -129,11 +129,27 @@ namespace Glyssen.Dialogs
 		}
 
 		#region Overridden methods
+		private bool m_inHandleCurrentBlockChanged = false;
 		protected override void HandleCurrentBlockChanged()
 		{
+			if (m_inHandleCurrentBlockChanged)
+				return;
+			m_inHandleCurrentBlockChanged = true;
+			Debug.WriteLine("Entering AssignCharacterViewModel.HandleCurrentBlockChanged");
 			Debug.Assert(!CharacterVerseData.IsCharacterStandard(CurrentBlock.CharacterId, false));
 			if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 			{
+				//if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
+				//{
+				//	Debug.WriteLine("About to set new block matchup");
+				//	SetBlockMatchupForCurrentVerse();
+				//}
+				//else
+				//{
+				//	ClearBlockMatchup();					
+				//}
+
+
 				bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
 				if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
 				{
@@ -146,9 +162,19 @@ namespace Glyssen.Dialogs
 						ClearBlockMatchup();
 				}
 				if (doMatchup)
+				{
+					Debug.WriteLine("About to set new block matchup");
 					SetBlockMatchupForCurrentVerse();
+				}
+			}
+			else if (CurrentReferenceTextMatchup != null)
+			{
+				Debug.WriteLine("Changing Anchor");
+				CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
 			}
 			base.HandleCurrentBlockChanged();
+			Debug.WriteLine("Exiting AssignCharacterViewModel.HandleCurrentBlockChanged");
+			m_inHandleCurrentBlockChanged = false;
 		}
 
 		protected override void PopulateRelevantBlocks()

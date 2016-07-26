@@ -94,7 +94,7 @@ namespace Glyssen.Dialogs
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
-			m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
+			colCharacter.DisplayMember = m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			m_originalDefaultFontForLists = new FontProxy(m_listBoxCharacters.Font);
 			m_originalDefaultFontForCharacterAndDeliveryColumns = new FontProxy(m_dataGridReferenceText.DefaultCellStyle.Font);
 			SetFontsFromViewModel();
@@ -180,6 +180,8 @@ namespace Glyssen.Dialogs
 		{
 			if (m_blocksViewer.Visible)
 			{
+				Debug.WriteLine("About to update display and navigation button state.");
+
 				this.SafeInvoke(() =>
 				{
 					UpdateDisplay();
@@ -235,7 +237,7 @@ namespace Glyssen.Dialogs
 			else
 			{
 				foreach (AssignCharacterViewModel.Character character in m_listBoxCharacters.Items)
-					colCharacter.Items.Add(character.LocalizedDisplay);
+					colCharacter.Items.Add(character);
 
 				foreach (AssignCharacterViewModel.Delivery delivery in m_listBoxDeliveries.Items)
 					colDelivery.Items.Add(delivery);
@@ -265,19 +267,22 @@ namespace Glyssen.Dialogs
 							correlatedBlock.CharacterId;
 
 						if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-							characterId = colCharacter.Items[0] as string;
-						Debug.Assert(colCharacter.Items.Contains(characterId), "Trying to select a character that is not in the list.");
-						row.Cells[colCharacter.Index].Value = characterId;
+							characterId = ((AssignCharacterViewModel.Character)colCharacter.Items[0]).LocalizedDisplay;
+						foreach (var character in colCharacter.Items)
+						{
+							if (character.ToString() == characterId)
+							{
+								row.Cells[colCharacter.Index].Value = character;
+								break;
+							}
+						}
 					}
 					if (colDelivery.Visible)
 					{
 						var delivery = correlatedBlock.Delivery;
 						if (string.IsNullOrEmpty(delivery))
 							delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
-						if (string.IsNullOrEmpty(delivery))
-							delivery = colDelivery.Items[0] as string;
-						Debug.Assert(colDelivery.Items.Contains(delivery), "Trying to select a delivery that is not in the list.");
-						row.Cells[colDelivery.Index].Value = delivery;
+						row.Cells[colDelivery.Index].Value = string.IsNullOrEmpty(delivery) ? colDelivery.Items[0] : delivery;
 					}
 				}
 			}

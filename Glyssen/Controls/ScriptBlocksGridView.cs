@@ -30,6 +30,15 @@ namespace Glyssen.Controls
 
 		protected override void OnSelectionChanged(EventArgs e)
 		{
+			if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
+			{
+				foreach (DataGridViewRow row in SelectedRows)
+				{
+					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
+					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
+				}
+			}
+
 			if (m_updatingContext)
 				return;
 
@@ -102,6 +111,7 @@ namespace Glyssen.Controls
 			SuspendLayout();
 			ClearSelection();
 			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
+			Debug.WriteLine("In ScriptBlocksGridView.UpdateContext - changingRowCount = " + changingRowCount);
 			var firstRow = m_viewModel.IndexOfFirstBlockInCurrentGroup;
 			var lastRow = m_viewModel.IndexOfLastBlockInCurrentGroup;
 			bool multiSelect = firstRow != lastRow;
@@ -120,8 +130,10 @@ namespace Glyssen.Controls
 				ClearSelection();
 			}
 
+			Debug.WriteLine("Preparing to select rows " + firstRow + " through " + lastRow);
 			for (var i = firstRow; i <= lastRow; i++)
 			{
+				Debug.WriteLine("Selecting row " + i);
 				Rows[i].Selected = true;
 				if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 				{
