@@ -62,6 +62,7 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			m_viewModel = viewModel;
+			m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
@@ -95,6 +96,7 @@ namespace Glyssen.Dialogs
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
 			colCharacter.DisplayMember = m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
+			colDelivery.DisplayMember = m_listBoxDeliveries.DisplayMember = "LocalizedDisplay";
 			m_originalDefaultFontForLists = new FontProxy(m_listBoxCharacters.Font);
 			m_originalDefaultFontForCharacterAndDeliveryColumns = new FontProxy(m_dataGridReferenceText.DefaultCellStyle.Font);
 			SetFontsFromViewModel();
@@ -193,7 +195,11 @@ namespace Glyssen.Dialogs
 		private void LoadBlockMatchup(object sender, EventArgs args)
 		{
 			if (m_blocksViewer.Visible)
+			{
+				if (m_viewModel.CurrentReferenceTextMatchup != null && !m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
+					this.SafeInvoke(ShowMatchReferenceTextTabPage);
 				this.SafeInvoke(UpdateReferenceTextTabPageDisplay);
+			}
 		}
 
 		private void UpdateDisplay()
@@ -221,6 +227,11 @@ namespace Glyssen.Dialogs
 			m_menuBtnSplitBlock.Enabled = !CharacterVerseData.IsCharacterStandard(m_viewModel.CurrentBlock.CharacterId, false);
 		}
 
+		private void ShowMatchReferenceTextTabPage()
+		{
+			m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
+		}
+
 		private void UpdateReferenceTextTabPageDisplay()
 		{
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
@@ -236,15 +247,14 @@ namespace Glyssen.Dialogs
 				m_tabControlCharacterSelection.TabPages.Remove(tabPageMatchReferenceText);
 			else
 			{
-				foreach (AssignCharacterViewModel.Character character in m_listBoxCharacters.Items)
+				foreach (AssignCharacterViewModel.Character character in m_viewModel.GetCharactersForCurrentReferenceTextMatchup())
 					colCharacter.Items.Add(character);
 
-				foreach (AssignCharacterViewModel.Delivery delivery in m_listBoxDeliveries.Items)
+				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
 
 				if (!m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
-					m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
-				m_btnApplyReferenceTextMatches.Enabled = m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
+					ShowMatchReferenceTextTabPage();
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
@@ -282,10 +292,15 @@ namespace Glyssen.Dialogs
 						var delivery = correlatedBlock.Delivery;
 						if (string.IsNullOrEmpty(delivery))
 							delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
-						row.Cells[colDelivery.Index].Value = string.IsNullOrEmpty(delivery) ? colDelivery.Items[0] : delivery;
+						if (string.IsNullOrEmpty(delivery))
+							delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
+						row.Cells[colDelivery.Index].Value = delivery;
 					}
 				}
 			}
+
+			UpdateAssignOrApplyButtonState();
+
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
 
@@ -305,16 +320,35 @@ namespace Glyssen.Dialogs
 			m_btnPrevious.Enabled = m_viewModel.CanNavigateToPreviousRelevantBlock;
 		}
 
-		private void UpdateAssignButtonState()
+		private void UpdateAssignOrApplyButtonState()
 		{
-			bool characterAndDeliverySelected = m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
-			m_btnAssign.Enabled = characterAndDeliverySelected && IsDirty();
-			if (m_btnAssign.Enabled && !m_btnAssign.Focused)
+			Button btn = m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter
+				? m_btnAssign
+				: m_btnApplyReferenceTextMatches;
+
+			btn.Enabled = IsCharacterAndDeliverySelectionComplete && IsDirty();
+			if (btn.Enabled && !btn.Focused)
 			{
 				var focusedControl = this.FindFocusedControl();
 				if (focusedControl is Button || focusedControl is LinkLabel)
-					m_btnAssign.Focus();
+					btn.Focus();
 			}
+		}
+
+		private bool IsCharacterAndDeliverySelectionComplete
+		{
+			get
+			{
+				if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
+					return m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex > -1;
+
+				return AreSelectionsCompleteForColumn(colCharacter) && AreSelectionsCompleteForColumn(colDelivery);
+			}
+		}
+
+		private bool AreSelectionsCompleteForColumn(DataGridViewComboBoxColumn col)
+		{
+			return !col.Visible || m_dataGridReferenceText.Rows.Cast<DataGridViewRow>().All(row => row.Cells[col.Index].Value != null);
 		}
 
 		private void ShowCharacterFilter()
@@ -350,13 +384,18 @@ namespace Glyssen.Dialogs
 
 		private bool IsDirty()
 		{
-			return m_viewModel.IsModified((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
-				(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
+			if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
+			{
+				return m_viewModel.IsModified((AssignCharacterViewModel.Character) m_listBoxCharacters.SelectedItem,
+					(AssignCharacterViewModel.Delivery) m_listBoxDeliveries.SelectedItem);
+			}
+			return m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
 		}
 
 		private void LoadNextRelevantBlock()
 		{
 			m_viewModel.LoadNextRelevantBlock();
+			m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 		}
 
 		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
@@ -372,7 +411,7 @@ namespace Glyssen.Dialogs
 			SelectCharacter();
 
 			m_listBoxCharacters.EndUpdate();
-			UpdateAssignButtonState();
+			UpdateAssignOrApplyButtonState();
 		}
 
 		private void SelectCharacter()
@@ -447,27 +486,41 @@ namespace Glyssen.Dialogs
 			if (IsDirty())
 			{
 				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChanges", "Unsaved Changes");
-				if (m_btnAssign.Enabled)
+
+				if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
 				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage",
-						"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
-					if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
-						SaveSelections();
-				}
-				else if (m_listBoxCharacters.SelectedIndex < 0)
-				{
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoSelectionMessage",
-						"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
-					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
-						DialogResult.Yes;
+					if (m_btnAssign.Enabled)
+					{
+						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage",
+							"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
+						if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+							SaveSelections();
+					}
+					else if (m_listBoxCharacters.SelectedIndex < 0)
+					{
+						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoSelectionMessage",
+							"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
+						result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+							DialogResult.Yes;
+					}
+					else
+					{
+						Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
+						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoDeliveryMessage",
+							"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
+						result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+							DialogResult.Yes;
+					}
 				}
 				else
 				{
-					Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
-					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoDeliveryMessage",
-						"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
-					result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
-						DialogResult.Yes;
+					if (m_btnApplyReferenceTextMatches.Enabled)
+					{
+						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
+							"The alignment of the vernacular script to the reference text has not been applied. Do you want to save the alignment before navigating?");
+						if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+							m_viewModel.ApplyCurrentReferenceTextMatchup();
+					}
 				}
 
 				Focus();
@@ -583,7 +636,10 @@ namespace Glyssen.Dialogs
 		private void m_btnPrevious_Click(object sender, EventArgs e)
 		{
 			if (IsOkayToLeaveBlock())
+			{
 				m_viewModel.LoadPreviousRelevantBlock();
+				m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
+			}
 		}
 
 		private void m_btnAssign_Click(object sender, EventArgs e)
@@ -612,12 +668,12 @@ namespace Glyssen.Dialogs
 			HideDeliveryFilter();
 			if (selectedCharacter != null && selectedCharacter.IsNarrator)
 				m_llMoreDel.Enabled = false;
-			UpdateAssignButtonState();
+			UpdateAssignOrApplyButtonState();
 		}
 
 		private void m_listBoxDeliveries_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			UpdateAssignButtonState();
+			UpdateAssignOrApplyButtonState();
 		}
 
 		private void m_llMoreChar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -694,11 +750,14 @@ namespace Glyssen.Dialogs
 		{
 			const int WM_KEYDOWN = 0x100;
 
-			if (m.Msg == WM_KEYDOWN && m_blocksViewer.ContainsFocus && (((Keys)m.WParam) | Keys.Control) == 0)
+			if (m.Msg == WM_KEYDOWN)
 			{
-				m_listBoxCharacters.Focus();
-				PostMessage(Handle, (uint) m.Msg, m.WParam, m.LParam);
-				return true;
+				if (m_blocksViewer.ContainsFocus && ((Keys) m.WParam | Keys.Control) == 0)
+				{
+					m_listBoxCharacters.Focus();
+					PostMessage(Handle, (uint) m.Msg, m.WParam, m.LParam);
+					return true;
+				}
 			}
 
 			return false;
@@ -714,8 +773,7 @@ namespace Glyssen.Dialogs
 			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
 			{
 				// Might be trying to select character by the first letter (e.g. s for Saul)
-				HandleCharacterSelectionKeyPress(e);
-				e.Handled = true;
+				e.Handled = HandleCharacterSelectionKeyPress(e);
 			}
 			else if (m_pnlShortcuts.Visible)
 			{
@@ -724,7 +782,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void HandleCharacterSelectionKeyPress(KeyPressEventArgs e)
+		private bool HandleCharacterSelectionKeyPress(KeyPressEventArgs e)
 		{
 			if (Char.IsLetter(e.KeyChar))
 			{
@@ -734,7 +792,9 @@ namespace Glyssen.Dialogs
 					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
 				else
 					m_listBoxCharacters.SelectedItem = null;
+				return true;
 			}
+			return false;
 		}
 
 		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)
@@ -921,6 +981,8 @@ namespace Glyssen.Dialogs
 		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
 			m_viewModel.ApplyCurrentReferenceTextMatchup();
+			if (m_viewModel.CanNavigateToNextRelevantBlock)
+				LoadNextRelevantBlock();
 		}
 
 		private void UpdateUpDownButtonStates(object sender, DataGridViewCellEventArgs e)
@@ -942,9 +1004,12 @@ namespace Glyssen.Dialogs
 				SwapValues(source, dest, colCharacter.Index);
 			if (colDelivery.Visible)
 				SwapValues(source, dest, colDelivery.Index);
-			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[destIndex].Cells[0];
+
+			int iCol = 0;
+			while (!m_dataGridReferenceText.Columns[iCol].Visible)
+				iCol++;
+			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[destIndex].Cells[iCol];
 		}
-		#endregion
 
 		private void SwapValues(DataGridViewRow source, DataGridViewRow dest, int columnIndex)
 		{
@@ -955,6 +1020,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleCharacterSelectionTabIndexChanged(object sender, EventArgs e)
 		{
+			m_viewModel.AttemptRefBlockMatchup = m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText;
 			m_blocksViewer.HighlightStyle = m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter ?
 				BlockGroupingType.Quote : BlockGroupingType.BlockCorrelation;
 		}
@@ -962,6 +1028,7 @@ namespace Glyssen.Dialogs
 		private void m_dataGridReferenceText_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+
 			if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) || (!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
 			{
 				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
@@ -972,12 +1039,36 @@ namespace Glyssen.Dialogs
 			}
 			else if (colCharacter.Visible && e.ColumnIndex == colCharacter.Index)
 			{
-				m_viewModel.CurrentReferenceTextMatchup.SetCharacter(e.RowIndex, newValue);
+				AssignCharacterViewModel.Character selectedCharacter = null;
+				foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
+				{
+					if (character.LocalizedDisplay == newValue)
+					{
+						selectedCharacter = character;
+						break;
+					}
+				}
+				if (selectedCharacter == null)
+					throw new Exception("Uh oh!");
+				m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 			}
 			else
 			{
-				m_viewModel.CurrentReferenceTextMatchup.SetDelivery(e.RowIndex, newValue);				
+				AssignCharacterViewModel.Delivery selectedDelivery = null;
+				foreach (AssignCharacterViewModel.Delivery delivery in colCharacter.Items)
+				{
+					if (delivery.LocalizedDisplay == newValue)
+					{
+						selectedDelivery = delivery;
+						break;
+					}
+				}
+				if (selectedDelivery == null)
+					throw new Exception("Uh oh!");
+				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);				
 			}
+			UpdateAssignOrApplyButtonState();
 		}
+		#endregion
 	}
 }

@@ -198,14 +198,32 @@ namespace Glyssen.Dialogs
 		#region Methods to get characters and deliveries
 		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForCurrentReference()
 		{
+			return GetUniqueCharacterVerseObjectsForBlock(CurrentBlock);
+		}
+
+		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
+		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
-				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber, versification: Versification));
+				block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification));
+		}
+
+		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
+		{
+			m_currentCharacters = new HashSet<CharacterVerse>();
+			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
+				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
+			
+			return GetUniqueCharacters(false);
 		}
 
 		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
 		{
 			m_currentCharacters = GetUniqueCharacterVerseObjectsForCurrentReference();
+			return GetUniqueCharacters(expandIfNone);
+		}
 
+		private IEnumerable<Character> GetUniqueCharacters(bool expandIfNone = true)
+		{
 			var listToReturn = new List<Character>(new SortedSet<Character>(
 				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, cv.ProjectSpecific)), m_characterComparer));
 			listToReturn.Sort(m_aliasComparer);
@@ -316,6 +334,29 @@ namespace Glyssen.Dialogs
 
 			return deliveries;
 		}
+
+		public IEnumerable<Delivery> GetDeliveriesForCurrentReferenceTextMatchup()
+		{
+			m_currentDeliveries = new List<Delivery>();
+
+			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
+				foreach (var delivery in GetUniqueCharacterVerseObjectsForBlock(block).Where(cv => !String.IsNullOrEmpty(cv.Delivery))
+					.Select(cv => new Delivery(cv.Delivery, cv.ProjectSpecific)))
+				{
+					if (!m_currentDeliveries.Any(d => d.Text == delivery.Text))
+						m_currentDeliveries.Add(delivery);
+				}
+				if (!String.IsNullOrEmpty(block.Delivery) && !m_currentDeliveries.Any(d => d.Text == block.Delivery))
+					m_currentDeliveries.Add(new Delivery(block.Delivery));
+			}
+
+			m_currentDeliveries.Sort(m_deliveryComparer);
+
+			m_currentDeliveries.Insert(0, Delivery.Normal);
+
+			return m_currentDeliveries;
+		}
 		#endregion
 
 		#region Character/delivery assignment methods
@@ -360,14 +401,19 @@ namespace Glyssen.Dialogs
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
 				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
 
-			if (selectedCharacter.IsNarrator)
-				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
-			else
-				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId), m_project.Versification);
+			SetCharacter(block, selectedCharacter);
 
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 
 			block.UserConfirmed = true;
+		}
+
+		private void SetCharacter(Block block, Character selectedCharacter)
+		{
+			if (selectedCharacter.IsNarrator)
+				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
+			else
+				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId), m_project.Versification);
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
@@ -389,6 +435,16 @@ namespace Glyssen.Dialogs
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
+		}
+
+		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
+		{
+			SetCharacter(CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex], selectedCharacter);
+		}
+
+		public void SetReferenceTextMatchupDelivery(int blockIndex, Delivery selectedDelivery)
+		{
+			CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex].Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 		}
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
@@ -619,6 +675,13 @@ namespace Glyssen.Dialogs
 			private readonly bool m_projectSpecific;
 
 			public string Text { get { return m_text; } }
+			public string LocalizedDisplay { get { return ToLocalizedString(); } }
+
+			private string ToLocalizedString()
+			{
+				// TODO: Enable localization of deliveries
+				return Text;
+			}
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public static Delivery Normal { get { return s_normalDelivery; } }
 			public bool IsNormal { get { return Equals(s_normalDelivery); } }

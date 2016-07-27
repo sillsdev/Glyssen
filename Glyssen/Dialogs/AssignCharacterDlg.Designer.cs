@@ -243,15 +243,15 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llMoreChar.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_llMoreChar.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreChar, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDlg.MoreCharacters");
@@ -262,8 +262,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.TabStop = true;
 			this.m_llMoreChar.Text = "More Characters";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llMoreChar, true);
-			this.m_llMoreChar.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_llMoreChar.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreChar_LinkClicked);
 			// 
 			// m_txtCharacterFilter
@@ -327,15 +327,15 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llMoreDel.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_llMoreDel.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreDel, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDlg.MoreDeliveries");
@@ -346,8 +346,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.TabStop = true;
 			this.m_llMoreDel.Text = "More Deliveries";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llMoreDel, true);
-			this.m_llMoreDel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_llMoreDel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llMoreDel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreDel_LinkClicked);
 			// 
 			// m_txtDeliveryFilter
@@ -808,14 +808,14 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_llClose.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_llClose.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llClose.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_llClose.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_llClose.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "Common.Close");
@@ -826,8 +826,8 @@ namespace Glyssen.Dialogs
 			this.m_llClose.TabStop = true;
 			this.m_llClose.Text = "Close";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llClose, true);
-			this.m_llClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
+			this.m_llClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
 			// 
 			// m_blocksViewer

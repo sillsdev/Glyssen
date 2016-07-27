@@ -160,6 +160,8 @@ namespace Glyssen
 				block.SetMatchedReferenceBlock(clone);
 				block = clone;
 			}
+			if (text == null)
+				text = string.Empty;
 			var newRefBlock = block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
 			if (blockIndex < CorrelatedBlocks.Count - 1)
 			{

@@ -127,6 +127,47 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void GetCharactersForCurrentReferenceTextMatchup_Works()
+		{
+			FindRefInMark(9, 21);
+			m_model.AttemptRefBlockMatchup = true;
+
+			var result = m_model.GetCharactersForCurrentReferenceTextMatchup().ToList();
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result[0].IsNarrator);
+			Assert.AreEqual("Jesus", result[1].CharacterId);
+			Assert.AreEqual("father of demon-possessed boy", result[2].CharacterId);
+		}
+
+		[Test]
+		public void GetDeliverieForCurrentReferenceTextMatchup_CannedDeliveries_GetsNormalPlusDeliveriesForCoveredVerses()
+		{
+			FindRefInMark(9, 21);
+			m_model.AttemptRefBlockMatchup = true;
+
+			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result[0].IsNormal);
+			Assert.AreEqual(1, result.Count(d => d.Text == "questioning"));
+			Assert.AreEqual(1, result.Count(d => d.Text == "distraught"));
+		}
+
+		[Test]
+		public void GetDeliverieForCurrentReferenceTextMatchup_BlockSetToProjectSpecificDelivery_ResultIncludesProjectSpecificDelivery()
+		{
+			FindRefInMark(10, 49);
+			m_model.SetCharacterAndDelivery(m_model.GetUniqueCharactersForCurrentReference().First(c => c.CharacterId == "Jesus"),
+				new AssignCharacterViewModel.Delivery("ordering"));
+			m_model.AttemptRefBlockMatchup = true;
+
+			var result = m_model.GetDeliveriesForCurrentReferenceTextMatchup().ToList();
+			Assert.AreEqual(3, result.Count);
+			Assert.IsTrue(result[0].IsNormal);
+			Assert.AreEqual(1, result.Count(d => d.Text == "encouraging"));
+			Assert.AreEqual(1, result.Count(d => d.Text == "ordering"));
+		}
+
+		[Test]
 		public void GetUniqueCharacters_AmbiguousQuoteNoFilter_GetsAllCharactersInMark()
 		{
 			FindRefInMark(5, 9);

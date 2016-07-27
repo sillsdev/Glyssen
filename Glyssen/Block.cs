@@ -295,6 +295,8 @@ namespace Glyssen
 					break;
 				}
 			}
+			if (!BlockElements.Any())
+				BlockElements.Add(new ScriptText(""));
 		}
 
 		public string GetText(bool includeVerseNumbers, bool includeAnnotations = false)

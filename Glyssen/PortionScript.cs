@@ -144,8 +144,8 @@ namespace Glyssen
 				{
 					try
 					{
-						// REVIEW: Should this be First or Single, or do we need to possibly handle the case of a sequence?
-						newBlock.SetMatchedReferenceBlock(vernBlock.ReferenceBlocks.First().SplitBlock(verseString, kSplitAtEndOfVerse));
+						// For now, at least, matching implies there is exactly one reference block.
+						newBlock.SetMatchedReferenceBlock(vernBlock.ReferenceBlocks.Single().SplitBlock(verseString, kSplitAtEndOfVerse));
 					}
 					catch (ArgumentException)
 					{

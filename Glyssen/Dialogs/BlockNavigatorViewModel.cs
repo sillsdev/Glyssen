@@ -244,24 +244,21 @@ namespace Glyssen.Dialogs
 			set
 			{
 				int index = value;
-				BookBlockIndices location;
 				var bookIndex = m_navigator.GetIndices().BookIndex;
-				bool clearBlockMatchup = false;
 
-				if (m_currentRefBlockMatchups != null)
+				if (m_currentRefBlockMatchups != null && index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook)
 				{
 					if (index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count)
 					{
+						// Adjust index to account for any temporary additions resulting from splitting blocks in the matchup.
 						index -= m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
-						clearBlockMatchup = true;
 					}
 					else
-						clearBlockMatchup = (m_currentRefBlockMatchups.IndexOfStartBlockInBook > index);
-				
-					if (!clearBlockMatchup)
 					{
-						var newAnchorBlock =
-							m_currentRefBlockMatchups.CorrelatedBlocks[index - m_currentRefBlockMatchups.IndexOfStartBlockInBook];
+						// A block within the existing matchup has been selected, so we need to translate the index to find the
+						// correct block within the sequence of correlated blocks rather than within the book.
+						index -= m_currentRefBlockMatchups.IndexOfStartBlockInBook;
+						var newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
 						if (newAnchorBlock != m_currentRefBlockMatchups.CorrelatedAnchorBlock)
 						{
 							// Just reset the anchor and get out.
@@ -270,7 +267,6 @@ namespace Glyssen.Dialogs
 						}
 						return;
 					}
-
 				}
 
 				Block b;
@@ -279,11 +275,10 @@ namespace Glyssen.Dialogs
 					b = m_navigator.CurrentBook.GetScriptBlocks()[index];
 				} while ((b.MultiBlockQuote == MultiBlockQuote.Continuation || b.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) && --index >= 0);
 				Debug.Assert(index >= 0);
-				location = new BookBlockIndices(bookIndex, index);
+				var location = new BookBlockIndices(bookIndex, index);
 				m_currentBlockIndex = m_relevantBlocks.IndexOf(location);
-				// REVIEW: Do we want to do this if we're clearing the block matchup, or do we just set it to null?
 				m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? location : null;
-				SetBlock(location, clearBlockMatchup);
+				SetBlock(location);
 			}
 		}
 
@@ -696,6 +691,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_currentRefBlockMatchups == null)
 				return;
+			BlockGroupingStyle = BlockGroupingType.Quote;
 			m_currentRefBlockMatchups = null;
 			if (CurrentBlockMatchupChanged != null)
 				CurrentBlockMatchupChanged(this, new EventArgs());
