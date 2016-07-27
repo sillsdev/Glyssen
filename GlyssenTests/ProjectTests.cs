@@ -572,27 +572,27 @@ namespace GlyssenTests
 			}
 		}
 
-		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
-		{
-			Assert.Fail("Waiting for more info from Damien and Darcy to know if this is a valid scenario.");
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach-CM";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach-CM or ach???", project.WritingSystem.Id); // What do we want here?
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
-		}
+		//[Test]
+		//public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
+		//{
+		//	Assert.Fail("Waiting for more info from Damien and Darcy to know if this is a valid scenario.");
+		//	Sldr.Initialize();
+		//	try
+		//	{
+		//		var bundle = GetGlyssenBundleToBeUsedForProject(false);
+		//		bundle.Metadata.Language.Iso = "ach-CM";
+		//		bundle.Metadata.Language.Ldml = "ach-CM";
+		//		var project = new Project(bundle);
+		//		WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
+		//		Assert.IsNotNull(project);
+		//		Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
+		//		Assert.AreEqual("ach-CM or ach???", project.WritingSystem.Id); // What do we want here?
+		//	}
+		//	finally
+		//	{
+		//		Sldr.Cleanup();
+		//	}
+		//}
 
 		[Test]
 		public void Constructor_MetadataContainsAvailableBookThatDoesNotExist_SpuriousBookRemovedFromMetadata()
