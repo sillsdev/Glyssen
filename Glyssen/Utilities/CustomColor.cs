@@ -39,13 +39,13 @@ namespace Glyssen.Utilities
 		{
 			switch (i % 7)
 			{
-				case 0: return Color.LavenderBlush;
+				case 0: return Color.LightPink;
 				case 1:	return Color.PaleTurquoise;
 				case 2: return Color.LightSalmon;
 				case 3: return Color.PaleGreen;
 				case 4: return Color.LightYellow;
-				case 5: return Color.Bisque;
-				default: return Color.Azure;
+				case 5: return Color.DarkKhaki;
+				default: return Color.GreenYellow;
 			}
 		}
 	}

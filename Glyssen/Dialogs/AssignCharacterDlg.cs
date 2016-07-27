@@ -39,6 +39,7 @@ namespace Glyssen.Dialogs
 		private readonly FontProxy m_originalDefaultFontForCharacterAndDeliveryColumns;
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
+		private bool m_userMadeChangesToReferenceTextMatchup;
 
 		private void HandleStringsLocalized()
 		{
@@ -199,6 +200,7 @@ namespace Glyssen.Dialogs
 				if (m_viewModel.CurrentReferenceTextMatchup != null && !m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
 					this.SafeInvoke(ShowMatchReferenceTextTabPage);
 				this.SafeInvoke(UpdateReferenceTextTabPageDisplay);
+				m_userMadeChangesToReferenceTextMatchup = false;
 			}
 		}
 
@@ -514,7 +516,7 @@ namespace Glyssen.Dialogs
 				}
 				else
 				{
-					if (m_btnApplyReferenceTextMatches.Enabled)
+					if (m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
 							"The alignment of the vernacular script to the reference text has not been applied. Do you want to save the alignment before navigating?");
@@ -1067,6 +1069,7 @@ namespace Glyssen.Dialogs
 					throw new Exception("Uh oh!");
 				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);				
 			}
+			m_userMadeChangesToReferenceTextMatchup = true;
 			UpdateAssignOrApplyButtonState();
 		}
 		#endregion

@@ -569,12 +569,13 @@ namespace Glyssen.Dialogs
 				if (RelevantBlockCount == 0)
 					return false;
 
-				if (IsCurrentBlockRelevant)
+				// TODO: Write test to show the need for the second part of this conditional (it might need to be tweaked).
+				// It can happen when the user has just applied a reference text matchup that puts it into a weird state????
+				if (IsCurrentBlockRelevant || m_temporarilyIncludedBlock == null)
 					return m_currentBlockIndex != RelevantBlockCount - 1;
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
-				var lastRelevantBlock = m_relevantBlocks.Last();
-				return s_bookBlockComparer.Compare(lastRelevantBlock, m_temporarilyIncludedBlock) > 0;
+				return s_bookBlockComparer.Compare(m_relevantBlocks.Last(), m_temporarilyIncludedBlock) > 0;
 			}
 		}
 
