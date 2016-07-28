@@ -569,8 +569,6 @@ namespace Glyssen.Dialogs
 				if (RelevantBlockCount == 0)
 					return false;
 
-				// TODO: Write test to show the need for the second part of this conditional (it might need to be tweaked).
-				// It can happen when the user has just applied a reference text matchup that puts it into a weird state????
 				if (IsCurrentBlockRelevant || m_temporarilyIncludedBlock == null)
 					return m_currentBlockIndex != RelevantBlockCount - 1;
 
@@ -710,7 +708,7 @@ namespace Glyssen.Dialogs
 			m_currentRefBlockMatchups.Apply();
 			var origRelevantBlockCount = RelevantBlockCount;
 			m_relevantBlocks.InsertRange(m_currentBlockIndex,
-				m_currentRefBlockMatchups.OriginalBlocks.Where(IsRelevant).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
+				m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
 			// We can safely use the index of the anchor block in CorrelatedBlocks to find the correct block in OriginalBlocks.
@@ -792,11 +790,11 @@ namespace Glyssen.Dialogs
 			// No-op in base class
 		}
 
-		private bool IsRelevant(Block block)
+		private bool IsRelevant(Block block, bool ignoreExcludeUserConfirmed = false)
 		{
 			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 				return false;
-			if ((Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
+			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
 			if ((Mode & BlocksToDisplay.NeedAssignments) > 0)
 			{

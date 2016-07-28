@@ -197,7 +197,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_blocksViewer.Visible)
 			{
-				if (m_viewModel.CurrentReferenceTextMatchup != null && !m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
+				if (m_viewModel.CurrentReferenceTextMatchup != null)
 					this.SafeInvoke(ShowMatchReferenceTextTabPage);
 				this.SafeInvoke(UpdateReferenceTextTabPageDisplay);
 				m_userMadeChangesToReferenceTextMatchup = false;
@@ -231,7 +231,8 @@ namespace Glyssen.Dialogs
 
 		private void ShowMatchReferenceTextTabPage()
 		{
-			m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
+			if (!m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
+				m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
 		}
 
 		private void UpdateReferenceTextTabPageDisplay()
@@ -255,8 +256,7 @@ namespace Glyssen.Dialogs
 				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
 
-				if (!m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
-					ShowMatchReferenceTextTabPage();
+				ShowMatchReferenceTextTabPage();
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
@@ -835,6 +835,7 @@ namespace Glyssen.Dialogs
 			if (m_viewModel.RelevantBlockCount > 0)
 			{
 				LoadBlock(sender, e);
+				m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 				LoadBlockMatchup(sender, e);
 			}
 			else
@@ -1025,39 +1026,33 @@ namespace Glyssen.Dialogs
 			m_viewModel.AttemptRefBlockMatchup = m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText;
 			m_blocksViewer.HighlightStyle = m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter ?
 				BlockGroupingType.Quote : BlockGroupingType.BlockCorrelation;
+			ShowMatchReferenceTextTabPage(); // Put this tab back - this is kind of a hack for now
 		}
 
 		private void m_dataGridReferenceText_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-
 			if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) || (!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
 			{
+				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
 			}
 			else if (e.ColumnIndex == colEnglish.Index)
 			{
+				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
 			}
 			else if (colCharacter.Visible && e.ColumnIndex == colCharacter.Index)
 			{
-				AssignCharacterViewModel.Character selectedCharacter = null;
-				foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
-				{
-					if (character.LocalizedDisplay == newValue)
-					{
-						selectedCharacter = character;
-						break;
-					}
-				}
+				var selectedCharacter = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Character;
 				if (selectedCharacter == null)
-					throw new Exception("Uh oh!");
+					throw new Exception("Selected character not found");
 				m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 			}
 			else
 			{
+				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 				AssignCharacterViewModel.Delivery selectedDelivery = null;
-				foreach (AssignCharacterViewModel.Delivery delivery in colCharacter.Items)
+				foreach (AssignCharacterViewModel.Delivery delivery in colDelivery.Items)
 				{
 					if (delivery.LocalizedDisplay == newValue)
 					{
@@ -1066,7 +1061,7 @@ namespace Glyssen.Dialogs
 					}
 				}
 				if (selectedDelivery == null)
-					throw new Exception("Uh oh!");
+					throw new Exception("Selected delivery not found!");
 				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);				
 			}
 			m_userMadeChangesToReferenceTextMatchup = true;
