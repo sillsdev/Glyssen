@@ -481,7 +481,7 @@ namespace GlyssenTests.Rules
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.AreEqual(10, groups.Count);
 			Assert.AreEqual(2, groups.Count(g => g.IsVoiceActorAssigned));
-			var groupsWithActorAssigned = groups.Where(g => g.IsVoiceActorAssigned);
+			var groupsWithActorAssigned = groups.Where(g => g.IsVoiceActorAssigned).ToList();
 			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(m_testProject.VoiceActorList.AllActors[0].Id));
 			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(m_testProject.VoiceActorList.AllActors[1].Id));
 			Assert.True(groupsWithActorAssigned.All(g => g.CharacterIds.Count == 0));
@@ -1192,8 +1192,6 @@ namespace GlyssenTests.Rules
 		}
 
 		[TestCase(ExtraBiblicalMaterialSpeakerOption.FemaleActor, ExtraBiblicalMaterialSpeakerOption.FemaleActor)]
-		//[TestCase(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender, ExtraBiblicalMaterialSpeakerOption.FemaleActor)]
-		//[TestCase(ExtraBiblicalMaterialSpeakerOption.FemaleActor, ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender)]
 		[TestCase(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender, ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender)]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs(
 			ExtraBiblicalMaterialSpeakerOption bookTitleAndChapterOption,
@@ -1218,6 +1216,7 @@ namespace GlyssenTests.Rules
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
 		}
+
 		[Test]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsAndMaleExtraWithTooSmallCast_ExtraBiblicalRoleHandledByMaleActorDespiteBadProximity()
 		{
