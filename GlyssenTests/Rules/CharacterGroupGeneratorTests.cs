@@ -27,6 +27,9 @@ namespace GlyssenTests.Rules
 			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 		}
 
 		[SetUp]
@@ -373,8 +376,14 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(femaleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.PreferMale)));
 			Assert.AreEqual(1, groups.Single(g => g.CharacterIds.Contains("Jesus")).CharacterIds.Count);
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
+
+			var a = groups.Single(g => g.CharacterIds.Contains("BC-MRK"));
+			var b = a.CharacterIds.All(i => CharacterVerseData.IsCharacterStandard(i, false));
+
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(
 				i => CharacterVerseData.IsCharacterStandard(i, false)));
+
+
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -626,6 +635,10 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
 		{
+			// allow BC and Extra to be in separate or the same group
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+
 			SetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
@@ -633,23 +646,32 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(m_testProject.KeyStrokesByCharacterId["BC-MRK"] < m_testProject.KeyStrokesByCharacterId["extra-MRK"],
 				"For this test to make sense as written, there have to be more key strokes associated with \"extra\" than with BC.");
 
-			var newGroup = new CharacterGroup(m_testProject);
-			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			// expect BC-MRK and extra-MRK to be placed in same group
 			var bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
 			Assert.IsTrue(bcGroup.CharacterIds.Contains("extra-MRK"));
+
+			// put extra-MRK in a new group and assign voice actors
+			var newGroup = new CharacterGroup(m_testProject);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
 			bcGroup.CharacterIds.ExceptWith(new[] { "extra-MRK" });
 			newGroup.CharacterIds.Add("extra-MRK");
-
 			bcGroup.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[0].Id);
 			newGroup.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[1].Id);
 
+			// re-generate the groups
 			generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject();
+
+			// expect one group per voice actor
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			// expect BC-MRK and extra-MRK to be placed back in same group
 			var extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
 			bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
 			Assert.AreEqual(extraBiblicalGroup, bcGroup);
+
+			// expect the voice actor for extra-MRK has not changed
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[1].Id, extraBiblicalGroup.VoiceActorId);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(m_testProject.VoiceActorList.AllActors[0].Id));
 		}

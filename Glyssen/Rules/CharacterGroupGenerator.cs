@@ -588,9 +588,7 @@ namespace Glyssen.Rules
 
 			foreach (var group in characterGroups)
 			{
-				HashSet<string> testSet = new HashSet<string>(group.CharacterIds);
-				testSet.Add(characterDetail.CharacterId);
-				var notExtraBiblical = !group.CharacterIds.Any(CharacterVerseData.IsCharacterExtraBiblical);
+				var testSet = new HashSet<string>(group.CharacterIds) {characterDetail.CharacterId};
 				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet)));
 			}
 		}
@@ -701,15 +699,12 @@ namespace Glyssen.Rules
 										NarratorGroups.Add(characterGroup);
 										numberOfFemaleNarratorGroups--;
 									}
-
 								}
 								if (numberOfMaleNarratorGroups == 0 && numberOfFemaleNarratorGroups == 0)
 									break;
 							}
 							idealAge = new List<ActorAge> {ActorAge.Elder, ActorAge.YoungAdult};
 						}
-
-						
 					}
 				}
 
@@ -1037,7 +1032,6 @@ namespace Glyssen.Rules
 						Select(cd => cd.CharacterId).Where(c => 
 							CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.StandardCharacter.BookOrChapter &&
 							!Groups.Any(g => g.CharacterIds.Contains(c))));
-
 				}
 
 				// section headings
@@ -1125,9 +1119,10 @@ namespace Glyssen.Rules
 
 			internal bool IsGroupAvailableForBiblicalCharacterRoles(CharacterGroup group)
 			{
-				return m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles ||
-					(!NarratorGroups.Contains(group) && (BookTitleChapterGroup != group) &&
-					(SectionHeadGroup != group) && (BookIntroductionGroup != group));
+				if (m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
+					return true;
+
+				return !NarratorGroups.Contains(group) && (BookTitleChapterGroup != group) && (SectionHeadGroup != group) && (BookIntroductionGroup != group);
 			}
 
 			private bool IsGroupAvailableForDeity(CharacterGroup group)
