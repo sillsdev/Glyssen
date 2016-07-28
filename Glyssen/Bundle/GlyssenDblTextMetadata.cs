@@ -394,11 +394,11 @@ namespace Glyssen.Bundle
 	[Flags]
 	public enum ExtraBiblicalMaterialSpeakerOption
 	{
-		Narrator,
-		ActorOfEitherGender,
-		MaleActor,
-		FemaleActor,
-		Omitted,
+		Narrator = 1 << 0,
+		ActorOfEitherGender = 1 << 1,
+		MaleActor = 1 << 2,
+		FemaleActor = 1 << 3,
+		Omitted = 1 << 4,
 		MalePermitted = MaleActor | ActorOfEitherGender,
 		FemalePermitted = FemaleActor | ActorOfEitherGender,
 		NotNarratorOrOmitted = MaleActor | FemaleActor | ActorOfEitherGender

@@ -652,10 +652,10 @@ namespace Glyssen.Rules
 				}
 				else
 				{
-					var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(Groups, m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
-					if (availableAdultGroups.Count == 1)
+					var availableAdultNarratorGroups = GetGroupsAvailableForNarrator(Groups, m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+					if (availableAdultNarratorGroups.Count == 1)
 					{
-						NarratorGroups = availableAdultGroups.ToList();
+						NarratorGroups = availableAdultNarratorGroups.ToList();
 
 						// extra-biblical groups
 						if (dramatizationPreferences.BookIntroductionsDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
@@ -678,7 +678,7 @@ namespace Glyssen.Rules
 						// assign narrators
 						while (attempt++ < 2 && (numberOfMaleNarratorGroups > 0 || numberOfFemaleNarratorGroups > 0))
 						{
-							foreach (var characterGroup in availableAdultGroups)
+							foreach (var characterGroup in availableAdultNarratorGroups)
 							{
 								var actor = characterGroup.VoiceActor;
 								if (!idealAge.Contains(actor.Age))
@@ -765,7 +765,7 @@ namespace Glyssen.Rules
 					(speakerOption == ExtraBiblicalMaterialSpeakerOption.Omitted))
 					return null;
 
-				var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(Groups,
+				var availableAdultGroups = GetGroupsAvailableForExtraBiblical(Groups,
 					m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
 
 				// look for a gender match if requested
@@ -1053,6 +1053,7 @@ namespace Glyssen.Rules
 				}
 
 				// if there are any left, assign them to the book narrator
+				var test = includedCharacterDetails.Where(cd => cd.CharacterId.EndsWith("LUK"));
 				var remaining = includedCharacterDetails.Where(cd => !Groups.Any(g => g.CharacterIds.Contains(cd.CharacterId))).Where(
 					cd => (CharacterVerseData.GetStandardCharacterType(cd.CharacterId) == CharacterVerseData.StandardCharacter.BookOrChapter &&
 						      dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted) ||
@@ -1109,12 +1110,26 @@ namespace Glyssen.Rules
 				return NarratorGroups.Count > other.NarratorGroups.Count;
 			}
 
-			private static List<CharacterGroup> GetGroupsAvailableForNarratorOrExtraBiblical(IEnumerable<CharacterGroup> groups,
+			private static List<CharacterGroup> GetGroupsAvailableForNarrator(IEnumerable<CharacterGroup> groups,
 				bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
 			{
 				return groups.Where(g => !g.Closed &&
 					(!g.CharacterIds.Any() || allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles) &&
 					g.VoiceActor.Age != ActorAge.Child).ToList();
+			}
+
+			/// <summary>Same as GetGroupsAvailableForNarrator() except also excludes groups containing a narrator</summary>
+			/// <param name="groups"></param>
+			/// <param name="allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles"></param>
+			/// <returns></returns>
+			private static List<CharacterGroup> GetGroupsAvailableForExtraBiblical(IEnumerable<CharacterGroup> groups,
+				bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
+			{
+				var potentialGroups = GetGroupsAvailableForNarrator(groups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+
+				return potentialGroups.Where(g => !g.CharacterIds.Any(
+							c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)
+							)).ToList();
 			}
 
 			internal bool IsGroupAvailableForBiblicalCharacterRoles(CharacterGroup group)
@@ -1171,7 +1186,7 @@ namespace Glyssen.Rules
 
 				var list = new List<TrialGroupConfiguration>(2);
 
-				var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(characterGroups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+				var availableAdultGroups = GetGroupsAvailableForNarrator(characterGroups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
 				if (!availableAdultGroups.Any())
 					return list;
 				var availableMaleGroups = availableAdultGroups.Where(g => g.VoiceActor.Gender == ActorGender.Male).ToList();
