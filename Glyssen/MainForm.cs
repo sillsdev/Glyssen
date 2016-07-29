@@ -479,11 +479,11 @@ namespace Glyssen
 						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
 					break;
 				case 1:
-					assignedParameter = LocalizationManager.GetString("MainForm.NoneAssigned", "1 assigned",
+					assignedParameter = LocalizationManager.GetString("MainForm.OneAssigned", "1 assigned",
 						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
 					break;
 				default:
-					assignedParameter = String.Format(LocalizationManager.GetString("MainForm.NoneAssigned", "{0} assigned",
+					assignedParameter = String.Format(LocalizationManager.GetString("MainForm.MoreThanOneAssigned", "{0} assigned",
 						"{0} is the number of actors assigned. The resulting string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle"),
 						assigned);
 					break;
