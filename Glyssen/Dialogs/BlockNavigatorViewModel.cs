@@ -526,23 +526,18 @@ namespace Glyssen.Dialogs
 		#region Navigation methods
 		public Block GetNthBlockInCurrentBook(int i)
 		{
-		//	Debug.Write("Getting block " + i);
 			if (m_currentRefBlockMatchups == null)
 			{
-			//	Debug.WriteLine(" with no matchup set.");
 				return m_navigator.CurrentBook.GetScriptBlocks()[i];
 			}
 			if (m_currentRefBlockMatchups.IndexOfStartBlockInBook > i)
 			{
-				//Debug.WriteLine(", which is before the current matchup.");
 				return m_navigator.CurrentBook.GetScriptBlocks()[i];
 			}
 			if (i < m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count)
 			{
-				//Debug.WriteLine(", which is in the current matchup.");
 				return m_currentRefBlockMatchups.CorrelatedBlocks[i - m_currentRefBlockMatchups.IndexOfStartBlockInBook];
 			}
-		//	Debug.WriteLine(", which is after the current matchup.");
 			return m_navigator.CurrentBook.GetScriptBlocks()[i - m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting];
 		}
 
@@ -617,13 +612,6 @@ namespace Glyssen.Dialogs
 		{
 			if (IsCurrentBlockRelevant)
 			{
-				//var indices = m_relevantBlocks[++m_currentBlockIndex];
-				//if (m_currentRefBlockMatchups != null &&
-				//	m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0 &&
-				//	indices.BookIndex == m_navigator.GetIndices().BookIndex)
-				//{
-				//	indices = new BookBlockIndices(indices.BookIndex, indices.BlockIndex + m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting);
-				//}
 				SetBlock(m_relevantBlocks[++m_currentBlockIndex]);
 			}
 			else
@@ -901,17 +889,9 @@ namespace Glyssen.Dialogs
 
 		protected void AddToRelevantBlocksIfNeeded(Block newOrModifiedBlock)
 		{
-			if (IsRelevant(newOrModifiedBlock))
+			if (IsRelevant(newOrModifiedBlock, true))
 			{
-				// TODO: Move outside of if
-				var indicesOfNewOrModifiedBlock = m_navigator.GetIndicesOfSpecificBlock(newOrModifiedBlock);
-				var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
-					r => r.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
-						r.BlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex);
-				foreach (var block in blocksIndicesNeedingUpdate)
-					block.BlockIndex++;
-				//////////////////
-				
+				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
 				m_relevantBlocks.Add(indicesOfNewOrModifiedBlock);
 				m_relevantBlocks.Sort();
 				RelevantBlockAdded(newOrModifiedBlock);

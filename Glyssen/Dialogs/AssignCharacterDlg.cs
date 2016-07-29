@@ -183,8 +183,6 @@ namespace Glyssen.Dialogs
 		{
 			if (m_blocksViewer.Visible)
 			{
-				Debug.WriteLine("About to update display and navigation button state.");
-
 				this.SafeInvoke(() =>
 				{
 					UpdateDisplay();
@@ -212,7 +210,8 @@ namespace Glyssen.Dialogs
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
-			Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
+			if (m_viewModel.IsCurrentBlockRelevant)
+				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
@@ -856,9 +855,9 @@ namespace Glyssen.Dialogs
 
 				Debug.Assert(!m_toolStripButtonGridView.Checked);
 
+				m_viewModel.AttemptRefBlockMatchup = false;
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
 				Settings.Default.AssignCharactersShowGridView = false;
-				m_viewModel.AttemptRefBlockMatchup = false;
 			}
 		}
 
@@ -894,7 +893,7 @@ namespace Glyssen.Dialogs
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters, m_viewModel.CurrentBlock);
+					m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters);
 				}
 			}
 		}

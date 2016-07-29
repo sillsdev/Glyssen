@@ -135,21 +135,9 @@ namespace Glyssen.Dialogs
 			if (m_inHandleCurrentBlockChanged)
 				return;
 			m_inHandleCurrentBlockChanged = true;
-			Debug.WriteLine("Entering AssignCharacterViewModel.HandleCurrentBlockChanged");
 			Debug.Assert(!CharacterVerseData.IsCharacterStandard(CurrentBlock.CharacterId, false));
 			if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 			{
-				//if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
-				//{
-				//	Debug.WriteLine("About to set new block matchup");
-				//	SetBlockMatchupForCurrentVerse();
-				//}
-				//else
-				//{
-				//	ClearBlockMatchup();					
-				//}
-
-
 				bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
 				if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
 				{
@@ -163,17 +151,14 @@ namespace Glyssen.Dialogs
 				}
 				if (doMatchup)
 				{
-					Debug.WriteLine("About to set new block matchup");
 					SetBlockMatchupForCurrentVerse();
 				}
 			}
 			else if (CurrentReferenceTextMatchup != null)
 			{
-				Debug.WriteLine("Changing Anchor");
 				CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
 			}
 			base.HandleCurrentBlockChanged();
-			Debug.WriteLine("Exiting AssignCharacterViewModel.HandleCurrentBlockChanged");
 			m_inHandleCurrentBlockChanged = false;
 		}
 
@@ -478,9 +463,10 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Block editing methods
-		public void SplitBlock(IEnumerable<BlockSplitData> blockSplits, List<KeyValuePair<int, string>> characters, Block currentBlock)
+		public void SplitBlock(IEnumerable<BlockSplitData> blockSplits, List<KeyValuePair<int, string>> characters)
 		{
 			// set the character for the first block
+			Block currentBlock = CurrentBlock;
 			var firstCharacterId = characters.First(c => c.Key == 0).Value;
 			if (currentBlock.CharacterId != firstCharacterId)
 			{
@@ -497,6 +483,13 @@ namespace Glyssen.Dialogs
 
 					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit, 
 						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
+
+					var newBlockIndices = GetBlockIndices(newBlock);
+					var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
+						r => r.BookIndex == newBlockIndices.BookIndex &&
+							r.BlockIndex >= newBlockIndices.BlockIndex);
+					foreach (var block in blocksIndicesNeedingUpdate)
+						block.BlockIndex++;
 
 					AddToRelevantBlocksIfNeeded(newBlock);
 				}

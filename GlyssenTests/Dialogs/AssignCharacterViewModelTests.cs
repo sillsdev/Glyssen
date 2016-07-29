@@ -461,7 +461,7 @@ namespace GlyssenTests.Dialogs
 
 			// List<KeyValuePair<int, string>> characters, Block currentBlock
 
-			m_model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, "2", 6) }, GetListOfCharacters(2, new string[0]), currentBlock);
+			m_model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, "2", 6) }, GetListOfCharacters(2, new string[0]));
 			var splitPartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
 			var splitPartB = m_model.CurrentBlock;
@@ -493,7 +493,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(currentBlock, model.CurrentBlock);
 			var preSplit = currentBlock.Clone();
 
-			model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, "2", 6) }, GetListOfCharacters(2, new string[0]), currentBlock);
+			model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, "2", 6) }, GetListOfCharacters(2, new string[0]));
 			var splitPartA = model.CurrentBlock;
 			model.LoadNextRelevantBlock();
 			var splitPartB = model.CurrentBlock;
@@ -534,7 +534,7 @@ namespace GlyssenTests.Dialogs
 				new BlockSplitData(4, currentBlock, "7", BookScript.kSplitAtEndOfVerse),
 				new BlockSplitData(2, currentBlock, "7", 11),
 				new BlockSplitData(3, currentBlock, "7", 2)
-			}, GetListOfCharacters(6, new string[0]), currentBlock);
+			}, GetListOfCharacters(6, new string[0]));
 
 			var splitPartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
@@ -587,7 +587,7 @@ namespace GlyssenTests.Dialogs
 			{
 				new BlockSplitData(1, currentBlock, "2", 6),
 				new BlockSplitData(2, nextBlock, "4", 8),
-			}, GetListOfCharacters(3, new string[0]), currentBlock);
+			}, GetListOfCharacters(3, new string[0]));
 
 			var split1PartA = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlock();
@@ -628,7 +628,7 @@ namespace GlyssenTests.Dialogs
 			{
 				new BlockSplitData(1, blockToSplit, "5", 6),
 				new BlockSplitData(2, blockToSplit, "5", 9)
-			}, GetListOfCharacters(3, new[] { currentBlockCharacterId }), blockToSplit);
+			}, GetListOfCharacters(3, new[] { currentBlockCharacterId }));
 
 			Assert.False(m_model.IsCurrentBlockRelevant);
 			Assert.AreEqual(currentBlockCharacterId, m_model.CurrentBlock.CharacterId);
@@ -647,7 +647,9 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 
-			var block1 = m_testProject.Books[0].Blocks[4];
+			m_model.CurrentBlockIndexInBook = 4;
+			var block1 = m_testProject.Books[0].Blocks[4]; ;
+			Assert.AreEqual(block1, m_model.CurrentBlock);
 			var block2 = m_testProject.Books[0].Blocks[5];
 
 			Assert.AreEqual(2, block1.InitialStartVerseNumber, "If this fails, update the test to reflect the test data.");
@@ -658,7 +660,7 @@ namespace GlyssenTests.Dialogs
 					new BlockSplitData(1, block1, "2", 13),
 					new BlockSplitData(2, block2, null, 0),
 					new BlockSplitData(3, block2, "2", 10)
-				}, GetListOfCharacters(4, new string[0]), block1)
+				}, GetListOfCharacters(4, new string[0]))
 			);
 		}
 
@@ -667,7 +669,9 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 
-			var block1 = m_testProject.Books[0].Blocks[4];
+			m_model.CurrentBlockIndexInBook = 4;
+			var block1 = m_testProject.Books[0].Blocks[4]; ;
+			Assert.AreEqual(block1, m_model.CurrentBlock);
 			var block2 = m_testProject.Books[0].Blocks[5];
 
 			var text1 = block1.GetText(false);
@@ -683,7 +687,7 @@ namespace GlyssenTests.Dialogs
 				new BlockSplitData(1, block1, "2", 13),
 				new BlockSplitData(2, block2, null, 0),
 				new BlockSplitData(3, block2, "2", 10)
-			}, GetListOfCharacters(4, new string[0]), block1);
+			}, GetListOfCharacters(4, new string[0]));
 
 			// check the text
 			Assert.AreEqual(text1.Substring(0, 13), m_testProject.Books[0].Blocks[4].GetText(false));
@@ -699,54 +703,60 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		[Category("SkipOnTeamCity")]
 		public void SplitBlock_CurrentBlockDoesNotMatchFilter_SubsequentRelevantBlockIndicesUpdated()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
 			var model = new AssignCharacterViewModel(project);
 
-			model.Mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers;
-			var currentBlock = model.CurrentBlock;
-			while (currentBlock.CharacterIsUnclear())
-			{
+			// Find a block that we can split that will not be "relevant" when we filter to show only blocks with missing expected quotes.
+			while (!model.CurrentBlock.BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Contains(" "))
 				model.LoadNextRelevantBlock();
-				currentBlock = model.CurrentBlock;
-			}
+			var currentBlock = model.CurrentBlock;
 			Assert.IsTrue(model.IsCurrentBlockRelevant, "Couldn't find a block to use for this test.");
 			Assert.AreEqual("MRK", model.CurrentBookId);
 
 			var verse = currentBlock.InitialVerseNumberOrBridge;
 			var splitIndex = currentBlock.BlockElements.OfType<ScriptText>().First().Content.IndexOf(" ", StringComparison.Ordinal);
 			var indexOfBlockToSplit = model.CurrentBlockIndexInBook;
+			Assert.IsTrue(splitIndex > 0);
+			var blockTextBeforeSplit = currentBlock.GetText(true);
 
-			model.Mode = BlocksToDisplay.NeedAssignments;
-
-			Assert.AreEqual("MRK", model.CurrentBookId);
+			model.Mode = BlocksToDisplay.MissingExpectedQuote;
+			Assert.AreEqual("MRK", model.CurrentBookId, "Changing the filter should not have caused us to go to a different book.");
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
-			Assert.IsFalse(model.IsCurrentBlockRelevant);
+			Assert.AreEqual(currentBlock, model.CurrentBlock, "Setting the CurrentBlockIndexInBook should have moved us back to the block we intend to split.");
+			Assert.IsFalse(model.IsCurrentBlockRelevant, "The block we intend to split must not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
 
+			// Now go to the next relevant block in this same book and rememeber which block it is. After splitting, going to the next block
+			// should still take us to this same block.
 			model.LoadNextRelevantBlock();
 			var nextBlock = model.CurrentBlock;
 			Assert.AreEqual("MRK", model.CurrentBookId);
+			var indexOfNextRelevantBlock = model.CurrentBlockIndexInBook;
 			Assert.IsTrue(indexOfBlockToSplit < model.CurrentBlockIndexInBook);
 
+			// Now go back to the block we intend to split.
 			model.CurrentBlockIndexInBook = indexOfBlockToSplit;
 			Assert.AreEqual(currentBlock, model.CurrentBlock);
 			
-			model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, verse, splitIndex) }, GetListOfCharacters(2, new string[0]), currentBlock);
+			model.SplitBlock(new[] { new BlockSplitData(1, currentBlock, verse, splitIndex) },
+				GetListOfCharacters(2, new [] {currentBlock.CharacterId, currentBlock.CharacterId}));
 
+			// Verify split
 			var splitPartA = model.CurrentBlock;
-			model.LoadNextRelevantBlock();
-			//var splitPartB = model.CurrentBlock;
+			model.CurrentBlockIndexInBook = indexOfBlockToSplit + 1;
+			var splitPartB = model.CurrentBlock;
+			Assert.IsFalse(model.IsCurrentBlockRelevant, "The second part of the split block should not be condidered \"relevant\" with the \"NeedAssignments\" filter.");
 			var partALength = splitPartA.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
 			Assert.AreEqual(splitIndex, partALength);
-			//Assert.AreEqual(preSplit.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length),
-			//	partALength + splitPartB.BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length));
+			Assert.IsTrue(blockTextBeforeSplit.StartsWith(splitPartA.GetText(true)));
+			Assert.AreEqual(blockTextBeforeSplit.Length, splitPartA.GetText(true).Length + splitPartB.GetText(true).Length);
+			Assert.IsTrue(blockTextBeforeSplit.EndsWith(splitPartB.GetText(true)));
+
+			// Now make sure that LoadNextRelevantBlock still takes us to the same next relevant block as before.
 			model.LoadNextRelevantBlock();
 			Assert.AreEqual(nextBlock, model.CurrentBlock);
-			Assert.Fail("Finish writing this test. (See TODO in BlockNavigatorViewModel.AddToRelevantBlocksIfNeeded.)");
-			//model.LoadNextRelevantBlock();
-			//Assert.AreEqual(nextNextBlock, model.CurrentBlock);
+			Assert.AreEqual(indexOfNextRelevantBlock + 1, model.CurrentBlockIndexInBook);
 		}
 
 		[Test]
