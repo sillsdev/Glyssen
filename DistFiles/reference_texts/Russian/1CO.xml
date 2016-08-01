@@ -197,7 +197,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="23" />
-    <text>а мы проповедуем Христа распятого, для Иудеев соблазн, а для Еллинов безумие, </text>
+    <text>а мы проповедуем Христа распятого, для Иудеев соблазн, а для Еллинов безумие,</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="24" characterId="narrator-1CO" matchesReferenceText="true">

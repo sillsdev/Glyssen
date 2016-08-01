@@ -297,7 +297,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Vous avez reçu le Christ Jésus comme Seigneur. Eh bien, vivez unis à lui. </text>
+    <text>Vous avez reçu le Christ Jésus comme Seigneur. Eh bien, vivez unis à lui.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL" matchesReferenceText="true">
@@ -413,7 +413,7 @@
     <text>Vous êtes morts avec le Christ, et les forces du monde ne comptent plus pour vous. Mais vous faites comme si votre vie était encore sous le pouvoir de ces choses-là. Pourquoi est-ce que vous obéissez à ces règles:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

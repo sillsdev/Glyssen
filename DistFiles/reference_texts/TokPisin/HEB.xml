@@ -605,7 +605,7 @@
     <text>Tasol bihain long taim bilong ol dispela lain, planti yia i go pinis na God i autim tok long maus bilong Devit, olsem yumi tok pinis,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
       <text>“Today if you will hear his voice, don't harden your hearts.”</text>
     </ReferenceBlocks>
     <text>"Nau sapos yupela i harim maus bilong mi God, orait yupela i no ken pasim strong bel bilong yupela."</text>
