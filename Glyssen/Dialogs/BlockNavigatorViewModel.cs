@@ -691,11 +691,20 @@ namespace Glyssen.Dialogs
 			if (!m_currentRefBlockMatchups.HasOutstandingChangesToApply)
 				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
+			var insertionIndex = m_currentBlockIndex;
 			foreach (var block in m_currentRefBlockMatchups.OriginalBlocks)
 				m_relevantBlocks.Remove(m_navigator.GetIndicesOfSpecificBlock(block));
 			m_currentRefBlockMatchups.Apply();
+			if (insertionIndex < 0)
+			{
+				// TODO: Write tests for this logic
+				var indicesOfFirstBlock = m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
+				insertionIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, indicesOfFirstBlock, false, 0, m_relevantBlocks.Count);
+				if (insertionIndex == -1)
+					insertionIndex = m_relevantBlocks.Count;
+			}
 			var origRelevantBlockCount = RelevantBlockCount;
-			m_relevantBlocks.InsertRange(m_currentBlockIndex,
+			m_relevantBlocks.InsertRange(insertionIndex,
 				m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
@@ -703,7 +712,7 @@ namespace Glyssen.Dialogs
 			var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
 			SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
 			var currentBookIndex = m_navigator.GetIndices().BookIndex;
-			for (int i = m_currentBlockIndex + RelevantBlockCount - origRelevantBlockCount; i < RelevantBlockCount && m_relevantBlocks[i].BookIndex == currentBookIndex; i++)
+			for (int i = insertionIndex + RelevantBlockCount - origRelevantBlockCount; i < RelevantBlockCount && m_relevantBlocks[i].BookIndex == currentBookIndex; i++)
 				m_relevantBlocks[i].BlockIndex += insertions;
 		}
 

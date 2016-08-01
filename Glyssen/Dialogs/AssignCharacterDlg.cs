@@ -766,7 +766,8 @@ namespace Glyssen.Dialogs
 
 		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus)
+			if (m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus ||
+				m_tabControlCharacterSelection.SelectedTab != tabPageSelectCharacter)
 				return;
 
 			int selectedIndexOneBased;
