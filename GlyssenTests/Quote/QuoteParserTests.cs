@@ -4060,6 +4060,47 @@ namespace GlyssenTests.Quote
 			Assert.DoesNotThrow(() => parser.Parse());
 		}
 
+		[TestCase("—", "")]
+		[TestCase("-", "")]
+		[TestCase("—", "—")]
+		[TestCase("-", "-")]
+		public void Parse_NoPairedQuotationMarks_ImplicitContinuationInPoetryFollowedByExplicitCloser_DoesNotThrow(string quoteDashMark, string quoteCloser)
+		{
+			// this is a test for PG-778. The problem data is from Mat 4:6:
+			// <para style="p">
+			//   <verse number="6" style="v"/>—Papa Diosen baque hihquish, naman paquehue. Jahuen huisha janin ta Papan yohihiqui:</para>
+			// <para style="q">Jahuen yonotibaan ta mia coirantihiqui. Jaton mequemanbi ta mia bihinihnicantihiqui, macan qui min joxcorohyamanon</para>
+			// <para style="m">—hahquin yoshiman.</para>
+
+			// set up some text that uses a colon as a dialog marker
+			var blockP = new Block("p", 4, 6) {IsParagraphStart = true};
+			blockP.AddVerse(6, quoteDashMark + "Papa Diosen baque hihquish, naman paquehue. Jahuen huisha janin ta Papan yohihiqui:");
+			var blockQ = new Block("q", 4, 6) { IsParagraphStart = true };
+			blockQ.BlockElements.Add(new ScriptText("Jahuen yonotibaan ta mia coirantihiqui. Jaton mequemanbi ta mia bihinihnicantihiqui, macan qui min joxcorohyamanon"));
+			var blockM = new Block("m", 4, 6) { IsParagraphStart = true };
+			blockM.BlockElements.Add(new ScriptText(quoteDashMark + "hahquin yoshiman."));
+			var input = new List<Block> { blockP, blockQ, blockM };
+
+			var levels = new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark(quoteDashMark, quoteCloser, null, 1, QuotationMarkingSystemType.Narrative)
+			};
+			QuoteParser.SetQuoteSystem(new QuoteSystem(levels));
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			// originally this was throwing an index-out-of-range exception
+			var result = parser.Parse().ToList();
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("Satan", result[0].CharacterId);
+			Assert.AreEqual(blockP.GetText(true), result[0].GetText(true));
+			Assert.AreEqual("Satan", result[1].CharacterId);
+			Assert.AreEqual(blockQ.GetText(true), result[1].GetText(true));
+			var expectedCharacter = quoteCloser == "" ? "Satan" :
+				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			Assert.AreEqual(expectedCharacter, result[2].CharacterId);
+			Assert.AreEqual(blockM.GetText(true), result[2].GetText(true));
+		}
+
 		#region Recovery from bad data
 		[Test]
 		public void Parse_FirstLevelCloseMissingFollowedByNoControlFileEntry_CloseQuoteWhenNoCharacterInControlFileAndSetCharacterForRelevantBlocksToUnknown()
