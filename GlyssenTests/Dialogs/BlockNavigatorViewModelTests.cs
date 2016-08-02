@@ -861,6 +861,9 @@ namespace GlyssenTests.Dialogs
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
 		}
@@ -883,6 +886,9 @@ namespace GlyssenTests.Dialogs
 			Assert.IsNotNull(matchup);
 
 			m_model.ApplyCurrentReferenceTextMatchup();
+
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
 
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);

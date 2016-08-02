@@ -1045,23 +1045,24 @@ namespace Glyssen.Dialogs
 			{
 				var selectedCharacter = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Character;
 				if (selectedCharacter == null)
-					throw new Exception("Selected character not found");
+				{
+					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+					selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
+					if (selectedCharacter == null)
+						throw new Exception("Selected character not found");
+				}
 				m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 			}
 			else
 			{
-				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-				AssignCharacterViewModel.Delivery selectedDelivery = null;
-				foreach (AssignCharacterViewModel.Delivery delivery in colDelivery.Items)
-				{
-					if (delivery.LocalizedDisplay == newValue)
-					{
-						selectedDelivery = delivery;
-						break;
-					}
-				}
+				var selectedDelivery = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Delivery;
 				if (selectedDelivery == null)
-					throw new Exception("Selected delivery not found!");
+				{
+					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+					selectedDelivery = colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
+					if (selectedDelivery == null)
+						throw new Exception("Selected delivery not found!");
+				}
 				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);				
 			}
 			m_userMadeChangesToReferenceTextMatchup = true;

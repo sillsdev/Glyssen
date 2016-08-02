@@ -553,7 +553,8 @@ namespace Glyssen.Dialogs
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block before it.
 				var firstRelevantBlock = m_relevantBlocks[0];
-				return s_bookBlockComparer.Compare(firstRelevantBlock, m_temporarilyIncludedBlock) < 0;
+				var indicesOfCurrentLocation = m_temporarilyIncludedBlock ?? m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
+				return s_bookBlockComparer.Compare(firstRelevantBlock, indicesOfCurrentLocation) < 0;
 			}
 		}
 
@@ -568,7 +569,8 @@ namespace Glyssen.Dialogs
 					return m_currentBlockIndex != RelevantBlockCount - 1;
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
-				return s_bookBlockComparer.Compare(m_relevantBlocks.Last(), m_temporarilyIncludedBlock) > 0;
+				var indicesOfCurrentLocation = m_temporarilyIncludedBlock ?? m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
+				return s_bookBlockComparer.Compare(m_relevantBlocks.Last(), indicesOfCurrentLocation) > 0;
 			}
 		}
 

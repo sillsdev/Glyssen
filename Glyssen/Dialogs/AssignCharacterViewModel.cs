@@ -424,7 +424,9 @@ namespace Glyssen.Dialogs
 
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
 		{
-			SetCharacter(CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex], selectedCharacter);
+			var block = CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex];
+			SetCharacter(block, selectedCharacter);
+			block.UserConfirmed = true;
 		}
 
 		public void SetReferenceTextMatchupDelivery(int blockIndex, Delivery selectedDelivery)
