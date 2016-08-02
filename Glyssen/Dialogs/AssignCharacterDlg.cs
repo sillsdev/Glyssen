@@ -40,6 +40,7 @@ namespace Glyssen.Dialogs
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
+		private readonly string m_defaultBlocksViewerText;
 
 		private void HandleStringsLocalized()
 		{
@@ -85,6 +86,7 @@ namespace Glyssen.Dialogs
 			m_blocksViewer.Initialize(m_viewModel,
 				AssignCharacterViewModel.Character.GetCharacterIdForUi,
 				block => block.Delivery);
+			m_defaultBlocksViewerText = m_blocksViewer.Text;
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
 
@@ -278,14 +280,19 @@ namespace Glyssen.Dialogs
 							correlatedBlock.CharacterId;
 
 						if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-							characterId = ((AssignCharacterViewModel.Character)colCharacter.Items[0]).LocalizedDisplay;
-						foreach (var character in colCharacter.Items)
+							row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character) colCharacter.Items[0];
+						else
 						{
-							if (character.ToString() == characterId)
+							foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
 							{
-								row.Cells[colCharacter.Index].Value = character;
-								break;
+								if (character.CharacterId == characterId)
+								{
+									row.Cells[colCharacter.Index].Value = character;
+									break;
+								}
 							}
+							if (row.Cells[colCharacter.Index].Value == null)
+								Debug.WriteLine("Problem");
 						}
 					}
 					if (colDelivery.Visible)
@@ -1023,9 +1030,20 @@ namespace Glyssen.Dialogs
 
 		private void HandleCharacterSelectionTabIndexChanged(object sender, EventArgs e)
 		{
-			m_viewModel.AttemptRefBlockMatchup = m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText;
-			m_blocksViewer.HighlightStyle = m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter ?
-				BlockGroupingType.Quote : BlockGroupingType.BlockCorrelation;
+			if (m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText)
+			{
+				m_viewModel.AttemptRefBlockMatchup = true;
+				m_blocksViewer.HighlightStyle = BlockGroupingType.BlockCorrelation;
+				m_blocksViewer.Text =
+					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
+						"Match reference text to these blocks");
+			}
+			else
+			{
+				m_viewModel.AttemptRefBlockMatchup = false;
+				m_blocksViewer.HighlightStyle = BlockGroupingType.Quote;
+				m_blocksViewer.Text = m_defaultBlocksViewerText;
+			}
 			ShowMatchReferenceTextTabPage(); // Put this tab back - this is kind of a hack for now
 		}
 
@@ -1048,8 +1066,8 @@ namespace Glyssen.Dialogs
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 					selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
-					if (selectedCharacter == null)
-						throw new Exception("Selected character not found");
+					//if (selectedCharacter == null)
+					//	throw new Exception("Selected character not found");
 				}
 				m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 			}
