@@ -6,6 +6,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using Paratext;
 using SIL.Scripture;
 using SIL.Windows.Forms;
 using ScrVers = Paratext.ScrVers;
@@ -831,6 +832,60 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(origCurrentBlockText, m_model.CurrentBlock.GetText(true));
 			Assert.IsTrue(origTextOfFirstBlockInVerse.StartsWith(m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true)));
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_Splits_CurrentBlockDoesNotMatchFilter_ChangesAppliedAndSubsequentIndicesIncremented()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
+			var blockIndex = m_model.CurrentBlockIndexInBook;
+			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("Jesus", 0, m_testProject.Versification);
+			m_model.LoadNextRelevantBlock();
+			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("father of demon-possessed boy", 0, m_testProject.Versification);
+			m_model.LoadNextRelevantBlock();
+			var origNextRelevantBlock = m_model.CurrentBlock;
+			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.CurrentBlockIndexInBook = blockIndex;
+			m_model.AttemptRefBlockMatchup = true;
+
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+
+			var matchupForMark921 = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchupForMark921);
+			Assert.AreEqual(5, matchupForMark921.CorrelatedBlocks.Count,
+				"Original first block (narrator) should have been split at start of verse 21.");
+			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
+			matchupForMark921.SetReferenceText(2, "Blah");
+
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsPastLastBlockThatMatchesFilter_ChangesAppliedAndSubsequentIndicesIncremented()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(1, m_model.CurrentBlockDisplayIndex, "Trying to go to the \"next\" block from a position beyond the end of the list should take us back to the beginning.");
+			var origNextRelevantBlock = m_model.CurrentBlock;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
+			m_model.AttemptRefBlockMatchup = true;
+
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
 		}
 	}
 }

@@ -697,9 +697,8 @@ namespace Glyssen.Dialogs
 			m_currentRefBlockMatchups.Apply();
 			if (insertionIndex < 0)
 			{
-				// TODO: Write tests for this logic
 				var indicesOfFirstBlock = m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
-				insertionIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, indicesOfFirstBlock, false, 0, m_relevantBlocks.Count);
+				insertionIndex = GetIndexOfClosestRelevantBlock(m_relevantBlocks, indicesOfFirstBlock, false, 0, m_relevantBlocks.Count - 1);
 				if (insertionIndex == -1)
 					insertionIndex = m_relevantBlocks.Count;
 			}
