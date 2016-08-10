@@ -525,7 +525,7 @@ namespace Glyssen.Dialogs
 					if (m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
-							"The alignment of the vernacular script to the reference text has not been applied. Do you want to save the alignment before navigating?");
+							"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?");
 						if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							m_viewModel.ApplyCurrentReferenceTextMatchup();
 					}
@@ -1066,8 +1066,6 @@ namespace Glyssen.Dialogs
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 					selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
-					//if (selectedCharacter == null)
-					//	throw new Exception("Selected character not found");
 				}
 				m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 			}

@@ -106,14 +106,14 @@ namespace Glyssen.Dialogs
 			this.m_btnMoveReferenceTextUp = new System.Windows.Forms.Button();
 			this.m_btnApplyReferenceTextMatches = new System.Windows.Forms.Button();
 			this.m_dataGridReferenceText = new System.Windows.Forms.DataGridView();
-			this.colPrimary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colEnglish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colCharacter = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.colDelivery = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tabControlCharacterSelection = new System.Windows.Forms.TabControl();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
+			this.colCharacter = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.colPrimary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colEnglish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colDelivery = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -243,8 +243,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llMoreChar.AutoSize = true;
-			this.m_llMoreChar.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_llMoreChar.BackColor = System.Drawing.SystemColors.Control;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreChar, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
@@ -262,8 +262,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.TabStop = true;
 			this.m_llMoreChar.Text = "More Characters";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llMoreChar, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreChar.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreChar_LinkClicked);
 			// 
 			// m_txtCharacterFilter
@@ -327,8 +327,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llMoreDel.AutoSize = true;
-			this.m_llMoreDel.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_llMoreDel.BackColor = System.Drawing.SystemColors.Control;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreDel, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
@@ -346,8 +346,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.TabStop = true;
 			this.m_llMoreDel.Text = "More Deliveries";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llMoreDel, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreDel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreDel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreDel_LinkClicked);
 			// 
 			// m_txtDeliveryFilter
@@ -808,8 +808,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_llClose.AutoSize = true;
-			this.m_llClose.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_llClose.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.m_llClose.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -826,8 +826,8 @@ namespace Glyssen.Dialogs
 			this.m_llClose.TabStop = true;
 			this.m_llClose.Text = "Close";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llClose, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
 			// 
 			// m_blocksViewer
@@ -1164,9 +1164,9 @@ namespace Glyssen.Dialogs
 			this.m_dataGridReferenceText.BackgroundColor = System.Drawing.SystemColors.ControlLight;
 			this.m_dataGridReferenceText.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.m_dataGridReferenceText.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCharacter,
             this.colPrimary,
             this.colEnglish,
-            this.colCharacter,
             this.colDelivery});
 			this.glyssenColorPalette.SetForeColor(this.m_dataGridReferenceText, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_dataGridReferenceText.GridColor = System.Drawing.SystemColors.ControlLight;
@@ -1182,52 +1182,6 @@ namespace Glyssen.Dialogs
 			this.m_dataGridReferenceText.TabIndex = 35;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_dataGridReferenceText, true);
 			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateUpDownButtonStates);
-			// 
-			// colPrimary
-			// 
-			this.colPrimary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.colPrimary.DefaultCellStyle = dataGridViewCellStyle5;
-			this.colPrimary.FillWeight = 75.31017F;
-			this.colPrimary.HeaderText = "{0}";
-			this.colPrimary.Name = "colPrimary";
-			// 
-			// colEnglish
-			// 
-			this.colEnglish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.colEnglish.DefaultCellStyle = dataGridViewCellStyle6;
-			this.colEnglish.FillWeight = 75.31017F;
-			this.colEnglish.HeaderText = "English";
-			this.colEnglish.Name = "colEnglish";
-			// 
-			// colCharacter
-			// 
-			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			dataGridViewCellStyle7.BackColor = System.Drawing.Color.Transparent;
-			this.colCharacter.DefaultCellStyle = dataGridViewCellStyle7;
-			this.colCharacter.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-			this.colCharacter.DropDownWidth = 45;
-			this.colCharacter.FillWeight = 60.32995F;
-			this.colCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.colCharacter.HeaderText = "Character";
-			this.colCharacter.MinimumWidth = 56;
-			this.colCharacter.Name = "colCharacter";
-			// 
-			// colDelivery
-			// 
-			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.Transparent;
-			this.colDelivery.DefaultCellStyle = dataGridViewCellStyle8;
-			this.colDelivery.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-			this.colDelivery.DropDownWidth = 45;
-			this.colDelivery.FillWeight = 39.04972F;
-			this.colDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.colDelivery.HeaderText = "Delivery";
-			this.colDelivery.MinimumWidth = 35;
-			this.colDelivery.Name = "colDelivery";
 			// 
 			// m_splitContainer
 			// 
@@ -1307,6 +1261,54 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelNavigationControls.Size = new System.Drawing.Size(283, 30);
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanelNavigationControls, false);
+			// 
+			// colCharacter
+			// 
+			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.Transparent;
+			this.colCharacter.DefaultCellStyle = dataGridViewCellStyle5;
+			this.colCharacter.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+			this.colCharacter.DropDownWidth = 45;
+			this.colCharacter.FillWeight = 60.32995F;
+			this.colCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.colCharacter.HeaderText = "Character";
+			this.colCharacter.MinimumWidth = 56;
+			this.colCharacter.Name = "colCharacter";
+			// 
+			// colPrimary
+			// 
+			this.colPrimary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.colPrimary.DefaultCellStyle = dataGridViewCellStyle6;
+			this.colPrimary.FillWeight = 75.31017F;
+			this.colPrimary.HeaderText = "{0}";
+			this.colPrimary.Name = "colPrimary";
+			this.colPrimary.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// colEnglish
+			// 
+			this.colEnglish.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.colEnglish.DefaultCellStyle = dataGridViewCellStyle7;
+			this.colEnglish.FillWeight = 75.31017F;
+			this.colEnglish.HeaderText = "English";
+			this.colEnglish.Name = "colEnglish";
+			this.colEnglish.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// colDelivery
+			// 
+			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.Transparent;
+			this.colDelivery.DefaultCellStyle = dataGridViewCellStyle8;
+			this.colDelivery.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+			this.colDelivery.DropDownWidth = 45;
+			this.colDelivery.FillWeight = 39.04972F;
+			this.colDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.colDelivery.HeaderText = "Delivery";
+			this.colDelivery.MinimumWidth = 35;
+			this.colDelivery.Name = "colDelivery";
 			// 
 			// AssignCharacterDlg
 			// 
@@ -1431,9 +1433,9 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Button m_btnApplyReferenceTextMatches;
 		private System.Windows.Forms.Button m_btnMoveReferenceTextDown;
 		private System.Windows.Forms.Button m_btnMoveReferenceTextUp;
+		private System.Windows.Forms.DataGridViewComboBoxColumn colCharacter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colPrimary;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colEnglish;
-		private System.Windows.Forms.DataGridViewComboBoxColumn colCharacter;
 		private System.Windows.Forms.DataGridViewComboBoxColumn colDelivery;
 	}
 }

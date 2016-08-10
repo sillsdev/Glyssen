@@ -926,6 +926,30 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetReferenceTextMatchupCharacter_Null_CharacterSetToAmbiguousAndNotUserConfirmed()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			// To most closely simulate the real situation where this can occur, find a place where the matchup results in a correlated block with an
+			// unknown character ID. Then set an adjacent block's character id to "null", as would happen if the user atempted to swap the values between
+			// these two blocks.
+			while ((m_model.CurrentReferenceTextMatchup == null || !m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear())) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			var blockWithoutCharacterId = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.First(b => b.CharacterIsUnclear());
+			var indexOfBlockWithoutCharacterId = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.IndexOf(blockWithoutCharacterId);
+			var indexOfAdjacentBlock = (indexOfBlockWithoutCharacterId > 0) ? indexOfBlockWithoutCharacterId - 1 : indexOfBlockWithoutCharacterId + 1;
+			var adjacentBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[indexOfAdjacentBlock];
+
+			m_model.SetReferenceTextMatchupCharacter(indexOfAdjacentBlock, null);
+
+			Assert.IsTrue(adjacentBlock.CharacterIsUnclear());
+			Assert.IsFalse(adjacentBlock.UserConfirmed);
+		}
+
+		[Test]
 		public void SetCharacterAndDelivery_BlockMatchupIsSet_OriginalAndCorrelatedAnchorBlocksAreModified()
 		{
 			m_fullProjectRefreshRequired = true;

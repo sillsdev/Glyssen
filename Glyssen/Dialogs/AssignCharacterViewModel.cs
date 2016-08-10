@@ -395,10 +395,16 @@ namespace Glyssen.Dialogs
 
 		private void SetCharacter(Block block, Character selectedCharacter)
 		{
-			if (selectedCharacter.IsNarrator)
+			if (selectedCharacter == null)
+			{
+				block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+				block.CharacterIdInScript = null;
+			}
+			else if (selectedCharacter.IsNarrator)
 				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
-				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId), m_project.Versification);
+				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
+					m_project.Versification);
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
@@ -426,7 +432,7 @@ namespace Glyssen.Dialogs
 		{
 			var block = CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex];
 			SetCharacter(block, selectedCharacter);
-			block.UserConfirmed = true;
+			block.UserConfirmed = !block.CharacterIsUnclear();
 		}
 
 		public void SetReferenceTextMatchupDelivery(int blockIndex, Delivery selectedDelivery)
