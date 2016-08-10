@@ -564,6 +564,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Silent.wav" />
     <None Include="Resources\UpdateGroups.png" />
     <None Include="Resources\splitGroup.png" />
     <None Include="Resources\undo.png" />

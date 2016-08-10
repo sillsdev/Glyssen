@@ -14,6 +14,7 @@ namespace Glyssen.Dialogs
 		private readonly ProjectExporter m_viewModel;
 		private string m_actorDirectoryFmt;
 		private string m_bookDirectoryFmt;
+		private string m_clipDirectoryFmt;
 		private string m_clipListFileFmt;
 		private string m_openFileForMeText;
 
@@ -44,6 +45,7 @@ namespace Glyssen.Dialogs
 			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName);
 			m_actorDirectoryFmt = m_lblActorDirectory.Text;
 			m_bookDirectoryFmt = m_lblBookDirectory.Text;
+			m_clipDirectoryFmt = m_lblClipDirectory.Text;
 			m_clipListFileFmt = m_lblClipListFilename.Text;
 			m_openFileForMeText = m_checkOpenForMe.Text;
 
@@ -95,6 +97,25 @@ namespace Glyssen.Dialogs
 			{
 				m_lblBookDirectory.Visible = false;
 				m_lblBookDirectoryExists.Visible = false;
+			}
+		}
+
+		private void UpdateCreateClipDisplay()
+		{
+			if (m_viewModel.IncludeCreateClips != m_checkCreateClips.Checked)
+			{
+				m_checkCreateClips.Checked = m_viewModel.IncludeCreateClips;
+				return;
+			}
+
+			if (m_checkCreateClips.Checked)
+			{
+				m_lblClipDirectory.Visible = true;
+				m_lblClipDirectory.Text = string.Format(m_clipDirectoryFmt, m_viewModel.ClipDirectory);
+			}
+			else
+			{
+				m_lblClipDirectory.Visible = false;
 			}
 		}
 
@@ -250,6 +271,12 @@ namespace Glyssen.Dialogs
 					return;
 				}
 			} while (true);
+		}
+
+		private void CheckCreateClips_CheckedChanged(object sender, EventArgs e)
+		{
+			m_viewModel.IncludeCreateClips = m_checkCreateClips.Checked;
+			UpdateCreateClipDisplay();
 		}
 	}
 }

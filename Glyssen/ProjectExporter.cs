@@ -66,6 +66,7 @@ namespace Glyssen
 		public bool IncludeVoiceActors { get { return m_includeVoiceActors; } }
 		public bool IncludeActorBreakdown { get; set; }
 		public bool IncludeBookBreakdown { get; set; }
+		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
 		
 		internal ExportFileType SelectedFileType { get; set; }
@@ -139,6 +140,16 @@ namespace Glyssen
 				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
 			}
 		}
+
+		internal string ClipDirectory
+		{
+			get
+			{
+				var dirSuffix = LocalizationManager.GetString("DialogBoxes.ExportDlg.ClipDirectoryNameSuffix", "Clips");
+				return Path.Combine(CurrentBaseFolder, FileNameWithoutExtension + " " + dirSuffix);
+			}
+		}
+
 		public string AnnotationElementSeparator
 		{
 			get { return SelectedFileType == ExportFileType.Excel ? kExcelLineBreak : kTabFileAnnotationElementSeparator; }
@@ -202,6 +213,22 @@ namespace Glyssen
 					ErrorReport.NotifyUserOfProblem(ex,
 						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 						"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
+				}
+			}
+
+			if (IncludeCreateClips)
+			{
+				try
+				{
+					Directory.CreateDirectory(ClipDirectory);
+					GenerateClipFiles(ClipDirectory);
+				}
+				catch (Exception ex)
+				{
+					Analytics.ReportException(ex);
+					ErrorReport.NotifyUserOfProblem(ex,
+						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
+						"Could not create destination folder for clip files: {0}", "{0} is a directory name."), ClipDirectory));
 				}
 			}
 
@@ -306,6 +333,53 @@ namespace Glyssen
 				foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, book.BookId), () => GetExportData(bookId)))
 				{
 					yield return lockedFile;
+				}
+			}
+		}
+
+		private void GenerateClipFiles(string directoryPath)
+		{
+			const int kLineNumIndex = 0;
+			const int kBookIndex = 2;
+			const int kChapterIndex = 3;
+			const int kVerseIndex = 4;
+
+			var data = GetExportData();
+			var bookId = string.Empty;
+			var currentOutputDirectory = string.Empty;
+			var fileNameTemplate = Project.Name.Replace(" ", "_") + "_{0:D5}_{1}_{2:D3}_{3:D3}.wav";
+
+			foreach (var row in data)
+			{
+				// if this is a different book, create the output directory
+				var tempBookId = (string) row[kBookIndex];
+				if (!string.IsNullOrEmpty(tempBookId) && (bookId != tempBookId))
+				{
+					bookId = tempBookId;
+					currentOutputDirectory = Path.Combine(directoryPath, bookId);
+					Directory.CreateDirectory(currentOutputDirectory);
+				}
+
+				// if the line number is not empty, create the wave file
+				if (row[kLineNumIndex] != null)
+				{
+					var lineNumber = (int) row[kLineNumIndex];
+					var verseNumber = int.Parse(row[kVerseIndex].ToString().Split('-', ',', ' ')[0]);
+					var fileName = Path.Combine(currentOutputDirectory, 
+						string.Format(fileNameTemplate, lineNumber, bookId, row[kChapterIndex], verseNumber));
+
+					// do not overwrite existing files
+					if (File.Exists(fileName))
+						continue;
+
+					using (var ms = new MemoryStream())
+					{
+						Resources.Silent.CopyTo(ms);
+						using (var fs = new FileStream(fileName, FileMode.CreateNew, FileAccess.Write))
+						{
+							ms.WriteTo(fs);
+						}
+					}
 				}
 			}
 		}
