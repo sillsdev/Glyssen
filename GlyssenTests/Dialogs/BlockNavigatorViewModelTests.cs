@@ -968,6 +968,8 @@ namespace GlyssenTests.Dialogs
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
 		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 		}
 
@@ -995,7 +997,7 @@ namespace GlyssenTests.Dialogs
 
 			m_model.AttemptRefBlockMatchup = true;
 
-			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock, m_model.CurrentBlock.ToString());
 			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 		}
 	}
