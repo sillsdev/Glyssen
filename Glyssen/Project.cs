@@ -1164,26 +1164,35 @@ namespace Glyssen
 						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
 					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
 						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
-					try
+					if (m_wsDefinition.Id == null)
 					{
-						m_wsDefinition.Language = m_wsDefinition.Id;
+						m_wsDefinition.Id = String.IsNullOrEmpty(m_metadata.Language.Ldml)
+							? m_metadata.Language.Iso
+							: m_metadata.Language.Ldml;
 					}
-					catch(ArgumentException)
+					else
 					{
 						try
 						{
-							if (m_metadata.Language.Ldml != m_metadata.Language.Iso && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
-							{
-								m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
-								m_wsDefinition.Language = m_wsDefinition.Id;
-							}
+							m_wsDefinition.Language = m_wsDefinition.Id;
 						}
 						catch (ArgumentException)
 						{
-							// Ignore. Following code should try to patch things up.
+							try
+							{
+								if (m_metadata.Language.Ldml != m_metadata.Language.Iso && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+								{
+									m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
+									m_wsDefinition.Language = m_wsDefinition.Id;
+								}
+							}
+							catch (ArgumentException)
+							{
+								// Ignore. Following code should try to patch things up.
+							}
 						}
 					}
-					if (m_wsDefinition.Language.IsPrivateUse && !string.IsNullOrEmpty(m_metadata.Language.Name))
+					if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !string.IsNullOrEmpty(m_metadata.Language.Name))
 					{
 						// TODO: Strip off the first dash and anything following???
 						// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
