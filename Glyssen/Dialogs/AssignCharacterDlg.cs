@@ -243,10 +243,40 @@ namespace Glyssen.Dialogs
 				m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
 		}
 
+		private void UpdateInsertHeSaidButtonState()
+		{
+			m_menuInsertIntoAllEmptyCells.Enabled = m_menuInsertIntoSelectedRowOnly.Enabled =
+				GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow).Any();
+			if (!m_menuInsertIntoAllEmptyCells.Enabled)
+			{
+				foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
+				{
+					if (GetColumnsIntoWhicHeSaidCanBeInserted(row).Any())
+					{
+						m_menuInsertIntoAllEmptyCells.Enabled = true;
+						break;
+					}
+				}
+			}
+		}
+
+		private IEnumerable<int> GetColumnsIntoWhicHeSaidCanBeInserted(DataGridViewRow row)
+		{
+			if (row != null)
+			{
+				if (string.IsNullOrEmpty(row.Cells[colEnglish.Index].Value as string))
+					yield return colEnglish.Index;
+				if (colPrimary.Visible && string.IsNullOrEmpty(row.Cells[colPrimary.Index].Value as string))
+					yield return colPrimary.Index;
+			}
+		}
+
 		private void UpdateReferenceTextTabPageDisplay()
 		{
 			UpdateNavigationIndexLabel();
 			UpdateNavigationButtonState();
+
+			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditProgrammatically;
 
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
 
@@ -315,8 +345,12 @@ namespace Glyssen.Dialogs
 						row.Cells[colDelivery.Index].Value = delivery;
 					}
 				}
+				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
+				//This can throw an exception if current cell is not set. Could this be caused by re-entrancy / clicking too fast?
+				m_dataGridReferenceText.BeginEdit(true);
 			}
 
+			UpdateInsertHeSaidButtonState();
 			UpdateAssignOrApplyButtonState();
 
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
@@ -1005,10 +1039,11 @@ namespace Glyssen.Dialogs
 				LoadNextRelevantBlock();
 		}
 
-		private void UpdateUpDownButtonStates(object sender, DataGridViewCellEventArgs e)
+		private void UpdateRowSpecificButtonStates(object sender, DataGridViewCellEventArgs e)
 		{
 			m_btnMoveReferenceTextDown.Enabled = e.RowIndex != m_dataGridReferenceText.RowCount - 1;
 			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
+			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow).Any();
 		}
 
 		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
@@ -1063,11 +1098,13 @@ namespace Glyssen.Dialogs
 			{
 				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
+				UpdateInsertHeSaidButtonState();
 			}
 			else if (e.ColumnIndex == colEnglish.Index)
 			{
 				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
+				UpdateInsertHeSaidButtonState();
 			}
 			else if (colCharacter.Visible && e.ColumnIndex == colCharacter.Index)
 			{
@@ -1093,6 +1130,81 @@ namespace Glyssen.Dialogs
 			}
 			m_userMadeChangesToReferenceTextMatchup = true;
 			UpdateAssignOrApplyButtonState();
+		}
+
+		private void HandleMouseEnterButtonThatAffectsEntireGridRow(object sender, EventArgs e)
+		{
+			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditProgrammatically;
+			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
+			m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			m_dataGridReferenceText.Rows[m_dataGridReferenceText.CurrentCellAddress.Y].Selected = true;
+		}
+
+		private void HandleMouseLeaveButtonThatAffectsEntireGridRow(object sender, EventArgs e)
+		{
+			m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
+		}
+
+		private void HandleInsertHeSaidCheckChanged(object sender, EventArgs e)
+		{
+			if (sender == m_menuInsertIntoAllEmptyCells)
+				m_menuInsertIntoSelectedRowOnly.Checked = !m_menuInsertIntoAllEmptyCells.Checked;
+			else
+				m_menuInsertIntoAllEmptyCells.Checked = !m_menuInsertIntoSelectedRowOnly.Checked;
+		}
+
+		private void HandleInsertHeSaidClicked(object sender, EventArgs e)
+		{
+			int row = -1;
+			if (m_menuInsertIntoSelectedRowOnly.Checked)
+			{
+				if (!m_menuInsertIntoSelectedRowOnly.Enabled)
+					return; // ENHANCE: Give user feedback? Beep? message?
+				row = m_dataGridReferenceText.CurrentCellAddress.Y;
+			}
+			m_viewModel.CurrentReferenceTextMatchup.InsertHeSaidText(row, HandleHeSaidInserted);
+		}
+
+		private void HandleHeSaidInserted(int iRow, bool english, string text)
+		{
+			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
+			m_dataGridReferenceText.Rows[iRow].Cells[english ? colEnglish.Index : colPrimary.Index].Value = text;
+			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
+		}
+
+		private void HandleResetMatchupClick(object sender, EventArgs e)
+		{
+			m_viewModel.SetBlockMatchupForCurrentVerse();
+		}
+
+		private void HandleMouseEnterInsertHeSaidButton(object sender, EventArgs e)
+		{
+			if (m_menuInsertIntoSelectedRowOnly.Checked && !m_menuInsertIntoSelectedRowOnly.Enabled)
+				return;
+
+			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditProgrammatically;
+			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
+
+			if (m_menuInsertIntoSelectedRowOnly.Checked)
+			{
+				foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow))
+				{
+					m_dataGridReferenceText.CurrentRow.Cells[iCol].Selected = true;
+				}
+			}
+			else
+			{
+				foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
+				{
+					foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(row))
+					{
+						row.Cells[iCol].Selected = true;
+					}
+				}
+			}
 		}
 		#endregion
 	}

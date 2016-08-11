@@ -593,7 +593,6 @@ namespace Glyssen.Dialogs
 						return false;
 					if (m_currentRefBlockMatchups == null)
 						return true;
-					int i;
 					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentBlockIndex;
 				}
 

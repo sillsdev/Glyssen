@@ -111,6 +111,8 @@ namespace Glyssen.Controls
 			set { m_title.Text = value;  }
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		[Browsable(false)]
 		public BlockGroupingType HighlightStyle
 		{
 			get { return m_viewModel.BlockGroupingStyle; }

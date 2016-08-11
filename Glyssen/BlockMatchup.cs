@@ -237,6 +237,11 @@ namespace Glyssen
 			CorrelatedAnchorBlock = block;
 			Debug.WriteLine("CorrelatedAnchorBlock changed to block " + CorrelatedBlocks.IndexOf(CorrelatedAnchorBlock) + " of " + CorrelatedBlocks.Count);
 		}
+
+		public void InsertHeSaidText(int i, Action<int, bool, string> handleHeSaidInserted)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	public class InvalidReferenceTextException :  Exception
