@@ -573,10 +573,8 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		[Category("SkipOnTeamCity")]
 		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
 		{
-			Assert.Fail("Waiting for more info from Damien and Darcy to know if this is a valid scenario.");
 			Sldr.Initialize();
 			try
 			{
@@ -587,7 +585,7 @@ namespace GlyssenTests
 				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach-CM or ach???", project.WritingSystem.Id); // What do we want here?
+				Assert.AreEqual("ach", project.WritingSystem.Id); // What do we want here?
 			}
 			finally
 			{

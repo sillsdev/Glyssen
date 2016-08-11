@@ -1160,9 +1160,10 @@ namespace Glyssen
 					new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
 				else
 				{
-					m_wsDefinition.Id = m_metadata.Language.Ldml;
-					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id))
-						m_wsDefinition.Id = m_metadata.Language.Iso;
+					if (IetfLanguageTag.IsValid(m_metadata.Language.Ldml))
+						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
+					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
 					try
 					{
 						m_wsDefinition.Language = m_wsDefinition.Id;
@@ -1171,9 +1172,9 @@ namespace Glyssen
 					{
 						try
 						{
-							if (m_metadata.Language.Ldml != m_metadata.Language.Iso && !String.IsNullOrEmpty(m_metadata.Language.Iso))
+							if (m_metadata.Language.Ldml != m_metadata.Language.Iso && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
 							{
-								m_wsDefinition.Id = m_metadata.Language.Iso;
+								m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
 								m_wsDefinition.Language = m_wsDefinition.Id;
 							}
 						}
