@@ -167,7 +167,23 @@ namespace Glyssen.Dialogs
 			}
 		}
 		public int RelevantBlockCount { get { return m_relevantBlocks.Count; } }
-		public int CurrentBlockDisplayIndex { get { return m_currentBlockIndex + 1; } }
+		public int CurrentBlockDisplayIndex
+		{
+			get
+			{
+
+				// If we're in block matchup mode and the current matchup group covers the last relevant block, then make display index
+				// show as if we're on that very last block so it won't be confusing to the user why they can't click the Next button.
+				if (m_currentRefBlockMatchups != null &&
+					m_currentBlockIndex < RelevantBlockCount - 1 &&
+					m_relevantBlocks[m_currentBlockIndex].BookIndex == m_relevantBlocks.Last().BookIndex &&
+					m_relevantBlocks.Skip(m_currentBlockIndex + 1).All(i => m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks(false)[i.BlockIndex])))
+				{
+					return RelevantBlockCount;
+				}
+				return m_currentBlockIndex + 1;
+			}
+		}
 		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
 		public bool CurrentBookIsSingleVoice { get { return m_navigator.CurrentBook.SingleVoice; } }
 		public Block CurrentBlock
@@ -549,7 +565,13 @@ namespace Glyssen.Dialogs
 					return false;
 
 				if (IsCurrentBlockRelevant)
-					return m_currentBlockIndex != 0;
+				{
+					if (m_currentBlockIndex == 0)
+						return false;
+					if (m_currentRefBlockMatchups == null)
+						return true;
+					return GetIndexOfPreviousRelevantBlockNotInCurrentMatchup() >= 0;
+				}
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block before it.
 				var firstRelevantBlock = m_relevantBlocks[0];
@@ -565,8 +587,15 @@ namespace Glyssen.Dialogs
 				if (RelevantBlockCount == 0)
 					return false;
 
-				if (IsCurrentBlockRelevant || m_temporarilyIncludedBlock == null)
-					return m_currentBlockIndex != RelevantBlockCount - 1;
+				if (IsCurrentBlockRelevant)
+				{
+					if (m_currentBlockIndex == RelevantBlockCount - 1)
+						return false;
+					if (m_currentRefBlockMatchups == null)
+						return true;
+					int i;
+					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentBlockIndex;
+				}
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
 				var indicesOfCurrentLocation = m_temporarilyIncludedBlock ?? m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
@@ -614,16 +643,53 @@ namespace Glyssen.Dialogs
 		{
 			if (IsCurrentBlockRelevant)
 			{
-				SetBlock(m_relevantBlocks[++m_currentBlockIndex]);
+				if (m_currentRefBlockMatchups == null)
+					m_currentBlockIndex++;
+				else
+					m_currentBlockIndex = GetIndexOfNextRelevantBlockNotInCurrentMatchup();
+				SetBlock(m_relevantBlocks[m_currentBlockIndex]);
 			}
 			else
 				LoadClosestRelevantBlock(false);
 		}
 
+		private int GetIndexOfPreviousRelevantBlockNotInCurrentMatchup()
+		{
+			for (int i = m_currentBlockIndex - 1; i >= 0; i--)
+			{
+				if (m_relevantBlocks[i].BookIndex != m_relevantBlocks[m_currentBlockIndex].BookIndex ||
+					!m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks(false)[m_relevantBlocks[i].BlockIndex]))
+				{
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		private int GetIndexOfNextRelevantBlockNotInCurrentMatchup()
+		{
+			for (int i = m_currentBlockIndex; i < RelevantBlockCount - 1; i++)
+			{
+				if (m_relevantBlocks[i].BookIndex != m_relevantBlocks[m_currentBlockIndex].BookIndex ||
+					!m_currentRefBlockMatchups.OriginalBlocks.Contains(
+						CurrentBook.GetScriptBlocks(false)[m_relevantBlocks[i].BlockIndex]))
+				{
+					return i;
+				}
+			}
+			return -1;
+		}
+
 		public void LoadPreviousRelevantBlock()
 		{
 			if (IsCurrentBlockRelevant)
-				SetBlock(m_relevantBlocks[--m_currentBlockIndex]);
+			{
+				if (m_currentRefBlockMatchups == null)
+					m_currentBlockIndex--;
+				else
+					m_currentBlockIndex = GetIndexOfPreviousRelevantBlockNotInCurrentMatchup();
+				SetBlock(m_relevantBlocks[m_currentBlockIndex]);
+			}
 			else
 				LoadClosestRelevantBlock(true);
 		}

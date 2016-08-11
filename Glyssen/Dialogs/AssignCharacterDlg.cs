@@ -212,9 +212,7 @@ namespace Glyssen.Dialogs
 			if (displayedRefMinusBlockStartRef < 0 || displayedRefMinusBlockStartRef > versesInSelection)
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
-			if (m_viewModel.IsCurrentBlockRelevant)
-				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
-			m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+			UpdateNavigationIndexLabel();
 			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
 			m_viewModel.GetBlockVerseRef().SendScrReference();
@@ -230,6 +228,15 @@ namespace Glyssen.Dialogs
 			m_menuBtnSplitBlock.Enabled = !CharacterVerseData.IsCharacterStandard(m_viewModel.CurrentBlock.CharacterId, false);
 		}
 
+		private void UpdateNavigationIndexLabel()
+		{
+			if (m_labelXofY.Visible)
+			{
+				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
+				m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+			}
+		}
+
 		private void ShowMatchReferenceTextTabPage()
 		{
 			if (!m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
@@ -238,6 +245,9 @@ namespace Glyssen.Dialogs
 
 		private void UpdateReferenceTextTabPageDisplay()
 		{
+			UpdateNavigationIndexLabel();
+			UpdateNavigationButtonState();
+
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
 
 			m_tabControlCharacterSelection.SelectedTab = m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation ?

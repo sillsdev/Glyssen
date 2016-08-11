@@ -64,6 +64,29 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void LoadNextRelevantBlock_OnFirstRelevantBlockInRainbowGroupThatCoversMultipleRelevantBlocks_LoadsNextBlockThatIsNotPartOfCurrentRainbowGroup()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			HashSet<Block> blocksInPreviousRainbowGroup = null;
+			do
+			{
+				if (m_model.CurrentReferenceTextMatchup != null)
+				{
+					if (blocksInPreviousRainbowGroup != null)
+						Assert.IsFalse(blocksInPreviousRainbowGroup.Intersect(m_model.CurrentReferenceTextMatchup.OriginalBlocks).Any());
+					blocksInPreviousRainbowGroup = new HashSet<Block>(m_model.CurrentReferenceTextMatchup.OriginalBlocks);
+				}
+				else
+					blocksInPreviousRainbowGroup = null;
+				m_model.LoadNextRelevantBlock();
+				// It's annoying and unfortunate that we have to call this explicitly, but for the timing of the notifications to work
+				// out in the actual production code, the AssignCharacterViewModel, rather than the BlockNavigatorViewModel itself, is
+				// responsible for calling this after the block is loaded.
+				m_model.SetBlockMatchupForCurrentVerse();
+			} while (m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
 		public void LoadNextRelevantBlockInSubsequentBook_HasFurtherBooks_HasNoFurtherRelevantBlocks_CallingMethodDoesNothing()
 		{
 			// Validate our setup
@@ -76,6 +99,31 @@ namespace GlyssenTests.Dialogs
 			var currentBlockBeforeCall = m_model.CurrentBlock;
 			m_model.LoadNextRelevantBlockInSubsequentBook();
 			Assert.AreEqual(currentBlockBeforeCall, m_model.CurrentBlock);
+		}
+
+		[Test]
+		public void LoadPreviousRelevantBlock_OnLastRelevantBlockInRainbowGroupThatCoversMultipleRelevantBlocks_LoadsPreviousBlockThatIsNotPartOfCurrentRainbowGroup()
+		{
+			while (m_model.CanNavigateToNextRelevantBlock)
+				m_model.LoadNextRelevantBlock();
+			m_model.AttemptRefBlockMatchup = true;
+			HashSet<Block> blocksInFollowingRainbowGroup = null;
+			do
+			{
+				if (m_model.CurrentReferenceTextMatchup != null)
+				{
+					if (blocksInFollowingRainbowGroup != null)
+						Assert.IsFalse(blocksInFollowingRainbowGroup.Intersect(m_model.CurrentReferenceTextMatchup.OriginalBlocks).Any());
+					blocksInFollowingRainbowGroup = new HashSet<Block>(m_model.CurrentReferenceTextMatchup.OriginalBlocks);
+				}
+				else
+					blocksInFollowingRainbowGroup = null;
+				m_model.LoadPreviousRelevantBlock();
+				// It's annoying and unfortunate that we have to call this explicitly, but for the timing of the notifications to work
+				// out in the actual production code, the AssignCharacterViewModel, rather than the BlockNavigatorViewModel itself, is
+				// responsible for calling this after the block is loaded.
+				m_model.SetBlockMatchupForCurrentVerse();
+			} while (m_model.CanNavigateToPreviousRelevantBlock);
 		}
 
 		[Test]
@@ -322,6 +370,22 @@ namespace GlyssenTests.Dialogs
 			m_model.CurrentBlockIndexInBook = 400;
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant, "If this fails, we chose a relevant block index by accident.");
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+		}
+
+		[Test]
+		public void CanNavigateToNextRelevantBlock_OnBlockWhoseRainbowGroupCoversLastBlock_ReturnsFalse()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			while (m_model.CanNavigateToNextRelevantBlock)
+				m_model.LoadNextRelevantBlock();
+			m_model.LoadPreviousRelevantBlock();
+			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
+			Assert.AreEqual(m_model.RelevantBlockCount - 1, m_model.CurrentBlockDisplayIndex);
+
+			m_model.AttemptRefBlockMatchup = true;
+
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+			Assert.AreEqual(m_model.RelevantBlockCount, m_model.CurrentBlockDisplayIndex);
 		}
 
 		[Test]
@@ -892,6 +956,47 @@ namespace GlyssenTests.Dialogs
 
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
+		}
+	}
+
+	[TestFixture]
+	class BlockNavigatorViewModelTestsWhereFirstRelevantBlockIsAmbiguous
+	{
+		private Project m_testProject;
+		private BlockNavigatorViewModel m_model;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.Ambiguous);
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void CanNavigateToPreviousRelevantBlock_OnBlockWhoseRainbowGroupCoversFirstBlock_ReturnsFalse()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			while (m_model.CanNavigateToPreviousRelevantBlock)
+				m_model.LoadPreviousRelevantBlock();
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
+
+			m_model.AttemptRefBlockMatchup = true;
+
+			Assert.IsFalse(m_model.CanNavigateToPreviousRelevantBlock);
+			Assert.AreEqual(2, m_model.CurrentBlockDisplayIndex);
 		}
 	}
 }
