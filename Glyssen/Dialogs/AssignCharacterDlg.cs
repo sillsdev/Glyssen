@@ -346,7 +346,7 @@ namespace Glyssen.Dialogs
 					}
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
-				//This can throw an exception if current cell is not set. Could this be caused by re-entrancy / clicking too fast?
+				m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.FirstDisplayedCell;
 				m_dataGridReferenceText.BeginEdit(true);
 			}
 
