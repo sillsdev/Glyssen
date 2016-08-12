@@ -12,10 +12,12 @@ namespace Glyssen
 		private readonly int m_iStartBlock;
 		private readonly PortionScript m_portion;
 		private int m_numberOfBlocksAddedBySplitting = 0;
+		private readonly IReferenceLanguageInfo m_referenceLanguageInfo;
 
-		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks)
+		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks, IReferenceLanguageInfo heSaidProvider)
 		{
 			m_vernacularBook = vernacularBook;
+			m_referenceLanguageInfo = heSaidProvider;
 			var blocks = vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
 			var blocksForVersesCoveredByBlock =
@@ -44,7 +46,6 @@ namespace Glyssen
 				splitBlocks(m_portion);
 				m_numberOfBlocksAddedBySplitting = m_portion.GetScriptBlocks().Count - origCount;
 			}
-			Debug.WriteLine("End of constructor. CorrelatedAnchorBlock is block " + CorrelatedBlocks.IndexOf(CorrelatedAnchorBlock) + " of " + CorrelatedBlocks.Count);
 		}
 
 		public IEnumerable<Block> OriginalBlocks
@@ -219,7 +220,7 @@ namespace Glyssen
 						block.InitialEndVerseNumber);
 					refBlock.SetCharacterAndDeliveryInfo(block);
 					if (block.ReferenceBlocks.Any())
-						refBlock.AppendJoinedBlockElements(block.ReferenceBlocks);
+						refBlock.AppendJoinedBlockElements(block.ReferenceBlocks, m_referenceLanguageInfo);
 					else
 						refBlock.BlockElements.Add(new ScriptText(""));
 					block.SetMatchedReferenceBlock(refBlock);
@@ -238,9 +239,35 @@ namespace Glyssen
 			Debug.WriteLine("CorrelatedAnchorBlock changed to block " + CorrelatedBlocks.IndexOf(CorrelatedAnchorBlock) + " of " + CorrelatedBlocks.Count);
 		}
 
-		public void InsertHeSaidText(int i, Action<int, bool, string> handleHeSaidInserted)
+		/// <summary>
+		/// Inserts "he said." (and the equivalent for the primary reference language) into any null/blank reference text.
+		/// </summary>
+		/// <param name="i">The index of the (correlated) block to be changed, or -1 to do all blocks</param>
+		/// <param name="handleHeSaidInserted">Callback to inform caller of any insertions made.</param>
+		public void InsertHeSaidText(int i, Action<int, int, string> handleHeSaidInserted)
 		{
-			throw new NotImplementedException();
+			if (i == -1)
+			{
+				for (int iBlock = 0; iBlock < CorrelatedBlocks.Count; iBlock++)
+					InsertHeSaidText(m_referenceLanguageInfo, iBlock, handleHeSaidInserted);
+			}
+			else
+				InsertHeSaidText(m_referenceLanguageInfo, i, handleHeSaidInserted);
+		}
+
+		private void InsertHeSaidText(IReferenceLanguageInfo heSaidProvider, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
+		{
+			if (CorrelatedBlocks[i].CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
+			{
+				if (CorrelatedBlocks[i].GetReferenceTextAtDepth(level) == "")
+				{
+					var text = heSaidProvider.HeSaidText;
+					SetReferenceText(i, text, level);
+					handleHeSaidInserted(i, level, text);
+				}
+				if (heSaidProvider.HasSecondaryReferenceText)
+					InsertHeSaidText(heSaidProvider.BackingReferenceLanguage, i, handleHeSaidInserted, level + 1);
+			}
 		}
 	}
 

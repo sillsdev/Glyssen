@@ -68,6 +68,8 @@ namespace Glyssen
 			foreach (var blockElement in BlockElements)
 				newBlock.BlockElements.Add(blockElement.Clone());
 			return newBlock;
+
+			// When cloning, we currently do not 
 		}
 
 		[XmlAttribute("style")]
@@ -206,6 +208,31 @@ namespace Glyssen
 		public string PrimaryReferenceText
 		{
 			get { return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(true, true) : null; }
+		}
+
+		/// <summary>
+		/// Similar to PrimaryReferenceText, this method returns <code>null</code> if this block corresponds to more
+		/// than one reference block (or corresponds to exactly one block that is considered a mismatch). However,
+		/// it returns an empty string (which should be understood to be different from <code>null</code>) if no
+		/// reference blocks are found at the requested (or any lower) level.
+		/// </summary>
+		/// <param name="depth">Current constraints elsewhere in the code make it such that this should never be
+		/// greater than 1, but this method is implemented to support a (future) scenerio allowing more deeply
+		/// nested reference texts.</param>
+		public string GetReferenceTextAtDepth(int depth)
+		{
+			if (depth < 0)
+				throw new ArgumentOutOfRangeException("depth", "Depth must not be negative.");
+			// This might seem a little weird (and unlikely), but if the caller is asking for a particular level,
+			// it is assumed that it is a valid level, so the absence of any reference blocks should be treated
+			// the same as having a single empty block (which is the normal scenario in production).
+			if (!ReferenceBlocks.Any())
+				return "";
+			if (depth == 0)
+				return PrimaryReferenceText;
+			if (ReferenceBlocks.Count == 1)
+				return ReferenceBlocks[0].GetReferenceTextAtDepth(depth - 1);
+			return null;
 		}
 
 		[XmlElement]
@@ -797,7 +824,7 @@ namespace Glyssen
 			Delivery = basedOnBlock.Delivery;
 		}
 
-		public void AppendJoinedBlockElements(List<Block> referenceBlocks)
+		public void AppendJoinedBlockElements(List<Block> referenceBlocks, IReferenceLanguageInfo languageInfo)
 		{
 			var nestedRefBlocks = new List<Block>();
 
@@ -813,7 +840,7 @@ namespace Glyssen
 						var prevScriptText = BlockElements.LastOrDefault() as ScriptText;
 						if (prevScriptText != null)
 						{
-							prevScriptText.Content = prevScriptText.Content.TrimEnd() + " " + scriptText.Content;
+							prevScriptText.Content = prevScriptText.Content.TrimEnd() + languageInfo.WordSeparator + scriptText.Content;
 							continue;
 						}
 					}
@@ -825,7 +852,7 @@ namespace Glyssen
 				var backingRefBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber,
 					InitialEndVerseNumber);
 				backingRefBlock.SetCharacterAndDeliveryInfo(this);
-				backingRefBlock.AppendJoinedBlockElements(nestedRefBlocks);
+				backingRefBlock.AppendJoinedBlockElements(nestedRefBlocks, languageInfo.BackingReferenceLanguage);
 				SetMatchedReferenceBlock(backingRefBlock);
 			}
 		}

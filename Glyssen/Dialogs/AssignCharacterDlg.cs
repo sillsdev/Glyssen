@@ -262,7 +262,9 @@ namespace Glyssen.Dialogs
 
 		private IEnumerable<int> GetColumnsIntoWhicHeSaidCanBeInserted(DataGridViewRow row)
 		{
-			if (row != null)
+			var matchup = m_viewModel.CurrentReferenceTextMatchup;
+			if (row != null && matchup != null && matchup.CorrelatedBlocks[row.Index].
+				CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
 			{
 				if (string.IsNullOrEmpty(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
@@ -1043,7 +1045,7 @@ namespace Glyssen.Dialogs
 		{
 			m_btnMoveReferenceTextDown.Enabled = e.RowIndex != m_dataGridReferenceText.RowCount - 1;
 			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
-			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow).Any();
+			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
 		}
 
 		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
@@ -1143,6 +1145,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleMouseLeaveButtonThatAffectsEntireGridRow(object sender, EventArgs e)
 		{
+			m_dataGridReferenceText.MultiSelect = false;
 			m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
 			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 		}
@@ -1167,10 +1170,11 @@ namespace Glyssen.Dialogs
 			m_viewModel.CurrentReferenceTextMatchup.InsertHeSaidText(row, HandleHeSaidInserted);
 		}
 
-		private void HandleHeSaidInserted(int iRow, bool english, string text)
+		private void HandleHeSaidInserted(int iRow, int level, string text)
 		{
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
-			m_dataGridReferenceText.Rows[iRow].Cells[english ? colEnglish.Index : colPrimary.Index].Value = text;
+			var column = level == 0 && colPrimary.Visible ? colPrimary : colEnglish;
+			m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
 
@@ -1197,6 +1201,8 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
+				m_dataGridReferenceText.MultiSelect = true;
+				m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.CellSelect;
 				foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
 				{
 					foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(row))

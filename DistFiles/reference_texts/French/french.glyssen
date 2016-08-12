@@ -9,6 +9,7 @@
     <numerals />
     <fontFamily>Charis SIL</fontFamily>
     <fontSizeInPoints>14</fontSizeInPoints>
+	<heSaidText>il a dit.</heSaidText>
   </language>
   <identification>
     <name />

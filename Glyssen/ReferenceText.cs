@@ -30,7 +30,15 @@ namespace Glyssen
 		Custom
 	}
 
-	public class ReferenceText : ProjectBase
+	public interface IReferenceLanguageInfo
+	{
+		bool HasSecondaryReferenceText { get; }
+		IReferenceLanguageInfo BackingReferenceLanguage { get; }
+		string HeSaidText { get; }
+		string WordSeparator { get; }
+	}
+
+	public class ReferenceText : ProjectBase, IReferenceLanguageInfo
 	{
 		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 		private readonly ReferenceTextType m_referenceTextType;
@@ -237,6 +245,23 @@ namespace Glyssen
 			get { return GetStandardReferenceText(ReferenceTextType.English); }
 		}
 
+		public IReferenceLanguageInfo BackingReferenceLanguage
+		{
+			get { return SecondaryReferenceText; }
+		}
+
+		public string WordSeparator
+		{
+			// ENHANCE: When we support custom reference texts in languages that do not use a simple space character, this will
+			// need to be overridable in m_metadata.Language.
+			get { return " "; }
+		}
+
+		public string HeSaidText
+		{
+			get { return m_metadata.Language.HeSaidText ?? "he said."; }
+		}
+
 		/// <summary>
 		/// This gets the included books from the project. As needed, blocks are broken up and matched to
 		/// correspond to this reference text (in which case, the books and blocks returned are copies, so
@@ -293,7 +318,7 @@ namespace Glyssen
 				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
 				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
 
-			});
+			}, this);
 			if (!matchup.AllScriptureBlocksMatch)
 			{
 				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularVersification);

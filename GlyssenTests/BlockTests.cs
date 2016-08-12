@@ -704,7 +704,7 @@ namespace GlyssenTests
 			var joinedFrenchRefBlock = new Block(refBlockNarratorFrench.StyleTag, refBlockNarratorFrench.ChapterNumber, refBlockNarratorFrench.InitialStartVerseNumber);
 			joinedFrenchRefBlock.CharacterId = narrator;
 			joinedFrenchRefBlock.Delivery = "raspy";
-			joinedFrenchRefBlock.AppendJoinedBlockElements(new List<Block> { refBlockNarratorFrench, refBlockMatthewFrench });
+			joinedFrenchRefBlock.AppendJoinedBlockElements(new List<Block> { refBlockNarratorFrench, refBlockMatthewFrench }, ReferenceText.GetStandardReferenceText(ReferenceTextType.French));
 			Assert.AreEqual("[2]\u00A0Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", joinedFrenchRefBlock.GetText(true));
 			// We may not technically really care too much about the next four lines (at least right now),
 			// but this is how we expect the reference block to be built.
