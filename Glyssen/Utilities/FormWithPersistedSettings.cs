@@ -157,8 +157,14 @@ namespace Glyssen.Utilities
 		{
 			if ((Owner == null) || (WindowState == FormWindowState.Maximized))
 				return;
-
-			Location = new Point(Owner.Location.X + kChildFormLocationX, Owner.Location.Y + kChildFormLocationY);
+			var availableScreenRect = Screen.FromControl(this).WorkingArea;
+			var newX = Owner.Location.X + kChildFormLocationX;
+			var newY = Owner.Location.Y + kChildFormLocationY;
+			if (newX + Width > availableScreenRect.Right)
+				newX -= newX + Width - availableScreenRect.Right;
+			if (newY + Height > availableScreenRect.Bottom)
+				newY -= newY + Height - availableScreenRect.Bottom;
+			Location = new Point(newX, newY);
 		}
 	}
 }
