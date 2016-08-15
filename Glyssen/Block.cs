@@ -69,7 +69,10 @@ namespace Glyssen
 				newBlock.BlockElements.Add(blockElement.Clone());
 			return newBlock;
 
-			// When cloning, we currently do not 
+			// When cloning, we intentionally do not clone reference text info.
+			// If caller (or anything downstream) needs to modify the reference text, it should either replace existing blocks or
+			// clone them before modifying them.
+			//TODO: Need to ponder how to maintain reference text alignment info when preserving user decisions.
 		}
 
 		[XmlAttribute("style")]
@@ -259,7 +262,18 @@ namespace Glyssen
 		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
 		{
 			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
-			var refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
+			Block refBlock;
+			if (ReferenceBlocks != null && ReferenceBlocks.Count == 1)
+			{
+				refBlock = ReferenceBlocks[0];
+				refBlock.StyleTag = StyleTag;
+				refBlock.ChapterNumber = ChapterNumber;
+				refBlock.InitialStartVerseNumber = prevVerse.StartVerse;
+				refBlock.InitialEndVerseNumber = prevVerse.LastVerseOfBridge;
+				refBlock.BlockElements.Clear();
+			}
+			else
+				refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
 			refBlock.SetCharacterAndDeliveryInfo(this);
 			refBlock.ParsePlainText(text);
 			if (!refBlock.StartsAtVerseStart)
@@ -855,6 +869,17 @@ namespace Glyssen
 				backingRefBlock.AppendJoinedBlockElements(nestedRefBlocks, languageInfo.BackingReferenceLanguage);
 				SetMatchedReferenceBlock(backingRefBlock);
 			}
+		}
+
+		public void CloneReferenceBlocks()
+		{
+			var origList = ReferenceBlocks;
+			ReferenceBlocks = new List<Block>(origList.Select(rb =>
+			{
+				var clone = rb.Clone();
+				clone.CloneReferenceBlocks();
+				return clone;
+			}));
 		}
 	}
 

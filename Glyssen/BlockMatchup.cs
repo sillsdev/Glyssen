@@ -161,6 +161,9 @@ namespace Glyssen
 				block.SetMatchedReferenceBlock(clone);
 				block = clone;
 			}
+			// To avoid losing any deeper levels (or having them be cross-linked with the original block from which they might have been copied),
+			// recursively clone all deeper levels.
+			block.CloneReferenceBlocks();
 			if (text == null)
 				text = string.Empty;
 			var newRefBlock = block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
@@ -255,18 +258,20 @@ namespace Glyssen
 				InsertHeSaidText(m_referenceLanguageInfo, i, handleHeSaidInserted);
 		}
 
-		private void InsertHeSaidText(IReferenceLanguageInfo heSaidProvider, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
+		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
 			if (CorrelatedBlocks[i].CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
 			{
 				if (CorrelatedBlocks[i].GetReferenceTextAtDepth(level) == "")
 				{
-					var text = heSaidProvider.HeSaidText;
+					var text = referenceLanguageInfo.HeSaidText;
+					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
+						text += referenceLanguageInfo.WordSeparator;
 					SetReferenceText(i, text, level);
 					handleHeSaidInserted(i, level, text);
 				}
-				if (heSaidProvider.HasSecondaryReferenceText)
-					InsertHeSaidText(heSaidProvider.BackingReferenceLanguage, i, handleHeSaidInserted, level + 1);
+				if (referenceLanguageInfo.HasSecondaryReferenceText)
+					InsertHeSaidText(referenceLanguageInfo.BackingReferenceLanguage, i, handleHeSaidInserted, level + 1);
 			}
 		}
 	}

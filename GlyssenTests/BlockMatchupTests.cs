@@ -1004,13 +1004,14 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		[Category("SkipOnTeamCity")]
 		public void InsertHeSaidText_NonEnglishPrimary_AllRows_TextSetAndCallbackCalledOnlyForEmptyRefTexts()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” ", true));
 			var vernJesusSaidBlock = ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "diris Jesuo. ");
+			var narrator = vernJesusSaidBlock.CharacterId;
 			var refDijoJesusBlock = new Block("p", 1, 2);
+			refDijoJesusBlock.CharacterId = narrator;
 			refDijoJesusBlock.BlockElements.Add(new ScriptText("dijo Jesus. "));
 			vernJesusSaidBlock.SetMatchedReferenceBlock(refDijoJesusBlock);
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "“Tio estas verso tre,” ");
@@ -1018,10 +1019,10 @@ namespace GlyssenTests
 			var refEmptySpanishRefTextBlock = new Block("p", 1, 2) {IsParagraphStart = false};
 			refEmptySpanishRefTextBlock.BlockElements.Add(new ScriptText(""));
 			var refPeterSaidBlock = new Block("p", 1, 2) { IsParagraphStart = false };
+			refPeterSaidBlock.CharacterId = narrator;
 			refPeterSaidBlock.BlockElements.Add(new ScriptText("Peter said."));
 			refEmptySpanishRefTextBlock.SetMatchedReferenceBlock(refPeterSaidBlock);
 			vernPeterSaidBlock.SetMatchedReferenceBlock(refEmptySpanishRefTextBlock);
-			var narrator = vernPeterSaidBlock.CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish));
 
@@ -1035,19 +1036,26 @@ namespace GlyssenTests
 			Assert.AreEqual(1, callbacks.Count(c => c.Item1 == 1 && c.Item2 == 1 && c.Item3 == "he said. "));
 			Assert.AreEqual(1, callbacks.Count(c => c.Item1 == 3 && c.Item2 == 0 && c.Item3 == "dijo."));
 
-			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).All(rb => rb.MatchesReferenceText),
-				"This matchup should have a primary reference text plus English.");
-			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId);
-			Assert.AreEqual("dijo Jesus. ", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
-			Assert.AreEqual("he said. ", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().PrimaryReferenceText);
-			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[3].CharacterId);
-			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().CharacterId);
-			Assert.AreEqual("dijo.", matchup.CorrelatedBlocks[3].PrimaryReferenceText);
-			Assert.AreEqual("Peter said.", matchup.CorrelatedBlocks[3].ReferenceBlocks.Single().PrimaryReferenceText);
+			var row1VernBlock = matchup.CorrelatedBlocks[1];
+			Assert.IsTrue(row1VernBlock.MatchesReferenceText);
+			Assert.AreEqual(narrator, row1VernBlock.CharacterId);
+			Assert.AreEqual("dijo Jesus. ", row1VernBlock.PrimaryReferenceText);
+			var row1SpanishRefBlock = row1VernBlock.ReferenceBlocks.Single();
+			Assert.IsTrue(row1SpanishRefBlock.MatchesReferenceText);
+			Assert.AreEqual(narrator, row1SpanishRefBlock.CharacterId);
+			Assert.AreEqual("he said. ", row1SpanishRefBlock.PrimaryReferenceText);
+
+			var row3VernBlock = matchup.CorrelatedBlocks[3];
+			Assert.IsTrue(row3VernBlock.MatchesReferenceText);
+			Assert.AreEqual(narrator, row3VernBlock.CharacterId);
+			Assert.AreEqual("dijo.", row3VernBlock.PrimaryReferenceText);
+			var row3SpanishRefBlock = row3VernBlock.ReferenceBlocks.Single();
+			Assert.IsTrue(row3SpanishRefBlock.MatchesReferenceText);
+			Assert.AreEqual(narrator, row3SpanishRefBlock.CharacterId);
+			Assert.AreEqual("Peter said.", row3SpanishRefBlock.PrimaryReferenceText);
 
 			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.IsFalse(matchup.CorrelatedBlocks[3].MatchesReferenceText);
+			Assert.IsFalse(matchup.CorrelatedBlocks[2].MatchesReferenceText);
 		}
 
 		[TestCase(1)]
