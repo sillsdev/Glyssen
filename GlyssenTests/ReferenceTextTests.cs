@@ -202,15 +202,15 @@ namespace GlyssenTests
 			Assert.AreEqual(4, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("[1]\u00A0Cosas que Fred dice, ", result[0].GetText(true));
+			Assert.AreEqual("{1}\u00A0Cosas que Fred dice, ", result[0].GetText(true));
 			Assert.AreEqual(0, result[0].ReferenceBlocks.Count);
 
 			Assert.AreEqual("dijo Fred. ", result[1].GetText(true));
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
 
-			Assert.AreEqual("[2]\u00A0Blah blah. ", result[2].GetText(true));
-			Assert.AreEqual("[3]\u00A0More blah blah. ", result[3].GetText(true));
-			Assert.AreEqual("[4]\u00A0The final blah blah.", result[4].GetText(true));
+			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
+			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
+			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
 			Assert.IsTrue(result.Skip(2).Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
@@ -251,16 +251,16 @@ namespace GlyssenTests
 			Assert.AreEqual(5, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("[1]\u00A0Cosas que Fred dice, ", result[0].GetText(true));
+			Assert.AreEqual("{1}\u00A0Cosas que Fred dice, ", result[0].GetText(true));
 			Assert.AreEqual("Section cabeza text", result[1].GetText(true));
-			Assert.AreEqual("[2]\u00A0Blah blah. ", result[2].GetText(true));
-			Assert.AreEqual("[3]\u00A0More blah blah. ", result[3].GetText(true));
-			Assert.AreEqual("[4]\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.AreEqual("[1]\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[0].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
+			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
+			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
+			Assert.AreEqual("{1}\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual("[2]\u00A0This is your narrator speaking. ", result[2].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("[3]\u00A0I hope you enjoy your flight. ", result[3].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("[4]\u00A0The end.", result[4].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{2}\u00A0This is your narrator speaking. ", result[2].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{3}\u00A0I hope you enjoy your flight. ", result[3].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{4}\u00A0The end.", result[4].ReferenceBlocks.Single().GetText(true));
 		}
 
 		[Test]
@@ -290,7 +290,7 @@ namespace GlyssenTests
 			Assert.AreEqual(4, result.Count);
 			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
 
-			Assert.AreEqual("[31]\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
+			Assert.AreEqual("{31}\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
@@ -305,10 +305,10 @@ namespace GlyssenTests
 			Assert.IsFalse(result[2].MatchesReferenceText);
 			Assert.IsNull(result[2].PrimaryReferenceText);
 
-			Assert.AreEqual("[32]\u00A0This isn't here.", result[3].GetText(true));
-			Assert.AreEqual("[32]\u00A0The verse that was never supposed to exist.", result[3].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{32}\u00A0This isn't here.", result[3].GetText(true));
+			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual("[32]\u00A0The verse that was never supposed to exist.", result[3].PrimaryReferenceText);
+			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -331,7 +331,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
-			Assert.AreEqual("[31]\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
+			Assert.AreEqual("{31}\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
@@ -341,7 +341,7 @@ namespace GlyssenTests
 			Assert.IsFalse(result[1].MatchesReferenceText);
 			Assert.IsNull(result[1].PrimaryReferenceText);
 
-			Assert.AreEqual("[32]\u00A0This isn't here.", result[2].GetText(true));
+			Assert.AreEqual("{32}\u00A0This isn't here.", result[2].GetText(true));
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[2].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].PrimaryReferenceText);
@@ -756,14 +756,14 @@ namespace GlyssenTests
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
 			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true))
 				.SequenceEqual(referenceBlocks.Skip(1).Take(2).Select(r => r.GetText(true))));
 			Assert.IsNull(result[1].PrimaryReferenceText);
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -796,7 +796,7 @@ namespace GlyssenTests
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
 			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(
 				result[1].ReferenceBlocks.Select(r => r.GetText(true))
@@ -804,7 +804,7 @@ namespace GlyssenTests
 			Assert.IsNull(result[1].PrimaryReferenceText);
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -1012,13 +1012,13 @@ namespace GlyssenTests
 
 			Assert.IsInstanceOf<Sound>(result[0].ReferenceBlocks.Single().BlockElements.Last());
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("[50]\u00A0A certain one of them struck the servant of the high priest, and cut off his right ear. {F8 SFX--Man crying out} ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{50}\u00A0A certain one of them struck the servant of the high priest, and cut off his right ear. {F8 SFX--Man crying out} ", result[0].PrimaryReferenceText);
 
 			// We don't especially care how the remaining vern blocks align to the ref blocks as long as the first one
 			// is not a match, and each of the remaining reference blocks is hooked up (in the correct order) to exactly
 			// one vern block in the correct order.
 			Assert.AreEqual(3, result.Skip(1).SelectMany(v => v.ReferenceBlocks).Count());
-			Assert.AreEqual("[51]\u00A0But Jesus answered, ", result.Skip(1).SelectMany(v => v.ReferenceBlocks).First().GetText(true));
+			Assert.AreEqual("{51}\u00A0But Jesus answered, ", result.Skip(1).SelectMany(v => v.ReferenceBlocks).First().GetText(true));
 			Assert.IsTrue(result.Skip(1).SelectMany(v => v.ReferenceBlocks).Skip(1).Select(r => r.GetText(true))
 				.SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 			Assert.IsFalse(result[1].MatchesReferenceText);
@@ -1058,13 +1058,13 @@ namespace GlyssenTests
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("[1]\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
 			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Skip(1).Take(2).Select(r => r.GetText(true))));
 			Assert.IsNull(result[1].PrimaryReferenceText);
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("[4]\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -1531,12 +1531,12 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 
-			Assert.AreEqual("[1]\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
+			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, " +
 				"behold, wise men from the east came to Jerusalem, ", result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
 
 			Assert.AreEqual(2, result[1].ReferenceBlocks.Count);
-			Assert.AreEqual("[2]\u00A0saying, ", result[1].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual("{2}\u00A0saying, ", result[1].ReferenceBlocks[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[1].GetText(true));
 			Assert.IsFalse(result[1].MatchesReferenceText);
 		}
@@ -1591,7 +1591,7 @@ namespace GlyssenTests
 			Assert.AreEqual(5, result.Count);
 
 			Assert.AreEqual(frenchReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("[16]\u00A0saying, ", result[0].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("{16}\u00A0saying, ", result[0].ReferenceBlocks.Single().PrimaryReferenceText);
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(englishReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().PrimaryReferenceText);
 
@@ -1607,9 +1607,9 @@ namespace GlyssenTests
 			Assert.AreEqual("Every shipmaster, and everyone who sails anywhere, and mariners, and " +
 				"as many as gain their living by sea, stood far away, ", result[2].ReferenceBlocks[1].PrimaryReferenceText);
 
-			Assert.AreEqual("[18]\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{18}\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual("[18]\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("{18}\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().PrimaryReferenceText);
 
 			Assert.AreEqual(frenchReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[4].MatchesReferenceText);
@@ -1660,7 +1660,7 @@ namespace GlyssenTests
 			Assert.AreEqual(0, result[5].ReferenceBlocks.Count);
 
 			Assert.AreEqual(2, result[6].ReferenceBlocks.Count);
-			Assert.AreEqual("[38]\u00A0¡Para el carruaje!» ", result[6].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual("{38}\u00A0¡Para el carruaje!» ", result[6].ReferenceBlocks[0].GetText(true));
 			Assert.AreEqual(referenceBlocks.Last().GetText(true), result[6].ReferenceBlocks[1].GetText(true));
 		}
 
@@ -1778,7 +1778,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
-			Assert.AreEqual("[2]\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
 			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].PrimaryReferenceText);
 			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].PrimaryReferenceText);
 			Assert.AreEqual("responded John the ", result[4].PrimaryReferenceText);
@@ -1869,15 +1869,15 @@ namespace GlyssenTests
 			Assert.AreEqual(4, referenceBlocks.Count);
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(5, result.Count);
-			Assert.AreEqual("[1]\u00A0Cosas que Fred dice, ", result[0].GetText(true));
+			Assert.AreEqual("{1}\u00A0Cosas que Fred dice, ", result[0].GetText(true));
 			Assert.AreEqual(0, result[0].ReferenceBlocks.Count);
 
 			Assert.AreEqual("dijo Fred. ", result[1].GetText(true));
-			Assert.AreEqual("[5]\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[1].ReferenceBlocks.Single().GetText(true));
+			Assert.AreEqual("{5}\u00A0I don't know if Fred told you this or not, but he's crazy. ", result[1].ReferenceBlocks.Single().GetText(true));
 
-			Assert.AreEqual("[2]\u00A0Blah blah. ", result[2].GetText(true));
-			Assert.AreEqual("[3]\u00A0More blah blah. ", result[3].GetText(true));
-			Assert.AreEqual("[4]\u00A0The final blah blah.", result[4].GetText(true));
+			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
+			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
+			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
 			Assert.IsTrue(result.Skip(2).Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
@@ -1888,75 +1888,75 @@ namespace GlyssenTests
 			{
 				"WARAGA ma JUDA ocoyo",
 				"JUDA 1",
-				"[1] Waraga man oa ki bot Juda ma latic pa Yecu Kricito, ma omin Yakobo.",
+				"{1}\u00A0Waraga man oa ki bot Juda ma latic pa Yecu Kricito, ma omin Yakobo.",
 				"Bot jo ma Lubaŋa olwoŋogi ma gibedo i mar pa Lubaŋa Won, ma Yecu Kricito tye ka gwokogi.",
-				"[2] Kica, kuc ki mar myero omedde botwu.",
+				"{2}\u00A0Kica, kuc ki mar myero omedde botwu.",
 				"Lupwony ma lugoba",
-				"[3] Lurema, onoŋo atemo ki tekka ducu me coyo botwu waraga pi lok i kom larre ma wan ducu waribbe iye, ci aneno ni myero aco acuk kwede cwinywu wek wulweny matek pi niye ma yam doŋ gimiyo bot jo pa Lubaŋa kicel ma doŋ otyeko lok ducu. ",
-				"[4] Pien jo mogo ma pe gilworo Lubaŋa gilibbe aliba me donyo i kinwa, gin jo ma kop ma yam giŋolo i komgi doŋ ginyuto woko con i coc ma yam gicoyo. Gin guloko kica ma Lubaŋa omiyowa odoko tim me coco, gukwero Laditwa acel keken-ni ma en aye Rwotwa Yecu Kricito.",
-				"[5] Wun jo ma yam doŋ gimiyo wuŋeyo lok man con, koŋ amito dok apo wiwu ni, Rwot ma yam olaro jo Icrael ki i lobo Ejipt, lacenne en dok otyeko jo ma pe guye en woko. ",
-				"[6] Lumalaika ma yam pe gigwoko ka locgi ma gimiyo botgi, ento guweko kabedogi woko, en ogwokogi ka macol ki nyor ma ri nakanaka, nio wa i kare me ŋolo kop i nino madit; ",
-				"[7] kit macalo yam jo Codom ki Gomora ki gaŋi madoŋo ma i ŋetgi, gudonyo i tim me coco ki par maraco ma pe obedo me anywalli, macalo gin, ci giŋolo botgi can me mac ma pe to, gin mubedo macalo lanen bot jo ducu.",
-				"[8] Nen kadi kit meno, jo-nu bene i kit acel-lu, i lek ma gin leko, gubalo komgi woko, gukwero ker pa Lubaŋa woko, dok guyeto wegi deyo-gu bene ayeta. ",
-				"[9] Ento i kare ma Mikael, lamalaika madit, yam olwenyo ki Catan kun pyem kwede pi kom Moses, en yam pe oŋwette pi ŋolo kop mo me yet, ento oloko ni, ",
+				"{3}\u00A0Lurema, onoŋo atemo ki tekka ducu me coyo botwu waraga pi lok i kom larre ma wan ducu waribbe iye, ci aneno ni myero aco acuk kwede cwinywu wek wulweny matek pi niye ma yam doŋ gimiyo bot jo pa Lubaŋa kicel ma doŋ otyeko lok ducu. ",
+				"{4}\u00A0Pien jo mogo ma pe gilworo Lubaŋa gilibbe aliba me donyo i kinwa, gin jo ma kop ma yam giŋolo i komgi doŋ ginyuto woko con i coc ma yam gicoyo. Gin guloko kica ma Lubaŋa omiyowa odoko tim me coco, gukwero Laditwa acel keken-ni ma en aye Rwotwa Yecu Kricito.",
+				"{5}\u00A0Wun jo ma yam doŋ gimiyo wuŋeyo lok man con, koŋ amito dok apo wiwu ni, Rwot ma yam olaro jo Icrael ki i lobo Ejipt, lacenne en dok otyeko jo ma pe guye en woko. ",
+				"{6}\u00A0Lumalaika ma yam pe gigwoko ka locgi ma gimiyo botgi, ento guweko kabedogi woko, en ogwokogi ka macol ki nyor ma ri nakanaka, nio wa i kare me ŋolo kop i nino madit; ",
+				"{7}\u00A0kit macalo yam jo Codom ki Gomora ki gaŋi madoŋo ma i ŋetgi, gudonyo i tim me coco ki par maraco ma pe obedo me anywalli, macalo gin, ci giŋolo botgi can me mac ma pe to, gin mubedo macalo lanen bot jo ducu.",
+				"{8}\u00A0Nen kadi kit meno, jo-nu bene i kit acel-lu, i lek ma gin leko, gubalo komgi woko, gukwero ker pa Lubaŋa woko, dok guyeto wegi deyo-gu bene ayeta. ",
+				"{9}\u00A0Ento i kare ma Mikael, lamalaika madit, yam olwenyo ki Catan kun pyem kwede pi kom Moses, en yam pe oŋwette pi ŋolo kop mo me yet, ento oloko ni, ",
 				"“Rwot myero ojuki.” ",
-				"[10] Ento jo magi giyeto gin ma pe giniaŋ iye, ento gin ma giŋeyo pi lubo kit ma giketogi kwede, macalo lee ma pe ryek, tye ka tyekogi woko. ",
-				"[11] Gibineno can ma rom man! Pien gilubo kit pa Kain, giketo tek mada i tam mogo ma pe atir pi mito lim kit macalo yam Balaam otimo, dok bene gito woko pi pyem kit macalo yam Kora ojemo kwede, ",
-				"[12] Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, yam guto kiryo. ",
-				"[13] Gical bene ki nam ma twagge mager ki bwoyo me lewicgi; gin lakalatwe ma wirre atata ma Lubaŋa otyeko yubo kakagi woko i kabedo macol licuc pi kare ma pe gik.",
-				"[14] Magi gin aye gin ma yam Enoka, ma obedo dano me abiro nia i kom Adam, yam otito pire macalo lanebi ni, ",
+				"{10}\u00A0Ento jo magi giyeto gin ma pe giniaŋ iye, ento gin ma giŋeyo pi lubo kit ma giketogi kwede, macalo lee ma pe ryek, tye ka tyekogi woko. ",
+				"{11}\u00A0Gibineno can ma rom man! Pien gilubo kit pa Kain, giketo tek mada i tam mogo ma pe atir pi mito lim kit macalo yam Balaam otimo, dok bene gito woko pi pyem kit macalo yam Kora ojemo kwede, ",
+				"{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, yam guto kiryo. ",
+				"{13}\u00A0Gical bene ki nam ma twagge mager ki bwoyo me lewicgi; gin lakalatwe ma wirre atata ma Lubaŋa otyeko yubo kakagi woko i kabedo macol licuc pi kare ma pe gik.",
+				"{14}\u00A0Magi gin aye gin ma yam Enoka, ma obedo dano me abiro nia i kom Adam, yam otito pire macalo lanebi ni, ",
 				"“Wunen, Rwot bibino ki lwak jone maleŋ mapol ata, ",
-				"[15] ka ŋolo kop i kom jo ducu, ki ka miyo kop wek olo jo ducu ma pe gilworo Lubaŋa pi timgi ma pe gilworo kwede Lubaŋa, ki pi lok ducu me gero ma lubalo ma pe gilworo Lubaŋa guloko i kome.”",
-				"[16] Meno gin jo ma bedo kar ŋur aŋura, ma gipyem apyema, kun gilubo mitgi keken, doggi opoŋ ki loko lok me wakke keken, gidworo dano wek ginoŋ gin ma cwinygi mito.",
+				"{15}\u00A0ka ŋolo kop i kom jo ducu, ki ka miyo kop wek olo jo ducu ma pe gilworo Lubaŋa pi timgi ma pe gilworo kwede Lubaŋa, ki pi lok ducu me gero ma lubalo ma pe gilworo Lubaŋa guloko i kome.”",
+				"{16}\u00A0Meno gin jo ma bedo kar ŋur aŋura, ma gipyem apyema, kun gilubo mitgi keken, doggi opoŋ ki loko lok me wakke keken, gidworo dano wek ginoŋ gin ma cwinygi mito.",
 				"Lok me ciko dano ki pwony",
-				"[17] Ento wun lurema ma amaro, myero wupo i lok ma yam lukwena pa Rwotwa Yecu Kricito gutito pire con. ",
-				"[18] Gin yam gutito botwu ni, ",
+				"{17}\u00A0Ento wun lurema ma amaro, myero wupo i lok ma yam lukwena pa Rwotwa Yecu Kricito gutito pire con. ",
+				"{18}\u00A0Gin yam gutito botwu ni, ",
 				"“I kare me agikki luŋala bibedo tye, ma gibilubo mitigi keken, ma pe gilworo Lubaŋa.” ",
-				"[19] Jo ma kit meno gin aye lukel apokapoka, gin jo me lobo man, Cwiny pa Lubaŋa pe botgi. ",
-				"[20] Ento wun luwota, wudoŋ matek i niyewu maleŋ twatwal-li, kun wulego Lubaŋa i Cwiny Maleŋ. ",
-				"[21] Wugwokke kenwu i mar pa Lubaŋa, wukur kica pa Rwotwa Yecu Kricito nio wa i kwo ma pe tum. ",
-				"[22] Wubed ki kica i kom jo mogo ma gitye ka cabbe acaba, ",
-				"[23] wular jo mogo ma kit meno kun wuceyogi woko ki i mac. Wubed ki kica i kom jo mogo kun wulworo bene, dok wukwer bene ruk ma bal me kom tye iye.",
+				"{19}\u00A0Jo ma kit meno gin aye lukel apokapoka, gin jo me lobo man, Cwiny pa Lubaŋa pe botgi. ",
+				"{20}\u00A0Ento wun luwota, wudoŋ matek i niyewu maleŋ twatwal-li, kun wulego Lubaŋa i Cwiny Maleŋ. ",
+				"{21}\u00A0Wugwokke kenwu i mar pa Lubaŋa, wukur kica pa Rwotwa Yecu Kricito nio wa i kwo ma pe tum. ",
+				"{22}\u00A0Wubed ki kica i kom jo mogo ma gitye ka cabbe acaba, ",
+				"{23}\u00A0wular jo mogo ma kit meno kun wuceyogi woko ki i mac. Wubed ki kica i kom jo mogo kun wulworo bene, dok wukwer bene ruk ma bal me kom tye iye.",
 				"Miyo deyo",
-				"[24] Deyo obed bot Ŋat ma twero gwokowu miyo pe wupoto, dok ma twero miyo wucuŋ laboŋo roc mo i nyim deyone ki yomcwiny. ",
-				"[25] Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
+				"{24}\u00A0Deyo obed bot Ŋat ma twero gwokowu miyo pe wupoto, dok ma twero miyo wucuŋ laboŋo roc mo i nyim deyone ki yomcwiny. ",
+				"{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
 			};
 			var expectedReferenceResults = new []
 			{
 				"JUDE",
 				"JUDE 1",
-				"[1]\u00A0Jude, a servant of Jesus Christ, and brother of James, to those who are called, sanctified by God the Father, and kept for Jesus Christ:",
+				"{1}\u00A0Jude, a servant of Jesus Christ, and brother of James, to those who are called, sanctified by God the Father, and kept for Jesus Christ:",
 				null,
-				"[2]\u00A0Mercy to you and peace and love be multiplied.",
+				"{2}\u00A0Mercy to you and peace and love be multiplied.",
 				null,
-				"[3]\u00A0Beloved, while I was very eager to write to you about our common salvation, I was constrained to write to you exhorting you to contend earnestly for the faith which was once for all delivered to the saints.",
-				"[4]\u00A0For there are certain men who crept in secretly, even those who were long ago written about for this condemnation: ungodly men, turning the grace of our God into indecency, and denying our only Master, God, and Lord, Jesus Christ.",
-				"[5]\u00A0Now I desire to remind you, though you already know this, that the Lord, having saved a people out of the land of Egypt, afterward destroyed those who didn’t believe.",
-				"[6]\u00A0Angels who didn’t keep their first domain, but deserted their own dwelling place, he has kept in everlasting bonds under darkness for the judgment of the great day.",
-				"[7]\u00A0Even as Sodom and Gomorrah, and the cities around them, having, in the same way as these, given themselves over to sexual immorality and gone after strange flesh, are set forth as an example, suffering the punishment of eternal fire.",
-				"[8]\u00A0Yet in the same way, these also in their dreaming defile the flesh, despise authority, and slander celestial beings.",
-				"[9]\u00A0But Michael, the archangel, when contending with the devil and arguing about the body of Moses, dared not bring against him an abusive condemnation, but said, ",
+				"{3}\u00A0Beloved, while I was very eager to write to you about our common salvation, I was constrained to write to you exhorting you to contend earnestly for the faith which was once for all delivered to the saints.",
+				"{4}\u00A0For there are certain men who crept in secretly, even those who were long ago written about for this condemnation: ungodly men, turning the grace of our God into indecency, and denying our only Master, God, and Lord, Jesus Christ.",
+				"{5}\u00A0Now I desire to remind you, though you already know this, that the Lord, having saved a people out of the land of Egypt, afterward destroyed those who didn’t believe.",
+				"{6}\u00A0Angels who didn’t keep their first domain, but deserted their own dwelling place, he has kept in everlasting bonds under darkness for the judgment of the great day.",
+				"{7}\u00A0Even as Sodom and Gomorrah, and the cities around them, having, in the same way as these, given themselves over to sexual immorality and gone after strange flesh, are set forth as an example, suffering the punishment of eternal fire.",
+				"{8}\u00A0Yet in the same way, these also in their dreaming defile the flesh, despise authority, and slander celestial beings.",
+				"{9}\u00A0But Michael, the archangel, when contending with the devil and arguing about the body of Moses, dared not bring against him an abusive condemnation, but said, ",
 				"“May the Lord rebuke you!”",
-				"[10]\u00A0But these speak evil of whatever things they don’t know. What they understand naturally, like the creatures without reason, they are destroyed in these things.",
-				"[11]\u00A0Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah’s rebellion.",
-				"[12]\u00A0These men are hidden rocky reefs in your love feasts when they feast with you, shepherds who without fear feed themselves; clouds without water, carried along by winds. They are like autumn leaves without fruit, twice dead, plucked up by the roots.",
-				"[13]\u00A0They are like wild waves of the sea, foaming out their own shame; wandering stars, for whom the blackness of darkness has been reserved forever.",
-				"[14]\u00A0About these also Enoch, the seventh from Adam, prophesied, saying,",
+				"{10}\u00A0But these speak evil of whatever things they don’t know. What they understand naturally, like the creatures without reason, they are destroyed in these things.",
+				"{11}\u00A0Woe to them! For they went in the way of Cain, and ran riotously in the error of Balaam for hire, and perished in Korah’s rebellion.",
+				"{12}\u00A0These men are hidden rocky reefs in your love feasts when they feast with you, shepherds who without fear feed themselves; clouds without water, carried along by winds. They are like autumn leaves without fruit, twice dead, plucked up by the roots.",
+				"{13}\u00A0They are like wild waves of the sea, foaming out their own shame; wandering stars, for whom the blackness of darkness has been reserved forever.",
+				"{14}\u00A0About these also Enoch, the seventh from Adam, prophesied, saying,",
 				"“Behold, the Lord came with ten thousands of his holy ones,[1]",
-				"[15]\u00A0to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him. [1]”",
-				"[16]\u00A0These are murmurers and complainers, walking after their lusts (and their mouth speaks proud things), showing respect of persons to gain advantage.",
+				"{15}\u00A0to execute judgment on all, and to convict all the ungodly of all their works of ungodliness which they have done in an ungodly way, and of all the hard things which ungodly sinners have spoken against him. [1]”",
+				"{16}\u00A0These are murmurers and complainers, walking after their lusts (and their mouth speaks proud things), showing respect of persons to gain advantage.",
 				null,
-				"[17]\u00A0But you, beloved, remember the words which have been spoken before by the apostles of our Lord Jesus Christ.",
-				"[18]\u00A0They said to you that ",
+				"{17}\u00A0But you, beloved, remember the words which have been spoken before by the apostles of our Lord Jesus Christ.",
+				"{18}\u00A0They said to you that ",
 				"“In the last time there will be mockers, walking after their own ungodly lusts.”",
-				"[19]\u00A0These are they who cause divisions, and are sensual, not having the Spirit.",
-				"[20]\u00A0But you, beloved, keep building up yourselves on your most holy faith, praying in the Holy Spirit.",
-				"[21]\u00A0Keep yourselves in the love of God, looking for the mercy of our Lord Jesus Christ to eternal life.",
-				"[22]\u00A0Be merciful to those who doubt.",
-				"[23]\u00A0Snatch others from the fire and save them. To others show mercy mixed with fear, hating even the clothing stained by the flesh.",
+				"{19}\u00A0These are they who cause divisions, and are sensual, not having the Spirit.",
+				"{20}\u00A0But you, beloved, keep building up yourselves on your most holy faith, praying in the Holy Spirit.",
+				"{21}\u00A0Keep yourselves in the love of God, looking for the mercy of our Lord Jesus Christ to eternal life.",
+				"{22}\u00A0Be merciful to those who doubt.",
+				"{23}\u00A0Snatch others from the fire and save them. To others show mercy mixed with fear, hating even the clothing stained by the flesh.",
 				null,
-				"[24]\u00A0Now to him who is able to keep them from stumbling, and to present you faultless before the presence of his glory in great joy --",
-				"[25]\u00A0to God our Savior, who alone is wise, be glory and majesty, dominion and power, both now and forever. Amen.",
+				"{24}\u00A0Now to him who is able to keep them from stumbling, and to present you faultless before the presence of his glory in great joy --",
+				"{25}\u00A0to God our Savior, who alone is wise, be glory and majesty, dominion and power, both now and forever. Amen.",
 			};
 
 			var jude = TestReferenceText.CreateTestReferenceText(Resources.TestReferenceTextJUD).GetBooksWithBlocksConnectedToReferenceText(TestProject.CreateBasicTestProject()).Single();
@@ -2037,13 +2037,13 @@ namespace GlyssenTests
 
 			Assert.AreEqual(2, result.Count);
 
-			Assert.AreEqual("[1]\u00A0El cual significa, “Dios con nosotros.” ", result[0].GetText(true));
+			Assert.AreEqual("{1}\u00A0El cual significa, “Dios con nosotros.” ", result[0].GetText(true));
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
 
-			Assert.AreEqual("[2]\u00A0Blah blah. ", result[1].GetText(true));
+			Assert.AreEqual("{2}\u00A0Blah blah. ", result[1].GetText(true));
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
@@ -2103,7 +2103,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
-			Assert.AreEqual("[2]\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
 			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].PrimaryReferenceText);
 			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].PrimaryReferenceText);
 			Assert.AreEqual("responded John the ", result[4].PrimaryReferenceText);
@@ -2135,7 +2135,7 @@ namespace GlyssenTests
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks().Single();
 
-			Assert.AreEqual("[1]\u00A0Juan dijo, 'This es estrofa 1, This es estrofa 2, This es estrofa 3, This es estrofa 4.'",
+			Assert.AreEqual("{1}\u00A0Juan dijo, 'This es estrofa 1, This es estrofa 2, This es estrofa 3, This es estrofa 4.'",
 				result.GetText(true));
 			Assert.AreEqual(referenceBlocks.Single().GetText(true), result.ReferenceBlocks.Single().GetText(true));
 		}
@@ -2337,8 +2337,8 @@ namespace GlyssenTests
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
-			Assert.AreEqual("[1]\u00A0Partieron de alli para Jerico. ", result[0].GetText(true));
-			Assert.AreEqual("[2]\u00A0Entonces dijo Jesus: ", result[1].GetText(true));
+			Assert.AreEqual("{1}\u00A0Partieron de alli para Jerico. ", result[0].GetText(true));
+			Assert.AreEqual("{2}\u00A0Entonces dijo Jesus: ", result[1].GetText(true));
 			Assert.AreEqual("Come to me you who are weary.", result[2].GetText(true));
 
 			Assert.IsTrue(result.Select(b => b.PrimaryReferenceText).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))));

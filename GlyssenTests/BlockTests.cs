@@ -190,19 +190,20 @@ namespace GlyssenTests
 			Assert.AreEqual(expected, actual);
 		}
 
-		[Test]
-		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			const string expect1 = ">Text of verse three, part two [2]. <";
+			string expect1 = ">Text of verse three, part two " + open + "2" + close + ". <";
 			const string expect2 = "<sup>4&#160;</sup>";
-			const string expect3 = ">Text of vers [sic] four. <";
+			string expect3 = ">Text of vers " + open + "sic" + close + " four. <";
 			const string expect4 = "<sup>5&#160;</sup>";
 			const string expect5 = ">Text of verse five.<";
 			var actual = block.GetTextAsHtml(true, false);
@@ -237,13 +238,14 @@ namespace GlyssenTests
 				() => block.GetSplitTextAsHtml(0, false, new[] {new BlockSplitData(1, block, "3", 5)}, false));
 		}
 
-		[Test]
-		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
@@ -253,22 +255,23 @@ namespace GlyssenTests
 			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
 		}
 
-		[Test]
-		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two [2]. </div>" + 
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" + 
 				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
 							Block.BuildSplitLineHtml(1) + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
-							Block.BuildSplitLineHtml(2) + 
-							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers [sic] </div>" +
+							Block.BuildSplitLineHtml(2) +
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers " + open + "sic" + close + " </div>" +
 							Block.BuildSplitLineHtml(3) + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"><sup>5&#160;</sup>Text</div>" +
@@ -705,7 +708,7 @@ namespace GlyssenTests
 			joinedFrenchRefBlock.CharacterId = narrator;
 			joinedFrenchRefBlock.Delivery = "raspy";
 			joinedFrenchRefBlock.AppendJoinedBlockElements(new List<Block> { refBlockNarratorFrench, refBlockMatthewFrench }, ReferenceText.GetStandardReferenceText(ReferenceTextType.French));
-			Assert.AreEqual("[2]\u00A0Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", joinedFrenchRefBlock.GetText(true));
+			Assert.AreEqual("{2}\u00A0Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", joinedFrenchRefBlock.GetText(true));
 			// We may not technically really care too much about the next four lines (at least right now),
 			// but this is how we expect the reference block to be built.
 			Assert.AreEqual(2, joinedFrenchRefBlock.BlockElements.Count);
@@ -715,7 +718,7 @@ namespace GlyssenTests
 			Assert.IsTrue(joinedFrenchRefBlock.MatchesReferenceText);
 			var portugueseRefBlock = joinedFrenchRefBlock.ReferenceBlocks.Single();
 
-			Assert.AreEqual("[2]\u00A0disse Jesus. Para que Matthew respondeu: “Sabíamos que isso.”", portugueseRefBlock.GetText(true));
+			Assert.AreEqual("{2}\u00A0disse Jesus. Para que Matthew respondeu: “Sabíamos que isso.”", portugueseRefBlock.GetText(true));
 			// We may not technically really care too much about the next four lines (at least right now),
 			// but this is how we expect the reference block to be built.
 			Assert.AreEqual(narrator, portugueseRefBlock.CharacterId);
@@ -727,7 +730,7 @@ namespace GlyssenTests
 			Assert.IsTrue(portugueseRefBlock.MatchesReferenceText);
 			var englishRefBlock = portugueseRefBlock.ReferenceBlocks.Single();
 
-			Assert.AreEqual("[2]\u00A0said Jesus. To which Matthew replied, “We knew that.”", englishRefBlock.GetText(true));
+			Assert.AreEqual("{2}\u00A0said Jesus. To which Matthew replied, “We knew that.”", englishRefBlock.GetText(true));
 			// We may not technically really care too much about the next four lines (at least right now),
 			// but this is how we expect the reference block to be built.
 			Assert.AreEqual(narrator, englishRefBlock.CharacterId);
@@ -743,7 +746,7 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_VerseBridgeAtStart_RefBlockGetsStartingAndEndingVerseNumbersFromBridgeInText(string separator)
 		{
 			var block = new Block("p", 3, 42, 45);
-			var refBlock = block.SetMatchedReferenceBlock("[3-6]" + separator + "Text of verses three through six.");
+			var refBlock = block.SetMatchedReferenceBlock("{3-6}" + separator + "Text of verses three through six.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(3, refBlock.InitialStartVerseNumber);
@@ -757,7 +760,7 @@ namespace GlyssenTests
 		{
 			var block = new Block("p", 3, 42, 45);
 			var prevRefBlock = new Block("p", 3, 42, 45).AddVerse("42-45", "Initial stuff").AddVerse(46, "Later stuff").AddVerse("47-48", "Final stuff. ");
-			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. [49-50]" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
+			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. {49-50}" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(47, refBlock.InitialStartVerseNumber);
@@ -772,7 +775,7 @@ namespace GlyssenTests
 			var block = new Block("p", 3, 42, 45);
 			var prevRefBlock = new Block("p", 3, 47, 48);
 			prevRefBlock.BlockElements.Add(new ScriptText("This is some nice text in the middle of a verse bridge"));
-			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. [49-50]" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
+			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. {49-50}" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(47, refBlock.InitialStartVerseNumber);
@@ -787,7 +790,7 @@ namespace GlyssenTests
 			var block = new Block("p", 3, 42, 45);
 			var prevRefBlock = new Block("p", 3, 47, 48);
 			prevRefBlock.BlockElements.Add(new ScriptText("This is some nice text in the middle of a verse bridge"));
-			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. [49-50]" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
+			var refBlock = block.SetMatchedReferenceBlock("Rest of forty-seven and forty-eight. {49-50}" + separator + "Contents of verses forty-nine through fifty.", prevRefBlock);
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(47, refBlock.InitialStartVerseNumber);
@@ -800,7 +803,7 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_StartAndEndVerseNumbersSeparatedByComma_CommaReplacedByDash(string separator)
 		{
 			var block = new Block("p", 3, 1).AddVerse(1, "This is verse one. ").AddVerse(2, "This is verse two.");
-			var refBlock = block.SetMatchedReferenceBlock("he said. [2]" + separator + "Verse two. [3,6]" + separator + "Text of verses three through six.");
+			var refBlock = block.SetMatchedReferenceBlock("he said. {2}" + separator + "Verse two. {3,6}" + separator + "Text of verses three through six.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(1, refBlock.InitialStartVerseNumber);
@@ -818,7 +821,7 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_VerseNumberAtEnd_RefBlockEndsWithVerseElement(string trailingWhitespace)
 		{
 			var block = new Block("p", 3, 2, 3).AddVerse("2-3", "This is verses two and three. ");
-			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse two. [3]" + trailingWhitespace);
+			var refBlock = block.SetMatchedReferenceBlock("{2} Text of verse two. {3}" + trailingWhitespace);
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
@@ -830,7 +833,7 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_ContainsInitialEndVerse_RefBlockInitialEndVerseSetBackToZero()
 		{
 			var block = new Block("p", 3, 2, 3).AddVerse("2-3", "This is verses two and three. ");
-			var refBlock = block.SetMatchedReferenceBlock("Text of verse two. [3]Text of verse three.");
+			var refBlock = block.SetMatchedReferenceBlock("Text of verse two. {3}Text of verse three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
@@ -845,7 +848,7 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_TwoContiguousVerseNmbers_OnlyRetainLastVerseNumber(string separatorBetweenVerses, string separatorAfterSecondVerse)
 		{
 			var block = new Block("p", 3, 2, 3).AddVerse("2-3", "This is verses two and three. ");
-			var refBlock = block.SetMatchedReferenceBlock("[2]" + separatorBetweenVerses + "[3]" + separatorAfterSecondVerse + "Text of verse three.");
+			var refBlock = block.SetMatchedReferenceBlock("{2}" + separatorBetweenVerses + "{3}" + separatorAfterSecondVerse + "Text of verse three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(3, refBlock.InitialStartVerseNumber);
@@ -862,7 +865,7 @@ namespace GlyssenTests
 		{
 			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
 			var soundEffect = new Sound {SoundType = SoundType.Sfx, EffectName = "Sneezing", UserSpecifiesLocation = true};
-			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse" + separatorBeforeEffect + soundEffect.ToDisplay() + separatorAfterEffect + "three.");
+			var refBlock = block.SetMatchedReferenceBlock("{2} Text of verse" + separatorBeforeEffect + soundEffect.ToDisplay() + separatorAfterEffect + "three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
@@ -880,7 +883,7 @@ namespace GlyssenTests
 		{
 			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
 			var music = new Sound {SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = startVerse, EndVerse = 0};
-			var refBlock = block.SetMatchedReferenceBlock("[2] Text of verse " + music.ToDisplay() + "three.");
+			var refBlock = block.SetMatchedReferenceBlock("{2} Text of verse " + music.ToDisplay() + "three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
 			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);

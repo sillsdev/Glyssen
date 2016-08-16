@@ -39,7 +39,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(false));
-			Assert.AreEqual("[1]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("{1}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, {2}\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -55,7 +55,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(false));
-			Assert.AreEqual("[3]\u00A0dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
+			Assert.AreEqual("{3}\u00A0dwan dano mo ma daŋŋe ki i tim ni,", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -67,7 +67,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
-			Assert.AreEqual("“pe, kadi ki acel.” [3]\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual("“pe, kadi ki acel.” {3}\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
 			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
 			Assert.AreEqual("“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
 		}
@@ -86,10 +86,10 @@ namespace GlyssenTests
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(4, blocks.Count);
-			Assert.AreEqual("[8]\u00A0Trembling, the women fled because they were afraid.", blocks[2].GetText(true));
-			Assert.AreEqual("[[9]\u00A0When Jesus rose, he first appeared to Mary. " +
-							"[10]\u00A0She told those who were weeping. " +
-							"[11]\u00A0They didn't believe it.]", blocks[3].GetText(true));
+			Assert.AreEqual("{8}\u00A0Trembling, the women fled because they were afraid.", blocks[2].GetText(true));
+			Assert.AreEqual("[{9}\u00A0When Jesus rose, he first appeared to Mary. " +
+							"{10}\u00A0She told those who were weeping. " +
+							"{11}\u00A0They didn't believe it.]", blocks[3].GetText(true));
 			Assert.IsTrue(blocks[2].StartsAtVerseStart);
 			Assert.AreEqual(8, blocks[2].InitialStartVerseNumber);
 			Assert.IsTrue(blocks[3].StartsAtVerseStart);
@@ -104,7 +104,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("Pi Wan ", blocks[1].GetText(false));
-			Assert.AreEqual("[1]\u00A0Pi [2]\u00A0Wan ", blocks[1].GetText(true));
+			Assert.AreEqual("{1}\u00A0Pi {2}\u00A0Wan ", blocks[1].GetText(true));
 			Assert.AreEqual("Pi ", ((ScriptText)blocks[1].BlockElements[1]).Content);
 			Assert.AreEqual("Wan ", ((ScriptText)blocks[1].BlockElements[3]).Content);
 		}
@@ -118,7 +118,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual("“pe, kadi ki acel.” “Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(false));
-			Assert.AreEqual("“pe, kadi ki acel.” [3]\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
+			Assert.AreEqual("“pe, kadi ki acel.” {3}\u00A0“Guŋamo doggi calo lyel ma twolo,”", blocks[1].GetText(true));
 			Assert.AreEqual("“pe, kadi ki acel.” ", ((ScriptText)blocks[1].BlockElements[0]).Content);
 			Assert.AreEqual("“Guŋamo doggi calo lyel ma twolo,”", ((ScriptText)blocks[1].BlockElements[2]).Content);
 		}
@@ -163,7 +163,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(3, blocks[1].BlockElements.Count);
 			Assert.AreEqual("Text before figure. Text after figure.", blocks[1].GetText(false));
-			Assert.AreEqual("Text before figure. [2]\u00A0Text after figure.", blocks[1].GetText(true));
+			Assert.AreEqual("Text before figure. {2}\u00A0Text after figure.", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -189,7 +189,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
 			Assert.AreEqual("Text", blocks[1].GetText(false));
-			Assert.AreEqual("[2]\u00A0Text", blocks[1].GetText(true));
+			Assert.AreEqual("{2}\u00A0Text", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -215,7 +215,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(false));
-			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. [13]\u00A0Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
+			Assert.AreEqual("Cutcut Cwiny Maleŋ otero Yecu woko wa i tim. {13}\u00A0Ci obedo i tim nino pyeraŋwen; Catan ocako bite, ma onoŋo en tye kacel ki lee tim, kun lumalaika gikonye.", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -297,7 +297,7 @@ namespace GlyssenTests
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("[1]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, [2]\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("{1}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, {2}\u00A0kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual("c", blocks[2].StyleTag);
 			Assert.IsTrue(blocks[2].IsChapterAnnouncement);
@@ -308,7 +308,7 @@ namespace GlyssenTests
 			Assert.AreEqual("p", blocks[3].StyleTag);
 			Assert.AreEqual(2, blocks[3].ChapterNumber);
 			Assert.AreEqual(1, blocks[3].InitialStartVerseNumber);
-			Assert.AreEqual("[1]\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
+			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[3].GetText(true));
 			Assert.AreEqual("q1", blocks[4].StyleTag);
 			Assert.AreEqual(2, blocks[4].ChapterNumber);
 			Assert.AreEqual(1, blocks[4].InitialStartVerseNumber);
@@ -351,12 +351,12 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(12, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(false));
-			Assert.AreEqual("[12-14]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
+			Assert.AreEqual("{12-14}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(15, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual("Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(false));
-			Assert.AreEqual("[15-18]\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
+			Assert.AreEqual("{15-18}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[2].GetText(true));
 		}
 
 		[Test]
@@ -436,7 +436,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(Block.kNotSet, blocks[1].CharacterId);
-			Assert.AreEqual("[1-2]\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+			Assert.AreEqual("{1-2}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
 
 			Assert.AreEqual(1, blocks[2].ChapterNumber);
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
@@ -584,7 +584,7 @@ namespace GlyssenTests
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(8, blocks[1].BlockElements.Count);
 			Assert.AreEqual("“You have heard that it was said, ‘You shall not commit adultery;’ but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna. If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.", blocks[1].GetText(false));
-			Assert.AreEqual("[27]\u00A0“You have heard that it was said, ‘You shall not commit adultery;’ [28]\u00A0but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. [29]\u00A0If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna. [30]\u00A0If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.", blocks[1].GetText(true));
+			Assert.AreEqual("{27}\u00A0“You have heard that it was said, ‘You shall not commit adultery;’ {28}\u00A0but I tell you that everyone who gazes at a woman to lust after her has committed adultery with her already in his heart. {29}\u00A0If your right eye causes you to stumble, pluck it out and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna. {30}\u00A0If your right hand causes you to stumble, cut it off, and throw it away from you. For it is more profitable for you that one of your members should perish, than for your whole body to be cast into Gehenna.", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -600,9 +600,9 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
-			Assert.AreEqual("[35]\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
+			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” ", blocks[1].GetText(true));
 			Assert.AreEqual(2, blocks[2].BlockElements.Count);
-			Assert.AreEqual("[37]\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
+			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[2].GetText(true));
 		}
 
 		[Test]
@@ -618,7 +618,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(2, blocks[1].BlockElements.Count);
-			Assert.AreEqual("[37]\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
+			Assert.AreEqual("{37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
 		}
 
 		[Test]
@@ -632,7 +632,7 @@ namespace GlyssenTests
 			var blocks = parser.Parse().ToList();
 			Assert.AreEqual(2, blocks.Count);
 			Assert.AreEqual(4, blocks[1].BlockElements.Count);
-			Assert.AreEqual("[35]\u00A0There will be two grinding grain together. One will be taken and the other will be left.” [37]\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
+			Assert.AreEqual("{35}\u00A0There will be two grinding grain together. One will be taken and the other will be left.” {37}\u00A0They, answering, asked him, “Where, Lord?”", blocks[1].GetText(true));
 		}
 
 		private UsxParser GetUsxParser(XmlDocument doc)

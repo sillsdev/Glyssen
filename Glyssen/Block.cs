@@ -288,7 +288,7 @@ namespace Glyssen
 
 		private void ParsePlainText(string text)
 		{
-			var verseNumbers = new Regex(@"((\[(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\])|" + Sound.kRegexForUserLocatedSounds + ")(\u00A0| )*");
+			var verseNumbers = new Regex(@"((\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\})|" + Sound.kRegexForUserLocatedSounds + ")(\u00A0| )*");
 			var pos = 0;
 			text = text.TrimStart();
 			var prependSpace = "";
@@ -358,9 +358,9 @@ namespace Glyssen
 				{
 					if (includeVerseNumbers)
 					{
-						bldr.Append("[");
+						bldr.Append("{");
 						bldr.Append(verse.Number);
-						bldr.Append("]\u00A0");
+						bldr.Append("}\u00A0");
 					}
 				}
 				else
