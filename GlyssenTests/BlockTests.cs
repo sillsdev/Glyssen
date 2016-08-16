@@ -189,19 +189,20 @@ namespace GlyssenTests
 			Assert.AreEqual(expected, actual);
 		}
 
-		[Test]
-		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			const string expect1 = ">Text of verse three, part two [2]. <";
+			string expect1 = ">Text of verse three, part two " + open + "2" + close + ". <";
 			const string expect2 = "<sup>4&#160;</sup>";
-			const string expect3 = ">Text of vers [sic] four. <";
+			string expect3 = ">Text of vers " + open + "sic" + close + " four. <";
 			const string expect4 = "<sup>5&#160;</sup>";
 			const string expect5 = ">Text of verse five.<";
 			var actual = block.GetTextAsHtml(true, false);
@@ -236,13 +237,14 @@ namespace GlyssenTests
 				() => block.GetSplitTextAsHtml(0, false, new[] {new BlockSplitData(1, block, "3", 5)}, false));
 		}
 
-		[Test]
-		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
@@ -252,22 +254,23 @@ namespace GlyssenTests
 			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
 		}
 
-		[Test]
-		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two [2]. </div>" + 
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" + 
 				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
 							Block.BuildSplitLineHtml(1) + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
-							Block.BuildSplitLineHtml(2) + 
-							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers [sic] </div>" +
+							Block.BuildSplitLineHtml(2) +
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers " + open + "sic" + close + " </div>" +
 							Block.BuildSplitLineHtml(3) + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"><sup>5&#160;</sup>Text</div>" +
