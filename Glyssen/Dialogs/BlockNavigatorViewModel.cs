@@ -746,7 +746,10 @@ namespace Glyssen.Dialogs
 			if (m_currentRefBlockMatchups == null)
 				return;
 			BlockGroupingStyle = BlockGroupingType.Quote;
+			var relevant = IsCurrentBlockRelevant;
 			m_currentRefBlockMatchups = null;
+			if (!relevant)
+				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
 			if (CurrentBlockMatchupChanged != null)
 				CurrentBlockMatchupChanged(this, new EventArgs());
 		}
