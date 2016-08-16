@@ -260,10 +260,13 @@ namespace Glyssen
 
 		private void InsertHeSaidText(IReferenceLanguageInfo referenceLanguageInfo, int i, Action<int, int, string> handleHeSaidInserted, int level = 0)
 		{
-			if (CorrelatedBlocks[i].CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator))
+			if (CorrelatedBlocks[i].CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
+				CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
 			{
 				if (CorrelatedBlocks[i].GetReferenceTextAtDepth(level) == "")
 				{
+					if (CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
+						CorrelatedBlocks[i].CharacterId = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
 					var text = referenceLanguageInfo.HeSaidText;
 					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
 						text += referenceLanguageInfo.WordSeparator;

@@ -922,7 +922,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks();
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
 
@@ -937,6 +937,36 @@ namespace GlyssenTests
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
+		}
+
+		[Test]
+		public void InsertHeSaidText_UnknownCharacter_SingleRow_CharacterChangedToNarrator()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "dijo Jesus. ");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			matchup.MatchAllBlocks();
+			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
+
+			bool callbackCalled = false;
+
+			matchup.InsertHeSaidText(1, (iRow, level, text) =>
+			{
+				Assert.IsFalse(callbackCalled);
+				callbackCalled = true;
+			});
+			Assert.IsTrue(callbackCalled);
+
+			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId);
+
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
+			Assert.AreEqual("", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
 		}
 
 		[TestCase(ReferenceTextType.Azeri, "dedi.")]

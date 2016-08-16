@@ -263,8 +263,9 @@ namespace Glyssen.Dialogs
 		private IEnumerable<int> GetColumnsIntoWhicHeSaidCanBeInserted(DataGridViewRow row)
 		{
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
-			if (row != null && matchup != null && matchup.CorrelatedBlocks[row.Index].
-				CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
+			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
+				CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
+				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnknownCharacter))
 			{
 				if (string.IsNullOrEmpty(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
@@ -303,7 +304,7 @@ namespace Glyssen.Dialogs
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
-				colCharacter.Visible = colCharacter.Items.Count > 1;
+				colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear());
 				colDelivery.Visible = colDelivery.Items.Count > 1;
 				var primaryColumnIndex = colPrimary.Visible ? colPrimary.Index : colEnglish.Index;
 				int i = 0;
@@ -353,7 +354,7 @@ namespace Glyssen.Dialogs
 			}
 
 			UpdateInsertHeSaidButtonState();
-			UpdateAssignOrApplyButtonState();
+			UpdateAssignOrApplyAndResetButtonState();
 
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
@@ -374,13 +375,14 @@ namespace Glyssen.Dialogs
 			m_btnPrevious.Enabled = m_viewModel.CanNavigateToPreviousRelevantBlock;
 		}
 
-		private void UpdateAssignOrApplyButtonState()
+		private void UpdateAssignOrApplyAndResetButtonState()
 		{
 			Button btn = m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter
 				? m_btnAssign
 				: m_btnApplyReferenceTextMatches;
 
 			btn.Enabled = IsCharacterAndDeliverySelectionComplete && IsDirty();
+			m_btnReset.Enabled = IsDirty();
 			if (btn.Enabled && !btn.Focused)
 			{
 				var focusedControl = this.FindFocusedControl();
@@ -465,7 +467,7 @@ namespace Glyssen.Dialogs
 			SelectCharacter();
 
 			m_listBoxCharacters.EndUpdate();
-			UpdateAssignOrApplyButtonState();
+			UpdateAssignOrApplyAndResetButtonState();
 		}
 
 		private void SelectCharacter()
@@ -722,12 +724,12 @@ namespace Glyssen.Dialogs
 			HideDeliveryFilter();
 			if (selectedCharacter != null && selectedCharacter.IsNarrator)
 				m_llMoreDel.Enabled = false;
-			UpdateAssignOrApplyButtonState();
+			UpdateAssignOrApplyAndResetButtonState();
 		}
 
 		private void m_listBoxDeliveries_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			UpdateAssignOrApplyButtonState();
+			UpdateAssignOrApplyAndResetButtonState();
 		}
 
 		private void m_llMoreChar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1096,42 +1098,51 @@ namespace Glyssen.Dialogs
 
 		private void m_dataGridReferenceText_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) || (!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
+			if (e.ColumnIndex == colDelivery.Index)
 			{
-				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
-				UpdateInsertHeSaidButtonState();
-			}
-			else if (e.ColumnIndex == colEnglish.Index)
-			{
-				var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-				m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
-				UpdateInsertHeSaidButtonState();
-			}
-			else if (colCharacter.Visible && e.ColumnIndex == colCharacter.Index)
-			{
-				var selectedCharacter = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Character;
-				if (selectedCharacter == null)
-				{
-					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
-				}
-				m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
-			}
-			else
-			{
+				Debug.Assert(colDelivery.Visible);
 				var selectedDelivery = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Delivery;
 				if (selectedDelivery == null)
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					selectedDelivery = colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
+					selectedDelivery =
+						colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
 					if (selectedDelivery == null)
 						throw new Exception("Selected delivery not found!");
 				}
-				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);				
+				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);
+			}
+			else
+			{
+				if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) ||
+					(!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
+				{
+					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+					m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
+				}
+				else if (e.ColumnIndex == colEnglish.Index)
+				{
+					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+					m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
+				}
+				else
+				{
+					Debug.Assert(e.ColumnIndex == colCharacter.Index);
+					Debug.Assert(colCharacter.Visible);
+					var selectedCharacter =
+						m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Character;
+					if (selectedCharacter == null)
+					{
+						var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
+						selectedCharacter =
+							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
+					}
+					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
+				}
+				UpdateInsertHeSaidButtonState();
 			}
 			m_userMadeChangesToReferenceTextMatchup = true;
-			UpdateAssignOrApplyButtonState();
+			UpdateAssignOrApplyAndResetButtonState();
 		}
 
 		private void HandleMouseEnterButtonThatAffectsEntireGridRow(object sender, EventArgs e)
@@ -1143,8 +1154,21 @@ namespace Glyssen.Dialogs
 			m_dataGridReferenceText.Rows[m_dataGridReferenceText.CurrentCellAddress.Y].Selected = true;
 		}
 
+		private void HandleMouseLeaveInsertHeSaidButton(object sender, EventArgs e)
+		{
+			if (m_btnInsertHeSaid.DropDown.Visible)
+			{
+				if (m_dataGridReferenceText.MultiSelect)
+					m_dataGridReferenceText.ClearSelection();
+			}
+			else
+				HandleMouseLeaveButtonThatAffectsEntireGridRow(sender, e);
+		}
+
 		private void HandleMouseLeaveButtonThatAffectsEntireGridRow(object sender, EventArgs e)
 		{
+			if (m_btnInsertHeSaid.DropDown.Visible)
+				return;
 			m_dataGridReferenceText.MultiSelect = false;
 			m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
 			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
@@ -1168,6 +1192,9 @@ namespace Glyssen.Dialogs
 				row = m_dataGridReferenceText.CurrentCellAddress.Y;
 			}
 			m_viewModel.CurrentReferenceTextMatchup.InsertHeSaidText(row, HandleHeSaidInserted);
+			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.CurrentCellChange);
+			UpdateAssignOrApplyAndResetButtonState();
 		}
 
 		private void HandleHeSaidInserted(int iRow, int level, string text)
@@ -1175,6 +1202,8 @@ namespace Glyssen.Dialogs
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
 			var column = level == 0 && colPrimary.Visible ? colPrimary : colEnglish;
 			m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
+			if (colCharacter.Visible)
+				m_dataGridReferenceText.Rows[iRow].Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
 
@@ -1185,30 +1214,38 @@ namespace Glyssen.Dialogs
 
 		private void HandleMouseEnterInsertHeSaidButton(object sender, EventArgs e)
 		{
-			if (m_menuInsertIntoSelectedRowOnly.Checked && !m_menuInsertIntoSelectedRowOnly.Enabled)
-				return;
-
 			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditProgrammatically;
 			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
 				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
 
-			if (m_menuInsertIntoSelectedRowOnly.Checked)
+			bool selectedRowOnly;
+			if (sender == m_btnInsertHeSaid)
+				selectedRowOnly = m_menuInsertIntoSelectedRowOnly.Checked;
+			else
+				selectedRowOnly = sender == m_menuInsertIntoSelectedRowOnly;
+
+			if (selectedRowOnly)
+			{
+				//if (m_dataGridReferenceText.MultiSelect)
+				//	m_dataGridReferenceText.ClearSelection();
+				if (!m_menuInsertIntoSelectedRowOnly.Enabled)
+					return;
+			}
+
+			m_dataGridReferenceText.MultiSelect = true;
+			m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
+			if (selectedRowOnly)
 			{
 				foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow))
-				{
 					m_dataGridReferenceText.CurrentRow.Cells[iCol].Selected = true;
-				}
 			}
 			else
 			{
-				m_dataGridReferenceText.MultiSelect = true;
-				m_dataGridReferenceText.SelectionMode = DataGridViewSelectionMode.CellSelect;
 				foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
 				{
 					foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(row))
-					{
 						row.Cells[iCol].Selected = true;
-					}
 				}
 			}
 		}
