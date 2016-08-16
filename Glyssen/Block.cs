@@ -238,9 +238,9 @@ namespace Glyssen
 				{
 					if (includeVerseNumbers)
 					{
-						bldr.Append("[");
+						bldr.Append("{");
 						bldr.Append(verse.Number);
-						bldr.Append("]\u00A0");
+						bldr.Append("}\u00A0");
 					}
 				}
 				else

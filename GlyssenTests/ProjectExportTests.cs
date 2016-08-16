@@ -198,9 +198,9 @@ namespace GlyssenTests
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
 			Assert.AreEqual("1", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
-			Assert.AreEqual("[1]\u00A0A", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
-			Assert.AreEqual("[1]\u00A0Ayy", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("[1]\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("{1}\u00A0A", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual("{1}\u00A0Ayy", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("{1}\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 
 			row = data[i++];
 			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 2
@@ -216,7 +216,7 @@ namespace GlyssenTests
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
 			Assert.AreEqual("2", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Enoch", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
-			Assert.AreEqual("[2]\u00A0B", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual("{2}\u00A0B", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] as string));
 
@@ -225,7 +225,7 @@ namespace GlyssenTests
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
 			Assert.AreEqual("3", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
-			Assert.AreEqual("[3]\u00A0C", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual("{3}\u00A0C", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] as string));
 
@@ -235,8 +235,8 @@ namespace GlyssenTests
 			Assert.AreEqual("2-3", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.VernacularText)] as string));
-			Assert.AreEqual("[2-3]\u00A0Bee Cee", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("[2-3]\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("{2-3}\u00A0Bee Cee", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("{2-3}\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 			Assert.AreEqual(0, row[exporter.GetColumnIndex(ExportColumn.VernacularTextLength)]);
 
 			row = data[i++];
@@ -244,7 +244,7 @@ namespace GlyssenTests
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
 			Assert.AreEqual("4", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Michael", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
-			Assert.AreEqual("[4]\u00A0D", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual("{4}\u00A0D", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] as string));
 
@@ -254,8 +254,8 @@ namespace GlyssenTests
 			Assert.AreEqual("4", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Michael", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.VernacularText)] as string));
-			Assert.AreEqual("[4]\u00A0Dee, ", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("[4]\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("{4}\u00A0Dee, ", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("{4}\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 			Assert.AreEqual(0, row[exporter.GetColumnIndex(ExportColumn.VernacularTextLength)]);
 
 			row = data[i++];
@@ -273,18 +273,18 @@ namespace GlyssenTests
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
 			Assert.AreEqual("5", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
-			Assert.AreEqual("[5]\u00A0E ", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
-			Assert.AreEqual("[5]\u00A0Ey", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("[5]\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("{5}\u00A0E ", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual("{5}\u00A0Ey", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("{5}\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 
 			row = data[i++];
 			Assert.AreEqual(7, row[exporter.GetColumnIndex(ExportColumn.BlockId)]);
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
 			Assert.AreEqual("6", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
-			Assert.AreEqual("[6]\u00A0F", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
-			Assert.AreEqual("[6]\u00A0Ef", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("[6]\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("{6}\u00A0F", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+			Assert.AreEqual("{6}\u00A0Ef", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("{6}\u00A0Secondary", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 
 			Assert.AreEqual(i, data.Count);
 		}
@@ -489,10 +489,10 @@ namespace GlyssenTests
 			//SFX (music/sfx come before verse text)
 			var rowsForVerse12 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "12").ToList();
 			var textRowForVerse12 = rowsForVerse12.Single();
-			var annotationInfoPlusVerseNum = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12} [12]\u00A0";
+			var annotationInfoPlusVerseNum = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12} {12}\u00A0";
 			Assert.IsTrue(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).StartsWith(annotationInfoPlusVerseNum));
 			Assert.IsTrue(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).StartsWith(annotationInfoPlusVerseNum));
-			Assert.AreEqual("[12]\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
+			Assert.AreEqual("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
 							"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
 							"yam guto kiryo. ",
 				(string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
@@ -503,7 +503,7 @@ namespace GlyssenTests
 			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "5");
 			Assert.IsTrue(((string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.IsTrue(((string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).EndsWith(annotationInfo));
-			Assert.AreEqual("[25]\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
+			Assert.AreEqual("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
 							"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
 				(string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
@@ -515,7 +515,7 @@ namespace GlyssenTests
 			annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
 			Assert.IsTrue(((string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.IsTrue(((string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).EndsWith(annotationInfo));
-			Assert.AreEqual("[3]\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
+			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
 							"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
 				(string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(sectionHeadRowForRev1V3[exporter.GetColumnIndex(ExportColumn.CharacterId)].Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
@@ -526,7 +526,7 @@ namespace GlyssenTests
 			annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
 			Assert.IsTrue(((string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.IsTrue(((string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).EndsWith(annotationInfo));
-			Assert.AreEqual("[20]\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
+			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
 							"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
 							"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
 				(string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
@@ -617,7 +617,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
 			if (includeSecondaryReferenceText)
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
@@ -642,7 +642,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
-			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. [4]\u00A0Text of verse four. [5]\u00A0Text of verse five.\t\t");
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. {4}\u00A0Text of verse four. {5}\u00A0Text of verse five.\t\t");
 			if (includeSecondaryReferenceText)
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
@@ -669,7 +669,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
 			if (includeSecondaryReferenceText)
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
@@ -696,7 +696,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, false)));
@@ -721,7 +721,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t\t");
+			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
 				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false, false)));
@@ -747,7 +747,7 @@ namespace GlyssenTests
 			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
-			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t[1]\u00A0Text of verse one. [2]\u00A0Text of verse two.\t[1-2]\u00A0Text of verses one and two bridged in harmony and goodness.\t");
+			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
 			if (includeSecondaryReferenceText)
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
