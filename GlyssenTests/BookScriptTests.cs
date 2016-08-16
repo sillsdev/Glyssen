@@ -807,7 +807,7 @@ namespace GlyssenTests
 					userConfirmedCharacterBlockIndices.Add(i);
 				}
 			}
-			Assert.IsTrue(userConfirmedCharacterBlockIndices.Count > 0);
+			Assert.IsTrue(userConfirmedCharacterBlockIndices.Any());
 			var target = CreateStandardMarkScript();
 			target.ApplyUserDecisions(source);
 
@@ -818,6 +818,53 @@ namespace GlyssenTests
 					Assert.AreEqual("Thomas/James", target[i].CharacterId);
 					Assert.AreEqual("James", target[i].CharacterIdInScript);
 					Assert.IsTrue(target[i].UserConfirmed);
+				}
+			}
+		}
+
+		[Test]
+		public void ApplyUserDecisions_AlignedToReferenceText_ReferenceTextBlocksCloned()
+		{
+			var source = CreateStandardMarkScript();
+			var userConfirmedCharacterBlockIndices = new List<int>();
+			for (int i = 0; i < source.GetScriptBlocks().Count; i++)
+			{
+				if (source[i].InitialStartVerseNumber % 2 == 1)
+				{
+					if (source[i].CharacterIsUnclear())
+					{
+						source[i].CharacterId = "Jesus";
+					}
+					var refBlock = source[i].SetMatchedReferenceBlock(
+						source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToString());
+					if (i < 20)
+					{
+						refBlock.SetMatchedReferenceBlock("[19] Whatever");
+					}
+					source[i].UserConfirmed = true;
+					userConfirmedCharacterBlockIndices.Add(i);
+				}
+			}
+			Assert.IsTrue(userConfirmedCharacterBlockIndices.Any());
+			var target = CreateStandardMarkScript();
+			target.ApplyUserDecisions(source);
+
+			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+			{
+				if (userConfirmedCharacterBlockIndices.Contains(i))
+				{
+					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsTrue(target[i].UserConfirmed);
+					Assert.IsTrue(target[i].MatchesReferenceText);
+					Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
+					Assert.AreEqual(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToString(), target[i].PrimaryReferenceText);
+					if (i < 20)
+					{
+						var refBlock = target[i].ReferenceBlocks.Single();
+						Assert.IsTrue(refBlock.MatchesReferenceText);
+						Assert.AreEqual("[19]\u00A0Whatever", refBlock.PrimaryReferenceText);
+						Assert.AreNotEqual(refBlock.ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single().ReferenceBlocks.Single());
+					}
 				}
 			}
 		}

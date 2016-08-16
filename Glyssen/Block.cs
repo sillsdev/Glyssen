@@ -72,7 +72,6 @@ namespace Glyssen
 			// When cloning, we intentionally do not clone reference text info.
 			// If caller (or anything downstream) needs to modify the reference text, it should either replace existing blocks or
 			// clone them before modifying them.
-			//TODO: Need to ponder how to maintain reference text alignment info when preserving user decisions.
 		}
 
 		[XmlAttribute("style")]

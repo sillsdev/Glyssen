@@ -371,6 +371,11 @@ namespace Glyssen
 							m_blocks[iTarget].CharacterIdOverrideForScript = sourceBlock.CharacterIdOverrideForScript;
 						}
 						m_blocks[iTarget].Delivery = sourceBlock.Delivery;
+						if (sourceBlock.MatchesReferenceText)
+						{
+							m_blocks[iTarget].SetMatchedReferenceBlock(sourceBlock.ReferenceBlocks.Single());
+							m_blocks[iTarget].CloneReferenceBlocks();
+						}
 						m_blocks[iTarget].UserConfirmed = true;
 						iTarget++;
 						if (iTarget == m_blocks.Count)
