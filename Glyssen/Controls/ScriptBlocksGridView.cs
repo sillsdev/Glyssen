@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
@@ -64,8 +65,19 @@ namespace Glyssen.Controls
 					e.Value = m_viewModel.GetBlockReferenceString(block);
 				else if (e.ColumnIndex == m_colText.Index)
 					e.Value = block.GetText(true);
-				else
-					base.OnCellValueNeeded(e);
+				else if (m_viewModel.CurrentReferenceTextMatchup != null)
+				{
+					var correspondingOrigBlock = m_viewModel.CurrentReferenceTextMatchup.GetCorrespondingOriginalBlock(block);
+					if (correspondingOrigBlock != null)
+					{
+						if (Columns[e.ColumnIndex].Name == "colCharacter")
+							e.Value = correspondingOrigBlock.CharacterIsUnclear() ? "" : correspondingOrigBlock.CharacterId;
+						else
+							e.Value = correspondingOrigBlock.Delivery;
+						return;
+					}
+				}
+				base.OnCellValueNeeded(e);
 			}
 		}
 

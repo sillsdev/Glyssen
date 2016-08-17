@@ -277,6 +277,18 @@ namespace Glyssen
 					InsertHeSaidText(referenceLanguageInfo.BackingReferenceLanguage, i, handleHeSaidInserted, level + 1);
 			}
 		}
+
+		public Block GetCorrespondingOriginalBlock(Block block)
+		{
+			if (!CorrelatedBlocks.Contains(block))
+				return null;
+			var i = CorrelatedBlocks.Where(b => b.GetText(true).Contains(block.GetText(true))).IndexOf(block);
+			var matches = OriginalBlocks.Where(b => b.GetText(true).Contains(block.GetText(true))).ToList();
+			if (matches.Count > i)
+				return matches[i];
+			Debug.Fail("Properly corresponding match not found in for block " + block.GetText(true));
+			return matches.FirstOrDefault();
+		}
 	}
 
 	public class InvalidReferenceTextException :  Exception

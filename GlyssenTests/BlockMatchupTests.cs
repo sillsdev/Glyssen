@@ -1106,5 +1106,98 @@ namespace GlyssenTests
 			matchup.ChangeAnchor(matchup.CorrelatedBlocks[iBlock]);
 			Assert.AreEqual(matchup.CorrelatedBlocks[iBlock], matchup.CorrelatedAnchorBlock);
 		}
+
+		[Test]
+		public void GetCorrespondingOriginalBlock_BlockNotInMatchup_ReturnsNull()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true).AddVerse(3, "Entonces dijo Jesus: "));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Come to me you who are weary,", "q1");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "And I will give you rest.", "q1");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			Assert.IsNull(matchup.GetCorrespondingOriginalBlock(vernacularBlocks[0]));
+		}
+
+		[Test]
+		public void GetCorrespondingOriginalBlock_NoSplits_SingleMatch_ReturnsMatchingBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true).AddVerse(3, "Entonces dijo Jesus: "));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Come to me you who are weary,", "q1");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "And I will give you rest.", "q1");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Pretty sweet invitation!").AddVerse(4, "Start of another verse.");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Okay, I guess I will. ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter.");
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(5, "This is a trailing verse that should not be included.", true));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			for (int i = 0; i < matchup.CorrelatedBlocks.Count; i++)
+				Assert.AreEqual(vernacularBlocks[i + 1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[i]));
+		}
+
+		[Test]
+		public void GetCorrespondingOriginalBlock_Splits_SingleMatch_ReturnsCorrespondingBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Despues se fue. ", true));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 1, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), null);
+			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
+			Assert.AreEqual(vernacularBlocks[1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[0]));
+			Assert.AreEqual(vernacularBlocks[1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[1]));
+			Assert.AreEqual(vernacularBlocks[2], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[2]));
+		}
+
+		[Test] public void GetCorrespondingOriginalBlock_MultipleIdenticalBlocks_ReturnsCorrespondingBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(21, "They were in the middle of the meal. ", true, 26));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“I tell you the truth, one of you will betray me,”");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "accused Jesus. ").AddVerse(22, "They were very sad. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "“Surely not I!” ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Matthew", "“Surely not I!” ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Matthew. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Thomas", "“Surely not I!” ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Thomas. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "“Surely not I!” ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said the other disciples.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, p => p.SplitBlock(p.GetScriptBlocks().ElementAt(2), "21", BookScript.kSplitAtEndOfVerse, false), null);
+			Assert.AreEqual(12, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
+			for (int i = 3; i < matchup.CorrelatedBlocks.Count; i++)
+				Assert.AreEqual(vernacularBlocks[i - 1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[i]));
+		}
+
+		[Test]
+		public void GetCorrespondingOriginalBlock_BlockWithTextThatisSubstringOfAnotherBlock_ReturnsCorrespondingBlock()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(21, "They were in the middle of the meal. ", true, 26));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“I tell you the truth, one of you will betray me,”");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "accused Jesus. ").AddVerse(22, "They were very sad. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "No I won't! ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Matthew", "No ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Matthew. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Thomas", "I won't! ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Thomas. ");
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "“Surely not I!” ");
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said the other disciples.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, p => p.SplitBlock(p.GetScriptBlocks().ElementAt(2), "21", BookScript.kSplitAtEndOfVerse, false), null);
+			Assert.AreEqual(12, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
+			for (int i = 3; i < matchup.CorrelatedBlocks.Count; i++)
+				Assert.AreEqual(vernacularBlocks[i - 1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[i]));
+		}
 	}
 }
