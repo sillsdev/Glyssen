@@ -35,6 +35,8 @@ namespace Glyssen.Controls
 		private ToolTip m_toolTip;
 		private ScriptBlocksViewType m_viewType;
 
+		public event EventHandler SelectionChanged;
+
 		#region Construction and Initialization
 		public ScriptBlocksViewer()
 		{
@@ -155,6 +157,13 @@ namespace Glyssen.Controls
 		{
 			viewBeingHidden.Visible = false;
 			viewBeingShown.Visible = true;
+		}
+
+		private void HandleSelectionChanged(object sender, EventArgs args)
+		{
+			UpdateContextBlocksDisplay(sender, args);
+			if (SelectionChanged != null)
+				SelectionChanged(this, new EventArgs());
 		}
 
 		private void UpdateContextBlocksDisplay(object sender, EventArgs args)

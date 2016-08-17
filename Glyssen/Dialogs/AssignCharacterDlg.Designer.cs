@@ -1,4 +1,5 @@
-﻿using Glyssen.Controls;
+﻿using System;
+using Glyssen.Controls;
 using Glyssen.Utilities;
 using L10NSharp.UI;
 
@@ -858,6 +859,7 @@ namespace Glyssen.Dialogs
 			this.m_blocksViewer.Text = "Who speaks this part?";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_blocksViewer, true);
 			this.m_blocksViewer.ViewType = Glyssen.Controls.ScriptBlocksViewType.Html;
+			this.m_blocksViewer.SelectionChanged += HandleBlocksViewerSelectionChanged;
 			// 
 			// m_progressBar
 			// 
@@ -1525,7 +1527,6 @@ namespace Glyssen.Dialogs
 			this.PerformLayout();
 
 		}
-
 		#endregion
 
 		private L10NSharp.UI.L10NSharpExtender m_l10NSharpExtender;

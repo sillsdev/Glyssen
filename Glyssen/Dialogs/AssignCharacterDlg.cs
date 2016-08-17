@@ -945,7 +945,15 @@ namespace Glyssen.Dialogs
 
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
-			using (var dlg = new SplitBlockDlg(m_viewModel.Font, m_viewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(m_viewModel.CurrentBlock),
+			Block blockToSplit;
+			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
+			{
+				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y]);
+			}
+			else
+				blockToSplit = m_viewModel.CurrentBlock;
+			using (var dlg = new SplitBlockDlg(m_viewModel.Font, m_viewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
 				m_viewModel.GetUniqueCharactersForCurrentReference(), m_viewModel.CurrentBookId))
 			{
 				if (dlg.ShowDialog(this) == DialogResult.OK)
@@ -1256,6 +1264,32 @@ namespace Glyssen.Dialogs
 				{
 					foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(row))
 						row.Cells[iCol].Selected = true;
+				}
+			}
+		}
+
+		private void HandleBlocksViewerSelectionChanged(object sender, EventArgs e)
+		{
+			this.SafeInvoke(SetReferenceTextGridRowToAnchorRow);
+		}
+
+		private void SetReferenceTextGridRowToAnchorRow()
+		{
+			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
+			{
+				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+				var iRow = matchup.CorrelatedBlocks.IndexOf(matchup.CorrelatedAnchorBlock);
+				if (m_dataGridReferenceText.CurrentCellAddress.Y != iRow)
+				{
+					if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+						m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.CurrentCellChange);
+					m_dataGridReferenceText.CurrentCell =
+						m_dataGridReferenceText.Rows[iRow].Cells[m_dataGridReferenceText.CurrentCellAddress.X];
+					// The following causes re-entrancy and prevents changing the row. If it is really important to keep the (new)
+					// current cell in edit mode (without the user clicking it), we'll have to figure out what it woud take to
+					// work around this. Meanwhile, selecting the whole cell helps to make it more obvious.
+					//if (!m_dataGridReferenceText.IsCurrentCellInEditMode)
+					//	m_dataGridReferenceText.BeginEdit(true);
 				}
 			}
 		}

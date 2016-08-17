@@ -114,7 +114,7 @@ namespace Glyssen.Controls
 			this.m_dataGridViewBlocks.VirtualMode = true;
 			this.m_dataGridViewBlocks.Visible = false;
 			this.m_dataGridViewBlocks.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.HandleDataGridViewBlocksCellValueNeeded);
-			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.UpdateContextBlocksDisplay);
+			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.HandleSelectionChanged);
 			// 
 			// colReference
 			// 
