@@ -667,7 +667,7 @@ namespace Glyssen.Dialogs
 
 		private int GetIndexOfNextRelevantBlockNotInCurrentMatchup()
 		{
-			for (int i = m_currentBlockIndex; i < RelevantBlockCount - 1; i++)
+			for (int i = m_currentBlockIndex + 1; i < RelevantBlockCount; i++)
 			{
 				if (m_relevantBlocks[i].BookIndex != m_relevantBlocks[m_currentBlockIndex].BookIndex ||
 					!m_currentRefBlockMatchups.OriginalBlocks.Contains(
