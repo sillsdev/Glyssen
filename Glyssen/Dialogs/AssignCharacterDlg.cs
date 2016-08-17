@@ -580,6 +580,7 @@ namespace Glyssen.Dialogs
 		}
 
 		[DllImport("user32.dll")]
+		// ReSharper disable once InconsistentNaming
 		private static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
 		/// <summary>
@@ -589,6 +590,7 @@ namespace Glyssen.Dialogs
 		/// <remarks>This is invoked because we implement IMessagFilter and call Application.AddMessageFilter(this)</remarks>
 		public bool PreFilterMessage(ref Message m)
 		{
+			// ReSharper disable once InconsistentNaming
 			const int WM_KEYDOWN = 0x100;
 
 			if (m.Msg == WM_KEYDOWN && m_blocksViewer.ContainsFocus && (((Keys)m.WParam) | Keys.Control) == 0)
@@ -816,6 +818,43 @@ namespace Glyssen.Dialogs
 			m_chkSingleVoice.Checked = !m_chkSingleVoice.Checked;
 		}
 
+		private void HandleJoinBlocks_Click(object sender, EventArgs e)
+		{
+			// was this block previously split?
+			if (m_viewModel.CurrentBlock.SplitId > -1)
+			{
+				// get other blocks in this split
+				var splitBlocks = m_viewModel.GetBlocksInSplit(m_viewModel.CurrentBlock.SplitId).ToArray();
+
+				// do other blocks in this split have the same characterId?
+				// are any of the blocks user-confirmed?
+				var currentCharacterId = m_viewModel.CurrentBlock.CharacterId;
+				var blocksWithSameCharacterId = new List<int>();
+
+				for (var i = 0; i < splitBlocks.Length; i++)
+				{
+					if (splitBlocks[i] == m_viewModel.CurrentBlock)
+					{
+						blocksWithSameCharacterId.Add(i);
+					}
+					else if (splitBlocks[i].CharacterId == currentCharacterId)
+					{
+						blocksWithSameCharacterId.Add(i);
+					}
+				}
+
+				if (blocksWithSameCharacterId.Count > 0)
+				{
+					var blocksToUnsplit = blocksWithSameCharacterId.Select(idx => splitBlocks[idx]).ToList();
+
+					// join the blocks
+					var newBlock = m_viewModel.UnsplitBlocks(blocksToUnsplit);
+					m_viewModel.SetCurrentBlock(newBlock);
+				}
+
+				// also see ScriptBlocksViewer.cs HandleGridViewBlocks_MouseUp
+			}
+		}
 		#endregion
 
 	}

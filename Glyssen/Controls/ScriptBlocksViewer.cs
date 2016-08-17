@@ -174,6 +174,24 @@ namespace Glyssen.Controls
 				m_toolTip = null;
 			}
 		}
+
+		private void HandleGridViewBlocks_MouseUp(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Right)
+			{
+				var hitTest = m_dataGridViewBlocks.HitTest(e.X, e.Y);
+
+				// do nothing if they clicked a column header
+				if (hitTest.Type != DataGridViewHitTestType.Cell)
+					return;
+
+				var clickedBlock = m_viewModel.GetNthBlockInCurrentBook(hitTest.RowIndex);
+
+				// also see AssignCharacterDlg.cs HandleJoinBlocks_Click
+
+			}
+		}
+
 		#endregion
 
 		#region Browser events
@@ -243,5 +261,6 @@ namespace Glyssen.Controls
 			}
 		}
 		#endregion
+
 	}
 }

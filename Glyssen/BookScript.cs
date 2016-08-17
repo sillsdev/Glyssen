@@ -467,6 +467,38 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
+		public Block UnsplitBlocks(List<Block> blocks)
+		{
+			var insertHere = m_blocks.IndexOf(blocks[0]);
+			var userConfirmed = false;
+
+			var unsplitBlock = CombineBlocks(blocks);
+
+			// remove the old blocks
+			for (var i = blocks.Count - 1; i > -1; i--)
+			{
+				if (blocks[i].UserConfirmed)
+					userConfirmed = true;
+				m_blocks.Remove(blocks[i]);
+				m_blockCount--;
+			}
+			
+			// insert the new block
+			unsplitBlock.UserConfirmed = userConfirmed;
+			m_blocks.Insert(insertHere, unsplitBlock);
+			m_blockCount++;
+
+			// are there still multiple blocks with this split id?
+			var splitBlocks = m_blocks.Where(b => b.SplitId == unsplitBlock.SplitId);
+			if (splitBlocks.Count() == 1)
+			{
+				// if not, clear the split id
+				unsplitBlock.SplitId = -1;
+			}
+
+			return unsplitBlock;
+		}
+
 		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
 			string characterId = null, ScrVers versification = null)
 		{

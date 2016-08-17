@@ -81,24 +81,22 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MAT	1	2	&lt;Sound startVerse=&quot;2&quot; /&gt;
-        ///MAT	1	17	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	1	25	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	2	8	&lt;Sound startVerse=&quot;8&quot; /&gt;
-        ///MAT	2	23	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	3	17	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	11	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	17	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	22	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	25	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	5	48	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	6	7	&lt;Sound endVerse=&quot;7&quot; /&gt;
-        ///MAT	6	15	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	6	34	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	7	2	&lt;Sound startVerse=&quot;2&quot; /&gt;
-        ///MAT	7	29	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	8	4	&lt;Pause time=&quot;1.5&quot; /&gt;
-        /// [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to MAT	1	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
+        ///MAT	1	17	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	1	25	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	2	8	0	&lt;Sound startVerse=&quot;8&quot; /&gt;
+        ///MAT	2	23	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	3	17	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	4	11	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	4	17	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	4	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	4	25	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	5	48	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	6	7	0	&lt;Sound endVerse=&quot;7&quot; /&gt;
+        ///MAT	6	15	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	6	34	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///MAT	7	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
+        ///MAT	7	29	0	&lt;Pause time=&quot;2&quot; /&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Annotations {
             get {
@@ -144,9 +142,18 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to body
-        ///{
-        ///}.
+        ///   Looks up a localized string similar to 
+        ///select {
+        ///    float: right;
+        ///    margin-bottom: 6px;
+        ///}
+        ///
+        ///.splittext {
+        ///    cursor: col-resize;
+        ///}
+        ///
+        ///.split-line {
+        ///    cursor: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAK3RFWHRDcmVhdGlvbiBUaW1lAFR1ZSA0IERlYyAyMDA3IDIyOjA4OjM1IC0wNTAwrRqIvgAAAAd0SU1FB9gDBQQwNlUytbYAAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAACx0lEQVR42t1WTWsTURQ90zh+1TY1fkaUQhWrCyFB0apbl/0DLl2JuFEEpaC/okZEuhD8D66suBXFlQhuBBdGRGqspKbamOe5mfvic5h5SZ12Cl44Gcgb5px37sd7AQBDHCC+EZuJn8QScopABUiME9uJJtFQI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BlockSplitCss {
             get {
@@ -212,7 +219,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	101
+        ///   Looks up a localized string similar to Control File Version	103
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -247,8 +254,7 @@ namespace Glyssen.Properties {
         ///
         ///# modifications by Studge 26/June/2009
         ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
-        /// [rest of string was truncated]&quot;;.
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnglishVersification {
             get {
@@ -336,6 +342,16 @@ namespace Glyssen.Properties {
         internal static System.Drawing.Bitmap IncreaseSize {
             get {
                 object obj = ResourceManager.GetObject("IncreaseSize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap JoinBlocks {
+            get {
+                object obj = ResourceManager.GetObject("JoinBlocks", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

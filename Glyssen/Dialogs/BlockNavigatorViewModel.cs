@@ -153,6 +153,11 @@ namespace Glyssen.Dialogs
 		public int ForwardContextBlockCount { get; set; }
 		public string ProjectName { get { return m_project.Name; } }
 
+		public IEnumerable<Block> GetBlocksInSplit(int splitId)
+		{
+			return m_navigator.CurrentBook.GetScriptBlocks().Where(b => b.SplitId == splitId);
+		}
+
 		public bool IsCurrentBlockRelevant
 		{
 			get

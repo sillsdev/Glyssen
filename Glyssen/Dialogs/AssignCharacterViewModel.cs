@@ -379,6 +379,18 @@ namespace Glyssen.Dialogs
 				}
 			}
 		}
+
+		public Block UnsplitBlocks(List<Block> blocks)
+		{
+			var newBlock = CurrentBook.UnsplitBlocks(blocks);
+			AddToRelevantBlocksIfNeeded(newBlock);
+			return newBlock;
+		}
+
+		public void SetCurrentBlock(Block block)
+		{
+			CurrentBlockIndexInBook = CurrentBook.Blocks.IndexOf(block);
+		}
 		#endregion
 
 		#region Character class
