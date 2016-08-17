@@ -286,8 +286,8 @@ namespace Glyssen
 			return refBlock;
 		}
 
-		public const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
-		public const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
+		private const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
+		private const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
 
 		private void ParsePlainText(string text)
 		{
@@ -882,6 +882,26 @@ namespace Glyssen
 				clone.CloneReferenceBlocks();
 				return clone;
 			}));
+		}
+
+		public static void GetSwappedReferenceText(string rowA, string rowB, out string newRowAValue, out string newRowBValue)
+		{
+			newRowBValue = rowA;
+			if (rowA == null || rowB == null)
+			{
+				newRowAValue = rowB;
+				return;
+			}
+
+			var leadingVerse = String.Empty;
+			var verseNumbers = new Regex("^" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber);
+			var match = verseNumbers.Match(newRowBValue);
+			if (match.Success && !verseNumbers.IsMatch(rowB))
+			{
+				leadingVerse = match.Value;
+				newRowBValue = newRowBValue.Substring(match.Length);
+			}
+			newRowAValue = leadingVerse + rowB;
 		}
 	}
 

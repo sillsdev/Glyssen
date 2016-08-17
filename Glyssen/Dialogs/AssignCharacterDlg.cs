@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
@@ -1052,29 +1053,38 @@ namespace Glyssen.Dialogs
 
 		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
 		{
-			var upOrDown = sender == m_btnMoveReferenceTextUp ? -1 : 1;
-			var source = m_dataGridReferenceText.Rows[m_dataGridReferenceText.CurrentCellAddress.Y];
-			var destIndex = source.Index + upOrDown;
-			var dest = m_dataGridReferenceText.Rows[destIndex];
+			bool down = sender == m_btnMoveReferenceTextDown;
+			var currentRowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
+			var rowA = m_dataGridReferenceText.Rows[down ? currentRowIndex : currentRowIndex - 1];
+			var rowB = m_dataGridReferenceText.Rows[rowA.Index + 1];
 			if (colPrimary.Visible)
-				SwapValues(source, dest, colPrimary.Index);
-			SwapValues(source, dest, colEnglish.Index);
+				SwapRefText(rowA, rowB, colPrimary.Index);
+			SwapRefText(rowA, rowB, colEnglish.Index);
 			if (colCharacter.Visible)
-				SwapValues(source, dest, colCharacter.Index);
+				SwapValues(rowA, rowB, colCharacter.Index);
 			if (colDelivery.Visible)
-				SwapValues(source, dest, colDelivery.Index);
+				SwapValues(rowA, rowB, colDelivery.Index);
 
 			int iCol = 0;
 			while (!m_dataGridReferenceText.Columns[iCol].Visible)
 				iCol++;
-			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[destIndex].Cells[iCol];
+			m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[currentRowIndex + (down ? 1 : -1)].Cells[iCol];
 		}
 
-		private void SwapValues(DataGridViewRow source, DataGridViewRow dest, int columnIndex)
+		private void SwapValues(DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
 		{
-			var temp = source.Cells[columnIndex].Value;
-			source.Cells[columnIndex].Value = dest.Cells[columnIndex].Value;
-			dest.Cells[columnIndex].Value = temp;
+			var temp = rowA.Cells[columnIndex].Value;
+			rowA.Cells[columnIndex].Value = rowB.Cells[columnIndex].Value;
+			rowB.Cells[columnIndex].Value = temp;
+		}
+
+		private void SwapRefText(DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText((string) rowA.Cells[columnIndex].Value, (string) rowB.Cells[columnIndex].Value,
+				out newRowAValue, out newRowBValue);
+			rowA.Cells[columnIndex].Value = newRowAValue;
+			rowB.Cells[columnIndex].Value = newRowBValue;
 		}
 
 		private void HandleCharacterSelectionTabIndexChanged(object sender, EventArgs e)

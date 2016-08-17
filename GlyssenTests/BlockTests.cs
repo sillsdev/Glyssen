@@ -899,6 +899,72 @@ namespace GlyssenTests
 			Assert.AreEqual(" three.", refBlock.BlockElements.OfType<ScriptText>().Last().Content);
 		}
 
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase("\u00A0")]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNoVerseNumber_LeadingVerseStaysWithRowA(string separator)
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText("{19}"+  separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out newRowAValue, out newRowBValue);
+			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse.", newRowAValue);
+			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase("\u00A0")]
+		public void GetSwappedReferenceText_RowAHasNonLeadingVerseNumber_RowBHasNoVerseNumber_EntireContentsSwap(string separator)
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText("Cool. {20}" + separator + "Fine", "This is another chunk of some verse.",
+				out newRowAValue, out newRowBValue);
+			Assert.AreEqual("This is another chunk of some verse.", newRowAValue);
+			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase("\u00A0")]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasNonLeadingVerseNumber_LeadingVerseStaysWithRowA(string separator)
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText("{19}" + separator + "Cool. {20}" + separator + "Fine", "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.",
+				out newRowAValue, out newRowBValue);
+			Assert.AreEqual("{19}" + separator + "This is another chunk of some verse. {21}" + separator + "Verse twenty-one.", newRowAValue);
+			Assert.AreEqual("Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase("\u00A0")]
+		public void GetSwappedReferenceText_RowAHasLeadingVerseNumber_RowBHasLeadingVerseNumber_EntireContentsSwap(string separator)
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText("{19}" + separator + "Cool. {20}" + separator + "Fine", "{21}" + separator + "Verse twenty-one.",
+				out newRowAValue, out newRowBValue);
+			Assert.AreEqual("{21}" + separator + "Verse twenty-one.", newRowAValue);
+			Assert.AreEqual("{19}" + separator + "Cool. {20}" + separator + "Fine", newRowBValue);
+		}
+
+		[Test]
+		public void GetSwappedReferenceText_RowAIsNull_EntireContentsSwap()
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText(null, "{21} Verse twenty-one.", out newRowAValue, out newRowBValue);
+			Assert.AreEqual("{21} Verse twenty-one.", newRowAValue);
+			Assert.IsTrue(String.IsNullOrEmpty(newRowBValue));
+		}
+
+		[Test]
+		public void GetSwappedReferenceText_RowBIsNull_EntireContentsSwap()
+		{
+			string newRowAValue, newRowBValue;
+			Block.GetSwappedReferenceText("{21} Verse twenty-one.", null, out newRowAValue, out newRowBValue);
+			Assert.IsTrue(String.IsNullOrEmpty(newRowAValue));
+			Assert.AreEqual("{21} Verse twenty-one.", newRowBValue);
+		}
+
 		private CharacterVerse JesusQuestioning
 		{
 			get
