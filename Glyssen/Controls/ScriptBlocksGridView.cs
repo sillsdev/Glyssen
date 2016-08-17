@@ -178,6 +178,11 @@ namespace Glyssen.Controls
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
 		{
+			if (m_viewModel.CurrentReferenceTextMatchup != null)
+			{
+				FirstDisplayedScrollingRowIndex = firstRow;
+				return;
+			}
 			int precedingContextRows = 4;
 			int followingContextRows = Math.Min(2, RowCount - lastRow - 1);
 			var lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
