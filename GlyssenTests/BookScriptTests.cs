@@ -835,11 +835,10 @@ namespace GlyssenTests
 					{
 						source[i].CharacterId = "Jesus";
 					}
-					var refBlock = source[i].SetMatchedReferenceBlock(
-						source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToString());
+					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (i < 20)
 					{
-						refBlock.SetMatchedReferenceBlock("[19] Whatever");
+						refBlock.SetMatchedReferenceBlock("{19} Whatever");
 					}
 					source[i].UserConfirmed = true;
 					userConfirmedCharacterBlockIndices.Add(i);
@@ -857,7 +856,7 @@ namespace GlyssenTests
 					Assert.IsTrue(target[i].UserConfirmed);
 					Assert.IsTrue(target[i].MatchesReferenceText);
 					Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
-					Assert.AreEqual(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToString(), target[i].PrimaryReferenceText);
+					Assert.AreEqual(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Reverse().ToArray()), target[i].PrimaryReferenceText);
 					if (i < 20)
 					{
 						var refBlock = target[i].ReferenceBlocks.Single();

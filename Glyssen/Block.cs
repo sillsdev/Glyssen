@@ -286,9 +286,12 @@ namespace Glyssen
 			return refBlock;
 		}
 
+		public const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
+		public const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
+
 		private void ParsePlainText(string text)
 		{
-			var verseNumbers = new Regex(@"((\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\})|" + Sound.kRegexForUserLocatedSounds + ")(\u00A0| )*");
+			var verseNumbers = new Regex(@"((" + kRegexForVerseNumber + ")|" + Sound.kRegexForUserLocatedSounds + ")" + kRegexForWhitespaceFollowingVerseNumber);
 			var pos = 0;
 			text = text.TrimStart();
 			var prependSpace = "";
