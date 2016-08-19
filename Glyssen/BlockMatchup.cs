@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
+using Paratext;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -14,11 +16,13 @@ namespace Glyssen
 		private int m_numberOfBlocksAddedBySplitting = 0;
 		private readonly IReferenceLanguageInfo m_referenceLanguageInfo;
 
-		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks, IReferenceLanguageInfo heSaidProvider)
+		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks,
+			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider)
 		{
 			m_vernacularBook = vernacularBook;
+			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 			m_referenceLanguageInfo = heSaidProvider;
-			var blocks = vernacularBook.GetScriptBlocks();
+			var blocks = m_vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
 			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
@@ -32,7 +36,10 @@ namespace Glyssen
 			}
 			int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
 			int i = iLastBlock;
-			AdvanceToCleanVerseBreak(blocks, ref i);
+			AdvanceToCleanVerseBreak(blocks, verseNum =>
+			{
+				return isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum));
+			}, ref i);
 			if (i > iLastBlock)
 				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
 			while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
@@ -181,19 +188,10 @@ namespace Glyssen
 			return newRefBlock;
 		}
 
-		public void SetCharacter(int blockIndex, string character)
+		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, Func<int, bool> isOkayToBreakAtVerse, ref int i)
 		{
-			CorrelatedBlocks[blockIndex].CharacterId = character;
-		}
-
-		public void SetDelivery(int blockIndex, string delivery)
-		{
-			CorrelatedBlocks[blockIndex].Delivery = delivery;
-		}
-
-		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, ref int i)
-		{
-			for (; i < blockList.Count - 1 && !blockList[i + 1].StartsAtVerseStart && !blockList[i + 1].IsChapterAnnouncement; i++)
+			for (; i < blockList.Count - 1 && (!blockList[i + 1].StartsAtVerseStart || !isOkayToBreakAtVerse(blockList[i + 1].InitialStartVerseNumber)) &&
+				!blockList[i + 1].IsChapterAnnouncement; i++)
 			{
 			}
 		}

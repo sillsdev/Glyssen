@@ -19,7 +19,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Asi dijo. Despues se fue. ", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
 			Assert.IsFalse(vernacularBlocks.Contains(matchup.CorrelatedBlocks.Single()));
 			//Assert.AreEqual(vernacularBlocks[iBlock], matchup.OriginalAnchorBlock);
@@ -44,7 +44,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(5, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(6).Select(b => b.GetText(true))));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
@@ -67,7 +67,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Nice place you got here!");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.GetText(true))));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
@@ -86,7 +86,7 @@ namespace GlyssenTests
 				"Big change in Topic", "s").IsParagraphStart = true;
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(2).Select(b => b.GetText(true))));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
@@ -114,7 +114,7 @@ namespace GlyssenTests
 					int i = block.BlockElements.OfType<ScriptText>().First().Content.IndexOf(" ", StringComparison.Ordinal) + 1;
 					p.SplitBlock(block, "2", i, false);
 				}
-			}, null);
+			}, i => true, null);
 
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 
@@ -142,7 +142,7 @@ namespace GlyssenTests
 				var block = p.GetScriptBlocks().First();
 				int i = block.BlockElements.OfType<ScriptText>().First().Content.IndexOf(" ", StringComparison.Ordinal) + 1;
 				p.SplitBlock(block, "2", i, false);
-			}, null);
+			}, i => true, null);
 
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 
@@ -166,7 +166,7 @@ namespace GlyssenTests
 				var block = p.GetScriptBlocks()[1];
 				int i = block.BlockElements.OfType<ScriptText>().First().Content.IndexOf(" ", StringComparison.Ordinal) + 1;
 				p.SplitBlock(block, "2", i, false);
-			}, null);
+			}, i => true, null);
 
 			Assert.AreEqual(4, matchup.CorrelatedBlocks.Count);
 
@@ -185,7 +185,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			matchup.MatchAllBlocks();
 
 			vernacularBlocks[3].CharacterId = "Markose";
@@ -202,7 +202,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			matchup.MatchAllBlocks();
 
 			matchup.CorrelatedBlocks[2].CharacterId = "Markose";
@@ -219,7 +219,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			matchup.MatchAllBlocks();
 
 			vernacularBlocks[3].Delivery = "perplexed";
@@ -236,7 +236,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			matchup.MatchAllBlocks();
 
 			matchup.CorrelatedBlocks[2].Delivery = "perturbed";
@@ -268,7 +268,7 @@ namespace GlyssenTests
 			refBlockNarrator2.BlockElements.Add(new ScriptText("replied Matthew."));
 			vernacularBlocks[4].SetMatchedReferenceBlock(refBlockNarrator2);
 
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 
 			matchup.MatchAllBlocks();
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
@@ -296,7 +296,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			var refBlockNarrator1 = new Block("p", 1, 2) { CharacterId = narrator };
@@ -340,7 +340,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.")
 				.AddVerse(3, "Dijo asi porque Jesus les habia dicho la misma cosa el dia anterior.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			var refBlockNarrator1 = new Block("p", 1, 2) { CharacterId = narrator };
@@ -387,7 +387,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.French));
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.French));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 
@@ -425,7 +425,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos, ", true));
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Asi dijo. Despues se fue. ", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			var correspondingVernBlock = vernacularBlocks[iBlock];
 			Assert.AreEqual(correspondingVernBlock.GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
 			var verseNum = correspondingVernBlock.InitialStartVerseNumber;
@@ -461,7 +461,7 @@ namespace GlyssenTests
 			vernacularBlocks[3].SetMatchedReferenceBlock(refBlock3);
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetText(true))
 				.SequenceEqual(vernacularBlocks.Skip(1).Take(3).Select(b => b.GetText(true))));
 			matchup.MatchAllBlocks();
@@ -489,7 +489,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kUnknownCharacter, 2, "Este es versiculo dos, ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			matchup.SetReferenceText(0, "[2] This is verse two, ");
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 
@@ -505,7 +505,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y dijo: ", true));
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo dos.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			matchup.SetReferenceText(0, "{1} Then Jesus opened his mouth and said: {2} ");
 			matchup.SetReferenceText(1, "why isn't the verse number at the start of this block?");
 
@@ -526,7 +526,7 @@ namespace GlyssenTests
 			var primaryRefBlock2 = new Block("p", 1, 1).AddVerse(2, "Ceci est un verset.");
 			vernacularBlocks.Last().SetMatchedReferenceBlock(primaryRefBlock2);
 			primaryRefBlock2.SetMatchedReferenceBlock(new Block("p", 1, 1).AddVerse(2, "This is a verse."));
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.AreEqual("{2}\u00A0This is a verse.", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().ReferenceBlocks.Single().GetText(true));
 			matchup.SetReferenceText(1, "This is {2}", 1);
 			Assert.AreEqual("This is {2}\u00A0", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().ReferenceBlocks.Single().GetText(true));
@@ -550,7 +550,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Que buen lugar tienes!");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 
 			var refBlock1 = ReferenceTextTests.CreateBlockForVerse(vernacularBlocks[1].CharacterId, 2, "The left from there for Jericho. ", true);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(refBlock1);
@@ -581,7 +581,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Despues se fue. ", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), null);
+			var matchup = new BlockMatchup(vernBook, iBlock, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), i => true, null);
 			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual("{2}\u00A0Este es ", matchup.CorrelatedBlocks[0].GetText(true));
@@ -622,7 +622,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Despues se fue. ", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), null);
+			var matchup = new BlockMatchup(vernBook, iBlock, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), i => true, null);
 			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual("{2}\u00A0Este es ", matchup.CorrelatedBlocks[0].GetText(true));
@@ -650,7 +650,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			Assert.IsFalse(matchup.CorrelatedBlocks[1].MatchesReferenceText);
@@ -674,7 +674,7 @@ namespace GlyssenTests
 			vernacularBlocks.Last().Delivery = "expressionless";
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			Assert.IsFalse(matchup.CorrelatedBlocks[1].MatchesReferenceText);
@@ -707,7 +707,7 @@ namespace GlyssenTests
 			block2.SetMatchedReferenceBlock(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two.”", false, 1, "p", 3));
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
 			var newRefBlock = matchup.SetReferenceText(0, "Then Jesus told them {2}" + separator + "that it was just verse two.");
@@ -737,7 +737,7 @@ namespace GlyssenTests
 			block2.SetMatchedReferenceBlock(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two.”", false, 1, "p", 3));
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
 			var newRefBlock = matchup.SetReferenceText(0, "Then Jesus told them that it was just verse two.");
@@ -772,7 +772,7 @@ namespace GlyssenTests
 			block2.SetMatchedReferenceBlock(refBlock2);
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
 			matchup.SetReferenceText(0, "Then Jesus told them {2}" + separator + "that verse two was important, too. ");
@@ -805,7 +805,7 @@ namespace GlyssenTests
 			block2.SetMatchedReferenceBlock(refBlock2);
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
 			matchup.SetReferenceText(0, "Then Jesus spoke, saying: ");
@@ -830,7 +830,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es versiculo dos y tres, ", "p");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 
 			var newRefBlock = matchup.SetReferenceText(1, "saying, {2-3}" + separator + "“This is verse two and three.”");
 			// Ensure block 0 not changed
@@ -857,7 +857,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			vernacularBlocks.Last().Delivery = "expressionless";
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			matchup.MatchAllBlocks();
@@ -886,7 +886,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			matchup.MatchAllBlocks();
@@ -922,7 +922,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks();
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
 
@@ -946,7 +946,7 @@ namespace GlyssenTests
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.kUnknownCharacter, "dijo Jesus. ");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks();
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
 
@@ -983,7 +983,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "diris Jesuo. ");
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(refLanguage));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(refLanguage));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Esto es versiculo dos,” ", true));
 			matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().SetMatchedReferenceBlock(
@@ -1054,7 +1054,7 @@ namespace GlyssenTests
 			refEmptySpanishRefTextBlock.SetMatchedReferenceBlock(refPeterSaidBlock);
 			vernPeterSaidBlock.SetMatchedReferenceBlock(refEmptySpanishRefTextBlock);
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish));
 
 			var callbacks = new List<Tuple<int, int, string>>();
 
@@ -1102,7 +1102,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(5, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, iBlock, null, null);
+			var matchup = new BlockMatchup(vernBook, iBlock, null, i => true, null);
 			matchup.ChangeAnchor(matchup.CorrelatedBlocks[iBlock]);
 			Assert.AreEqual(matchup.CorrelatedBlocks[iBlock], matchup.CorrelatedAnchorBlock);
 		}
@@ -1116,7 +1116,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Come to me you who are weary,", "q1");
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "And I will give you rest.", "q1");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			Assert.IsNull(matchup.GetCorrespondingOriginalBlock(vernacularBlocks[0]));
 		}
 
@@ -1133,7 +1133,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said Peter.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(5, "This is a trailing verse that should not be included.", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
 			for (int i = 0; i < matchup.CorrelatedBlocks.Count; i++)
 				Assert.AreEqual(vernacularBlocks[i + 1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[i]));
 		}
@@ -1147,7 +1147,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus.");
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "Despues se fue. ", true));
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), null);
+			var matchup = new BlockMatchup(vernBook, 1, p => p.SplitBlock(p.GetScriptBlocks().First(), "2", 8, false), i => true, null);
 			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(vernacularBlocks[1], matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[0]));
@@ -1170,7 +1170,8 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "“Surely not I!” ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said the other disciples.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, p => p.SplitBlock(p.GetScriptBlocks().ElementAt(2), "21", BookScript.kSplitAtEndOfVerse, false), null);
+			var matchup = new BlockMatchup(vernBook, 0,
+				p => p.SplitBlock(p.GetScriptBlocks().ElementAt(2), "21", BookScript.kSplitAtEndOfVerse, false), i => true, null);
 			Assert.AreEqual(12, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 			for (int i = 3; i < matchup.CorrelatedBlocks.Count; i++)
@@ -1193,7 +1194,8 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "“Surely not I!” ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "said the other disciples.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, p => p.SplitBlock(p.GetScriptBlocks().ElementAt(2), "21", BookScript.kSplitAtEndOfVerse, false), null);
+			var matchup = new BlockMatchup(vernBook, 0,
+				p => p.SplitBlock(p.GetScriptBlocks().ElementAt(2), "21", BookScript.kSplitAtEndOfVerse, false), i => true, null);
 			Assert.AreEqual(12, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 			for (int i = 3; i < matchup.CorrelatedBlocks.Count; i++)

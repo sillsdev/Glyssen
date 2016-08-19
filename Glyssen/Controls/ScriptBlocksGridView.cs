@@ -29,17 +29,26 @@ namespace Glyssen.Controls
 			}
 		}
 
+		protected override void OnCellMouseDown(DataGridViewCellMouseEventArgs e)
+		{
+			if (e.RowIndex >= 0 && Rows[e.RowIndex].Selected)
+			{
+				if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
+				{
+					foreach (DataGridViewRow row in SelectedRows)
+					{
+						row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
+						row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
+					}
+				}
+				m_viewModel.CurrentBlockIndexInBook = e.RowIndex;
+				return;
+			}
+			base.OnCellMouseDown(e);
+		}
+
 		protected override void OnSelectionChanged(EventArgs e)
 		{
-			if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
-			{
-				foreach (DataGridViewRow row in SelectedRows)
-				{
-					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
-					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
-				}
-			}
-
 			if (m_updatingContext)
 				return;
 
@@ -133,6 +142,11 @@ namespace Glyssen.Controls
 				{
 					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 					RowCount = m_viewModel.BlockCountForCurrentBook;
+
+					//if (FirstDisplayedScrollingRowIndex + DisplayedRowCount(false) < RowCount)
+					//	FirstDisplayedScrollingRowIndex += DisplayedRowCount(false);
+					//else
+					//	FirstDisplayedScrollingRowIndex = RowCount - 1;
 				}
 				// Need to clear the selection here again because some of the property setters on
 				// DataGridView have the side-effect of creating a selection. We want to avoid having
@@ -152,7 +166,7 @@ namespace Glyssen.Controls
 			}
 
 			if (changingRowCount)
-				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 			ScrollDesiredRowsIntoView(firstRow, lastRow);
 			ResizeFirstColumn();
 

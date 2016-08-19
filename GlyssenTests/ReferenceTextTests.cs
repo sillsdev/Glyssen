@@ -2388,6 +2388,40 @@ namespace GlyssenTests
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
 
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_EndOfBookWhereReferenceTextCombinesTwoVerses_DoesNotCrashOrMatch()
+		{
+			var vernacularBlocks = new List<Block> { CreateNarratorBlockForVerse(25, "Grace be unto you all.", true, 13, "HEB") };
+			var vernBook = new BookScript("HEB", vernacularBlocks);
+
+			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, m_vernVersification);
+			Assert.AreEqual(1, matchup.CorrelatedBlocks.Count);
+			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockIsFirstVerseOfCombinedReferenceTextBlock_MatchupIncludesBothVerses()
+		{
+			var vernacularBlocks = new List<Block> { 
+				CreateNarratorBlockForVerse(24, "Köszöntsétek minden elõljárótokat és a szenteket mind. Köszöntenek titeket az Olaszországból valók. ", true, 13, "HEB"),
+				CreateNarratorBlockForVerse(25, "Kegyelem mindnyájatokkal! Ámen!", true, 13, "HEB")
+			};
+			var vernBook = new BookScript("HEB", vernacularBlocks);
+
+			// The last block of the standard reference text for Hebrews combines verse 24 and 25.
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, m_vernVersification);
+			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
+			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
+			Assert.AreEqual(1, matchup.CorrelatedBlocks[0].ReferenceBlocks.Count);
+			Assert.IsFalse(matchup.CorrelatedBlocks[1].MatchesReferenceText);
+			Assert.AreEqual(0, matchup.CorrelatedBlocks[1].ReferenceBlocks.Count);
+		}
+
 		#region private helper methods
 		internal static Block CreateBlockForVerse(string characterId, int initialStartVerseNumber, string text, bool paraStart = false,
 			int chapter = 1, string styleTag = "p", int initialEndVerseNumber = 0)

@@ -310,15 +310,20 @@ namespace Glyssen
 			if (!Books.Any(b => b.BookId == vernacularBook.BookId))
 				return null;
 
+			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+
 			var matchup = new BlockMatchup(vernacularBook, iBlock, portion =>
 			{
-				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
-
-				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
 				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
-
+			},
+			nextVerse =>
+			{
+				nextVerse.Versification = vernacularVersification;
+				return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
 			}, this);
+
 			if (!matchup.AllScriptureBlocksMatch)
 			{
 				MatchVernBlocksToReferenceTextBlocks(matchup.CorrelatedBlocks, vernacularBook.BookId, vernacularVersification);
@@ -391,13 +396,15 @@ namespace Glyssen
 				while (CharacterVerseData.IsCharacterStandard(currentRefBlock.CharacterId, false) || vernInitStartVerse > refInitStartVerse)
 				{
 					iRefBlock++;
+					if (iRefBlock == refBlockList.Count)
+						return; // couldn't find a ref block to use at all.
 					currentRefBlock = refBlockList[iRefBlock];
 					refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, vernacularVersification);
 				}
 
 				var indexOfVernVerseStart = iVernBlock;
 				var indexOfRefVerseStart = iRefBlock;
-				BlockMatchup.AdvanceToCleanVerseBreak(vernBlockList, ref iVernBlock);
+				BlockMatchup.AdvanceToCleanVerseBreak(vernBlockList, i => true, ref iVernBlock);
 				var lastVernVerseFound = new VerseRef(bookNum, vernBlockList[iVernBlock].ChapterNumber, vernBlockList[iVernBlock].LastVerseNum,
 					vernacularVersification);
 				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, Versification);

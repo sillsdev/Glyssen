@@ -120,6 +120,8 @@ namespace Glyssen.Controls
 			get { return m_viewModel.BlockGroupingStyle; }
 			set
 			{
+				if (m_viewModel.BlockGroupingStyle == value)
+					return;
 				m_viewModel.BlockGroupingStyle = value;
 				UpdateContextBlocksDisplay(this, new EventArgs());
 			}

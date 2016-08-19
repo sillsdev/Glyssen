@@ -26,6 +26,7 @@ namespace Glyssen.Dialogs
 		AllExpectedQuotes = 64,
 		ExcludeUserConfirmed = 128,
 		AllQuotes = 256,
+		NotAlignedToReferenceText = 512,
 		NeedAssignments = Unexpected | Ambiguous,
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 	}
@@ -175,6 +176,7 @@ namespace Glyssen.Dialogs
 				// If we're in block matchup mode and the current matchup group covers the last relevant block, then make display index
 				// show as if we're on that very last block so it won't be confusing to the user why they can't click the Next button.
 				if (m_currentRefBlockMatchups != null &&
+					m_currentBlockIndex >= 0 &&
 					m_currentBlockIndex < RelevantBlockCount - 1 &&
 					m_relevantBlocks[m_currentBlockIndex].BookIndex == m_relevantBlocks.Last().BookIndex &&
 					m_relevantBlocks.Skip(m_currentBlockIndex + 1).All(i => m_currentRefBlockMatchups.OriginalBlocks.Contains(CurrentBook.GetScriptBlocks(false)[i.BlockIndex])))
@@ -279,6 +281,13 @@ namespace Glyssen.Dialogs
 						{
 							// Just reset the anchor and get out.
 							m_currentRefBlockMatchups.ChangeAnchor(newAnchorBlock);
+							//var correspondingOrigBlock = m_currentRefBlockMatchups.GetCorrespondingOriginalBlock(newAnchorBlock);
+							//if (newAnchorBlock != null)
+							//{
+							var relevantBlockIndex = m_relevantBlocks.IndexOf(new BookBlockIndices(bookIndex, value));
+							if (relevantBlockIndex >= 0)
+								m_currentBlockIndex = relevantBlockIndex;
+							//}
 							HandleCurrentBlockChanged();
 						}
 						return;
@@ -856,6 +865,8 @@ namespace Glyssen.Dialogs
 			// No-op in base class
 		}
 
+		private static BlockMatchup s_lastMatchup = null;
+
 		private bool IsRelevant(Block block, bool ignoreExcludeUserConfirmed = false)
 		{
 			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
@@ -863,19 +874,21 @@ namespace Glyssen.Dialogs
 			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
 			if ((Mode & BlocksToDisplay.NeedAssignments) > 0)
-			{
-				if (CurrentBookIsSingleVoice)
-					return false;
-
-				return (block.UserConfirmed || block.CharacterIsUnclear());
-			}
-			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
+				return BlockNeedsAssignment(block);
+			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
 				if (!block.IsScripture)
 					return false;
-				return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
-					block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
+
+				if (s_lastMatchup == null || !s_lastMatchup.OriginalBlocks.Contains(block))
+				{
+					s_lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
+						m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
+				}
+				return s_lastMatchup.OriginalBlocks.Count() > 1 && !s_lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText);
 			}
+			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
+				return IsBlockInVerseWithExpectedQuote(block);
 			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)
 			{
 				if (CurrentBookIsSingleVoice)
@@ -892,6 +905,7 @@ namespace Glyssen.Dialogs
 				if (!withPotentialMissingQuote.Any())
 					return false;
 
+				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method. 
 				return CurrentBlockHasMissingExpectedQuote(withPotentialMissingQuote);
 			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
@@ -907,6 +921,7 @@ namespace Glyssen.Dialogs
 				if (actualquotes > expectedSpeakers)
 					return true;
 
+				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method. 
 				// Check surrounding blocks to count quote blocks for same verse.
 				actualquotes += m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
 					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
@@ -926,6 +941,23 @@ namespace Glyssen.Dialogs
 			if ((Mode & BlocksToDisplay.AllQuotes) > 0)
 				return block.IsQuote;
 			return false;
+		}
+
+		private bool IsBlockInVerseWithExpectedQuote(Block block)
+		{
+			if (!block.IsScripture)
+				return false;
+			return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber,
+				block.InitialStartVerseNumber,
+				block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
+		}
+
+		private bool BlockNeedsAssignment(Block block)
+		{
+			if (CurrentBookIsSingleVoice)
+				return false;
+
+			return (block.UserConfirmed || block.CharacterIsUnclear());
 		}
 
 		internal bool CurrentBlockHasMissingExpectedQuote(IEnumerable<BCVRef> versesWithPotentialMissingQuote)

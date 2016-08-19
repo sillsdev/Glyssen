@@ -157,16 +157,18 @@ namespace Glyssen.Dialogs
 			var mode = m_viewModel.Mode;
 			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
+			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
+			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
-			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
+			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 3;
-			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
+			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 4;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 5;
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 6;
 			else
 				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
@@ -181,13 +183,13 @@ namespace Glyssen.Dialogs
 			LoadBlockMatchup(sender, args);
 		}
 
-
 		private void LoadBlock(object sender, EventArgs args)
 		{
 			if (m_blocksViewer.Visible)
 			{
 				this.SafeInvoke(() =>
 				{
+					SetReferenceTextGridRowToAnchorRow();
 					UpdateDisplay();
 					UpdateNavigationButtonState();
 				});
@@ -876,10 +878,11 @@ namespace Glyssen.Dialogs
 			switch (m_toolStripComboBoxFilter.SelectedIndex)
 			{
 				case 0: mode = BlocksToDisplay.NeedAssignments; break;
-				case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
-				case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-				case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
-				case 4: mode = BlocksToDisplay.AllQuotes; break;
+				case 1: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
+				case 2: mode = BlocksToDisplay.MissingExpectedQuote; break;
+				case 3: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+				case 4: mode = BlocksToDisplay.AllExpectedQuotes; break;
+				case 5: mode = BlocksToDisplay.AllQuotes; break;
 				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 
@@ -1107,7 +1110,8 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
-				m_viewModel.AttemptRefBlockMatchup = false;
+				if (tabPageMatchReferenceText.Visible)
+					m_viewModel.AttemptRefBlockMatchup = false;
 				m_blocksViewer.HighlightStyle = BlockGroupingType.Quote;
 				m_blocksViewer.Text = m_defaultBlocksViewerText;
 			}
@@ -1275,7 +1279,7 @@ namespace Glyssen.Dialogs
 
 		private void SetReferenceTextGridRowToAnchorRow()
 		{
-			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
+			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_dataGridReferenceText.CurrentCell != null)
 			{
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
 				var iRow = matchup.CorrelatedBlocks.IndexOf(matchup.CorrelatedAnchorBlock);
@@ -1285,11 +1289,8 @@ namespace Glyssen.Dialogs
 						m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.CurrentCellChange);
 					m_dataGridReferenceText.CurrentCell =
 						m_dataGridReferenceText.Rows[iRow].Cells[m_dataGridReferenceText.CurrentCellAddress.X];
-					// The following causes re-entrancy and prevents changing the row. If it is really important to keep the (new)
-					// current cell in edit mode (without the user clicking it), we'll have to figure out what it woud take to
-					// work around this. Meanwhile, selecting the whole cell helps to make it more obvious.
-					//if (!m_dataGridReferenceText.IsCurrentCellInEditMode)
-					//	m_dataGridReferenceText.BeginEdit(true);
+					if (!m_dataGridReferenceText.IsCurrentCellInEditMode)
+						m_dataGridReferenceText.BeginEdit(true);
 				}
 			}
 		}

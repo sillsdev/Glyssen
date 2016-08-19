@@ -717,6 +717,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripComboBoxFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_toolStripComboBoxFilter.Items.AddRange(new object[] {
             "Quotes not assigned automatically",
+            "Verses that do not align automatically with reference text",
             "Verses with missing expected quotes",
             "More quotes than expected in verse",
             "Verses with expected quotes",
@@ -1299,7 +1300,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripMatchReferenceText.Margin = new System.Windows.Forms.Padding(11, 3, 3, 3);
 			this.m_toolStripMatchReferenceText.Name = "m_toolStripMatchReferenceText";
 			this.m_toolStripMatchReferenceText.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.m_toolStripMatchReferenceText.Size = new System.Drawing.Size(138, 25);
+			this.m_toolStripMatchReferenceText.Size = new System.Drawing.Size(107, 25);
 			this.m_toolStripMatchReferenceText.TabIndex = 39;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripMatchReferenceText, false);
 			// 
