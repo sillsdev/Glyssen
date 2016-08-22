@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
@@ -20,7 +19,7 @@ namespace Glyssen.Controls
 		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
 		{
 			base.OnRowHeightChanged(e);
-			if (SelectedRows.Count > 0)
+			if (!m_updatingContext && SelectedRows.Count > 0)
 			{
 				var firstRow = SelectedRows[SelectedRows.Count - 1].Index;
 				var lastRow = SelectedRows[0].Index;
@@ -112,6 +111,7 @@ namespace Glyssen.Controls
 				e.SuppressKeyPress = true;
 			base.OnKeyDown(e);
 		}
+
 		#endregion
 
 		#region public methods
@@ -145,11 +145,6 @@ namespace Glyssen.Controls
 				{
 					AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 					RowCount = m_viewModel.BlockCountForCurrentBook;
-
-					//if (FirstDisplayedScrollingRowIndex + DisplayedRowCount(false) < RowCount)
-					//	FirstDisplayedScrollingRowIndex += DisplayedRowCount(false);
-					//else
-					//	FirstDisplayedScrollingRowIndex = RowCount - 1;
 				}
 				// Need to clear the selection here again because some of the property setters on
 				// DataGridView have the side-effect of creating a selection. We want to avoid having
@@ -170,33 +165,48 @@ namespace Glyssen.Controls
 
 			if (changingRowCount)
 				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+			
+			ResumeLayout();
+
+			m_updatingContext = false;
+
 			ScrollDesiredRowsIntoView(firstRow, lastRow);
-			ResizeFirstColumn();
-
-			ResumeLayout();
-			m_updatingContext = false;
 		}
 
-		public void Clear()
-		{
-			m_updatingContext = true;
-			SuspendLayout();
-			ClearSelection();
-			RowCount = 0;
-			ResizeFirstColumn();
-			ResumeLayout();
-			m_updatingContext = false;
-		}
+		//public void Clear()
+		//{
+		//	m_updatingContext = true;
+		//	SuspendLayout();
+		//	ClearSelection();
+		//	RowCount = 0;
+		//	ResizeFirstColumn();
+		//	ResumeLayout();
+		//	m_updatingContext = false;
+		//}
 		#endregion
 
 		#region private methods
-
-		private void ResizeFirstColumn()
+		protected override void OnVisibleChanged(EventArgs e)
 		{
-			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-			var colWidth = m_colReference.Width;
-			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-			m_colReference.Width = colWidth;
+			base.OnVisibleChanged(e);
+			if (!Visible)
+				return;
+			foreach (DataGridViewColumn col in Columns)
+			{
+				switch (col.AutoSizeMode)
+				{
+					case DataGridViewAutoSizeColumnMode.ColumnHeader:
+					case DataGridViewAutoSizeColumnMode.AllCells:
+					case DataGridViewAutoSizeColumnMode.AllCellsExceptHeader:
+					case DataGridViewAutoSizeColumnMode.DisplayedCells:
+					case DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader:
+						var colWidth = col.Width;
+						col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+						col.Width = colWidth;
+						break;
+				}
+			}
+
 		}
 
 		private void SetFontsFromViewModel()
@@ -210,22 +220,24 @@ namespace Glyssen.Controls
 			if (m_viewModel.CurrentReferenceTextMatchup != null)
 			{
 				FirstDisplayedScrollingRowIndex = firstRow;
-				return;
 			}
-			int precedingContextRows = 4;
-			int followingContextRows = Math.Min(2, RowCount - lastRow - 1);
-			var lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-			while (FirstDisplayedCell.RowIndex > firstRow || (lastRowLocation.Height == 0 || (firstRow != lastRow &&
-				lastRowLocation.Y + lastRowLocation.Height > ClientRectangle.Height) ||
-				GetCellDisplayRectangle(0, firstRow, true).Height < GetCellDisplayRectangle(0, firstRow, false).Height) &&
-				precedingContextRows >= 0)
+			else
 			{
-				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
-				FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
+				int precedingContextRows = 4;
+				int followingContextRows = Math.Min(2, RowCount - lastRow - 1);
+				var lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
+				while (FirstDisplayedCell.RowIndex > firstRow || (lastRowLocation.Height == 0 || (firstRow != lastRow &&
+					lastRowLocation.Y + lastRowLocation.Height > ClientRectangle.Height) ||
+					GetCellDisplayRectangle(0, firstRow, true).Height < GetCellDisplayRectangle(0, firstRow, false).Height) &&
+					precedingContextRows >= 0)
+				{
+					var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
+					FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
 
-				if (followingContextRows > 0)
-					followingContextRows--;
-				lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
+					if (followingContextRows > 0)
+						followingContextRows--;
+					lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
+				}
 			}
 		}
 		#endregion

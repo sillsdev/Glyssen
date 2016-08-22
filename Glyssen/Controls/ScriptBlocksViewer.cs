@@ -141,11 +141,11 @@ namespace Glyssen.Controls
 			UpdateContextBlocksDisplay(null, null);
 		}
 
-		public void Clear()
-		{
-			m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-			m_dataGridViewBlocks.Clear();
-		}
+		//public void Clear()
+		//{
+		//	m_blocksDisplayBrowser.DisplayHtml(String.Empty);
+		//	m_dataGridViewBlocks.Clear();
+		//}
 
 		public void ShowNothingMatchesFilterMessage()
 		{

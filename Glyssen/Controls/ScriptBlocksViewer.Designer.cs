@@ -130,22 +130,24 @@ namespace Glyssen.Controls
 			// 
 			// colCharacter
 			// 
-			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
 			this.colCharacter.FillWeight = 200F;
 			this.colCharacter.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Character!Character";
 			this.colCharacter.MinimumWidth = 60;
 			this.colCharacter.Name = "colCharacter";
 			this.colCharacter.ReadOnly = true;
 			this.colCharacter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colCharacter.Width = 305;
 			// 
 			// colDelivery
 			// 
-			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
 			this.colDelivery.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Delivery!Delivery";
 			this.colDelivery.MinimumWidth = 60;
 			this.colDelivery.Name = "colDelivery";
 			this.colDelivery.ReadOnly = true;
 			this.colDelivery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colDelivery.Width = 289;
 			// 
 			// colText
 			// 
