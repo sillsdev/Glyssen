@@ -36,13 +36,13 @@ namespace Glyssen.Controls
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_panel = new System.Windows.Forms.Panel();
 			this.m_dataGridViewBlocks = new Glyssen.Controls.ScriptBlocksGridView();
+			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
+			this.m_title = new System.Windows.Forms.Label();
+			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.colReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colCharacter = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_blocksDisplayBrowser = new Glyssen.Controls.Browser();
-			this.m_title = new System.Windows.Forms.Label();
-			this.m_l10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_panel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridViewBlocks)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -116,49 +116,6 @@ namespace Glyssen.Controls
 			this.m_dataGridViewBlocks.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.HandleDataGridViewBlocksCellValueNeeded);
 			this.m_dataGridViewBlocks.SelectionChanged += new System.EventHandler(this.HandleSelectionChanged);
 			// 
-			// colReference
-			// 
-			this.colReference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.colReference.DefaultCellStyle = dataGridViewCellStyle2;
-			this.colReference.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Reference!Reference";
-			this.colReference.MinimumWidth = 30;
-			this.colReference.Name = "colReference";
-			this.colReference.ReadOnly = true;
-			this.colReference.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.colReference.Width = 313;
-			// 
-			// colCharacter
-			// 
-			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			this.colCharacter.FillWeight = 200F;
-			this.colCharacter.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Character!Character";
-			this.colCharacter.MinimumWidth = 60;
-			this.colCharacter.Name = "colCharacter";
-			this.colCharacter.ReadOnly = true;
-			this.colCharacter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.colCharacter.Width = 305;
-			// 
-			// colDelivery
-			// 
-			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			this.colDelivery.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Delivery!Delivery";
-			this.colDelivery.MinimumWidth = 60;
-			this.colDelivery.Name = "colDelivery";
-			this.colDelivery.ReadOnly = true;
-			this.colDelivery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.colDelivery.Width = 289;
-			// 
-			// colText
-			// 
-			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.colText.FillWeight = 200F;
-			this.colText.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Text!Text";
-			this.colText.MinimumWidth = 60;
-			this.colText.Name = "colText";
-			this.colText.ReadOnly = true;
-			this.colText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
 			// m_blocksDisplayBrowser
 			// 
 			this.m_blocksDisplayBrowser.AutoSize = true;
@@ -192,6 +149,49 @@ namespace Glyssen.Controls
 			// 
 			this.m_l10NSharpExtender.LocalizationManagerId = "Glyssen";
 			this.m_l10NSharpExtender.PrefixForNewItems = "DialogBoxes.ScriptBlocksViewer";
+			// 
+			// colReference
+			// 
+			this.colReference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.colReference.DefaultCellStyle = dataGridViewCellStyle2;
+			this.colReference.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Reference!Reference";
+			this.colReference.MinimumWidth = 30;
+			this.colReference.Name = "colReference";
+			this.colReference.ReadOnly = true;
+			this.colReference.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colReference.Width = 313;
+			// 
+			// colCharacter
+			// 
+			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.colCharacter.FillWeight = 200F;
+			this.colCharacter.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Character!Character";
+			this.colCharacter.MinimumWidth = 60;
+			this.colCharacter.Name = "colCharacter";
+			this.colCharacter.ReadOnly = true;
+			this.colCharacter.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colCharacter.Width = 305;
+			// 
+			// colDelivery
+			// 
+			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.colDelivery.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Delivery!Delivery";
+			this.colDelivery.MinimumWidth = 60;
+			this.colDelivery.Name = "colDelivery";
+			this.colDelivery.ReadOnly = true;
+			this.colDelivery.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.colDelivery.Width = 289;
+			// 
+			// colText
+			// 
+			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colText.FillWeight = 200F;
+			this.colText.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Text!VernacularText";
+			this.colText.MinimumWidth = 60;
+			this.colText.Name = "colText";
+			this.colText.ReadOnly = true;
+			this.colText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
 			// ScriptBlocksViewer
 			// 
