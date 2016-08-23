@@ -88,7 +88,7 @@
     <ReferenceBlocks style="p" chapter="1" initialStartVerse="9" characterId="Michael, archangel">
       <text>“May the Lord rebuke you!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Qoy Rәbb sәnә qadağan etsin!&gt;&gt; dedi.</text>
+    <text>&lt;&lt;Qoy Rәbb sәnә qadağan etsin!&gt;&gt; dedi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="10" characterId="narrator-JUD">

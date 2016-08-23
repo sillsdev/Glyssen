@@ -618,7 +618,7 @@
       <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Tous ont quitté le bon chemin, ils sont tous corrompus. Personne ne fait le bien, même pas un seul!</text>
+    <text>Tous ont quitté le bon chemin, ils sont tous corrompus. Personne ne fait le bien, même pas un seul!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
@@ -628,9 +628,9 @@
       <text>“whose mouth is full of cursing and bitterness.”</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Leur gorge est comme une tombe ouverte. Avec leur langue, ils trompent les autres. Sous leurs lèvres, c'est le poison de la vipère. </text>
+    <text>&lt;&lt;Leur gorge est comme une tombe ouverte. Avec leur langue, ils trompent les autres. Sous leurs lèvres, c'est le poison de la vipère. </text>
     <verse num="14" />
-    <text>Leur bouche est pleine de malédictions et de paroles blessantes.</text>
+    <text>Leur bouche est pleine de malédictions et de paroles blessantes.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
@@ -640,7 +640,7 @@
       <text>Destruction and misery are in their ways.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Avec leurs pieds, ils courent rapidement pour aller tuer. </text>
+    <text>&lt;&lt;Avec leurs pieds, ils courent rapidement pour aller tuer. </text>
     <verse num="16" />
     <text>Ils détruisent tout sur leur passage et ils sèment le malheur.</text>
   </block>
@@ -1999,7 +1999,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="scripture">
       <text>“The elder will serve the younger.”</text>
     </ReferenceBlocks>
-    <text>Le frère aîné servira le plus jeune.</text>
+    <text>&lt;&lt;Le frère aîné servira le plus jeune.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM">

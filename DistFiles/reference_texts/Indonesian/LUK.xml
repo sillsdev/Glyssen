@@ -202,7 +202,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering">
       <text>“He has seen a vision in the temple!”</text>
     </ReferenceBlocks>
-    <text>bahwa ia telah melihat suatu penglihatan di dalam Bait Suci.</text>
+    <text>&lt;&lt;bahwa ia telah melihat suatu penglihatan di dalam Bait Suci.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-LUK">
@@ -579,7 +579,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="62" characterId="neighbors and relatives of Elizabeth and Zacharias (Zechariah)">
       <text>“What is his name?”</text>
     </ReferenceBlocks>
-    <text>anaknya itu.</text>
+    <text>&lt;&lt;anaknya itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="63" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="63" characterId="narrator-LUK">
@@ -601,7 +601,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="64" characterId="Zacharias (Zechariah)">
       <text>“Praise God!”</text>
     </ReferenceBlocks>
-    <text>berkata-kata dan memuji Allah.</text>
+    <text>berkata-kata dan memuji Allah.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="65" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="65" characterId="narrator-LUK">
@@ -947,7 +947,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
       <text>“A pair of turtledoves, or two young pigeons.”</text>
     </ReferenceBlocks>
-    <text>yaitu sepasang burung tekukur atau dua ekor anak burung merpati.</text>
+    <text>&lt;&lt;yaitu sepasang burung tekukur atau dua ekor anak burung merpati.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-LUK">
@@ -2601,7 +2601,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law">
       <text>“What can we do about Jesus?”</text>
     </ReferenceBlocks>
-    <text>mereka lakukan terhadap Yesus.</text>
+    <text>&lt;&lt;mereka lakukan terhadap Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-LUK">
@@ -2703,7 +2703,7 @@
       <text>Rejoice in that day, and leap for joy, for behold, your reward is great in heaven, for their fathers did the same thing to the prophets.”</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>&lt;&lt;Bersukacitalah pada waktu itu dan bergembiralah, sebab sesungguhnya, upahmu besar di sorga; karena secara demikian juga nenek moyang mereka telah memperlakukan para nabi.</text>
+    <text>&lt;&lt;Bersukacitalah pada waktu itu dan bergembiralah, sebab sesungguhnya, upahmu besar di sorga; karena secara demikian juga nenek moyang mereka telah memperlakukan para nabi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
@@ -2711,7 +2711,7 @@
       <text>“But woe to you who are rich! For you have received your consolation.</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Tetapi celakalah kamu, hai kamu yang kaya, karena dalam kekayaanmu kamu telah memperoleh penghiburanmu.</text>
+    <text>&lt;&lt;Tetapi celakalah kamu, hai kamu yang kaya, karena dalam kekayaanmu kamu telah memperoleh penghiburanmu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2759,7 +2759,7 @@
       <text>Give to everyone who asks you, and don't ask him who takes away your goods to give them back again.”</text>
     </ReferenceBlocks>
     <verse num="30" />
-    <text>Berilah kepada setiap orang yang meminta kepadamu; dan janganlah meminta kembali kepada orang yang mengambil kepunyaanmu.</text>
+    <text>Berilah kepada setiap orang yang meminta kepadamu; dan janganlah meminta kembali kepada orang yang mengambil kepunyaanmu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start">
@@ -2815,7 +2815,7 @@
       <text>Don't judge, and you won't be judged. Don't condemn, and you won't be condemned. Set free, and you will be set free.”</text>
     </ReferenceBlocks>
     <verse num="37" />
-    <text>&lt;&lt;Janganlah kamu menghakimi, maka kamupun tidak akan dihakimi. Dan janganlah kamu menghukum, maka kamupun tidak akan dihukum; ampunilah dan kamu akan diampuni.</text>
+    <text>&lt;&lt;Janganlah kamu menghakimi, maka kamupun tidak akan dihakimi. Dan janganlah kamu menghukum, maka kamupun tidak akan dihukum; ampunilah dan kamu akan diampuni.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus">
@@ -3075,7 +3075,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="15" characterId="Jesus">
       <text>“Receive your son.”</text>
     </ReferenceBlocks>
-    <text>menyerahkannya kepada ibunya.</text>
+    <text>&lt;&lt;menyerahkannya kepada ibunya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK">
@@ -3562,7 +3562,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="disciples">
       <text>“What does this parable mean?”</text>
     </ReferenceBlocks>
-    <text>kepada-Nya, apa maksud perumpamaan itu.</text>
+    <text>kepada-Nya, apa maksud perumpamaan itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="narrator-LUK">
@@ -3818,7 +3818,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons">
       <text>“Do not send us into the abyss!”</text>
     </ReferenceBlocks>
-    <text>mereka masuk ke dalam jurang maut.</text>
+    <text>&lt;&lt;mereka masuk ke dalam jurang maut.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK">
@@ -3832,7 +3832,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
       <text>“Allow us to enter into the pigs!”</text>
     </ReferenceBlocks>
-    <text>supaya Ia memperkenankan mereka memasuki babi-babi itu.</text>
+    <text>supaya Ia memperkenankan mereka memasuki babi-babi itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK">
@@ -3934,7 +3934,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="41" characterId="Jairus (synagogue leader)" delivery="pleading">
       <text>“Come to my house!”</text>
     </ReferenceBlocks>
-    <text>supaya Yesus datang ke rumahnya,</text>
+    <text>&lt;&lt;supaya Yesus datang ke rumahnya,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="42" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="42" characterId="narrator-LUK">
@@ -3980,7 +3980,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd">
       <text>“Not I!”</text>
     </ReferenceBlocks>
-    <text>mengakuinya,</text>
+    <text>&lt;&lt;mengakuinya,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="narrator-LUK">
@@ -4116,7 +4116,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="55" characterId="Jesus">
       <text>“Give her something to eat.”</text>
     </ReferenceBlocks>
-    <text>memberi anak itu makan.</text>
+    <text>&lt;&lt;memberi anak itu makan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="56" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="56" characterId="narrator-LUK">
@@ -4130,7 +4130,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="56" characterId="Jesus" delivery="warning">
       <text>“Tell no one what has been done.”</text>
     </ReferenceBlocks>
-    <text>kepada siapapun juga apa yang terjadi itu.</text>
+    <text>&lt;&lt;kepada siapapun juga apa yang terjadi itu.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="LUK" initialStartVerse="0" characterId="BC-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
@@ -4200,7 +4200,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="people">
       <text>“John had risen from the dead!”</text>
     </ReferenceBlocks>
-    <text>bahwa Yohanes telah bangkit dari antara orang mati.</text>
+    <text>&lt;&lt;bahwa Yohanes telah bangkit dari antara orang mati.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-LUK">
@@ -4214,7 +4214,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="people, other">
       <text>“Elijah has appeared,”</text>
     </ReferenceBlocks>
-    <text>bahwa Elia telah muncul kembali,</text>
+    <text>&lt;&lt;bahwa Elia telah muncul kembali,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-LUK">
@@ -4226,7 +4226,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="people, other">
       <text>“One of the old prophets had risen again.”</text>
     </ReferenceBlocks>
-    <text>bahwa seorang dari nabi-nabi dahulu telah bangkit.</text>
+    <text>bahwa seorang dari nabi-nabi dahulu telah bangkit.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-LUK">
@@ -4410,7 +4410,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="Jesus" delivery="warning">
       <text>“Tell this to no one!”</text>
     </ReferenceBlocks>
-    <text>mereka jangan memberitahukan hal itu kepada siapapun.</text>
+    <text>&lt;&lt;mereka jangan memberitahukan hal itu kepada siapapun.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-LUK">
@@ -4626,7 +4626,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="everyone who witnessed healing of boy" delivery="praising">
       <text>“Behold the majesty of God!”</text>
     </ReferenceBlocks>
-    <text>karena kebesaran Allah.</text>
+    <text>&lt;&lt;karena kebesaran Allah.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="43" characterId="narrator-LUK">
@@ -4876,7 +4876,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="Jesus" delivery="giving orders">
       <text>“I am sending you out two by two into every city and place where I am about to go.”</text>
     </ReferenceBlocks>
-    <text>berdua-dua mendahului-Nya ke setiap kota dan tempat yang hendak dikunjungi-Nya.</text>
+    <text>berdua-dua mendahului-Nya ke setiap kota dan tempat yang hendak dikunjungi-Nya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="narrator-LUK">
@@ -5060,7 +5060,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Jesus">
       <text>“I thank you, O Father, Lord of heaven and earth, that you have hidden these things from the wise and understanding, and revealed them to little children. Yes, Father, for so it was well-pleasing in your sight.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Aku bersyukur kepada-Mu, Bapa, Tuhan langit dan bumi, karena semuanya itu Engkau sembunyikan bagi orang bijak dan orang pandai, tetapi Engkau nyatakan kepada orang kecil. Ya Bapa, itulah yang berkenan kepada-Mu.</text>
+    <text>&lt;&lt;Aku bersyukur kepada-Mu, Bapa, Tuhan langit dan bumi, karena semuanya itu Engkau sembunyikan bagi orang bijak dan orang pandai, tetapi Engkau nyatakan kepada orang kecil. Ya Bapa, itulah yang berkenan kepada-Mu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="Jesus">
@@ -5406,7 +5406,7 @@
       <text>For everyone who asks receives. He who seeks finds. To him who knocks it will be opened.”</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Karena setiap orang yang meminta, menerima dan setiap orang yang mencari, mendapat dan setiap orang yang mengetok, baginya pintu dibukakan.</text>
+    <text>Karena setiap orang yang meminta, menerima dan setiap orang yang mencari, mendapat dan setiap orang yang mengetok, baginya pintu dibukakan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
@@ -5414,7 +5414,7 @@
       <text>“Which of you fathers, if your son asks for bread, will give him a stone? Or if he asks for a fish, he won't give him a snake instead of a fish, will he?</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Bapa manakah di antara kamu, jika anaknya minta ikan dari padanya, akan memberikan ular kepada anaknya itu ganti ikan?</text>
+    <text>&lt;&lt;Bapa manakah di antara kamu, jika anaknya minta ikan dari padanya, akan memberikan ular kepada anaknya itu ganti ikan?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5466,7 +5466,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="others (testing Jesus)">
       <text>“Show us a sign from Heaven!”</text>
     </ReferenceBlocks>
-    <text>untuk mencobai Dia.</text>
+    <text>&lt;&lt;untuk mencobai Dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="narrator-LUK">
@@ -5520,7 +5520,7 @@
       <text>But when someone stronger attacks him and overcomes him, he takes from him his whole armor in which he trusted, and divides his spoils.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Tetapi jika seorang yang lebih kuat dari padanya menyerang dan mengalahkannya, maka orang itu akan merampas perlengkapan senjata, yang diandalkannya, dan akan membagi-bagikan rampasannya.</text>
+    <text>Tetapi jika seorang yang lebih kuat dari padanya menyerang dan mengalahkannya, maka orang itu akan merampas perlengkapan senjata, yang diandalkannya, dan akan membagi-bagikan rampasannya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start">
@@ -5664,7 +5664,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="Pharisees, other">
       <text>“Come dine with me.”</text>
     </ReferenceBlocks>
-    <text>untuk makan di rumahnya.</text>
+    <text>&lt;&lt;untuk makan di rumahnya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="37" characterId="narrator-LUK">
@@ -5876,7 +5876,7 @@
       <text>But I will warn you whom you should fear. Fear him, who after he has killed, has power to cast into Gehenna. Yes, I tell you, fear him.”</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>Aku akan menunjukkan kepada kamu siapakah yang harus kamu takuti. Takutilah Dia, yang setelah membunuh, mempunyai kuasa untuk melemparkan orang ke dalam neraka. Sesungguhnya Aku berkata kepadamu, takutilah Dia!</text>
+    <text>Aku akan menunjukkan kepada kamu siapakah yang harus kamu takuti. Takutilah Dia, yang setelah membunuh, mempunyai kuasa untuk melemparkan orang ke dalam neraka. Sesungguhnya Aku berkata kepadamu, takutilah Dia!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Start">
@@ -5884,7 +5884,7 @@
       <text>“Aren't five sparrows sold for two assaria coins? Not one of them is forgotten by God.</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Bukankah burung pipit dijual lima ekor dua duit? Sungguhpun demikian tidak seekorpun dari padanya yang dilupakan Allah,</text>
+    <text>&lt;&lt;Bukankah burung pipit dijual lima ekor dua duit? Sungguhpun demikian tidak seekorpun dari padanya yang dilupakan Allah,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Continuation">
@@ -6486,7 +6486,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="13" characterId="woman who could not straighten up">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
-    <text>memuliakan Allah.</text>
+    <text>&lt;&lt;memuliakan Allah.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="narrator-LUK">
@@ -7176,7 +7176,7 @@
       <text>I am no more worthy to be called your son. Make me as one of your hired servants.’”</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>aku tidak layak lagi disebutkan anak bapa; jadikanlah aku sebagai salah seorang upahan bapa.</text>
+    <text>aku tidak layak lagi disebutkan anak bapa; jadikanlah aku sebagai salah seorang upahan bapa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Start">
@@ -7184,7 +7184,7 @@
       <text>“He arose, and came to his father. But while he was still far off, his father saw him, and was moved with compassion, and ran, and fell on his neck, and kissed him.</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Maka bangkitlah ia dan pergi kepada bapanya. Ketika ia masih jauh, ayahnya telah melihatnya, lalu tergeraklah hatinya oleh belas kasihan. Ayahnya itu berlari mendapatkan dia lalu merangkul dan mencium dia.</text>
+    <text>&lt;&lt;Maka bangkitlah ia dan pergi kepada bapanya. Ketika ia masih jauh, ayahnya telah melihatnya, lalu tergeraklah hatinya oleh belas kasihan. Ayahnya itu berlari mendapatkan dia lalu merangkul dan mencium dia.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7216,7 +7216,7 @@
       <text>for this, my son, was dead, and is alive again. He was lost, and is found.’ They began to celebrate.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Sebab anakku ini telah mati dan menjadi hidup kembali, ia telah hilang dan didapat kembali.&gt; Maka mulailah mereka bersukaria.</text>
+    <text>Sebab anakku ini telah mati dan menjadi hidup kembali, ia telah hilang dan didapat kembali.&gt; Maka mulailah mereka bersukaria.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start">
@@ -7714,7 +7714,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="leper, thankful Samaritan">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
-    <text>Allah dengan suara nyaring,</text>
+    <text>&lt;&lt;Allah dengan suara nyaring,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="16" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="16" characterId="narrator-LUK">
@@ -7768,7 +7768,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning">
       <text>“When will the Kingdom of God come?”</text>
     </ReferenceBlocks>
-    <text>apabila Kerajaan Allah akan datang,</text>
+    <text>&lt;&lt;apabila Kerajaan Allah akan datang,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="narrator-LUK">
@@ -8076,7 +8076,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="disciples">
       <text>“Do not bother the teacher!”</text>
     </ReferenceBlocks>
-    <text>memarahi orang-orang itu.</text>
+    <text>memarahi orang-orang itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="narrator-LUK">
@@ -8350,7 +8350,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking">
       <text>“Be quiet!”</text>
     </ReferenceBlocks>
-    <text>menegor dia supaya ia diam.</text>
+    <text>&lt;&lt;menegor dia supaya ia diam.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="narrator-LUK">
@@ -8418,7 +8418,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising">
       <text>“Glory be to God!”</text>
     </ReferenceBlocks>
-    <text>memuliakan Allah.</text>
+    <text>&lt;&lt;memuliakan Allah.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="narrator-LUK">
@@ -8584,7 +8584,7 @@
       <text>The first came before him, saying, ‘Lord, your mina has made ten more minas.’”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Orang yang pertama datang dan berkata: Tuan, mina tuan yang satu itu telah menghasilkan sepuluh mina.</text>
+    <text>Orang yang pertama datang dan berkata: Tuan, mina tuan yang satu itu telah menghasilkan sepuluh mina.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="17" characterId="Jesus">
@@ -8592,7 +8592,7 @@
       <text>“He said to him, ‘Well done, you good servant! Because you were found faithful with very little, you shall have authority over ten cities.’”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Katanya kepada orang itu: Baik sekali perbuatanmu itu, hai hamba yang baik; engkau telah setia dalam perkara kecil, karena itu terimalah kekuasaan atas sepuluh kota.</text>
+    <text>&lt;&lt;Katanya kepada orang itu: Baik sekali perbuatanmu itu, hai hamba yang baik; engkau telah setia dalam perkara kecil, karena itu terimalah kekuasaan atas sepuluh kota.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="18" characterId="Jesus">
@@ -8600,7 +8600,7 @@
       <text>“The second came, saying, ‘Your mina, Lord, has made five minas.’”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Datanglah yang kedua dan berkata: Tuan, mina tuan telah menghasilkan lima mina.</text>
+    <text>&lt;&lt;Datanglah yang kedua dan berkata: Tuan, mina tuan telah menghasilkan lima mina.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
@@ -8608,7 +8608,7 @@
       <text>“So he said to him, ‘And you are to be over five cities.’</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Katanya kepada orang itu: Dan engkau, kuasailah lima kota.</text>
+    <text>&lt;&lt;Katanya kepada orang itu: Dan engkau, kuasailah lima kota.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
@@ -8624,7 +8624,7 @@
       <text>For I was afraid of you because you are an exacting man. You take up that which you didn't lay down, and reap that which you didn't sow.’”</text>
     </ReferenceBlocks>
     <verse num="21" />
-    <text>Sebab aku takut akan tuan, karena tuan adalah manusia yang keras; tuan mengambil apa yang tidak pernah tuan taruh dan tuan menuai apa yang tidak tuan tabur.</text>
+    <text>Sebab aku takut akan tuan, karena tuan adalah manusia yang keras; tuan mengambil apa yang tidak pernah tuan taruh dan tuan menuai apa yang tidak tuan tabur.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="22" characterId="Jesus" multiBlockQuote="Start">
@@ -8950,7 +8950,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders">
       <text>“We don't know.”</text>
     </ReferenceBlocks>
-    <text>bahwa mereka tidak tahu dari mana baptisan itu.</text>
+    <text>&lt;&lt;bahwa mereka tidak tahu dari mana baptisan itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="8" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="8" characterId="narrator-LUK">
@@ -9385,7 +9385,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="disciples, some">
       <text>“Look at the precious stones and offerings to God that adorn the temple!”</text>
     </ReferenceBlocks>
-    <text>berbicara tentang Bait Allah dan mengagumi bangunan itu yang dihiasi dengan batu yang indah-indah dan dengan berbagai-bagai barang persembahan,</text>
+    <text>berbicara tentang Bait Allah dan mengagumi bangunan itu yang dihiasi dengan batu yang indah-indah dan dengan berbagai-bagai barang persembahan,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-LUK">
@@ -9719,7 +9719,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="4" characterId="Judas Iscariot">
       <text>“I will deliver him to you.”</text>
     </ReferenceBlocks>
-    <text>menyerahkan Yesus kepada mereka.</text>
+    <text>&lt;&lt;menyerahkan Yesus kepada mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="narrator-LUK">
@@ -9733,7 +9733,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard">
       <text>“We will pay you for this.”</text>
     </ReferenceBlocks>
-    <text>sejumlah uang kepadanya.</text>
+    <text>&lt;&lt;sejumlah uang kepadanya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="narrator-LUK">
@@ -9921,7 +9921,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="23" characterId="disciples">
       <text>“Who among us would do such a terrible thing?”</text>
     </ReferenceBlocks>
-    <text>siapa di antara mereka yang akan berbuat demikian.</text>
+    <text>&lt;&lt;siapa di antara mereka yang akan berbuat demikian.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="24" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="24" characterId="narrator-LUK">
@@ -9935,7 +9935,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="24" characterId="disciples">
       <text>“Which one of us is the greatest?”</text>
     </ReferenceBlocks>
-    <text>siapakah yang dapat dianggap terbesar di antara mereka.</text>
+    <text>&lt;&lt;siapakah yang dapat dianggap terbesar di antara mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="25" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="25" characterId="narrator-LUK">
@@ -10601,7 +10601,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="Pilate">
       <text>“Is this man a Galilean?”</text>
     </ReferenceBlocks>
-    <text>apakah orang itu seorang Galilea.</text>
+    <text>&lt;&lt;apakah orang itu seorang Galilea.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="narrator-LUK">
@@ -10723,7 +10723,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="20" characterId="Pilate">
       <text>“Why not release Jesus?”</text>
     </ReferenceBlocks>
-    <text>karena ia ingin melepaskan Yesus.</text>
+    <text>&lt;&lt;karena ia ingin melepaskan Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="21" characterId="narrator-LUK">
@@ -10765,7 +10765,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="crowd">
       <text>“Crucify him! Crucify him!”</text>
     </ReferenceBlocks>
-    <text>supaya Ia disalibkan,</text>
+    <text>&lt;&lt;supaya Ia disalibkan,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="narrator-LUK">
@@ -10781,7 +10781,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="24" characterId="Pilate">
       <text>“I will do what you ask.”</text>
     </ReferenceBlocks>
-    <text>supaya tuntutan mereka dikabulkan.</text>
+    <text>&lt;&lt;supaya tuntutan mereka dikabulkan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="narrator-LUK">
@@ -10795,7 +10795,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate">
       <text>“Do what you want with him.”</text>
     </ReferenceBlocks>
-    <text>untuk diperlakukan semau-maunya.</text>
+    <text>untuk diperlakukan semau-maunya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="narrator-LUK">
@@ -11193,7 +11193,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome">
       <text>“Do you remember what he said?”</text>
     </ReferenceBlocks>
-    <text>akan perkataan Yesus itu.</text>
+    <text>&lt;&lt;akan perkataan Yesus itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="narrator-LUK">

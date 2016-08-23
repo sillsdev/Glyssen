@@ -622,7 +622,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture">
       <text>“When he ascended on high, he led captivity captive, and gave gifts to men.”</text>
     </ReferenceBlocks>
-    <text>восшед на высоту, пленил плен и дал дары человекам.</text>
+    <text>“восшед на высоту, пленил плен и дал дары человекам.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-EPH">
@@ -930,7 +930,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="scripture">
       <text>“Awake, you who sleep, and arise from the dead, and Christ will shine on you.”</text>
     </ReferenceBlocks>
-    <text>'встань, спящий, и воскресни из мертвых, и осветит тебя Христос'.</text>
+    <text>“'встань, спящий, и воскресни из мертвых, и осветит тебя Христос'.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="15" characterId="narrator-EPH">
@@ -1066,7 +1066,7 @@
       <text>“For this cause a man will leave his father and mother, and will be joined to his wife. The two will become one flesh.”</text>
     </ReferenceBlocks>
     <verse num="31" />
-    <text>Посему оставит человек отца своего и мать и прилепится к жене своей, и будут двое одна плоть.</text>
+    <text>“Посему оставит человек отца своего и мать и прилепится к жене своей, и будут двое одна плоть.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="narrator-EPH">
@@ -1104,7 +1104,7 @@
       <text>“Honor your father and mother,”</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>Почитай отца твоего и мать,</text>
+    <text>“Почитай отца твоего и мать,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">
@@ -1118,7 +1118,7 @@
       <text>“that it may be well with you, and you may live long on the earth.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>да будет тебе благо, и будешь долголетен на земле.</text>
+    <text>“да будет тебе благо, и будешь долголетен на земле.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-EPH">

@@ -190,7 +190,7 @@
       <text>For it is written in the book of Psalms, ‘Let his habitation be made desolate. Let no one dwell therein;’ and, ‘Let another take his office.’”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>&lt;&lt;Sebab ada tertulis dalam kitab Mazmur: Biarlah perkemahannya menjadi sunyi, dan biarlah tidak ada penghuni di dalamnya: dan: Biarlah jabatannya diambil orang lain.</text>
+    <text>&lt;&lt;Sebab ada tertulis dalam kitab Mazmur: Biarlah perkemahannya menjadi sunyi, dan biarlah tidak ada penghuni di dalamnya: dan: Biarlah jabatannya diambil orang lain.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="21" characterId="Peter (Simon)" multiBlockQuote="Start">
@@ -364,7 +364,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jews, God-fearing from every nation, some" delivery="mocking">
       <text>“They are filled with new wine.”</text>
     </ReferenceBlocks>
-    <text>Mereka sedang mabuk oleh anggur manis.</text>
+    <text>&lt;&lt;Mereka sedang mabuk oleh anggur manis.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ACT">
@@ -752,7 +752,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="people in temple courts, all the">
       <text>“What has happened to him is truly amazing!”</text>
     </ReferenceBlocks>
-    <text>takjub dan tercengang tentang apa yang telah terjadi padanya.</text>
+    <text>&lt;&lt;takjub dan tercengang tentang apa yang telah terjadi padanya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="narrator-ACT">
@@ -822,7 +822,7 @@
       <text>But the things which God announced by the mouth of all his prophets, that Christ should suffer, he thus fulfilled.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Tetapi dengan jalan demikian Allah telah menggenapi apa yang telah difirmankan-Nya dahulu dengan perantaraan nabi-nabi-Nya, yaitu bahwa Mesias yang diutus-Nya harus menderita.</text>
+    <text>Tetapi dengan jalan demikian Allah telah menggenapi apa yang telah difirmankan-Nya dahulu dengan perantaraan nabi-nabi-Nya, yaitu bahwa Mesias yang diutus-Nya harus menderita.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start">
@@ -832,7 +832,7 @@
       <text>and that he may send Christ Jesus, who was ordained for you before.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Karena itu sadarlah dan bertobatlah, supaya dosamu dihapuskan, </text>
+    <text>&lt;&lt;Karena itu sadarlah dan bertobatlah, supaya dosamu dihapuskan, </text>
     <verse num="20" />
     <text>agar Tuhan mendatangkan waktu kelegaan, dan mengutus Yesus, yang dari semula diuntukkan bagimu sebagai Kristus.&gt;&gt;</text>
   </block>
@@ -1006,7 +1006,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin">
       <text>“These men are disciples of Jesus!”</text>
     </ReferenceBlocks>
-    <text>mengenal keduanya sebagai pengikut Yesus.</text>
+    <text>&lt;&lt;mengenal keduanya sebagai pengikut Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="14" characterId="narrator-ACT">
@@ -1054,7 +1054,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin">
       <text>“Do not preach in the name of Jesus any more!”</text>
     </ReferenceBlocks>
-    <text>supaya sama sekali jangan berbicara atau mengajar lagi dalam nama Yesus.</text>
+    <text>&lt;&lt;supaya sama sekali jangan berbicara atau mengajar lagi dalam nama Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ACT">
@@ -1449,7 +1449,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="captain of the temple guard/chief priests">
       <text>“What will happen now?”</text>
     </ReferenceBlocks>
-    <text>bertanya apa yang telah terjadi dengan rasul-rasul itu.</text>
+    <text>bertanya apa yang telah terjadi dengan rasul-rasul itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="narrator-ACT">
@@ -3008,7 +3008,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="Barnabas">
       <text>“He saw and spoke to the Lord while he was on the road, and he preached boldly at Damascas in the Name of the Lord.”</text>
     </ReferenceBlocks>
-    <text>bagaimana Saulus melihat Tuhan di tengah jalan dan bahwa Tuhan berbicara dengan dia dan bagaimana keberaniannya mengajar di Damsyik dalam nama Yesus.</text>
+    <text>&lt;&lt;bagaimana Saulus melihat Tuhan di tengah jalan dan bahwa Tuhan berbicara dengan dia dan bagaimana keberaniannya mengajar di Damsyik dalam nama Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="narrator-ACT">
@@ -3344,7 +3344,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="Peter (Simon)">
       <text>“What does this vision mean?”</text>
     </ReferenceBlocks>
-    <text>apa kiranya arti penglihatan yang telah dilihatnya itu.</text>
+    <text>&lt;&lt;apa kiranya arti penglihatan yang telah dilihatnya itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ACT">
@@ -3360,7 +3360,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="men from Cornelius">
       <text>“Is Simon, who is surnamed Peter lodging here?”</text>
     </ReferenceBlocks>
-    <text>apakah Simon yang disebut Petrus ada menumpang di rumah itu.</text>
+    <text>&lt;&lt;apakah Simon yang disebut Petrus ada menumpang di rumah itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ACT">
@@ -3884,7 +3884,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="Agabus the prophet">
       <text>“There will be a large famine all over the world.”</text>
     </ReferenceBlocks>
-    <text>bahwa seluruh dunia akan ditimpa bahaya kelaparan yang besar.</text>
+    <text>&lt;&lt;bahwa seluruh dunia akan ditimpa bahaya kelaparan yang besar.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ACT">
@@ -3994,7 +3994,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="angel" delivery="commanding">
       <text>“Get dressed and put on your sandals.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ikatlah pinggangmu</text>
+    <text>&lt;&lt;Ikatlah pinggangmu&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="8" characterId="narrator-ACT">
@@ -4082,7 +4082,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="Rhoda" delivery="insistent">
       <text>“It is true… he is at the door!”</text>
     </ReferenceBlocks>
-    <text>bahwa benar-benar demikian.</text>
+    <text>bahwa benar-benar demikian.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-ACT">
@@ -4568,7 +4568,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="42" characterId="people in Pisidian Antioch synagogue">
       <text>“Preach these words to us on the next Sabbath.”</text>
     </ReferenceBlocks>
-    <text>mereka diminta untuk berbicara tentang pokok itu pula pada hari Sabat berikutnya.</text>
+    <text>&lt;&lt;mereka diminta untuk berbicara tentang pokok itu pula pada hari Sabat berikutnya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="43" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="43" characterId="narrator-ACT">
@@ -4860,7 +4860,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="Barnabas/Paul">
       <text>“Through many afflictions we will enter into the Kingdom of God.”</text>
     </ReferenceBlocks>
-    <text>bahwa untuk masuk ke dalam Kerajaan Allah kita harus mengalami banyak sengsara.</text>
+    <text>&lt;&lt;bahwa untuk masuk ke dalam Kerajaan Allah kita harus mengalami banyak sengsara.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="23" characterId="narrator-ACT">
@@ -5244,7 +5244,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="37" characterId="Barnabas">
       <text>“Let's take John who is also called Mark with us.”</text>
     </ReferenceBlocks>
-    <text>juga Yohanes yang disebut Markus;</text>
+    <text>&lt;&lt;juga Yohanes yang disebut Markus;&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="38" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="38" characterId="narrator-ACT">
@@ -5258,7 +5258,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="38" characterId="Paul">
       <text>“It is not a good idea to take someone who deserted us in Pamphylia, and did not continue with us in the work.”</text>
     </ReferenceBlocks>
-    <text>bahwa tidak baik membawa serta orang yang telah meninggalkan mereka di Pamfilia dan tidak mau turut bekerja bersama-sama dengan mereka.</text>
+    <text>bahwa tidak baik membawa serta orang yang telah meninggalkan mereka di Pamfilia dan tidak mau turut bekerja bersama-sama dengan mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="39" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="39" characterId="narrator-ACT">
@@ -5684,7 +5684,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="39" characterId="magistrates, chief">
       <text>“Please, leave our city.”</text>
     </ReferenceBlocks>
-    <text>supaya mereka meninggalkan kota itu.</text>
+    <text>&lt;&lt;supaya mereka meninggalkan kota itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="40" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="40" characterId="narrator-ACT">
@@ -8009,7 +8009,7 @@
       <text>“Claudius Lysias to the most excellent governor Felix: Greetings.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>&lt;&lt;Salam dari Klaudius Lisias kepada wali negeri Feliks yang mulia.</text>
+    <text>&lt;&lt;Salam dari Klaudius Lisias kepada wali negeri Feliks yang mulia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start">
@@ -8079,7 +8079,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="34" characterId="Felix, governor of Judea">
       <text>“What province are you from?”</text>
     </ReferenceBlocks>
-    <text>manakah asalnya. Dan ketika ia mendengar,</text>
+    <text>&lt;&lt;manakah asalnya. Dan ketika ia mendengar,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="34" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="34" characterId="narrator-ACT">
@@ -8091,7 +8091,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="34" characterId="Paul">
       <text>“I am from Cilicia.”</text>
     </ReferenceBlocks>
-    <text>dari Kilikia,</text>
+    <text>&lt;&lt;dari Kilikia,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="narrator-ACT">
@@ -8117,7 +8117,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="Felix, governor of Judea" delivery="with authority">
       <text>“Keep him in Herod's palace.”</text>
     </ReferenceBlocks>
-    <text>menahan Paulus di istana Herodes.</text>
+    <text>&lt;&lt;menahan Paulus di istana Herodes.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="24" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="24" initialStartVerse="0">
@@ -8403,7 +8403,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="4" characterId="Festus, governor of Judea" multiBlockQuote="Start">
       <text>“Paul is being held at Caesarea, and I myself am going there soon.</text>
     </ReferenceBlocks>
-    <text>bahwa Paulus tetap ditahan di Kaisarea dan bahwa ia sendiri bermaksud untuk segera kembali ke sana.</text>
+    <text>&lt;&lt;bahwa Paulus tetap ditahan di Kaisarea dan bahwa ia sendiri bermaksud untuk segera kembali ke sana.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="5" characterId="Festus, governor of Judea" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="5" characterId="Festus, governor of Judea" multiBlockQuote="Continuation">
@@ -8595,7 +8595,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="Festus, governor of Judea">
       <text>“Tomorrow,”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Besok</text>
+    <text>&lt;&lt;Besok&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT">
@@ -8787,7 +8787,7 @@
       <text>“I said, ‘Who are you, Lord?’” “He said, ‘I am Jesus, whom you are persecuting.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>&lt;&lt;Tetapi aku menjawab: &lt;Siapa Engkau, Tuhan?&gt; Kata Tuhan: &lt;Akulah Yesus, yang kauaniaya itu.</text>
+    <text>&lt;&lt;Tetapi aku menjawab: &lt;Siapa Engkau, Tuhan?&gt; Kata Tuhan: &lt;Akulah Yesus, yang kauaniaya itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start">
@@ -9406,7 +9406,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="6" characterId="Malta islanders">
       <text>“He is a god!”</text>
     </ReferenceBlocks>
-    <text>bahwa ia seorang dewa.</text>
+    <text>&lt;&lt;bahwa ia seorang dewa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="7" characterId="narrator-ACT">
@@ -9592,7 +9592,7 @@
       <text>For this people's heart has grown callous. Their ears are dull of hearing. Their eyes they have closed. Lest they should see with their eyes, hear with their ears, understand with their heart, and would turn again, and I would heal them.’”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Sebab hati bangsa ini telah menebal, dan telinganya berat mendengar, dan matanya melekat tertutup; supaya jangan mereka melihat dengan matanya dan mendengar dengan telinganya dan mengerti dengan hatinya, lalu berbalik sehingga Aku menyembuhkan mereka.</text>
+    <text>Sebab hati bangsa ini telah menebal, dan telinganya berat mendengar, dan matanya melekat tertutup; supaya jangan mereka melihat dengan matanya dan mendengar dengan telinganya dan mengerti dengan hatinya, lalu berbalik sehingga Aku menyembuhkan mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="28" characterId="Paul" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="28" characterId="Paul">

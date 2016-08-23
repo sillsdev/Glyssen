@@ -200,7 +200,7 @@
       <text>“Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel”;</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>&lt;&lt;Sesungguhnya, anak dara itu akan mengandung dan melahirkan seorang anak laki-laki, dan mereka akan menamakan Dia Imanuel</text>
+    <text>&lt;&lt;Sesungguhnya, anak dara itu akan mengandung dan melahirkan seorang anak laki-laki, dan mereka akan menamakan Dia Imanuel&gt;&gt;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
@@ -264,7 +264,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="4" characterId="Herod the Great">
       <text>“Where is the Christ to be be born?”</text>
     </ReferenceBlocks>
-    <text>di mana Mesias akan dilahirkan.</text>
+    <text>&lt;&lt;di mana Mesias akan dilahirkan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="5" characterId="narrator-MAT">
@@ -300,7 +300,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="Herod the Great">
       <text>“What time did the star appear?”</text>
     </ReferenceBlocks>
-    <text>bilamana bintang itu nampak.</text>
+    <text>&lt;&lt;bilamana bintang itu nampak.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-MAT">
@@ -1834,7 +1834,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="4" characterId="Jesus" delivery="giving orders">
       <text>“See that you tell nobody, but go, show yourself to the priest, and offer the gift that Moses commanded, as a testimony to them.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ingatlah, jangan engkau memberitahukan hal ini kepada siapapun, tetapi pergilah, perlihatkanlah dirimu kepada imam dan persembahkanlah persembahan yang diperintahkan Musa, sebagai bukti bagi mereka</text>
+    <text>&lt;&lt;Ingatlah, jangan engkau memberitahukan hal ini kepada siapapun, tetapi pergilah, perlihatkanlah dirimu kepada imam dan persembahkanlah persembahan yang diperintahkan Musa, sebagai bukti bagi mereka&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="5" characterId="narrator-MAT">
@@ -2197,7 +2197,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Gadarene (or Gerasenes) people" delivery="pleading">
       <text>“Depart from our borders.”</text>
     </ReferenceBlocks>
-    <text>supaya Ia meninggalkan daerah mereka.</text>
+    <text>&lt;&lt;supaya Ia meninggalkan daerah mereka.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
@@ -2495,7 +2495,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="people at Jairus' house" delivery="laughing, mocking">
       <text>“The girl is dead!”</text>
     </ReferenceBlocks>
-    <text>menertawakan Dia.</text>
+    <text>&lt;&lt;menertawakan Dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-MAT">
@@ -3447,7 +3447,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="Jesus" delivery="warning">
       <text>“Do not make my presence known.”</text>
     </ReferenceBlocks>
-    <text>melarang mereka memberitahukan siapa Dia,</text>
+    <text>&lt;&lt;melarang mereka memberitahukan siapa Dia,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-MAT">
@@ -3569,7 +3569,7 @@
       <text>Or how can one enter into the house of the strong man, and plunder his goods, unless he first bind the strong man? Then he will plunder his house.”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>&lt;&lt;Atau bagaimanakah orang dapat memasuki rumah seorang yang kuat dan merampas harta bendanya apabila tidak diikatnya dahulu orang kuat itu? Sesudah diikatnya barulah dapat ia merampok rumah itu.</text>
+    <text>&lt;&lt;Atau bagaimanakah orang dapat memasuki rumah seorang yang kuat dan merampas harta bendanya apabila tidak diikatnya dahulu orang kuat itu? Sesudah diikatnya barulah dapat ia merampok rumah itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start">
@@ -3911,7 +3911,7 @@
       <text>“But blessed are your eyes, for they see; and your ears, for they hear.</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Tetapi berbahagialah matamu karena melihat dan telingamu karena mendengar.</text>
+    <text>&lt;&lt;Tetapi berbahagialah matamu karena melihat dan telingamu karena mendengar.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4171,7 +4171,7 @@
       <text>“Again, the Kingdom of Heaven is like a treasure hidden in the field, which a man found, and hid. In his joy, he goes and sells all that he has, and buys that field.”</text>
     </ReferenceBlocks>
     <verse num="44" />
-    <text>&lt;&lt;Hal Kerajaan Sorga itu seumpama harta yang terpendam di ladang, yang ditemukan orang, lalu dipendamkannya lagi. Oleh sebab sukacitanya pergilah ia menjual seluruh miliknya lalu membeli ladang itu.</text>
+    <text>&lt;&lt;Hal Kerajaan Sorga itu seumpama harta yang terpendam di ladang, yang ditemukan orang, lalu dipendamkannya lagi. Oleh sebab sukacitanya pergilah ia menjual seluruh miliknya lalu membeli ladang itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
@@ -4179,7 +4179,7 @@
       <text>“Again, the Kingdom of Heaven is like a man who is a merchant seeking fine pearls.</text>
     </ReferenceBlocks>
     <verse num="45" />
-    <text>Demikian pula hal Kerajaan Sorga itu seumpama seorang pedagang yang mencari mutiara yang indah.</text>
+    <text>&lt;&lt;Demikian pula hal Kerajaan Sorga itu seumpama seorang pedagang yang mencari mutiara yang indah.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4219,7 +4219,7 @@
       <text>They will cast them into the furnace of fire. There will be the weeping and the gnashing of teeth.”</text>
     </ReferenceBlocks>
     <verse num="50" />
-    <text>lalu mencampakkan orang jahat ke dalam dapur api; di sanalah akan terdapat ratapan dan kertakan gigi.</text>
+    <text>lalu mencampakkan orang jahat ke dalam dapur api; di sanalah akan terdapat ratapan dan kertakan gigi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="51" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="51" characterId="narrator-MAT">
@@ -4759,7 +4759,7 @@
       <text>he shall not honor his father or mother.’ You have made the commandment of God void because of your tradition.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>orang itu tidak wajib lagi &lt;menghormati bapanya atau ibunya.&gt; Dengan demikian firman Allah kamu nyatakan tidak berlaku demi adat istiadatmu sendiri.</text>
+    <text>orang itu tidak wajib lagi &lt;menghormati bapanya atau ibunya.&gt; Dengan demikian firman Allah kamu nyatakan tidak berlaku demi adat istiadatmu sendiri.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
@@ -5100,7 +5100,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="35" characterId="Jesus">
       <text>“Sit down on the ground.”</text>
     </ReferenceBlocks>
-    <text>orang banyak itu duduk di tanah.</text>
+    <text>&lt;&lt;orang banyak itu duduk di tanah.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="36" characterId="narrator-MAT">
@@ -5152,7 +5152,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="Pharisees/Sadducees">
       <text>“Show us a sign from Heaven.”</text>
     </ReferenceBlocks>
-    <text>Mereka meminta supaya Ia memperlihatkan suatu tanda dari sorga kepada mereka.</text>
+    <text>&lt;&lt;Mereka meminta supaya Ia memperlihatkan suatu tanda dari sorga kepada mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-MAT">
@@ -5835,7 +5835,7 @@
       <text>but whoever causes one of these little ones who believe in me to stumble, it would be better for him that a huge millstone should be hung around his neck, and that he should be sunk in the depths of the sea.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>&lt;&lt;Tetapi barangsiapa menyesatkan salah satu dari anak-anak kecil ini yang percaya kepada-Ku, lebih baik baginya jika sebuah batu kilangan diikatkan pada lehernya lalu ia ditenggelamkan ke dalam laut.</text>
+    <text>&lt;&lt;Tetapi barangsiapa menyesatkan salah satu dari anak-anak kecil ini yang percaya kepada-Ku, lebih baik baginya jika sebuah batu kilangan diikatkan pada lehernya lalu ia ditenggelamkan ke dalam laut.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
@@ -5875,7 +5875,7 @@
       <text>For the Son of Man came to save that which was lost.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>(Karena Anak Manusia datang untuk menyelamatkan yang hilang.)</text>
+    <text>(Karena Anak Manusia datang untuk menyelamatkan yang hilang.)&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -5883,7 +5883,7 @@
       <text>“What do you think? If a man has one hundred sheep, and one of them goes astray, doesn't he leave the ninety-nine, go to the mountains, and seek that which has gone astray?</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Bagaimana pendapatmu? Jika seorang mempunyai seratus ekor domba, dan seekor di antaranya sesat, tidakkah ia akan meninggalkan yang sembilan puluh sembilan ekor di pegunungan dan pergi mencari yang sesat itu?</text>
+    <text>&lt;&lt;Bagaimana pendapatmu? Jika seorang mempunyai seratus ekor domba, dan seekor di antaranya sesat, tidakkah ia akan meninggalkan yang sembilan puluh sembilan ekor di pegunungan dan pergi mencari yang sesat itu?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7273,7 +7273,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="42" characterId="Jesus">
       <text>“Did you never read in the Scriptures, ‘The stone which the builders rejected, the same was made the head of the corner. This was from the Lord. It is marvelous in our eyes?’”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Belum pernahkah kamu baca dalam Kitab Suci: Batu yang dibuang oleh tukang-tukang bangunan telah menjadi batu penjuru: hal itu terjadi dari pihak Tuhan, suatu perbuatan ajaib di mata kita.</text>
+    <text>&lt;&lt;Belum pernahkah kamu baca dalam Kitab Suci: Batu yang dibuang oleh tukang-tukang bangunan telah menjadi batu penjuru: hal itu terjadi dari pihak Tuhan, suatu perbuatan ajaib di mata kita.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Start">
@@ -7281,7 +7281,7 @@
       <text>“Therefore I tell you, the Kingdom of God will be taken away from you, and will be given to a nation bringing forth its fruit.</text>
     </ReferenceBlocks>
     <verse num="43" />
-    <text>Sebab itu, Aku berkata kepadamu, bahwa Kerajaan Allah akan diambil dari padamu dan akan diberikan kepada suatu bangsa yang akan menghasilkan buah Kerajaan itu.</text>
+    <text>&lt;&lt;Sebab itu, Aku berkata kepadamu, bahwa Kerajaan Allah akan diambil dari padamu dan akan diberikan kepada suatu bangsa yang akan menghasilkan buah Kerajaan itu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="44" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7311,7 +7311,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="46" characterId="chief priests/Pharisees">
       <text>“We fear the people because they think he is a prophet.”</text>
     </ReferenceBlocks>
-    <text>takut kepada orang banyak, karena orang banyak itu menganggap Dia nabi.</text>
+    <text>&lt;&lt;takut kepada orang banyak, karena orang banyak itu menganggap Dia nabi.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="22" book="MAT" initialStartVerse="0" characterId="BC-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="22" initialStartVerse="0">
@@ -7373,7 +7373,7 @@
       <text>When the king heard that, he was angry, and sent his armies, destroyed those murderers, and burned their city.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Maka murkalah raja itu, lalu menyuruh pasukannya ke sana untuk membinasakan pembunuh-pembunuh itu dan membakar kota mereka.</text>
+    <text>Maka murkalah raja itu, lalu menyuruh pasukannya ke sana untuk membinasakan pembunuh-pembunuh itu dan membakar kota mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -7389,7 +7389,7 @@
       <text>Go therefore to the intersections of the highways, and as many as you may find, invite to the marriage feast.’”</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Sebab itu pergilah ke persimpangan-persimpangan jalan dan undanglah setiap orang yang kamu jumpai di sana ke perjamuan kawin itu.</text>
+    <text>Sebab itu pergilah ke persimpangan-persimpangan jalan dan undanglah setiap orang yang kamu jumpai di sana ke perjamuan kawin itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Start">
@@ -7862,7 +7862,7 @@
       <text>“Woe to you, scribes and Pharisees, hypocrites! For you devour widows’ houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.”</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>&lt;&lt;Celakalah kamu, hai ahli-ahli Taurat dan orang-orang Farisi, hai kamu orang-orang munafik, karena kamu menutup pintu-pintu Kerajaan Sorga di depan orang. Sebab kamu sendiri tidak masuk dan kamu merintangi mereka yang berusaha untuk masuk.</text>
+    <text>&lt;&lt;Celakalah kamu, hai ahli-ahli Taurat dan orang-orang Farisi, hai kamu orang-orang munafik, karena kamu menutup pintu-pintu Kerajaan Sorga di depan orang. Sebab kamu sendiri tidak masuk dan kamu merintangi mereka yang berusaha untuk masuk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
@@ -7958,7 +7958,7 @@
       <text>“Woe to you, scribes and Pharisees, hypocrites! For you clean the outside of the cup and of the platter, but within they are full of extortion and unrighteousness.”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>&lt;&lt;Celakalah kamu, hai ahli-ahli Taurat dan orang-orang Farisi, hai kamu orang-orang munafik, sebab cawan dan pinggan kamu bersihkan sebelah luarnya, tetapi sebelah dalamnya penuh rampasan dan kerakusan.</text>
+    <text>&lt;&lt;Celakalah kamu, hai ahli-ahli Taurat dan orang-orang Farisi, hai kamu orang-orang munafik, sebab cawan dan pinggan kamu bersihkan sebelah luarnya, tetapi sebelah dalamnya penuh rampasan dan kerakusan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="Jesus" delivery="rebuking">
@@ -8292,7 +8292,7 @@
       <text>For there will arise false christs, and false prophets, and they will show great signs and wonders, so as to lead astray, if possible, even the chosen ones.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Sebab Mesias-mesias palsu dan nabi-nabi palsu akan muncul dan mereka akan mengadakan tanda-tanda yang dahsyat dan mujizat-mujizat, sehingga sekiranya mungkin, mereka menyesatkan orang-orang pilihan juga.</text>
+    <text>Sebab Mesias-mesias palsu dan nabi-nabi palsu akan muncul dan mereka akan mengadakan tanda-tanda yang dahsyat dan mujizat-mujizat, sehingga sekiranya mungkin, mereka menyesatkan orang-orang pilihan juga.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start">
@@ -8826,7 +8826,7 @@
       <text>When did we see you sick, or in prison, and come to you?’”</text>
     </ReferenceBlocks>
     <verse num="39" />
-    <text>Bilamanakah kami melihat Engkau sakit atau dalam penjara dan kami mengunjungi Engkau?</text>
+    <text>Bilamanakah kami melihat Engkau sakit atau dalam penjara dan kami mengunjungi Engkau?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Start">

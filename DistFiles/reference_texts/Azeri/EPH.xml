@@ -1104,7 +1104,7 @@
       <text>“Honor your father and mother,”</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>&lt;&lt;Ata-anana hörmәt et ki,</text>
+    <text>&lt;&lt;Ata-anana hörmәt et ki,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-EPH">

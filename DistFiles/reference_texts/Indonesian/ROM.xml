@@ -618,7 +618,7 @@
       <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Semua orang telah menyeleweng, mereka semua tidak berguna, tidak ada yang berbuat baik, seorangpun tidak.</text>
+    <text>Semua orang telah menyeleweng, mereka semua tidak berguna, tidak ada yang berbuat baik, seorangpun tidak.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
@@ -640,7 +640,7 @@
       <text>Destruction and misery are in their ways.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>kaki mereka cepat untuk menumpahkan darah. </text>
+    <text>&lt;&lt;kaki mereka cepat untuk menumpahkan darah. </text>
     <verse num="16" />
     <text>Keruntuhan dan kebinasaan mereka tinggalkan di jalan mereka,</text>
   </block>
@@ -2723,7 +2723,7 @@
       <text>“For who has known the mind of the Lord? Or who has been his counselor?”</text>
     </ReferenceBlocks>
     <verse num="34" />
-    <text>Sebab, siapakah yang mengetahui pikiran Tuhan? Atau siapakah yang pernah menjadi penasihat-Nya?</text>
+    <text>Sebab, siapakah yang mengetahui pikiran Tuhan? Atau siapakah yang pernah menjadi penasihat-Nya?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture">
@@ -2731,7 +2731,7 @@
       <text>“Or who has first given to him, and it will be repaid to him again?”</text>
     </ReferenceBlocks>
     <verse num="35" />
-    <text>Atau siapakah yang pernah memberikan sesuatu kepada-Nya, sehingga Ia harus menggantikannya?</text>
+    <text>Atau siapakah yang pernah memberikan sesuatu kepada-Nya, sehingga Ia harus menggantikannya?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM">

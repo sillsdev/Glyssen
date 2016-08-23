@@ -1300,7 +1300,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
       <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;El Señor dice: Vendrán días en que haré una nueva alianza con Israel y con Judá.</text>
+    <text>&lt;&lt;El Señor dice: Vendrán días en que haré una nueva alianza con Israel y con Judá.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
@@ -1308,7 +1308,7 @@
       <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn't continue in my covenant, and I disregarded them,” says the Lord.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Esta alianza no será como la que hice con sus antepasados, cuando los tomé de la mano para sacarlos de la tierra de Egipto; y como ellos no cumplieron mi alianza, yo los abandoné, dice el Señor.</text>
+    <text>Esta alianza no será como la que hice con sus antepasados, cuando los tomé de la mano para sacarlos de la tierra de Egipto; y como ellos no cumplieron mi alianza, yo los abandoné, dice el Señor.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
@@ -1316,13 +1316,13 @@
       <text>“For this is the covenant that I will make with the house of Israel. After those days,” says the Lord;</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>&lt;&lt;La alianza que haré con Israel después de aquellos días, será esta, dice el Señor:</text>
+    <text>&lt;&lt;La alianza que haré con Israel después de aquellos días, será esta, dice el Señor:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
       <text>“I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
     </ReferenceBlocks>
-    <text>Pondré mis leyes en su mente y las escribiré en su corazón. Yo seré su Dios y ellos serán mi pueblo.</text>
+    <text>&lt;&lt;Pondré mis leyes en su mente y las escribiré en su corazón. Yo seré su Dios y ellos serán mi pueblo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
@@ -1660,7 +1660,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
       <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them”</text>
     </ReferenceBlocks>
-    <text>Dios no quiere ni le agradan sacrificios ni ofrendas de animales, ni holocaustos para quitar el pecado.</text>
+    <text>&lt;&lt;Dios no quiere ni le agradan sacrificios ni ofrendas de animales, ni holocaustos para quitar el pecado.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
@@ -1744,7 +1744,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
       <text>‘After those days,’ says the Lord, ‘I will put my laws on their heart, I will also write them on their mind;’”</text>
     </ReferenceBlocks>
-    <text>Pondré mis leyes en su corazón y las escribiré en su mente.</text>
+    <text>Pondré mis leyes en su corazón y las escribiré en su mente.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">

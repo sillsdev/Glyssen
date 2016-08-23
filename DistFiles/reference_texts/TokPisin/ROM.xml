@@ -618,7 +618,7 @@
       <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Olgeta i lusim gutpela rot pinis. Olgeta i wankain tasol, ol i man nogut tru. I no gat wanpela bilong ol i save mekim gutpela pasin. Nogat tru.</text>
+    <text>Olgeta i lusim gutpela rot pinis. Olgeta i wankain tasol, ol i man nogut tru. I no gat wanpela bilong ol i save mekim gutpela pasin. Nogat tru."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
@@ -628,9 +628,9 @@
       <text>“whose mouth is full of cursing and bitterness.”</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Maus bilong ol i olsem matmat i op i stap. Ol i save mekim planti tok giaman. Na maus bilong ol i pulap long tok bilong bagarapim man, olsem marasin bilong snek nogut. </text>
+    <text>"Maus bilong ol i olsem matmat i op i stap. Ol i save mekim planti tok giaman. Na maus bilong ol i pulap long tok bilong bagarapim man, olsem marasin bilong snek nogut. </text>
     <verse num="14" />
-    <text>Oltaim ol i save tok nogut bilong bagarapim ol arapela man na givim hevi long ol.</text>
+    <text>Oltaim ol i save tok nogut bilong bagarapim ol arapela man na givim hevi long ol."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
@@ -640,7 +640,7 @@
       <text>Destruction and misery are in their ways.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Oltaim ol i save ran i go bilong kilim i dai ol arapela man. </text>
+    <text>"Oltaim ol i save ran i go bilong kilim i dai ol arapela man. </text>
     <verse num="16" />
     <text>Ol i save raun na mekim ol samting bilong bagarapim laip bilong ol arapela manmeri na givim hevi long ol.</text>
   </block>
@@ -2120,7 +2120,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
       <text>“I will call them ‘my people,’ which were not my people; and her ‘beloved,’ who was not beloved.”</text>
     </ReferenceBlocks>
-    <text>"Dispela ol manmeri bipo ol i no lain bilong mi, bai mi kolim ol lain bilong mi. Na dispela lain mi no bin laikim ol, bihain bai mi laikim ol tru.</text>
+    <text>"Dispela ol manmeri bipo ol i no lain bilong mi, bai mi kolim ol lain bilong mi. Na dispela lain mi no bin laikim ol, bihain bai mi laikim ol tru."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
@@ -2732,7 +2732,7 @@
       <text>“Or who has first given to him, and it will be repaid to him again?”</text>
     </ReferenceBlocks>
     <verse num="35" />
-    <text>Na "husat i bin givim samting long God pastaim na bai God i mas bekim samting long em?" Nogat tru.</text>
+    <text>Na "husat i bin givim samting long God pastaim na bai God i mas bekim samting long em?" Nogat tru."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM">
@@ -2904,7 +2904,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture">
       <text>“Vengeance belongs to me; I will repay, says the Lord.”</text>
     </ReferenceBlocks>
-    <text>"Bekim rong, em i wok bilong mi. Mi yet bai mi bekim rong bilong ol na mekim save long ol.</text>
+    <text>"Bekim rong, em i wok bilong mi. Mi yet bai mi bekim rong bilong ol na mekim save long ol."</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">

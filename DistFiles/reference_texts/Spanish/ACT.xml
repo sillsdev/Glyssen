@@ -56,7 +56,7 @@
       <text>For John indeed baptized in water, but you will be baptized in the Holy Spirit not many days from now.”</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>Es cierto que Juan bautizó con agua, pero dentro de pocos días ustedes serán bautizados con el Espíritu Santo.</text>
+    <text>Es cierto que Juan bautizó con agua, pero dentro de pocos días ustedes serán bautizados con el Espíritu Santo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-ACT">
@@ -70,7 +70,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="apostles">
       <text>“Lord, are you now restoring the kingdom to Israel?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Señor, ¿vas a restablecer en este momento el reino de Israel?</text>
+    <text>&lt;&lt;Señor, ¿vas a restablecer en este momento el reino de Israel?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="7" characterId="narrator-ACT">
@@ -92,7 +92,7 @@
       <text>But you will receive power when the Holy Spirit has come upon you. You will be witnesses to me in Jerusalem, in all Judea and Samaria, and to the uttermost parts of the earth.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>pero cuando el Espíritu Santo venga sobre ustedes, recibirán poder y saldrán a dar testimonio de mí, en Jerusalén, en toda la región de Judea y de Samaria, y hasta en las partes más lejanas de la tierra.</text>
+    <text>pero cuando el Espíritu Santo venga sobre ustedes, recibirán poder y saldrán a dar testimonio de mí, en Jerusalén, en toda la región de Judea y de Samaria, y hasta en las partes más lejanas de la tierra.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-ACT">
@@ -118,7 +118,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="men dressed in white, two (angels)">
       <text>“You men of Galilee, why do you stand looking into the sky? This Jesus, who was received up from you into the sky will come back in the same way as you saw him going into the sky.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Galileos, ¿por qué se han quedado mirando al cielo? Este mismo Jesús que estuvo entre ustedes y que ha sido llevado al cielo, vendrá otra vez de la misma manera que lo han visto irse allá.</text>
+    <text>&lt;&lt;Galileos, ¿por qué se han quedado mirando al cielo? Este mismo Jesús que estuvo entre ustedes y que ha sido llevado al cielo, vendrá otra vez de la misma manera que lo han visto irse allá.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-ACT">
@@ -336,7 +336,7 @@
       <text>Cretans and Arabians: we hear them speaking in our languages the mighty works of God!”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>unos son judíos de nacimiento y otros se han convertido al judaísmo. También los hay venidos de Creta y de Arabia. ¡Y los oímos hablar en nuestras propias lenguas de las maravillas de Dios!</text>
+    <text>unos son judíos de nacimiento y otros se han convertido al judaísmo. También los hay venidos de Creta y de Arabia. ¡Y los oímos hablar en nuestras propias lenguas de las maravillas de Dios!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="narrator-ACT">
@@ -350,7 +350,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jews, God-fearing from every nation" delivery="amazed">
       <text>“What does this mean?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Qué significa todo esto?</text>
+    <text>&lt;&lt;¿Qué significa todo esto?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="narrator-ACT">
@@ -364,7 +364,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jews, God-fearing from every nation, some" delivery="mocking">
       <text>“They are filled with new wine.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Es que están borrachos!</text>
+    <text>&lt;&lt;¡Es que están borrachos!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="narrator-ACT">
@@ -564,7 +564,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="37" characterId="crowd in Jerusalem on Pentecost">
       <text>“Brothers, what shall we do?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Hermanos, ¿qué debemos hacer?</text>
+    <text>&lt;&lt;Hermanos, ¿qué debemos hacer?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="38" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="38" characterId="narrator-ACT">
@@ -586,7 +586,7 @@
       <text>For the promise is to you, and to your children, and to all who are far off, even as many as the Lord our God will call to himself.”</text>
     </ReferenceBlocks>
     <verse num="39" />
-    <text>Porque esta promesa es para ustedes y para sus hijos, y también para todos los que están lejos; es decir, para todos aquellos a quienes el Señor nuestro Dios quiera llamar.</text>
+    <text>Porque esta promesa es para ustedes y para sus hijos, y también para todos los que están lejos; es decir, para todos aquellos a quienes el Señor nuestro Dios quiera llamar.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="40" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="40" characterId="narrator-ACT">
@@ -600,7 +600,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="40" characterId="Peter (Simon)">
       <text>“Save yourselves from this crooked generation!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Apártense de esta gente perversa!</text>
+    <text>&lt;&lt;¡Apártense de esta gente perversa!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="41" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="41" characterId="narrator-ACT">
@@ -696,7 +696,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="Peter (Simon)">
       <text>“Look at us.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Míranos.</text>
+    <text>&lt;&lt;Míranos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ACT">
@@ -714,7 +714,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="6" characterId="Peter (Simon)">
       <text>“Silver and gold have I none, but what I have, that I give you. In the name of Jesus Christ of Nazareth, get up and walk!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;No tengo plata ni oro, pero lo que tengo te doy: en el nombre de Jesucristo de Nazaret, levántate y anda.</text>
+    <text>&lt;&lt;No tengo plata ni oro, pero lo que tengo te doy: en el nombre de Jesucristo de Nazaret, levántate y anda.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="narrator-ACT">
@@ -806,7 +806,7 @@
       <text>By faith in his name, his name has made this man strong, whom you see and know. Yes, the faith which is through him has given him this perfect soundness in the presence of you all.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Lo que ha hecho cobrar fuerzas a este hombre que ustedes ven y conocen, es la fe en el nombre de Jesús. Esa fe en Jesús es la que lo ha hecho sanar completamente, como todos ustedes pueden ver.</text>
+    <text>Lo que ha hecho cobrar fuerzas a este hombre que ustedes ven y conocen, es la fe en el nombre de Jesús. Esa fe en Jesús es la que lo ha hecho sanar completamente, como todos ustedes pueden ver.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Start">
@@ -822,7 +822,7 @@
       <text>But the things which God announced by the mouth of all his prophets, that Christ should suffer, he thus fulfilled.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Pero Dios cumplió de este modo lo que antes había anunciado por medio de todos sus profetas: que su Mesías tenía que morir.</text>
+    <text>Pero Dios cumplió de este modo lo que antes había anunciado por medio de todos sus profetas: que su Mesías tenía que morir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start">
@@ -832,7 +832,7 @@
       <text>and that he may send Christ Jesus, who was ordained for you before.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Por eso, vuélvanse ustedes a Dios y conviértanse, para que él les borre sus pecados </text>
+    <text>&lt;&lt;Por eso, vuélvanse ustedes a Dios y conviértanse, para que él les borre sus pecados </text>
     <verse num="20" />
     <text>y el Señor les mande tiempos de alivio, enviándoles a Jesús, a quien desde el principio había escogido como Mesías para ustedes.</text>
   </block>
@@ -950,7 +950,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin">
       <text>“By what power, or in what name, have you done this?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Con qué autoridad, o en nombre de quién han hecho ustedes estas cosas?</text>
+    <text>&lt;&lt;¿Con qué autoridad, o en nombre de quién han hecho ustedes estas cosas?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-ACT">
@@ -992,7 +992,7 @@
       <text>There is salvation in none other, for neither is there any other name under heaven, that is given among men, by which we must be saved!”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>En ningún otro hay salvación, porque en todo el mundo Dios no nos ha dado otra persona por la cual podamos salvarnos.</text>
+    <text>En ningún otro hay salvación, porque en todo el mundo Dios no nos ha dado otra persona por la cual podamos salvarnos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-ACT">
@@ -1040,7 +1040,7 @@
       <text>But so that this spreads no further among the people, let's threaten them, that from now on they don't speak to anyone in this name.”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Pero a fin de que este asunto no siga corriendo de boca en boca, vamos a amenazarlos, para que de aquí en adelante no hablen del nombre de Jesús a nadie.</text>
+    <text>Pero a fin de que este asunto no siga corriendo de boca en boca, vamos a amenazarlos, para que de aquí en adelante no hablen del nombre de Jesús a nadie.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-ACT">
@@ -1068,7 +1068,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Peter (Simon)/John">
       <text>“Whether it is right in the sight of God to listen to you rather than to God, judge for yourselves.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Juzguen ustedes mismos si es justo delante de Dios obedecerlos a ustedes en lugar de obedecerlo a él.</text>
+    <text>&lt;&lt;Juzguen ustedes mismos si es justo delante de Dios obedecerlos a ustedes en lugar de obedecerlo a él.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Peter (Simon)/John" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Peter (Simon)/John">
@@ -1076,7 +1076,7 @@
       <text>“We can't help telling the things which we saw and heard.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Nosotros no podemos dejar de decir lo que hemos visto y oído.</text>
+    <text>&lt;&lt;Nosotros no podemos dejar de decir lo que hemos visto y oído.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="21" characterId="narrator-ACT">
@@ -1250,7 +1250,7 @@
       <text>While you kept it, didn't it remain your own? After it was sold, wasn't it in your power? How is it that you have conceived this thing in your heart? You haven't lied to men, but to God.”</text>
     </ReferenceBlocks>
     <verse num="4" />
-    <text>¿Acaso no era tuyo el terreno? Y puesto que lo vendiste, ¿no era tuyo el dinero? ¿Por qué se te ocurrió hacer esto? No has mentido a los hombres, sino a Dios.</text>
+    <text>¿Acaso no era tuyo el terreno? Y puesto que lo vendiste, ¿no era tuyo el dinero? ¿Por qué se te ocurrió hacer esto? No has mentido a los hombres, sino a Dios.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="narrator-ACT">
@@ -1284,7 +1284,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="Peter (Simon)">
       <text>“Tell me whether you sold the land for so much.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Dime, ¿vendieron ustedes el terreno en el precio que han dicho?</text>
+    <text>&lt;&lt;Dime, ¿vendieron ustedes el terreno en el precio que han dicho?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-ACT">
@@ -1296,7 +1296,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="Sapphira, wife of Ananias of Jerusalem">
       <text>“Yes, for so much.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Sí, en ese precio.</text>
+    <text>&lt;&lt;Sí, en ese precio.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="narrator-ACT">
@@ -1316,7 +1316,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <text>Behold, the feet of those who have buried your husband are at the door, and they will carry you out.”</text>
     </ReferenceBlocks>
-    <text>Ahí vienen los que se llevaron a enterrar a tu esposo, y ahora te van a llevar también a ti.</text>
+    <text>Ahí vienen los que se llevaron a enterrar a tu esposo, y ahora te van a llevar también a ti.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="narrator-ACT">
@@ -1434,7 +1434,7 @@
       <text>“We found the prison shut and locked, and the guards standing before the doors, but when we opened them, we found no one inside!”</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>&lt;&lt;Encontramos la cárcel perfectamente cerrada, y a los soldados vigilando delante de las puertas; pero cuando abrimos, no encontramos a nadie dentro.</text>
+    <text>&lt;&lt;Encontramos la cárcel perfectamente cerrada, y a los soldados vigilando delante de las puertas; pero cuando abrimos, no encontramos a nadie dentro.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="narrator-ACT">
@@ -1462,7 +1462,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="person who told the guards and priests where the apostles were" delivery="excited">
       <text>“Behold, the men whom you put in prison are in the temple, standing and teaching the people.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Los que ustedes metieron en la cárcel, están en el templo enseñando al pueblo.</text>
+    <text>&lt;&lt;Los que ustedes metieron en la cárcel, están en el templo enseñando al pueblo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="26" characterId="narrator-ACT">
@@ -1493,7 +1493,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="Ananias (Annas), the high priest (father-in-law of Caiaphas)" multiBlockQuote="Continuation">
       <text>Behold, you have filled Jerusalem with your teaching, and intend to bring this man's blood on us.”</text>
     </ReferenceBlocks>
-    <text>Han llenado toda Jerusalén con esas enseñanzas, y encima quieren echarnos la culpa de la muerte de ese hombre.</text>
+    <text>Han llenado toda Jerusalén con esas enseñanzas, y encima quieren echarnos la culpa de la muerte de ese hombre.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="29" characterId="narrator-ACT">
@@ -1531,7 +1531,7 @@
       <text>We are His witnesses of these things; and so also is the Holy Spirit, whom God has given to those who obey him.”</text>
     </ReferenceBlocks>
     <verse num="32" />
-    <text>De esto somos testigos nosotros, y también lo es el Espíritu Santo, que Dios ha dado a los que le obedecen.</text>
+    <text>De esto somos testigos nosotros, y también lo es el Espíritu Santo, que Dios ha dado a los que le obedecen.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="narrator-ACT">
@@ -1589,7 +1589,7 @@
       <text>But if it is of God, you will not be able to overthrow it, and you would be found even to be fighting against God!”</text>
     </ReferenceBlocks>
     <verse num="39" />
-    <text>pero si es cosa de Dios, no podrán ustedes vencerlos. Tengan cuidado, no se vayan a encontrar luchando contra Dios.</text>
+    <text>pero si es cosa de Dios, no podrán ustedes vencerlos. Tengan cuidado, no se vayan a encontrar luchando contra Dios.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="40" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="40" characterId="narrator-ACT">
@@ -1657,7 +1657,7 @@
       <text>But we will continue steadfastly in prayer and in the ministry of the word.”</text>
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Nosotros seguiremos orando y proclamando el mensaje de Dios.</text>
+    <text>Nosotros seguiremos orando y proclamando el mensaje de Dios.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-ACT">
@@ -1749,7 +1749,7 @@
       <text>For we have heard him say that this Jesus of Nazareth will destroy this place, and will change the customs which Moses delivered to us.”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Le hemos oído decir que ese Jesús de Nazaret va a destruir el templo y que va a cambiar las costumbres que nos dejó Moisés.</text>
+    <text>Le hemos oído decir que ese Jesús de Nazaret va a destruir el templo y que va a cambiar las costumbres que nos dejó Moisés.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="15" characterId="narrator-ACT">
@@ -1839,7 +1839,7 @@
       <text>He gave him the covenant of circumcision. So Abraham became the father of Isaac, and circumcised him the eighth day. Isaac became the father of Jacob, and Jacob became the father of the twelve patriarchs.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>En su alianza, Dios ordenó a Abraham la práctica de la circuncisión. Por eso, a los ocho días de haber nacido su hijo Isaac, Abraham lo circuncidó. Lo mismo hizo Isaac con su hijo Jacob, y este hizo lo mismo con sus hijos, que fueron los padres de las doce tribus de Israel.</text>
+    <text>En su alianza, Dios ordenó a Abraham la práctica de la circuncisión. Por eso, a los ocho días de haber nacido su hijo Isaac, Abraham lo circuncidó. Lo mismo hizo Isaac con su hijo Jacob, y este hizo lo mismo con sus hijos, que fueron los padres de las doce tribus de Israel.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Stephen" multiBlockQuote="Start">
@@ -1903,7 +1903,7 @@
       <text>They were all brought back to Shechem and laid in the tomb that Abraham bought for a price in silver from the children of Hamor of Shechem.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Los restos de Jacob fueron llevados a Siquem, y fueron enterrados en el sepulcro que Abraham había comprado por cierta cantidad de dinero a los hijos de Hamor, en Siquem.</text>
+    <text>Los restos de Jacob fueron llevados a Siquem, y fueron enterrados en el sepulcro que Abraham había comprado por cierta cantidad de dinero a los hijos de Hamor, en Siquem.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="Stephen" multiBlockQuote="Start">
@@ -1975,7 +1975,7 @@
       <text>He supposed that his brothers understood that God, by his hand, was giving them deliverance; but they didn't understand.”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>Y es que Moisés pensaba que sus hermanos los israelitas se darían cuenta de que por medio de él Dios iba a libertarlos; pero ellos no se dieron cuenta.</text>
+    <text>Y es que Moisés pensaba que sus hermanos los israelitas se darían cuenta de que por medio de él Dios iba a libertarlos; pero ellos no se dieron cuenta.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Stephen" multiBlockQuote="Start">
@@ -2007,7 +2007,7 @@
       <text>Moses fled at this saying, and became a stranger in the land of Midian, where he became the father of two sons.”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>Al oir esto, Moisés huyó y se fue a la tierra de Madián. Allí vivió como extranjero, y tuvo dos hijos.</text>
+    <text>Al oir esto, Moisés huyó y se fue a la tierra de Madián. Allí vivió como extranjero, y tuvo dos hijos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="Stephen" multiBlockQuote="Start">
@@ -2119,7 +2119,7 @@
       <text>You took up the tabernacle of Moloch, the star of your god Rephan, the figures which you made to worship. I will carry you away beyond Babylon.’”</text>
     </ReferenceBlocks>
     <verse num="43" />
-    <text>Por el contrario, cargaron con el santuario del dios Moloc y con la estrella del dios Refán, imágenes de dioses que ustedes mismos se hicieron para adorarlas. Por eso los lanzaré a ustedes al destierro más allá de Babilonia.</text>
+    <text>Por el contrario, cargaron con el santuario del dios Moloc y con la estrella del dios Refán, imágenes de dioses que ustedes mismos se hicieron para adorarlas. Por eso los lanzaré a ustedes al destierro más allá de Babilonia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="44" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="44" characterId="Stephen" multiBlockQuote="Start">
@@ -2225,7 +2225,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="56" characterId="Stephen">
       <text>“Behold, I see the heavens opened, and the Son of Man standing at the right hand of God!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Miren! Veo los cielos abiertos, y al Hijo del hombre a la derecha de Dios.</text>
+    <text>&lt;&lt;¡Miren! Veo los cielos abiertos, y al Hijo del hombre a la derecha de Dios.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="57" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="57" characterId="narrator-ACT">
@@ -2443,7 +2443,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="19" characterId="Simon, sorcerer">
       <text>“Give me also this power, that whomever I lay my hands on may receive the Holy Spirit.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Denme también a mí ese poder, para que aquel a quien yo le imponga las manos reciba igualmente el Espíritu Santo.</text>
+    <text>&lt;&lt;Denme también a mí ese poder, para que aquel a quien yo le imponga las manos reciba igualmente el Espíritu Santo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="20" characterId="narrator-ACT">
@@ -2481,7 +2481,7 @@
       <text>For I see that you are in the gall of bitterness and in the bondage of iniquity.”</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>Porque veo que estás lleno de amargura y que la maldad te tiene preso.</text>
+    <text>Porque veo que estás lleno de amargura y que la maldad te tiene preso.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-ACT">
@@ -2495,7 +2495,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="Simon, sorcerer">
       <text>“Pray for me to the Lord, that none of the things which you have spoken happen to me.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Oren ustedes al Señor por mí, para que no me pase nada de esto que me han dicho.</text>
+    <text>&lt;&lt;Oren ustedes al Señor por mí, para que no me pase nada de esto que me han dicho.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-ACT">
@@ -2557,7 +2557,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Philip the evangelist">
       <text>“Do you understand what you are reading?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Entiende usted lo que está leyendo?</text>
+    <text>&lt;&lt;¿Entiende usted lo que está leyendo?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-ACT">
@@ -2571,7 +2571,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="Ethiopian officer of Queen Candace">
       <text>“How can I, unless someone explains it to me?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Cómo lo voy a entender, si no hay quien me lo explique?</text>
+    <text>&lt;&lt;¿Cómo lo voy a entender, si no hay quien me lo explique?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-ACT">
@@ -2613,7 +2613,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="34" characterId="Ethiopian officer of Queen Candace">
       <text>“Who is the prophet talking about? About himself, or about someone else?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Dime, por favor, ¿de quién dice esto el profeta: de sí mismo o de algún otro?</text>
+    <text>&lt;&lt;Dime, por favor, ¿de quién dice esto el profeta: de sí mismo o de algún otro?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="35" characterId="narrator-ACT">
@@ -2635,7 +2635,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="Ethiopian officer of Queen Candace">
       <text>“Behold, here is water. What is keeping me from being baptized?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Aquí hay agua; ¿hay algún inconveniente para que yo sea bautizado?</text>
+    <text>&lt;&lt;Aquí hay agua; ¿hay algún inconveniente para que yo sea bautizado?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ACT">
@@ -2913,7 +2913,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="Ananias of Damascus" delivery="praying">
       <text>“Brother Saul, the Lord, who appeared to you on the road by which you came, has sent me, that you may receive your sight, and be filled with the Holy Spirit.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Hermano Saulo, el Señor Jesús, el que se te apareció en el camino por donde venías, me ha mandado para que recobres la vista y quedes lleno del Espíritu Santo.</text>
+    <text>&lt;&lt;Hermano Saulo, el Señor Jesús, el que se te apareció en el camino por donde venías, me ha mandado para que recobres la vista y quedes lleno del Espíritu Santo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ACT">
@@ -2951,7 +2951,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="all who heard (in synagogues)">
       <text>“Isn't this he who in Jerusalem made havoc of those who called on this name? And he had come here intending to bring them bound before the chief priests!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿No es este el que andaba persiguiendo en Jerusalén a los que invocan el nombre de Jesús? ¿No es el mismo que también vino aquí para arrestarlos y entregarlos a los jefes de los sacerdotes?</text>
+    <text>&lt;&lt;¿No es este el que andaba persiguiendo en Jerusalén a los que invocan el nombre de Jesús? ¿No es el mismo que también vino aquí para arrestarlos y entregarlos a los jefes de los sacerdotes?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="22" characterId="narrator-ACT">
@@ -3063,7 +3063,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="Peter (Simon)">
       <text>“Aeneas, Jesus Christ heals you. Take up your mat and get up.!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Eneas, Jesucristo te sana. Levántate y arregla tu cama.</text>
+    <text>&lt;&lt;Eneas, Jesucristo te sana. Levántate y arregla tu cama.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="34" characterId="narrator-ACT">
@@ -3125,7 +3125,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="Peter (Simon)">
       <text>“Tabitha, get up!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Tabitá, levántate!</text>
+    <text>&lt;&lt;¡Tabitá, levántate!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="40" characterId="narrator-ACT">
@@ -3389,7 +3389,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Peter (Simon)">
       <text>“Behold, I am he whom you seek. Why have you come?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Yo soy el que ustedes buscan; ¿a qué han venido?</text>
+    <text>&lt;&lt;Yo soy el que ustedes buscan; ¿a qué han venido?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="narrator-ACT">
@@ -3403,7 +3403,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="men from Cornelius" delivery="respectful">
       <text>“We were sent by Cornelius, a centurion, a righteous man and one who fears God, and well spoken of by all the nation of the Jews. He was directed by a holy angel to invite you to his house, and to listen to what you say.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Venimos de parte del capitán Cornelio, un hombre justo, que adora a Dios y a quien todos los judíos estiman y quieren. Un ángel de Dios le dijo que lo llamara a usted, para que usted vaya a su casa y él escuche lo que tenga que decirle.</text>
+    <text>&lt;&lt;Venimos de parte del capitán Cornelio, un hombre justo, que adora a Dios y a quien todos los judíos estiman y quieren. Un ángel de Dios le dijo que lo llamara a usted, para que usted vaya a su casa y él escuche lo que tenga que decirle.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="23" characterId="narrator-ACT">
@@ -3447,7 +3447,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="26" characterId="Peter (Simon)">
       <text>“Stand up! I myself am also a man.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ponte de pie, pues yo también soy un hombre, como tú.</text>
+    <text>&lt;&lt;Ponte de pie, pues yo también soy un hombre, como tú.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="27" characterId="narrator-ACT">
@@ -3473,7 +3473,7 @@
       <text>Therefore also I came without complaint when I was sent for. I ask therefore, why did you send for me?”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>Por eso, tan pronto como me avisaron, vine sin poner ninguna objeción. Quisiera saber, pues, por qué me han llamado.</text>
+    <text>Por eso, tan pronto como me avisaron, vine sin poner ninguna objeción. Quisiera saber, pues, por qué me han llamado.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="30" characterId="narrator-ACT">
@@ -3511,7 +3511,7 @@
       <text>Therefore I sent to you at once, and it was good of you to come. Now therefore we are all here present in the sight of God to hear all things that have been commanded you by God.”</text>
     </ReferenceBlocks>
     <verse num="33" />
-    <text>Así que envié inmediatamente a buscarte, y tú has tenido la bondad de venir. Ahora estamos todos aquí delante de Dios, y queremos escuchar todo lo que el Señor te ha mandado decirnos.</text>
+    <text>Así que envié inmediatamente a buscarte, y tú has tenido la bondad de venir. Ahora estamos todos aquí delante de Dios, y queremos escuchar todo lo que el Señor te ha mandado decirnos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="34" characterId="narrator-ACT">
@@ -3597,7 +3597,7 @@
       <text>All the prophets testify about him, that through his name everyone who believes in him will receive remission of sins.”</text>
     </ReferenceBlocks>
     <verse num="43" />
-    <text>Todos los profetas habían hablado ya de Jesús, y habían dicho que quienes creen en él reciben por medio de él el perdón de los pecados.</text>
+    <text>Todos los profetas habían hablado ya de Jesús, y habían dicho que quienes creen en él reciben por medio de él el perdón de los pecados.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="44" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="44" characterId="narrator-ACT">
@@ -3629,7 +3629,7 @@
       <text>“Can any man forbid the water, that these who have received the Holy Spirit as well as we should not be baptized?”</text>
     </ReferenceBlocks>
     <verse num="47" />
-    <text>&lt;&lt;¿Acaso puede impedirse que sean bautizadas estas personas, que han recibido el Espíritu Santo igual que nosotros?</text>
+    <text>&lt;&lt;¿Acaso puede impedirse que sean bautizadas estas personas, que han recibido el Espíritu Santo igual que nosotros?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="48" characterId="narrator-ACT">
@@ -3669,7 +3669,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="3" characterId="believers, circumcised (in Jerusalem)" delivery="critical">
       <text>“You went to uncircumcised men and ate with them!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Por qué fuiste a visitar a los que no son judíos, y comiste con ellos?</text>
+    <text>&lt;&lt;¿Por qué fuiste a visitar a los que no son judíos, y comiste con ellos?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ACT">
@@ -3781,7 +3781,7 @@
       <text>If then God gave to them the same gift as us, when we believed in the Lord Jesus Christ, who was I, that I could withstand God?”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Pues bien, si Dios les da también a ellos lo mismo que nos ha dado a nosotros que hemos creído en el Señor Jesucristo, ¿quién soy yo para oponerme a Dios?</text>
+    <text>Pues bien, si Dios les da también a ellos lo mismo que nos ha dado a nosotros que hemos creído en el Señor Jesucristo, ¿quién soy yo para oponerme a Dios?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-ACT">
@@ -3795,7 +3795,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="believers, circumcised (in Jerusalem)" delivery="rejoicing">
       <text>“Then God has also granted to the Gentiles repentance to life!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡De manera que también a los que no son judíos les ha dado Dios la oportunidad de volverse a él y alcanzar la vida eterna!</text>
+    <text>&lt;&lt;¡De manera que también a los que no son judíos les ha dado Dios la oportunidad de volverse a él y alcanzar la vida eterna!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-ACT">
@@ -4067,7 +4067,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="people praying at John Mark's mother's house">
       <text>“You are crazy!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Estás loca!</text>
+    <text>&lt;&lt;¡Estás loca!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="narrator-ACT">
@@ -4091,7 +4091,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="15" characterId="people praying at John Mark's mother's house">
       <text>“It is his angel.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;No es él; es su ángel.</text>
+    <text>&lt;&lt;No es él; es su ángel.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="16" characterId="narrator-ACT">
@@ -4113,7 +4113,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="Peter (Simon)">
       <text>“Tell these things to James, and to the brothers.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Cuenten esto a Santiago y a los hermanos.</text>
+    <text>&lt;&lt;Cuenten esto a Santiago y a los hermanos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="17" characterId="narrator-ACT">
@@ -4293,7 +4293,7 @@
       <text>Now, behold, the hand of the Lord is on you, and you will be blind, not seeing the sun for a season!”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Ahora el Señor te va a castigar: vas a quedarte ciego, y por algún tiempo no podrás ver la luz del sol.</text>
+    <text>Ahora el Señor te va a castigar: vas a quedarte ciego, y por algún tiempo no podrás ver la luz del sol.&gt;&gt;</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="11" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="13" initialStartVerse="11" characterId="narrator-ACT">
@@ -4337,7 +4337,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="synagogue rulers in Pisidian Antioch" delivery="gracious">
       <text>“Brothers, if you have any word of exhortation for the people, speak.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Hermanos, si tienen algo que decir para dar ánimo a la gente, díganlo ahora.</text>
+    <text>&lt;&lt;Hermanos, si tienen algo que decir para dar ánimo a la gente, díganlo ahora.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="16" characterId="narrator-ACT">
@@ -4439,7 +4439,7 @@
       <text>For the inhabitants of Jerusalem and their rulers did not recognize Jesus. By condemning him they fulfilled the words of the prophets which are read every sabbath day.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Pues los que vivían en Jerusalén, y sus jefes, no reconocieron a Jesús ni entendieron las palabras de los profetas que se leen en la sinagoga cada sábado; así ellos mismos, cuando condenaron a Jesús, cumplieron esas profecías.</text>
+    <text>Pues los que vivían en Jerusalén, y sus jefes, no reconocieron a Jesús ni entendieron las palabras de los profetas que se leen en la sinagoga cada sábado; así ellos mismos, cuando condenaron a Jesús, cumplieron esas profecías.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
@@ -4447,7 +4447,7 @@
       <text>“Though they found no cause for death, they still asked Pilate to have him killed.</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>Y aunque no encontraron en él ningún motivo para darle muerte, pidieron a Pilato que mandara matarlo.</text>
+    <text>&lt;&lt;Y aunque no encontraron en él ningún motivo para darle muerte, pidieron a Pilato que mandara matarlo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
@@ -4743,7 +4743,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="Paul" delivery="calling out">
       <text>“Stand upright on your feet!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Levántate y ponte derecho sobre tus pies!</text>
+    <text>&lt;&lt;¡Levántate y ponte derecho sobre tus pies!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="narrator-ACT">
@@ -4763,7 +4763,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="crowd in Lystra" delivery="excited">
       <text>“The gods have come down to us in the likeness of men!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Dioses en forma de hombre han bajado a nosotros!</text>
+    <text>&lt;&lt;¡Dioses en forma de hombre han bajado a nosotros!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ACT">
@@ -4811,7 +4811,7 @@
       <text>Yet he didn't leave himself without witness, in that he did good and gave you rains from the sky and fruitful seasons, filling our hearts with food and gladness.”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>nunca dejó de mostrar, por medio del bien que hacía, quién era él; pues él es quien les manda a ustedes la lluvia y las buenas cosechas, y quien les da lo suficiente para que coman y estén contentos.</text>
+    <text>nunca dejó de mostrar, por medio del bien que hacía, quién era él; pues él es quien les manda a ustedes la lluvia y las buenas cosechas, y quien les da lo suficiente para que coman y estén contentos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="narrator-ACT">
@@ -4925,7 +4925,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="1" characterId="men from Judea, some" delivery="harsh">
       <text>“Unless you are circumcised after the custom of Moses, you can't be saved.”</text>
     </ReferenceBlocks>
-    <text>No pueden salvarse a menos que se sometan al rito de la circuncisión, conforme a la práctica establecida por Moisés.</text>
+    <text>&lt;&lt;No pueden salvarse a menos que se sometan al rito de la circuncisión, conforme a la práctica establecida por Moisés.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="narrator-ACT">
@@ -4963,7 +4963,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="5" characterId="believers who were Pharisees">
       <text>“It is necessary to circumcise them, and to command them to keep the law of Moses.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Es necesario circuncidar a los creyentes que no son judíos, y mandarles que cumplan la ley de Moisés.</text>
+    <text>&lt;&lt;Es necesario circuncidar a los creyentes que no son judíos, y mandarles que cumplan la ley de Moisés.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="narrator-ACT">
@@ -5017,7 +5017,7 @@
       <text>But we believe that we are saved through the grace of the Lord Jesus Christ, just as they are.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Al contrario, nosotros creemos que somos salvados gratuitamente por la bondad del Señor Jesús, lo mismo que ellos.</text>
+    <text>Al contrario, nosotros creemos que somos salvados gratuitamente por la bondad del Señor Jesús, lo mismo que ellos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ACT">
@@ -5417,7 +5417,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="Lydia">
       <text>“If you have judged me to be faithful to the Lord, come into my house, and stay.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Si ustedes juzgan que de veras soy creyente en el Señor, vengan a alojarse en mi casa.</text>
+    <text>&lt;&lt;Si ustedes juzgan que de veras soy creyente en el Señor, vengan a alojarse en mi casa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-ACT">
@@ -5445,7 +5445,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="fortune telling slave girl">
       <text>“These men are servants of the Most High God, who proclaim to us a way of salvation!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Estos hombres son servidores del Dios altísimo, y les anuncian a ustedes el camino de salvación!</text>
+    <text>&lt;&lt;¡Estos hombres son servidores del Dios altísimo, y les anuncian a ustedes el camino de salvación!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ACT">
@@ -5459,7 +5459,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="Paul" delivery="sternly">
       <text>“I command you in the name of Jesus Christ to come out of her!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;En el nombre de Jesucristo, te ordeno que salgas de ella.</text>
+    <text>&lt;&lt;En el nombre de Jesucristo, te ordeno que salgas de ella.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-ACT">
@@ -5495,7 +5495,7 @@
       <text>They set forth customs which it is not lawful for us to accept or to observe, being Romans.”</text>
     </ReferenceBlocks>
     <verse num="21" />
-    <text>y enseñan costumbres que nosotros no podemos admitir ni practicar, porque somos romanos.</text>
+    <text>y enseñan costumbres que nosotros no podemos admitir ni practicar, porque somos romanos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="22" characterId="narrator-ACT">
@@ -5557,7 +5557,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="28" characterId="Paul" delivery="shouting">
       <text>“Don't harm yourself, for we are all here!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡No te hagas ningún daño, que todos estamos aquí!</text>
+    <text>&lt;&lt;¡No te hagas ningún daño, que todos estamos aquí!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="29" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="29" characterId="narrator-ACT">
@@ -5579,7 +5579,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="30" characterId="jailer in Philippi" delivery="fearful">
       <text>“Sirs, what must I do to be saved?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Señores, ¿qué debo hacer para salvarme?</text>
+    <text>&lt;&lt;Señores, ¿qué debo hacer para salvarme?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="31" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="31" characterId="narrator-ACT">
@@ -5593,7 +5593,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="31" characterId="Paul">
       <text>“Believe in the Lord Jesus Christ, and you will be saved, you and your household.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Cree en el Señor Jesús, y obtendrás la salvación tú y tu familia.</text>
+    <text>&lt;&lt;Cree en el Señor Jesús, y obtendrás la salvación tú y tu familia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="32" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="32" characterId="narrator-ACT">
@@ -5645,7 +5645,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="36" characterId="jailer in Philippi" delivery="respectful">
       <text>“The magistrates have sent to let you go; now therefore come out, and go in peace.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Los jueces me han ordenado que los suelte a ustedes; así que ya pueden irse tranquilos.</text>
+    <text>&lt;&lt;Los jueces me han ordenado que los suelte a ustedes; así que ya pueden irse tranquilos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="37" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="37" characterId="narrator-ACT">
@@ -5659,7 +5659,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="37" characterId="Paul" delivery="upset">
       <text>“They have beaten us publicly, without a trial, men who are Romans, and have cast us into prison! Do they now release us secretly? No, most certainly, but let them come themselves and bring us out!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;A nosotros, que somos ciudadanos romanos, nos azotaron públicamente sin antes habernos juzgado, y nos metieron en la cárcel; ¿y ahora quieren soltarnos a escondidas? ¡Pues no! Que vengan ellos mismos a sacarnos.</text>
+    <text>&lt;&lt;A nosotros, que somos ciudadanos romanos, nos azotaron públicamente sin antes habernos juzgado, y nos metieron en la cárcel; ¿y ahora quieren soltarnos a escondidas? ¡Pues no! Que vengan ellos mismos a sacarnos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="38" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="38" characterId="narrator-ACT">
@@ -5725,7 +5725,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="3" characterId="Paul">
       <text>“This Jesus, whom I proclaim to you, is the Christ.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Este mismo Jesús que yo les anuncio a ustedes, es el Mesías.</text>
+    <text>&lt;&lt;Este mismo Jesús que yo les anuncio a ustedes, es el Mesías.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="4" characterId="narrator-ACT">
@@ -5763,7 +5763,7 @@
       <text>These people whom Jason has received all act contrary to the decrees of Caesar, saying that there is another king, Jesus!”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>y Jasón los ha recibido en su casa! ¡Todos ellos están violando las leyes del emperador, pues dicen que hay otro rey, que es Jesús!</text>
+    <text>y Jasón los ha recibido en su casa! ¡Todos ellos están violando las leyes del emperador, pues dicen que hay otro rey, que es Jesús!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="8" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="8" characterId="narrator-ACT">
@@ -5857,7 +5857,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="Epicurean and Stoic philosophers, some" delivery="superior">
       <text>“What does this babbler want to say?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿De qué habla este charlatán?</text>
+    <text>&lt;&lt;¿De qué habla este charlatán?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT">
@@ -5869,7 +5869,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="Epicurean and Stoic philosophers, other" delivery="superior">
       <text>“He seems to be advocating foreign deities,”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Parece que es propagandista de dioses extranjeros.</text>
+    <text>&lt;&lt;Parece que es propagandista de dioses extranjeros.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="18" characterId="narrator-ACT">
@@ -5897,7 +5897,7 @@
       <text>For you bring certain strange things to our ears. We want to know therefore what these things mean.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Pues nos hablas de cosas extrañas, y queremos saber qué significan.</text>
+    <text>Pues nos hablas de cosas extrañas, y queremos saber qué significan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="21" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="21" characterId="narrator-ACT">
@@ -6005,7 +6005,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="32" characterId="Epicurean and Stoic philosophers, interested">
       <text>“We want to hear you again concerning this.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ya te oiremos hablar de esto en otra ocasión.</text>
+    <text>&lt;&lt;Ya te oiremos hablar de esto en otra ocasión.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="33" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="33" characterId="narrator-ACT">
@@ -6081,7 +6081,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="6" characterId="Paul" delivery="rebuking">
       <text>“Your blood be on your own heads! I am clean. From now on, I will go to the Gentiles!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;De ustedes será la culpa de su propia perdición; yo no me hago responsable. De hoy en adelante me iré a los que no son judíos.</text>
+    <text>&lt;&lt;De ustedes será la culpa de su propia perdición; yo no me hago responsable. De hoy en adelante me iré a los que no son judíos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="narrator-ACT">
@@ -6145,7 +6145,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="13" characterId="Jews, the" delivery="angry">
       <text>“This man persuades men to worship God contrary to the law.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Este hombre anda convenciendo a la gente de que deben adorar a Dios en una forma que va contra la ley.</text>
+    <text>&lt;&lt;Este hombre anda convenciendo a la gente de que deben adorar a Dios en una forma que va contra la ley.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="narrator-ACT">
@@ -6167,7 +6167,7 @@
       <text>but if they are questions about words and names and your own law, look to it yourselves. For I don't want to be a judge of these matters.”</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>pero como se trata de palabras, de nombres y de la ley de ustedes, arréglenlo ustedes mismos, porque yo no quiero meterme en esos asuntos.</text>
+    <text>pero como se trata de palabras, de nombres y de la ley de ustedes, arréglenlo ustedes mismos, porque yo no quiero meterme en esos asuntos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="narrator-ACT">
@@ -6307,7 +6307,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="Paul" delivery="to new believers">
       <text>“Did you receive the Holy Spirit when you believed?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Recibieron ustedes el Espíritu Santo cuando se hicieron creyentes?</text>
+    <text>&lt;&lt;¿Recibieron ustedes el Espíritu Santo cuando se hicieron creyentes?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="narrator-ACT">
@@ -6319,7 +6319,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="2" characterId="disciples in Ephesus, some">
       <text>“No, we haven't even heard that there is a Holy Spirit.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ni siquiera habíamos oído hablar del Espíritu Santo.</text>
+    <text>&lt;&lt;Ni siquiera habíamos oído hablar del Espíritu Santo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-ACT">
@@ -6333,7 +6333,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="Paul">
       <text>“Into what then were you baptized?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Pues ¿qué bautismo recibieron ustedes?</text>
+    <text>&lt;&lt;Pues ¿qué bautismo recibieron ustedes?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-ACT">
@@ -6345,7 +6345,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="disciples in Ephesus, some">
       <text>“Into John's baptism.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;El bautismo de Juan.</text>
+    <text>&lt;&lt;El bautismo de Juan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="narrator-ACT">
@@ -6789,7 +6789,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="Paul" delivery="calling out">
       <text>“Don't be troubled, for his life is in him.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;No se asusten; está vivo.</text>
+    <text>&lt;&lt;No se asusten; está vivo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="11" characterId="narrator-ACT">
@@ -6907,7 +6907,7 @@
       <text>But these things don't count; nor do I hold my life dear to myself, so that I may finish my race with joy, and the ministry which I received from the Lord Jesus, to fully testify to the Good News of the grace of God.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Para mí, sin embargo, mi propia vida no cuenta, con tal de que yo pueda correr con gozo hasta el fin de la carrera y cumplir el encargo que el Señor Jesús me dio de anunciar la buena noticia del amor de Dios.</text>
+    <text>Para mí, sin embargo, mi propia vida no cuenta, con tal de que yo pueda correr con gozo hasta el fin de la carrera y cumplir el encargo que el Señor Jesús me dio de anunciar la buena noticia del amor de Dios.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start">
@@ -7119,7 +7119,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="11" characterId="Agabus the prophet" delivery="proclaim">
       <text>“Thus says the Holy Spirit: ‘So will the Jews at Jerusalem bind the man who owns this belt, and will deliver him into the hands of the Gentiles.’”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;El Espíritu Santo dice que en Jerusalén los judíos atarán así al dueño de este cinturón, y lo entregarán en manos de los extranjeros.</text>
+    <text>&lt;&lt;El Espíritu Santo dice que en Jerusalén los judíos atarán así al dueño de este cinturón, y lo entregarán en manos de los extranjeros.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="12" characterId="narrator-ACT">
@@ -7137,7 +7137,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="13" characterId="Paul" delivery="sad">
       <text>“What are you doing, weeping and breaking my heart? For I am ready not only to be bound, but also to die at Jerusalem for the name of the Lord Jesus.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Por qué lloran y me ponen triste? Yo estoy dispuesto, no solamente a ser atado sino también a morir en Jerusalén por causa del Señor Jesús.</text>
+    <text>&lt;&lt;¿Por qué lloran y me ponen triste? Yo estoy dispuesto, no solamente a ser atado sino también a morir en Jerusalén por causa del Señor Jesús.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="narrator-ACT">
@@ -7151,7 +7151,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="14" characterId="Paul's traveling companions, Luke and" delivery="resigned">
       <text>“The Lord's will be done.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Que se haga la voluntad del Señor.</text>
+    <text>&lt;&lt;Que se haga la voluntad del Señor.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="15" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="15" characterId="narrator-ACT">
@@ -7245,7 +7245,7 @@
       <text>But concerning the Gentiles who believe, we have sent a letter with our decision: They should abstain from what has been sacrificed to idols, and from blood, and from what has been strangled, and from sexual immorality.”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>En cuanto a los que no son judíos y han creído, ya les hemos escrito nuestra decisión: no deben comer carne que haya sido ofrecida a los ídolos, ni sangre, ni carne de animales estrangulados, y deben evitar los matrimonios prohibidos.</text>
+    <text>En cuanto a los que no son judíos y han creído, ya les hemos escrito nuestra decisión: no deben comer carne que haya sido ofrecida a los ídolos, ni sangre, ni carne de animales estrangulados, y deben evitar los matrimonios prohibidos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="26" characterId="narrator-ACT">
@@ -7361,7 +7361,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="37" characterId="Paul">
       <text>“May I speak to you?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Puedo hablar con usted un momento?</text>
+    <text>&lt;&lt;¿Puedo hablar con usted un momento?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="37" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="37" characterId="narrator-ACT">
@@ -7381,7 +7381,7 @@
       <text>Aren't you then the Egyptian, who before these days stirred up to sedition and led out into the wilderness the four thousand men of the Assassins?”</text>
     </ReferenceBlocks>
     <verse num="38" />
-    <text>Entonces, ¿tú no eres aquel egipcio que hace algún tiempo comenzó una rebelión y salió al desierto con cuatro mil guerrilleros?</text>
+    <text>Entonces, ¿tú no eres aquel egipcio que hace algún tiempo comenzó una rebelión y salió al desierto con cuatro mil guerrilleros?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="39" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="39" characterId="narrator-ACT">
@@ -7395,7 +7395,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="39" characterId="Paul">
       <text>“I am a Jew, from Tarsus in Cilicia, a citizen of no insignificant city. I beg you, allow me to speak to the people.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Yo soy judío, natural de Tarso de Cilicia, ciudadano de una población importante; pero, por favor, permítame usted hablar a la gente.</text>
+    <text>&lt;&lt;Yo soy judío, natural de Tarso de Cilicia, ciudadano de una población importante; pero, por favor, permítame usted hablar a la gente.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="40" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="40" characterId="narrator-ACT">
@@ -7481,7 +7481,7 @@
       <text>“Those who were with me indeed saw the light and were afraid, but they didn't understand the voice of him who spoke to me.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Los que iban conmigo vieron la luz, pero no oyeron la voz del que me hablaba.</text>
+    <text>&lt;&lt;Los que iban conmigo vieron la luz, pero no oyeron la voz del que me hablaba.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
@@ -7621,7 +7621,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="25" characterId="Paul" delivery="sternly">
       <text>“Is it lawful for you to scourge a man who is a Roman, and not found guilty?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Tienen ustedes autoridad para azotar a un ciudadano romano, y además sin haberlo juzgado?</text>
+    <text>&lt;&lt;¿Tienen ustedes autoridad para azotar a un ciudadano romano, y además sin haberlo juzgado?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="26" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="26" characterId="narrator-ACT">
@@ -7635,7 +7635,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="26" characterId="centurion at Paul's flogging" delivery="anxious">
       <text>“Watch what you are about to do, for this man is a Roman!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Qué va a hacer usted? Este hombre es ciudadano romano.</text>
+    <text>&lt;&lt;¿Qué va a hacer usted? Este hombre es ciudadano romano.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="27" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="27" characterId="narrator-ACT">
@@ -7649,7 +7649,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem">
       <text>“Tell me, are you a Roman?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Es cierto que tú eres ciudadano romano?</text>
+    <text>&lt;&lt;¿Es cierto que tú eres ciudadano romano?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="27" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="27" characterId="narrator-ACT">
@@ -7661,7 +7661,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="27" characterId="Paul">
       <text>“Yes.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Sí.</text>
+    <text>&lt;&lt;Sí.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="28" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="28" characterId="narrator-ACT">
@@ -7675,7 +7675,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem">
       <text>“I bought my citizenship for a great price.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;A mí me costó mucho dinero hacerme ciudadano romano.</text>
+    <text>&lt;&lt;A mí me costó mucho dinero hacerme ciudadano romano.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="28" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="28" characterId="narrator-ACT">
@@ -7687,7 +7687,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="28" characterId="Paul">
       <text>“But I was born a Roman.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Pues yo lo soy por nacimiento.</text>
+    <text>&lt;&lt;Pues yo lo soy por nacimiento.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="29" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="29" characterId="narrator-ACT">
@@ -7723,7 +7723,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="1" characterId="Paul" delivery="sternly">
       <text>“Brothers, I have lived before God in all good conscience until this day.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Hermanos, yo he vivido hasta hoy con la conciencia tranquila delante de Dios.</text>
+    <text>&lt;&lt;Hermanos, yo he vivido hasta hoy con la conciencia tranquila delante de Dios.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="narrator-ACT">
@@ -7745,7 +7745,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Paul" delivery="rebuking">
       <text>“God will strike you, you whitewashed wall! Do you sit to judge me according to the law, and command me to be struck contrary to the law?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Dios le va a pegar a usted, hipócrita! Si usted está sentado ahí para juzgarme según la ley, ¿por qué contra la ley manda que me peguen?</text>
+    <text>&lt;&lt;¡Dios le va a pegar a usted, hipócrita! Si usted está sentado ahí para juzgarme según la ley, ¿por qué contra la ley manda que me peguen?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="narrator-ACT">
@@ -7759,7 +7759,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="those standing near Paul in Sanhedrin" delivery="angry">
       <text>“Do you malign God's high priest?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Así insultas al sumo sacerdote de Dios?</text>
+    <text>&lt;&lt;¿Así insultas al sumo sacerdote de Dios?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="narrator-ACT">
@@ -7787,7 +7787,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="Paul" delivery="calling out">
       <text>“Men and brothers, I am a Pharisee, a son of Pharisees. Concerning the hope and resurrection of the dead I am being judged!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Hermanos, yo soy fariseo, de familia de fariseos; y se me está juzgando porque espero la resurrección de los muertos.</text>
+    <text>&lt;&lt;Hermanos, yo soy fariseo, de familia de fariseos; y se me está juzgando porque espero la resurrección de los muertos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="7" characterId="narrator-ACT">
@@ -7817,7 +7817,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="9" characterId="Pharisees" delivery="arguing">
       <text>“We find no evil in this man. But if a spirit or angel has spoken to him, let's not fight against God!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Este hombre no ha hecho nada malo; tal vez le ha hablado un espíritu o un ángel.</text>
+    <text>&lt;&lt;Este hombre no ha hecho nada malo; tal vez le ha hablado un espíritu o un ángel.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="10" characterId="narrator-ACT">
@@ -7883,7 +7883,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jews, more than forty in conspiracy" delivery="plotting" multiBlockQuote="Continuation">
       <text>We are ready to kill him before he comes near.”</text>
     </ReferenceBlocks>
-    <text>y nosotros estaremos listos para matarlo antes que llegue.</text>
+    <text>y nosotros estaremos listos para matarlo antes que llegue.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="narrator-ACT">
@@ -7905,7 +7905,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="17" characterId="Paul">
       <text>“Bring this young man to the commanding officer, for he has something to tell him.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Lleve a este muchacho al comandante, porque tiene algo que comunicarle.</text>
+    <text>&lt;&lt;Lleve a este muchacho al comandante, porque tiene algo que comunicarle.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="narrator-ACT">
@@ -7919,7 +7919,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="18" characterId="centurion, one of the">
       <text>“Paul, the prisoner, summoned me and asked me to bring this young man to you, who has something to tell you.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;El preso Pablo me llamó y me pidió que trajera aquí a este muchacho, que tiene algo que comunicarle a usted.</text>
+    <text>&lt;&lt;El preso Pablo me llamó y me pidió que trajera aquí a este muchacho, que tiene algo que comunicarle a usted.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="19" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="19" characterId="narrator-ACT">
@@ -7933,7 +7933,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="19" characterId="commander of Roman troops in Jerusalem">
       <text>“What is it that you have to tell me?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Qué quieres decirme?</text>
+    <text>&lt;&lt;¿Qué quieres decirme?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="20" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="20" characterId="narrator-ACT">
@@ -7955,7 +7955,7 @@
       <text>Therefore don't yield to them, for more than forty men lie in wait for him, who have bound themselves under a curse neither to eat nor to drink until they have killed him. Now they are ready, looking for the promise from you.”</text>
     </ReferenceBlocks>
     <verse num="21" />
-    <text>Pero no les crea, porque más de cuarenta de sus hombres lo esperan escondidos, y han jurado bajo maldición que no comerán ni beberán hasta que maten a Pablo; y ahora están listos, esperando solamente que usted les dé una respuesta.</text>
+    <text>Pero no les crea, porque más de cuarenta de sus hombres lo esperan escondidos, y han jurado bajo maldición que no comerán ni beberán hasta que maten a Pablo; y ahora están listos, esperando solamente que usted les dé una respuesta.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="22" characterId="narrator-ACT">
@@ -7983,7 +7983,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="commander of Roman troops in Jerusalem" delivery="ordering" multiBlockQuote="Start">
       <text>“Prepare two hundred soldiers to go as far as Caesarea, with seventy horsemen, and two hundred men armed with spears, at the third hour of the night.</text>
     </ReferenceBlocks>
-    <text>Preparen doscientos soldados de a pie, setenta de a caballo y doscientos con lanzas, para ir a Cesarea a las nueve de la noche.</text>
+    <text>&lt;&lt;Preparen doscientos soldados de a pie, setenta de a caballo y doscientos con lanzas, para ir a Cesarea a las nueve de la noche.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="24" characterId="commander of Roman troops in Jerusalem" delivery="ordering" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="24" characterId="commander of Roman troops in Jerusalem" delivery="ordering" multiBlockQuote="Continuation">
@@ -7991,7 +7991,7 @@
       <text>Provide mounts for Paul to ride, and bring him safely to Felix the governor.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Preparen caballos para que Pablo monte, y llevenlo sano y salvo al gobernador Félix.</text>
+    <text>Preparen caballos para que Pablo monte, y llevenlo sano y salvo al gobernador Félix.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="narrator-ACT">
@@ -8007,7 +8007,7 @@
       <text>“Claudius Lysias to the most excellent governor Felix: Greetings.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>&lt;&lt;De Claudio Lisias al excelentísimo gobernador Félix: saludos.</text>
+    <text>&lt;&lt;De Claudio Lisias al excelentísimo gobernador Félix: saludos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start">
@@ -8015,7 +8015,7 @@
       <text>“This man was seized by the Jews, and was about to be killed by them. Then I came with the soldiers and rescued him, having learned that he was a Roman.</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Los judíos habían arrestado a este hombre y lo iban a matar, pero cuando yo supe que se trataba de un ciudadano romano, fui con mis soldados y lo libré.</text>
+    <text>&lt;&lt;Los judíos habían arrestado a este hombre y lo iban a matar, pero cuando yo supe que se trataba de un ciudadano romano, fui con mis soldados y lo libré.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation">
@@ -8103,7 +8103,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="Felix, governor of Judea" delivery="with authority">
       <text>“I will hear you fully when your accusers also arrive.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Te oiré cuando vengan los que te acusan.</text>
+    <text>&lt;&lt;Te oiré cuando vengan los que te acusan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="narrator-ACT">
@@ -8191,7 +8191,7 @@
       <text>By examining him yourself you may ascertain all these things of which we accuse him.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Usted mismo puede interrogarlo para saber la verdad de todo esto de que lo acusamos.</text>
+    <text>Usted mismo puede interrogarlo para saber la verdad de todo esto de que lo acusamos.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="narrator-ACT">
@@ -8315,7 +8315,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Felix, governor of Judea">
       <text>“When Lysias, the commanding officer, comes down, I will decide your case.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Cuando venga el comandante Lisias, me informaré mejor de este asunto de ustedes.</text>
+    <text>&lt;&lt;Cuando venga el comandante Lisias, me informaré mejor de este asunto de ustedes.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="narrator-ACT">
@@ -8345,7 +8345,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="25" characterId="Felix, governor of Judea" delivery="afraid">
       <text>“Go your way for this time, and when it is convenient for me, I will summon you.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Vete ahora. Te volveré a llamar cuando tenga tiempo.</text>
+    <text>&lt;&lt;Vete ahora. Te volveré a llamar cuando tenga tiempo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="26" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="26" characterId="narrator-ACT">
@@ -8439,7 +8439,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="8" characterId="Paul" delivery="defense to governor">
       <text>“Neither against the law of the Jews, nor against the temple, nor against Caesar, have I sinned at all.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Yo no he cometido ningún delito, ni contra la ley de los judíos ni contra el templo ni contra el emperador romano.</text>
+    <text>&lt;&lt;Yo no he cometido ningún delito, ni contra la ley de los judíos ni contra el templo ni contra el emperador romano.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="9" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="9" characterId="narrator-ACT">
@@ -8453,7 +8453,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="9" characterId="Festus, governor of Judea">
       <text>“Are you willing to go up to Jerusalem, and be judged by me there concerning these things?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Quieres ir a Jerusalén, para que yo juzgue allá tu caso?</text>
+    <text>&lt;&lt;¿Quieres ir a Jerusalén, para que yo juzgue allá tu caso?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="10" characterId="narrator-ACT">
@@ -8481,7 +8481,7 @@
       <text>For if I have done wrong, and have committed anything worthy of death, I don't refuse to die. But if none of those things is true that they accuse me of, no one can give me up to them. I appeal to Caesar!”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Si he cometido algún delito que merezca la pena de muerte, no me niego a morir; pero si no hay nada de cierto en las cosas de que me acusan, nadie tiene el derecho de entregarme a ellos. Pido que el emperador mismo me juzgue.</text>
+    <text>Si he cometido algún delito que merezca la pena de muerte, no me niego a morir; pero si no hay nada de cierto en las cosas de que me acusan, nadie tiene el derecho de entregarme a ellos. Pido que el emperador mismo me juzgue.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="narrator-ACT">
@@ -8495,7 +8495,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="12" characterId="Festus, governor of Judea">
       <text>“You have appealed to Caesar. To Caesar you shall go.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ya que has pedido que te juzgue el emperador, al emperador irás.</text>
+    <text>&lt;&lt;Ya que has pedido que te juzgue el emperador, al emperador irás.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="13" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="13" characterId="narrator-ACT">
@@ -8573,7 +8573,7 @@
       <text>But when Paul had appealed to be kept for the decision of the emperor, I commanded him to be kept until I could send him to Caesar.”</text>
     </ReferenceBlocks>
     <verse num="21" />
-    <text>Pero él ha pedido que lo juzgue Su Majestad el emperador, así que he ordenado que siga preso hasta que yo pueda mandárselo.</text>
+    <text>Pero él ha pedido que lo juzgue Su Majestad el emperador, así que he ordenado que siga preso hasta que yo pueda mandárselo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT">
@@ -8587,13 +8587,13 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="King Herod Agrippa II">
       <text>“I also would like to hear the man myself.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Yo también quisiera oir a ese hombre.</text>
+    <text>&lt;&lt;Yo también quisiera oir a ese hombre.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="Festus, governor of Judea" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="Festus, governor of Judea">
       <text>“Tomorrow,”</text>
     </ReferenceBlocks>
-    <text>Mañana</text>
+    <text>&lt;&lt;Mañana&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT">
@@ -8605,7 +8605,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="Festus, governor of Judea">
       <text>“you shall hear him.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Mañana mismo lo oirás.</text>
+    <text>&lt;&lt;Mañana mismo lo oirás.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="23" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="23" characterId="narrator-ACT">
@@ -8647,7 +8647,7 @@
       <text>For it seems to me unreasonable, in sending a prisoner, not to also specify the charges against him.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Pues me parece absurdo enviar un preso y no decir de qué está acusado.</text>
+    <text>Pues me parece absurdo enviar un preso y no decir de qué está acusado.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="26" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="26" initialStartVerse="0">
@@ -8667,7 +8667,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="1" characterId="King Herod Agrippa II">
       <text>“You may speak for yourself.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Puedes hablar en tu defensa.</text>
+    <text>&lt;&lt;Puedes hablar en tu defensa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="1" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="1" characterId="narrator-ACT">
@@ -8689,7 +8689,7 @@
       <text>especially because you are expert in all customs and questions which are among the Jews. Therefore I beg you to hear me patiently.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>sobre todo porque Su Majestad conoce todas las costumbres de los judíos y las cosas que discutimos. Por eso le pido que me oiga con paciencia.</text>
+    <text>sobre todo porque Su Majestad conoce todas las costumbres de los judíos y las cosas que discutimos. Por eso le pido que me oiga con paciencia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="4" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="4" characterId="Paul" multiBlockQuote="Start">
@@ -8729,7 +8729,7 @@
       <text>Why is it judged incredible with you, if God does raise the dead?”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>¿Por qué no creen ustedes que Dios resucita a los muertos?</text>
+    <text>¿Por qué no creen ustedes que Dios resucita a los muertos?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="9" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="9" characterId="Paul" multiBlockQuote="Start">
@@ -8753,7 +8753,7 @@
       <text>Punishing them often in all the synagogues, I tried to make them blaspheme. Being exceedingly enraged against them, I persecuted them even to foreign cities.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Muchas veces los castigaba para obligarlos a negar su fe. Y esto lo hacía en todas las sinagogas, y estaba tan furioso contra ellos que los perseguía hasta en ciudades extranjeras.</text>
+    <text>Muchas veces los castigaba para obligarlos a negar su fe. Y esto lo hacía en todas las sinagogas, y estaba tan furioso contra ellos que los perseguía hasta en ciudades extranjeras.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="12" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="12" characterId="Paul" multiBlockQuote="Start">
@@ -8785,7 +8785,7 @@
       <text>“I said, ‘Who are you, Lord?’” “He said, ‘I am Jesus, whom you are persecuting.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Entonces dije: &lt;¿Quién eres, Señor?&gt; El Señor me contestó: &lt;Yo soy Jesús, el mismo a quien estás persiguiendo.</text>
+    <text>Entonces dije: &lt;¿Quién eres, Señor?&gt; El Señor me contestó: &lt;Yo soy Jesús, el mismo a quien estás persiguiendo.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start">
@@ -8863,7 +8863,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="24" characterId="Festus, governor of Judea">
       <text>“Paul, you are crazy! Your great learning is driving you insane!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¡Estás loco, Pablo! De tanto estudiar te has vuelto loco.</text>
+    <text>&lt;&lt;¡Estás loco, Pablo! De tanto estudiar te has vuelto loco.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="25" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="25" characterId="narrator-ACT">
@@ -8893,7 +8893,7 @@
       <text>King Agrippa, do you believe the prophets? I know that you believe.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Entonces Pablo dijo a Agripa: ¿Cree Su Majestad lo que dijeron los profetas? Yo sé que lo cree.</text>
+    <text>Entonces Pablo dijo a Agripa: ¿Cree Su Majestad lo que dijeron los profetas? Yo sé que lo cree.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="28" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="28" characterId="narrator-ACT">
@@ -8907,7 +8907,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="28" characterId="King Herod Agrippa II">
       <text>“With a little persuasion are you trying to make me a Christian?”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;¿Piensas hacerme cristiano en tan poco tiempo?</text>
+    <text>&lt;&lt;¿Piensas hacerme cristiano en tan poco tiempo?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="29" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="29" characterId="narrator-ACT">
@@ -8921,7 +8921,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="29" characterId="Paul">
       <text>“I pray to God, that whether with little or with much, not only you, but also all that hear me this day, might become such as I am, except for these bonds.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Que sea en poco tiempo o en mucho, quiera Dios que no solamente Su Majestad, sino también todos los que me están escuchando hoy, lleguen a ser como yo, aunque sin estas cadenas.</text>
+    <text>&lt;&lt;Que sea en poco tiempo o en mucho, quiera Dios que no solamente Su Majestad, sino también todos los que me están escuchando hoy, lleguen a ser como yo, aunque sin estas cadenas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="30" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="30" characterId="narrator-ACT">
@@ -8943,7 +8943,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="31" characterId="King Herod Agrippa II/Festus, governor of Judea/Bernice">
       <text>“This man does nothing worthy of death or of bonds.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Este hombre no ha hecho nada que merezca la muerte; ni siquiera debe estar en la cárcel.</text>
+    <text>&lt;&lt;Este hombre no ha hecho nada que merezca la muerte; ni siquiera debe estar en la cárcel.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="32" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="32" characterId="narrator-ACT">
@@ -8957,7 +8957,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="32" characterId="King Herod Agrippa II">
       <text>“This man might have been set free if he had not appealed to Caesar.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Se podría haber soltado a este hombre, si él mismo no hubiera pedido ser juzgado por el emperador.</text>
+    <text>&lt;&lt;Se podría haber soltado a este hombre, si él mismo no hubiera pedido ser juzgado por el emperador.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="27" book="ACT" initialStartVerse="0" characterId="BC-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="27" initialStartVerse="0">
@@ -9044,7 +9044,7 @@
       <text>“Sirs, I perceive that the voyage will be with injury and much loss, not only of the cargo and the ship, but also of our lives.”</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>&lt;&lt;Señores, veo que este viaje va a ser muy peligroso, y que vamos a perder tanto el barco como su carga, y que hasta podemos perder la vida.</text>
+    <text>&lt;&lt;Señores, veo que este viaje va a ser muy peligroso, y que vamos a perder tanto el barco como su carga, y que hasta podemos perder la vida.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="11" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="11" characterId="narrator-ACT">
@@ -9182,7 +9182,7 @@
       <text>But we must run aground on a certain island.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Pero vamos a encallar en una isla.</text>
+    <text>Pero vamos a encallar en una isla.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="27" characterId="narrator-ACT">
@@ -9228,7 +9228,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="31" characterId="Paul" delivery="warning">
       <text>“Unless these stay in the ship, you can't be saved.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Si estos no se quedan en el barco, ustedes no podrán salvarse.</text>
+    <text>&lt;&lt;Si estos no se quedan en el barco, ustedes no podrán salvarse.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="32" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="32" characterId="narrator-ACT">
@@ -9258,7 +9258,7 @@
       <text>Therefore I beg you to take some food, for this is for your safety. Not a hair will perish from any of your heads.”</text>
     </ReferenceBlocks>
     <verse num="34" />
-    <text>Les ruego que coman algo. Esto es necesario, si quieren sobrevivir, pues nadie va a perder ni un cabello de la cabeza.</text>
+    <text>Les ruego que coman algo. Esto es necesario, si quieren sobrevivir, pues nadie va a perder ni un cabello de la cabeza.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="35" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="35" characterId="narrator-ACT">
@@ -9522,7 +9522,7 @@
       <text>For this cause therefore I asked to see you and to speak with you. For because of the hope of Israel I am bound with this chain.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Por esto, pues, los he llamado a ustedes, para verlos y hablarles; porque es precisamente por la esperanza que tenemos nosotros los israelitas, por lo que me encuentro aquí encadenado.</text>
+    <text>Por esto, pues, los he llamado a ustedes, para verlos y hablarles; porque es precisamente por la esperanza que tenemos nosotros los israelitas, por lo que me encuentro aquí encadenado.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="21" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="21" characterId="narrator-ACT">
@@ -9544,7 +9544,7 @@
       <text>But we desire to hear what your views are. For we know that people everywhere are talking against this sect.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Quisiéramos oir lo que tú piensas, porque sabemos que en todas partes se habla en contra de esta nueva secta.</text>
+    <text>Quisiéramos oir lo que tú piensas, porque sabemos que en todas partes se habla en contra de esta nueva secta.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="28" initialStartVerse="23" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="28" initialStartVerse="23" characterId="narrator-ACT">

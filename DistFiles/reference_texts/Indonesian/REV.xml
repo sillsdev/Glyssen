@@ -74,7 +74,7 @@
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>&lt;&lt;Aku adalah Alfa dan Omega, firman Tuhan Allah, Awal dan akhir,</text>
+    <text>&lt;&lt;Aku adalah Alfa dan Omega, firman Tuhan Allah, Awal dan akhir,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
@@ -200,7 +200,7 @@
       <text>“To the angel of the assembly in Ephesus write: He who holds the seven stars in his right hand, he who walks among the seven golden lampstands says these things:”</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>&lt;&lt;Tuliskanlah kepada malaikat jemaat di Efesus: Inilah firman dari Dia, yang memegang ketujuh bintang itu di tangan kanan-Nya dan berjalan di antara ketujuh kaki dian emas itu.</text>
+    <text>&lt;&lt;Tuliskanlah kepada malaikat jemaat di Efesus: Inilah firman dari Dia, yang memegang ketujuh bintang itu di tangan kanan-Nya dan berjalan di antara ketujuh kaki dian emas itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
@@ -288,7 +288,7 @@
       <text>“To the angel of the assembly in Pergamum write: He who has the sharp two-edged sword says these things:”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Pergamus: Inilah firman Dia, yang memakai pedang yang tajam dan bermata dua:</text>
+    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Pergamus: Inilah firman Dia, yang memakai pedang yang tajam dan bermata dua:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
@@ -336,7 +336,7 @@
       <text>“To the angel of the assembly in Thyatira write: The Son of God, who has his eyes like a flame of fire, and his feet are like burnished brass, says these things:”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Tiatira: Inilah firman Anak Allah, yang mata-Nya bagaikan nyala api dan kaki-Nya bagaikan tembaga:</text>
+    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Tiatira: Inilah firman Anak Allah, yang mata-Nya bagaikan nyala api dan kaki-Nya bagaikan tembaga:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
@@ -344,7 +344,7 @@
       <text>“I know your works, your love, faith, service, patient endurance, and that your last works are more than the first.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Aku tahu segala pekerjaanmu: baik kasihmu maupun imanmu, baik pelayananmu maupun ketekunanmu. Aku tahu, bahwa pekerjaanmu yang terakhir lebih banyak dari pada yang pertama.</text>
+    <text>&lt;&lt;Aku tahu segala pekerjaanmu: baik kasihmu maupun imanmu, baik pelayananmu maupun ketekunanmu. Aku tahu, bahwa pekerjaanmu yang terakhir lebih banyak dari pada yang pertama.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
@@ -424,7 +424,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat</text>
+    <text>Siapa bertelinga, hendaklah ia mendengarkan apa yang dikatakan Roh kepada jemaat-jemaat&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
@@ -486,7 +486,7 @@
       <text>“To the angel of the assembly in Philadelphia write: He who is holy, he who is true, he who has the key of David, he who opens and no one can shut, and who shuts and no one opens, says these things:”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Filadelfia: Inilah firman dari Yang Kudus, Yang Benar, yang memegang kunci Daud; apabila Ia membuka, tidak ada yang dapat menutup; apabila Ia menutup, tidak ada yang dapat membuka.</text>
+    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Filadelfia: Inilah firman dari Yang Kudus, Yang Benar, yang memegang kunci Daud; apabila Ia membuka, tidak ada yang dapat menutup; apabila Ia menutup, tidak ada yang dapat membuka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -542,7 +542,7 @@
       <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God's creation, says these things:”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Laodikia: Inilah firman dari Amin, Saksi yang setia dan benar, permulaan dari ciptaan Allah:</text>
+    <text>&lt;&lt;Dan tuliskanlah kepada malaikat jemaat di Laodikia: Inilah firman dari Amin, Saksi yang setia dan benar, permulaan dari ciptaan Allah:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
@@ -550,7 +550,7 @@
       <text>“I know your works, that you are neither cold nor hot. I wish you were cold or hot.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Aku tahu segala pekerjaanmu: engkau tidak dingin dan tidak panas. Alangkah baiknya jika engkau dingin atau panas!</text>
+    <text>&lt;&lt;Aku tahu segala pekerjaanmu: engkau tidak dingin dan tidak panas. Alangkah baiknya jika engkau dingin atau panas!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
@@ -1728,7 +1728,7 @@
       <text>I will give power to my two witnesses, and they will prophesy one thousand two hundred sixty days, clothed in sackcloth.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>Dan Aku akan memberi tugas kepada dua saksi-Ku, supaya mereka bernubuat sambil berkabung, seribu dua ratus enam puluh hari lamanya.</text>
+    <text>Dan Aku akan memberi tugas kepada dua saksi-Ku, supaya mereka bernubuat sambil berkabung, seribu dua ratus enam puluh hari lamanya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-REV">
@@ -2174,7 +2174,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the">
       <text>“Make an image to the beast who was wounded by the sword and lived.”</text>
     </ReferenceBlocks>
-    <text>supaya mereka mendirikan patung untuk menghormati binatang yang luka oleh pedang, namun yang tetap hidup itu.</text>
+    <text>&lt;&lt;supaya mereka mendirikan patung untuk menghormati binatang yang luka oleh pedang, namun yang tetap hidup itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV">
@@ -2326,7 +2326,7 @@
       <text>This calls for patient endurance on the part of the saints, those who keep the commandments of God, and the faith of Jesus.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Yang penting di sini ialah ketekunan orang-orang kudus, yang menuruti perintah Allah dan iman kepada Yesus.</text>
+    <text>Yang penting di sini ialah ketekunan orang-orang kudus, yang menuruti perintah Allah dan iman kepada Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -3106,7 +3106,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Celaka, celaka, kota besar, yang olehnya semua orang, yang mempunyai kapal di laut, telah menjadi kaya oleh barangnya yang mahal, sebab dalam satu jam saja ia sudah binasa.</text>
+    <text>&lt;&lt;Celaka, celaka, kota besar, yang olehnya semua orang, yang mempunyai kapal di laut, telah menjadi kaya oleh barangnya yang mahal, sebab dalam satu jam saja ia sudah binasa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">
@@ -3152,7 +3152,7 @@
       <text>In her was found the blood of prophets and of saints, and of all who have been slain on the earth.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Dan di dalamnya terdapat darah nabi-nabi dan orang-orang kudus dan darah semua orang, yang dibunuh di bumi.</text>
+    <text>Dan di dalamnya terdapat darah nabi-nabi dan orang-orang kudus dan darah semua orang, yang dibunuh di bumi.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="19" initialStartVerse="0">
@@ -3244,7 +3244,7 @@
       <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>&lt;&lt;Marilah kita bersukacita dan bersorak-sorai, dan memuliakan Dia! Karena hari perkawinan Anak Domba telah tiba, dan pengantin-Nya telah siap sedia.</text>
+    <text>&lt;&lt;Marilah kita bersukacita dan bersorak-sorai, dan memuliakan Dia! Karena hari perkawinan Anak Domba telah tiba, dan pengantin-Nya telah siap sedia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">

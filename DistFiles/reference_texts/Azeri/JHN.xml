@@ -430,7 +430,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious">
       <text>“Rabbi”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Rabbi,</text>
+    <text>&lt;&lt;Rabbi,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-JHN">
@@ -1116,7 +1116,7 @@
       <text>But he who does the truth comes to the light, that his works may be revealed, that they have been done in God.”</text>
     </ReferenceBlocks>
     <verse num="21" />
-    <text>Hәqiqәtә әmәl edәnsә nura tәrәf gәlәr ki, әmәllәrini Allah naminә etdiyi bәlli olsun.</text>
+    <text>Hәqiqәtә әmәl edәnsә nura tәrәf gәlәr ki, әmәllәrini Allah naminә etdiyi bәlli olsun.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-JHN">
@@ -1248,7 +1248,7 @@
       <text>One who believes in the Son has eternal life, but one who disobeys the Son won't see life, but the wrath of God remains on him.”</text>
     </ReferenceBlocks>
     <verse num="36" />
-    <text>Oğula iman edәn şәxs әbәdi hәyata malikdir, Oğula itaәt etmәyәnsә hәyat görmәyәcәk, lakin Allahın qәzәbi onun üzәrindә qalır.</text>
+    <text>Oğula iman edәn şәxs әbәdi hәyata malikdir, Oğula itaәt etmәyәnsә hәyat görmәyәcәk, lakin Allahın qәzәbi onun üzәrindә qalır.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="4" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="4" initialStartVerse="0">
@@ -2080,7 +2080,7 @@
     <verse num="22" />
     <text>Ata heç kәsi mühakimә etmir, lakin hökm çıxarmağı Oğulun ixtiyarına verib ki, </text>
     <verse num="23" />
-    <text>hәr kәs Ataya hörmәt etdiyi kimi Oğula da hörmәt etsin. Oğula hörmәt etmәyәn Onu göndәrәn Ataya da hörmәt etmir.</text>
+    <text>hәr kәs Ataya hörmәt etdiyi kimi Oğula da hörmәt etsin. Oğula hörmәt etmәyәn Onu göndәrәn Ataya da hörmәt etmir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
@@ -2088,7 +2088,7 @@
       <text>“Most certainly I tell you, he who hears my word, and believes him who sent me, has eternal life, and doesn't come into judgment, but has passed out of death into life.</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Doğrusunu, doğrusunu sizә deyirәm: Mәnim sözümә qulaq asıb Mәni Göndәrәnә inanan şәxs әbәdi hәyata malikdir vә ona hökm çıxarılmayacaq, әksinә, ölümdәn hәyata keçib.</text>
+    <text>&lt;&lt;Doğrusunu, doğrusunu sizә deyirәm: Mәnim sözümә qulaq asıb Mәni Göndәrәnә inanan şәxs әbәdi hәyata malikdir vә ona hökm çıxarılmayacaq, әksinә, ölümdәn hәyata keçib.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2132,7 +2132,7 @@
       <text>I can of myself do nothing. As I hear, I judge, and my judgment is righteous; because I don't seek my own will, but the will of my Father who sent me.”</text>
     </ReferenceBlocks>
     <verse num="30" />
-    <text>Mәn Özümdәn heç nә edә bilmәrәm, eşitdiyim kimi mühakimә edәrәm vә Mәnim verdiyim hökm әdalәtlidir. Çünki mәqsәdim Öz iradәmi deyil, Mәni Göndәrәnin iradәsini yerinә yetirmәkdir.</text>
+    <text>Mәn Özümdәn heç nә edә bilmәrәm, eşitdiyim kimi mühakimә edәrәm vә Mәnim verdiyim hökm әdalәtlidir. Çünki mәqsәdim Öz iradәmi deyil, Mәni Göndәrәnin iradәsini yerinә yetirmәkdir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start">
@@ -2140,7 +2140,7 @@
       <text>“If I testify about myself, my witness is not valid.</text>
     </ReferenceBlocks>
     <verse num="31" />
-    <text>Әgәr Mәn Özüm barәdә şәhadәt etsәydim, şәhadәtim etibarlı olmazdı.</text>
+    <text>&lt;&lt;Әgәr Mәn Özüm barәdә şәhadәt etsәydim, şәhadәtim etibarlı olmazdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2196,7 +2196,7 @@
       <text>You don't have his word living in you; because you don't believe him whom he sent.”</text>
     </ReferenceBlocks>
     <verse num="38" />
-    <text>Onun kәlamının da sizdә qalmasına imkan vermirsiniz, çünki Onun göndәrdiyi Şәxsә inanmırsınız.</text>
+    <text>Onun kәlamının da sizdә qalmasına imkan vermirsiniz, çünki Onun göndәrdiyi Şәxsә inanmırsınız.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
@@ -2204,7 +2204,7 @@
       <text>“You search the Scriptures, because you think that in them you have eternal life; and these are they which testify about me.</text>
     </ReferenceBlocks>
     <verse num="39" />
-    <text>Siz Müqәddәs Yazıları araşdırırsınız. Çünki düşünürsünüz ki, onların vasitәsilә әbәdi hәyata malik olacaqsınız. Ancaq onlar da Mәnim barәmdә şәhadәt edir,</text>
+    <text>&lt;&lt;Siz Müqәddәs Yazıları araşdırırsınız. Çünki düşünürsünüz ki, onların vasitәsilә әbәdi hәyata malik olacaqsınız. Ancaq onlar da Mәnim barәmdә şәhadәt edir,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="40" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2240,7 +2240,7 @@
       <text>How can you believe, who receive glory from one another, and you don't seek the glory that comes from the only God?”</text>
     </ReferenceBlocks>
     <verse num="44" />
-    <text>Siz bir-birinizdәn izzәt qәbul edirsiniz, bir olan Allahdan gәlәn izzәti isә axtarmırsınız. Bәs onda necә iman edә bilәrsiniz?</text>
+    <text>Siz bir-birinizdәn izzәt qәbul edirsiniz, bir olan Allahdan gәlәn izzәti isә axtarmırsınız. Bәs onda necә iman edә bilәrsiniz?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
@@ -2248,7 +2248,7 @@
       <text>“Don't think that I will accuse you to the Father. There is one who accuses you, even Moses, on whom you have set your hope.</text>
     </ReferenceBlocks>
     <verse num="45" />
-    <text>Güman etmәyin ki, Mәn sizi Atanın önündә ittiham edәcәyәm. Sizi ittiham edәn ümid bağladığınız Musadır.</text>
+    <text>&lt;&lt;Güman etmәyin ki, Mәn sizi Atanın önündә ittiham edәcәyәm. Sizi ittiham edәn ümid bağladığınız Musadır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4798,7 +4798,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus">
       <text>“If you were blind, you would have no sin; but now you say, ‘We see.’ Therefore your sin remains.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Әgәr kor olsaydınız, günahınız olmazdı. Amma indi “görürük” dediyiniz üçün günahınız üstünüzdә qalır.</text>
+    <text>&lt;&lt;Әgәr kor olsaydınız, günahınız olmazdı. Amma indi “görürük” dediyiniz üçün günahınız üstünüzdә qalır.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
@@ -4818,7 +4818,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="1" characterId="Jesus" multiBlockQuote="Start">
       <text>“Most certainly, I tell you, one who doesn't enter by the door into the sheep fold, but climbs up some other way, the same is a thief and a robber.</text>
     </ReferenceBlocks>
-    <text>Doğrusunu, doğrusunu sizә deyirәm: qoyun ağılına qapıdan girmәyib başqa yerdәn aşan oğru vә quldurdur.</text>
+    <text>&lt;&lt;Doğrusunu, doğrusunu sizә deyirәm: qoyun ağılına qapıdan girmәyib başqa yerdәn aşan oğru vә quldurdur.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
@@ -6041,7 +6041,7 @@
       <text>If anyone serves me, let him follow me. Where I am, there will my servant also be. If anyone serves me, the Father will honor him.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Kim Mәnә xidmәt etmәk istәsә, ardımca gәlsin. Mәn harada olacağamsa, Mәnim xidmәtçim dә orada olacaq. Kim Mәnә xidmәt etsә, Ata ona hörmәt edәcәk.</text>
+    <text>Kim Mәnә xidmәt etmәk istәsә, ardımca gәlsin. Mәn harada olacağamsa, Mәnim xidmәtçim dә orada olacaq. Kim Mәnә xidmәt etsә, Ata ona hörmәt edәcәk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus">
@@ -6545,7 +6545,7 @@
     <ReferenceBlocks style="p" chapter="13" initialStartVerse="24" characterId="Peter (Simon)" delivery="stage whisper">
       <text>“Tell us who it is of whom he speaks.”</text>
     </ReferenceBlocks>
-    <text>kimin barәsindә danışdığını Ondan soruşsun.</text>
+    <text>&lt;&lt;kimin barәsindә danışdığını Ondan soruşsun.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="25" characterId="narrator-JHN">
@@ -6717,7 +6717,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="38" characterId="Jesus">
       <text>“Will you lay down your life for me? Most certainly I tell you, the rooster won't crow until you have denied me three times.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Mәnim üçün canını qurban verәrsәnmi? Doğrusunu, doğrusunu sәnә deyirәm: xoruz banlamazdan әvvәl sәn Mәni üç dәfә inkar edәcәksәn.</text>
+    <text>&lt;&lt;Mәnim üçün canını qurban verәrsәnmi? Doğrusunu, doğrusunu sәnә deyirәm: xoruz banlamazdan әvvәl sәn Mәni üç dәfә inkar edәcәksәn.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="14" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="14" initialStartVerse="0">
@@ -6731,7 +6731,7 @@
       <text>“Don't let your heart be troubled. Believe in God. Believe also in me.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Qoy ürәyiniz tәlaşa düşmәsin. Allaha iman edin, Mәnә dә iman edin.</text>
+    <text>&lt;&lt;Qoy ürәyiniz tәlaşa düşmәsin. Allaha iman edin, Mәnә dә iman edin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7007,7 +7007,7 @@
       <text>But that the world may know that I love the Father, and as the Father commanded me, even so I do. Arise, let us go from here.”</text>
     </ReferenceBlocks>
     <verse num="31" />
-    <text>Ancaq dünya bilmәlidir ki, Mәn Atanı sevirәm vә Ata Mәnә nә әmr etdisә, ona әmәl edirәm. İndi isә qalxın buradan gedәk.</text>
+    <text>Ancaq dünya bilmәlidir ki, Mәn Atanı sevirәm vә Ata Mәnә nә әmr etdisә, ona әmәl edirәm. İndi isә qalxın buradan gedәk.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="15" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="15" initialStartVerse="0">
@@ -7021,7 +7021,7 @@
       <text>“I am the true vine, and my Father is the farmer.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Mәn hәqiqi Meynәyәm, Atam da Bağbandır.</text>
+    <text>&lt;&lt;Mәn hәqiqi Meynәyәm, Atam da Bağbandır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7069,7 +7069,7 @@
       <text>If you remain in me, and my words remain in you, you will ask whatever you desire, and it will be done for you.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Әgәr Mәndә qalsanız vә sözlәrim sizdә qalsa, nә istәyirsinizsә, onu dilәyin, sizә verilәcәk.</text>
+    <text>Әgәr Mәndә qalsanız vә sözlәrim sizdә qalsa, nә istәyirsinizsә, onu dilәyin, sizә verilәcәk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -7077,7 +7077,7 @@
       <text>“In this is my Father glorified, that you bear much fruit; and so you will be my disciples.</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Sizin çoxlu bәhrә verәrәk Mәnim şagirdlәrim olmağınızla Atam izzәtlәnir.</text>
+    <text>&lt;&lt;Sizin çoxlu bәhrә verәrәk Mәnim şagirdlәrim olmağınızla Atam izzәtlәnir.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7101,7 +7101,7 @@
       <text>I have spoken these things to you, that my joy may remain in you, and that your joy may be made full.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Bu sözlәri sizә söylәdim ki, sevincim sizdә olsun vә sevinciniz kamil olsun.</text>
+    <text>Bu sözlәri sizә söylәdim ki, sevincim sizdә olsun vә sevinciniz kamil olsun.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -7141,7 +7141,7 @@
       <text>You didn't choose me, but I chose you, and appointed you, that you should go and bear fruit, and that your fruit should remain; that whatever you will ask of the Father in my name, he may give it to you.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Siz Mәni seçmәdiniz, Mәn sizi seçib tәyin etdim ki, gedib bәhrә verәsiniz vә bәhrәniz çox qalsın. Belәcә Mәnim adımla Atadan nә dilәyirsinizsә, O sizә verәcәk.</text>
+    <text>Siz Mәni seçmәdiniz, Mәn sizi seçib tәyin etdim ki, gedib bәhrә verәsiniz vә bәhrәniz çox qalsın. Belәcә Mәnim adımla Atadan nә dilәyirsinizsә, O sizә verәcәk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start">
@@ -7213,7 +7213,7 @@
       <text>But this happened so that the word may be fulfilled which was written in their law, ‘They hated me without a cause.’”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>Lakin bu ona görә baş verdi ki, öz Qanunlarında yazılan “Mәnә nahaqdan nifrәt etdilәr” sözü yerinә yetsin.</text>
+    <text>Lakin bu ona görә baş verdi ki, öz Qanunlarında yazılan “Mәnә nahaqdan nifrәt etdilәr” sözü yerinә yetsin.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start">
@@ -7229,7 +7229,7 @@
       <text>You will also testify, because you have been with me from the beginning.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Siz dә şәhadәt edәcәksiniz, çünki başlanğıcdan Mәnimlә birlikdәsiniz.</text>
+    <text>Siz dә şәhadәt edәcәksiniz, çünki başlanğıcdan Mәnimlә birlikdәsiniz.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="16" book="JHN" initialStartVerse="0" characterId="BC-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="16" initialStartVerse="0">
@@ -7243,7 +7243,7 @@
       <text>“These things have I spoken to you, so that you wouldn't be caused to stumble.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Büdrәmәyәsiniz deyә bunları sizә söylәdim.</text>
+    <text>&lt;&lt;Büdrәmәyәsiniz deyә bunları sizә söylәdim.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7323,7 +7323,7 @@
       <text>about judgment, because the prince of this world has been judged.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>mühakimә barәdә, çünki bu dünyanın hökmdarı mühakimә olunub.</text>
+    <text>mühakimә barәdә, çünki bu dünyanın hökmdarı mühakimә olunub.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -7331,7 +7331,7 @@
       <text>“I have yet many things to tell you, but you can't bear them now.</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Hәlә sizә söylәnәcәk çoxlu sözüm var, amma indi bunlar ağlınıza sığmaz.</text>
+    <text>&lt;&lt;Hәlә sizә söylәnәcәk çoxlu sözüm var, amma indi bunlar ağlınıza sığmaz.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7429,7 +7429,7 @@
       <text>Therefore you now have sorrow, but I will see you again, and your heart will rejoice, and no one will take your joy away from you.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Belәcә siz dә indi kәdәrlisiniz. Lakin Mәn sizi yenә görәcәyәm, onda ürәyiniz sevinәcәk vә heç kәs sevincinizi sizdәn ala bilmәyәcәk.</text>
+    <text>Belәcә siz dә indi kәdәrlisiniz. Lakin Mәn sizi yenә görәcәyәm, onda ürәyiniz sevinәcәk vә heç kәs sevincinizi sizdәn ala bilmәyәcәk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start">
@@ -7437,7 +7437,7 @@
       <text>“In that day you will ask me no questions. Most certainly I tell you, whatever you may ask of the Father in my name, he will give it to you.</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>O gün Mәndәn heç nә soruşmayacaqsınız. Doğrusunu, doğrusunu sizә deyirәm: Mәnim adımla Atadan nә dilәyirsinizsә, O sizә verәcәk.</text>
+    <text>&lt;&lt;O gün Mәndәn heç nә soruşmayacaqsınız. Doğrusunu, doğrusunu sizә deyirәm: Mәnim adımla Atadan nә dilәyirsinizsә, O sizә verәcәk.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Continuation">

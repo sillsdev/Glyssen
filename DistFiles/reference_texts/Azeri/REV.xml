@@ -74,7 +74,7 @@
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>&lt;&lt;Alfa vә Omeqa Mәnәm</text>
+    <text>&lt;&lt;Alfa vә Omeqa Mәnәm&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
@@ -186,7 +186,7 @@
       <text>Here is the hidden meaning of the seven stars that you see in my right hand, and the seven lamps of gold: the seven stars are the angels of the seven churches, and the seven lamps are the seven churches.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Mәnim sağ әlimdә gördüyün yeddi ulduzun vә yeddi qızıl çıraqdanın sirrinә gәlincә, yeddi ulduz yeddi cәmiyyәtin mәlәklәri, yeddi çıraqdan da yeddi cәmiyyәt demәkdir.</text>
+    <text>Mәnim sağ әlimdә gördüyün yeddi ulduzun vә yeddi qızıl çıraqdanın sirrinә gәlincә, yeddi ulduz yeddi cәmiyyәtin mәlәklәri, yeddi çıraqdan da yeddi cәmiyyәt demәkdir.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
@@ -200,7 +200,7 @@
       <text>“To the angel of the assembly in Ephesus write: He who holds the seven stars in his right hand, he who walks among the seven golden lampstands says these things:”</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Efesdә olan cәmiyyәtin mәlәyinә yaz: i Yeddi ulduzu sağ әlindә Tutan, yeddi qızıl çıraqdanın arasında Gәzәn belә deyir:</text>
+    <text>&lt;&lt;Efesdә olan cәmiyyәtin mәlәyinә yaz: i Yeddi ulduzu sağ әlindә Tutan, yeddi qızıl çıraqdanın arasında Gәzәn belә deyir:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
@@ -208,7 +208,7 @@
       <text>“I know your works, and your toil and perseverance, and that you can't tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>sәnin әmәllәrindәn, zәhmәtindәn, dözümündәn vә şәr adamlara dözmәdiyindәn xәbәrdaram. Hәvari olmadıqları halda özlәrini hәvari adlandıranları sınaqdan keçirdin vә onların yalançı olduğunu müәyyәn etdin.</text>
+    <text>&lt;&lt;sәnin әmәllәrindәn, zәhmәtindәn, dözümündәn vә şәr adamlara dözmәdiyindәn xәbәrdaram. Hәvari olmadıqları halda özlәrini hәvari adlandıranları sınaqdan keçirdin vә onların yalançı olduğunu müәyyәn etdin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
@@ -248,7 +248,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies. To him who overcomes I will give to eat of the tree of life, which is in the Paradise of my God.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәnә Allahın cәnnәtindә olan hәyat ağacından yemәyә imkan verәcәyәm.</text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәnә Allahın cәnnәtindә olan hәyat ağacından yemәyә imkan verәcәyәm.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -256,7 +256,7 @@
       <text>“To the angel of the assembly in Smyrna write: The first and the last, who was dead, and has come to life says these things:</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>İzmirdә olan cәmiyyәtin mәlәyinә yaz: Birinci vә Sonuncu Olan, ölüb yenidәn Dirilәn belә deyir:</text>
+    <text>&lt;&lt;İzmirdә olan cәmiyyәtin mәlәyinә yaz: Birinci vә Sonuncu Olan, ölüb yenidәn Dirilәn belә deyir:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
@@ -280,7 +280,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies. He who overcomes won't be harmed by the second death.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәn ikinci ölümdәn heç zәrәr görmәyәcәk.</text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәn ikinci ölümdәn heç zәrәr görmәyәcәk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="12" characterId="Jesus">
@@ -288,7 +288,7 @@
       <text>“To the angel of the assembly in Pergamum write: He who has the sharp two-edged sword says these things:”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Berqamada olan cәmiyyәtin mәlәyinә yaz: İkiağızlı iti qılıncı Olan belә deyir:</text>
+    <text>&lt;&lt;Berqamada olan cәmiyyәtin mәlәyinә yaz: İkiağızlı iti qılıncı Olan belә deyir:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
@@ -296,7 +296,7 @@
       <text>“I know your works and where you dwell, where Satan's seat is. You hold firmly to my name, and didn't deny my faith in the days of Antipas my witness, my faithful one, who was killed among you, where Satan dwells.</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>gör harada, Şeytanın taxtı olan yerdә yaşadığın halda Mәnim adıma bağlı qaldığından xәbәrdaram. Barәmdә sәdaqәtlә şәhadәt edәn, aranızda, Şeytanın yaşadığı yerdә öldürülәn Antipanın günlәrindә belә, Mәnә olan imanından imtina etmәdin.</text>
+    <text>&lt;&lt;gör harada, Şeytanın taxtı olan yerdә yaşadığın halda Mәnim adıma bağlı qaldığından xәbәrdaram. Barәmdә sәdaqәtlә şәhadәt edәn, aranızda, Şeytanın yaşadığı yerdә öldürülәn Antipanın günlәrindә belә, Mәnә olan imanından imtina etmәdin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
@@ -328,7 +328,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies. To him who overcomes, to him I will give of the hidden manna, and I will give him a white stone, and on the stone a new name written, which no one knows but he who receives it.”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәnә Mәn gizli saxlanan mannadan verәcәyәm. Ona bir ağ daş da verәcәyәm ki, üstündә yeni ad yazılıb; bu adı da daşı alandan başqa heç kәs bilmir.</text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir. Qalib gәlәnә Mәn gizli saxlanan mannadan verәcәyәm. Ona bir ağ daş da verәcәyәm ki, üstündә yeni ad yazılıb; bu adı da daşı alandan başqa heç kәs bilmir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="18" characterId="Jesus">
@@ -336,7 +336,7 @@
       <text>“To the angel of the assembly in Thyatira write: The Son of God, who has his eyes like a flame of fire, and his feet are like burnished brass, says these things:”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Tiatirada olan cәmiyyәtin mәlәyinә yaz: Gözlәri odlu alova, ayaqları da pardaqlanmış tunca bәnzәyәn Allah Oğlu belә deyir:</text>
+    <text>&lt;&lt;Tiatirada olan cәmiyyәtin mәlәyinә yaz: Gözlәri odlu alova, ayaqları da pardaqlanmış tunca bәnzәyәn Allah Oğlu belә deyir:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
@@ -344,7 +344,7 @@
       <text>“I know your works, your love, faith, service, patient endurance, and that your last works are more than the first.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>sәnin әmәllәrindәn, mәhәbbәtindәn, imanından, xidmәtindәn vә dözümündәn xәbәrdaram; son işlәrin dә әvvәlkilәrdәn daha çoxdur.</text>
+    <text>&lt;&lt;sәnin әmәllәrindәn, mәhәbbәtindәn, imanından, xidmәtindәn vә dözümündәn xәbәrdaram; son işlәrin dә әvvәlkilәrdәn daha çoxdur.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
@@ -424,7 +424,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.</text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="3" initialStartVerse="0">
@@ -438,7 +438,7 @@
       <text>“And to the angel of the assembly in Sardis write: He who has the seven Spirits of God, and the seven stars says these things: I know your works, that you have a reputation of being alive, but you are dead.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Sardda olan cәmiyyәtin mәlәyinә yaz: Allahın yeddi ruhuna vә yeddi ulduza malik Olan belә deyir: sәnin әmәllәrindәn xәbәrdaram. Adın var ki, guya dirisәn, әslindә isә ölüsәn.</text>
+    <text>&lt;&lt;Sardda olan cәmiyyәtin mәlәyinә yaz: Allahın yeddi ruhuna vә yeddi ulduza malik Olan belә deyir: sәnin әmәllәrindәn xәbәrdaram. Adın var ki, guya dirisәn, әslindә isә ölüsәn.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
@@ -478,7 +478,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.</text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="7" characterId="Jesus">
@@ -486,7 +486,7 @@
       <text>“To the angel of the assembly in Philadelphia write: He who is holy, he who is true, he who has the key of David, he who opens and no one can shut, and who shuts and no one opens, says these things:”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Filadelfiyada olan cәmiyyәtin mәlәyinә yaz: Müqәddәs vә Haqq Olan, Davudun açarının Sahibi, açdığını heç kәs bağlamayan, bağladığını heç kәs açmayan belә deyir:</text>
+    <text>&lt;&lt;Filadelfiyada olan cәmiyyәtin mәlәyinә yaz: Müqәddәs vә Haqq Olan, Davudun açarının Sahibi, açdığını heç kәs bağlamayan, bağladığını heç kәs açmayan belә deyir:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -494,7 +494,7 @@
       <text>“I know your works (behold, I have set before you an open door, which no one can shut), that you have a little power, and kept my word, and didn't deny my name.</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>sәnin әmәllәrindәn xәbәrdaram. Bax Mәn sәnin üzünә elә bir qapı açmışam ki, heç kәs onu bağlaya bilmәz. Gücün az olduğu halda Mәnim sözümә riayәt etmisәn vә Mәnim adımdan imtina etmәmisәn.</text>
+    <text>&lt;&lt;sәnin әmәllәrindәn xәbәrdaram. Bax Mәn sәnin üzünә elә bir qapı açmışam ki, heç kәs onu bağlaya bilmәz. Gücün az olduğu halda Mәnim sözümә riayәt etmisәn vә Mәnim adımdan imtina etmәmisәn.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
@@ -534,7 +534,7 @@
       <text>He who has an ear, let him hear what the Spirit says to the assemblies.”</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.</text>
+    <text>Qulağı olan qoy eşitsin ki, Ruh cәmiyyәtlәrә nә deyir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="Jesus">
@@ -542,7 +542,7 @@
       <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God's creation, says these things:”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Laodikeyada olan cәmiyyәtin mәlәyinә yaz: Amin Olan, sadiq vә etibarlı Şahid, Allahın yaratdıqlarının Mәnşәyi belә deyir:</text>
+    <text>&lt;&lt;Laodikeyada olan cәmiyyәtin mәlәyinә yaz: Amin Olan, sadiq vә etibarlı Şahid, Allahın yaratdıqlarının Mәnşәyi belә deyir:&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
@@ -550,7 +550,7 @@
       <text>“I know your works, that you are neither cold nor hot. I wish you were cold or hot.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>sәnin әmәllәrindәn xәbәrdaram. Sәn nә soyuqsan, nә dә isti. Kaş ki ya soyuq ya da isti olaydın!</text>
+    <text>&lt;&lt;sәnin әmәllәrindәn xәbәrdaram. Sәn nә soyuqsan, nә dә isti. Kaş ki ya soyuq ya da isti olaydın!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2176,7 +2176,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="beast, the">
       <text>“Make an image to the beast who was wounded by the sword and lived.”</text>
     </ReferenceBlocks>
-    <text>"Edən qılınc və yaşamış ilə yaralanmışdır canavar bir image olun.</text>
+    <text>"Edən qılınc və yaşamış ilə yaralanmışdır canavar bir image olun.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="narrator-REV">
@@ -2328,7 +2328,7 @@
       <text>This calls for patient endurance on the part of the saints, those who keep the commandments of God, and the faith of Jesus.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Allahın әmrlәrinә riayәt edәn vә İsaya imanına sadiq qalan müqәddәslәrin gәrәk dözümü olsun.</text>
+    <text>Allahın әmrlәrinә riayәt edәn vә İsaya imanına sadiq qalan müqәddәslәrin gәrәk dözümü olsun.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -2348,7 +2348,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Yes,”</text>
     </ReferenceBlocks>
-    <text>Bәli,</text>
+    <text>&lt;&lt;Bәli,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -3116,7 +3116,7 @@
       <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Ey göylәr, Müqәddәslәr, hәvarilәr vә peyğәmbәrlәr, Onun halını bayram edin! Onun sizin üçün çıxartdığı hökmü Allah onun öz başına gәtirdi.</text>
+    <text>&lt;&lt;Ey göylәr, Müqәddәslәr, hәvarilәr vә peyğәmbәrlәr, Onun halını bayram edin! Onun sizin üçün çıxartdığı hökmü Allah onun öz başına gәtirdi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV">
@@ -3246,7 +3246,7 @@
       <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Gәlin sevinib şad olaq, Onu izzәtlәndirәk! Çünki Quzunun toyu başlayır. Gәlini özünü hazırlayıb.</text>
+    <text>Gәlin sevinib şad olaq, Onu izzәtlәndirәk! Çünki Quzunun toyu başlayır. Gәlini özünü hazırlayıb.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">

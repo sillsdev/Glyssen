@@ -884,7 +884,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="12" characterId="Jesus">
       <text>“Do not make my presence known.”</text>
     </ReferenceBlocks>
-    <text>memberitahukan siapa Dia.</text>
+    <text>&lt;&lt;memberitahukan siapa Dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-MRK">
@@ -958,7 +958,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="Jesus' family">
       <text>“He is insane.”</text>
     </ReferenceBlocks>
-    <text>mereka datang hendak mengambil Dia, sebab kata mereka</text>
+    <text>&lt;&lt;mereka datang hendak mengambil Dia, sebab kata mereka&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK">
@@ -973,7 +973,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="teachers of religious law" delivery="insulting">
       <text>“He has Beelzebul,”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Ia kerasukan Beelzebul,</text>
+    <text>&lt;&lt;Ia kerasukan Beelzebul,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK">
@@ -1061,7 +1061,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="30" characterId="teachers of religious law" delivery="insulting">
       <text>“He has an unclean spirit.”</text>
     </ReferenceBlocks>
-    <text>katakan bahwa Ia kerasukan roh jahat.</text>
+    <text>&lt;&lt;katakan bahwa Ia kerasukan roh jahat.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="31" characterId="narrator-MRK">
@@ -1645,7 +1645,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
       <text>“Do not send us out of the region.”</text>
     </ReferenceBlocks>
-    <text>mengusir roh-roh itu keluar dari daerah itu.</text>
+    <text>mengusir roh-roh itu keluar dari daerah itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="11" characterId="narrator-MRK">
@@ -1725,7 +1725,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="17" characterId="Gadarene (or Gerasenes) people" delivery="pleading">
       <text>“Depart from our borders.”</text>
     </ReferenceBlocks>
-    <text>Ia meninggalkan daerah mereka.</text>
+    <text>&lt;&lt;Ia meninggalkan daerah mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="narrator-MRK">
@@ -1739,7 +1739,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="18" characterId="man delivered from Legion of demons">
       <text>“Let me go with you.”</text>
     </ReferenceBlocks>
-    <text>ia diperkenankan menyertai Dia.</text>
+    <text>&lt;&lt;ia diperkenankan menyertai Dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="19" characterId="narrator-MRK">
@@ -2009,7 +2009,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="Jesus">
       <text>“Tell no one about this!”</text>
     </ReferenceBlocks>
-    <text>supaya jangan seorangpun</text>
+    <text>&lt;&lt;supaya jangan seorangpun&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="narrator-MRK">
@@ -2021,7 +2021,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="43" characterId="Jesus">
       <text>“Give her something to eat.”</text>
     </ReferenceBlocks>
-    <text>lalu Ia menyuruh mereka memberi anak itu makan.</text>
+    <text>&lt;&lt;lalu Ia menyuruh mereka memberi anak itu makan.&gt;&gt;</text>
   </block>
   <block style="c" paragraphStart="true" chapter="6" book="MRK" initialStartVerse="0" characterId="BC-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="6" initialStartVerse="0">
@@ -2103,7 +2103,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="Jesus" delivery="giving orders">
       <text>“I am sending you out two by two and I am giving you authority over the unclean spirits”</text>
     </ReferenceBlocks>
-    <text>berdua-dua. Ia memberi mereka kuasa atas roh-roh jahat,</text>
+    <text>berdua-dua. Ia memberi mereka kuasa atas roh-roh jahat,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-MRK">
@@ -2125,7 +2125,7 @@
       <text>Wear sandals, but only one tunic.”</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>boleh memakai alas kaki, tetapi jangan memakai dua baju.</text>
+    <text>boleh memakai alas kaki, tetapi jangan memakai dua baju.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK">
@@ -2499,7 +2499,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="39" characterId="Jesus">
       <text>“Tell everyone to sit down in groups on the green grass.”</text>
     </ReferenceBlocks>
-    <text>supaya semua duduk berkelompok-kelompok di atas rumput hijau.</text>
+    <text>supaya semua duduk berkelompok-kelompok di atas rumput hijau.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="40" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="40" characterId="narrator-MRK">
@@ -2553,7 +2553,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="45" characterId="Jesus">
       <text>“Get into the boat and go to the other side, to Bethsaida.”</text>
     </ReferenceBlocks>
-    <text>perahu dan berangkat lebih dulu ke seberang, ke Betsaida,</text>
+    <text>&lt;&lt;perahu dan berangkat lebih dulu ke seberang, ke Betsaida,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="45" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="45" characterId="narrator-MRK">
@@ -2657,7 +2657,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="55" characterId="crowd">
       <text>“Jesus is here.”</text>
     </ReferenceBlocks>
-    <text>Yesus, di mana saja kabarnya Ia berada.</text>
+    <text>&lt;&lt;Yesus, di mana saja kabarnya Ia berada.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK">
@@ -2671,7 +2671,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="people, sick">
       <text>“Just let me touch the fringe of your garment!”</text>
     </ReferenceBlocks>
-    <text>supaya mereka diperkenankan hanya menjamah jumbai jubah-Nya saja.</text>
+    <text>supaya mereka diperkenankan hanya menjamah jumbai jubah-Nya saja.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="56" characterId="narrator-MRK">
@@ -2931,7 +2931,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Canaanite (Syrophoenician) mother of possessed girl">
       <text>“Please cast the demon out of my daughter!”</text>
     </ReferenceBlocks>
-    <text>untuk mengusir setan itu dari anaknya.</text>
+    <text>&lt;&lt;untuk mengusir setan itu dari anaknya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="narrator-MRK">
@@ -3053,7 +3053,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="Jesus" delivery="warning">
       <text>“Tell no one of this.”</text>
     </ReferenceBlocks>
-    <text>supaya jangan menceriterakannya kepada siapapun juga.</text>
+    <text>&lt;&lt;supaya jangan menceriterakannya kepada siapapun juga.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="36" characterId="narrator-MRK">
@@ -3157,7 +3157,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="Jesus" delivery="giving orders">
       <text>“Sit down on the ground.”</text>
     </ReferenceBlocks>
-    <text>banyak itu duduk di tanah.</text>
+    <text>&lt;&lt;banyak itu duduk di tanah.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="6" characterId="narrator-MRK">
@@ -3209,7 +3209,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="Pharisees">
       <text>“Show us a sign from Heaven!”</text>
     </ReferenceBlocks>
-    <text>meminta dari pada-Nya suatu tanda dari sorga.</text>
+    <text>meminta dari pada-Nya suatu tanda dari sorga.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="12" characterId="narrator-MRK">
@@ -3465,7 +3465,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="warning">
       <text>“Tell no one about me.”</text>
     </ReferenceBlocks>
-    <text>kepada siapapun tentang Dia.</text>
+    <text>&lt;&lt;kepada siapapun tentang Dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="narrator-MRK">
@@ -3479,7 +3479,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="Jesus" delivery="instructing">
       <text>“The Son of Man must suffer many things, and be rejected by the elders, the chief priests, and the scribes, and be killed, and after three days rise again.”</text>
     </ReferenceBlocks>
-    <text>bahwa Anak Manusia harus menanggung banyak penderitaan dan ditolak oleh tua-tua, imam-imam kepala dan ahli-ahli Taurat, lalu dibunuh dan bangkit sesudah tiga hari.</text>
+    <text>bahwa Anak Manusia harus menanggung banyak penderitaan dan ditolak oleh tua-tua, imam-imam kepala dan ahli-ahli Taurat, lalu dibunuh dan bangkit sesudah tiga hari.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-MRK">
@@ -3645,7 +3645,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="Jesus">
       <text>“Tell no one what you have seen until after the Son of Man has risen from the dead.”</text>
     </ReferenceBlocks>
-    <text>supaya mereka jangan menceriterakan kepada seorangpun apa yang telah mereka lihat itu, sebelum Anak Manusia bangkit dari antara orang mati.</text>
+    <text>&lt;&lt;supaya mereka jangan menceriterakan kepada seorangpun apa yang telah mereka lihat itu, sebelum Anak Manusia bangkit dari antara orang mati.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-MRK">
@@ -3659,7 +3659,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="Peter (Simon)/James, the disciple/John" delivery="puzzled">
       <text>“What does ‘Rising from the dead’ mean?”</text>
     </ReferenceBlocks>
-    <text>dengan bangkit dari antara orang mati.</text>
+    <text>&lt;&lt;dengan bangkit dari antara orang mati.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="11" characterId="narrator-MRK">
@@ -4231,7 +4231,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="disciples">
       <text>“Don't bother the teacher!”</text>
     </ReferenceBlocks>
-    <text>orang-orang itu.</text>
+    <text>orang-orang itu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-MRK">
@@ -4794,7 +4794,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="disciples">
       <text>“The Lord needs him.”</text>
     </ReferenceBlocks>
-    <text>menjawab seperti yang sudah dikatakan Yesus.</text>
+    <text>&lt;&lt;menjawab seperti yang sudah dikatakan Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="narrator-MRK">
@@ -4806,7 +4806,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="6" characterId="people">
       <text>“You may go.”</text>
     </ReferenceBlocks>
-    <text>membiarkan mereka.</text>
+    <text>&lt;&lt;membiarkan mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="7" characterId="narrator-MRK">
@@ -4994,7 +4994,7 @@
       <text>But if you do not forgive, neither will your Father in heaven forgive your transgressions.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>(Tetapi jika kamu tidak mengampuni, maka Bapamu yang di sorga juga tidak akan mengampuni kesalahan-kesalahanmu.)</text>
+    <text>(Tetapi jika kamu tidak mengampuni, maka Bapamu yang di sorga juga tidak akan mengampuni kesalahan-kesalahanmu.)&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="narrator-MRK">
@@ -5623,7 +5623,7 @@
       <text>For many will come in my name, saying, ‘I am Christ!’ and will lead many astray.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Akan datang banyak orang dengan memakai nama-Ku dan berkata: &lt;Akulah dia,&gt; dan mereka akan menyesatkan banyak orang.</text>
+    <text>Akan datang banyak orang dengan memakai nama-Ku dan berkata: &lt;Akulah dia,&gt; dan mereka akan menyesatkan banyak orang.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
@@ -5839,7 +5839,7 @@
       <text>Watch, keep alert, and pray; for you don't know when the time is.”</text>
     </ReferenceBlocks>
     <verse num="33" />
-    <text>Hati-hatilah dan berjaga-jagalah! Sebab kamu tidak tahu bilamanakah waktunya tiba.</text>
+    <text>Hati-hatilah dan berjaga-jagalah! Sebab kamu tidak tahu bilamanakah waktunya tiba.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start">
@@ -5979,7 +5979,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="10" characterId="Judas Iscariot">
       <text>“I will hand him over to you.”</text>
     </ReferenceBlocks>
-    <text>menyerahkan Yesus kepada mereka.</text>
+    <text>&lt;&lt;menyerahkan Yesus kepada mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK">
@@ -5993,7 +5993,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="chief priests">
       <text>“We will pay you for this!”</text>
     </ReferenceBlocks>
-    <text>berjanji akan memberikan uang kepadanya.</text>
+    <text>&lt;&lt;berjanji akan memberikan uang kepadanya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="narrator-MRK">
@@ -6557,7 +6557,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="64" characterId="chief priests/Sanhedrin">
       <text>“He deserves to die!”</text>
     </ReferenceBlocks>
-    <text>bahwa Dia harus dihukum mati.</text>
+    <text>&lt;&lt;bahwa Dia harus dihukum mati.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="65" characterId="narrator-MRK">
@@ -6647,7 +6647,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="Peter (Simon)" delivery="denial, stronger">
       <text>“I don't know him!”</text>
     </ReferenceBlocks>
-    <text>menyangkalnya pula.</text>
+    <text>&lt;&lt;menyangkalnya pula.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="70" characterId="narrator-MRK">
@@ -6785,7 +6785,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="crowd before Pilate">
       <text>“Do for us what you have always done for us in the past!”</text>
     </ReferenceBlocks>
-    <text>sekarang kebiasaan itu diikuti juga.</text>
+    <text>&lt;&lt;sekarang kebiasaan itu diikuti juga.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="narrator-MRK">
@@ -6821,7 +6821,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="crowd before Pilate">
       <text>“Give us Barrabus!”</text>
     </ReferenceBlocks>
-    <text>supaya Barabaslah yang dibebaskannya bagi mereka.</text>
+    <text>&lt;&lt;supaya Barabaslah yang dibebaskannya bagi mereka.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-MRK">
@@ -7171,7 +7171,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="43" characterId="Joseph of Arimathea">
       <text>“Give me the body of Jesus.”</text>
     </ReferenceBlocks>
-    <text>meminta mayat Yesus.</text>
+    <text>&lt;&lt;meminta mayat Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="44" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="44" characterId="narrator-MRK">
@@ -7359,7 +7359,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="14" characterId="Jesus">
       <text>“Your hearts are hard! Why did you not believe the others who had seen me?”</text>
     </ReferenceBlocks>
-    <text>oleh karena mereka tidak percaya kepada orang-orang yang telah melihat Dia sesudah kebangkitan-Nya.</text>
+    <text>oleh karena mereka tidak percaya kepada orang-orang yang telah melihat Dia sesudah kebangkitan-Nya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="15" characterId="narrator-MRK">

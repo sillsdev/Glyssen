@@ -200,7 +200,7 @@
       <text>“Behold, the virgin shall be with child, and shall bring forth a son. They shall call his name Immanuel”;</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>&lt;&lt;La jeune fille attendra un enfant. Elle mettra au monde un fils. On l'appellera Emmanuel,</text>
+    <text>&lt;&lt;La jeune fille attendra un enfant. Elle mettra au monde un fils. On l'appellera Emmanuel,&gt;&gt;</text>
   </block>
   <block style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="1" initialStartVerse="23" characterId="narrator-MAT">
@@ -2496,7 +2496,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="24" characterId="people at Jairus' house" delivery="laughing, mocking">
       <text>“The girl is dead!”</text>
     </ReferenceBlocks>
-    <text>La jeune fille est morte!</text>
+    <text>&lt;&lt;La jeune fille est morte!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="narrator-MAT">
@@ -3150,7 +3150,7 @@
       <text>He who has ears to hear, let him hear.”</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Celui qui a des oreilles, qu'il écoute!</text>
+    <text>Celui qui a des oreilles, qu'il écoute!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Start">
@@ -3570,7 +3570,7 @@
       <text>Or how can one enter into the house of the strong man, and plunder his goods, unless he first bind the strong man? Then he will plunder his house.”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>&lt;&lt;Quand quelqu'un veut entrer dans la maison d'un homme fort et prendre ses richesses, il doit d'abord attacher l'homme fort. Alors il pourra tout prendre dans la maison.</text>
+    <text>&lt;&lt;Quand quelqu'un veut entrer dans la maison d'un homme fort et prendre ses richesses, il doit d'abord attacher l'homme fort. Alors il pourra tout prendre dans la maison.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Start">
@@ -4172,7 +4172,7 @@
       <text>“Again, the Kingdom of Heaven is like a treasure hidden in the field, which a man found, and hid. In his joy, he goes and sells all that he has, and buys that field.”</text>
     </ReferenceBlocks>
     <verse num="44" />
-    <text>&lt;&lt;Le Royaume des cieux ressemble à ceci: Il y a un trésor caché dans un champ. Un homme trouve le trésor et il le cache de nouveau. Il est plein de joie, il va vendre tout ce qu'il a et il achète ce champ.</text>
+    <text>&lt;&lt;Le Royaume des cieux ressemble à ceci: Il y a un trésor caché dans un champ. Un homme trouve le trésor et il le cache de nouveau. Il est plein de joie, il va vendre tout ce qu'il a et il achète ce champ.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
@@ -4752,7 +4752,7 @@
       <text>But you say, ‘Whoever may tell his father or his mother, “Whatever help you might otherwise have gotten from me is a gift devoted to God,”</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>Mais vous, vous dites aux gens: &lt;Tu peux dire à ton père ou à ta mère: J'aurais bien quelque chose à te donner pour t'aider. Malheureusement, je dois le donner à Dieu.</text>
+    <text>Mais vous, vous dites aux gens: &lt;Tu peux dire à ton père ou à ta mère: J'aurais bien quelque chose à te donner pour t'aider. Malheureusement, je dois le donner à Dieu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4760,7 +4760,7 @@
       <text>he shall not honor his father or mother.’ You have made the commandment of God void because of your tradition.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Alors, tu n'es plus obligé de respecter ton père.&gt; Ainsi, à cause de votre tradition, vous supprimez la parole de Dieu.</text>
+    <text>Alors, tu n'es plus obligé de respecter ton père.&gt; Ainsi, à cause de votre tradition, vous supprimez la parole de Dieu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
@@ -4768,7 +4768,7 @@
       <text>“You hypocrites! Well did Isaiah prophesy of you, saying,</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Hommes faux! Esaïe avait raison quand il a parlé de vous. Il a dit de la part de Dieu:</text>
+    <text>&lt;&lt;Hommes faux! Esaïe avait raison quand il a parlé de vous. Il a dit de la part de Dieu:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5836,7 +5836,7 @@
       <text>but whoever causes one of these little ones who believe in me to stumble, it would be better for him that a huge millstone should be hung around his neck, and that he should be sunk in the depths of the sea.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>&lt;&lt;Supposons ceci: quelqu'un fait tomber dans le péché l'un de ces petits qui croient en moi. Eh bien, il vaut mieux qu'on attache une grosse pierre au cou de cette personne et qu'on la jette au fond de la mer.</text>
+    <text>&lt;&lt;Supposons ceci: quelqu'un fait tomber dans le péché l'un de ces petits qui croient en moi. Eh bien, il vaut mieux qu'on attache une grosse pierre au cou de cette personne et qu'on la jette au fond de la mer.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
@@ -5844,7 +5844,7 @@
       <text>“Woe to the world because of occasions of stumbling! For it must be that the occasions come, but woe to that person through whom the occasion comes!</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Quel malheur! Dans le monde, il y a tant d'occasions de tomber dans le péché! Bien sûr, ces occasions existeront toujours. Mais malheur à la personne qui provoque ces occasions!</text>
+    <text>&lt;&lt;Quel malheur! Dans le monde, il y a tant d'occasions de tomber dans le péché! Bien sûr, ces occasions existeront toujours. Mais malheur à la personne qui provoque ces occasions!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5876,7 +5876,7 @@
       <text>For the Son of Man came to save that which was lost.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Car le Fils de l'homme est venu pour sauver ce qui était perdu.</text>
+    <text>Car le Fils de l'homme est venu pour sauver ce qui était perdu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -6016,7 +6016,7 @@
       <text>The lord of that servant, being moved with compassion, released him, and forgave him the debt.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Le maître est plein de pitié pour son serviteur. Il supprime sa dette et le laisse partir.</text>
+    <text>Le maître est plein de pitié pour son serviteur. Il supprime sa dette et le laisse partir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="28" characterId="Jesus">
@@ -7092,7 +7092,7 @@
       <text>But if we say, ‘From men,’ we fear the multitude, for all hold John as a prophet.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Mais si nous répondons: &lt;Ce sont les hommes&gt;, alors, attention à la foule!&gt;&gt; En effet, tout le monde pense que Jean était un prophète.</text>
+    <text>Mais si nous répondons: &lt;Ce sont les hommes&gt;, alors, attention à la foule!&gt;&gt; En effet, tout le monde pense que Jean était un prophète.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="27" characterId="narrator-MAT">
@@ -7358,7 +7358,7 @@
       <text>“But they made light of it, and went their ways, one to his own farm, another to his merchandise.</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>Mais les invités n'y font pas attention, et ils s'en vont, l'un à son champ, l'autre à son commerce.</text>
+    <text>&lt;&lt;Mais les invités n'y font pas attention, et ils s'en vont, l'un à son champ, l'autre à son commerce.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7374,7 +7374,7 @@
       <text>When the king heard that, he was angry, and sent his armies, destroyed those murderers, and burned their city.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Le roi se met en colère. Il envoie ses soldats tuer les assassins et brûler leur ville.</text>
+    <text>Le roi se met en colère. Il envoie ses soldats tuer les assassins et brûler leur ville.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -7398,7 +7398,7 @@
       <text>“Those servants went out into the highways, and gathered together as many as they found, both bad and good. The wedding was filled with guests.</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Les serviteurs partent sur les chemins, ils rassemblent tous les gens qu'ils trouvent, les mauvais et les bons. Ainsi la salle de fête est pleine de monde.</text>
+    <text>&lt;&lt;Les serviteurs partent sur les chemins, ils rassemblent tous les gens qu'ils trouvent, les mauvais et les bons. Ainsi la salle de fête est pleine de monde.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7864,7 +7864,7 @@
       <text>“Woe to you, scribes and Pharisees, hypocrites! For you devour widows’ houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.”</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>&lt;&lt;Quel malheur pour vous, maîtres de la loi et Pharisiens, quand vous êtes des hommes faux! Vous fermez la porte du Royaume des cieux devant les gens. Vous-mêmes, vous n'entrez pas et vous ne laissez pas entrer ceux qui le veulent.</text>
+    <text>&lt;&lt;Quel malheur pour vous, maîtres de la loi et Pharisiens, quand vous êtes des hommes faux! Vous fermez la porte du Royaume des cieux devant les gens. Vous-mêmes, vous n'entrez pas et vous ne laissez pas entrer ceux qui le veulent.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
@@ -7872,7 +7872,7 @@
       <text>“But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don't enter in yourselves, neither do you allow those who are entering in to enter.</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Malheur à vous, maîtres de la loi et Pharisiens, hypocrites! Vous prenez aux veuves tout ce qu'elles possèdent et, en même temps, vous faites de longues prières pour paraître bons. C'est pourquoi vous recevrez une punition d'autant plus grande.</text>
+    <text>&lt;&lt;Malheur à vous, maîtres de la loi et Pharisiens, hypocrites! Vous prenez aux veuves tout ce qu'elles possèdent et, en même temps, vous faites de longues prières pour paraître bons. C'est pourquoi vous recevrez une punition d'autant plus grande.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
@@ -7880,7 +7880,7 @@
       <text>Woe to you, scribes and Pharisees, hypocrites! For you travel around by sea and land to make one proselyte; and when he becomes one, you make him twice as much of a son of Gehenna as yourselves.”</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>&lt;&lt;Quel malheur pour vous, maîtres de la loi et Pharisiens, quand vous êtes des hommes faux! Vous voyagez partout, sur terre et sur mer, pour gagner même un seul homme à la loi de Moïse. Et, quand c'est fait, vous en faites quelqu'un qui mérite la punition de Dieu, deux fois plus que vous.</text>
+    <text>&lt;&lt;Quel malheur pour vous, maîtres de la loi et Pharisiens, quand vous êtes des hommes faux! Vous voyagez partout, sur terre et sur mer, pour gagner même un seul homme à la loi de Moïse. Et, quand c'est fait, vous en faites quelqu'un qui mérite la punition de Dieu, deux fois plus que vous.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="16" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
@@ -7936,7 +7936,7 @@
       <text>He who swears by heaven, swears by the throne of God, and by the one who sits on it.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Celui qui jure par le ciel jure par le siège de Dieu et par Dieu qui est assis dessus.</text>
+    <text>Celui qui jure par le ciel jure par le siège de Dieu et par Dieu qui est assis dessus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="23" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
@@ -7952,7 +7952,7 @@
       <text>You blind guides, who strain out a gnat, and swallow a camel!”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Vous êtes des guides aveugles! Vous filtrez l'eau pour enlever un moustique, mais vous avalez un chameau!</text>
+    <text>Vous êtes des guides aveugles! Vous filtrez l'eau pour enlever un moustique, mais vous avalez un chameau!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Jesus" delivery="rebuking">
@@ -7960,7 +7960,7 @@
       <text>“Woe to you, scribes and Pharisees, hypocrites! For you clean the outside of the cup and of the platter, but within they are full of extortion and unrighteousness.”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>&lt;&lt;Quel malheur pour vous, maîtres de la loi et Pharisiens, quand vous êtes des hommes faux! Vous nettoyez l'extérieur du verre et du plat. Mais dedans, ils sont pleins de ce que vous avez volé et arraché aux gens!</text>
+    <text>&lt;&lt;Quel malheur pour vous, maîtres de la loi et Pharisiens, quand vous êtes des hommes faux! Vous nettoyez l'extérieur du verre et du plat. Mais dedans, ils sont pleins de ce que vous avez volé et arraché aux gens!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="Jesus" delivery="rebuking" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="Jesus" delivery="rebuking">
@@ -7968,7 +7968,7 @@
       <text>“You blind Pharisee, first clean the inside of the cup and of the platter, that its outside may become clean also.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Pharisien aveugle! Nettoie d'abord l'intérieur du plat, et alors l'extérieur aussi deviendra propre.</text>
+    <text>&lt;&lt;Pharisien aveugle! Nettoie d'abord l'intérieur du plat, et alors l'extérieur aussi deviendra propre.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
@@ -7984,7 +7984,7 @@
       <text>Even so you also outwardly appear righteous to men, but inwardly you are full of hypocrisy and iniquity.”</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>De la même façon, à l'extérieur, devant les gens, vous avez l'air d'obéir à Dieu, mais à l'intérieur, vous êtes pleins de mensonge et de mal.</text>
+    <text>De la même façon, à l'extérieur, devant les gens, vous avez l'air d'obéir à Dieu, mais à l'intérieur, vous êtes pleins de mensonge et de mal.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="29" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="29" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
@@ -8278,7 +8278,7 @@
       <text>Unless those days had been shortened, no flesh would have been saved. But for the sake of the chosen ones, those days will be shortened.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Si Dieu n'avait pas décidé de diminuer le nombre de ces jours-là, personne ne pourrait sauver sa vie! Mais il a décidé de diminuer le nombre de ces jours-là, à cause des gens qu'il a choisis.</text>
+    <text>Si Dieu n'avait pas décidé de diminuer le nombre de ces jours-là, personne ne pourrait sauver sa vie! Mais il a décidé de diminuer le nombre de ces jours-là, à cause des gens qu'il a choisis.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Jesus">
@@ -8294,7 +8294,7 @@
       <text>For there will arise false christs, and false prophets, and they will show great signs and wonders, so as to lead astray, if possible, even the chosen ones.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>En effet, des faux messies et des faux prophètes vont venir. Ils feront des choses très étonnantes et des miracles, pour tromper, si possible, même ceux que Dieu a choisis.</text>
+    <text>En effet, des faux messies et des faux prophètes vont venir. Ils feront des choses très étonnantes et des miracles, pour tromper, si possible, même ceux que Dieu a choisis.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start">
@@ -8302,7 +8302,7 @@
       <text>“Behold, I have told you beforehand.</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>Voilà! Je vous ai prévenus!</text>
+    <text>&lt;&lt;Voilà! Je vous ai prévenus!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Continuation">
@@ -8390,7 +8390,7 @@
       <text>But no one knows of that day and hour, not even the angels of heaven, but my Father only.”</text>
     </ReferenceBlocks>
     <verse num="36" />
-    <text>&lt;&lt;Mais le jour et l'heure où ces choses arriveront, personne ne les connaît: ni les anges auprès de Dieu, ni le Fils. Le Père est seul à les connaître.</text>
+    <text>&lt;&lt;Mais le jour et l'heure où ces choses arriveront, personne ne les connaît: ni les anges auprès de Dieu, ni le Fils. Le Père est seul à les connaître.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Start">
@@ -8398,7 +8398,7 @@
       <text>“As the days of Noah were, so will be the coming of the Son of Man.</text>
     </ReferenceBlocks>
     <verse num="37" />
-    <text>Quand le Fils de l'homme viendra, il se passera la même chose qu'au temps de Noé.</text>
+    <text>&lt;&lt;Quand le Fils de l'homme viendra, il se passera la même chose qu'au temps de Noé.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="38" characterId="Jesus" multiBlockQuote="Continuation">
@@ -8660,7 +8660,7 @@
       <text>But he who received the one went away and dug a hole in the ground and hid his lord's money.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Mais celui qui a reçu les 100 pièces d'or s'en va faire un trou dans la terre et il cache l'argent de son maître.</text>
+    <text>Mais celui qui a reçu les 100 pièces d'or s'en va faire un trou dans la terre et il cache l'argent de son maître.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="19" characterId="Jesus">
@@ -9316,7 +9316,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="39" characterId="Jesus" delivery="praying">
       <text>“My Father, if it is possible, let this cup pass away from me; nevertheless, not what I desire, but what you desire.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Mon Père, si c'est possible, éloigne de moi cette coupe de souffrance! Pourtant, ne fais pas comme je veux, mais comme tu v</text>
+    <text>&lt;&lt;Mon Père, si c'est possible, éloigne de moi cette coupe de souffrance! Pourtant, ne fais pas comme je veux, mais comme tu v&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="40" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="40" characterId="narrator-MAT">
@@ -10183,7 +10183,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="35" characterId="scripture">
       <text>“They parted my clothes among them, and for my cloak they cast lots.”</text>
     </ReferenceBlocks>
-    <text>Ils se sont partage mes vetements, et ils ont ire au sort ma tunique.</text>
+    <text>&lt;&lt;Ils se sont partage mes vetements, et ils ont ire au sort ma tunique.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="27" initialStartVerse="36" characterId="narrator-MAT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="27" initialStartVerse="36" characterId="narrator-MAT">
