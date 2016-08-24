@@ -287,6 +287,13 @@ namespace Glyssen
 			Debug.Fail("Properly corresponding match not found in for block " + block.GetText(true));
 			return matches.FirstOrDefault();
 		}
+
+		public bool CanChangeCharacterAndDeliveryInfo(params int[] blockIndices)
+		{
+			if (!blockIndices.Any())
+				throw new ArgumentException();
+			return !blockIndices.Any(i => CorrelatedBlocks[i].CharacterIsStandard);
+		}
 	}
 
 	public class InvalidReferenceTextException :  Exception

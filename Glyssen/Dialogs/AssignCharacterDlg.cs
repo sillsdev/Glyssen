@@ -1071,10 +1071,13 @@ namespace Glyssen.Dialogs
 			if (colPrimary.Visible)
 				SwapRefText(rowA, rowB, colPrimary.Index);
 			SwapRefText(rowA, rowB, colEnglish.Index);
-			if (colCharacter.Visible)
-				SwapValues(rowA, rowB, colCharacter.Index);
-			if (colDelivery.Visible)
-				SwapValues(rowA, rowB, colDelivery.Index);
+			if (m_viewModel.CurrentReferenceTextMatchup.CanChangeCharacterAndDeliveryInfo(rowA.Index, rowB.Index))
+			{
+				if (colCharacter.Visible)
+					SwapValues(rowA, rowB, colCharacter.Index);
+				if (colDelivery.Visible)
+					SwapValues(rowA, rowB, colDelivery.Index);
+			}
 
 			int iCol = 0;
 			while (!m_dataGridReferenceText.Columns[iCol].Visible)

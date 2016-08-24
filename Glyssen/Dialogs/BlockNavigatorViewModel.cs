@@ -163,7 +163,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				var actualCount = m_navigator.CurrentBook.GetScriptBlocks().Count;
-				var adjustment = m_currentRefBlockMatchups != null ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
+				var adjustment = BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
 				return actualCount + adjustment;
 			}
 		}
@@ -175,7 +175,7 @@ namespace Glyssen.Dialogs
 
 				// If we're in block matchup mode and the current matchup group covers the last relevant block, then make display index
 				// show as if we're on that very last block so it won't be confusing to the user why they can't click the Next button.
-				if (m_currentRefBlockMatchups != null &&
+				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation &&
 					m_currentBlockIndex >= 0 &&
 					m_currentBlockIndex < RelevantBlockCount - 1 &&
 					m_relevantBlocks[m_currentBlockIndex].BookIndex == m_relevantBlocks.Last().BookIndex &&
@@ -192,7 +192,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				if (m_currentRefBlockMatchups != null && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
+				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
 					return m_currentRefBlockMatchups.CorrelatedAnchorBlock;
 				return m_navigator.CurrentBlock;
 			}
@@ -264,7 +264,7 @@ namespace Glyssen.Dialogs
 				int index = value;
 				var bookIndex = m_navigator.GetIndices().BookIndex;
 
-				if (m_currentRefBlockMatchups != null && index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook)
+				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook)
 				{
 					if (index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count)
 					{
@@ -537,7 +537,7 @@ namespace Glyssen.Dialogs
 
 		public Block GetLastBlockInCurrentQuote()
 		{
-			if (m_currentRefBlockMatchups != null && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
+			if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
 				return m_currentRefBlockMatchups.CorrelatedBlocks.Last();
 
 			if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
@@ -551,7 +551,7 @@ namespace Glyssen.Dialogs
 		#region Navigation methods
 		public Block GetNthBlockInCurrentBook(int i)
 		{
-			if (m_currentRefBlockMatchups == null)
+			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
 			{
 				return m_navigator.CurrentBook.GetScriptBlocks()[i];
 			}
@@ -577,7 +577,7 @@ namespace Glyssen.Dialogs
 				{
 					if (m_currentBlockIndex == 0)
 						return false;
-					if (m_currentRefBlockMatchups == null)
+					if (BlockGroupingStyle == BlockGroupingType.Quote)
 						return true;
 					return GetIndexOfPreviousRelevantBlockNotInCurrentMatchup() >= 0;
 				}
@@ -600,7 +600,7 @@ namespace Glyssen.Dialogs
 				{
 					if (m_currentBlockIndex == RelevantBlockCount - 1)
 						return false;
-					if (m_currentRefBlockMatchups == null)
+					if (BlockGroupingStyle == BlockGroupingType.Quote)
 						return true;
 					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentBlockIndex;
 				}
@@ -651,7 +651,7 @@ namespace Glyssen.Dialogs
 		{
 			if (IsCurrentBlockRelevant)
 			{
-				if (m_currentRefBlockMatchups == null)
+				if (BlockGroupingStyle == BlockGroupingType.Quote)
 					m_currentBlockIndex++;
 				else
 					m_currentBlockIndex = GetIndexOfNextRelevantBlockNotInCurrentMatchup();
@@ -692,7 +692,7 @@ namespace Glyssen.Dialogs
 		{
 			if (IsCurrentBlockRelevant)
 			{
-				if (m_currentRefBlockMatchups == null)
+				if (BlockGroupingStyle == BlockGroupingType.Quote)
 					m_currentBlockIndex--;
 				else
 					m_currentBlockIndex = GetIndexOfPreviousRelevantBlockNotInCurrentMatchup();
@@ -765,8 +765,9 @@ namespace Glyssen.Dialogs
 
 		public void ApplyCurrentReferenceTextMatchup()
 		{
-			if (m_currentRefBlockMatchups == null)
+			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
 				throw new InvalidOperationException("No current reference text block matchup!");
+			Debug.Assert(m_currentRefBlockMatchups != null);
 			if (!m_currentRefBlockMatchups.HasOutstandingChangesToApply)
 				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;

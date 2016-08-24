@@ -32,18 +32,23 @@ namespace Glyssen.Controls
 		{
 			if (e.RowIndex >= 0 && Rows[e.RowIndex].Selected)
 			{
-				if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
-				{
-					foreach (DataGridViewRow row in SelectedRows)
-					{
-						row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
-						row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
-					}
-				}
+				ResetSelectionBackColors();
 				m_viewModel.CurrentBlockIndexInBook = e.RowIndex;
 				return;
 			}
 			base.OnCellMouseDown(e);
+		}
+
+		private void ResetSelectionBackColors()
+		{
+			if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
+			{
+				foreach (DataGridViewRow row in SelectedRows)
+				{
+					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
+					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
+				}
+			}
 		}
 
 		protected override void OnSelectionChanged(EventArgs e)
@@ -133,6 +138,9 @@ namespace Glyssen.Controls
 		{
 			m_updatingContext = true;
 			SuspendLayout();
+	
+			ResetSelectionBackColors();
+
 			ClearSelection();
 			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
 			var firstRow = m_viewModel.IndexOfFirstBlockInCurrentGroup;
