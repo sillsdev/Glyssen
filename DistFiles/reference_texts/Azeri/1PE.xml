@@ -779,7 +779,7 @@
     <text>Çünki mühakimәnin Allahın ev xalqından başlandığı vaxt gәlir. Әgәr mühakimә әvvәl bizdәn başlanarsa, Allahın Müjdәsinә itaәt etmәyәnlәrin sonu necә olacaq?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE">
       <verse num="18" />
       <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
     </ReferenceBlocks>

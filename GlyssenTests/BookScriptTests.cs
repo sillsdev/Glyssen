@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen;
 using Glyssen.Character;
+using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
+using SIL.IO;
 using SIL.Xml;
 
 namespace GlyssenTests
@@ -18,6 +21,21 @@ namespace GlyssenTests
 		private int m_curSetupVerse;
 		private int m_curSetupVerseEnd;
 		private string m_curStyleTag;
+
+		private ScrVers m_testVersification;
+
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				m_testVersification = Versification.Table.Load(tempFile.Path);
+			}
+		}
 
 		#region GetVerseText Tests
 		[Test]
@@ -156,7 +174,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(5));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 3);
-			Assert.AreEqual("[3]\u00A0This is it!", block.GetText(true));
+			Assert.AreEqual("{3}\u00A0This is it!", block.GetText(true));
 		}
 
 		[Test]
@@ -169,7 +187,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(6));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 2);
-			Assert.IsTrue(block.GetText(true).StartsWith("[2]\u00A0This is it![3]\u00A0"));
+			Assert.IsTrue(block.GetText(true).StartsWith("{2}\u00A0This is it!{3}\u00A0"));
 		}
 
 		[Test]
@@ -182,7 +200,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(6));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 4);
-			Assert.IsTrue(block.GetText(true).Contains("[4]\u00A0This is it![5]\u00A0"));
+			Assert.IsTrue(block.GetText(true).Contains("{4}\u00A0This is it!{5}\u00A0"));
 		}
 
 		[Test]
@@ -211,7 +229,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(7).AddVerse(8));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(2, 5);
-			Assert.IsTrue(block.GetText(true).Contains("[5]\u00A0This is it![6]\u00A0"));
+			Assert.IsTrue(block.GetText(true).Contains("{5}\u00A0This is it!{6}\u00A0"));
 		}
 
 		[Test]
@@ -224,7 +242,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(7));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var block = bookScript.GetFirstBlockForVerse(1, 5);
-			Assert.IsTrue(block.GetText(true).EndsWith("[4-6]\u00A0This is it!"));
+			Assert.IsTrue(block.GetText(true).EndsWith("{4-6}\u00A0This is it!"));
 		}
 
 		[Test]
@@ -243,7 +261,7 @@ namespace GlyssenTests
 			mrkBlocks.Add(NewSingleVersePara(4));
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var firstBlockForVerse1_3 = bookScript.GetFirstBlockForVerse(1, 3);
-			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("[3]\u00A0This is it!"));
+			Assert.IsTrue(firstBlockForVerse1_3.GetText(true).EndsWith("{3}\u00A0This is it!"));
 		}
 		#endregion
 
@@ -296,6 +314,25 @@ namespace GlyssenTests
 			Assert.AreEqual(3, list.Count);
 			Assert.AreEqual(expected, list[0]);
 		}
+
+		[Test]
+		public void GetBlocksForVerse_VerseNumberPrecededBySquareBracket_ReturnsBlocksForVerse()
+		{
+			var blocks = new List<Block>();
+			blocks.Add(NewChapterBlock(8));
+			blocks.Add(NewSingleVersePara(36, "Ka guwoto kacel i yo, ci guo ka ma pii tye iye. Laco ma gikolo owacci, "));
+			blocks.Add(NewBlock("“Nen pii doŋ ene! Gin aŋo ma geŋa limo batija?” "));
+			Block expected;
+			blocks.Add(expected = NewSingleVersePara(37, "Ci Pilipo owacce ni, "));
+			expected.BlockElements.Insert(0, new ScriptText("[ "));
+			blocks.Add(NewBlock("“Ka iye ki cwinyi ducu ci itwero.” "));
+			blocks.Add(NewBlock("En odok iye ni, "));
+			blocks.Add(NewBlock("“An aye Yecu Kricito, ni en Wod pa Lubaŋa.”] "));
+			var bookScript = new BookScript("ACT", blocks);
+			var list = bookScript.GetBlocksForVerse(8, 37).ToList();
+			Assert.AreEqual(4, list.Count);
+			Assert.AreEqual(expected, list[0]);
+		}
 		#endregion
 
 		#region GetScriptBlocks Tests
@@ -341,12 +378,12 @@ namespace GlyssenTests
 			Assert.IsTrue(result[1].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(result[1].IsParagraphStart);
 			var textOfFirstVerseBlock = result[1].GetText(true);
-			Assert.IsTrue(textOfFirstVerseBlock.StartsWith("[1]"));
-			Assert.IsTrue(textOfFirstVerseBlock.Contains("[2]"));
-			Assert.IsTrue(textOfFirstVerseBlock.Contains(" «Sons of Thunder» the rest of verse 2. [3]"));
+			Assert.IsTrue(textOfFirstVerseBlock.StartsWith("{1}\u00A0"));
+			Assert.IsTrue(textOfFirstVerseBlock.Contains("{2}\u00A0"));
+			Assert.IsTrue(textOfFirstVerseBlock.Contains(" «Sons of Thunder» the rest of verse 2. {3}\u00A0"));
 			Assert.IsTrue(result[2].CharacterIs("MRK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.IsTrue(result[2].IsParagraphStart);
-			Assert.IsTrue(result[2].GetText(true).StartsWith("[4]"));
+			Assert.IsTrue(result[2].GetText(true).StartsWith("{4}\u00A0"));
 		}
 
 		[Test]
@@ -1115,10 +1152,80 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
-			Assert.AreEqual("[36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
 			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
 			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_AssignCharacterId_CharacterAssignedAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "Jesus", ScrVers.English);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+			Assert.AreEqual("Jesus", newBlock.CharacterId);
+			Assert.IsNull(newBlock.CharacterIdOverrideForScript);
+			Assert.IsTrue(newBlock.UserConfirmed);
+		}
+
+		[Test]
+		public void SplitBlock_AssignMultiCharacterId_CharacterAndCharacterInScriptAssignedAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignoring what they said, they told that synagogue ruler: Don't be afraid; just believe.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 57, true, "James/John", ScrVers.English);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, they told that synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Don't be afraid; just believe.", newBlock.GetText(true));
+			Assert.AreEqual("James/John", newBlock.CharacterId);
+			Assert.AreEqual("James", newBlock.CharacterIdInScript);
+			Assert.IsTrue(newBlock.UserConfirmed);
+		}
+
+		[Test]
+		public void SplitBlock_AssignMultiCharacterIdWithDefaultOverriddenInControlFile_VersificationShift_CharacterAndCharacterInScriptAssignedAndUserConfirmed()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(9));
+			var blockToSplit = NewSingleVersePara(9, "And as they were coming down the mountain, he charged them to tell no one what they had seen, until the Son of Man had risen from the dead. ")
+				//            0         1         2         3         4         5         6         7         8
+				//            012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+				.AddVerse(10, "So they kept the matter to themselves, questioning: What does rising from the dead mean?");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "10", 52, true, "Peter (Simon)/James/John", m_testVersification);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("{9}\u00A0And as they were coming down the mountain, he charged them to tell no one what they had seen, " +
+				"until the Son of Man had risen from the dead. {10}\u00A0So they kept the matter to themselves, questioning: ", blocks[1].GetText(true));
+			Assert.AreEqual(10, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual("What does rising from the dead mean?", newBlock.GetText(true));
+			Assert.AreEqual("Peter (Simon)/James/John", newBlock.CharacterId);
+			Assert.AreEqual("John", newBlock.CharacterIdInScript);
+			Assert.IsTrue(newBlock.UserConfirmed);
 		}
 
 		[Test]
@@ -1137,10 +1244,10 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
-			Assert.AreEqual("[36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
 			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
-			Assert.AreEqual("Don't be afraid; just believe. [37-38]\u00A0This is the text of following verses. [39]\u00A0This is the text of final verse. ", newBlock.GetText(true));
+			Assert.AreEqual("Don't be afraid; just believe. {37-38}\u00A0This is the text of following verses. {39}\u00A0This is the text of final verse. ", newBlock.GetText(true));
 		}
 
 		[Test]
@@ -1159,10 +1266,10 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
-			Assert.AreEqual("[36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[1].GetText(true));
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[1].GetText(true));
 			Assert.AreEqual(37, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(38, newBlock.InitialEndVerseNumber);
-			Assert.AreEqual("[37-38]\u00A0This is the text of following verses. [39]\u00A0This is the text of final verse. ", newBlock.GetText(true));
+			Assert.AreEqual("{37-38}\u00A0This is the text of following verses. {39}\u00A0This is the text of final verse. ", newBlock.GetText(true));
 			Assert.AreEqual(2, newBlock.BlockElements.OfType<ScriptText>().Count());
 		}
 
@@ -1182,10 +1289,10 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36]\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
 			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
-			Assert.AreEqual("Don't be afraid; just believe. [37]\u00A0This is the final verse. ", newBlock.GetText(true));
+			Assert.AreEqual("Don't be afraid; just believe. {37}\u00A0This is the final verse. ", newBlock.GetText(true));
 		}
 
 		[Test]
@@ -1205,10 +1312,10 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(blocks[2], newBlock);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36-37}\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: ", blocks[1].GetText(true));
 			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
 			Assert.AreEqual(37, newBlock.InitialEndVerseNumber);
-			Assert.AreEqual("Don't be afraid; just believe. [38]\u00A0This is the final verse. ", newBlock.GetText(true));
+			Assert.AreEqual("Don't be afraid; just believe. {38}\u00A0This is the final verse. ", newBlock.GetText(true));
 		}
 
 		[Test]
@@ -1299,7 +1406,7 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36-37}\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
 			Assert.AreEqual(MultiBlockQuote.Start, blockToSplitBefore.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, block4.MultiBlockQuote);
 		}
@@ -1326,7 +1433,7 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(MultiBlockQuote.None, blockToSplitAfter.MultiBlockQuote);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36-37}\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
 			Assert.AreEqual(MultiBlockQuote.Start, blockToSplitBefore.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, block4.MultiBlockQuote);
 		}
@@ -1356,7 +1463,7 @@ namespace GlyssenTests
 			Assert.AreEqual(5, blocks.Count);
 			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, block3.MultiBlockQuote);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[3].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36-37}\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[3].GetText(true));
 			Assert.AreEqual(MultiBlockQuote.Start, blockToSplitBefore.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, block5.MultiBlockQuote);
 		}
@@ -1383,7 +1490,7 @@ namespace GlyssenTests
 			Assert.AreEqual(4, blocks.Count);
 			Assert.AreEqual(MultiBlockQuote.Start, block2.MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, block3.MultiBlockQuote);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[3].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36-37}\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[3].GetText(true));
 			Assert.AreEqual(MultiBlockQuote.None, blockToSplitBefore.MultiBlockQuote);
 		}
 
@@ -1405,7 +1512,7 @@ namespace GlyssenTests
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
-			Assert.AreEqual("[35]\u00A0This is the first verse. [36-37]\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
+			Assert.AreEqual("{35}\u00A0This is the first verse. {36-37}\u00A0Ignoring what they said and prohibiting anyone except Peter, James and John from following him, Jesus told the synagogue ruler: Don't be afraid; just believe. ", blocks[2].GetText(true));
 			Assert.AreEqual(MultiBlockQuote.None, blockToSplitBefore.MultiBlockQuote);
 		}
 
@@ -1649,7 +1756,7 @@ namespace GlyssenTests
 			Assert.AreEqual("This is the remainder of the verse bridge in the block to split. ", blocks[2].GetText(true));
 			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual(2, blocks[2].InitialEndVerseNumber);
-			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[3].GetText(true));
+			Assert.AreEqual("{3}\u00A0This is the text of the following verse.", blocks[3].GetText(true));
 			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);
 		}
@@ -1668,11 +1775,11 @@ namespace GlyssenTests
 			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(3, blocks.Count);
-			Assert.AreEqual("[1-2a]\u00A0This is the bridge that has the first part of verse 2. [2b]\u00A0This is the rest of verse two. ",
+			Assert.AreEqual("{1-2a}\u00A0This is the bridge that has the first part of verse 2. {2b}\u00A0This is the rest of verse two. ",
 				blocks[1].GetText(true));
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual(2, blocks[1].InitialEndVerseNumber);
-			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[2].GetText(true));
+			Assert.AreEqual("{3}\u00A0This is the text of the following verse.", blocks[2].GetText(true));
 			Assert.AreEqual(3, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[2].InitialEndVerseNumber);
 		}
@@ -1710,14 +1817,14 @@ namespace GlyssenTests
 			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 2));
 			var blocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(4, blocks.Count);
-			Assert.AreEqual("[1-2a]\u00A0This is the bridge that has the first part of verse 2. ",
+			Assert.AreEqual("{1-2a}\u00A0This is the bridge that has the first part of verse 2. ",
 				blocks[1].GetText(true));
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual(2, blocks[1].InitialEndVerseNumber);
-			Assert.AreEqual("[2b]\u00A0This is the rest of verse two. ", blocks[2].GetText(true));
+			Assert.AreEqual("{2b}\u00A0This is the rest of verse two. ", blocks[2].GetText(true));
 			Assert.AreEqual(2, blocks[2].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[2].InitialEndVerseNumber);
-			Assert.AreEqual("[3]\u00A0This is the text of the following verse.", blocks[3].GetText(true));
+			Assert.AreEqual("{3}\u00A0This is the text of the following verse.", blocks[3].GetText(true));
 			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);
 		}

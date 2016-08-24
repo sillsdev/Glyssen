@@ -255,27 +255,24 @@ namespace Glyssen
 			}
 		}
 
-		public void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification, bool oneToOneMatchingOnly = false)
+		public void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification)
 		{
-			if (!oneToOneMatchingOnly)
-			{
-				ReloadModifiedBooks();
+			ReloadModifiedBooks();
 
-				int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-				var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
+			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
+			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
 
-				var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
-				var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
-				MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
+			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+			var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
+			MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
 
-				if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
-					m_modifiedBooks.Add(referenceBook.BookId);
-			}
+			if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
+				m_modifiedBooks.Add(referenceBook.BookId);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook, vernacularVersification, oneToOneMatchingOnly);
+			MatchVernBlocksToReferenceTextBlocks(vernacularBook, vernacularVersification);
 		}
 
-		private void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, ScrVers vernacularVersification, bool oneToOneMatchingOnly)
+		private void MatchVernBlocksToReferenceTextBlocks(BookScript vernacularBook, ScrVers vernacularVersification)
 		{
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
 			var vernBlockList = vernacularBook.GetScriptBlocks();
@@ -288,13 +285,6 @@ namespace Glyssen
 				var currentRefBlock = refBlockList[iRefBlock];
 				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
 				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, Versification);
-
-				if (oneToOneMatchingOnly)
-				{
-					// Clear any past matching information.
-					currentVernBlock.ReferenceBlocks.Clear();
-					currentVernBlock.MatchesReferenceText = false;
-				}
 
 				var type = CharacterVerseData.GetStandardCharacterType(currentVernBlock.CharacterId);
 				switch (type)
@@ -322,15 +312,11 @@ namespace Glyssen
 						// This will be re-incremented in the for loop, so it effectively allows
 						// the vern index to advance while keeping the ref index the same.
 						iRefBlock--;
-						if (oneToOneMatchingOnly && !currentVernBlock.MatchesReferenceText)
-							throw new Exception("Block not matched to reference block: " + currentVernBlock.ToString(true, vernacularBook.BookId));
 						continue;
 					default:
 						if (refInitStartVerse > vernInitStartVerse)
 						{
 							iRefBlock--;
-							if (oneToOneMatchingOnly && !currentVernBlock.MatchesReferenceText)
-								throw new Exception("Block not matched to reference block: " + currentVernBlock.ToString(true, vernacularBook.BookId));
 							continue;
 						}
 						break;
@@ -347,59 +333,92 @@ namespace Glyssen
 				var indexOfRefVerseStart = iRefBlock;
 				var vernInitEndVerse = (currentVernBlock.InitialEndVerseNumber == 0) ? vernInitStartVerse :
 					new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialEndVerseNumber, vernacularVersification);
-				var refInitEndVerse = (currentRefBlock.InitialEndVerseNumber == 0) ? refInitStartVerse :
-					new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialEndVerseNumber, Versification);
+				var lastVernVerseFound = FindAllScriptureBlocksThroughVerse(vernBlockList, vernInitEndVerse, ref iVernBlock, bookNum, vernacularVersification, true);
+				FindAllScriptureBlocksThroughVerse(refBlockList, lastVernVerseFound, ref iRefBlock, bookNum, Versification, false);
 
-				FindAllScriptureBlocksThroughVerse(vernBlockList, vernInitEndVerse, ref iVernBlock, bookNum, vernacularVersification);
-				FindAllScriptureBlocksThroughVerse(refBlockList, vernInitEndVerse, ref iRefBlock, bookNum, Versification);
+				int numberOfVernBlocksInVerseChunk = iVernBlock - indexOfVernVerseStart + 1;
+				int numberOfRefBlocksInVerseChunk = iRefBlock - indexOfRefVerseStart + 1;
 
-				int numberOfVernBlocksInVerse = iVernBlock - indexOfVernVerseStart + 1;
-				int numberOfRefBlocksInVerse = iRefBlock - indexOfRefVerseStart + 1;
-
-				if (vernInitStartVerse.CompareTo(refInitStartVerse) == 0 && vernInitEndVerse.CompareTo(refInitEndVerse) == 0 &&
-					((numberOfVernBlocksInVerse == 1 && numberOfRefBlocksInVerse == 1) ||
-					(numberOfVernBlocksInVerse == numberOfRefBlocksInVerse &&
-					VerseBlocksMatch(vernBlockList.Skip(indexOfVernVerseStart), refBlockList.Skip(indexOfRefVerseStart), numberOfVernBlocksInVerse)) ||
-					(!oneToOneMatchingOnly &&
-					numberOfVernBlocksInVerse == numberOfRefBlocksInVerse + 1 &&
-					VerseBlocksMatch(vernBlockList.Skip(indexOfVernVerseStart), refBlockList.Skip(indexOfRefVerseStart), numberOfRefBlocksInVerse) &&
-					!vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerse - 2].CharacterIsStandard &&
-					vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerse - 1].CharacterIs(vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator))))
+				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
-					int i = 0;
-					for (; i < numberOfRefBlocksInVerse; i++)
-						vernBlockList[indexOfVernVerseStart + i].SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
-					while (i < numberOfVernBlocksInVerse)
-						vernBlockList[indexOfVernVerseStart + i++].MatchesReferenceText = false;
-				}
-				else
-				{
-					if (oneToOneMatchingOnly)
-						throw new Exception("Block matched to more than one reference block: " + currentVernBlock.ToString(true, vernacularBook.BookId));
-					currentVernBlock.MatchesReferenceText = false;
-					currentVernBlock.ReferenceBlocks = new List<Block>(refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerse));
+					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
+					var refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + i];
+					if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification) ||
+						(numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk == 1 &&
+						BlocksEndWithSameVerse(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification)))
+					{
+						if (i == numberOfVernBlocksInVerseChunk - 1 && i < numberOfRefBlocksInVerseChunk - 1)
+						{
+							vernBlockInVerseChunk.MatchesReferenceText = false;
+							vernBlockInVerseChunk.ReferenceBlocks =
+								new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i));
+							break;
+						}
+						vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockList[indexOfRefVerseStart + i]);
+					}
+					else
+					{
+						iVernBlock = indexOfVernVerseStart + i;
+
+						int j = 0;
+						if (numberOfVernBlocksInVerseChunk - i >= 2)
+						{
+							// Look from the bottom up
+							for (; j + 1 < numberOfVernBlocksInVerseChunk && j + i < numberOfRefBlocksInVerseChunk; j++)
+							{
+								vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - j - 1];
+								refBlockInVerseChunk = refBlockList[indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - j - 1];
+								if (BlocksMatch(bookNum, vernBlockInVerseChunk, refBlockInVerseChunk, vernacularVersification))
+									vernBlockInVerseChunk.SetMatchedReferenceBlock(refBlockInVerseChunk);
+								else
+									break;
+							}
+						}
+						vernBlockList[iVernBlock].MatchesReferenceText = false;
+						vernBlockList[iVernBlock].ReferenceBlocks =
+							new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i - j));
+						iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
+
+						break;
+					}
 				}
 			}
 		}
 
-		private static bool VerseBlocksMatch(IEnumerable<Block> listA, IEnumerable<Block> listB, int numberOfBlocksToCompare)
+		private bool BlocksMatch(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
-			return listA.Take(numberOfBlocksToCompare).Select(b => b.CharacterId).SequenceEqual(
-				listB.Take(numberOfBlocksToCompare).Select(b => b.CharacterId));
+			var vernInitStartVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.InitialStartVerseNumber, vernacularVersification);
+			var refInitStartVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, Versification);
+			return vernInitStartVerse.CompareTo(refInitStartVerse) == 0 &&
+				vernBlock.CharacterId == refBlock.CharacterId &&
+				BlocksEndWithSameVerse(bookNum, vernBlock, refBlock, vernacularVersification);
 		}
 
-		private static void FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, int bookNum, ScrVers versification)
+		private bool BlocksEndWithSameVerse(int bookNum, Block vernBlock, Block refBlock, ScrVers vernacularVersification)
 		{
+			var lastVernVerse = new VerseRef(bookNum, vernBlock.ChapterNumber, vernBlock.LastVerse, vernacularVersification);
+			var lastRefVerse = new VerseRef(bookNum, refBlock.ChapterNumber, refBlock.LastVerse, Versification);
+			return lastVernVerse.CompareTo(lastRefVerse) == 0;
+		}
+
+		private static VerseRef FindAllScriptureBlocksThroughVerse(IReadOnlyList<Block> blockList, VerseRef endVerse, ref int i, int bookNum, ScrVers versification, bool forceEndAtVerseBreak)
+		{
+			if (forceEndAtVerseBreak)
+				endVerse = new VerseRef(bookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
 			for (; ; )
 			{
 				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterStandard(b.CharacterId, false));
 				if (nextScriptureBlock == null)
-					return;
+					break;
 				var nextVerseRef = new VerseRef(bookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.InitialStartVerseNumber, versification);
 				if (nextVerseRef > endVerse)
-					return;
+					break;
 				i++;
+				if (forceEndAtVerseBreak)
+					endVerse = new VerseRef(bookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.LastVerse, versification);
 			}
+			return forceEndAtVerseBreak ? endVerse :
+				new VerseRef(bookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
 		}
 
 		private class VerseSplitLocation
@@ -477,10 +496,13 @@ namespace Glyssen
 					else
 					{
 #if DEBUG
-						ErrorReport.NotifyUserOfProblem(
-							"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Chapter: {3}; Verse: {4}; Block: {5}",
-							descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
-							bookToSplit.BookId, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
+						if (!BlockContainsVerseEndInMiddleOfVerseBridge(block, verseToSplitAfter.VerseNum))
+						{
+							ErrorReport.NotifyUserOfProblem(
+								"Attempt to split {0} block to match breaks in the {1} text failed. Book: {2}; Chapter: {3}; Verse: {4}; Block: {5}",
+								descriptionOfProjectBeingSplit, descriptionOfProjectUsedToDetermineSplitLocations,
+								bookToSplit.BookId, block.ChapterNumber, verseToSplitAfter.VerseNum, block.GetText(true));
+						}
 #endif
 						if (iSplit == verseSplitLocations.Count - 1)
 							break;
@@ -490,6 +512,11 @@ namespace Glyssen
 				}
 			}
 			return splitsMade;
+		}
+
+		private static bool BlockContainsVerseEndInMiddleOfVerseBridge(Block block, int verse)
+		{
+			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse > verse);
 		}
 
 		protected override string ProjectFolder

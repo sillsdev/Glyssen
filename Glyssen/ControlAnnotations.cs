@@ -73,15 +73,19 @@ namespace Glyssen
 
 	class VerseAnnotation
 	{
+		private readonly int m_offset;
+		private readonly ScriptAnnotation m_annotation;
+		private readonly BCVRef m_verse;
+
 		public VerseAnnotation(BCVRef verse, ScriptAnnotation annotation, int offset)
 		{
-			Verse = verse;
-			Annotation = annotation;
-			Offset = offset;
+			m_verse = verse;
+			m_annotation = annotation;
+			m_offset = offset;
 		}
 
-		public BCVRef Verse { get; set; }
-		public ScriptAnnotation Annotation { get; set; }
-		public int Offset { get; set; }
+		public BCVRef Verse { get { return m_verse; } }
+		public ScriptAnnotation Annotation { get { return m_annotation; } }
+		public int Offset { get { return m_offset; } }
 	}
 }

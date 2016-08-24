@@ -1,17 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
 using SIL.Xml;
+using GlyssenTests.Properties;
+using Paratext;
+using SIL.IO;
+using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests
 {
 	[TestFixture]
 	class BlockTests
 	{
+		private ScrVers m_testVersification;
+
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				m_testVersification = Versification.Table.Load(tempFile.Path);
+			}
+		}
+
 		[SetUp]
 		public void Setup()
 		{
@@ -169,19 +189,20 @@ namespace GlyssenTests
 			Assert.AreEqual(expected, actual);
 		}
 
-		[Test]
-		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetTextAsHtml_TextContainsSquareBrackets_OnlyVerseNumbersAreSuperscripted(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			const string expect1 = ">Text of verse three, part two [2]. <";
+			string expect1 = ">Text of verse three, part two " + open + "2" + close + ". <";
 			const string expect2 = "<sup>4&#160;</sup>";
-			const string expect3 = ">Text of vers [sic] four. <";
+			string expect3 = ">Text of vers " + open + "sic" + close + " four. <";
 			const string expect4 = "<sup>5&#160;</sup>";
 			const string expect5 = ">Text of verse five.<";
 			var actual = block.GetTextAsHtml(true, false);
@@ -216,13 +237,14 @@ namespace GlyssenTests
 				() => block.GetSplitTextAsHtml(0, false, new[] {new BlockSplitData(1, block, "3", 5)}, false));
 		}
 
-		[Test]
-		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetSplitTextAsHtml_BlockSplitProvided_InsertsBlockSplit(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
@@ -232,22 +254,23 @@ namespace GlyssenTests
 			Assert.IsTrue(actual.Contains(expected), string.Format("The output string did not contain: {0}", expected));
 		}
 
-		[Test]
-		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits()
+		[TestCase("[", "]")]
+		[TestCase("{", "}")]
+		public void GetSplitTextAsHtml_MultipleBlockSplitsProvided_InsertsBlockSplits(string open, string close)
 		{
 			var block = new Block("p", 4, 3);
-			block.BlockElements.Add(new ScriptText("Text of verse three, part two [2]. "));
+			block.BlockElements.Add(new ScriptText("Text of verse three, part two " + open + "2" + close + ". "));
 			block.BlockElements.Add(new Verse("4"));
-			block.BlockElements.Add(new ScriptText("Text of vers [sic] four. "));
+			block.BlockElements.Add(new ScriptText("Text of vers " + open + "sic" + close + " four. "));
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two [2]. </div>" + 
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" + 
 				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
 							Block.BuildSplitLineHtml(1) + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
-							Block.BuildSplitLineHtml(2) + 
-							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers [sic] </div>" +
+							Block.BuildSplitLineHtml(2) +
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers " + open + "sic" + close + " </div>" +
 							Block.BuildSplitLineHtml(3) + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" + 
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"><sup>5&#160;</sup>Text</div>" +
@@ -550,13 +573,13 @@ namespace GlyssenTests
 		public void UseDefaultForMultipleChoiceCharacter_ExplicitDefault_UseDefault()
 		{
 			var block = new Block("p", 9, 11);
-			block.CharacterId = "Peter (Simon)/James, the disciple/John";
+			block.CharacterId = "Peter (Simon)/James/John";
 			block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber("MRK"));
 			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
 
 		[Test]
-		public void UseDefaultForMultipleChoiceCharacter_AlreadySetToAnotherVlaue_OverwriteWithDefault()
+		public void UseDefaultForMultipleChoiceCharacter_AlreadySetToAnotherValue_OverwriteWithDefault()
 		{
 			var block = new Block("p", 40, 8);
 			block.CharacterId = "chief cupbearer/chief baker";
@@ -613,6 +636,17 @@ namespace GlyssenTests
 			block.SetCharacterAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer/chief baker", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
+		}
+
+		[Test]
+		public void SetCharacterAndCharacterIdInScript_ControlFileHasOverriddenDefault_VersificationShift_CharacterIdInScriptBasedOnOverride()
+		{
+			// MRK 9:10 in the Vulgate should translate to 9:11 in the "original"
+			// The control file overrides the default speaker in MRK 9:11 to be John.
+			var block = new Block("p", 9, 10);
+			block.SetCharacterAndCharacterIdInScript("Peter (Simon)/James/John", BCVRef.BookToNumber("MRK"), m_testVersification);
+			Assert.AreEqual("Peter (Simon)/James/John", block.CharacterId);
+			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
 
 		[Test]

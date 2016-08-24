@@ -69,7 +69,7 @@
     <text>Budur, O, buludlarla gәlir! Hәr göz Onu görәcәk, Hәtta Onun bәdәnini deşәnlәr dә Onu görәcәk. Yer üzünün bütün tayfaları Onun üçün ah-nalә edәcәk. Bәli, belә olacaq. Amin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <verse num="8" />
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
@@ -83,7 +83,7 @@
     <text>Әksinә,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <text>“who is and who was and who is to come, the Almighty.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt; who is, and who was, and who is to come, the Almighty.&gt;&gt;</text>
@@ -779,7 +779,7 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
       <verse num="6" />
-      <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders. </text>
+      <text>I saw a lamb in the midst of the throne and of the four living creatures, and in the midst of the elders.</text>
     </ReferenceBlocks>
     <verse num="6" />
     <text>Gördüm ki, taxtla dörd canlı mәxluqun ortasında vә ağsaqqalların arasında bir Quzu dayanıb; O sanki kәsilmiş vәziyyәtdә idi.</text>
@@ -803,10 +803,10 @@
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
       <verse num="8" />
-      <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb, </text>
+      <text>Now when he had taken the book, the four living creatures and the twenty-four elders fell down before the Lamb,</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>O, tumarı götürdüyü zaman dörd canlı mәxluq vә iyirmi dörd ağsaqqal Quzunun önündә yerә qapandı. </text>
+    <text>O, tumarı götürdüyü zaman dörd canlı mәxluq vә iyirmi dörd ağsaqqal Quzunun önündә yerә qapandı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="8" characterId="narrator-REV">
@@ -825,13 +825,13 @@
     <text>Onlar yeni bir nәğmә oxuyaraq deyirdi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start">
       <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Sәn tumarı götürüb Onun möhürlәrini qırmağa layiqsәn. Çünki Sәn kәsildin Vә hәr tayfadan, dildәn, xalqdan vә millәtdәn olanları Allah üçün Öz qanın bahasına satın aldın.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" characterIdOverrideForScript="four living creatures" delivery="singing" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
       <verse num="10" />
       <text>You made us kings and priests to our God, and we will reign on earth.”</text>
     </ReferenceBlocks>
@@ -1927,7 +1927,7 @@
       <sound userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Onun quyruğu göy ulduzlarının üçdә birini süpürüb yer üzünә atdı. </text>
+    <text>Onun quyruğu göy ulduzlarının üçdә birini süpürüb yer üzünә atdı.</text>
     <sound userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
@@ -2339,13 +2339,13 @@
     <text>Onda göydәn belә deyәn bir sәs eşitdim:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)">
       <text>“Write, ‘Blessed are the dead who die in the Lord from now on.’”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Yaz: bundan sonra Rәbdә ölәnlәr nә bәxtiyardır!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Yes,”</text>
     </ReferenceBlocks>
     <text>Bәli,</text>
@@ -2357,7 +2357,7 @@
     <text>Ruh deyir:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“that they may rest from their labors; for their works follow with them.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;onlar zәhmәtlәrindәn ayrılıb rahatlıq tapacaqlar, çünki әmәllәrinin nәticәsi onların ardınca gedir&gt;&gt;.</text>
@@ -2921,7 +2921,7 @@
       <text>“Fallen, fallen is Babylon the great! She has become a habitation of demons, a prison of every unclean spirit, and a prison of every unclean and hateful bird! </text>
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
-    <text>&lt;&lt;Dağıldı! Böyük Babil dağıldı! O, cinlәrin mәskәni, Hәr cür natәmiz ruhun sığınacağı, Hәr cür murdar quşun yuvası, Hәr cür murdar vә mәnfur vәhşi heyvanın oylağı oldu. </text>
+    <text>&lt;&lt;Dağıldı! Böyük Babil dağıldı! O, cinlәrin mәskәni, Hәr cür natәmiz ruhun sığınacağı, Hәr cür murdar quşun yuvası, Hәr cür murdar vә mәnfur vәhşi heyvanın oylağı oldu.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="3" characterId="angel, another, coming down from heaven" delivery="shouting" multiBlockQuote="Continuation" matchesReferenceText="true">
@@ -2942,7 +2942,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="voice from heaven, another" multiBlockQuote="Start">
-      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,  </text>
+      <text>“Come out of her, my people, that you have no participation in her sins, and that you don't receive of her plagues,</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ey Mәnim xalqım, oradan çıxın ki, Onun günahlarına şәrik olmayasınız, Onun uğrayacağı bәlalara düçar olmayasınız.</text>
   </block>
@@ -3011,7 +3011,7 @@
     <text>Onun çәkdiyi işgәncәnin qorxusundan uzaqda dayanıb deyәcәklәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
       <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Vay, vay halına, böyük şәhәr, Möhkәm şәhәr Babil! Çünki bir saat içindә cәzan çatdı&gt;&gt;.</text>
@@ -3049,7 +3049,7 @@
     <text>Onlar deyirlәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth">
       <text>“The fruits which your soul lusted after have been lost to you. All things that were dainty and sumptuous have perished from you, and you will find them no more at all.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Ürәyinin arzuladığı bәhrәlәr әlindәn çıxdı, Bütün cah-calallı malların yox oldu. Heç kәs onları bir daha tapmayacaq&gt;&gt;.</text>
@@ -3067,18 +3067,18 @@
     <text>deyәcәklәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Start">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start">
       <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Vay, vay halına, İncә kәtan, tünd qırmızı, al rәngli Parçalardan paltar geyәn, Qızıl, qiymәtli daşlar vә mirvarilәrlә Bәzәnәn böyük şәhәr!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" userConfirmed="true" multiBlockQuote="Continuation">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
       <verse num="17" />
-      <text>For in an hour such great riches are made desolate. </text>
+      <text>For in an hour such great riches are made desolate.</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Çünki bu qәdәr var-dövlәt Bir saat içindә viran oldu&gt;&gt;. </text>
+    <text>Çünki bu qәdәr var-dövlәt Bir saat içindә viran oldu&gt;&gt;.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="narrator-REV">
@@ -3091,7 +3091,7 @@
     <text>onun yanğınından çıxan tüstüyә baxıb nida edirdilәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing">
       <text>“What is like the great city?”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Hansı şәhәr bu böyük şәhәrә tay ola bilәr?&gt;&gt;</text>
@@ -3105,7 +3105,7 @@
     <text>Onlar başlarına toz töküb fәryad edir vә ağlayıb yas tutaraq deyirdilәr:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Vay, vay halına, Dәnizdә gәmisi olanların hamısının Oranın çox qiymәtli malları ilә Varlandığı böyük şәhәr! Çünki bir saat içindә viran oldun&gt;&gt;.</text>
@@ -3207,7 +3207,7 @@
     <text>Onda iyirmi dörd ağsaqqal vә dörd canlı mәxluq yerә qapanaraq taxtda oturan Allaha sәcdә edib dedi:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" characterIdOverrideForScript="twenty-four elders">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
       <text>“Amen! Hallelujah!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Amin! Rәbbә hәmd edin!&gt;&gt;</text>
@@ -3251,7 +3251,7 @@
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
       <verse num="8" />
-      <text>“It was given to her that she would array herself in bright, pure, fine linen.” </text>
+      <text>“It was given to her that she would array herself in bright, pure, fine linen.”</text>
     </ReferenceBlocks>
     <verse num="8" />
     <text>Bu onun parlaq, təmiz, gözəl keten ki, o ki array özü verilmişdir."</text>
@@ -3515,7 +3515,7 @@
       <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Dәniz öz içindә olan ölülәri, ölüm vә ölülәr diyarı da öz qoynunda olan ölülәri tәslim etdi. Hәr biri öz әmәlinә görә mühakimә olundu. </text>
+    <text>Dәniz öz içindә olan ölülәri, ölüm vә ölülәr diyarı da öz qoynunda olan ölülәri tәslim etdi. Hәr biri öz әmәlinә görә mühakimә olundu.</text>
     <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
@@ -3526,7 +3526,7 @@
       <text>is the second death.</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Ölüm vә ölülәr diyarı odlu gölә atıldı. Bu odlu göl ikinci ölümdür. </text>
+    <text>Ölüm vә ölülәr diyarı odlu gölә atıldı. Bu odlu göl ikinci ölümdür.</text>
     <sound soundType="Sfx" effectName="Weird2" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
@@ -3966,7 +3966,7 @@
     <text>Ruh da, gәlin dә deyir:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)" characterIdOverrideForScript="Holy Spirit, the" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)">
       <text>“Come!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Gәl!&gt;&gt;</text>
@@ -3978,7 +3978,7 @@
     <text>Qoy eşidәn dә desin:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears">
       <text>“Come!”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Gәl!&gt;&gt;</text>

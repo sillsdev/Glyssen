@@ -603,7 +603,7 @@
     <text>A prova disso é que Deus marca outro dia, chamado “hoje”. Ele falou disso, muitos anos depois, por meio de Davi, no trecho das Escrituras já citado:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
       <text>“Today if you will hear his voice, don't harden your hearts.”</text>
     </ReferenceBlocks>
     <text>“Se hoje vocês ouvirem a voz de Deus, não sejam teimosos.”</text>

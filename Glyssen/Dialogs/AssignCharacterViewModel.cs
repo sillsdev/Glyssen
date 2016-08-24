@@ -135,15 +135,15 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Methods to get characters and deliveries
-		public HashSet<CharacterVerse> GetUniqueCharactersForCurrentReference()
+		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForCurrentReference()
 		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
 				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber, versification: Versification));
 		}
 
-		public IEnumerable<Character> GetCharactersForCurrentReference(bool expandIfNone = true)
+		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
 		{
-			m_currentCharacters = GetUniqueCharactersForCurrentReference();
+			m_currentCharacters = GetUniqueCharacterVerseObjectsForCurrentReference();
 
 			var listToReturn = new List<Character>(new SortedSet<Character>(
 				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, cv.ProjectSpecific)), m_characterComparer));
@@ -191,7 +191,7 @@ namespace Glyssen.Dialogs
 
 		public IEnumerable<Character> GetUniqueCharacters(string filterText = null)
 		{
-			var charactersForCurrentRef = GetUniqueCharactersForCurrentReference();
+			var charactersForCurrentRef = GetUniqueCharacterVerseObjectsForCurrentReference();
 
 			if (string.IsNullOrWhiteSpace(filterText))
 			{
@@ -373,7 +373,7 @@ namespace Glyssen.Dialogs
 					var characterId = characters.First(c => c.Key == blockSplitData.Id).Value;
 
 					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit, 
-						blockSplitData.CharacterOffsetToSplit, true, characterId);
+						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
 
 					AddToRelevantBlocksIfNeeded(newBlock);
 				}
@@ -616,5 +616,35 @@ namespace Glyssen.Dialogs
 			}
 		}
 		#endregion
+
+		public Character GetCharacterToSelectForCurrentBlock(IEnumerable<Character> currentCharacters)
+		{
+			if (CurrentBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
+				return Character.Narrator;
+			if (CurrentBlock.CharacterIsUnclear())
+			{
+				if (!CurrentBlock.BlockElements.OfType<Verse>().Any())
+				{
+					var charactersForCurrentVerse = GetUniqueCharacterVerseObjectsForCurrentReference();
+					// ENHANCE: Some "Quotations" in the control file may represent text that is typically rendered as
+					// indirect speech (and should therefore be marked as Indirect|Quotation). We really don't want to
+					// include these, but in practice it probably won't matter much.
+					charactersForCurrentVerse.RemoveWhere(c => !c.IsExpected && c.QuoteType != QuoteType.Quotation);
+					if (charactersForCurrentVerse.Count != 2)
+						return null;
+					var blocks = CurrentBook.GetBlocksForVerse(CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber).Where(b => b.UserConfirmed).ToList();
+					if (blocks.Count != 1)
+						return null;
+
+					charactersForCurrentVerse.RemoveWhere(c => c.Character == blocks[0].CharacterId);
+
+					if (charactersForCurrentVerse.Count != 1)
+						return null;
+
+					return currentCharacters.FirstOrDefault(item => item.LocalizedCharacterId == charactersForCurrentVerse.Single().LocalizedCharacter);
+				}
+			}
+			return currentCharacters.FirstOrDefault(item => item.CharacterId == CurrentBlock.CharacterId);
+		}
 	}
 }

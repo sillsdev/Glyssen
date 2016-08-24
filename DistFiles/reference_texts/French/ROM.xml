@@ -1003,7 +1003,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Oui, nous avons été rendus justes en croyant, et maintenant nous sommes en paix avec Dieu, par notre Seigneur Jésus-Christ. </text>
+    <text>Oui, nous avons été rendus justes en croyant, et maintenant nous sommes en paix avec Dieu, par notre Seigneur Jésus-Christ.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
@@ -3751,7 +3751,7 @@
       <text>Gaius, my host and host of the whole assembly, greets you. Erastus, the treasurer of the city, greets you, as does Quartus, the brother.</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>Gaïus vous salue. J'habite chez lui, et toute l'Eglise se réunit dans sa maison. Eraste, le trésorier de la ville, vous salue ainsi que Quartus, notre frère. </text>
+    <text>Gaïus vous salue. J'habite chez lui, et toute l'Eglise se réunit dans sa maison. Eraste, le trésorier de la ville, vous salue ainsi que Quartus, notre frère.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="24" characterId="narrator-ROM">

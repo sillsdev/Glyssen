@@ -297,7 +297,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Por eso, habiendo recibido a Jesucristo como su Señor, deben comportarse como quienes pertenecen a Cristo, </text>
+    <text>Por eso, habiendo recibido a Jesucristo como su Señor, deben comportarse como quienes pertenecen a Cristo,</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL" matchesReferenceText="true">
@@ -413,7 +413,7 @@
     <text>Ustedes han muerto con Cristo y ya no están sujetos a los poderes que dominan este mundo. ¿Por qué, pues, viven como si todavía fueran del mundo, sometidos a reglas tales</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

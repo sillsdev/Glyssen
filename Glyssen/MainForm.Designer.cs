@@ -30,11 +30,13 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_L10NSharpExtender = new L10NSharp.UI.L10NSharpExtender(this.components);
 			this.m_toolStrip = new System.Windows.Forms.ToolStrip();
 			this.m_btnAbout = new System.Windows.Forms.ToolStripButton();
 			this.m_uiLanguageMenu = new System.Windows.Forms.ToolStripDropDownButton();
+			this.m_shareMenu = new System.Windows.Forms.ToolStripDropDownButton();
+			this.m_exportMenu = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_importMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_lastExportLocationLink = new System.Windows.Forms.LinkLabel();
 			this.m_lnkExit = new System.Windows.Forms.LinkLabel();
 			this.m_btnOpenProject = new System.Windows.Forms.Button();
@@ -57,10 +59,10 @@
 			this.m_btnCastSizePlanning = new System.Windows.Forms.Button();
 			this.m_imgCastSizePlanning = new System.Windows.Forms.PictureBox();
 			this.m_lblFilesAreHere = new System.Windows.Forms.Label();
+			this.m_lblCastSizePlan = new System.Windows.Forms.Label();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.m_lblCastSizePlan = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
@@ -87,7 +89,8 @@
 			this.m_toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.m_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_btnAbout,
-            this.m_uiLanguageMenu});
+            this.m_uiLanguageMenu,
+            this.m_shareMenu});
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_toolStrip, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_toolStrip, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_toolStrip, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -109,7 +112,6 @@
 			this.m_btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.glyssenColorPalette.SetForeColor(this.m_btnAbout, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_btnAbout.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.m_btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("m_btnAbout.Image")));
 			this.m_btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnAbout, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnAbout, null);
@@ -130,17 +132,67 @@
 			this.m_uiLanguageMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.m_uiLanguageMenu.ForeColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetForeColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.LinkColor);
-			this.m_uiLanguageMenu.Image = ((System.Drawing.Image)(resources.GetObject("m_uiLanguageMenu.Image")));
 			this.m_uiLanguageMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_uiLanguageMenu, "");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_uiLanguageMenu, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_uiLanguageMenu, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_uiLanguageMenu, "MainForm.toolStripDropDownButton1");
+			this.m_uiLanguageMenu.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
 			this.m_uiLanguageMenu.Name = "m_uiLanguageMenu";
 			this.m_uiLanguageMenu.Size = new System.Drawing.Size(58, 19);
 			this.m_uiLanguageMenu.Text = "English";
 			this.m_uiLanguageMenu.ToolTipText = "User-interface Language";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_uiLanguageMenu, true);
+			// 
+			// m_shareMenu
+			// 
+			this.m_shareMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.m_shareMenu.AutoToolTip = false;
+			this.m_shareMenu.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_shareMenu, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_shareMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.m_shareMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_exportMenu,
+            this.m_importMenu});
+			this.m_shareMenu.ForeColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_shareMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_shareMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_shareMenu, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_shareMenu, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_shareMenu, "MainForm.Share");
+			this.m_shareMenu.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+			this.m_shareMenu.Name = "m_shareMenu";
+			this.m_shareMenu.Size = new System.Drawing.Size(49, 19);
+			this.m_shareMenu.Text = "Share";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_shareMenu, false);
+			// 
+			// m_exportMenu
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_exportMenu, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_exportMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_exportMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_exportMenu, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_exportMenu, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_exportMenu, "MainForm.Export");
+			this.m_exportMenu.Name = "m_exportMenu";
+			this.m_exportMenu.Size = new System.Drawing.Size(152, 22);
+			this.m_exportMenu.Text = "Export";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_exportMenu, false);
+			this.m_exportMenu.Click += new System.EventHandler(this.Export_Click);
+			// 
+			// m_importMenu
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_importMenu, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_importMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_importMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_importMenu, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_importMenu, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_importMenu, "MainForm.Import");
+			this.m_importMenu.Name = "m_importMenu";
+			this.m_importMenu.Size = new System.Drawing.Size(152, 22);
+			this.m_importMenu.Text = "Import";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_importMenu, false);
+			this.m_importMenu.Click += new System.EventHandler(this.Import_Click);
 			// 
 			// m_lastExportLocationLink
 			// 
@@ -485,7 +537,8 @@
 			this.m_btnExport.Enabled = false;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnExport, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetForeColor(this.m_btnExport, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "View the script as a spreadsheet (Ctrl-E to bypass this view and open Export dialog)");
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnExport, "View the script as a spreadsheet (Ctrl-E to bypass this view and open Export dial" +
+        "og)");
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnExport, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnExport, "MainForm.ViewScript");
 			this.m_btnExport.Location = new System.Drawing.Point(23, 209);
@@ -572,6 +625,25 @@
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblFilesAreHere, true);
 			this.m_lblFilesAreHere.Visible = false;
 			// 
+			// m_lblCastSizePlan
+			// 
+			this.m_lblCastSizePlan.AutoSize = true;
+			this.m_lblCastSizePlan.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblCastSizePlan, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblCastSizePlan.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.glyssenColorPalette.SetForeColor(this.m_lblCastSizePlan, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblCastSizePlan.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblCastSizePlan, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblCastSizePlan, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblCastSizePlan, "MainForm.CastSizePlanPlural");
+			this.m_lblCastSizePlan.Location = new System.Drawing.Point(216, 148);
+			this.m_lblCastSizePlan.Name = "m_lblCastSizePlan";
+			this.m_lblCastSizePlan.Size = new System.Drawing.Size(333, 29);
+			this.m_lblCastSizePlan.TabIndex = 42;
+			this.m_lblCastSizePlan.Text = "Cast size is {0}, including {1} narrators";
+			this.m_lblCastSizePlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblCastSizePlan, true);
+			// 
 			// m_tableLayoutPanel
 			// 
 			this.m_tableLayoutPanel.AutoSize = true;
@@ -647,23 +719,6 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(339, 13);
 			this.tableLayoutPanel2.TabIndex = 41;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel2, false);
-			// 
-			// m_lblCastSizePlan
-			// 
-			this.m_lblCastSizePlan.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_lblCastSizePlan, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_lblCastSizePlan.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.glyssenColorPalette.SetForeColor(this.m_lblCastSizePlan, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblCastSizePlan, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblCastSizePlan, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblCastSizePlan, "MainForm.CastSizePlanPlural");
-			this.m_lblCastSizePlan.Location = new System.Drawing.Point(216, 148);
-			this.m_lblCastSizePlan.Name = "m_lblCastSizePlan";
-			this.m_lblCastSizePlan.Size = new System.Drawing.Size(333, 29);
-			this.m_lblCastSizePlan.TabIndex = 42;
-			this.m_lblCastSizePlan.Text = "Cast size is {0}, including {1} narrators";
-			this.m_lblCastSizePlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblCastSizePlan, true);
 			// 
 			// MainForm
 			// 
@@ -742,6 +797,9 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Label m_lblFilesAreHere;
 		private System.Windows.Forms.Label m_lblCastSizePlan;
+		private System.Windows.Forms.ToolStripDropDownButton m_shareMenu;
+		private System.Windows.Forms.ToolStripMenuItem m_exportMenu;
+		private System.Windows.Forms.ToolStripMenuItem m_importMenu;
 	}
 }
 
