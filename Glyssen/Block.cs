@@ -238,9 +238,9 @@ namespace Glyssen
 				{
 					if (includeVerseNumbers)
 					{
-						bldr.Append("[");
+						bldr.Append("{");
 						bldr.Append(verse.Number);
-						bldr.Append("]\u00A0");
+						bldr.Append("}\u00A0");
 					}
 				}
 				else
@@ -583,6 +583,109 @@ namespace Glyssen
 			s_characterSelect = sb.ToString();
 
 			return string.Format(s_characterSelect, splitId);
+		}
+
+		internal Block SplitBlock(string verseToSplit, int characterOffsetToSplit)
+		{
+			var currVerse = InitialVerseNumberOrBridge;
+
+			Block newBlock = null;
+			int indexOfFirstElementToRemove = -1;
+
+			for (int i = 0; i < BlockElements.Count; i++)
+			{
+				var blockElement = BlockElements[i];
+
+				if (newBlock != null)
+				{
+					newBlock.BlockElements.Add(blockElement);
+					continue;
+				}
+
+				Verse verse = blockElement as Verse;
+				if (verse != null)
+					currVerse = verse.Number;
+				else if (verseToSplit == currVerse)
+				{
+					ScriptText text = blockElement as ScriptText;
+
+					string content;
+					if (text == null)
+					{
+						if (BlockElements.Count > i + 1 && BlockElements[i + 1] is Verse)
+						{
+							content = string.Empty;
+							characterOffsetToSplit = 0;
+							indexOfFirstElementToRemove = i + 1;
+						}
+						else
+							continue;
+					}
+					else
+					{
+						content = text.Content;
+
+						if (BlockElements.Count > i + 1)
+						{
+							if (!(BlockElements[i + 1] is Verse) &&
+								(characterOffsetToSplit == BookScript.kSplitAtEndOfVerse || characterOffsetToSplit > content.Length))
+							{
+								// Some kind of annotation. We can skip this. If we're splitting at
+								continue;
+							}
+							indexOfFirstElementToRemove = i + 1;
+						}
+
+						if (characterOffsetToSplit == BookScript.kSplitAtEndOfVerse)
+							characterOffsetToSplit = content.Length;
+
+						if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
+						{
+							throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
+								@"Value must be greater than 0 and less than or equal to the length (" + content.Length +
+								@") of the text of verse " + currVerse + @".");
+						}
+						if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
+							return null;
+					}
+
+					int initialStartVerse, initialEndVerse;
+					if (characterOffsetToSplit == content.Length)
+					{
+						var firstVerseAfterSplit = (Verse)BlockElements[indexOfFirstElementToRemove];
+						initialStartVerse = firstVerseAfterSplit.StartVerse;
+						initialEndVerse = firstVerseAfterSplit.EndVerse;
+					}
+					else
+					{
+						var verseNumParts = verseToSplit.Split(new[] {'-'}, 2, StringSplitOptions.None);
+						initialStartVerse = int.Parse(verseNumParts[0]);
+						initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
+					}
+					newBlock = new Block(StyleTag, ChapterNumber,
+						initialStartVerse, initialEndVerse)
+					{
+						CharacterId = CharacterId,
+						CharacterIdOverrideForScript = CharacterIdOverrideForScript,
+						Delivery = Delivery,
+						UserConfirmed = UserConfirmed
+					};
+					if (characterOffsetToSplit < content.Length)
+						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
+					if (text != null)
+						text.Content = content.Substring(0, characterOffsetToSplit);
+				}
+			}
+
+			if (newBlock == null)
+				throw new ArgumentException(String.Format("Verse {0} not found in given block: {1}", verseToSplit, GetText(true)), "verseToSplit");
+
+			if (indexOfFirstElementToRemove >= 0)
+			{
+				while (indexOfFirstElementToRemove < BlockElements.Count)
+					BlockElements.RemoveAt(indexOfFirstElementToRemove);
+			}
+			return newBlock;
 		}
 	}
 

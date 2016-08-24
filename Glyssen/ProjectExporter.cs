@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
@@ -50,6 +52,8 @@ namespace Glyssen
 		private int m_numberOfFileSuccessfullyExported;
 		private readonly bool m_includeVoiceActors;
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
+		private List<int> m_annotatedRowIndexes;
+		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
 
 		public ProjectExporter(Project project)
 		{
@@ -336,6 +340,8 @@ namespace Glyssen
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				sheet.Cells["A1"].LoadFromArrays(dataArray);
 
+				ColorizeAnnotations(sheet);
+
 				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
 				sheet.Row(1).Style.Font.Bold = true;
 
@@ -380,6 +386,58 @@ namespace Glyssen
 			}
 		}
 
+		private void ColorizeAnnotations(ExcelWorksheet sheet)
+		{
+			foreach (var rowIndex in m_annotatedRowIndexes)
+			{
+				// Excel row index is 1-based, and a header row has been inserted, so add 2.
+				// Excel column indexes are also 1-based, so add 1.
+				var excelRowIndex = rowIndex + 2;
+				var cell = sheet.Cells[excelRowIndex, GetColumnIndex(ExportColumn.PrimaryReferenceText) + 1].First();
+				SetAnnotationColors(cell);
+
+				if (Project.ReferenceText.HasSecondaryReferenceText)
+				{
+					cell = sheet.Cells[excelRowIndex, GetColumnIndex(ExportColumn.SecondaryReferenceText) + 1].First();
+					SetAnnotationColors(cell);
+				}
+			}
+		}
+
+		private void SetAnnotationColors(ExcelRangeBase cell)
+		{
+			// do nothing if the cell is empty
+			var cellValue = cell.Value as string;
+			if (string.IsNullOrEmpty(cellValue)) return;
+
+			var splits = m_splitRegex.Split(cellValue);
+
+			// list of string beginnings of strings to color blue
+			var blueBeginnings = new[] { "|||" };
+
+			// list of string beginnings of strings to color red
+			var redBeginnings = new[] { "{Music", "{F8", "{SFX" };
+
+			cell.RichText.Clear();
+			foreach (var split in splits)
+			{
+				var r = cell.RichText.Add(split);
+
+				if (blueBeginnings.Any(split.StartsWith))
+				{
+					r.Color = Color.Blue;
+				}
+				else if (redBeginnings.Any(split.StartsWith))
+				{
+					r.Color = Color.Red;
+				}
+				else
+				{
+					r.Color = Color.Black;
+				}
+			}
+		}
+
 		// internal for testing
 		internal int GetColumnIndex(ExportColumn column)
 		{
@@ -391,6 +449,8 @@ namespace Glyssen
 				if (!Project.ReferenceText.HasSecondaryReferenceText)
 					columnNumber--;
 			}
+			if (LocalizationManager.UILanguageId != "en")
+				columnNumber++;
 			return columnNumber;
 		}
 
@@ -457,6 +517,8 @@ namespace Glyssen
 
 		private void AddAnnotations(List<List<object>> data)
 		{
+			var annotationRowIndexes = new List<int>();
+
 			int lastIndexOfPreviousVerse = 0;
 			BCVRef previousReferenceTextVerse = null;
 			IEnumerable<VerseAnnotation> annotationsForPreviousVerse = null;
@@ -474,13 +536,15 @@ namespace Glyssen
 							{
 								if (ExportAnnotationsInSeparateRows)
 								{
-									data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
+									var rowIndex = lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset;
+									data.Insert(rowIndex,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
 											previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
 									i++;
+									annotationRowIndexes.Add(rowIndex);
 								}
 								else
-									AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation);
+									annotationRowIndexes.Add(AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation));
 							}
 						}
 						if (referenceTextVerse != previousReferenceTextVerse)
@@ -490,12 +554,14 @@ namespace Glyssen
 							{
 								if (ExportAnnotationsInSeparateRows)
 								{
-									data.Insert(i++ + verseAnnotation.Offset,
+									var rowIndex = i++ + verseAnnotation.Offset;
+									data.Insert(rowIndex,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(referenceTextVerse.Book),
 											referenceTextVerse.Chapter, referenceTextVerse.Verse.ToString()));
+									annotationRowIndexes.Add(rowIndex);
 								}
 								else
-									AddAnnotationData(data, i, verseAnnotation);
+									annotationRowIndexes.Add(AddAnnotationData(data, i, verseAnnotation));
 							}
 
 							annotationsForPreviousVerse = annotationsForVerse;
@@ -505,23 +571,36 @@ namespace Glyssen
 					lastIndexOfPreviousVerse = i;
 				}
 			}
+
+			m_annotatedRowIndexes = annotationRowIndexes;
 		}
 
-		private void AddAnnotationData(List<List<object>> data, int relativeIndex, VerseAnnotation verseAnnotation)
+		private int AddAnnotationData(List<List<object>> data, int relativeIndex, VerseAnnotation verseAnnotation)
 		{
 			Func<string, string, string> modify = (verseAnnotation.Annotation is Sound)
 				? (Func<string, string, string>)PrependAnnotationInfo : (Func<string, string, string>)AppendAnnotationInfo;
 
-			var rowToModify = data[relativeIndex + verseAnnotation.Offset];
 			var col = GetColumnIndex(ExportColumn.PrimaryReferenceText);
 			var annotationInfo = verseAnnotation.Annotation.ToDisplay(AnnotationElementSeparator);
 
-			rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
+			List<object> rowToModify;
+			string text;
+			int rowIndex = relativeIndex + verseAnnotation.Offset;
+			do
+			{
+				rowToModify = data[rowIndex];
+				text = (string) rowToModify[col];
+			} while (text == null && --rowIndex >= 0);
+			Debug.Assert(text != null, "We should have been able to find a preceding row with a non-empty reference text");
+
+			rowToModify[col] = modify(text, annotationInfo);
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 			{
 				col = GetColumnIndex(ExportColumn.SecondaryReferenceText);
 				rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
 			}
+
+			return rowIndex;
 		}
 
 		private string AppendAnnotationInfo(string text, string annotationInfo)

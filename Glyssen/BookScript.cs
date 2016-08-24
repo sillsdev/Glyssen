@@ -8,6 +8,7 @@ using Glyssen.Dialogs;
 using Glyssen.Quote;
 using SIL.ObjectModel;
 using SIL.Scripture;
+using SIL.Unicode;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
@@ -20,6 +21,7 @@ namespace Glyssen
 		private int m_blockCount;
 		private List<Block> m_blocks;
 		private List<List<Block>> m_unappliedSplitBlocks = new List<List<Block>>();
+		private ScrStylesheetAdapter m_styleSheet;
 
 		public BookScript()
 		{
@@ -102,34 +104,49 @@ namespace Glyssen
 			if (!join || m_blockCount == 0)
 				return m_blocks;
 
-			var list = new List<Block>(m_blockCount);
-			list.Add(m_blocks[0]);
-			for (int i = 1; i < m_blockCount; i++)
+			var list = new List<Block>(m_blockCount) {m_blocks[0]};
+
+			if (m_styleSheet == null)
+				m_styleSheet = SfmLoader.GetUsfmStylesheet();
+
+			for (var i = 1; i < m_blockCount; i++)
 			{
 				var block = m_blocks[i];
-				if (!block.IsParagraphStart)
+				var prevBlock = list.Last();
+				var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
+
+				if (!block.IsParagraphStart
+					|| (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))
+					)
 				{
-					var prevBlock = list.Last();
-					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? String.Empty))
+					
+					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? string.Empty))
 					{
-						var newBlock = prevBlock.Clone();
-						int skip = 0;
-						if (prevBlock.BlockElements.Last() is ScriptText && block.BlockElements.First() is ScriptText)
-						{
-							var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
-							lastScriptText.Content += ((ScriptText)block.BlockElements.First()).Content;
-							skip = 1;
-						}
-						foreach (var blockElement in block.BlockElements.Skip(skip))
-							newBlock.BlockElements.Add(blockElement.Clone());
-						newBlock.UserConfirmed &= block.UserConfirmed;
-						list[list.Count - 1] = newBlock;
+						list[list.Count - 1] = CombineBlockWithPreviousBlock(block, prevBlock);
 						continue;
 					}
 				}
+
 				list.Add(block);
 			}
 			return list;
+		}
+
+		private Block CombineBlockWithPreviousBlock(Block block, Block prevBlock)
+		{
+			var newBlock = prevBlock.Clone();
+			var skip = 0;
+			if (prevBlock.BlockElements.Last() is ScriptText && block.BlockElements.First() is ScriptText)
+			{
+				var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
+				lastScriptText.Content += ((ScriptText)block.BlockElements.First()).Content;
+				skip = 1;
+			}
+			foreach (var blockElement in block.BlockElements.Skip(skip))
+				newBlock.BlockElements.Add(blockElement.Clone());
+			newBlock.UserConfirmed &= block.UserConfirmed;
+
+			return newBlock;
 		}
 
 		public string GetVerseText(int chapter, int verse)
@@ -242,8 +259,11 @@ namespace Glyssen
 				if (block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber < verse)
 					continue;
 				iFirstBlockToExamine = index;
-				if (block.InitialStartVerseNumber > verse || !(block.BlockElements.First() is Verse))
+				if (block.InitialStartVerseNumber > verse ||
+					(iFirstBlockToExamine > 0 && !(block.BlockElements.First() is Verse) && m_blocks[iFirstBlockToExamine - 1].LastVerse == verse))
+				{
 					iFirstBlockToExamine--;
+				}
 				break;
 			}
 
@@ -364,7 +384,7 @@ namespace Glyssen
 				var i = GetIndexOfFirstBlockThatStartsWithVerse(firstBlockOfSplit.ChapterNumber, firstBlockOfSplit.InitialStartVerseNumber);
 				var iFirstMatchingBlock = i;
 				var iUnapplied = 0;
-				bool blocksMatch = false;
+				bool blocksMatch;
 				do
 				{
 					var splitBlock = unappliedSplit[iUnapplied];
@@ -447,12 +467,13 @@ namespace Glyssen
 			return combinedBlock;
 		}
 
-		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true, string characterId = null)
+		public Block SplitBlock(Block blockToSplit, string verseToSplit, int characterOffsetToSplit, bool userSplit = true,
+			string characterId = null, ScrVers versification = null)
 		{
 			var iBlock = m_blocks.IndexOf(blockToSplit);
 
 			if (iBlock < 0)
-				throw new ArgumentException("Block not found in the list for " + BookId, "blockToSplit");
+				throw new ArgumentException(@"Block not found in the list for " + BookId, "blockToSplit");
 
 			int splitId;
 			if (blockToSplit.SplitId != Block.kNotSplit)
@@ -466,120 +487,38 @@ namespace Glyssen
 				return blockToSplit;
 			}
 
-			var currVerse = blockToSplit.InitialVerseNumberOrBridge;
-
-			Block newBlock = null;
-			int indexOfFirstElementToRemove = -1;
-
-			for (int i = 0; i < blockToSplit.BlockElements.Count; i++)
-			{
-				var blockElement = blockToSplit.BlockElements[i];
-
-				if (newBlock != null)
-				{
-					newBlock.BlockElements.Add(blockElement);
-					continue;
-				}
-
-				Verse verse = blockElement as Verse;
-				if (verse != null)
-					currVerse = verse.Number;
-				else if (verseToSplit == currVerse)
-				{
-					ScriptText text = blockElement as ScriptText;
-
-					string content;
-					if (text == null)
-					{
-						if (blockToSplit.BlockElements.Count > i + 1 && blockToSplit.BlockElements[i + 1] is Verse)
-						{
-							content = string.Empty;
-							characterOffsetToSplit = 0;
-							indexOfFirstElementToRemove = i + 1;
-						}
-						else
-							continue;
-					}
-					else
-					{
-						content = text.Content;
-
-						if (blockToSplit.BlockElements.Count > i + 1)
-						{
-							if (!(blockToSplit.BlockElements[i + 1] is Verse) && (characterOffsetToSplit == kSplitAtEndOfVerse || characterOffsetToSplit > content.Length))
-							{
-								// Some kind of annotation. We can skip this. If we're splitting at
-								continue;
-							}
-							indexOfFirstElementToRemove = i + 1;
-						}
-
-						if (characterOffsetToSplit == kSplitAtEndOfVerse)
-							characterOffsetToSplit = content.Length;
-
-						if (characterOffsetToSplit <= 0 || characterOffsetToSplit > content.Length)
-						{
-							throw new ArgumentOutOfRangeException("characterOffsetToSplit", characterOffsetToSplit,
-								"Value must be greater than 0 and less than or equal to the length (" + content.Length +
-								") of the text of verse " + currVerse + ".");
-						}
-						if (characterOffsetToSplit == content.Length && indexOfFirstElementToRemove < 0)
-						{
-							SplitBeforeBlock(iBlock + 1, splitId);
-							return m_blocks[iBlock + 1];
-						}
-					}
-
-					int initialStartVerse, initialEndVerse;
-					if (characterOffsetToSplit == content.Length)
-					{
-						var firstVerseAfterSplit = ((Verse)blockToSplit.BlockElements[indexOfFirstElementToRemove]);
-						initialStartVerse = firstVerseAfterSplit.StartVerse;
-						initialEndVerse = firstVerseAfterSplit.EndVerse;
-					}
-					else
-					{
-						var verseNumParts = verseToSplit.Split(new[] { '-' }, 2, StringSplitOptions.None);
-						initialStartVerse = int.Parse(verseNumParts[0]);
-						initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
-					}
-					newBlock = new Block(blockToSplit.StyleTag, blockToSplit.ChapterNumber,
-						initialStartVerse, initialEndVerse);
-					if (userSplit)
-					{
-						newBlock.CharacterId = string.IsNullOrEmpty(characterId) ? CharacterVerseData.kUnknownCharacter : characterId;
-					}
-					else
-					{
-						newBlock.CharacterId = blockToSplit.CharacterId;
-						newBlock.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
-						newBlock.Delivery = blockToSplit.Delivery;
-						newBlock.UserConfirmed = blockToSplit.UserConfirmed;
-					}
-					if (characterOffsetToSplit < content.Length)
-						newBlock.BlockElements.Add(new ScriptText(content.Substring(characterOffsetToSplit)));
-					if (text != null)
-						text.Content = content.Substring(0, characterOffsetToSplit);
-					m_blocks.Insert(iBlock + 1, newBlock);
-					var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
-					foreach (var chapterNum in chapterNumbersToIncrement)
-						m_chapterStartBlockIndices[chapterNum]++;
-
-					m_blockCount++;
-				}
-			}
+			Block newBlock = blockToSplit.SplitBlock(verseToSplit, characterOffsetToSplit);
 
 			if (newBlock == null)
-				throw new ArgumentException(String.Format("Verse {0} not found in given block: {1}", verseToSplit, blockToSplit.GetText(true)), "verseToSplit");
-
-			if (indexOfFirstElementToRemove >= 0)
 			{
-				while (indexOfFirstElementToRemove < blockToSplit.BlockElements.Count)
-					blockToSplit.BlockElements.RemoveAt(indexOfFirstElementToRemove);
+				SplitBeforeBlock(iBlock + 1, splitId);
+				return m_blocks[iBlock + 1];
 			}
+
+			m_blocks.Insert(iBlock + 1, newBlock);
+			var chapterNumbersToIncrement = m_chapterStartBlockIndices.Keys.Where(chapterNum => chapterNum > blockToSplit.ChapterNumber).ToList();
+			foreach (var chapterNum in chapterNumbersToIncrement)
+				m_chapterStartBlockIndices[chapterNum]++;
+
+			m_blockCount++;
 
 			if (userSplit)
 			{
+				newBlock.Delivery = null;
+				if (string.IsNullOrEmpty(characterId))
+				{
+					newBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+					newBlock.CharacterIdOverrideForScript = null;
+					newBlock.UserConfirmed = false;
+				}
+				else
+				{
+					if (versification == null)
+						throw new ArgumentNullException("versification");
+					newBlock.SetCharacterAndCharacterIdInScript(characterId, BCVRef.BookToNumber(BookId), versification);
+					newBlock.UserConfirmed = true;
+				}
+
 				if (blockToSplit.MultiBlockQuote == MultiBlockQuote.Start)
 				{
 					blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
@@ -638,12 +577,25 @@ namespace Glyssen
 			}
 			try
 			{
-				SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
+				var newBlock = SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
+				if (vernBlock.MatchesReferenceText)
+				{
+					try
+					{
+						// REVIEW: Should this be First or Single, or do we need to possibly handle the case of a sequence?
+						newBlock.SetMatchedReferenceBlock(vernBlock.ReferenceBlocks.First().SplitBlock(verseString, kSplitAtEndOfVerse));
+					}
+					catch (ArgumentException)
+					{
+						// TODO: Handle English Reference block with different verse number from primary reference block
+					}
+				}
 			}
 			catch (ArgumentException)
 			{
 				return false;
 			}
+
 			return true;
 		}
 

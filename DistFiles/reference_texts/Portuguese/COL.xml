@@ -297,7 +297,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Portanto, já que vocês aceitaram Cristo Jesus como Senhor, vivam unidos com ele. </text>
+    <text>Portanto, já que vocês aceitaram Cristo Jesus como Senhor, vivam unidos com ele.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL" matchesReferenceText="true">
@@ -413,7 +413,7 @@
     <text>Vocês morreram com Cristo e por isso estão livres dos espíritos maus que dominam o Universo h. Então, por que é que vocês estão vivendo como se fossem deste mundo? Não obedeçam mais a regras como estas:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

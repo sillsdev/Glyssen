@@ -182,7 +182,7 @@ namespace Glyssen.Dialogs
 			HideCharacterFilter();
 			m_btnAssign.Enabled = false;
 
-			LoadCharacterListBox(m_viewModel.GetCharactersForCurrentReference());
+			LoadCharacterListBox(m_viewModel.GetUniqueCharactersForCurrentReference());
 			UpdateShortcutDisplay();
 
 			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
@@ -279,20 +279,9 @@ namespace Glyssen.Dialogs
 
 		private void SelectCharacter()
 		{
-			Block currentBlock = m_viewModel.CurrentBlock;
-			if (currentBlock.CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator))
-				m_listBoxCharacters.SelectedItem = AssignCharacterViewModel.Character.Narrator;
-			else if (!currentBlock.CharacterIsUnclear())
-			{
-				foreach (var item in CurrentContextCharacters)
-				{
-					if (item.CharacterId == currentBlock.CharacterId)
-					{
-						m_listBoxCharacters.SelectedItem = item;
-						return;
-					}
-				}
-			}
+			var character = m_viewModel.GetCharacterToSelectForCurrentBlock(CurrentContextCharacters);
+			if (character != null)
+				m_listBoxCharacters.SelectedItem = character;
 		}
 
 		private IEnumerable<AssignCharacterViewModel.Character> CurrentContextCharacters
@@ -828,5 +817,6 @@ namespace Glyssen.Dialogs
 		}
 
 		#endregion
+
 	}
 }

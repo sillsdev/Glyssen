@@ -18,3 +18,4 @@ GEN 1:31 2:25 3:24 4:26 5:32 6:22 7:24 8:22 9:29 10:32 11:32 12:20 13:18 14:24 1
 #
 # (Note: ranges must not span a chapter, e.g. 4:10-5:11 is illegal)
 #
+MRK 9:1-49 = MRK 9:2-50

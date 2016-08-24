@@ -603,7 +603,7 @@
     <text>Bu sәbәbә görә Allah xeyli vaxt keçәndәn sonra Davud vasitәsilә &lt;&lt;bu gün&gt;&gt; deyәrәk tәkrar müәyyәn bir gün tәyin edir, necә ki әvvәlcә deyilmişdir:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
       <text>“Today if you will hear his voice, don't harden your hearts.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;Bu gün әgәr Onun sәsini eşitsәniz, Qoy ürәklәriniz inadkar olmasın&gt;&gt;.</text>

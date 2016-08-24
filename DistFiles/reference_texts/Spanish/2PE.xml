@@ -363,7 +363,7 @@
     <text>Pero en ellos se ha cumplido la verdad de aquel dicho:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
       <text>“The dog turns to his own vomit again,” and “the sow that has washed to wallowing in the mire.”</text>
     </ReferenceBlocks>
     <text>&lt;&lt;El perro vuelve a su vómito&gt;&gt;, y también lo de &lt;&lt;La puerca recién bañada vuelve a revolcarse en el lodo.&gt;&gt;</text>

@@ -1003,7 +1003,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Orait yumi bilip pinis na God i bin kolim yumi stretpela manmeri. Olsem na Bikpela bilong yumi Jisas Krais i mekim yumi i kamap wanbel wantaim God. </text>
+    <text>Orait yumi bilip pinis na God i bin kolim yumi stretpela manmeri. Olsem na Bikpela bilong yumi Jisas Krais i mekim yumi i kamap wanbel wantaim God.</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">

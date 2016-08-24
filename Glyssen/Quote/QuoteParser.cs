@@ -346,7 +346,7 @@ namespace Glyssen.Quote
 								if (specialOpeningPunctuationLen == 0)
 									atBeginningOfBlock = false;
 
-								if (m_quoteLevel > 0 && token.StartsWith(ContinuerForCurrentLevel))
+								if (m_quoteLevel > 0 && s_quoteSystem.NormalLevels.Count > m_quoteLevel - 1 && token.StartsWith(ContinuerForCurrentLevel))
 								{
 									thisBlockStartsWithAContinuer = true;
 									int i = ContinuerForCurrentLevel.Length;
@@ -357,7 +357,7 @@ namespace Glyssen.Quote
 										continue;
 									token = token.Substring(i);
 								}
-								if ((m_quoteLevel == 0) && (s_quoteSystem.NormalLevels.Count > 0))
+								if (m_quoteLevel == 0 && s_quoteSystem.NormalLevels.Count > 0)
 								{
 									string continuerForNextLevel = ContinuerForNextLevel;
 									if (string.IsNullOrEmpty(continuerForNextLevel) || !token.StartsWith(continuerForNextLevel))
@@ -536,7 +536,8 @@ namespace Glyssen.Quote
 			var match = regex.Match(content, pos + 1);
 			return (match.Success &&
 					(match.Value == CloserForCurrentLevel ||
-					(m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) ||
+					((m_quoteLevel < s_quoteSystem.NormalLevels.Count && match.Value == OpenerForNextLevel) &&
+					(m_quoteLevel == 0 || !m_regexes[m_quoteLevel - 1].Match(content, pos + 1, match.Index - (pos + 1)).Success)) ||
 					(m_quoteLevel > 0 && match.Value == s_quoteSystem.NormalLevels[m_quoteLevel - 1].Open)));
 		}
 
@@ -868,7 +869,7 @@ namespace Glyssen.Quote
 			public int Compare(char x, char y)
 			{
 				// Putting regular dash at the beginning makes the regex not try to treat it as a range operator
-				if (x.Equals('-'))
+				if (x.Equals('-') && !y.Equals('-'))
 					return -1;
 				return x.CompareTo(y);
 			}

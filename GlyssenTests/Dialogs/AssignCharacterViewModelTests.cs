@@ -72,7 +72,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetCharactersForCurrentReference_UnexpectedQuoteWithNoContext_GetsNarratorOnly()
 		{
-			var characters = m_model.GetCharactersForCurrentReference(false).ToList();
+			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
 			Assert.AreEqual(1, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.IsFalse(characters[0].ProjectSpecific);
@@ -83,7 +83,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
 			Assert.AreEqual("MRK 1:16-17", m_model.GetBlockReferenceString());
-			var characters = m_model.GetCharactersForCurrentReference().ToList();
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.AreEqual(2, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.AreEqual("Jesus", characters[1].CharacterId);
@@ -93,7 +93,7 @@ namespace GlyssenTests.Dialogs
 		public void GetCharactersForCurrentReference_UnexpectedQuoteWithContext_GetsNarratorOnly()
 		{
 			// Note: Default forward/backward context is 10 blocks.
-			var characters = m_model.GetCharactersForCurrentReference().ToList();
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.AreEqual(1, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.IsFalse(characters[0].ProjectSpecific);
@@ -103,7 +103,7 @@ namespace GlyssenTests.Dialogs
 		public void GetCharactersForCurrentReference_UnexpectedQuoteWith20BlockForwardContext_GetsNarratorAndJesus()
 		{
 			m_model.ForwardContextBlockCount = 20;
-			var characters = m_model.GetCharactersForCurrentReference().ToList();
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.AreEqual(2, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.IsFalse(characters[0].ProjectSpecific);
@@ -115,7 +115,7 @@ namespace GlyssenTests.Dialogs
 		public void GetCharactersForCurrentReference_AmbiguousQuote_GetsBothCharactersPlusNarrator()
 		{
 			FindRefInMark(5, 9);
-			var characters = m_model.GetCharactersForCurrentReference().ToList();
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.AreEqual(3, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.IsFalse(characters[0].ProjectSpecific);
@@ -152,7 +152,7 @@ namespace GlyssenTests.Dialogs
 		public void GetCharactersForCurrentReference_AmbiguousQuote_SortByAlias()
 		{
 			FindRefInMark(6, 24);
-			var characters = m_model.GetCharactersForCurrentReference().ToList();
+			var characters = m_model.GetUniqueCharactersForCurrentReference().ToList();
 			Assert.AreEqual(3, characters.Count);
 			Assert.IsTrue(characters[0].IsNarrator);
 			Assert.AreEqual("Herodias' daughter", characters[1].CharacterId);
@@ -194,7 +194,7 @@ namespace GlyssenTests.Dialogs
 		public void GetDeliveriesForCharacter_CharacterWithNoDeliveries_GetsOnlyNormalDelivery()
 		{
 			FindRefInMark(5, 9);
-			m_model.GetCharactersForCurrentReference();
+			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("man with evil spirit")).ToArray();
 			Assert.AreEqual(1, deliveries.Count());
 			Assert.AreEqual(AssignCharacterViewModel.Delivery.Normal, deliveries.First());
@@ -204,7 +204,7 @@ namespace GlyssenTests.Dialogs
 		public void GetDeliveriesForCharacter_CharacterWithOneDelivery_GetsDeliveryAndNormal()
 		{
 			FindRefInMark(5, 9);
-			m_model.GetCharactersForCurrentReference();
+			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("Jesus")).ToArray();
 			Assert.AreEqual(2, deliveries.Count());
 			Assert.Contains(new AssignCharacterViewModel.Delivery("questioning"), deliveries.ToList());
@@ -230,7 +230,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.Mode = BlocksToDisplay.AllScripture;
 			FindRefInMark(5, 7);
-			m_model.GetCharactersForCurrentReference();
+			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
 			Assert.AreEqual(2, deliveries.Count());
 			var uniqueDeliveries = m_model.GetUniqueDeliveries();
@@ -242,7 +242,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.Mode = BlocksToDisplay.AllScripture;
 			FindRefInMark(5, 7);
-			m_model.GetCharactersForCurrentReference();
+			m_model.GetUniqueCharactersForCurrentReference();
 			var deliveries = m_model.GetDeliveriesForCharacter(new AssignCharacterViewModel.Character("demons (Legion)/man delivered from Legion of demons"));
 			Assert.AreEqual(2, deliveries.Count());
 			var uniqueDeliveries = m_model.GetUniqueDeliveries("shrieking");
@@ -697,7 +697,123 @@ namespace GlyssenTests.Dialogs
 
 			model.SetCurrentBookSingleVoice(true);
 			Assert.AreEqual("ACT", model.CurrentBookId);
+		}
 
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_Narrator_ReturnsGenericNarratorCharacter()
+		{
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003010)));
+			var characters = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			Assert.AreEqual(1, characters.Count);
+			Assert.IsTrue(characters[0].IsNarrator);
+			Assert.AreEqual(AssignCharacterViewModel.Character.Narrator, m_model.GetCharacterToSelectForCurrentBlock(null));
+		}
+
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_BlockHasAssignedCharacter_ReturnsAssignedCharacter()
+		{
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
+			while (m_model.CurrentBlock.CharacterId != "Jesus")
+				m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.GetUniqueCharactersForCurrentReference(false).Any(c => c.CharacterId == "Jesus"));
+			Assert.IsTrue(m_model.GetCharacterToSelectForCurrentBlock(m_model.GetUniqueCharactersForCurrentReference(false)).CharacterId == "Jesus");
+		}
+
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_BlockHasAssignedCharacterThatIsNotInEnumeration_ThisShouldNeverHappenInRealLife_ReturnsNull()
+		{
+			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(041003009)));
+			while (m_model.CurrentBlock.CharacterId != "Jesus")
+				m_model.LoadNextRelevantBlock();
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(new List<AssignCharacterViewModel.Character>()));
+		}
+
+		[Test]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsOneOfTwoAmbiguousQuotesInVerse_ReturnsNull()
+		{
+			FindRefInMark(5, 9);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.AreEqual(3, m_model.GetUniqueCharactersForCurrentReference(false).Count()); // Includes narrator
+			Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(m_model.GetUniqueCharactersForCurrentReference(false)));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfTwoDialogueQuotesInVerse_ReturnsOtherExpectedCharacter(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+
+			FindRefInMark(5, 9);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			var posibleCharactersForMark59 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			var posibleSpeakingCharactersForMark59 = posibleCharactersForMark59.Where(c => !c.IsNarrator).ToList();
+			Assert.AreEqual(2, posibleSpeakingCharactersForMark59.Count);
+			m_model.SetCharacterAndDelivery(posibleSpeakingCharactersForMark59[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
+			posibleSpeakingCharactersForMark59.RemoveAt(indexOfCharacterToAssignToFirstBlock);
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.AreEqual(5, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(9, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(posibleSpeakingCharactersForMark59.Single(), m_model.GetCharacterToSelectForCurrentBlock(posibleCharactersForMark59));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneDialogueQuoteAndOneNarratorQuotationInVerse_ReturnsOtherCharacter(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+
+			FindRefInMark(5, 41);
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			var posibleCharactersForMark541 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+			var unusedCharactersForMark541 = posibleCharactersForMark541.ToList();
+			Assert.AreEqual(2, unusedCharactersForMark541.Count);
+			m_model.SetCharacterAndDelivery(unusedCharactersForMark541[indexOfCharacterToAssignToFirstBlock], AssignCharacterViewModel.Delivery.Normal);
+			unusedCharactersForMark541.RemoveAt(indexOfCharacterToAssignToFirstBlock);
+			Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+			m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+			Assert.AreEqual(5, m_model.CurrentBlock.ChapterNumber);
+			Assert.AreEqual(41, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(unusedCharactersForMark541.Single(), m_model.GetCharacterToSelectForCurrentBlock(posibleCharactersForMark541));
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		public void GetCharacterToSelectForCurrentBlock_BlockIsRemainingAmbiguousBlockOfOneIndirectAndOnePotentialInVerse_ReturnsNull(int indexOfCharacterToAssignToFirstBlock)
+		{
+			m_fullProjectRefreshRequired = true;
+
+			try
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+				m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+				SetUp();
+
+				while (m_model.CurrentBlock.ChapterNumber != 8 || m_model.CurrentBlock.InitialStartVerseNumber != 37)
+					m_model.LoadNextRelevantBlock();
+				Assert.AreEqual("ACT", m_model.CurrentBookId);
+				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+				var posibleCharactersForActs837 = m_model.GetUniqueCharactersForCurrentReference(false).ToList();
+				Assert.AreEqual(3, posibleCharactersForActs837.Count);
+				m_model.SetCharacterAndDelivery(posibleCharactersForActs837.Where(c => !c.IsNarrator).ElementAt(indexOfCharacterToAssignToFirstBlock),
+					AssignCharacterViewModel.Delivery.Normal);
+				Assert.IsFalse(m_model.CurrentBlock.CharacterIsUnclear());
+				m_model.LoadNextRelevantBlock();
+				Assert.IsTrue(m_model.CurrentBlock.CharacterIsUnclear());
+				Assert.AreEqual(8, m_model.CurrentBlock.ChapterNumber);
+				Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+				Assert.IsNull(m_model.GetCharacterToSelectForCurrentBlock(posibleCharactersForActs837));
+			}
+			finally
+			{
+				ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
+			}
 		}
 
 		private void FindRefInMark(int chapter, int verse)

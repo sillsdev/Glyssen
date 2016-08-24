@@ -38,7 +38,7 @@ namespace Glyssen.Dialogs
 			var viewModel = wsInfo as AssignCharacterViewModel;
 			if (viewModel != null)
 			{
-				m_characters = viewModel.GetCharactersForCurrentReference();
+				m_characters = viewModel.GetUniqueCharactersForCurrentReference();
 				foreach (var block in m_originalBlocks)
 				{
 					if (block.BookCode == null)
