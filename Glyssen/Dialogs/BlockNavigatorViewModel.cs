@@ -75,11 +75,7 @@ namespace Glyssen.Dialogs
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode, BookBlockIndices startingIndices, ProjectSettingsViewModel settingsViewModel = null)
 		{
 			m_project = project;
-			m_project.QuoteParseCompleted += (s, e) =>
-			{
-				m_navigator = new BlockNavigator(m_project.IncludedBooks);
-				ResetFilter(null);
-			};
+			m_project.QuoteParseCompleted += HandleProjectQuoteParseCompleted;
 
 			m_navigator = new BlockNavigator(m_project.IncludedBooks);
 
@@ -108,6 +104,12 @@ namespace Glyssen.Dialogs
 				if (m_currentBlockIndex < 0)
 					m_temporarilyIncludedBlock = startingIndices;
 			}
+		}
+
+		void HandleProjectQuoteParseCompleted(object sender, EventArgs e)
+		{
+			m_navigator = new BlockNavigator(m_project.IncludedBooks);
+			ResetFilter(null);
 		}
 
 		private void CacheReferenceTextFonts(ReferenceText referenceText)
@@ -142,7 +144,10 @@ namespace Glyssen.Dialogs
 		public void Dispose()
 		{
 			if (m_project != null)
+			{
 				m_project.FontSizeUiAdjustment = FontSizeUiAdjustment;
+				m_project.QuoteParseCompleted -= HandleProjectQuoteParseCompleted;
+			}
 
 			if (m_font != null)
 			{

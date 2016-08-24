@@ -20,9 +20,15 @@ namespace Glyssen.Dialogs
 		{
 			if (disposing)
 			{
+				m_dataGridReferenceText.DataError -= HandleDataGridViewDataError;
+
 				m_viewModel.CurrentBlockChanged -= LoadBlock;
 				LocalizeItemDlg.StringsLocalized -= HandleStringsLocalized;
 				m_viewModel.AssignedBlocksIncremented -= m_viewModel_AssignedBlocksIncremented;
+				m_viewModel.CurrentBlockMatchupChanged -= LoadBlockMatchup;
+				m_viewModel.UiFontSizeChanged -= SetFontsFromViewModel;
+				m_viewModel.CurrentBookSaved -= UpdateSavedText;
+				m_viewModel.FilterReset -= HandleFilterReset;
 
 				if (m_primaryReferenceTextFont != null)
 				{

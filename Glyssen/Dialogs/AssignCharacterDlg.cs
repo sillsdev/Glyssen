@@ -103,10 +103,10 @@ namespace Glyssen.Dialogs
 			colDelivery.DisplayMember = m_listBoxDeliveries.DisplayMember = "LocalizedDisplay";
 			m_originalDefaultFontForLists = new FontProxy(m_listBoxCharacters.Font);
 			m_originalDefaultFontForCharacterAndDeliveryColumns = new FontProxy(m_dataGridReferenceText.DefaultCellStyle.Font);
-			SetFontsFromViewModel();
+			SetFontsFromViewModel(this, null);
 
 			m_viewModel.AssignedBlocksIncremented += m_viewModel_AssignedBlocksIncremented;
-			m_viewModel.UiFontSizeChanged += (sender, args) => SetFontsFromViewModel();
+			m_viewModel.UiFontSizeChanged += SetFontsFromViewModel;
 
 			m_blocksViewer.VisibleChanged += BlocksViewerVisibleChanged;
 			m_blocksViewer.Disposed += (sender, args) => m_blocksViewer.VisibleChanged -= BlocksViewerVisibleChanged;
@@ -114,7 +114,7 @@ namespace Glyssen.Dialogs
 			SetFilterControlsFromMode();
 
 			m_viewModel.CurrentBookSaved += UpdateSavedText;
-			m_viewModel.FilterReset +=m_viewModel_FilterReset;
+			m_viewModel.FilterReset +=HandleFilterReset;
 		}
 
 		void HandleDataGridViewDataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -124,7 +124,7 @@ namespace Glyssen.Dialogs
 			throw e.Exception;
 		}
 
-		void m_viewModel_FilterReset(object sender, EventArgs e)
+		void HandleFilterReset(object sender, EventArgs e)
 		{
 			UpdateNavigationButtonState();
 		}
@@ -630,7 +630,7 @@ namespace Glyssen.Dialogs
 			m_listBoxDeliveries.SelectedItem = newItem;
 		}
 
-		private void SetFontsFromViewModel()
+		private void SetFontsFromViewModel(object sender, EventArgs args)
 		{
 			m_listBoxCharacters.Font = m_listBoxDeliveries.Font = m_originalDefaultFontForLists.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
