@@ -358,6 +358,10 @@ namespace Glyssen
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // verse
 				sheet.Column(columnNum++).AutoFit(2d, 20d); // character ID
 
+				// add a column for the localized character id
+				if (LocalizationManager.UILanguageId != "en")
+					sheet.Column(columnNum++).AutoFit(2d, 20d); // localized character ID
+
 				// skip the delivery column
 				columnNum++;
 
