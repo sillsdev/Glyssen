@@ -339,7 +339,7 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "MRK").CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+				i => CharacterVerseData.IsCharacterExtraBiblical(i)));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -378,11 +378,9 @@ namespace GlyssenTests.Rules
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 
 			var a = groups.Single(g => g.CharacterIds.Contains("BC-MRK"));
-			var b = a.CharacterIds.All(i => CharacterVerseData.IsCharacterStandard(i, false));
+			var b = a.CharacterIds.All(CharacterVerseData.IsCharacterExtraBiblical);
 
-			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
-
+			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(CharacterVerseData.IsCharacterExtraBiblical));
 
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
@@ -867,7 +865,7 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narratorGroup.CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+				CharacterVerseData.IsCharacterExtraBiblical));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -899,8 +897,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(1, groups.Single(g => g.CharacterIds.Contains("Jesus")).CharacterIds.Count);
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "LUK").CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(CharacterVerseData.IsCharacterExtraBiblical));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))

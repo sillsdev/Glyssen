@@ -254,7 +254,7 @@ namespace DevTools
 					}
 					var block = existingBook.GetScriptBlocks()[iBlock++];
 
-					while (CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
+					while (CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
 					{
 						block = existingBook.GetScriptBlocks()[iBlock++];
 					}

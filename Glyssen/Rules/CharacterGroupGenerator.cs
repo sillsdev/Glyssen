@@ -1024,50 +1024,47 @@ namespace Glyssen.Rules
 			private void AssignExtraBiblicalCharactersToExtraBiblicalGroups(List<CharacterDetail> includedCharacterDetails,
 				ProjectDramatizationPreferences dramatizationPreferences)
 			{
-				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.StandardCharacter.Narrator);
-
 				// get standard characters not yet assigned
 				foreach (var character in includedCharacterDetails.Where(c => !Groups.Any(g => g.CharacterIds.Contains(c.CharacterId))).ToList())
 				{
 					var characterType = character.StandardCharacterType;
+					CharacterGroup characterGroup;
+
 					switch (characterType)
 					{
 						case CharacterVerseData.StandardCharacter.BookOrChapter:
-							AddExtraBiblicalToGroupOrNarratorGroup(character.CharacterId, BookTitleChapterGroup, characterType,
-								narratorPrefix, dramatizationPreferences);
+							characterGroup = BookTitleChapterGroup;
 							break;
 
 						case CharacterVerseData.StandardCharacter.ExtraBiblical:
-							AddExtraBiblicalToGroupOrNarratorGroup(character.CharacterId, SectionHeadGroup, characterType,
-								narratorPrefix, dramatizationPreferences);
+							characterGroup = SectionHeadGroup;
 							break;
 
 						case CharacterVerseData.StandardCharacter.Intro:
-							AddExtraBiblicalToGroupOrNarratorGroup(character.CharacterId, BookIntroductionGroup, characterType,
-								narratorPrefix, dramatizationPreferences);
+							characterGroup = BookIntroductionGroup;
 							break;
+
+						default:
+							continue;
+					}
+
+					if (characterGroup == null)
+					{
+						// add to a narrator group
+						var narratorGroup = GetExtraBiblicalToNarratorGroup(character.CharacterId, characterType, dramatizationPreferences);
+
+						if (narratorGroup != null)
+							narratorGroup.CharacterIds.Add(character.CharacterId);
+					}
+					else
+					{
+						characterGroup.CharacterIds.Add(character.CharacterId);					
 					}
 				}
 			}
 
-			private void AddExtraBiblicalToGroupOrNarratorGroup(string characterId, CharacterGroup group,
-				CharacterVerseData.StandardCharacter characterType, string narratorPrefix, ProjectDramatizationPreferences dramatizationPreferences)
-			{
-				if (group != null)
-				{
-					group.CharacterIds.Add(characterId);
-					return;
-				}
-
-				// add to a narrator group
-				var narratorGroup = GetExtraBiblicalToNarratorGroup(characterId, characterType, narratorPrefix, dramatizationPreferences);
-
-				if (narratorGroup != null)
-					narratorGroup.CharacterIds.Add(characterId);
-			}
-
 			private CharacterGroup GetExtraBiblicalToNarratorGroup(string characterId, CharacterVerseData.StandardCharacter characterType,
-				string narratorPrefix, ProjectDramatizationPreferences dramatizationPreferences)
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				var dramatizationOption = ExtraBiblicalMaterialSpeakerOption.Omitted;
 
@@ -1089,7 +1086,8 @@ namespace Glyssen.Rules
 				if (dramatizationOption == ExtraBiblicalMaterialSpeakerOption.Omitted)
 					return null;
 
-				var narratorId = narratorPrefix + characterId.Split(new[] { '-' }, 2)[1];
+				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.StandardCharacter.Narrator);
+				var narratorId = narratorPrefix + characterId.Substring(characterId.Length - 3);
 				List<CharacterGroup> possibleGroups;
 
 				if (dramatizationOption == ExtraBiblicalMaterialSpeakerOption.Narrator)
@@ -1098,21 +1096,19 @@ namespace Glyssen.Rules
 					possibleGroups = NarratorGroups.Where(g => !g.CharacterIds.Contains(narratorId)).ToList();
 
 				if (possibleGroups.Count == 0)
-					possibleGroups = NarratorGroups.Except(possibleGroups).ToList();
-
-				CharacterGroup narratorGroup = null;
-
-				// this should never happen, so throw an exception if it does
-				if (possibleGroups.Count == 0)
-					throw new NullReferenceException(string.Format("No group was found for character '{0}'", characterId));
-
-				if (possibleGroups.Count == 1)
 				{
-					return possibleGroups[0];
+					if (NarratorGroups.Count == 0)
+						throw new NullReferenceException(string.Format("No group was found for character '{0}'", characterId));
+					
+					possibleGroups = NarratorGroups.ToList();						
 				}
+				
+				if (possibleGroups.Count == 1)
+					return possibleGroups[0];
 
 				// get the narrator group with the least amount of speaking
 				var leastEstimatedHours = double.MaxValue;
+				CharacterGroup narratorGroup = null;
 				foreach (var cg in possibleGroups)
 				{
 					var estimatedHours = cg.EstimatedHours;

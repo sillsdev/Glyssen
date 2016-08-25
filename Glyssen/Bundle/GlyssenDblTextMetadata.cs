@@ -399,15 +399,11 @@ namespace Glyssen.Bundle
 		MaleActor = 1 << 2,
 		FemaleActor = 1 << 3,
 		Omitted = 1 << 4,
-		MalePermitted = MaleActor | ActorOfEitherGender,
-		FemalePermitted = FemaleActor | ActorOfEitherGender,
 		NotNarratorOrOmitted = MaleActor | FemaleActor | ActorOfEitherGender
 	}
 
 	public class ProjectDramatizationPreferences
 	{
-		private ExtraBiblicalMaterialSpeakerOption test;
-
 		public ProjectDramatizationPreferences()
 		{
 			BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
@@ -439,7 +435,7 @@ namespace Glyssen.Bundle
 
 		[XmlElement("BookIntroductionsDramatization")]
 		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
-		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization{ get; set; }
+		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization { get; set; }
 	}
 
 	[Flags]
