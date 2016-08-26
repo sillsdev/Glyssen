@@ -13,7 +13,6 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Character;
@@ -109,12 +108,19 @@ namespace Glyssen.Dialogs
 			m_viewModel.UiFontSizeChanged += SetFontsFromViewModel;
 
 			m_blocksViewer.VisibleChanged += BlocksViewerVisibleChanged;
-			m_blocksViewer.Disposed += (sender, args) => m_blocksViewer.VisibleChanged -= BlocksViewerVisibleChanged;
 
 			SetFilterControlsFromMode();
 
 			m_viewModel.CurrentBookSaved += UpdateSavedText;
 			m_viewModel.FilterReset +=HandleFilterReset;
+
+			BlocksViewerOnMinimumWidthChanged(m_blocksViewer, new EventArgs());
+			m_blocksViewer.MinimumWidthChanged += BlocksViewerOnMinimumWidthChanged;
+		}
+
+		private void BlocksViewerOnMinimumWidthChanged(object sender, EventArgs eventArgs)
+		{
+			m_splitContainer.Panel1MinSize = Math.Max(m_splitContainer.Panel1MinSize, m_blocksViewer.MinimumSize.Width + m_splitContainer.Panel1.Padding.Horizontal);
 		}
 
 		void HandleDataGridViewDataError(object sender, DataGridViewDataErrorEventArgs e)

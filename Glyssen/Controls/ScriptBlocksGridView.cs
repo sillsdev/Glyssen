@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
@@ -14,6 +16,12 @@ namespace Glyssen.Controls
 		private DataGridViewTextBoxColumn m_colText;
 		private BlockNavigatorViewModel m_viewModel;
 		private FontProxy m_originalDefaultFont;
+
+		private Dictionary<DataGridViewColumn, DataGridViewAutoSizeColumnMode> m_originalColumnSizeModes;
+		private bool m_userIsResizingColumns;
+		private int m_widthOfAutoSizeColumns;
+
+		public event EventHandler MinimumWidthChanged;
 
 		#region overrides
 		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
@@ -37,18 +45,6 @@ namespace Glyssen.Controls
 				return;
 			}
 			base.OnCellMouseDown(e);
-		}
-
-		private void ResetSelectionBackColors()
-		{
-			if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
-			{
-				foreach (DataGridViewRow row in SelectedRows)
-				{
-					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
-					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
-				}
-			}
 		}
 
 		protected override void OnSelectionChanged(EventArgs e)
@@ -193,28 +189,111 @@ namespace Glyssen.Controls
 		//}
 		#endregion
 
-		#region private methods
+		#region Methods to control automated and user column sizing
+		protected override void OnColumnWidthChanged(DataGridViewColumnEventArgs e)
+		{
+			base.OnColumnWidthChanged(e);
+			if (!Visible || !m_userIsResizingColumns)
+				return;
+
+			if (e.Column.AutoSizeMode == DataGridViewAutoSizeColumnMode.None &&
+				Columns.Cast<DataGridViewColumn>().Sum(col => col.Width) > ClientRectangle.Width)
+			{
+				bool restore = m_userIsResizingColumns;
+				m_userIsResizingColumns = false;
+				e.Column.Width = ClientRectangle.Width -
+					Columns.Cast<DataGridViewColumn>().Where(col => col != e.Column).Sum(col => col.Width);
+				m_userIsResizingColumns = restore;
+			}
+
+			int newWidthOfAutoSizeColumns = Columns.Cast<DataGridViewColumn>().Where(ColumnAutoSizeIsDeterminedByContent).Sum(col => col.Width);
+			if (m_widthOfAutoSizeColumns != newWidthOfAutoSizeColumns)
+			{
+				MinimumSize = new Size(MinimumSize.Width - m_widthOfAutoSizeColumns + newWidthOfAutoSizeColumns, MinimumSize.Height);
+				m_widthOfAutoSizeColumns = newWidthOfAutoSizeColumns;
+				if (MinimumWidthChanged != null)
+					MinimumWidthChanged(this, new EventArgs());
+			}
+		}
+
+		private bool ColumnAutoSizeIsDeterminedByContent(DataGridViewColumn col)
+		{
+			switch (col.AutoSizeMode)
+			{
+				case DataGridViewAutoSizeColumnMode.ColumnHeader:
+				case DataGridViewAutoSizeColumnMode.AllCells:
+				case DataGridViewAutoSizeColumnMode.AllCellsExceptHeader:
+				case DataGridViewAutoSizeColumnMode.DisplayedCells:
+				case DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader:
+					return true;
+			}
+			return false;
+		}
+
+		protected override void OnCellMouseEnter(DataGridViewCellEventArgs e)
+		{
+			base.OnCellMouseEnter(e);
+			m_userIsResizingColumns = true;
+			if (e.ColumnIndex == -1)
+			{
+				foreach (var col in m_originalColumnSizeModes.Keys)
+					col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+			}
+		}
+
+		protected override void OnCellMouseLeave(DataGridViewCellEventArgs e)
+		{
+			base.OnCellMouseLeave(e);
+			m_userIsResizingColumns = false;
+			if (e.ColumnIndex == -1)
+			{
+				foreach (var colSizeMode in m_originalColumnSizeModes)
+					colSizeMode.Key.AutoSizeMode = colSizeMode.Value;
+			}
+		}
+
 		protected override void OnVisibleChanged(EventArgs e)
 		{
 			base.OnVisibleChanged(e);
-			if (!Visible)
+			if (!Visible || m_originalColumnSizeModes != null)
 				return;
-			foreach (DataGridViewColumn col in Columns)
+
+			m_originalColumnSizeModes = new Dictionary<DataGridViewColumn, DataGridViewAutoSizeColumnMode>();
+
+			int minWidth = Width - ClientRectangle.Width + VerticalScrollBar.Width;
+			m_widthOfAutoSizeColumns = 0;
+			foreach (DataGridViewColumn col in Columns.Cast<DataGridViewColumn>())
 			{
-				switch (col.AutoSizeMode)
+				if (ColumnAutoSizeIsDeterminedByContent(col))
+					m_widthOfAutoSizeColumns += col.Width;
+				else
+					minWidth += col.MinimumWidth;
+
+				minWidth += col.DividerWidth;
+				if (col != m_colText && col.AutoSizeMode != DataGridViewAutoSizeColumnMode.None)
+					m_originalColumnSizeModes[col] = col.AutoSizeMode;
+			}
+			minWidth += m_widthOfAutoSizeColumns;
+			if (minWidth > MinimumSize.Width)
+			{
+				MinimumSize = new Size(minWidth, MinimumSize.Height);
+				if (MinimumWidthChanged != null)
+					MinimumWidthChanged(this, new EventArgs());
+			}
+		}
+		#endregion
+
+		#region private methods
+		private void ResetSelectionBackColors()
+		{
+			if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
+			{
+				foreach (DataGridViewRow row in SelectedRows)
 				{
-					case DataGridViewAutoSizeColumnMode.ColumnHeader:
-					case DataGridViewAutoSizeColumnMode.AllCells:
-					case DataGridViewAutoSizeColumnMode.AllCellsExceptHeader:
-					case DataGridViewAutoSizeColumnMode.DisplayedCells:
-					case DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader:
-						var colWidth = col.Width;
-						col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-						col.Width = colWidth;
-						break;
+					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
+					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
 				}
 			}
-
 		}
 
 		private void SetFontsFromViewModel()

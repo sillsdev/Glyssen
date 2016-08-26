@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -36,11 +37,28 @@ namespace Glyssen.Controls
 		private ScriptBlocksViewType m_viewType;
 
 		public event EventHandler SelectionChanged;
+		public event EventHandler MinimumWidthChanged;
 
 		#region Construction and Initialization
 		public ScriptBlocksViewer()
 		{
 			InitializeComponent();
+
+			DataGridViewBlocksOnMinimumWidthChanged(m_dataGridViewBlocks, new EventArgs());
+			m_dataGridViewBlocks.MinimumWidthChanged += DataGridViewBlocksOnMinimumWidthChanged;
+		}
+
+		private void DataGridViewBlocksOnMinimumWidthChanged(object sender, EventArgs eventArgs)
+		{
+			var minWidth = Math.Max(m_blocksDisplayBrowser.MinimumSize.Width, m_dataGridViewBlocks.MinimumSize.Width) + Padding.Horizontal;
+
+			if (minWidth != MinimumSize.Width)
+			{
+				MinimumSize = new Size(minWidth,
+					Math.Max(m_blocksDisplayBrowser.MinimumSize.Height, m_dataGridViewBlocks.MinimumSize.Height) + Padding.Vertical);
+				if (MinimumWidthChanged != null)
+					MinimumWidthChanged(this, new EventArgs());
+			}
 		}
 
 		public void Initialize(BlockNavigatorViewModel viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
