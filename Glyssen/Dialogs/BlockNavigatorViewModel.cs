@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using Glyssen.Character;
 using Glyssen.Controls;
@@ -768,7 +766,7 @@ namespace Glyssen.Dialogs
 				CurrentBlockMatchupChanged(this, new EventArgs());
 		}
 
-		public void ApplyCurrentReferenceTextMatchup()
+		public virtual void ApplyCurrentReferenceTextMatchup()
 		{
 			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
 				throw new InvalidOperationException("No current reference text block matchup!");

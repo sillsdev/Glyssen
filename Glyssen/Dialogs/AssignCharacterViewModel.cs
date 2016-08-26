@@ -428,6 +428,12 @@ namespace Glyssen.Dialogs
 			OnSaveCurrentBook();
 		}
 
+		public override void ApplyCurrentReferenceTextMatchup()
+		{
+			base.ApplyCurrentReferenceTextMatchup();
+			OnSaveCurrentBook();
+		}
+
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
 		{
 			var block = CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex];
@@ -457,6 +463,8 @@ namespace Glyssen.Dialogs
 
 		private string GetCurrentRelevantAlias(string characterId)
 		{
+			if (m_generatedCharacterList == null)
+				return null;
 			foreach (Character character in m_generatedCharacterList)
 			{
 				if (character.CharacterId == characterId)
