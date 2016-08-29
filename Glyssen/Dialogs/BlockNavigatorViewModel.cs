@@ -521,6 +521,11 @@ namespace Glyssen.Dialogs
 			var lastVerseInBlock = block.LastVerseNum;
 			var endRef = (lastVerseInBlock <= block.InitialStartVerseNumber) ? startRef :
 				new BCVRef(startRef.Book, startRef.Chapter, lastVerseInBlock);
+			return GetReferenceString(startRef, endRef);
+		}
+
+		public string GetReferenceString(BCVRef startRef, BCVRef endRef)
+		{
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 

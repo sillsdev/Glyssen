@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using SIL.Scripture;
 
 namespace Glyssen.Controls
 {
@@ -17,9 +17,10 @@ namespace Glyssen.Controls
 		private BlockNavigatorViewModel m_viewModel;
 		private FontProxy m_originalDefaultFont;
 
-		private Dictionary<DataGridViewColumn, DataGridViewAutoSizeColumnMode> m_originalColumnSizeModes;
 		private bool m_userIsResizingColumns;
-		private int m_widthOfAutoSizeColumns;
+		private bool m_userResizedRefColumn;
+		private int m_minimumWidthFromDesigner;
+		private string m_bookIdUsedToSizeRefColumn;
 
 		public event EventHandler MinimumWidthChanged;
 
@@ -60,7 +61,7 @@ namespace Glyssen.Controls
 
 		protected override void OnCellValueNeeded(DataGridViewCellValueEventArgs e)
 		{
-			if (m_updatingContext && (e.RowIndex < 0 || e.RowIndex >= m_viewModel.BlockCountForCurrentBook))
+			if (e.RowIndex < 0 || e.RowIndex >= m_viewModel.BlockCountForCurrentBook)
 			{
 				// This should never happen, but because of the side-effects of various DGV properites and methods,
 				// it seems to be incredibly difficult to ensure that things are done in an order that won't on
@@ -113,6 +114,16 @@ namespace Glyssen.Controls
 			base.OnKeyDown(e);
 		}
 
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && m_viewModel != null)
+			{
+				m_viewModel.CurrentBlockChanged -= CurrentBlockChanged;
+				m_viewModel.UiFontSizeChanged -= HandleUiFontSizeChanged;
+			}
+
+			base.Dispose(disposing);
+		}
 		#endregion
 
 		#region public methods
@@ -127,7 +138,24 @@ namespace Glyssen.Controls
 			m_originalDefaultFont = new FontProxy(DefaultCellStyle.Font);
 			SetFontsFromViewModel();
 
-			m_viewModel.UiFontSizeChanged += (sender, args) => SetFontsFromViewModel();
+			m_minimumWidthFromDesigner = MinimumSize.Width;
+			SizeRefColumnForCurrentBook();
+
+			m_viewModel.CurrentBlockChanged += CurrentBlockChanged;
+			m_viewModel.UiFontSizeChanged += HandleUiFontSizeChanged;
+		}
+
+		private void HandleUiFontSizeChanged(object sender, EventArgs eventArgs)
+		{
+			SetFontsFromViewModel();
+			if (!m_userResizedRefColumn)
+				SizeRefColumnForCurrentBook();
+		}
+
+		private void CurrentBlockChanged(object sender, EventArgs eventArgs)
+		{
+			if (m_bookIdUsedToSizeRefColumn != m_viewModel.CurrentBookId && !m_userResizedRefColumn)
+				SizeRefColumnForCurrentBook();
 		}
 
 		public void UpdateContext()
@@ -190,91 +218,117 @@ namespace Glyssen.Controls
 		#endregion
 
 		#region Methods to control automated and user column sizing
-		protected override void OnColumnWidthChanged(DataGridViewColumnEventArgs e)
+		protected override void OnResize(EventArgs e)
 		{
-			base.OnColumnWidthChanged(e);
-			if (!Visible || !m_userIsResizingColumns)
-				return;
-
-			if (e.Column.AutoSizeMode == DataGridViewAutoSizeColumnMode.None &&
-				Columns.Cast<DataGridViewColumn>().Sum(col => col.Width) > ClientRectangle.Width)
-			{
-				bool restore = m_userIsResizingColumns;
-				m_userIsResizingColumns = false;
-				e.Column.Width = ClientRectangle.Width -
-					Columns.Cast<DataGridViewColumn>().Where(col => col != e.Column).Sum(col => col.Width);
-				m_userIsResizingColumns = restore;
-			}
-
-			int newWidthOfAutoSizeColumns = Columns.Cast<DataGridViewColumn>().Where(ColumnAutoSizeIsDeterminedByContent).Sum(col => col.Width);
-			if (m_widthOfAutoSizeColumns != newWidthOfAutoSizeColumns)
-			{
-				MinimumSize = new Size(MinimumSize.Width - m_widthOfAutoSizeColumns + newWidthOfAutoSizeColumns, MinimumSize.Height);
-				m_widthOfAutoSizeColumns = newWidthOfAutoSizeColumns;
-				if (MinimumWidthChanged != null)
-					MinimumWidthChanged(this, new EventArgs());
-			}
-		}
-
-		private bool ColumnAutoSizeIsDeterminedByContent(DataGridViewColumn col)
-		{
-			switch (col.AutoSizeMode)
-			{
-				case DataGridViewAutoSizeColumnMode.ColumnHeader:
-				case DataGridViewAutoSizeColumnMode.AllCells:
-				case DataGridViewAutoSizeColumnMode.AllCellsExceptHeader:
-				case DataGridViewAutoSizeColumnMode.DisplayedCells:
-				case DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader:
-					return true;
-			}
-			return false;
+			m_userIsResizingColumns = false;
+			base.OnResize(e);
 		}
 
 		protected override void OnCellMouseEnter(DataGridViewCellEventArgs e)
 		{
 			base.OnCellMouseEnter(e);
-			m_userIsResizingColumns = true;
-			if (e.ColumnIndex == -1)
+			if (Visible && e.RowIndex == -1)
 			{
-				foreach (var col in m_originalColumnSizeModes.Keys)
-					col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+				// We don't want to set this to false when the mouse leaves the header row because that can happen before
+				// all the column width changes get processed. So it will remain true until some other event (there are
+				// several) sets it back to false.
+				m_userIsResizingColumns = true;
 			}
 		}
 
-		protected override void OnCellMouseLeave(DataGridViewCellEventArgs e)
+		protected override void OnLostFocus(EventArgs e)
 		{
-			base.OnCellMouseLeave(e);
 			m_userIsResizingColumns = false;
-			if (e.ColumnIndex == -1)
+			base.OnLostFocus(e);
+		}
+
+		protected override void OnColumnWidthChanged(DataGridViewColumnEventArgs e)
+		{
+			base.OnColumnWidthChanged(e);
+			if (m_userIsResizingColumns && e.Column.Index == m_colReference.Index)
 			{
-				foreach (var colSizeMode in m_originalColumnSizeModes)
-					colSizeMode.Key.AutoSizeMode = colSizeMode.Value;
+				var overage = Columns.Cast<DataGridViewColumn>().Sum(col => col.Width) - (ClientRectangle.Width - VerticalScrollBar.Width);
+				if (overage > 0)
+				{
+					bool restore = m_userIsResizingColumns;
+					m_userIsResizingColumns = false;
+					e.Column.Width -= overage;
+					m_userIsResizingColumns = restore;
+				}
+
+				if (!m_userResizedRefColumn)
+				{
+					m_userResizedRefColumn = true;
+					int minWidth = Width - ClientRectangle.Width + VerticalScrollBar.Width +
+									Columns.Cast<DataGridViewColumn>().Sum(col => col.MinimumWidth + col.DividerWidth);
+					if (minWidth > m_minimumWidthFromDesigner && minWidth != MinimumSize.Width)
+					{
+						MinimumSize = new Size(minWidth, MinimumSize.Height);
+						if (MinimumWidthChanged != null)
+							MinimumWidthChanged(this, new EventArgs());
+					}
+				}
 			}
 		}
 
-		protected override void OnVisibleChanged(EventArgs e)
+		private void SizeRefColumnForCurrentBook()
 		{
-			base.OnVisibleChanged(e);
-			if (!Visible || m_originalColumnSizeModes != null)
-				return;
+			m_userIsResizingColumns = false;
+			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
-			m_originalColumnSizeModes = new Dictionary<DataGridViewColumn, DataGridViewAutoSizeColumnMode>();
+			int bookNum = BCVRef.BookToNumber(m_viewModel.CurrentBookId);
+			var lastChapter = m_viewModel.Versification.LastChapter(bookNum);
+			var maxVerse = 0;
+			for (int i = 1; i <= lastChapter; i++)
+				maxVerse = Math.Max(maxVerse, m_viewModel.Versification.LastVerse(bookNum, i));
 
+			var startRef = new BCVRef(bookNum, lastChapter, maxVerse - 1);
+			var endRef = new BCVRef(bookNum, lastChapter, maxVerse);
+			var refString = m_viewModel.GetReferenceString(startRef, endRef);
+
+			DataGridViewCellStyle cellStyle = m_colReference.DefaultCellStyle;
+			using (Graphics g = CreateGraphics())
+			{
+				Debug.Assert(CellBorderStyle == DataGridViewCellBorderStyle.Single);
+				const int borderWidth = 1;
+				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+				m_colReference.Width = DataGridViewTextBoxCell.MeasureTextWidth(g, refString,
+					cellStyle.Font ?? DefaultCellStyle.Font, Int32.MaxValue, flags) +
+					cellStyle.Padding.Horizontal + borderWidth;
+			}
+
+			CalculateMinimumWidth();
+
+			m_bookIdUsedToSizeRefColumn = m_viewModel.CurrentBookId;
+		}
+
+		private static TextFormatFlags ComputeTextFormatFlagsForCellStyleAlignment(bool rightToLeft)
+        {
+            TextFormatFlags tff = TextFormatFlags.Top | TextFormatFlags.SingleLine | TextFormatFlags.NoPrefix | TextFormatFlags.PreserveGraphicsClipping;
+            if (rightToLeft)
+                tff |= TextFormatFlags.Right |TextFormatFlags.RightToLeft;
+            else
+                tff |= TextFormatFlags.Left;
+            return tff;
+        }
+ 
+
+		private void CalculateMinimumWidth()
+		{
 			int minWidth = Width - ClientRectangle.Width + VerticalScrollBar.Width;
-			m_widthOfAutoSizeColumns = 0;
 			foreach (DataGridViewColumn col in Columns.Cast<DataGridViewColumn>())
 			{
-				if (ColumnAutoSizeIsDeterminedByContent(col))
-					m_widthOfAutoSizeColumns += col.Width;
+				if (col == m_colReference)
+				{
+					minWidth += col.Width;
+					col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+				}
 				else
 					minWidth += col.MinimumWidth;
 
 				minWidth += col.DividerWidth;
-				if (col != m_colText && col.AutoSizeMode != DataGridViewAutoSizeColumnMode.None)
-					m_originalColumnSizeModes[col] = col.AutoSizeMode;
 			}
-			minWidth += m_widthOfAutoSizeColumns;
-			if (minWidth > MinimumSize.Width)
+			if (minWidth > m_minimumWidthFromDesigner)
 			{
 				MinimumSize = new Size(minWidth, MinimumSize.Height);
 				if (MinimumWidthChanged != null)
