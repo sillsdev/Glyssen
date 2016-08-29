@@ -339,11 +339,6 @@ namespace Glyssen
 
 		private void GenerateClipFiles(string directoryPath)
 		{
-			const int kLineNumIndex = 0;
-			const int kBookIndex = 2;
-			const int kChapterIndex = 3;
-			const int kVerseIndex = 4;
-
 			var data = GetExportData();
 			var bookId = string.Empty;
 			var currentOutputDirectory = string.Empty;
@@ -352,7 +347,7 @@ namespace Glyssen
 			foreach (var row in data)
 			{
 				// if this is a different book, create the output directory
-				var tempBookId = (string) row[kBookIndex];
+				var tempBookId = (string)row[GetColumnIndex(ExportColumn.BookId)];
 				if (!string.IsNullOrEmpty(tempBookId) && (bookId != tempBookId))
 				{
 					bookId = tempBookId;
@@ -361,12 +356,13 @@ namespace Glyssen
 				}
 
 				// if the line number is not empty, create the wave file
-				if (row[kLineNumIndex] != null)
+				var lineNumIndex = GetColumnIndex(ExportColumn.BlockId);
+				if (row[lineNumIndex] != null)
 				{
-					var lineNumber = (int) row[kLineNumIndex];
-					var verseNumber = int.Parse(row[kVerseIndex].ToString().Split('-', ',', ' ')[0]);
-					var fileName = Path.Combine(currentOutputDirectory, 
-						string.Format(fileNameTemplate, lineNumber, bookId, row[kChapterIndex], verseNumber));
+					var lineNumber = (int) row[lineNumIndex];
+					var verseNumber = int.Parse(row[GetColumnIndex(ExportColumn.Verse)].ToString().Split('-', ',', ' ')[0]);
+					var fileName = Path.Combine(currentOutputDirectory,
+						string.Format(fileNameTemplate, lineNumber, bookId, row[GetColumnIndex(ExportColumn.Chapter)], verseNumber));
 
 					// do not overwrite existing files
 					if (File.Exists(fileName))
