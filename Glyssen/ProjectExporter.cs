@@ -338,7 +338,8 @@ namespace Glyssen
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
 				var sheet = xls.Workbook.Worksheets.Add("Script");
-				sheet.Cells["A1"].LoadFromArrays(dataArray);
+				var firstCell = sheet.Cells["A1"];
+				firstCell.LoadFromArrays(dataArray);
 
 				ColorizeAnnotations(sheet);
 
@@ -366,9 +367,29 @@ namespace Glyssen
 
 				// for script text set both width and text wrapping
 				sheet.Column(columnNum).Style.WrapText = true; // script text
+				sheet.Column(columnNum).Style.Font.Name = Project.FontFamily;
+				sheet.Column(columnNum).Style.Font.Size = Project.FontSizeInPoints;
+
+				// it is much faster to reset the column header font than to select every cell except the first one
+				sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
+				sheet.Cells[1, columnNum].Style.Font.Size = firstCell.Style.Font.Size;
+
 				sheet.Column(columnNum++).Width = 50d;
 
-				sheet.Column(columnNum).Style.WrapText = true; // primaryReferenceText text
+				// primaryReferenceText text
+				sheet.Column(columnNum).Style.WrapText = true;
+				if (Project.ReferenceText.LanguageName != "English")
+				{
+					if (!string.IsNullOrEmpty(Project.ReferenceText.FontFamily))
+						sheet.Column(columnNum).Style.Font.Name = Project.ReferenceText.FontFamily;
+
+					if (Project.ReferenceText.FontSizeInPoints > 9)
+						sheet.Column(columnNum).Style.Font.Size = Project.ReferenceText.FontSizeInPoints;
+
+					// it is much faster to reset the column header font than to select every cell except the first one
+					sheet.Cells[1, columnNum].Style.Font.Name = firstCell.Style.Font.Name;
+					sheet.Cells[1, columnNum].Style.Font.Size = firstCell.Style.Font.Size;
+				}
 				sheet.Column(columnNum++).Width = 50d;
 
 				if (Project.ReferenceText.HasSecondaryReferenceText)
