@@ -773,7 +773,7 @@ namespace Glyssen.Quote
 					{
 						if (currentBlock != null) newBlocks.Add(currentBlock);
 
-						if (CharacterVerseData.IsCharacterStandard(oldBlock.CharacterId, false) && !oldBlock.UserConfirmed)
+						if (CharacterVerseData.IsCharacterExtraBiblical(oldBlock.CharacterId) && !oldBlock.UserConfirmed)
 						{
 							newBlocks.Add(oldBlock.Clone());
 							currentBlock = null;

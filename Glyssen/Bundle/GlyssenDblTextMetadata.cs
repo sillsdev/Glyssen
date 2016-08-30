@@ -391,19 +391,22 @@ namespace Glyssen.Bundle
 		Required,
 	}
 
+	[Flags]
 	public enum ExtraBiblicalMaterialSpeakerOption
 	{
-		Narrator,
-		ActorOfEitherGender,
-		MaleActor,
-		FemaleActor,
-		Omitted,
+		Narrator = 1 << 0,
+		ActorOfEitherGender = 1 << 1,
+		MaleActor = 1 << 2,
+		FemaleActor = 1 << 3,
+		Omitted = 1 << 4,
+		NotNarratorOrOmitted = MaleActor | FemaleActor | ActorOfEitherGender
 	}
 
 	public class ProjectDramatizationPreferences
 	{
 		public ProjectDramatizationPreferences()
 		{
+			BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 			SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 			BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}

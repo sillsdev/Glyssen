@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -50,7 +50,7 @@ namespace Glyssen.Rules
 		{
 			m_project = project;
 			m_ghostCastSize = ghostCastSize;
-			m_proximity = new Proximity(project.IncludedBooks);
+			m_proximity = new Proximity(project.IncludedBooks, project.DramatizationPreferences);
 			m_worker = worker ?? new BackgroundWorker();
 		}
 
@@ -62,12 +62,12 @@ namespace Glyssen.Rules
 		{
 			get { return m_project.CharacterGroupGenerationPreferences; }
 		}
- 
+
 		public void ApplyGeneratedGroupsToProject(bool attemptToPreserveActorAssignments = true)
 		{
 			// Create a copy. Cameos are handled in the generation code (because we always maintain those assignments).
 			// REVIEW: Would it still work (and potentially be more efficient) if we only included groups with a voice
- 			// actor assigned, or would there be some weird edge cases where this might result in the wrong assignment?
+			// actor assigned, or would there be some weird edge cases where this might result in the wrong assignment?
 			var previousGroups = attemptToPreserveActorAssignments ?
 				ProjectCharacterGroups.Where(g => !g.AssignedToCameoActor).ToList() : new List<CharacterGroup>();
 
@@ -81,8 +81,8 @@ namespace Glyssen.Rules
 				.Select(grp => grp.VoiceActorId).ToList();
 
 			// We assume the parts with the most keystrokes are most important to maintain
-				var characterIdsSortedByKeystrokes = from entry in m_project.KeyStrokesByCharacterId orderby entry.Value descending select entry;
-				foreach (var entry in characterIdsSortedByKeystrokes)
+			var characterIdsSortedByKeystrokes = from entry in m_project.KeyStrokesByCharacterId orderby entry.Value descending select entry;
+			foreach (var entry in characterIdsSortedByKeystrokes)
 			{
 				var characterId = entry.Key;
 				var previousGroupWithCharacter = previousGroups.FirstOrDefault(g => g.CharacterIds.Contains(characterId) && !alreadyAssigned.Contains(g.VoiceActorId));
@@ -197,7 +197,7 @@ namespace Glyssen.Rules
 			foreach (var actor in nonCameoActors)
 			{
 				// After we find the second match, we can quit looking because we're only interested in unique matches.
-				var matches = includedCharacterDetails.Where(c => !CharacterVerseData.IsCharacterStandard(c.CharacterId) && actor.Matches(c)).Take(2).ToList();
+				var matches = includedCharacterDetails.Where(c => c.StandardCharacterType == CharacterVerseData.StandardCharacter.NonStandard && actor.Matches(c)).Take(2).ToList();
 				if (matches.Any())
 				{
 					if (matches.Count == 1)
@@ -275,7 +275,7 @@ namespace Glyssen.Rules
 				// based on a user-contolled option.
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(fallbackPass, characterGroups,
 					maleNarrators, femaleNarrators, !enforceProximityAndGenderConstraints, includedCharacterDetails, m_project.KeyStrokesByCharacterId,
-					m_project, characterDetails);
+					m_project, characterDetails, m_project.DramatizationPreferences);
 
 				if (fallbackPass)
 				{
@@ -303,6 +303,10 @@ namespace Glyssen.Rules
 							if (configuration.Groups.Any(g => g.CharacterIds.Contains(characterId)))
 								continue;
 
+							// if there are any standard characters still not assigned, it is because they are omitted
+							if (characterDetails[characterId].StandardCharacterType != CharacterVerseData.StandardCharacter.NonStandard)
+								continue;
+
 							CharacterDetail characterDetail;
 							if (!characterDetails.TryGetValue(characterId, out characterDetail))
 							{
@@ -314,10 +318,11 @@ namespace Glyssen.Rules
 								AddCharacterToBestGroup(characterDetail, configuration);
 						}
 						foreach (var characterDetail in charactersToProcessLast)
-							AddCharacterToBestGroup(characterDetail, configuration);							
+							AddCharacterToBestGroup(characterDetail, configuration);
 					}
 					bestConfiguration = TrialGroupConfiguration.Best(trialConfigurationsForNarratorsAndExtras, bestConfiguration);
-					
+
+#if DEBUG
 					Debug.WriteLine("Trial configurations for " + maleNarrators + " male narrators and " + femaleNarrators + " female narrators:");
 					for (int index = 0; index < trialConfigurationsForNarratorsAndExtras.Count; index++)
 					{
@@ -328,21 +333,39 @@ namespace Glyssen.Rules
 						Debug.WriteLine("   Narrator Groups:");
 						foreach (var narrGroup in config.NarratorGroups)
 							Debug.WriteLine("      " + narrGroup.VoiceActor.Gender + " group: " + narrGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
-						if (config.ExtraBiblicalGroup != null)
+						if (config.BookTitleChapterGroup != null)
 						{
-							if (config.NarratorGroups.Contains(config.ExtraBiblicalGroup))
-								Debug.WriteLine("   Extra-biblical group is a narrator group!");
+							if (config.NarratorGroups.Contains(config.BookTitleChapterGroup))
+								Debug.WriteLine("   BookTitleChapter Extra-biblical group is a narrator group!");
 							else
-								Debug.WriteLine("   Extra-biblical group: " + config.ExtraBiblicalGroup.VoiceActor.Gender + " - " +
-												config.ExtraBiblicalGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
+								Debug.WriteLine("   BookTitleChapter Extra-biblical group: " + config.BookTitleChapterGroup.VoiceActor.Gender + " - " +
+												config.BookTitleChapterGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
+						}
+						if (config.SectionHeadGroup != null)
+						{
+							if (config.NarratorGroups.Contains(config.SectionHeadGroup))
+								Debug.WriteLine("   SectionHead Extra-biblical group is a narrator group!");
+							else
+								Debug.WriteLine("   SectionHead Extra-biblical group: " + config.SectionHeadGroup.VoiceActor.Gender + " - " +
+												config.SectionHeadGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
+						}
+						if (config.BookIntroductionGroup != null)
+						{
+							if (config.NarratorGroups.Contains(config.BookIntroductionGroup))
+								Debug.WriteLine("   BookIntroduction Extra-biblical group is a narrator group!");
+							else
+								Debug.WriteLine("   BookIntroduction Extra-biblical group: " + config.BookIntroductionGroup.VoiceActor.Gender + " - " +
+												config.BookIntroductionGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
 						}
 						Debug.WriteLine("   Other Groups:");
 						foreach (
-							var group in config.Groups.Where(g => !config.NarratorGroups.Contains(g) && g != config.ExtraBiblicalGroup))
+							var group in config.Groups.Where(g => !config.NarratorGroups.Contains(g) &&
+								g != config.BookTitleChapterGroup && g != config.SectionHeadGroup && g != config.BookIntroductionGroup))
 						{
 							Debug.WriteLine("      " + @group.VoiceActor.Gender + " group: " + @group.CharacterIds.ToString().Replace("CharacterName.", ""));
 						}
 					}
+#endif
 
 					if (bestConfiguration.MinimumProximity >= Proximity.kDefaultMinimumProximity &&
 						bestConfiguration.CharactersInGroupWithConflictingGender == 0 &&
@@ -478,68 +501,67 @@ namespace Glyssen.Rules
 					groupMatchQualityDictionary[quality] = groups = new List<CharacterGroup>();
 				groups.Add(characterGroup);
 			}
-			// ReSharper restore PossibleMultipleEnumeration
 
 			var groupToProximityDict = new Dictionary<CharacterGroup, WeightedMinimumProximity>();
 
 			if (groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 1.1);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Perfect), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.3);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.3);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.CloseAdult), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.4);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.4);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.AdultVsChild), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.5);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.5);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.7);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.7);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 2.9);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.9);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Mismatch), out groups))
 			{
-				CalculateProximityForGroups(characterDetail, groups, configuration.ExtraBiblicalGroup, groupToProximityDict, 3.2);
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 3.2);
 			}
 			var bestGroupEntry = groupToProximityDict.Aggregate((l, r) => l.Value.WeightedNumberOfBlocks > r.Value.WeightedNumberOfBlocks ? l : r);
 			var bestGroup = bestGroupEntry.Key;
@@ -554,7 +576,8 @@ namespace Glyssen.Rules
 					bestGroup.CharacterIds.AddRange(relatedCharacters.CharacterIds.Where(c => m_project.AllCharacterIds.Contains(c)));
 		}
 
-		private void CalculateProximityForGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups, CharacterGroup extraBiblicalGroup, Dictionary<CharacterGroup, WeightedMinimumProximity> groupToProximityDict, double weightingFactor = 1.0)
+		private void CalculateProximityForGroups(CharacterDetail characterDetail, IEnumerable<CharacterGroup> characterGroups,
+			Dictionary<CharacterGroup, WeightedMinimumProximity> groupToProximityDict, double weightingFactor = 1.0)
 		{
 			if (!weightingFactor.Equals(1d))
 			{
@@ -564,9 +587,8 @@ namespace Glyssen.Rules
 
 			foreach (var group in characterGroups)
 			{
-				HashSet<string> testSet = new HashSet<string>(group.CharacterIds);
-				testSet.Add(characterDetail.CharacterId);
-				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet, group != extraBiblicalGroup)));
+				var testSet = new HashSet<string>(group.CharacterIds) {characterDetail.CharacterId};
+				groupToProximityDict.Add(group, new WeightedMinimumProximity(m_proximity.CalculateMinimumProximity(testSet)));
 			}
 		}
 
@@ -589,8 +611,9 @@ namespace Glyssen.Rules
 						g.CharacterIds.Any(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
 				}
 			}
-			// TODO: Change to List
-			internal CharacterGroup ExtraBiblicalGroup { get; set; }
+			internal CharacterGroup BookIntroductionGroup { get; set; }
+			internal CharacterGroup SectionHeadGroup { get; set; }
+			internal CharacterGroup BookTitleChapterGroup { get; set; }
 			internal List<CharacterGroup> Groups
 			{
 				get { return m_groups; }
@@ -601,26 +624,47 @@ namespace Glyssen.Rules
 				IEnumerable<CharacterGroup> characterGroups,
 				IReadOnlyDictionary<string, CharacterDetail> characterDetails,
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups,
-				int numberOfMaleExtraBiblicalGroups, int numberOfFemaleExtraBiblicalGroups,
+				//int numberOfMaleExtraBiblicalGroups, int numberOfFemaleExtraBiblicalGroups,
+				bool favorFemaleExtraBiblicalGroups,
 				Dictionary<string, int> keyStrokesByCharacterId,
-				List<CharacterDetail> includedCharacterDetails, List<string> includedBooks)
+				List<CharacterDetail> includedCharacterDetails, List<string> includedBooks,
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				m_groups = characterGroups.Select(g => g.Copy()).ToList();
 				m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles = allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles;
 				m_characterDetails = characterDetails;
+				var extraBiblicalIsSet = false;
 
 				if (Groups.Count == 1)
 				{
 					NarratorGroups = includedBooks.Any() ? Groups.ToList() : new List<CharacterGroup>(0);
-					ExtraBiblicalGroup = Groups[0];
+
+					// extra-biblical groups
+					if (dramatizationPreferences.BookIntroductionsDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+						BookIntroductionGroup = Groups[0];
+					if (dramatizationPreferences.SectionHeadDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+						SectionHeadGroup = Groups[0];
+					if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+						BookTitleChapterGroup = Groups[0];
+
+					extraBiblicalIsSet = true;
 				}
 				else
 				{
-					var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(Groups, m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
-					if (availableAdultGroups.Count == 1)
+					var availableAdultNarratorGroups = GetGroupsAvailableForNarrator(Groups, m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+					if (availableAdultNarratorGroups.Count == 1)
 					{
-						NarratorGroups = availableAdultGroups.ToList();
-						ExtraBiblicalGroup = NarratorGroups[0];
+						NarratorGroups = availableAdultNarratorGroups.ToList();
+
+						// extra-biblical groups
+						if (dramatizationPreferences.BookIntroductionsDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+							BookIntroductionGroup = NarratorGroups[0];
+						if (dramatizationPreferences.SectionHeadDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+							SectionHeadGroup = NarratorGroups[0];
+						if (dramatizationPreferences.BookTitleAndChapterDramatization != ExtraBiblicalMaterialSpeakerOption.Omitted)
+							BookTitleChapterGroup = NarratorGroups[0];
+
+						extraBiblicalIsSet = true;
 					}
 					else
 					{
@@ -628,11 +672,12 @@ namespace Glyssen.Rules
 						Debug.WriteLine("Female narrators desired = " + numberOfFemaleNarratorGroups);
 						NarratorGroups = new List<CharacterGroup>(numberOfMaleNarratorGroups + numberOfFemaleNarratorGroups);
 						var idealAge = new List<ActorAge> {ActorAge.Adult};
-						int attempt = 0;
-						while (attempt++ < 2 && (numberOfMaleNarratorGroups > 0 || numberOfFemaleNarratorGroups > 0 ||
-												numberOfMaleExtraBiblicalGroups > 0 || numberOfFemaleExtraBiblicalGroups > 0))
+						var attempt = 0;
+
+						// assign narrators
+						while (attempt++ < 2 && (numberOfMaleNarratorGroups > 0 || numberOfFemaleNarratorGroups > 0))
 						{
-							foreach (var characterGroup in availableAdultGroups)
+							foreach (var characterGroup in availableAdultNarratorGroups)
 							{
 								var actor = characterGroup.VoiceActor;
 								if (!idealAge.Contains(actor.Age))
@@ -645,12 +690,6 @@ namespace Glyssen.Rules
 										NarratorGroups.Add(characterGroup);
 										numberOfMaleNarratorGroups--;
 									}
-									else if (numberOfMaleExtraBiblicalGroups > 0)
-									{
-										// TODO: Deal with numberOfMaleExtraBiblicalGroups > 1 (see above)
-										ExtraBiblicalGroup = characterGroup;
-										numberOfMaleExtraBiblicalGroups--;
-									}
 								}
 								else
 								{
@@ -659,30 +698,23 @@ namespace Glyssen.Rules
 										NarratorGroups.Add(characterGroup);
 										numberOfFemaleNarratorGroups--;
 									}
-									else if (numberOfFemaleExtraBiblicalGroups > 0)
-									{
-										// TODO: Deal with numberOfFemaleExtraBiblicalGroups > 1 (see way above)
-										ExtraBiblicalGroup = characterGroup;
-										numberOfFemaleExtraBiblicalGroups--;
-									}
 								}
-								if (numberOfMaleNarratorGroups == 0 && numberOfFemaleNarratorGroups == 0 &&
-									numberOfMaleExtraBiblicalGroups == 0 && numberOfFemaleExtraBiblicalGroups == 0)
+								if (numberOfMaleNarratorGroups == 0 && numberOfFemaleNarratorGroups == 0)
 									break;
 							}
 							idealAge = new List<ActorAge> {ActorAge.Elder, ActorAge.YoungAdult};
 						}
 					}
-					// TODO: Handle multiple extra-biblical groups
-					if (numberOfMaleExtraBiblicalGroups == 1)
-						ExtraBiblicalGroup = NarratorGroups.First(g => g.VoiceActor.Gender == ActorGender.Male);
-					else if (numberOfFemaleExtraBiblicalGroups == 1)
-						ExtraBiblicalGroup = NarratorGroups.First(g => g.VoiceActor.Gender == ActorGender.Female);
 				}
 
 				AssignNarratorCharactersToNarratorGroups(keyStrokesByCharacterId, includedBooks);
-				// TODO if extra-biblical characters are being assigned to specific group(s) based on type
-				AssignExtraBiblicalCharactersToExtraBiblicalGroups(includedCharacterDetails);
+
+				// assign extra-biblical groups
+				if (!extraBiblicalIsSet)
+					InitializeExtraBiblicalGroups(dramatizationPreferences, favorFemaleExtraBiblicalGroups);
+
+				AssignExtraBiblicalCharactersToExtraBiblicalGroups(includedCharacterDetails, dramatizationPreferences);
+
 				AssignDeityCharacters(includedCharacterDetails);
 
 				GroupsAvailableForBiblicalCharacterRoles = Groups.Where(g => !g.Closed &&
@@ -690,6 +722,81 @@ namespace Glyssen.Rules
 
 				if (!GroupsAvailableForBiblicalCharacterRoles.Any())
 					GroupsAvailableForBiblicalCharacterRoles = Groups.Where(g => !g.Closed).ToList();
+			}
+
+			private void InitializeExtraBiblicalGroups(ProjectDramatizationPreferences dramatizationPreferences,
+				bool favorFemaleExtraBiblicalGroups)
+			{
+				// get BookTitleChapterGroup first
+				BookTitleChapterGroup = TryToSetThisExtraBiblicalGroup(dramatizationPreferences.BookTitleAndChapterDramatization,
+					favorFemaleExtraBiblicalGroups);
+
+				// next get SectionHeadGroup
+				if (dramatizationPreferences.SectionHeadDramatization == dramatizationPreferences.BookTitleAndChapterDramatization)
+				{
+					SectionHeadGroup = BookTitleChapterGroup;
+				}
+				else
+				{
+					SectionHeadGroup = TryToSetThisExtraBiblicalGroup(dramatizationPreferences.SectionHeadDramatization,
+						favorFemaleExtraBiblicalGroups);
+				}
+
+				// finally get BookIntroductionGroup
+				if (dramatizationPreferences.BookIntroductionsDramatization == dramatizationPreferences.BookTitleAndChapterDramatization)
+				{
+					BookIntroductionGroup = BookTitleChapterGroup;
+				}
+				else if (dramatizationPreferences.BookIntroductionsDramatization == dramatizationPreferences.SectionHeadDramatization)
+				{
+					BookIntroductionGroup = SectionHeadGroup;
+				}
+				else
+				{
+					BookIntroductionGroup = TryToSetThisExtraBiblicalGroup(dramatizationPreferences.BookIntroductionsDramatization,
+						favorFemaleExtraBiblicalGroups);
+				}
+			}
+
+			private CharacterGroup TryToSetThisExtraBiblicalGroup(ExtraBiblicalMaterialSpeakerOption speakerOption, bool favorFemaleExtraBiblicalGroups)
+			{
+				if ((speakerOption == ExtraBiblicalMaterialSpeakerOption.Narrator) ||
+					(speakerOption == ExtraBiblicalMaterialSpeakerOption.Omitted))
+					return null;
+
+				var availableAdultGroups = GetGroupsAvailableForExtraBiblical(Groups,
+					m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+
+				// look for a gender match if requested
+				if ((speakerOption == ExtraBiblicalMaterialSpeakerOption.MaleActor) ||
+				    (speakerOption == ExtraBiblicalMaterialSpeakerOption.FemaleActor))
+				{
+					foreach (var characterGroup in availableAdultGroups)
+					{
+						if (((characterGroup.VoiceActor.Gender == ActorGender.Male) && (speakerOption == ExtraBiblicalMaterialSpeakerOption.MaleActor)) ||
+							((characterGroup.VoiceActor.Gender == ActorGender.Female) && (speakerOption == ExtraBiblicalMaterialSpeakerOption.FemaleActor)))
+						{
+							return characterGroup;
+						}
+					}
+
+					// no gender match was found
+					return null;
+				}
+				
+				// look for an acceptable match if gender match not requested
+				// if you are here, the speaker option is ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender
+				foreach (var characterGroup in availableAdultGroups)
+				{
+					if (((characterGroup.VoiceActor.Gender == ActorGender.Male) && !favorFemaleExtraBiblicalGroups) ||
+						((characterGroup.VoiceActor.Gender == ActorGender.Female) && favorFemaleExtraBiblicalGroups))
+					{
+						return characterGroup;
+					}
+				}
+
+				// no acceptable match was found
+				return null;
 			}
 
 			// Possible (and impossible) scenarios:
@@ -914,13 +1021,114 @@ namespace Glyssen.Rules
 				}
 			}
 
-			private void AssignExtraBiblicalCharactersToExtraBiblicalGroups(List<CharacterDetail> includedCharacterDetails)
+			private void AssignExtraBiblicalCharactersToExtraBiblicalGroups(List<CharacterDetail> includedCharacterDetails,
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
-				if (ExtraBiblicalGroup == null)
-					return;
-				ExtraBiblicalGroup.CharacterIds.AddRange(includedCharacterDetails.
-					Select(cd => cd.CharacterId).Where(c => CharacterVerseData.IsCharacterStandard(c, false) &&
-					!Groups.Any(g => g.CharacterIds.Contains(c))));
+				// get standard characters not yet assigned
+				foreach (var character in includedCharacterDetails.Where(c => !Groups.Any(g => g.CharacterIds.Contains(c.CharacterId))).ToList())
+				{
+					var characterType = character.StandardCharacterType;
+					CharacterGroup characterGroup;
+
+					switch (characterType)
+					{
+						case CharacterVerseData.StandardCharacter.BookOrChapter:
+							characterGroup = BookTitleChapterGroup;
+							break;
+
+						case CharacterVerseData.StandardCharacter.ExtraBiblical:
+							characterGroup = SectionHeadGroup;
+							break;
+
+						case CharacterVerseData.StandardCharacter.Intro:
+							characterGroup = BookIntroductionGroup;
+							break;
+
+						default:
+							continue;
+					}
+
+					if (characterGroup == null)
+					{
+						// add to a narrator group
+						var narratorGroup = GetExtraBiblicalToNarratorGroup(character.CharacterId, characterType, dramatizationPreferences);
+
+						if (narratorGroup != null)
+							narratorGroup.CharacterIds.Add(character.CharacterId);
+					}
+					else
+					{
+						characterGroup.CharacterIds.Add(character.CharacterId);					
+					}
+				}
+			}
+
+			private CharacterGroup GetExtraBiblicalToNarratorGroup(string characterId, CharacterVerseData.StandardCharacter characterType,
+				ProjectDramatizationPreferences dramatizationPreferences)
+			{
+				var dramatizationOption = ExtraBiblicalMaterialSpeakerOption.Omitted;
+
+				switch (characterType)
+				{
+					case CharacterVerseData.StandardCharacter.BookOrChapter:
+						dramatizationOption = dramatizationPreferences.BookTitleAndChapterDramatization;
+						break;
+
+					case CharacterVerseData.StandardCharacter.ExtraBiblical:
+						dramatizationOption = dramatizationPreferences.SectionHeadDramatization;
+						break;
+
+					case CharacterVerseData.StandardCharacter.Intro:
+						dramatizationOption = dramatizationPreferences.BookIntroductionsDramatization;
+						break;
+				}
+
+				if (dramatizationOption == ExtraBiblicalMaterialSpeakerOption.Omitted)
+					return null;
+
+				var narratorPrefix = CharacterVerseData.GetCharacterPrefix(CharacterVerseData.StandardCharacter.Narrator);
+				var narratorId = narratorPrefix + characterId.Substring(characterId.Length - 3);
+				List<CharacterGroup> possibleGroups;
+
+				if (dramatizationOption == ExtraBiblicalMaterialSpeakerOption.Narrator)
+					possibleGroups = NarratorGroups.Where(g => g.CharacterIds.Contains(narratorId)).ToList();
+				else
+					possibleGroups = NarratorGroups.Where(g => !g.CharacterIds.Contains(narratorId)).ToList();
+
+				if (possibleGroups.Count == 0)
+				{
+					if (NarratorGroups.Count == 0)
+						throw new NullReferenceException(string.Format("No group was found for character '{0}'", characterId));
+					
+					possibleGroups = NarratorGroups.ToList();						
+				}
+				
+				if (possibleGroups.Count == 1)
+					return possibleGroups[0];
+
+				// get the narrator group with the least amount of speaking
+				var leastEstimatedHours = double.MaxValue;
+				CharacterGroup narratorGroup = null;
+				foreach (var cg in possibleGroups)
+				{
+					var estimatedHours = cg.EstimatedHours;
+
+					if (estimatedHours < leastEstimatedHours)
+					{
+						leastEstimatedHours = estimatedHours;
+						narratorGroup = cg;
+
+						// is this a good enough match?
+						if (leastEstimatedHours < 0.01)
+							break;
+					}
+				}
+
+				// this should never happen, so throw an exception if it does
+				if (narratorGroup == null)
+					throw new NullReferenceException(string.Format("No group was found for character '{0}'", characterId));
+
+				return narratorGroup;
 			}
 
 			private void AssignDeityCharacters(List<CharacterDetail> includedCharacterDetails)
@@ -961,7 +1169,7 @@ namespace Glyssen.Rules
 				return NarratorGroups.Count > other.NarratorGroups.Count;
 			}
 
-			private static List<CharacterGroup> GetGroupsAvailableForNarratorOrExtraBiblical(IEnumerable<CharacterGroup> groups,
+			private static List<CharacterGroup> GetGroupsAvailableForNarrator(IEnumerable<CharacterGroup> groups,
 				bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
 			{
 				return groups.Where(g => !g.Closed &&
@@ -969,28 +1177,46 @@ namespace Glyssen.Rules
 					g.VoiceActor.Age != ActorAge.Child).ToList();
 			}
 
+			/// <summary>Same as GetGroupsAvailableForNarrator() except also excludes groups containing a narrator</summary>
+			/// <param name="groups"></param>
+			/// <param name="allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles"></param>
+			/// <returns></returns>
+			private static List<CharacterGroup> GetGroupsAvailableForExtraBiblical(IEnumerable<CharacterGroup> groups,
+				bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
+			{
+				var potentialGroups = GetGroupsAvailableForNarrator(groups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+
+				return potentialGroups.Where(g => !g.CharacterIds.Any(
+							c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)
+							)).ToList();
+			}
+
 			internal bool IsGroupAvailableForBiblicalCharacterRoles(CharacterGroup group)
 			{
-				return m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles ||
-					(!NarratorGroups.Contains(group) && ExtraBiblicalGroup != group);
+				if (m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
+					return true;
+
+				return !NarratorGroups.Contains(group) && (BookTitleChapterGroup != group) && (SectionHeadGroup != group) && (BookIntroductionGroup != group);
 			}
 
 			private bool IsGroupAvailableForDeity(CharacterGroup group)
 			{
-				return !(NarratorGroups.Contains(group) || ExtraBiblicalGroup == group);
+				return !(NarratorGroups.Contains(group) || (BookTitleChapterGroup == group) ||
+					(SectionHeadGroup == group) || (BookIntroductionGroup == group));
 			}
 
 			internal static List<TrialGroupConfiguration> GeneratePossibilities(bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles,
 				List<CharacterGroup> characterGroups,
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups, bool allowFemaleExtraBiblical, List<CharacterDetail> includedCharacterDetails,
-				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails)
+				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails, 
+				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				var includedBooks = project.IncludedBooks.Select(b => b.BookId).ToList();
 				int maleGroupsWithExistingNarratorRoles = 0;
 				int femaleGroupsWithExistingNarratorRoles = 0;
 				CharacterGroup groupWithWorstPrioximity = null;
 				MinimumProximity worstProximity = null;
-				var proximity = new Proximity(project.IncludedBooks);
+				var proximity = new Proximity(project.IncludedBooks, dramatizationPreferences);
 				foreach (var characterGroup in characterGroups)
 				{
 					var narratorRoles = characterGroup.CharacterIds.Where(c =>
@@ -1019,7 +1245,7 @@ namespace Glyssen.Rules
 
 				var list = new List<TrialGroupConfiguration>(2);
 
-				var availableAdultGroups = GetGroupsAvailableForNarratorOrExtraBiblical(characterGroups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
+				var availableAdultGroups = GetGroupsAvailableForNarrator(characterGroups, allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
 				if (!availableAdultGroups.Any())
 					return list;
 				var availableMaleGroups = availableAdultGroups.Where(g => g.VoiceActor.Gender == ActorGender.Male).ToList();
@@ -1029,8 +1255,6 @@ namespace Glyssen.Rules
 				int numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators;
 				if (!includedBooks.Any())
 				{
-					numberOfMaleNarratorGroups = 0;
-					numberOfFemaleNarratorGroups = 0;
 					numberOfUnassignedMaleNarrators = 0;
 					numberOfUnassignedFemaleNarrators = 0;
 				}
@@ -1045,7 +1269,8 @@ namespace Glyssen.Rules
 					if (numberOfUnassignedMaleNarrators + numberOfUnassignedFemaleNarrators == 0)
 						numberOfUnassignedMaleNarrators = 1;
 
-					if (!includedCharacterDetails.Any(c => CharacterVerseData.IsCharacterStandard(c.CharacterId, false)))
+					if (!includedCharacterDetails.Any(c => c.StandardCharacterType == CharacterVerseData.StandardCharacter.NonStandard ||
+						                                   c.StandardCharacterType == CharacterVerseData.StandardCharacter.Narrator))
 						numberOfExtraBiblicalGroups = 0;
 				}
 
@@ -1053,19 +1278,23 @@ namespace Glyssen.Rules
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 						characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
-						Math.Min(1, numberOfExtraBiblicalGroups), 0, keyStrokesByCharacterId, includedCharacterDetails, includedBooks));
+						false, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
+						dramatizationPreferences));
 				}
 				if (allowFemaleExtraBiblical && numberOfExtraBiblicalGroups > 0 && availableFemaleGroups.Count >= Math.Max(1, numberOfUnassignedFemaleNarrators))
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 						characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
-						0, numberOfExtraBiblicalGroups, keyStrokesByCharacterId, includedCharacterDetails, includedBooks));
+						true, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
+						dramatizationPreferences));
 				}
 				if (!list.Any() && allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
 				{
+					// ReSharper disable once ConditionIsAlwaysTrueOrFalse
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 					characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
-					numberOfExtraBiblicalGroups, 0, keyStrokesByCharacterId, includedCharacterDetails, includedBooks));
+					false, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
+					dramatizationPreferences));
 					Debug.Assert(list[0].NarratorGroups.Count + maleGroupsWithExistingNarratorRoles + femaleGroupsWithExistingNarratorRoles == 1);
 				}
 

@@ -27,6 +27,9 @@ namespace GlyssenTests.Rules
 			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.JUD);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
 		}
 
 		[SetUp]
@@ -336,7 +339,7 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "MRK").CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+				i => CharacterVerseData.IsCharacterExtraBiblical(i)));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -373,8 +376,12 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(femaleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.PreferMale)));
 			Assert.AreEqual(1, groups.Single(g => g.CharacterIds.Contains("Jesus")).CharacterIds.Count);
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
-			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+
+			var a = groups.Single(g => g.CharacterIds.Contains("BC-MRK"));
+			var b = a.CharacterIds.All(CharacterVerseData.IsCharacterExtraBiblical);
+
+			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-MRK")).CharacterIds.All(CharacterVerseData.IsCharacterExtraBiblical));
+
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -472,7 +479,7 @@ namespace GlyssenTests.Rules
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.AreEqual(10, groups.Count);
 			Assert.AreEqual(2, groups.Count(g => g.IsVoiceActorAssigned));
-			var groupsWithActorAssigned = groups.Where(g => g.IsVoiceActorAssigned);
+			var groupsWithActorAssigned = groups.Where(g => g.IsVoiceActorAssigned).ToList();
 			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(m_testProject.VoiceActorList.AllActors[0].Id));
 			Assert.True(groupsWithActorAssigned.Select(g => g.VoiceActorId).Contains(m_testProject.VoiceActorList.AllActors[1].Id));
 			Assert.True(groupsWithActorAssigned.All(g => g.CharacterIds.Count == 0));
@@ -626,6 +633,10 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void GenerateCharacterGroups_MaintainAssignments_TwoAssignments_GroupsAreCombined_AssignmentMaintainedForMostProminentCharacter()
 		{
+			// allow BC and Extra to be in separate or the same group
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+
 			SetVoiceActors(5);
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
@@ -633,23 +644,32 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(m_testProject.KeyStrokesByCharacterId["BC-MRK"] < m_testProject.KeyStrokesByCharacterId["extra-MRK"],
 				"For this test to make sense as written, there have to be more key strokes associated with \"extra\" than with BC.");
 
-			var newGroup = new CharacterGroup(m_testProject);
-			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
+			// expect BC-MRK and extra-MRK to be placed in same group
 			var bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
 			Assert.IsTrue(bcGroup.CharacterIds.Contains("extra-MRK"));
+
+			// put extra-MRK in a new group and assign voice actors
+			var newGroup = new CharacterGroup(m_testProject);
+			m_testProject.CharacterGroupList.CharacterGroups.Add(newGroup);
 			bcGroup.CharacterIds.ExceptWith(new[] { "extra-MRK" });
 			newGroup.CharacterIds.Add("extra-MRK");
-
 			bcGroup.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[0].Id);
 			newGroup.AssignVoiceActor(m_testProject.VoiceActorList.AllActors[1].Id);
 
+			// re-generate the groups
 			generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject();
+
+			// expect one group per voice actor
 			Assert.AreEqual(5, m_testProject.CharacterGroupList.CharacterGroups.Count);
+
+			// expect BC-MRK and extra-MRK to be placed back in same group
 			var extraBiblicalGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("extra-MRK");
 			bcGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("BC-MRK");
 			Assert.AreEqual(extraBiblicalGroup, bcGroup);
+
+			// expect the voice actor for extra-MRK has not changed
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors[1].Id, extraBiblicalGroup.VoiceActorId);
 			Assert.False(m_testProject.CharacterGroupList.HasVoiceActorAssigned(m_testProject.VoiceActorList.AllActors[0].Id));
 		}
@@ -813,6 +833,10 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 		}
 
 		[TestFixtureTearDown]
@@ -836,10 +860,12 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(femaleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.Male)));
 			Assert.IsFalse(femaleGroups.Any(g => g.ContainsCharacterWithGender(CharacterGender.PreferMale)));
 			Assert.AreEqual(1, groups.Single(g => g.CharacterIds.Contains("Jesus")).CharacterIds.Count);
-			Assert.IsTrue(GetNarratorGroupForBook(groups, "LUK").CharacterIds.All(
+
+			var narratorGroup = GetNarratorGroupForBook(groups, "LUK");
+			Assert.IsTrue(narratorGroup.CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+				CharacterVerseData.IsCharacterExtraBiblical));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -871,8 +897,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(1, groups.Single(g => g.CharacterIds.Contains("Jesus")).CharacterIds.Count);
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "LUK").CharacterIds.All(
 				i => CharacterVerseData.IsCharacterOfType(i, CharacterVerseData.StandardCharacter.Narrator)));
-			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(
-				i => CharacterVerseData.IsCharacterStandard(i, false)));
+			Assert.IsTrue(groups.Single(g => g.CharacterIds.Contains("BC-LUK")).CharacterIds.All(CharacterVerseData.IsCharacterExtraBiblical));
 			Assert.GreaterOrEqual(groups.Count(g => g.CharacterIds.All(c =>
 			{
 				if (CharacterVerseData.IsCharacterStandard(c))
@@ -898,6 +923,10 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
 		[TestFixtureTearDown]
@@ -1077,6 +1106,9 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.EPH);
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
 		}
 
@@ -1117,6 +1149,10 @@ namespace GlyssenTests.Rules
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.ACT);
 			m_testProject.IncludedBooks[0].SingleVoice = true;
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
 		[TestFixtureTearDown]
@@ -1152,12 +1188,17 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[Test]
-		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs()
+		[TestCase(ExtraBiblicalMaterialSpeakerOption.FemaleActor, ExtraBiblicalMaterialSpeakerOption.FemaleActor)]
+		[TestCase(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender, ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender)]
+		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs(
+			ExtraBiblicalMaterialSpeakerOption bookTitleAndChapterOption,
+			ExtraBiblicalMaterialSpeakerOption extraBiblicalOption)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = bookTitleAndChapterOption;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = extraBiblicalOption;
 
 			SetVoiceActors(6, 2);
 			var gen = new CharacterGroupGenerator(m_testProject);
@@ -1167,6 +1208,28 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Count > 3);
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.AreEqual(1, narratorActsGroup.CharacterIds.Count);
+			AssertThatThereAreTwoDistinctNarratorGroups(groups);
+			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
+			Assert.AreEqual(8, groups.Count);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsAndMaleExtraWithTooSmallCast_ExtraBiblicalRoleHandledByMaleActorDespiteBadProximity()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+
+			SetVoiceActors(6, 2);
+			var gen = new CharacterGroupGenerator(m_testProject);
+			var groups = gen.GenerateCharacterGroups();
+			var narratorLukeGroup = GetNarratorGroupForBook(groups, "LUK");
+			var narratorActsGroup = GetNarratorGroupForBook(groups, "ACT");
+			Assert.IsFalse(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsFalse(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
 			Assert.AreEqual(1, narratorActsGroup.CharacterIds.Count);
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
@@ -1352,6 +1415,10 @@ namespace GlyssenTests.Rules
 				TestProject.TestBook.IIIJN,
 				TestProject.TestBook.JUD,
 				TestProject.TestBook.REV);
+
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}
 
 		[SetUp]
@@ -1863,6 +1930,10 @@ namespace GlyssenTests.Rules
 			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN, TestProject.TestBook.IIJN, TestProject.TestBook.EPH);
 			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 		}
 
 		[SetUp]
@@ -1895,6 +1966,59 @@ namespace GlyssenTests.Rules
 		}
 	}
 
+	[TestFixture]
+	public class CharacterGroupGeneratorTestsWithExtrabiblicalCharacterOptions : CharacterGroupGeneratorAndAdjusterTestBase
+	{
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
+
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.AllActors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = false;
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void GenerateGroups_NarratorSpeaksAllExtra_AllExtraAssignedToNarrator()
+		{
+			SetVoiceActors(8, 2, 2);
+
+			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+
+			var generator = new CharacterGroupGenerator(m_testProject);
+			var groups = generator.GenerateCharacterGroups();
+
+			var characterIds = groups[0].CharacterIds;
+			Assert.True(characterIds.Contains("narrator-RUT"));
+			Assert.True(characterIds.Contains("intro-RUT"));
+			Assert.True(characterIds.Contains("extra-RUT"));
+			Assert.True(characterIds.Contains("BC-RUT"));
+		}
+	}
+
 	public abstract class CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		protected Project m_testProject;
@@ -1922,7 +2046,7 @@ namespace GlyssenTests.Rules
 		protected void VerifyProximityAndGenderConstraintsForAllGroups(List<CharacterGroup> groups,
 			bool allowMaleNarratorsToDoBiblicalCharacterRoles = false, bool allowFemaleNarratorsToDoBiblicalCharacterRoles = false)
 		{
-			var p = new Proximity(m_testProject.IncludedBooks);
+			var p = new Proximity(m_testProject.IncludedBooks, m_testProject.DramatizationPreferences);
 			foreach (var group in groups.Where(g => !CharacterGroupGenerator.ContainsDeityCharacter(g)))
 			{
 				var minProximity = p.CalculateMinimumProximity(group.CharacterIds);
