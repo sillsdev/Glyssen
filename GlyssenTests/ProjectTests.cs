@@ -5,7 +5,6 @@ using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Quote;
 using GlyssenTests.Bundle;
 using NUnit.Framework;

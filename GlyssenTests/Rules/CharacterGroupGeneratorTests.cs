@@ -785,7 +785,7 @@ namespace GlyssenTests.Rules
 	}
 
 	[TestFixture]
-	internal class CharacterGroupGeneratorTestsWithBookHavingSameCharacterWithTwoAges : CharacterGroupGeneratorAndAdjusterTestBase
+	public class CharacterGroupGeneratorTestsWithBookHavingSameCharacterWithTwoAges : CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		[TestFixtureSetUp]
 		public void TextFixtureSetUp()
@@ -824,7 +824,7 @@ namespace GlyssenTests.Rules
 	}
 
 	[TestFixture]
-	internal class CharacterGroupGeneratorTestsWithChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase
+	public class CharacterGroupGeneratorTestsWithChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase
 	{
 		[TestFixtureSetUp]
 		public void TextFixtureSetUp()

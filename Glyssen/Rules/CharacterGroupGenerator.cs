@@ -728,7 +728,7 @@ namespace Glyssen.Rules
 				bool favorFemaleExtraBiblicalGroups)
 			{
 				// get BookTitleChapterGroup first
-				BookTitleChapterGroup = TryToSetThisExtraBiblicalGroup(dramatizationPreferences.BookTitleAndChapterDramatization,
+				BookTitleChapterGroup = TryGetAvailableGroupForExtraBiblicalRole(dramatizationPreferences.BookTitleAndChapterDramatization,
 					favorFemaleExtraBiblicalGroups);
 
 				// next get SectionHeadGroup
@@ -738,7 +738,7 @@ namespace Glyssen.Rules
 				}
 				else
 				{
-					SectionHeadGroup = TryToSetThisExtraBiblicalGroup(dramatizationPreferences.SectionHeadDramatization,
+					SectionHeadGroup = TryGetAvailableGroupForExtraBiblicalRole(dramatizationPreferences.SectionHeadDramatization,
 						favorFemaleExtraBiblicalGroups);
 				}
 
@@ -753,12 +753,12 @@ namespace Glyssen.Rules
 				}
 				else
 				{
-					BookIntroductionGroup = TryToSetThisExtraBiblicalGroup(dramatizationPreferences.BookIntroductionsDramatization,
+					BookIntroductionGroup = TryGetAvailableGroupForExtraBiblicalRole(dramatizationPreferences.BookIntroductionsDramatization,
 						favorFemaleExtraBiblicalGroups);
 				}
 			}
 
-			private CharacterGroup TryToSetThisExtraBiblicalGroup(ExtraBiblicalMaterialSpeakerOption speakerOption, bool favorFemaleExtraBiblicalGroups)
+			private CharacterGroup TryGetAvailableGroupForExtraBiblicalRole(ExtraBiblicalMaterialSpeakerOption speakerOption, bool favorFemaleExtraBiblicalGroups)
 			{
 				if ((speakerOption == ExtraBiblicalMaterialSpeakerOption.Narrator) ||
 					(speakerOption == ExtraBiblicalMaterialSpeakerOption.Omitted))
@@ -768,35 +768,18 @@ namespace Glyssen.Rules
 					m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles);
 
 				// look for a gender match if requested
-				if ((speakerOption == ExtraBiblicalMaterialSpeakerOption.MaleActor) ||
-				    (speakerOption == ExtraBiblicalMaterialSpeakerOption.FemaleActor))
-				{
-					foreach (var characterGroup in availableAdultGroups)
-					{
-						if (((characterGroup.VoiceActor.Gender == ActorGender.Male) && (speakerOption == ExtraBiblicalMaterialSpeakerOption.MaleActor)) ||
-							((characterGroup.VoiceActor.Gender == ActorGender.Female) && (speakerOption == ExtraBiblicalMaterialSpeakerOption.FemaleActor)))
-						{
-							return characterGroup;
-						}
-					}
+				if (speakerOption == ExtraBiblicalMaterialSpeakerOption.MaleActor)
+					return availableAdultGroups.FirstOrDefault(cg => cg.VoiceActor.Gender == ActorGender.Male);
+				if (speakerOption == ExtraBiblicalMaterialSpeakerOption.FemaleActor)
+					return availableAdultGroups.FirstOrDefault(cg => cg.VoiceActor.Gender == ActorGender.Female);
 
-					// no gender match was found
-					return null;
-				}
-				
 				// look for an acceptable match if gender match not requested
 				// if you are here, the speaker option is ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender
-				foreach (var characterGroup in availableAdultGroups)
-				{
-					if (((characterGroup.VoiceActor.Gender == ActorGender.Male) && !favorFemaleExtraBiblicalGroups) ||
-						((characterGroup.VoiceActor.Gender == ActorGender.Female) && favorFemaleExtraBiblicalGroups))
-					{
-						return characterGroup;
-					}
-				}
-
-				// no acceptable match was found
-				return null;
+				// We probably can't get her in the condition where there are 0 availabled actors of the preferred
+				// gender, but if we do, returning null should be okay.
+				return favorFemaleExtraBiblicalGroups ?
+					availableAdultGroups.FirstOrDefault(cg => cg.VoiceActor.Gender == ActorGender.Female) :
+					availableAdultGroups.FirstOrDefault(cg => cg.VoiceActor.Gender == ActorGender.Male);
 			}
 
 			// Possible (and impossible) scenarios:
@@ -1107,28 +1090,7 @@ namespace Glyssen.Rules
 					return possibleGroups[0];
 
 				// get the narrator group with the least amount of speaking
-				var leastEstimatedHours = double.MaxValue;
-				CharacterGroup narratorGroup = null;
-				foreach (var cg in possibleGroups)
-				{
-					var estimatedHours = cg.EstimatedHours;
-
-					if (estimatedHours < leastEstimatedHours)
-					{
-						leastEstimatedHours = estimatedHours;
-						narratorGroup = cg;
-
-						// is this a good enough match?
-						if (leastEstimatedHours < 0.01)
-							break;
-					}
-				}
-
-				// this should never happen, so throw an exception if it does
-				if (narratorGroup == null)
-					throw new NullReferenceException(string.Format("No group was found for character '{0}'", characterId));
-
-				return narratorGroup;
+				return possibleGroups.MinBy(g => g.EstimatedHours);
 			}
 
 			private void AssignDeityCharacters(List<CharacterDetail> includedCharacterDetails)
@@ -1290,7 +1252,7 @@ namespace Glyssen.Rules
 				}
 				if (!list.Any() && allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
 				{
-					// ReSharper disable once ConditionIsAlwaysTrueOrFalse
+					//ReSharper disable once ConditionIsAlwaysTrueOrFalse
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 					characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
 					false, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,

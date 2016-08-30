@@ -70,9 +70,6 @@ namespace Glyssen.Rules
 			Block prevBlock = null;
 			bool breakOutOfBothLoops = false;
 
-			//ISet<string> standardCharacterIdsToTreatAsOne = null;
-
-			//ISet<string> standardCharacterIdsForBook = new HashSet<string>();
 			bool calculateAnyRelatedCharacters = characterIdsToCalculate.Any(c => relChar.HasMatchingCharacterIdsOfADifferentAge(c));
 			foreach (var book in m_booksToConsider)
 			{
@@ -80,17 +77,6 @@ namespace Glyssen.Rules
 					break;
 
 				var treatAsSameCharacter = m_considerSameExtrabiblicalCharacter[book];
-
-				////if (!treatStandardNonScriptureCharactersAsDistinct)
-				////{
-				//	standardCharacterIdsForBook.Clear();
-				//	standardCharacterIdsForBook.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.BookOrChapter));
-				//	standardCharacterIdsForBook.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
-				//	standardCharacterIdsForBook.Add(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Intro));
-
-				//	if (standardCharacterIdsForBook.Any(characterIdsToCalculate.Contains))
-				//		standardCharacterIdsToTreatAsOne = new HashSet<string>();
-				////}
 
 				currentBlockCount += kDefaultMinimumProximity + 20; // 20 is a pretty arbitrary "magic number"
 
