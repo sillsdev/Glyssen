@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL.IO;
 
 namespace Glyssen.Dialogs
 {
@@ -95,6 +96,25 @@ namespace Glyssen.Dialogs
 			{
 				m_lblBookDirectory.Visible = false;
 				m_lblBookDirectoryExists.Visible = false;
+			}
+		}
+
+		private void UpdateCreateClipDisplay()
+		{
+			if (m_viewModel.IncludeCreateClips != m_checkCreateClips.Checked)
+			{
+				m_checkCreateClips.Checked = m_viewModel.IncludeCreateClips;
+				return;
+			}
+
+			if (m_checkCreateClips.Checked)
+			{
+				m_flowClipDirectory.Visible = true;
+				m_linkClipDirectory.Text = m_viewModel.ClipDirectory;
+			}
+			else
+			{
+				m_flowClipDirectory.Visible = false;
 			}
 		}
 
@@ -250,6 +270,17 @@ namespace Glyssen.Dialogs
 					return;
 				}
 			} while (true);
+		}
+
+		private void CheckCreateClips_CheckedChanged(object sender, EventArgs e)
+		{
+			m_viewModel.IncludeCreateClips = m_checkCreateClips.Checked;
+			UpdateCreateClipDisplay();
+		}
+
+		private void ClipDirectory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			PathUtilities.OpenDirectoryInExplorer(m_linkClipDirectory.Text);
 		}
 	}
 }
