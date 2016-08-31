@@ -51,8 +51,38 @@ namespace Glyssen.Dialogs
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			LoadReferenceTextOptions();
+			LoadProjectDramatizationOptions();
 			ProjectSettingsViewModel = model;
 			UpdateQuotePageDisplay();
+		}
+
+		private void LoadProjectDramatizationOptions()
+		{
+			var optionList = new List<KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>>
+			{
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.Narrator,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.Narrator", "Narrator")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.MaleActor,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.MaleActor", "Male Actor")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.FemaleActor,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.FemaleActor", "Female Actor")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.EitherGender", "Either Gender")),
+				new KeyValuePair<ExtraBiblicalMaterialSpeakerOption, string>(ExtraBiblicalMaterialSpeakerOption.Omitted,
+					LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.ExtraBiblicalSpeakerOption.Omitted", "Omitted"))
+			};
+
+			m_bookIntro.DataSource = new BindingSource(optionList, null);
+			m_bookIntro.DisplayMember = "Value";
+			m_bookIntro.ValueMember = "Key";
+
+			m_sectionHeadings.DataSource = new BindingSource(optionList, null);
+			m_sectionHeadings.DisplayMember = "Value";
+			m_sectionHeadings.ValueMember = "Key";
+
+			m_titleChapters.DataSource = new BindingSource(optionList, null);
+			m_titleChapters.DisplayMember = "Value";
+			m_titleChapters.ValueMember = "Key";
 		}
 
 		private void LoadReferenceTextOptions()
@@ -134,6 +164,10 @@ namespace Glyssen.Dialogs
 						break;
 					}
 				}
+
+				m_bookIntro.SelectedValue = m_model.Project.DramatizationPreferences.BookIntroductionsDramatization;
+				m_sectionHeadings.SelectedValue = m_model.Project.DramatizationPreferences.SectionHeadDramatization;
+				m_titleChapters.SelectedValue = m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization;
 			}
 		}
 
@@ -230,6 +264,10 @@ namespace Glyssen.Dialogs
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
 			m_model.Project.ReferenceTextType = ((KeyValuePair<string, ReferenceTextType>)m_ReferenceText.SelectedItem).Value;
+
+			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
+			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;
+			m_model.Project.DramatizationPreferences.BookTitleAndChapterDramatization = (ExtraBiblicalMaterialSpeakerOption)m_titleChapters.SelectedValue;
 
 			m_model.Project.ProjectSettingsStatus = ProjectSettingsStatus.Reviewed;
 			DialogResult = DialogResult.OK;

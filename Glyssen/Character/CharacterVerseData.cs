@@ -36,28 +36,15 @@ namespace Glyssen.Character
 			Intro,
 		}
 
-		public static bool IsCharacterStandard(string characterId, bool includeNarrator = true)
-		{
-			switch (GetStandardCharacterType(characterId))
-			{
-				case StandardCharacter.Narrator:
-					return includeNarrator;
-				case StandardCharacter.Intro:
-				case StandardCharacter.ExtraBiblical:
-				case StandardCharacter.BookOrChapter:
-					return true;
-				default: return false;
-			}
-		}
-
 		public static StandardCharacter GetStandardCharacterType(string characterId)
 		{
-			if (String.IsNullOrEmpty(characterId))
+			if (string.IsNullOrEmpty(characterId))
 				return StandardCharacter.NonStandard;
 
-			int i = characterId.IndexOf("-", StringComparison.Ordinal);
+			var i = characterId.IndexOf("-", StringComparison.Ordinal);
 			if (i < 0)
 				return StandardCharacter.NonStandard;
+
 			switch (characterId.Substring(0, i + 1))
 			{
 				case kNarratorPrefix: return StandardCharacter.Narrator;
@@ -65,6 +52,7 @@ namespace Glyssen.Character
 				case kExtraBiblicalPrefix: return StandardCharacter.ExtraBiblical;
 				case kBookOrChapterPrefix: return StandardCharacter.BookOrChapter;
 			}
+
 			return StandardCharacter.NonStandard;
 		}
 
@@ -75,7 +63,31 @@ namespace Glyssen.Character
 
 		public static bool IsCharacterOfType(string characterId, StandardCharacter standardCharacterType)
 		{
-			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType));
+			return characterId.StartsWith(GetCharacterPrefix(standardCharacterType), StringComparison.Ordinal);
+		}
+
+		public static bool IsCharacterStandard(string characterId)
+		{
+			if (characterId == null)
+				return false;
+
+			return IsCharacterOfType(characterId, StandardCharacter.Narrator) ||
+				IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
+				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
+				IsCharacterOfType(characterId, StandardCharacter.Intro);
+			// We could call IsCharacterExtraBiblical instead of the last three lines of this if,
+			// but this is speed-critical code and the overhead of the extra method call is
+			// expensive.
+		}
+
+		public static bool IsCharacterExtraBiblical(string characterId)
+		{
+			if (characterId == null)
+				return false;
+
+			return IsCharacterOfType(characterId, StandardCharacter.BookOrChapter) ||
+				IsCharacterOfType(characterId, StandardCharacter.ExtraBiblical) ||
+				IsCharacterOfType(characterId, StandardCharacter.Intro);
 		}
 
 		public static string GetCharacterNameForUi(string characterId)
@@ -138,7 +150,7 @@ namespace Glyssen.Character
 			return characterId.Substring(characterId.Length - 3);
 		}
 
-		private static string GetCharacterPrefix(StandardCharacter standardCharacterType)
+		internal static string GetCharacterPrefix(StandardCharacter standardCharacterType)
 		{
 			switch (standardCharacterType)
 			{

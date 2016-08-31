@@ -256,7 +256,7 @@ namespace DevTools
 					}
 					var block = existingBook.GetScriptBlocks()[iBlock++];
 
-					while (CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
+					while (CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
 					{
 						block = existingBook.GetScriptBlocks()[iBlock++];
 					}
@@ -701,7 +701,7 @@ namespace DevTools
 		public static bool LinkToEnglish()
 		{
 			var allQuoteChars = new HashSet<string>();
-			foreach (char c in from string quoteMark in QuoteUtils.AllDefaultSymbols().Where(s => s != QuoteUtils.None) from c in quoteMark select c)
+			foreach (char c in from string quoteMark in QuoteUtils.AllDefaultSymbols().Where(s => (string)s != QuoteUtils.None) from c in quoteMark select c)
 				allQuoteChars.Add("(" + Regex.Escape(c.ToString()) + ")");
 			allQuoteChars.Add("(" + Regex.Escape(@"""") + ")");
 			allQuoteChars.Add("(" + Regex.Escape("-") + ")");

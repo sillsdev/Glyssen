@@ -234,7 +234,7 @@ namespace Glyssen.Dialogs
 
 			m_chkSingleVoice.Checked = m_viewModel.IsCurrentBookSingleVoice;
 
-			m_menuBtnSplitBlock.Enabled = !CharacterVerseData.IsCharacterStandard(m_viewModel.CurrentBlock.CharacterId, false);
+			m_menuBtnSplitBlock.Enabled = !CharacterVerseData.IsCharacterExtraBiblical(m_viewModel.CurrentBlock.CharacterId);
 		}
 
 		private void UpdateNavigationIndexLabel()

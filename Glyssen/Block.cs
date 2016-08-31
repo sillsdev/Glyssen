@@ -578,7 +578,7 @@ namespace Glyssen
 		/// </summary>
 		public bool IsScripture
 		{
-			get { return !CharacterVerseData.IsCharacterStandard(CharacterId, false); }
+			get { return !CharacterVerseData.IsCharacterExtraBiblical(CharacterId); }
 		}
 
 		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)

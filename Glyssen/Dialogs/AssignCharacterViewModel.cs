@@ -135,7 +135,7 @@ namespace Glyssen.Dialogs
 			if (m_inHandleCurrentBlockChanged)
 				return;
 			m_inHandleCurrentBlockChanged = true;
-			Debug.Assert(!CharacterVerseData.IsCharacterStandard(CurrentBlock.CharacterId, false));
+			Debug.Assert(!CharacterVerseData.IsCharacterExtraBiblical(CurrentBlock.CharacterId));
 			if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 			{
 				bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
@@ -348,7 +348,7 @@ namespace Glyssen.Dialogs
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
 			Block currentBlock = CurrentBlockInOriginal;
-			if (CharacterVerseData.IsCharacterStandard(currentBlock.CharacterId, false))
+			if (CharacterVerseData.IsCharacterExtraBiblical(currentBlock.CharacterId))
 				return false; // Can't change these.
 
 			if (newCharacter == null)

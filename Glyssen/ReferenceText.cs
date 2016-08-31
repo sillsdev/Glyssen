@@ -393,7 +393,7 @@ namespace Glyssen
 						break;
 				}
 
-				while (CharacterVerseData.IsCharacterStandard(currentRefBlock.CharacterId, false) || vernInitStartVerse > refInitStartVerse)
+				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > refInitStartVerse)
 				{
 					iRefBlock++;
 					if (iRefBlock == refBlockList.Count)
@@ -478,7 +478,7 @@ namespace Glyssen
 		{
 			for (; ; )
 			{
-				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterStandard(b.CharacterId, false));
+				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterExtraBiblical(b.CharacterId));
 				if (nextScriptureBlock == null)
 					break;
 				var nextVerseRef = new VerseRef(endVerse.BookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.InitialStartVerseNumber, versification);

@@ -86,22 +86,26 @@ namespace Glyssen.Character
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Narrator),
 					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.Narrator,
 					Status = true
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.BookOrChapter),
 					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.BookOrChapter
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.ExtraBiblical),
 					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.ExtraBiblical
 				});
 				list.Add(new CharacterDetail
 				{
 					CharacterId = CharacterVerseData.GetStandardCharacterId(bookCode, CharacterVerseData.StandardCharacter.Intro),
 					Gender = CharacterGender.Neuter,
+					StandardCharacterType = CharacterVerseData.StandardCharacter.Intro
 				});
 			}
 			return list;
