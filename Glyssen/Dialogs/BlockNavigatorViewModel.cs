@@ -636,7 +636,7 @@ namespace Glyssen.Dialogs
 				if (CurrentBookIsSingleVoice)
 					return false;
 
-				if (block.IsQuote || CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
+				if (block.IsQuote || CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
 					return false;
 
 				IEnumerable<BCVRef> versesWithPotentialMissingQuote =

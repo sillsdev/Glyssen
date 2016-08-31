@@ -261,7 +261,7 @@ namespace Glyssen.Dialogs
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
 			Block currentBlock = CurrentBlock;
-			if (CharacterVerseData.IsCharacterStandard(currentBlock.CharacterId, false))
+			if (CharacterVerseData.IsCharacterExtraBiblical(currentBlock.CharacterId))
 				return false; // Can't change these.
 
 			if (newCharacter == null)

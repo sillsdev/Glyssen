@@ -322,7 +322,7 @@ namespace Glyssen
 						break;
 				}
 
-				while (CharacterVerseData.IsCharacterStandard(currentRefBlock.CharacterId, false) || vernInitStartVerse > refInitStartVerse)
+				while (CharacterVerseData.IsCharacterExtraBiblical(currentRefBlock.CharacterId) || vernInitStartVerse > refInitStartVerse)
 				{
 					iRefBlock++;
 					currentRefBlock = refBlockList[iRefBlock];
@@ -407,7 +407,7 @@ namespace Glyssen
 				endVerse = new VerseRef(bookNum, blockList[i].ChapterNumber, blockList[i].LastVerse, versification);
 			for (; ; )
 			{
-				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterStandard(b.CharacterId, false));
+				var nextScriptureBlock = blockList.Skip(i + 1).FirstOrDefault(b => !CharacterVerseData.IsCharacterExtraBiblical(b.CharacterId));
 				if (nextScriptureBlock == null)
 					break;
 				var nextVerseRef = new VerseRef(bookNum, nextScriptureBlock.ChapterNumber, nextScriptureBlock.InitialStartVerseNumber, versification);
