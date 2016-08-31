@@ -430,7 +430,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="Andrew/another disciple of John Baptist" delivery="curious">
       <text>“Rabbi”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Rabbi,</text>
+    <text>&lt;&lt;Rabbi,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="38" characterId="narrator-JHN">
@@ -2078,7 +2078,7 @@
     <verse num="22" />
     <text>Et le Père ne juge personne, mais il a donné au Fils tout le pouvoir pour juger. </text>
     <verse num="23" />
-    <text>Ainsi, tous respecteront le Fils, comme tous respectent le Père. Le Père a envoyé le Fils. Si quelqu'un ne respecte pas le Fils, il ne respecte pas non plus le Père.</text>
+    <text>Ainsi, tous respecteront le Fils, comme tous respectent le Père. Le Père a envoyé le Fils. Si quelqu'un ne respecte pas le Fils, il ne respecte pas non plus le Père.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
@@ -2130,7 +2130,7 @@
       <text>I can of myself do nothing. As I hear, I judge, and my judgment is righteous; because I don't seek my own will, but the will of my Father who sent me.”</text>
     </ReferenceBlocks>
     <verse num="30" />
-    <text>&lt;&lt;Je ne peux rien faire par moi-même. Je juge d'après ce que le Père me dit, et mon jugement est juste. En effet, je ne cherche pas à faire ce que je veux, mais à faire la volonté de celui qui m'a envoyé.</text>
+    <text>&lt;&lt;Je ne peux rien faire par moi-même. Je juge d'après ce que le Père me dit, et mon jugement est juste. En effet, je ne cherche pas à faire ce que je veux, mais à faire la volonté de celui qui m'a envoyé.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start">
@@ -2194,7 +2194,7 @@
       <text>You don't have his word living in you; because you don't believe him whom he sent.”</text>
     </ReferenceBlocks>
     <verse num="38" />
-    <text>Vous ne croyez pas celui que le Père a envoyé. C'est pourquoi vous n'accueillez pas ses paroles.</text>
+    <text>Vous ne croyez pas celui que le Père a envoyé. C'est pourquoi vous n'accueillez pas ses paroles.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
@@ -2238,7 +2238,7 @@
       <text>How can you believe, who receive glory from one another, and you don't seek the glory that comes from the only God?”</text>
     </ReferenceBlocks>
     <verse num="44" />
-    <text>Vous aimez vous faire des compliments les uns aux autres, mais vous ne cherchez pas la gloire qui vient de Dieu seul. Alors comment pouvez-vous croire?</text>
+    <text>Vous aimez vous faire des compliments les uns aux autres, mais vous ne cherchez pas la gloire qui vient de Dieu seul. Alors comment pouvez-vous croire?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
@@ -7067,7 +7067,7 @@
       <text>If you remain in me, and my words remain in you, you will ask whatever you desire, and it will be done for you.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Si vous restez attachés à moi, et si mes paroles restent en vous, demandez ce que vous voulez, et vous l'aurez.</text>
+    <text>Si vous restez attachés à moi, et si mes paroles restent en vous, demandez ce que vous voulez, et vous l'aurez.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -7075,7 +7075,7 @@
       <text>“In this is my Father glorified, that you bear much fruit; and so you will be my disciples.</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Donnez beaucoup de fruits et soyez ainsi mes disciples, alors vous montrerez la gloire de mon Père.</text>
+    <text>&lt;&lt;Donnez beaucoup de fruits et soyez ainsi mes disciples, alors vous montrerez la gloire de mon Père.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7099,7 +7099,7 @@
       <text>I have spoken these things to you, that my joy may remain in you, and that your joy may be made full.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>&lt;&lt;Je vous ai dit cela pour que vous ayez ma joie et pour que votre joie soit complète.</text>
+    <text>&lt;&lt;Je vous ai dit cela pour que vous ayez ma joie et pour que votre joie soit complète.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -7139,7 +7139,7 @@
       <text>You didn't choose me, but I chose you, and appointed you, that you should go and bear fruit, and that your fruit should remain; that whatever you will ask of the Father in my name, he may give it to you.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Ce n'est pas vous qui m'avez choisi, mais c'est moi qui vous ai choisis. Je vous ai envoyés produire des fruits, et des fruits qui durent. Ainsi, mon Père vous donnera tout ce que vous lui demanderez en mon nom.</text>
+    <text>Ce n'est pas vous qui m'avez choisi, mais c'est moi qui vous ai choisis. Je vous ai envoyés produire des fruits, et des fruits qui durent. Ainsi, mon Père vous donnera tout ce que vous lui demanderez en mon nom.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start">
@@ -7211,7 +7211,7 @@
       <text>But this happened so that the word may be fulfilled which was written in their law, ‘They hated me without a cause.’”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>Dans leur loi, on lit: &lt;Ils m'ont détesté sans raison.&gt; Ils nous détestent pour que cette parole se réalise.</text>
+    <text>Dans leur loi, on lit: &lt;Ils m'ont détesté sans raison.&gt; Ils nous détestent pour que cette parole se réalise.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="26" characterId="Jesus" multiBlockQuote="Start">
@@ -7241,7 +7241,7 @@
       <text>“These things have I spoken to you, so that you wouldn't be caused to stumble.</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Je vous ai dit cela pour que vous ne perdiez pas la foi.</text>
+    <text>&lt;&lt;Je vous ai dit cela pour que vous ne perdiez pas la foi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7321,7 +7321,7 @@
       <text>about judgment, because the prince of this world has been judged.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Le monde se trompe au sujet du jugement, parce que le chef mauvais de ce monde est déjà jugé.</text>
+    <text>Le monde se trompe au sujet du jugement, parce que le chef mauvais de ce monde est déjà jugé.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -7427,7 +7427,7 @@
       <text>Therefore you now have sorrow, but I will see you again, and your heart will rejoice, and no one will take your joy away from you.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Vous aussi, maintenant, vous êtes tristes, mais je vous reverrai. Alors votre cœur sera dans la joie, et cette joie, personne ne pourra vous l'enlever.</text>
+    <text>Vous aussi, maintenant, vous êtes tristes, mais je vous reverrai. Alors votre cœur sera dans la joie, et cette joie, personne ne pourra vous l'enlever.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start">
@@ -8790,7 +8790,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathea">
       <text>“May I take Jesus’ body for burial?”</text>
     </ReferenceBlocks>
-    <text>"Puis-je prendre le corps de Jésus pour l'enterrement?</text>
+    <text>"Puis-je prendre le corps de Jésus pour l'enterrement?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN">

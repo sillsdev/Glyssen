@@ -74,7 +74,7 @@
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Eu sou o * Alfa e o Ômega,</text>
+    <text>“Eu sou o * Alfa e o Ômega,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
@@ -86,7 +86,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="God">
       <text>“who is and who was and who is to come, the Almighty.”</text>
     </ReferenceBlocks>
-    <text>o Todo-Poderoso, que é, que era e que há de vir.</text>
+    <text>o Todo-Poderoso, que é, que era e que há de vir.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="9" characterId="narrator-REV">
@@ -112,7 +112,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="11" characterId="Jesus">
       <text>“I am the Alpha and Omega, the first and the last: and, What you see, write in a book and send to the seven assemblies: to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and to Laodicea.”</text>
     </ReferenceBlocks>
-    <text>— Escreva num livro o que você vai ver e mande esse livro às igrejas que estão nestas sete cidades: Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadélfia e Laodicéia.</text>
+    <text>— Escreva num livro o que você vai ver e mande esse livro às igrejas que estão nestas sete cidades: Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadélfia e Laodicéia.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="12" characterId="narrator-REV">
@@ -186,7 +186,7 @@
       <text>Here is the hidden meaning of the seven stars that you see in my right hand, and the seven lamps of gold: the seven stars are the angels of the seven churches, and the seven lamps are the seven churches.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>O sentido secreto das sete estrelas que você viu na minha mão direita e dos sete candelabros de ouro é este: as sete estrelas são os anjos c das sete igrejas, e os sete candelabros são as sete igrejas.</text>
+    <text>O sentido secreto das sete estrelas que você viu na minha mão direita e dos sete candelabros de ouro é este: as sete estrelas são os anjos c das sete igrejas, e os sete candelabros são as sete igrejas.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
@@ -200,7 +200,7 @@
       <text>“To the angel of the assembly in Ephesus write: He who holds the seven stars in his right hand, he who walks among the seven golden lampstands says these things:”</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>— Ao anjo da igreja de Éfeso escreva o seguinte: “Esta é a mensagem daquele que está segurando as sete estrelas na mão direita e que anda no meio dos sete * candelabros de ouro.</text>
+    <text>— Ao anjo da igreja de Éfeso escreva o seguinte: “Esta é a mensagem daquele que está segurando as sete estrelas na mão direita e que anda no meio dos sete * candelabros de ouro.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
@@ -208,7 +208,7 @@
       <text>“I know your works, and your toil and perseverance, and that you can't tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>Eu sei o que vocês têm feito. Sei que trabalharam muito e agüentaram o sofrimento com paciência. Sei que vocês não podem suportar pessoas más e sei que puseram à prova os que dizem que são apóstolos, mas não são, e assim vocês descobriram que eles são mentirosos.</text>
+    <text>“Eu sei o que vocês têm feito. Sei que trabalharam muito e agüentaram o sofrimento com paciência. Sei que vocês não podem suportar pessoas más e sei que puseram à prova os que dizem que são apóstolos, mas não são, e assim vocês descobriram que eles são mentirosos.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
@@ -288,7 +288,7 @@
       <text>“To the angel of the assembly in Pergamum write: He who has the sharp two-edged sword says these things:”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>— Ao anjo da igreja de Pérgamo escreva o seguinte: “Esta é a mensagem daquele que tem a espada afiada dos dois lados.</text>
+    <text>— Ao anjo da igreja de Pérgamo escreva o seguinte: “Esta é a mensagem daquele que tem a espada afiada dos dois lados.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
@@ -296,7 +296,7 @@
       <text>“I know your works and where you dwell, where Satan's seat is. You hold firmly to my name, and didn't deny my faith in the days of Antipas my witness, my faithful one, who was killed among you, where Satan dwells.</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Eu sei que vocês moram aí onde está o trono de Satanás h. Vocês são fiéis e não abandonaram a fé que têm em mim, até mesmo quando Antipas, minha testemunha fiel, foi morto aí em Pérgamo, onde Satanás mora.</text>
+    <text>“Eu sei que vocês moram aí onde está o trono de Satanás h. Vocês são fiéis e não abandonaram a fé que têm em mim, até mesmo quando Antipas, minha testemunha fiel, foi morto aí em Pérgamo, onde Satanás mora.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
@@ -336,7 +336,7 @@
       <text>“To the angel of the assembly in Thyatira write: The Son of God, who has his eyes like a flame of fire, and his feet are like burnished brass, says these things:”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>— Ao anjo da igreja de Tiatira escreva o seguinte: “Esta é a mensagem do Filho de Deus, que tem olhos que brilham como o fogo e pés brilhantes como o bronze polido.</text>
+    <text>— Ao anjo da igreja de Tiatira escreva o seguinte: “Esta é a mensagem do Filho de Deus, que tem olhos que brilham como o fogo e pés brilhantes como o bronze polido.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
@@ -344,7 +344,7 @@
       <text>“I know your works, your love, faith, service, patient endurance, and that your last works are more than the first.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Eu sei o que vocês estão fazendo. Sei que têm amor, são fiéis, trabalham e agüentam o sofrimento com paciência. Eu sei que vocês estão fazendo mais agora do que no princípio.</text>
+    <text>“Eu sei o que vocês estão fazendo. Sei que têm amor, são fiéis, trabalham e agüentam o sofrimento com paciência. Eu sei que vocês estão fazendo mais agora do que no princípio.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
@@ -486,7 +486,7 @@
       <text>“To the angel of the assembly in Philadelphia write: He who is holy, he who is true, he who has the key of David, he who opens and no one can shut, and who shuts and no one opens, says these things:”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>— Ao anjo da igreja de Filadélfia escreva o seguinte: “Esta é a mensagem daquele que é santo e verdadeiro. Ele tem a chave que pertencia ao rei Davi p; quando ele abre, ninguém fecha, e quando ele fecha, ninguém abre.</text>
+    <text>— Ao anjo da igreja de Filadélfia escreva o seguinte: “Esta é a mensagem daquele que é santo e verdadeiro. Ele tem a chave que pertencia ao rei Davi p; quando ele abre, ninguém fecha, e quando ele fecha, ninguém abre.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -542,7 +542,7 @@
       <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God's creation, says these things:”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>— Ao anjo da igreja de Laodicéia escreva o seguinte: “Esta é a mensagem do * Amém, da testemunha fiel e verdadeira, daquele por meio de quem Deus criou todas as coisas.</text>
+    <text>— Ao anjo da igreja de Laodicéia escreva o seguinte: “Esta é a mensagem do * Amém, da testemunha fiel e verdadeira, daquele por meio de quem Deus criou todas as coisas.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
@@ -550,7 +550,7 @@
       <text>“I know your works, that you are neither cold nor hot. I wish you were cold or hot.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Eu sei o que vocês têm feito. Sei que não são nem frios nem quentes. Como gostaria que fossem uma coisa ou outra!</text>
+    <text>“Eu sei o que vocês têm feito. Sei que não são nem frios nem quentes. Como gostaria que fossem uma coisa ou outra!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
@@ -626,7 +626,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="1" characterId="Jesus">
       <text>“Come up here, and I will show you the things which must happen after this.”</text>
     </ReferenceBlocks>
-    <text>— Suba aqui, e eu mostrarei a você o que precisa acontecer depois disso.</text>
+    <text>— Suba aqui, e eu mostrarei a você o que precisa acontecer depois disso.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="2" characterId="narrator-REV">
@@ -744,7 +744,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="angel, powerful" delivery="loud">
       <text>“Who is worthy to open the book, and to break its seals?”</text>
     </ReferenceBlocks>
-    <text>— Quem é digno de quebrar os selos e abrir o livro?</text>
+    <text>— Quem é digno de quebrar os selos e abrir o livro?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="3" characterId="narrator-REV">
@@ -774,7 +774,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="elders, one of the">
       <text>“Don't weep. Behold, the Lion who is of the tribe of Judah, the Root of David, has overcome; he who opens the book and its seven seals.”</text>
     </ReferenceBlocks>
-    <text>— Não chore. Olhe! O Leão da * tribo de Judá, o famoso descendente do rei Davi u, conseguiu a vitória e pode quebrar os sete selos e abrir o livro.</text>
+    <text>— Não chore. Olhe! O Leão da * tribo de Judá, o famoso descendente do rei Davi u, conseguiu a vitória e pode quebrar os sete selos e abrir o livro.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-REV">
@@ -912,7 +912,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="1" characterId="living creature, first" delivery="loud">
       <text>“Come and see!”</text>
     </ReferenceBlocks>
-    <text>— Venha!</text>
+    <text>— Venha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-REV">
@@ -934,7 +934,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="living creature, second">
       <text>“Come!”</text>
     </ReferenceBlocks>
-    <text>— Venha!</text>
+    <text>— Venha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="4" characterId="narrator-REV">
@@ -956,7 +956,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="living creature, third">
       <text>“Come and see!”</text>
     </ReferenceBlocks>
-    <text>— Venha!</text>
+    <text>— Venha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="5" characterId="narrator-REV">
@@ -976,7 +976,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="6" characterId="voice from among living creatures">
       <text>“A quart of wheat for a denarius, and three choenix of barley for a denarius! Don't damage the oil and the wine!”</text>
     </ReferenceBlocks>
-    <text>— Meio quilo de trigo custa o que vocês ganham num dia inteiro de trabalho; e um quilo e meio de * cevada custa a mesma coisa. v E não misturem água no vinho, nem falsifiquem o azeite.</text>
+    <text>— Meio quilo de trigo custa o que vocês ganham num dia inteiro de trabalho; e um quilo e meio de * cevada custa a mesma coisa. v E não misturem água no vinho, nem falsifiquem o azeite.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="narrator-REV">
@@ -990,7 +990,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="living creature, fourth">
       <text>“Come and see!”</text>
     </ReferenceBlocks>
-    <text>— Venha!</text>
+    <text>— Venha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-REV">
@@ -1020,7 +1020,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="souls of those killed for word of God">
       <text>“How long, Master, the holy and true, until you judge and avenge our blood on those who dwell on the earth?”</text>
     </ReferenceBlocks>
-    <text>— Ó Todo-Poderoso, santo e verdadeiro! Quando julgarás e condenarás os que na terra nos mataram?</text>
+    <text>— Ó Todo-Poderoso, santo e verdadeiro! Quando julgarás e condenarás os que na terra nos mataram?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="narrator-REV">
@@ -1082,7 +1082,7 @@
       <text>For the great day of his wrath has come; and who is able to stand?”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Pois já chegou o grande dia da ira deles, e quem poderá agüentá-la?</text>
+    <text>Pois já chegou o grande dia da ira deles, e quem poderá agüentá-la?”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
@@ -1112,7 +1112,7 @@
       <text>“Don't harm the earth, neither the sea, nor the trees, until we have sealed the bondservants of our God on their foreheads!”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>— Não façam estragos na terra, nem no mar, nem nas árvores, até que marquemos com o sinete a testa dos * servos do nosso Deus.</text>
+    <text>— Não façam estragos na terra, nem no mar, nem nas árvores, até que marquemos com o sinete a testa dos * servos do nosso Deus.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="4" characterId="narrator-REV">
@@ -1174,7 +1174,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="multitude from all nations, tribes, peoples, languages">
       <text>“Salvation be to our God, who sits on the throne, and to the Lamb!”</text>
     </ReferenceBlocks>
-    <text>— Do nosso Deus, que está sentado no trono, e do Cordeiro vem a nossa salvação.</text>
+    <text>— Do nosso Deus, que está sentado no trono, e do Cordeiro vem a nossa salvação.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="narrator-REV">
@@ -1192,7 +1192,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="angels, all the">
       <text>“Amen! Blessing, glory, wisdom, thanksgiving, honor, power, and might, be to our God forever and ever! Amen.”</text>
     </ReferenceBlocks>
-    <text>— * Amém! Ao nosso Deus pertencem para todo o sempre o louvor, a * glória, a sabedoria, a gratidão, a honra, o poder e a força! Amém!</text>
+    <text>— * Amém! Ao nosso Deus pertencem para todo o sempre o louvor, a * glória, a sabedoria, a gratidão, a honra, o poder e a força! Amém!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="narrator-REV">
@@ -1206,7 +1206,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="13" characterId="elders, one of the">
       <text>“These who are arrayed in white robes, who are they, and from where did they come?”</text>
     </ReferenceBlocks>
-    <text>— Quem são estes que estão vestidos de branco? De onde foi que vieram?</text>
+    <text>— Quem são estes que estão vestidos de branco? De onde foi que vieram?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="14" characterId="narrator-REV">
@@ -1244,7 +1244,7 @@
       <text>For the Lamb who is in the midst of the throne shepherds them, and leads them to springs of waters of life. And God will wipe away every tear from their eyes.”</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Pois o Cordeiro, que está no meio do trono, será o pastor dessas pessoas e as guiará para as fontes das águas da vida. E Deus enxugará todas as lágrimas dos olhos delas.</text>
+    <text>Pois o Cordeiro, que está no meio do trono, será o pastor dessas pessoas e as guiará para as fontes das águas da vida. E Deus enxugará todas as lágrimas dos olhos delas.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="8" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="8" initialStartVerse="0">
@@ -1376,7 +1376,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="13" characterId="eagle crying with loud voice">
       <text>“Woe! Woe! Woe for those who dwell on the earth, because of the other voices of the trumpets of the three angels, who are yet to sound!”</text>
     </ReferenceBlocks>
-    <text>— Ai de vocês! Ai de vocês! Ai de vocês que estiverem morando na terra quando se ouvir o som das trombetas que os outros três anjos vão tocar!</text>
+    <text>— Ai de vocês! Ai de vocês! Ai de vocês que estiverem morando na terra quando se ouvir o som das trombetas que os outros três anjos vão tocar!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="9" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="9" initialStartVerse="0">
@@ -1504,7 +1504,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="voice from altar">
       <text>“Free the four angels who are bound at the great river Euphrates!”</text>
     </ReferenceBlocks>
-    <text>— Solte os quatro anjos que estão amarrados perto do grande rio Eufrates a!</text>
+    <text>— Solte os quatro anjos que estão amarrados perto do grande rio Eufrates a!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-REV">
@@ -1616,7 +1616,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="4" characterId="voice from heaven (God?)">
       <text>“Seal up the things which the seven thunders said, and don't write them.”</text>
     </ReferenceBlocks>
-    <text>— Guarde em segredo o que os sete trovões disseram. Não escreva nada.</text>
+    <text>— Guarde em segredo o que os sete trovões disseram. Não escreva nada.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="narrator-REV">
@@ -1646,7 +1646,7 @@
       <text>but in the days of the voice of the seventh angel, when he is about to sound, then the mystery of God is finished, as he declared to his servants, the prophets.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Quando o sétimo anjo tocar a trombeta, Deus cumprirá o seu plano secreto, como anunciou aos seus * servos, os * profetas.</text>
+    <text>Quando o sétimo anjo tocar a trombeta, Deus cumprirá o seu plano secreto, como anunciou aos seus * servos, os * profetas.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-REV">
@@ -1660,7 +1660,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="voice from heaven (God?)">
       <text>“Go, take the book which is open in the hand of the angel who stands on the sea and on the land.”</text>
     </ReferenceBlocks>
-    <text>— Vá até o anjo que está em pé sobre o mar e sobre a terra e pegue o livro aberto que ele tem na mão.</text>
+    <text>— Vá até o anjo que está em pé sobre o mar e sobre a terra e pegue o livro aberto que ele tem na mão.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="narrator-REV">
@@ -1674,7 +1674,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="9" characterId="angel standing on sea and land">
       <text>“Take it, and eat it up. It will make your stomach bitter, but in your mouth it will be as sweet as honey.”</text>
     </ReferenceBlocks>
-    <text>— Pegue o livrinho e coma-o. No seu estômago ele ficará azedo, mas na sua boca será doce como mel.</text>
+    <text>— Pegue o livrinho e coma-o. No seu estômago ele ficará azedo, mas na sua boca será doce como mel.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="10" characterId="narrator-REV">
@@ -1692,7 +1692,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="angel standing on sea and land">
       <text>“You must prophesy again over many peoples, nations, languages, and kings.”</text>
     </ReferenceBlocks>
-    <text>— Você precisa anunciar outra vez a mensagem de Deus a respeito de muitas nações, raças, línguas e reis.</text>
+    <text>— Você precisa anunciar outra vez a mensagem de Deus a respeito de muitas nações, raças, línguas e reis.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
@@ -1728,7 +1728,7 @@
       <text>I will give power to my two witnesses, and they will prophesy one thousand two hundred sixty days, clothed in sackcloth.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>Eu enviarei as minhas duas testemunhas, vestidas com roupa feita de pano grosseiro, e elas anunciarão a mensagem de Deus durante mil duzentos e sessenta dias.</text>
+    <text>Eu enviarei as minhas duas testemunhas, vestidas com roupa feita de pano grosseiro, e elas anunciarão a mensagem de Deus durante mil duzentos e sessenta dias.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-REV">
@@ -1818,7 +1818,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="voice from heaven (God?)">
       <text>“Come up here!”</text>
     </ReferenceBlocks>
-    <text>— Subam aqui!</text>
+    <text>— Subam aqui!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="narrator-REV">
@@ -1854,7 +1854,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="15" characterId="voices in heaven, loud">
       <text>“The kingdoms of the world have become the Kingdoms of our Lord, and of his Christ. He will reign forever and ever!”</text>
     </ReferenceBlocks>
-    <text>— O poder para governar o mundo pertence agora a Deus, que é o Senhor nosso, e ao Messias que ele escolheu. E Deus reinará para todo o sempre!</text>
+    <text>— O poder para governar o mundo pertence agora a Deus, que é o Senhor nosso, e ao Messias que ele escolheu. E Deus reinará para todo o sempre!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="16" characterId="narrator-REV">
@@ -1880,7 +1880,7 @@
       <text>The nations were angry, and your wrath came, as did the time for the dead to be judged, and to give your bondservants the prophets, their reward, as well as to the saints, and those who fear your name, to the small and the great; and to destroy those who destroy the earth.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Os pagãos estão muito furiosos porque já chegou o momento de mostrares a tua ira e a hora de os mortos serem julgados. Chegou o momento de recompensares os teus servos, os profetas, e todo o teu povo, e todos os que te temem, tanto os importantes como os humildes. Chegou o momento de destruíres os que matam pessoas na terra!</text>
+    <text>Os pagãos estão muito furiosos porque já chegou o momento de mostrares a tua ira e a hora de os mortos serem julgados. Chegou o momento de recompensares os teus servos, os profetas, e todo o teu povo, e todos os que te temem, tanto os importantes como os humildes. Chegou o momento de destruíres os que matam pessoas na terra!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="19" characterId="narrator-REV">
@@ -2004,7 +2004,7 @@
       <text>Therefore rejoice, heavens, and you who dwell in them. Woe to those who live in the earth and of the sea, because the devil has gone down to you, having great wrath, knowing that he has but a short time.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Portanto, ó céu e todos vocês que vivem nele, alegrem-se! Mas ai da terra e do mar! Pois o Diabo desceu até vocês e ele está muito furioso porque sabe que tem somente um pouco mais de tempo para agir.</text>
+    <text>Portanto, ó céu e todos vocês que vivem nele, alegrem-se! Mas ai da terra e do mar! Pois o Diabo desceu até vocês e ele está muito furioso porque sabe que tem somente um pouco mais de tempo para agir.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="13" characterId="narrator-REV">
@@ -2090,7 +2090,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="4" characterId="worshipers of the beast">
       <text>“Who is like the beast? Who is able to make war with him?”</text>
     </ReferenceBlocks>
-    <text>— Quem é tão forte como o monstro? Quem pode lutar contra ele?</text>
+    <text>— Quem é tão forte como o monstro? Quem pode lutar contra ele?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="5" characterId="narrator-REV">
@@ -2276,7 +2276,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="7" characterId="angel flying directly overhead">
       <text>“Fear the Lord, and give him glory; for the hour of his judgment has come. Worship him who made the heaven, the earth, the sea, and the springs of waters!”</text>
     </ReferenceBlocks>
-    <text>— Temam a Deus e louvem a sua glória, pois já chegou a hora de Deus julgar a humanidade. Adorem aquele que fez o céu, a terra, o mar e as fontes das águas!</text>
+    <text>— Temam a Deus e louvem a sua glória, pois já chegou a hora de Deus julgar a humanidade. Adorem aquele que fez o céu, a terra, o mar e as fontes das águas!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="narrator-REV">
@@ -2290,7 +2290,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="8" characterId="angel flying directly overhead, second">
       <text>“Babylon the great has fallen, which has made all the nations to drink of the wine of the wrath of her sexual immorality.”</text>
     </ReferenceBlocks>
-    <text>— Caiu! Caiu a grande Babilônia o! Ela embriagou todos os povos, dando-lhes o seu vinho, o vinho forte da sua terrível imoralidade!</text>
+    <text>— Caiu! Caiu a grande Babilônia o! Ela embriagou todos os povos, dando-lhes o seu vinho, o vinho forte da sua terrível imoralidade!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="9" characterId="narrator-REV">
@@ -2328,7 +2328,7 @@
       <text>This calls for patient endurance on the part of the saints, those who keep the commandments of God, and the faith of Jesus.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Isso exige que o povo de Deus agüente o sofrimento com paciência. Esse povo são aqueles que obedecem aos mandamentos de Deus e são fiéis a Jesus.</text>
+    <text>Isso exige que o povo de Deus agüente o sofrimento com paciência. Esse povo são aqueles que obedecem aos mandamentos de Deus e são fiéis a Jesus.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -2342,13 +2342,13 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="voice from heaven (God?)">
       <text>“Write, ‘Blessed are the dead who die in the Lord from now on.’”</text>
     </ReferenceBlocks>
-    <text>— Escreva isto: felizes as pessoas que desde agora morrem no serviço do Senhor!</text>
+    <text>— Escreva isto: felizes as pessoas que desde agora morrem no serviço do Senhor!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Yes,”</text>
     </ReferenceBlocks>
-    <text>— Sim, isso é verdade!</text>
+    <text>— Sim, isso é verdade!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -2360,7 +2360,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“that they may rest from their labors; for their works follow with them.”</text>
     </ReferenceBlocks>
-    <text>Elas descansarão do seu duro trabalho porque levarão consigo o resultado dos seus serviços.</text>
+    <text>“Elas descansarão do seu duro trabalho porque levarão consigo o resultado dos seus serviços.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="14" characterId="narrator-REV">
@@ -2382,7 +2382,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="15" characterId="angel, coming out of temple">
       <text>“Send forth your sickle, and reap; for the hour to reap has come; for the harvest of the earth is ripe!”</text>
     </ReferenceBlocks>
-    <text>— Use a sua foice e faça a colheita porque já chegou a hora de colher. A terra está pronta para a colheita!</text>
+    <text>— Use a sua foice e faça a colheita porque já chegou a hora de colher. A terra está pronta para a colheita!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="16" characterId="narrator-REV">
@@ -2416,7 +2416,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="18" characterId="angel, coming out of temple, another">
       <text>“Send forth your sharp sickle, and gather the clusters of the vine of the earth, for the earth's grapes are fully ripe!”</text>
     </ReferenceBlocks>
-    <text>— Use a foice e corte os cachos de uvas da videira da terra, pois as uvas estão maduras!</text>
+    <text>— Use a foice e corte os cachos de uvas da videira da terra, pois as uvas estão maduras!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="19" characterId="narrator-REV">
@@ -2528,7 +2528,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="1" characterId="voice from temple">
       <text>“Go and pour out the seven bowls of the wrath of God on the earth!”</text>
     </ReferenceBlocks>
-    <text>— Vão e derramem sobre a terra as sete taças da * ira de Deus!</text>
+    <text>— Vão e derramem sobre a terra as sete taças da * ira de Deus!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="2" characterId="narrator-REV">
@@ -2574,7 +2574,7 @@
       <text>For they poured out the blood of the saints and the prophets, and you have given them blood to drink. They deserve this.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Os maus derramaram o sangue do povo de Deus e dos * profetas, e por isso tu lhes deste sangue para beber. Eles estão recebendo o que merecem.</text>
+    <text>Os maus derramaram o sangue do povo de Deus e dos * profetas, e por isso tu lhes deste sangue para beber. Eles estão recebendo o que merecem.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="narrator-REV">
@@ -2588,7 +2588,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="7" characterId="altar">
       <text>“Yes, Lord God, the Almighty, true and righteous are your judgments.”</text>
     </ReferenceBlocks>
-    <text>— Ó Senhor Deus, Todo-Poderoso! Os teus julgamentos são, de fato, verdadeiros e justos!</text>
+    <text>— Ó Senhor Deus, Todo-Poderoso! Os teus julgamentos são, de fato, verdadeiros e justos!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="8" characterId="narrator-REV">
@@ -2686,7 +2686,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="17" characterId="God">
       <text>“It is done!”</text>
     </ReferenceBlocks>
-    <text>— Está feito!</text>
+    <text>— Está feito!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="18" characterId="narrator-REV">
@@ -2746,7 +2746,7 @@
       <text>With her, the kings of the earth committed sexual immorality. Those who dwell in the earth were made drunken with the wine of her sexual immorality.”</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>Os reis do mundo inteiro cometeram imoralidade sexual com ela, e os povos do mundo ficaram bêbados com o vinho da sua imoralidade.</text>
+    <text>Os reis do mundo inteiro cometeram imoralidade sexual com ela, e os povos do mundo ficaram bêbados com o vinho da sua imoralidade.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="3" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="3" characterId="narrator-REV">
@@ -2854,7 +2854,7 @@
       <text>These will war against the Lamb, and the Lamb will overcome them, for he is Lord of lords, and King of kings. They also will overcome who are with him, called and chosen and faithful.”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Eles lutarão contra o Cordeiro, e ele os vencerá porque é o Senhor dos senhores e o Rei dos reis. E com ele vencerão os seus seguidores, aqueles que são chamados e fiéis.</text>
+    <text>Eles lutarão contra o Cordeiro, e ele os vencerá porque é o Senhor dos senhores e o Rei dos reis. E com ele vencerão os seus seguidores, aqueles que são chamados e fiéis.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="15" characterId="narrator-REV">
@@ -2892,7 +2892,7 @@
       <text>The woman whom you saw is the great city, which reigns over the kings of the earth.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>— A mulher que você viu é a grande cidade que domina os reis do mundo inteiro.</text>
+    <text>— A mulher que você viu é a grande cidade que domina os reis do mundo inteiro.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="18" initialStartVerse="0">
@@ -2930,7 +2930,7 @@
       <text>For all the nations have drunk of the wine of the wrath of her sexual immorality. The kings of the earth committed sexual immorality with her, and the merchants of the earth grew rich from the abundance of her luxury.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>Pois todas as nações beberam do seu vinho, o vinho forte do seu desejo imoral. Os reis do mundo inteiro cometeram imoralidade sexual com ela, e os homens de negócio deste mundo se enriqueceram à custa das práticas sexuais sujas da prostituta.</text>
+    <text>Pois todas as nações beberam do seu vinho, o vinho forte do seu desejo imoral. Os reis do mundo inteiro cometeram imoralidade sexual com ela, e os homens de negócio deste mundo se enriqueceram à custa das práticas sexuais sujas da prostituta.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="4" characterId="narrator-REV">
@@ -2988,7 +2988,7 @@
     <verse num="8" />
     <text>Por isso num mesmo dia cairão sobre ela estas pragas: </text>
     <sound soundType="Sfx" effectName="Weird" userSpecifiesLocation="true" />
-    <text>doenças, dor e fome e ela será queimada no fogo. Pois o Senhor Deus, que a julga, é poderoso.</text>
+    <text>doenças, dor e fome e ela será queimada no fogo. Pois o Senhor Deus, que a julga, é poderoso.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="9" characterId="narrator-REV">
@@ -3014,7 +3014,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="kings of the earth">
       <text>“Woe, woe, the great city, Babylon, the strong city! For your judgment has come in one hour.”</text>
     </ReferenceBlocks>
-    <text>— Ai de você! Ai de você, Babilônia, grande e poderosa cidade! Em apenas uma hora você já foi castigada!</text>
+    <text>— Ai de você! Ai de você, Babilônia, grande e poderosa cidade! Em apenas uma hora você já foi castigada!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="narrator-REV">
@@ -3052,7 +3052,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="14" characterId="merchants of the earth">
       <text>“The fruits which your soul lusted after have been lost to you. All things that were dainty and sumptuous have perished from you, and you will find them no more at all.”</text>
     </ReferenceBlocks>
-    <text>— Acabaram todas aquelas coisas boas que você tanto desejava, e você perdeu para sempre toda a riqueza e toda a fama que possuía e não as encontrará mais.</text>
+    <text>— Acabaram todas aquelas coisas boas que você tanto desejava, e você perdeu para sempre toda a riqueza e toda a fama que possuía e não as encontrará mais.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="15" characterId="narrator-REV">
@@ -3094,7 +3094,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing">
       <text>“What is like the great city?”</text>
     </ReferenceBlocks>
-    <text>— Nunca houve uma cidade igual a esta grande cidade!</text>
+    <text>— Nunca houve uma cidade igual a esta grande cidade!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="narrator-REV">
@@ -3108,7 +3108,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
-    <text>— Ai da grande cidade! Ai da cidade onde, à custa da sua grande riqueza, se enriqueceram todos os que tinham navios no mar! E em apenas uma hora ela perdeu tudo!</text>
+    <text>— Ai da grande cidade! Ai da cidade onde, à custa da sua grande riqueza, se enriqueceram todos os que tinham navios no mar! E em apenas uma hora ela perdeu tudo!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">
@@ -3116,7 +3116,7 @@
       <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Alegrem-se, ó céus, por causa da destruição dessa cidade! Alegrem-se, povo de Deus, * apóstolos e * profetas! Pois Deus a condenou pelo que ela fez a vocês!</text>
+    <text>Alegrem-se, ó céus, por causa da destruição dessa cidade! Alegrem-se, povo de Deus, * apóstolos e * profetas! Pois Deus a condenou pelo que ela fez a vocês!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV">
@@ -3154,7 +3154,7 @@
       <text>In her was found the blood of prophets and of saints, and of all who have been slain on the earth.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>A grande Babilônia foi castigada porque nela foi encontrado o sangue dos profetas, o sangue do povo de Deus e o de todos os que foram assassinados na terra.</text>
+    <text>A grande Babilônia foi castigada porque nela foi encontrado o sangue dos profetas, o sangue do povo de Deus e o de todos os que foram assassinados na terra.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="19" book="REV" initialStartVerse="0" characterId="BC-REV" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="19" initialStartVerse="0">
@@ -3182,7 +3182,7 @@
       <text>for true and righteous are his judgments. For he has judged the great prostitute, who corrupted the earth with her sexual immorality, and he has avenged the blood of his servants at her hand.”</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>Os seus julgamentos são verdadeiros e justos. Ele condenou a famosa prostituta que corrompia a terra com a sua imoralidade. Deus a castigou porque ela havia matado os * servos dele.</text>
+    <text>Os seus julgamentos são verdadeiros e justos. Ele condenou a famosa prostituta que corrompia a terra com a sua imoralidade. Deus a castigou porque ela havia matado os * servos dele.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="narrator-REV">
@@ -3196,7 +3196,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="3" characterId="voice of great crowd in heaven, loud" delivery="shouting">
       <text>“Hallelujah! Her smoke goes up forever and ever.”</text>
     </ReferenceBlocks>
-    <text>— Aleluia! A fumaça do incêndio da grande cidade sobe para todo o sempre.</text>
+    <text>— Aleluia! A fumaça do incêndio da grande cidade sobe para todo o sempre.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="narrator-REV">
@@ -3210,7 +3210,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
       <text>“Amen! Hallelujah!”</text>
     </ReferenceBlocks>
-    <text>— * Amém! Aleluia!</text>
+    <text>— * Amém! Aleluia!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="narrator-REV">
@@ -3224,7 +3224,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="voice from throne">
       <text>“Give praise to our God, all you his servants, you who fear him, the small and the great!”</text>
     </ReferenceBlocks>
-    <text>— Louvem o nosso Deus, todos os seus * servos, todos os que o * temem, tanto as pessoas importantes como as humildes!</text>
+    <text>— Louvem o nosso Deus, todos os seus * servos, todos os que o * temem, tanto as pessoas importantes como as humildes!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="6" characterId="narrator-REV">
@@ -3246,7 +3246,7 @@
       <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Fiquemos alegres e felizes! Louvemos a sua * glória! Porque chegou a hora da festa de casamento do Cordeiro, e a noiva já se preparou para recebê-lo.</text>
+    <text>Fiquemos alegres e felizes! Louvemos a sua * glória! Porque chegou a hora da festa de casamento do Cordeiro, e a noiva já se preparou para recebê-lo.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
@@ -3282,7 +3282,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="9" characterId="angel (one of the seven)">
       <text>“These are true words of God.”</text>
     </ReferenceBlocks>
-    <text>— São essas as verdadeiras palavras de Deus.</text>
+    <text>— São essas as verdadeiras palavras de Deus.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="narrator-REV">
@@ -3296,7 +3296,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="angel (one of the seven)">
       <text>“Look! Don't do it! I am a fellow bondservant with you and with your brothers who hold the testimony of Jesus. Worship God, for the testimony of Jesus is the Spirit of Prophecy.”</text>
     </ReferenceBlocks>
-    <text>— Não faça isso! Pois eu sou servo de Deus, assim como são você e os seus irmãos que continuam fiéis à verdade revelada por Jesus. Adore a Deus! Pois a verdade revelada por Jesus é a mensagem que o Espírito entrega aos profetas.</text>
+    <text>— Não faça isso! Pois eu sou servo de Deus, assim como são você e os seus irmãos que continuam fiéis à verdade revelada por Jesus. Adore a Deus! Pois a verdade revelada por Jesus é a mensagem que o Espírito entrega aos profetas.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-REV">
@@ -3372,7 +3372,7 @@
       <text>that you may eat the flesh of kings, the flesh of captains, the flesh of mighty men, and the flesh of horses and of those who sit on them, and the flesh of all men, both free and slave, and small and great.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Venham e comam a carne de reis, de generais e de soldados, de cavalos e de cavaleiros e de todas as pessoas, sejam escravas ou livres, sejam importantes ou humildes.</text>
+    <text>Venham e comam a carne de reis, de generais e de soldados, de cavalos e de cavaleiros e de todas as pessoas, sejam escravas ou livres, sejam importantes ou humildes.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="19" characterId="narrator-REV">
@@ -3579,7 +3579,7 @@
       <text>He will wipe away from them every tear from their eyes. Death will be no more; neither will there be mourning, nor crying, nor pain, any more. The first things have passed away.”</text>
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Ele enxugará dos olhos deles todas as lágrimas. Não haverá mais morte, nem tristeza, nem choro, nem dor. As coisas velhas já passaram.</text>
+    <text>Ele enxugará dos olhos deles todas as lágrimas. Não haverá mais morte, nem tristeza, nem choro, nem dor. As coisas velhas já passaram.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV">
@@ -3593,7 +3593,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="God">
       <text>“Behold, I am making all things new.”</text>
     </ReferenceBlocks>
-    <text>— Agora faço novas todas as coisas!</text>
+    <text>— Agora faço novas todas as coisas!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="narrator-REV">
@@ -3605,7 +3605,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="5" characterId="God">
       <text>“Write, for these words are faithful and true.”</text>
     </ReferenceBlocks>
-    <text>— Escreva isto, pois estas palavras são verdadeiras e merecem confiança.</text>
+    <text>— Escreva isto, pois estas palavras são verdadeiras e merecem confiança.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="6" characterId="narrator-REV">
@@ -3635,7 +3635,7 @@
       <text>But for the cowardly, unbelieving, sinners, abominable, murderers, sexually immoral, sorcerers, idolaters, and all liars, their part is in the lake that burns with fire and sulfur, which is the second death.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Mas os covardes, os traidores, os que cometem pecados nojentos, os assassinos, os imorais, os que praticam a feitiçaria, os que adoram ídolos e todos os mentirosos, o lugar dessas pessoas é o lago onde queima o fogo e o enxofre, que é a segunda morte.</text>
+    <text>Mas os covardes, os traidores, os que cometem pecados nojentos, os assassinos, os imorais, os que praticam a feitiçaria, os que adoram ídolos e todos os mentirosos, o lugar dessas pessoas é o lago onde queima o fogo e o enxofre, que é a segunda morte.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="narrator-REV">
@@ -3649,7 +3649,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="9" characterId="angel (one of the seven)">
       <text>“Come here. I will show you the bride, the wife of the Lamb.”</text>
     </ReferenceBlocks>
-    <text>— Venha, e eu lhe mostrarei a Noiva, a Esposa do Cordeiro.</text>
+    <text>— Venha, e eu lhe mostrarei a Noiva, a Esposa do Cordeiro.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="21" initialStartVerse="10" characterId="narrator-REV">
@@ -3857,7 +3857,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="angel (one of the seven)">
       <text>“These words are faithful and true. The Lord God of the spirits of the prophets sent his angel to show to his bondservants the things which must happen soon.”</text>
     </ReferenceBlocks>
-    <text>— Essas palavras são verdadeiras e merecem confiança. O Senhor Deus, que dá o seu Espírito aos profetas, enviou o seu anjo para mostrar aos seus servos as coisas que precisam acontecer logo.</text>
+    <text>— Essas palavras são verdadeiras e merecem confiança. O Senhor Deus, que dá o seu Espírito aos profetas, enviou o seu anjo para mostrar aos seus servos as coisas que precisam acontecer logo.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="7" characterId="Jesus">
@@ -3865,7 +3865,7 @@
       <text>“Behold, I come quickly. Blessed is he who keeps the words of the prophecy of this book.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>— Escutem! — diz Jesus. — Eu venho logo! Felizes os que obedecem às palavras proféticas deste livro!</text>
+    <text>— Escutem! — diz Jesus. — Eu venho logo! Felizes os que obedecem às palavras proféticas deste livro!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="8" characterId="narrator-REV">
@@ -3887,7 +3887,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="angel (one of the seven)">
       <text>“See you don't do it! I am a fellow bondservant with you and with your brothers, the prophets, and with those who keep the words of this book. Worship God.”</text>
     </ReferenceBlocks>
-    <text>— Não faça isso! Pois eu sou servo de Deus, assim como são você e os seus irmãos, os profetas, e todas as pessoas que obedecem às palavras deste livro. Adore a Deus!</text>
+    <text>— Não faça isso! Pois eu sou servo de Deus, assim como são você e os seus irmãos, os profetas, e todas as pessoas que obedecem às palavras deste livro. Adore a Deus!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="narrator-REV">
@@ -3909,7 +3909,7 @@
       <text>He who acts unjustly, let him act unjustly still. He who is filthy, let him be filthy still. He who is righteous, let him do righteousness still. He who is holy, let him be holy still.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Quem é mau, que continue a fazer o mal, e quem é imundo, que continue a ser imundo. Quem é bom, que continue a fazer o bem, e quem é dedicado a Deus, que continue a ser dedicado a Deus.</text>
+    <text>Quem é mau, que continue a fazer o mal, e quem é imundo, que continue a ser imundo. Quem é bom, que continue a fazer o bem, e quem é dedicado a Deus, que continue a ser dedicado a Deus.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="12" characterId="narrator-REV">
@@ -3955,7 +3955,7 @@
       <text>I, Jesus, have sent my angel to testify these things to you for the assemblies. I am the root and the offspring of David; the Bright and Morning Star.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>— Eu, Jesus, enviei o meu anjo para anunciar essas coisas a vocês nas igrejas r. Eu sou o famoso descendente do rei Davi. Sou a brilhante estrela da manhã.</text>
+    <text>— Eu, Jesus, enviei o meu anjo para anunciar essas coisas a vocês nas igrejas r. Eu sou o famoso descendente do rei Davi. Sou a brilhante estrela da manhã.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
@@ -3969,7 +3969,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="Holy Spirit, the/bride, the (referring to the Church)">
       <text>“Come!”</text>
     </ReferenceBlocks>
-    <text>Venha!</text>
+    <text>“Venha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
@@ -3981,7 +3981,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="him who hears">
       <text>“Come!”</text>
     </ReferenceBlocks>
-    <text>Venha!</text>
+    <text>“Venha!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="17" characterId="narrator-REV">
@@ -4017,7 +4017,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="Jesus">
       <text>“Yes, I come quickly.”</text>
     </ReferenceBlocks>
-    <text>— Certamente venho logo!</text>
+    <text>— Certamente venho logo!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="20" characterId="narrator-REV">

@@ -945,7 +945,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
       <text>“A pair of turtledoves, or two young pigeons.”</text>
     </ReferenceBlocks>
-    <text>deux tourterelles ou deux jeunes pigeons.</text>
+    <text>&lt;&lt;deux tourterelles ou deux jeunes pigeons.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-LUK">
@@ -2701,7 +2701,7 @@
       <text>Rejoice in that day, and leap for joy, for behold, your reward is great in heaven, for their fathers did the same thing to the prophets.”</text>
     </ReferenceBlocks>
     <verse num="23" />
-    <text>A ce moment-là, réjouissez-vous et dansez de joie! Oui, Dieu vous prépare une grande récompense! En effet, leurs ancêtres ont agi de cette façon avec les prophètes!</text>
+    <text>A ce moment-là, réjouissez-vous et dansez de joie! Oui, Dieu vous prépare une grande récompense! En effet, leurs ancêtres ont agi de cette façon avec les prophètes!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
@@ -2709,7 +2709,7 @@
       <text>“But woe to you who are rich! For you have received your consolation.</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Mais quel malheur pour vous, les riches, parce que vous avez déjà votre bonheur!</text>
+    <text>&lt;&lt;Mais quel malheur pour vous, les riches, parce que vous avez déjà votre bonheur!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2757,7 +2757,7 @@
       <text>Give to everyone who asks you, and don't ask him who takes away your goods to give them back again.”</text>
     </ReferenceBlocks>
     <verse num="30" />
-    <text>Donne à tous ceux qui te demandent quelque chose. Et quand quelqu'un te prend ce qui est à toi, ne le réclame pas.</text>
+    <text>Donne à tous ceux qui te demandent quelque chose. Et quand quelqu'un te prend ce qui est à toi, ne le réclame pas.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="31" characterId="Jesus" multiBlockQuote="Start">
@@ -2765,7 +2765,7 @@
       <text>“As you would like people to do to you, do exactly so to them.</text>
     </ReferenceBlocks>
     <verse num="31" />
-    <text>Faites pour les autres tout ce que vous voulez qu'ils fassent pour vous.</text>
+    <text>&lt;&lt;Faites pour les autres tout ce que vous voulez qu'ils fassent pour vous.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="32" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2813,7 +2813,7 @@
       <text>Don't judge, and you won't be judged. Don't condemn, and you won't be condemned. Set free, and you will be set free.”</text>
     </ReferenceBlocks>
     <verse num="37" />
-    <text>Ne jugez pas les autres, et Dieu ne vous jugera pas. Ne condamnez pas les autres, et Dieu ne vous condamnera pas. Pardonnez-leur, et Dieu vous pardonnera.</text>
+    <text>Ne jugez pas les autres, et Dieu ne vous jugera pas. Ne condamnez pas les autres, et Dieu ne vous condamnera pas. Pardonnez-leur, et Dieu vous pardonnera.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="38" characterId="Jesus">
@@ -3087,7 +3087,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="crowd, large (witnessed healing of widow's son)" delivery="praising">
       <text>“A great prophet has arisen among us!”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Gloire à Dieu! Un grand prophète est arrivé chez nous!</text>
+    <text>&lt;&lt;Gloire à Dieu! Un grand prophète est arrivé chez nous!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="16" characterId="narrator-LUK">
@@ -3215,7 +3215,7 @@
       <text>“For I tell you, among those who are born of women there is not a greater prophet than John the Baptizer, yet he who is least in the Kingdom of God is greater than he.”</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>&lt;&lt;Je vous le dis: il n'y a jamais eu un homme plus important que Jean. Pourtant, celui qui est le plus petit dans le Royaume de Dieu est plus important que lui.</text>
+    <text>&lt;&lt;Je vous le dis: il n'y a jamais eu un homme plus important que Jean. Pourtant, celui qui est le plus petit dans le Royaume de Dieu est plus important que lui.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="29" characterId="narrator-LUK">
@@ -5057,7 +5057,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="Jesus">
       <text>“I thank you, O Father, Lord of heaven and earth, that you have hidden these things from the wise and understanding, and revealed them to little children. Yes, Father, for so it was well-pleasing in your sight.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Père, Seigneur du ciel et de la terre, je te dis merci. En effet, ce que tu as caché aux sages et aux savants, tu l'as fait connaître aux petits. Oui, Père, tu l'as bien voulu.</text>
+    <text>&lt;&lt;Père, Seigneur du ciel et de la terre, je te dis merci. En effet, ce que tu as caché aux sages et aux savants, tu l'as fait connaître aux petits. Oui, Père, tu l'as bien voulu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="22" characterId="Jesus">
@@ -5387,7 +5387,7 @@
       <text>I tell you, although he will not rise and give it to him because he is his friend, yet because of his persistence, he will get up and give him as many as he needs.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Eh bien, pourtant, je vous le dis: votre ami va se lever et il va vous donner tout ce qu'il vous faut! Il ne le fera peut-être pas seulement parce qu'il est votre ami, mais parce que vous continuez à demander sans vous gêner.</text>
+    <text>Eh bien, pourtant, je vous le dis: votre ami va se lever et il va vous donner tout ce qu'il vous faut! Il ne le fera peut-être pas seulement parce qu'il est votre ami, mais parce que vous continuez à demander sans vous gêner.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start">
@@ -5403,7 +5403,7 @@
       <text>For everyone who asks receives. He who seeks finds. To him who knocks it will be opened.”</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Oui, celui qui demande reçoit. Celui qui cherche trouve, et celui qui frappe à la porte, on lui ouvre.</text>
+    <text>Oui, celui qui demande reçoit. Celui qui cherche trouve, et celui qui frappe à la porte, on lui ouvre.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Start">
@@ -5411,7 +5411,7 @@
       <text>“Which of you fathers, if your son asks for bread, will give him a stone? Or if he asks for a fish, he won't give him a snake instead of a fish, will he?</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Chez vous, quand un enfant demande du poisson à son père, le père ne lui donne pas un serpent à la place du poisson!</text>
+    <text>&lt;&lt;Chez vous, quand un enfant demande du poisson à son père, le père ne lui donne pas un serpent à la place du poisson!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5501,7 +5501,7 @@
       <text>But if I by the finger of God cast out demons, then the Kingdom of God has come to you.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Mais moi, c'est Dieu qui me donne le pouvoir de chasser les esprits mauvais. Donc le Royaume de Dieu est arrivé jusqu'à vous!</text>
+    <text>Mais moi, c'est Dieu qui me donne le pouvoir de chasser les esprits mauvais. Donc le Royaume de Dieu est arrivé jusqu'à vous!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="21" characterId="Jesus" multiBlockQuote="Start">
@@ -5517,7 +5517,7 @@
       <text>But when someone stronger attacks him and overcomes him, he takes from him his whole armor in which he trusted, and divides his spoils.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Il n'a pas peur, parce qu'il est bien armé. Mais quand un homme plus fort que lui arrive, le plus fort est vainqueur. Il prend même les armes de l'homme fort et il distribue tout ce qu'il a pris.</text>
+    <text>Il n'a pas peur, parce qu'il est bien armé. Mais quand un homme plus fort que lui arrive, le plus fort est vainqueur. Il prend même les armes de l'homme fort et il distribue tout ce qu'il a pris.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start">
@@ -5615,7 +5615,7 @@
       <text>The men of Nineveh will stand up in the judgment with this generation, and will condemn it: for they repented at the preaching of Jonah, and behold, one greater than Jonah is here.”</text>
     </ReferenceBlocks>
     <verse num="32" />
-    <text>Les hommes de Ninive se lèveront lors du jugement avec cette génération, et la condamneront, car ils se sont repentis à la prédication de Jonas, et voici, un plus grand que Jonas est ici.</text>
+    <text>Les hommes de Ninive se lèveront lors du jugement avec cette génération, et la condamneront, car ils se sont repentis à la prédication de Jonas, et voici, un plus grand que Jonas est ici.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="33" characterId="Jesus" multiBlockQuote="Start">
@@ -5873,7 +5873,7 @@
       <text>But I will warn you whom you should fear. Fear him, who after he has killed, has power to cast into Gehenna. Yes, I tell you, fear him.”</text>
     </ReferenceBlocks>
     <verse num="5" />
-    <text>Qui devez-vous respecter? Je vais vous le dire. Celui que vous devez respecter avec confiance, c'est Dieu. Lui, il a le pouvoir de vous jeter dans le lieu de souffrance après votre mort. Oui, je vous le dis, c'est lui que vous devez respecter avec confiance!</text>
+    <text>Qui devez-vous respecter? Je vais vous le dire. Celui que vous devez respecter avec confiance, c'est Dieu. Lui, il a le pouvoir de vous jeter dans le lieu de souffrance après votre mort. Oui, je vous le dis, c'est lui que vous devez respecter avec confiance!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="6" characterId="Jesus" multiBlockQuote="Start">
@@ -7213,7 +7213,7 @@
       <text>for this, my son, was dead, and is alive again. He was lost, and is found.’ They began to celebrate.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Oui, mon fils qui est là était mort et il est revenu à la vie. Il était perdu et il est retrouvé!&gt; Ils commencent à faire la fête.</text>
+    <text>Oui, mon fils qui est là était mort et il est revenu à la vie. Il était perdu et il est retrouvé!&gt; Ils commencent à faire la fête.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="25" characterId="Jesus" multiBlockQuote="Start">
@@ -9065,7 +9065,7 @@
       <text>Everyone who falls on that stone will be broken to pieces, but it will crush whomever it falls on to dust.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Tous ceux qui tombent sur cette pierre auront le corps brisé. Et si cette pierre tombe sur quelqu'un, elle l'écrasera.</text>
+    <text>Tous ceux qui tombent sur cette pierre auront le corps brisé. Et si cette pierre tombe sur quelqu'un, elle l'écrasera.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="19" characterId="narrator-LUK">
@@ -10680,7 +10680,7 @@
       <text>I will therefore chastise him and release him.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>C'est pourquoi je vais le faire frapper, ensuite je vais le libérer.</text>
+    <text>C'est pourquoi je vais le faire frapper, ensuite je vais le libérer.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="17" characterId="narrator-LUK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="17" characterId="narrator-LUK">

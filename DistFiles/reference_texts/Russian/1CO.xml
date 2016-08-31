@@ -164,7 +164,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="19" characterId="scripture">
       <text>“I will destroy the wisdom of the wise, I will bring the discernment of the discerning to nothing.”</text>
     </ReferenceBlocks>
-    <text>погублю мудрость мудрецов, и разум разумных отвергну.</text>
+    <text>“погублю мудрость мудрецов, и разум разумных отвергну.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="20" characterId="narrator-1CO">
@@ -268,7 +268,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="31" characterId="scripture">
       <text>“He who boasts, let him boast in the Lord.”</text>
     </ReferenceBlocks>
-    <text>хвалящийся хвались Господом.</text>
+    <text>“хвалящийся хвались Господом.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="2" book="1CO" initialStartVerse="0" characterId="BC-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="2" initialStartVerse="0">
@@ -348,7 +348,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="scripture">
       <text>“Things which an eye didn't see, and an ear didn't hear, which didn't enter into the heart of man, these God has prepared for those who love him.”</text>
     </ReferenceBlocks>
-    <text>не видел того глаз, не слышало ухо, и не приходило то на сердце человеку, что приготовил Бог любящим Его.</text>
+    <text>“не видел того глаз, не слышало ухо, и не приходило то на сердце человеку, что приготовил Бог любящим Его.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-1CO">
@@ -404,7 +404,7 @@
       <text>“For who has known the mind of the Lord, that he should instruct him?”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Ибо кто познал ум Господень, чтобы мог судить его?</text>
+    <text>“Ибо кто познал ум Господень, чтобы мог судить его?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="16" characterId="narrator-1CO">
@@ -574,7 +574,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="scripture">
       <text>“He has taken the wise in their craftiness.”</text>
     </ReferenceBlocks>
-    <text>уловляет мудрых в лукавстве их.</text>
+    <text>“уловляет мудрых в лукавстве их.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="narrator-1CO">
@@ -588,7 +588,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="20" characterId="scripture">
       <text>“The Lord knows the reasoning of the wise, that it is worthless.”</text>
     </ReferenceBlocks>
-    <text>Господь знает умствования мудрецов, что они суетны.</text>
+    <text>“Господь знает умствования мудрецов, что они суетны.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="narrator-1CO">
@@ -1578,7 +1578,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
       <text>“You shall not muzzle an ox while it treads out the grain.”</text>
     </ReferenceBlocks>
-    <text>не заграждай рта у вола молотящего.</text>
+    <text>“не заграждай рта у вола молотящего.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="narrator-1CO">
@@ -1792,7 +1792,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="scripture">
       <text>“The people sat down to eat and drink, and rose up to play.”</text>
     </ReferenceBlocks>
-    <text>народ сел есть и пить, и встал играть.</text>
+    <text>“народ сел есть и пить, и встал играть.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-1CO">
@@ -2200,7 +2200,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="24" characterId="Jesus">
       <text>“Take, eat. This is my body, which is broken for you. Do this in memory of me.”</text>
     </ReferenceBlocks>
-    <text>приимите, ядите, сие есть Тело Мое, за вас ломимое; сие творите в Мое воспоминание.</text>
+    <text>“приимите, ядите, сие есть Тело Мое, за вас ломимое; сие творите в Мое воспоминание.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="narrator-1CO">
@@ -2214,7 +2214,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="25" characterId="Jesus">
       <text>“This cup is the new covenant in my blood. Do this, as often as you drink, in memory of me.”</text>
     </ReferenceBlocks>
-    <text>сия чаша есть новый завет в Моей Крови; сие творите, когда только будете пить, в Мое воспоминание.</text>
+    <text>“сия чаша есть новый завет в Моей Крови; сие творите, когда только будете пить, в Мое воспоминание.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="narrator-1CO">
@@ -2826,7 +2826,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="21" characterId="scripture">
       <text>“By men of strange languages and by the lips of strangers I will speak to this people. Not even thus will they hear me, says the Lord.”</text>
     </ReferenceBlocks>
-    <text>иными языками и иными устами буду говорить народу сему; но и тогда не послушают Меня, говорит Господь.</text>
+    <text>“иными языками и иными устами буду говорить народу сему; но и тогда не послушают Меня, говорит Господь.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="22" characterId="narrator-1CO">
@@ -3346,7 +3346,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="scripture">
       <text>“The first man, Adam, became a living soul.”</text>
     </ReferenceBlocks>
-    <text>первый человек Адам стал душею живущею;</text>
+    <text>“первый человек Адам стал душею живущею;”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="45" characterId="narrator-1CO">
@@ -3430,7 +3430,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="54" characterId="scripture">
       <text>“Death is swallowed up in victory.”</text>
     </ReferenceBlocks>
-    <text>поглощена смерть победою.</text>
+    <text>“поглощена смерть победою.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="55" characterId="scripture">
@@ -3438,7 +3438,7 @@
       <text>“O death, where is your victory? O death where is your sting?”</text>
     </ReferenceBlocks>
     <verse num="55" />
-    <text>Смерть! где твое жало? ад! где твоя победа?</text>
+    <text>“Смерть! где твое жало? ад! где твоя победа?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="56" characterId="narrator-1CO">

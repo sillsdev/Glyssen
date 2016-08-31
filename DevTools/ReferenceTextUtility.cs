@@ -4,10 +4,12 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Quote;
 using OfficeOpenXml;
 using SIL.IO;
 using SIL.Scripture;
@@ -443,18 +445,18 @@ namespace DevTools
 										//Console.WriteLine();
 										//Console.WriteLine("Verse number incorrect. Language: {3}, Bk: {0}, Ch: {1}, Vrs: {2}", existingBook.BookId, newBlock.ChapterNumber, newBlock.InitialStartVerseNumber, language);
 										//Console.WriteLine(newBlock.GetText(true));
-										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerse;
+										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerseNum;
 										//Console.WriteLine("Corrected verse number to {0}", newBlock.InitialStartVerseNumber);
 									}
 								}
 								else
 								{
-									var splits2 = Regex.Split(split, "( \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
+									var splits2 = Regex.Split(split, "(" + RegexEscapedDoNotCombine + "{.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
 									foreach (var s in splits2)
 									{
 										if (string.IsNullOrWhiteSpace(s))
 											continue;
-										var match2 = Regex.Match(s, " \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
+										var match2 = Regex.Match(s, RegexEscapedDoNotCombine + "{.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
 										if (match2.Success)
 										{
 											ScriptAnnotation annotation;
@@ -471,7 +473,7 @@ namespace DevTools
 													var serializedAnnotation = pause != null ? XmlSerializationHelper.SerializeToString(pause, true) :
 														XmlSerializationHelper.SerializeToString((Sound)annotation, true);
 
-													var formattedAnnotationForDisplay = annotation.ToDisplay(" ");
+													var formattedAnnotationForDisplay = annotation.ToDisplay();
 
 													if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
 													{
@@ -691,13 +693,56 @@ namespace DevTools
 			return false;
 		}
 
+		private static Regex s_regexStartQuoteMarks;
+		private static Regex s_regexEndQuoteMarks;
+		private static Regex s_regexStartEnglishDoubleQuoteMarks;
+		private static Regex s_regexEndEnglishDoubleQuoteMarks;
+
 		public static bool LinkToEnglish()
 		{
+			var allQuoteChars = new HashSet<string>();
+			foreach (char c in from string quoteMark in QuoteUtils.AllDefaultSymbols().Where(s => (string)s != QuoteUtils.None) from c in quoteMark select c)
+				allQuoteChars.Add("(" + Regex.Escape(c.ToString()) + ")");
+			allQuoteChars.Add("(" + Regex.Escape(@"""") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("-") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2012") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2013") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2014") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2015") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("&gt;") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("&gt;") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("&lt;") + ")");
+
+			s_regexStartQuoteMarks = new Regex(@"^\s*" + String.Join("|", allQuoteChars), RegexOptions.Compiled);
+			s_regexEndQuoteMarks = new Regex("(" + String.Join("|", allQuoteChars) + @")\s*[.,?!]*\s*$", RegexOptions.Compiled);
+			s_regexStartEnglishDoubleQuoteMarks = new Regex(@"^\s*“|""", RegexOptions.Compiled);
+			s_regexEndEnglishDoubleQuoteMarks = new Regex(@"”|""\s*$", RegexOptions.Compiled);
+
 			bool errorOccurred = false;
 			foreach (ReferenceTextType language in Enum.GetValues(typeof(ReferenceTextType)))
 			{
 				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom || language == ReferenceTextType.Unknown)
 					continue;
+
+				string openQuote, closeQuote;
+				switch (language)
+				{
+					case ReferenceTextType.Azeri:
+					case ReferenceTextType.French:
+					case ReferenceTextType.Indonesian:
+					case ReferenceTextType.Spanish:
+						openQuote = "<<";
+						closeQuote = ">>";
+						break;
+					case ReferenceTextType.TokPisin:
+						openQuote = "\"";
+						closeQuote = "\"";
+						break;
+					default:
+						openQuote = "“";
+						closeQuote = "”";
+						break;
+				}
 
 				var refText = ReferenceText.GetStandardReferenceText(language);
 
@@ -726,7 +771,7 @@ namespace DevTools
 
 						try
 						{
-							LinkBlockByBlockInOrder(book);
+							LinkBlockByBlockInOrder(book, openQuote, closeQuote);
 							//s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
 							var bookXmlFile = FileLocator.GetFileDistributedWithApplication(ReferenceText.kDistFilesReferenceTextDirectoryName, language.ToString(), Path.ChangeExtension(book.BookId, "xml"));
 							XmlSerializationHelper.SerializeToFile(bookXmlFile, book, out error);
@@ -746,7 +791,7 @@ namespace DevTools
 			return !errorOccurred;
 		}
 
-		private static void LinkBlockByBlockInOrder(BookScript book)
+		private static void LinkBlockByBlockInOrder(BookScript book, string openQuote, string closeQuote)
 		{
 			var blocks = book.GetScriptBlocks();
 			var englishBlocks = s_existingEnglish.Books.Single(b => b.BookId == book.BookId).GetScriptBlocks();
@@ -756,12 +801,37 @@ namespace DevTools
 				if (block.IsChapterAnnouncement)
 				{
 					var refChapterBlock = new Block(block.StyleTag, block.ChapterNumber);
-					refChapterBlock.BlockElements.Add(new ScriptText(s_existingEnglish.GetFormattedChapterAnnouncement(book.BookId, block.ChapterNumber)));
+					refChapterBlock.BlockElements.Add(
+						new ScriptText(s_existingEnglish.GetFormattedChapterAnnouncement(book.BookId, block.ChapterNumber)));
 					block.SetMatchedReferenceBlock(refChapterBlock);
 				}
 				else
+				{
 					block.SetMatchedReferenceBlock(englishBlocks[i]);
+					if (!englishBlocks[i].CharacterIsStandard)
+					{
+						if (englishBlocks[i].StartsWithQuoteMarks(s_regexStartEnglishDoubleQuoteMarks) && !block.StartsWithQuoteMarks(s_regexStartQuoteMarks))
+						{
+							var firstScriptText = block.BlockElements.OfType<ScriptText>().First();
+							firstScriptText.Content = openQuote + firstScriptText.Content;
+						}
+						if (englishBlocks[i].EndsWithQuoteMarks(s_regexEndEnglishDoubleQuoteMarks) && !block.EndsWithQuoteMarks(s_regexEndQuoteMarks))
+						{
+							block.BlockElements.OfType<ScriptText>().Last().Content += closeQuote;
+						}
+					}
+				}
 			}
+		}
+
+		private static bool StartsWithQuoteMarks(this Block block, Regex regex)
+		{
+			return regex.IsMatch(block.BlockElements.OfType<ScriptText>().First().Content);
+		}
+
+		private static bool EndsWithQuoteMarks(this Block block, Regex regex)
+		{
+			return regex.IsMatch(block.BlockElements.OfType<ScriptText>().Last().Content);
 		}
 
 		private static readonly Regex s_userSfxRegex = new Regex("{F8 SFX ?-?- ?(.*)}", RegexOptions.Compiled);
@@ -795,7 +865,12 @@ namespace DevTools
 			return false;
 		}
 
-		private static readonly Regex s_doNotCombineRegex = new Regex(" \\|\\|\\| DO NOT COMBINE \\|\\|\\| ", RegexOptions.Compiled);
+		private static string RegexEscapedDoNotCombine
+		{
+			get { return Regex.Escape(Sound.kDoNotCombine) + " "; }
+		}
+
+		private static readonly Regex s_doNotCombineRegex = new Regex(RegexEscapedDoNotCombine, RegexOptions.Compiled);
 		private static readonly Regex s_pauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
 		private static readonly Regex s_pauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
 		private static readonly Regex s_musicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);

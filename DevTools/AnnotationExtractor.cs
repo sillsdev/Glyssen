@@ -38,7 +38,7 @@ namespace DevTools
 					{
 						int lastVerseOfPreviousBlock = 0;
 						if (prevRealBlock != null)
-							lastVerseOfPreviousBlock = prevRealBlock.LastVerse;
+							lastVerseOfPreviousBlock = prevRealBlock.LastVerseNum;
 						string firstVerseOfNextRealBlock = null;
 						int j = 1;
 						while (i + j < blocks.Count)

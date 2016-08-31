@@ -1300,7 +1300,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
       <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Sesungguhnya, akan datang waktunya, demikianlah firman Tuhan, Aku akan mengadakan perjanjian baru dengan kaum Israel dan dengan kaum Yehuda,</text>
+    <text>&lt;&lt;Sesungguhnya, akan datang waktunya, demikianlah firman Tuhan, Aku akan mengadakan perjanjian baru dengan kaum Israel dan dengan kaum Yehuda,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
@@ -1316,7 +1316,7 @@
       <text>“For this is the covenant that I will make with the house of Israel. After those days,” says the Lord;</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>&lt;&lt;Maka inilah perjanjian yang Kuadakan dengan kaum Israel sesudah waktu itu, demikianlah firman Tuhan.</text>
+    <text>&lt;&lt;Maka inilah perjanjian yang Kuadakan dengan kaum Israel sesudah waktu itu, demikianlah firman Tuhan.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
@@ -1745,7 +1745,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture" multiBlockQuote="Continuation">
       <text>‘After those days,’ says the Lord, ‘I will put my laws on their heart, I will also write them on their mind;’”</text>
     </ReferenceBlocks>
-    <text>Aku akan menaruh hukum-Ku di dalam hati mereka dan menuliskannya dalam akal budi mereka,</text>
+    <text>Aku akan menaruh hukum-Ku di dalam hati mereka dan menuliskannya dalam akal budi mereka,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-HEB">

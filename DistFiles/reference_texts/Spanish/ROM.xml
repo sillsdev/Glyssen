@@ -618,7 +618,7 @@
       <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Todos se han ido por mal camino; todos por igual se han pervertido. ¡No hay quien haga lo bueno! ¡No hay ni siquiera uno!</text>
+    <text>Todos se han ido por mal camino; todos por igual se han pervertido. ¡No hay quien haga lo bueno! ¡No hay ni siquiera uno!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
@@ -628,9 +628,9 @@
       <text>“whose mouth is full of cursing and bitterness.”</text>
     </ReferenceBlocks>
     <verse num="13" />
-    <text>Su garganta es un sepulcro abierto, su lengua es mentirosa, sus labios esconden veneno de víbora </text>
+    <text>&lt;&lt;Su garganta es un sepulcro abierto, su lengua es mentirosa, sus labios esconden veneno de víbora </text>
     <verse num="14" />
-    <text>y su boca está llena de maldición y amargura.</text>
+    <text>y su boca está llena de maldición y amargura.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
@@ -640,7 +640,7 @@
       <text>Destruction and misery are in their ways.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Sus pies corren ágiles a derramar sangre; </text>
+    <text>&lt;&lt;Sus pies corren ágiles a derramar sangre; </text>
     <verse num="16" />
     <text>destrucción y miseria hay en sus caminos,</text>
   </block>
@@ -2119,7 +2119,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
       <text>“I will call them ‘my people,’ which were not my people; and her ‘beloved,’ who was not beloved.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;A los que no eran mi pueblo, los llamaré mi pueblo; a la que no era amada, la llamaré mi amada.</text>
+    <text>&lt;&lt;A los que no eran mi pueblo, los llamaré mi pueblo; a la que no era amada, la llamaré mi amada.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
@@ -2723,7 +2723,7 @@
       <text>“For who has known the mind of the Lord? Or who has been his counselor?”</text>
     </ReferenceBlocks>
     <verse num="34" />
-    <text>Pues &lt;&lt;¿quién conoce la mente del Señor? ¿Quién podrá darle consejos?</text>
+    <text>Pues &lt;&lt;¿quién conoce la mente del Señor? ¿Quién podrá darle consejos?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture">
@@ -2903,7 +2903,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture">
       <text>“Vengeance belongs to me; I will repay, says the Lord.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;A mí me corresponde hacer justicia; yo pagaré, &gt;&gt; dice el Señor.</text>
+    <text>&lt;&lt;A mí me corresponde hacer justicia; yo pagaré, &gt;&gt; dice el Señor.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">

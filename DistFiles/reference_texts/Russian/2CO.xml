@@ -606,7 +606,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="scripture">
       <text>“I believed, and therefore I spoke.”</text>
     </ReferenceBlocks>
-    <text>я веровал и потому говорил,</text>
+    <text>“я веровал и потому говорил,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="13" characterId="narrator-2CO">
@@ -850,7 +850,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="scripture">
       <text>“At an acceptable time I listened to you, in a day of salvation I helped you.”</text>
     </ReferenceBlocks>
-    <text>во время благоприятное Я услышал тебя и в день спасения помог тебе.</text>
+    <text>“во время благоприятное Я услышал тебя и в день спасения помог тебе.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="narrator-2CO">
@@ -974,7 +974,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="16" characterId="scripture">
       <text>“I will dwell in them, and walk in them; and I will be their God, and they will be my people.”</text>
     </ReferenceBlocks>
-    <text>вселюсь в них и буду ходить в них; и буду их Богом, и они будут Моим народом.</text>
+    <text>“вселюсь в них и буду ходить в них; и буду их Богом, и они будут Моим народом.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="17" characterId="scripture" multiBlockQuote="Start">
@@ -990,7 +990,7 @@
       <text>I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>И буду вам Отцем, и вы будете Моими сынами и дщерями, говорит Господь Вседержитель.</text>
+    <text>И буду вам Отцем, и вы будете Моими сынами и дщерями, говорит Господь Вседержитель.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="2CO" initialStartVerse="0" characterId="BC-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="7" initialStartVerse="0">
@@ -1252,7 +1252,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="15" characterId="scripture">
       <text>“He who gathered much had nothing left over, and he who gathered little had no lack.”</text>
     </ReferenceBlocks>
-    <text>кто собрал много, не имел лишнего; и кто мало, не имел недостатка.</text>
+    <text>“кто собрал много, не имел лишнего; и кто мало, не имел недостатка.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="16" characterId="narrator-2CO">
@@ -1404,7 +1404,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
       <text>“He has scattered abroad, he has given to the poor. His righteousness remains forever.”</text>
     </ReferenceBlocks>
-    <text>расточил, раздал нищим; правда его пребывает в век.</text>
+    <text>“расточил, раздал нищим; правда его пребывает в век.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-2CO" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-2CO">

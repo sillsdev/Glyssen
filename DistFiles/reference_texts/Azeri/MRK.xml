@@ -958,7 +958,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="21" characterId="Jesus' family">
       <text>“He is insane.”</text>
     </ReferenceBlocks>
-    <text>He is insane</text>
+    <text>&lt;&lt;He is insane&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK">
@@ -972,7 +972,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="teachers of religious law" delivery="insulting">
       <text>“He has Beelzebul,”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;O, Baal-Zevula tutulub,</text>
+    <text>&lt;&lt;O, Baal-Zevula tutulub,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="22" characterId="narrator-MRK">
@@ -2048,7 +2048,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="2" characterId="men in Nazareth synagogue" delivery="amazed">
       <text>“Where did this man get these things?” and, “What is the wisdom that is given to this man, that such mighty works come about by his hands?</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Bu Adamda belә şeylәr haradandır? Bu necә hikmәtdir Ona verilib? Bu cür möcüzәlәr Onun әlindәn necә gәlir?</text>
+    <text>&lt;&lt;Bu Adamda belә şeylәr haradandır? Bu necә hikmәtdir Ona verilib? Bu cür möcüzәlәr Onun әlindәn necә gәlir?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="3" characterId="men in Nazareth synagogue" delivery="amazed" multiBlockQuote="Continuation">
@@ -2124,7 +2124,7 @@
       <text>Wear sandals, but only one tunic.”</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Və yalnız bir tünik bosonojka alın.</text>
+    <text>Və yalnız bir tünik bosonojka alın.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK">
@@ -5468,7 +5468,7 @@
       <text>For David himself said in the Holy Spirit, ‘The Lord said to my Lord, “Sit at my right hand, until I make your enemies the footstool of your feet.” ’</text>
     </ReferenceBlocks>
     <verse num="36" />
-    <text>Davud özü Müqәddәs Ruh vasitәsilә “Rәbb mәnim Ağama dedi: ‹Mәn düşmәnlәrini ayaqlarının altına salanadәk Sağımda otur›” deyib.</text>
+    <text>Davud özü Müqәddәs Ruh vasitәsilә “Rәbb mәnim Ağama dedi: ‹Mәn düşmәnlәrini ayaqlarının altına salanadәk Sağımda otur›” deyib.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="37" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5622,7 +5622,7 @@
       <text>For many will come in my name, saying, ‘I am Christ!’ and will lead many astray.”</text>
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Mәnim adımla çox adam gәlib “mәn Oyam” deyәrәk çoxlarını aldadacaq.</text>
+    <text>Mәnim adımla çox adam gәlib “mәn Oyam” deyәrәk çoxlarını aldadacaq.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="7" characterId="Jesus" multiBlockQuote="Start">
@@ -5630,7 +5630,7 @@
       <text>“When you hear of wars and rumors of wars, don't be troubled. For those must happen, but the end is not yet.</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Müharibәlәr vә müharibә xәbәrlәri eşidәndә tәlaşa düşmәyin. Bunlar baş vermәlidir, amma bu hәlә hәr şeyin axırı deyil.</text>
+    <text>&lt;&lt;Müharibәlәr vә müharibә xәbәrlәri eşidәndә tәlaşa düşmәyin. Bunlar baş vermәlidir, amma bu hәlә hәr şeyin axırı deyil.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5662,7 +5662,7 @@
       <text>When they lead you away and deliver you up, don't be anxious beforehand, or premeditate what you will say, but say whatever will be given you in that hour. For it is not you who speak, but the Holy Spirit.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Sizi aparıb mәhkәmәyә çәkәndә nә deyәcәyiniz barәdә qabaqcadan qayğı çәkmәyin, amma hәmin vaxt sizә nә bildirilәrsә, onu danışın. Çünki danışan siz yox, Müqәddәs Ruhdur.</text>
+    <text>Sizi aparıb mәhkәmәyә çәkәndә nә deyәcәyiniz barәdә qabaqcadan qayğı çәkmәyin, amma hәmin vaxt sizә nә bildirilәrsә, onu danışın. Çünki danışan siz yox, Müqәddәs Ruhdur.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -5790,7 +5790,7 @@
       <text>Then he will send out his angels, and will gather together his chosen ones from the four winds, from the ends of the earth to the ends of the sky.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Onda Bәşәr Oğlu mәlәklәrini göndәrәcәk vә yer üzünün ucundan göyün ucuna qәdәr dörd külәk istiqamәtindәn Öz seçdiklәrini toplayacaq.</text>
+    <text>Onda Bәşәr Oğlu mәlәklәrini göndәrәcәk vә yer üzünün ucundan göyün ucuna qәdәr dörd külәk istiqamәtindәn Öz seçdiklәrini toplayacaq.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Jesus" multiBlockQuote="Start">
@@ -5798,7 +5798,7 @@
       <text>“Now from the fig tree, learn this parable. When the branch has now become tender, and puts forth its leaves, you know that the summer is near.</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>Әncir ağacından ibrәt alın: onun budağı cücәrib yarpaqlananda bilirsiniz ki, yay fәsli artıq yaxındır.</text>
+    <text>&lt;&lt;Әncir ağacından ibrәt alın: onun budağı cücәrib yarpaqlananda bilirsiniz ki, yay fәsli artıq yaxındır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
@@ -5838,7 +5838,7 @@
       <text>Watch, keep alert, and pray; for you don't know when the time is.”</text>
     </ReferenceBlocks>
     <verse num="33" />
-    <text>Ehtiyatlı olun, oyaq olun. Çünki bilmirsiniz ki, o an nә vaxt gәlәcәk.</text>
+    <text>Ehtiyatlı olun, oyaq olun. Çünki bilmirsiniz ki, o an nә vaxt gәlәcәk.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="34" characterId="Jesus" multiBlockQuote="Start">
@@ -5846,7 +5846,7 @@
       <text>“It is like a man, traveling to another country, having left his house, and given authority to his servants, and to each one his work, and also commanded the doorkeeper to keep watch.</text>
     </ReferenceBlocks>
     <verse num="34" />
-    <text>Bu, sәyahәtә çıxan bir adama bәnzәyir. Evindәn ayrılarkәn qullarına sәlahiyyәt verir vә hәrәsinә bir iş tapşırır. Qapı nәzarәtçisinә dә әmr edir ki, oyaq olsun.</text>
+    <text>&lt;&lt;Bu, sәyahәtә çıxan bir adama bәnzәyir. Evindәn ayrılarkәn qullarına sәlahiyyәt verir vә hәrәsinә bir iş tapşırır. Qapı nәzarәtçisinә dә әmr edir ki, oyaq olsun.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="35" characterId="Jesus" multiBlockQuote="Continuation">

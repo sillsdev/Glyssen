@@ -68,7 +68,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="5" characterId="scripture">
       <text>“I will be to him a Father, and he will be to me a Son.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Moi, je serai un Père pour lui, et lui sera un Fils pour moi.&gt;&gt;r</text>
+    <text>&lt;&lt;Moi, je serai un Père pour lui, et lui sera un Fils pour moi.&gt;&gt;r&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="6" characterId="narrator-HEB">
@@ -1300,7 +1300,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
       <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Le Seigneur dit: Les jours viennent où je vais établir une alliance nouvelle avec le peuple d'Israël et avec le peuple de Juda.</text>
+    <text>&lt;&lt;Le Seigneur dit: Les jours viennent où je vais établir une alliance nouvelle avec le peuple d'Israël et avec le peuple de Juda.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
@@ -1308,7 +1308,7 @@
       <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn't continue in my covenant, and I disregarded them,” says the Lord.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Elle ne sera pas comme l'alliance que j'ai établie avec leurs ancêtres, le jour où je les ai pris par la main pour les faire sortir d'Egypte. Le Seigneur dit encore: Ils n'ont pas été fidèles à mon alliance. Alors, moi aussi, je les ai abandonnés.</text>
+    <text>Elle ne sera pas comme l'alliance que j'ai établie avec leurs ancêtres, le jour où je les ai pris par la main pour les faire sortir d'Egypte. Le Seigneur dit encore: Ils n'ont pas été fidèles à mon alliance. Alors, moi aussi, je les ai abandonnés.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
@@ -1316,7 +1316,7 @@
       <text>“For this is the covenant that I will make with the house of Israel. After those days,” says the Lord;</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Le Seigneur ajoute: Voici l'alliance que je vais établir avec le peuple d'Israël après ces jours-là.</text>
+    <text>Le Seigneur ajoute: Voici l'alliance que je vais établir avec le peuple d'Israël après ces jours-là.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">

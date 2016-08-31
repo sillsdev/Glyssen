@@ -62,11 +62,11 @@ namespace Glyssen.Bundle
 		[XmlAttribute("origdblpath")]
 		public string OriginalPathBundlePath { get; set; }
 
-        /// <summary>
-        /// Optional ID for tracking a project (used by FCBH's internal database)
-        /// </summary>
-        [XmlAttribute("audiostocknumber")]
-        public string AudioStockNumber { get; set; }
+		/// <summary>
+		/// Optional ID for tracking a project (used by FCBH's internal database)
+		/// </summary>
+		[XmlAttribute("audiostocknumber")]
+		public string AudioStockNumber { get; set; }
 
 		/// <summary>
 		/// We use this to know if character assignments should be reprocessed.

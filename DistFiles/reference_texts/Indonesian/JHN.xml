@@ -1740,7 +1740,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="47" characterId="official, royal (father)" delivery="pleading">
       <text>“Come and heal my son because he is at the point of death.”</text>
     </ReferenceBlocks>
-    <text>supaya Ia datang dan menyembuhkan anaknya, sebab anaknya itu hampir mati.</text>
+    <text>&lt;&lt;supaya Ia datang dan menyembuhkan anaknya, sebab anaknya itu hampir mati.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="48" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="48" characterId="narrator-JHN">
@@ -1802,7 +1802,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="51" characterId="servants of royal official (father)" delivery="excited">
       <text>“Your child lives!”</text>
     </ReferenceBlocks>
-    <text>bahwa anaknya hidup.</text>
+    <text>&lt;&lt;bahwa anaknya hidup.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="52" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="52" characterId="narrator-JHN">
@@ -1816,7 +1816,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="52" characterId="official, royal (father)">
       <text>“What time did he get better?”</text>
     </ReferenceBlocks>
-    <text>kepada mereka pukul berapa anak itu mulai sembuh.</text>
+    <text>&lt;&lt;kepada mereka pukul berapa anak itu mulai sembuh.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="52" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="52" characterId="narrator-JHN">
@@ -2080,7 +2080,7 @@
     <verse num="22" />
     <text>Bapa tidak menghakimi siapapun, melainkan telah menyerahkan penghakiman itu seluruhnya kepada Anak, </text>
     <verse num="23" />
-    <text>supaya semua orang menghormati Anak sama seperti mereka menghormati Bapa. Barangsiapa tidak menghormati Anak, ia juga tidak menghormati Bapa, yang mengutus Dia.</text>
+    <text>supaya semua orang menghormati Anak sama seperti mereka menghormati Bapa. Barangsiapa tidak menghormati Anak, ia juga tidak menghormati Bapa, yang mengutus Dia.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" multiBlockQuote="Start">
@@ -2196,7 +2196,7 @@
       <text>You don't have his word living in you; because you don't believe him whom he sent.”</text>
     </ReferenceBlocks>
     <verse num="38" />
-    <text>dan firman-Nya tidak menetap di dalam dirimu, sebab kamu tidak percaya kepada Dia yang diutus-Nya.</text>
+    <text>dan firman-Nya tidak menetap di dalam dirimu, sebab kamu tidak percaya kepada Dia yang diutus-Nya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="39" characterId="Jesus" multiBlockQuote="Start">
@@ -2240,7 +2240,7 @@
       <text>How can you believe, who receive glory from one another, and you don't seek the glory that comes from the only God?”</text>
     </ReferenceBlocks>
     <verse num="44" />
-    <text>Bagaimanakah kamu dapat percaya, kamu yang menerima hormat seorang dari yang lain dan yang tidak mencari hormat yang datang dari Allah yang Esa?</text>
+    <text>Bagaimanakah kamu dapat percaya, kamu yang menerima hormat seorang dari yang lain dan yang tidak mencari hormat yang datang dari Allah yang Esa?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="45" characterId="Jesus" multiBlockQuote="Start">
@@ -2248,7 +2248,7 @@
       <text>“Don't think that I will accuse you to the Father. There is one who accuses you, even Moses, on whom you have set your hope.</text>
     </ReferenceBlocks>
     <verse num="45" />
-    <text>Jangan kamu menyangka, bahwa Aku akan mendakwa kamu di hadapan Bapa; yang mendakwa kamu adalah Musa, yaitu Musa, yang kepadanya kamu menaruh pengharapanmu.</text>
+    <text>&lt;&lt;Jangan kamu menyangka, bahwa Aku akan mendakwa kamu di hadapan Bapa; yang mendakwa kamu adalah Musa, yaitu Musa, yang kepadanya kamu menaruh pengharapanmu.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
@@ -4436,7 +4436,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="Pharisees">
       <text>“How did you receive your sight?”</text>
     </ReferenceBlocks>
-    <text>bagaimana matanya menjadi melek.</text>
+    <text>&lt;&lt;bagaimana matanya menjadi melek.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="narrator-JHN">
@@ -5378,7 +5378,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="17" characterId="person near Lazarus' grave who informed Jesus">
       <text>“Lazarus has been in the tomb for four days.”</text>
     </ReferenceBlocks>
-    <text>didapati-Nya Lazarus telah empat hari berbaring di dalam kubur.</text>
+    <text>didapati-Nya Lazarus telah empat hari berbaring di dalam kubur.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="18" characterId="narrator-JHN">
@@ -6041,7 +6041,7 @@
       <text>If anyone serves me, let him follow me. Where I am, there will my servant also be. If anyone serves me, the Father will honor him.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Barangsiapa melayani Aku, ia harus mengikut Aku dan di mana Aku berada, di situpun pelayan-Ku akan berada. Barangsiapa melayani Aku, ia akan dihormati Bapa.</text>
+    <text>Barangsiapa melayani Aku, ia harus mengikut Aku dan di mana Aku berada, di situpun pelayan-Ku akan berada. Barangsiapa melayani Aku, ia akan dihormati Bapa.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="27" characterId="Jesus">
@@ -6079,7 +6079,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="crowd preparing for Passover Feast">
       <text>“It is thunder!”</text>
     </ReferenceBlocks>
-    <text>bahwa itu bunyi guntur.</text>
+    <text>&lt;&lt;bahwa itu bunyi guntur.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="29" characterId="narrator-JHN">
@@ -7069,7 +7069,7 @@
       <text>If you remain in me, and my words remain in you, you will ask whatever you desire, and it will be done for you.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Jikalau kamu tinggal di dalam Aku dan firman-Ku tinggal di dalam kamu, mintalah apa saja yang kamu kehendaki, dan kamu akan menerimanya.</text>
+    <text>Jikalau kamu tinggal di dalam Aku dan firman-Ku tinggal di dalam kamu, mintalah apa saja yang kamu kehendaki, dan kamu akan menerimanya.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -7101,7 +7101,7 @@
       <text>I have spoken these things to you, that my joy may remain in you, and that your joy may be made full.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Semuanya itu Kukatakan kepadamu, supaya sukacita-Ku ada di dalam kamu dan sukacitamu menjadi penuh.</text>
+    <text>Semuanya itu Kukatakan kepadamu, supaya sukacita-Ku ada di dalam kamu dan sukacitamu menjadi penuh.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="Jesus" multiBlockQuote="Start">
@@ -7141,7 +7141,7 @@
       <text>You didn't choose me, but I chose you, and appointed you, that you should go and bear fruit, and that your fruit should remain; that whatever you will ask of the Father in my name, he may give it to you.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Bukan kamu yang memilih Aku, tetapi Akulah yang memilih kamu. Dan Aku telah menetapkan kamu, supaya kamu pergi dan menghasilkan buah dan buahmu itu tetap, supaya apa yang kamu minta kepada Bapa dalam nama-Ku, diberikan-Nya kepadamu.</text>
+    <text>Bukan kamu yang memilih Aku, tetapi Akulah yang memilih kamu. Dan Aku telah menetapkan kamu, supaya kamu pergi dan menghasilkan buah dan buahmu itu tetap, supaya apa yang kamu minta kepada Bapa dalam nama-Ku, diberikan-Nya kepadamu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="17" characterId="Jesus" multiBlockQuote="Start">
@@ -7221,7 +7221,7 @@
       <text>“When the Counselor has come, whom I will send to you from the Father, the Spirit of truth, who proceeds from the Father, he will testify about me.</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>Jikalau Penghibur yang akan Kuutus dari Bapa datang, yaitu Roh Kebenaran yang keluar dari Bapa, Ia akan bersaksi tentang Aku.</text>
+    <text>&lt;&lt;Jikalau Penghibur yang akan Kuutus dari Bapa datang, yaitu Roh Kebenaran yang keluar dari Bapa, Ia akan bersaksi tentang Aku.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
@@ -7429,7 +7429,7 @@
       <text>Therefore you now have sorrow, but I will see you again, and your heart will rejoice, and no one will take your joy away from you.”</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>&lt;&lt;Demikian juga kamu sekarang diliputi dukacita, tetapi Aku akan melihat kamu lagi dan hatimu akan bergembira dan tidak ada seorangpun yang dapat merampas kegembiraanmu itu dari padamu.</text>
+    <text>&lt;&lt;Demikian juga kamu sekarang diliputi dukacita, tetapi Aku akan melihat kamu lagi dan hatimu akan bergembira dan tidak ada seorangpun yang dapat merampas kegembiraanmu itu dari padamu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="16" initialStartVerse="23" characterId="Jesus" multiBlockQuote="Start">
@@ -8793,7 +8793,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="Joseph of Arimathea">
       <text>“May I take Jesus’ body for burial?”</text>
     </ReferenceBlocks>
-    <text>supaya ia diperbolehkan menurunkan mayat Yesus.</text>
+    <text>&lt;&lt;supaya ia diperbolehkan menurunkan mayat Yesus.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="38" characterId="narrator-JHN">

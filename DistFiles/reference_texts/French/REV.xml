@@ -74,7 +74,7 @@
       <text>“I am the Alpha and the Omega, the beginning and the ending,”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>&lt;&lt;Je suis l'Alpha et l'Oméga, le premier et le dernier,</text>
+    <text>&lt;&lt;Je suis l'Alpha et l'Oméga, le premier et le dernier,&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="8" characterId="narrator-REV">
@@ -200,7 +200,7 @@
       <text>“To the angel of the assembly in Ephesus write: He who holds the seven stars in his right hand, he who walks among the seven golden lampstands says these things:”</text>
     </ReferenceBlocks>
     <verse num="1" />
-    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Ephèse: &lt;&lt;Voici le message de celui qui tient les sept étoiles dans sa main droite et qui marche au milieu des sept lampes en or.</text>
+    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Ephèse: &lt;&lt;Voici le message de celui qui tient les sept étoiles dans sa main droite et qui marche au milieu des sept lampes en or.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="2" characterId="Jesus" multiBlockQuote="Start">
@@ -208,7 +208,7 @@
       <text>“I know your works, and your toil and perseverance, and that you can't tolerate evil men. You have tested those who call themselves apostles, and they are not, and found them false.</text>
     </ReferenceBlocks>
     <verse num="2" />
-    <text>Je connais tout ce que tu fais, je connais tes efforts et ta patience. Je le sais, tu ne peux pas supporter les gens mauvais. Certains disent qu'ils sont apôtres, mais ils ne le sont pas. Tu as vu ce qu'ils valaient, tu as compris qu'ils mentaient.</text>
+    <text>&lt;&lt;Je connais tout ce que tu fais, je connais tes efforts et ta patience. Je le sais, tu ne peux pas supporter les gens mauvais. Certains disent qu'ils sont apôtres, mais ils ne le sont pas. Tu as vu ce qu'ils valaient, tu as compris qu'ils mentaient.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="3" characterId="Jesus" multiBlockQuote="Continuation">
@@ -288,7 +288,7 @@
       <text>“To the angel of the assembly in Pergamum write: He who has the sharp two-edged sword says these things:”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Pergame: &lt;&lt;Voici le message de celui qui porte l'épée pointue coupant des deux côtés.</text>
+    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Pergame: &lt;&lt;Voici le message de celui qui porte l'épée pointue coupant des deux côtés.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
@@ -336,7 +336,7 @@
       <text>“To the angel of the assembly in Thyatira write: The Son of God, who has his eyes like a flame of fire, and his feet are like burnished brass, says these things:”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Thyatire: &lt;&lt;Voici le message du Fils de Dieu. Celui-ci a des yeux brillants comme du feu, et ses pieds semblent faits d'un métal très solide.</text>
+    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Thyatire: &lt;&lt;Voici le message du Fils de Dieu. Celui-ci a des yeux brillants comme du feu, et ses pieds semblent faits d'un métal très solide.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="19" characterId="Jesus" multiBlockQuote="Start">
@@ -344,7 +344,7 @@
       <text>“I know your works, your love, faith, service, patient endurance, and that your last works are more than the first.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Je connais tout ce que tu fais, ton amour, ta foi, les services que tu rends et ta patience, et maintenant, tu fais encore plus de choses qu'au début.</text>
+    <text>&lt;&lt;Je connais tout ce que tu fais, ton amour, ta foi, les services que tu rends et ta patience, et maintenant, tu fais encore plus de choses qu'au début.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="20" characterId="Jesus" multiBlockQuote="Continuation">
@@ -486,7 +486,7 @@
       <text>“To the angel of the assembly in Philadelphia write: He who is holy, he who is true, he who has the key of David, he who opens and no one can shut, and who shuts and no one opens, says these things:”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Philadelphie: &lt;&lt;Voici le message de celui qui est saint et qui dit la vérité. Il tient la clé du roi David, il ouvre et personne ne peut fermer, il ferme et personne ne peut ouvrir.</text>
+    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Philadelphie: &lt;&lt;Voici le message de celui qui est saint et qui dit la vérité. Il tient la clé du roi David, il ouvre et personne ne peut fermer, il ferme et personne ne peut ouvrir.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="8" characterId="Jesus" multiBlockQuote="Start">
@@ -542,7 +542,7 @@
       <text>“To the angel of the assembly in Laodicea write: The Amen, the Faithful and True Witness, the Head of God's creation, says these things:”</text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Laodicée: &lt;&lt;Voici le message de celui qui est vraiment le Oui de Dieu. Il est le témoin fidèle qui dit la vérité, il est à l'origine de tout ce que Dieu a créé.</text>
+    <text>&lt;&lt;Ecris à l'ange de l'Eglise qui est à Laodicée: &lt;&lt;Voici le message de celui qui est vraiment le Oui de Dieu. Il est le témoin fidèle qui dit la vérité, il est à l'origine de tout ce que Dieu a créé.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
@@ -550,7 +550,7 @@
       <text>“I know your works, that you are neither cold nor hot. I wish you were cold or hot.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Je connais tout ce que tu fais: tu n'es ni froid ni brûlant. Si seulement tu pouvais être froid ou brûlant!</text>
+    <text>&lt;&lt;Je connais tout ce que tu fais: tu n'es ni froid ni brûlant. Si seulement tu pouvais être froid ou brûlant!</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
@@ -2328,7 +2328,7 @@
       <text>This calls for patient endurance on the part of the saints, those who keep the commandments of God, and the faith of Jesus.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Pour ceux qui appartiennent à Dieu, qui obéissent à ses commandements et qui croient en Jésus, c'est le moment d'être patients.</text>
+    <text>Pour ceux qui appartiennent à Dieu, qui obéissent à ses commandements et qui croient en Jésus, c'est le moment d'être patients.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -2348,7 +2348,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="Holy Spirit, the">
       <text>“Yes,”</text>
     </ReferenceBlocks>
-    <text>Oui</text>
+    <text>&lt;&lt;Oui&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="13" characterId="narrator-REV">
@@ -2776,7 +2776,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="5" characterId="inscription on forehead of Babylon">
       <text>“MYSTERY, BABYLON THE GREAT, THE MOTHER OF THE PROSTITUTES AND OF THE ABOMINATIONS OF THE EARTH.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;La grande ville de Babylone, la mère des prostituées et des actions horribles qui ont lieu sur la terre</text>
+    <text>&lt;&lt;La grande ville de Babylone, la mère des prostituées et des actions horribles qui ont lieu sur la terre&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="17" initialStartVerse="6" characterId="narrator-REV">
@@ -3116,7 +3116,7 @@
       <text>“Rejoice over her, O heaven, you saints, apostles, and prophets; for God has judged your judgment on her.”</text>
     </ReferenceBlocks>
     <verse num="20" />
-    <text>Ciel, réjouis-toi! La ville est détruite! Réjouissez-vous aussi, vous qui appartenez à Dieu, apôtres et prophètes! Oui, Dieu l'a jugée pour le mal qu'elle vous a fait.</text>
+    <text>Ciel, réjouis-toi! La ville est détruite! Réjouissez-vous aussi, vous qui appartenez à Dieu, apôtres et prophètes! Oui, Dieu l'a jugée pour le mal qu'elle vous a fait.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="21" characterId="narrator-REV">
@@ -3246,7 +3246,7 @@
       <text>Let us rejoice and be exceedingly glad, and let us give the glory to him. For the marriage of the Lamb has come, and his wife has made herself ready.”</text>
     </ReferenceBlocks>
     <verse num="7" />
-    <text>Réjouissons-nous, soyons heureux et rendons-lui gloire! En effet, c'est maintenant le mariage de l'Agneau. Celle qu'il a choisie pour lui s'est faite belle.</text>
+    <text>Réjouissons-nous, soyons heureux et rendons-lui gloire! En effet, c'est maintenant le mariage de l'Agneau. Celle qu'il a choisie pour lui s'est faite belle.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="8" characterId="voice of great crowd, like roar of many waters, loud thunderclaps" delivery="shouting">
@@ -3296,7 +3296,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="10" characterId="angel (one of the seven)">
       <text>“Look! Don't do it! I am a fellow bondservant with you and with your brothers who hold the testimony of Jesus. Worship God, for the testimony of Jesus is the Spirit of Prophecy.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Attention, ne fais pas cela! Je suis un serviteur comme toi et comme tes frères et tes sœurs qui sont les témoins de Jésus. C'est Dieu que tu dois adorer.&gt;&gt; Oui, être témoin de Jésus, c'est annoncer que les prophètes ont dit la vérité.</text>
+    <text>&lt;&lt;Attention, ne fais pas cela! Je suis un serviteur comme toi et comme tes frères et tes sœurs qui sont les témoins de Jésus. C'est Dieu que tu dois adorer.&gt;&gt; Oui, être témoin de Jésus, c'est annoncer que les prophètes ont dit la vérité.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-REV" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="11" characterId="narrator-REV">

@@ -302,7 +302,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
       <text>“You shall love your neighbor as yourself,”</text>
     </ReferenceBlocks>
-    <text>возлюби ближнего твоего, как себя самого,</text>
+    <text>“возлюби ближнего твоего, как себя самого,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-JAS">
@@ -330,7 +330,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
       <text>“Do not commit adultery,”</text>
     </ReferenceBlocks>
-    <text>не прелюбодействуй,</text>
+    <text>“не прелюбодействуй,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
@@ -342,7 +342,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="scripture">
       <text>“Do not commit murder.”</text>
     </ReferenceBlocks>
-    <text>не убей;</text>
+    <text>“не убей;”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="11" characterId="narrator-JAS">
@@ -450,7 +450,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
       <text>“Abraham believed God, and it was accounted to him as righteousness”</text>
     </ReferenceBlocks>
-    <text>'веровал Авраам Богу, и это вменилось ему в праведность,</text>
+    <text>“'веровал Авраам Богу, и это вменилось ему в праведность,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="narrator-JAS">
@@ -690,7 +690,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="6" characterId="scripture">
       <text>“God resists the proud, but gives grace to the humble.”</text>
     </ReferenceBlocks>
-    <text>Бог гордым противится, а смиренным дает благодать.</text>
+    <text>“Бог гордым противится, а смиренным дает благодать.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="narrator-JAS">

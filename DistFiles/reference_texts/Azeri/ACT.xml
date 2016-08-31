@@ -442,7 +442,7 @@
       <text>“Men of Israel, hear these words! Jesus of Nazareth was a man approved by God to you by mighty works and wonders and signs which God did by him in the midst of you, even as you yourselves know.</text>
     </ReferenceBlocks>
     <verse num="22" />
-    <text>Ey İsraillilәr, bu sözlәrimә qulaq asın! Bildiyiniz kimi Allahın aranızda Nazaretli İsa vasitәsilә yaratdığı möcüzәlәr, xariqәlәr vә әlamәtlәr aydın göstәrdi ki, O, Allahdan gәlәn Şәxsdir.</text>
+    <text>&lt;&lt;Ey İsraillilәr, bu sözlәrimә qulaq asın! Bildiyiniz kimi Allahın aranızda Nazaretli İsa vasitәsilә yaratdığı möcüzәlәr, xariqәlәr vә әlamәtlәr aydın göstәrdi ki, O, Allahdan gәlәn Şәxsdir.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="Peter (Simon)" multiBlockQuote="Continuation">
@@ -498,7 +498,7 @@
       <text>“Brothers, I may tell you freely of the patriarch David, that he both died and was buried, and his tomb is with us to this day.</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>Qardaşlar, sizә cәsarәtlә demәliyәm ki, doğrudan da, ulu babamız Davud ölüb vә dәfn olunub. Onun qәbri bu günә qәdәr buradadır.</text>
+    <text>&lt;&lt;Qardaşlar, sizә cәsarәtlә demәliyәm ki, doğrudan da, ulu babamız Davud ölüb vә dәfn olunub. Onun qәbri bu günә qәdәr buradadır.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="30" characterId="Peter (Simon)" multiBlockQuote="Continuation">
@@ -806,7 +806,7 @@
       <text>By faith in his name, his name has made this man strong, whom you see and know. Yes, the faith which is through him has given him this perfect soundness in the presence of you all.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Gördüyünüz vә tanıdığınız bu kişi İsanın adı sayәsindә, Onun adına olan imanla sağaldı. İsa vasitәsilә olan imanla bu kişi hamınızın gözü qarşısında tam şәfa tapdı.</text>
+    <text>Gördüyünüz vә tanıdığınız bu kişi İsanın adı sayәsindә, Onun adına olan imanla sağaldı. İsa vasitәsilә olan imanla bu kişi hamınızın gözü qarşısında tam şәfa tapdı.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="17" characterId="Peter (Simon)" multiBlockQuote="Start">
@@ -814,7 +814,7 @@
       <text>“Now, brothers, I know that you did this in ignorance, as did also your rulers.</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>İndi, ey qardaşlar, bilirәm ki, rәhbәrlәriniz kimi siz dә bunu bilmәdәn etmisiniz.</text>
+    <text>&lt;&lt;İndi, ey qardaşlar, bilirәm ki, rәhbәrlәriniz kimi siz dә bunu bilmәdәn etmisiniz.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="18" characterId="Peter (Simon)" multiBlockQuote="Continuation">
@@ -822,7 +822,7 @@
       <text>But the things which God announced by the mouth of all his prophets, that Christ should suffer, he thus fulfilled.”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>Amma Allah peyğәmbәrlәrin dili ilә Öz Mәsihinin әzab çәkmәsi barәdә әvvәlcәdәn bәyan etdiyini yerinә yetirdi.</text>
+    <text>Amma Allah peyğәmbәrlәrin dili ilә Öz Mәsihinin әzab çәkmәsi barәdә әvvәlcәdәn bәyan etdiyini yerinә yetirdi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="Peter (Simon)" multiBlockQuote="Start">
@@ -832,7 +832,7 @@
       <text>and that he may send Christ Jesus, who was ordained for you before.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Belәliklә, günahlarınız silinsin deyә tövbә edib Allaha tәrәf dönün ki, </text>
+    <text>&lt;&lt;Belәliklә, günahlarınız silinsin deyә tövbә edib Allaha tәrәf dönün ki, </text>
     <verse num="20" />
     <text>Rәbbin hüzurunda rahatlıq vaxtı tapasınız vә O da sizin üçün әvvәlcәdәn tәyin olunan Mәsihi, yәni İsanı göndәrsin.</text>
   </block>
@@ -1068,7 +1068,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="Peter (Simon)/John">
       <text>“Whether it is right in the sight of God to listen to you rather than to God, judge for yourselves.”</text>
     </ReferenceBlocks>
-    <text>&lt;&lt;Özünüz qәrar verin, Allaha deyil, sizә qulaq asmaq Allahın gözündә nә qәdәr doğrudur?</text>
+    <text>&lt;&lt;Özünüz qәrar verin, Allaha deyil, sizә qulaq asmaq Allahın gözündә nә qәdәr doğrudur?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Peter (Simon)/John" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="20" characterId="Peter (Simon)/John">
@@ -1138,7 +1138,7 @@
       <text>“For truly, in this city against your holy child, Jesus, whom you anointed, both Herod and Pontius Pilate, with the Gentiles and the people of Israel, were gathered together.</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Hәqiqәtәn, Hirod vә Ponti Pilat başqa millәtlәr vә İsrail xalqı ilә birlikdә Sәnin mәsh etdiyin müqәddәs Qulun İsanın әleyhinә bu şәhәrdә toplaşdı ki,</text>
+    <text>&lt;&lt;Hәqiqәtәn, Hirod vә Ponti Pilat başqa millәtlәr vә İsrail xalqı ilә birlikdә Sәnin mәsh etdiyin müqәddәs Qulun İsanın әleyhinә bu şәhәrdә toplaşdı ki,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="28" characterId="apostles, elders, and whole church at Jerusalem/Peter (Simon)/John" multiBlockQuote="Continuation">
@@ -1839,7 +1839,7 @@
       <text>He gave him the covenant of circumcision. So Abraham became the father of Isaac, and circumcised him the eighth day. Isaac became the father of Jacob, and Jacob became the father of the twelve patriarchs.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Sonra Allah onunla sünnәtlә bağlı Әhd kәsdi. Belәliklә dә, İbrahim İshaqın atası olarkәn onu sәkkiz günlük olanda sünnәt etdi. Bundan sonra İshaqdan Yaqub, Yaqubdan da on iki ulu babamız törәdi.</text>
+    <text>Sonra Allah onunla sünnәtlә bağlı Әhd kәsdi. Belәliklә dә, İbrahim İshaqın atası olarkәn onu sәkkiz günlük olanda sünnәt etdi. Bundan sonra İshaqdan Yaqub, Yaqubdan da on iki ulu babamız törәdi.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="9" characterId="Stephen" multiBlockQuote="Start">
@@ -1847,7 +1847,7 @@
       <text>“The patriarchs, moved with jealousy against Joseph, sold him into Egypt. God was with him</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Bu ulu babalarımız paxıllıqdan Yusifi qul kimi Misirә satdı. Lakin Allah Yusifә yar idi.</text>
+    <text>&lt;&lt;Bu ulu babalarımız paxıllıqdan Yusifi qul kimi Misirә satdı. Lakin Allah Yusifә yar idi.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="10" characterId="Stephen" multiBlockQuote="Continuation">
@@ -1903,7 +1903,7 @@
       <text>They were all brought back to Shechem and laid in the tomb that Abraham bought for a price in silver from the children of Hamor of Shechem.”</text>
     </ReferenceBlocks>
     <verse num="16" />
-    <text>Onların cәsәdlәri sonradan Şekemә gәtirildi vә Şekemdә İbrahimin Xamor övladlarından bir neçә gümüşә satın aldığı qәbirdә dәfn olundu.</text>
+    <text>Onların cәsәdlәri sonradan Şekemә gәtirildi vә Şekemdә İbrahimin Xamor övladlarından bir neçә gümüşә satın aldığı qәbirdә dәfn olundu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="17" characterId="Stephen" multiBlockQuote="Start">
@@ -1911,7 +1911,7 @@
       <text>“But as the time of the promise came close which God had sworn to Abraham, the people grew and multiplied in Egypt.</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Allahın İbrahimә bәyan etdiyi vәdin hәyata keçdiyi vaxt yaxınlaşanda Misirdәki xalqımızın sayı bir xeyli çoxalmışdı.</text>
+    <text>&lt;&lt;Allahın İbrahimә bәyan etdiyi vәdin hәyata keçdiyi vaxt yaxınlaşanda Misirdәki xalqımızın sayı bir xeyli çoxalmışdı.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Stephen" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="18" characterId="Stephen" multiBlockQuote="Continuation">
@@ -1975,7 +1975,7 @@
       <text>He supposed that his brothers understood that God, by his hand, was giving them deliverance; but they didn't understand.”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>O belә fikirlәşdi: “Soydaşlarım dәrk edәcәklәr ki, mәnim vasitәmlә Allah onları xilas edir”. Amma onlar bunu dәrk etmәdilәr.</text>
+    <text>O belә fikirlәşdi: “Soydaşlarım dәrk edәcәklәr ki, mәnim vasitәmlә Allah onları xilas edir”. Amma onlar bunu dәrk etmәdilәr.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="26" characterId="Stephen" multiBlockQuote="Start">
@@ -2007,7 +2007,7 @@
       <text>Moses fled at this saying, and became a stranger in the land of Midian, where he became the father of two sons.”</text>
     </ReferenceBlocks>
     <verse num="29" />
-    <text>Bu sözә görә Musa qaçdı. O, Midyan torpağında, qürbәtdә yaşadı vә orada iki oğul atası oldu.</text>
+    <text>Bu sözә görә Musa qaçdı. O, Midyan torpağında, qürbәtdә yaşadı vә orada iki oğul atası oldu.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="Stephen" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="30" characterId="Stephen" multiBlockQuote="Start">
@@ -4439,7 +4439,7 @@
       <text>For the inhabitants of Jerusalem and their rulers did not recognize Jesus. By condemning him they fulfilled the words of the prophets which are read every sabbath day.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Çünki Yerusәlim әhalisi vә onların rәhbәrlәri İsanı tanımadı. Belәliklә, Onu mühakimә etmәklә hәr Şәnbә günü oxunan peyğәmbәrlәrin sözünü yerinә yetirdilәr.</text>
+    <text>Çünki Yerusәlim әhalisi vә onların rәhbәrlәri İsanı tanımadı. Belәliklә, Onu mühakimә etmәklә hәr Şәnbә günü oxunan peyğәmbәrlәrin sözünü yerinә yetirdilәr.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
@@ -4447,7 +4447,7 @@
       <text>“Though they found no cause for death, they still asked Pilate to have him killed.</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>Onda ölümә layiq heç bir tәqsir tapmasalar da, Pilatdan Onun edam olunmasını tәlәb etdilәr.</text>
+    <text>&lt;&lt;Onda ölümә layiq heç bir tәqsir tapmasalar da, Pilatdan Onun edam olunmasını tәlәb etdilәr.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="29" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
@@ -5075,7 +5075,7 @@
       <text>All his works are known to God from eternity.’”</text>
     </ReferenceBlocks>
     <verse num="18" />
-    <text>All his works are known to God from eternity.'</text>
+    <text>All his works are known to God from eternity.'&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="James" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="19" characterId="James" multiBlockQuote="Start">
@@ -5083,7 +5083,7 @@
       <text>“Therefore my judgment is that we don't trouble those from among the Gentiles who turn to God.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Belәliklә, bu qәrara gәlmişәm ki, başqa millәtlәrdәn Allaha tәrәf dönәnlәrә maneçilik törәtmәmәliyik.</text>
+    <text>&lt;&lt;Belәliklә, bu qәrara gәlmişәm ki, başqa millәtlәrdәn Allaha tәrәf dönәnlәrә maneçilik törәtmәmәliyik.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="James" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="20" characterId="James" multiBlockQuote="Continuation">
@@ -6906,7 +6906,7 @@
       <text>But these things don't count; nor do I hold my life dear to myself, so that I may finish my race with joy, and the ministry which I received from the Lord Jesus, to fully testify to the Good News of the grace of God.”</text>
     </ReferenceBlocks>
     <verse num="24" />
-    <text>Öz canıma heç әhәmiyyәt vermirәm, onu qiymәtlәndirmirәm. Mәnә kifayәtdir ki, yolumu – Rәbb İsanın mәnә tapşırdığı kimi Allahın lütfünü göstәrәn Müjdәni şәhadәtetmә xidmәtini başa çatdırım.</text>
+    <text>Öz canıma heç әhәmiyyәt vermirәm, onu qiymәtlәndirmirәm. Mәnә kifayәtdir ki, yolumu – Rәbb İsanın mәnә tapşırdığı kimi Allahın lütfünü göstәrәn Müjdәni şәhadәtetmә xidmәtini başa çatdırım.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="Paul" multiBlockQuote="Start">
@@ -6914,7 +6914,7 @@
       <text>“Now, behold, I know that you all, among whom I went about preaching the Kingdom of God, will see my face no more.</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>İndi aranızda dolaşıb Padşahlıq barәdә vәz etdiyim sizlәrdәn heç biriniz mәnim üzümü bir dә görmәyәcәk.</text>
+    <text>&lt;&lt;İndi aranızda dolaşıb Padşahlıq barәdә vәz etdiyim sizlәrdәn heç biriniz mәnim üzümü bir dә görmәyәcәk.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="20" initialStartVerse="26" characterId="Paul" multiBlockQuote="Continuation">
@@ -7480,7 +7480,7 @@
       <text>“Those who were with me indeed saw the light and were afraid, but they didn't understand the voice of him who spoke to me.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Yanımdakılar işığı görsәlәr dә, mәnimlә danışanın sәsini eşitmәdilәr.</text>
+    <text>&lt;&lt;Yanımdakılar işığı görsәlәr dә, mәnimlә danışanın sәsini eşitmәdilәr.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
@@ -7544,7 +7544,7 @@
       <text>“It happened that, when I had returned to Jerusalem, and while I prayed in the temple, I fell into a trance,</text>
     </ReferenceBlocks>
     <verse num="17" />
-    <text>Mәn Yerusәlimә qayıdıb mәbәddә dua etmәkdә idim ki, fikrimi bir görüntü apardı</text>
+    <text>&lt;&lt;Mәn Yerusәlimә qayıdıb mәbәddә dua etmәkdә idim ki, fikrimi bir görüntü apardı</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="22" initialStartVerse="18" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
@@ -8006,7 +8006,7 @@
       <text>“Claudius Lysias to the most excellent governor Felix: Greetings.”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>&lt;&lt;Möhtәrәm vali Feliksә Klavdi Lisiyadan salamlar!</text>
+    <text>&lt;&lt;Möhtәrәm vali Feliksә Klavdi Lisiyadan salamlar!&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="27" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Start">
@@ -8014,7 +8014,7 @@
       <text>“This man was seized by the Jews, and was about to be killed by them. Then I came with the soldiers and rescued him, having learned that he was a Roman.</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>Bu kişini Yәhudilәr tutub öldürmәk istәyirdi. Mәn bilәndә ki bu adam Roma vәtәndaşıdır, özümü yetirib әsgәrlәrlә onu xilas etdim.</text>
+    <text>&lt;&lt;Bu kişini Yәhudilәr tutub öldürmәk istәyirdi. Mәn bilәndә ki bu adam Roma vәtәndaşıdır, özümü yetirib әsgәrlәrlә onu xilas etdim.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="23" initialStartVerse="28" characterId="commander of Roman troops in Jerusalem" delivery="letter" multiBlockQuote="Continuation">
@@ -8592,7 +8592,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="Festus, governor of Judea">
       <text>“Tomorrow,”</text>
     </ReferenceBlocks>
-    <text>tomorrow</text>
+    <text>&lt;&lt;tomorrow&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="25" initialStartVerse="22" characterId="narrator-ACT">
@@ -8688,7 +8688,7 @@
       <text>especially because you are expert in all customs and questions which are among the Jews. Therefore I beg you to hear me patiently.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>Çünki bütün Yәhudi adәt-әnәnәlәrinә vә mübahisәlәrinә yaxşı bәlәdsәn. Ona görә rica edirәm, mәnә sәbirlә qulaq as.</text>
+    <text>Çünki bütün Yәhudi adәt-әnәnәlәrinә vә mübahisәlәrinә yaxşı bәlәdsәn. Ona görә rica edirәm, mәnә sәbirlә qulaq as.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="4" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="4" characterId="Paul" multiBlockQuote="Start">
@@ -8696,7 +8696,7 @@
       <text>“Indeed, all the Jews know my way of life from my youth up, which was from the beginning among my own nation and at Jerusalem.</text>
     </ReferenceBlocks>
     <verse num="4" />
-    <text>Bütün Yәhudilәr bilir ki, әzәldәn, lap cavanlığımdan bәri hәm öz elimdә, hәm dә Yerusәlimdә necә hәyat sürmüşәm.</text>
+    <text>&lt;&lt;Bütün Yәhudilәr bilir ki, әzәldәn, lap cavanlığımdan bәri hәm öz elimdә, hәm dә Yerusәlimdә necә hәyat sürmüşәm.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="5" characterId="Paul" multiBlockQuote="Continuation">
@@ -8728,7 +8728,7 @@
       <text>Why is it judged incredible with you, if God does raise the dead?”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Niyә Allahın ölülәri diriltmәsi aranızda inanılmaz bir şey sayılır?</text>
+    <text>Niyә Allahın ölülәri diriltmәsi aranızda inanılmaz bir şey sayılır?&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="9" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="9" characterId="Paul" multiBlockQuote="Start">
@@ -8736,7 +8736,7 @@
       <text>“I myself most certainly thought that I ought to do many things contrary to the name of Jesus of Nazareth.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Doğrusu, mәn buna әmin olmuşdum ki, Nazaretli İsanın adı әleyhinә әlimdәn gәlәni etmәliyәm.</text>
+    <text>&lt;&lt;Doğrusu, mәn buna әmin olmuşdum ki, Nazaretli İsanın adı әleyhinә әlimdәn gәlәni etmәliyәm.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="10" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="10" characterId="Paul" multiBlockQuote="Continuation">
@@ -8752,7 +8752,7 @@
       <text>Punishing them often in all the synagogues, I tried to make them blaspheme. Being exceedingly enraged against them, I persecuted them even to foreign cities.”</text>
     </ReferenceBlocks>
     <verse num="11" />
-    <text>Bütün sinaqoqları gәzib-dolaşaraq onları tez-tez cәzalandırır vә öz etiqadlarına küfr etmәyә mәcbur edirdim. Mәn elә dәli olmuşdum ki, onları ölkә xaricindә olan şәhәrlәrdә belә, tәqib edirdim.</text>
+    <text>Bütün sinaqoqları gәzib-dolaşaraq onları tez-tez cәzalandırır vә öz etiqadlarına küfr etmәyә mәcbur edirdim. Mәn elә dәli olmuşdum ki, onları ölkә xaricindә olan şәhәrlәrdә belә, tәqib edirdim.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="12" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="12" characterId="Paul" multiBlockQuote="Start">
@@ -8760,7 +8760,7 @@
       <text>“I was traveling to Damascus with the authority and commission from the chief priests.</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>Bu iş üçün başçı kahinlәrdәn aldığım sәlahiyyәt vә tapşırıqla Dәmәşqә tәrәf yola çıxdım.</text>
+    <text>&lt;&lt;Bu iş üçün başçı kahinlәrdәn aldığım sәlahiyyәt vә tapşırıqla Dәmәşqә tәrәf yola çıxdım.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="13" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="13" characterId="Paul" multiBlockQuote="Continuation">
@@ -8784,7 +8784,7 @@
       <text>“I said, ‘Who are you, Lord?’” “He said, ‘I am Jesus, whom you are persecuting.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Mәn dedim: “Ey Ağam, Sәn kimsәn?” Rәbb cavab verdi: “Mәn sәnin tәqib etdiyin İsayam.</text>
+    <text>Mәn dedim: “Ey Ağam, Sәn kimsәn?” Rәbb cavab verdi: “Mәn sәnin tәqib etdiyin İsayam.&gt;&gt;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start">
@@ -8816,7 +8816,7 @@
       <text>“Therefore, King Agrippa, I was not disobedient to the heavenly vision.</text>
     </ReferenceBlocks>
     <verse num="19" />
-    <text>Buna görә mәn, ey padşah Aqrippa, bu sәmavi görüntüyә itaәtsizlik etmәdim.</text>
+    <text>&lt;&lt;Buna görә mәn, ey padşah Aqrippa, bu sәmavi görüntüyә itaәtsizlik etmәdim.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="20" characterId="Paul" multiBlockQuote="Continuation">

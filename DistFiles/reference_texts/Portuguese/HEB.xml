@@ -1300,7 +1300,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="8" characterId="scripture" multiBlockQuote="Start">
       <text>“Behold, the days come,” says the Lord, “that I will make a new covenant with the house of Israel and with the house of Judah.</text>
     </ReferenceBlocks>
-    <text>“Está chegando o tempo, diz o Senhor, em que farei uma nova aliança com o povo de Israel e com o povo de Judá.</text>
+    <text>“Está chegando o tempo, diz o Senhor, em que farei uma nova aliança com o povo de Israel e com o povo de Judá.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="9" characterId="scripture" multiBlockQuote="Continuation">
@@ -1308,7 +1308,7 @@
       <text>It will not be according to the covenant that I made with their fathers, in the day that I took them by the hand to lead them out of the land of Egypt; for they didn't continue in my covenant, and I disregarded them,” says the Lord.</text>
     </ReferenceBlocks>
     <verse num="9" />
-    <text>Essa aliança não será como aquela que eu fiz com os antepassados deles, no dia em que os peguei pela mão e os tirei da terra do Egito. Não foram fiéis à aliança que fiz com eles, e por isso, diz o Senhor, eu os desprezei.</text>
+    <text>Essa aliança não será como aquela que eu fiz com os antepassados deles, no dia em que os peguei pela mão e os tirei da terra do Egito. Não foram fiéis à aliança que fiz com eles, e por isso, diz o Senhor, eu os desprezei.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture">
@@ -1316,13 +1316,13 @@
       <text>“For this is the covenant that I will make with the house of Israel. After those days,” says the Lord;</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>Quando esse tempo chegar, diz o Senhor, farei com o povo de Israel esta aliança:</text>
+    <text>“Quando esse tempo chegar, diz o Senhor, farei com o povo de Israel esta aliança:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
       <text>“I will put my laws into their mind, I will also write them on their heart. I will be their God, and they will be my people.</text>
     </ReferenceBlocks>
-    <text>Eu porei as minhas leis na mente deles e no coração deles as escreverei. Eu serei o Deus deles, e eles serão o meu povo.</text>
+    <text>“Eu porei as minhas leis na mente deles e no coração deles as escreverei. Eu serei o Deus deles, e eles serão o meu povo.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
