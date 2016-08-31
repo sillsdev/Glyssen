@@ -533,5 +533,15 @@ namespace Glyssen
 				return m_projectFolder;
 			}
 		}
+
+		public string FontFamily
+		{
+			get { return m_metadata.FontFamily; }
+		}
+
+		public int FontSizeInPoints
+		{
+			get { return m_metadata.FontSizeInPoints; }
+		}
 	}
 }
