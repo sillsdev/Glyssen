@@ -108,7 +108,16 @@ namespace Glyssen.Controls
 				if (m_viewType == ScriptBlocksViewType.Html)
 					ChangeViewType(m_blocksDisplayBrowser, m_dataGridViewBlocks);
 				else
+				{
+					if (m_viewModel != null)
+					{
+						m_viewModel.AttemptRefBlockMatchup = true;
+						m_viewModel.BlockGroupingStyle = m_viewModel.CurrentReferenceTextMatchup == null ?
+							BlockGroupingType.Quote :
+							BlockGroupingType.BlockCorrelation;
+					}
 					ChangeViewType(m_dataGridViewBlocks, m_blocksDisplayBrowser);
+				}
 			}
 		}
 
