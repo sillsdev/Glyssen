@@ -669,7 +669,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void SetBlockMatchupForCurrentVerse_VerseHasOnlyOneBlock_CurrentReferenceTextMatchupIsNull()
+		public void SetBlockMatchupForCurrentVerse_VerseHasOnlyOneBlock_CurrentReferenceTextMatchupHasOneBlock()
 		{
 			m_model.AttemptRefBlockMatchup = false;
 			// Find Mark 1:12
@@ -679,11 +679,16 @@ namespace GlyssenTests.Dialogs
 
 			var origBlockCount = m_model.BlockCountForCurrentBook;
 			var origAnchorBlock = m_model.CurrentBlock;
+			Assert.AreEqual(13, origAnchorBlock.LastVerseNum);
+
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.SetBlockMatchupForCurrentVerse();
-			Assert.IsNull(m_model.CurrentReferenceTextMatchup);
-			Assert.AreEqual(origBlockCount, m_model.BlockCountForCurrentBook);
-			Assert.AreEqual(origAnchorBlock, m_model.CurrentBlock);
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			Assert.AreEqual(2, m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(1, m_model.CurrentReferenceTextMatchup.OriginalBlocks.Count());
+			Assert.AreEqual(origBlockCount + 1, m_model.BlockCountForCurrentBook);
+			Assert.AreNotEqual(origAnchorBlock, m_model.CurrentBlock);
+			Assert.IsTrue(origAnchorBlock.GetText(true).StartsWith(m_model.CurrentBlock.GetText(true)));
 		}
 
 		[Test]
