@@ -892,6 +892,53 @@ namespace GlyssenTests
 			Assert.AreEqual(referenceBlocks[4].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
 		}
 
+		[Test]
+		public void ApplyTo_SingleSpeakerVerseBridgeInVernacularCorrespondsToTwoBlocksInReferenceText_CombineReferenceTextBlocksAndMatchToVernBlock()
+		{
+			// PG-746 Chikunda (I Corinthians 5:3-4)
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse(CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.Narrator), 3,
+				"Ndiye, kana dzvangu ndilikutali na imwepo pathupi, ndichilikumweko na imwepo pamzimu. Ndiye ngatindilipo, ndatotonga kale mudzina la Mfumu Jesu padzulu pa mamuna ayita dzvimwedzvi. Apo pamunizagumana, ndinizagumana na imwepo pamzimu, na mphamvu ya Mfumu yathu Jesu alipo na ifepo, ",
+				false, 5, "p" , 4));
+			var vernBook = new BookScript("1CO", vernacularBlocks);
+
+			// Indonesian
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(26, "Kemudian ..., katanya:", true, 8, "ACT"));
+			AddBlockForVerseInProgress(referenceBlocks, "angel", "<<Bangunlah ... Gaza.>>");
+			block = AddNarratorBlockForVerseInProgress(referenceBlocks, "Jalan ... sunyi. ", "ACT");
+			block.AddVerse(27, "Lalu ... beribadah.");
+			referenceBlocks.Add(block = CreateNarratorBlockForVerse(28, "Sekarang ... Yesaya. ", true, 8, "ACT"));
+			block.AddVerse(29, "Lalu ... Filipus:");
+			AddBlockForVerseInProgress(referenceBlocks, "Holy Spirit, the", "<<Pergilah ... itu!>>");
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			using (new ErrorReport.NoNonFatalErrorReportExpected())
+				refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.AreEqual(referenceBlocks.Count, result.SelectMany(v => v.ReferenceBlocks).Count());
+
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.True(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+
+			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
+			Assert.True(result[1].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+
+			Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
+			Assert.False(result[2].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[1].GetText(true));
+
+			Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
+			Assert.True(result[3].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[4].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
+		}
+
 		/// <summary>
 		/// PG-742
 		/// </summary>
