@@ -125,7 +125,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnCancel, L10NSharp.LocalizationPriority.High);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
-			this.m_btnCancel.Location = new System.Drawing.Point(546, 378);
+			this.m_btnCancel.Location = new System.Drawing.Point(546, 383);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 2;
@@ -145,7 +145,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblLanguageName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.LanguageName");
-			this.m_lblLanguageName.Location = new System.Drawing.Point(6, 114);
+			this.m_lblLanguageName.Location = new System.Drawing.Point(6, 111);
 			this.m_lblLanguageName.Name = "m_lblLanguageName";
 			this.m_lblLanguageName.Size = new System.Drawing.Size(89, 13);
 			this.m_lblLanguageName.TabIndex = 0;
@@ -163,7 +163,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblIso639_2_Code, "DialogBoxes.ProjectSettingsDlg.GeneralTab.EthnologueCode");
-			this.m_lblIso639_2_Code.Location = new System.Drawing.Point(6, 127);
+			this.m_lblIso639_2_Code.Location = new System.Drawing.Point(6, 124);
 			this.m_lblIso639_2_Code.Name = "m_lblIso639_2_Code";
 			this.m_lblIso639_2_Code.Size = new System.Drawing.Size(149, 13);
 			this.m_lblIso639_2_Code.TabIndex = 2;
@@ -181,7 +181,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.PublicationName");
-			this.m_lblPublicationName.Location = new System.Drawing.Point(6, 155);
+			this.m_lblPublicationName.Location = new System.Drawing.Point(6, 152);
 			this.m_lblPublicationName.Name = "m_lblPublicationName";
 			this.m_lblPublicationName.Size = new System.Drawing.Size(93, 13);
 			this.m_lblPublicationName.TabIndex = 4;
@@ -199,7 +199,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblPublicationId, "DialogBoxes.ProjectSettingsDlg.GeneralTab.PublicationId");
-			this.m_lblPublicationId.Location = new System.Drawing.Point(6, 168);
+			this.m_lblPublicationId.Location = new System.Drawing.Point(6, 165);
 			this.m_lblPublicationId.Name = "m_lblPublicationId";
 			this.m_lblPublicationId.Size = new System.Drawing.Size(74, 13);
 			this.m_lblPublicationId.TabIndex = 6;
@@ -216,7 +216,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
-			this.m_btnOk.Location = new System.Drawing.Point(465, 378);
+			this.m_btnOk.Location = new System.Drawing.Point(465, 383);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 1;
@@ -236,10 +236,10 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_wsFontControl, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_wsFontControl, "DialogBoxes.ProjectSettingsDlg.WritingSystemsTab.WSFontControl");
-			this.m_wsFontControl.Location = new System.Drawing.Point(3, 3);
+			this.m_wsFontControl.Location = new System.Drawing.Point(7, 15);
 			this.m_wsFontControl.Margin = new System.Windows.Forms.Padding(0);
 			this.m_wsFontControl.Name = "m_wsFontControl";
-			this.m_wsFontControl.Size = new System.Drawing.Size(597, 326);
+			this.m_wsFontControl.Size = new System.Drawing.Size(589, 310);
 			this.m_wsFontControl.TabIndex = 7;
 			this.m_wsFontControl.TestAreaText = "";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_wsFontControl, true);
@@ -255,7 +255,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.RecordingProjectName");
-			this.m_lblRecordingProjectName.Location = new System.Drawing.Point(6, 9);
+			this.m_lblRecordingProjectName.Location = new System.Drawing.Point(6, 8);
 			this.m_lblRecordingProjectName.Name = "m_lblRecordingProjectName";
 			this.m_lblRecordingProjectName.Size = new System.Drawing.Size(126, 13);
 			this.m_lblRecordingProjectName.TabIndex = 12;
@@ -274,7 +274,8 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtRecordingProjectName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtRecordingProjectName, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtRecordingProjectName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtProjectName");
-			this.m_txtRecordingProjectName.Location = new System.Drawing.Point(161, 6);
+			this.m_txtRecordingProjectName.Location = new System.Drawing.Point(161, 3);
+			this.m_txtRecordingProjectName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
 			this.m_txtRecordingProjectName.Name = "m_txtRecordingProjectName";
 			this.m_txtRecordingProjectName.Size = new System.Drawing.Size(422, 20);
 			this.m_txtRecordingProjectName.TabIndex = 0;
@@ -295,7 +296,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtLanguageName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtLanguageName, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtLanguageName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtLanguageName");
-			this.m_txtLanguageName.Location = new System.Drawing.Point(161, 114);
+			this.m_txtLanguageName.Location = new System.Drawing.Point(161, 111);
 			this.m_txtLanguageName.Name = "m_txtLanguageName";
 			this.m_txtLanguageName.Size = new System.Drawing.Size(422, 13);
 			this.m_txtLanguageName.TabIndex = 23;
@@ -316,7 +317,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtIso639_2_Code, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtIso639_2_Code, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtIso639_2_Code, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtIso639_2_Code");
-			this.m_txtIso639_2_Code.Location = new System.Drawing.Point(161, 127);
+			this.m_txtIso639_2_Code.Location = new System.Drawing.Point(161, 124);
 			this.m_txtIso639_2_Code.Name = "m_txtIso639_2_Code";
 			this.m_txtIso639_2_Code.Size = new System.Drawing.Size(422, 13);
 			this.m_txtIso639_2_Code.TabIndex = 24;
@@ -337,7 +338,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationName, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationName, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtPublicationName, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtPublicationName");
-			this.m_txtPublicationName.Location = new System.Drawing.Point(161, 155);
+			this.m_txtPublicationName.Location = new System.Drawing.Point(161, 152);
 			this.m_txtPublicationName.Name = "m_txtPublicationName";
 			this.m_txtPublicationName.Size = new System.Drawing.Size(422, 13);
 			this.m_txtPublicationName.TabIndex = 25;
@@ -358,7 +359,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtPublicationId, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtPublicationId, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtPublicationId, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtPublicationId");
-			this.m_txtPublicationId.Location = new System.Drawing.Point(161, 168);
+			this.m_txtPublicationId.Location = new System.Drawing.Point(161, 165);
 			this.m_txtPublicationId.Name = "m_txtPublicationId";
 			this.m_txtPublicationId.Size = new System.Drawing.Size(422, 13);
 			this.m_txtPublicationId.TabIndex = 26;
@@ -377,7 +378,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblOriginalBundlePath, "DialogBoxes.ProjectSettingsDlg.GeneralTab.OriginalBundlePath");
-			this.m_lblOriginalBundlePath.Location = new System.Drawing.Point(6, 70);
+			this.m_lblOriginalBundlePath.Location = new System.Drawing.Point(6, 67);
 			this.m_lblOriginalBundlePath.Name = "m_lblOriginalBundlePath";
 			this.m_lblOriginalBundlePath.Size = new System.Drawing.Size(106, 29);
 			this.m_lblOriginalBundlePath.TabIndex = 28;
@@ -399,7 +400,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtOriginalBundlePath, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtOriginalBundlePath, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtOriginalBundlePath, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtOriginalBundlePath");
-			this.m_txtOriginalBundlePath.Location = new System.Drawing.Point(161, 70);
+			this.m_txtOriginalBundlePath.Location = new System.Drawing.Point(161, 67);
 			this.m_txtOriginalBundlePath.Name = "m_txtOriginalBundlePath";
 			this.m_txtOriginalBundlePath.Size = new System.Drawing.Size(334, 29);
 			this.m_txtOriginalBundlePath.TabIndex = 29;
@@ -459,7 +460,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkReview, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkReview, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkReview, "DialogBoxes.ProjectSettingsDlg.GeneralTab.QuoteMarkReview");
-			this.m_lblQuoteMarkReview.Location = new System.Drawing.Point(6, 259);
+			this.m_lblQuoteMarkReview.Location = new System.Drawing.Point(6, 256);
 			this.m_lblQuoteMarkReview.Name = "m_lblQuoteMarkReview";
 			this.m_lblQuoteMarkReview.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
 			this.m_lblQuoteMarkReview.Size = new System.Drawing.Size(67, 18);
@@ -482,9 +483,9 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblQuoteMarkSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblQuoteMarkSummary, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblQuoteMarkSummary, "DialogBoxes.ProjectSettingsDlg.GeneralTab.QuoteMarkSummary");
-			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(161, 277);
+			this.m_lblQuoteMarkSummary.Location = new System.Drawing.Point(161, 274);
 			this.m_lblQuoteMarkSummary.Name = "m_lblQuoteMarkSummary";
-			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 29);
+			this.m_lblQuoteMarkSummary.Size = new System.Drawing.Size(132, 36);
 			this.m_lblQuoteMarkSummary.TabIndex = 22;
 			this.m_lblQuoteMarkSummary.Text = "Summary Text";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblQuoteMarkSummary, true);
@@ -501,7 +502,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnQuoteMarkSettings, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnQuoteMarkSettings, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnQuoteMarkSettings, "DialogBoxes.ProjectSettingsDlg.GeneralTab.ReviewChangeQuoteMarkSettings");
-			this.m_btnQuoteMarkSettings.Location = new System.Drawing.Point(460, 280);
+			this.m_btnQuoteMarkSettings.Location = new System.Drawing.Point(460, 277);
 			this.m_btnQuoteMarkSettings.Name = "m_btnQuoteMarkSettings";
 			this.m_btnQuoteMarkSettings.Size = new System.Drawing.Size(123, 23);
 			this.m_btnQuoteMarkSettings.TabIndex = 3;
@@ -524,7 +525,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_txtVersification, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtVersification, "DialogBoxes.ProjectSettingsDlg.GeneralTab.m_txtVersification");
-			this.m_txtVersification.Location = new System.Drawing.Point(161, 196);
+			this.m_txtVersification.Location = new System.Drawing.Point(161, 193);
 			this.m_txtVersification.Name = "m_txtVersification";
 			this.m_txtVersification.Size = new System.Drawing.Size(422, 13);
 			this.m_txtVersification.TabIndex = 27;
@@ -541,7 +542,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblVersification, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblVersification, "DialogBoxes.ProjectSettingsDlg.GeneralTab.Versification");
-			this.m_lblVersification.Location = new System.Drawing.Point(6, 196);
+			this.m_lblVersification.Location = new System.Drawing.Point(6, 193);
 			this.m_lblVersification.Name = "m_lblVersification";
 			this.m_lblVersification.Size = new System.Drawing.Size(67, 13);
 			this.m_lblVersification.TabIndex = 17;
@@ -560,9 +561,9 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSummary, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSummary, "DialogBoxes.ProjectSettingsDlg.GeneralTab.Summary");
-			this.m_lblSummary.Location = new System.Drawing.Point(6, 277);
+			this.m_lblSummary.Location = new System.Drawing.Point(6, 274);
 			this.m_lblSummary.Name = "m_lblSummary";
-			this.m_lblSummary.Size = new System.Drawing.Size(53, 29);
+			this.m_lblSummary.Size = new System.Drawing.Size(53, 36);
 			this.m_lblSummary.TabIndex = 23;
 			this.m_lblSummary.Text = "Summary:";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblSummary, true);
@@ -577,7 +578,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnUpdateFromBundle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnUpdateFromBundle, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnUpdateFromBundle, "DialogBoxes.ProjectSettingsDlg.GeneralTab.Update");
-			this.m_btnUpdateFromBundle.Location = new System.Drawing.Point(508, 73);
+			this.m_btnUpdateFromBundle.Location = new System.Drawing.Point(508, 70);
 			this.m_btnUpdateFromBundle.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
 			this.m_btnUpdateFromBundle.Name = "m_btnUpdateFromBundle";
 			this.m_btnUpdateFromBundle.Size = new System.Drawing.Size(75, 23);
@@ -599,15 +600,14 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_tabPageGeneral, "DialogBoxes.ProjectSettingsDlg.GeneralTab.TabName");
 			this.m_tabPageGeneral.Location = new System.Drawing.Point(4, 22);
 			this.m_tabPageGeneral.Name = "m_tabPageGeneral";
-			this.m_tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-			this.m_tabPageGeneral.Size = new System.Drawing.Size(603, 332);
+			this.m_tabPageGeneral.Padding = new System.Windows.Forms.Padding(7, 12, 7, 12);
+			this.m_tabPageGeneral.Size = new System.Drawing.Size(603, 337);
 			this.m_tabPageGeneral.TabIndex = 0;
 			this.m_tabPageGeneral.Text = "General";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tabPageGeneral, true);
 			// 
 			// m_tableLayoutMain
 			// 
-			this.m_tableLayoutMain.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.m_tableLayoutMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.glyssenColorPalette.SetBackColor(this.m_tableLayoutMain, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutMain.ColumnCount = 4;
@@ -637,8 +637,9 @@
 			this.m_tableLayoutMain.Controls.Add(this.m_btnQuoteMarkSettings, 2, 15);
 			this.m_tableLayoutMain.Controls.Add(this.m_lblAudioStockNumber, 0, 1);
 			this.m_tableLayoutMain.Controls.Add(this.m_txtAudioStockNumber, 1, 1);
+			this.m_tableLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutMain, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_tableLayoutMain.Location = new System.Drawing.Point(7, 13);
+			this.m_tableLayoutMain.Location = new System.Drawing.Point(7, 12);
 			this.m_tableLayoutMain.Margin = new System.Windows.Forms.Padding(0);
 			this.m_tableLayoutMain.Name = "m_tableLayoutMain";
 			this.m_tableLayoutMain.Padding = new System.Windows.Forms.Padding(3);
@@ -659,7 +660,7 @@
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutMain.Size = new System.Drawing.Size(589, 307);
+			this.m_tableLayoutMain.Size = new System.Drawing.Size(589, 313);
 			this.m_tableLayoutMain.TabIndex = 0;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutMain, false);
 			// 
@@ -673,7 +674,7 @@
 			this.panel1.Controls.Add(this.m_lblQuoteMarks);
 			this.panel1.Controls.Add(this.label2);
 			this.glyssenColorPalette.SetForeColor(this.panel1, Glyssen.Utilities.GlyssenColors.Default);
-			this.panel1.Location = new System.Drawing.Point(6, 212);
+			this.panel1.Location = new System.Drawing.Point(6, 209);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(577, 44);
 			this.panel1.TabIndex = 19;
@@ -690,7 +691,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblAudioStockNumber, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblAudioStockNumber, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblAudioStockNumber, "DialogBoxes.ProjectSettingsDlg.GeneralTab.AudiStockNumber");
-			this.m_lblAudioStockNumber.Location = new System.Drawing.Point(6, 35);
+			this.m_lblAudioStockNumber.Location = new System.Drawing.Point(6, 32);
 			this.m_lblAudioStockNumber.Name = "m_lblAudioStockNumber";
 			this.m_lblAudioStockNumber.Size = new System.Drawing.Size(108, 13);
 			this.m_lblAudioStockNumber.TabIndex = 31;
@@ -708,7 +709,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_txtAudioStockNumber, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_txtAudioStockNumber, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_txtAudioStockNumber, "DialogBoxes.ProjectSettingsDlg.textBox1");
-			this.m_txtAudioStockNumber.Location = new System.Drawing.Point(161, 32);
+			this.m_txtAudioStockNumber.Location = new System.Drawing.Point(161, 29);
 			this.m_txtAudioStockNumber.Name = "m_txtAudioStockNumber";
 			this.m_txtAudioStockNumber.Size = new System.Drawing.Size(422, 20);
 			this.m_txtAudioStockNumber.TabIndex = 1;
@@ -726,8 +727,8 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_tabPageWritingSystem, "DialogBoxes.ProjectSettingsDlg.WritingSystemsTab.TabName");
 			this.m_tabPageWritingSystem.Location = new System.Drawing.Point(4, 22);
 			this.m_tabPageWritingSystem.Name = "m_tabPageWritingSystem";
-			this.m_tabPageWritingSystem.Padding = new System.Windows.Forms.Padding(3);
-			this.m_tabPageWritingSystem.Size = new System.Drawing.Size(603, 332);
+			this.m_tabPageWritingSystem.Padding = new System.Windows.Forms.Padding(7, 15, 7, 12);
+			this.m_tabPageWritingSystem.Size = new System.Drawing.Size(603, 337);
 			this.m_tabPageWritingSystem.TabIndex = 1;
 			this.m_tabPageWritingSystem.Text = "Writing System";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tabPageWritingSystem, true);
@@ -744,8 +745,8 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_tabPageTitleAndChapterAnnouncmentOptions, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.TabName");
 			this.m_tabPageTitleAndChapterAnnouncmentOptions.Location = new System.Drawing.Point(4, 22);
 			this.m_tabPageTitleAndChapterAnnouncmentOptions.Name = "m_tabPageTitleAndChapterAnnouncmentOptions";
-			this.m_tabPageTitleAndChapterAnnouncmentOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.m_tabPageTitleAndChapterAnnouncmentOptions.Size = new System.Drawing.Size(603, 332);
+			this.m_tabPageTitleAndChapterAnnouncmentOptions.Padding = new System.Windows.Forms.Padding(10, 12, 7, 12);
+			this.m_tabPageTitleAndChapterAnnouncmentOptions.Size = new System.Drawing.Size(603, 337);
 			this.m_tabPageTitleAndChapterAnnouncmentOptions.TabIndex = 2;
 			this.m_tabPageTitleAndChapterAnnouncmentOptions.Text = "Chapter Announcements";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tabPageTitleAndChapterAnnouncmentOptions, true);
@@ -771,9 +772,8 @@
 			this.tableLayoutPanel1.Controls.Add(this.m_lblChapterAnnouncementWarning, 2, 2);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 12);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(8, 16, 8, 16);
 			this.tableLayoutPanel1.RowCount = 8;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -783,7 +783,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(597, 326);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(586, 313);
 			this.tableLayoutPanel1.TabIndex = 3;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel1, true);
 			// 
@@ -813,13 +813,13 @@
 			this.m_tableLayoutPanelAnnouncmentsExample.Controls.Add(this.m_lblExampleTitleForSingleChapterBook, 3, 1);
 			this.m_tableLayoutPanelAnnouncmentsExample.Controls.Add(this.m_lblExampleSingleChapterAnnouncement, 3, 2);
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanelAnnouncmentsExample, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_tableLayoutPanelAnnouncmentsExample.Location = new System.Drawing.Point(11, 182);
+			this.m_tableLayoutPanelAnnouncmentsExample.Location = new System.Drawing.Point(3, 169);
 			this.m_tableLayoutPanelAnnouncmentsExample.Name = "m_tableLayoutPanelAnnouncmentsExample";
 			this.m_tableLayoutPanelAnnouncmentsExample.RowCount = 3;
 			this.m_tableLayoutPanelAnnouncmentsExample.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelAnnouncmentsExample.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelAnnouncmentsExample.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelAnnouncmentsExample.Size = new System.Drawing.Size(575, 64);
+			this.m_tableLayoutPanelAnnouncmentsExample.Size = new System.Drawing.Size(580, 64);
 			this.m_tableLayoutPanelAnnouncmentsExample.TabIndex = 7;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelAnnouncmentsExample, true);
 			// 
@@ -835,7 +835,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblFirstChapterExample, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblFirstChapterExample, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblFirstChapterExample, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.FirstChapterExample");
-			this.m_lblFirstChapterExample.Location = new System.Drawing.Point(174, 9);
+			this.m_lblFirstChapterExample.Location = new System.Drawing.Point(175, 9);
 			this.m_lblFirstChapterExample.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
 			this.m_lblFirstChapterExample.Name = "m_lblFirstChapterExample";
 			this.m_lblFirstChapterExample.Size = new System.Drawing.Size(66, 13);
@@ -856,7 +856,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSubsequentChaptersExample, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSubsequentChaptersExample, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSubsequentChaptersExample, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.SubsequentChaptersExample");
-			this.m_lblSubsequentChaptersExample.Location = new System.Drawing.Point(294, 9);
+			this.m_lblSubsequentChaptersExample.Location = new System.Drawing.Point(297, 9);
 			this.m_lblSubsequentChaptersExample.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
 			this.m_lblSubsequentChaptersExample.Name = "m_lblSubsequentChaptersExample";
 			this.m_lblSubsequentChaptersExample.Size = new System.Drawing.Size(109, 13);
@@ -876,7 +876,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblSingleChapterBookExample, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblSingleChapterBookExample, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblSingleChapterBookExample, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.SingleChapterBookExample");
-			this.m_lblSingleChapterBookExample.Location = new System.Drawing.Point(439, 9);
+			this.m_lblSingleChapterBookExample.Location = new System.Drawing.Point(443, 9);
 			this.m_lblSingleChapterBookExample.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
 			this.m_lblSingleChapterBookExample.Name = "m_lblSingleChapterBookExample";
 			this.m_lblSingleChapterBookExample.Size = new System.Drawing.Size(103, 13);
@@ -946,7 +946,7 @@
 			this.m_lblExampleTitleForMultipleChapterBook.Margin = new System.Windows.Forms.Padding(0);
 			this.m_lblExampleTitleForMultipleChapterBook.Name = "m_lblExampleTitleForMultipleChapterBook";
 			this.m_lblExampleTitleForMultipleChapterBook.Padding = new System.Windows.Forms.Padding(3, 6, 3, 0);
-			this.m_lblExampleTitleForMultipleChapterBook.Size = new System.Drawing.Size(166, 19);
+			this.m_lblExampleTitleForMultipleChapterBook.Size = new System.Drawing.Size(169, 19);
 			this.m_lblExampleTitleForMultipleChapterBook.TabIndex = 3;
 			this.m_lblExampleTitleForMultipleChapterBook.Text = "#";
 			this.m_lblExampleTitleForMultipleChapterBook.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -970,7 +970,7 @@
 			this.m_lblExampleFirstChapterAnnouncement.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
 			this.m_lblExampleFirstChapterAnnouncement.Name = "m_lblExampleFirstChapterAnnouncement";
 			this.m_lblExampleFirstChapterAnnouncement.Padding = new System.Windows.Forms.Padding(3, 6, 3, 0);
-			this.m_lblExampleFirstChapterAnnouncement.Size = new System.Drawing.Size(166, 19);
+			this.m_lblExampleFirstChapterAnnouncement.Size = new System.Drawing.Size(169, 19);
 			this.m_lblExampleFirstChapterAnnouncement.TabIndex = 4;
 			this.m_lblExampleFirstChapterAnnouncement.Text = "#";
 			this.m_lblExampleFirstChapterAnnouncement.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -990,7 +990,7 @@
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblExampleSubsequentChapterAnnouncement, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExampleSubsequentChapterAnnouncement, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.ExampleSubsequentChapterAnn" +
         "ouncement");
-			this.m_lblExampleSubsequentChapterAnnouncement.Location = new System.Drawing.Point(291, 43);
+			this.m_lblExampleSubsequentChapterAnnouncement.Location = new System.Drawing.Point(294, 43);
 			this.m_lblExampleSubsequentChapterAnnouncement.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
 			this.m_lblExampleSubsequentChapterAnnouncement.Name = "m_lblExampleSubsequentChapterAnnouncement";
 			this.m_lblExampleSubsequentChapterAnnouncement.Padding = new System.Windows.Forms.Padding(3, 6, 3, 0);
@@ -1015,11 +1015,11 @@
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblExampleTitleForSingleChapterBook, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExampleTitleForSingleChapterBook, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.ExampleTitleForSingleChapte" +
         "rBook");
-			this.m_lblExampleTitleForSingleChapterBook.Location = new System.Drawing.Point(407, 23);
+			this.m_lblExampleTitleForSingleChapterBook.Location = new System.Drawing.Point(410, 23);
 			this.m_lblExampleTitleForSingleChapterBook.Margin = new System.Windows.Forms.Padding(0);
 			this.m_lblExampleTitleForSingleChapterBook.Name = "m_lblExampleTitleForSingleChapterBook";
 			this.m_lblExampleTitleForSingleChapterBook.Padding = new System.Windows.Forms.Padding(3, 6, 3, 0);
-			this.m_lblExampleTitleForSingleChapterBook.Size = new System.Drawing.Size(167, 19);
+			this.m_lblExampleTitleForSingleChapterBook.Size = new System.Drawing.Size(169, 19);
 			this.m_lblExampleTitleForSingleChapterBook.TabIndex = 8;
 			this.m_lblExampleTitleForSingleChapterBook.Text = "#";
 			this.m_lblExampleTitleForSingleChapterBook.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1039,11 +1039,11 @@
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblExampleSingleChapterAnnouncement, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExampleSingleChapterAnnouncement, "DialogBoxes.ProjectSettingsDlg.ProjectSettingsDlg.m_lblExampleSingleChapterAnnoun" +
         "cement");
-			this.m_lblExampleSingleChapterAnnouncement.Location = new System.Drawing.Point(407, 43);
+			this.m_lblExampleSingleChapterAnnouncement.Location = new System.Drawing.Point(410, 43);
 			this.m_lblExampleSingleChapterAnnouncement.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
 			this.m_lblExampleSingleChapterAnnouncement.Name = "m_lblExampleSingleChapterAnnouncement";
 			this.m_lblExampleSingleChapterAnnouncement.Padding = new System.Windows.Forms.Padding(3, 6, 3, 0);
-			this.m_lblExampleSingleChapterAnnouncement.Size = new System.Drawing.Size(167, 19);
+			this.m_lblExampleSingleChapterAnnouncement.Size = new System.Drawing.Size(169, 19);
 			this.m_lblExampleSingleChapterAnnouncement.TabIndex = 9;
 			this.m_lblExampleSingleChapterAnnouncement.Text = "#";
 			this.m_lblExampleSingleChapterAnnouncement.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1064,7 +1064,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkAnnounceChaptersForSingleChapterBooks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkAnnounceChaptersForSingleChapterBooks, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.AnnounceChaptersForSingleCh" +
         "apterBooks");
-			this.m_chkAnnounceChaptersForSingleChapterBooks.Location = new System.Drawing.Point(11, 134);
+			this.m_chkAnnounceChaptersForSingleChapterBooks.Location = new System.Drawing.Point(3, 121);
 			this.m_chkAnnounceChaptersForSingleChapterBooks.Name = "m_chkAnnounceChaptersForSingleChapterBooks";
 			this.m_chkAnnounceChaptersForSingleChapterBooks.Size = new System.Drawing.Size(243, 17);
 			this.m_chkAnnounceChaptersForSingleChapterBooks.TabIndex = 5;
@@ -1084,8 +1084,8 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblChapterAnnouncementStyle, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblChapterAnnouncementStyle, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblChapterAnnouncementStyle, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.ChapterAnnouncementStyle");
-			this.m_lblChapterAnnouncementStyle.Location = new System.Drawing.Point(8, 16);
-			this.m_lblChapterAnnouncementStyle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+			this.m_lblChapterAnnouncementStyle.Location = new System.Drawing.Point(0, 3);
+			this.m_lblChapterAnnouncementStyle.Margin = new System.Windows.Forms.Padding(0, 3, 0, 6);
 			this.m_lblChapterAnnouncementStyle.Name = "m_lblChapterAnnouncementStyle";
 			this.m_lblChapterAnnouncementStyle.Size = new System.Drawing.Size(145, 13);
 			this.m_lblChapterAnnouncementStyle.TabIndex = 0;
@@ -1103,7 +1103,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblBookNameSource, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblBookNameSource, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblBookNameSource, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookNameSource");
-			this.m_lblBookNameSource.Location = new System.Drawing.Point(216, 42);
+			this.m_lblBookNameSource.Location = new System.Drawing.Point(208, 29);
 			this.m_lblBookNameSource.Margin = new System.Windows.Forms.Padding(32, 0, 3, 0);
 			this.m_lblBookNameSource.Name = "m_lblBookNameSource";
 			this.m_lblBookNameSource.Size = new System.Drawing.Size(112, 13);
@@ -1127,7 +1127,7 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoBookNamePlusChapterNumber, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_rdoBookNamePlusChapterNumber, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookNamePlusChapterNumberOp" +
         "tion");
-			this.m_rdoBookNamePlusChapterNumber.Location = new System.Drawing.Point(11, 40);
+			this.m_rdoBookNamePlusChapterNumber.Location = new System.Drawing.Point(3, 27);
 			this.m_rdoBookNamePlusChapterNumber.Name = "m_rdoBookNamePlusChapterNumber";
 			this.m_rdoBookNamePlusChapterNumber.Size = new System.Drawing.Size(170, 17);
 			this.m_rdoBookNamePlusChapterNumber.TabIndex = 1;
@@ -1150,7 +1150,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblExample, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblExample, "");
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblExample, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.Examples");
-			this.m_lblExample.Location = new System.Drawing.Point(11, 166);
+			this.m_lblExample.Location = new System.Drawing.Point(3, 153);
 			this.m_lblExample.Margin = new System.Windows.Forms.Padding(3, 12, 3, 0);
 			this.m_lblExample.Name = "m_lblExample";
 			this.m_lblExample.Size = new System.Drawing.Size(64, 13);
@@ -1171,7 +1171,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rdoChapterLabel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoChapterLabel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_rdoChapterLabel, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.ChapterLabelOption");
-			this.m_rdoChapterLabel.Location = new System.Drawing.Point(11, 65);
+			this.m_rdoChapterLabel.Location = new System.Drawing.Point(3, 52);
 			this.m_rdoChapterLabel.Name = "m_rdoChapterLabel";
 			this.m_rdoChapterLabel.Size = new System.Drawing.Size(214, 17);
 			this.m_rdoChapterLabel.TabIndex = 2;
@@ -1193,7 +1193,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_rdoCustom, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_rdoCustom, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_rdoCustom, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.CustomOption");
-			this.m_rdoCustom.Location = new System.Drawing.Point(11, 88);
+			this.m_rdoCustom.Location = new System.Drawing.Point(3, 75);
 			this.m_rdoCustom.Name = "m_rdoCustom";
 			this.m_rdoCustom.Size = new System.Drawing.Size(60, 17);
 			this.m_rdoCustom.TabIndex = 3;
@@ -1216,7 +1216,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkChapterOneAnnouncements, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkChapterOneAnnouncements, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkChapterOneAnnouncements, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.AnnounceFirstChapterInBook");
-			this.m_chkChapterOneAnnouncements.Location = new System.Drawing.Point(11, 111);
+			this.m_chkChapterOneAnnouncements.Location = new System.Drawing.Point(3, 98);
 			this.m_chkChapterOneAnnouncements.Name = "m_chkChapterOneAnnouncements";
 			this.m_chkChapterOneAnnouncements.Size = new System.Drawing.Size(176, 17);
 			this.m_chkChapterOneAnnouncements.TabIndex = 4;
@@ -1242,10 +1242,10 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_cboBookMarker, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_cboBookMarker, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_cboBookMarker, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox");
-			this.m_cboBookMarker.Location = new System.Drawing.Point(334, 38);
+			this.m_cboBookMarker.Location = new System.Drawing.Point(326, 25);
 			this.m_cboBookMarker.MinimumSize = new System.Drawing.Size(150, 0);
 			this.m_cboBookMarker.Name = "m_cboBookMarker";
-			this.m_cboBookMarker.Size = new System.Drawing.Size(252, 21);
+			this.m_cboBookMarker.Size = new System.Drawing.Size(257, 21);
 			this.m_cboBookMarker.TabIndex = 9;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_cboBookMarker, false);
 			this.m_cboBookMarker.SelectedIndexChanged += new System.EventHandler(this.HandleChapterAnnouncementChange);
@@ -1260,11 +1260,11 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblChapterAnnouncementWarning, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblChapterAnnouncementWarning, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblChapterAnnouncementWarning, "DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.ChapterAnnouncementWarning");
-			this.m_lblChapterAnnouncementWarning.Location = new System.Drawing.Point(334, 72);
+			this.m_lblChapterAnnouncementWarning.Location = new System.Drawing.Point(326, 59);
 			this.m_lblChapterAnnouncementWarning.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
 			this.m_lblChapterAnnouncementWarning.Name = "m_lblChapterAnnouncementWarning";
 			this.tableLayoutPanel1.SetRowSpan(this.m_lblChapterAnnouncementWarning, 4);
-			this.m_lblChapterAnnouncementWarning.Size = new System.Drawing.Size(251, 39);
+			this.m_lblChapterAnnouncementWarning.Size = new System.Drawing.Size(254, 39);
 			this.m_lblChapterAnnouncementWarning.TabIndex = 10;
 			this.m_lblChapterAnnouncementWarning.Text = "It looks like the current style will result in chapter announcements that do not " +
     "include a book name or a vernacular word for \"chapter.\"";
@@ -1282,15 +1282,14 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_tabPageReferenceTexts, "DialogBoxes.ProjectSettingsDlg.ReferenceTextsTab.TabName");
 			this.m_tabPageReferenceTexts.Location = new System.Drawing.Point(4, 22);
 			this.m_tabPageReferenceTexts.Name = "m_tabPageReferenceTexts";
-			this.m_tabPageReferenceTexts.Padding = new System.Windows.Forms.Padding(3);
-			this.m_tabPageReferenceTexts.Size = new System.Drawing.Size(603, 332);
+			this.m_tabPageReferenceTexts.Padding = new System.Windows.Forms.Padding(7, 12, 7, 12);
+			this.m_tabPageReferenceTexts.Size = new System.Drawing.Size(603, 337);
 			this.m_tabPageReferenceTexts.TabIndex = 3;
 			this.m_tabPageReferenceTexts.Text = "Reference Text";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tabPageReferenceTexts, true);
 			// 
 			// m_tableLayoutReferenceTexts
 			// 
-			this.m_tableLayoutReferenceTexts.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.m_tableLayoutReferenceTexts.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_tableLayoutReferenceTexts, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutReferenceTexts.ColumnCount = 3;
@@ -1300,15 +1299,16 @@
 			this.m_tableLayoutReferenceTexts.Controls.Add(this.m_labelReferenceText, 0, 0);
 			this.m_tableLayoutReferenceTexts.Controls.Add(this.m_ReferenceText, 1, 0);
 			this.m_tableLayoutReferenceTexts.Controls.Add(this.m_referenceTextExplanation, 1, 1);
+			this.m_tableLayoutReferenceTexts.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutReferenceTexts, Glyssen.Utilities.GlyssenColors.Default);
-			this.m_tableLayoutReferenceTexts.Location = new System.Drawing.Point(7, 13);
+			this.m_tableLayoutReferenceTexts.Location = new System.Drawing.Point(7, 12);
 			this.m_tableLayoutReferenceTexts.Name = "m_tableLayoutReferenceTexts";
 			this.m_tableLayoutReferenceTexts.Padding = new System.Windows.Forms.Padding(3);
 			this.m_tableLayoutReferenceTexts.RowCount = 3;
 			this.m_tableLayoutReferenceTexts.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutReferenceTexts.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutReferenceTexts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutReferenceTexts.Size = new System.Drawing.Size(589, 307);
+			this.m_tableLayoutReferenceTexts.Size = new System.Drawing.Size(589, 313);
 			this.m_tableLayoutReferenceTexts.TabIndex = 0;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutReferenceTexts, false);
 			// 
@@ -1323,7 +1323,7 @@
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelReferenceText, "DialogBoxes.ProjectSettingsDlg.ReferenceTextTab.ReferenceText");
-			this.m_labelReferenceText.Location = new System.Drawing.Point(6, 13);
+			this.m_labelReferenceText.Location = new System.Drawing.Point(6, 10);
 			this.m_labelReferenceText.Name = "m_labelReferenceText";
 			this.m_labelReferenceText.Size = new System.Drawing.Size(110, 13);
 			this.m_labelReferenceText.TabIndex = 15;
@@ -1341,12 +1341,33 @@
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_ReferenceText, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_ReferenceText, "DialogBoxes.ProjectSettingsDlg.ReferenceTextDropdown");
-			this.m_ReferenceText.Location = new System.Drawing.Point(125, 9);
-			this.m_ReferenceText.Margin = new System.Windows.Forms.Padding(6);
+			this.m_ReferenceText.Location = new System.Drawing.Point(125, 3);
+			this.m_ReferenceText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 6);
 			this.m_ReferenceText.Name = "m_ReferenceText";
 			this.m_ReferenceText.Size = new System.Drawing.Size(121, 21);
 			this.m_ReferenceText.TabIndex = 16;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_ReferenceText, false);
+			// 
+			// m_referenceTextExplanation
+			// 
+			this.m_referenceTextExplanation.AutoSize = true;
+			this.m_referenceTextExplanation.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_referenceTextExplanation, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_tableLayoutReferenceTexts.SetColumnSpan(this.m_referenceTextExplanation, 2);
+			this.m_referenceTextExplanation.Dock = System.Windows.Forms.DockStyle.Top;
+			this.glyssenColorPalette.SetForeColor(this.m_referenceTextExplanation, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_referenceTextExplanation.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_referenceTextExplanation, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_referenceTextExplanation, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_referenceTextExplanation, "DialogBoxes.ProjectSettingsDlg.ReferenceTextTab.ReferenceTextExplanation");
+			this.m_referenceTextExplanation.Location = new System.Drawing.Point(122, 36);
+			this.m_referenceTextExplanation.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+			this.m_referenceTextExplanation.Name = "m_referenceTextExplanation";
+			this.m_referenceTextExplanation.Size = new System.Drawing.Size(461, 26);
+			this.m_referenceTextExplanation.TabIndex = 17;
+			this.m_referenceTextExplanation.Text = "If you choose a main reference text other than English, a secondary reference tex" +
+    "t (English) will also be added to the recording script.";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_referenceTextExplanation, true);
 			// 
 			// m_tabControl
 			// 
@@ -1363,29 +1384,10 @@
 			this.m_tabControl.Location = new System.Drawing.Point(7, 14);
 			this.m_tabControl.Name = "m_tabControl";
 			this.m_tabControl.SelectedIndex = 0;
-			this.m_tabControl.Size = new System.Drawing.Size(611, 358);
+			this.m_tabControl.Size = new System.Drawing.Size(611, 363);
 			this.m_tabControl.TabIndex = 0;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tabControl, true);
 			this.m_tabControl.SelectedIndexChanged += new System.EventHandler(this.HandleSelectedTabPageChanged);
-			// 
-			// m_referenceTextExplanation
-			// 
-			this.m_referenceTextExplanation.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_referenceTextExplanation, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_tableLayoutReferenceTexts.SetColumnSpan(this.m_referenceTextExplanation, 2);
-			this.m_referenceTextExplanation.Dock = System.Windows.Forms.DockStyle.Top;
-			this.glyssenColorPalette.SetForeColor(this.m_referenceTextExplanation, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_referenceTextExplanation, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_referenceTextExplanation, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_referenceTextExplanation, "DialogBoxes.ProjectSettingsDlg.ReferenceTextTab.ReferenceTextExplanation");
-			this.m_referenceTextExplanation.Location = new System.Drawing.Point(122, 42);
-			this.m_referenceTextExplanation.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-			this.m_referenceTextExplanation.Name = "m_referenceTextExplanation";
-			this.m_referenceTextExplanation.Size = new System.Drawing.Size(461, 26);
-			this.m_referenceTextExplanation.TabIndex = 17;
-			this.m_referenceTextExplanation.Text = "If you choose a main reference text other than English, a secondary reference tex" +
-    "t (English) will also be added to the recording script.";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_referenceTextExplanation, true);
 			// 
 			// ProjectSettingsDlg
 			// 
@@ -1395,7 +1397,7 @@
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(636, 417);
+			this.ClientSize = new System.Drawing.Size(636, 422);
 			this.Controls.Add(this.m_tabControl);
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.m_btnCancel);
@@ -1406,7 +1408,7 @@
 			this.m_l10NSharpExtender.SetLocalizingId(this, "DialogBoxes.ProjectSettingsDlg.WindowTitle");
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(644, 436);
+			this.MinimumSize = new System.Drawing.Size(644, 460);
 			this.Name = "ProjectSettingsDlg";
 			this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 55);
 			this.ShowInTaskbar = false;
