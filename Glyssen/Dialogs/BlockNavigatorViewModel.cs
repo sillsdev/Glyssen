@@ -745,14 +745,9 @@ namespace Glyssen.Dialogs
 				CurrentBlockIndexInBook, m_project.Versification);
 			if (m_currentRefBlockMatchups != null)
 			{
-				if (m_currentRefBlockMatchups.OriginalBlocks.Count() == 1)
-					m_currentRefBlockMatchups = null;
-				else
-				{
-					m_currentRefBlockMatchups.MatchAllBlocks();
-					// REVIEW: We might want to keep track of which style the user prefers.
-					BlockGroupingStyle = BlockGroupingType.BlockCorrelation;
-				}
+				m_currentRefBlockMatchups.MatchAllBlocks();
+				// REVIEW: We might want to keep track of which style the user prefers.
+				BlockGroupingStyle = BlockGroupingType.BlockCorrelation;
 			}
 			if (CurrentBlockMatchupChanged != null && origValue != m_currentRefBlockMatchups)
 				CurrentBlockMatchupChanged(this, new EventArgs());
