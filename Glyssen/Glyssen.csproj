@@ -313,6 +313,7 @@
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
     <Compile Include="ReferenceText.cs" />
+    <Compile Include="ReferenceTextIdentifier.cs" />
     <Compile Include="Rules\AuthorStats.cs" />
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />

@@ -16,23 +16,9 @@ using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
-	public enum ReferenceTextType
-	{
-		Unknown,
-		English,
-		Azeri,
-		French,
-		Indonesian,
-		Portuguese,
-		Russian,
-		Spanish,
-		TokPisin,
-		Custom
-	}
 
 	public class ReferenceText : ProjectBase
 	{
-		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 		private readonly ReferenceTextType m_referenceTextType;
 		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
@@ -50,19 +36,21 @@ namespace Glyssen
 				switch (referenceTextType)
 				{
 					case ReferenceTextType.English:
-					case ReferenceTextType.Azeri:
-					case ReferenceTextType.French:
-					case ReferenceTextType.Indonesian:
-					case ReferenceTextType.Portuguese:
+					//case ReferenceTextType.Azeri:
+					//case ReferenceTextType.French:
+					//case ReferenceTextType.Indonesian:
+					//case ReferenceTextType.Portuguese:
 					case ReferenceTextType.Russian:
-					case ReferenceTextType.Spanish:
-					case ReferenceTextType.TokPisin:
+					//case ReferenceTextType.Spanish:
+					//case ReferenceTextType.TokPisin:
 						versification = ScrVers.English;
 						break;
 					default:
 						throw new ArgumentOutOfRangeException("referenceTextType", referenceTextType, null);
 				}
-				referenceText = GenerateStandardReferenceText(referenceTextType);
+
+				referenceText = new ReferenceText(ReferenceTextIdentifier.LoadMetadata(referenceTextType), referenceTextType);
+				referenceText.LoadBooks();
 				referenceText.m_vers = versification;
 
 				s_standardReferenceTexts[referenceTextType] = referenceText;
@@ -75,33 +63,6 @@ namespace Glyssen
 			return new ReferenceText(metadata, ReferenceTextType.Custom);
 		}
 
-		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
-			Action<Exception, string, string> reportError = null)
-		{
-			var referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
-			Exception exception;
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
-			if (exception != null)
-			{
-				if (reportError != null)
-					reportError(exception, referenceTextType.ToString(), referenceProjectFilePath);
-				return null;
-			}
-			return metadata;
-		}
-
-		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
-		{
-			var metadata = LoadMetadata(referenceTextType, (exception, token, path) =>
-			{
-				Analytics.ReportException(exception);
-				ReportNonFatalLoadError(exception, token, path);
-			});
-
-			var referenceText = new ReferenceText(metadata, referenceTextType);
-			referenceText.LoadBooks();
-			return referenceText;
-		}
 
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
@@ -141,73 +102,6 @@ namespace Glyssen
 				}
 			}
 			m_modifiedBooks.Clear();
-		}
-
-		public static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
-		{
-			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + kProjectFileExtension;
-			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
-		}
-
-		// ENHANCE: Change the key from ReferenceTextType to some kind of token that can represent either a standard
-		// reference text or a specific custom one.
-		public static Dictionary<string, ReferenceTextType> AllAvailable
-		{
-			get
-			{
-				var items = new Dictionary<string, ReferenceTextType>();
-				Tuple<Exception, string, string> firstLoadError = null;
-				var additionalErrors = new List<string>();
-
-				foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
-				{
-					if (itm == ReferenceTextType.Custom || itm == ReferenceTextType.Unknown) continue;
-
-					var metadata = LoadMetadata(itm, (exception, token, path) =>
-					{
-						Analytics.ReportException(exception);
-						if (firstLoadError == null)
-							firstLoadError = new Tuple<Exception, string, string>(exception, token, path);
-						else
-							additionalErrors.Add(token);
-					});
-					if (metadata == null) continue;
-
-					items.Add(metadata.Language.Name, itm);
-				}
-
-				if (firstLoadError != null)
-				{
-					if (!items.Any())
-					{
-						throw new Exception(
-							String.Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
-							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
-							"for more details."), Program.kProduct),
-							firstLoadError.Item1);
-					}
-					if (additionalErrors.Any())
-					{
-						ErrorReport.ReportNonFatalExceptionWithMessage(firstLoadError.Item1,
-							String.Format(LocalizationManager.GetString("ReferenceText.MultipleLoadErrors",
-							"The following reference texts could not be loaded: {0}, {1}"), firstLoadError.Item2,
-							String.Join(", ", additionalErrors)));
-					}
-					else
-					{
-						ReportNonFatalLoadError(firstLoadError.Item1, firstLoadError.Item2, firstLoadError.Item3);
-					}
-				}
-
-				return items;
-			}
-		}
-
-		private static void ReportNonFatalLoadError(Exception exception, string token, string path)
-		{
-			ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-				LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
-				token, path);
 		}
 
 		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
@@ -525,10 +419,8 @@ namespace Glyssen
 			{
 				if (m_projectFolder == null)
 				{
-					if (m_referenceTextType == ReferenceTextType.Custom || m_referenceTextType == ReferenceTextType.Unknown)
-						throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
-					m_projectFolder = FileLocator.GetDirectoryDistributedWithApplication(kDistFilesReferenceTextDirectoryName,
-						m_referenceTextType.ToString());
+					// This had better be a standard reference text if the folder is not set!
+					m_projectFolder = ReferenceTextIdentifier.GetProjectFolderForStandardReferenceText(m_referenceTextType);
 				}
 				return m_projectFolder;
 			}

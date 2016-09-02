@@ -175,14 +175,22 @@ namespace Glyssen.Bundle
 		}
 
 		/// <summary>
-		/// The secondary reference text for this project.
+		/// The reference text type for this project. Note that this is poorly named in the XML. Historically,
+		/// a reference text could be identified by type alone. With the added support for proprietary reference
+		/// texts, we now also need the ProprietaryReferenceTextIdentifier.
 		/// </summary>
 		[XmlAttribute("referenceText")]
-		public ReferenceTextType ReferenceText
+		public ReferenceTextType ReferenceTextType
 		{
 			get { return m_referenceTextType; }
 			set { m_referenceTextType = value; }
 		}
+
+		/// <summary>
+		/// The reference text for this project.
+		/// </summary>
+		[XmlAttribute("proprietaryReferenceTextIdentifier")]
+		public string ProprietaryReferenceTextIdentifier { get; set; }
 		#endregion
 
 		public new string GetAsXml()

@@ -134,6 +134,7 @@
     <Compile Include="ProjectDataMigratorTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
     <Compile Include="ProjectTests.cs" />
+    <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="ReferenceTextTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
