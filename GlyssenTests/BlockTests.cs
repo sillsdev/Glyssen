@@ -899,6 +899,23 @@ namespace GlyssenTests
 			Assert.AreEqual(" three.", refBlock.BlockElements.OfType<ScriptText>().Last().Content);
 		}
 
+		[Test]
+		public void SetMatchedReferenceBlock_VernBlockHasCharacter_AnnotationParsedAndIncludedAsBlockElement()
+		{
+			var block = new Block("p", 8, 29).AddVerse("29", "“¡No te metas con nosotros, Hijo de Dios! ¿Viniste acá para atormentarnos antes de tiempo?”");
+			block.SetCharacterAndCharacterIdInScript(@"demons (Legion)/man delivered from Legion of demons", 40, m_testVersification);
+			Assert.AreEqual(@"demons (Legion)", block.CharacterIdOverrideForScript);
+			var refBlock = block.SetMatchedReferenceBlock("{29} “What do we have to do with you, Jesus, Son of God? Have you come here to torment us before the time?”");
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(29, refBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, refBlock.InitialEndVerseNumber);
+			Assert.AreEqual("29", refBlock.BlockElements.OfType<Verse>().Single().Number);
+			Assert.AreEqual(@"demons (Legion)/man delivered from Legion of demons", refBlock.CharacterId);
+			Assert.AreEqual(@"demons (Legion)", refBlock.CharacterIdInScript);
+			Assert.AreEqual(@"demons (Legion)", refBlock.CharacterIdOverrideForScript);
+		}
+
 		[TestCase("")]
 		[TestCase(" ")]
 		[TestCase("\u00A0")]

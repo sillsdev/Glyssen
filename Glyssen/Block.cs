@@ -833,10 +833,18 @@ namespace Glyssen
 			return newBlock;
 		}
 
-		public void SetCharacterAndDeliveryInfo(Block basedOnBlock)
+		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, Paratext.ScrVers scrVers)
+		{
+			if (basedOnBlock.CharacterIdOverrideForScript == null)
+				SetCharacterAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
+			SetCharacterAndDeliveryInfo(basedOnBlock);
+		}
+
+		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
 		{
 			CharacterId = basedOnBlock.CharacterId;
-			CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
+			if (basedOnBlock.CharacterIdOverrideForScript != null)
+				CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
 			Delivery = basedOnBlock.Delivery;
 		}
 

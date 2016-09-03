@@ -678,6 +678,53 @@ namespace GlyssenTests
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
 		}
 
+		[Test]
+		public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasNoExplicitDefault_FirstCharacterIsUsed()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var jesusSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(1);
+			jesusSpeakingInMrk59.SetCharacterAndCharacterIdInScript("Jesus", 66);
+			jesusSpeakingInMrk59.UserConfirmed = true;
+			var demonSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(3);
+			demonSpeakingInMrk59.CharacterId = "demons (Legion)/man delivered from Legion of demons";
+			demonSpeakingInMrk59.CharacterIdOverrideForScript = null;
+			demonSpeakingInMrk59.UserConfirmed = true;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+
+			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterId);
+			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterIdInScript);
+			Assert.IsTrue(jesusSpeakingInMrk59.UserConfirmed);
+			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", demonSpeakingInMrk59.CharacterId);
+			Assert.AreEqual("demons (Legion)", demonSpeakingInMrk59.CharacterIdInScript);
+			Assert.IsTrue(demonSpeakingInMrk59.UserConfirmed);
+		}
+
+		// The only place in the NT where this is likely to have occurred wwas John 11:34, but we don't have John test data, and it didn't seem worth it.
+		//[Test]
+		//public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasExplicitDefault_ExplicitDefaultCharacterIsUsed()
+		//{
+		//	var testProject = TestProject.CreateTestProject(TestProject.TestBook.JHN);
+		//	TestProject.SimulateDisambiguationForAllBooks(testProject);
+		//	var jesusSpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(1);
+		//	jesusSpeakingInJhn1134.SetCharacterAndCharacterIdInScript("Jesus", 66);
+		//	jesusSpeakingInJhn1134.UserConfirmed = true;
+		//	var marySpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(3);
+		//	marySpeakingInJhn1134.CharacterId = "Jews, the/Mary, sister of Martha/Martha";
+		//	marySpeakingInJhn1134.CharacterIdOverrideForScript = null;
+		//	marySpeakingInJhn1134.UserConfirmed = true;
+
+		//	Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+
+		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterId);
+		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterIdInScript);
+		//	Assert.IsTrue(jesusSpeakingInJhn1134.UserConfirmed);
+		//	Assert.AreEqual("Jews, the/Mary, sister of Martha/Martha", marySpeakingInJhn1134.CharacterId);
+		//	Assert.AreEqual("Mary, sister of Martha", marySpeakingInJhn1134.CharacterIdInScript);
+		//	Assert.IsTrue(marySpeakingInJhn1134.UserConfirmed);
+		//}
+
 		[TestCase("c")]
 		[TestCase("cl")]
 		public void SetBookIdForChapterBlocks_Normal_AllChapterBlocksGetBookIdSet(string chapterStyleTag)

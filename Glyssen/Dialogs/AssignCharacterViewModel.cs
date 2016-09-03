@@ -431,6 +431,7 @@ namespace Glyssen.Dialogs
 		public override void ApplyCurrentReferenceTextMatchup()
 		{
 			base.ApplyCurrentReferenceTextMatchup();
+			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
 		}
 
