@@ -3087,8 +3087,8 @@
     <verse num="18" />
     <text>и, видя дым от пожара ее, возопили, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="wailing" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="wailing" userConfirmed="true">
       <text>“What is like the great city?”</text>
     </ReferenceBlocks>
     <text>какой город подобен городу великому!</text>
@@ -3101,8 +3101,8 @@
     <verse num="19" />
     <text>И посыпали пеплом головы свои, и вопили, плача и рыдая:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="merchants of the earth" delivery="wailing" userConfirmed="true">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="wailing" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="wailing" userConfirmed="true">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
     <text>горе, горе тебе, город великий, драгоценностями которого обогатились все, имеющие корабли на море, ибо опустел в один час!</text>
