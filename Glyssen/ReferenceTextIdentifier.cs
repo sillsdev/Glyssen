@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using L10NSharp;
@@ -28,6 +29,7 @@ namespace Glyssen
 	public class ReferenceTextIdentifier
 	{
 		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
+		private const string kCustomIdPrefix = "Custom:";
 
 		#region static internals to support testing
 		internal static string ProprietaryReferenceTextProjectFileLocation { get; set; }
@@ -39,41 +41,27 @@ namespace Glyssen
 
 		private readonly ReferenceTextType m_referenceTextType;
 		private readonly GlyssenDblTextMetadata m_metadata;
-		private readonly string m_name;
-		public ReferenceTextType Type
-		{
-			get { return m_referenceTextType; }
-		}
-		public string UiLanguageName
-		{
-			get
-			{
-				var retVal = m_metadata.Language.Name;
-				if (!IsStandardReferenceText(m_referenceTextType))
-				{
-					Debug.Assert(s_allAvailableLoaded);
-					if (s_allAvailable.Values.Any(r => r != this && r.m_metadata.Language.Name == this.m_metadata.Language.Name))
-					{
-						// More than one reference text with the same language name, so need to qualify the name in the UI using the specific project name
-						retVal += string.Format(" ({0})", m_name);
-					}
-				}
-				return retVal;
-			}
-		}
+		private readonly string m_customId;
 
-		public string CustomIdentifier
-		{
-			get
-			{
-				return IsStandardReferenceText(m_referenceTextType) ? null : m_metadata.Language.Name + ":" + m_name;
-			}
-		}
+		public ReferenceTextType Type { get { return m_referenceTextType; } }
+		public GlyssenDblTextMetadata Metadata { get { return m_metadata; } }
+		public string CustomIdentifier { get { return m_customId; } }
 
 		private ReferenceTextIdentifier(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
 		{
+			Debug.Assert(IsStandardReferenceText(type));
 			m_referenceTextType = type;
-			m_metadata = metadata;
+			m_customId = null;
+			m_metadata = metadata ?? LoadMetadata(type);
+		}
+
+		private ReferenceTextIdentifier(ReferenceTextType type, string customId, GlyssenDblTextMetadata metadata)
+		{
+			Debug.Assert(!IsStandardReferenceText(type));
+			Debug.Assert(customId != null);
+			m_referenceTextType = type;
+			m_customId = customId;
+			m_metadata = metadata ?? LoadMetadata(type, customId);
 		}
 
 		// ENHANCE: Change the key from ReferenceTextType to some kind of token that can represent either a standard
@@ -87,6 +75,61 @@ namespace Glyssen
 				return s_allAvailable;
 			}
 		}
+
+		public static ReferenceTextIdentifier GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
+		{
+			ReferenceTextIdentifier identifier;
+			bool standard = IsStandardReferenceText(referenceTextType);
+			var key = standard ? referenceTextType.ToString() : kCustomIdPrefix + proprietaryReferenceTextIdentifier;
+			if (s_allAvailable == null)
+			{
+				s_allAvailable = new Dictionary<string, ReferenceTextIdentifier>();
+				identifier = null;
+			}
+			else
+			{
+				s_allAvailable.TryGetValue(key, out identifier);
+			}
+			if (identifier == null)
+			{
+				if (standard)
+					identifier = new ReferenceTextIdentifier(referenceTextType);
+				else
+				{
+					identifier = new ReferenceTextIdentifier(referenceTextType, proprietaryReferenceTextIdentifier, null); 
+				}
+			}
+			s_allAvailable[key] = identifier;
+			return identifier;
+		}
+
+		//public override bool Equals(object obj)
+		//{
+		//	return base.Equals(obj);
+		//}
+
+		//protected bool Equals(ReferenceTextIdentifier other)
+		//{
+		//	return m_referenceTextType == other.m_referenceTextType && Equals(m_metadata, other.m_metadata);
+		//}
+
+		//public override int GetHashCode()
+		//{
+		//	unchecked
+		//	{
+		//		return ((int) m_referenceTextType * 397) ^ (m_metadata != null ? m_metadata.GetHashCode() : 0);
+		//	}
+		//}
+
+		//public static bool operator ==(ReferenceTextIdentifier left, ReferenceTextIdentifier right)
+		//{
+		//	return Equals(left, right);
+		//}
+
+		//public static bool operator !=(ReferenceTextIdentifier left, ReferenceTextIdentifier right)
+		//{
+		//	return !Equals(left, right);
+		//}
 
 		private static bool IsStandardReferenceText(ReferenceTextType type)
 		{
@@ -109,31 +152,32 @@ namespace Glyssen
 
 			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(IsStandardReferenceText))
 			{
+				if (s_allAvailable.ContainsKey(itm.ToString()))
+					continue;
 				var metadata = LoadMetadata(itm, errorReporter);
 				if (metadata != null)
-					s_allAvailable.Add(metadata.Language.Name, new ReferenceTextIdentifier(itm, metadata));
+					s_allAvailable.Add(itm.ToString(), new ReferenceTextIdentifier(itm, metadata));
 			}
 
-			//if (ErrorReporterForCopyrightedReferenceTexts == null)
-			//	ErrorReporterForCopyrightedReferenceTexts = errorReporter;
-			//if (ProprietaryReferenceTextProjectFileLocation == null)
-			//	ProprietaryReferenceTextProjectFileLocation = Path.Combine(ProjectsBaseFolder, "Local Reference Texts");
+			if (ErrorReporterForCopyrightedReferenceTexts == null)
+				ErrorReporterForCopyrightedReferenceTexts = errorReporter;
+			if (ProprietaryReferenceTextProjectFileLocation == null)
+				ProprietaryReferenceTextProjectFileLocation = Path.Combine(Program.BaseDataFolder, "Local Reference Texts");
 
-			//foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
-			//{
-			//	if (itm == ReferenceTextType.Custom || itm == ReferenceTextType.Unknown) continue;
-
-			//	var metadata = LoadMetadata(itm, (exception, token, path) =>
-			//	{
-			//		Analytics.ReportException(exception);
-			//		if (firstLoadError == null)
-			//			firstLoadError = new Tuple<Exception, string, string>(exception, token, path);
-			//		else
-			//			additionalErrors.Add(token);
-			//	});
-			//	if (metadata != null)
-			//		items.Add(metadata.Language.Name, itm);
-			//}
+			foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
+			{
+				var customId = Path.GetFileName(dir);
+				Debug.Assert(customId != null);
+				if (!s_allAvailable.ContainsKey(customId))
+					continue;
+				string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+				var refTextProjectFilePath = Path.Combine(dir, projectFileName);
+				if (!File.Exists(refTextProjectFilePath))
+					continue;
+				var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath, ErrorReporterForCopyrightedReferenceTexts);
+				if (metadata != null)
+					s_allAvailable.Add(customId, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+			}
 
 			if (firstLoadError != null)
 			{
@@ -159,11 +203,18 @@ namespace Glyssen
 			}
 		}
 
-		internal static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
+		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
 			Action<Exception, string, string> reportError = null)
 		{
 			Debug.Assert(IsStandardReferenceText(referenceTextType));
 			var referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
+			return LoadMetadata(referenceTextType, referenceProjectFilePath, reportError);
+		}
+
+		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
+			string referenceProjectFilePath,
+			Action<Exception, string, string> reportError = null)
+		{
 			Exception exception;
 			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
 			if (exception != null)
@@ -193,6 +244,13 @@ namespace Glyssen
 
 			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName,
 				referenceTextType.ToString());
+		}
+
+		internal string GetProjectFolder()
+		{
+			if (IsStandardReferenceText(Type))
+				return GetProjectFolderForStandardReferenceText(Type);
+			return Path.Combine(Program.BaseDataFolder, "Local Reference Texts", m_customId);
 		}
 
 		private static void ReportNonFatalLoadError(Exception exception, string token, string path)

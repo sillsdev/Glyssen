@@ -608,7 +608,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return m_referenceText ?? (m_referenceText = ReferenceText.GetStandardReferenceText(m_metadata.ReferenceText));
+				return m_referenceText ?? (m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier));
 			}
 			set
 			{

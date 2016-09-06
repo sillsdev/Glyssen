@@ -1865,7 +1865,7 @@ namespace GlyssenTests
 			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
-			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(metadata);
+			var primaryReferenceText = ReferenceText.CreateTestReferenceText(metadata);
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript("JUD", referenceBlocks);

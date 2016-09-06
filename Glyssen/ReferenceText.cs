@@ -23,17 +23,23 @@ namespace Glyssen
 		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
-		private static readonly Dictionary<ReferenceTextType, ReferenceText> s_standardReferenceTexts = new Dictionary<ReferenceTextType, ReferenceText>();
+		private static readonly Dictionary<ReferenceTextIdentifier, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<ReferenceTextIdentifier, ReferenceText>();
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
+			return GetReferenceText(ReferenceTextIdentifier.GetOrCreate(referenceTextType));
+		}
+
+		public static ReferenceText GetReferenceText(ReferenceTextIdentifier id)
+		{
 			ReferenceText referenceText;
-			if (s_standardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
+			if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
 				referenceText.ReloadModifiedBooks();
 			else
 			{
-				ScrVers versification;
-				switch (referenceTextType)
+				referenceText = new ReferenceText(id.Metadata, id.Type);
+				referenceText.LoadBooks();
+				switch (id.Type)
 				{
 					case ReferenceTextType.English:
 					//case ReferenceTextType.Azeri:
@@ -41,28 +47,28 @@ namespace Glyssen
 					//case ReferenceTextType.Indonesian:
 					//case ReferenceTextType.Portuguese:
 					case ReferenceTextType.Russian:
-					//case ReferenceTextType.Spanish:
-					//case ReferenceTextType.TokPisin:
-						versification = ScrVers.English;
+						//case ReferenceTextType.Spanish:
+						//case ReferenceTextType.TokPisin:
+						referenceText.m_vers = ScrVers.English;
 						break;
 					default:
-						throw new ArgumentOutOfRangeException("referenceTextType", referenceTextType, null);
+						referenceText.m_projectFolder = id.GetProjectFolder();
+						break;
 				}
-
-				referenceText = new ReferenceText(ReferenceTextIdentifier.LoadMetadata(referenceTextType), referenceTextType);
-				referenceText.LoadBooks();
-				referenceText.m_vers = versification;
-
-				s_standardReferenceTexts[referenceTextType] = referenceText;
+				s_instantiatedReferenceTexts[id] = referenceText;
 			}
 			return referenceText;
 		}
 
-		public static ReferenceText CreateCustomReferenceText(GlyssenDblTextMetadata metadata)
+		/// <summary>
+		/// This version is just for unit tests. No entry is made in the static list of instantiated reference texts,
+		/// and no books are loaded.
+		/// </summary>
+		/// <param name="metadata"></param>
+		internal static ReferenceText CreateTestReferenceText(GlyssenDblTextMetadata metadata)
 		{
 			return new ReferenceText(metadata, ReferenceTextType.Custom);
 		}
-
 
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
@@ -114,6 +120,9 @@ namespace Glyssen
 				var book = Books.FirstOrDefault(b => b.BookId == bookId);
 				return book == null ? null : book.PageHeader;
 			};
+
+			if (m_referenceTextType == ReferenceTextType.Custom)
+				m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public bool HasSecondaryReferenceText

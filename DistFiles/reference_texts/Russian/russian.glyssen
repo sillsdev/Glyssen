@@ -11,7 +11,7 @@
     <fontSizeInPoints>14</fontSizeInPoints>
   </language>
   <identification>
-    <name />
+    <name>Synodal Translation (1876)</name>
     <nameLocal />
     <systemId type="gbc" />
     <systemId type="tms" />
@@ -19,7 +19,9 @@
     <systemId type="biblica" />
   </identification>
   <copyright>
-    <statement contentType="xhtml" />
+    <statement contentType="xhtml">
+      <p>Public Domain.</p>
+    </statement>
   </copyright>
   <promotion>
     <promoVersionInfo contentType="xhtml" />
