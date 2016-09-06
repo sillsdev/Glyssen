@@ -1,4 +1,4 @@
-Control File Version	105
+Control File Version	106
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12916,6 +12916,7 @@ MRK	6	45	Jesus			Indirect
 MRK	6	49	disciples	terrified		Indirect		
 MRK	6	50	Jesus	reassuring		Normal		
 MRK	6	54	crowd		people	Indirect		
+MRK	6	55	crowd		people	Indirect		
 MRK	6	56	people, sick			Indirect		
 MRK	7	2	narrator-MRK			Quotation		
 MRK	7	5	Pharisees/teachers of religious law	critical		Dialogue		MAT 15.2;MRK 7.5
@@ -13284,6 +13285,7 @@ LUK	1	18	Zacharias (Zechariah)			Dialogue
 LUK	1	19	Gabriel		angel of the LORD	Dialogue		
 LUK	1	20	Gabriel		angel of the LORD	Normal		
 LUK	1	21	people	wondering		Indirect		
+LUK	1	22	people	wondering		Indirect		
 LUK	1	25	Elizabeth			Normal		
 LUK	1	28	Gabriel		Gabriel (angel)	Dialogue		
 LUK	1	29	Mary, Jesus' mother	confused		Indirect		
@@ -15866,6 +15868,7 @@ JAS	5	17	Elijah	praying		Indirect
 1PE	1	17	you (hypothetical)			Hypothetical		
 1PE	1	24	scripture			Quotation	Isaiah	
 1PE	1	25	scripture			Quotation	Isaiah	
+1PE	2	3	scripture			Quotation		
 1PE	2	6	scripture			Quotation	God	
 1PE	2	7	scripture			Quotation	psalmist	
 1PE	2	8	scripture			Quotation	God	
