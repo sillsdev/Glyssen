@@ -184,6 +184,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\azeri.glyssen" />
+    <None Include="Resources\english.glyssen" />
     <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
@@ -199,6 +201,7 @@
     <None Include="Resources\Test2JN.xml" />
     <None Include="Resources\Test3JN.xml" />
     <None Include="Resources\AzeriJUDRefText.xml" />
+    <None Include="Resources\EnglishVersification.txt" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />

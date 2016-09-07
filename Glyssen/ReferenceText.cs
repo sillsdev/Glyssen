@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
+using System.Text;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using L10NSharp;
 using Paratext;
 using SIL.Reporting;
-using SIL.IO;
 using SIL.Scripture;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
@@ -37,7 +36,7 @@ namespace Glyssen
 				referenceText.ReloadModifiedBooks();
 			else
 			{
-				referenceText = new ReferenceText(id.Metadata, id.Type, id.GetProjectFolder());
+				referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
 				referenceText.LoadBooks();
 				switch (id.Type)
 				{
@@ -56,16 +55,6 @@ namespace Glyssen
 			}
 			return referenceText;
 		}
-
-		///// <summary>
-		///// This version is just for unit tests. No entry is made in the static list of instantiated reference texts,
-		///// and no books are loaded.
-		///// </summary>
-		///// <param name="metadata"></param>
-		//internal static ReferenceText CreateTestReferenceText(GlyssenDblTextMetadata metadata)
-		//{
-		//	return new ReferenceText(metadata, ReferenceTextType.Custom);
-		//}
 
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
@@ -127,7 +116,19 @@ namespace Glyssen
 		protected virtual void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			m_vers = LoadVersification(VersificationFilePath);
+			if (!File.Exists(VersificationFilePath))
+			{
+				var msg = new StringBuilder(LocalizationManager.GetString("ReferenceText.CustomVersificationFileMissing",
+					"The versification file for the proprietary reference text used by the project could not be found:"));
+				msg.Append(Environment.NewLine);
+				msg.Append(VersificationFilePath);
+				msg.Append(Environment.NewLine);
+				msg.Append(LocalizationManager.GetString("ReferenceText.FallbackToVersificationMessage",
+					"If you continue without the versification file, the standard English versification will be used."));
+				ErrorReport.ReportNonFatalMessageWithStackTrace(msg.ToString());
+			}
+			m_vers = File.Exists(VersificationFilePath) ? LoadVersification(VersificationFilePath) :
+				ScrVers.English;
 		}
 
 		public bool HasSecondaryReferenceText

@@ -29,7 +29,7 @@ namespace Glyssen
 	{
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
-		private const string kCustomIdPrefix = "Custom:";
+		private const string kCustomIdPrefix = "Custom: ";
 
 		#region static internals to support testing
 		internal static string ProprietaryReferenceTextProjectFileLocation
@@ -72,7 +72,8 @@ namespace Glyssen
 			Debug.Assert(customId != null);
 			m_referenceTextType = type;
 			m_customId = customId;
-			m_metadata = metadata ?? LoadMetadata(type, customId);
+			var lowercase = customId.ToLowerInvariant();
+			m_metadata = metadata ?? LoadMetadata(type, Path.Combine(ProjectFolder, lowercase + ProjectBase.kProjectFileExtension));
 		}
 
 		// ENHANCE: Change the key from ReferenceTextType to some kind of token that can represent either a standard
@@ -85,6 +86,15 @@ namespace Glyssen
 					LoadAllAvailable();
 				return s_allAvailable;
 			}
+		}
+
+		/// <summary>
+		/// This is mainly for testing, though some day the need may arise to do this in production code.
+		/// </summary>
+		internal static void ClearCache()
+		{
+			s_allAvailable = null;
+			s_allAvailableLoaded = false;
 		}
 
 		public static ReferenceTextIdentifier GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
@@ -173,19 +183,23 @@ namespace Glyssen
 			if (ErrorReporterForCopyrightedReferenceTexts == null)
 				ErrorReporterForCopyrightedReferenceTexts = errorReporter;
 
-			foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
+			if (Directory.Exists(ProprietaryReferenceTextProjectFileLocation))
 			{
-				var customId = Path.GetFileName(dir);
-				Debug.Assert(customId != null);
-				if (!s_allAvailable.ContainsKey(customId))
-					continue;
-				string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
-				var refTextProjectFilePath = Path.Combine(dir, projectFileName);
-				if (!File.Exists(refTextProjectFilePath))
-					continue;
-				var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath, ErrorReporterForCopyrightedReferenceTexts);
-				if (metadata != null)
-					s_allAvailable.Add(customId, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+				foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
+				{
+					var customId = Path.GetFileName(dir);
+					Debug.Assert(customId != null);
+					if (s_allAvailable.ContainsKey(customId))
+						continue;
+					string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+					var refTextProjectFilePath = Path.Combine(dir, projectFileName);
+					if (!File.Exists(refTextProjectFilePath))
+						continue;
+					var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath,
+						ErrorReporterForCopyrightedReferenceTexts);
+					if (metadata != null)
+						s_allAvailable.Add(customId, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+				}
 			}
 
 			if (firstLoadError != null)
@@ -210,6 +224,7 @@ namespace Glyssen
 					ReportNonFatalLoadError(firstLoadError.Item1, firstLoadError.Item2, firstLoadError.Item3);
 				}
 			}
+			s_allAvailableLoaded = true;
 		}
 
 		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
@@ -254,12 +269,15 @@ namespace Glyssen
 			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
 		}
 
-		internal string GetProjectFolder()
+		internal string ProjectFolder
 		{
-			if (IsStandardReferenceText(Type))
-				return GetProjectFolderForStandardReferenceText(Type);
+			get
+			{
+				if (IsStandardReferenceText(Type))
+					return GetProjectFolderForStandardReferenceText(Type);
 
-			return Path.Combine(ProprietaryReferenceTextProjectFileLocation, m_customId);
+				return Path.Combine(ProprietaryReferenceTextProjectFileLocation, m_customId);
+			}
 		}
 
 		private static void ReportNonFatalLoadError(Exception exception, string token, string path)

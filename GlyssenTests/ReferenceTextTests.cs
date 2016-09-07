@@ -2011,14 +2011,20 @@ namespace GlyssenTests
 			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
 		}
 
-		public static void DeleteTempCustomReferenceProjectFolder(bool silent = false)
+		private static bool IsProprietaryReferenceTextLocationOveridden
 		{
-			if (ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation.EndsWith(ReferenceTextIdentifier.kLocalReferenceTextDirectoryName))
+			get
 			{
-				if (silent)
-					return;
-				throw new InvalidOperationException("DeleteTempCustomReferenceProjectFolder can only be used when ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation is overridden.");
+				return !ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation.EndsWith(
+					ReferenceTextIdentifier.kLocalReferenceTextDirectoryName);
 			}
+		}
+
+		public static void DeleteTempCustomReferenceProjectFolder()
+		{
+			if (!IsProprietaryReferenceTextLocationOveridden)
+				return;
+			
 			if (Directory.Exists(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation))
 				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
 
@@ -2027,7 +2033,8 @@ namespace GlyssenTests
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
-			DeleteTempCustomReferenceProjectFolder(true);
+			if (IsProprietaryReferenceTextLocationOveridden)
+				return;
 			ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation = Path.GetTempFileName();
 			File.Delete(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
 			Directory.CreateDirectory(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
@@ -2056,7 +2063,7 @@ namespace GlyssenTests
 			switch (testResource)
 			{
 				case TestReferenceTextResource.EnglishJUD:
-					folder = "CustomEnglish";
+					folder = "English";
 					fileName = "JUD.xml";
 					fileContents = Resources.TestReferenceTextJUD;
 					break;
@@ -2068,17 +2075,21 @@ namespace GlyssenTests
 				default:
 					throw new ArgumentOutOfRangeException("testResource", testResource, null);
 			}
+			var rtFolder = Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, folder);
 			if (customFolderId == null)
 			{
 				customFolderId = folder;
-				Directory.CreateDirectory(Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, folder));
+				Directory.CreateDirectory(rtFolder);
+				var lowercase = folder.ToLowerInvariant();
+				File.WriteAllBytes(Path.Combine(rtFolder, lowercase + kProjectFileExtension), (byte[])Resources.ResourceManager.GetObject(lowercase));
+				File.WriteAllText(Path.Combine(rtFolder, "versification.vrs"), Resources.EnglishVersification);
 			}
 			else if (customFolderId != folder)
 			{
 				throw new ArgumentException("Attempt to compbine resources for different languages into a single reference text.",
 					"testResource");
 			}
-			File.WriteAllText(Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, folder, fileName),
+			File.WriteAllText(Path.Combine(rtFolder, fileName),
 				fileContents);
 		}
 	}

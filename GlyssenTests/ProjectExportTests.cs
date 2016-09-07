@@ -23,7 +23,7 @@ namespace GlyssenTests
 		[TearDown]
 		public void Teardown()
 		{
-			TestReferenceText.DeleteTempCustomReferenceProjectFolder(true);
+			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
 		[Test]

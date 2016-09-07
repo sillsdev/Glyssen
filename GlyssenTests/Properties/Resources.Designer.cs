@@ -61,6 +61,16 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] azeri {
+            get {
+                object obj = ResourceManager.GetObject("azeri", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;book id=&quot;JUD&quot; singlevoice=&quot;false&quot; pageheader=&quot;YӘHUDA&quot;&gt;
         ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JUD&quot; matchesReferenceText=&quot;true&quot;&gt;
@@ -74,6 +84,34 @@ namespace GlyssenTests.Properties {
         internal static string AzeriJUDRefText {
             get {
                 return ResourceManager.GetString("AzeriJUDRefText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] english {
+            get {
+                object obj = ResourceManager.GetObject("english", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # Versification  &quot;English&quot;
+        ///# Version=1.9
+        ///#
+        ///# modifications by Reinier de Blois 13/March/2012
+        ///# modified mappings Psalms by adding verse #0 to the mappings
+        ///# many of the subscripts that are part of verses 1,2 in the original text end up as verse #0 in English translations
+        ///
+        ///# modifications by Studge 26/June/2009
+        ///# book definitions are for all books printed in any English of Spanish Bible
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EnglishVersification {
+            get {
+                return ResourceManager.GetString("EnglishVersification", resourceCulture);
             }
         }
         
