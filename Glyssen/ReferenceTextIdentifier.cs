@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using L10NSharp;
@@ -28,16 +27,28 @@ namespace Glyssen
 
 	public class ReferenceTextIdentifier
 	{
-		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
+		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
+		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 		private const string kCustomIdPrefix = "Custom:";
 
 		#region static internals to support testing
-		internal static string ProprietaryReferenceTextProjectFileLocation { get; set; }
+		internal static string ProprietaryReferenceTextProjectFileLocation
+		{
+			get
+			{
+				if (s_proprietaryReferenceTextProjectFileLocation == null)
+					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(Program.BaseDataFolder, kLocalReferenceTextDirectoryName);
+
+				return s_proprietaryReferenceTextProjectFileLocation;
+			}
+			set { s_proprietaryReferenceTextProjectFileLocation = value; }
+		}
 		internal static Action<Exception, string, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
 		#endregion
 
 		private static Dictionary<string, ReferenceTextIdentifier> s_allAvailable;
 		private static bool s_allAvailableLoaded = false;
+		private static string s_proprietaryReferenceTextProjectFileLocation;
 
 		private readonly ReferenceTextType m_referenceTextType;
 		private readonly GlyssenDblTextMetadata m_metadata;
@@ -161,8 +172,6 @@ namespace Glyssen
 
 			if (ErrorReporterForCopyrightedReferenceTexts == null)
 				ErrorReporterForCopyrightedReferenceTexts = errorReporter;
-			if (ProprietaryReferenceTextProjectFileLocation == null)
-				ProprietaryReferenceTextProjectFileLocation = Path.Combine(Program.BaseDataFolder, "Local Reference Texts");
 
 			foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
 			{
@@ -234,7 +243,7 @@ namespace Glyssen
 		{
 			Debug.Assert(IsStandardReferenceText(referenceTextType));
 			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + ProjectBase.kProjectFileExtension;
-			return Path.Combine(GetProjectFolderForStandardReferenceText(referenceTextType), projectFileName);
+			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
 
 		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)
@@ -242,15 +251,15 @@ namespace Glyssen
 			if (!IsStandardReferenceText(referenceTextType))
 				throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
 
-			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName,
-				referenceTextType.ToString());
+			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
 		}
 
 		internal string GetProjectFolder()
 		{
 			if (IsStandardReferenceText(Type))
 				return GetProjectFolderForStandardReferenceText(Type);
-			return Path.Combine(Program.BaseDataFolder, "Local Reference Texts", m_customId);
+
+			return Path.Combine(ProprietaryReferenceTextProjectFileLocation, m_customId);
 		}
 
 		private static void ReportNonFatalLoadError(Exception exception, string token, string path)

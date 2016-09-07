@@ -198,6 +198,7 @@
     <None Include="Resources\Test1JN.xml" />
     <None Include="Resources\Test2JN.xml" />
     <None Include="Resources\Test3JN.xml" />
+    <None Include="Resources\AzeriJUDRefText.xml" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />

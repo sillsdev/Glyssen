@@ -19,7 +19,7 @@ namespace Glyssen
 
 	public class ReferenceText : ProjectBase
 	{
-		private readonly ReferenceTextType m_referenceTextType;
+		protected readonly ReferenceTextType m_referenceTextType;
 		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
@@ -37,7 +37,7 @@ namespace Glyssen
 				referenceText.ReloadModifiedBooks();
 			else
 			{
-				referenceText = new ReferenceText(id.Metadata, id.Type);
+				referenceText = new ReferenceText(id.Metadata, id.Type, id.GetProjectFolder());
 				referenceText.LoadBooks();
 				switch (id.Type)
 				{
@@ -51,24 +51,21 @@ namespace Glyssen
 						//case ReferenceTextType.TokPisin:
 						referenceText.m_vers = ScrVers.English;
 						break;
-					default:
-						referenceText.m_projectFolder = id.GetProjectFolder();
-						break;
 				}
 				s_instantiatedReferenceTexts[id] = referenceText;
 			}
 			return referenceText;
 		}
 
-		/// <summary>
-		/// This version is just for unit tests. No entry is made in the static list of instantiated reference texts,
-		/// and no books are loaded.
-		/// </summary>
-		/// <param name="metadata"></param>
-		internal static ReferenceText CreateTestReferenceText(GlyssenDblTextMetadata metadata)
-		{
-			return new ReferenceText(metadata, ReferenceTextType.Custom);
-		}
+		///// <summary>
+		///// This version is just for unit tests. No entry is made in the static list of instantiated reference texts,
+		///// and no books are loaded.
+		///// </summary>
+		///// <param name="metadata"></param>
+		//internal static ReferenceText CreateTestReferenceText(GlyssenDblTextMetadata metadata)
+		//{
+		//	return new ReferenceText(metadata, ReferenceTextType.Custom);
+		//}
 
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
@@ -110,10 +107,12 @@ namespace Glyssen
 			m_modifiedBooks.Clear();
 		}
 
-		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
+		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType, string projectFolder)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;
+			m_projectFolder = projectFolder;
+
 
 			GetBookName = bookId =>
 			{
@@ -122,7 +121,13 @@ namespace Glyssen
 			};
 
 			if (m_referenceTextType == ReferenceTextType.Custom)
-				m_vers = LoadVersification(VersificationFilePath);
+				SetVersification();
+		}
+
+		protected virtual void SetVersification()
+		{
+			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
+			m_vers = LoadVersification(VersificationFilePath);
 		}
 
 		public bool HasSecondaryReferenceText
@@ -422,17 +427,6 @@ namespace Glyssen
 			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse > verse);
 		}
 
-		protected override string ProjectFolder
-		{
-			get
-			{
-				if (m_projectFolder == null)
-				{
-					// This had better be a standard reference text if the folder is not set!
-					m_projectFolder = ReferenceTextIdentifier.GetProjectFolderForStandardReferenceText(m_referenceTextType);
-				}
-				return m_projectFolder;
-			}
-		}
+		protected override string ProjectFolder { get { return m_projectFolder; } }
 	}
 }

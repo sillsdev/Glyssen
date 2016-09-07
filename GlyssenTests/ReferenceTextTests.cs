@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
+using SIL.DblBundle.Text;
+using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
+using SIL.WritingSystems;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
@@ -38,13 +43,13 @@ namespace GlyssenTests
 		}
 
 		[TestCase(ReferenceTextType.English)]
-		[TestCase(ReferenceTextType.Azeri)]
-		[TestCase(ReferenceTextType.French)]
-		[TestCase(ReferenceTextType.Indonesian)]
-		[TestCase(ReferenceTextType.Portuguese)]
+		//[TestCase(ReferenceTextType.Azeri)]
+		//[TestCase(ReferenceTextType.French)]
+		//[TestCase(ReferenceTextType.Indonesian)]
+		//[TestCase(ReferenceTextType.Portuguese)]
 		[TestCase(ReferenceTextType.Russian)]
-		[TestCase(ReferenceTextType.Spanish)]
-		[TestCase(ReferenceTextType.TokPisin)]
+		//[TestCase(ReferenceTextType.Spanish)]
+		//[TestCase(ReferenceTextType.TokPisin)]
 		public void GetStandardReferenceText_AllStandardReferenceTextsAreLoadedCorrectly(ReferenceTextType referenceTextType)
 		{
 			var referenceText = ReferenceText.GetStandardReferenceText(referenceTextType);
@@ -1863,13 +1868,12 @@ namespace GlyssenTests
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Which means, God with us.", true));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
-			var metadata = new GlyssenDblTextMetadata();
-			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
-			var primaryReferenceText = ReferenceText.CreateTestReferenceText(metadata);
-			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
-			var books = (List<BookScript>)primaryReferenceText.Books;
-			var refBook = new BookScript("JUD", referenceBlocks);
-			books.Add(refBook);
+			//var metadata = new GlyssenDblTextMetadata();
+			//metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
+			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("JUD", referenceBlocks);
+			//var books = (List<BookScript>)primaryReferenceText.Books;
+			//var refBook = new BookScript("JUD", referenceBlocks);
+			//books.Add(refBook);
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
 
@@ -1968,10 +1972,22 @@ namespace GlyssenTests
 
 	public class TestReferenceText : ReferenceText
 	{
+		[SuppressMessage("ReSharper", "InconsistentNaming")]
+		public enum TestReferenceTextResource
+		{
+			EnglishJUD,
+			AzeriJUD,
+		}
+
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
-			: base(metadata, ReferenceTextType.Custom)
+			: base(metadata, ReferenceTextType.Custom, null)
 		{
 			m_books.Add(book);
+		}
+
+		protected override void SetVersification()
+		{
+			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
 			m_vers = ScrVers.English;
 		}
 
@@ -1993,6 +2009,77 @@ namespace GlyssenTests
 		public static TestReferenceText CreateTestReferenceText(string bookScriptXml)
 		{
 			return new TestReferenceText(NewMetadata, XmlSerializationHelper.DeserializeFromString<BookScript>(bookScriptXml));
+		}
+
+		public static void DeleteTempCustomReferenceProjectFolder(bool silent = false)
+		{
+			if (ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation.EndsWith(ReferenceTextIdentifier.kLocalReferenceTextDirectoryName))
+			{
+				if (silent)
+					return;
+				throw new InvalidOperationException("DeleteTempCustomReferenceProjectFolder can only be used when ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation is overridden.");
+			}
+			if (Directory.Exists(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation))
+				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
+
+			ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation = null;
+		}
+
+		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
+		{
+			DeleteTempCustomReferenceProjectFolder(true);
+			ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation = Path.GetTempFileName();
+			File.Delete(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
+			Directory.CreateDirectory(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
+		}
+
+		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
+		{
+			OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			//var sampleMetadata = new GlyssenDblTextMetadata();
+			//sampleMetadata.AvailableBooks = new List<Book>();
+			//var books = new List<UsxDocument>();
+
+			string customFolderId = null;
+
+			foreach (var testBook in booksToInclude)
+				AddBook(testBook, ref customFolderId);
+
+			return GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, customFolderId));
+		}
+
+		private static void AddBook(TestReferenceTextResource testResource, ref string customFolderId)
+		{
+			string folder;
+			string fileName;
+			string fileContents;
+			switch (testResource)
+			{
+				case TestReferenceTextResource.EnglishJUD:
+					folder = "CustomEnglish";
+					fileName = "JUD.xml";
+					fileContents = Resources.TestReferenceTextJUD;
+					break;
+				case TestReferenceTextResource.AzeriJUD:
+					folder = "Azeri";
+					fileName = "JUD.xml";
+					fileContents = Resources.AzeriJUDRefText;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException("testResource", testResource, null);
+			}
+			if (customFolderId == null)
+			{
+				customFolderId = folder;
+				Directory.CreateDirectory(Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, folder));
+			}
+			else if (customFolderId != folder)
+			{
+				throw new ArgumentException("Attempt to compbine resources for different languages into a single reference text.",
+					"testResource");
+			}
+			File.WriteAllText(Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, folder, fileName),
+				fileContents);
 		}
 	}
 }
