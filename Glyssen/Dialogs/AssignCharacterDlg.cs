@@ -135,12 +135,15 @@ namespace Glyssen.Dialogs
 			UpdateNavigationButtonState();
 		}
 
-		void m_viewModel_AssignedBlocksIncremented(object sender, EventArgs e)
+		void m_viewModel_AssignedBlocksIncremented(AssignCharacterViewModel sender, int increment, int newMaximum)
 		{
 			this.SafeInvoke(() =>
 			{
 				if (m_progressBar.Visible)
-					m_progressBar.Increment(1);
+				{
+					m_progressBar.Maximum = newMaximum;
+					m_progressBar.Increment(increment);
+				}
 			});
 		}
 
@@ -710,10 +713,17 @@ namespace Glyssen.Dialogs
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			SaveSelections();
+			MoveOn();
+		}
+
+		private void MoveOn()
+		{
 			if (m_viewModel.AreAllAssignmentsComplete && m_promptToCloseWhenAssignmentsAreComplete)
 			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete", "Assignments Complete");
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
+					"Assignments Complete");
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage",
+					"All assignments have been made. Would you like to return to the main window?");
 				if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					Close();
@@ -1057,8 +1067,7 @@ namespace Glyssen.Dialogs
 		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
 			m_viewModel.ApplyCurrentReferenceTextMatchup();
-			if (m_viewModel.CanNavigateToNextRelevantBlock)
-				LoadNextRelevantBlock();
+			MoveOn();
 		}
 
 		private void UpdateRowSpecificButtonStates(object sender, DataGridViewCellEventArgs e)
