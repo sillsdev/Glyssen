@@ -25,7 +25,8 @@ namespace Glyssen.Dialogs
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
-		public event EventHandler AssignedBlocksIncremented;
+		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment, int newMaximum);
+		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
 		#endregion
 
@@ -122,10 +123,10 @@ namespace Glyssen.Dialogs
 				CurrentBookSaved(this, EventArgs.Empty);
 		}
 
-		private void OnAssignedBlocksIncremented()
+		private void OnAssignedBlocksIncremented(int increment)
 		{
 			if (AssignedBlocksIncremented != null)
-				AssignedBlocksIncremented(this, new EventArgs());
+				AssignedBlocksIncremented(this, increment, m_relevantBlocks.Count);
 		}
 
 		#region Overridden methods
@@ -412,7 +413,7 @@ namespace Glyssen.Dialogs
 			if (!CurrentBlockInOriginal.UserConfirmed)
 			{
 				m_assignedBlocks++;
-				OnAssignedBlocksIncremented();
+				OnAssignedBlocksIncremented(1);
 			}
 
 			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlockInOriginal))
@@ -430,9 +431,18 @@ namespace Glyssen.Dialogs
 
 		public override void ApplyCurrentReferenceTextMatchup()
 		{
+			var numberOfBlocksToAssignAndConfirm = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
+			int origRelevantBlocks = m_relevantBlocks.Count;
 			base.ApplyCurrentReferenceTextMatchup();
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
+			if (m_relevantBlocks.Count > origRelevantBlocks)
+				numberOfBlocksToAssignAndConfirm += m_relevantBlocks.Count - origRelevantBlocks;
+			if (numberOfBlocksToAssignAndConfirm > 0)
+			{
+				m_assignedBlocks += numberOfBlocksToAssignAndConfirm;
+				OnAssignedBlocksIncremented(numberOfBlocksToAssignAndConfirm);
+			}
 		}
 
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
