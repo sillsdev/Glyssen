@@ -35,7 +35,7 @@ namespace Glyssen.Controls
 				// can briefly get into a state where the selected row is out of range. I'd like to
 				// understand this better to prevent it higher up by clearing the SelectedRows
 				// collection, but this first check seems like a safe/robust way to prevent a crash.
-				if (firstRow >= RowCount || e.Row.Index < firstRow - 5)
+				if (firstRow >= RowCount || e.Row.Index <= firstRow - 5)
 					return;
 				var lastRow = SelectedRows[0].Index;
 				if (e.Row.Index < lastRow + 2)
