@@ -506,22 +506,6 @@ namespace Glyssen
 					}
 					lastIndexOfPreviousVerse = i;
 				}
-				//else if (previousReferenceTextVerse != null && annotationsForPreviousVerse != null)
-				//{
-				//	// Probably transitioning from a book WITH a reference text into one WITHOUT, so stick the pause on its own row.
-				//	foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
-				//	{
-				//		if (ExportAnnotationsInSeparateRows)
-				//		{
-				//			data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
-				//				GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
-				//					previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
-				//			i++;
-				//		}
-				//		else
-				//			AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation);
-				//	}
-				//}
 			}
 		}
 
