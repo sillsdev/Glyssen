@@ -202,6 +202,7 @@
     <None Include="Resources\Test3JN.xml" />
     <None Include="Resources\AzeriJUDRefText.xml" />
     <None Include="Resources\EnglishVersification.txt" />
+    <None Include="Resources\AzeriREVRefText.xml" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />

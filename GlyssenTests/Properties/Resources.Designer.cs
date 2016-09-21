@@ -88,6 +88,23 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;book id=&quot;REV&quot; singlevoice=&quot;false&quot; pageheader=&quot;VӘHY&quot;&gt;
+        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-REV&quot; matchesReferenceText=&quot;true&quot;&gt;
+        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-REV&quot;&gt;
+        ///      &lt;text&gt;REVELATION&lt;/text&gt;
+        ///    &lt;/ReferenceBlocks&gt;
+        ///    &lt;text&gt;YӘHYAYA NAZİL OLAN&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;REV&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-REV&quot; matchesRefer [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AzeriREVRefText {
+            get {
+                return ResourceManager.GetString("AzeriREVRefText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] english {

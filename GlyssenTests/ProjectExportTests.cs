@@ -474,7 +474,7 @@ namespace GlyssenTests
 		public void GetExportData_ExportAnnotationsInSeparateRows_ReferenceTextsContainAnnotations()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
 

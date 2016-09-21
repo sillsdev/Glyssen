@@ -1977,6 +1977,7 @@ namespace GlyssenTests
 		{
 			EnglishJUD,
 			AzeriJUD,
+			AzeriREV,
 		}
 
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
@@ -2071,6 +2072,11 @@ namespace GlyssenTests
 					folder = "Azeri";
 					fileName = "JUD.xml";
 					fileContents = Resources.AzeriJUDRefText;
+					break;
+				case TestReferenceTextResource.AzeriREV:
+					folder = "Azeri";
+					fileName = "REV.xml";
+					fileContents = Resources.AzeriREVRefText;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException("testResource", testResource, null);

@@ -1739,6 +1739,19 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void TrySplitBlockAtEndOfVerse_NoSubsequentVersesInBlockAndNoSubsequentBlocks_ReturnsFalse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
+			blockToSplit.AddVerse(1, "Blah blah blah.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
+			Assert.AreEqual(2, bookScript.GetScriptBlocks().Count);
+		}
+
+		[Test]
 		public void TrySplitBlockAtEndOfVerse_BlockStartsInTheMiddleOfAVerseBridgeThatEndsWithTheVerseNumberToSplitAfter_SplitsAtEndOfVerseBridge()
 		{
 			var mrkBlocks = new List<Block>();
@@ -1827,6 +1840,20 @@ namespace GlyssenTests
 			Assert.AreEqual("{3}\u00A0This is the text of the following verse.", blocks[3].GetText(true));
 			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);
+		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_ReferenceBlockHasNoCorrespondingVerse_NewBlockMatchesToEmptyRefBlock()
+		{
+			Assert.Fail("Write this test - existing logic causes new block to match to a null ref block.");
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
+			blockToSplit.AddVerse(1, "Blah blah blah.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
+			Assert.AreEqual(2, bookScript.GetScriptBlocks().Count);
 		}
 		#endregion
 

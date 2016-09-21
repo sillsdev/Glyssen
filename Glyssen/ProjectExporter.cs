@@ -465,7 +465,7 @@ namespace Glyssen
 			for (int i = 0; i < data.Count; i++)
 			{
 				var row = data[i];
-				if (HasReferenceText(row))
+				if (HasReferenceText(row) || previousReferenceTextVerse != null)
 				{
 					var referenceTextVerse = GetBcvRefForRow(row);
 					if (referenceTextVerse != previousReferenceTextVerse)
@@ -474,7 +474,8 @@ namespace Glyssen
 						{
 							foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
 							{
-								if (ExportAnnotationsInSeparateRows)
+								// If transitioning from a book WITH a reference text into one WITHOUT, stick the pause on its own row.
+								if (ExportAnnotationsInSeparateRows || !HasReferenceText(row))
 								{
 									data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
