@@ -524,7 +524,7 @@ namespace GlyssenTests
 		public void GetExportData_AnnotationsCombinedWithData_ReferenceTextsContainAnnotations(ExportFileType exportFileType)
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project) { SelectedFileType = exportFileType };
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 
@@ -580,7 +580,7 @@ namespace GlyssenTests
 		public void GetExportData_ExportAnnotationsInSeparateRows_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
 
@@ -604,7 +604,7 @@ namespace GlyssenTests
 		public void GetExportData_AnnotationsCombinedWithData_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			var exporter = new ProjectExporter(project);
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 

@@ -5,20 +5,15 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
-using SIL.DblBundle.Text;
-using SIL.DblBundle.Usx;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
-using SIL.Windows.Forms;
-using SIL.WritingSystems;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
@@ -1978,6 +1973,7 @@ namespace GlyssenTests
 			EnglishJUD,
 			AzeriJUD,
 			AzeriREV,
+			FrenchMRK,
 		}
 
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
@@ -2078,6 +2074,11 @@ namespace GlyssenTests
 					fileName = "REV.xml";
 					fileContents = Resources.AzeriREVRefText;
 					break;
+				case TestReferenceTextResource.FrenchMRK:
+					folder = "French";
+					fileName = "MRK.xml";
+					fileContents = Resources.FrenchMRKRefText;
+					break;
 				default:
 					throw new ArgumentOutOfRangeException("testResource", testResource, null);
 			}
@@ -2095,8 +2096,7 @@ namespace GlyssenTests
 				throw new ArgumentException("Attempt to compbine resources for different languages into a single reference text.",
 					"testResource");
 			}
-			File.WriteAllText(Path.Combine(rtFolder, fileName),
-				fileContents);
+			File.WriteAllText(Path.Combine(rtFolder, fileName), fileContents);
 		}
 	}
 }

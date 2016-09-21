@@ -41,7 +41,13 @@ namespace Glyssen
 
 				return s_proprietaryReferenceTextProjectFileLocation;
 			}
-			set { s_proprietaryReferenceTextProjectFileLocation = value; }
+			set
+			{
+				if (s_proprietaryReferenceTextProjectFileLocation == value)
+					return;
+				ClearCache();
+				s_proprietaryReferenceTextProjectFileLocation = value;
+			}
 		}
 		internal static Action<Exception, string, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
 		#endregion
@@ -189,7 +195,8 @@ namespace Glyssen
 				{
 					var customId = Path.GetFileName(dir);
 					Debug.Assert(customId != null);
-					if (s_allAvailable.ContainsKey(customId))
+					var key = kCustomIdPrefix + customId;
+					if (s_allAvailable.ContainsKey(key))
 						continue;
 					string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
 					var refTextProjectFilePath = Path.Combine(dir, projectFileName);
@@ -198,7 +205,7 @@ namespace Glyssen
 					var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath,
 						ErrorReporterForCopyrightedReferenceTexts);
 					if (metadata != null)
-						s_allAvailable.Add(customId, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+						s_allAvailable.Add(key, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
 				}
 			}
 

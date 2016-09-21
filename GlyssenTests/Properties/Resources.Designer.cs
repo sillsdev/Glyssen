@@ -133,6 +133,33 @@ namespace GlyssenTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] french {
+            get {
+                object obj = ResourceManager.GetObject("french", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;book id=&quot;MRK&quot; singlevoice=&quot;false&quot; pageheader=&quot;MARC CHAPITRE&quot;&gt;
+        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MRK&quot; matchesReferenceText=&quot;true&quot;&gt;
+        ///    &lt;ReferenceBlocks style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MRK&quot;&gt;
+        ///      &lt;text&gt;MARK&lt;/text&gt;
+        ///    &lt;/ReferenceBlocks&gt;
+        ///    &lt;text&gt;MARC&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;MRK&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MRK&quot; matchesReferenceText=&quot;t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FrenchMRKRefText {
+            get {
+                return ResourceManager.GetString("FrenchMRKRefText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;1JN&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;

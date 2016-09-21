@@ -12,7 +12,6 @@ namespace GlyssenTests
 		public void Teardown()
 		{
 			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
-			ReferenceTextIdentifier.ClearCache();
 		}
 
 		[TestCase(true)]

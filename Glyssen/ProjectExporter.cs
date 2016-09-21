@@ -465,7 +465,7 @@ namespace Glyssen
 			for (int i = 0; i < data.Count; i++)
 			{
 				var row = data[i];
-				if (HasReferenceText(row) || previousReferenceTextVerse != null)
+				if (HasReferenceText(row))
 				{
 					var referenceTextVerse = GetBcvRefForRow(row);
 					if (referenceTextVerse != previousReferenceTextVerse)
@@ -474,8 +474,7 @@ namespace Glyssen
 						{
 							foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
 							{
-								// If transitioning from a book WITH a reference text into one WITHOUT, stick the pause on its own row.
-								if (ExportAnnotationsInSeparateRows || !HasReferenceText(row))
+								if (ExportAnnotationsInSeparateRows)
 								{
 									data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
@@ -507,6 +506,22 @@ namespace Glyssen
 					}
 					lastIndexOfPreviousVerse = i;
 				}
+				//else if (previousReferenceTextVerse != null && annotationsForPreviousVerse != null)
+				//{
+				//	// Probably transitioning from a book WITH a reference text into one WITHOUT, so stick the pause on its own row.
+				//	foreach (var verseAnnotation in annotationsForPreviousVerse.Where(va => va.Annotation is Pause))
+				//	{
+				//		if (ExportAnnotationsInSeparateRows)
+				//		{
+				//			data.Insert(lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset,
+				//				GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
+				//					previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
+				//			i++;
+				//		}
+				//		else
+				//			AddAnnotationData(data, lastIndexOfPreviousVerse, verseAnnotation);
+				//	}
+				//}
 			}
 		}
 
@@ -551,15 +566,14 @@ namespace Glyssen
 		}
 		private bool HasReferenceText(List<object> dataRow)
 		{
-			int offset = IncludeVoiceActors ? 1 : 0;
-			offset += LocalizationManager.UILanguageId != "en" ? 1 : 0;
-			return !string.IsNullOrEmpty((string)dataRow[8 + offset]);
+			return !string.IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 		}
 
 		private BCVRef GetBcvRefForRow(List<object> row)
 		{
-			int offset = IncludeVoiceActors ? 1 : 0;
-			return new BCVRef(BCVRef.BookToNumber((string)row[2 + offset]), (int)row[3 + offset], ScrReference.VerseToIntStart((string)row[4 + offset]));
+			return new BCVRef(BCVRef.BookToNumber((string)row[GetColumnIndex(ExportColumn.BookId)]),
+				(int)row[GetColumnIndex(ExportColumn.Chapter)],
+				ScrReference.VerseToIntStart((string)row[GetColumnIndex(ExportColumn.Verse)]));
 		}
 
 		private List<object> GetExportDataForAnnotation(VerseAnnotation verseAnnotation, string bookId, int chapter, string verse)
