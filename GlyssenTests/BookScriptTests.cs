@@ -1871,6 +1871,35 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void TrySplitBlockAtEndOfVerse_NoSubsequentVersesInBlockAndNoSubsequentBlocks_ReturnsFalse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
+			blockToSplit.AddVerse(1, "Blah blah blah.");
+			mrkBlocks.Add(blockToSplit);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
+			Assert.AreEqual(2, bookScript.GetScriptBlocks().Count);
+		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_NoSubsequentVersesInBlockSubsequentBlockIsNotContinuationOfQuote_ReturnsFalse()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 1) { IsParagraphStart = true };
+			blockToSplit.AddVerse(1, "Blah blah blah.");
+			mrkBlocks.Add(blockToSplit);
+			var followingBlock = new Block("p", m_curSetupChapter, 2) { IsParagraphStart = true };
+			followingBlock.AddVerse(2, "Whatever.");
+			mrkBlocks.Add(followingBlock);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			Assert.IsFalse(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 1));
+			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
+		}
+
+		[Test]
 		public void TrySplitBlockAtEndOfVerse_BlockStartsInTheMiddleOfAVerseBridgeThatEndsWithTheVerseNumberToSplitAfter_SplitsAtEndOfVerseBridge()
 		{
 			var mrkBlocks = new List<Block>();
@@ -1959,6 +1988,42 @@ namespace GlyssenTests
 			Assert.AreEqual("{3}\u00A0This is the text of the following verse.", blocks[3].GetText(true));
 			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
 			Assert.AreEqual(0, blocks[3].InitialEndVerseNumber);
+		}
+
+		[Test]
+		public void TrySplitBlockAtEndOfVerse_ReferenceBlockHasNoCorrespondingVerse_NewBlockMatchesToEmptyRefBlock()
+		{
+			//Assert.Fail("Write this test - existing logic causes new block to match to a null ref block.");
+			var blocks = new List<Block>();
+			blocks.Add(NewChapterBlock(1));
+			var blockToSplit = new Block("p", m_curSetupChapter, 10) { IsParagraphStart = true };
+			blockToSplit.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			blockToSplit.AddVerse(10, "Ich hörte hinter mir eine Stimme, die durchdringend wie eine Posaune klang ").AddVerse(11, "und die mir befahl: ");
+			blocks.Add(blockToSplit);
+			var spanishRefBlock = new Block("p", m_curSetupChapter, 10).AddVerse(10, "Oí detrás de mí una gran voz, como sonido de trompeta, que decía: ");
+			spanishRefBlock.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			blockToSplit.SetMatchedReferenceBlock(spanishRefBlock);
+			var englishRefBlock = new Block("p", m_curSetupChapter, 10).AddVerse(10, "I heard behind me a loud voice like a trumpet ").AddVerse(11, "saying, ");
+			englishRefBlock.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			spanishRefBlock.SetMatchedReferenceBlock(englishRefBlock);
+
+			var bookScript = new BookScript("REV", blocks);
+			Assert.IsTrue(bookScript.TrySplitBlockAtEndOfVerse(blockToSplit, 10));
+			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
+			var origSplitBlock = bookScript.GetScriptBlocks()[1];
+			Assert.AreEqual("{10}\u00A0Ich hörte hinter mir eine Stimme, die durchdringend wie eine Posaune klang ", origSplitBlock.GetText(true));
+			Assert.AreEqual("{10}\u00A0Oí detrás de mí una gran voz, como sonido de trompeta, que decía: ", origSplitBlock.PrimaryReferenceText);
+			var newSplitBlock = bookScript.GetScriptBlocks()[2];
+			Assert.AreEqual("{11}\u00A0und die mir befahl: ", newSplitBlock.GetText(true));
+			Assert.AreEqual("", newSplitBlock.PrimaryReferenceText);
+			var spanishRefBlockForOrigVernBlock = origSplitBlock.ReferenceBlocks.Single();
+			Assert.AreEqual("{10}\u00A0I heard behind me a loud voice like a trumpet {11}\u00A0saying, ", spanishRefBlockForOrigVernBlock.PrimaryReferenceText,
+				"This might seem wrong, since we're splitting the vern at 11, but this is the English ref text that corresponded to the Spanish " +
+				"referenece text, and since that hasn't changed, this shouldn't either.");
+			Assert.IsTrue(spanishRefBlockForOrigVernBlock.MatchesReferenceText);
+			var spanishRefBlockForNewVernBlock = newSplitBlock.ReferenceBlocks.Single();
+			Assert.AreEqual("", spanishRefBlockForNewVernBlock.PrimaryReferenceText);
+			Assert.IsTrue(spanishRefBlockForNewVernBlock.MatchesReferenceText);
 		}
 		#endregion
 

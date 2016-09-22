@@ -87,7 +87,7 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			m_ReferenceText.DataSource = new BindingSource(ReferenceText.AllAvailable, null);
+			m_ReferenceText.DataSource = new BindingSource(ReferenceTextIdentifier.AllAvailable, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
 		}
@@ -156,9 +156,9 @@ namespace Glyssen.Dialogs
 				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
 
-				foreach (KeyValuePair<string, ReferenceTextType> kvp in m_ReferenceText.Items)
+				foreach (KeyValuePair<string, ReferenceTextIdentifier> kvp in m_ReferenceText.Items)
 				{
-					if (kvp.Value == m_model.Project.ReferenceTextType)
+					if (kvp.Value == m_model.Project.ReferenceTextIdentifier)
 					{
 						m_ReferenceText.SelectedItem = kvp;
 						break;
@@ -263,7 +263,7 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
-			m_model.Project.ReferenceTextType = ((KeyValuePair<string, ReferenceTextType>)m_ReferenceText.SelectedItem).Value;
+			m_model.Project.ReferenceTextIdentifier = ((KeyValuePair<string, ReferenceTextIdentifier>)m_ReferenceText.SelectedItem).Value;
 
 			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
 			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;

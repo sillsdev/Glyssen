@@ -184,4 +184,25 @@
   <data name="TestReferenceTextJUD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TestReferenceTextJUD.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="AzeriJUDRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AzeriJUDRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="azeri" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\azeri.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="english" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\english.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EnglishVersification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnglishVersification.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AzeriREVRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AzeriREVRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FrenchMRKRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrenchMRKRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="french" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\french.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

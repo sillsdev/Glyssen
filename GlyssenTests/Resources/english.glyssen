@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="X:\1 SCRIPT ASSEMBLER\Amgad\Director Guide into Glyssen\English\Glyssen script English DG\9 Apostrophies and r removed\export_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600\bundle_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600_release.zip" controlfileversion="91" audiostocknumber="ENGENG9Ap" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
   <language>
     <iso>eng</iso>
@@ -9,6 +9,7 @@
     <numerals />
     <fontFamily>Charis SIL</fontFamily>
     <fontSizeInPoints>14</fontSizeInPoints>
+	<heSaidText>katanya.</heSaidText>
   </language>
   <identification>
     <name>World English Bible (WEB)</name>

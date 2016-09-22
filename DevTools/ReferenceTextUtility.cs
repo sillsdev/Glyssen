@@ -36,6 +36,7 @@ namespace DevTools
 		private const int kSpanishCol = 17;
 		private const int kTokPisinCol = 18;
 
+		//TODO: Have two lists or only list the ones that should actually get created in distfiles (comment out others?)
 		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
 		{
 			{"English", "NewEnglish"},
@@ -158,9 +159,14 @@ namespace DevTools
 			{
 				Console.WriteLine("Processing " + language + "...");
 
-				const string kOutputDir = @"..\..\DistFiles\reference_texts";
-
-				string languageOutputDir = Path.Combine(kOutputDir, language.Value);
+				const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
+				ReferenceTextType refTextType;
+				string outputDir = Enum.TryParse(language.Key, out refTextType) ? kOutputDirDistfiles :
+					// This must match logic in Glyssen.Program.BaseDataFolder (but Program is an internal class)
+					Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					"FCBH-SIL", "Glyssen", "Newly Generated Reference Texts");
+					
+				string languageOutputDir = Path.Combine(outputDir, language.Value);
 				Directory.CreateDirectory(languageOutputDir);
 
 				string prevBook = null;
@@ -579,20 +585,20 @@ namespace DevTools
 
 		private static ReferenceText GetReferenceTextFromString(string language)
 		{
-			ReferenceTextType type;
+			string languageName;
 			switch (language)
 			{
-				case "English": type = ReferenceTextType.English; break;
-				case "Azeri": type = ReferenceTextType.Azeri; break;
-				case "French": type = ReferenceTextType.French; break;
-				case "Indonesian": type = ReferenceTextType.Indonesian; break;
-				case "Portuguese": type = ReferenceTextType.Portuguese; break;
-				case "Russian": type = ReferenceTextType.Russian; break;
-				case "Spanish": type = ReferenceTextType.Spanish; break;
-				case "TokPisin": type = ReferenceTextType.TokPisin; break;
+				case "English": return ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+				case "Azeri": languageName = "Azeri"; break;
+				case "French": languageName = "French"; break;
+				case "Indonesian": languageName = "Indonesian"; break;
+				case "Portuguese": languageName = "Portuguese"; break;
+				case "Russian": return ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+				case "Spanish": languageName = "Spanish"; break;
+				case "TokPisin": languageName = "TokPisin"; break;
 				default: throw new ArgumentException("unknown language", "language");
 			}
-			return ReferenceText.GetStandardReferenceText(type);
+			return ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, languageName));
 		}
 
 		private static void WriteCharacterMappingFiles(List<CharacterMapping> characterMappings, SortedDictionary<string, SortedSet<string>> glyssenToFcbhIds, SortedDictionary<string, SortedSet<string>> fcbhToGlyssenIds)
@@ -719,11 +725,9 @@ namespace DevTools
 			s_regexEndEnglishDoubleQuoteMarks = new Regex(@"”|""\s*$", RegexOptions.Compiled);
 
 			bool errorOccurred = false;
-			foreach (ReferenceTextType language in Enum.GetValues(typeof(ReferenceTextType)))
+			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Value.Type != ReferenceTextType.English))
 			{
-				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom || language == ReferenceTextType.Unknown)
-					continue;
-
+				var refText = ReferenceText.GetReferenceText(referenceTextId.Value);
 				string openQuote, closeQuote;
 				switch (language)
 				{
@@ -744,15 +748,8 @@ namespace DevTools
 						break;
 				}
 
-				var refText = ReferenceText.GetStandardReferenceText(language);
 
-				if (refText == null)
-				{
-					errorOccurred = true;
-					Console.Error.WriteLine("No data available to create " + language + " reference text.");
-					continue;
-				}
-				Console.WriteLine("Processing " + language + "...");
+				Console.WriteLine("Processing " + referenceTextId.Key + "...");
 				Console.Write("   ");
 
 				foreach (var book in refText.Books)
@@ -773,7 +770,8 @@ namespace DevTools
 						{
 							LinkBlockByBlockInOrder(book, openQuote, closeQuote);
 							//s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
-							var bookXmlFile = FileLocator.GetFileDistributedWithApplication(ReferenceText.kDistFilesReferenceTextDirectoryName, language.ToString(), Path.ChangeExtension(book.BookId, "xml"));
+							string folder = (string) ReflectionHelper.GetProperty(refText, "ProjectFolder");
+							string bookXmlFile = Path.Combine(folder, Path.ChangeExtension(book.BookId, "xml"));
 							XmlSerializationHelper.SerializeToFile(bookXmlFile, book, out error);
 						}
 						catch (Exception e)

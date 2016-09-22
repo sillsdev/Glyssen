@@ -53,13 +53,13 @@ namespace DevTools
 			Console.WriteLine("");
 			Console.WriteLine("1) All");
 			Console.WriteLine("2) English");
-			Console.WriteLine("3) Azeri");
-			Console.WriteLine("4) French");
-			Console.WriteLine("5) Indonesian");
-			Console.WriteLine("6) Portuguese");
+			//Console.WriteLine("3) Azeri");
+			//Console.WriteLine("4) French");
+			//Console.WriteLine("5) Indonesian");
+			//Console.WriteLine("6) Portuguese");
 			Console.WriteLine("7) Russian");
-			Console.WriteLine("8) Spanish");
-			Console.WriteLine("9) Tok Pisin");
+			//Console.WriteLine("8) Spanish");
+			//Console.WriteLine("9) Tok Pisin");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
@@ -67,13 +67,13 @@ namespace DevTools
 			switch (selection)
 			{
 				case "2": type = ReferenceTextType.English; break;
-				case "3": type = ReferenceTextType.Azeri; break;
-				case "4": type = ReferenceTextType.French; break;
-				case "5": type = ReferenceTextType.Indonesian; break;
-				case "6": type = ReferenceTextType.Portuguese; break;
+				//case "3": type = ReferenceTextType.Azeri; break;
+				//case "4": type = ReferenceTextType.French; break;
+				//case "5": type = ReferenceTextType.Indonesian; break;
+				//case "6": type = ReferenceTextType.Portuguese; break;
 				case "7": type = ReferenceTextType.Russian; break;
-				case "8": type = ReferenceTextType.Spanish; break;
-				case "9": type = ReferenceTextType.TokPisin; break;
+				//case "8": type = ReferenceTextType.Spanish; break;
+				//case "9": type = ReferenceTextType.TokPisin; break;
 			}
 			ReferenceTextUtility.GenerateReferenceTexts(true, false, type);
 		}

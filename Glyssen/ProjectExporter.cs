@@ -639,15 +639,14 @@ namespace Glyssen
 		}
 		private bool HasReferenceText(List<object> dataRow)
 		{
-			int offset = IncludeVoiceActors ? 1 : 0;
-			offset += LocalizationManager.UILanguageId != "en" ? 1 : 0;
-			return !string.IsNullOrEmpty((string)dataRow[8 + offset]);
+			return !string.IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 		}
 
 		private BCVRef GetBcvRefForRow(List<object> row)
 		{
-			int offset = IncludeVoiceActors ? 1 : 0;
-			return new BCVRef(BCVRef.BookToNumber((string)row[2 + offset]), (int)row[3 + offset], ScrReference.VerseToIntStart((string)row[4 + offset]));
+			return new BCVRef(BCVRef.BookToNumber((string)row[GetColumnIndex(ExportColumn.BookId)]),
+				(int)row[GetColumnIndex(ExportColumn.Chapter)],
+				ScrReference.VerseToIntStart((string)row[GetColumnIndex(ExportColumn.Verse)]));
 		}
 
 		private List<object> GetExportDataForAnnotation(VerseAnnotation verseAnnotation, string bookId, int chapter, string verse)

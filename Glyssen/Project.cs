@@ -119,15 +119,6 @@ namespace Glyssen
 			m_vers = LoadVersification(VersificationFilePath);
 		}
 
-		private static string ProjectsBaseFolder
-		{
-			get
-			{
-				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					Program.kCompany, Program.kProduct);
-			}
-		}
-
 		public static IEnumerable<string> AllPublicationFolders
 		{
 			get
@@ -596,7 +587,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return m_referenceText ?? (m_referenceText = ReferenceText.GetStandardReferenceText(m_metadata.ReferenceText));
+				return m_referenceText ?? (m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier));
 			}
 			set
 			{
@@ -605,15 +596,16 @@ namespace Glyssen
 			}
 		}
 
-		public ReferenceTextType ReferenceTextType
+		public ReferenceTextIdentifier ReferenceTextIdentifier
 		{
-			get { return m_metadata.ReferenceText; }
+			get { return ReferenceTextIdentifier.GetOrCreate(m_metadata.ReferenceTextType, m_metadata.ProprietaryReferenceTextIdentifier); }
 			set
 			{
-				if (value == m_metadata.ReferenceText)
+				if (value.Type == m_metadata.ReferenceTextType && value.CustomIdentifier == m_metadata.ProprietaryReferenceTextIdentifier)
 					return;
 
-				m_metadata.ReferenceText = value;
+				m_metadata.ReferenceTextType = value.Type;
+				m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
 				m_referenceText = null;
 			}
 		}
