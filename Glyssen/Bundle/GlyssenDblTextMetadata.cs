@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Dialogs;
+using Icu;
 using SIL.DblBundle.Text;
 using SIL.Xml;
 
@@ -15,6 +16,7 @@ namespace Glyssen.Bundle
 		private int m_fontSizeInPointsTemp;
 		private string m_fontFamilyTemp;
 		private ReferenceTextType m_referenceTextType = ReferenceTextType.English;
+		private string m_unavailableDeprecatedReferenceTextIdentifier = null;
 
 		#region public Properties
 		[XmlElement("language")]
@@ -179,7 +181,8 @@ namespace Glyssen.Bundle
 		/// a reference text could be identified by type alone. With the added support for proprietary reference
 		/// texts, we now also need the ProprietaryReferenceTextIdentifier.
 		/// </summary>
-		[XmlAttribute("referenceText")]
+		[XmlAttribute("referenceTextType")]
+		[DefaultValue(ReferenceTextType.English)]
 		public ReferenceTextType ReferenceTextType
 		{
 			get { return m_referenceTextType; }
@@ -213,6 +216,55 @@ namespace Glyssen.Bundle
 		}
 
 		#region Deprecated properties used only for deserialization of projects with an old version of the data
+		/// <summary>
+		/// The reference text for this project. Historically, Glyssen shipped with a bunch of reference text
+		/// languages, but we had to remove most of them because of copyright issues. These can now be accessed as
+		/// custom reference texts if the user has them installed. To keep from "breaking" existing projects, the
+		/// setter here will attempt to determine if the reference text is available, and if so will migrate the
+		/// settings to point to the custom reference text.
+		/// </summary>
+		[XmlAttribute("referenceText")]
+		[DefaultValue(null)]
+		public string ReferenceText_DeprecatedXml
+		{
+			get { return m_unavailableDeprecatedReferenceTextIdentifier; }
+			set
+			{
+				if (value == null || ReferenceTextType != ReferenceTextType.English)
+				{
+					m_unavailableDeprecatedReferenceTextIdentifier = null;
+					return;
+				}
+
+				switch (value)
+				{
+					case "Russian":
+						ReferenceTextType = ReferenceTextType.Russian;
+						goto default;
+					case "Azeri":
+					case "French":
+					case "Indonesian":
+					case "Portuguese":
+					case "Spanish":
+					case "TokPisin":
+						if (ReferenceTextIdentifier.IsCustomReferenceAvailable(value))
+						{
+							ReferenceTextType = ReferenceTextType.Custom;
+							ProprietaryReferenceTextIdentifier = value;
+						}
+						else
+						{
+							// Remember it in case it becomes available in the future.
+							m_unavailableDeprecatedReferenceTextIdentifier = value;
+						}
+						return;
+					default:
+						m_unavailableDeprecatedReferenceTextIdentifier = null;
+						return;
+				}
+			}
+		}
+
 		[XmlElement("isBookSelectionUserConfirmed")]
 		[DefaultValue(false)]
 		public bool IsBookSelectionUserConfirmed_DeprecatedXml

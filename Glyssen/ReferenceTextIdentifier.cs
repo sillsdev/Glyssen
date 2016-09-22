@@ -194,18 +194,7 @@ namespace Glyssen
 				foreach (var dir in Directory.GetDirectories(ProprietaryReferenceTextProjectFileLocation))
 				{
 					var customId = Path.GetFileName(dir);
-					Debug.Assert(customId != null);
-					var key = kCustomIdPrefix + customId;
-					if (s_allAvailable.ContainsKey(key))
-						continue;
-					string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
-					var refTextProjectFilePath = Path.Combine(dir, projectFileName);
-					if (!File.Exists(refTextProjectFilePath))
-						continue;
-					var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath,
-						ErrorReporterForCopyrightedReferenceTexts);
-					if (metadata != null)
-						s_allAvailable.Add(key, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+					AttemptToAddCustomReferenceTextIdentifier(customId, dir);
 				}
 			}
 
@@ -234,6 +223,22 @@ namespace Glyssen
 			s_allAvailableLoaded = true;
 		}
 
+		private static void AttemptToAddCustomReferenceTextIdentifier(string customId, string dir)
+		{
+			Debug.Assert(customId != null);
+			var key = kCustomIdPrefix + customId;
+			if (s_allAvailable.ContainsKey(key))
+				return;
+			string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+			var refTextProjectFilePath = Path.Combine(dir, projectFileName);
+			if (!File.Exists(refTextProjectFilePath))
+				return;
+			var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath,
+				ErrorReporterForCopyrightedReferenceTexts);
+			if (metadata != null)
+				s_allAvailable.Add(key, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+		}
+
 		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
 			Action<Exception, string, string> reportError = null)
 		{
@@ -259,6 +264,26 @@ namespace Glyssen
 				return null;
 			}
 			return metadata;
+		}
+
+		public static bool IsCustomReferenceAvailable(string customId)
+		{
+			var dir = Path.Combine(ProprietaryReferenceTextProjectFileLocation, customId);
+			if (!Directory.Exists(dir))
+				return false;
+
+			var key = kCustomIdPrefix + customId;
+
+			if (s_allAvailable == null)
+				s_allAvailable = new Dictionary<string, ReferenceTextIdentifier>();
+			else if (s_allAvailable.ContainsKey(key))
+				return true;
+
+			ErrorReporterForCopyrightedReferenceTexts = (exception, s, arg3) => { };
+
+			AttemptToAddCustomReferenceTextIdentifier(customId, dir);
+
+			return s_allAvailable.ContainsKey(key);
 		}
 
 		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)

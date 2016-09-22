@@ -75,6 +75,34 @@ namespace GlyssenTests
 			Assert.AreEqual(idAzeri, referenceTexts["Custom: Azeri"]);
 		}
 
+		[Test]
+		public void IsCustomReferenceAvailable_Yes_ReturnsTrue()
+		{
+			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
+
+			ReferenceTextIdentifier.ClearCache();
+			Assert.IsTrue(ReferenceTextIdentifier.IsCustomReferenceAvailable("English"));
+			Assert.IsTrue(ReferenceTextIdentifier.IsCustomReferenceAvailable("Azeri"));
+		}
+
+		[Test]
+		public void IsCustomReferenceAvailable_NoCustomReferenceTexts_ReturnsFalse()
+		{
+			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("English"));
+			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("Azeri"));
+		}
+
+		[Test]
+		public void IsCustomReferenceAvailable_No_ReturnsFalse()
+		{
+			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
+
+			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("Spanish"));
+			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("English"));
+		}
+
 		private static void VerifyBuiltInReferenceTexts(Dictionary<string, ReferenceTextIdentifier> referenceTexts)
 		{
 			var english = referenceTexts["English"];
