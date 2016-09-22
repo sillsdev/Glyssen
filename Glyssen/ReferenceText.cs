@@ -3,103 +3,56 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
+using System.Text;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using L10NSharp;
 using Paratext;
 using SIL.Reporting;
-using SIL.IO;
 using SIL.Scripture;
 using SIL.Xml;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
-	public enum ReferenceTextType
-	{
-		Unknown,
-		English,
-		Azeri,
-		French,
-		Indonesian,
-		Portuguese,
-		Russian,
-		Spanish,
-		TokPisin,
-		Custom
-	}
 
 	public class ReferenceText : ProjectBase
 	{
-		public const string kDistFilesReferenceTextDirectoryName = "reference_texts";
-		private readonly ReferenceTextType m_referenceTextType;
+		protected readonly ReferenceTextType m_referenceTextType;
 		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
-		private static readonly Dictionary<ReferenceTextType, ReferenceText> s_standardReferenceTexts = new Dictionary<ReferenceTextType, ReferenceText>();
+		private static readonly Dictionary<ReferenceTextIdentifier, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<ReferenceTextIdentifier, ReferenceText>();
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
+			return GetReferenceText(ReferenceTextIdentifier.GetOrCreate(referenceTextType));
+		}
+
+		public static ReferenceText GetReferenceText(ReferenceTextIdentifier id)
+		{
 			ReferenceText referenceText;
-			if (s_standardReferenceTexts.TryGetValue(referenceTextType, out referenceText))
+			if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
 				referenceText.ReloadModifiedBooks();
 			else
 			{
-				ScrVers versification;
-				switch (referenceTextType)
+				referenceText = new ReferenceText(id.Metadata, id.Type, id.ProjectFolder);
+				referenceText.LoadBooks();
+				switch (id.Type)
 				{
 					case ReferenceTextType.English:
-					case ReferenceTextType.Azeri:
-					case ReferenceTextType.French:
-					case ReferenceTextType.Indonesian:
-					case ReferenceTextType.Portuguese:
+					//case ReferenceTextType.Azeri:
+					//case ReferenceTextType.French:
+					//case ReferenceTextType.Indonesian:
+					//case ReferenceTextType.Portuguese:
 					case ReferenceTextType.Russian:
-					case ReferenceTextType.Spanish:
-					case ReferenceTextType.TokPisin:
-						versification = ScrVers.English;
+						//case ReferenceTextType.Spanish:
+						//case ReferenceTextType.TokPisin:
+						referenceText.m_vers = ScrVers.English;
 						break;
-					default:
-						throw new ArgumentOutOfRangeException("referenceTextType", referenceTextType, null);
 				}
-				referenceText = GenerateStandardReferenceText(referenceTextType);
-				referenceText.m_vers = versification;
-
-				s_standardReferenceTexts[referenceTextType] = referenceText;
+				s_instantiatedReferenceTexts[id] = referenceText;
 			}
-			return referenceText;
-		}
-
-		public static ReferenceText CreateCustomReferenceText(GlyssenDblTextMetadata metadata)
-		{
-			return new ReferenceText(metadata, ReferenceTextType.Custom);
-		}
-
-		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
-			Action<Exception, string, string> reportError = null)
-		{
-			var referenceProjectFilePath = GetReferenceTextProjectFileLocation(referenceTextType);
-			Exception exception;
-			var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(referenceProjectFilePath, out exception);
-			if (exception != null)
-			{
-				if (reportError != null)
-					reportError(exception, referenceTextType.ToString(), referenceProjectFilePath);
-				return null;
-			}
-			return metadata;
-		}
-
-		private static ReferenceText GenerateStandardReferenceText(ReferenceTextType referenceTextType)
-		{
-			var metadata = LoadMetadata(referenceTextType, (exception, token, path) =>
-			{
-				Analytics.ReportException(exception);
-				ReportNonFatalLoadError(exception, token, path);
-			});
-
-			var referenceText = new ReferenceText(metadata, referenceTextType);
-			referenceText.LoadBooks();
 			return referenceText;
 		}
 
@@ -143,83 +96,39 @@ namespace Glyssen
 			m_modifiedBooks.Clear();
 		}
 
-		public static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
-		{
-			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + kProjectFileExtension;
-			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
-		}
-
-		// ENHANCE: Change the key from ReferenceTextType to some kind of token that can represent either a standard
-		// reference text or a specific custom one.
-		public static Dictionary<string, ReferenceTextType> AllAvailable
-		{
-			get
-			{
-				var items = new Dictionary<string, ReferenceTextType>();
-				Tuple<Exception, string, string> firstLoadError = null;
-				var additionalErrors = new List<string>();
-
-				foreach (var itm in Enum.GetValues(typeof(ReferenceTextType)).Cast<ReferenceTextType>())
-				{
-					if (itm == ReferenceTextType.Custom || itm == ReferenceTextType.Unknown) continue;
-
-					var metadata = LoadMetadata(itm, (exception, token, path) =>
-					{
-						Analytics.ReportException(exception);
-						if (firstLoadError == null)
-							firstLoadError = new Tuple<Exception, string, string>(exception, token, path);
-						else
-							additionalErrors.Add(token);
-					});
-					if (metadata == null) continue;
-
-					items.Add(metadata.Language.Name, itm);
-				}
-
-				if (firstLoadError != null)
-				{
-					if (!items.Any())
-					{
-						throw new Exception(
-							String.Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
-							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
-							"for more details."), Program.kProduct),
-							firstLoadError.Item1);
-					}
-					if (additionalErrors.Any())
-					{
-						ErrorReport.ReportNonFatalExceptionWithMessage(firstLoadError.Item1,
-							String.Format(LocalizationManager.GetString("ReferenceText.MultipleLoadErrors",
-							"The following reference texts could not be loaded: {0}, {1}"), firstLoadError.Item2,
-							String.Join(", ", additionalErrors)));
-					}
-					else
-					{
-						ReportNonFatalLoadError(firstLoadError.Item1, firstLoadError.Item2, firstLoadError.Item3);
-					}
-				}
-
-				return items;
-			}
-		}
-
-		private static void ReportNonFatalLoadError(Exception exception, string token, string path)
-		{
-			ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-				LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
-				token, path);
-		}
-
-		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType)
+		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType, string projectFolder)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;
+			m_projectFolder = projectFolder;
+
 
 			GetBookName = bookId =>
 			{
 				var book = Books.FirstOrDefault(b => b.BookId == bookId);
 				return book == null ? null : book.PageHeader;
 			};
+
+			if (m_referenceTextType == ReferenceTextType.Custom)
+				SetVersification();
+		}
+
+		protected virtual void SetVersification()
+		{
+			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
+			if (!File.Exists(VersificationFilePath))
+			{
+				var msg = new StringBuilder(LocalizationManager.GetString("ReferenceText.CustomVersificationFileMissing",
+					"The versification file for the proprietary reference text used by the project could not be found:"));
+				msg.Append(Environment.NewLine);
+				msg.Append(VersificationFilePath);
+				msg.Append(Environment.NewLine);
+				msg.Append(LocalizationManager.GetString("ReferenceText.FallbackToVersificationMessage",
+					"If you continue without the versification file, the standard English versification will be used."));
+				ErrorReport.ReportNonFatalMessageWithStackTrace(msg.ToString());
+			}
+			m_vers = File.Exists(VersificationFilePath) ? LoadVersification(VersificationFilePath) :
+				ScrVers.English;
 		}
 
 		public bool HasSecondaryReferenceText
@@ -519,19 +428,6 @@ namespace Glyssen
 			return block.BlockElements.OfType<Verse>().Any(ve => ve.StartVerse <= verse && ve.EndVerse > verse);
 		}
 
-		protected override string ProjectFolder
-		{
-			get
-			{
-				if (m_projectFolder == null)
-				{
-					if (m_referenceTextType == ReferenceTextType.Custom || m_referenceTextType == ReferenceTextType.Unknown)
-						throw new InvalidOperationException("Attempt to get standard reference project folder for a non-standard type.");
-					m_projectFolder = FileLocator.GetDirectoryDistributedWithApplication(kDistFilesReferenceTextDirectoryName,
-						m_referenceTextType.ToString());
-				}
-				return m_projectFolder;
-			}
-		}
+		protected override string ProjectFolder { get { return m_projectFolder; } }
 	}
 }

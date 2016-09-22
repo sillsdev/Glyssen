@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="C:\unknown" controlfileversion="91" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
   <language>
-    <iso>rus</iso>
-    <name>Russian</name>
-    <ldml>rus</ldml>
+    <iso>fra</iso>
+    <name>French</name>
+    <ldml>fra</ldml>
     <rod />
     <script />
     <numerals />
     <fontFamily>Charis SIL</fontFamily>
     <fontSizeInPoints>14</fontSizeInPoints>
+	<heSaidText>il a dit.</heSaidText>
   </language>
   <identification>
-    <name>Synodal Translation (1876)</name>
+    <name>Test French Project</name>
     <nameLocal />
     <systemId type="gbc" />
     <systemId type="tms" />
@@ -20,7 +21,7 @@
   </identification>
   <copyright>
     <statement contentType="xhtml">
-      <p>Public Domain.</p>
+      <p>2016 Test copyright notice</p>
     </statement>
   </copyright>
   <promotion>

@@ -134,6 +134,7 @@
     <Compile Include="ProjectDataMigratorTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
     <Compile Include="ProjectTests.cs" />
+    <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="ReferenceTextTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
@@ -183,6 +184,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\azeri.glyssen" />
+    <None Include="Resources\english.glyssen" />
+    <None Include="Resources\french.glyssen" />
     <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
@@ -197,6 +201,10 @@
     <None Include="Resources\Test1JN.xml" />
     <None Include="Resources\Test2JN.xml" />
     <None Include="Resources\Test3JN.xml" />
+    <None Include="Resources\AzeriJUDRefText.xml" />
+    <None Include="Resources\EnglishVersification.txt" />
+    <None Include="Resources\AzeriREVRefText.xml" />
+    <None Include="Resources\FrenchMRKRefText.xml" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />

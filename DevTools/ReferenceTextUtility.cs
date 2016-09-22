@@ -20,6 +20,7 @@ namespace DevTools
 		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
 		private const string kDirectorGuideInput = @"..\..\DevTools\Resources\DGNTAllSimplified_71.xlsx";
 
+		//TODO: Have two lists or only list the ones that should actually get created in distfiles (comment out others?)
 		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
 		{
 			{"English", "NewEnglish"},
@@ -129,9 +130,14 @@ namespace DevTools
 			{
 				Console.WriteLine("Processing " + language + "...");
 
-				const string kOutputDir = @"..\..\DistFiles\reference_texts";
-
-				string languageOutputDir = Path.Combine(kOutputDir, language.Value);
+				const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
+				ReferenceTextType refTextType;
+				string outputDir = Enum.TryParse(language.Key, out refTextType) ? kOutputDirDistfiles :
+					// This must match logic in Glyssen.Program.BaseDataFolder (but Program is an internal class)
+					Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+					"FCBH-SIL", "Glyssen", "Newly Generated Reference Texts");
+					
+				string languageOutputDir = Path.Combine(outputDir, language.Value);
 				Directory.CreateDirectory(languageOutputDir);
 
 				string prevBook = null;
@@ -636,20 +642,11 @@ namespace DevTools
 		public static bool LinkToEnglish()
 		{
 			bool errorOccurred = false;
-			foreach (ReferenceTextType language in Enum.GetValues(typeof(ReferenceTextType)))
+			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Value.Type != ReferenceTextType.English))
 			{
-				if (language == ReferenceTextType.English || language == ReferenceTextType.Custom || language == ReferenceTextType.Unknown)
-					continue;
+				var refText = ReferenceText.GetReferenceText(referenceTextId.Value);
 
-				var refText = ReferenceText.GetStandardReferenceText(language);
-
-				if (refText == null)
-				{
-					errorOccurred = true;
-					Console.Error.WriteLine("No data available to create " + language + " reference text.");
-					continue;
-				}
-				Console.WriteLine("Processing " + language + "...");
+				Console.WriteLine("Processing " + referenceTextId.Key + "...");
 				Console.Write("   ");
 
 				foreach (var book in refText.Books)
@@ -670,7 +667,8 @@ namespace DevTools
 						{
 							LinkBlockByBlockInOrder(book);
 							//s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
-							var bookXmlFile = FileLocator.GetFileDistributedWithApplication(ReferenceText.kDistFilesReferenceTextDirectoryName, language.ToString(), Path.ChangeExtension(book.BookId, "xml"));
+							string folder = (string) ReflectionHelper.GetProperty(refText, "ProjectFolder");
+							string bookXmlFile = Path.Combine(folder, Path.ChangeExtension(book.BookId, "xml"));
 							XmlSerializationHelper.SerializeToFile(bookXmlFile, book, out error);
 						}
 						catch (Exception e)

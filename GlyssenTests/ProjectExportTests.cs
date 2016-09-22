@@ -20,6 +20,12 @@ namespace GlyssenTests
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 		}
 
+		[TearDown]
+		public void Teardown()
+		{
+			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+		}
+
 		[Test]
 		public void GetExportData_NoActorsAssigned_ActorColumnNotPresent()
 		{
@@ -389,10 +395,10 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetExportData_BlocksAreJoinedToStandardNonEnglishReferenceText_OutputContainsPrimaryAndEnglishReferenceText()
+		public void GetExportData_BlocksAreJoinedToCustomReferenceTextWhosePageHeaderIsDifferentFromTheMainTitle_ChapterAnnouncementBasedOnPageHeader()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Azeri);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
@@ -413,7 +419,45 @@ namespace GlyssenTests
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Contains("Ә"))); // A letter that should be in Azeri, but not English
 			Assert.IsTrue(matchedRows.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] != null));
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).Contains(" the "))); // A word that should be in English, but not Azeri
-			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two rows
+			// Since the test version of Jude does not match perfectly with this reference text, we expect two rows
+			// where the vernacular has no corresponding reference text.
+			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsTrue(data.Where(d => d[exporter.GetColumnIndex(ExportColumn.ParaTag)] as string == "s1")
+				.All(d => d[exporter.GetColumnIndex(ExportColumn.CharacterId)] as string == extra));
+			var scriptureRowsWithNoReferenceText = data.Where(d => d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] == null &&
+				d[exporter.GetColumnIndex(ExportColumn.ParaTag)] as string != "s1").ToList();
+			Assert.AreEqual(2, scriptureRowsWithNoReferenceText.Count);
+			Assert.AreEqual(1, scriptureRowsWithNoReferenceText.Count(d => d[exporter.GetColumnIndex(ExportColumn.CharacterId)] as string == narrator));
+			Assert.IsTrue(scriptureRowsWithNoReferenceText.All(d => d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] == null));
+		}
+
+		[Test]
+		public void GetExportData_BlocksAreJoinedToStandardNonEnglishReferenceText_OutputContainsPrimaryAndEnglishReferenceText()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
+			metadata.IncludeChapterAnnouncementForFirstChapter = true;
+			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
+			var exporter = new ProjectExporter(project);
+
+			var data = exporter.GetExportData().ToList();
+
+			Assert.IsTrue(data.All(d => d.Count == 11));
+			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD"));
+			Assert.IsTrue(data.All(d => d.Count == exporter.GetColumnIndex(ExportColumn.VernacularTextLength) + 1));
+			Assert.AreEqual("Иуда", data[0][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("JUDE", data[0][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.IsTrue(data.Skip(1).All(d => (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1));
+			Assert.AreEqual("Иуда 1", data[1][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("JUDE CHP 1", data[1][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			var matchedRows = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.VernacularText)] != null && (string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] != null).ToList();
+			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Contains("п"))); // A letter that should be in Russian, but not English
+			Assert.IsTrue(matchedRows.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] != null));
+			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).Contains(" the "))); // A word that should be in English, but not Russian
+			// Since the test version of Jude does not match perfectly with the standard reference texts, we expect two Scripture rows
 			// where the vernacular has no corresponding reference text.
 			var extra = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			var narrator = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
@@ -430,7 +474,7 @@ namespace GlyssenTests
 		public void GetExportData_ExportAnnotationsInSeparateRows_ReferenceTextsContainAnnotations()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Azeri);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
 
@@ -480,7 +524,7 @@ namespace GlyssenTests
 		public void GetExportData_AnnotationsCombinedWithData_ReferenceTextsContainAnnotations(ExportFileType exportFileType)
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
-			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Azeri);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
 			var exporter = new ProjectExporter(project) { SelectedFileType = exportFileType };
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 
@@ -536,7 +580,7 @@ namespace GlyssenTests
 		public void GetExportData_ExportAnnotationsInSeparateRows_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.French);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			var exporter = new ProjectExporter(project);
 			exporter.ExportAnnotationsInSeparateRows = true;
 
@@ -560,7 +604,7 @@ namespace GlyssenTests
 		public void GetExportData_AnnotationsCombinedWithData_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.French);
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			var exporter = new ProjectExporter(project);
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 
@@ -583,7 +627,7 @@ namespace GlyssenTests
 		public void GeneratePreviewTable_BlocksAreJoinedToStandardNonEnglishReferenceText_HeadersIncludeNonEnglishAndEnglishDirectorsGuide()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
-			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish);
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
 			var exporter = new ProjectExporter(project);
 
 			var data = exporter.GeneratePreviewTable();
@@ -596,7 +640,7 @@ namespace GlyssenTests
 			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.CharacterId)].ColumnName == "Character");
 			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.Delivery)].ColumnName == "Delivery");
 			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.VernacularText)].ColumnName == "Text");
-			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)].ColumnName == "Spanish Director's Guide");
+			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)].ColumnName == "Russian Director's Guide");
 			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)].ColumnName == "English Director's Guide");
 			Assert.IsTrue(data.Columns[exporter.GetColumnIndex(ExportColumn.VernacularTextLength)].ColumnName == "Size");
 		}

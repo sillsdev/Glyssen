@@ -215,6 +215,8 @@ namespace Glyssen
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
+			if (referenceBlock == null)
+				throw new ArgumentNullException("referenceBlock");
 			ReferenceBlocks = new List<Block> { referenceBlock };
 			MatchesReferenceText = true;
 		}
