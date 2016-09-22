@@ -728,26 +728,25 @@ namespace DevTools
 			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Value.Type != ReferenceTextType.English))
 			{
 				var refText = ReferenceText.GetReferenceText(referenceTextId.Value);
-				string openQuote, closeQuote;
-				switch (language)
+				string openQuote = "“";
+				string closeQuote = "”";
+				if (referenceTextId.Value.Type == ReferenceTextType.Custom)
 				{
-					case ReferenceTextType.Azeri:
-					case ReferenceTextType.French:
-					case ReferenceTextType.Indonesian:
-					case ReferenceTextType.Spanish:
-						openQuote = "<<";
-						closeQuote = ">>";
-						break;
-					case ReferenceTextType.TokPisin:
-						openQuote = "\"";
-						closeQuote = "\"";
-						break;
-					default:
-						openQuote = "“";
-						closeQuote = "”";
-						break;
+					switch (referenceTextId.Value.CustomIdentifier)
+					{
+						case "Azeri":
+						case "French":
+						case "Indonesian":
+						case "Spanish":
+							openQuote = "<<";
+							closeQuote = ">>";
+							break;
+						case "TokPisin":
+							openQuote = "\"";
+							closeQuote = "\"";
+							break;
+					}
 				}
-
 
 				Console.WriteLine("Processing " + referenceTextId.Key + "...");
 				Console.Write("   ");
