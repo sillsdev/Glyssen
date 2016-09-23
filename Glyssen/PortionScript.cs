@@ -142,14 +142,24 @@ namespace Glyssen
 				var newBlock = SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
 				if (vernBlock.MatchesReferenceText)
 				{
+					// REVIEW: Should this be First or Single, or do we need to possibly handle the case of a sequence?
+					// For now, at least, matching implies there is exactly one reference block.
+					var refBlock = vernBlock.ReferenceBlocks.Single();
 					try
 					{
-						// For now, at least, matching implies there is exactly one reference block.
-						newBlock.SetMatchedReferenceBlock(vernBlock.ReferenceBlocks.Single().SplitBlock(verseString, kSplitAtEndOfVerse));
+						newBlock.SetMatchedReferenceBlock(refBlock.SplitBlock(verseString, kSplitAtEndOfVerse));
 					}
 					catch (ArgumentException)
 					{
-						// TODO: Handle English Reference block with different verse number from primary reference block
+						while (refBlock != null)
+						{
+							var lastVerseOfRefBlock = refBlock.LastVerse;
+							var newRefBlock = new Block(newBlock.StyleTag, newBlock.ChapterNumber, lastVerseOfRefBlock.StartVerse, lastVerseOfRefBlock.EndVerse);
+							newRefBlock.BlockElements.Add(new ScriptText(""));
+							newBlock.SetMatchedReferenceBlock(newRefBlock);
+							newBlock = newRefBlock;
+							refBlock = refBlock.ReferenceBlocks.FirstOrDefault();
+						}
 					}
 				}
 			}
