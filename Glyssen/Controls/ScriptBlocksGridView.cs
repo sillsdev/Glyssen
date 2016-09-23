@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using L10NSharp;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen.Controls
@@ -369,7 +373,31 @@ namespace Glyssen.Controls
 		{
 			if (m_viewModel.CurrentReferenceTextMatchup != null)
 			{
-				FirstDisplayedScrollingRowIndex = firstRow;
+				try
+				{
+					FirstDisplayedScrollingRowIndex = firstRow;
+				}
+				catch (Exception exception)
+				{
+					Analytics.ReportException(exception, new Dictionary<string, string>
+					{
+						{"firstRow", firstRow.ToString()},
+						{"lastRow", lastRow.ToString()},
+						{"RowCount", RowCount.ToString()},
+						{"existing FirstDisplayedScrollingRowIndex", FirstDisplayedScrollingRowIndex.ToString()},
+						{"m_viewModel.CurrentBookId", m_viewModel.CurrentBookId},
+					});
+					ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+						"Although this is not a fatal error, the Glyssen developers are trying to find the cause of this problem (PG-810) so it can be fixed." +
+						" Please report this if possible." + Environment.NewLine +
+						"firstRow = " + firstRow + Environment.NewLine +
+						"lastRow = " + lastRow + Environment.NewLine +
+						"RowCount = " + RowCount + Environment.NewLine +
+						"existing FirstDisplayedScrollingRowIndex = " + FirstDisplayedScrollingRowIndex + Environment.NewLine +
+						"m_viewModel.CurrentBookId = " + m_viewModel.CurrentBookId + Environment.NewLine +
+						"IndexOfStartBlockInBook = " + m_viewModel.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + Environment.NewLine +
+						"CorrelatedBlocks.Count = " + m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
+				}
 			}
 			else
 			{
