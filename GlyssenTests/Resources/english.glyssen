@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="C:\unknown" controlfileversion="91" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DBLMetadata id="5453af4c7644271c" type="text" typeVersion="1.4" revision="0" usxparserversion="33" origdblpath="X:\1 SCRIPT ASSEMBLER\Amgad\Director Guide into Glyssen\English\Glyssen script English DG\9 Apostrophies and r removed\export_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600\bundle_text_dbl-5453af4c7644271c_pt-ENGDG_20160308-122600_release.zip" controlfileversion="91" audiostocknumber="ENGENG9Ap" modifieddate="2016-03-08T13:42:38.5231556-07:00" firstchapterannouncement="true" singlechapterannouncement="true">
   <language>
-    <iso>rus</iso>
-    <name>Russian</name>
-    <ldml>rus</ldml>
+    <iso>eng</iso>
+    <name>English</name>
+    <ldml>en</ldml>
     <rod />
     <script />
     <numerals />
     <fontFamily>Charis SIL</fontFamily>
     <fontSizeInPoints>14</fontSizeInPoints>
-	<heSaidText>сказал.</heSaidText>
+	<heSaidText>katanya.</heSaidText>
   </language>
   <identification>
-    <name>Synodal Translation (1876)</name>
+    <name>World English Bible (WEB)</name>
     <nameLocal />
     <systemId type="gbc" />
     <systemId type="tms" />
     <systemId type="reap" />
+    <systemId type="paratext" csetid="25dd10a442f26b74ab7aa1209be2721c0c383240">5453af4c7644271c8ad7ca62db7243d5ffd24e34</systemId>
     <systemId type="biblica" />
   </identification>
   <copyright>
     <statement contentType="xhtml">
       <p>Public Domain.</p>
-	  <p>See: http://newchristianbiblestudy.org/bible/russian-synodal-1876/</p>
     </statement>
   </copyright>
   <promotion>
     <promoVersionInfo contentType="xhtml" />
   </promotion>
   <archiveStatus>
-    <dateArchived></dateArchived>
-    <dateUpdated></dateUpdated>
+    <dateArchived>2016-03-08T19:25:53.5903051+00:00</dateArchived>
+    <dateUpdated>2016-03-08T19:25:53.5903051+00:00</dateUpdated>
   </archiveStatus>
   <bookNames>
     <book code="MAT">

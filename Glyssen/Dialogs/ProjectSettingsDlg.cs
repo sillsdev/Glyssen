@@ -87,7 +87,7 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			m_ReferenceText.DataSource = new BindingSource(ReferenceText.AllAvailable, null);
+			m_ReferenceText.DataSource = new BindingSource(ReferenceTextIdentifier.AllAvailable, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
 		}
@@ -156,9 +156,9 @@ namespace Glyssen.Dialogs
 				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
 
-				foreach (KeyValuePair<string, ReferenceTextType> kvp in m_ReferenceText.Items)
+				foreach (KeyValuePair<string, ReferenceTextIdentifier> kvp in m_ReferenceText.Items)
 				{
-					if (kvp.Value == m_model.Project.ReferenceTextType)
+					if (kvp.Value == m_model.Project.ReferenceTextIdentifier)
 					{
 						m_ReferenceText.SelectedItem = kvp;
 						break;
@@ -263,7 +263,7 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
-			m_model.Project.ReferenceTextType = ((KeyValuePair<string, ReferenceTextType>)m_ReferenceText.SelectedItem).Value;
+			m_model.Project.ReferenceTextIdentifier = ((KeyValuePair<string, ReferenceTextIdentifier>)m_ReferenceText.SelectedItem).Value;
 
 			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
 			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;
@@ -464,6 +464,45 @@ namespace Glyssen.Dialogs
 		private void m_txtRecordingProjectName_TextChanged(object sender, EventArgs e)
 		{
 			m_btnOk.Enabled = !String.IsNullOrWhiteSpace(m_txtRecordingProjectName.Text);
+		}
+
+		private void HandleSelectedReferenceTextChanged(object sender, EventArgs e)
+		{
+			m_linkRefTextAttribution.Text = String.Empty;
+			m_linkRefTextAttribution.Links.Clear();
+			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextIdentifier>)
+			{
+				var copyright =
+					((KeyValuePair<string, ReferenceTextIdentifier>) m_ReferenceText.SelectedItem).Value.Metadata.Copyright;
+				if (copyright != null && copyright.Statement != null)
+				{
+					var copyrightInternalNodes = copyright.Statement.InternalNodes;
+					if (copyrightInternalNodes != null)
+					{
+						m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+					}
+					const string kHttpPrefix = "http://";
+					var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+					if (linkStart >= 0)
+					{
+						var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
+						if (linkExtent > 0)
+						{
+							//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
+							m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
+								m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
+						}
+					}
+				}
+			}
+		}
+
+		private void HandleWebSiteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string tgt = e.Link.LinkData as string;
+
+			if (!string.IsNullOrEmpty(tgt))
+				System.Diagnostics.Process.Start(tgt);
 		}
 	}
 }
