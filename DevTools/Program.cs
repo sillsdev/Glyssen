@@ -20,6 +20,7 @@ namespace DevTools
 			Console.WriteLine("9) Generate standard reference texts from Excel spreadsheet");
 			Console.WriteLine("10) Link standard reference texts to English");
 			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
+			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
@@ -38,6 +39,7 @@ namespace DevTools
 				case "9": errorOccurred = !ReferenceTextUtility.GenerateReferenceTexts(false, false); break;
 				case "10": errorOccurred = !ReferenceTextUtility.LinkToEnglish(); break;
 				case "11": ReferenceTextUtility.GenerateReferenceTexts(false, true); break;
+				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
 			}
 
 			if (errorOccurred)

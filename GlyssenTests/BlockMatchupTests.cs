@@ -9,6 +9,12 @@ namespace GlyssenTests
 	[TestFixture]
 	class BlockMatchupTests
 	{
+		[TearDown]
+		public void Teardown()
+		{
+			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+		}
+
 		[TestCase(0)]
 		[TestCase(1)]
 		[TestCase(2)]
@@ -387,7 +393,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			var narrator = vernacularBlocks[2].CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.French));
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMAT));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 
@@ -1007,21 +1013,25 @@ namespace GlyssenTests
 			Assert.AreEqual("", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
 		}
 
-		[TestCase(ReferenceTextType.Azeri, "dedi.")]
-		[TestCase(ReferenceTextType.French, "il a dit.")]
-		[TestCase(ReferenceTextType.Indonesian, "katanya.")]
-		[TestCase(ReferenceTextType.Portuguese, "disse.")]
-		[TestCase(ReferenceTextType.Spanish, "dijo.")]
-		[TestCase(ReferenceTextType.TokPisin, "i bin tok.")]
-		[TestCase(ReferenceTextType.Russian, "сказал.")]
-		public void InsertHeSaidText_NonEnglishPrimary_SingleRow_TextSetAndCallbackCalled(ReferenceTextType refLanguage, string expectedText)
+		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.AzeriJUD, "dedi.")]
+		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.FrenchMAT, "il a dit.")]
+		//[TestCase(ReferenceTextType.Indonesian, "katanya.")]
+		//[TestCase(ReferenceTextType.Portuguese, "disse.")]
+		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.SpanishMAT, "dijo.")]
+		//[TestCase(ReferenceTextType.TokPisin, "i bin tok.")]
+		[TestCase(ReferenceTextType.Russian, null, "сказал.")]
+		public void InsertHeSaidText_NonEnglishPrimary_SingleRow_TextSetAndCallbackCalled(ReferenceTextType type,
+			TestReferenceText.TestReferenceTextResource customLanguageBook, string expectedText)
 		{
+			ReferenceText rt = type == ReferenceTextType.Custom ? TestReferenceText.CreateCustomReferenceText(customLanguageBook) :
+				ReferenceText.GetStandardReferenceText(type);
+
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Tio estas verso du,” ", true));
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "diris Jesuo. ");
 			var narrator = vernacularBlocks.Last().CharacterId;
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(refLanguage));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt);
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“Esto es versiculo dos,” ", true));
 			matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().SetMatchedReferenceBlock(
@@ -1092,7 +1102,8 @@ namespace GlyssenTests
 			refEmptySpanishRefTextBlock.SetMatchedReferenceBlock(refPeterSaidBlock);
 			vernPeterSaidBlock.SetMatchedReferenceBlock(refEmptySpanishRefTextBlock);
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.Spanish));
+			ReferenceText rt = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, rt);
 
 			var callbacks = new List<Tuple<int, int, string>>();
 

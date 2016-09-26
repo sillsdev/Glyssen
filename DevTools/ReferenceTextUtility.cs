@@ -959,6 +959,40 @@ namespace DevTools
 			annotation = null;
 			return false;
 		}
+
+		public static void ObfuscateProprietaryReferenceTextsToMakeTestingResources()
+		{
+			var baseResourcesDir = Path.Combine("..", "..", "GlyssenTests", "Resources");
+			var outputDir = Path.Combine(baseResourcesDir, "temporary");
+
+			if (!Directory.Exists(outputDir))
+				Directory.CreateDirectory(outputDir);
+
+			foreach (var rt in ReferenceTextIdentifier.AllAvailable.Select(kvp => kvp.Value).Where(r => r.Type == ReferenceTextType.Custom))
+			{
+				var refText = ReferenceText.GetReferenceText(rt);
+				foreach (var book in refText.Books)
+				{
+					var fileName = String.Format("{0}{1}RefText.xml", rt.CustomIdentifier, book.BookId);
+					var existingTestResourcePath = Path.Combine(baseResourcesDir, fileName);
+					var outputPath = Path.Combine(outputDir, fileName);
+					if (File.Exists(existingTestResourcePath) || File.Exists(outputPath))
+						continue;
+
+					foreach (var block in book.GetScriptBlocks())
+					{
+						foreach (var scriptText in block.BlockElements.OfType<ScriptText>())
+						{
+							var content = scriptText.Content;
+							content = Regex.Replace(content, "([^ ]* )([^ ]* )*([^ ]*.*)", "$1... $3");
+							scriptText.Content = content;
+						}
+					}
+
+					XmlSerializationHelper.SerializeToFile(outputPath, book);
+				}
+			}
+		}
 	}
 
 	class ReferenceTextRow

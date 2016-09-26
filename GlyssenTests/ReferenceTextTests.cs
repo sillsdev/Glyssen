@@ -38,6 +38,12 @@ namespace GlyssenTests
 			}
 		}
 
+		[TearDown]
+		public void Teardown()
+		{
+			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
+		}
+
 		[TestCase(ReferenceTextType.English)]
 		//[TestCase(ReferenceTextType.Azeri)]
 		//[TestCase(ReferenceTextType.French)]
@@ -2026,12 +2032,7 @@ namespace GlyssenTests
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Which means, God with us.", true));
 			referenceBlocks.Add(CreateNarratorBlockForVerse(2, "This is your narrator speaking. "));
-			//var metadata = new GlyssenDblTextMetadata();
-			//metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
 			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("JUD", referenceBlocks);
-			//var books = (List<BookScript>)primaryReferenceText.Books;
-			//var refBook = new BookScript("JUD", referenceBlocks);
-			//books.Add(refBook);
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
 
@@ -2091,8 +2092,12 @@ namespace GlyssenTests
 
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
-			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(metadata);
-			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
+			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			var doublespeakFolder = Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, "Doublespeak");
+			Directory.CreateDirectory(doublespeakFolder);
+			var glyssenFilePath = Path.Combine(doublespeakFolder, "doublespeak.glyssen");
+			XmlSerializationHelper.SerializeToFile(glyssenFilePath, metadata);
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks);
 			books.Add(refBook);
@@ -2125,9 +2130,16 @@ namespace GlyssenTests
 
 			var referenceBlocks = new List<Block>();
 			referenceBlocks.Add(CreateBlockForVerse("Peter", 1, "John said, 'This is line 1, This is line 2, This is line 3, This is line 4.'", true));
+
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Poetian" };
-			var primaryReferenceText = ReferenceText.CreateCustomReferenceText(metadata);
+			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
+			var doublespeakFolder = Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, "Poetian");
+			Directory.CreateDirectory(doublespeakFolder);
+			var glyssenFilePath = Path.Combine(doublespeakFolder, "poetian.glyssen");
+			XmlSerializationHelper.SerializeToFile(glyssenFilePath, metadata);
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, "Poetian"));
+
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks);
@@ -2483,7 +2495,9 @@ namespace GlyssenTests
 			EnglishJUD,
 			AzeriJUD,
 			AzeriREV,
+			FrenchMAT,
 			FrenchMRK,
+			SpanishMAT,
 		}
 
 		private TestReferenceText(GlyssenDblTextMetadata metadata, BookScript book)
@@ -2584,10 +2598,20 @@ namespace GlyssenTests
 					fileName = "REV.xml";
 					fileContents = Resources.AzeriREVRefText;
 					break;
+				case TestReferenceTextResource.FrenchMAT:
+					folder = "French";
+					fileName = "MAT.xml";
+					fileContents = Resources.FrenchMATRefText;
+					break;
 				case TestReferenceTextResource.FrenchMRK:
 					folder = "French";
 					fileName = "MRK.xml";
 					fileContents = Resources.FrenchMRKRefText;
+					break;
+				case TestReferenceTextResource.SpanishMAT:
+					folder = "Spanish";
+					fileName = "MAT.xml";
+					fileContents = Resources.SpanishMATRefText;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException("testResource", testResource, null);
