@@ -465,5 +465,44 @@ namespace Glyssen.Dialogs
 		{
 			m_btnOk.Enabled = !String.IsNullOrWhiteSpace(m_txtRecordingProjectName.Text);
 		}
+
+		private void HandleSelectedReferenceTextChanged(object sender, EventArgs e)
+		{
+			m_linkRefTextAttribution.Text = String.Empty;
+			m_linkRefTextAttribution.Links.Clear();
+			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextIdentifier>)
+			{
+				var copyright =
+					((KeyValuePair<string, ReferenceTextIdentifier>) m_ReferenceText.SelectedItem).Value.Metadata.Copyright;
+				if (copyright != null && copyright.Statement != null)
+				{
+					var copyrightInternalNodes = copyright.Statement.InternalNodes;
+					if (copyrightInternalNodes != null)
+					{
+						m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+					}
+					const string kHttpPrefix = "http://";
+					var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+					if (linkStart >= 0)
+					{
+						var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
+						if (linkExtent > 0)
+						{
+							//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
+							m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
+								m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
+						}
+					}
+				}
+			}
+		}
+
+		private void HandleWebSiteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string tgt = e.Link.LinkData as string;
+
+			if (!string.IsNullOrEmpty(tgt))
+				System.Diagnostics.Process.Start(tgt);
+		}
 	}
 }
