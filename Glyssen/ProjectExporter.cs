@@ -470,7 +470,7 @@ namespace Glyssen
 				if (!Project.ReferenceText.HasSecondaryReferenceText)
 					columnNumber--;
 			}
-			if (LocalizationManager.UILanguageId != "en")
+			if (column > ExportColumn.CharacterId && LocalizationManager.UILanguageId != "en")
 				columnNumber++;
 			return columnNumber;
 		}
