@@ -176,7 +176,8 @@ namespace Glyssen
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
 									m_currentStartVerse = ScrReference.VerseToIntStart(verseNumStr);
 									m_currentEndVerse = ScrReference.VerseToIntEnd(verseNumStr);
-									if (!block.BlockElements.Any())
+									if (!block.BlockElements.Any() ||
+									(block.BlockElements.Count == 1 && block.FirstTextElementIsOnlyPunctuation))
 									{
 										block.InitialStartVerseNumber = m_currentStartVerse;
 										block.InitialEndVerseNumber = m_currentEndVerse;

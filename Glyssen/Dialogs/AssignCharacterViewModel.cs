@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using DesktopAnalytics;
@@ -24,7 +25,8 @@ namespace Glyssen.Dialogs
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
-		public event EventHandler AssignedBlocksIncremented;
+		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment, int newMaximum);
+		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
 		#endregion
 
@@ -64,6 +66,13 @@ namespace Glyssen.Dialogs
 		{
 			get { return CurrentBook.SingleVoice; }
 		}
+
+		public bool HasSecondaryReferenceText
+		{
+			get { return m_project.ReferenceText.HasSecondaryReferenceText; }
+		}
+
+		public string PrimaryReferenceTextName { get { return m_project.ReferenceText.LanguageName; } }
 		#endregion
 
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
@@ -81,8 +90,13 @@ namespace Glyssen.Dialogs
 			CurrentBook.SingleVoice = singleVoice;
 			m_project.SaveBook(CurrentBook);
 
-			if (singleVoice) 
+			if (singleVoice)
+			{
 				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
+				ClearBlockMatchup();
+			}
+			else // TODO: Ensure test coverage for this
+				SetBlockMatchupForCurrentVerse();
 
 			ResetFilter(CurrentBlock);
 
@@ -109,13 +123,46 @@ namespace Glyssen.Dialogs
 				CurrentBookSaved(this, EventArgs.Empty);
 		}
 
-		private void OnAssignedBlocksIncremented()
+		private void OnAssignedBlocksIncremented(int increment)
 		{
 			if (AssignedBlocksIncremented != null)
-				AssignedBlocksIncremented(this, new EventArgs());
+				AssignedBlocksIncremented(this, increment, m_relevantBlocks.Count);
 		}
 
 		#region Overridden methods
+		private bool m_inHandleCurrentBlockChanged = false;
+		protected override void HandleCurrentBlockChanged()
+		{
+			if (m_inHandleCurrentBlockChanged)
+				return;
+			m_inHandleCurrentBlockChanged = true;
+			Debug.Assert(!CharacterVerseData.IsCharacterExtraBiblical(CurrentBlock.CharacterId));
+			if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
+			{
+				bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
+				if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+				{
+					var firstVerseInMultiBlockQuote = CurrentBlock.InitialEndVerseNumber == 0 ? CurrentBlock.InitialStartVerseNumber :
+						CurrentBlock.InitialEndVerseNumber;
+					var lastVerseInMultiBlockQuote =
+						GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerseNum;
+					doMatchup = firstVerseInMultiBlockQuote == lastVerseInMultiBlockQuote;
+					if (!doMatchup)
+						ClearBlockMatchup();
+				}
+				if (doMatchup)
+				{
+					SetBlockMatchupForCurrentVerse();
+				}
+			}
+			else if (CurrentReferenceTextMatchup != null)
+			{
+				CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
+			}
+			base.HandleCurrentBlockChanged();
+			m_inHandleCurrentBlockChanged = false;
+		}
+
 		protected override void PopulateRelevantBlocks()
 		{
 			m_assignedBlocks = 0;
@@ -137,14 +184,32 @@ namespace Glyssen.Dialogs
 		#region Methods to get characters and deliveries
 		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForCurrentReference()
 		{
+			return GetUniqueCharacterVerseObjectsForBlock(CurrentBlock);
+		}
+
+		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
+		{
 			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
-				CurrentBlock.ChapterNumber, CurrentBlock.InitialStartVerseNumber, CurrentBlock.InitialEndVerseNumber, versification: Versification));
+				block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification));
+		}
+
+		public IEnumerable<Character> GetCharactersForCurrentReferenceTextMatchup()
+		{
+			m_currentCharacters = new HashSet<CharacterVerse>();
+			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
+				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
+			
+			return GetUniqueCharacters(false);
 		}
 
 		public IEnumerable<Character> GetUniqueCharactersForCurrentReference(bool expandIfNone = true)
 		{
 			m_currentCharacters = GetUniqueCharacterVerseObjectsForCurrentReference();
+			return GetUniqueCharacters(expandIfNone);
+		}
 
+		private IEnumerable<Character> GetUniqueCharacters(bool expandIfNone = true)
+		{
 			var listToReturn = new List<Character>(new SortedSet<Character>(
 				m_currentCharacters.Select(cv => new Character(cv.Character, cv.LocalizedCharacter, cv.Alias, cv.LocalizedAlias, cv.ProjectSpecific)), m_characterComparer));
 			listToReturn.Sort(m_aliasComparer);
@@ -157,7 +222,7 @@ namespace Glyssen.Dialogs
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
 				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
-						block.InitialStartVerseNumber, block.LastVerse, versification: Versification))
+						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification))
 				{
 					m_currentCharacters.Add(character);
 				}
@@ -255,13 +320,36 @@ namespace Glyssen.Dialogs
 
 			return deliveries;
 		}
+
+		public IEnumerable<Delivery> GetDeliveriesForCurrentReferenceTextMatchup()
+		{
+			m_currentDeliveries = new List<Delivery>();
+
+			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
+				foreach (var delivery in GetUniqueCharacterVerseObjectsForBlock(block).Where(cv => !String.IsNullOrEmpty(cv.Delivery))
+					.Select(cv => new Delivery(cv.Delivery, cv.ProjectSpecific)))
+				{
+					if (!m_currentDeliveries.Any(d => d.Text == delivery.Text))
+						m_currentDeliveries.Add(delivery);
+				}
+				if (!String.IsNullOrEmpty(block.Delivery) && !m_currentDeliveries.Any(d => d.Text == block.Delivery))
+					m_currentDeliveries.Add(new Delivery(block.Delivery));
+			}
+
+			m_currentDeliveries.Sort(m_deliveryComparer);
+
+			m_currentDeliveries.Insert(0, Delivery.Normal);
+
+			return m_currentDeliveries;
+		}
 		#endregion
 
 		#region Character/delivery assignment methods
 		public bool IsModified(Character newCharacter, Delivery newDelivery)
 		{
-			Block currentBlock = CurrentBlock;
-			if (CharacterVerseData.IsCharacterStandard(currentBlock.CharacterId, false))
+			Block currentBlock = CurrentBlockInOriginal;
+			if (CharacterVerseData.IsCharacterExtraBiblical(currentBlock.CharacterId))
 				return false; // Can't change these.
 
 			if (newCharacter == null)
@@ -292,36 +380,81 @@ namespace Glyssen.Dialogs
 					{ "book", CurrentBookId },
 					{ "chapter", block.ChapterNumber.ToString(CultureInfo.InvariantCulture) },
 					{ "initialStartVerse", block.InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) },
-					{ "lastVerse", block.LastVerse.ToString(CultureInfo.InvariantCulture) },
+					{ "lastVerse", block.LastVerseNum.ToString(CultureInfo.InvariantCulture) },
 					{ "character", selectedCharacter.CharacterId }
 				});
 
 			if (selectedCharacter.ProjectSpecific || selectedDelivery.ProjectSpecific)
 				AddRecordToProjectCharacterVerseData(block, selectedCharacter, selectedDelivery);
 
-			if (selectedCharacter.IsNarrator)
-				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
-			else
-				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId), m_project.Versification);
+			SetCharacter(block, selectedCharacter);
 
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 
 			block.UserConfirmed = true;
 		}
 
+		private void SetCharacter(Block block, Character selectedCharacter)
+		{
+			if (selectedCharacter == null)
+			{
+				block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+				block.CharacterIdInScript = null;
+			}
+			else if (selectedCharacter.IsNarrator)
+				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
+			else
+				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
+					m_project.Versification);
+		}
+
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
 		{
-			if (!CurrentBlock.UserConfirmed)
+			if (!CurrentBlockInOriginal.UserConfirmed)
 			{
 				m_assignedBlocks++;
-				OnAssignedBlocksIncremented();
+				OnAssignedBlocksIncremented(1);
 			}
 
-			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
+			foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlockInOriginal))
 				SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
+
+			if (CurrentReferenceTextMatchup != null && CurrentReferenceTextMatchup.HasOutstandingChangesToApply)
+			{
+				foreach (Block block in GetAllBlocksWhichContinueTheQuoteStartedByBlock(CurrentBlock))
+					SetCharacterAndDelivery(block, selectedCharacter, selectedDelivery);
+			}
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
+		}
+
+		public override void ApplyCurrentReferenceTextMatchup()
+		{
+			var numberOfBlocksToAssignAndConfirm = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
+			int origRelevantBlocks = m_relevantBlocks.Count;
+			base.ApplyCurrentReferenceTextMatchup();
+			m_project.SaveBook(CurrentBook);
+			OnSaveCurrentBook();
+			if (m_relevantBlocks.Count > origRelevantBlocks)
+				numberOfBlocksToAssignAndConfirm += m_relevantBlocks.Count - origRelevantBlocks;
+			if (numberOfBlocksToAssignAndConfirm > 0)
+			{
+				m_assignedBlocks += numberOfBlocksToAssignAndConfirm;
+				OnAssignedBlocksIncremented(numberOfBlocksToAssignAndConfirm);
+			}
+		}
+
+		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)
+		{
+			var block = CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex];
+			SetCharacter(block, selectedCharacter);
+			block.UserConfirmed = !block.CharacterIsUnclear();
+		}
+
+		public void SetReferenceTextMatchupDelivery(int blockIndex, Delivery selectedDelivery)
+		{
+			CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex].Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
 		}
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
@@ -341,6 +474,8 @@ namespace Glyssen.Dialogs
 
 		private string GetCurrentRelevantAlias(string characterId)
 		{
+			if (m_generatedCharacterList == null)
+				return null;
 			foreach (Character character in m_generatedCharacterList)
 			{
 				if (character.CharacterId == characterId)
@@ -355,9 +490,10 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Block editing methods
-		public void SplitBlock(IEnumerable<BlockSplitData> blockSplits, List<KeyValuePair<int, string>> characters, Block currentBlock)
+		public void SplitBlock(IEnumerable<BlockSplitData> blockSplits, List<KeyValuePair<int, string>> characters)
 		{
 			// set the character for the first block
+			Block currentBlock = CurrentBlock;
 			var firstCharacterId = characters.First(c => c.Key == 0).Value;
 			if (currentBlock.CharacterId != firstCharacterId)
 			{
@@ -374,6 +510,13 @@ namespace Glyssen.Dialogs
 
 					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit, 
 						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
+
+					var newBlockIndices = GetBlockIndices(newBlock);
+					var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
+						r => r.BookIndex == newBlockIndices.BookIndex &&
+							r.BlockIndex >= newBlockIndices.BlockIndex);
+					foreach (var block in blocksIndicesNeedingUpdate)
+						block.BlockIndex++;
 
 					AddToRelevantBlocksIfNeeded(newBlock);
 				}
@@ -552,6 +695,13 @@ namespace Glyssen.Dialogs
 			private readonly bool m_projectSpecific;
 
 			public string Text { get { return m_text; } }
+			public string LocalizedDisplay { get { return ToLocalizedString(); } }
+
+			private string ToLocalizedString()
+			{
+				// TODO: Enable localization of deliveries
+				return Text;
+			}
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public static Delivery Normal { get { return s_normalDelivery; } }
 			public bool IsNormal { get { return Equals(s_normalDelivery); } }
@@ -623,7 +773,7 @@ namespace Glyssen.Dialogs
 				return Character.Narrator;
 			if (CurrentBlock.CharacterIsUnclear())
 			{
-				if (!CurrentBlock.BlockElements.OfType<Verse>().Any())
+				if (!CurrentBlock.ContainsVerseNumber)
 				{
 					var charactersForCurrentVerse = GetUniqueCharacterVerseObjectsForCurrentReference();
 					// ENHANCE: Some "Quotations" in the control file may represent text that is typically rendered as

@@ -196,12 +196,6 @@
   <data name="RelatedCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RelatedCharacters.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="RemoveGridRowHot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemoveGridRowHot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RemoveGridRowNormal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemoveGridRowNormal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="MoveArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

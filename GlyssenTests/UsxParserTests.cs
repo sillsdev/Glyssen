@@ -73,6 +73,30 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Parse_ParagraphStartsWithOpeningSquareBracketBeforeVerseNumber_InitialStartVerseNumberIsBasedOnVerseNumberFollowingBracket()
+		{
+			var doc = UsxDocumentTests.CreateDocFromString(
+				UsxDocumentTests.kUsxFrameStart +
+				"<para style=\"mt1\">Markus</para>" +
+				"<chapter number=\"16\" style=\"c\" />" +
+				"<para style=\"p\"><verse number=\"8\" />Trembling, the women fled because they were afraid.</para>" +
+				"<para style=\"p\">[<verse number=\"9\" />When Jesus rose, he first appeared to Mary. <verse number=\"10\" />" +
+				"She told those who were weeping. <verse number=\"11\" />They didn't believe it.]</para>" +
+				UsxDocumentTests.kUsxFrameEnd);
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(4, blocks.Count);
+			Assert.AreEqual("{8}\u00A0Trembling, the women fled because they were afraid.", blocks[2].GetText(true));
+			Assert.AreEqual("[{9}\u00A0When Jesus rose, he first appeared to Mary. " +
+							"{10}\u00A0She told those who were weeping. " +
+							"{11}\u00A0They didn't believe it.]", blocks[3].GetText(true));
+			Assert.IsTrue(blocks[2].StartsAtVerseStart);
+			Assert.AreEqual(8, blocks[2].InitialStartVerseNumber);
+			Assert.IsTrue(blocks[3].StartsAtVerseStart);
+			Assert.AreEqual(9, blocks[3].InitialStartVerseNumber);
+		}
+
+		[Test]
 		public void Parse_ParagraphWithSpaceAfterVerseAndNoteWithFollowingVerse_ExtraSpaceIsRemoved()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\"> <verse number=\"1\" /> <note /> Pi <verse number=\"2\" />Wan </para>");

@@ -160,27 +160,6 @@ namespace Glyssen
 			get { return m_metadata.Language.Iso; }
 		}
 
-		public string FontFamily
-		{
-			get { return m_metadata.FontFamily; }
-		}
-
-		public int FontSizeInPoints
-		{
-			get { return m_metadata.FontSizeInPoints; }
-		}
-
-		public int FontSizeUiAdjustment
-		{
-			get { return m_metadata.FontSizeUiAdjustment; }
-			set { m_metadata.FontSizeUiAdjustment = value; }
-		}
-
-		public bool RightToLeftScript
-		{
-			get { return m_metadata.Language.ScriptDirection == "RTL"; }
-		}
-
 		public ChapterAnnouncement ChapterAnnouncementStyle
 		{
 			get { return m_metadata.ChapterAnnouncementStyle; }
@@ -1173,12 +1152,41 @@ namespace Glyssen
 					new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
 				else
 				{
-					m_wsDefinition.Id = m_metadata.Language.Ldml;
-					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id))
-						m_wsDefinition.Id = m_metadata.Language.Iso;
-					m_wsDefinition.Language = m_wsDefinition.Id;
-					if (m_wsDefinition.Language.IsPrivateUse && !string.IsNullOrEmpty(m_metadata.Language.Name))
+					if (IetfLanguageTag.IsValid(m_metadata.Language.Ldml))
+						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
+					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
+					if (m_wsDefinition.Id == null)
 					{
+						m_wsDefinition.Id = String.IsNullOrEmpty(m_metadata.Language.Ldml)
+							? m_metadata.Language.Iso
+							: m_metadata.Language.Ldml;
+					}
+					else
+					{
+						try
+						{
+							m_wsDefinition.Language = m_wsDefinition.Id;
+						}
+						catch (ArgumentException)
+						{
+							try
+							{
+								if (m_metadata.Language.Ldml != m_metadata.Language.Iso && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+								{
+									m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
+									m_wsDefinition.Language = m_wsDefinition.Id;
+								}
+							}
+							catch (ArgumentException)
+							{
+								// Ignore. Following code should try to patch things up.
+							}
+						}
+					}
+					if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !string.IsNullOrEmpty(m_metadata.Language.Name))
+					{
+						// TODO: Strip off the first dash and anything following???
 						// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
 						m_wsDefinition.Language = new LanguageSubtag(m_wsDefinition.Id, m_metadata.Language.Name);
 					}

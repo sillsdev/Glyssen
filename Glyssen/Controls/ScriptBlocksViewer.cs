@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
@@ -18,6 +19,12 @@ namespace Glyssen.Controls
 		Grid,
 	}
 
+	public enum BlockGroupingType
+	{
+		Quote,
+		BlockCorrelation,
+	}
+
 	public partial class ScriptBlocksViewer : UserControl
 	{
 		private const int kContextBlocksBackward = 10;
@@ -29,10 +36,29 @@ namespace Glyssen.Controls
 		private ToolTip m_toolTip;
 		private ScriptBlocksViewType m_viewType;
 
+		public event EventHandler SelectionChanged;
+		public event EventHandler MinimumWidthChanged;
+
 		#region Construction and Initialization
 		public ScriptBlocksViewer()
 		{
 			InitializeComponent();
+
+			DataGridViewBlocksOnMinimumWidthChanged(m_dataGridViewBlocks, new EventArgs());
+			m_dataGridViewBlocks.MinimumWidthChanged += DataGridViewBlocksOnMinimumWidthChanged;
+		}
+
+		private void DataGridViewBlocksOnMinimumWidthChanged(object sender, EventArgs eventArgs)
+		{
+			var minWidth = Math.Max(m_blocksDisplayBrowser.MinimumSize.Width, m_dataGridViewBlocks.MinimumSize.Width) + Padding.Horizontal;
+
+			if (minWidth != MinimumSize.Width)
+			{
+				MinimumSize = new Size(minWidth,
+					Math.Max(m_blocksDisplayBrowser.MinimumSize.Height, m_dataGridViewBlocks.MinimumSize.Height) + Padding.Vertical);
+				if (MinimumWidthChanged != null)
+					MinimumWidthChanged(this, new EventArgs());
+			}
 		}
 
 		public void Initialize(BlockNavigatorViewModel viewModel, Func<string, string> getCharacterIdForUi = null, Func<Block, string> getDelivery = null)
@@ -82,7 +108,16 @@ namespace Glyssen.Controls
 				if (m_viewType == ScriptBlocksViewType.Html)
 					ChangeViewType(m_blocksDisplayBrowser, m_dataGridViewBlocks);
 				else
+				{
+					if (m_viewModel != null)
+					{
+						m_viewModel.AttemptRefBlockMatchup = true;
+						m_viewModel.BlockGroupingStyle = m_viewModel.CurrentReferenceTextMatchup == null ?
+							BlockGroupingType.Quote :
+							BlockGroupingType.BlockCorrelation;
+					}
 					ChangeViewType(m_dataGridViewBlocks, m_blocksDisplayBrowser);
+				}
 			}
 		}
 
@@ -104,6 +139,20 @@ namespace Glyssen.Controls
 			get { return m_title.Text; }
 			set { m_title.Text = value;  }
 		}
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		[Browsable(false)]
+		public BlockGroupingType HighlightStyle
+		{
+			get { return m_viewModel.BlockGroupingStyle; }
+			set
+			{
+				if (m_viewModel.BlockGroupingStyle == value)
+					return;
+				m_viewModel.BlockGroupingStyle = value;
+				UpdateContextBlocksDisplay(this, new EventArgs());
+			}
+		}
 		#endregion
 
 		#region public methods
@@ -119,11 +168,11 @@ namespace Glyssen.Controls
 			UpdateContextBlocksDisplay(null, null);
 		}
 
-		public void Clear()
-		{
-			m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-			m_dataGridViewBlocks.Clear();
-		}
+		//public void Clear()
+		//{
+		//	m_blocksDisplayBrowser.DisplayHtml(String.Empty);
+		//	m_dataGridViewBlocks.Clear();
+		//}
 
 		public void ShowNothingMatchesFilterMessage()
 		{
@@ -137,6 +186,13 @@ namespace Glyssen.Controls
 		{
 			viewBeingHidden.Visible = false;
 			viewBeingShown.Visible = true;
+		}
+
+		private void HandleSelectionChanged(object sender, EventArgs args)
+		{
+			UpdateContextBlocksDisplay(sender, args);
+			if (SelectionChanged != null)
+				SelectionChanged(this, new EventArgs());
 		}
 
 		private void UpdateContextBlocksDisplay(object sender, EventArgs args)

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Quote;
 using OfficeOpenXml;
 using SIL.IO;
 using SIL.Scripture;
@@ -18,7 +21,20 @@ namespace DevTools
 	static class ReferenceTextUtility
 	{
 		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
-		private const string kDirectorGuideInput = @"..\..\DevTools\Resources\DGNTAllSimplified_71.xlsx";
+		private const string kDirectorGuideInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDES.xlsx";
+
+		private const int kBookCol = 2;
+		private const int kChapterCol = 3;
+		private const int kVerseCol = 4;
+		private const int kCharacterCol = 5;
+		private const int kEnglishCol = 11;
+		private const int kAzeriCol = 12;
+		private const int kFrenchCol = 13;
+		private const int kIndonesianCol = 14;
+		private const int kPortugueseCol = 15;
+		private const int kRussianCol = 16;
+		private const int kSpanishCol = 17;
+		private const int kTokPisinCol = 18;
 
 		//TODO: Have two lists or only list the ones that should actually get created in distfiles (comment out others?)
 		private static readonly Dictionary<string, string> s_allLanguages = new Dictionary<string, string>
@@ -37,10 +53,9 @@ namespace DevTools
 
 		// When running with this true, I have simply been putting a breakpoint on 'return false'
 		// statement in CompareIgnoringQuoteMarkDifferences and looking at each case
-		// (this is not a const to prevent compiler warnings)
-		private static readonly bool s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish = false;
+		private static bool s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet;
 
-		private static readonly bool s_onlyCreateCharacterMapping = false;
+		private static bool s_onlyCreateCharacterMapping;
 
 		static ReferenceTextUtility()
 		{
@@ -82,8 +97,19 @@ namespace DevTools
 			}
 		}
 
-		public static bool GenerateReferenceTexts()
+		public static bool GenerateReferenceTexts(
+			bool onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish,
+			bool onlyCreateCharacterMapping,
+			ReferenceTextType referenceTextType = ReferenceTextType.Unknown)
 		{
+			// We are treating Unknown as All for our purposes
+			Debug.Assert(referenceTextType != ReferenceTextType.Custom);
+
+			s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet = onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish;
+			s_onlyCreateCharacterMapping = onlyCreateCharacterMapping;
+
+			Debug.Assert(!s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet || !onlyCreateCharacterMapping);
+
 			var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			var characterMappings = new List<CharacterMapping>();
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
@@ -102,23 +128,24 @@ namespace DevTools
 
 				//Cells only contains references to cells with actual data
 				var cells = worksheet.Cells;
-				referenceTextRowsFromExcelSpreadsheet = cells.GroupBy(c => c.Start.Row).Select(r =>
+				referenceTextRowsFromExcelSpreadsheet = cells.GroupBy(c => c.Start.Row).Skip(1).Select(r =>
 				{
 					var row = r.Key;
-					var verseStr = cells[row, 3].Value as string ?? ((double) cells[row, 3].Value).ToString();
+					var verseValue = cells[row, kVerseCol].Value;
+					var verseStr = verseValue as string ?? ((double) verseValue).ToString(CultureInfo.InvariantCulture);
 					return new ReferenceTextRow(
-						(string) cells[row, 1].Value,
-						((double) cells[row, 2].Value).ToString(),
+						(string) cells[row, kBookCol].Value,
+						((double) cells[row, kChapterCol].Value).ToString(CultureInfo.InvariantCulture),
 						verseStr,
-						(string) cells[row, 4].Value,
-						(string) cells[row, 5].Value,
-						(string) cells[row, 6].Value,
-						(string) cells[row, 7].Value,
-						(string) cells[row, 8].Value,
-						(string) cells[row, 9].Value,
-						(string) cells[row, 10].Value,
-						(string) cells[row, 11].Value,
-						(string) cells[row, 12].Value);
+						(string) cells[row, kCharacterCol].Value,
+						(string) cells[row, kEnglishCol].Value,
+						(string) cells[row, kAzeriCol].Value,
+						(string) cells[row, kFrenchCol].Value,
+						(string) cells[row, kIndonesianCol].Value,
+						(string) cells[row, kPortugueseCol].Value,
+						(string) cells[row, kRussianCol].Value,
+						(string) cells[row, kSpanishCol].Value,
+						(string) cells[row, kTokPisinCol].Value);
 				}).ToList();
 			}
 
@@ -126,7 +153,9 @@ namespace DevTools
 			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
 
 			var annotationsToOutput = new List<string>();
-			foreach (var language in s_allLanguages)
+			var languagesToProcess = referenceTextType == ReferenceTextType.Unknown ? s_allLanguages :
+				s_allLanguages.Where(l=>l.Key == referenceTextType.ToString());
+			foreach (var language in languagesToProcess)
 			{
 				Console.WriteLine("Processing " + language + "...");
 
@@ -231,11 +260,11 @@ namespace DevTools
 						currentTitleAndChapterLabelInfo.BookTitle = bookName;
 						newBlocks.Add(newBlock);
 					}
-					var block = existingBook.GetScriptBlocks(false)[iBlock++];
+					var block = existingBook.GetScriptBlocks()[iBlock++];
 
-					while (CharacterVerseData.IsCharacterStandard(block.CharacterId, false))
+					while (CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
 					{
-						block = existingBook.GetScriptBlocks(false)[iBlock++];
+						block = existingBook.GetScriptBlocks()[iBlock++];
 					}
 
 					if (referenceTextRow.Verse == "<<")
@@ -367,13 +396,18 @@ namespace DevTools
 
 						string originalText = (string) ReflectionHelper.GetProperty(referenceTextRow, language.Key);
 						var modifiedText = Regex.Replace(originalText, "{(\\d*?)} ?", "[$1]\u00A0");
-						var modifiedTextWithoutAnnotations = Regex.Replace(modifiedText, " \\|\\|\\|.*?\\|\\|\\| ", "");
-						modifiedTextWithoutAnnotations = Regex.Replace(modifiedTextWithoutAnnotations, "{.*?}", "");
-						modifiedTextWithoutAnnotations = Regex.Replace(modifiedTextWithoutAnnotations, "  ", " ");
 
-						var blockText = block.GetText(true);
-						if (!s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish ||
-							CompareIgnoringQuoteMarkDifferences(modifiedTextWithoutAnnotations, blockText))
+						string blockText = null;
+						if (s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet)
+						{
+							var referenceText = GetReferenceTextFromString(language.Key);
+							var currentBook = referenceText.Books.Single(b => b.BookId == existingBook.BookId);
+							var currentBlock = currentBook.GetScriptBlocks()[iBlock-1];
+							blockText = currentBlock.GetText(true);
+						}
+
+						if (!s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet ||
+							CompareIgnoringQuoteMarkDifferences(modifiedText, blockText))
 						{
 							if (int.Parse(referenceTextRow.Chapter) != block.ChapterNumber)
 							{
@@ -417,18 +451,18 @@ namespace DevTools
 										//Console.WriteLine();
 										//Console.WriteLine("Verse number incorrect. Language: {3}, Bk: {0}, Ch: {1}, Vrs: {2}", existingBook.BookId, newBlock.ChapterNumber, newBlock.InitialStartVerseNumber, language);
 										//Console.WriteLine(newBlock.GetText(true));
-										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerse;
+										newBlock.InitialStartVerseNumber = newBlocks[newBlocks.Count - 1].LastVerseNum;
 										//Console.WriteLine("Corrected verse number to {0}", newBlock.InitialStartVerseNumber);
 									}
 								}
 								else
 								{
-									var splits2 = Regex.Split(split, "( \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
+									var splits2 = Regex.Split(split, "(" + RegexEscapedDoNotCombine + "{.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| )");
 									foreach (var s in splits2)
 									{
 										if (string.IsNullOrWhiteSpace(s))
 											continue;
-										var match2 = Regex.Match(s, " \\|\\|\\| DO NOT COMBINE \\|\\|\\| {.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
+										var match2 = Regex.Match(s, RegexEscapedDoNotCombine + "{.*?}|{.*?}| \\|\\|\\|.*?\\|\\|\\| ");
 										if (match2.Success)
 										{
 											ScriptAnnotation annotation;
@@ -441,13 +475,11 @@ namespace DevTools
 											{
 												if (language.Key == "English")
 												{
-													string serializedAnnotation;
-													if (annotation is Pause)
-														serializedAnnotation = XmlSerializationHelper.SerializeToString((Pause)annotation, true);
-													else
-														serializedAnnotation = XmlSerializationHelper.SerializeToString((Sound)annotation, true);
+													var pause = annotation as Pause;
+													var serializedAnnotation = pause != null ? XmlSerializationHelper.SerializeToString(pause, true) :
+														XmlSerializationHelper.SerializeToString((Sound)annotation, true);
 
-													var formattedAnnotationForDisplay = annotation.ToDisplay(" ");
+													var formattedAnnotationForDisplay = annotation.ToDisplay();
 
 													if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
 													{
@@ -464,7 +496,7 @@ namespace DevTools
 														Console.WriteLine();
 														// This is a good check to run for sanity. But we can't fail as
 														// a few of the annotations are actually displayed slightly differently by FCBH
-														// (due to what we are assuming are insignificant differences like 'before' vs. '@')
+														// (due to what are insignificant differences like 'before' vs. '@')
 														//errorsOccurred = true;
 													}
 													int offset = 0;
@@ -495,6 +527,8 @@ namespace DevTools
 							}
 							if (lastElementInBlock is Verse)
 								newBlock.BlockElements.Add(new ScriptText("…"));
+							var lastScriptText = newBlock.BlockElements.OfType<ScriptText>().Last();
+							lastScriptText.Content = lastScriptText.Content.Trim();
 							newBlocks.Add(newBlock);
 						}
 					}
@@ -503,19 +537,21 @@ namespace DevTools
 
 				if (s_onlyCreateCharacterMapping)
 				{
-					WriteCharacterMappingFile(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
+					WriteCharacterMappingFiles(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
 					return true;
 				}
 
-				if (s_onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish)
-					return true;
-				newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = chapterLabel });
-
-				foreach (var bookScript in newBooks)
+				if (!s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet)
 				{
-					XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
+					newBooks.Add(new BookScript(existingBook.BookId, newBlocks) { PageHeader = chapterLabel });
+
+					foreach (var bookScript in newBooks)
+						XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
 				}
 			}
+
+			if (s_onlyRunToFindDifferencesBetweenCurrentReferenceTextAndExcelSpreadsheet)
+				return true;
 
 			WriteAnnotationsFile(annotationsToOutput);
 
@@ -547,7 +583,25 @@ namespace DevTools
 			return !errorsOccurred;
 		}
 
-		private static void WriteCharacterMappingFile(List<CharacterMapping> characterMappings, SortedDictionary<string, SortedSet<string>> glyssenToFcbhIds, SortedDictionary<string, SortedSet<string>> fcbhToGlyssenIds)
+		private static ReferenceText GetReferenceTextFromString(string language)
+		{
+			string languageName;
+			switch (language)
+			{
+				case "English": return ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+				case "Azeri": languageName = "Azeri"; break;
+				case "French": languageName = "French"; break;
+				case "Indonesian": languageName = "Indonesian"; break;
+				case "Portuguese": languageName = "Portuguese"; break;
+				case "Russian": return ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+				case "Spanish": languageName = "Spanish"; break;
+				case "TokPisin": languageName = "TokPisin"; break;
+				default: throw new ArgumentException("unknown language", "language");
+			}
+			return ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, languageName));
+		}
+
+		private static void WriteCharacterMappingFiles(List<CharacterMapping> characterMappings, SortedDictionary<string, SortedSet<string>> glyssenToFcbhIds, SortedDictionary<string, SortedSet<string>> fcbhToGlyssenIds)
 		{
 			const string kOutputDirForCharacterMapping = @"..\..\DevTools\Resources\temporary";
 			const string kOutputFileForCharacterMapping = @"CharacterMappingToFcbh.txt";
@@ -631,20 +685,68 @@ namespace DevTools
 			}
 		}
 
-		private static bool CompareIgnoringQuoteMarkDifferences(string str1, string str2)
+		private static bool CompareIgnoringQuoteMarkDifferences(string excelStr, string existingStr)
 		{
-			if (Regex.Replace(str1, "[“”\"]", "").Trim() == Regex.Replace(str2, "[“”\"]", "").Trim())
+			var excelStrWithoutAnnotations = Regex.Replace(excelStr, " \\|\\|\\|.*?\\|\\|\\| ", "");
+			excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "{.*?}", "");
+			excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "  ", " ");
+			excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "\u00A0 ", "\u00A0");
+
+			if (Regex.Replace(excelStrWithoutAnnotations, "[“”\"'\u2018\u2019]", "").Trim() == Regex.Replace(existingStr, "[“”\"'\u2018\u2019]", "").Trim())
+			//if (Regex.Replace(excelStrWithoutAnnotations, "[“”\"'\u2018\u2019 <>‹›«]", "").Trim() == Regex.Replace(existingStr, "[“”\"'\u2018\u2019 <>‹›«]", "").Trim())
 				return true;
 			// When onlyRunToFindDifferencesBetweenCurrentEnglishAndExcelSpreadsheetEnglish is true, put a breakpoint here to look at diffs
 			return false;
 		}
 
+		private static Regex s_regexStartQuoteMarks;
+		private static Regex s_regexEndQuoteMarks;
+		private static Regex s_regexStartEnglishDoubleQuoteMarks;
+		private static Regex s_regexEndEnglishDoubleQuoteMarks;
+
 		public static bool LinkToEnglish()
 		{
+			var allQuoteChars = new HashSet<string>();
+			foreach (char c in from string quoteMark in QuoteUtils.AllDefaultSymbols().Where(s => (string)s != QuoteUtils.None) from c in quoteMark select c)
+				allQuoteChars.Add("(" + Regex.Escape(c.ToString()) + ")");
+			allQuoteChars.Add("(" + Regex.Escape(@"""") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("-") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2012") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2013") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2014") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("\u2015") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("&gt;") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("&gt;") + ")");
+			allQuoteChars.Add("(" + Regex.Escape("&lt;") + ")");
+
+			s_regexStartQuoteMarks = new Regex(@"^\s*" + String.Join("|", allQuoteChars), RegexOptions.Compiled);
+			s_regexEndQuoteMarks = new Regex("(" + String.Join("|", allQuoteChars) + @")\s*[.,?!]*\s*$", RegexOptions.Compiled);
+			s_regexStartEnglishDoubleQuoteMarks = new Regex(@"^\s*“|""", RegexOptions.Compiled);
+			s_regexEndEnglishDoubleQuoteMarks = new Regex(@"”|""\s*$", RegexOptions.Compiled);
+
 			bool errorOccurred = false;
 			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Value.Type != ReferenceTextType.English))
 			{
 				var refText = ReferenceText.GetReferenceText(referenceTextId.Value);
+				string openQuote = "“";
+				string closeQuote = "”";
+				if (referenceTextId.Value.Type == ReferenceTextType.Custom)
+				{
+					switch (referenceTextId.Value.CustomIdentifier)
+					{
+						case "Azeri":
+						case "French":
+						case "Indonesian":
+						case "Spanish":
+							openQuote = "<<";
+							closeQuote = ">>";
+							break;
+						case "TokPisin":
+							openQuote = "\"";
+							closeQuote = "\"";
+							break;
+					}
+				}
 
 				Console.WriteLine("Processing " + referenceTextId.Key + "...");
 				Console.Write("   ");
@@ -661,11 +763,11 @@ namespace DevTools
 					{
 						Console.Write(book.BookId + "...");
 
-						Exception error = null;
+						Exception error;
 
 						try
 						{
-							LinkBlockByBlockInOrder(book);
+							LinkBlockByBlockInOrder(book, openQuote, closeQuote);
 							//s_existingEnglish.ApplyTo(book, s_existingEnglish.Versification, true);
 							string folder = (string) ReflectionHelper.GetProperty(refText, "ProjectFolder");
 							string bookXmlFile = Path.Combine(folder, Path.ChangeExtension(book.BookId, "xml"));
@@ -686,7 +788,7 @@ namespace DevTools
 			return !errorOccurred;
 		}
 
-		private static void LinkBlockByBlockInOrder(BookScript book)
+		private static void LinkBlockByBlockInOrder(BookScript book, string openQuote, string closeQuote)
 		{
 			var blocks = book.GetScriptBlocks();
 			var englishBlocks = s_existingEnglish.Books.Single(b => b.BookId == book.BookId).GetScriptBlocks();
@@ -696,12 +798,37 @@ namespace DevTools
 				if (block.IsChapterAnnouncement)
 				{
 					var refChapterBlock = new Block(block.StyleTag, block.ChapterNumber);
-					refChapterBlock.BlockElements.Add(new ScriptText(s_existingEnglish.GetFormattedChapterAnnouncement(book.BookId, block.ChapterNumber)));
+					refChapterBlock.BlockElements.Add(
+						new ScriptText(s_existingEnglish.GetFormattedChapterAnnouncement(book.BookId, block.ChapterNumber)));
 					block.SetMatchedReferenceBlock(refChapterBlock);
 				}
 				else
+				{
 					block.SetMatchedReferenceBlock(englishBlocks[i]);
+					if (!englishBlocks[i].CharacterIsStandard)
+					{
+						if (englishBlocks[i].StartsWithQuoteMarks(s_regexStartEnglishDoubleQuoteMarks) && !block.StartsWithQuoteMarks(s_regexStartQuoteMarks))
+						{
+							var firstScriptText = block.BlockElements.OfType<ScriptText>().First();
+							firstScriptText.Content = openQuote + firstScriptText.Content;
+						}
+						if (englishBlocks[i].EndsWithQuoteMarks(s_regexEndEnglishDoubleQuoteMarks) && !block.EndsWithQuoteMarks(s_regexEndQuoteMarks))
+						{
+							block.BlockElements.OfType<ScriptText>().Last().Content += closeQuote;
+						}
+					}
+				}
 			}
+		}
+
+		private static bool StartsWithQuoteMarks(this Block block, Regex regex)
+		{
+			return regex.IsMatch(block.BlockElements.OfType<ScriptText>().First().Content);
+		}
+
+		private static bool EndsWithQuoteMarks(this Block block, Regex regex)
+		{
+			return regex.IsMatch(block.BlockElements.OfType<ScriptText>().Last().Content);
 		}
 
 		private static readonly Regex s_userSfxRegex = new Regex("{F8 SFX ?-?- ?(.*)}", RegexOptions.Compiled);
@@ -735,7 +862,12 @@ namespace DevTools
 			return false;
 		}
 
-		private static readonly Regex s_doNotCombineRegex = new Regex(" \\|\\|\\| DO NOT COMBINE \\|\\|\\| ", RegexOptions.Compiled);
+		private static string RegexEscapedDoNotCombine
+		{
+			get { return Regex.Escape(Sound.kDoNotCombine) + " "; }
+		}
+
+		private static readonly Regex s_doNotCombineRegex = new Regex(RegexEscapedDoNotCombine, RegexOptions.Compiled);
 		private static readonly Regex s_pauseRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) SECs \\|\\|\\|", RegexOptions.Compiled);
 		private static readonly Regex s_pauseMinuteRegex = new Regex("\\|\\|\\| \\+ ([\\d\\.]*?) MINUTES? \\|\\|\\|", RegexOptions.Compiled);
 		private static readonly Regex s_musicEndRegex = new Regex("{Music--Ends before v(\\d*?)}", RegexOptions.Compiled);
@@ -826,6 +958,40 @@ namespace DevTools
 
 			annotation = null;
 			return false;
+		}
+
+		public static void ObfuscateProprietaryReferenceTextsToMakeTestingResources()
+		{
+			var baseResourcesDir = Path.Combine("..", "..", "GlyssenTests", "Resources");
+			var outputDir = Path.Combine(baseResourcesDir, "temporary");
+
+			if (!Directory.Exists(outputDir))
+				Directory.CreateDirectory(outputDir);
+
+			foreach (var rt in ReferenceTextIdentifier.AllAvailable.Select(kvp => kvp.Value).Where(r => r.Type == ReferenceTextType.Custom))
+			{
+				var refText = ReferenceText.GetReferenceText(rt);
+				foreach (var book in refText.Books)
+				{
+					var fileName = String.Format("{0}{1}RefText.xml", rt.CustomIdentifier, book.BookId);
+					var existingTestResourcePath = Path.Combine(baseResourcesDir, fileName);
+					var outputPath = Path.Combine(outputDir, fileName);
+					if (File.Exists(existingTestResourcePath) || File.Exists(outputPath))
+						continue;
+
+					foreach (var block in book.GetScriptBlocks())
+					{
+						foreach (var scriptText in block.BlockElements.OfType<ScriptText>())
+						{
+							var content = scriptText.Content;
+							content = Regex.Replace(content, "([^ ]* )([^ ]* )*([^ ]*.*)", "$1... $3");
+							scriptText.Content = content;
+						}
+					}
+
+					XmlSerializationHelper.SerializeToFile(outputPath, book);
+				}
+			}
 		}
 	}
 

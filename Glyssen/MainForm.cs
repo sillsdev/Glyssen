@@ -112,7 +112,7 @@ namespace Glyssen
 			{
 				if (m_project.HasUnappliedSplits())
 					using (var viewModel = new AssignCharacterViewModel(m_project))
-						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel, m_project.IncludedBooks))
+						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font, m_project.IncludedBooks))
 							dlg.ShowDialog(this);
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
@@ -225,11 +225,20 @@ namespace Glyssen
 			ShowOpenProjectDialog();
 		}
 
+		private DialogResult ShowModalDialogWithWaitCursor(Form dlg)
+		{
+			var origCursor = Cursor;
+			Cursor = Cursors.WaitCursor;
+			var result = dlg.ShowDialog(this);
+			Cursor = origCursor;
+			return result;
+		}
+
 		private void ShowOpenProjectDialog()
 		{
 			using (var dlg = new OpenProjectDlg(m_project))
 			{
-				var result = dlg.ShowDialog(this);
+				var result = ShowModalDialogWithWaitCursor(dlg);
 				if (result != DialogResult.OK) return;
 
 				try
@@ -647,9 +656,54 @@ namespace Glyssen
 
 		private void Assign_Click(object sender, EventArgs e)
 		{
+			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				var cvData = new CombinedCharacterVerseData(m_project);
+
+				foreach (var book in m_project.IncludedBooks)
+				{
+					var bookNum = SIL.Scripture.BCVRef.BookToNumber(book.BookId);
+					int iCharacter = 0;
+					List<CharacterVerse> charactersForVerse = null;
+					foreach (var block in book.GetScriptBlocks())
+					{
+						if (block.StartsAtVerseStart)
+						{
+							iCharacter = 0;
+							charactersForVerse = null;
+						}
+						if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+						{
+							block.SetCharacterAndCharacterIdInScript(
+								CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
+								m_project.Versification);
+							block.UserConfirmed = true;
+						}
+						else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
+						{
+							if (charactersForVerse == null)
+								charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+									block.InitialEndVerseNumber, versification: m_project.Versification).ToList();
+
+							var cvEntry = charactersForVerse[iCharacter++];
+							if (iCharacter == charactersForVerse.Count)
+								iCharacter = 0;
+							block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, m_project.Versification);
+							block.Delivery = cvEntry.Delivery;
+							block.UserConfirmed = true;
+						}
+					}
+				}
+			}
+
+			var origCursor = Cursor;
+			Cursor = Cursors.WaitCursor;
+
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 				using (var dlg = new AssignCharacterDlg(viewModel))
 					dlg.ShowDialog(this);
+			Cursor = origCursor;
+
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
 			SaveCurrentProject(true);
@@ -658,7 +712,7 @@ namespace Glyssen
 		private void SelectBooks_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new ScriptureRangeSelectionDlg(m_project))
-				if (dlg.ShowDialog(this) == DialogResult.OK)
+				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					m_project.ClearAssignCharacterStatus();
 					m_project.Analyze();
@@ -669,10 +723,14 @@ namespace Glyssen
 
 		private void Settings_Click(object sender, EventArgs e)
 		{
+			var origCursor = Cursor;
+			Cursor = Cursors.WaitCursor;
 			var model = new ProjectSettingsViewModel(m_project);
 			using (var dlg = new ProjectSettingsDlg(model))
 			{
-				if (dlg.ShowDialog(this) != DialogResult.OK)
+				var result = dlg.ShowDialog(this);
+				Cursor = origCursor;
+				if (result != DialogResult.OK)
 					return;
 
 				m_project.UpdateSettings(model);
@@ -726,7 +784,7 @@ namespace Glyssen
 			bool launchCastSizePlanning;
 			using (var dlg = new VoiceActorAssignmentDlg(new VoiceActorAssignmentViewModel(m_project)))
 			{
-				dlg.ShowDialog(this);
+				ShowModalDialogWithWaitCursor(dlg);
 				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
 			}
 			SaveCurrentProject();
@@ -763,7 +821,7 @@ namespace Glyssen
 			using (var dlg = new CastSizePlanningDlg(ProjectCastSizePlanningViewModel))
 			{
 				SaveCurrentProject();
-				if (dlg.ShowDialog(this) == DialogResult.OK)
+				if (ShowModalDialogWithWaitCursor(dlg) == DialogResult.OK)
 				{
 					UpdateDisplayOfProjectInfo();
 					launchAssignVoiceActors = true;
@@ -784,7 +842,7 @@ namespace Glyssen
 
 			using (var dlg = getProjectScriptPresenterDlg(exporter))
 			{
-				dlg.ShowDialog(this);
+				ShowModalDialogWithWaitCursor(dlg);
 				ShowLastLocation();
 			}
 		}

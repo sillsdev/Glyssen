@@ -247,7 +247,7 @@ namespace GlyssenTests.Dialogs
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var harvestersBlock = testProject.IncludedBooks[0].GetScriptBlocks().First(b => b.ChapterNumber == 2 &&
-				b.InitialStartVerseNumber == 4 && !b.BlockElements.OfType<Verse>().Any());
+				b.InitialStartVerseNumber == 4 && !b.ContainsVerseNumber);
 			harvestersBlock.CharacterId = "harvesters";
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 			model.NarratorOption = NarratorsOption.Custom;

@@ -1,4 +1,4 @@
-Control File Version	103
+Control File Version	106
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -138,6 +138,7 @@ GEN	13	15	God		God (the LORD)	Normal
 GEN	13	16	God		God (the LORD)	Normal		
 GEN	13	17	God		God (the LORD)	Normal		
 GEN	14	4	Bera, king of Sodom/Birsha, king of Gomorrah/Shinab, king of Admah/Shemeber, king of Zeboiim/king of Bela			Indirect	Bera, king of Sodom	
+GEN	14	17	narrator-GEN			Quotation		
 GEN	14	19	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	20	Melchizedek, king of Salem (priest of God Most High)			Normal		
 GEN	14	21	Bera, king of Sodom			Normal		
@@ -7641,7 +7642,7 @@ PRO	1	30	Wisdom			Implicit
 PRO	1	31	Wisdom			Implicit		
 PRO	1	32	Wisdom			Implicit		
 PRO	1	33	Wisdom			Implicit		
-PRO	3	7	narrator-PRO			Potential		
+PRO	3	7	narrator-PRO			Quotation		
 PRO	3	28	you (hypothetical)			Hypothetical		
 PRO	4	4	David		father of Solomon (King David)	Quotation		
 PRO	4	5	David		father of Solomon (King David)	Quotation		
@@ -7704,14 +7705,14 @@ PRO	9	11	Wisdom			Implicit
 PRO	9	12	Wisdom			Implicit		
 PRO	9	16	Folly			Normal		
 PRO	9	17	Folly			Implicit		
-PRO	19	3	narrator-PRO			Potential		
+PRO	19	3	narrator-PRO			Quotation		
 PRO	20	9	person claiming to have a pure heart			Hypothetical		
 PRO	20	14	buyer			Hypothetical		
 PRO	20	22	you (hypothetical)			Hypothetical		
 PRO	22	13	sluggard			Hypothetical		
 PRO	23	7	stingy man			Hypothetical		
 PRO	23	35	drunkard			Hypothetical		
-PRO	24	8	narrator-PRO			Potential		
+PRO	24	8	narrator-PRO			Quotation		
 PRO	24	12	you (hypothetical)			Hypothetical		
 PRO	24	24	judge who says the wicked are innocent			Hypothetical		
 PRO	24	29	you (hypothetical)			Hypothetical		
@@ -10001,7 +10002,7 @@ EZK	9	10	God		God (the LORD)(in vision of God)	Normal
 EZK	9	11	man in linen with writing kit (in vision)			Normal		
 EZK	10	2	God		God (the LORD)(in vision of God)	Normal		
 EZK	10	6	God		God (the LORD)(in vision of God)	Normal		
-EZK	10	13	narrator-EZK			Quotation		
+EZK	10	13	narrator-EZK			Potential		
 EZK	11	2	God		God (the LORD)(in vision of God)	Normal		
 EZK	11	3	God		God (the LORD)(in vision of God)	Normal		
 EZK	11	4	God		God (the LORD)(in vision of God)	Normal		
@@ -11803,7 +11804,7 @@ ZEC	12	1-14	Zechariah		Zechariah (word of the LORD)	Implicit
 ZEC	12	2-14	God			Normal		
 ZEC	13	1-9	Zechariah		Zechariah (word of the LORD)	Implicit		
 ZEC	13	1-9	God			Normal		
-ZEC	14	20	narrator-ZEC			Quotation		
+ZEC	14	20	narrator-ZEC			Potential		
 MAL	1	2	God		God (the LORD)	Normal		
 MAL	1	2	Israel			Normal		
 MAL	1	3	God		God (the LORD)	Normal		
@@ -12915,6 +12916,7 @@ MRK	6	45	Jesus			Indirect
 MRK	6	49	disciples	terrified		Indirect		
 MRK	6	50	Jesus	reassuring		Normal		
 MRK	6	54	crowd		people	Indirect		
+MRK	6	55	crowd		people	Indirect		
 MRK	6	56	people, sick			Indirect		
 MRK	7	2	narrator-MRK			Quotation		
 MRK	7	5	Pharisees/teachers of religious law	critical		Dialogue		MAT 15.2;MRK 7.5
@@ -13283,6 +13285,7 @@ LUK	1	18	Zacharias (Zechariah)			Dialogue
 LUK	1	19	Gabriel		angel of the LORD	Dialogue		
 LUK	1	20	Gabriel		angel of the LORD	Normal		
 LUK	1	21	people	wondering		Indirect		
+LUK	1	22	people	wondering		Indirect		
 LUK	1	25	Elizabeth			Normal		
 LUK	1	28	Gabriel		Gabriel (angel)	Dialogue		
 LUK	1	29	Mary, Jesus' mother	confused		Indirect		
@@ -13427,6 +13430,7 @@ LUK	6	8	Jesus	giving orders		Dialogue
 LUK	6	9	Jesus	questioning		Dialogue		
 LUK	6	10	Jesus			Dialogue		
 LUK	6	11	Pharisees/teachers of religious law			Indirect		
+LUK	6	15	narrator-LUK			Quotation		
 LUK	6	20	Jesus			Normal		
 LUK	6	21	Jesus			Normal		
 LUK	6	22	Jesus			Normal		
@@ -14292,7 +14296,7 @@ JHN	4	51	servants of royal official (father)	excited		Indirect
 JHN	4	52	servants of royal official (father)	excited		Dialogue		
 JHN	4	52	official, royal (father)			Indirect		
 JHN	4	53	Jesus	giving orders		Quotation		
-JHN	5	2	narrator-JHN			Potential		
+JHN	5	2	narrator-JHN			Quotation		
 JHN	5	6	Jesus	questioning		Dialogue		
 JHN	5	7	invalid for 38 years	whining		Dialogue		
 JHN	5	8	Jesus	giving orders		Dialogue		
@@ -14977,6 +14981,7 @@ ACT	4	28	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Pet
 ACT	4	29	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	30	apostles, elders, and whole church at Jerusalem/Peter (Simon)/John		Peter and John's own people (church in Jerusalem)	Normal		
 ACT	4	32	no one			Hypothetical		
+ACT	4	33	apostles			Indirect		
 ACT	4	36	narrator-ACT			Quotation		
 ACT	5	2	Ananias of Jerusalem			Indirect		
 ACT	5	3	Peter (Simon)	rebuking		Dialogue		
@@ -15165,6 +15170,8 @@ ACT	11	18	believers, circumcised (in Jerusalem)	rejoicing		Dialogue
 ACT	11	23	Barnabas			Indirect		
 ACT	11	28	Agabus the prophet			Indirect		
 ACT	11	29	disciples			Indirect		
+ACT	11	26	Barnabas/Paul		Barnabas/Paul (Saul)	Indirect		
+ACT	11	26	narrator-ACT			Quotation		
 ACT	12	7	angel	commanding	angel of the LORD	Normal		
 ACT	12	8	angel	commanding	angel of the LORD	Normal		
 ACT	12	11	Peter (Simon)	speaking or thinking to himself		Normal		
@@ -15305,6 +15312,7 @@ ACT	18	15	Gallio, proconsul of Achaia	sternly		Normal
 ACT	18	18	Paul			Indirect		
 ACT	18	20	Paul			Indirect		
 ACT	18	21	Paul			Normal		
+ACT	18	27	brothers at Ephesus			Indirect		
 ACT	18	28	Apollos			Indirect		
 ACT	19	2	disciples in Ephesus, some			Dialogue		
 ACT	19	2	Paul	to new believers		Dialogue		
@@ -15526,7 +15534,7 @@ ACT	27	42	soldiers			Indirect
 ACT	27	43	centurion on ship with Paul			Indirect		
 ACT	28	4	Malta islanders	suspicious		Normal		
 ACT	28	6	Malta islanders			Indirect		
-ACT	28	11	narrator-ACT			Potential		
+ACT	28	11	narrator-ACT			Quotation		
 ACT	28	14	brothers at Puteoli			Indirect		
 ACT	28	15	brothers at Puteoli			Indirect		
 ACT	28	15	Paul			Indirect		
@@ -15543,6 +15551,8 @@ ACT	28	28	Paul			Normal
 ROM	1	17	scripture			Quotation	God	
 ROM	2	1	Jews, the	accusing		Hypothetical		
 ROM	2	6	scripture			Quotation	David	
+ROM	2	17	narrator-ROM			Quotation		
+ROM	2	17	you (hypothetical)			Hypothetical		
 ROM	2	21	you (hypothetical)			Hypothetical		
 ROM	2	22	you (hypothetical)			Hypothetical		
 ROM	2	23	you (hypothetical)			Hypothetical		
@@ -15706,6 +15716,7 @@ GAL	1	7	narrator-GAL			Quotation
 GAL	1	8	narrator-GAL			Quotation		
 GAL	1	9	narrator-GAL			Quotation		
 GAL	1	23	report concerning Paul			Normal		
+GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation		
 GAL	2	14	Paul			Normal		
 GAL	2	15	Paul			Normal		
 GAL	2	16	Paul			Normal		
@@ -15725,6 +15736,7 @@ GAL	3	16	scripture		scripture (God)	Quotation	God
 GAL	3	17	God		God (the LORD)	Potential		
 GAL	3	22	scripture			Indirect		
 GAL	4	6	Holy Spirit, the		the Spirit (of God's Son)	Quotation		
+GAL	4	8	narrator-GAL			Quotation		
 GAL	4	25	narrator-GAL			Quotation		
 GAL	4	27	scripture			Quotation	God	
 GAL	4	30	scripture			Quotation	Sarah (Sarai)	
@@ -15742,6 +15754,7 @@ EPH	5	31	scripture			Quotation
 EPH	6	2	scripture			Quotation	God	
 EPH	6	3	scripture			Quotation	God	
 PHP	2	11	everyone			Hypothetical		
+PHP	4	4	Paul			Potential		
 COL	2	21	rules of the world			Hypothetical		
 COL	4	17	Paul			Normal		
 1TH	4	12	unbelievers			Indirect		
@@ -15822,6 +15835,7 @@ HEB	10	37	scripture			Quotation	God
 HEB	10	38	scripture			Quotation	God	
 HEB	11	5	scripture			Quotation		
 HEB	11	18	scripture			Quotation	God	
+HEB	11	20	Isaac			Quotation		
 HEB	12	5	scripture			Quotation	Solomon, king	
 HEB	12	6	scripture			Quotation	Solomon, king	
 HEB	12	13	scripture			Quotation		
@@ -15851,8 +15865,10 @@ JAS	4	15	you ought to say			Hypothetical
 JAS	5	12	narrator-JAS			Hypothetical		
 JAS	5	17	Elijah	praying		Indirect		
 1PE	1	16	scripture			Quotation	God	
+1PE	1	17	you (hypothetical)			Hypothetical		
 1PE	1	24	scripture			Quotation	Isaiah	
 1PE	1	25	scripture			Quotation	Isaiah	
+1PE	2	3	scripture			Quotation		
 1PE	2	6	scripture			Quotation	God	
 1PE	2	7	scripture			Quotation	psalmist	
 1PE	2	8	scripture			Quotation	God	
@@ -15873,6 +15889,7 @@ JAS	5	17	Elijah	praying		Indirect
 1JN	2	4	man who says 'I know him'			Hypothetical		
 1JN	2	6	man who says 'we remain in union with God'			Hypothetical		
 1JN	2	18	narrator-1JN			Hypothetical		
+1JN	4	15	anyone			Hypothetical		
 1JN	4	20	anyone			Hypothetical		
 1JN	4	21	Jesus			Quotation		
 2JN	1	6	Jesus		Jesus in 2 John	Quotation		

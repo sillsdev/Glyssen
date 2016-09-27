@@ -152,7 +152,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="scripture">
       <text>“But the righteous shall live by faith.”</text>
     </ReferenceBlocks>
-    <text>праведный верою жив будет.</text>
+    <text>“праведный верою жив будет.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="18" characterId="narrator-ROM">
@@ -472,7 +472,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="scripture">
       <text>“the name of God is blasphemed among the Gentiles because of you,”</text>
     </ReferenceBlocks>
-    <text>имя Божие хулится у язычников.</text>
+    <text>“имя Божие хулится у язычников.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="25" characterId="narrator-ROM">
@@ -556,7 +556,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="4" characterId="scripture">
       <text>“That you might be justified in your words, and might prevail when you come into judgment.”</text>
     </ReferenceBlocks>
-    <text>Ты праведен в словах Твоих и победишь в суде Твоем.</text>
+    <text>“Ты праведен в словах Твоих и победишь в суде Твоем.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="5" characterId="narrator-ROM">
@@ -608,7 +608,7 @@
       <verse num="11" />
       <text>There is no one who understands. There is no one who seeks after God.</text>
     </ReferenceBlocks>
-    <text>нет праведного ни одного; </text>
+    <text>“нет праведного ни одного; </text>
     <verse num="11" />
     <text>нет разумевающего; никто не ищет Бога;</text>
   </block>
@@ -618,7 +618,7 @@
       <text>They have all turned aside. They have together become unprofitable. There is no one who does good, no, not, so much as one.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>все совратились с пути, до одного негодны; нет делающего добро, нет ни одного.</text>
+    <text>все совратились с пути, до одного негодны; нет делающего добро, нет ни одного.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="scripture">
@@ -630,7 +630,7 @@
     <verse num="13" />
     <text>Гортань их—открытый гроб; языком своим обманывают; яд аспидов на губах их. </text>
     <verse num="14" />
-    <text>Уста их полны злословия и горечи.</text>
+    <text>Уста их полны злословия и горечи.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="scripture" multiBlockQuote="Start">
@@ -640,7 +640,7 @@
       <text>Destruction and misery are in their ways.</text>
     </ReferenceBlocks>
     <verse num="15" />
-    <text>Ноги их быстры на пролитие крови; </text>
+    <text>“Ноги их быстры на пролитие крови; </text>
     <verse num="16" />
     <text>разрушение и пагуба на путях их;</text>
   </block>
@@ -654,7 +654,7 @@
     <verse num="17" />
     <text>они не знают пути мира. </text>
     <verse num="18" />
-    <text>Нет страха Божия перед глазами их.</text>
+    <text>Нет страха Божия перед глазами их.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="19" characterId="narrator-ROM">
@@ -790,7 +790,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="3" characterId="scripture">
       <text>“Abraham believed God, and it was accounted to him for righteousness.”</text>
     </ReferenceBlocks>
-    <text>Поверил Авраам Богу, и это вменилось ему в праведность.</text>
+    <text>“Поверил Авраам Богу, и это вменилось ему в праведность.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="4" characterId="narrator-ROM">
@@ -824,7 +824,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" multiBlockQuote="Start">
       <text>“Blessed are they whose iniquities are forgiven, whose sins are covered.</text>
     </ReferenceBlocks>
-    <text>Блаженны, чьи беззакония прощены и чьи грехи покрыты.</text>
+    <text>“Блаженны, чьи беззакония прощены и чьи грехи покрыты.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="scripture" multiBlockQuote="Continuation">
@@ -832,7 +832,7 @@
       <text>Blessed is the man whom the Lord will by no means charge with sin.”</text>
     </ReferenceBlocks>
     <verse num="8" />
-    <text>Блажен человек, которому Господь не вменит греха.</text>
+    <text>Блажен человек, которому Господь не вменит греха.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-ROM">
@@ -912,7 +912,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="scripture">
       <text>“I have made you a father of many nations.”</text>
     </ReferenceBlocks>
-    <text>Я поставил тебя отцом многих народов)</text>
+    <text>“Я поставил тебя отцом многих народов)”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="17" characterId="narrator-ROM">
@@ -932,7 +932,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="scripture">
       <text>“So will your seed be.”</text>
     </ReferenceBlocks>
-    <text>'так многочисленно будет семя твое'.</text>
+    <text>“'так многочисленно будет семя твое'.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="19" characterId="narrator-ROM">
@@ -1003,7 +1003,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="1" />
-    <text>Итак, оправдавшись верою, мы имеем мир с Богом через Господа нашего Иисуса Христа, </text>
+    <text>Итак, оправдавшись верою, мы имеем мир с Богом через Господа нашего Иисуса Христа,</text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="2" characterId="narrator-ROM" matchesReferenceText="true">
@@ -1424,7 +1424,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="7" characterId="scripture">
       <text>“You shall not covet.”</text>
     </ReferenceBlocks>
-    <text>не пожелай.</text>
+    <text>“не пожелай.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="8" characterId="narrator-ROM">
@@ -1864,7 +1864,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="36" characterId="scripture">
       <text>“For your sake we are killed all day long. We were accounted as sheep for the slaughter.”</text>
     </ReferenceBlocks>
-    <text>за Тебя умерщвляют нас всякий день, считают нас за овец, обреченных на заклание.</text>
+    <text>“за Тебя умерщвляют нас всякий день, считают нас за овец, обреченных на заклание.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="37" characterId="narrator-ROM">
@@ -1956,7 +1956,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="7" characterId="scripture">
       <text>“In Isaac will your seed be called.”</text>
     </ReferenceBlocks>
-    <text>в Исааке наречется тебе семя.</text>
+    <text>“в Исааке наречется тебе семя.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="8" characterId="narrator-ROM">
@@ -1974,7 +1974,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="9" characterId="scripture">
       <text>“At the appointed time I will come, and Sarah will have a son.”</text>
     </ReferenceBlocks>
-    <text>в это же время приду, и у Сарры будет сын.</text>
+    <text>“в это же время приду, и у Сарры будет сын.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="10" characterId="narrator-ROM">
@@ -2000,7 +2000,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="12" characterId="scripture">
       <text>“The elder will serve the younger.”</text>
     </ReferenceBlocks>
-    <text>больший будет в порабощении у меньшего,</text>
+    <text>“больший будет в порабощении у меньшего,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-ROM">
@@ -2014,7 +2014,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="scripture">
       <text>“Jacob I loved, but Esau I hated.”</text>
     </ReferenceBlocks>
-    <text>Иакова Я возлюбил, а Исава возненавидел.</text>
+    <text>“Иакова Я возлюбил, а Исава возненавидел.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-ROM">
@@ -2032,7 +2032,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="15" characterId="scripture">
       <text>“I will have mercy on whom I have mercy, and I will have compassion on whom I have compassion.”</text>
     </ReferenceBlocks>
-    <text>кого миловать, помилую; кого жалеть, пожалею.</text>
+    <text>“кого миловать, помилую; кого жалеть, пожалею.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="16" characterId="narrator-ROM">
@@ -2050,7 +2050,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="17" characterId="scripture">
       <text>“For this very purpose I caused you to be raised up, that I might show in you my power, and that my name might be proclaimed in all the earth.”</text>
     </ReferenceBlocks>
-    <text>для того самого Я и поставил тебя, чтобы показать над тобою силу Мою и чтобы проповедано было имя Мое по всей земле.</text>
+    <text>“для того самого Я и поставил тебя, чтобы показать над тобою силу Мою и чтобы проповедано было имя Мое по всей земле.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="18" characterId="narrator-ROM">
@@ -2120,7 +2120,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="25" characterId="scripture">
       <text>“I will call them ‘my people,’ which were not my people; and her ‘beloved,’ who was not beloved.”</text>
     </ReferenceBlocks>
-    <text>не Мой народ назову Моим народом, и не возлюбленную—возлюбленною.</text>
+    <text>не Мой народ назову Моим народом, и не возлюбленную—возлюбленною.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="26" characterId="scripture">
@@ -2128,7 +2128,7 @@
       <text>“It will be that in the place where it was said to them, ‘You are not my people,’ There they will be called ‘children of the living God.’”</text>
     </ReferenceBlocks>
     <verse num="26" />
-    <text>И на том месте, где сказано им: вы не Мой народ, там названы будут сынами Бога живаго.</text>
+    <text>“И на том месте, где сказано им: вы не Мой народ, там названы будут сынами Бога живаго.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="narrator-ROM">
@@ -2142,7 +2142,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="27" characterId="scripture" multiBlockQuote="Start">
       <text>“If the number of the children of Israel are as the sand of the sea, it is the remnant who will be saved;</text>
     </ReferenceBlocks>
-    <text>хотя бы сыны Израилевы были числом, как песок морской, только остаток спасется;</text>
+    <text>“хотя бы сыны Израилевы были числом, как песок морской, только остаток спасется;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="28" characterId="scripture" multiBlockQuote="Continuation">
@@ -2150,7 +2150,7 @@
       <text>for He will finish the work and cut it short in righteousness, because the LORD will make a short work upon the earth.”</text>
     </ReferenceBlocks>
     <verse num="28" />
-    <text>ибо дело оканчивает и скоро решит по правде, дело решительное совершит Господь на земле.</text>
+    <text>ибо дело оканчивает и скоро решит по правде, дело решительное совершит Господь на земле.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="narrator-ROM">
@@ -2164,7 +2164,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="29" characterId="scripture">
       <text>“Unless the Lord of Armies had left us a seed, we would have become like Sodom, and would have been made like Gomorrah.”</text>
     </ReferenceBlocks>
-    <text>если бы Господь Саваоф не оставил нам семени, то мы сделались бы, как Содом, и были бы подобны Гоморре.</text>
+    <text>“если бы Господь Саваоф не оставил нам семени, то мы сделались бы, как Содом, и были бы подобны Гоморре.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="30" characterId="narrator-ROM">
@@ -2198,7 +2198,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="33" characterId="scripture">
       <text>“Behold, I lay in Zion a stumbling stone and a rock of offense; and no one who believes in him will be disappointed.”</text>
     </ReferenceBlocks>
-    <text>вот, полагаю в Сионе камень преткновения и камень соблазна; но всякий, верующий в Него, не постыдится.</text>
+    <text>“вот, полагаю в Сионе камень преткновения и камень соблазна; но всякий, верующий в Него, не постыдится.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="10" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="10" initialStartVerse="0">
@@ -2250,7 +2250,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="5" characterId="scripture">
       <text>“The one who does them will live by them.”</text>
     </ReferenceBlocks>
-    <text>исполнивший его человек жив будет им.</text>
+    <text>“исполнивший его человек жив будет им.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
@@ -2276,7 +2276,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
       <text>“The word is near you, in your mouth, and in your heart”</text>
     </ReferenceBlocks>
-    <text>Близко к тебе слово, в устах твоих и в сердце твоем,</text>
+    <text>“Близко к тебе слово, в устах твоих и в сердце твоем,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-ROM">
@@ -2308,7 +2308,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="11" characterId="scripture">
       <text>“Whoever believes in him will not be disappointed.”</text>
     </ReferenceBlocks>
-    <text>всякий, верующий в Него, не постыдится.</text>
+    <text>“всякий, верующий в Него, не постыдится.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="12" characterId="narrator-ROM">
@@ -2326,7 +2326,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="13" characterId="scripture">
       <text>“Whoever will call on the name of the Lord will be saved.”</text>
     </ReferenceBlocks>
-    <text>кто призовет имя Господне, спасется.</text>
+    <text>“кто призовет имя Господне, спасется.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="14" characterId="narrator-ROM">
@@ -2348,7 +2348,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="15" characterId="scripture">
       <text>“How beautiful are the feet of those who preach the Good News of peace, who bring glad tidings of good things!”</text>
     </ReferenceBlocks>
-    <text>как прекрасны ноги благовествующих мир, благовествующих благое!</text>
+    <text>“как прекрасны ноги благовествующих мир, благовествующих благое!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="narrator-ROM">
@@ -2362,7 +2362,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="scripture">
       <text>“Lord, who has believed our report?”</text>
     </ReferenceBlocks>
-    <text>Господи! кто поверил слышанному от нас?</text>
+    <text>“Господи! кто поверил слышанному от нас?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="17" characterId="narrator-ROM">
@@ -2384,7 +2384,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="18" characterId="scripture">
       <text>“Their sound went out into all the earth, their words to the ends of the world.”</text>
     </ReferenceBlocks>
-    <text>разве они не слышали? Напротив, по всей земле прошел голос их, и до пределов вселенной слова их.</text>
+    <text>“разве они не слышали? Напротив, по всей земле прошел голос их, и до пределов вселенной слова их.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="narrator-ROM">
@@ -2398,7 +2398,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="19" characterId="scripture">
       <text>“I will provoke you to jealousy with that which is no nation, with a nation void of understanding I will make you angry.”</text>
     </ReferenceBlocks>
-    <text>Я возбужу в вас ревность не народом, раздражу вас народом несмысленным.</text>
+    <text>“Я возбужу в вас ревность не народом, раздражу вас народом несмысленным.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="narrator-ROM">
@@ -2412,7 +2412,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="20" characterId="scripture">
       <text>“I was found by those who didn't seek me. I was revealed to those who didn't ask for me.”</text>
     </ReferenceBlocks>
-    <text>Меня нашли не искавшие Меня; Я открылся не вопрошавшим о Мне.</text>
+    <text>“Меня нашли не искавшие Меня; Я открылся не вопрошавшим о Мне.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="narrator-ROM">
@@ -2426,7 +2426,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="21" characterId="scripture">
       <text>“All day long I stretched out my hands to a disobedient and contrary people.”</text>
     </ReferenceBlocks>
-    <text>целый день Я простирал руки Мои к народу непослушному и упорному.</text>
+    <text>“целый день Я простирал руки Мои к народу непослушному и упорному.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="11" book="ROM" initialStartVerse="0" characterId="BC-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="c" chapter="11" initialStartVerse="0">
@@ -2456,7 +2456,7 @@
       <text>“Lord, they have killed your prophets, they have broken down your altars; and I am left alone, and they seek my life.”</text>
     </ReferenceBlocks>
     <verse num="3" />
-    <text>Господи! пророков Твоих убили, жертвенники Твои разрушили; остался я один, и моей души ищут.</text>
+    <text>“Господи! пророков Твоих убили, жертвенники Твои разрушили; остался я один, и моей души ищут.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="narrator-ROM">
@@ -2470,7 +2470,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="4" characterId="scripture">
       <text>“I have reserved for myself seven thousand men, who have not bowed the knee to Baal.”</text>
     </ReferenceBlocks>
-    <text>Я соблюл Себе семь тысяч человек, которые не преклонили колени перед Ваалом.</text>
+    <text>“Я соблюл Себе семь тысяч человек, которые не преклонили колени перед Ваалом.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="5" characterId="narrator-ROM">
@@ -2504,7 +2504,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="8" characterId="scripture">
       <text>“God gave them a spirit of stupor, eyes that they should not see, and ears that they should not hear, to this very day.”</text>
     </ReferenceBlocks>
-    <text>Бог дал им дух усыпления, глаза, которыми не видят, и уши, которыми не слышат, даже до сего дня.</text>
+    <text>“Бог дал им дух усыпления, глаза, которыми не видят, и уши, которыми не слышат, даже до сего дня.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="narrator-ROM">
@@ -2518,7 +2518,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="9" characterId="scripture" multiBlockQuote="Start">
       <text>“Let their table be made a snare, and a trap, a stumbling block, and a retribution to them.</text>
     </ReferenceBlocks>
-    <text>да будет трапеза их сетью, тенетами и петлею в возмездие им;</text>
+    <text>“да будет трапеза их сетью, тенетами и петлею в возмездие им;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="10" characterId="scripture" multiBlockQuote="Continuation">
@@ -2526,7 +2526,7 @@
       <text>Let their eyes be darkened, that they may not see. Bow down their back always.”</text>
     </ReferenceBlocks>
     <verse num="10" />
-    <text>да помрачатся глаза их, чтобы не видеть, и хребет их да будет согбен навсегда.</text>
+    <text>да помрачатся глаза их, чтобы не видеть, и хребет их да будет согбен навсегда.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="11" characterId="narrator-ROM">
@@ -2660,7 +2660,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="26" characterId="scripture" multiBlockQuote="Start">
       <text>“There will come out of Zion the Deliverer, and he will turn away ungodliness from Jacob.</text>
     </ReferenceBlocks>
-    <text>придет от Сиона Избавитель, и отвратит нечестие от Иакова.</text>
+    <text>“придет от Сиона Избавитель, и отвратит нечестие от Иакова.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="scripture" multiBlockQuote="Continuation">
@@ -2668,7 +2668,7 @@
       <text>This is my covenant to them, when I will take away their sins.”</text>
     </ReferenceBlocks>
     <verse num="27" />
-    <text>И сей завет им от Меня, когда сниму с них грехи их.</text>
+    <text>И сей завет им от Меня, когда сниму с них грехи их.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="28" characterId="narrator-ROM">
@@ -2724,7 +2724,7 @@
       <text>“For who has known the mind of the Lord? Or who has been his counselor?”</text>
     </ReferenceBlocks>
     <verse num="34" />
-    <text>Ибо кто познал ум Господень? Или кто был советником Ему?</text>
+    <text>“Ибо кто познал ум Господень? Или кто был советником Ему?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="35" characterId="scripture">
@@ -2732,7 +2732,7 @@
       <text>“Or who has first given to him, and it will be repaid to him again?”</text>
     </ReferenceBlocks>
     <verse num="35" />
-    <text>Или кто дал Ему наперед, чтобы Он должен был воздать?</text>
+    <text>“Или кто дал Ему наперед, чтобы Он должен был воздать?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="36" characterId="narrator-ROM">
@@ -2904,7 +2904,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="19" characterId="scripture">
       <text>“Vengeance belongs to me; I will repay, says the Lord.”</text>
     </ReferenceBlocks>
-    <text>Мне отмщение, Я воздам, говорит Господь.</text>
+    <text>“Мне отмщение, Я воздам, говорит Господь.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="narrator-ROM">
@@ -2918,7 +2918,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="20" characterId="scripture">
       <text>“If your enemy is hungry, feed him. If he is thirsty, give him a drink; for in doing so, you will heap coals of fire on his head.”</text>
     </ReferenceBlocks>
-    <text>если враг твой голоден, накорми его; если жаждет, напой его: ибо, делая сие, ты соберешь ему на голову горящие уголья.</text>
+    <text>“если враг твой голоден, накорми его; если жаждет, напой его: ибо, делая сие, ты соберешь ему на голову горящие уголья.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="21" characterId="narrator-ROM">
@@ -3140,7 +3140,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="11" characterId="scripture">
       <text>“‘As I live,’ says the Lord, ‘to me every knee will bow. Every tongue will confess to God.’”</text>
     </ReferenceBlocks>
-    <text>живу Я, говорит Господь, предо Мною преклонится всякое колено, и всякий язык будет исповедывать Бога.</text>
+    <text>“живу Я, говорит Господь, предо Мною преклонится всякое колено, и всякий язык будет исповедывать Бога.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="12" characterId="narrator-ROM">
@@ -3296,7 +3296,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="scripture">
       <text>“The reproaches of those who reproached you fell on me.”</text>
     </ReferenceBlocks>
-    <text>злословия злословящих Тебя пали на Меня.</text>
+    <text>“злословия злословящих Тебя пали на Меня.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="4" characterId="narrator-ROM">
@@ -3350,7 +3350,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="9" characterId="scripture">
       <text>“Therefore will I give praise to you among the Gentiles, and sing to your name.”</text>
     </ReferenceBlocks>
-    <text>за то буду славить Тебя, (Господи,) между язычниками, и буду петь имени Твоему.</text>
+    <text>“за то буду славить Тебя, (Господи,) между язычниками, и буду петь имени Твоему.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="narrator-ROM">
@@ -3364,7 +3364,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="10" characterId="scripture">
       <text>“Rejoice, you Gentiles, with his people.”</text>
     </ReferenceBlocks>
-    <text>возвеселитесь, язычники, с народом Его.</text>
+    <text>“возвеселитесь, язычники, с народом Его.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="narrator-ROM">
@@ -3378,7 +3378,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="11" characterId="scripture">
       <text>“Praise the Lord, all you Gentiles! Let all the peoples praise him.”</text>
     </ReferenceBlocks>
-    <text>хвалите Господа, все язычники, и прославляйте Его, все народы.</text>
+    <text>“хвалите Господа, все язычники, и прославляйте Его, все народы.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="narrator-ROM">
@@ -3392,7 +3392,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="12" characterId="scripture">
       <text>“There will be the root of Jesse, he who arises to rule over the Gentiles; in him the Gentiles will hope.”</text>
     </ReferenceBlocks>
-    <text>будет корень Иессеев, и восстанет владеть народами; на Него язычники надеяться будут.</text>
+    <text>“будет корень Иессеев, и восстанет владеть народами; на Него язычники надеяться будут.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="13" characterId="narrator-ROM">
@@ -3466,7 +3466,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="21" characterId="scripture">
       <text>“They will see, to whom no news of him came. They who haven't heard will understand.”</text>
     </ReferenceBlocks>
-    <text>не имевшие о Нем известия увидят, и не слышавшие узнают.</text>
+    <text>“не имевшие о Нем известия увидят, и не слышавшие узнают.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="22" characterId="narrator-ROM" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="15" initialStartVerse="22" characterId="narrator-ROM">

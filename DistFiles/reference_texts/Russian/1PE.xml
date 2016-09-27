@@ -140,7 +140,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="16" characterId="scripture">
       <text>“You shall be holy; for I am holy.”</text>
     </ReferenceBlocks>
-    <text>будьте святы, потому что Я свят.</text>
+    <text>“будьте святы, потому что Я свят.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="17" characterId="narrator-1PE">
@@ -214,7 +214,7 @@
       <text>but the Lord's word endures forever.”</text>
     </ReferenceBlocks>
     <verse num="25" />
-    <text>но слово Господне пребывает вовек;</text>
+    <text>но слово Господне пребывает вовек;”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="1" initialStartVerse="25" characterId="narrator-1PE">
@@ -280,7 +280,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="scripture">
       <text>“Behold, I lay in Zion a chief cornerstone, chosen, and precious: He who believes in him will not be disappointed.”</text>
     </ReferenceBlocks>
-    <text>вот, Я полагаю в Сионе камень краеугольный, избранный, драгоценный; и верующий в Него не постыдится.</text>
+    <text>“вот, Я полагаю в Сионе камень краеугольный, избранный, драгоценный; и верующий в Него не постыдится.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-1PE">
@@ -294,7 +294,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="scripture">
       <text>“The stone which the builders rejected, has become the chief cornerstone,”</text>
     </ReferenceBlocks>
-    <text>а для неверующих камень, который отвергли строители, но который сделался главою угла,</text>
+    <text>“а для неверующих камень, который отвергли строители, но который сделался главою угла,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
@@ -308,7 +308,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="scripture">
       <text>“a stone of stumbling, and a rock of offense.”</text>
     </ReferenceBlocks>
-    <text>камень претыкания и камень соблазна,</text>
+    <text>“камень претыкания и камень соблазна,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="8" characterId="narrator-1PE">
@@ -538,7 +538,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="10" characterId="scripture" multiBlockQuote="Start">
       <text>“He who would love life, and see good days, let him keep his tongue from evil, and his lips from speaking deceit.</text>
     </ReferenceBlocks>
-    <text>кто любит жизнь и хочет видеть добрые дни, тот удерживай язык свой от зла и уста свои от лукавых речей;</text>
+    <text>“кто любит жизнь и хочет видеть добрые дни, тот удерживай язык свой от зла и уста свои от лукавых речей;</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="scripture" multiBlockQuote="Continuation">
@@ -554,7 +554,7 @@
       <text>For the eyes of the Lord are on the righteous, and his ears open to their prayer; but the face of the Lord is against those who do evil.”</text>
     </ReferenceBlocks>
     <verse num="12" />
-    <text>потому что очи Господа обращены к праведным и уши Его к молитве их, но лице Господне против делающих зло, (чтобы истребить их с земли).</text>
+    <text>потому что очи Господа обращены к праведным и уши Его к молитве их, но лице Господне против делающих зло, (чтобы истребить их с земли).”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-1PE">
@@ -779,7 +779,7 @@
     <text>Ибо время начаться суду с дома Божия; если же прежде с нас начнется, то какой конец непокоряющимся Евангелию Божию?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE" userConfirmed="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="18" characterId="narrator-1PE">
       <verse num="18" />
       <text>“If it is hard for the righteous to be saved, what will happen to the ungodly and the sinner?”</text>
     </ReferenceBlocks>
@@ -844,7 +844,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="5" characterId="scripture">
       <text>“God resists the proud, but gives grace to the humble.”</text>
     </ReferenceBlocks>
-    <text>что Бог гордым противится, а смиренным дает благодать.</text>
+    <text>“что Бог гордым противится, а смиренным дает благодать.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="6" characterId="narrator-1PE">
