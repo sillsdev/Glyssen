@@ -297,7 +297,7 @@
       <sound startVerse="-999" userSpecifiesLocation="true" />
     </ReferenceBlocks>
     <verse num="6" />
-    <text>Посему, как вы приняли Христа Иисуса Господа, так и ходите в Нем,</text>
+    <text>Посему, как вы приняли Христа Иисуса Господа, так и ходите в Нем, </text>
     <sound startVerse="-999" userSpecifiesLocation="true" />
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-COL" matchesReferenceText="true">
@@ -413,7 +413,7 @@
     <text>Итак, если вы со Христом умерли для стихий мира, то для чего вы, как живущие в мире, держитесь постановлений:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="21" characterId="narrator-COL" userConfirmed="true">
       <verse num="21" />
       <text>“Don't handle, nor taste, nor touch”</text>
     </ReferenceBlocks>

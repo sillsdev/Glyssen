@@ -301,7 +301,7 @@
     <verse num="7" />
     <text>God again defines a certain day, today, saying through David so long a time afterward (just as has been said),</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="7" characterId="scripture" userConfirmed="true">
     <text>“Today if you will hear his voice, don't harden your hearts.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="narrator-HEB">

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
@@ -68,10 +66,6 @@ namespace Glyssen
 			foreach (var blockElement in BlockElements)
 				newBlock.BlockElements.Add(blockElement.Clone());
 			return newBlock;
-
-			// When cloning, we intentionally do not clone reference text info.
-			// If caller (or anything downstream) needs to modify the reference text, it should either replace existing blocks or
-			// clone them before modifying them.
 		}
 
 		[XmlAttribute("style")]
@@ -124,35 +118,23 @@ namespace Glyssen
 			set { m_initialStartVerseNumber = value; }
 		}
 
+		public int LastVerse
+		{
+			get
+			{
+				var lastVerse = BlockElements.OfType<Verse>().LastOrDefault();
+				if (lastVerse == null)
+					return m_initialEndVerseNumber > 0 ? m_initialEndVerseNumber : m_initialStartVerseNumber;
+				return lastVerse.EndVerse;
+			}
+		}
+
 		[XmlAttribute("initialEndVerse")]
 		[DefaultValue(0)]
 		public int InitialEndVerseNumber {
 			get { return m_initialEndVerseNumber; }
 			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
 		}
-
-		private class VerseNumberFromBlock : IVerse
-		{
-			public static implicit operator VerseNumberFromBlock(Block block)
-			{
-				return new VerseNumberFromBlock
-				{
-					StartVerse = block.InitialStartVerseNumber,
-					LastVerseOfBridge = block.InitialEndVerseNumber
-				 };
-			}
-
-			public int StartVerse { get; private set; }
-			public int EndVerse { get { return LastVerseOfBridge == 0 ? StartVerse : LastVerseOfBridge; } }
-
-			/// <summary>
-			/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
-			/// </summary>
-			public int LastVerseOfBridge { get; private set; }
-		}
-
-		public int LastVerseNum { get { return LastVerse.EndVerse; } }
-		public IVerse LastVerse { get { return BlockElements.OfType<IVerse>().LastOrDefault() ?? (VerseNumberFromBlock)this; } }
 
 		/// <summary>
 		/// This is the character ID assigned by Glyssen or selected by the user during Phase 1 (protoscript).
@@ -212,31 +194,6 @@ namespace Glyssen
 			get { return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(true, true) : null; }
 		}
 
-		/// <summary>
-		/// Similar to PrimaryReferenceText, this method returns <code>null</code> if this block corresponds to more
-		/// than one reference block (or corresponds to exactly one block that is considered a mismatch). However,
-		/// it returns an empty string (which should be understood to be different from <code>null</code>) if no
-		/// reference blocks are found at the requested (or any lower) level.
-		/// </summary>
-		/// <param name="depth">Current constraints elsewhere in the code make it such that this should never be
-		/// greater than 1, but this method is implemented to support a (future) scenerio allowing more deeply
-		/// nested reference texts.</param>
-		public string GetReferenceTextAtDepth(int depth)
-		{
-			if (depth < 0)
-				throw new ArgumentOutOfRangeException("depth", "Depth must not be negative.");
-			// This might seem a little weird (and unlikely), but if the caller is asking for a particular level,
-			// it is assumed that it is a valid level, so the absence of any reference blocks should be treated
-			// the same as having a single empty block (which is the normal scenario in production).
-			if (!ReferenceBlocks.Any())
-				return "";
-			if (depth == 0)
-				return PrimaryReferenceText;
-			if (ReferenceBlocks.Count == 1)
-				return ReferenceBlocks[0].GetReferenceTextAtDepth(depth - 1);
-			return null;
-		}
-
 		[XmlElement]
 		public List<Block> ReferenceBlocks { get; set; }
 
@@ -246,11 +203,15 @@ namespace Glyssen
 		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
 		public List<BlockElement> BlockElements { get; set; }
 
-		public bool CharacterIsStandard { get { return CharacterVerseData.IsCharacterStandard(CharacterId); } }
+		public bool CharacterIsStandard
+		{
+			get { return CharacterVerseData.IsCharacterStandard(CharacterId); }
+		}
 
-		public bool IsChapterAnnouncement { get { return StyleTag == "c" || StyleTag == "cl"; } }
-
-		public bool ContainsVerseNumber { get { return BlockElements.OfType<Verse>().Any(); } }
+		public bool IsChapterAnnouncement
+		{
+			get { return StyleTag == "c" || StyleTag == "cl"; }
+		}
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
@@ -258,90 +219,6 @@ namespace Glyssen
 				throw new ArgumentNullException("referenceBlock");
 			ReferenceBlocks = new List<Block> { referenceBlock };
 			MatchesReferenceText = true;
-		}
-
-		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
-		{
-			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
-			Block refBlock;
-			if (ReferenceBlocks != null && ReferenceBlocks.Count == 1)
-			{
-				refBlock = ReferenceBlocks[0];
-				refBlock.StyleTag = StyleTag;
-				refBlock.ChapterNumber = ChapterNumber;
-				refBlock.InitialStartVerseNumber = prevVerse.StartVerse;
-				refBlock.InitialEndVerseNumber = prevVerse.LastVerseOfBridge;
-				refBlock.BlockElements.Clear();
-			}
-			else
-				refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
-			refBlock.SetCharacterAndDeliveryInfo(this);
-			refBlock.ParsePlainText(text);
-			if (!refBlock.StartsAtVerseStart)
-			{
-				var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
-				if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse <= refBlock.InitialEndVerseNumber)
-					refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
-			}
-			SetMatchedReferenceBlock(refBlock);
-
-			return refBlock;
-		}
-
-		private const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
-		private const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
-
-		private void ParsePlainText(string text)
-		{
-			var verseNumbers = new Regex(@"((" + kRegexForVerseNumber + ")|" + Sound.kRegexForUserLocatedSounds + ")" + kRegexForWhitespaceFollowingVerseNumber);
-			var pos = 0;
-			text = text.TrimStart();
-			var prependSpace = "";
-			while (pos < text.Length)
-			{
-				var match = verseNumbers.Match(text, pos);
-				if (match.Success)
-				{
-					if (match.Index == pos)
-					{
-						// We don't allow two verses in a row with no text between, so unless this is a verse at the very
-						// beginning, remove the preceding (empty) verse.
-						if (match.Index > 0 && BlockElements.Last() is Verse)
-							BlockElements.RemoveAt(BlockElements.Count - 1);
-
-						if (match.Groups["verse"].Success)
-						{
-							InitialStartVerseNumber = Int32.Parse(match.Result("${startVerse}"));
-							int endVerse;
-							if (!Int32.TryParse(match.Result("${endVerse}"), out endVerse))
-								endVerse = 0;
-							InitialEndVerseNumber = endVerse;
-						}
-					}
-					else
-					{
-						BlockElements.Add(new ScriptText(prependSpace + text.Substring(pos, match.Index - pos)));
-					}
-					if (match.Groups["verse"].Success)
-						BlockElements.Add(new Verse(match.Result("${verse}").Replace(',', '-')));
-					else
-					{
-						var prevText = BlockElements.LastOrDefault() as ScriptText;
-						if (prevText != null && prevText.Content.Last() != ' ')
-							prevText.Content += " ";
-						BlockElements.Add(Sound.CreateFromMatchedRegex(match));
-						prependSpace = " ";
-					}
-					pos = match.Index + match.Length;
-				}
-				else
-				{
-					BlockElements.Add(new ScriptText(prependSpace + text.Substring(pos)));
-					break;
-				}
-			}
-			if (!BlockElements.Any())
-				BlockElements.Add(new ScriptText(""));
 		}
 
 		public string GetText(bool includeVerseNumbers, bool includeAnnotations = false)
@@ -377,7 +254,7 @@ namespace Glyssen
 					{
 						ScriptAnnotation annotation = blockElement as ScriptAnnotation;
 						if (annotation != null)
-							bldr.Append(annotation.ToDisplay());
+							bldr.Append(annotation.ToDisplay(" "));
 					}
 				}
 			}
@@ -391,29 +268,6 @@ namespace Glyssen
 			{
 				return InitialEndVerseNumber == 0 ? InitialStartVerseNumber.ToString(CultureInfo.InvariantCulture) :
 					InitialStartVerseNumber + "-" + InitialEndVerseNumber;
-			}
-		}
-
-		/// <summary>
-		/// This handles the common case where the first Block Element is a Verse and the more
-		/// unusual case where there is a preceding Script Text consisting only of an opening square
-		/// bracket (which indicates a verse that is often omitted because of weak manuscript evidence).
-		/// Technically, any preceding SciptText element that consists entirely of punctuation will be
-		/// considered as being part of the following verse.)
-		/// </summary>
-		public bool StartsAtVerseStart
-		{
-			get
-			{
-				return BlockElements.First() is Verse || (FirstTextElementIsOnlyPunctuation && ContainsVerseNumber);
-			}
-		}
-
-		public bool FirstTextElementIsOnlyPunctuation
-		{
-			get
-			{
-				return BlockElements.OfType<ScriptText>().First().Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c));
 			}
 		}
 
@@ -555,7 +409,7 @@ namespace Glyssen
 				bookNum = BCVRef.BookToNumber(bookId);
 
 			var startRef = new BCVRef(bookNum, ChapterNumber, InitialStartVerseNumber);
-			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerseNum);
+			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerse);
 			
 			return BCVRef.MakeReferenceString(bookId, startRef, endRef, ":", "-") + " : " + ToString();
 		}
@@ -580,7 +434,7 @@ namespace Glyssen
 		/// </summary>
 		public bool IsScripture
 		{
-			get { return !CharacterVerseData.IsCharacterExtraBiblical(CharacterId); }
+			get { return !CharacterVerseData.IsCharacterStandard(CharacterId, false); }
 		}
 
 		public bool CharacterIs(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
@@ -590,7 +444,7 @@ namespace Glyssen
 
 		public bool CharacterIsUnclear()
 		{
-			return CharacterId == CharacterVerseData.kAmbiguousCharacter || CharacterId == CharacterVerseData.kUnknownCharacter;
+			return CharacterId == CharacterVerseData.kUnknownCharacter || CharacterId == CharacterVerseData.kAmbiguousCharacter;
 		}
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
@@ -810,7 +664,8 @@ namespace Glyssen
 						initialStartVerse = int.Parse(verseNumParts[0]);
 						initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
 					}
-					newBlock = new Block(StyleTag, ChapterNumber, initialStartVerse, initialEndVerse)
+					newBlock = new Block(StyleTag, ChapterNumber,
+						initialStartVerse, initialEndVerse)
 					{
 						CharacterId = CharacterId,
 						CharacterIdOverrideForScript = CharacterIdOverrideForScript,
@@ -833,85 +688,6 @@ namespace Glyssen
 					BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
 			return newBlock;
-		}
-
-		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, Paratext.ScrVers scrVers)
-		{
-			if (basedOnBlock.CharacterIdOverrideForScript == null)
-				SetCharacterAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
-			SetCharacterAndDeliveryInfo(basedOnBlock);
-		}
-
-		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
-		{
-			CharacterId = basedOnBlock.CharacterId;
-			if (basedOnBlock.CharacterIdOverrideForScript != null)
-				CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
-			Delivery = basedOnBlock.Delivery;
-		}
-
-		public void AppendJoinedBlockElements(List<Block> referenceBlocks, IReferenceLanguageInfo languageInfo)
-		{
-			var nestedRefBlocks = new List<Block>();
-
-			foreach (Block r in referenceBlocks)
-			{
-				if (r.MatchesReferenceText)
-					nestedRefBlocks.Add(r.ReferenceBlocks.Single());
-				foreach (BlockElement element in r.BlockElements)
-				{
-					var scriptText = element as ScriptText;
-					if (scriptText != null)
-					{
-						var prevScriptText = BlockElements.LastOrDefault() as ScriptText;
-						if (prevScriptText != null)
-						{
-							prevScriptText.Content = prevScriptText.Content.TrimEnd() + languageInfo.WordSeparator + scriptText.Content;
-							continue;
-						}
-					}
-					BlockElements.Add(element.Clone());
-				}
-			}
-			if (nestedRefBlocks.Any())
-			{
-				var backingRefBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber,
-					InitialEndVerseNumber);
-				backingRefBlock.SetCharacterAndDeliveryInfo(this);
-				backingRefBlock.AppendJoinedBlockElements(nestedRefBlocks, languageInfo.BackingReferenceLanguage);
-				SetMatchedReferenceBlock(backingRefBlock);
-			}
-		}
-
-		public void CloneReferenceBlocks()
-		{
-			var origList = ReferenceBlocks;
-			ReferenceBlocks = new List<Block>(origList.Select(rb =>
-			{
-				var clone = rb.Clone();
-				clone.CloneReferenceBlocks();
-				return clone;
-			}));
-		}
-
-		public static void GetSwappedReferenceText(string rowA, string rowB, out string newRowAValue, out string newRowBValue)
-		{
-			newRowBValue = rowA;
-			if (rowA == null || rowB == null)
-			{
-				newRowAValue = rowB;
-				return;
-			}
-
-			var leadingVerse = String.Empty;
-			var verseNumbers = new Regex("^" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber);
-			var match = verseNumbers.Match(newRowBValue);
-			if (match.Success && !verseNumbers.IsMatch(rowB))
-			{
-				leadingVerse = match.Value;
-				newRowBValue = newRowBValue.Substring(match.Length);
-			}
-			newRowAValue = leadingVerse + rowB;
 		}
 	}
 

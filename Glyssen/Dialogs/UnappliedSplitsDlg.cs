@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Utilities;
 using L10NSharp.UI;
 using SIL.Scripture;
 
@@ -18,14 +17,18 @@ namespace Glyssen.Dialogs
 		private string m_style;
 		private readonly string m_projectName;
 		private readonly IEnumerable<BookScript> m_books;
-		private readonly FontProxy m_font;
+		private readonly string m_fontFamily;
+		private readonly int m_fontSize;
+		private readonly bool m_rightToLeftScript;
 		private string m_htmlFilePath;
 
-		public UnappliedSplitsDlg(string projectName, FontProxy fontProxy, IEnumerable<BookScript> books)
+		public UnappliedSplitsDlg(string projectName, IWritingSystemDisplayInfo wsInfo, IEnumerable<BookScript> books)
 		{
 			m_projectName = projectName;
 			m_books = books;
-			m_font = fontProxy;
+			m_fontFamily = wsInfo.FontFamily;
+			m_rightToLeftScript = wsInfo.RightToLeft;
+			m_fontSize = wsInfo.FontSize;
 			InitializeComponent();
 
 			HandleStringsLocalized();
@@ -49,7 +52,7 @@ namespace Glyssen.Dialogs
 		{
 			base.OnLoad(e);
 			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
-			m_style = string.Format(Block.kCssFrame, m_font.FontFamily, m_font.Size);
+			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize);
 
 			SetHtml();
 		}
@@ -98,18 +101,18 @@ namespace Glyssen.Dialogs
 
 			int chapterNumber = unappliedSplit[0].ChapterNumber;
 			BCVRef startRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[0].InitialStartVerseNumber);
-			BCVRef endRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[unappliedSplit.Count-1].LastVerseNum);
+			BCVRef endRef = new BCVRef(bookNum, chapterNumber, unappliedSplit[unappliedSplit.Count-1].LastVerse);
 			return BCVRef.MakeReferenceString(startRef, endRef, ":", "-");
 		}
 
 		private string BuildBlockHtml(Block block)
 		{
 			var bldr = new StringBuilder();
-			var blockDivAttributes = "class=\"block" + (m_font.RightToLeftScript ? " right-to-left" : "") + "\"";
+			var blockDivAttributes = "class=\"block" + (m_rightToLeftScript ? " right-to-left" : "") + "\"";
 			bldr.AppendFormat("<div {0}>", blockDivAttributes);
 
 			bldr.AppendFormat("<strong>{0}: </strong>", block.CharacterId);
-			bldr.Append(block.GetTextAsHtml(true, m_font.RightToLeftScript));
+			bldr.Append(block.GetTextAsHtml(true, m_rightToLeftScript));
 			bldr.Append("</div>");
 			return bldr.ToString();
 		}

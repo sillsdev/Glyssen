@@ -17,7 +17,9 @@ namespace Glyssen.Dialogs
 	{
 		private string m_style;
 		private readonly List<Block> m_originalBlocks;
-		private readonly FontProxy m_font;
+		private readonly string m_fontFamily;
+		private readonly int m_fontSize;
+		private readonly bool m_rightToLeftScript;
 		private readonly List<BlockSplitData> m_splitLocations = new List<BlockSplitData>();
 		private string m_htmlFilePath;
 		private int m_blockSplitIdCounter = 1;  // zero is reserved for assigning a character id to the first segment
@@ -25,18 +27,25 @@ namespace Glyssen.Dialogs
 		private readonly string m_css = Resources.BlockSplitCss;
 		private readonly Regex m_verseNumberRegex = new Regex(@"<sup>.*</sup>");
 
-		public SplitBlockDlg(FontProxy fontProxy, IEnumerable<Block> originalBlocks,
-			IEnumerable<AssignCharacterViewModel.Character> charactersForCurrentReference,
-			string currentBookId)
+		public SplitBlockDlg(IWritingSystemDisplayInfo wsInfo, IEnumerable<Block> originalBlocks)
 		{
-			m_font = fontProxy;
 			m_originalBlocks = originalBlocks.ToList();
+			m_fontFamily = wsInfo.FontFamily;
+			m_rightToLeftScript = wsInfo.RightToLeft;
+			m_fontSize = wsInfo.FontSize;
 
-			m_characters = charactersForCurrentReference;
-			foreach (var block in m_originalBlocks)
+			// if splitting blocks, get list of potential characters
+			var viewModel = wsInfo as AssignCharacterViewModel;
+			if (viewModel != null)
 			{
-				if (block.BookCode == null)
-					block.BookCode = currentBookId;
+				m_characters = viewModel.GetUniqueCharactersForCurrentReference();
+				foreach (var block in m_originalBlocks)
+				{
+					if (block.BookCode == null)
+					{
+						block.BookCode = viewModel.CurrentBookId;
+					}
+				}
 			}
 
 			InitializeComponent();
@@ -54,7 +63,7 @@ namespace Glyssen.Dialogs
 		{
 			base.OnLoad(e);
 			m_htmlFilePath = Path.ChangeExtension(Path.GetTempFileName(), "htm");
-			m_style = string.Format(Block.kCssFrame, m_font.FontFamily, m_font.Size) + m_css;
+			m_style = string.Format(Block.kCssFrame, m_fontFamily, m_fontSize) + m_css;
 
 			SetHtml();
 		}
@@ -71,7 +80,7 @@ namespace Glyssen.Dialogs
 				bldr.Append(BuildHtml(block, index));
 			}
 
-			var bodyAttributes = m_font.RightToLeftScript ? "class=\"right-to-left\"" : "";
+			var bodyAttributes = m_rightToLeftScript ? "class=\"right-to-left\"" : "";
 			File.WriteAllText(m_htmlFilePath, String.Format(htmlFrame, m_style, bodyAttributes, bldr));
 			m_blocksDisplayBrowser.Navigate(m_htmlFilePath);
 		}
@@ -93,11 +102,11 @@ namespace Glyssen.Dialogs
 					bldr.Append(block.CharacterSelect(splitLocationsForThisBlock[0].Id));
 					processedFirstBlock = true;
 				}
-				bldr.Append(block.GetSplitTextAsHtml(id, m_font.RightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0).ToList(), true));
+				bldr.Append(block.GetSplitTextAsHtml(id, m_rightToLeftScript, splitLocationsForThisBlock.Skip(processedFirstBlock ? 1 : 0).ToList(), true));
 			}
 			else
 			{
-				bldr.Append(block.GetSplitTextAsHtml(id, m_font.RightToLeftScript, null, true));
+				bldr.Append(block.GetSplitTextAsHtml(id, m_rightToLeftScript, null, true));
 			}
 
 			return bldr.ToString();

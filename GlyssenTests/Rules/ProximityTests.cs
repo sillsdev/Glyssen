@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Glyssen;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
 using GlyssenTests.Properties;
@@ -23,16 +22,12 @@ namespace GlyssenTests.Rules
 			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			m_testProject.UseDefaultForUnresolvedMultipleChoiceCharacters();
-
-			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			m_testProject.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 		}
 
 		[SetUp]
 		public void SetUp()
 		{
-			m_proximity = new Proximity(m_testProject.IncludedBooks, m_testProject.DramatizationPreferences);
+			m_proximity = new Proximity(m_testProject.IncludedBooks);
 		}
 
 		[TestFixtureTearDown]
@@ -169,24 +164,13 @@ namespace GlyssenTests.Rules
 		[Test]
 		public void CalculateMinimumProximity_TreatStandardNonScriptureCharactersAsDistinct_ExtraBiblicalResultsInZeroProximityWithChapterNumber()
 		{
-			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
+			HashSet<string> characterIds = new HashSet<string>();
 
-			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
-			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
-			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
 
-			var proximity = new Proximity(project.IncludedBooks, project.DramatizationPreferences);
-
-			var characterIds = new HashSet<string>
-			{
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro)
-			};
-
-
-			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds, true);
 
 			Assert.AreEqual(0, minProximity.NumberOfBlocks);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);
@@ -204,7 +188,7 @@ namespace GlyssenTests.Rules
 			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
 			characterIds.Add(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Intro));
 
-			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds);
+			MinimumProximity minProximity = m_proximity.CalculateMinimumProximity(characterIds, false);
 
 			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.BookOrChapter), minProximity.FirstCharacterId);

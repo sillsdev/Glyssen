@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
@@ -19,16 +18,12 @@ namespace GlyssenTests.Rules
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerseOct2015;
 			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetailOct2015;
 			RelatedCharactersData.Source = null;
+			CreateTestProject();
 		}
 
 		[SetUpAttribute]
 		public void SetUp()
 		{
-			CreateTestProject();
-
-			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
-			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
-
 			m_testProject.AvailableBooks.Single(b => b.Code == "MRK").IncludeInScript = true;
 			m_testProject.AvailableBooks.Single(b => b.Code == "LUK").IncludeInScript = true;
 			m_testProject.AvailableBooks.Single(b => b.Code == "ACT").IncludeInScript = false;

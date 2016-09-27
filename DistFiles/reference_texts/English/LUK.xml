@@ -99,7 +99,7 @@
     <verse num="22" />
     <text>When he came out, he could not speak to them, and they said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering">
+  <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="people" delivery="wondering" userConfirmed="true">
     <text>“He has seen a vision in the temple!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="1" initialStartVerse="22" characterId="narrator-LUK">
@@ -465,7 +465,7 @@
     <text>(as it is written in the law of the Lord,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="23" characterId="scripture">
-    <text>“Every male who opens the womb shall be called holy to the Lord”),</text>
+    <text>“Every male who opens the womb shall be called holy to the Lord”), </text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="24" characterId="narrator-LUK">
     <verse num="24" />
@@ -671,20 +671,20 @@
     <verse num="14" />
     <text>Soldiers also asked him, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="soldiers, some (near Jordan River)" delivery="calling out" userConfirmed="true">
     <text>“What about us? What must we do?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-LUK">
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="John the Baptist" userConfirmed="true">
     <text>“Extort from no one by violence, neither accuse anyone wrongfully. Be content with your wages.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="narrator-LUK">
     <verse num="15" />
     <text>As the people were in expectation, and all men reasoned in their hearts concerning John,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="15" characterId="people near Jordan River" userConfirmed="true">
     <text>Could John be the Messiah?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="16" characterId="narrator-LUK">
@@ -1124,7 +1124,7 @@
     <verse num="21" />
     <text>The scribes and the Pharisees began to reason, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" delivery="thinking">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="21" characterId="teachers of religious law/Pharisees" characterIdOverrideForScript="teachers of religious law" delivery="thinking">
     <text>“Who is this that speaks blasphemies? Who can forgive sins, but God alone?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="22" characterId="narrator-LUK">
@@ -1163,7 +1163,7 @@
     <verse num="27" />
     <text>After these things he went out, and saw a tax collector named Levi sitting at the tax office, and said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="27" characterId="Jesus" userConfirmed="true">
     <text>“Follow me!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="28" characterId="narrator-LUK">
@@ -1178,7 +1178,7 @@
     <verse num="30" />
     <text>Their scribes and the Pharisees murmured against his disciples, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" delivery="complaining">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="30" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="complaining">
     <text>“Why do you eat and drink with the tax collectors and sinners?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="31" characterId="narrator-LUK">
@@ -1196,7 +1196,7 @@
     <verse num="33" />
     <text>They said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="33" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
     <text>“Why do John's disciples often fast and pray, likewise also the disciples of the Pharisees, but yours eat and drink?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="34" characterId="narrator-LUK">
@@ -1298,7 +1298,7 @@
     <verse num="11" />
     <text>But they were filled with rage, and talked with one another, saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law">
+  <block style="p" paragraphStart="true" chapter="6" initialStartVerse="11" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees">
     <text>“What can we do about Jesus?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="12" characterId="narrator-LUK">
@@ -1660,13 +1660,13 @@
     <verse num="40" />
     <text>Jesus answered him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Jesus" userConfirmed="true">
     <text>“Simon, I have something to tell you.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="narrator-LUK">
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="40" characterId="Pharisee (Simon)" userConfirmed="true">
     <text>“Tell me teacher,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="41" characterId="narrator-LUK">
@@ -1684,13 +1684,13 @@
     <verse num="43" />
     <text>Simon answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Pharisee (Simon)" userConfirmed="true">
     <text>“He, I suppose, to whom he forgave the most.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="narrator-LUK">
     <text>He said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="43" characterId="Jesus" userConfirmed="true">
     <text>“You have judged correctly.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="44" characterId="narrator-LUK">
@@ -1854,7 +1854,7 @@
     <verse num="24" />
     <text>They came to him, and awoke him, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="disciples" delivery="terrified" userConfirmed="true">
     <text>“Master, master, we are dying!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="24" characterId="narrator-LUK">
@@ -1862,13 +1862,13 @@
     <verse num="25" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="Jesus" delivery="questioning" userConfirmed="true">
     <text>“Where is your faith?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="narrator-LUK">
     <text>Being afraid they marveled, saying one to another,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="25" characterId="disciples" delivery="amazed" userConfirmed="true">
     <text>“Who is this, then, that he commands even the winds and the water, and they obey him?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="26" characterId="narrator-LUK">
@@ -1883,7 +1883,7 @@
     <verse num="28" />
     <text>When he saw Jesus, he cried out, and fell down before him, and with a loud voice said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="28" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
     <text>“What do I have to do with you, Jesus, you Son of the Most High God? I beg you, don't torment me!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="29" characterId="narrator-LUK">
@@ -1892,13 +1892,13 @@
     <verse num="30" />
     <text>Jesus asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="Jesus" delivery="questioning" userConfirmed="true">
     <text>“What is your name?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-LUK">
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" userConfirmed="true">
     <text>“Legion,”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="30" characterId="narrator-LUK">
@@ -1906,14 +1906,14 @@
     <verse num="31" />
     <text>They begged him, saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="31" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)">
     <text>“Do not send us into the abyss!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK">
     <verse num="32" />
     <text>Now there was there a herd of many pigs feeding on the mountain. The Demons begged Jesus, saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" delivery="begging">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="demons (Legion)/man delivered from Legion of demons" characterIdOverrideForScript="demons (Legion)" delivery="begging" userConfirmed="true">
     <text>“Allow us to enter into the pigs!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="32" characterId="narrator-LUK">
@@ -1981,19 +1981,19 @@
     <verse num="45" />
     <text>Jesus said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Jesus" delivery="questioning" userConfirmed="true">
     <text>“Who touched me?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="narrator-LUK">
     <text>They all denied it saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="crowd" userConfirmed="true">
     <text>“Not I!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="narrator-LUK">
     <text>Peter said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="45" characterId="Peter (Simon)" delivery="perplexed" userConfirmed="true">
     <text>“Master, the multitudes press and jostle you, and you say, ‘Who touched me?’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="46" characterId="narrator-LUK">
@@ -2028,7 +2028,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="51" characterId="narrator-LUK">
     <verse num="51" />
-    <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.</text>
+    <text>When he came to the house, he didn't allow anyone to enter in, except Peter, John, James, the father of the child, and her mother.  </text>
   </block>
   <block style="p" paragraphStart="true" chapter="8" initialStartVerse="52" characterId="narrator-LUK">
     <sound soundType="Sfx" effectName="Women crying" userSpecifiesLocation="true" />
@@ -2143,13 +2143,13 @@
     <verse num="13" />
     <text>But he said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Jesus" delivery="giving orders" userConfirmed="true">
     <text>“You give them something to eat.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="narrator-LUK">
     <text>They said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="13" characterId="Andrew" delivery="frustrated" userConfirmed="true">
     <text>“We have no more than five loaves and two fish, unless we should go and buy food for all these people.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="14" characterId="narrator-LUK">
@@ -2189,13 +2189,13 @@
     <verse num="20" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Jesus" delivery="questioning" userConfirmed="true">
     <text>“But who do you say that I am?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="narrator-LUK">
     <text>Peter answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="20" characterId="Peter (Simon)" delivery="declare" userConfirmed="true">
     <text>“The Christ of God.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="narrator-LUK">
@@ -2299,7 +2299,7 @@
     <verse num="41" />
     <text>Jesus answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="41" characterId="Jesus" delivery="exasperated" userConfirmed="true">
     <text>“Faithless and perverse generation, how long shall I be with you and bear with you? Bring your son here.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="42" characterId="narrator-LUK">
@@ -2367,7 +2367,7 @@
     <verse num="54" />
     <text>When his disciples, James and John, saw this, they said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="54" characterId="James, the disciple/John" characterIdOverrideForScript="John">
     <text>“Lord, do you want us to command fire to come down from the sky, and destroy them, just as Elijah did?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="55" characterId="narrator-LUK">
@@ -2398,13 +2398,13 @@
     <verse num="59" />
     <text>He said to another,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="Jesus" delivery="inviting" userConfirmed="true">
     <text>“Follow me!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="narrator-LUK">
     <text>But he said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="59" characterId="disciple who wanted to bury his father" delivery="making excuse" userConfirmed="true">
     <text>“Lord, allow me first to go and bury my father.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="60" characterId="narrator-LUK">
@@ -2618,13 +2618,13 @@
     <verse num="37" />
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="expert in religious law" userConfirmed="true">
     <text>“He who showed mercy on him.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="narrator-LUK">
     <text>Then Jesus said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
     <text>“Go and do likewise.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="38" characterId="narrator-LUK">
@@ -3516,7 +3516,7 @@
     <verse num="2" />
     <text>The Pharisees and the scribes murmured, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" delivery="complaining">
+  <block style="p" paragraphStart="true" chapter="15" initialStartVerse="2" characterId="Pharisees/teachers of religious law" characterIdOverrideForScript="Pharisees" delivery="complaining">
     <text>“This man welcomes sinners, and eats with them.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="15" initialStartVerse="3" characterId="narrator-LUK">
@@ -3881,7 +3881,7 @@
     <verse num="20" />
     <text>The Pharisees asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="Pharisees" delivery="questioning" userConfirmed="true">
     <text>“When will the Kingdom of God come?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="20" characterId="narrator-LUK">
@@ -3959,13 +3959,13 @@
     <verse num="37" />
     <text>They, answering, asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="disciples" delivery="puzzled" userConfirmed="true">
     <text>“Where, Lord?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="narrator-LUK">
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="17" initialStartVerse="37" characterId="Jesus" userConfirmed="true">
     <text>“Where the dead body is, there will the vultures also be gathered together.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="18" book="LUK" initialStartVerse="0" characterId="BC-LUK">
@@ -4172,27 +4172,27 @@
     <verse num="39" />
     <text>Those who led the way rebuked him and said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="crowd, many in the" delivery="rebuking" userConfirmed="true">
     <text>“Be quiet!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="narrator-LUK">
     <text>but he cried out all the more,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="39" characterId="Bartimaeus (a blind man)" delivery="shouting" userConfirmed="true">
     <text>“Son of David, have mercy on me!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="40" characterId="narrator-LUK">
     <verse num="40" />
     <text>Standing still, Jesus commanded him to be brought to him. When he had come near, he asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Jesus" delivery="questioning" userConfirmed="true">
     <verse num="41" />
     <text>“What do you want me to do?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="narrator-LUK">
     <text>He said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="41" characterId="Bartimaeus (a blind man)" delivery="pleading" userConfirmed="true">
     <text>“Lord, that I may see again.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="42" characterId="narrator-LUK">
@@ -4206,7 +4206,7 @@
     <verse num="43" />
     <text>Immediately he received his sight and followed him, glorifying God, saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="Bartimaeus (a blind man)" delivery="praising" userConfirmed="true">
     <text>“Glory be to God!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="43" characterId="narrator-LUK">
@@ -4445,7 +4445,7 @@
     <verse num="2" />
     <text>They asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" delivery="challenging">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="2" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="challenging">
     <text>“Tell us: by what authority do you do these things? Or who is giving you this authority?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="3" characterId="narrator-LUK">
@@ -4461,10 +4461,10 @@
     <verse num="5" />
     <text>They reasoned with themselves, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="5" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Start">
     <text>“If we say, ‘From heaven,’ he will say, ‘Why didn't you believe him?’</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" delivery="to themselves" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="6" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="to themselves" multiBlockQuote="Continuation">
     <verse num="6" />
     <text>But if we say, ‘From men,’ all the people will stone us, for they are persuaded that John was a prophet.”</text>
   </block>
@@ -4472,7 +4472,7 @@
     <verse num="7" />
     <text>They answered, saying:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests">
     <text>“We don't know.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="8" characterId="narrator-LUK">
@@ -4520,7 +4520,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="narrator-LUK">
     <text>When they heard it, they said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="16" characterId="people in the temple" userConfirmed="true">
     <text>“May it never be!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="17" characterId="narrator-LUK">
@@ -4563,7 +4563,7 @@
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="narrator-LUK">
     <text>They answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)">
+  <block style="p" paragraphStart="true" chapter="20" initialStartVerse="24" characterId="spies (from Pharisees and Herodians)" userConfirmed="true">
     <text>“Caesar's.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="25" characterId="narrator-LUK">
@@ -4704,7 +4704,7 @@
     <verse num="7" />
     <text>They asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew">
+  <block style="p" paragraphStart="true" chapter="21" initialStartVerse="7" characterId="Peter (Simon)/James, the disciple/John/Andrew" characterIdOverrideForScript="Peter (Simon)">
     <text>“Teacher, when will these things be? What is the sign that these things are about to happen?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="21" initialStartVerse="8" characterId="narrator-LUK">
@@ -4864,7 +4864,7 @@
     <verse num="5" />
     <text>They were glad, and said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="chief priests/officers of temple guard" characterIdOverrideForScript="chief priests">
     <text>“We will pay you for this.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="6" characterId="narrator-LUK">
@@ -4886,7 +4886,7 @@
     <verse num="9" />
     <text>They said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="9" characterId="Peter (Simon)/John" characterIdOverrideForScript="John">
     <text>“Where do you want us to prepare?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="10" characterId="narrator-LUK">
@@ -5024,13 +5024,13 @@
     <verse num="35" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="Jesus" userConfirmed="true">
     <text>“When I sent you out without purse, and wallet, and shoes, did you lack anything?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="narrator-LUK">
     <text>They said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="35" characterId="disciples" userConfirmed="true">
     <text>“Nothing.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="36" characterId="narrator-LUK">
@@ -5048,13 +5048,13 @@
     <verse num="38" />
     <text>They said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="disciples" delivery="declare" userConfirmed="true">
     <text>“Lord, behold, here are two swords.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="narrator-LUK">
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="38" characterId="Jesus" userConfirmed="true">
     <text>“That is enough.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="39" characterId="narrator-LUK">
@@ -5161,20 +5161,20 @@
     <verse num="58" />
     <text>After a little while someone else saw him, and said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="second person to accuse Peter (man)" delivery="accusing" userConfirmed="true">
     <text>“You also are one of them!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="narrator-LUK">
     <text>But Peter answered,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="58" characterId="Peter (Simon)" delivery="denial, stronger" userConfirmed="true">
     <text>“Man, I am not!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="narrator-LUK">
     <verse num="59" />
     <text>After about one hour passed, another confidently affirmed, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" delivery="accusing">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="59" characterId="high priest's servant (relative of the man whose ear Peter cut off)/those standing near" characterIdOverrideForScript="high priest's servant (relative of the man whose ear Peter cut off)" delivery="accusing">
     <text>“Truly this man also was with him, for he is a Galilean!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="60" characterId="narrator-LUK">
@@ -5217,7 +5217,7 @@
     <verse num="66" />
     <text>As soon as it was day, the assembly of the elders of the people was gathered together, both chief priests and scribes, and they led him away into their council, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="67" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="demanding" userConfirmed="true">
     <verse num="67" />
     <text>“If you are the Christ, tell us.”</text>
   </block>
@@ -5237,20 +5237,20 @@
     <verse num="70" />
     <text>They all said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" delivery="demanding">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="demanding" userConfirmed="true">
     <text>“Are you then the Son of God?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="narrator-LUK">
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="70" characterId="Jesus" userConfirmed="true">
     <text>“You say it, because I am.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="narrator-LUK">
     <verse num="71" />
     <text>They said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" delivery="furious">
+  <block style="p" paragraphStart="true" chapter="22" initialStartVerse="71" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders" delivery="furious">
     <text>“Why do we need any more witness? For we ourselves have heard from his own mouth!”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="23" book="LUK" initialStartVerse="0" characterId="BC-LUK">
@@ -5264,20 +5264,20 @@
     <verse num="2" />
     <text>They began to accuse him, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="2" characterId="council of elders/chief priests/teachers of religious law" characterIdOverrideForScript="council of elders">
     <text>“We found this man perverting the nation, forbidding paying taxes to Caesar, and saying that he himself is Christ, a king.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="narrator-LUK">
     <verse num="3" />
     <text>Pilate asked him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Pilate" delivery="to Jesus" userConfirmed="true">
     <text>“Are you the King of the Jews?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="narrator-LUK">
     <text>He answered him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="3" characterId="Jesus" userConfirmed="true">
     <text>“Yes… It is as you say.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="4" characterId="narrator-LUK">
@@ -5291,7 +5291,7 @@
     <verse num="5" />
     <text>But they insisted, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" delivery="angry">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="chief priests/crowd" characterIdOverrideForScript="chief priests" delivery="angry">
     <text>“He stirs up the people, teaching throughout all Judea, beginning from Galilee even to this place.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="narrator-LUK">
@@ -5396,7 +5396,7 @@
     <text>He released Barrabus, the prisoner they asked for. He had been thrown into prison for insurrection and murder. Then Pilate gave Jesus to them, saying:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="25" characterId="Pilate">
-    <text>“Do what you want with him.”</text>
+    <text>“Do what you want with him.” </text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="26" characterId="narrator-LUK">
     <verse num="26" />
@@ -5443,7 +5443,7 @@
     <verse num="35" />
     <text>The people stood watching. The rulers with them also scoffed at him, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" delivery="sneering">
+  <block style="p" paragraphStart="true" chapter="23" initialStartVerse="35" characterId="chief priests/teachers of religious law/elders" characterIdOverrideForScript="chief priests" delivery="sneering">
     <text>“He saved others. Let him save himself, if this is the Christ of God, his chosen one!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="36" characterId="narrator-LUK">
@@ -5571,7 +5571,7 @@
     <verse num="4" />
     <text>They were greatly perplexed about this and said:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
     <text>“Where is his body?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="4" characterId="narrator-LUK">
@@ -5594,7 +5594,7 @@
     <verse num="8" />
     <text>After hearing these words, the women said to each other:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="8" characterId="Mary Magdalene/Mary mother of James/Salome" characterIdOverrideForScript="Mary Magdalene">
     <text>“Do you remember what he said?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="9" characterId="narrator-LUK">
@@ -5646,32 +5646,32 @@
     <verse num="19" />
     <text>He said to them,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Jesus" userConfirmed="true">
     <text>“What things?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="narrator-LUK">
     <text>They said to him,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="19" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Start">
     <text>“The things concerning Jesus, the Nazarene, who was a prophet mighty in deed and word before God and all the people;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="20" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Continuation">
     <verse num="20" />
     <text>The chief priests and our rulers delivered him up to be condemned to death, and they crucified him.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="21" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" multiBlockQuote="Continuation">
     <verse num="21" />
     <text>But we were hoping that it was he who would redeem Israel. Yes, and besides all this, it is now the third day since these things happened.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="22" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
     <verse num="22" />
     <text>Also, certain women of our company amazed us, having arrived early at the tomb.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="23" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
     <verse num="23" />
     <text>And when they didn't find his body, they came saying that they had also seen a vision of angels, who said that he was alive.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="24" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)" multiBlockQuote="Continuation">
     <verse num="24" />
     <text>Some of us went to the tomb, and found it just like the women had said, but they didn't see him.”</text>
   </block>
@@ -5696,7 +5696,7 @@
     <verse num="29" />
     <text>They urged him, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" delivery="urging">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas" delivery="urging" userConfirmed="true">
     <text>“Stay with us, for it is almost evening, and the day is almost over.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="29" characterId="narrator-LUK">
@@ -5714,7 +5714,7 @@
     <verse num="32" />
     <text>They said one to another,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="32" characterId="Cleopas/Cleopas' companion (on road to Emmaus)" characterIdOverrideForScript="Cleopas' companion (on road to Emmaus)">
     <text>“Weren't our hearts burning within us, while he spoke to us along the way, and while he opened the Scriptures to us?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="33" characterId="narrator-LUK">
@@ -5723,7 +5723,7 @@
     <verse num="34" />
     <text>saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="34" characterId="Eleven/those with the Eleven" characterIdOverrideForScript="John">
     <text>“The Lord is risen indeed, and has appeared to Simon!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="35" characterId="narrator-LUK">
