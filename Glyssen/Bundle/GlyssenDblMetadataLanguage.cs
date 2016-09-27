@@ -29,13 +29,5 @@ namespace Glyssen.Bundle
 		[XmlElement("fontSizeUiAdjustment")]
 		[DefaultValue(0)]
 		public int FontSizeUiAdjustment { get; set; }
-
-		/// <summary>
-		/// Translation equivalent for "he said." in this language. (Only needed for reference texts - currently
-		/// not exposed via the UI.)
-		/// </summary>
-		[XmlElement("heSaidText")]
-		[DefaultValue(null)]
-		public string HeSaidText { get; set; }
 	}
 }

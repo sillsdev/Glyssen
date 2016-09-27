@@ -64,11 +64,11 @@ namespace Glyssen.Bundle
 		[XmlAttribute("origdblpath")]
 		public string OriginalPathBundlePath { get; set; }
 
-		/// <summary>
-		/// Optional ID for tracking a project (used by FCBH's internal database)
-		/// </summary>
-		[XmlAttribute("audiostocknumber")]
-		public string AudioStockNumber { get; set; }
+        /// <summary>
+        /// Optional ID for tracking a project (used by FCBH's internal database)
+        /// </summary>
+        [XmlAttribute("audiostocknumber")]
+        public string AudioStockNumber { get; set; }
 
 		/// <summary>
 		/// We use this to know if character assignments should be reprocessed.
@@ -451,22 +451,19 @@ namespace Glyssen.Bundle
 		Required,
 	}
 
-	[Flags]
 	public enum ExtraBiblicalMaterialSpeakerOption
 	{
-		Narrator = 1 << 0,
-		ActorOfEitherGender = 1 << 1,
-		MaleActor = 1 << 2,
-		FemaleActor = 1 << 3,
-		Omitted = 1 << 4,
-		NotNarratorOrOmitted = MaleActor | FemaleActor | ActorOfEitherGender
+		Narrator,
+		ActorOfEitherGender,
+		MaleActor,
+		FemaleActor,
+		Omitted,
 	}
 
 	public class ProjectDramatizationPreferences
 	{
 		public ProjectDramatizationPreferences()
 		{
-			BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
 			SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 			BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
 		}

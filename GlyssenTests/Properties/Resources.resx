@@ -205,13 +205,4 @@
   <data name="french" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\french.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FrenchMATRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FrenchMATRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="spanish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spanish.glyssen;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SpanishMATRefText" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SpanishMATRefText.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
 </root>

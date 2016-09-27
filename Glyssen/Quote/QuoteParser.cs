@@ -403,7 +403,7 @@ namespace Glyssen.Quote
 							}
 							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
-								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(char.IsPunctuation))))
+								if (m_quoteLevel == 0)
 									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
 								sb.Append(token);
 								IncrementQuoteLevel();
@@ -694,7 +694,7 @@ namespace Glyssen.Quote
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
 					m_workingBlock.SetCharacterAndDelivery(
-						m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification));
+						m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerse, m_versification));
 				}
 				else
 				{
@@ -723,8 +723,8 @@ namespace Glyssen.Quote
 			int verseEndNum = m_workingBlock.InitialEndVerseNumber;
 			if (lastVerse != null)
 			{
-				verseStartNum = lastVerse.StartVerse;
-				verseEndNum = lastVerse.EndVerse;
+				verseStartNum = ScrReference.VerseToIntStart(lastVerse.Number);
+				verseEndNum = ScrReference.VerseToIntEnd(lastVerse.Number);
 			}
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
@@ -773,7 +773,7 @@ namespace Glyssen.Quote
 					{
 						if (currentBlock != null) newBlocks.Add(currentBlock);
 
-						if (CharacterVerseData.IsCharacterExtraBiblical(oldBlock.CharacterId) && !oldBlock.UserConfirmed)
+						if (CharacterVerseData.IsCharacterStandard(oldBlock.CharacterId, false) && !oldBlock.UserConfirmed)
 						{
 							newBlocks.Add(oldBlock.Clone());
 							currentBlock = null;

@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using DesktopAnalytics;
 using Glyssen.Dialogs;
-using Glyssen.Utilities;
-using L10NSharp;
-using SIL.Reporting;
-using SIL.Scripture;
 
 namespace Glyssen.Controls
 {
@@ -19,46 +12,19 @@ namespace Glyssen.Controls
 		private DataGridViewTextBoxColumn m_colReference;
 		private DataGridViewTextBoxColumn m_colText;
 		private BlockNavigatorViewModel m_viewModel;
-		private FontProxy m_originalDefaultFont;
-
-		private bool m_userIsResizingColumns;
-		private bool m_userResizedRefColumn;
-		private int m_minimumWidthFromDesigner;
-		private string m_bookIdUsedToSizeRefColumn;
-
-		public event EventHandler MinimumWidthChanged;
+		private Font m_originalDefaultFont;
 
 		#region overrides
 		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
 		{
 			base.OnRowHeightChanged(e);
-			this.SafeInvoke(() =>
+			if (SelectedRows.Count > 0)
 			{
-				if (!m_updatingContext && SelectedRows.Count > 0)
-				{
-					var firstRow = SelectedRows[SelectedRows.Count - 1].Index;
-					// When first initializing or moving to a different row (in a different book?), we
-					// can briefly get into a state where the selected row is out of range. I'd like to
-					// understand this better to prevent it higher up by clearing the SelectedRows
-					// collection, but this first check seems like a safe/robust way to prevent a crash.
-					if (firstRow >= RowCount || e.Row.Index <= firstRow - 5)
-						return;
-					var lastRow = SelectedRows[0].Index;
-					if (e.Row.Index < lastRow + 2)
-						ScrollDesiredRowsIntoView(firstRow, lastRow);
-				}
-			}, true);
-		}
-
-		protected override void OnCellMouseDown(DataGridViewCellMouseEventArgs e)
-		{
-			if (e.RowIndex >= 0 && Rows[e.RowIndex].Selected)
-			{
-				ResetSelectionBackColors();
-				m_viewModel.CurrentBlockIndexInBook = e.RowIndex;
-				return;
+				var firstRow = SelectedRows[SelectedRows.Count - 1].Index;
+				var lastRow = SelectedRows[0].Index;
+				if (e.Row.Index > firstRow - 5 && e.Row.Index < lastRow + 2)
+					this.SafeInvoke(() => ScrollDesiredRowsIntoView(firstRow, lastRow), true);
 			}
-			base.OnCellMouseDown(e);
 		}
 
 		protected override void OnSelectionChanged(EventArgs e)
@@ -74,7 +40,7 @@ namespace Glyssen.Controls
 
 		protected override void OnCellValueNeeded(DataGridViewCellValueEventArgs e)
 		{
-			if (e.RowIndex < 0 || e.RowIndex >= m_viewModel.BlockCountForCurrentBook)
+			if (m_updatingContext && (e.RowIndex < 0 || e.RowIndex >= m_viewModel.BlockCountForCurrentBook))
 			{
 				// This should never happen, but because of the side-effects of various DGV properites and methods,
 				// it seems to be incredibly difficult to ensure that things are done in an order that won't on
@@ -89,32 +55,18 @@ namespace Glyssen.Controls
 				else if (e.ColumnIndex == m_colText.Index)
 					e.Value = block.GetText(true);
 				else
-				{
-					if (m_viewModel.CurrentReferenceTextMatchup != null)
-					{
-						var correspondingOrigBlock = m_viewModel.CurrentReferenceTextMatchup.GetCorrespondingOriginalBlock(block);
-						if (correspondingOrigBlock != null)
-						{
-							if (Columns[e.ColumnIndex].Name == "colCharacter")
-								e.Value = correspondingOrigBlock.CharacterIsUnclear() ? "" : correspondingOrigBlock.CharacterId;
-							else
-								e.Value = correspondingOrigBlock.Delivery;
-							return;
-						}
-					}
 					base.OnCellValueNeeded(e);
-				}
 			}
 		}
 
 		protected override void OnCellPainting(DataGridViewCellPaintingEventArgs e)
 		{
-			if (!e.Handled && m_viewModel != null && m_viewModel.Font.RightToLeftScript && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
+			if (!e.Handled && m_viewModel != null && m_viewModel.RightToLeft && e.ColumnIndex == m_colText.Index && e.RowIndex >= 0)
 			{
 				e.PaintBackground(e.CellBounds, true);
 				TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(),
-					e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
-					TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.RightToLeft | TextFormatFlags.Right);
+				e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor,
+				 TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.RightToLeft | TextFormatFlags.Right);
 				e.Handled = true;
 			}
 			base.OnCellPainting(e);
@@ -125,17 +77,6 @@ namespace Glyssen.Controls
 			if (e.KeyCode == Keys.Enter)
 				e.SuppressKeyPress = true;
 			base.OnKeyDown(e);
-		}
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && m_viewModel != null)
-			{
-				m_viewModel.CurrentBlockChanged -= CurrentBlockChanged;
-				m_viewModel.UiFontSizeChanged -= HandleUiFontSizeChanged;
-			}
-
-			base.Dispose(disposing);
 		}
 		#endregion
 
@@ -148,41 +89,19 @@ namespace Glyssen.Controls
 			Debug.Assert(m_colText != null);
 			m_viewModel = viewModel;
 
-			m_originalDefaultFont = new FontProxy(DefaultCellStyle.Font);
+			m_originalDefaultFont = DefaultCellStyle.Font;
 			SetFontsFromViewModel();
 
-			m_minimumWidthFromDesigner = MinimumSize.Width;
-			SizeRefColumnForCurrentBook();
-
-			m_viewModel.CurrentBlockChanged += CurrentBlockChanged;
-			m_viewModel.UiFontSizeChanged += HandleUiFontSizeChanged;
-		}
-
-		private void HandleUiFontSizeChanged(object sender, EventArgs eventArgs)
-		{
-			SetFontsFromViewModel();
-			if (!m_userResizedRefColumn)
-				SizeRefColumnForCurrentBook();
-		}
-
-		private void CurrentBlockChanged(object sender, EventArgs eventArgs)
-		{
-			if (m_bookIdUsedToSizeRefColumn != m_viewModel.CurrentBookId && !m_userResizedRefColumn)
-				SizeRefColumnForCurrentBook();
+			m_viewModel.UiFontSizeChanged += (sender, args) => SetFontsFromViewModel();
 		}
 
 		public void UpdateContext()
 		{
 			m_updatingContext = true;
 			SuspendLayout();
-	
-			ResetSelectionBackColors();
-
 			ClearSelection();
 			bool changingRowCount = RowCount != m_viewModel.BlockCountForCurrentBook;
-			var firstRow = m_viewModel.IndexOfFirstBlockInCurrentGroup;
-			var lastRow = m_viewModel.IndexOfLastBlockInCurrentGroup;
-			bool multiSelect = firstRow != lastRow;
+			bool multiSelect = m_viewModel.CurrentBlock.MultiBlockQuote != MultiBlockQuote.None;
 			if (changingRowCount || MultiSelect != multiSelect)
 			{
 				MultiSelect = multiSelect;
@@ -197,225 +116,73 @@ namespace Glyssen.Controls
 				// range for the new book.
 				ClearSelection();
 			}
-
-			for (var i = firstRow; i <= lastRow; i++)
+			var firstRow = m_viewModel.CurrentBlockIndexInBook;
+			var lastRow = firstRow;
+			Rows[firstRow].Selected = true;
+			if (m_viewModel.CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
 			{
-				Rows[i].Selected = true;
-				if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
+				foreach (var i in m_viewModel.GetIndicesOfQuoteContinuationBlocks(m_viewModel.CurrentBlock))
 				{
-					Rows[i].DefaultCellStyle.SelectionBackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i - firstRow);
-					Rows[i].DefaultCellStyle.SelectionForeColor = Color.Black;
+					Rows[i].Selected = true;
+					lastRow = i;
 				}
 			}
-
 			if (changingRowCount)
-				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-			
-			ResumeLayout();
-
-			m_updatingContext = false;
-
+			{
+				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+			}
 			ScrollDesiredRowsIntoView(firstRow, lastRow);
+			ResizeFirstColumn();
+
+			ResumeLayout();
+			m_updatingContext = false;
 		}
 
-		//public void Clear()
-		//{
-		//	m_updatingContext = true;
-		//	SuspendLayout();
-		//	ClearSelection();
-		//	RowCount = 0;
-		//	ResizeFirstColumn();
-		//	ResumeLayout();
-		//	m_updatingContext = false;
-		//}
-		#endregion
-
-		#region Methods to control automated and user column sizing
-		protected override void OnResize(EventArgs e)
+		public void Clear()
 		{
-			m_userIsResizingColumns = false;
-			base.OnResize(e);
-		}
-
-		protected override void OnCellMouseEnter(DataGridViewCellEventArgs e)
-		{
-			base.OnCellMouseEnter(e);
-			if (Visible && e.RowIndex == -1)
-			{
-				// We don't want to set this to false when the mouse leaves the header row because that can happen before
-				// all the column width changes get processed. So it will remain true until some other event (there are
-				// several) sets it back to false.
-				m_userIsResizingColumns = true;
-			}
-		}
-
-		protected override void OnLostFocus(EventArgs e)
-		{
-			m_userIsResizingColumns = false;
-			base.OnLostFocus(e);
-		}
-
-		protected override void OnColumnWidthChanged(DataGridViewColumnEventArgs e)
-		{
-			base.OnColumnWidthChanged(e);
-			if (m_userIsResizingColumns && e.Column.Index == m_colReference.Index)
-			{
-				var overage = Columns.Cast<DataGridViewColumn>().Sum(col => col.Width) - (ClientRectangle.Width - VerticalScrollBar.Width);
-				if (overage > 0)
-				{
-					bool restore = m_userIsResizingColumns;
-					m_userIsResizingColumns = false;
-					e.Column.Width -= overage;
-					m_userIsResizingColumns = restore;
-				}
-
-				if (!m_userResizedRefColumn)
-				{
-					m_userResizedRefColumn = true;
-					int minWidth = Width - ClientRectangle.Width + VerticalScrollBar.Width +
-									Columns.Cast<DataGridViewColumn>().Sum(col => col.MinimumWidth + col.DividerWidth);
-					if (minWidth > m_minimumWidthFromDesigner && minWidth != MinimumSize.Width)
-					{
-						MinimumSize = new Size(minWidth, MinimumSize.Height);
-						if (MinimumWidthChanged != null)
-							MinimumWidthChanged(this, new EventArgs());
-					}
-				}
-			}
-		}
-
-		private void SizeRefColumnForCurrentBook()
-		{
-			m_userIsResizingColumns = false;
-			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-
-			int bookNum = BCVRef.BookToNumber(m_viewModel.CurrentBookId);
-			var lastChapter = m_viewModel.Versification.LastChapter(bookNum);
-			var maxVerse = 0;
-			for (int i = 1; i <= lastChapter; i++)
-				maxVerse = Math.Max(maxVerse, m_viewModel.Versification.LastVerse(bookNum, i));
-
-			var startRef = new BCVRef(bookNum, lastChapter, maxVerse - 1);
-			var endRef = new BCVRef(bookNum, lastChapter, maxVerse);
-			var refString = m_viewModel.GetReferenceString(startRef, endRef);
-
-			DataGridViewCellStyle cellStyle = m_colReference.DefaultCellStyle;
-			using (Graphics g = CreateGraphics())
-			{
-				Debug.Assert(CellBorderStyle == DataGridViewCellBorderStyle.Single);
-				const int borderWidth = 1;
-				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
-				m_colReference.Width = DataGridViewTextBoxCell.MeasureTextWidth(g, refString,
-					cellStyle.Font ?? DefaultCellStyle.Font, Int32.MaxValue, flags) +
-					cellStyle.Padding.Horizontal + borderWidth;
-			}
-
-			CalculateMinimumWidth();
-
-			m_bookIdUsedToSizeRefColumn = m_viewModel.CurrentBookId;
-		}
-
-		private static TextFormatFlags ComputeTextFormatFlagsForCellStyleAlignment(bool rightToLeft)
-        {
-            TextFormatFlags tff = TextFormatFlags.Top | TextFormatFlags.SingleLine | TextFormatFlags.NoPrefix | TextFormatFlags.PreserveGraphicsClipping;
-            if (rightToLeft)
-                tff |= TextFormatFlags.Right |TextFormatFlags.RightToLeft;
-            else
-                tff |= TextFormatFlags.Left;
-            return tff;
-        }
- 
-
-		private void CalculateMinimumWidth()
-		{
-			int minWidth = Width - ClientRectangle.Width + VerticalScrollBar.Width;
-			foreach (DataGridViewColumn col in Columns.Cast<DataGridViewColumn>())
-			{
-				if (col == m_colReference)
-				{
-					minWidth += col.Width;
-					col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-				}
-				else
-					minWidth += col.MinimumWidth;
-
-				minWidth += col.DividerWidth;
-			}
-			if (minWidth > m_minimumWidthFromDesigner)
-			{
-				MinimumSize = new Size(minWidth, MinimumSize.Height);
-				if (MinimumWidthChanged != null)
-					MinimumWidthChanged(this, new EventArgs());
-			}
+			m_updatingContext = true;
+			SuspendLayout();
+			ClearSelection();
+			RowCount = 0;
+			ResizeFirstColumn();
+			ResumeLayout();
+			m_updatingContext = false;
 		}
 		#endregion
 
 		#region private methods
-		private void ResetSelectionBackColors()
+
+		private void ResizeFirstColumn()
 		{
-			if (m_viewModel.BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
-			{
-				foreach (DataGridViewRow row in SelectedRows)
-				{
-					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
-					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
-				}
-			}
+			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+			var colWidth = m_colReference.Width;
+			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+			m_colReference.Width = colWidth;
 		}
 
 		private void SetFontsFromViewModel()
 		{
 			m_colText.DefaultCellStyle.Font = m_viewModel.Font;
-			DefaultCellStyle.Font = m_originalDefaultFont.AdjustFontSize(m_viewModel.FontSizeUiAdjustment);
+			DefaultCellStyle.Font = new Font(m_originalDefaultFont.FontFamily,
+				Math.Max(m_originalDefaultFont.SizeInPoints + m_viewModel.FontSizeUiAdjustment, BlockNavigatorViewModel.kMinFontSize), m_originalDefaultFont.Style);
 		}
 
 		private void ScrollDesiredRowsIntoView(int firstRow, int lastRow)
 		{
-			if (m_viewModel.CurrentReferenceTextMatchup != null)
+			int precedingContextRows = 4;
+			int followingContextRows = Math.Min(2, RowCount - lastRow - 1);
+			var lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
+			while (FirstDisplayedCell.RowIndex > firstRow || (lastRowLocation.Height == 0 || (firstRow != lastRow &&
+				lastRowLocation.Y + lastRowLocation.Height > ClientRectangle.Height) ||
+				GetCellDisplayRectangle(0, firstRow, true).Height < GetCellDisplayRectangle(0, firstRow, false).Height) &&
+				precedingContextRows >= 0)
 			{
-				try
-				{
-					FirstDisplayedScrollingRowIndex = firstRow;
-				}
-				catch (Exception exception)
-				{
-					Analytics.ReportException(exception, new Dictionary<string, string>
-					{
-						{"firstRow", firstRow.ToString()},
-						{"lastRow", lastRow.ToString()},
-						{"RowCount", RowCount.ToString()},
-						{"existing FirstDisplayedScrollingRowIndex", FirstDisplayedScrollingRowIndex.ToString()},
-						{"m_viewModel.CurrentBookId", m_viewModel.CurrentBookId},
-					});
-					ErrorReport.ReportNonFatalExceptionWithMessage(exception,
-						"Although this is not a fatal error, the Glyssen developers are trying to find the cause of this problem (PG-810) so it can be fixed." +
-						" Please report this if possible." + Environment.NewLine +
-						"firstRow = " + firstRow + Environment.NewLine +
-						"lastRow = " + lastRow + Environment.NewLine +
-						"RowCount = " + RowCount + Environment.NewLine +
-						"existing FirstDisplayedScrollingRowIndex = " + FirstDisplayedScrollingRowIndex + Environment.NewLine +
-						"m_viewModel.CurrentBookId = " + m_viewModel.CurrentBookId + Environment.NewLine +
-						"IndexOfStartBlockInBook = " + m_viewModel.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + Environment.NewLine +
-						"CorrelatedBlocks.Count = " + m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
-				}
-			}
-			else
-			{
-				int precedingContextRows = 4;
-				int followingContextRows = Math.Min(2, RowCount - lastRow - 1);
-				var lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-				while (FirstDisplayedCell.RowIndex > firstRow || (lastRowLocation.Height == 0 || (firstRow != lastRow &&
-					lastRowLocation.Y + lastRowLocation.Height > ClientRectangle.Height) ||
-					GetCellDisplayRectangle(0, firstRow, true).Height < GetCellDisplayRectangle(0, firstRow, false).Height) &&
-					precedingContextRows >= 0)
-				{
-					var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
-					FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
+				var firstRowOfContextToMakeVisible = Math.Max(0, firstRow - precedingContextRows--);
+				FirstDisplayedScrollingRowIndex = firstRowOfContextToMakeVisible;
 
-					if (followingContextRows > 0)
-						followingContextRows--;
-					lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
-				}
+				if (followingContextRows > 0)
+					followingContextRows--;
+				lastRowLocation = GetCellDisplayRectangle(0, lastRow + followingContextRows, false);
 			}
 		}
 		#endregion

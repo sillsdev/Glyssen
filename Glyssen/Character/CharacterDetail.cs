@@ -29,11 +29,6 @@ namespace Glyssen.Character
 		public bool Status { get; set; }
 		public string Comment { get; set; }
 		public string ReferenceComment { get; set; }
-		private CharacterVerseData.StandardCharacter m_standardCharacter = CharacterVerseData.StandardCharacter.NonStandard;
-		public CharacterVerseData.StandardCharacter StandardCharacterType { 
-			get { return m_standardCharacter; }
-			set { m_standardCharacter = value; }
-		}
 	}
 
 	public class CharacterGenderComparer : IComparer<CharacterGender>

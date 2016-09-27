@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using SIL.Scripture;
 
@@ -70,27 +67,7 @@ namespace Glyssen
 		public string Content { get; set; }
 	}
 
-	public interface IVerse
-	{
-		/// <summary>
-		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
-		/// starting number in the bridge.
-		/// </summary>
-		int StartVerse { get; }
-		
-		/// <summary>
-		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
-		/// ending number in the bridge.
-		/// </summary>
-		int EndVerse { get; }
-
-		/// <summary>
-		/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
-		/// </summary>
-		int LastVerseOfBridge { get; }
-	}
-
-	public class Verse : BlockElement, IVerse
+	public class Verse : BlockElement
 	{
 		public Verse()
 		{
@@ -122,26 +99,13 @@ namespace Glyssen
 		{
 			get { return ScrReference.VerseToIntEnd(Number); }
 		}
-
-		/// <summary>
-		/// If the Verse number represents a verse bridge, this will be the ending number in the bridge; otherwise 0.
-		/// </summary>
-		public int LastVerseOfBridge
-		{
-			get
-			{
-				var endVerse = EndVerse;
-				var startVerse = StartVerse;
-				return endVerse == startVerse ? 0 : endVerse;
-			}
-		}
 	}
 
 	[XmlInclude(typeof(Pause))]
 	[XmlInclude(typeof(Sound))]
 	public abstract class ScriptAnnotation : BlockElement
 	{
-		public abstract string ToDisplay(string elementSeparator = " ");
+		public abstract string ToDisplay(string elementSeparator);
 	}
 
 	public class Pause : ScriptAnnotation
@@ -155,7 +119,7 @@ namespace Glyssen
 		[XmlAttribute("time")]
 		public double Time { get; set; }
 
-		public override string ToDisplay(string elementSeparator = " ")
+		public override string ToDisplay(string elementSeparator)
 		{
 			if (TimeUnits == TimeUnits.Seconds)
 				return string.Format(kPauseSecondsFormat, Time);
@@ -200,12 +164,7 @@ namespace Glyssen
 	public class Sound : ScriptAnnotation
 	{
 		public const string kDoNotCombine = " ||| DO NOT COMBINE |||";
-		private const string kDetailSeparatorDisplayString = "--";
-		private const string kStartDisplayString = "Starts";
-		private const string kMusic = "Music";
-		private const string kSfx = "SFX";
 		public const int kNonSpecificStartOrStop = -999;
-		public const string kRegexForUserLocatedSounds = @"((\u00A0| )*\{F8 (?<musicOrSfx>(" + kSfx + ")|(" + kMusic + "))" + kDetailSeparatorDisplayString + @"(?<effectDetails>.*)\})";
 
 		[XmlAttribute("soundType")]
 		[DefaultValue(SoundType.Music)]
@@ -227,125 +186,55 @@ namespace Glyssen
 		[DefaultValue(false)]
 		public bool UserSpecifiesLocation { get; set; }
 
-		public static Sound CreateFromMatchedRegex(Match match)
+		public override string ToDisplay(string elementSeparator)
 		{
-			if (!match.Groups["musicOrSfx"].Success)
-			{
-				throw new ArgumentException(
-					"This method is designed to work only with a Regex Match from a regular expression built using kRegexForUserLocatedSounds",
-					"match");
-			}
-			var type = match.Result("${musicOrSfx}");
-			var details = match.Result("${effectDetails}");
-
-			if (type == kSfx)
-				return new Sound {EffectName = details, SoundType = SoundType.Sfx, UserSpecifiesLocation = true};
-			if (details == kStartDisplayString)
-				return new Sound { SoundType = SoundType.Music, StartVerse = kNonSpecificStartOrStop, UserSpecifiesLocation = true};
-			return new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true };
-		}
-
-		private string ToDisplay(StringBuilder stringBuilderToAppendTo, string details)
-		{
-			stringBuilderToAppendTo.Append("{");
-			if (UserSpecifiesLocation)
-				stringBuilderToAppendTo.Append("F8 ");
-
-			switch (SoundType)
-			{
-				case SoundType.Music: stringBuilderToAppendTo.Append(kMusic); break;
-				case SoundType.MusicSfx:
-					stringBuilderToAppendTo.Append(kMusic);
-					stringBuilderToAppendTo.Append(" + ");
-					stringBuilderToAppendTo.Append(kSfx);
-					break;
-				case SoundType.Sfx: stringBuilderToAppendTo.Append(kSfx); break;
-				default: throw new InvalidEnumArgumentException("type", (int)SoundType, typeof(SoundType));
-			}
-
-			if (details != null)
-			{
-				stringBuilderToAppendTo.Append(kDetailSeparatorDisplayString);
-				stringBuilderToAppendTo.Append(details);
-			}
-			stringBuilderToAppendTo.Append("}");
-			if (UserSpecifiesLocation)
-				stringBuilderToAppendTo.Append(" ");
-
-			return stringBuilderToAppendTo.ToString();
-		}
-
-		public override string ToDisplay(string elementSeparator = " ")
-		{
-			const string kEndDisplayString = "Ends";
-		
-			string details = null;
-			var sb = new StringBuilder();
-
 			if (UserSpecifiesLocation)
 			{
 				switch (SoundType)
 				{
 					case SoundType.Music:
-						details = StartVerse == kNonSpecificStartOrStop ? kStartDisplayString : kEndDisplayString;
-						break;
+						if (StartVerse == kNonSpecificStartOrStop)
+							return "{F8 Music--Starts} ";
+						return "{F8 Music--Ends} ";
 					case SoundType.Sfx:
 						if (!string.IsNullOrEmpty(EffectName))
-							details = EffectName;
-						break;
+							return string.Format("{{F8 SFX--{0}}} ", EffectName);
+						return "{F8 SFX}";
 					default:
 						Debug.Fail("No code for displaying this annotation: " + ToString());
 						return string.Empty;
 				}
 			}
-			else
+			switch (SoundType)
 			{
-				sb.Append(kDoNotCombine);
-				sb.Append(elementSeparator);
-
-				switch (SoundType)
-				{
-					case SoundType.Music:
-						if (StartVerse > 0)
-						{
-							if (EndVerse == kNonSpecificStartOrStop)
-							{
-								details = String.Format("{0} & New Music{1}{2} @ v{3}",
-									kEndDisplayString, kDetailSeparatorDisplayString, kStartDisplayString, StartVerse);
-							}
-							else
-								details = String.Format("{0} @ v{1}", kStartDisplayString, StartVerse);
-						}
-						else if (EndVerse > 0)
-							details = String.Format("{0} before v{1}", kEndDisplayString, EndVerse);
-						else
-							goto default;
-						break;
-					case SoundType.Sfx:
-						if (StartVerse != 0)
-						{
-							details = EndVerse != 0 ?
-								String.Format("{0} @ v{1}-{2}", EffectName, StartVerse, EndVerse) :
-								String.Format("{0}{1}{2} @ v{3}", EffectName, kDetailSeparatorDisplayString, kStartDisplayString, StartVerse);
-						}
-						else if (EndVerse != 0)
-						{
-							details = !string.IsNullOrEmpty(EffectName) ?
-								String.Format("{0}{1}{2} before v{3}", EffectName, kDetailSeparatorDisplayString, kEndDisplayString, EndVerse) :
-								String.Format("{0} before v{1}", kEndDisplayString, EndVerse);
-						}
-						else
-							goto default;
-						break;
-					case SoundType.MusicSfx:
-						details = String.Format("{0} Start @ v{1}", EffectName, StartVerse);
-						break;
-					default:
-						Debug.Fail("No code for displaying this annotation: " + ToString());
-						return string.Empty;
-				}
+				case SoundType.Music:
+					if (StartVerse > 0 && EndVerse == kNonSpecificStartOrStop)
+						return kDoNotCombine + elementSeparator + string.Format("{{Music--Ends & New Music--Starts @ v{0}}}", StartVerse);
+					if (StartVerse > 0)
+						return kDoNotCombine + elementSeparator + string.Format("{{Music--Starts @ v{0}}}", StartVerse);
+					if (EndVerse > 0)
+						return kDoNotCombine + elementSeparator + string.Format("{{Music--Ends before v{0}}}", EndVerse);
+					goto default;
+				case SoundType.Sfx:
+					if (StartVerse != 0)
+					{
+						if (EndVerse != 0)
+							return kDoNotCombine + elementSeparator + string.Format("{{SFX--{0} @ v{1}-{2}}}", EffectName, StartVerse, EndVerse);
+						return kDoNotCombine + elementSeparator + string.Format("{{SFX--{0}--Starts @ v{1}}}", EffectName, StartVerse);
+					}
+					if (EndVerse != 0)
+					{
+						if (!string.IsNullOrEmpty(EffectName))
+							return kDoNotCombine + elementSeparator + string.Format("{{SFX--{0}--Ends before v{1}}}", EffectName, EndVerse);
+						return kDoNotCombine + elementSeparator + string.Format("{{SFX--Ends before v{0}}}", EndVerse);
+					}
+					goto default;
+				case SoundType.MusicSfx:
+					return kDoNotCombine + elementSeparator + string.Format("{{Music + SFX--{0} Start @ v{1}}}", EffectName, StartVerse);
+				default:
+					Debug.Fail("No code for displaying this annotation: " + ToString());
+					return string.Empty;
 			}
-			return ToDisplay(sb, details);
 		}
 
 		public override string ToString()

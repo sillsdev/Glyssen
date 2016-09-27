@@ -310,11 +310,9 @@
 			// 
 			// AddCharacterToGroupDlg
 			// 
-			this.AcceptButton = this.m_btnOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.CancelButton = this.m_btnCancel;
 			this.ClientSize = new System.Drawing.Size(655, 404);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.m_toolStrip);
@@ -329,7 +327,6 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Add Character to Group";
-			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();

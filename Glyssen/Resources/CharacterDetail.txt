@@ -78,10 +78,10 @@ Anna, prophetess	1	Female	Elder			LUK 2:38
 another disciple of John Baptist	1	Male	Adult		Became disciple of Jesus (not Andrew, Simon Peter, Philip, Nathanael, or Matthew)	
 another holy one (in vision)	1		Adult			DAN 8:13
 answer from Israel	1		Adult			ISA 14:32
-anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11
+anyone	1		Adult			1CO 10:28 <-(2 more)-> 2JN 1:11
 anyone with complaint for king	1		Adult			2SA 15:2
 Apollos	1	Male	Adult			ACT 18:28
-apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(6 more)-> JUD 1:18
+apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(5 more)-> JUD 1:18
 apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 15:22
 Aramean soldiers	-1	Male	Adult			2KI 7:6
 Araunah, the Jebusite	1	Male	Adult			2SA 24:21 <-(2 more)-> 1CH 21:23
@@ -144,7 +144,6 @@ Book of the Wars of the LORD	1	PreferMale	Adult			NUM 21:14 & NUM 21:15
 boys	-1	Male	Child			2KI 2:23
 bride, the (referring to the Church)	-1	PreferFemale	Adult			
 brothers at Antioch	-1	Male	Adult			ACT 15:33 & ACT 15:40
-brothers at Ephesus	-1	Male	Adult			ACT 18:27
 brothers at Lystra and Iconium	-1	Male	Adult			ACT 16:2
 brothers at Puteoli	-1	Male	Adult			ACT 28:14 & ACT 28:15
 brothers at Thessalonica	-1	Male	Adult			ACT 17:10
@@ -429,7 +428,7 @@ inscription on forehead of Babylon	1	PreferFemale				REV 17:5
 invaders	-1	Male				JER 6:4 & JER 6:5
 invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
 Irijah, captain of the guard of Judah	1	Male				JER 37:13
-Isaac	1	Male	Adult			GEN 22:7 <-(6 more)-> HEB 11:20
+Isaac	1	Male	Adult			GEN 22:7 <-(5 more)-> GEN 26:27
 Isaac (old)	1	Male	Elder			GEN 27:1 <-(23 more)-> GEN 28:6
 Isaiah	1	Male				2KI 19:6 <-(111 more)-> ISA 44:23
 Ish-Bosheth, son of Saul	1	Male				2SA 3:7
@@ -780,7 +779,7 @@ owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
 parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(1 more)-> JHN 9:23
 Pashur	1	Male			son of Malkijah	
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
-Paul	1	Male				ACT 9:1 <-(193 more)-> 1TH 5:27
+Paul	1	Male				ACT 9:1 <-(192 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 people	-1					2CH 26:23 <-(17 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
@@ -1110,7 +1109,7 @@ women, seven	7	Female				ISA 4:1
 worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12
 you (hypothetical Gentile)	1					ROM 11:19
-you (hypothetical)	-1					PRO 3:28 <-(9 more)-> 1PE 1:17
+you (hypothetical)	-1					PRO 3:28 <-(7 more)-> ROM 2:23
 you (people of Zion, restored)	-1					ISA 30:22
 you (rebellious people)	-1					ISA 30:16
 you ought to say	1					JAS 4:15

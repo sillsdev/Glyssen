@@ -1,0 +1,3 @@
+MRK	6	55	crowd		people
+LUK	1	22	people	wondering	
+1PE	2	3	scripture		

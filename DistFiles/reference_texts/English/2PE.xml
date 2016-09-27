@@ -181,7 +181,7 @@
     <verse num="22" />
     <text>But it has happened to them according to the true proverb,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="22" characterId="scripture" userConfirmed="true">
     <text>“The dog turns to his own vomit again,” and “the sow that has washed to wallowing in the mire.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="3" book="2PE" initialStartVerse="0" characterId="BC-2PE">

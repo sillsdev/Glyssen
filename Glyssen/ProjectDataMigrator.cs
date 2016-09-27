@@ -40,8 +40,6 @@ namespace Glyssen
 				}
 				if (fromControlFileVersion < 102)
 					MigrateInvalidCharacterIdForScriptData(project.Books);
-				if (fromControlFileVersion == 104)
-					MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(project);
 
 				MigrateDeprecatedCharacterIds(project);
 			}
@@ -150,25 +148,6 @@ namespace Glyssen
 				block.CharacterIdInScript = null;
 				block.UserConfirmed = false;
 			}
-		}
-
-		public static int MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(Project project)
-		{
-			int numberOfChangesMade = 0; // For testing
-
-			foreach (BookScript book in project.Books)
-			{
-				int bookNum = BCVRef.BookToNumber(book.BookId);
-
-				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-					block.CharacterId.Contains("/") &&
-					block.CharacterIdOverrideForScript == null))
-				{
-					block.UseDefaultForMultipleChoiceCharacter(bookNum, project.Versification);
-					numberOfChangesMade++;
-				}
-			}
-			return numberOfChangesMade;
 		}
 
 		public static int MigrateDeprecatedCharacterIds(Project project)

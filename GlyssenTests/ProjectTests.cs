@@ -5,6 +5,7 @@ using System.Threading;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Dialogs;
 using Glyssen.Quote;
 using GlyssenTests.Bundle;
 using NUnit.Framework;
@@ -543,112 +544,6 @@ namespace GlyssenTests
 				Assert.IsNotNull(project);
 				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
 				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
-		}
-
-		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountySpecified_ProjectIsCreatedSuccessfully()
-		{
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
-		}
-
-		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlAndIsoCodesHaveCountySpecified_ProjectIsCreatedSuccessfully()
-		{
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach-CM";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
-		}
-
-		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlCodeIsInvalid_ProjectIsCreatedSuccessfully()
-		{
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach-CM";
-				bundle.Metadata.Language.Ldml = "ach%CM***-blah___ickypoo!";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
-		}
-
-		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeIsInvalid_ProjectIsCreatedSuccessfully()
-		{
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "ach%CM-blah___ickypoo!";
-				bundle.Metadata.Language.Ldml = "ach-CM";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("ach", project.WritingSystem.Id);
-			}
-			finally
-			{
-				Sldr.Cleanup();
-			}
-		}
-
-		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsIsoCodeNotInLanguageRepo_ProjectIsCreatedUsingPrivateUseWritingSystem()
-		{
-			Sldr.Initialize();
-			try
-			{
-				var bundle = GetGlyssenBundleToBeUsedForProject(false);
-				bundle.Metadata.Language.Iso = "zyt";
-				bundle.Metadata.Language.Ldml = "";
-				var project = new Project(bundle);
-				WaitForProjectInitializationToFinish(project, ProjectState.ReadyForUserInteraction);
-				Assert.IsNotNull(project);
-				Assert.IsNotEmpty(project.QuoteSystem.AllLevels);
-				Assert.AreEqual("zyt", project.WritingSystem.Id);
-				Assert.IsTrue(project.WritingSystem.Language.IsPrivateUse);
 			}
 			finally
 			{
