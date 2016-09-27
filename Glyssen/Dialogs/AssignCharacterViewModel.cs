@@ -434,6 +434,19 @@ namespace Glyssen.Dialogs
 			var numberOfBlocksToAssignAndConfirm = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
 			int origRelevantBlocks = m_relevantBlocks.Count;
 			base.ApplyCurrentReferenceTextMatchup();
+
+			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond,
+			// so we need to check to see whether this has happened and, if so, add an appropriate entry to the project CV data.
+			foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(b => !String.IsNullOrEmpty(b.Delivery)))
+			{
+				if (IsBlockAssignedToUnknownCharacterDeliveryPair(block))
+				{
+					AddRecordToProjectCharacterVerseData(block,
+						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
+						GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
+				}
+			}
+
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
 			if (m_relevantBlocks.Count > origRelevantBlocks)
@@ -443,6 +456,12 @@ namespace Glyssen.Dialogs
 				m_assignedBlocks += numberOfBlocksToAssignAndConfirm;
 				OnAssignedBlocksIncremented(numberOfBlocksToAssignAndConfirm);
 			}
+		}
+
+		public bool IsBlockAssignedToUnknownCharacterDeliveryPair(Block block)
+		{
+			return !GetUniqueCharacterVerseObjectsForBlock(block).Any(cv => cv.Character == block.CharacterId &&
+				(String.IsNullOrEmpty(block.Delivery) || cv.Delivery == block.Delivery));
 		}
 
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)

@@ -144,9 +144,11 @@ namespace Glyssen
 				if (!CorrelatedBlocks[i].MatchesReferenceText) // e.g., section head
 					continue;
 				var vernBlock = origBlocks[m_iStartBlock + i];
+
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
 				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, versification);
+
 				if (CorrelatedBlocks[i].UserConfirmed)
 					vernBlock.UserConfirmed = true;
 
