@@ -187,8 +187,11 @@ namespace Glyssen
 				{
 					if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 					{
-						block.UserConfirmed = false;
-						numberOfChangesMade++;
+						if (block.UserConfirmed)
+						{
+							block.UserConfirmed = false;
+							numberOfChangesMade++;
+						}
 					}
 					else
 					{

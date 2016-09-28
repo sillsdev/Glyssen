@@ -645,6 +645,19 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserNotConfirmed_NoChanges()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.UserConfirmed = false;
+
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(false, block.UserConfirmed);
+		}
+
+		[Test]
 		public void MigrateDeprecatedCharacterIds_OneMemberOfMultiCharacterIdChanged_CharacterIdInScriptSetToReplacementId()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
