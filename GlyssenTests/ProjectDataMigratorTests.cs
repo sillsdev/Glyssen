@@ -598,19 +598,50 @@ namespace GlyssenTests
 			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterIdInScript);
 		}
 
-		[Test]
-		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock()
+		[TestCase("humming")]
+		[TestCase("")]
+		[TestCase(null)]
+		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(string initialDelivery)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
 			foreach (var block in singersInRev59)
-				block.Delivery = "humming";
+				block.Delivery = initialDelivery;
 
 			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
 			Assert.True(singersInRev59.All(b => b.CharacterId == "four living creatures/twenty-four elders" &&
 				b.Delivery == "singing"));
+		}
+
+		[TestCase("Bartimaeus (a blind man)", "humming", "shouting")]
+		[TestCase("Bartimaeus (a blind man)", "", "shouting")]
+		[TestCase("crowd, many in the", null, "rebuking")]
+		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(string character, string initialDelivery, string expectedDelivery)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = character;
+			block.Delivery = initialDelivery;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(expectedDelivery, block.Delivery);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserConfirmed_ClearsUserConfirmed()
+		{
+			// Note: this scenario was caused by a bug in a previous version of this method.
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.UserConfirmed = true;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(false, block.UserConfirmed);
 		}
 
 		[Test]
