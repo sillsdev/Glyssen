@@ -1181,9 +1181,16 @@ namespace Glyssen.Dialogs
 					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 
-					var block = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y]);
+					var block = matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y];
 					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
-						// TODO: reset the selected delivery to be the appropriate one for this character.
+					{
+						// The first one should always be "normal" - we want a more specific one, if any.
+						var delivery = m_viewModel.GetDeliveriesForCharacter(selectedCharacter).LastOrDefault();
+						string deliveryAsString = delivery == null
+							? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
+							: delivery.LocalizedDisplay;
+						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+					}
 				}
 				UpdateInsertHeSaidButtonState();
 			}
