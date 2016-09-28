@@ -962,6 +962,19 @@ namespace GlyssenTests.Dialogs
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
 		}
+
+		[Test]
+		public void CanNavigateToNextRelevantBlock_CurrentBlockIsNonRelevantBlockInLastBlockMatchup_ReturnsFalse()
+		{
+			m_model.AttemptRefBlockMatchup = false;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
+			m_model.LoadPreviousRelevantBlock();
+			m_model.CurrentBlockIndexInBook--;
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+		}
 	}
 
 	[TestFixture]
