@@ -590,7 +590,7 @@ namespace Glyssen
 
 		public bool CharacterIsUnclear()
 		{
-			return CharacterId == CharacterVerseData.kAmbiguousCharacter || CharacterId == CharacterVerseData.kUnknownCharacter;
+			return CharacterVerseData.IsCharacterUnclear(CharacterId);
 		}
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)

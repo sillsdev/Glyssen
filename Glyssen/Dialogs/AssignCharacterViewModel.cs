@@ -373,6 +373,8 @@ namespace Glyssen.Dialogs
 
 		private void SetCharacterAndDelivery(Block block, Character selectedCharacter, Delivery selectedDelivery)
 		{
+			if (CharacterVerseData.IsCharacterUnclear(selectedCharacter.CharacterId))
+				throw new ArgumentException("Character cannot be confirmed as ambigous or unknown.", "selectedCharacter");
 			// If the user sets a non-narrator to a block we marked as narrator, we want to track it
 			if (!selectedCharacter.IsNarrator && !block.IsQuote)
 				Analytics.Track("NarratorToQuote", new Dictionary<string, string>
