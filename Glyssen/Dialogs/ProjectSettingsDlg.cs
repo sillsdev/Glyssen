@@ -86,6 +86,8 @@ namespace Glyssen.Dialogs
 
 		public GlyssenBundle UpdatedBundle { get; private set; }
 
+		public string ReferenceTextTabPageName { get { return m_tabPageReferenceTexts.Text; } }
+
 		private ProjectSettingsViewModel ProjectSettingsViewModel
 		{
 			set

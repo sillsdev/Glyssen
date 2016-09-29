@@ -55,7 +55,8 @@ namespace Glyssen
 		{
 			Project = project;
 			m_includeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
-			m_booksToExport = new List<BookScript>(project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
+			var referenceText = Project.ReferenceTextIsAvailable ? Project.ReferenceText : ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			m_booksToExport = new List<BookScript>(referenceText.GetBooksWithBlocksConnectedToReferenceText(project));
 		}
 
 		public Project Project { get; private set; }

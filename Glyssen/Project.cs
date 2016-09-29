@@ -631,6 +631,26 @@ namespace Glyssen
 			}
 		}
 
+		public bool ReferenceTextIsAvailable
+		{
+			get
+			{
+				try
+				{
+					return ReferenceText != null;
+				}
+				catch (Exception)
+				{
+					return false;
+				}
+			}
+		}
+
+		public string UiReferenceTextName
+		{
+			get { return ReferenceTextIsAvailable ? ReferenceText.LanguageName : m_metadata.ProprietaryReferenceTextIdentifier; }
+		}
+
 		public bool HasUnappliedSplits()
 		{
 			return IncludedBooks.Any(b => b.UnappliedSplits.Any());
