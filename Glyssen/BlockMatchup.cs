@@ -144,11 +144,17 @@ namespace Glyssen
 				if (!CorrelatedBlocks[i].MatchesReferenceText) // e.g., section head
 					continue;
 				var vernBlock = origBlocks[m_iStartBlock + i];
+
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
 				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, versification);
+
 				if (CorrelatedBlocks[i].UserConfirmed)
+				{
+					if (vernBlock.CharacterIsUnclear())
+						throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
 					vernBlock.UserConfirmed = true;
+				}
 
 				//if (vernBlock.CharacterId != refBlock.CharacterId)
 				//{
@@ -215,6 +221,8 @@ namespace Glyssen
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
+						if (block.CharacterIsUnclear())
+							throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
 						block.UserConfirmed = true; // This does not affect original block until Apply is called
 					}
 				}

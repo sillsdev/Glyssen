@@ -182,31 +182,43 @@ namespace Glyssen
 				int bookNum = BCVRef.BookToNumber(book.BookId);
 
 				foreach (Block block in book.GetScriptBlocks().Where(block => block.CharacterId != null &&
-					block.CharacterId != CharacterVerseData.kAmbiguousCharacter &&
 					block.CharacterId != CharacterVerseData.kUnknownCharacter &&
 					!CharacterVerseData.IsCharacterStandard(block.CharacterId)))
 				{
-					var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
-					if (unknownCharacter &&
-						project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber).
-							Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+					if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 					{
-						// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
-						// but was subsequently removed or renamed from the master character detail list.
-						project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-							block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
-						block.CharacterId = CharacterVerseData.kUnknownCharacter;
-						block.CharacterIdInScript = null;
-						numberOfChangesMade++;
+						if (block.UserConfirmed)
+						{
+							block.UserConfirmed = false;
+							numberOfChangesMade++;
+						}
 					}
 					else
 					{
-						var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber).ToList();
-						if (unknownCharacter ||
-							!characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
+						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+								block.InitialEndVerseNumber).
+								Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
-							block.SetCharacterAndDelivery(characters);
+							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
+							// but was subsequently removed or renamed from the master character detail list.
+							project.ProjectCharacterVerseData.Remove(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+								block.InitialEndVerseNumber, block.CharacterId, block.Delivery ?? "");
+							block.CharacterId = CharacterVerseData.kUnknownCharacter;
+							block.CharacterIdInScript = null;
 							numberOfChangesMade++;
+						}
+						else
+						{
+							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber).ToList();
+							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
+							{
+								if (characters.Count(c => c.Character == block.CharacterId) == 1)
+									block.Delivery = characters.First(c => c.Character == block.CharacterId).Delivery;
+								else
+									block.SetCharacterAndDelivery(characters);
+								numberOfChangesMade++;
+							}
 						}
 					}
 				}

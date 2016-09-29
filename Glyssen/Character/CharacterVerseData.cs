@@ -56,6 +56,11 @@ namespace Glyssen.Character
 			return StandardCharacter.NonStandard;
 		}
 
+		public static bool IsCharacterUnclear(string characterId)
+		{
+			return characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter;
+		}
+
 		public static string GetStandardCharacterId(string bookId, StandardCharacter standardCharacterType)
 		{
 			return GetCharacterPrefix(standardCharacterType) + bookId;

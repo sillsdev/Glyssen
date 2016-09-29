@@ -742,7 +742,7 @@ namespace Glyssen.Dialogs
 			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
 			if (selectedCharacter != null && selectedCharacter.IsNarrator)
-				m_llMoreDel.Enabled = false;
+				m_llMoreDel.Enabled = false;			
 			UpdateAssignOrApplyAndResetButtonState();
 		}
 
@@ -1154,16 +1154,18 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
+				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+
 				if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) ||
 					(!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
+					matchup.SetReferenceText(e.RowIndex, newValue, 0);
 				}
 				else if (e.ColumnIndex == colEnglish.Index)
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
+					matchup.SetReferenceText(e.RowIndex, newValue, 1);
 				}
 				else
 				{
@@ -1178,6 +1180,17 @@ namespace Glyssen.Dialogs
 							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
 					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
+
+					var block = matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y];
+					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
+					{
+						// The first one should always be "normal" - we want a more specific one, if any.
+						var delivery = m_viewModel.GetDeliveriesForCharacter(selectedCharacter).LastOrDefault();
+						string deliveryAsString = delivery == null
+							? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
+							: delivery.LocalizedDisplay;
+						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+					}
 				}
 				UpdateInsertHeSaidButtonState();
 			}
