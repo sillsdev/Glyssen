@@ -608,11 +608,12 @@ namespace Glyssen
 		{
 			get
 			{
-				return m_referenceText ?? (m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier));
+				if (m_referenceText == null && !ReferenceTextIdentifier.Missing)
+					m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+				return m_referenceText;
 			}
 			set
 			{
-				// for unit testing only
 				m_referenceText = value;
 			}
 		}
@@ -629,6 +630,11 @@ namespace Glyssen
 				m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
 				m_referenceText = null;
 			}
+		}
+
+		public string UiReferenceTextName
+		{
+			get { return ReferenceTextIdentifier.Missing ? m_metadata.ProprietaryReferenceTextIdentifier : ReferenceText.LanguageName; }
 		}
 
 		public bool HasUnappliedSplits()

@@ -777,6 +777,34 @@ namespace Glyssen
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
+			var model = new ProjectSettingsViewModel(m_project);
+
+			while (m_project.ReferenceText == null)
+			{
+				string msg;
+				using (var dlg = new ProjectSettingsDlg(model))
+				{
+					var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
+						"This project uses the {0} reference text, which is no longer available. " +
+						"If possible, put the required reference text files in" +
+						"\r\n   {1}\r\n" +
+						"and then click Retry to use the {0} reference text.\r\n" +
+						"Otherwise, to continue and temporarily use the English reference text, click Ignore.\r\n" +
+						"Note: to permanently change the reference text used by this project, open the {2} " +
+						"dialog box and select the desired reference text on the {3} tab page.");
+					msg = String.Format(msgFmt, m_project.UiReferenceTextName,
+						m_project.ReferenceTextIdentifier.ProjectFolder,
+						dlg.Text, dlg.ReferenceTextTabPageName);
+				}
+				switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore))
+				{
+					case DialogResult.Abort: return;
+					case DialogResult.Ignore:
+						m_project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+						break;
+				}	
+			}
+
 			var exporter = new ProjectExporter(m_project);
 
 			if (!IsOkToExport(exporter))
