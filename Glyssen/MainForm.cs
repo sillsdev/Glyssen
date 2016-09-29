@@ -777,21 +777,32 @@ namespace Glyssen
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
-			if (!m_project.ReferenceTextIsAvailable)
+			var model = new ProjectSettingsViewModel(m_project);
+
+			while (m_project.ReferenceText == null)
 			{
-				var model = new ProjectSettingsViewModel(m_project);
+				string msg;
 				using (var dlg = new ProjectSettingsDlg(model))
 				{
-				var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
-					"This project uses the {0} reference text, which is no longer available. " +
-					"If possible, you can put the required files in {1} so this project can continue to use that reference text. Otherwise,to permanently change " +
-					"this project to use a different reference text, open the {2} dialog box and select the desired reference text on the {3} tab page.\r\n\r\n" +
-					"Would you like to continue by temporarily using the English reference text?");
-					var msg = String.Format(msgFmt, m_project.UiReferenceTextName,
-						ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation,
+					var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
+						"This project uses the {0} reference text, which is no longer available. " +
+						"If possible, put the required reference text files in" +
+						"\r\n   {1}\r\n" +
+						"and then click Retry to use the {0} reference text.\r\n" +
+						"Otherwise, to continue and temporarily use the English reference text, click Ignore.\r\n" +
+						"Note: to permanently change the reference text used by this project, open the {2} " +
+						"dialog box and select the desired reference text on the {3} tab page.");
+					msg = String.Format(msgFmt, m_project.UiReferenceTextName,
+						m_project.ReferenceTextIdentifier.ProjectFolder,
 						dlg.Text, dlg.ReferenceTextTabPageName);
-				if (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.YesNo) == DialogResult.No)
-					return;
+				}
+				switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore))
+				{
+					case DialogResult.Abort: return;
+					case DialogResult.Ignore:
+						m_project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+						break;
+				}	
 			}
 
 			var exporter = new ProjectExporter(m_project);

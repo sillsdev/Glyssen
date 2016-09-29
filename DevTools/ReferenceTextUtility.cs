@@ -642,12 +642,16 @@ namespace DevTools
 		public static bool LinkToEnglish()
 		{
 			bool errorOccurred = false;
-			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Value.Type != ReferenceTextType.English))
+			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Type != ReferenceTextType.English))
 			{
-				var refText = ReferenceText.GetReferenceText(referenceTextId.Value);
-
-				Console.WriteLine("Processing " + referenceTextId.Key + "...");
+				Console.WriteLine("Processing " +
+					(referenceTextId.Type == ReferenceTextType.Custom ? referenceTextId.CustomIdentifier : referenceTextId.Type.ToString()) +
+					"...");
 				Console.Write("   ");
+
+
+				var refText = ReferenceText.GetReferenceText(referenceTextId);
+
 
 				foreach (var book in refText.Books)
 				{

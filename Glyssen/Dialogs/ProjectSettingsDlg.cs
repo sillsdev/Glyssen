@@ -9,6 +9,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.UI;
 using SIL.IO;
 
 namespace Glyssen.Dialogs
@@ -50,14 +51,38 @@ namespace Glyssen.Dialogs
 			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 			LoadReferenceTextOptions();
 			ProjectSettingsViewModel = model;
 			UpdateQuotePageDisplay();
 		}
 
+		private void HandleStringsLocalized()
+		{
+			LoadReferenceTextOptions();
+		}
+
 		private void LoadReferenceTextOptions()
 		{
-			m_ReferenceText.DataSource = new BindingSource(ReferenceTextIdentifier.AllAvailable, null);
+			var dataSource = new Dictionary<string, ReferenceTextIdentifier>();
+			foreach (var refTextId in ReferenceTextIdentifier.AllAvailable)
+			{
+				string key;
+				if (refTextId.Type == ReferenceTextType.Custom)
+				{
+					var fmt = (refTextId.Missing) ?
+						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.MissingReferenceText", "Missing: {0}") :
+						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CustomReferenceText", "Custom: {0}");
+					key = String.Format(fmt, refTextId.CustomIdentifier);
+				}
+				else
+				{
+					key = refTextId.Type.ToString();
+				}
+
+				dataSource.Add(key, refTextId);
+			}
+			m_ReferenceText.DataSource = new BindingSource(dataSource, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
 		}
