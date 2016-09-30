@@ -19,10 +19,23 @@ namespace Glyssen.Utilities
 
 		protected override void OnLoad(EventArgs e)
 		{
+			base.OnLoad(e);
+
 			RestoreFormSettings();
 			RestoreGridSettings(this);
 			m_finishedLoading = true;
-			base.OnLoad(e);
+
+			var workingArea = Screen.GetWorkingArea(this);
+			if (!workingArea.Contains(Bounds))
+			{
+				if (Bounds.Left < workingArea.Left || Bounds.Top < workingArea.Top)
+					Location = new Point(Math.Max(Bounds.Left, workingArea.Left), Math.Max(Bounds.Top, workingArea.Top));
+
+				if (Width > workingArea.Width)
+					Width = workingArea.Width;
+				if (Height > workingArea.Height)
+					Height = workingArea.Height;
+			}
 		}
 
 		/// <summary>
