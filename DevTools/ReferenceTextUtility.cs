@@ -725,14 +725,16 @@ namespace DevTools
 			s_regexEndEnglishDoubleQuoteMarks = new Regex(@"”|""\s*$", RegexOptions.Compiled);
 
 			bool errorOccurred = false;
-			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Value.Type != ReferenceTextType.English))
+			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Type != ReferenceTextType.English))
 			{
-				var refText = ReferenceText.GetReferenceText(referenceTextId.Value);
+				Console.WriteLine("Processing " +
+					(referenceTextId.Type == ReferenceTextType.Custom ? referenceTextId.CustomIdentifier : referenceTextId.Type.ToString()) +
+					"...");
 				string openQuote = "“";
 				string closeQuote = "”";
-				if (referenceTextId.Value.Type == ReferenceTextType.Custom)
+				if (referenceTextId.Type == ReferenceTextType.Custom)
 				{
-					switch (referenceTextId.Value.CustomIdentifier)
+					switch (referenceTextId.CustomIdentifier)
 					{
 						case "Azeri":
 						case "French":
@@ -747,9 +749,9 @@ namespace DevTools
 							break;
 					}
 				}
-
-				Console.WriteLine("Processing " + referenceTextId.Key + "...");
 				Console.Write("   ");
+
+				var refText = ReferenceText.GetReferenceText(referenceTextId);
 
 				foreach (var book in refText.Books)
 				{
@@ -968,7 +970,7 @@ namespace DevTools
 			if (!Directory.Exists(outputDir))
 				Directory.CreateDirectory(outputDir);
 
-			foreach (var rt in ReferenceTextIdentifier.AllAvailable.Select(kvp => kvp.Value).Where(r => r.Type == ReferenceTextType.Custom))
+			foreach (var rt in ReferenceTextIdentifier.AllAvailable.Where(r => r.Type == ReferenceTextType.Custom))
 			{
 				var refText = ReferenceText.GetReferenceText(rt);
 				foreach (var book in refText.Books)
