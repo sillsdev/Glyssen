@@ -9,6 +9,7 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
+using L10NSharp.UI;
 using SIL.IO;
 
 namespace Glyssen.Dialogs
@@ -50,10 +51,16 @@ namespace Glyssen.Dialogs
 			if (model.Project.IncludedBooks.All(book => string.IsNullOrEmpty(book.MainTitle)))
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 			LoadReferenceTextOptions();
 			LoadProjectDramatizationOptions();
 			ProjectSettingsViewModel = model;
 			UpdateQuotePageDisplay();
+		}
+		
+		private void HandleStringsLocalized()
+		{
+			LoadReferenceTextOptions();
 		}
 
 		private void LoadProjectDramatizationOptions()
@@ -87,7 +94,25 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			m_ReferenceText.DataSource = new BindingSource(ReferenceTextIdentifier.AllAvailable, null);
+			var dataSource = new Dictionary<string, ReferenceTextIdentifier>();
+			foreach (var refTextId in ReferenceTextIdentifier.AllAvailable)
+			{
+				string key;
+				if (refTextId.Type == ReferenceTextType.Custom)
+				{
+					var fmt = (refTextId.Missing) ?
+						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.MissingReferenceText", "Missing: {0}") :
+						LocalizationManager.GetString("DialogBoxes.ProjectSettingsDlg.CustomReferenceText", "Custom: {0}");
+					key = String.Format(fmt, refTextId.CustomIdentifier);
+				}
+				else
+				{
+					key = refTextId.Type.ToString();
+				}
+
+				dataSource.Add(key, refTextId);
+			}
+			m_ReferenceText.DataSource = new BindingSource(dataSource, null);
 			m_ReferenceText.ValueMember = "Value";
 			m_ReferenceText.DisplayMember = "Key";
 		}
@@ -115,6 +140,8 @@ namespace Glyssen.Dialogs
 		}
 
 		public GlyssenBundle UpdatedBundle { get; private set; }
+
+		public string ReferenceTextTabPageName { get { return m_tabPageReferenceTexts.Text; } }
 
 		private ProjectSettingsViewModel ProjectSettingsViewModel
 		{
@@ -472,26 +499,28 @@ namespace Glyssen.Dialogs
 			m_linkRefTextAttribution.Links.Clear();
 			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextIdentifier>)
 			{
-				var copyright =
-					((KeyValuePair<string, ReferenceTextIdentifier>) m_ReferenceText.SelectedItem).Value.Metadata.Copyright;
-				if (copyright != null && copyright.Statement != null)
+				var metadata = ((KeyValuePair<string, ReferenceTextIdentifier>) m_ReferenceText.SelectedItem).Value.Metadata;
+				if (metadata == null)
+					return;
+				var copyright = metadata.Copyright;
+				if (copyright == null || copyright.Statement == null)
+					return;
+
+				var copyrightInternalNodes = copyright.Statement.InternalNodes;
+				if (copyrightInternalNodes != null)
 				{
-					var copyrightInternalNodes = copyright.Statement.InternalNodes;
-					if (copyrightInternalNodes != null)
+					m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
+				}
+				const string kHttpPrefix = "http://";
+				var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
+				if (linkStart >= 0)
+				{
+					var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
+					if (linkExtent > 0)
 					{
-						m_linkRefTextAttribution.Text = string.Join(Environment.NewLine, copyrightInternalNodes.Select(n => n.InnerText));
-					}
-					const string kHttpPrefix = "http://";
-					var linkStart = m_linkRefTextAttribution.Text.IndexOf(kHttpPrefix, StringComparison.Ordinal);
-					if (linkStart >= 0)
-					{
-						var linkExtent = m_linkRefTextAttribution.Text.LastIndexOf("/", StringComparison.Ordinal) - linkStart;
-						if (linkExtent > 0)
-						{
-							//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
-							m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
-								m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
-						}
+						//m_linkRefTextAttribution.LinkArea = new LinkArea(linkStart, linkExtent);
+						m_linkRefTextAttribution.Links.Add(linkStart, linkExtent,
+							m_linkRefTextAttribution.Text.Substring(linkStart, linkExtent));
 					}
 				}
 			}
