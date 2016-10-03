@@ -29,7 +29,6 @@ namespace Glyssen
 	{
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
 		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
-		private const string kCustomIdPrefix = "Custom: ";
 
 		#region static internals to support testing
 		internal static string ProprietaryReferenceTextProjectFileLocation
@@ -52,17 +51,26 @@ namespace Glyssen
 		internal static Action<Exception, string, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
 		#endregion
 
-		private static Dictionary<string, ReferenceTextIdentifier> s_allAvailable;
+		private static List<ReferenceTextIdentifier> s_allAvailable;
 		private static bool s_allAvailableLoaded = false;
 		private static string s_proprietaryReferenceTextProjectFileLocation;
 
 		private readonly ReferenceTextType m_referenceTextType;
-		private readonly GlyssenDblTextMetadata m_metadata;
+		private GlyssenDblTextMetadata m_metadata;
 		private readonly string m_customId;
 
 		public ReferenceTextType Type { get { return m_referenceTextType; } }
 		public GlyssenDblTextMetadata Metadata { get { return m_metadata; } }
 		public string CustomIdentifier { get { return m_customId; } }
+		public bool Missing
+		{
+			get
+			{
+				if (m_metadata == null)
+					AttemptToLoadMetadataForCustomRefText();
+				return m_metadata == null;
+			}
+		}
 
 		private ReferenceTextIdentifier(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
 		{
@@ -78,13 +86,26 @@ namespace Glyssen
 			Debug.Assert(customId != null);
 			m_referenceTextType = type;
 			m_customId = customId;
-			var lowercase = customId.ToLowerInvariant();
-			m_metadata = metadata ?? LoadMetadata(type, Path.Combine(ProjectFolder, lowercase + ProjectBase.kProjectFileExtension));
+			if (metadata != null)
+				m_metadata = metadata;
+			else
+				AttemptToLoadMetadataForCustomRefText();
 		}
 
-		// ENHANCE: Change the key from ReferenceTextType to some kind of token that can represent either a standard
-		// reference text or a specific custom one.
-		public static Dictionary<string, ReferenceTextIdentifier> AllAvailable
+		private void AttemptToLoadMetadataForCustomRefText()
+		{
+			Debug.Assert(Type == ReferenceTextType.Custom);
+			var lowercase = m_customId.ToLowerInvariant();
+			try
+			{
+				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + ProjectBase.kProjectFileExtension));
+			}
+			catch (Exception)
+			{
+			}
+		}
+
+		public static IEnumerable<ReferenceTextIdentifier> AllAvailable
 		{
 			get
 			{
@@ -107,26 +128,22 @@ namespace Glyssen
 		{
 			ReferenceTextIdentifier identifier;
 			bool standard = IsStandardReferenceText(referenceTextType);
-			var key = standard ? referenceTextType.ToString() : kCustomIdPrefix + proprietaryReferenceTextIdentifier;
 			if (s_allAvailable == null)
 			{
-				s_allAvailable = new Dictionary<string, ReferenceTextIdentifier>();
+				s_allAvailable = new List<ReferenceTextIdentifier>();
 				identifier = null;
 			}
 			else
 			{
-				s_allAvailable.TryGetValue(key, out identifier);
+				identifier = standard ? s_allAvailable.SingleOrDefault(i => i.Type == referenceTextType) :
+					s_allAvailable.SingleOrDefault(i => i.CustomIdentifier == proprietaryReferenceTextIdentifier);
 			}
 			if (identifier == null)
 			{
-				if (standard)
-					identifier = new ReferenceTextIdentifier(referenceTextType);
-				else
-				{
-					identifier = new ReferenceTextIdentifier(referenceTextType, proprietaryReferenceTextIdentifier, null); 
-				}
+				identifier = standard ? new ReferenceTextIdentifier(referenceTextType) :
+					new ReferenceTextIdentifier(referenceTextType, proprietaryReferenceTextIdentifier, null);
+				s_allAvailable.Add(identifier);
 			}
-			s_allAvailable[key] = identifier;
 			return identifier;
 		}
 
@@ -166,7 +183,7 @@ namespace Glyssen
 		private static void LoadAllAvailable()
 		{
 			if (s_allAvailable == null)
-				s_allAvailable = new Dictionary<string, ReferenceTextIdentifier>();
+				s_allAvailable = new List<ReferenceTextIdentifier>();
 			Tuple<Exception, string, string> firstLoadError = null;
 			var additionalErrors = new List<string>();
 			Action<Exception, string, string> errorReporter = (exception, token, path) =>
@@ -177,13 +194,12 @@ namespace Glyssen
 					additionalErrors.Add(token);
 			};
 
-			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(IsStandardReferenceText))
+			foreach (var itm in Enum.GetValues(typeof (ReferenceTextType)).Cast<ReferenceTextType>().Where(t => IsStandardReferenceText(t) &&
+				!s_allAvailable.Any(i => i.Type == t)).ToList())
 			{
-				if (s_allAvailable.ContainsKey(itm.ToString()))
-					continue;
 				var metadata = LoadMetadata(itm, errorReporter);
 				if (metadata != null)
-					s_allAvailable.Add(itm.ToString(), new ReferenceTextIdentifier(itm, metadata));
+					s_allAvailable.Add(new ReferenceTextIdentifier(itm, metadata));
 			}
 
 			if (ErrorReporterForCopyrightedReferenceTexts == null)
@@ -223,20 +239,28 @@ namespace Glyssen
 			s_allAvailableLoaded = true;
 		}
 
-		private static void AttemptToAddCustomReferenceTextIdentifier(string customId, string dir)
+		private static bool IsCustomReferenceTextIdentifierInListOfAvailable(string customId)
+		{
+			return s_allAvailable.Any(i => i.Type == ReferenceTextType.Custom && i.CustomIdentifier == customId);
+		}
+
+		private static bool AttemptToAddCustomReferenceTextIdentifier(string customId, string dir)
 		{
 			Debug.Assert(customId != null);
-			var key = kCustomIdPrefix + customId;
-			if (s_allAvailable.ContainsKey(key))
-				return;
+			if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
+				return false;
 			string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
 			var refTextProjectFilePath = Path.Combine(dir, projectFileName);
 			if (!File.Exists(refTextProjectFilePath))
-				return;
+				return false;
 			var metadata = LoadMetadata(ReferenceTextType.Custom, refTextProjectFilePath,
 				ErrorReporterForCopyrightedReferenceTexts);
 			if (metadata != null)
-				s_allAvailable.Add(key, new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+			{
+				s_allAvailable.Add(new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+				return true;
+			}
+			return false;
 		}
 
 		private static GlyssenDblTextMetadata LoadMetadata(ReferenceTextType referenceTextType,
@@ -272,18 +296,14 @@ namespace Glyssen
 			if (!Directory.Exists(dir))
 				return false;
 
-			var key = kCustomIdPrefix + customId;
-
 			if (s_allAvailable == null)
-				s_allAvailable = new Dictionary<string, ReferenceTextIdentifier>();
-			else if (s_allAvailable.ContainsKey(key))
+				s_allAvailable = new List<ReferenceTextIdentifier>();
+			else if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
 				return true;
 
 			ErrorReporterForCopyrightedReferenceTexts = (exception, s, arg3) => { };
 
-			AttemptToAddCustomReferenceTextIdentifier(customId, dir);
-
-			return s_allAvailable.ContainsKey(key);
+			return AttemptToAddCustomReferenceTextIdentifier(customId, dir);
 		}
 
 		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)

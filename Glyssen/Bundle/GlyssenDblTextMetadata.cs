@@ -16,7 +16,6 @@ namespace Glyssen.Bundle
 		private int m_fontSizeInPointsTemp;
 		private string m_fontFamilyTemp;
 		private ReferenceTextType m_referenceTextType = ReferenceTextType.English;
-		private string m_unavailableDeprecatedReferenceTextIdentifier = null;
 
 		#region public Properties
 		[XmlElement("language")]
@@ -227,40 +226,20 @@ namespace Glyssen.Bundle
 		[DefaultValue(null)]
 		public string ReferenceText_DeprecatedXml
 		{
-			get { return m_unavailableDeprecatedReferenceTextIdentifier; }
+			get { return null; }
 			set
 			{
 				if (value == null || ReferenceTextType != ReferenceTextType.English)
-				{
-					m_unavailableDeprecatedReferenceTextIdentifier = null;
 					return;
-				}
 
-				switch (value)
+				if (value == "English")
+					ReferenceTextType = ReferenceTextType.English;
+				if (value == "Russian")
+					ReferenceTextType = ReferenceTextType.Russian;
+				else
 				{
-					case "Russian":
-						ReferenceTextType = ReferenceTextType.Russian;
-						goto default;
-					case "Azeri":
-					case "French":
-					case "Indonesian":
-					case "Portuguese":
-					case "Spanish":
-					case "TokPisin":
-						if (ReferenceTextIdentifier.IsCustomReferenceAvailable(value))
-						{
-							ReferenceTextType = ReferenceTextType.Custom;
-							ProprietaryReferenceTextIdentifier = value;
-						}
-						else
-						{
-							// Remember it in case it becomes available in the future.
-							m_unavailableDeprecatedReferenceTextIdentifier = value;
-						}
-						return;
-					default:
-						m_unavailableDeprecatedReferenceTextIdentifier = null;
-						return;
+					ReferenceTextType = ReferenceTextType.Custom;
+					ProprietaryReferenceTextIdentifier = value;
 				}
 			}
 		}
