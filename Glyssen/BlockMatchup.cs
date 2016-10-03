@@ -27,7 +27,7 @@ namespace Glyssen
 			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
 			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
-			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart && blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber)
 			{
 				var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
 				prepend.RemoveAt(prepend.Count - 1);
