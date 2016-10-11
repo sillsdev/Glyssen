@@ -205,8 +205,7 @@ namespace Glyssen
 
 		public bool IncludesBlock(Block block)
 		{
-			// TODO: Write tests for the second part of this
-			return OriginalBlocks.Contains(block); // || CorrelatedBlocks.Contains(block);
+			return OriginalBlocks.Contains(block) || CorrelatedBlocks.Contains(block);
 		}
 
 		public void MatchAllBlocks(Paratext.ScrVers versification)

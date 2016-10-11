@@ -104,7 +104,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void IncludesBlock_VernVersesSplitByReferenceText_ReturnValuesReflectOriginalBlocks()
+		public void IncludesBlock_VernVersesSplitByReferenceText_ReturnValuesReflectOriginalAndCorrelatedBlocks()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y enseno.", true));
@@ -128,6 +128,8 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.IncludesBlock(vernacularBlocks[1]));
 			Assert.IsTrue(matchup.IncludesBlock(vernacularBlocks[2]));
 			Assert.IsFalse(matchup.IncludesBlock(vernacularBlocks[3]));
+
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => matchup.IncludesBlock(b)));
 
 			Assert.AreEqual(matchup.CorrelatedBlocks.First(), matchup.CorrelatedAnchorBlock);
 		}
