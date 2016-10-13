@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Glyssen</RootNamespace>
     <AssemblyName>Glyssen</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -197,9 +197,7 @@
     </Compile>
     <Compile Include="Controls\ControlExtensions.cs" />
     <Compile Include="Controls\DataGridViewDropdownColumnHeader.cs" />
-    <Compile Include="Controls\DataGridViewListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\DataGridViewListBox.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
     <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
