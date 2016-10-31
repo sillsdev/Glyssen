@@ -99,11 +99,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           </Component>
 
           <Component Id="SIL.Core.dll" Guid="{b85eba03-ba56-40b9-9c7f-ae166748f6f5}">
-            <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\output\release\SIL.Core.dll" />
-          </Component>
-
-          <Component Id="SIL.Core.pdb" Guid="{f4954c64-33f6-48e4-a6bc-453cc552925d}">
-            <File Id="SIL.Core.pdb" Name="SIL.Core.pdb" KeyPath="yes" Source="..\output\release\SIL.Core.pdb" />
+            <File Id="SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\lib\dotnet\libpalasoStrongNamedDlls\SIL.Core.dll" />
           </Component>
 
           <Component Id="SIL.Windows.Forms.dll" Guid="{ea18bc71-5da1-49e5-a126-ead84ad1d287}">
@@ -123,19 +119,11 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           </Component>
 
           <Component Id="SIL.Windows.Forms.Keyboarding.dll" Guid="{c7e9afe7-3d60-4171-a11e-73f68ba455d2}">
-            <File Id="SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.dll" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.Keyboarding.pdb" Guid="{b042f205-62a9-4980-96b9-923c53d5432c}">
-            <File Id="SIL.Windows.Forms.Keyboarding.pdb" Name="SIL.Windows.Forms.Keyboarding.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.Keyboarding.pdb" />
+            <File Id="SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\lib\dotnet\libpalasoStrongNamedDlls\SIL.Windows.Forms.Keyboarding.dll" />
           </Component>
 
           <Component Id="SIL.WritingSystems.dll" Guid="{2e0d8b57-3d08-45e7-be4c-01adc1838449}">
-            <File Id="SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.dll" />
-          </Component>
-
-          <Component Id="SIL.WritingSystems.pdb" Guid="{8dc07d50-101c-4f4f-8012-71ea0f8f01b2}">
-            <File Id="SIL.WritingSystems.pdb" Name="SIL.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.WritingSystems.pdb" />
+            <File Id="SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\lib\dotnet\libpalasoStrongNamedDlls\SIL.WritingSystems.dll" />
           </Component>
 
           <Component Id="SIL.DblBundle.dll" Guid="{4e2e8963-1413-411f-96b7-9190ca968b7c}">
@@ -152,14 +140,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
           <Component Id="SIL.Windows.Forms.DblBundle.pdb" Guid="{0917a125-6bab-42bc-8aaf-a1cb79167cdd}">
             <File Id="SIL.Windows.Forms.DblBundle.pdb" Name="SIL.Windows.Forms.DblBundle.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.DblBundle.pdb" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.WritingSystems.dll" Guid="{d80fbd4c-4bfa-42f3-81cc-95210a0fa402}">
-            <File Id="SIL.Windows.Forms.WritingSystems.dll" Name="SIL.Windows.Forms.WritingSystems.dll" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.dll" />
-          </Component>
-
-          <Component Id="SIL.Windows.Forms.WritingSystems.pdb" Guid="{c4ac3141-061d-4c1c-b4a3-e2ccdeca7a29}">
-            <File Id="SIL.Windows.Forms.WritingSystems.pdb" Name="SIL.Windows.Forms.WritingSystems.pdb" KeyPath="yes" Source="..\output\release\SIL.Windows.Forms.WritingSystems.pdb" />
           </Component>
 
           <Component Id="SIL.Scripture.dll" Guid="{386eb5b9-c3ef-4640-9400-e5efb3fc83c4}">
@@ -278,7 +258,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.WritingSystems.dll"/>
       <ComponentRef Id="SIL.DblBundle.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.DblBundle.dll"/>
-      <ComponentRef Id="SIL.Windows.Forms.WritingSystems.dll"/>
       <ComponentRef Id="SIL.Scripture.dll"/>
       <ComponentRef Id="SIL.Windows.Forms.Scripture.dll"/>
       <ComponentRef Id="Geckofx_Core.dll"/>
@@ -299,14 +278,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Newtonsoft.Json.dll"/>
       <ComponentRef Id="EPPlus.dll"/>
 
-      <ComponentRef Id="SIL.Core.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.Keyboarding.pdb"/>
-      <ComponentRef Id="SIL.WritingSystems.pdb"/>
+      <ComponentRef Id="SIL.Windows.Forms.GeckoBrowserAdapter.pdb"/>>
       <ComponentRef Id="SIL.DblBundle.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.DblBundle.pdb"/>
-      <ComponentRef Id="SIL.Windows.Forms.WritingSystems.pdb"/>
       <ComponentRef Id="SIL.Scripture.pdb"/>
       <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
