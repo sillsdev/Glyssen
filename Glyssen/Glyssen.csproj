@@ -621,11 +621,27 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Target Name="AfterBuild">
+  <ItemGroup>
+    <MergeAssemblies Include="$(OutputPath)Glyssen.exe" />
+    <MergeAssemblies Include="$(OutputPath)SIL.Core.dll" />
+    <MergeAssemblies Include="$(OutputPath)SIL.Windows.Forms.Keyboarding.dll" />
+    <MergeAssemblies Include="$(OutputPath)SIL.WritingSystems.dll" />
+    <MergeAssemblies Include="$(OutputPath)SIL.Windows.Forms.WritingSystems.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <OutputAssembly>$(OutputPath)Glyssen.Standalone.exe</OutputAssembly>
+    <Merger Condition="('$(OS)' == 'Windows_NT')">&quot;$(SolutionDir)packages\ILRepack.2.0.12\tools\ILRepack.exe&quot;</Merger>
+    <Merger Condition="('$(OS)' != 'Windows_NT')">mono --runtime=v4.0.30319 &quot;$(SolutionDir)\packages\ILRepack.2.0.12\tools\ILRepack.exe&quot;</Merger>
+  </PropertyGroup>
+  <Message Text="MERGING: @(MergeAssemblies->'%(Filename)') into $(OutputAssembly)" Importance="High" />
+  <Exec Command="$(Merger) /out:&quot;$(OutputAssembly)&quot; @(MergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
+  </Target>
+  <!-- This is not yet working properly. If we can figure it out, we need to ensure that the resulting "Standalone" exe is the one that we run in the debugger and the
+	one we deploy. Also, we need to ensure that the strong-named versions of the libpalaso DLLs are copied into output so that they get deployed. -->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
   </Target>
   -->
 </Project>
