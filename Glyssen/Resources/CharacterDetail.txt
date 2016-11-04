@@ -203,7 +203,7 @@ Cretan prophet	1	Male				TIT 1:12
 criminal on cross, insulting	1	Male	Adult			LUK 23:39
 criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
 crippled man	1	Male	Adult			ACT 3:5
-crowd	-1		Adult			MAT 9:8 <-(15 more)-> ACT 21:36
+crowd	-1		Adult			MAT 9:8 <-(16 more)-> ACT 21:36
 crowd after mute healed	-1		Adult			MAT 9:33
 crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31
 crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN 7:41
@@ -368,7 +368,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6
-God	1	Male		Y		GEN 1:3 <-(5368 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5367 more)-> REV 21:8
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
 great company of heavenly host	-1		Adult			LUK 2:14
@@ -782,7 +782,7 @@ Pashur	1	Male			son of Malkijah
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
 Paul	1	Male				ACT 9:1 <-(193 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
-people	-1					2CH 26:23 <-(17 more)-> 1TH 5:3
+people	-1					2CH 26:23 <-(18 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
 people at coronation of King Joash	-1					2KI 11:12
 people at Jairus' house	-1					MAT 9:24 & LUK 8:53
@@ -944,7 +944,7 @@ saying, true	1					2TI 2:11 <-(1 more)-> 2TI 2:13
 scoffers	-1	PreferMale				2PE 3:4
 scoundrels	-1	Male				1KI 21:13
 scouts of Ben-Hadad, king of Aram	-1	Male				1KI 20:17
-scripture	-1					2CH 25:4 <-(223 more)-> REV 19:15
+scripture	-1					2CH 25:4 <-(224 more)-> REV 19:15
 sea	1	Neuter				ISA 23:4
 sea captains, seafarers, sailors	-1	Male				REV 18:18 <-(1 more)-> REV 18:20
 second person to accuse Peter (man)	1	Male				LUK 22:58
