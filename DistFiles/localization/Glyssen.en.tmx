@@ -1041,6 +1041,12 @@
         <seg>brothers at Antioch</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.brothers at Ephesus">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>brothers at Ephesus</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.brothers at Lystra and Iconium">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -5943,6 +5949,12 @@
         <seg>Paul</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Paul (Saul)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Paul (Saul)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Paul and Silas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -6265,6 +6277,12 @@
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
         <seg>Peter</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Peter (Cephas)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter (Cephas)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon)">

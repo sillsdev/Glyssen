@@ -4109,5 +4109,23 @@
         <seg>Fariseu</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Paul (Saul)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Paul (Saul)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Paulo (Saulo)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Peter (Cephas)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter (Cephas)</seg>
+      </tuv>
+      <tuv xml:lang="pt">
+        <seg>Pedro (Cefas)</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>
