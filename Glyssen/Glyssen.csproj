@@ -621,11 +621,17 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Target Name="AfterBuild">
+    <PropertyGroup>
+      <PTSharedDependenciesSource>..\..\lib\dotnet\ParatextShared</PTSharedDependenciesSource>
+      <PTSharedDependenciesDest>..\$(OutputPath)PTSharedDependencies</PTSharedDependenciesDest>
+    </PropertyGroup>
+    <Message Text="Copying versions of libPalaso DLLs needed by ParatextShared from $(PTSharedDependenciesSource) into $(PTSharedDependenciesDest)" Importance="High" />
+    <Exec Command="&#xD;&#xA;	xcopy /y /I $(PTSharedDependenciesSource)\*.* $(PTSharedDependenciesDest)&#xD;&#xA;	" WorkingDirectory="$(OutputPath)" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
   </Target>
   -->
 </Project>

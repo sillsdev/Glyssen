@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--This file is generated and then updated by an MSBuild task.  It preserves the automatically-generated guids assigned files that will be installed on user machines. So it should be held in source control.-->
+<InstallerMetadata>
+  <File Id="ProgramDir.reference_texts.Russian.1CO.xml" Guid="ce2984de-9f12-463a-9f87-12f2c89db766" />
+  <File Id="ProgramDir.reference_texts.Russian.1JN.xml" Guid="200d07a4-eba3-447e-868f-5bbb6a7ae7b8" />
+  <File Id="ProgramDir.reference_texts.Russian.1PE.xml" Guid="3fb723bd-ff90-45a5-8220-315eab60f191" />
+  <File Id="ProgramDir.reference_texts.Russian.1TH.xml" Guid="1a7e4510-fa35-4729-9cfc-3c6790e23587" />
+  <File Id="ProgramDir.reference_texts.Russian.1TI.xml" Guid="0361077a-9a2f-4fbd-b6ea-34a2d5410667" />
+  <File Id="ProgramDir.reference_texts.Russian.2CO.xml" Guid="0ba34259-653f-4e86-8eae-4789722c780d" />
+  <File Id="ProgramDir.reference_texts.Russian.2JN.xml" Guid="439f5b77-68b8-4e6e-94e4-d72fe332c981" />
+  <File Id="ProgramDir.reference_texts.Russian.2PE.xml" Guid="912f661f-aaf0-4eb7-b322-cdcee5207ff3" />
+  <File Id="ProgramDir.reference_texts.Russian.2TH.xml" Guid="6e06a454-a74d-4880-af37-e7b9ba905ea8" />
+  <File Id="ProgramDir.reference_texts.Russian.2TI.xml" Guid="20e3e39a-407b-4043-b7cd-5e7d35bd5d53" />
+  <File Id="ProgramDir.reference_texts.Russian.3JN.xml" Guid="bb44ab90-b5aa-43a8-8abb-d0859210b0d8" />
+  <File Id="ProgramDir.reference_texts.Russian.ACT.xml" Guid="5071e0f4-cc6b-4081-9ff7-0225ae95af29" />
+  <File Id="ProgramDir.reference_texts.Russian.COL.xml" Guid="82baabbc-1f33-4e74-9a3a-5ef3dfd49295" />
+  <File Id="ProgramDir.reference_texts.Russian.EPH.xml" Guid="6cf278bb-5ad5-4a6d-9ac0-e39e407d2ecb" />
+  <File Id="ProgramDir.reference_texts.Russian.GAL.xml" Guid="ee836d4b-21e9-43d6-99d1-bd52281a5a7b" />
+  <File Id="ProgramDir.reference_texts.Russian.HEB.xml" Guid="b22a8c21-3231-46a6-9c3c-d9811a125373" />
+  <File Id="ProgramDir.reference_texts.Russian.JAS.xml" Guid="edbcc423-7e28-48d6-a27b-698be5ff43c9" />
+  <File Id="ProgramDir.reference_texts.Russian.JHN.xml" Guid="9e43f261-2271-42ed-948a-f5511254deac" />
+  <File Id="ProgramDir.reference_texts.Russian.JUD.xml" Guid="c3f70abc-1929-4ead-9009-601c10317a4d" />
+  <File Id="ProgramDir.reference_texts.Russian.LUK.xml" Guid="d9405f62-cd41-4367-9d50-ed3cf5e6affe" />
+  <File Id="ProgramDir.reference_texts.Russian.MAT.xml" Guid="90f58128-e2b5-4a84-802a-27b0f625eaa0" />
+  <File Id="ProgramDir.reference_texts.Russian.MRK.xml" Guid="ad43dd7e-acc0-4478-b85b-74e205462856" />
+  <File Id="ProgramDir.reference_texts.Russian.PHM.xml" Guid="6193cc25-7f44-4946-81ff-25eee58ea948" />
+  <File Id="ProgramDir.reference_texts.Russian.PHP.xml" Guid="611ed930-4fcb-4fb2-a389-0b119149ef0c" />
+  <File Id="reference_texts.Russian.ProjectCharacterDetail.txt" Guid="9ef317af-4d6e-4469-b22b-3dd0ac61362b" />
+  <File Id="_.reference_texts.Russian.ProjectCharacterVerse.txt" Guid="aec0a112-65b6-4403-a665-556937fd5000" />
+  <File Id="ProgramDir.reference_texts.Russian.REV.xml" Guid="07809360-137a-4227-8523-d5e57b40dc7f" />
+  <File Id="ProgramDir.reference_texts.Russian.ROM.xml" Guid="a61bf41a-89f3-484b-92ad-9b0979c4c286" />
+  <File Id="ProgramDir.reference_texts.Russian.russian.glyssen" Guid="3a75ef7c-bca5-493e-a71a-e0361f541c83" />
+  <File Id="ProgramDir.reference_texts.Russian.TIT.xml" Guid="5aeee70d-d232-4b7d-98ef-3cb180c8612b" />
+</InstallerMetadata>
