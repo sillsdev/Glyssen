@@ -4064,5 +4064,14 @@
         <seg>Pharisien</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Peter (Cephas)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter (Cephas)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Pierre (Céphas)</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

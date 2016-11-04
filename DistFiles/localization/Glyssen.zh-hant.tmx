@@ -3149,6 +3149,15 @@
         <seg>保羅</seg>
       </tuv>
     </tu>
+    <tu tuid="CharacterName.Paul (Saul)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Paul (Saul)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hant">
+        <seg>保羅 (掃羅)</seg>
+      </tuv>
+    </tu>
     <tu tuid="CharacterName.Paul and Silas">
       <prop type="x-dynamic">true</prop>
       <tuv xml:lang="en">
@@ -3174,6 +3183,15 @@
       </tuv>
       <tuv xml:lang="zh-Hant">
         <seg>彼得</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CharacterName.Peter (Cephas)">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Peter (Cephas)</seg>
+      </tuv>
+      <tuv xml:lang="zh-Hant">
+        <seg>彼得 (《現》磯法)</seg>
       </tuv>
     </tu>
     <tu tuid="CharacterName.Peter (Simon)">
