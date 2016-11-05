@@ -242,7 +242,6 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <Component Id="PTShared.SIL.Windows.Forms.Keyboarding.dll" Guid="{F4CF6A99-46DD-42B9-BFE9-2FEC2886278F}">
               <File Id="PTShared.SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\lib\dotnet\ParatextShared\SIL.Windows.Forms.Keyboarding.dll" />
             <Component Id="PTShared.SIL.WritingSystems.dll" Guid="{9CCE5BD7-5714-4499-809D-6F4898E6AD07}">
-            </Component>
               <File Id="PTShared.SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\lib\dotnet\ParatextShared\SIL.WritingSystems.dll" />
             </Component>
 	      </Directory>
