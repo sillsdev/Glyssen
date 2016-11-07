@@ -135,12 +135,15 @@ namespace Glyssen.Dialogs
 			UpdateNavigationButtonState();
 		}
 
-		void m_viewModel_AssignedBlocksIncremented(object sender, EventArgs e)
+		void m_viewModel_AssignedBlocksIncremented(AssignCharacterViewModel sender, int increment, int newMaximum)
 		{
 			this.SafeInvoke(() =>
 			{
 				if (m_progressBar.Visible)
-					m_progressBar.Increment(1);
+				{
+					m_progressBar.Maximum = newMaximum;
+					m_progressBar.Increment(increment);
+				}
 			});
 		}
 
@@ -710,10 +713,17 @@ namespace Glyssen.Dialogs
 		private void m_btnAssign_Click(object sender, EventArgs e)
 		{
 			SaveSelections();
+			MoveOn();
+		}
+
+		private void MoveOn()
+		{
 			if (m_viewModel.AreAllAssignmentsComplete && m_promptToCloseWhenAssignmentsAreComplete)
 			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete", "Assignments Complete");
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "All assignments have been made. Would you like to return to the main window?");
+				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
+					"Assignments Complete");
+				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage",
+					"All assignments have been made. Would you like to return to the main window?");
 				if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
 					Close();
@@ -732,7 +742,7 @@ namespace Glyssen.Dialogs
 			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
 			if (selectedCharacter != null && selectedCharacter.IsNarrator)
-				m_llMoreDel.Enabled = false;
+				m_llMoreDel.Enabled = false;			
 			UpdateAssignOrApplyAndResetButtonState();
 		}
 
@@ -1057,8 +1067,7 @@ namespace Glyssen.Dialogs
 		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
 			m_viewModel.ApplyCurrentReferenceTextMatchup();
-			if (m_viewModel.CanNavigateToNextRelevantBlock)
-				LoadNextRelevantBlock();
+			MoveOn();
 		}
 
 		private void UpdateRowSpecificButtonStates(object sender, DataGridViewCellEventArgs e)
@@ -1145,16 +1154,18 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
+				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+
 				if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) ||
 					(!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 0);
+					matchup.SetReferenceText(e.RowIndex, newValue, 0);
 				}
 				else if (e.ColumnIndex == colEnglish.Index)
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-					m_viewModel.CurrentReferenceTextMatchup.SetReferenceText(e.RowIndex, newValue, 1);
+					matchup.SetReferenceText(e.RowIndex, newValue, 1);
 				}
 				else
 				{
@@ -1169,6 +1180,17 @@ namespace Glyssen.Dialogs
 							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
 					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
+
+					var block = matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y];
+					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
+					{
+						// The first one should always be "normal" - we want a more specific one, if any.
+						var delivery = m_viewModel.GetDeliveriesForCharacter(selectedCharacter).LastOrDefault();
+						string deliveryAsString = delivery == null
+							? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
+							: delivery.LocalizedDisplay;
+						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+					}
 				}
 				UpdateInsertHeSaidButtonState();
 			}

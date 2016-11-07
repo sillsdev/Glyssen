@@ -11,7 +11,7 @@
     <fontSizeInPoints>14</fontSizeInPoints>
   </language>
   <identification>
-    <name />
+    <name>World English Bible (WEB)</name>
     <nameLocal />
     <systemId type="gbc" />
     <systemId type="tms" />
@@ -20,7 +20,10 @@
     <systemId type="biblica" />
   </identification>
   <copyright>
-    <statement contentType="xhtml" />
+    <statement contentType="xhtml">
+      <p>Public Domain.</p>
+	  <p>See: http://ebible.org/web/</p>
+    </statement>
   </copyright>
   <promotion>
     <promoVersionInfo contentType="xhtml" />

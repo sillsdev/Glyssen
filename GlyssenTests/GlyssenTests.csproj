@@ -10,10 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GlyssenTests</RootNamespace>
     <AssemblyName>GlyssenTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -135,6 +136,7 @@
     <Compile Include="ProjectDataMigratorTests.cs" />
     <Compile Include="ProjectExportTests.cs" />
     <Compile Include="ProjectTests.cs" />
+    <Compile Include="ReferenceTextIdentifierTests.cs" />
     <Compile Include="ReferenceTextTests.cs" />
     <Compile Include="Rules\CharacterGroupsAdjusterTests.cs" />
     <Compile Include="Quote\QuoteUtilsTests.cs" />
@@ -184,6 +186,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\azeri.glyssen" />
+    <None Include="Resources\english.glyssen" />
+    <None Include="Resources\french.glyssen" />
+    <None Include="Resources\spanish.glyssen" />
     <None Include="Resources\TestCharacterGroups.xlsx" />
     <None Include="Resources\TestCharacterVerse.txt" />
   </ItemGroup>
@@ -198,6 +204,12 @@
     <None Include="Resources\Test1JN.xml" />
     <None Include="Resources\Test2JN.xml" />
     <None Include="Resources\Test3JN.xml" />
+    <None Include="Resources\AzeriJUDRefText.xml" />
+    <None Include="Resources\EnglishVersification.txt" />
+    <None Include="Resources\AzeriREVRefText.xml" />
+    <None Include="Resources\FrenchMRKRefText.xml" />
+    <None Include="Resources\FrenchMATRefText.xml" />
+    <None Include="Resources\SpanishMATRefText.xml" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />

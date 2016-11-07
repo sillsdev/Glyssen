@@ -27,7 +27,7 @@ namespace Glyssen
 			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
 			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
-			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart && blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber)
 			{
 				var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
 				prepend.RemoveAt(prepend.Count - 1);
@@ -123,7 +123,7 @@ namespace Glyssen
 			return null;
 		}
 
-		public void Apply()
+		public void Apply(Paratext.ScrVers versification)
 		{
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
@@ -137,17 +137,24 @@ namespace Glyssen
 				m_vernacularBook.ReplaceBlocks(m_iStartBlock, CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting,
 					CorrelatedBlocks.Select(b => b.Clone()));
 			}
+			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
 				if (!CorrelatedBlocks[i].MatchesReferenceText) // e.g., section head
 					continue;
 				var vernBlock = origBlocks[m_iStartBlock + i];
+
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
 				vernBlock.SetMatchedReferenceBlock(refBlock);
-				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i]);
+				vernBlock.SetCharacterAndDeliveryInfo(CorrelatedBlocks[i], bookNum, versification);
+
 				if (CorrelatedBlocks[i].UserConfirmed)
+				{
+					if (vernBlock.CharacterIsUnclear())
+						throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
 					vernBlock.UserConfirmed = true;
+				}
 
 				//if (vernBlock.CharacterId != refBlock.CharacterId)
 				//{
@@ -198,12 +205,13 @@ namespace Glyssen
 
 		public bool IncludesBlock(Block block)
 		{
-			// TODO: Write tests for the second part of this
-			return OriginalBlocks.Contains(block); // || CorrelatedBlocks.Contains(block);
+			return OriginalBlocks.Contains(block) || CorrelatedBlocks.Contains(block);
 		}
 
-		public void MatchAllBlocks()
+		public void MatchAllBlocks(Paratext.ScrVers versification)
 		{
+			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
+
 			foreach (var block in CorrelatedBlocks)
 			{
 				if (block.MatchesReferenceText)
@@ -211,7 +219,9 @@ namespace Glyssen
 					if (block.CharacterIsUnclear())
 					{
 						var refBlock = block.ReferenceBlocks.Single();
-						block.SetCharacterAndDeliveryInfo(refBlock);
+						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
+						if (block.CharacterIsUnclear())
+							throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
 						block.UserConfirmed = true; // This does not affect original block until Apply is called
 					}
 				}
@@ -219,7 +229,7 @@ namespace Glyssen
 				{
 					var refBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber,
 						block.InitialEndVerseNumber);
-					refBlock.SetCharacterAndDeliveryInfo(block);
+					refBlock.SetCharacterAndDeliveryInfo(block, bookNum, versification);
 					if (block.ReferenceBlocks.Any())
 						refBlock.AppendJoinedBlockElements(block.ReferenceBlocks, m_referenceLanguageInfo);
 					else

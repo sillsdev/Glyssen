@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--This file is generated and then updated by an MSBuild task.  It preserves the automatically-generated guids assigned files that will be installed on user machines. So it should be held in source control.-->
+<InstallerMetadata>
+  <File Id="ProgramDir.reference_texts.English.1CO.xml" Guid="007dc0c9-722a-401b-90b7-18a4bc150267" />
+  <File Id="ProgramDir.reference_texts.English.1JN.xml" Guid="8c4c6767-14cc-4818-b366-2cb09d6698df" />
+  <File Id="ProgramDir.reference_texts.English.1PE.xml" Guid="6c255699-4635-4207-9ec3-921c358c0b88" />
+  <File Id="ProgramDir.reference_texts.English.1TH.xml" Guid="d106bb8f-c300-4edc-b750-916150c3ccc1" />
+  <File Id="ProgramDir.reference_texts.English.1TI.xml" Guid="24f2804c-584f-41c0-86c8-8054dcd75bf5" />
+  <File Id="ProgramDir.reference_texts.English.2CO.xml" Guid="9bd137a1-ca6e-4150-bbb0-d6b3651ade08" />
+  <File Id="ProgramDir.reference_texts.English.2JN.xml" Guid="f3744b46-7f09-49fc-b433-5766b38cc5d6" />
+  <File Id="ProgramDir.reference_texts.English.2PE.xml" Guid="5b867b05-277d-45c4-8432-8d84fe5cb449" />
+  <File Id="ProgramDir.reference_texts.English.2TH.xml" Guid="afde9607-e702-4aa8-9804-b3a81301e2e4" />
+  <File Id="ProgramDir.reference_texts.English.2TI.xml" Guid="cde33b4d-2bde-4c28-91a1-59e17d6ee090" />
+  <File Id="ProgramDir.reference_texts.English.3JN.xml" Guid="4ecb30c1-de82-4730-b119-72227bb64baf" />
+  <File Id="ProgramDir.reference_texts.English.ACT.xml" Guid="ccb48bb9-0d10-4e26-9306-4dcd01e334cc" />
+  <File Id="ProgramDir.reference_texts.English.COL.xml" Guid="393dd7ea-ac75-46e9-8091-6639bab54339" />
+  <File Id="ProgramDir.reference_texts.English.english.glyssen" Guid="ce4f1178-15a6-4b8b-8330-559fd7c86675" />
+  <File Id="ProgramDir.reference_texts.English.EPH.xml" Guid="ffca7238-111a-4edb-8533-7543567203a8" />
+  <File Id="ProgramDir.reference_texts.English.GAL.xml" Guid="dd8482ae-9777-4794-a113-567c657b7a4b" />
+  <File Id="ProgramDir.reference_texts.English.HEB.xml" Guid="b12d59e9-1405-47d7-bb85-1748f9fd5249" />
+  <File Id="ProgramDir.reference_texts.English.JAS.xml" Guid="e8eb874c-4912-4c2c-84b2-2568b5c0c957" />
+  <File Id="ProgramDir.reference_texts.English.JHN.xml" Guid="3ff5f63a-40e1-414e-827a-937f9dfc5b9c" />
+  <File Id="ProgramDir.reference_texts.English.JUD.xml" Guid="557c8082-8c69-49ad-8952-0e0fc8f4839f" />
+  <File Id="ProgramDir.reference_texts.English.LUK.xml" Guid="7ab85474-baa4-4363-8dce-530bdb6f7781" />
+  <File Id="ProgramDir.reference_texts.English.MAT.xml" Guid="291b93f1-eed2-48de-a0d6-16d84cb08c63" />
+  <File Id="ProgramDir.reference_texts.English.MRK.xml" Guid="77e4cea5-5d75-48c0-b27e-1ea75bf566d1" />
+  <File Id="ProgramDir.reference_texts.English.PHM.xml" Guid="f8941a02-5265-429b-b8d3-27ea7ab48632" />
+  <File Id="ProgramDir.reference_texts.English.PHP.xml" Guid="d518c594-e941-45a1-9f94-2ad33d17e685" />
+  <File Id="reference_texts.English.ProjectCharacterDetail.txt" Guid="71a3c0d6-752b-4d93-8884-c80728f23913" />
+  <File Id="_.reference_texts.English.ProjectCharacterVerse.txt" Guid="470fde02-2c8b-4ee4-a248-e7367ee0e96d" />
+  <File Id="ProgramDir.reference_texts.English.qaa.ldml" Guid="689210e4-aaee-4815-84c3-02de3adbd369" />
+  <File Id="ProgramDir.reference_texts.English.REV.xml" Guid="9318b4ac-1cec-4ca8-b8af-f1a590c0428d" />
+  <File Id="ProgramDir.reference_texts.English.ROM.xml" Guid="0c7953c2-7e4c-45a8-b2ca-d4eecc6bc112" />
+  <File Id="ProgramDir.reference_texts.English.TIT.xml" Guid="bb034470-51a2-4c86-a273-125a48c8b13e" />
+</InstallerMetadata>

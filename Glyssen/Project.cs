@@ -119,15 +119,6 @@ namespace Glyssen
 			m_vers = LoadVersification(VersificationFilePath);
 		}
 
-		private static string ProjectsBaseFolder
-		{
-			get
-			{
-				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					Program.kCompany, Program.kProduct);
-			}
-		}
-
 		public static IEnumerable<string> AllPublicationFolders
 		{
 			get
@@ -596,26 +587,33 @@ namespace Glyssen
 		{
 			get
 			{
-				return m_referenceText ?? (m_referenceText = ReferenceText.GetStandardReferenceText(m_metadata.ReferenceText));
+				if (m_referenceText == null && !ReferenceTextIdentifier.Missing)
+					m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+				return m_referenceText;
 			}
 			set
 			{
-				// for unit testing only
 				m_referenceText = value;
 			}
 		}
 
-		public ReferenceTextType ReferenceTextType
+		public ReferenceTextIdentifier ReferenceTextIdentifier
 		{
-			get { return m_metadata.ReferenceText; }
+			get { return ReferenceTextIdentifier.GetOrCreate(m_metadata.ReferenceTextType, m_metadata.ProprietaryReferenceTextIdentifier); }
 			set
 			{
-				if (value == m_metadata.ReferenceText)
+				if (value.Type == m_metadata.ReferenceTextType && value.CustomIdentifier == m_metadata.ProprietaryReferenceTextIdentifier)
 					return;
 
-				m_metadata.ReferenceText = value;
+				m_metadata.ReferenceTextType = value.Type;
+				m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
 				m_referenceText = null;
 			}
+		}
+
+		public string UiReferenceTextName
+		{
+			get { return ReferenceTextIdentifier.Missing ? m_metadata.ProprietaryReferenceTextIdentifier : ReferenceText.LanguageName; }
 		}
 
 		public bool HasUnappliedSplits()

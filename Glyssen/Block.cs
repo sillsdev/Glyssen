@@ -254,6 +254,8 @@ namespace Glyssen
 
 		public void SetMatchedReferenceBlock(Block referenceBlock)
 		{
+			if (referenceBlock == null)
+				throw new ArgumentNullException("referenceBlock");
 			ReferenceBlocks = new List<Block> { referenceBlock };
 			MatchesReferenceText = true;
 		}
@@ -588,7 +590,7 @@ namespace Glyssen
 
 		public bool CharacterIsUnclear()
 		{
-			return CharacterId == CharacterVerseData.kAmbiguousCharacter || CharacterId == CharacterVerseData.kUnknownCharacter;
+			return CharacterVerseData.IsCharacterUnclear(CharacterId);
 		}
 
 		public void SetStandardCharacter(string bookId, CharacterVerseData.StandardCharacter standardCharacterType)
@@ -833,10 +835,18 @@ namespace Glyssen
 			return newBlock;
 		}
 
-		public void SetCharacterAndDeliveryInfo(Block basedOnBlock)
+		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, Paratext.ScrVers scrVers)
+		{
+			if (basedOnBlock.CharacterIdOverrideForScript == null)
+				SetCharacterAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
+			SetCharacterAndDeliveryInfo(basedOnBlock);
+		}
+
+		private void SetCharacterAndDeliveryInfo(Block basedOnBlock)
 		{
 			CharacterId = basedOnBlock.CharacterId;
-			CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
+			if (basedOnBlock.CharacterIdOverrideForScript != null)
+				CharacterIdOverrideForScript = basedOnBlock.CharacterIdOverrideForScript;
 			Delivery = basedOnBlock.Delivery;
 		}
 

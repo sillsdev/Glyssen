@@ -598,19 +598,63 @@ namespace GlyssenTests
 			Assert.AreEqual("angels, all the", angelsSpeakingInRev712.CharacterIdInScript);
 		}
 
-		[Test]
-		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock()
+		[TestCase("humming")]
+		[TestCase("")]
+		[TestCase(null)]
+		public void MigrateDeprecatedCharacterIds_DeliveryChanged_DeliveryChangedInBlock(string initialDelivery)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
 			foreach (var block in singersInRev59)
-				block.Delivery = "humming";
+				block.Delivery = initialDelivery;
 
 			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
 			Assert.True(singersInRev59.All(b => b.CharacterId == "four living creatures/twenty-four elders" &&
 				b.Delivery == "singing"));
+		}
+
+		[TestCase("Bartimaeus (a blind man)", "humming", "shouting")]
+		[TestCase("Bartimaeus (a blind man)", "", "shouting")]
+		[TestCase("crowd, many in the", null, "rebuking")]
+		public void MigrateDeprecatedCharacterIds_DeliveryChangedForOneOfTwoCharactersInVerse_DeliveryChangedInBlock(string character, string initialDelivery, string expectedDelivery)
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = character;
+			block.Delivery = initialDelivery;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(expectedDelivery, block.Delivery);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserConfirmed_ClearsUserConfirmed()
+		{
+			// Note: this scenario was caused by a bug in a previous version of this method.
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.UserConfirmed = true;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(false, block.UserConfirmed);
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_ExistingAmbiguousUserNotConfirmed_NoChanges()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var block = testProject.IncludedBooks.Single().GetBlocksForVerse(18, 39).Last();
+			block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
+			block.UserConfirmed = false;
+
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+			Assert.AreEqual(false, block.UserConfirmed);
 		}
 
 		[Test]
@@ -677,6 +721,53 @@ namespace GlyssenTests
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, unexpectedPeterInRev711.CharacterId);
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
 		}
+
+		[Test]
+		public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasNoExplicitDefault_FirstCharacterIsUsed()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+			var jesusSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(1);
+			jesusSpeakingInMrk59.SetCharacterAndCharacterIdInScript("Jesus", 66);
+			jesusSpeakingInMrk59.UserConfirmed = true;
+			var demonSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(3);
+			demonSpeakingInMrk59.CharacterId = "demons (Legion)/man delivered from Legion of demons";
+			demonSpeakingInMrk59.CharacterIdOverrideForScript = null;
+			demonSpeakingInMrk59.UserConfirmed = true;
+
+			Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+
+			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterId);
+			Assert.AreEqual("Jesus", jesusSpeakingInMrk59.CharacterIdInScript);
+			Assert.IsTrue(jesusSpeakingInMrk59.UserConfirmed);
+			Assert.AreEqual("demons (Legion)/man delivered from Legion of demons", demonSpeakingInMrk59.CharacterId);
+			Assert.AreEqual("demons (Legion)", demonSpeakingInMrk59.CharacterIdInScript);
+			Assert.IsTrue(demonSpeakingInMrk59.UserConfirmed);
+		}
+
+		// The only place in the NT where this is likely to have occurred wwas John 11:34, but we don't have John test data, and it didn't seem worth it.
+		//[Test]
+		//public void MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides_ControlFileHasExplicitDefault_ExplicitDefaultCharacterIsUsed()
+		//{
+		//	var testProject = TestProject.CreateTestProject(TestProject.TestBook.JHN);
+		//	TestProject.SimulateDisambiguationForAllBooks(testProject);
+		//	var jesusSpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(1);
+		//	jesusSpeakingInJhn1134.SetCharacterAndCharacterIdInScript("Jesus", 66);
+		//	jesusSpeakingInJhn1134.UserConfirmed = true;
+		//	var marySpeakingInJhn1134 = testProject.IncludedBooks.Single().GetBlocksForVerse(11, 34).ElementAt(3);
+		//	marySpeakingInJhn1134.CharacterId = "Jews, the/Mary, sister of Martha/Martha";
+		//	marySpeakingInJhn1134.CharacterIdOverrideForScript = null;
+		//	marySpeakingInJhn1134.UserConfirmed = true;
+
+		//	Assert.AreEqual(1, ProjectDataMigrator.MigrateInvalidCharacterIdsWithoutCharacterIdInScriptOverrides(testProject));
+
+		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterId);
+		//	Assert.AreEqual("Jesus", jesusSpeakingInJhn1134.CharacterIdInScript);
+		//	Assert.IsTrue(jesusSpeakingInJhn1134.UserConfirmed);
+		//	Assert.AreEqual("Jews, the/Mary, sister of Martha/Martha", marySpeakingInJhn1134.CharacterId);
+		//	Assert.AreEqual("Mary, sister of Martha", marySpeakingInJhn1134.CharacterIdInScript);
+		//	Assert.IsTrue(marySpeakingInJhn1134.UserConfirmed);
+		//}
 
 		[TestCase("c")]
 		[TestCase("cl")]

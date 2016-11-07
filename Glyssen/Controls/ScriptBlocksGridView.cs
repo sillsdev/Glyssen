@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DesktopAnalytics;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using L10NSharp;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen.Controls
@@ -28,13 +32,22 @@ namespace Glyssen.Controls
 		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
 		{
 			base.OnRowHeightChanged(e);
-			if (!m_updatingContext && SelectedRows.Count > 0)
+			this.SafeInvoke(() =>
 			{
-				var firstRow = SelectedRows[SelectedRows.Count - 1].Index;
-				var lastRow = SelectedRows[0].Index;
-				if (e.Row.Index > firstRow - 5 && e.Row.Index < lastRow + 2)
-					this.SafeInvoke(() => ScrollDesiredRowsIntoView(firstRow, lastRow), true);
-			}
+				if (!m_updatingContext && SelectedRows.Count > 0)
+				{
+					var firstRow = SelectedRows[SelectedRows.Count - 1].Index;
+					// When first initializing or moving to a different row (in a different book?), we
+					// can briefly get into a state where the selected row is out of range. I'd like to
+					// understand this better to prevent it higher up by clearing the SelectedRows
+					// collection, but this first check seems like a safe/robust way to prevent a crash.
+					if (firstRow >= RowCount || e.Row.Index <= firstRow - 5)
+						return;
+					var lastRow = SelectedRows[0].Index;
+					if (e.Row.Index < lastRow + 2)
+						ScrollDesiredRowsIntoView(firstRow, lastRow);
+				}
+			}, true);
 		}
 
 		protected override void OnCellMouseDown(DataGridViewCellMouseEventArgs e)
@@ -360,7 +373,31 @@ namespace Glyssen.Controls
 		{
 			if (m_viewModel.CurrentReferenceTextMatchup != null)
 			{
-				FirstDisplayedScrollingRowIndex = firstRow;
+				try
+				{
+					FirstDisplayedScrollingRowIndex = firstRow;
+				}
+				catch (Exception exception)
+				{
+					Analytics.ReportException(exception, new Dictionary<string, string>
+					{
+						{"firstRow", firstRow.ToString()},
+						{"lastRow", lastRow.ToString()},
+						{"RowCount", RowCount.ToString()},
+						{"existing FirstDisplayedScrollingRowIndex", FirstDisplayedScrollingRowIndex.ToString()},
+						{"m_viewModel.CurrentBookId", m_viewModel.CurrentBookId},
+					});
+					ErrorReport.ReportNonFatalExceptionWithMessage(exception,
+						"Although this is not a fatal error, the Glyssen developers are trying to find the cause of this problem (PG-810) so it can be fixed." +
+						" Please report this if possible." + Environment.NewLine +
+						"firstRow = " + firstRow + Environment.NewLine +
+						"lastRow = " + lastRow + Environment.NewLine +
+						"RowCount = " + RowCount + Environment.NewLine +
+						"existing FirstDisplayedScrollingRowIndex = " + FirstDisplayedScrollingRowIndex + Environment.NewLine +
+						"m_viewModel.CurrentBookId = " + m_viewModel.CurrentBookId + Environment.NewLine +
+						"IndexOfStartBlockInBook = " + m_viewModel.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + Environment.NewLine +
+						"CorrelatedBlocks.Count = " + m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
+				}
 			}
 			else
 			{

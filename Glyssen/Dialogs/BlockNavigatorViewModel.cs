@@ -614,7 +614,8 @@ namespace Glyssen.Dialogs
 				}
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
-				var indicesOfCurrentLocation = m_temporarilyIncludedBlock ?? m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
+				var indicesOfCurrentLocation = m_currentRefBlockMatchups == null ? m_temporarilyIncludedBlock :
+					m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.Last());
 				return s_bookBlockComparer.Compare(m_relevantBlocks.Last(), indicesOfCurrentLocation) > 0;
 			}
 		}
@@ -745,7 +746,7 @@ namespace Glyssen.Dialogs
 				CurrentBlockIndexInBook, m_project.Versification);
 			if (m_currentRefBlockMatchups != null)
 			{
-				m_currentRefBlockMatchups.MatchAllBlocks();
+				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
 				// REVIEW: We might want to keep track of which style the user prefers.
 				BlockGroupingStyle = BlockGroupingType.BlockCorrelation;
 			}
@@ -777,7 +778,7 @@ namespace Glyssen.Dialogs
 			var insertionIndex = m_currentBlockIndex;
 			foreach (var block in m_currentRefBlockMatchups.OriginalBlocks)
 				m_relevantBlocks.Remove(m_navigator.GetIndicesOfSpecificBlock(block));
-			m_currentRefBlockMatchups.Apply();
+			m_currentRefBlockMatchups.Apply(m_project.Versification);
 			if (insertionIndex < 0)
 			{
 				var indicesOfFirstBlock = m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());

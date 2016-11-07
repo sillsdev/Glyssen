@@ -20,6 +20,7 @@ namespace DevTools
 			Console.WriteLine("9) Generate standard reference texts from Excel spreadsheet");
 			Console.WriteLine("10) Link standard reference texts to English");
 			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
+			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
@@ -38,6 +39,7 @@ namespace DevTools
 				case "9": errorOccurred = !ReferenceTextUtility.GenerateReferenceTexts(false, false); break;
 				case "10": errorOccurred = !ReferenceTextUtility.LinkToEnglish(); break;
 				case "11": ReferenceTextUtility.GenerateReferenceTexts(false, true); break;
+				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
 			}
 
 			if (errorOccurred)
@@ -53,13 +55,13 @@ namespace DevTools
 			Console.WriteLine("");
 			Console.WriteLine("1) All");
 			Console.WriteLine("2) English");
-			Console.WriteLine("3) Azeri");
-			Console.WriteLine("4) French");
-			Console.WriteLine("5) Indonesian");
-			Console.WriteLine("6) Portuguese");
+			//Console.WriteLine("3) Azeri");
+			//Console.WriteLine("4) French");
+			//Console.WriteLine("5) Indonesian");
+			//Console.WriteLine("6) Portuguese");
 			Console.WriteLine("7) Russian");
-			Console.WriteLine("8) Spanish");
-			Console.WriteLine("9) Tok Pisin");
+			//Console.WriteLine("8) Spanish");
+			//Console.WriteLine("9) Tok Pisin");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
@@ -67,13 +69,13 @@ namespace DevTools
 			switch (selection)
 			{
 				case "2": type = ReferenceTextType.English; break;
-				case "3": type = ReferenceTextType.Azeri; break;
-				case "4": type = ReferenceTextType.French; break;
-				case "5": type = ReferenceTextType.Indonesian; break;
-				case "6": type = ReferenceTextType.Portuguese; break;
+				//case "3": type = ReferenceTextType.Azeri; break;
+				//case "4": type = ReferenceTextType.French; break;
+				//case "5": type = ReferenceTextType.Indonesian; break;
+				//case "6": type = ReferenceTextType.Portuguese; break;
 				case "7": type = ReferenceTextType.Russian; break;
-				case "8": type = ReferenceTextType.Spanish; break;
-				case "9": type = ReferenceTextType.TokPisin; break;
+				//case "8": type = ReferenceTextType.Spanish; break;
+				//case "9": type = ReferenceTextType.TokPisin; break;
 			}
 			ReferenceTextUtility.GenerateReferenceTexts(true, false, type);
 		}
