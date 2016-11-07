@@ -1468,6 +1468,10 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
 			SetVoiceActors(34, 4);
+			// TeamCity debugging code:
+			m_testProject.SetDefaultCharacterGroupGenerationPreferences();
+			Assert.AreEqual(CastSizeOption.MatchVoiceActorList, m_testProject.CharacterGroupGenerationPreferences.CastSizeOption);
+
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 
 			Assert.AreEqual(38, groups.Count);
