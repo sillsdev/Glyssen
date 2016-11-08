@@ -220,8 +220,10 @@ namespace Glyssen
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
-						if (block.CharacterIsUnclear())
-							throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
+						Debug.Assert(!block.CharacterIsUnclear(),
+							"Character in reference block not set: " + refBlock + ". This is probably the result of a bug in a " +
+							"previous version of Glyssen that allowed ref block assignment without specifying the character. It " +
+							"seems to be safe to ignore this.");
 						block.UserConfirmed = true; // This does not affect original block until Apply is called
 					}
 				}
