@@ -227,14 +227,7 @@ namespace Glyssen
 				}
 				else
 				{
-					var refBlock = new Block(block.StyleTag, block.ChapterNumber, block.InitialStartVerseNumber,
-						block.InitialEndVerseNumber);
-					refBlock.SetCharacterAndDeliveryInfo(block, bookNum, versification);
-					if (block.ReferenceBlocks.Any())
-						refBlock.AppendJoinedBlockElements(block.ReferenceBlocks, m_referenceLanguageInfo);
-					else
-						refBlock.BlockElements.Add(new ScriptText(""));
-					block.SetMatchedReferenceBlock(refBlock);
+					block.SetMatchedReferenceBlock(bookNum, versification, m_referenceLanguageInfo);
 				}
 			}
 		}
