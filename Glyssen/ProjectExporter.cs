@@ -492,7 +492,7 @@ namespace Glyssen
 				if (book.SingleVoice)
 					singleVoiceNarratorOverride = CharacterVerseData.GetStandardCharacterId(book.BookId,
 						CharacterVerseData.StandardCharacter.Narrator);
-				Block precedingBlockWithMismatchedReferenceBlocks = null;
+				List<Block> pendingMismatchedReferenceBlocks = null;
 				foreach (var block in book.GetScriptBlocks())
 				{
 					if (block.IsChapterAnnouncement && block.ChapterNumber == 1)
@@ -513,22 +513,21 @@ namespace Glyssen
 
 					if (includeInOutput)
 					{
-						if (precedingBlockWithMismatchedReferenceBlocks != null)
+						if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
 						{
-							if (precedingBlockWithMismatchedReferenceBlocks.StartsAtVerseStart && block.StartsAtVerseStart)
-							foreach (var refBlock in precedingBlockWithMismatchedReferenceBlocks.ReferenceBlocks)
+							foreach (var refBlock in pendingMismatchedReferenceBlocks)
 								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
-							precedingBlockWithMismatchedReferenceBlocks = null;
+							pendingMismatchedReferenceBlocks = null;
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
 							Project.ReferenceText.HasSecondaryReferenceText));
-					if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
-							precedingBlockWithMismatchedReferenceBlocks = block;
+						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
+							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
 				}
-				if (precedingBlockWithMismatchedReferenceBlocks != null)
+				if (pendingMismatchedReferenceBlocks != null)
 				{
-					foreach (var refBlock in precedingBlockWithMismatchedReferenceBlocks.ReferenceBlocks)
+					foreach (var refBlock in pendingMismatchedReferenceBlocks)
 						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 				}
 			}
