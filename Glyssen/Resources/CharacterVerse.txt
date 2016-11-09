@@ -12322,7 +12322,7 @@ MAT	17	16	father of demon-possessed boy	distraught	a man (father of demon-posses
 MAT	17	17	Jesus	exasperated		Dialogue		
 MAT	17	17	Jesus	giving orders		Dialogue		
 MAT	17	18	Jesus	rebuking		Indirect		
-MAT	17	19	disciples	upset		Dialogue		
+MAT	17	19	disciples	upset		Dialogue		MAT 17.19;MRK 9.28
 MAT	17	20	Jesus			Dialogue		
 MAT	17	21	Jesus			Potential		
 MAT	17	22	Jesus			Normal		
@@ -12333,7 +12333,7 @@ MAT	17	25	Peter (Simon)			Dialogue
 MAT	17	26	Jesus			Dialogue		
 MAT	17	26	Peter (Simon)			Dialogue		
 MAT	17	27	Jesus			Normal		
-MAT	18	1	disciples			Dialogue		
+MAT	18	1	disciples			Dialogue		MAT 18.1;MRK 9.34;LUK 9.46
 MAT	18	3	Jesus			Dialogue		
 MAT	18	4	Jesus			Normal		
 MAT	18	5	Jesus			Normal		
@@ -12367,16 +12367,17 @@ MAT	18	32	Jesus			Normal
 MAT	18	33	Jesus			Normal		
 MAT	18	34	Jesus			Normal		
 MAT	18	35	Jesus			Normal		
-MAT	19	3	Pharisees, some	challenging		Dialogue		
+MAT	19	3	Pharisees, some	challenging		Dialogue		MAT 19.3;MRK 10.2
 MAT	19	4	Jesus			Dialogue		
 MAT	19	5	Jesus			Normal		
 MAT	19	6	Jesus			Normal		
-MAT	19	7	Pharisees, some	challenging		Dialogue		
+MAT	19	7	Pharisees, some	challenging		Dialogue		MAT 19.7;MRK 10.4
 MAT	19	8	Jesus			Dialogue		
 MAT	19	9	Jesus			Normal		
 MAT	19	10	disciples	shocked		Dialogue		
 MAT	19	11	Jesus			Dialogue		
 MAT	19	12	Jesus			Normal		
+MAT	19	13	disciples	rebuking		Indirect		MAT 19.13;MRK 10.13;LUK 18.15
 MAT	19	14	Jesus			Normal		
 MAT	19	16	rich young ruler	respectful	man (young)	Dialogue		MAT 19.16;MRK 10.17;LUK 18.18
 MAT	19	17	Jesus			Dialogue		
@@ -13006,11 +13007,11 @@ MRK	9	23	Jesus			Dialogue
 MRK	9	24	father of demon-possessed boy			Dialogue		
 MRK	9	25	Jesus	giving orders		Dialogue		
 MRK	9	26	many in crowd	murmuring		Normal		
-MRK	9	28	disciples	upset		Dialogue		
+MRK	9	28	disciples	upset		Dialogue		MAT 17.19;MRK 9.28
 MRK	9	29	Jesus			Dialogue		
 MRK	9	31	Jesus			Normal		
 MRK	9	33	Jesus	questioning		Normal		
-MRK	9	34	disciples	arguing		Indirect		
+MRK	9	34	disciples	arguing		Indirect		MAT 18.1;MRK 9.34;LUK 9.46
 MRK	9	35	Jesus	instructing		Normal		
 MRK	9	37	Jesus	instructing		Normal		
 MRK	9	38	John		John (disciple whom Jesus loved)	Dialogue		
@@ -13026,9 +13027,9 @@ MRK	9	47	Jesus			Normal
 MRK	9	48	Jesus			Normal		
 MRK	9	49	Jesus			Normal		
 MRK	9	50	Jesus			Normal		
-MRK	10	2	Pharisees, some	questioning		Normal		
+MRK	10	2	Pharisees, some	questioning		Normal		MAT 19.3;MRK 10.2
 MRK	10	3	Jesus	questioning		Dialogue		
-MRK	10	4	Pharisees, some			Dialogue		
+MRK	10	4	Pharisees, some			Dialogue		MAT 19.7;MRK 10.4
 MRK	10	5	Jesus			Dialogue		
 MRK	10	6	Jesus			Normal		
 MRK	10	7	Jesus			Normal		
@@ -13037,7 +13038,7 @@ MRK	10	9	Jesus			Normal
 MRK	10	10	disciples			Indirect		
 MRK	10	11	Jesus			Dialogue		
 MRK	10	12	Jesus			Normal		
-MRK	10	13	disciples			Indirect		
+MRK	10	13	disciples	rebuking		Indirect		MAT 19.13;MRK 10.13;LUK 18.15
 MRK	10	14	Jesus			Normal		
 MRK	10	15	Jesus			Normal		
 MRK	10	16	Jesus			Indirect		
@@ -13581,7 +13582,7 @@ LUK	9	41	Jesus	giving orders		Dialogue
 LUK	9	42	Jesus	rebuking		Indirect		
 LUK	9	43	everyone who witnessed healing of boy	praising		Indirect		
 LUK	9	44	Jesus			Dialogue		
-LUK	9	46	disciples	arguing		Indirect		
+LUK	9	46	disciples	arguing		Indirect		MAT 18.1;MRK 9.34;LUK 9.46
 LUK	9	48	Jesus			Dialogue		
 LUK	9	49	John		John (disciple whom Jesus loved)	Dialogue		
 LUK	9	50	Jesus			Dialogue		
@@ -13916,7 +13917,7 @@ LUK	18	11	Jesus			Normal
 LUK	18	12	Jesus			Normal		
 LUK	18	13	Jesus			Normal		
 LUK	18	14	Jesus			Normal		
-LUK	18	15	disciples			Indirect		
+LUK	18	15	disciples	rebuking		Indirect		MAT 19.13;MRK 10.13;LUK 18.15
 LUK	18	16	Jesus			Normal		
 LUK	18	17	Jesus			Normal		
 LUK	18	18	rich young ruler	respectful	ruler	Dialogue		MAT 19.16;MRK 10.17;LUK 18.18
