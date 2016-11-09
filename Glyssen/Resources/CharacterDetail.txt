@@ -243,7 +243,7 @@ Demetrius the silversmith	1	Male				ACT 19:25 <-(1 more)-> ACT 19:27
 demons (Legion)	-1	Male				
 demons coming out of people	-1					LUK 4:41
 disciple who wanted to bury his father	1	Male				MAT 8:21 & LUK 9:59
-disciples	11	Male				MAT 8:25 <-(74 more)-> ACT 21:4
+disciples	11	Male				MAT 8:25 <-(75 more)-> ACT 21:4
 disciples (but not Thomas)	10	Male				JHN 20:25
 disciples in Ephesus, some	-1					ACT 19:2 & ACT 19:3
 disciples of John the Baptist	-1	Male				MAT 9:14 <-(1 more)-> LUK 7:20
@@ -489,7 +489,7 @@ Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeroboam	1	Male				1KI 12:26 <-(6 more)-> 1KI 14:3
 Jeshua	1	Male				
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		MAT 3:15 <-(2098 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		MAT 3:15 <-(2100 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
@@ -649,6 +649,7 @@ men of David	-1	Male				2SA 18:3
 men of David, one	1	Male				2SA 18:10 <-(1 more)-> 2SA 18:13
 men of Enaim	-1	Male				GEN 38:21
 men of Gerar	-1	Male				GEN 26:7
+men of Gennesaret	-1	Male				MAT 14:35
 men of Jabesh	-1	Male				1SA 11:10
 men of Jericho	-1	Male				2KI 2:19
 men of Sodom (wicked)	-1	Male				GEN 19:5 & GEN 19:9
@@ -807,10 +808,9 @@ people, arrogant wicked	-1					PSA 73:11
 people, God's	-1					ISA 25:9
 people, hurried	-1					ISA 5:19
 people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10
-people, many (at Gennesaret)	-1					MAT 14:36
+people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56
 people, other	-1					MRK 6:15 & LUK 9:8
 people, righteous	-1					PSA 52:7 & PSA 92:15
-people, sick	-1					MRK 6:56
 people, some	-1					MRK 2:18 <-(1 more)-> MRK 8:22
 people, still others	-1					MRK 6:15
 peoples, many	-1					ISA 2:3
