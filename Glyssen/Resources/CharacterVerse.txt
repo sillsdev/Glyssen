@@ -12242,6 +12242,8 @@ MAT	14	17	Andrew		disciples	Dialogue		MAT 14.17;MRK 6.38;LUK 9.13;JHN 6.9
 MAT	14	18	Jesus	giving orders		Dialogue		
 MAT	14	19	Jesus	ordering		Indirect		
 MAT	14	19	Jesus	praying		Indirect		
+MAT	14	22	Jesus			Indirect		
+MAT	14	23	Jesus			Indirect		
 MAT	14	26	disciples			Dialogue		
 MAT	14	27	Jesus	forcefully		Dialogue		
 MAT	14	28	Peter (Simon)	calling out		Dialogue		
