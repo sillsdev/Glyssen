@@ -358,6 +358,8 @@ namespace Glyssen.Dialogs
 						if (string.IsNullOrEmpty(delivery))
 							delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
 						row.Cells[colDelivery.Index].Value = delivery;
+						row.Cells[colDelivery.Index].ReadOnly =
+							(row.Cells[colCharacter.Index].Value as AssignCharacterViewModel.Character) == AssignCharacterViewModel.Character.Narrator;
 					}
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
@@ -1179,9 +1181,20 @@ namespace Glyssen.Dialogs
 						selectedCharacter =
 							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
 					}
+
+					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator)
+					{
+						// Narrators are never allowed to have a delivery other than normal.
+						// Unfortunately, by the time we call IsBlockAssignedToUnknownCharacterDeliveryPair below,
+						// the line that sets the character in the reference text matchup will have already reset
+						// the delivery. This leaves the UI out of synch with the data in the block, so we need
+						// to fix that first.
+						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value =
+							AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
+					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 
-					var block = matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y];
+					var block = matchup.CorrelatedBlocks[e.RowIndex];
 					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
 					{
 						// The first one should always be "normal" - we want a more specific one, if any.
@@ -1190,6 +1203,12 @@ namespace Glyssen.Dialogs
 							? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
 							: delivery.LocalizedDisplay;
 						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+					}
+
+					if (colDelivery.Visible)
+					{
+						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].ReadOnly =
+							selectedCharacter == AssignCharacterViewModel.Character.Narrator;
 					}
 				}
 				UpdateInsertHeSaidButtonState();
