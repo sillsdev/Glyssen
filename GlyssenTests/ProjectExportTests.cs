@@ -249,11 +249,9 @@ namespace GlyssenTests
 				new CharacterGroup(project),
 				new CharacterGroup(project)
 			});
-			var narratorGal = CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator);
-			var narratorJud = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
-			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add(narratorGal);
+			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator));
 			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
-			project.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(narratorJud);
+			project.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator));
 			project.CharacterGroupList.CharacterGroups[1].AssignVoiceActor(2);
 
 			var exporter = new ProjectExporter(project);
@@ -264,10 +262,11 @@ namespace GlyssenTests
 			var iColCharacter = exporter.GetColumnIndex(ExportColumn.CharacterId);
 			var iColActor = exporter.GetColumnIndex(ExportColumn.Actor);
 			var iStartOfJude = data.IndexOf(d => (string)d[iColBook] == "JUD");
+			Assert.IsTrue(iStartOfJude > 0);
 			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColBook] == "GAL"));
 			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColBook] == "JUD"));
-			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColCharacter] == narratorGal));
-			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColCharacter] == narratorJud));
+			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColCharacter] == "narrator (GAL)"));
+			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColCharacter] == "narrator (JUD)"));
 			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColActor] == "Marlon"));
 			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColActor] == "Aiden"));
 		}
@@ -766,10 +765,10 @@ namespace GlyssenTests
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText)));
 			expectedLine.Insert(1, "\tActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText)));
 		}
 
 		[TestCase(true)]
@@ -791,10 +790,10 @@ namespace GlyssenTests
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, includeSecondaryReferenceText)));
 			expectedLine.Insert(1, "\tActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText)));
 		}
 
 		[TestCase(true)]
@@ -818,10 +817,10 @@ namespace GlyssenTests
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, "narrator-MRK", true, true, includeSecondaryReferenceText)));
 			expectedLine.Insert(1, "\tActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, "narrator-MRK", true, true, includeSecondaryReferenceText)));
 		}
 
 		[Test]
@@ -843,10 +842,10 @@ namespace GlyssenTests
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, false)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, true, true, false)));
 			expectedLine.Insert(1, "\tActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, false)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, false)));
 		}
 
 		[Test]
@@ -868,10 +867,10 @@ namespace GlyssenTests
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false, false)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", null, null, false, true, false)));
 			expectedLine.Insert(1, "\tActorGuy1");
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false, false)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, false, true, false)));
 		}
 
 		[TestCase(true)]
@@ -896,7 +895,7 @@ namespace GlyssenTests
 				expectedLine.Append("\t");
 			expectedLine.Append(textLength);
 			Assert.AreEqual(expectedLine.ToString(),
-				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, includeSecondaryReferenceText)));
+				ProjectExporter.GetTabSeparatedLine(ProjectExporter.GetExportDataForBlock(block, 0, "MRK", actor, null, true, true, includeSecondaryReferenceText)));
 		}
 	}
 }
