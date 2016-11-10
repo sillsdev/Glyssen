@@ -60,6 +60,7 @@ namespace GlyssenTests
 
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
+			Assert.True(data.Any());
 			Assert.True(data.All(t => t.Count == 11));
 		}
 
@@ -230,6 +231,45 @@ namespace GlyssenTests
 			Assert.AreEqual(1, data[4]);
 			Assert.AreEqual("9", data[5]);
 			Assert.AreEqual("Michael, archangel", (string)data[6]);
+		}
+
+		[Test]
+		public void GetExportData_SingleVoice_DeliveryColumnOmitted()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.JUD);
+			project.IncludedBooks[0].SingleVoice = true;
+			project.IncludedBooks[1].SingleVoice = true;
+			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
+			{
+				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marlon" },
+				new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Aiden" }
+			};
+			project.CharacterGroupList.CharacterGroups.AddRange(new[]
+			{
+				new CharacterGroup(project),
+				new CharacterGroup(project)
+			});
+			var narratorGal = CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator);
+			var narratorJud = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+			project.CharacterGroupList.CharacterGroups[0].CharacterIds.Add(narratorGal);
+			project.CharacterGroupList.CharacterGroups[0].AssignVoiceActor(1);
+			project.CharacterGroupList.CharacterGroups[1].CharacterIds.Add(narratorJud);
+			project.CharacterGroupList.CharacterGroups[1].AssignVoiceActor(2);
+
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Count > 2);
+			Assert.IsTrue(data.All(d => d.Count == 10));
+			var iColBook = exporter.GetColumnIndex(ExportColumn.BookId);
+			var iColCharacter = exporter.GetColumnIndex(ExportColumn.CharacterId);
+			var iColActor = exporter.GetColumnIndex(ExportColumn.Actor);
+			var iStartOfJude = data.IndexOf(d => (string)d[iColBook] == "JUD");
+			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColBook] == "GAL"));
+			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColBook] == "JUD"));
+			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColCharacter] == narratorGal));
+			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColCharacter] == narratorJud));
+			Assert.IsTrue(data.Take(iStartOfJude).All(d => (string)d[iColActor] == "Marlon"));
+			Assert.IsTrue(data.Skip(iStartOfJude).All(d => (string)d[iColActor] == "Aiden"));
 		}
 
 		[Test]

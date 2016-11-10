@@ -6,6 +6,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using NUnit.Framework;
 using Paratext;
+using SIL.Extensions;
 
 namespace GlyssenTests.Dialogs
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using Paratext;
+using SIL.Extensions;
 
 namespace Glyssen
 {
@@ -421,22 +422,23 @@ namespace Glyssen
 		#endregion
 	}
 
-	public static class IEnumerableExtensions
-	{
-		public static int IndexOf<T>(this IEnumerable<T> enumeration, T item)
-		{
-			return enumeration.IndexOf(a => Equals(a, item));
-		}
+	//public static class IEnumerableExtensions
+	//{
+	//	public static int IndexOf<T>(this IEnumerable<T> enumeration, T item)
+	//	{
+	//		SIL.Extensions.CollectionExtensions.IndexOf()
+	//		return enumeration.IndexOf(a => Equals(a, item));
+	//	}
 
-		public static int IndexOf<T>(this IEnumerable<T> enumeration, Func<T, bool> match)
-		{
-			var list = enumeration.ToList();
-			for (int i = 0; i < list.Count; i++)
-			{
-				if (match(list[i]))
-					return i;
-			}
-			return -1;
-		}
-	}
+	//	public static int IndexOf<T>(this IEnumerable<T> enumeration, Func<T, bool> match)
+	//	{
+	//		var list = enumeration.ToList();
+	//		for (int i = 0; i < list.Count; i++)
+	//		{
+	//			if (match(list[i]))
+	//				return i;
+	//		}
+	//		return -1;
+	//	}
+	//}
 }
