@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -113,6 +115,81 @@ namespace GlyssenTests
 			var data = exporter.GetExportData();
 			var chapterBlockForEphesians = data.Single(t => (string)t[1] == "c" && (int)t[3] == 1);
 			Assert.AreEqual("EPH", chapterBlockForEphesians[2]);
+		}
+
+		[Test]
+		public void GetExportData_IntrosIncluded_IntroMaterialInExportData()
+		{
+			var expectedIntroParagraphs = Regex.Matches(Properties.Resources.TestJOS, "para style=\"i", RegexOptions.Compiled).Count;
+			Assert.IsTrue(expectedIntroParagraphs > 0, "The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS);
+			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Any());
+			Assert.AreEqual(expectedIntroParagraphs, data.Count(t => ((string)t[1]).StartsWith("i", StringComparison.Ordinal)));
+		}
+
+		[Test]
+		public void GetExportData_IntrosOmitted_NoIntroMaterialInExportData()
+		{
+			Assert.IsTrue(Regex.Matches(Properties.Resources.TestJOS, "para style=\"i", RegexOptions.Compiled).Count > 0,
+				"The test resource \"TestJos.xml\" has been modified to remove intro material. It won't work for this test.");
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS);
+			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Any());
+			Assert.IsFalse(data.Any(t => ((string)t[1]).StartsWith("i", StringComparison.Ordinal)));
+		}
+
+		[Test]
+		public void GetExportData_SectionHeadsIncluded_SectionHeadsInExportData()
+		{
+			var expectedSectionHeadParagraphs = Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count;
+			Assert.IsTrue(expectedSectionHeadParagraphs > 0, "The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Any());
+			Assert.AreEqual(expectedSectionHeadParagraphs, data.Count(t => ((string)t[1]).StartsWith("s", StringComparison.Ordinal)));
+		}
+
+		[Test]
+		public void GetExportData_SectionHeadsOmitted_NoSectionHeadsInExportData()
+		{
+			Assert.IsTrue(Regex.Matches(Properties.Resources.TestJUD, "para style=\"s", RegexOptions.Compiled).Count > 0,
+				"The test resource \"TestJud.xml\" has been modified to remove section heads. It won't work for this test.");
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Any());
+			Assert.IsFalse(data.Any(t => ((string)t[1]).StartsWith("s", StringComparison.Ordinal)));
+		}
+
+		[Test]
+		public void GetExportData_TitlesAndChaptersIncluded_TitlesAndChaptersInExportData()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH);
+			var expected = project.SkipChapterAnnouncementForFirstChapter ? 6 : 7;
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Any());
+			Assert.AreEqual(expected, data.Count(t => (string)t[5] == "book title or chapter (EPH)"));
+		}
+
+		[Test]
+		public void GetExportData_TitlesAndChaptersOmitted_NoTitlesOrChaptersInExportData()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.EPH);
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData();
+			Assert.IsTrue(data.Any());
+			Assert.IsFalse(data.Any(t => ((string)t[5]) == "book title or chapter (EPH)"));
 		}
 
 		[Test]

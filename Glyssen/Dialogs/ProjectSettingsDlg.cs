@@ -52,15 +52,22 @@ namespace Glyssen.Dialogs
 				RemoveItemFromBookMarkerCombo(ChapterAnnouncement.MainTitle1);
 
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
-			LoadReferenceTextOptions();
+			HandleStringsLocalized();
 			LoadProjectDramatizationOptions();
 			ProjectSettingsViewModel = model;
 			UpdateQuotePageDisplay();
 		}
-		
+
 		private void HandleStringsLocalized()
 		{
 			LoadReferenceTextOptions();
+			var fmt = m_linkLblChangeOmittedChapterAnnouncements.Text;
+			var linkStartPos = fmt.IndexOf("{0}");
+			m_linkLblChangeOmittedChapterAnnouncements.Text = String.Format(fmt, m_tabPageScriptOptions.Text);
+			if (linkStartPos >= 0 && m_tabPageScriptOptions.Text.Length > 0)
+				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = new LinkArea(linkStartPos, m_tabPageScriptOptions.Text.Length);
+			else
+				m_linkLblChangeOmittedChapterAnnouncements.LinkArea = default(LinkArea);
 		}
 
 		private void LoadProjectDramatizationOptions()
@@ -260,15 +267,37 @@ namespace Glyssen.Dialogs
 
 		private void UpdateAnnouncementsPageDisplay()
 		{
-			m_lblExampleSubsequentChapterAnnouncement.Text = m_model.ExampleSubsequentChapterAnnouncement;
-			m_lblExampleFirstChapterAnnouncement.Text = m_model.ExampleFirstChapterAnnouncement;
-			m_lblExampleSingleChapterAnnouncement.Text = m_model.ExampleSingleChapterAnnouncement;
-			m_lblExampleTitleForMultipleChapterBook.Text = m_model.ExampleTitleForMultipleChapterBook;
-			m_lblExampleTitleForSingleChapterBook.Text = m_model.ExampleTitleForSingleChapterBook;
-			bool displayWarning = m_model.ChapterAnnouncementIsStrictlyNumeric;
-			m_lblChapterAnnouncementWarning.Visible = displayWarning;
-			m_lblExampleSubsequentChapterAnnouncement.ForeColor = displayWarning?
-				GlyssenColorPalette.ColorScheme.Warning : GlyssenColorPalette.ColorScheme.ForeColor;
+			var showChangeOmittedChapterAnnouncementsLabel = m_titleChapters.SelectedValue is ExtraBiblicalMaterialSpeakerOption &&
+				(ExtraBiblicalMaterialSpeakerOption) m_titleChapters.SelectedValue == ExtraBiblicalMaterialSpeakerOption.Omitted;
+
+			if (showChangeOmittedChapterAnnouncementsLabel)
+			{
+				m_linkLblChangeOmittedChapterAnnouncements.Visible = true;
+
+				m_lblExampleSubsequentChapterAnnouncement.Text = "";
+				m_lblExampleFirstChapterAnnouncement.Text = "";
+				m_lblExampleSingleChapterAnnouncement.Text = "";
+				m_lblExampleTitleForMultipleChapterBook.Text = "";
+				m_lblExampleTitleForSingleChapterBook.Text = "";
+			}
+			else
+			{
+				m_linkLblChangeOmittedChapterAnnouncements.Visible = false;
+
+				if (m_model != null)
+				{
+					m_lblExampleSubsequentChapterAnnouncement.Text = m_model.ExampleSubsequentChapterAnnouncement;
+					m_lblExampleFirstChapterAnnouncement.Text = m_model.ExampleFirstChapterAnnouncement;
+					m_lblExampleSingleChapterAnnouncement.Text = m_model.ExampleSingleChapterAnnouncement;
+					m_lblExampleTitleForMultipleChapterBook.Text = m_model.ExampleTitleForMultipleChapterBook;
+					m_lblExampleTitleForSingleChapterBook.Text = m_model.ExampleTitleForSingleChapterBook;
+					bool displayWarning = m_model.ChapterAnnouncementIsStrictlyNumeric;
+					m_lblChapterAnnouncementWarning.Visible = displayWarning;
+					m_lblExampleSubsequentChapterAnnouncement.ForeColor = displayWarning
+						? GlyssenColorPalette.ColorScheme.Warning
+						: GlyssenColorPalette.ColorScheme.ForeColor;
+				}
+			}
 		}
 
 		private void HandleOkButtonClick(object sender, EventArgs e)
@@ -532,6 +561,17 @@ namespace Glyssen.Dialogs
 
 			if (!string.IsNullOrEmpty(tgt))
 				System.Diagnostics.Process.Start(tgt);
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			m_tabControl.SelectedTab = m_tabPageScriptOptions;
+			m_titleChapters.Focus();
+		}
+
+		private void m_titleChapters_SelectedValueChanged(object sender, EventArgs e)
+		{
+			UpdateAnnouncementsPageDisplay();
 		}
 	}
 }
