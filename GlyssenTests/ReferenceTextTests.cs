@@ -16,6 +16,7 @@ using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Xml;
+using static System.String;
 using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests
@@ -638,7 +639,7 @@ namespace GlyssenTests
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
 			Assert.IsTrue(result.Single().MatchesReferenceText);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(string.Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].PrimaryReferenceText);
+			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].PrimaryReferenceText);
 		}
 
 		[Test]
@@ -1409,12 +1410,15 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
-			Assert.IsTrue(result[0].ReferenceBlocks.Select(b => b.GetText(true)).SequenceEqual(referenceBlocks.Take(2).Select(b => b.GetText(true))));
-			Assert.IsFalse(result[0].MatchesReferenceText);
+
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.AreEqual(Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), result[0].PrimaryReferenceText);
+
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
+
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[2].MatchesReferenceText);
@@ -1532,10 +1536,9 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(3, result.Count);
 
-			Assert.AreEqual(2, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[0].ReferenceBlocks[1].GetText(true));
-			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
+			Assert.AreEqual(referenceBlocks[0].GetText(true) + referenceBlocks[1].GetText(true), result[0].PrimaryReferenceText);
 
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
@@ -2477,7 +2480,7 @@ namespace GlyssenTests
 				CharacterId = characterId,
 			};
 			if (initialEndVerseNumber > 0)
-				block.AddVerse(String.Format("{0}-{1}", initialStartVerseNumber, initialEndVerseNumber), text);
+				block.AddVerse(Format("{0}-{1}", initialStartVerseNumber, initialEndVerseNumber), text);
 			else
 				block.AddVerse(initialStartVerseNumber, text);
 			return block;
@@ -2495,7 +2498,7 @@ namespace GlyssenTests
 				initialEndVerse = ScrReference.VerseToIntEnd(lastVerseElement.Number);
 			}
 
-			if (string.IsNullOrEmpty(styleTag))
+			if (IsNullOrEmpty(styleTag))
 				styleTag = lastBlock.StyleTag;
 
 			var block = new Block(styleTag, lastBlock.ChapterNumber, initialStartVerse, initialEndVerse)
