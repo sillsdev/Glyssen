@@ -8227,6 +8227,7 @@ MRK	10	52	Jesus			Dialogue
 MRK	11	2	Jesus			Normal		
 MRK	11	3	Jesus			Normal		
 MRK	11	5	owners of colt	suspicious	people standing there	Normal		MRK 11.5;LUK 19.33
+MRK	11	5	owners of colt		people standing there	Normal		MRK 11.5;LUK 19.33
 MRK	11	6	disciples		disciples, two of His	Indirect		
 MRK	11	6	people			Indirect		
 MRK	11	9	crowd preparing for Passover Feast	praising	crowd	Dialogue		MAT 21.9;MRK 11.9-10;LUK 19.38;JHN 12.13

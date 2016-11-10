@@ -1,4 +1,4 @@
-Control File Version	106
+Control File Version	107
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12251,7 +12251,8 @@ MAT	14	29	Jesus	giving orders		Dialogue
 MAT	14	30	Peter (Simon)	afraid		Dialogue		
 MAT	14	31	Jesus	questioning		Dialogue		
 MAT	14	33	disciples	awe	disciples (those in the boat)	Dialogue		
-MAT	14	36	people, many (at Gennesaret)			Indirect		
+MAT	14	35	men of Gennesaret			Indirect		
+MAT	14	36	people at Gennesaret (sick)			Indirect		MAT 14.36;MRK 6.56
 MAT	15	2	Pharisees/teachers of religious law	critical	Pharisees and teachers of the law	Dialogue		MAT 15.2;MRK 7.5
 MAT	15	3	Jesus			Dialogue		
 MAT	15	4	Jesus			Normal		
@@ -12920,7 +12921,7 @@ MRK	6	49	disciples	terrified		Indirect
 MRK	6	50	Jesus	reassuring		Normal		
 MRK	6	54	crowd		people	Indirect		
 MRK	6	55	crowd		people	Indirect		
-MRK	6	56	people, sick			Indirect		
+MRK	6	56	people at Gennesaret (sick)			Indirect		MAT 14.36;MRK 6.56
 MRK	7	2	narrator-MRK			Quotation		
 MRK	7	5	Pharisees/teachers of religious law	critical		Dialogue		MAT 15.2;MRK 7.5
 MRK	7	6	Jesus	rebuking		Dialogue		

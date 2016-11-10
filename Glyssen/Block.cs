@@ -260,6 +260,20 @@ namespace Glyssen
 			MatchesReferenceText = true;
 		}
 
+		public void SetMatchedReferenceBlock(int bookNum, Paratext.ScrVers versification,
+			IReferenceLanguageInfo referenceLanguageInfo, IEnumerable<Block> referenceBlocksToJoin = null)
+		{
+			if (referenceBlocksToJoin == null)
+				referenceBlocksToJoin = ReferenceBlocks;
+			var refBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber, InitialEndVerseNumber);
+			refBlock.SetCharacterAndDeliveryInfo(this, bookNum, versification);
+			if (referenceBlocksToJoin.Any())
+				refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
+			else
+				refBlock.BlockElements.Add(new ScriptText(""));
+			SetMatchedReferenceBlock(refBlock);
+		}
+
 		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
 		{
 			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
@@ -850,7 +864,7 @@ namespace Glyssen
 			Delivery = basedOnBlock.Delivery;
 		}
 
-		public void AppendJoinedBlockElements(List<Block> referenceBlocks, IReferenceLanguageInfo languageInfo)
+		public void AppendJoinedBlockElements(IEnumerable<Block> referenceBlocks, IReferenceLanguageInfo languageInfo)
 		{
 			var nestedRefBlocks = new List<Block>();
 
@@ -860,13 +874,16 @@ namespace Glyssen
 					nestedRefBlocks.Add(r.ReferenceBlocks.Single());
 				foreach (BlockElement element in r.BlockElements)
 				{
+					var prevScriptText = BlockElements.LastOrDefault() as ScriptText;
+					if (prevScriptText != null)
+						prevScriptText.Content = prevScriptText.Content.TrimEnd() + languageInfo.WordSeparator;
+
 					var scriptText = element as ScriptText;
 					if (scriptText != null)
 					{
-						var prevScriptText = BlockElements.LastOrDefault() as ScriptText;
 						if (prevScriptText != null)
 						{
-							prevScriptText.Content = prevScriptText.Content.TrimEnd() + languageInfo.WordSeparator + scriptText.Content;
+							prevScriptText.Content += scriptText.Content;
 							continue;
 						}
 					}

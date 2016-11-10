@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using DesktopAnalytics;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Properties;
 using L10NSharp;
@@ -503,27 +504,28 @@ namespace Glyssen
 							Project.Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
 							continue;
 					}
+
+					if (!Project.DramatizationPreferences.IncludeCharacter(block.CharacterId))
+						continue;
+
 					VoiceActor.VoiceActor voiceActor = null;
-					bool includeInOutput = true;
 					if (IncludeVoiceActors)
 					{
 						voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
-						includeInOutput = voiceActorId == -1 || voiceActor.Id == voiceActorId;
+						if (voiceActor.Id != voiceActorId)
+							continue;
 					}
 
-					if (includeInOutput)
+					if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
 					{
-						if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
-						{
-							foreach (var refBlock in pendingMismatchedReferenceBlocks)
-								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
-							pendingMismatchedReferenceBlocks = null;
-						}
-						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
-							Project.ReferenceText.HasSecondaryReferenceText));
-						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
-							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
+						foreach (var refBlock in pendingMismatchedReferenceBlocks)
+							result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
+						pendingMismatchedReferenceBlocks = null;
 					}
+					result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
+						Project.ReferenceText.HasSecondaryReferenceText));
+					if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
+						pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 				}
 				if (pendingMismatchedReferenceBlocks != null)
 				{

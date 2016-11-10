@@ -321,6 +321,15 @@ namespace Glyssen
 				int numberOfVernBlocksInVerseChunk = iVernBlock - indexOfVernVerseStart + 1;
 				int numberOfRefBlocksInVerseChunk = iRefBlock - indexOfRefVerseStart + 1;
 
+				if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk > 1)
+				{
+					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
+					// ref blocks into one and call it a match.
+					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(bookNum, vernacularVersification, this,
+						refBlockList.Skip(indexOfRefVerseStart).Take(numberOfRefBlocksInVerseChunk));
+					continue;
+				}
+
 				for (int i = 0; i < numberOfVernBlocksInVerseChunk && i < numberOfRefBlocksInVerseChunk; i++)
 				{
 					var vernBlockInVerseChunk = vernBlockList[indexOfVernVerseStart + i];
@@ -356,10 +365,20 @@ namespace Glyssen
 									break;
 							}
 						}
-						vernBlockList[iVernBlock].MatchesReferenceText = false;
-						vernBlockList[iVernBlock].ReferenceBlocks =
-							new List<Block>(refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfRefBlocksInVerseChunk - i - j));
-						iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
+						var numberOfUnmatchedRefBlocks = numberOfRefBlocksInVerseChunk - i - j;
+						var remainingRefBlocks = refBlockList.Skip(indexOfRefVerseStart + i).Take(numberOfUnmatchedRefBlocks);
+						if (numberOfVernBlocksInVerseChunk == 1 && numberOfUnmatchedRefBlocks > 1)
+						{
+							// Since there's only one vernacular block for this verse (or verse bridge), just combine all
+							// ref blocks into one and call it a match.
+							vernBlockInVerseChunk.SetMatchedReferenceBlock(bookNum, vernacularVersification, this, remainingRefBlocks);
+						}
+						else
+						{
+							vernBlockList[iVernBlock].MatchesReferenceText = false;
+							vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocks.ToList();
+							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
+						}
 
 						break;
 					}

@@ -439,14 +439,12 @@ namespace Glyssen.Dialogs
 
 			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond,
 			// so we need to check to see whether this has happened and, if so, add an appropriate entry to the project CV data.
-			foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(b => !String.IsNullOrEmpty(b.Delivery)))
+			foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(IsBlockAssignedToUnknownCharacterDeliveryPair))
 			{
-				if (IsBlockAssignedToUnknownCharacterDeliveryPair(block))
-				{
-					AddRecordToProjectCharacterVerseData(block,
-						GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
-						GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
-				}
+				AddRecordToProjectCharacterVerseData(block,
+					GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
+					string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal : 
+					GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
 			}
 
 			m_project.SaveBook(CurrentBook);
@@ -462,8 +460,13 @@ namespace Glyssen.Dialogs
 
 		public bool IsBlockAssignedToUnknownCharacterDeliveryPair(Block block)
 		{
+			if (block.CharacterIsStandard)
+			{
+				Debug.Assert(block.Delivery == null);
+				return false;
+			}
 			return !GetUniqueCharacterVerseObjectsForBlock(block).Any(cv => cv.Character == block.CharacterId &&
-				(String.IsNullOrEmpty(block.Delivery) || cv.Delivery == block.Delivery));
+				((cv.Delivery ?? "") == (block.Delivery ?? "")));
 		}
 
 		public void SetReferenceTextMatchupCharacter(int blockIndex, Character selectedCharacter)

@@ -203,6 +203,105 @@ namespace GlyssenTests.Dialogs
 			Assert.IsNull(characters[2].Alias);
 		}
 
+		[TestCase(null)]
+		[TestCase("")]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNormalDelivery_ControlFileHasOnlySpecificDeliveryForThisCharacter_ReturnsTrue(string delivery)
+		{
+			var block = new Block("p", 10, 49) { CharacterId = "crowd at Jericho", Delivery = delivery };
+			Assert.IsTrue(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasMatchingDelivery_ControlFileHasOnlySpecificDeliveryForThisCharacter_ReturnsFalse()
+		{
+			var block = new Block("p", 10, 49) { CharacterId = "crowd at Jericho", Delivery = "encouraging" };
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNonMatchingDelivery_ControlFileHasOnlySpecificDeliveryForThisCharacter_ReturnsTrue()
+		{
+			var block = new Block("p", 10, 49) { CharacterId = "crowd at Jericho", Delivery = "mumbling" };
+			Assert.IsTrue(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[TestCase(null)]
+		[TestCase("")]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNormalDelivery_ControlFileHasTwoSpecificDeliveries_ReturnsTrue(string delivery)
+		{
+			var block = new Block("p", 9, 19) { CharacterId = "Jesus", Delivery = delivery };
+			Assert.IsTrue(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[TestCase("exasperated")]
+		[TestCase("giving orders")]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasMatchingDelivery_ControlFileHasTwoSpecificDeliveries_ReturnsFalse(string delivery)
+		{
+			var block = new Block("p", 9, 19) { CharacterId = "Jesus", Delivery = delivery };
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNonMatchingDelivery_ControlFileHasTwoSpecificDeliveries_ReturnsTrue()
+		{
+			var block = new Block("p", 9, 19) { CharacterId = "Jesus", Delivery = "mumbling" };
+			Assert.IsTrue(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[TestCase(null)]
+		[TestCase("")]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNormalDelivery_ControlFileHasOnlyUnspecifiedDelivery_ReturnsFalse(string delivery)
+		{
+			var block = new Block("p", 9, 23) { CharacterId = "Jesus", Delivery = delivery };
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNonMatchingDelivery_ControlFileHasOnlyUnspecifiedDelivery_ReturnsTrue()
+		{
+			var block = new Block("p", 9, 23) { CharacterId = "Jesus", Delivery = "artful" };
+			Assert.IsTrue(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		// Note that a line had to be added to TestCharacterVerse for the following three test cases because there was no example of it.
+		// As of now, the production version of the file doesn't have anything like this either, but it is a theoretical possibility,
+		// so I felt I should text for it.
+		[TestCase(null)]
+		[TestCase("")]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasNormalDelivery_ControlFileHasBothUnspecifiedAndSpecificDelivery_ReturnsFalse(string delivery)
+		{
+			var block = new Block("p", 11, 5) { CharacterId = "owners of colt", Delivery = delivery };
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasHasMatchingDelivery_ControlFileHasBothUnspecifiedAndSpecificDelivery_ReturnsFalse()
+		{
+			var block = new Block("p", 11, 5) { CharacterId = "owners of colt", Delivery = "suspicious" };
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[Test]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_BlockHasHasNonMatchingDelivery_ControlFileHasBothUnspecifiedAndSpecificDelivery_ReturnsTrue()
+		{
+			var block = new Block("p", 11, 5) { CharacterId = "owners of colt", Delivery = "violent" };
+			Assert.IsTrue(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
+		[TestCase(10, 49, null)]
+		[TestCase(9, 19, "")]
+		[TestCase(9, 23, null)]
+		[TestCase(11, 5, "")]
+		public void IsBlockAssignedToUnknownCharacterDeliveryPair_NarratorBlock_ReturnsFalse(int chapter, int verse, string delivery)
+		{
+			var block = new Block("p", chapter, verse)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator),
+				Delivery = delivery
+			};
+			Assert.IsFalse(m_model.IsBlockAssignedToUnknownCharacterDeliveryPair(block));
+		}
+
 		[Test]
 		public void SetMode_AlternateBetweenModes_AssignedBlockCountDoesNotGrowContinuously()
 		{
