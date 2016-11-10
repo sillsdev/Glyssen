@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using DesktopAnalytics;
-using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Properties;
 using L10NSharp;
@@ -509,23 +508,27 @@ namespace Glyssen
 						continue;
 
 					VoiceActor.VoiceActor voiceActor = null;
+					bool includeInOutput = true;
 					if (IncludeVoiceActors)
 					{
 						voiceActor = Project.GetVoiceActorForCharacter(singleVoiceNarratorOverride ?? block.CharacterIdInScript) ?? GetDummyActor();
-						if (voiceActor.Id != voiceActorId)
-							continue;
+						includeInOutput = voiceActorId == -1 || voiceActor.Id == voiceActorId;
 					}
 
-					if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
+					if (includeInOutput)
 					{
-						foreach (var refBlock in pendingMismatchedReferenceBlocks)
-							result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
-						pendingMismatchedReferenceBlocks = null;
+						if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
+						{
+							foreach (var refBlock in pendingMismatchedReferenceBlocks)
+								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
+							pendingMismatchedReferenceBlocks = null;
+						}
+						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
+							IncludeVoiceActors,
+							Project.ReferenceText.HasSecondaryReferenceText));
+						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
+							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
-					result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride, IncludeVoiceActors,
-						Project.ReferenceText.HasSecondaryReferenceText));
-					if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
-						pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 				}
 				if (pendingMismatchedReferenceBlocks != null)
 				{
