@@ -28,19 +28,31 @@ namespace Glyssen
 			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
 			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
-			while (!blocksForVersesCoveredByBlock.First().StartsAtVerseStart && blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber)
+			while (m_iStartBlock > 0)
 			{
-				var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
-				prepend.RemoveAt(prepend.Count - 1);
-				m_iStartBlock -= prepend.Count;
-				blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+				if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+					!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+				{
+					var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
+						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
+					prepend.RemoveAt(prepend.Count - 1);
+					m_iStartBlock -= prepend.Count;
+					blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+				}
+				if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
+					blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
+				{
+					break;
+				}
+
+				m_iStartBlock--;
+				blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
 			}
 			int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
 			int i = iLastBlock;
-			AdvanceToCleanVerseBreak(blocks, verseNum =>
-			{
-				return isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum));
-			}, ref i);
+			AdvanceToCleanVerseBreak(blocks,
+				verseNum => isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum)),
+				ref i);
 			if (i > iLastBlock)
 				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
 			while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
