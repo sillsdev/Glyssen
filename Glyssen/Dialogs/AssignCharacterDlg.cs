@@ -22,6 +22,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Paratext;
+using SIL.Extensions;
 using SIL.Reporting;
 
 namespace Glyssen.Dialogs

@@ -16,6 +16,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Reporting;
+using SIL.Extensions;
 
 namespace Glyssen.Dialogs
 {

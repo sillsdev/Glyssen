@@ -51,6 +51,7 @@ namespace Glyssen
 		private string m_customFileName;
 		private int m_numberOfFileSuccessfullyExported;
 		private readonly bool m_includeVoiceActors;
+		private readonly bool m_includeDelivery;
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
@@ -60,6 +61,7 @@ namespace Glyssen
 			Project = project;
 			m_includeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
+			m_includeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
 		}
 
 		public Project Project { get; private set; }
@@ -256,7 +258,8 @@ namespace Glyssen
 			Analytics.Track("Export", new Dictionary<string, string>
 				{
 					{ "exportType", SelectedFileType.ToString() },
-					{ "includeVoiceActors", IncludeVoiceActors.ToString() }
+					{ "includeVoiceActors", IncludeVoiceActors.ToString() },
+					{ "includeDelivery", m_includeDelivery.ToString() }
 				});
 
 			return GenerateFile(path, () => GetExportData());
@@ -362,8 +365,9 @@ namespace Glyssen
 				if (LocalizationManager.UILanguageId != "en")
 					sheet.Column(columnNum++).AutoFit(2d, 20d); // localized character ID
 
-				// skip the delivery column
-				columnNum++;
+				// No special formatting for the delivery column, if present
+				if (m_includeDelivery)
+					columnNum++;
 
 				// for script text set both width and text wrapping
 				sheet.Column(columnNum).Style.WrapText = true; // script text
@@ -472,6 +476,8 @@ namespace Glyssen
 			}
 			if (column > ExportColumn.CharacterId && LocalizationManager.UILanguageId != "en")
 				columnNumber++;
+			if (column > ExportColumn.Delivery && !m_includeDelivery)
+				columnNumber--;
 			return columnNumber;
 		}
 
@@ -524,7 +530,7 @@ namespace Glyssen
 							pendingMismatchedReferenceBlocks = null;
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
-							IncludeVoiceActors,
+							IncludeVoiceActors, m_includeDelivery,
 							Project.ReferenceText.HasSecondaryReferenceText));
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
@@ -691,7 +697,8 @@ namespace Glyssen
 				CharacterVerseData.GetStandardCharacterIdAsEnglish(refBlock.CharacterId) : refBlock.CharacterId));
 			if (LocalizationManager.UILanguageId != "en")
 				row.Add(null);
-			row.Add(refBlock.Delivery);
+			if (m_includeDelivery)
+				row.Add(refBlock.Delivery);
 			row.Add(null);
 			row.Add(refBlock.GetText(true, true));
 			if (Project.ReferenceText.HasSecondaryReferenceText)
@@ -722,7 +729,8 @@ namespace Glyssen
 				headers.Add("Character");
 			}
 
-			headers.Add("Delivery");
+			if (m_includeDelivery)
+				headers.Add("Delivery");
 			headers.Add("Text");
 			AddDirectorsGuideHeader(headers, Project.ReferenceText.LanguageName);
 			if (Project.ReferenceText.HasSecondaryReferenceText)
@@ -737,7 +745,8 @@ namespace Glyssen
 		}
 
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
-			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript, bool includeSecondaryDirectorsGuide)
+			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
+			bool includeDelivery, bool includeSecondaryDirectorsGuide)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -759,7 +768,8 @@ namespace Glyssen
 			if (LocalizationManager.UILanguageId != "en")
 				list.Add(CharacterVerseData.GetCharacterNameForUi(characterId));
 				
-			list.Add(block.Delivery);
+			if (includeDelivery)
+				list.Add(block.Delivery);
 			list.Add(block.GetText(true));
 			list.Add(block.PrimaryReferenceText);
 			if (includeSecondaryDirectorsGuide)
