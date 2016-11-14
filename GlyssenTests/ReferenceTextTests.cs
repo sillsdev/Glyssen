@@ -2231,7 +2231,7 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
-			//Assert
+			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			var result = matchup.CorrelatedBlocks;
 			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Select(b => b.ToString())));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
@@ -2259,6 +2259,7 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			var result = matchup.CorrelatedBlocks;
 			Assert.AreEqual(vernacularBlocks[iBlock].ToString(), result.Single().ToString());
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
@@ -2291,6 +2292,7 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			var result = matchup.CorrelatedBlocks;
 			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
@@ -2322,6 +2324,7 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			var result = matchup.CorrelatedBlocks;
 			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
@@ -2355,6 +2358,7 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			var result = matchup.CorrelatedBlocks;
 			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
@@ -2380,6 +2384,8 @@ namespace GlyssenTests
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[iBlock].BlockElements.OfType<ScriptText>().First().Content,
+				matchup.CorrelatedAnchorBlock.BlockElements.OfType<ScriptText>().First().Content);
 			var result = matchup.CorrelatedBlocks;
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
@@ -2390,6 +2396,36 @@ namespace GlyssenTests
 			Assert.AreEqual("Come to me you who are weary.", result[2].GetText(true));
 
 			Assert.IsTrue(result.Select(b => b.PrimaryReferenceText).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))));
+		}
+
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_EnglishRefVerseStartsMidBlock_MatchupIncludesPrecedingVerse()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, ", true, 2));
+			vernacularBlocks.Add(CreateBlockForVerse("magi", 2, "\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", false, 2));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "King Herot i... ", true, 2));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(1, "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem,", true, 2).AddVerse(2, "saying, "));
+			AddBlockForVerseInProgress(referenceBlocks, "magi", " “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
+			referenceBlocks.Add(CreateNarratorBlockForVerse(3, "When King Herod... ", true, 2));
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[1].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
+			var result = matchup.CorrelatedBlocks;
+			Assert.AreEqual(2, result.Count);
+			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
+			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[1].MatchesReferenceText);
+
+			Assert.AreEqual("{1}\u00A0Maria i karim Jisas long taun Betlehem long distrik Judia long taim Herot i stap king. Em i karim Jisas pinis, na bihain sampela saveman bilong hap sankamap i kam long Jerusalem na ol i askim nabaut olsem, ", result[0].GetText(true));
+			Assert.AreEqual("{2}\u00A0\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", result[1].GetText(true));
+
+			Assert.IsTrue(result.Select(b => b.ReferenceBlocks.Single().GetText(true)).SequenceEqual(referenceBlocks.Take(2).Select(b => b.GetText(true))));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
 		}
 
 		[TestCase(0)]
@@ -2433,6 +2469,7 @@ namespace GlyssenTests
 			});
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, iBlock, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[iBlock].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
 
@@ -2446,6 +2483,7 @@ namespace GlyssenTests
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			Assert.AreEqual(1, matchup.CorrelatedBlocks.Count);
 			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
 		}
@@ -2463,6 +2501,7 @@ namespace GlyssenTests
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 0, m_vernVersification);
+			Assert.AreEqual(vernacularBlocks[0].GetText(true), matchup.CorrelatedAnchorBlock.GetText(true));
 			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
 			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
 			Assert.AreEqual(1, matchup.CorrelatedBlocks[0].ReferenceBlocks.Count);
