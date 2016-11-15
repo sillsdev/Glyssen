@@ -21,8 +21,10 @@ using Paratext;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
+using SIL.Reporting;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
+using static System.String;
 
 namespace Glyssen
 {
@@ -40,13 +42,15 @@ namespace Glyssen
 			InitializeComponent();
 
 			SetupUiLanguageMenu();
+			Logger.WriteEvent($"Initial UI language: {Settings.Default.UserInterfaceLanguage}");
+
 			m_toolStrip.Renderer = new NoBorderToolStripRenderer();
 			m_uiLanguageMenu.ToolTipText = LocalizationManager.GetString("MainForm.UILanguage", "User-interface Language");
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized; // Don't need to unsubscribe since this object will be around as long as the program is running.
 
-			m_lastExportLocationLink.Text = string.Empty;
+			m_lastExportLocationLink.Text = Empty;
 
 			// Did the user start Glyssen by double-clicking a share file?
 			if (args.Count == 1 && args[0].ToLowerInvariant().EndsWith(ProjectBase.kShareFileExtension))
@@ -71,6 +75,8 @@ namespace Glyssen
 		{
 			if (m_project != null)
 			{
+				Logger.WriteEvent($"Closing project {m_project.Name}");
+
 				m_project.ProjectStateChanged -= FinishSetProjectIfReady;
 				m_project.CharacterGroupCollectionChanged -= UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged -= ClearCastSizePlanningViewModel;
@@ -82,6 +88,8 @@ namespace Glyssen
 
 			if (m_project != null)
 			{
+				Logger.WriteEvent($"Opening project {m_project.Name}");
+
 				m_project.ProjectStateChanged += FinishSetProjectIfReady;
 				m_project.CharacterGroupCollectionChanged += UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged += ClearCastSizePlanningViewModel;
@@ -112,10 +120,14 @@ namespace Glyssen
 			{
 				if (m_project.HasUnappliedSplits())
 					using (var viewModel = new AssignCharacterViewModel(m_project))
-						using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font, m_project.IncludedBooks))
-							dlg.ShowDialog(this);
+					using (var dlg = new UnappliedSplitsDlg(m_project.Name, viewModel.Font, m_project.IncludedBooks))
+					{
+						LogDialogDisplay(dlg);
+						dlg.ShowDialog(this);
+					}
 
 				Settings.Default.CurrentProject = m_project.ProjectFilePath;
+				Logger.WriteEvent($"CurrentProject set to {Settings.Default.CurrentProject}");
 				Settings.Default.Save();
 
 				Analytics.Track("LoadProject", new Dictionary<string, string>
@@ -206,13 +218,13 @@ namespace Glyssen
 			m_imgCheckAssignActors.Visible = false;
 			m_imgCastSizePlanning.Visible = false;
 
-			m_lblProjectInfo.Text = string.Empty;
-			m_lblSettingsInfo.Text = string.Empty;
-			m_lblBookSelectionInfo.Text = string.Empty;
-			m_lblPercentAssigned.Text = string.Empty;
-			m_lblCastSizePlan.Text = string.Empty;
-			m_lblActorsAssigned.Text = string.Empty;
-			m_lastExportLocationLink.Text = string.Empty;
+			m_lblProjectInfo.Text = Empty;
+			m_lblSettingsInfo.Text = Empty;
+			m_lblBookSelectionInfo.Text = Empty;
+			m_lblPercentAssigned.Text = Empty;
+			m_lblCastSizePlan.Text = Empty;
+			m_lblActorsAssigned.Text = Empty;
+			m_lastExportLocationLink.Text = Empty;
 
 			m_lblFilesAreHere.Visible = false;
 
@@ -227,11 +239,18 @@ namespace Glyssen
 
 		private DialogResult ShowModalDialogWithWaitCursor(Form dlg)
 		{
+			LogDialogDisplay(dlg);
+
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 			var result = dlg.ShowDialog(this);
 			Cursor = origCursor;
 			return result;
+		}
+
+		internal static void LogDialogDisplay(Form dlg)
+		{
+			Logger.WriteEvent($"Displaying dialog box: {dlg.Text}");
 		}
 
 		private void ShowOpenProjectDialog()
@@ -267,7 +286,7 @@ namespace Glyssen
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
+			if (IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 				SetProject(null);
 			else
 				LoadProject(Settings.Default.CurrentProject);		
@@ -292,12 +311,14 @@ namespace Glyssen
 			if (!LoadAndHandleApplicationExceptions(() => SetProject(Project.Load(filePath))))
 				SetProject(null);
 
-			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : string.Empty;
-			m_lblFilesAreHere.Visible = m_lastExportLocationLink.Text != string.Empty;
+			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : Empty;
+			m_lblFilesAreHere.Visible = m_lastExportLocationLink.Text != Empty;
 		}
 
 		private void LoadBundle(string bundlePath)
 		{
+			Logger.WriteEvent($"Loading bundle {bundlePath}");
+
 			GlyssenBundle bundle = null;
 
 			if (!LoadAndHandleApplicationExceptions(() => { bundle = new GlyssenBundle(bundlePath); }))
@@ -315,6 +336,7 @@ namespace Glyssen
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
 				{
+					LogDialogDisplay(dlg);
 					dlg.ShowDialog(this);
 					if (dlg.SelectedProject == null)
 					{
@@ -322,7 +344,6 @@ namespace Glyssen
 						return;
 					}
 					projFilePath = dlg.SelectedProject;
-
 				}
 			}
 			else
@@ -344,11 +365,11 @@ namespace Glyssen
 				// user to see if they want to upgrade an existing project instead. If there are multiple
 				// candidate projects, we'll need to present a list.
 				var baserecordingProjectName = recordingProjectName;
-				recordingProjectName = string.Format("{0} (Rev {1})", baserecordingProjectName, bundle.Metadata.Revision);
+				recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision})";
 				var path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
 				for (int i = 1; File.Exists(path); i++)
 				{
-					recordingProjectName = string.Format("{0} (Rev {1}.{2})", baserecordingProjectName, bundle.Metadata.Revision, i);
+					recordingProjectName = $"{baserecordingProjectName} (Rev {bundle.Metadata.Revision}.{i})";
 					path = Project.GetProjectFilePath(bundle.LanguageIso, bundle.Id, recordingProjectName);
 				}
 			}
@@ -364,12 +385,13 @@ namespace Glyssen
 				int i = error.IndexOf("\n", StringComparison.Ordinal);
 				if (i > 0)
 					error = error.Substring(0, i);
-				var msg = string.Format(LocalizationManager.GetString("Project.InvalidVersificationFile",
+				var msg = Format(LocalizationManager.GetString("Project.InvalidVersificationFile",
 					"Invalid versification file in text release bundle. Unable to create project.\r\n" +
 					"Text release Bundle: {0}\r\n" +
 					"Versification file: {1}\r\n" +
 					"Error: {2}"),
 					bundlePath, DblBundleFileUtils.kVersificationFileName, error);
+				Logger.WriteError(msg, ex);
 				MessageBox.Show(this, msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				SetProject(null);
 			}
@@ -385,6 +407,7 @@ namespace Glyssen
 			}
 			catch (ApplicationException ex)
 			{
+				Logger.WriteError(ex);
 				var bldr = new StringBuilder(ex.Message);
 				if (ex.InnerException != null)
 				{
@@ -407,14 +430,14 @@ namespace Glyssen
 
 		private void UpdateLocalizedText()
 		{
-			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : String.Empty;
+			m_lblProjectInfo.Text = m_project != null ? m_project.ProjectSummary : Empty;
 
 			if (m_project != null && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed)
 				m_lblSettingsInfo.Text = m_project.IsQuoteSystemReadyForParse ? m_project.SettingsSummary : LocalizationManager.GetString("MainForm.QuoteMarksNeedReview", "Quote marks need to be reviewed");
 			else
-				m_lblSettingsInfo.Text = String.Empty;
+				m_lblSettingsInfo.Text = Empty;
 
-			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : String.Empty;
+			m_lblBookSelectionInfo.Text = m_project != null && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed ? m_project.BookSelectionSummary : Empty;
 
 			UpdateDisplayOfPercentOfCharactersAssigned();
 			UpdateDisplayOfCastSizePlan(null, null);
@@ -425,7 +448,7 @@ namespace Glyssen
 			foreach (var buttonFmtInfo in m_buttonFormats.Where(b => !b.Item1.IsDisposed))
 			{
 				var btn = buttonFmtInfo.Item1;
-				btn.Text = string.Format(buttonFmtInfo.Item2, buttonNumber++);
+				btn.Text = Format(buttonFmtInfo.Item2, buttonNumber++);
 			}
 		}
 
@@ -433,14 +456,14 @@ namespace Glyssen
 		{
 			if (!m_btnIdentify.Enabled)
 			{
-				m_lblPercentAssigned.Text = string.Empty;
+				m_lblPercentAssigned.Text = Empty;
 				return;
 			}
 
 			double percentAssigned = 0;
 			if (m_project != null && m_project.ProjectAnalysis != null)
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
-			m_lblPercentAssigned.Text = percentAssigned > 0 ? string.Format(m_percentAssignedFmt, percentAssigned) : string.Empty;
+			m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, percentAssigned) : Empty;
 		}
 
 		private void UpdateDisplayOfCastSizePlan(object sender, EventArgs e)
@@ -448,7 +471,7 @@ namespace Glyssen
 			if (!m_btnCastSizePlanning.Visible || !m_btnCastSizePlanning.Enabled || m_project == null ||
 				!m_project.CharacterGroupList.CharacterGroups.Any())
 			{
-				m_lblCastSizePlan.Text = string.Empty;
+				m_lblCastSizePlan.Text = Empty;
 				return;
 			}
 
@@ -458,25 +481,30 @@ namespace Glyssen
 				LocalizationManager.GetString("MainForm.CastSizePlanSingleNarrator", "Cast size is {0}, including 1 narrator",
 				"{0} is an expression indicating the total cast size");
 
-			m_lblCastSizePlan.Text = String.Format(format, castSize, narratorCount);
+			var newValue = Format(format, castSize, narratorCount);
+			if (newValue != m_lblCastSizePlan.Text)
+			{
+				Logger.WriteEvent($"New Cast size plan info: {newValue}");
+				m_lblCastSizePlan.Text = Format(format, castSize, narratorCount);
+			}
 		}
 
 		private void UpdateDisplayOfActorsAssigned()
 		{
 			if (!m_btnAssignVoiceActors.Visible || !m_btnAssignVoiceActors.Enabled || m_project == null)
 			{
-				m_lblActorsAssigned.Text = string.Empty;
+				m_lblActorsAssigned.Text = Empty;
 				return;
 			}
 
 			int actors = m_project.VoiceActorList.ActiveActors.Count();
 			if (actors == 0)
 			{
-				m_lblActorsAssigned.Text = string.Empty;
+				m_lblActorsAssigned.Text = Empty;
 				return;
 			}
 			int assigned = m_project.CharacterGroupList.CountVoiceActorsAssigned();
-			string format = (actors > 1) ? string.Format(m_actorsAssignedFmt, actors, "{0}") :
+			string format = (actors > 1) ? Format(m_actorsAssignedFmt, actors, "{0}") :
 				LocalizationManager.GetString("MainForm.ActorsAssignedSingle", "1 voice actor identified, {0}",
 				"{0} is an expression indicating the number of assigned actors");
 
@@ -492,13 +520,18 @@ namespace Glyssen
 						"This string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle");
 					break;
 				default:
-					assignedParameter = String.Format(LocalizationManager.GetString("MainForm.MoreThanOneAssigned", "{0} assigned",
+					assignedParameter = Format(LocalizationManager.GetString("MainForm.MoreThanOneAssigned", "{0} assigned",
 						"{0} is the number of actors assigned. The resulting string is filled in as a parameter in MainForm.ActorsAssignedPlural or MainForm.ActorsAssignedSingle"),
 						assigned);
 					break;
 			}
 
-			m_lblActorsAssigned.Text = string.Format(format, assignedParameter);
+			var newValue = Format(format, assignedParameter);
+			if (newValue != m_lblActorsAssigned.Text)
+			{
+				Logger.WriteEvent($"New Voice Actor info: {newValue}");
+				m_lblActorsAssigned.Text = newValue;
+			} 
 		}
 
 		private void UpdateProjectState()
@@ -527,7 +560,7 @@ namespace Glyssen
 		{
 			var lastLocation = m_project.Status.LastExportLocation;
 			m_lastExportLocationLink.Text = lastLocation;
-			m_lblFilesAreHere.Visible = !string.IsNullOrEmpty(lastLocation);
+			m_lblFilesAreHere.Visible = !IsNullOrEmpty(lastLocation);
 		}
 
 		private void View_Script_Click(object sender, EventArgs e)
@@ -605,7 +638,7 @@ namespace Glyssen
 			}
 			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
 			{
-				dlgMessage = string.Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
+				dlgMessage = Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
 					"Character assignment is {0:N1}% complete. Are you sure you want to export a script?"), m_project.ProjectAnalysis.UserPercentAssigned);
 				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
 			}
@@ -631,7 +664,8 @@ namespace Glyssen
 				string languageId = ((CultureInfo)item.Tag).IetfLanguageTag;
 				item.Click += ((a, b) =>
 				{
-					Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", languageId }, { "initialStartup", "true" } });
+					Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", languageId }, { "reapplyLocalizations", "true" } });
+					Logger.WriteEvent($"UI language changed to {languageId}.");
 
 					LocalizationManager.SetUILanguage(languageId, true);
 					Settings.Default.UserInterfaceLanguage = languageId;
@@ -657,56 +691,63 @@ namespace Glyssen
 		private void Assign_Click(object sender, EventArgs e)
 		{
 			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
-			{
-				var cvData = new CombinedCharacterVerseData(m_project);
-
-				foreach (var book in m_project.IncludedBooks)
-				{
-					var bookNum = SIL.Scripture.BCVRef.BookToNumber(book.BookId);
-					int iCharacter = 0;
-					List<CharacterVerse> charactersForVerse = null;
-					foreach (var block in book.GetScriptBlocks())
-					{
-						if (block.StartsAtVerseStart)
-						{
-							iCharacter = 0;
-							charactersForVerse = null;
-						}
-						if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
-						{
-							block.SetCharacterAndCharacterIdInScript(
-								CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
-								m_project.Versification);
-							block.UserConfirmed = true;
-						}
-						else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
-						{
-							if (charactersForVerse == null)
-								charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-									block.InitialEndVerseNumber, versification: m_project.Versification).ToList();
-
-							var cvEntry = charactersForVerse[iCharacter++];
-							if (iCharacter == charactersForVerse.Count)
-								iCharacter = 0;
-							block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, m_project.Versification);
-							block.Delivery = cvEntry.Delivery;
-							block.UserConfirmed = true;
-						}
-					}
-				}
-			}
+				DoDemoDisambiguation();
 
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
 
 			using (var viewModel = new AssignCharacterViewModel(m_project))
 				using (var dlg = new AssignCharacterDlg(viewModel))
+				{
+					LogDialogDisplay(dlg);
 					dlg.ShowDialog(this);
+				}
 			Cursor = origCursor;
 
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
 			SaveCurrentProject(true);
+		}
+
+		private void DoDemoDisambiguation()
+		{
+			Logger.WriteEvent("Doing demo disambiguation");
+			var cvData = new CombinedCharacterVerseData(m_project);
+
+			foreach (var book in m_project.IncludedBooks)
+			{
+				var bookNum = SIL.Scripture.BCVRef.BookToNumber(book.BookId);
+				int iCharacter = 0;
+				List<CharacterVerse> charactersForVerse = null;
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.StartsAtVerseStart)
+					{
+						iCharacter = 0;
+						charactersForVerse = null;
+					}
+					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					{
+						block.SetCharacterAndCharacterIdInScript(
+							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
+							m_project.Versification);
+						block.UserConfirmed = true;
+					}
+					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
+					{
+						if (charactersForVerse == null)
+							charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+								block.InitialEndVerseNumber, versification: m_project.Versification).ToList();
+
+						var cvEntry = charactersForVerse[iCharacter++];
+						if (iCharacter == charactersForVerse.Count)
+							iCharacter = 0;
+						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, m_project.Versification);
+						block.Delivery = cvEntry.Delivery;
+						block.UserConfirmed = true;
+					}
+				}
+			}
 		}
 
 		private void SelectBooks_Click(object sender, EventArgs e)
@@ -728,6 +769,7 @@ namespace Glyssen
 			var model = new ProjectSettingsViewModel(m_project);
 			using (var dlg = new ProjectSettingsDlg(model))
 			{
+				LogDialogDisplay(dlg);
 				var result = dlg.ShowDialog(this);
 				Cursor = origCursor;
 				if (result != DialogResult.OK)
@@ -850,9 +892,10 @@ namespace Glyssen
 						"Otherwise, to continue and temporarily use the English reference text, click Ignore.\r\n" +
 						"Note: to permanently change the reference text used by this project, open the {2} " +
 						"dialog box and select the desired reference text on the {3} tab page.");
-					msg = String.Format(msgFmt, m_project.UiReferenceTextName,
+					msg = Format(msgFmt, m_project.UiReferenceTextName,
 						m_project.ReferenceTextIdentifier.ProjectFolder,
 						dlg.Text, dlg.ReferenceTextTabPageName);
+					Logger.WriteEvent(msgFmt);
 				}
 				switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore))
 				{
@@ -920,6 +963,7 @@ namespace Glyssen
 				}
 
 				PathUtilities.SelectFileInExplorer(saveAsName);
+				Logger.WriteEvent($"Project exported to {saveAsName}");
 			}
 			finally
 			{
@@ -938,7 +982,7 @@ namespace Glyssen
 			using (var ofd = new OpenFileDialog())
 			{
 				ofd.InitialDirectory = Path.Combine(Program.BaseDataFolder, "share");
-				ofd.Filter = string.Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", ProjectBase.kShareFileExtension);
+				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", ProjectBase.kShareFileExtension);
 				ofd.RestoreDirectory = true;
 
 				if (ofd.ShowDialog() == DialogResult.OK)
@@ -946,7 +990,7 @@ namespace Glyssen
 			}
 
 			// if nothing was selected, return now
-			if (string.IsNullOrEmpty(importFile))
+			if (IsNullOrEmpty(importFile))
 				return;
 
 			try
@@ -962,6 +1006,8 @@ namespace Glyssen
 
 		private void ImportShare(string importFile)
 		{
+			Logger.WriteEvent($"Importing {importFile}.");
+
 			// open the zip file
 			using (var zip = new ZipFile(importFile))
 			{
@@ -975,6 +1021,8 @@ namespace Glyssen
 				{
 					var msg = LocalizationManager.GetString("MainForm.ImportWarning",
 						"WARNING: If you continue, your existing files will be replaced by the files you are importing, possibly resulting in loss of data. Do you want to continue and overwrite the existing files?");
+					Logger.WriteEvent(msg);
+
 					if (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OKCancel) != DialogResult.OK)
 						return;
 				}
@@ -985,7 +1033,7 @@ namespace Glyssen
 				zip.ExtractAll(Program.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
 
 				// open the imported project
-				var projectFile = Directory.EnumerateFiles(targetDir, string.Format("*{0}", ProjectBase.kProjectFileExtension)).FirstOrDefault();
+				var projectFile = Directory.EnumerateFiles(targetDir, $"*{ProjectBase.kProjectFileExtension}").FirstOrDefault();
 				if (File.Exists(projectFile))
 					LoadProject(projectFile);
 			}

@@ -195,6 +195,7 @@ namespace Glyssen.Dialogs
 
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, true))
 			{
+				MainForm.LogDialogDisplay(actorDlg);
 				if (actorDlg.ShowDialog(this) == DialogResult.OK)
 				{
 					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
@@ -228,6 +229,7 @@ namespace Glyssen.Dialogs
 		{
 			using (var splitGroupDlg = new SplitCharacterGroupDlg(FirstSelectedCharacterGroup, m_actorAssignmentViewModel))
 			{
+				MainForm.LogDialogDisplay(splitGroupDlg);
 				if (splitGroupDlg.ShowDialog(this) == DialogResult.OK)
 				{
 					var newGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(splitGroupDlg.NewGroup);
@@ -448,6 +450,7 @@ namespace Glyssen.Dialogs
 				characterGroup.AssignedToCameoActor ? m_project.VoiceActorList.GetVoiceActorById(characterGroup.VoiceActorId) : null);
 			using (var dlg = new AddCharacterToGroupDlg(model))
 			{
+				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup, true))

@@ -334,6 +334,7 @@ namespace Glyssen.Dialogs
 			{
 				using (var dlg = new PercentageOfExpectedQuotesFoundTooLowDlg(Text, percentageOfExpectedQuotesFound))
 				{
+					MainForm.LogDialogDisplay(dlg);
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{
@@ -347,6 +348,7 @@ namespace Glyssen.Dialogs
 			{
 				using (var dlg = new TooManyUnexpectedQuotesFoundDlg(Text, m_project.ProjectAnalysis.PercentUnknown))
 				{
+					MainForm.LogDialogDisplay(dlg);
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{

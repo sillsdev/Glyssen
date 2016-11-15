@@ -11,6 +11,7 @@ using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -376,8 +377,11 @@ namespace Glyssen.Dialogs
 
 			using (var viewModel = new BlockNavigatorViewModel(m_model.Project, BlocksToDisplay.AllExpectedQuotes, m_model))
 				using (var dlg = new QuotationMarksDlg(m_model.Project, viewModel, !reparseOkay))
+				{
+					MainForm.LogDialogDisplay(dlg);
 					if (dlg.ShowDialog(this) == DialogResult.OK)
 						UpdateQuotePageDisplay();
+				}
 		}
 
 		private void m_btnUpdateFromBundle_Click(object sender, EventArgs e)
@@ -390,7 +394,8 @@ namespace Glyssen.Dialogs
 					var bundle = new GlyssenBundle(selectedBundlePath);
 					if (ConfirmProjectUpdateFromBundle(bundle))
 					{
-						m_model.BundlePath = dlg.FileName;
+						Logger.WriteEvent($"Updating project {m_lblRecordingProjectName} from bundle {selectedBundlePath}");
+						m_model.BundlePath = selectedBundlePath;
 						UpdatedBundle = bundle;
 						HandleOkButtonClick(sender, e);
 					}
