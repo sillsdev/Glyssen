@@ -210,6 +210,7 @@
     <None Include="Resources\FrenchMRKRefText.xml" />
     <None Include="Resources\FrenchMATRefText.xml" />
     <None Include="Resources\SpanishMATRefText.xml" />
+    <None Include="Resources\Test1CO.xml" />
     <Content Include="Resources\TestCharacterVerseOct2015.txt" />
     <None Include="Resources\TestEPH.xml" />
     <None Include="Resources\TestGAL.xml" />
