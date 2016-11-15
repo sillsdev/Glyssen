@@ -618,6 +618,7 @@ namespace Glyssen.Dialogs
 
 			using (var dlg = new NewCharacterDlg(character))
 			{
+				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog() != DialogResult.OK)
 					return;
 
@@ -978,6 +979,7 @@ namespace Glyssen.Dialogs
 			using (var dlg = new SplitBlockDlg(m_viewModel.Font, m_viewModel.GetAllBlocksWhichContinueTheQuoteStartedByBlock(blockToSplit),
 				m_viewModel.GetUniqueCharactersForCurrentReference(), m_viewModel.CurrentBookId))
 			{
+				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters);

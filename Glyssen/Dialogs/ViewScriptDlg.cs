@@ -26,6 +26,7 @@ namespace Glyssen.Dialogs
 		{
 			using (var dlg = new ExportDlg(m_viewModel))
 			{
+				MainForm.LogDialogDisplay(dlg);
 				dlg.ShowDialog(this);
 				if (dlg.DialogResult == DialogResult.OK)
 				{

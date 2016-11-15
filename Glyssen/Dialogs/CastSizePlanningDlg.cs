@@ -125,6 +125,7 @@ namespace Glyssen.Dialogs
 			var actorInfoViewModel = new VoiceActorInformationViewModel(m_viewModel.Project);
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, false, !keepSelection))
 			{
+				MainForm.LogDialogDisplay(actorDlg);
 				if (actorDlg.ShowDialog(this) == DialogResult.Cancel)
 					keepSelection = true; // Even though Cancel doesn't actually discard changes, it should at least reflect the user's desire not to have any changes result in a change to the cast size choice
 
