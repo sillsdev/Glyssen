@@ -977,6 +977,51 @@ namespace GlyssenTests.Dialogs
 		}
 	}
 
+	/// <summary>
+	/// 1 Corinthians has some especially useful data for testing multi-block matchups that have ambiguities.
+	/// </summary>
+	[TestFixture]
+	class BlockNavigatorViewModelTestsFor1Corinthians
+	{
+		private Project m_testProject;
+		private BlockNavigatorViewModel m_model;
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ICO);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		// PG-823: Prevent out of range index
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsLastRelevantBlockInLastMatchup_DoesNotCrashAndStaysOnCurrentMatchup()
+		{
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.AttemptRefBlockMatchup = true;
+
+			while (m_model.CanNavigateToNextRelevantBlock)
+				m_model.LoadNextRelevantBlock();
+
+			m_model.SetBlockMatchupForCurrentVerse();
+			var matchup = m_model.CurrentReferenceTextMatchup;
+
+			Assert.IsTrue(m_model.CurrentBlockDisplayIndex >= m_model.RelevantBlockCount);
+			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
+			Assert.AreEqual(matchup, m_model.CurrentReferenceTextMatchup);
+			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
+		}
+	}
+
 	[TestFixture]
 	class BlockNavigatorViewModelTestsWhereFirstRelevantBlockIsAmbiguous
 	{

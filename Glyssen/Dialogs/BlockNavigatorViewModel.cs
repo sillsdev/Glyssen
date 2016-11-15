@@ -787,6 +787,9 @@ namespace Glyssen.Dialogs
 				if (insertionIndex == -1)
 					insertionIndex = m_relevantBlocks.Count;
 			}
+			else if (insertionIndex > m_relevantBlocks.Count) // PG-823: We just removed multiple relevant blocks, such that the insertion index is out of range.
+				insertionIndex = m_relevantBlocks.Count;
+
 			var origRelevantBlockCount = RelevantBlockCount;
 			m_relevantBlocks.InsertRange(insertionIndex,
 				m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));

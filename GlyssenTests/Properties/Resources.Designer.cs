@@ -206,6 +206,25 @@ namespace GlyssenTests.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;1CO&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;1 JO KORINT&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Mukwoŋo Ma Paulo Ocoyo Pa Jo Korint&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;1 Jo Korint&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;1 Kor&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;WARAGA MUKWOŊO MA PAULO OCOYO pa&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JO KORINT&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Test1CO {
+            get {
+                return ResourceManager.GetString("Test1CO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;1JN&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
         ///  &lt;para style=&quot;h&quot;&gt;1 JON&lt;/para&gt;
         ///  &lt;para style=&quot;toc1&quot;&gt;Waraga Mukwoŋo Ma Jon Ocoyo&lt;/para&gt;

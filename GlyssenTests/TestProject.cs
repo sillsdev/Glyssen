@@ -28,6 +28,7 @@ namespace GlyssenTests
 			MRK,
 			LUK,
 			ACT,
+			ICO,
 			GAL,
 			EPH,
 			PHM,
@@ -147,6 +148,12 @@ namespace GlyssenTests
 					book.LongName = "The Acts of the Apostles";
 					book.ShortName = "Acts";
 					xmlDocument.LoadXml(Properties.Resources.TestACT);
+					break;
+				case TestBook.ICO:
+					book.Code = "1CO";
+					book.LongName = "The First Epistle of Paul to the Church of Corinth";
+					book.ShortName = "1 Corinthians";
+					xmlDocument.LoadXml(Properties.Resources.Test1CO);
 					break;
 				case TestBook.GAL:
 					book.Code = "GAL";
