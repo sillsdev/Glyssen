@@ -1,4 +1,4 @@
-Control File Version	107
+Control File Version	108
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15643,10 +15643,10 @@ ROM	15	11	scripture			Quotation	psalmist
 ROM	15	12	scripture			Quotation	Isaiah	
 ROM	15	21	scripture			Quotation	Isaiah	
 ROM	16	22	Tertius			Indirect		
-1CO	1	12	follower of Apollos	boasting		Normal		
-1CO	1	12	follower of Cephas (Peter)	boasting		Normal		
-1CO	1	12	follower of Paul	boasting		Normal		
-1CO	1	12	follower of Christ	boasting		Normal		
+1CO	1	12	follower of Apollos	boasting		Hypothetical		
+1CO	1	12	follower of Cephas (Peter)	boasting		Hypothetical		
+1CO	1	12	follower of Paul	boasting		Hypothetical		
+1CO	1	12	follower of Christ	boasting		Hypothetical		
 1CO	1	15	narrator-1CO			Hypothetical		
 1CO	1	19	scripture			Quotation	God	
 1CO	1	31	scripture			Quotation	God	
@@ -15657,7 +15657,7 @@ ROM	16	22	Tertius			Indirect
 1CO	3	18	narrator-1CO			Quotation		
 1CO	3	19	scripture			Quotation	Eliphaz the Temanite	
 1CO	3	20	scripture			Quotation	psalmist	
-1CO	4	6	saying about going beyond what is written			Normal		
+1CO	4	6	saying about going beyond what is written			Quotation		
 1CO	5	6	saying about yeast			Quotation		
 1CO	5	13	scripture			Quotation	Moses	
 1CO	6	12	narrator-1CO			Hypothetical		
@@ -15675,13 +15675,13 @@ ROM	16	22	Tertius			Indirect
 1CO	11	25	Jesus			Normal		
 1CO	12	3	no one speaking by the Holy Spirit			Hypothetical		
 1CO	12	3	only someone speaking by the Holy Spirit			Hypothetical		
-1CO	12	15	foot			Normal		
-1CO	12	16	ear			Normal		
-1CO	12	21	eye			Normal		
-1CO	12	21	head			Normal		
+1CO	12	15	foot			Hypothetical		
+1CO	12	16	ear			Hypothetical		
+1CO	12	21	eye			Hypothetical		
+1CO	12	21	head			Hypothetical		
 1CO	14	16	person without the gift of tongues			Hypothetical		
 1CO	14	21	scripture			Quotation	God	
-1CO	14	25	unbeliever who comes under conviction			Normal		
+1CO	14	25	unbeliever who comes under conviction			Hypothetical		
 1CO	15	27	scripture			Quotation		
 1CO	15	27	narrator-1CO			Quotation		
 1CO	15	32	scripture			Quotation	watchmen of Israel	
@@ -15719,7 +15719,7 @@ GAL	1	6	narrator-GAL			Quotation
 GAL	1	7	narrator-GAL			Quotation		
 GAL	1	8	narrator-GAL			Quotation		
 GAL	1	9	narrator-GAL			Quotation		
-GAL	1	23	report concerning Paul			Normal		
+GAL	1	23	report concerning Paul			Quotation		
 GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation		
 GAL	2	14	Paul			Normal		
 GAL	2	15	Paul			Normal		
@@ -15760,7 +15760,7 @@ EPH	6	3	scripture			Quotation	God
 PHP	2	11	everyone			Hypothetical		
 PHP	4	4	Paul			Potential		
 COL	2	21	rules of the world			Hypothetical		
-COL	4	17	Paul			Normal		
+COL	4	17	Paul			Quotation		
 1TH	4	12	unbelievers			Indirect		
 1TH	5	3	people			Hypothetical		
 1TH	5	27	Paul			Potential		
@@ -15885,7 +15885,7 @@ JAS	5	17	Elijah	praying		Indirect
 1PE	3	14	scripture			Quotation	God	
 1PE	4	18	scripture			Quotation	Solomon, king	
 1PE	5	5	scripture			Quotation	Solomon, king	
-2PE	1	17	God		God the Father (Majestic Glory)	Normal		
+2PE	1	17	God		God the Father (Majestic Glory)	Quotation		
 2PE	2	19	saying about what controls you			Quotation		
 2PE	2	22	scripture		proverb about a dog	Quotation	Solomon, king	
 2PE	2	22	saying about sow			Quotation		
