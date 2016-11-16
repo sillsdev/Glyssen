@@ -30,6 +30,7 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
+using static Glyssen.ReferenceTextType;
 
 namespace Glyssen
 {
@@ -588,8 +589,24 @@ namespace Glyssen
 		{
 			get
 			{
-				if (m_referenceText == null && !ReferenceTextIdentifier.Missing)
-					m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+				if (m_referenceText == null)
+				{
+					if (!ReferenceTextIdentifier.Missing)
+						m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+					else
+					{
+						// If this is a custom reference text whose identifier happens to match a standard one
+						// just use it. The custom one has likely been removed because now it has become a
+						// standard one.
+						Debug.Assert(ReferenceTextIdentifier.Type == Custom);
+						ReferenceTextType type;
+						if (Enum.TryParse(ReferenceTextIdentifier.CustomIdentifier, out type))
+						{
+							ReferenceTextIdentifier = ReferenceTextIdentifier.GetOrCreate(type);
+							m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+						}
+					}
+				}
 				return m_referenceText;
 			}
 			set
