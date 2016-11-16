@@ -16,6 +16,7 @@ using OfficeOpenXml.Style;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
+using static System.String;
 
 namespace Glyssen
 {
@@ -39,6 +40,7 @@ namespace Glyssen
 		PrimaryReferenceText = 9,
 		SecondaryReferenceText = 10,
 		VernacularTextLength = 11,
+		ClipFileLink = 12,
 	}
 
 	public class ProjectExporter
@@ -49,7 +51,7 @@ namespace Glyssen
 		public const string kTabDelimitedFileExtension = ".txt";
 
 		private string m_customFileName;
-		private int m_numberOfFileSuccessfullyExported;
+		private int m_numberOfFilesSuccessfullyExported;
 		private readonly bool m_includeVoiceActors;
 		private readonly bool m_includeDelivery;
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
@@ -65,28 +67,23 @@ namespace Glyssen
 		}
 
 		public Project Project { get; private set; }
-		public bool IncludeVoiceActors { get { return m_includeVoiceActors; } }
+		public bool IncludeVoiceActors => m_includeVoiceActors;
 		public bool IncludeActorBreakdown { get; set; }
 		public bool IncludeBookBreakdown { get; set; }
 		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
-		
+
 		internal ExportFileType SelectedFileType { get; set; }
 
-		internal string RecordingScriptFileNameSuffix
-		{
-			get
-			{
-				return LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
-			}
-		}
+		internal string RecordingScriptFileNameSuffix =>
+			LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 
 		private string DefaultDirectory
 		{
 			get
 			{
 				var defaultDirectory = Settings.Default.DefaultExportDirectory;
-				if (string.IsNullOrWhiteSpace(defaultDirectory))
+				if (IsNullOrWhiteSpace(defaultDirectory))
 				{
 					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Program.kProduct);
 					if (!Directory.Exists(defaultDirectory))
@@ -106,7 +103,7 @@ namespace Glyssen
 		{
 			get
 			{
-				if (!string.IsNullOrEmpty(m_customFileName))
+				if (!IsNullOrEmpty(m_customFileName))
 					return m_customFileName;
 
 				var defaultFileName = Project.Name + " " +
@@ -114,10 +111,7 @@ namespace Glyssen
 
 				return Path.Combine(DefaultDirectory, defaultFileName.Trim());
 			}
-			set
-			{
-				m_customFileName = value;
-			}
+			set { m_customFileName = value; }
 		}
 
 		private string FileNameWithoutExtension
@@ -174,13 +168,13 @@ namespace Glyssen
 		{
 			var lockedFiles = new List<Tuple<string, string>>();
 
-			m_numberOfFileSuccessfullyExported = 0;
-			
+			m_numberOfFilesSuccessfullyExported = 0;
+
 			lockedFiles.AddRange(GenerateMasterScriptFile(FullFileName));
 
-			// remember the location (at least for this project and possible as new default)
+			// remember the location (at least for this project and possibly as new default)
 			Project.Status.LastExportLocation = CurrentBaseFolder;
-			if (!string.IsNullOrEmpty(m_customFileName))
+			if (!IsNullOrEmpty(m_customFileName))
 			{
 				// if the directory is not the stored default directory, make the new directory the default
 				if (!DirectoryUtilities.AreDirectoriesEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
@@ -198,8 +192,9 @@ namespace Glyssen
 				{
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
-						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
-						"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."), ActorDirectory));
+						Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
+								"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
+							ActorDirectory));
 				}
 			}
 			if (IncludeBookBreakdown)
@@ -213,8 +208,8 @@ namespace Glyssen
 				{
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
-						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
-						"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
+						Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
+							"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
 				}
 			}
 
@@ -223,15 +218,12 @@ namespace Glyssen
 				try
 				{
 					Directory.CreateDirectory(ClipDirectory);
-					GenerateClipFiles(ClipDirectory);
 				}
 				catch (Exception ex)
 				{
-					Analytics.ReportException(ex);
-					ErrorReport.NotifyUserOfProblem(ex,
-						string.Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
-						"Could not create destination folder for clip files: {0}", "{0} is a directory name."), ClipDirectory));
+					ReportClipDirectoryCreationError(ex, ClipDirectory);
 				}
+				GenerateClipFiles();
 			}
 
 			if (openForMe && !lockedFiles.Any())
@@ -252,7 +244,7 @@ namespace Glyssen
 		{
 			try
 			{
-				if (m_numberOfFileSuccessfullyExported > 0 && Project.Status.LastExportLocation != null)
+				if (m_numberOfFilesSuccessfullyExported > 0 && Project.Status.LastExportLocation != null)
 				{
 					if (IncludeActorBreakdown || IncludeBookBreakdown)
 						PathUtilities.OpenDirectoryInExplorer(Project.Status.LastExportLocation);
@@ -276,7 +268,7 @@ namespace Glyssen
 
 			foreach (var line in GetExportData())
 				dt.Rows.Add(line.ToArray());
-		
+
 			return dt;
 		}
 
@@ -302,7 +294,7 @@ namespace Glyssen
 			try
 			{
 				generateFile(path, getData());
-				m_numberOfFileSuccessfullyExported++;
+				m_numberOfFilesSuccessfullyExported++;
 			}
 			catch (Exception ex)
 			{
@@ -317,10 +309,13 @@ namespace Glyssen
 		{
 			if (IncludeVoiceActors)
 			{
-				foreach (var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
+				foreach (
+					var actor in Project.VoiceActorList.AllActors.Where(a => Project.CharacterGroupList.HasVoiceActorAssigned(a.Id)))
 				{
 					var actorId = actor.Id;
-					foreach (var lockedFile in GenerateFile(Path.Combine(directoryPath, actor.Name), () => GetExportData(voiceActorId: actorId)))
+					foreach (
+						var lockedFile in
+						GenerateFile(Path.Combine(directoryPath, actor.Name), () => GetExportData(voiceActorId: actorId)))
 					{
 						yield return lockedFile;
 					}
@@ -340,51 +335,64 @@ namespace Glyssen
 			}
 		}
 
-		private void GenerateClipFiles(string directoryPath)
+		private void GenerateClipFiles()
 		{
-			const int kLineNumIndex = 0;
-			const int kBookIndex = 2;
-			const int kChapterIndex = 3;
-			const int kVerseIndex = 4;
+			int clipFileColIndex = GetColumnIndex(ExportColumn.ClipFileLink);
 
 			var data = GetExportData();
-			var bookId = string.Empty;
-			var currentOutputDirectory = string.Empty;
-			var fileNameTemplate = Project.Name.Replace(" ", "_") + "_{0:D5}_{1}_{2:D3}_{3:D3}.wav";
+			string currentDirectory = null;
 
 			foreach (var row in data)
 			{
-				// if this is a different book, create the output directory
-				var tempBookId = (string) row[kBookIndex];
-				if (!string.IsNullOrEmpty(tempBookId) && (bookId != tempBookId))
+				var fileName = row[clipFileColIndex] as string;
+				if (IsNullOrEmpty(fileName))
+					continue;
+
+				var directory = Path.GetDirectoryName(fileName);
+				if (directory != currentDirectory)
 				{
-					bookId = tempBookId;
-					currentOutputDirectory = Path.Combine(directoryPath, bookId);
-					Directory.CreateDirectory(currentOutputDirectory);
-				}
-
-				// if the line number is not empty, create the wave file
-				if (row[kLineNumIndex] != null)
-				{
-					var lineNumber = (int) row[kLineNumIndex];
-					var verseNumber = int.Parse(row[kVerseIndex].ToString().Split('-', ',', ' ')[0]);
-					var fileName = Path.Combine(currentOutputDirectory, 
-						string.Format(fileNameTemplate, lineNumber, bookId, row[kChapterIndex], verseNumber));
-
-					// do not overwrite existing files
-					if (File.Exists(fileName))
-						continue;
-
-					using (var ms = new MemoryStream())
+					Debug.Assert(Path.GetFileName(directory).Length == 3);
+					try
 					{
-						Resources.Silent.CopyTo(ms);
+						Directory.CreateDirectory(directory);
+					}
+					catch (Exception ex)
+					{
+						ReportClipDirectoryCreationError(ex, directory);
+						return;
+					}
+					currentDirectory = directory;
+				}
+				// do not overwrite existing files
+				if (File.Exists(fileName))
+					continue;
+
+				using (var ms = new MemoryStream())
+				{
+					Resources.Silent.CopyTo(ms);
+					try
+					{
 						using (var fs = new FileStream(fileName, FileMode.CreateNew, FileAccess.Write))
-						{
 							ms.WriteTo(fs);
-						}
+					}
+					catch (Exception ex)
+					{
+						Analytics.ReportException(ex);
+						ErrorReport.NotifyUserOfProblem(ex,
+							Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
+								"Error writing file: {0}. Creation of clip files aborted.", "{0} is a WAV file path."), fileName));
+						return;
 					}
 				}
 			}
+		}
+
+		private static void ReportClipDirectoryCreationError(Exception ex, string folder)
+		{
+			Analytics.ReportException(ex);
+			ErrorReport.NotifyUserOfProblem(ex,
+				Format(LocalizationManager.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
+					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}
 
 		private void GenerateTabSeparatedFile(string path, IEnumerable<List<object>> data)
@@ -411,6 +419,12 @@ namespace Glyssen
 			File.Delete(path);
 
 			var dataArray = data.Select(d => d.ToArray()).ToList();
+			//if (IncludeCreateClips)
+			//{
+			//	int clipFileColIndex = GetColumnIndex(ExportColumn.ClipFileLink);
+			//	foreach (var row in dataArray)
+			//		row[clipFileColIndex] = "= HYPERLINK(\"" + row[clipFileColIndex] + "\")";
+			//}
 			dataArray.Insert(0, GetHeaders().ToArray());
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
@@ -458,7 +472,7 @@ namespace Glyssen
 				sheet.Column(columnNum).Style.WrapText = true;
 				if (Project.ReferenceText.LanguageName != "English")
 				{
-					if (!string.IsNullOrEmpty(Project.ReferenceText.FontFamily))
+					if (!IsNullOrEmpty(Project.ReferenceText.FontFamily))
 						sheet.Column(columnNum).Style.Font.Name = Project.ReferenceText.FontFamily;
 
 					if (Project.ReferenceText.FontSizeInPoints > 9)
@@ -476,8 +490,23 @@ namespace Glyssen
 					sheet.Column(columnNum++).Width = 50d;
 				}
 
-				// this is the last column, no need to increment columNum
-				sheet.Column(columnNum).AutoFit(2d, sheet.DefaultColWidth); // block length
+				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // block length
+
+				if (IncludeCreateClips)
+				{
+					// this is the last column, no need to increment columNum
+					for (int i = 2; i <= dataArray.Count; i++)
+					{
+						var filename = (string) sheet.Cells[i, columnNum].Value;
+						if (!IsNullOrEmpty(filename))
+						{
+							sheet.Cells[i, columnNum].Hyperlink = new ExcelHyperLink(filename, UriKind.Absolute) {Display = filename};
+							sheet.Cells[i, columnNum].Style.Font.UnderLine = true;
+							sheet.Cells[i, columnNum].Style.Font.Color.SetColor(SystemColors.HotTrack);
+						}
+					}
+					sheet.Column(columnNum).AutoFit(sheet.DefaultColWidth); // clip file length
+				}
 
 				sheet.View.FreezePanes(2, 1);
 
@@ -507,7 +536,7 @@ namespace Glyssen
 		{
 			// do nothing if the cell is empty
 			var cellValue = cell.Value as string;
-			if (string.IsNullOrEmpty(cellValue)) return;
+			if (IsNullOrEmpty(cellValue)) return;
 
 			var splits = m_splitRegex.Split(cellValue);
 
@@ -540,14 +569,11 @@ namespace Glyssen
 		// internal for testing
 		internal int GetColumnIndex(ExportColumn column)
 		{
-			int columnNumber = (int) column;
+			int columnNumber = (int)column;
 			if (column != ExportColumn.BlockId && !IncludeVoiceActors)
 				columnNumber--;
-			if (column == ExportColumn.VernacularTextLength)
-			{
-				if (!Project.ReferenceText.HasSecondaryReferenceText)
-					columnNumber--;
-			}
+			if (column > ExportColumn.SecondaryReferenceText && !Project.ReferenceText.HasSecondaryReferenceText)
+				columnNumber--;
 			if (column > ExportColumn.CharacterId && LocalizationManager.UILanguageId != "en")
 				columnNumber++;
 			if (column > ExportColumn.Delivery && !m_includeDelivery)
@@ -565,6 +591,10 @@ namespace Glyssen
 			IEnumerable<BookScript> booksToInclude = bookId == null
 				? m_booksToExport
 				: m_booksToExport.Where(b => b.BookId == bookId);
+
+			var projectClipFileId = (IncludeCreateClips) ?
+				!IsNullOrWhiteSpace(Project.AudioStockNumber) ? Project.AudioStockNumber : Project.Name.Replace(" ", "_") :
+				null;
 
 			foreach (var book in booksToInclude)
 			{
@@ -605,7 +635,7 @@ namespace Glyssen
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
 							IncludeVoiceActors, m_includeDelivery,
-							Project.ReferenceText.HasSecondaryReferenceText));
+							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId));
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
@@ -712,19 +742,19 @@ namespace Glyssen
 		private string AppendAnnotationInfo(string text, string annotationInfo)
 		{
 			var separator = char.IsWhiteSpace(text.LastOrDefault()) || char.IsWhiteSpace(annotationInfo.FirstOrDefault()) ?
-				string.Empty : " ";
+				Empty : " ";
 			return text + separator + annotationInfo;
 		}
 
 		private string PrependAnnotationInfo(string text, string annotationInfo)
 		{
 			var separator = char.IsWhiteSpace(annotationInfo.LastOrDefault()) || char.IsWhiteSpace(text.FirstOrDefault()) ?
-				string.Empty : " ";
+				Empty : " ";
 			return annotationInfo + separator + text;
 		}
 		private bool HasReferenceText(List<object> dataRow)
 		{
-			return !string.IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			return !IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 		}
 
 		private BCVRef GetBcvRefForRow(List<object> row)
@@ -754,6 +784,8 @@ namespace Glyssen
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 				row.Add(annotationInfo);
 			row.Add(null);
+			if (IncludeCreateClips)
+				row.Add(null);
 			return row;
 		}
 
@@ -778,6 +810,8 @@ namespace Glyssen
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 				row.Add(refBlock.PrimaryReferenceText);
 			row.Add(0);
+			if (IncludeCreateClips)
+				row.Add(null);
 			return row;
 		}
 
@@ -810,17 +844,19 @@ namespace Glyssen
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 				AddDirectorsGuideHeader(headers, Project.ReferenceText.SecondaryReferenceTextLanguageName);
 			headers.Add("Size");
+			if (IncludeCreateClips)
+				headers.Add("Clip File");
 			return headers;
 		}
 
 		private void AddDirectorsGuideHeader(List<object> headers, string languageName)
 		{
-			headers.Add(String.Format("{0} Director's Guide", languageName));
+			headers.Add(Format("{0} Director's Guide", languageName));
 		}
 
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
 			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
-			bool includeDelivery, bool includeSecondaryDirectorsGuide)
+			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -855,13 +891,19 @@ namespace Glyssen
 					list.Add(null);
 			}
 			list.Add(block.GetText(false).Length);
+
+			if (!IsNullOrEmpty(outputDirectory) && !IsNullOrEmpty(clipFileProjectId))
+			{
+				list.Add(Path.Combine(outputDirectory, bookId, clipFileProjectId +
+					$"_{blockNumber:D5}_{bookId}_{block.ChapterNumber:D3}_{block.InitialStartVerseNumber:D3}.wav"));
+			}
 			return list;
 		}
 
 		internal static string GetTabSeparatedLine(List<object> items)
 		{
 			const string kTabSeparator = "\t";
-			return string.Join(kTabSeparator, items);
+			return Join(kTabSeparator, items);
 		}
 
 		public static string GetFileExtension(ExportFileType fileType)
@@ -955,8 +997,8 @@ namespace Glyssen
 				group.Add(characterGroup.GroupIdForUiDisplay);
 				group.Add(characterGroup.CharacterIds);
 				group.Add(characterGroup.AttributesDisplay);
-				group.Add(string.Format("{0:N2}", characterGroup.EstimatedHours));
-				group.Add(characterGroup.IsVoiceActorAssigned ? characterGroup.VoiceActor.Name : string.Empty);
+				group.Add(Format("{0:N2}", characterGroup.EstimatedHours));
+				group.Add(characterGroup.IsVoiceActorAssigned ? characterGroup.VoiceActor.Name : Empty);
 				groups.Add(group);
 			}
 			return groups;

@@ -29,6 +29,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
+using static System.String;
 
 namespace Glyssen
 {
@@ -405,7 +406,7 @@ namespace Glyssen
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
 		{
-			Debug.Assert(!String.IsNullOrEmpty(model.RecordingProjectName));
+			Debug.Assert(!IsNullOrEmpty(model.RecordingProjectName));
 			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
 			if (newPath != ProjectFolder)
 			{
@@ -512,13 +513,13 @@ namespace Glyssen
 			get
 			{
 				var sb = new StringBuilder(Name);
-				if (!string.IsNullOrEmpty(m_metadata.Language.Name))
+				if (!IsNullOrEmpty(m_metadata.Language.Name))
 					sb.Append(", ").Append(m_metadata.Language.Name);
-				if (!string.IsNullOrEmpty(LanguageIsoCode))
+				if (!IsNullOrEmpty(LanguageIsoCode))
 					sb.Append(" (").Append(LanguageIsoCode).Append(")");
-				if (!string.IsNullOrEmpty(PublicationName))
+				if (!IsNullOrEmpty(PublicationName))
 					sb.Append(", ").Append(PublicationName);
-				if (!string.IsNullOrEmpty(Id))
+				if (!IsNullOrEmpty(Id))
 					sb.Append(" (").Append(Id).Append(")");
 				return sb.ToString();
 			}
@@ -642,7 +643,7 @@ namespace Glyssen
 					upgradeProject = false;
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
 					{
-						string msg = string.Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalBundlePath) +
+						string msg = Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalBundlePath) +
 							Environment.NewLine + Environment.NewLine +
 							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -699,7 +700,7 @@ namespace Glyssen
 		{
 			if (confirmAndRecycle)
 			{
-				if (!ConfirmRecycleDialog.ConfirmThenRecycle(string.Format("Standard format project \"{0}\"", projectFolder), projectFolder))
+				if (!ConfirmRecycleDialog.ConfirmThenRecycle(Format("Standard format project \"{0}\"", projectFolder), projectFolder))
 					return;
 			}
 			else if (Directory.Exists(projectFolder))
@@ -871,14 +872,14 @@ namespace Glyssen
 				if (bookScript == null || bookScript.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
-					var nonNullBookScriptsStr = string.Join(";", nonNullBookScripts);
+					var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
-					throw new ApplicationException(string.Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
+					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
 				}
 
 			m_books.AddRange(bookScripts);
 			m_metadata.ParserVersion = Settings.Default.ParserVersion;
-			if (m_books.All(b => String.IsNullOrEmpty(b.PageHeader)))
+			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
 				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 			UpdateControlFileVersion();
 			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
@@ -1160,11 +1161,11 @@ namespace Glyssen
 				{
 					if (IetfLanguageTag.IsValid(m_metadata.Language.Ldml))
 						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
-					if (string.IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+					if (IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
 						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
 					if (m_wsDefinition.Id == null)
 					{
-						m_wsDefinition.Id = String.IsNullOrEmpty(m_metadata.Language.Ldml)
+						m_wsDefinition.Id = IsNullOrEmpty(m_metadata.Language.Ldml)
 							? m_metadata.Language.Iso
 							: m_metadata.Language.Ldml;
 					}
@@ -1190,7 +1191,7 @@ namespace Glyssen
 							}
 						}
 					}
-					if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !string.IsNullOrEmpty(m_metadata.Language.Name))
+					if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !IsNullOrEmpty(m_metadata.Language.Name))
 					{
 						// TODO: Strip off the first dash and anything following???
 						// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
@@ -1238,7 +1239,7 @@ namespace Glyssen
 				int n = 1;
 				do
 				{
-					newDirectoryPath = String.Format(fmt, n++);
+					newDirectoryPath = Format(fmt, n++);
 				} while (Directory.Exists(newDirectoryPath));
 			}
 			DirectoryUtilities.CopyDirectoryContents(ProjectFolder, newDirectoryPath);
@@ -1272,7 +1273,7 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			return String.Format("{0} {1}", publicationName, LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
+			return Format("{0} {1}", publicationName, LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
 		}
 
 		internal static string GetDefaultRecordingProjectName(IBundle bundle)
@@ -1302,9 +1303,9 @@ namespace Glyssen
 				m_fontInstallationAttempted = true;
 
 				if (count > 1)
-					MessageBox.Show(string.Format(LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles", "The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."), m_metadata.FontFamily, Program.kProduct));
+					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles", "The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."), m_metadata.FontFamily, Program.kProduct));
 				else
-					MessageBox.Show(string.Format(LocalizationManager.GetString("Font.InstallInstructions", "The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
+					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructions", "The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
 
 				foreach (var ttfFile in ttfFilesToInstall)
 				{
@@ -1314,12 +1315,12 @@ namespace Glyssen
 					}
 					catch (Exception)
 					{
-						MessageBox.Show(string.Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview", "There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
+						MessageBox.Show(Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview", "There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
 					}
 				}
 			}
 			else
-				MessageBox.Show(string.Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
+				MessageBox.Show(Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
@@ -1471,13 +1472,13 @@ namespace Glyssen
 			List<QuotationMark> replacementQuotationMarks = new List<QuotationMark>();
 			foreach (var level in m_wsDefinition.QuotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
 			{
-				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !string.IsNullOrWhiteSpace(level.Continue))
+				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
 				{
 					var oneLevelUp = replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
 					if (oneLevelUp == null)
 						continue;
 					string oneLevelUpContinuer = oneLevelUp.Continue;
-					if (string.IsNullOrWhiteSpace(oneLevelUpContinuer))
+					if (IsNullOrWhiteSpace(oneLevelUpContinuer))
 						continue;
 					string newContinuer = oneLevelUpContinuer + " " + level.Continue;
 					replacementQuotationMarks.Add(new QuotationMark(level.Open, level.Close, newContinuer, level.Level, level.Type));
@@ -1500,6 +1501,8 @@ namespace Glyssen
 		{
 			get { return BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId)); }
 		}
+
+		public string LastExportLocation => Directory.Exists(Status.LastExportLocation) ? Status.LastExportLocation : Empty;
 	}
 
 	public class ProjectStateChangedEventArgs : EventArgs
