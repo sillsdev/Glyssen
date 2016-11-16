@@ -311,8 +311,8 @@ namespace Glyssen
 			if (!LoadAndHandleApplicationExceptions(() => SetProject(Project.Load(filePath))))
 				SetProject(null);
 
-			m_lastExportLocationLink.Text = m_project != null ? m_project.Status.LastExportLocation : Empty;
-			m_lblFilesAreHere.Visible = m_lastExportLocationLink.Text != Empty;
+			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
+			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
 		}
 
 		private void LoadBundle(string bundlePath)
@@ -844,6 +844,7 @@ namespace Glyssen
 
 		private void m_lastExportLocationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
+			// REVIEW: Should we store the actual path to the main exported file and call SelectFileInExplorer() instead?
 			PathUtilities.OpenDirectoryInExplorer(m_lastExportLocationLink.Text);
 		}
 

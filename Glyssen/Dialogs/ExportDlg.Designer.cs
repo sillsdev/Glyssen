@@ -50,6 +50,8 @@ namespace Glyssen.Dialogs
 			this.m_lblClipListFilename = new System.Windows.Forms.Label();
 			this.m_lblDescription2 = new System.Windows.Forms.Label();
 			this.m_checkOpenForMe = new System.Windows.Forms.CheckBox();
+			this.m_checkCreateClips = new System.Windows.Forms.CheckBox();
+			this.m_lblClipDirectory = new System.Windows.Forms.Label();
 			this.m_tableLayoutPanelMan = new System.Windows.Forms.TableLayoutPanel();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
@@ -67,7 +69,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnCancel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnCancel, "Common.Cancel");
-			this.m_btnCancel.Location = new System.Drawing.Point(405, 324);
+			this.m_btnCancel.Location = new System.Drawing.Point(405, 402);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 1;
@@ -84,7 +86,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnOk, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnOk, "Common.OK");
-			this.m_btnOk.Location = new System.Drawing.Point(324, 324);
+			this.m_btnOk.Location = new System.Drawing.Point(324, 402);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOk.TabIndex = 0;
@@ -96,8 +98,8 @@ namespace Glyssen.Dialogs
 			// m_checkIncludeBookBreakdown
 			// 
 			this.m_checkIncludeBookBreakdown.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_checkIncludeBookBreakdown, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkIncludeBookBreakdown.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_checkIncludeBookBreakdown, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkIncludeBookBreakdown, 3);
 			this.m_checkIncludeBookBreakdown.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkIncludeBookBreakdown, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -142,8 +144,8 @@ namespace Glyssen.Dialogs
 			// m_checkIncludeActorBreakdown
 			// 
 			this.m_checkIncludeActorBreakdown.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_checkIncludeActorBreakdown, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkIncludeActorBreakdown.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_checkIncludeActorBreakdown, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkIncludeActorBreakdown, 3);
 			this.m_checkIncludeActorBreakdown.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkIncludeActorBreakdown, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -320,8 +322,8 @@ namespace Glyssen.Dialogs
 			// m_checkIncludeClipListFile
 			// 
 			this.m_checkIncludeClipListFile.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_checkIncludeClipListFile, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkIncludeClipListFile.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_checkIncludeClipListFile, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkIncludeClipListFile, 3);
 			this.m_checkIncludeClipListFile.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkIncludeClipListFile, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -401,8 +403,8 @@ namespace Glyssen.Dialogs
 			// m_checkOpenForMe
 			// 
 			this.m_checkOpenForMe.AutoSize = true;
-			this.glyssenColorPalette.SetBackColor(this.m_checkOpenForMe, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkOpenForMe.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_checkOpenForMe, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_checkOpenForMe.Checked = true;
 			this.m_checkOpenForMe.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkOpenForMe, 3);
@@ -413,13 +415,55 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkOpenForMe, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkOpenForMe, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkOpenForMe, "DialogBoxes.ExportDlg.OpenForMe");
-			this.m_checkOpenForMe.Location = new System.Drawing.Point(3, 314);
+			this.m_checkOpenForMe.Location = new System.Drawing.Point(3, 356);
 			this.m_checkOpenForMe.Name = "m_checkOpenForMe";
 			this.m_checkOpenForMe.Size = new System.Drawing.Size(162, 17);
 			this.m_checkOpenForMe.TabIndex = 15;
 			this.m_checkOpenForMe.Text = "Open the exported file for me";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_checkOpenForMe, true);
 			this.m_checkOpenForMe.UseVisualStyleBackColor = true;
+			// 
+			// m_checkCreateClips
+			// 
+			this.m_checkCreateClips.AutoSize = true;
+			this.m_checkCreateClips.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_checkCreateClips, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_checkCreateClips, 3);
+			this.m_checkCreateClips.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_checkCreateClips, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_checkCreateClips.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_checkCreateClips, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_checkCreateClips, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_checkCreateClips, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_checkCreateClips, "DialogBoxes.ExportDlg.CreateClipFiles");
+			this.m_checkCreateClips.Location = new System.Drawing.Point(3, 304);
+			this.m_checkCreateClips.Name = "m_checkCreateClips";
+			this.m_checkCreateClips.Size = new System.Drawing.Size(148, 17);
+			this.m_checkCreateClips.TabIndex = 12;
+			this.m_checkCreateClips.Text = "Also create blank clip files";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_checkCreateClips, true);
+			this.m_checkCreateClips.UseVisualStyleBackColor = true;
+			this.m_checkCreateClips.CheckedChanged += new System.EventHandler(this.CheckCreateClips_CheckedChanged);
+			// 
+			// m_lblClipDirectory
+			// 
+			this.m_lblClipDirectory.AutoSize = true;
+			this.m_lblClipDirectory.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblClipDirectory, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_tableLayoutPanelMan.SetColumnSpan(this.m_lblClipDirectory, 2);
+			this.glyssenColorPalette.SetForeColor(this.m_lblClipDirectory, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblClipDirectory.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblClipDirectory, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblClipDirectory, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblClipDirectory, "DialogBoxes.ExportDlg.FilesWillBeCreated");
+			this.m_lblClipDirectory.Location = new System.Drawing.Point(28, 327);
+			this.m_lblClipDirectory.Margin = new System.Windows.Forms.Padding(3);
+			this.m_lblClipDirectory.Name = "m_lblClipDirectory";
+			this.m_lblClipDirectory.Size = new System.Drawing.Size(127, 13);
+			this.m_lblClipDirectory.TabIndex = 10;
+			this.m_lblClipDirectory.Text = "Files will be created in {0}";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblClipDirectory, true);
+			this.m_lblClipDirectory.Visible = false;
 			// 
 			// m_tableLayoutPanelMan
 			// 
@@ -431,6 +475,8 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
 			this.m_tableLayoutPanelMan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanelMan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_tableLayoutPanelMan.Controls.Add(this.m_lblClipDirectory, 1, 17);
+			this.m_tableLayoutPanelMan.Controls.Add(this.m_checkCreateClips, 0, 16);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_btnChange, 2, 4);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_checkIncludeActorBreakdown, 0, 7);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_checkIncludeBookBreakdown, 0, 10);
@@ -444,13 +490,13 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_lblClipListFilename, 1, 14);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_lblDescription, 0, 0);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_lblDescription2, 0, 1);
-			this.m_tableLayoutPanelMan.Controls.Add(this.m_checkOpenForMe, 0, 17);
+			this.m_tableLayoutPanelMan.Controls.Add(this.m_checkOpenForMe, 0, 19);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_lblFilenameLabel, 0, 3);
 			this.m_tableLayoutPanelMan.Controls.Add(this.m_lblFileName, 1, 4);
 			this.glyssenColorPalette.SetForeColor(this.m_tableLayoutPanelMan, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_tableLayoutPanelMan.Location = new System.Drawing.Point(12, 12);
 			this.m_tableLayoutPanelMan.Name = "m_tableLayoutPanelMan";
-			this.m_tableLayoutPanelMan.RowCount = 18;
+			this.m_tableLayoutPanelMan.RowCount = 20;
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
@@ -467,9 +513,11 @@ namespace Glyssen.Dialogs
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.m_tableLayoutPanelMan.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.m_tableLayoutPanelMan.Size = new System.Drawing.Size(468, 306);
+			this.m_tableLayoutPanelMan.Size = new System.Drawing.Size(468, 384);
 			this.m_tableLayoutPanelMan.TabIndex = 8;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_tableLayoutPanelMan, false);
 			// 
@@ -480,7 +528,7 @@ namespace Glyssen.Dialogs
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.glyssenColorPalette.SetBackColor(this, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(492, 359);
+			this.ClientSize = new System.Drawing.Size(492, 437);
 			this.Controls.Add(this.m_tableLayoutPanelMan);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);
@@ -529,5 +577,7 @@ namespace Glyssen.Dialogs
 		private GlyssenColorPalette glyssenColorPalette;
 		private System.Windows.Forms.Label m_lblDescription2;
 		private System.Windows.Forms.CheckBox m_checkOpenForMe;
+		private System.Windows.Forms.Label m_lblClipDirectory;
+		private System.Windows.Forms.CheckBox m_checkCreateClips;
 	}
 }

@@ -219,7 +219,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	106
+        ///   Looks up a localized string similar to Control File Version	108
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -254,7 +254,8 @@ namespace Glyssen.Properties {
         ///
         ///# modifications by Studge 26/June/2009
         ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnglishVersification {
             get {
@@ -465,6 +466,15 @@ namespace Glyssen.Properties {
             get {
                 object obj = ResourceManager.GetObject("search_glyph", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Silent {
+            get {
+                return ResourceManager.GetStream("Silent", resourceCulture);
             }
         }
         

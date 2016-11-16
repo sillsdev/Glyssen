@@ -14,6 +14,7 @@ namespace Glyssen.Dialogs
 		private readonly ProjectExporter m_viewModel;
 		private string m_actorDirectoryFmt;
 		private string m_bookDirectoryFmt;
+		private string m_clipDirectoryFmt;
 		private string m_clipListFileFmt;
 		private string m_openFileForMeText;
 
@@ -23,12 +24,32 @@ namespace Glyssen.Dialogs
 
 			InitializeComponent();
 
+			if (!m_viewModel.IncludeVoiceActors)
+				HideControlsThatRequireVoiceActors();
+
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
 			m_lblFileName.Text = m_viewModel.FullFileName;
 
 			UpdateDisplay();
+		}
+
+		private void HideControlsThatRequireVoiceActors()
+		{
+			m_checkIncludeActorBreakdown.Checked = false;
+			m_checkIncludeActorBreakdown.Visible = false;
+			m_lblActorDirectory.Visible = false;
+			m_lblActorDirectoryExists.Visible = false;
+
+			m_checkIncludeClipListFile.Checked = false;
+			m_checkIncludeClipListFile.Visible = false;
+			m_lblClipListFilename.Visible = false;
+			m_lblClipListFileExists.Visible = false;
+
+			m_checkCreateClips.Checked = false;
+			m_checkCreateClips.Visible = false;
+			m_lblClipDirectory.Visible = false;
 		}
 
 		private void ExportDlg_Load(object sender, EventArgs e)
@@ -44,6 +65,7 @@ namespace Glyssen.Dialogs
 			m_lblDescription.Text = string.Format(m_lblDescription.Text, ProductName);
 			m_actorDirectoryFmt = m_lblActorDirectory.Text;
 			m_bookDirectoryFmt = m_lblBookDirectory.Text;
+			m_clipDirectoryFmt = m_lblClipDirectory.Text;
 			m_clipListFileFmt = m_lblClipListFilename.Text;
 			m_openFileForMeText = m_checkOpenForMe.Text;
 
@@ -59,18 +81,14 @@ namespace Glyssen.Dialogs
 			UpdateBookDisplay();
 			UpdateClipListDisplay();
 			UpdateOpenForMeDisplay();
+			UpdateCreateClipsDisplay();
 		}
 
 		private void UpdateActorDisplay()
 		{
 			if (!m_viewModel.IncludeVoiceActors)
-			{
-				m_checkIncludeActorBreakdown.Checked = false;
-				m_checkIncludeActorBreakdown.Visible = false;
-				m_lblActorDirectory.Visible = false;
-				m_lblActorDirectoryExists.Visible = false;
-			}
-			else if (m_checkIncludeActorBreakdown.Checked)
+				return;
+			if (m_checkIncludeActorBreakdown.Checked)
 			{
 				m_lblActorDirectory.Visible = true;
 				m_lblActorDirectory.Text = string.Format(m_actorDirectoryFmt, m_viewModel.ActorDirectory);
@@ -98,16 +116,27 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private void UpdateCreateClipsDisplay()
+		{
+			if (!m_viewModel.IncludeVoiceActors)
+				return;
+
+			if (m_checkCreateClips.Checked)
+			{
+				m_lblClipDirectory.Visible = true;
+				m_lblClipDirectory.Text = string.Format(m_clipDirectoryFmt, m_viewModel.ClipDirectory);
+			}
+			else
+			{
+				m_lblClipDirectory.Visible = false;
+			}
+		}
+
 		private void UpdateClipListDisplay()
 		{
 			if (!m_viewModel.IncludeVoiceActors)
-			{
-				m_checkIncludeClipListFile.Checked = false;
-				m_checkIncludeClipListFile.Visible = false;
-				m_lblClipListFilename.Visible = false;
-				m_lblClipListFileExists.Visible = false;
-			}
-			else if (m_checkIncludeClipListFile.Checked)
+				return;
+			if (m_checkIncludeClipListFile.Checked)
 			{
 				var folder = Path.GetDirectoryName(m_lblFileName.Text) ?? string.Empty;
 				var filename = Path.GetFileNameWithoutExtension(m_lblFileName.Text) ?? m_viewModel.Project.PublicationName;
@@ -250,6 +279,12 @@ namespace Glyssen.Dialogs
 					return;
 				}
 			} while (true);
+		}
+
+		private void CheckCreateClips_CheckedChanged(object sender, EventArgs e)
+		{
+			m_viewModel.IncludeCreateClips = m_checkCreateClips.Checked;
+			UpdateCreateClipsDisplay();
 		}
 	}
 }
