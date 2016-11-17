@@ -1847,9 +1847,8 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narGal.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.AreEqual(1, narHeb.CharacterIds.Count);
 			Assert.IsTrue(narHeb.AssignedToCameoActor);
-			Assert.AreEqual(7, narNonCameo.CharacterIds.Count);
 			Assert.IsFalse(narNonCameo.AssignedToCameoActor);
-			Assert.IsTrue(narNonCameo.CharacterIds.All(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(7, narNonCameo.CharacterIds.Count(c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator)));
 
 			var narrators = new List<CharacterGroup> { narMrk, narGal, narHeb, narNonCameo };
 			foreach (var grp in groups.Except(narrators))

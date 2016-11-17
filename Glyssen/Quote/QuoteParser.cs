@@ -94,6 +94,7 @@ namespace Glyssen.Quote
 		private bool m_nextBlockContinuesQuote;
 		private readonly List<Block> m_currentMultiBlockQuote = new List<Block>();
 		private List<string> m_possibleCharactersForCurrentQuote = new List<string>();
+		private bool m_ignoringNarratorQuotation;
 		#endregion
 
 		public QuoteParser(ICharacterVerseInfo cvInfo, string bookId, IEnumerable<Block> blocks, ScrVers versification = null)
@@ -396,7 +397,10 @@ namespace Glyssen.Quote
 										m_currentMultiBlockQuote.Clear();
 										m_nextBlockContinuesQuote = false;
 									}
-									FlushStringBuilderAndBlock(sb, block.StyleTag, true);
+									if (m_ignoringNarratorQuotation)
+										m_ignoringNarratorQuotation = false;
+									else
+										FlushStringBuilderAndBlock(sb, block.StyleTag, true);
 									potentialDialogueContinuer = false;
 									inPairedFirstLevelQuote = false;
 								}
@@ -404,7 +408,17 @@ namespace Glyssen.Quote
 							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
 								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(char.IsPunctuation))))
-									FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								{
+									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
+									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
+									if (characters.Count == 1 && characters[0].QuoteType == QuoteType.Quotation &&
+										CharacterVerseData.IsCharacterOfType(characters[0].Character, CharacterVerseData.StandardCharacter.Narrator))
+									{
+										m_ignoringNarratorQuotation = true;
+									}
+									else
+										FlushStringBuilderAndBlock(sb, block.StyleTag, false);
+								}
 								sb.Append(token);
 								IncrementQuoteLevel();
 								inPairedFirstLevelQuote = true;
@@ -651,6 +665,10 @@ namespace Glyssen.Quote
 		/// <param name="characterUnknown"></param>
 		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
+			Debug.Assert(!m_ignoringNarratorQuotation);
+			// reset this flag just to be safe.
+			m_ignoringNarratorQuotation = false;
+
 			FlushStringBuilderToBlockElement(sb);
 			if (m_workingBlock.BlockElements.Count > 0)
 			{

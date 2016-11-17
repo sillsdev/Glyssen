@@ -317,7 +317,8 @@ namespace Glyssen.Dialogs
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
-				colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => b.CharacterIsUnclear());
+				// BryanW says it will be easier to train people if this column is always visible, even when there is nothing to do.
+				//colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
 				colDelivery.Visible = colDelivery.Items.Count > 1;
 				var primaryColumnIndex = colPrimary.Visible ? colPrimary.Index : colEnglish.Index;
 				int i = 0;
@@ -330,27 +331,27 @@ namespace Glyssen.Dialogs
 					if (colPrimary.Visible)
 						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().PrimaryReferenceText;
 					row.Cells[primaryColumnIndex].Value = correlatedBlock.PrimaryReferenceText;
-					if (colCharacter.Visible)
-					{
-						string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
-							correlatedBlock.CharacterId;
+					//if (colCharacter.Visible)
+					//{
+					string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
+						correlatedBlock.CharacterId;
 
-						if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-							row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character) colCharacter.Items[0];
-						else
+					if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+						row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character) colCharacter.Items[0];
+					else
+					{
+						foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
 						{
-							foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
+							if (character.CharacterId == characterId)
 							{
-								if (character.CharacterId == characterId)
-								{
-									row.Cells[colCharacter.Index].Value = character;
-									break;
-								}
+								row.Cells[colCharacter.Index].Value = character;
+								break;
 							}
-							if (row.Cells[colCharacter.Index].Value == null)
-								Debug.WriteLine("Problem");
 						}
+						if (row.Cells[colCharacter.Index].Value == null)
+							Debug.WriteLine("Problem");
 					}
+					//}
 					if (colDelivery.Visible)
 					{
 						var delivery = correlatedBlock.Delivery;
@@ -363,6 +364,7 @@ namespace Glyssen.Dialogs
 							(row.Cells[colCharacter.Index].Value as AssignCharacterViewModel.Character) == AssignCharacterViewModel.Character.Narrator;
 					}
 				}
+				colCharacter.ReadOnly = colCharacter.Items.Count == 1 && !m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.FirstDisplayedCell;
 				m_dataGridReferenceText.BeginEdit(true);
@@ -1093,7 +1095,7 @@ namespace Glyssen.Dialogs
 			SwapRefText(rowA, rowB, colEnglish.Index);
 			if (m_viewModel.CurrentReferenceTextMatchup.CanChangeCharacterAndDeliveryInfo(rowA.Index, rowB.Index))
 			{
-				if (colCharacter.Visible)
+				if (!colCharacter.ReadOnly)
 					SwapValues(rowA, rowB, colCharacter.Index);
 				if (colDelivery.Visible)
 					SwapValues(rowA, rowB, colDelivery.Index);
@@ -1175,7 +1177,7 @@ namespace Glyssen.Dialogs
 				else
 				{
 					Debug.Assert(e.ColumnIndex == colCharacter.Index);
-					Debug.Assert(colCharacter.Visible);
+					Debug.Assert(!colCharacter.ReadOnly);
 					var selectedCharacter =
 						m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Character;
 					if (selectedCharacter == null)
@@ -1277,7 +1279,7 @@ namespace Glyssen.Dialogs
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
 			var column = level == 0 && colPrimary.Visible ? colPrimary : colEnglish;
 			m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
-			if (colCharacter.Visible)
+			if (!colCharacter.ReadOnly)
 				m_dataGridReferenceText.Rows[iRow].Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
 		}
