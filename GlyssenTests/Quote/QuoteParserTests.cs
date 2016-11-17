@@ -1460,7 +1460,6 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new ScriptText("«What verse is this?»"));
 			var input = new List<Block> { block1, block2 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(2, output.Count);
@@ -1480,7 +1479,6 @@ namespace GlyssenTests.Quote
 			block1.BlockElements.Add(new ScriptText("Then the narrator said something."));
 			var input = new List<Block> { block1 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -1505,7 +1503,6 @@ namespace GlyssenTests.Quote
 			block1.BlockElements.Add(new ScriptText("Then the narrator said something."));
 			var input = new List<Block> { block1 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -1529,7 +1526,6 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new ScriptText("«And don't call me Shirley.»"));
 			var input = new List<Block> { block1, block2 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
 			Assert.AreEqual(5, output.Count);
@@ -1550,7 +1546,6 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new ScriptText("«Oh, and his brother, too.»"));
 			var input = new List<Block> { block1, block2 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -1569,7 +1564,6 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new ScriptText("ŋa tsanaftá hgani ka Emanuwel,» manda mnay kazlay: Kawadaga Lazglafta nda amu kəʼa ya."));
 			var input = new List<Block> { block1, block2 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 			Assert.AreEqual(3, output.Count);
@@ -1592,7 +1586,6 @@ namespace GlyssenTests.Quote
 			block2.BlockElements.Add(new ScriptText("Text in the next chapter and «another quote»"));
 			var input = new List<Block> { block1, blockC, block2 };
 
-			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerse;
 			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
 			Assert.AreEqual(6, output.Count);
@@ -4573,6 +4566,42 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.Continuation, results[2].MultiBlockQuote);
 			Assert.AreEqual("ninmi. ", ((ScriptText)results[3].BlockElements[0]).Content);
 			Assert.AreEqual("«T»", ((ScriptText)results[4].BlockElements[1]).Content);
+		}
+	}
+
+
+	[TestFixture]
+	public class QuoteParserTestsWithTestCharacterVerseOct2015
+	{
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+		}
+
+		[Test]
+		public void Parse_BlockContainsNarratorQuotation_NoOtherCharactersInControlFile_RemainsAsSingleBlockAssignedToNarrator()
+		{
+			var block = new Block("p", 3, 2).AddVerse(2, "A crippled guy was carried to the, «Beautiful» gate to beg.").AddVerse(3, "When he saw...");
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ACT", input).Parse().ToList();
+			Assert.AreEqual(1, output.Count);
+			Assert.AreEqual(block.GetText(true), output[0].GetText(true));
+			Assert.IsTrue(output[0].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_BlockContainsNarratorQuotation_OtherCharactersInControlFile_BlockSplitAndQuoteMarkedAsAmbiguous()
+		{
+			var block = new Block("p", 5, 1).AddVerse(1, "This is the book of Adam's race. When God created man, He made him in his image.")
+				.AddVerse(2, "He created them and blessed them and named them «Man» that day.");
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.IsTrue(output[1].CharacterIsUnclear());
 		}
 	}
 }

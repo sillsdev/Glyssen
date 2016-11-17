@@ -1,4 +1,4 @@
-Control File Version	108
+Control File Version	109
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15076,6 +15076,7 @@ ACT	7	56	Stephen			Dialogue
 ACT	7	57	Sanhedrin/chief priests/Pharisees			Indirect		
 ACT	7	59	Stephen			Normal		
 ACT	7	60	Stephen	calling out		Normal		
+ACT	8	9	Simon, sorcerer			Indirect		
 ACT	8	10	people of Samaria, all the			Normal		
 ACT	8	19	Simon, sorcerer			Normal		
 ACT	8	20	Peter (Simon)	rebuking		Dialogue		
@@ -15406,6 +15407,7 @@ ACT	22	20	Paul	preaching		Normal
 ACT	22	21	Paul	preaching		Normal		
 ACT	22	22	crowd in Jerusalem	screaming		Normal		
 ACT	22	24	commander of Roman troops in Jerusalem			Indirect		
+ACT	22	24	crowd in Jerusalem			Indirect		
 ACT	22	25	Paul	sternly		Dialogue		
 ACT	22	26	centurion at Paul's flogging	anxious		Dialogue		
 ACT	22	27	commander of Roman troops in Jerusalem			Dialogue		
@@ -15419,6 +15421,7 @@ ACT	23	3	Paul	rebuking		Dialogue
 ACT	23	4	those standing near Paul in Sanhedrin	angry		Dialogue		
 ACT	23	5	Paul			Dialogue		
 ACT	23	6	Paul	calling out		Dialogue		
+ACT	23	8	Sadducees			Hypothetical		
 ACT	23	9	Pharisees	arguing	teachers of the law, some who were Pharisees	Dialogue		
 ACT	23	10	commander of Roman troops in Jerusalem	ordering		Indirect		
 ACT	23	11	Jesus	in a vision		Normal		
@@ -15759,6 +15762,7 @@ EPH	6	2	scripture			Quotation	God
 EPH	6	3	scripture			Quotation	God	
 PHP	2	11	everyone			Hypothetical		
 PHP	4	4	Paul			Potential		
+COL	2	18	narrator-COL			Quotation		
 COL	2	21	rules of the world			Hypothetical		
 COL	4	17	Paul			Quotation		
 1TH	4	12	unbelievers			Indirect		
@@ -15777,7 +15781,7 @@ COL	4	17	Paul			Quotation
 2TI	2	18	men who have gone astray			Indirect		
 2TI	2	19	narrator-2TI			Quotation		
 TIT	1	12	Cretan prophet			Quotation		
-TIT	2	12	narrator-TIT			Hypothetical		
+TIT	2	12	narrator-TIT			Quotation		
 HEB	1	5	scripture			Quotation	God	
 HEB	1	6	scripture			Quotation	God	
 HEB	1	7	scripture			Quotation	God	
@@ -15798,7 +15802,7 @@ HEB	3	8	scripture			Quotation
 HEB	3	9	scripture			Quotation		
 HEB	3	10	scripture			Quotation		
 HEB	3	11	scripture			Quotation		
-HEB	3	13	narrator-HEB			Hypothetical		
+HEB	3	13	narrator-HEB			Quotation		
 HEB	3	15	scripture			Quotation		
 HEB	3	18	scripture			Quotation	God	
 HEB	4	3	scripture			Quotation	God	
@@ -15866,7 +15870,7 @@ JAS	4	5	scripture			Quotation
 JAS	4	6	scripture			Quotation	Solomon, king	
 JAS	4	13	someone			Hypothetical		
 JAS	4	15	you ought to say			Hypothetical		
-JAS	5	12	narrator-JAS			Hypothetical		
+JAS	5	12	narrator-JAS			Quotation		
 JAS	5	17	Elijah	praying		Indirect		
 1PE	1	16	scripture			Quotation	God	
 1PE	1	17	you (hypothetical)			Hypothetical		
@@ -15890,6 +15894,9 @@ JAS	5	17	Elijah	praying		Indirect
 2PE	2	22	scripture		proverb about a dog	Quotation	Solomon, king	
 2PE	2	22	saying about sow			Quotation		
 2PE	3	4	scoffers			Hypothetical		
+1JN	1	6	narrator-1JN			Quotation		
+1JN	1	8	narrator-1JN			Quotation		
+1JN	1	10	narrator-1JN			Quotation		
 1JN	2	4	man who says 'I know him'			Hypothetical		
 1JN	2	6	man who says 'we remain in union with God'			Hypothetical		
 1JN	2	18	narrator-1JN			Hypothetical		
@@ -15904,6 +15911,7 @@ JUD	1	9	Michael, archangel			Normal
 JUD	1	14	Enoch			Normal		
 JUD	1	15	Enoch			Normal		
 JUD	1	18	apostles			Normal		
+REV	1	7	narrator-REV			Quotation		
 REV	1	8	God		Lord God Almighty (spoken by God-10 commentaries)	Normal		
 REV	1	8	Jesus		Lord God Almighty (spoken by Jesus-5 commentaries)	Normal		
 REV	1	11	Jesus		voice like a trumpet	Normal		
