@@ -4581,7 +4581,7 @@ namespace GlyssenTests.Quote
 		}
 
 		[Test]
-		public void Parse_BlockContainsNarratorQuotation_RemainsAsSingleBlockAssignedToNarrator()
+		public void Parse_BlockContainsNarratorQuotation_NoOtherCharactersInControlFile_RemainsAsSingleBlockAssignedToNarrator()
 		{
 			var block = new Block("p", 3, 2).AddVerse(2, "A crippled guy was carried to the, «Beautiful» gate to beg.").AddVerse(3, "When he saw...");
 			var input = new List<Block> { block };
@@ -4590,6 +4590,18 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(1, output.Count);
 			Assert.AreEqual(block.GetText(true), output[0].GetText(true));
 			Assert.IsTrue(output[0].CharacterIs("ACT", CharacterVerseData.StandardCharacter.Narrator));
+		}
+
+		[Test]
+		public void Parse_BlockContainsNarratorQuotation_OtherCharactersInControlFile_BlockSplitAndQuoteMarkedAsAmbiguous()
+		{
+			var block = new Block("p", 5, 1).AddVerse(1, "This is the book of Adam's race. When God created man, He made him in his image.")
+				.AddVerse(2, "He created them and blessed them and named them «Man» that day.");
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "GEN", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.IsTrue(output[1].CharacterIsUnclear());
 		}
 	}
 }
