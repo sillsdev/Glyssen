@@ -39,9 +39,8 @@ namespace Glyssen
 					m_iStartBlock -= prepend.Count;
 					blocksForVersesCoveredByBlock.InsertRange(0, prepend);
 				}
-				if (m_iStartBlock == 0 || (blocksForVersesCoveredByBlock.First().MultiBlockQuote != MultiBlockQuote.Continuation &&
-					isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
-					blocksForVersesCoveredByBlock.First().InitialStartVerseNumber))))
+				if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
+					blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
 				{
 					break;
 				}
@@ -211,15 +210,9 @@ namespace Glyssen
 
 		public static void AdvanceToCleanVerseBreak(IReadOnlyList<Block> blockList, Func<int, bool> isOkayToBreakAtVerse, ref int i)
 		{
-			for (; i < blockList.Count - 1; i++)
+			for (; i < blockList.Count - 1 && (!blockList[i + 1].StartsAtVerseStart || !isOkayToBreakAtVerse(blockList[i + 1].InitialStartVerseNumber)) &&
+				!blockList[i + 1].IsChapterAnnouncement; i++)
 			{
-				if (blockList[i + 1].MultiBlockQuote == MultiBlockQuote.Continuation)
-					continue;
-
-				if (blockList[i + 1].StartsAtVerseStart && isOkayToBreakAtVerse(blockList[i + 1].InitialStartVerseNumber))
-					break;
-				if (blockList[i + 1].IsChapterAnnouncement)
-					break;
 			}
 		}
 
