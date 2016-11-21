@@ -42,6 +42,8 @@ namespace Glyssen.Dialogs
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
 		private readonly string m_defaultBlocksViewerText;
+		private int m_IndexOfFirstFilterItemRemoved;
+		private object[] m_filterItemsForRainbowModeOnly;
 
 		private void HandleStringsLocalized()
 		{
@@ -52,7 +54,13 @@ namespace Glyssen.Dialogs
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"),
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
+			if (m_toolStripComboBoxFilter.Items.Count == m_IndexOfFirstFilterItemRemoved)
+			{
+				Debug.Assert(m_filterItemsForRainbowModeOnly != null);
+				m_toolStripComboBoxFilter.Items.AddRange(m_filterItemsForRainbowModeOnly);
+			}
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
+			UpdateFilterItems();
 
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
@@ -64,12 +72,33 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
+			const int numberOfFilterItemsForRainbowModeOnly = 1;
+			m_IndexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
+			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
+			for (int i = 0; i < numberOfFilterItemsForRainbowModeOnly; i++)
+				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_IndexOfFirstFilterItemRemoved];
+
 			m_viewModel = viewModel;
-			m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
+			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
+			{
+				// We want CheckChanged event to fire, so just setting Checked to true is not enough.
+				m_toolStripButtonMatchReferenceText.CheckState = (Settings.Default.AssignCharactersMatchReferenceText ||
+					(m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
+					? CheckState.Checked : CheckState.Unchecked;
+				HandleCharacterSelectionTabIndexChanged(m_tabControlCharacterSelection, new EventArgs());
+			}
+			else
+			{
+				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
+				m_toolStripButtonMatchReferenceText.Enabled = false;
+			}
+
+			m_tabControlCharacterSelection.ItemSize = new Size(0, 1);
+			m_tabControlCharacterSelection.Location = new Point(m_tabControlCharacterSelection.Location.X, -1);
 
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
-			if (Settings.Default.AssignCharactersShowGridView)
+			if (Settings.Default.AssignCharactersShowGridView || m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 				m_toolStripButtonGridView.Checked = true;
 
 			var books = new BookSet();
@@ -117,6 +146,26 @@ namespace Glyssen.Dialogs
 
 			BlocksViewerOnMinimumWidthChanged(m_blocksViewer, new EventArgs());
 			m_blocksViewer.MinimumWidthChanged += BlocksViewerOnMinimumWidthChanged;
+		}
+
+		private void UpdateFilterItems()
+		{
+			if (m_toolStripButtonMatchReferenceText.Checked)
+			{
+				if (m_toolStripComboBoxFilter.Items.Count == m_IndexOfFirstFilterItemRemoved)
+					m_toolStripComboBoxFilter.Items.AddRange(m_filterItemsForRainbowModeOnly);
+			}
+			else if (m_toolStripComboBoxFilter.Items.Count > m_IndexOfFirstFilterItemRemoved)
+			{
+				Debug.Assert(m_filterItemsForRainbowModeOnly != null);
+				if (m_toolStripComboBoxFilter.SelectedIndex >= m_IndexOfFirstFilterItemRemoved)
+				{
+					m_toolStripComboBoxFilter.SelectedIndex = 0;
+					HandleFilterChanged(m_toolStripComboBoxFilter, new EventArgs());
+				}
+				while (m_toolStripComboBoxFilter.Items.Count != m_IndexOfFirstFilterItemRemoved)
+					m_toolStripComboBoxFilter.Items.RemoveAt(m_IndexOfFirstFilterItemRemoved);
+			}
 		}
 
 		private void BlocksViewerOnMinimumWidthChanged(object sender, EventArgs eventArgs)
@@ -167,17 +216,17 @@ namespace Glyssen.Dialogs
 			var mode = m_viewModel.Mode;
 			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 1;
 			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 2;
+				m_toolStripComboBoxFilter.SelectedIndex = 1;
 			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 3;
+				m_toolStripComboBoxFilter.SelectedIndex = 2;
 			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 4;
+				m_toolStripComboBoxFilter.SelectedIndex = 3;
 			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
-				m_toolStripComboBoxFilter.SelectedIndex = 5;
+				m_toolStripComboBoxFilter.SelectedIndex = 4;
 			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 5;
+			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 6;
 			else
 				// ReSharper disable once NotResolvedInText
@@ -195,6 +244,21 @@ namespace Glyssen.Dialogs
 
 		private void LoadBlock(object sender, EventArgs args)
 		{
+			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
+			{
+				m_toolStripButtonMatchReferenceText.Enabled = true;
+			}
+			else
+			{
+				if (m_toolStripButtonMatchReferenceText.Checked)
+				{
+					// We want CheckChanged event to fire, so just setting Checked to true is not enough.
+					m_toolStripButtonSelectCharacter.CheckState = CheckState.Checked;
+					Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
+				}
+				m_toolStripButtonMatchReferenceText.Enabled = false;
+			}
+
 			if (m_blocksViewer.Visible)
 			{
 				this.SafeInvoke(() =>
@@ -210,8 +274,6 @@ namespace Glyssen.Dialogs
 		{
 			if (m_blocksViewer.Visible)
 			{
-				if (m_viewModel.CurrentReferenceTextMatchup != null)
-					this.SafeInvoke(ShowMatchReferenceTextTabPage);
 				this.SafeInvoke(UpdateReferenceTextTabPageDisplay);
 				m_userMadeChangesToReferenceTextMatchup = false;
 			}
@@ -248,12 +310,6 @@ namespace Glyssen.Dialogs
 				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
 				m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			}
-		}
-
-		private void ShowMatchReferenceTextTabPage()
-		{
-			if (!m_tabControlCharacterSelection.TabPages.Contains(tabPageMatchReferenceText))
-				m_tabControlCharacterSelection.TabPages.Add(tabPageMatchReferenceText);
 		}
 
 		private void UpdateInsertHeSaidButtonState()
@@ -296,24 +352,17 @@ namespace Glyssen.Dialogs
 
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
 
-			m_tabControlCharacterSelection.SelectedTab = m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation ?
-				tabPageMatchReferenceText : tabPageSelectCharacter;
-
 			m_dataGridReferenceText.RowCount = 0;
 			colCharacter.Items.Clear();
 			colDelivery.Items.Clear();
 
-			if (m_viewModel.CurrentReferenceTextMatchup == null)
-				m_tabControlCharacterSelection.TabPages.Remove(tabPageMatchReferenceText);
-			else
+			if (m_viewModel.CurrentReferenceTextMatchup != null)
 			{
 				foreach (AssignCharacterViewModel.Character character in m_viewModel.GetCharactersForCurrentReferenceTextMatchup())
 					colCharacter.Items.Add(character);
 
 				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
-
-				ShowMatchReferenceTextTabPage();
 
 				m_dataGridReferenceText.RowCount = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks.Count;
 				colPrimary.Visible = m_viewModel.HasSecondaryReferenceText;
@@ -331,8 +380,6 @@ namespace Glyssen.Dialogs
 					if (colPrimary.Visible)
 						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().PrimaryReferenceText;
 					row.Cells[primaryColumnIndex].Value = correlatedBlock.PrimaryReferenceText;
-					//if (colCharacter.Visible)
-					//{
 					string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
 						correlatedBlock.CharacterId;
 
@@ -351,7 +398,6 @@ namespace Glyssen.Dialogs
 						if (row.Cells[colCharacter.Index].Value == null)
 							Debug.WriteLine("Problem");
 					}
-					//}
 					if (colDelivery.Visible)
 					{
 						var delivery = correlatedBlock.Delivery;
@@ -366,7 +412,16 @@ namespace Glyssen.Dialogs
 				}
 				colCharacter.ReadOnly = colCharacter.Items.Count == 1 && !m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
-				m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.FirstDisplayedCell;
+				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
+				if (cellToMakeCurrent.ReadOnly)
+				{
+					int c = cellToMakeCurrent.ColumnIndex + 1;
+					while (c < m_dataGridReferenceText.ColumnCount && m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly)
+						c++;
+					if (c < m_dataGridReferenceText.ColumnCount)
+						cellToMakeCurrent = m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c];
+				}
+				m_dataGridReferenceText.CurrentCell = cellToMakeCurrent;
 				m_dataGridReferenceText.BeginEdit(true);
 			}
 
@@ -462,13 +517,13 @@ namespace Glyssen.Dialogs
 				return m_viewModel.IsModified((AssignCharacterViewModel.Character) m_listBoxCharacters.SelectedItem,
 					(AssignCharacterViewModel.Delivery) m_listBoxDeliveries.SelectedItem);
 			}
-			return m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
+			return m_viewModel.CurrentReferenceTextMatchup != null && m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
 		}
 
 		private void LoadNextRelevantBlock()
 		{
 			m_viewModel.LoadNextRelevantBlock();
-			m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
+			//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 		}
 
 		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
@@ -712,7 +767,7 @@ namespace Glyssen.Dialogs
 			if (IsOkayToLeaveBlock())
 			{
 				m_viewModel.LoadPreviousRelevantBlock();
-				m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
+				//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 			}
 		}
 
@@ -900,11 +955,11 @@ namespace Glyssen.Dialogs
 			switch (m_toolStripComboBoxFilter.SelectedIndex)
 			{
 				case 0: mode = BlocksToDisplay.NeedAssignments; break;
-				case 1: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
-				case 2: mode = BlocksToDisplay.MissingExpectedQuote; break;
-				case 3: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-				case 4: mode = BlocksToDisplay.AllExpectedQuotes; break;
-				case 5: mode = BlocksToDisplay.AllQuotes; break;
+				case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
+				case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+				case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
+				case 4: mode = BlocksToDisplay.AllQuotes; break;
+				case 6: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
 				default: mode = BlocksToDisplay.AllScripture; break;
 			}
 
@@ -916,7 +971,7 @@ namespace Glyssen.Dialogs
 			if (m_viewModel.RelevantBlockCount > 0)
 			{
 				LoadBlock(sender, e);
-				m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
+				//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 				LoadBlockMatchup(sender, e);
 			}
 			else
@@ -929,6 +984,35 @@ namespace Glyssen.Dialogs
 			UpdateProgressBarForMode();
 		}
 
+		private void HandleMatchReferenceTextCheckChanged(object sender, EventArgs e)
+		{
+			if (m_toolStripButtonMatchReferenceText.Checked == m_toolStripButtonSelectCharacter.Checked)
+			{
+				m_toolStripButtonSelectCharacter.Checked = !m_toolStripButtonMatchReferenceText.Checked;
+
+				Debug.Assert(!m_toolStripButtonSelectCharacter.Checked);
+
+				m_toolStripButtonGridView.Checked = true;
+				m_toolStripButtonHtmlView.Enabled = false;
+				m_tabControlCharacterSelection.SelectedTab = tabPageMatchReferenceText;
+				Settings.Default.AssignCharactersMatchReferenceText = true;
+			}
+		}
+
+		private void HandleSelectCharacterCheckChanged(object sender, EventArgs e)
+		{
+			if (m_toolStripButtonMatchReferenceText.Checked == m_toolStripButtonSelectCharacter.Checked)
+			{
+				m_toolStripButtonMatchReferenceText.Checked = !m_toolStripButtonSelectCharacter.Checked;
+
+				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
+
+				m_toolStripButtonHtmlView.Enabled = true;
+				m_tabControlCharacterSelection.SelectedTab = tabPageSelectCharacter;
+				Settings.Default.AssignCharactersMatchReferenceText = false;
+			}
+		}
+
 		private void HandleHtmlViewCheckChanged(object sender, EventArgs e)
 		{
 			if (m_toolStripButtonHtmlView.Checked == m_toolStripButtonGridView.Checked)
@@ -936,8 +1020,9 @@ namespace Glyssen.Dialogs
 				m_toolStripButtonGridView.Checked = !m_toolStripButtonHtmlView.Checked;
 
 				Debug.Assert(!m_toolStripButtonGridView.Checked);
+				Debug.Assert(!m_viewModel.AttemptRefBlockMatchup);
 
-				m_viewModel.AttemptRefBlockMatchup = false;
+				//m_viewModel.AttemptRefBlockMatchup = false;
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
 				Settings.Default.AssignCharactersShowGridView = false;
 			}
@@ -953,21 +1038,22 @@ namespace Glyssen.Dialogs
 
 				m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
 				Settings.Default.AssignCharactersShowGridView = true;
-				m_viewModel.AttemptRefBlockMatchup = true;
+				//m_viewModel.AttemptRefBlockMatchup = true;
 			}
 		}
 
-		private void HandleViewTypeToolStripButtonClick(object sender, EventArgs e)
+		private void HandleTaskOrViewTypeToolStripButtonClick(object sender, EventArgs e)
 		{
 			var button = (ToolStripButton)sender;
+			var type = button.Tag as string;
 			if (!button.Checked)
 			{
 				button.Checked = true;
 
-				Analytics.Track("SwitchView", new Dictionary<string, string> { { "dialog", Name }, { "view", button.ToString() } });
+				Analytics.Track("Switch" + type, new Dictionary<string, string> { { "dialog", Name }, { type.ToLowerInvariant(), button.ToString() } });
 			}
 		}
-
+		
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
 			Block blockToSplit;
@@ -1128,19 +1214,17 @@ namespace Glyssen.Dialogs
 			if (m_tabControlCharacterSelection.SelectedTab == tabPageMatchReferenceText)
 			{
 				m_viewModel.AttemptRefBlockMatchup = true;
-				m_blocksViewer.HighlightStyle = BlockGroupingType.BlockCorrelation;
 				m_blocksViewer.Text =
 					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
 						"Match reference text to these blocks");
 			}
 			else
 			{
-				if (tabPageMatchReferenceText.Visible)
-					m_viewModel.AttemptRefBlockMatchup = false;
-				m_blocksViewer.HighlightStyle = BlockGroupingType.Quote;
+				m_viewModel.AttemptRefBlockMatchup = false;
+				//m_blocksViewer.HighlightStyle = BlockGroupingType.Quote;
 				m_blocksViewer.Text = m_defaultBlocksViewerText;
 			}
-			ShowMatchReferenceTextTabPage(); // Put this tab back - this is kind of a hack for now
+			UpdateFilterItems();
 		}
 
 		private void m_dataGridReferenceText_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -1187,7 +1271,7 @@ namespace Glyssen.Dialogs
 							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
 					}
 
-					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator)
+					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
 					{
 						// Narrators are never allowed to have a delivery other than normal.
 						// Unfortunately, by the time we call IsBlockAssignedToUnknownCharacterDeliveryPair below,

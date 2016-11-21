@@ -604,5 +604,12 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result.BlockIndex);
 		}
 
+		[Test]
+		public void GetIndicesOfFirstBlockAtReference_MultiBlockAtDifferentReference_AllowMidQuoteBlock_ReturnsIndicesForMidQuoteBlock()
+		{
+			var result = m_navigatorForMultiBlockTests.GetIndicesOfFirstBlockAtReference(new VerseRef(BCVRef.BookToNumber("JUD"), 1, 2), true);
+			Assert.AreEqual(0, result.BookIndex);
+			Assert.AreEqual(3, result.BlockIndex);
+		}
 	}
 }

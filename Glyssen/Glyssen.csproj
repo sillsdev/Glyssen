@@ -565,6 +565,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WhoSpeaks.png" />
     <None Include="Resources\Silent.wav" />
     <None Include="Resources\UpdateGroups.png" />
     <None Include="Resources\splitGroup.png" />
@@ -610,6 +611,7 @@
     <None Include="Resources\printer.bmp" />
     <Content Include="Resources\DeleteCursor.png" />
     <Content Include="Resources\HtmlMsg.html" />
+    <None Include="Resources\rainbow.png" />
     <Content Include="Resources\search_glyph.png" />
     <None Include="Resources\SampleMRK.xml" />
   </ItemGroup>

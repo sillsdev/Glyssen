@@ -211,12 +211,17 @@ namespace Glyssen
 			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification);
 		}
 
+		public bool CanDisplayReferenceTextForBook(BookScript vernacularBook)
+		{
+			return Books.Any(b => b.BookId == vernacularBook.BookId);
+		}
+
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");
 
-			if (!Books.Any(b => b.BookId == vernacularBook.BookId))
+			if (!CanDisplayReferenceTextForBook(vernacularBook))
 				return null;
 
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);

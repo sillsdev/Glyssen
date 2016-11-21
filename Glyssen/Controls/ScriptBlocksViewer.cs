@@ -82,6 +82,7 @@ namespace Glyssen.Controls
 			Disposed += ScriptBlocksViewer_Disposed;
 
 			m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
+			m_viewModel.CurrentBlockMatchupChanged += UpdateContextBlocksDisplay;
 			m_blocksDisplayBrowser.VisibleChanged += UpdateContextBlocksDisplay;
 			m_dataGridViewBlocks.VisibleChanged += UpdateContextBlocksDisplay;
 		}
@@ -111,10 +112,10 @@ namespace Glyssen.Controls
 				{
 					if (m_viewModel != null)
 					{
-						m_viewModel.AttemptRefBlockMatchup = true;
-						m_viewModel.BlockGroupingStyle = m_viewModel.CurrentReferenceTextMatchup == null ?
-							BlockGroupingType.Quote :
-							BlockGroupingType.BlockCorrelation;
+						//m_viewModel.AttemptRefBlockMatchup = true;
+						//m_viewModel.BlockGroupingStyle = m_viewModel.CurrentReferenceTextMatchup == null ?
+						//	BlockGroupingType.Quote :
+						//	BlockGroupingType.BlockCorrelation;
 					}
 					ChangeViewType(m_dataGridViewBlocks, m_blocksDisplayBrowser);
 				}
@@ -140,19 +141,19 @@ namespace Glyssen.Controls
 			set { m_title.Text = value;  }
 		}
 
-		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		[Browsable(false)]
-		public BlockGroupingType HighlightStyle
-		{
-			get { return m_viewModel.BlockGroupingStyle; }
-			set
-			{
-				if (m_viewModel.BlockGroupingStyle == value)
-					return;
-				m_viewModel.BlockGroupingStyle = value;
-				UpdateContextBlocksDisplay(this, new EventArgs());
-			}
-		}
+		//[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		//[Browsable(false)]
+		//public BlockGroupingType HighlightStyle
+		//{
+		//	get { return m_viewModel.BlockGroupingStyle; }
+		//	set
+		//	{
+		//		if (m_viewModel.BlockGroupingStyle == value)
+		//			return;
+		//		m_viewModel.BlockGroupingStyle = value;
+		//		UpdateContextBlocksDisplay(this, new EventArgs());
+		//	}
+		//}
 		#endregion
 
 		#region public methods

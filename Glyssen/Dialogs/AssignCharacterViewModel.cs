@@ -72,7 +72,7 @@ namespace Glyssen.Dialogs
 			get { return m_project.ReferenceText.HasSecondaryReferenceText; }
 		}
 
-		public string PrimaryReferenceTextName { get { return m_project.ReferenceText.LanguageName; } }
+		public string PrimaryReferenceTextName => m_project.ReferenceText.LanguageName;
 		#endregion
 
 		public void SetUiStrings(string narrator, string bookChapterCharacter, string introCharacter,
@@ -90,6 +90,7 @@ namespace Glyssen.Dialogs
 			CurrentBook.SingleVoice = singleVoice;
 			m_project.SaveBook(CurrentBook);
 
+			// REVIEW: Can/should we keep it in rainbow mode even for single-voice books?
 			if (singleVoice)
 			{
 				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
@@ -137,27 +138,30 @@ namespace Glyssen.Dialogs
 				return;
 			m_inHandleCurrentBlockChanged = true;
 			Debug.Assert(!CharacterVerseData.IsCharacterExtraBiblical(CurrentBlock.CharacterId));
-			if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
+			if (AttemptRefBlockMatchup)
 			{
-				bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
-				if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+				if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 				{
-					var firstVerseInMultiBlockQuote = CurrentBlock.InitialEndVerseNumber == 0 ? CurrentBlock.InitialStartVerseNumber :
-						CurrentBlock.InitialEndVerseNumber;
-					var lastVerseInMultiBlockQuote =
-						GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerseNum;
-					doMatchup = firstVerseInMultiBlockQuote == lastVerseInMultiBlockQuote;
-					if (!doMatchup)
-						ClearBlockMatchup();
-				}
-				if (doMatchup)
-				{
+					//bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
+					//if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
+					//{
+					//	var firstVerseInMultiBlockQuote = CurrentBlock.InitialEndVerseNumber == 0 ? CurrentBlock.InitialStartVerseNumber :
+					//		CurrentBlock.InitialEndVerseNumber;
+					//	var lastVerseInMultiBlockQuote =
+					//		GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerseNum;
+					//	doMatchup = firstVerseInMultiBlockQuote == lastVerseInMultiBlockQuote;
+					//	if (!doMatchup)
+					//		ClearBlockMatchup();
+					//}
+					//if (doMatchup)
+					//{
 					SetBlockMatchupForCurrentVerse();
+					//}
 				}
-			}
-			else if (CurrentReferenceTextMatchup != null)
-			{
-				CurrentReferenceTextMatchup.ChangeAnchor(CurrentBlock);
+				else
+				{
+					CurrentReferenceTextMatchup?.ChangeAnchor(CurrentBlock);
+				}
 			}
 			base.HandleCurrentBlockChanged();
 			m_inHandleCurrentBlockChanged = false;

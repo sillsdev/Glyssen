@@ -80,5 +80,8 @@
     <Setting Name="ProjectSettingsDlgFormSettings" Type="SIL.Windows.Forms.PortableSettingsProvider.FormSettings" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="AssignCharactersMatchReferenceText" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
