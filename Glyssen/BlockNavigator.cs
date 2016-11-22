@@ -88,7 +88,7 @@ namespace Glyssen
 			throw new ArgumentOutOfRangeException("block", block.ToString(), "Block not found in any book!");
 		}
 
-		public BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef)
+		public BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef, bool allowMidQuoteBlock = false)
 		{
 			var bookId = verseRef.Book;
 			int bookIndex = -1;
@@ -112,8 +112,11 @@ namespace Glyssen
 				return null;
 
 			int blockIndex = book.Blocks.IndexOf(block);
-			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
-				blockIndex = book.Blocks.FindLastIndex(blockIndex, b => b.MultiBlockQuote == MultiBlockQuote.Start);
+			if (!allowMidQuoteBlock)
+			{
+				if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+					blockIndex = book.Blocks.FindLastIndex(blockIndex, b => b.MultiBlockQuote == MultiBlockQuote.Start);
+			}
 
 			return blockIndex == -1 ? null : new BookBlockIndices(bookIndex, blockIndex);
 		}

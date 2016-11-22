@@ -290,8 +290,7 @@ namespace Glyssen.Controls
 					if (minWidth > m_minimumWidthFromDesigner && minWidth != MinimumSize.Width)
 					{
 						MinimumSize = new Size(minWidth, MinimumSize.Height);
-						if (MinimumWidthChanged != null)
-							MinimumWidthChanged(this, new EventArgs());
+						MinimumWidthChanged?.Invoke(this, new EventArgs());
 					}
 				}
 			}
@@ -318,7 +317,7 @@ namespace Glyssen.Controls
 				Debug.Assert(CellBorderStyle == DataGridViewCellBorderStyle.Single);
 				const int borderWidth = 1;
 				TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
-				m_colReference.Width = DataGridViewTextBoxCell.MeasureTextWidth(g, refString,
+				m_colReference.Width = DataGridViewCell.MeasureTextWidth(g, refString,
 					cellStyle.Font ?? DefaultCellStyle.Font, Int32.MaxValue, flags) +
 					cellStyle.Padding.Horizontal + borderWidth;
 			}

@@ -201,12 +201,12 @@ namespace Glyssen.Dialogs
 				return m_navigator.CurrentBlock;
 			}
 		}
-		protected Block CurrentBlockInOriginal { get { return m_navigator.CurrentBlock; } }
-		public BlockMatchup CurrentReferenceTextMatchup { get { return m_currentRefBlockMatchups; } }
+		protected Block CurrentBlockInOriginal => m_navigator.CurrentBlock;
+		public BlockMatchup CurrentReferenceTextMatchup => m_currentRefBlockMatchups;
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
-		public string ProjectName { get { return m_project.Name; } }
-		public BlockGroupingType BlockGroupingStyle { get; set; }
+		public string ProjectName => m_project.Name;
+		public BlockGroupingType BlockGroupingStyle => m_currentRefBlockMatchups == null ? BlockGroupingType.Quote : BlockGroupingType.BlockCorrelation;
 		public bool AttemptRefBlockMatchup
 		{
 			get { return m_attemptRefBlockMatchup; }
@@ -222,6 +222,8 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		public bool CanDisplayReferenceTextForCurrentBlock => m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook);
+
 		public bool IsCurrentBlockRelevant
 		{
 			get
@@ -233,7 +235,7 @@ namespace Glyssen.Dialogs
 
 		public IEnumerable<string> IncludedBooks { get { return m_includedBooks; } }
 		public FontProxy Font { get { return m_font; } }
-		public FontProxy PrimaryReferenceTextFont { get { return m_referenceTextFonts[m_project.ReferenceText]; } }
+		public FontProxy PrimaryReferenceTextFont => m_referenceTextFonts[m_project.ReferenceText];
 		public FontProxy EnglishReferenceTextFont
 		{
 			get
@@ -733,6 +735,8 @@ namespace Glyssen.Dialogs
 			if (clearBlockMatchup)
 				ClearBlockMatchup();
 			m_navigator.SetIndices(indices);
+			if (m_currentRefBlockMatchups == null)
+				SetBlockMatchupForCurrentVerse();
 			HandleCurrentBlockChanged();
 		}
 
@@ -745,27 +749,20 @@ namespace Glyssen.Dialogs
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 				CurrentBlockIndexInBook, m_project.Versification);
-			if (m_currentRefBlockMatchups != null)
-			{
-				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
-				// REVIEW: We might want to keep track of which style the user prefers.
-				BlockGroupingStyle = BlockGroupingType.BlockCorrelation;
-			}
-			if (CurrentBlockMatchupChanged != null && origValue != m_currentRefBlockMatchups)
-				CurrentBlockMatchupChanged(this, new EventArgs());
+			m_currentRefBlockMatchups?.MatchAllBlocks(m_project.Versification);
+			if (origValue != m_currentRefBlockMatchups)
+				CurrentBlockMatchupChanged?.Invoke(this, new EventArgs());
 		}
 
-		public void ClearBlockMatchup()
+		protected void ClearBlockMatchup()
 		{
 			if (m_currentRefBlockMatchups == null)
 				return;
-			BlockGroupingStyle = BlockGroupingType.Quote;
 			var relevant = IsCurrentBlockRelevant;
 			m_currentRefBlockMatchups = null;
 			if (!relevant)
 				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
-			if (CurrentBlockMatchupChanged != null)
-				CurrentBlockMatchupChanged(this, new EventArgs());
+			CurrentBlockMatchupChanged?.Invoke(this, new EventArgs());
 		}
 
 		public virtual void ApplyCurrentReferenceTextMatchup()

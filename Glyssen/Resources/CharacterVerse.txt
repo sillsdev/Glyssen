@@ -1,4 +1,4 @@
-Control File Version	109
+Control File Version	110
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -11858,6 +11858,7 @@ MAL	4	4	God		God (the LORD Almighty)	Normal
 MAL	4	5	God		God (the LORD Almighty)	Normal		
 MAL	4	6	God		God (the LORD Almighty)	Normal		
 MAT	1	1	narrator-MAT			Quotation		
+MAT	1	16	narrator-MAT			Quotation		
 MAT	1	20	angel		angel of the LORD	Normal		
 MAT	1	21	angel		angel of the LORD	Normal		
 MAT	1	23	narrator-MAT			Quotation		
@@ -11865,6 +11866,7 @@ MAT	1	23	scripture		scripture (prophet)	Quotation	Isaiah
 #If the language requires the words of the angel to be repeated in quotes, this could be read by the narrator
 MAT	1	24	narrator-MAT			Quotation		
 MAT	1	24	angel		angel of the LORD	Indirect		
+MAT	1	25	narrator-MAT			Quotation		
 MAT	2	1	narrator-MAT			Quotation		
 MAT	2	2	magi (wise men from East)			Dialogue		
 MAT	2	3	narrator-MAT			Quotation		
@@ -12066,6 +12068,8 @@ MAT	9	34	Pharisees	accusing		Normal
 MAT	9	37	Jesus			Dialogue		
 MAT	9	38	Jesus			Normal		
 MAT	10	1	Jesus			Indirect		
+MAT	10	2	narrator-MAT			Quotation		
+MAT	10	4	narrator-MAT			Quotation		
 MAT	10	5	Jesus	instructing		Normal		
 MAT	10	6	Jesus	instructing		Normal		
 MAT	10	7	Jesus	instructing		Normal		
@@ -13291,6 +13295,8 @@ LUK	1	20	Gabriel		angel of the LORD	Normal
 LUK	1	21	people	wondering		Indirect		
 LUK	1	22	people	wondering		Indirect		
 LUK	1	25	Elizabeth			Normal		
+LUK	1	26	God			Indirect		
+LUK	1	26	narrator-LUK			Quotation		
 LUK	1	28	Gabriel		Gabriel (angel)	Dialogue		
 LUK	1	29	Mary, Jesus' mother	confused		Indirect		
 LUK	1	30	Gabriel		Gabriel (angel)	Dialogue		

@@ -831,6 +831,9 @@ namespace GlyssenTests.Dialogs
 			m_model.ApplyCurrentReferenceTextMatchup();
 			Assert.AreEqual(displayIndex, m_model.CurrentBlockDisplayIndex);
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			// Need to switch to "Match Character" mode because in rainbow mode, we occasionally get a block matchup that covers
+			// more than one relevant block, so advancing to the next relevant place can increment the display index by more than one.
+			m_model.AttemptRefBlockMatchup = false;
 			do
 			{
 				m_model.LoadNextRelevantBlock();
@@ -934,6 +937,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
 
 			m_model.LoadNextRelevantBlock();
+			m_model.AttemptRefBlockMatchup = false;
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
 		}
 
@@ -942,11 +946,13 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.AttemptRefBlockMatchup = false;
 			m_model.Mode = BlocksToDisplay.NeedAssignments;
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
+			Assert.AreEqual(23, m_model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, m_model.CurrentBlockDisplayIndex);
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(1, m_model.CurrentBlockDisplayIndex, "Trying to go to the \"next\" block from a position beyond the end of the list should take us back to the beginning.");
 			var origNextRelevantBlock = m_model.CurrentBlock;
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
 			m_model.AttemptRefBlockMatchup = true;
 
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
@@ -959,8 +965,11 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
 
+			m_model.AttemptRefBlockMatchup = false;
+
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
+			Assert.AreEqual(1, m_model.CurrentBlockDisplayIndex);
 		}
 
 		[Test]
