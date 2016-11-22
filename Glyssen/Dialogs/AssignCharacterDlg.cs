@@ -83,8 +83,9 @@ namespace Glyssen.Dialogs
 			{
 				// We want CheckChanged event to fire, so just setting Checked to true is not enough.
 				m_toolStripButtonMatchReferenceText.CheckState = (Settings.Default.AssignCharactersMatchReferenceText ||
-					(m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
-					? CheckState.Checked : CheckState.Unchecked;
+																(m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
+					? CheckState.Checked
+					: CheckState.Unchecked;
 				HandleCharacterSelectionTabIndexChanged(m_tabControlCharacterSelection, new EventArgs());
 			}
 			else
@@ -950,38 +951,47 @@ namespace Glyssen.Dialogs
 			if (!IsHandleCreated)
 				return;
 
-			BlocksToDisplay mode;
+			Cursor = Cursors.WaitCursor;
 
-			switch (m_toolStripComboBoxFilter.SelectedIndex)
+			try
 			{
-				case 0: mode = BlocksToDisplay.NeedAssignments; break;
-				case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
-				case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-				case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
-				case 4: mode = BlocksToDisplay.AllQuotes; break;
-				case 6: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
-				default: mode = BlocksToDisplay.AllScripture; break;
+				BlocksToDisplay mode;
+
+				switch (m_toolStripComboBoxFilter.SelectedIndex)
+				{
+					case 0: mode = BlocksToDisplay.NeedAssignments; break;
+					case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
+					case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+					case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
+					case 4: mode = BlocksToDisplay.AllQuotes; break;
+					case 6: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
+					default: mode = BlocksToDisplay.AllScripture; break;
+				}
+
+				if (m_toolStripButtonExcludeUserConfirmed.Checked)
+					mode |= BlocksToDisplay.ExcludeUserConfirmed;
+
+				m_viewModel.Mode = mode;
+
+				if (m_viewModel.RelevantBlockCount > 0)
+				{
+					LoadBlock(sender, e);
+					//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
+					LoadBlockMatchup(sender, e);
+				}
+				else
+				{
+					m_labelXofY.Visible = false;
+					UpdateNavigationButtonState();
+					m_blocksViewer.ShowNothingMatchesFilterMessage();
+				}
+
+				UpdateProgressBarForMode();
 			}
-
-			if (m_toolStripButtonExcludeUserConfirmed.Checked)
-				mode |= BlocksToDisplay.ExcludeUserConfirmed;
-
-			m_viewModel.Mode = mode;
-
-			if (m_viewModel.RelevantBlockCount > 0)
+			finally
 			{
-				LoadBlock(sender, e);
-				//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
-				LoadBlockMatchup(sender, e);
+				Cursor = Cursors.Default;
 			}
-			else
-			{
-				m_labelXofY.Visible = false;
-				UpdateNavigationButtonState();
-				m_blocksViewer.ShowNothingMatchesFilterMessage();
-			}
-
-			UpdateProgressBarForMode();
 		}
 
 		private void HandleMatchReferenceTextCheckChanged(object sender, EventArgs e)
