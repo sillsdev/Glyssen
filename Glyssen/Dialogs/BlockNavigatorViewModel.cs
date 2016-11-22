@@ -883,6 +883,8 @@ namespace Glyssen.Dialogs
 				return BlockNeedsAssignment(block);
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
+				// Note that the logic here is absolutely dependent on block being in CurrentBook!!!
+
 				if (!block.IsScripture || !m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
 					return false;
 
