@@ -883,7 +883,7 @@ namespace Glyssen.Dialogs
 				return BlockNeedsAssignment(block);
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
-				if (!block.IsScripture)
+				if (!block.IsScripture || !m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
 					return false;
 
 				if (s_lastMatchup == null || !s_lastMatchup.OriginalBlocks.Contains(block))
