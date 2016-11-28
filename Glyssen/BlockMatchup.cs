@@ -279,11 +279,12 @@ namespace Glyssen
 			if (CorrelatedBlocks[i].CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator) ||
 				CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
 			{
-				if (CorrelatedBlocks[i].GetReferenceTextAtDepth(level) == "")
+				var existintgEmptyVerseRefText = CorrelatedBlocks[i].GetEmptyVerseReferenceTextAtDepth(level);
+				if (existintgEmptyVerseRefText != null)
 				{
 					if (CorrelatedBlocks[i].CharacterId == CharacterVerseData.kUnknownCharacter)
 						CorrelatedBlocks[i].CharacterId = CharacterVerseData.GetStandardCharacterId(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.Narrator);
-					var text = referenceLanguageInfo.HeSaidText;
+					var text = existintgEmptyVerseRefText + referenceLanguageInfo.HeSaidText;
 					if (i < CorrelatedBlocks.Count - 1 && !CorrelatedBlocks[i + 1].IsParagraphStart)
 						text += referenceLanguageInfo.WordSeparator;
 					SetReferenceText(i, text, level);

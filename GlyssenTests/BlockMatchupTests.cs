@@ -961,6 +961,39 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void InsertHeSaidText_ExistingVerseNumber_HeSaidTextInsertedAfterVerseNumber()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
+			var narrator = vernacularBlocks.Last().CharacterId;
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
+				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
+			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(3, ""));
+			matchup.MatchAllBlocks(null);
+			Assert.AreEqual("{3}\u00A0", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+
+			bool callbackCalled = false;
+
+			matchup.InsertHeSaidText(1, (iRow, level, text) =>
+			{
+				Assert.AreEqual(1, iRow);
+				Assert.AreEqual(0, level);
+				Assert.AreEqual("{3}\u00A0he said.", text);
+				Assert.IsFalse(callbackCalled);
+				callbackCalled = true;
+			});
+			Assert.IsTrue(callbackCalled);
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("{3}\u00A0he said.", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId, "First reference text should not have been changed!");
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText,
+				"First reference text should not have been changed!");
+		}
+
+		[Test]
 		public void InsertHeSaidText_NonNarrator_SingleRow_NoChanges()
 		{
 			var vernacularBlocks = new List<Block>();
@@ -977,6 +1010,60 @@ namespace GlyssenTests
 			matchup.InsertHeSaidText(0, (iRow, level, text) => { callbackCalled = true; });
 			Assert.IsFalse(callbackCalled);
 			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
+			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
+				"This matchup only has English - no additional levels should be present.");
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
+		}
+
+		[Test]
+		public void InsertHeSaidText_NonEmpty_SingleRow_NoChanges()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
+			var narrator = vernacularBlocks.Last().CharacterId;
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is not empty, dude."));
+			var origRefText = matchup.CorrelatedBlocks[1].PrimaryReferenceText;
+			matchup.MatchAllBlocks(null);
+
+			bool callbackCalled = false;
+
+			matchup.InsertHeSaidText(1, (iRow, level, text) => { callbackCalled = true; });
+			Assert.IsFalse(callbackCalled);
+			Assert.AreEqual(origRefText, matchup.CorrelatedBlocks[1].PrimaryReferenceText,
+				"Reference text should not have been changed!");
+			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
+				"This matchup only has English - no additional levels should be present.");
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
+			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
+		}
+
+		[Test]
+		public void InsertHeSaidText_MultipleEmptyVerses_SingleRow_NoChanges()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "Este es versiculo dos y tres, ", true, 1, "p", 3));
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
+			var narrator = vernacularBlocks.Last().CharacterId;
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
+			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(3, "").AddVerse(4, ""));
+			var origRefText = matchup.CorrelatedBlocks[1].PrimaryReferenceText;
+			matchup.MatchAllBlocks(null);
+
+			bool callbackCalled = false;
+
+			matchup.InsertHeSaidText(1, (iRow, level, text) => { callbackCalled = true; });
+			Assert.IsFalse(callbackCalled);
+			Assert.AreEqual(origRefText, matchup.CorrelatedBlocks[1].PrimaryReferenceText,
+				"Reference text should not have been changed!");
 			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
 				"This matchup only has English - no additional levels should be present.");
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);

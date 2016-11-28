@@ -316,12 +316,12 @@ namespace Glyssen.Dialogs
 		private void UpdateInsertHeSaidButtonState()
 		{
 			m_menuInsertIntoAllEmptyCells.Enabled = m_menuInsertIntoSelectedRowOnly.Enabled =
-				GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow).Any();
+				GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow).Any();
 			if (!m_menuInsertIntoAllEmptyCells.Enabled)
 			{
 				foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
 				{
-					if (GetColumnsIntoWhicHeSaidCanBeInserted(row).Any())
+					if (GetColumnsIntoWhichHeSaidCanBeInserted(row).Any())
 					{
 						m_menuInsertIntoAllEmptyCells.Enabled = true;
 						break;
@@ -330,16 +330,16 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private IEnumerable<int> GetColumnsIntoWhicHeSaidCanBeInserted(DataGridViewRow row)
+		private IEnumerable<int> GetColumnsIntoWhichHeSaidCanBeInserted(DataGridViewRow row)
 		{
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
 			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
 				CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
 				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnknownCharacter))
 			{
-				if (string.IsNullOrEmpty(row.Cells[colEnglish.Index].Value as string))
+				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
 					yield return colEnglish.Index;
-				if (colPrimary.Visible && string.IsNullOrEmpty(row.Cells[colPrimary.Index].Value as string))
+				if (colPrimary.Visible && Block.IsEmptyVerseReferenceText(row.Cells[colPrimary.Index].Value as string))
 					yield return colPrimary.Index;
 			}
 		}
@@ -1177,7 +1177,7 @@ namespace Glyssen.Dialogs
 		{
 			m_btnMoveReferenceTextDown.Enabled = e.RowIndex != m_dataGridReferenceText.RowCount - 1;
 			m_btnMoveReferenceTextUp.Enabled = e.RowIndex != 0;
-			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
+			m_menuInsertIntoSelectedRowOnly.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.Rows[e.RowIndex]).Any();
 		}
 
 		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
@@ -1318,6 +1318,8 @@ namespace Glyssen.Dialogs
 
 		private void HandleMouseEnterButtonThatAffectsEntireGridRow(object sender, EventArgs e)
 		{
+			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0)
+				return;
 			m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditProgrammatically;
 			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
 				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
@@ -1408,14 +1410,14 @@ namespace Glyssen.Dialogs
 
 			if (selectedRowOnly)
 			{
-				foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow))
+				foreach (var iCol in GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow))
 					m_dataGridReferenceText.CurrentRow.Cells[iCol].Selected = true;
 			}
 			else
 			{
 				foreach (DataGridViewRow row in m_dataGridReferenceText.Rows)
 				{
-					foreach (var iCol in GetColumnsIntoWhicHeSaidCanBeInserted(row))
+					foreach (var iCol in GetColumnsIntoWhichHeSaidCanBeInserted(row))
 						row.Cells[iCol].Selected = true;
 				}
 			}
