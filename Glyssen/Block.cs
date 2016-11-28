@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -32,6 +31,8 @@ namespace Glyssen
 
 		public const string kSplitElementIdPrefix = "split";
 		private const string kSplitLineFrame = "<div id=\"" + kSplitElementIdPrefix + "{0}\" class=\"split-line\"><div class=\"split-line-top\"></div></div>";
+		private const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
+		private const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
 
 		/// <summary>Random string which will (hopefully) never appear in real text</summary>
 		private const string kAwooga = "^~^";
@@ -42,6 +43,16 @@ namespace Glyssen
 		private string m_characterIdInScript;
 		private string m_delivery;
 		private static string s_characterSelect;
+		private static Regex s_verseNumbersOrSounds;
+		private static Regex s_emptyVerseText;
+
+		static Block()
+		{
+			s_verseNumbersOrSounds = new Regex("((" + kRegexForVerseNumber + ")|" + Sound.kRegexForUserLocatedSounds + ")" + kRegexForWhitespaceFollowingVerseNumber,
+				RegexOptions.Compiled);
+			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
+				RegexOptions.Compiled);
+		}
 
 		public Block()
 		{
@@ -237,6 +248,20 @@ namespace Glyssen
 			return null;
 		}
 
+		public string GetEmptyVerseReferenceTextAtDepth(int depth)
+		{
+			var refText = GetReferenceTextAtDepth(depth);
+			var m = s_emptyVerseText.Match(refText);
+			if (m.Success)
+				return m.Result("${verseWithWhitespace}");
+			return null;
+		}
+
+		public static bool IsEmptyVerseReferenceText(string text)
+		{
+			return text == null || s_emptyVerseText.IsMatch(text);
+		}
+
 		[XmlElement]
 		public List<Block> ReferenceBlocks { get; set; }
 
@@ -302,18 +327,14 @@ namespace Glyssen
 			return refBlock;
 		}
 
-		private const string kRegexForVerseNumber = @"\{(?<verse>(?<startVerse>[0-9]+)((-|,)(?<endVerse>[0-9]+))?)\}";
-		private const string kRegexForWhitespaceFollowingVerseNumber = @"(\u00A0| )*";
-
 		private void ParsePlainText(string text)
 		{
-			var verseNumbers = new Regex(@"((" + kRegexForVerseNumber + ")|" + Sound.kRegexForUserLocatedSounds + ")" + kRegexForWhitespaceFollowingVerseNumber);
 			var pos = 0;
 			text = text.TrimStart();
 			var prependSpace = "";
 			while (pos < text.Length)
 			{
-				var match = verseNumbers.Match(text, pos);
+				var match = s_verseNumbersOrSounds.Match(text, pos);
 				if (match.Success)
 				{
 					if (match.Index == pos)
