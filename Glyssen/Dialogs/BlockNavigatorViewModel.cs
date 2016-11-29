@@ -8,6 +8,7 @@ using Glyssen.Controls;
 using Glyssen.Utilities;
 using Paratext;
 using SIL.Extensions;
+using SIL.Reporting;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
 
@@ -740,6 +741,8 @@ namespace Glyssen.Dialogs
 			if (clearBlockMatchup)
 				ClearBlockMatchup();
 			m_navigator.SetIndices(indices);
+			if (!IsCurrentBlockRelevant)
+				m_temporarilyIncludedBlock = indices;
 			if (m_currentRefBlockMatchups == null)
 				SetBlockMatchupForCurrentVerse();
 			HandleCurrentBlockChanged();
@@ -751,6 +754,8 @@ namespace Glyssen.Dialogs
 				return;
 
 			var origValue = m_currentRefBlockMatchups;
+
+			Logger.WriteMinorEvent("Setting block matchup for block {0} in {1}", CurrentBlockIndexInBook, CurrentBook.BookId);
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 				CurrentBlockIndexInBook, m_project.Versification);

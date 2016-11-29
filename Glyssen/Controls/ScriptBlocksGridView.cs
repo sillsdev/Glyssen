@@ -69,6 +69,17 @@ namespace Glyssen.Controls
 			m_betweenMouseDownAndMouseUp = false;
 		}
 
+		protected override void OnMouseMove(MouseEventArgs e)
+		{
+			// NOTE: The use of m_betweenMouseDownAndMouseUp is needed because it is commonly the case that clicking (MouseDown) a
+			// row to select it will cause that row (and maybe other adjected rows) to be selected and the scrolling will adjust to
+			// position them at the top of the view (for better "rainbow" alignment). Since the scrolling happens while the mouse is
+			// still down, the normal behavior of the data grid view, which is in multiple-row select mode, is to think it needs to
+			// adjust anew the selected row(s). But this causes subsequent row(s) to get selected instead, and that is bad.
+			if (!m_betweenMouseDownAndMouseUp)
+				base.OnMouseMove(e);
+		}
+
 		protected override void OnSelectionChanged(EventArgs e)
 		{
 			if (m_updatingContext)

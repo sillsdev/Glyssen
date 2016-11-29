@@ -215,6 +215,8 @@ namespace Glyssen.Dialogs
 		private void SetFilterControlsFromMode()
 		{
 			var mode = m_viewModel.Mode;
+			Logger.WriteEvent("Initial filter in Identify Speaking Parts dialog: " + mode);
+
 			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
 			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
@@ -971,6 +973,8 @@ namespace Glyssen.Dialogs
 				if (m_toolStripButtonExcludeUserConfirmed.Checked)
 					mode |= BlocksToDisplay.ExcludeUserConfirmed;
 
+				Logger.WriteEvent("Changed filter in Identify Speaking Parts dialog: " + mode);
+
 				m_viewModel.Mode = mode;
 
 				if (m_viewModel.RelevantBlockCount > 0)
@@ -1060,7 +1064,11 @@ namespace Glyssen.Dialogs
 			{
 				button.Checked = true;
 
-				Analytics.Track("Switch" + type, new Dictionary<string, string> { { "dialog", Name }, { type.ToLowerInvariant(), button.ToString() } });
+				if (type != null)
+				{
+					Analytics.Track("Switch" + type, new Dictionary<string, string> {{"dialog", Name}, {type.ToLowerInvariant(), button.ToString()}});
+					Logger.WriteEvent("Changed " + type + " to " + button + " in Identify Speaking Parts dialog.");
+				}
 			}
 		}
 		
@@ -1080,6 +1088,8 @@ namespace Glyssen.Dialogs
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
+					Logger.WriteMinorEvent("Split block in {0} into {1} parts.", m_scriptureReference.VerseControl.VerseRef.ToString(),
+						dlg.SplitLocations.Count + 1);
 					m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters);
 				}
 			}
