@@ -96,12 +96,17 @@ namespace Glyssen.Dialogs
 
 			Mode = mode;
 
-			if (startingIndices != null && !startingIndices.IsUndefined)
+			if (startingIndices != null && !startingIndices.IsUndefined && startingIndices.BookIndex < m_project.IncludedBooks.Count)
 			{
-				SetBlock(startingIndices);
-				m_currentBlockIndex = m_relevantBlocks.IndexOf(startingIndices);
-				if (m_currentBlockIndex < 0)
-					m_temporarilyIncludedBlock = startingIndices;
+				var startingBook = m_project.IncludedBooks[startingIndices.BookIndex];
+				var blocks = startingBook.GetScriptBlocks();
+				if (blocks.Count > startingIndices.BlockIndex && !CharacterVerseData.IsCharacterExtraBiblical(blocks[startingIndices.BlockIndex].CharacterId))
+				{
+					SetBlock(startingIndices);
+					m_currentBlockIndex = m_relevantBlocks.IndexOf(startingIndices);
+					if (m_currentBlockIndex < 0)
+						m_temporarilyIncludedBlock = startingIndices;
+				}
 			}
 		}
 
