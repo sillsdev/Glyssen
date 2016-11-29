@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using NUnit.Framework;
@@ -1120,6 +1121,65 @@ namespace GlyssenTests.Dialogs
 			}
 
 			return returnVal;
+		}
+	}
+
+	[TestFixture]
+	internal class AssignCharacterViewModelConstructorTests
+	{
+		private Project m_testProject;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		/// <summary>
+		/// PG-845
+		/// </summary>
+		[Test]
+		public void Constructor_StartingIndexIsExtraBiblicalBlock_StartingIndexIgnored()
+		{
+			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NeedAssignments, new BookBlockIndices(0,
+				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical) &&
+				b.InitialStartVerseNumber > 0)));
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void Constructor_StartingIndexIsChapterBlock_StartingIndexIgnored()
+		{
+			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NeedAssignments, new BookBlockIndices(0,
+				m_testProject.IncludedBooks[0].GetScriptBlocks().IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter) &&
+				b.ChapterNumber > 0)));
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(model.CurrentBlock.CharacterIs("MRK", CharacterVerseData.StandardCharacter.BookOrChapter));
+			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void Constructor_StartingIndexIsOutOfRangeBook_StartingIndexIgnored()
+		{
+			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NeedAssignments, new BookBlockIndices(1, 3));
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
+		}
+
+		[Test]
+		public void Constructor_StartingIndexIsOutOfRangeBlock_StartingIndexIgnored()
+		{
+			var model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NeedAssignments, new BookBlockIndices(0, Int32.MaxValue));
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
 	}
 }

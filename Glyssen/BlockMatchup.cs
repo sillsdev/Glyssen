@@ -25,40 +25,40 @@ namespace Glyssen
 			m_referenceLanguageInfo = heSaidProvider;
 			var blocks = m_vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
-			var blocksForVersesCoveredByBlock =
+			var blocksForStartVerseOfAnchorBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
-			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
+			m_iStartBlock = iBlock - blocksForStartVerseOfAnchorBlock.IndexOf(originalAnchorBlock);
 			while (m_iStartBlock > 0)
 			{
-				if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-					!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+				if (blocksForStartVerseOfAnchorBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+					!blocksForStartVerseOfAnchorBlock.First().StartsAtVerseStart)
 				{
 					var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
+						blocksForStartVerseOfAnchorBlock.First().InitialStartVerseNumber).ToList();
 					prepend.RemoveAt(prepend.Count - 1);
 					m_iStartBlock -= prepend.Count;
-					blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+					blocksForStartVerseOfAnchorBlock.InsertRange(0, prepend);
 				}
 				if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
-					blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
+					blocksForStartVerseOfAnchorBlock.First().InitialStartVerseNumber)))
 				{
 					break;
 				}
 
 				m_iStartBlock--;
-				blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
+				blocksForStartVerseOfAnchorBlock.Insert(0, blocks[m_iStartBlock]);
 			}
-			int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
+			int iLastBlock = m_iStartBlock + blocksForStartVerseOfAnchorBlock.Count - 1;
 			int i = iLastBlock;
 			AdvanceToCleanVerseBreak(blocks,
 				verseNum => isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum)),
 				ref i);
 			if (i > iLastBlock)
-				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
-			while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
-				blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
+				blocksForStartVerseOfAnchorBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
+			while (CharacterVerseData.IsCharacterOfType(blocksForStartVerseOfAnchorBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+				blocksForStartVerseOfAnchorBlock.RemoveAt(blocksForStartVerseOfAnchorBlock.Count - 1);
 
-			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
+			m_portion = new PortionScript(vernacularBook.BookId, blocksForStartVerseOfAnchorBlock.Select(b => b.Clone()));
 			CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
 			if (splitBlocks != null)
 			{
