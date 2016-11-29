@@ -1,4 +1,4 @@
-Control File Version	110
+Control File Version	111
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12778,6 +12778,7 @@ MRK	1	40	leper	pleading		Dialogue		MAT 8.2;MRK 1.40;LUK 5.12
 MRK	1	41	Jesus	compassionately		Dialogue		
 MRK	1	43	Jesus	warning		Indirect		
 MRK	1	44	Jesus			Normal		
+MRK	2	1	people in Capernaum			Indirect		
 MRK	2	5	Jesus			Dialogue		
 MRK	2	7	teachers of religious law/Pharisees	thinking	teachers of religious law	Normal		MRK 2.7;LUK 5.21
 MRK	2	8	Jesus	rebuking		Dialogue		

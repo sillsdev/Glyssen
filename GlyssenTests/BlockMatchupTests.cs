@@ -193,7 +193,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
 			vernacularBlocks[3].CharacterId = "Markose";
@@ -210,7 +210,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
 			matchup.CorrelatedBlocks[2].CharacterId = "Markose";
@@ -227,7 +227,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
 			vernacularBlocks[3].Delivery = "perplexed";
@@ -244,7 +244,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "disciples", "Ya sabiamos, ");
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "contesto Mateo.");
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
+			var matchup = new BlockMatchup(vernBook, 1, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
 
 			matchup.CorrelatedBlocks[2].Delivery = "perturbed";
@@ -903,7 +903,7 @@ namespace GlyssenTests
 			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "dijo Jesus. ");
 			vernacularBlocks.Last().Delivery = "expressionless";
 			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			matchup.MatchAllBlocks(null);

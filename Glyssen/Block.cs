@@ -295,7 +295,11 @@ namespace Glyssen
 			if (referenceBlocksToJoin.Any())
 				refBlock.AppendJoinedBlockElements(referenceBlocksToJoin, referenceLanguageInfo);
 			else
+			{
 				refBlock.BlockElements.Add(new ScriptText(""));
+				if (referenceLanguageInfo.HasSecondaryReferenceText)
+					refBlock.SetMatchedReferenceBlock(bookNum, versification, referenceLanguageInfo.BackingReferenceLanguage);
+			}
 			SetMatchedReferenceBlock(refBlock);
 		}
 

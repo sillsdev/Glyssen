@@ -10,6 +10,7 @@ using SIL.Scripture;
 using SIL.Xml;
 using GlyssenTests.Properties;
 using Paratext;
+using Rhino.Mocks;
 using SIL.IO;
 using ScrVers = Paratext.ScrVers;
 
@@ -684,6 +685,35 @@ namespace GlyssenTests
 			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/sound", 1);
 			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
 			Assert.AreEqual(blockBefore.GetText(true, true), blockAfter.GetText(true, true));
+		}
+
+		/// <summary>
+		/// Note that this tests more deeply recursive nesting than we actually expect to have in Glyssen:
+		/// Vernacular (Spanish) backed by French, backed by Portuguese, backed by English.
+		/// </summary>
+		[Test]
+		public void SetMatchedReferenceBlock_NestedBackingReferenceTextBlocks_EmptyRefBlockCreatedAtAllNestingLevels()
+		{
+			var vernBlock = ReferenceTextTests.CreateNarratorBlockForVerse(2, "dijo.");
+			var rtFrench = MockRepository.GenerateMock<IReferenceLanguageInfo>();
+			var rtPortuguese = MockRepository.GenerateMock<IReferenceLanguageInfo>();
+			var rtEnglish = MockRepository.GenerateMock<IReferenceLanguageInfo>();
+			rtFrench.Expect(r => r.BackingReferenceLanguage).Return(rtPortuguese);
+			rtFrench.Expect(r => r.HasSecondaryReferenceText).Return(true);
+			rtPortuguese.Expect(r => r.BackingReferenceLanguage).Return(rtEnglish);
+			rtPortuguese.Expect(r => r.HasSecondaryReferenceText).Return(true);
+			rtEnglish.Expect(r => r.BackingReferenceLanguage).Return(null);
+			rtEnglish.Expect(r => r.HasSecondaryReferenceText).Return(false);
+			vernBlock.SetMatchedReferenceBlock(40, m_testVersification, rtFrench);
+
+			Assert.AreEqual("", vernBlock.PrimaryReferenceText);
+			var refBlockFrench = vernBlock.ReferenceBlocks.Single();
+			Assert.AreEqual("", refBlockFrench.PrimaryReferenceText);
+			var refBlockPortuguese = refBlockFrench.ReferenceBlocks.Single();
+			Assert.AreEqual("", refBlockPortuguese.PrimaryReferenceText);
+			var refBlockEnglish = refBlockPortuguese.ReferenceBlocks.Single();
+			Assert.IsFalse(refBlockEnglish.MatchesReferenceText);
+			Assert.IsFalse(refBlockEnglish.ReferenceBlocks.Any());
 		}
 
 		/// <summary>
