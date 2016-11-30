@@ -872,12 +872,6 @@ namespace Glyssen
 					BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
 
-			if (ReferenceBlocks != null) // This is probably always true, but just to be safe.
-			{
-				MatchesReferenceText = false;
-				ReferenceBlocks.Clear();
-			}
-
 			return newBlock;
 		}
 

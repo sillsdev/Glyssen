@@ -1191,6 +1191,39 @@ namespace GlyssenTests
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitVersesHaveMatchedReferenceText_ReferenceTextSetAfterSplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			var newBlock = source.SplitBlock(blockToSplit, "1", 5);
+			blockToSplit.SetMatchedReferenceBlock("{" + blockToSplit.BlockElements.OfType<Verse>().First().Number + "} First part. ");
+			newBlock.SetMatchedReferenceBlock("Second part.");
+
+			var target = CreateStandardMarkScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparerIncludingReferenceText()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		private class BlockComparerIncludingReferenceText : IEqualityComparer<Block>
+		{
+			private BlockComparer m_baseComparer = new BlockComparer();
+
+			public bool Equals(Block x, Block y)
+			{
+				return m_baseComparer.Equals(x, y) && x.MatchesReferenceText == y.MatchesReferenceText &&
+					x.ReferenceBlocks.Select(rx => rx.GetText(true)).SequenceEqual(y.ReferenceBlocks.Select(ry => ry.GetText(true)));
+			}
+
+			public int GetHashCode(Block obj)
+			{
+				return m_baseComparer.GetHashCode(obj);
+			}
+		}
 		#endregion
 
 		#region ApplyUserDecisions Other Tests
