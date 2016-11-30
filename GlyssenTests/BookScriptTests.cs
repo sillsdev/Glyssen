@@ -1858,6 +1858,32 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void SplitBlock_BlockHasReferenceText_RefererenceTextCleared()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignorando lo que dijeron, Jesus le dijo al jefe de la sinagoga: No temas; solo cree.");
+			mrkBlocks.Add(blockToSplit);
+			blockToSplit.SetMatchedReferenceBlock("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.", blockToSplit.PrimaryReferenceText);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 64);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("{36}\u00A0Ignorando lo que dijeron, Jesus le dijo al jefe de la sinagoga: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("No temas; solo cree.", newBlock.GetText(true));
+			Assert.IsFalse(blockToSplit.MatchesReferenceText);
+			Assert.IsFalse(blockToSplit.ReferenceBlocks.Any());
+			Assert.IsFalse(newBlock.MatchesReferenceText);
+			Assert.IsFalse(newBlock.ReferenceBlocks.Any());
+		}
+
+		[Test]
 		public void TrySplitBlockAtEndOfVerse_NoVerseElementsInBlock_ReturnsFalse()
 		{
 			var mrkBlocks = new List<Block>();
