@@ -461,7 +461,12 @@ namespace Glyssen
 									verse = unappliedSplit[iUnapplied].InitialVerseNumberOrBridge;
 								}
 								SplitBlock(m_blocks[i++], verse, offset);
+								if (unappliedSplit[iUnapplied - 1].MatchesReferenceText)
+									m_blocks[i - 1].SetMatchedReferenceBlock(unappliedSplit[iUnapplied - 1].ReferenceBlocks.Single().Clone());
 							}
+							if (unappliedSplit[iUnapplied - 1].MatchesReferenceText)
+								m_blocks[i].SetMatchedReferenceBlock(unappliedSplit[iUnapplied - 1].ReferenceBlocks.Single().Clone());
+
 							m_unappliedSplitBlocks.RemoveAt(index--);
 							break;
 						}

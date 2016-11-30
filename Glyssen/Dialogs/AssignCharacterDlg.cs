@@ -215,6 +215,8 @@ namespace Glyssen.Dialogs
 		private void SetFilterControlsFromMode()
 		{
 			var mode = m_viewModel.Mode;
+			Logger.WriteEvent("Initial filter in Identify Speaking Parts dialog: " + mode);
+
 			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
 			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
@@ -614,22 +616,20 @@ namespace Glyssen.Dialogs
 
 			if (IsDirty())
 			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChanges", "Unsaved Changes");
-
 				if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
 				{
 					if (m_btnAssign.Enabled)
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChangesMessage",
 							"The Character and Delivery selections have not been submitted. Do you want to save your changes before navigating?");
-						if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							SaveSelections();
 					}
 					else if (m_listBoxCharacters.SelectedIndex < 0)
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoSelectionMessage",
 							"You have not selected a Character and Delivery. Would you like to leave without changing the assignment?");
-						result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 							DialogResult.Yes;
 					}
 					else
@@ -637,7 +637,7 @@ namespace Glyssen.Dialogs
 						Debug.Assert(m_listBoxCharacters.SelectedIndex > -1 && m_listBoxDeliveries.SelectedIndex < 0);
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NoDeliveryMessage",
 							"You have selected a Character but no Delivery. Would you like to discard your selection and leave without changing the assignment?");
-						result = MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
+						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) ==
 							DialogResult.Yes;
 					}
 				}
@@ -647,7 +647,7 @@ namespace Glyssen.Dialogs
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
 							"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?");
-						if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							m_viewModel.ApplyCurrentReferenceTextMatchup();
 					}
 				}
@@ -971,6 +971,8 @@ namespace Glyssen.Dialogs
 				if (m_toolStripButtonExcludeUserConfirmed.Checked)
 					mode |= BlocksToDisplay.ExcludeUserConfirmed;
 
+				Logger.WriteEvent("Changed filter in Identify Speaking Parts dialog: " + mode);
+
 				m_viewModel.Mode = mode;
 
 				if (m_viewModel.RelevantBlockCount > 0)
@@ -1060,15 +1062,30 @@ namespace Glyssen.Dialogs
 			{
 				button.Checked = true;
 
-				Analytics.Track("Switch" + type, new Dictionary<string, string> { { "dialog", Name }, { type.ToLowerInvariant(), button.ToString() } });
+				if (type != null)
+				{
+					Analytics.Track("Switch" + type, new Dictionary<string, string> {{"dialog", Name}, {type.ToLowerInvariant(), button.ToString()}});
+					Logger.WriteEvent("Changed " + type + " to " + button + " in Identify Speaking Parts dialog.");
+				}
 			}
 		}
-		
+
+		private string UnsavedChangesMessageBoxTitle => LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedChanges", "Unsaved Changes");
+
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
+
 			Block blockToSplit;
 			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 			{
+				if (IsDirty() && m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
+				{
+					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting",
+						"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?");
+					if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
+						m_viewModel.ApplyCurrentReferenceTextMatchup();
+				}
+
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
 				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y]);
 			}
@@ -1080,6 +1097,8 @@ namespace Glyssen.Dialogs
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
+					Logger.WriteMinorEvent("Split block in {0} into {1} parts.", m_scriptureReference.VerseControl.VerseRef.ToString(),
+						dlg.SplitLocations.Count + 1);
 					m_viewModel.SplitBlock(dlg.SplitLocations, dlg.SelectedCharacters);
 				}
 			}

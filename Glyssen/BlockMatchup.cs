@@ -25,40 +25,40 @@ namespace Glyssen
 			m_referenceLanguageInfo = heSaidProvider;
 			var blocks = m_vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
-			var blocksForStartVerseOfAnchorBlock =
+			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
-			m_iStartBlock = iBlock - blocksForStartVerseOfAnchorBlock.IndexOf(originalAnchorBlock);
+			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
 			while (m_iStartBlock > 0)
 			{
-				if (blocksForStartVerseOfAnchorBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-					!blocksForStartVerseOfAnchorBlock.First().StartsAtVerseStart)
+				if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+					!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
 				{
 					var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-						blocksForStartVerseOfAnchorBlock.First().InitialStartVerseNumber).ToList();
+						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
 					prepend.RemoveAt(prepend.Count - 1);
 					m_iStartBlock -= prepend.Count;
-					blocksForStartVerseOfAnchorBlock.InsertRange(0, prepend);
+					blocksForVersesCoveredByBlock.InsertRange(0, prepend);
 				}
 				if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
-					blocksForStartVerseOfAnchorBlock.First().InitialStartVerseNumber)))
+					blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
 				{
 					break;
 				}
 
 				m_iStartBlock--;
-				blocksForStartVerseOfAnchorBlock.Insert(0, blocks[m_iStartBlock]);
+				blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
 			}
-			int iLastBlock = m_iStartBlock + blocksForStartVerseOfAnchorBlock.Count - 1;
+			int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
 			int i = iLastBlock;
 			AdvanceToCleanVerseBreak(blocks,
 				verseNum => isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum)),
 				ref i);
 			if (i > iLastBlock)
-				blocksForStartVerseOfAnchorBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
-			while (CharacterVerseData.IsCharacterOfType(blocksForStartVerseOfAnchorBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
-				blocksForStartVerseOfAnchorBlock.RemoveAt(blocksForStartVerseOfAnchorBlock.Count - 1);
+				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
+			while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+				blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
 
-			m_portion = new PortionScript(vernacularBook.BookId, blocksForStartVerseOfAnchorBlock.Select(b => b.Clone()));
+			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
 			CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
 			if (splitBlocks != null)
 			{
@@ -300,10 +300,13 @@ namespace Glyssen
 			if (!CorrelatedBlocks.Contains(block))
 				return null;
 			var i = CorrelatedBlocks.Where(b => b.GetText(true).Contains(block.GetText(true))).IndexOf(block);
+			//var matches = OriginalBlocks.Where(b => b.GetText(true).IndexOf(block.GetText(true), StringComparison.Ordinal) >= 0).ToList();
 			var matches = OriginalBlocks.Where(b => b.GetText(true).Contains(block.GetText(true))).ToList();
 			if (matches.Count > i)
 				return matches[i];
-			Debug.Fail("Properly corresponding match not found in for block " + block.GetText(true));
+			// If we're in the middle of doing a split, there can be a few moments where the block cannot be found. Let's hope
+			// this gets called again after the split is complete.
+			Debug.WriteLine("Properly corresponding match not found in for block " + block.GetText(true));
 			return matches.FirstOrDefault();
 		}
 

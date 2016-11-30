@@ -173,7 +173,7 @@ namespace Glyssen.Controls
 			// 
 			this.colText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.colText.FillWeight = 300F;
-			this.colText.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Text!VernacularText";
+			this.colText.HeaderText = "_L10N_:DialogBoxes.ScriptBlocksViewer.Text!Vernacular Text";
 			this.colText.MinimumWidth = 200;
 			this.colText.Name = "colText";
 			this.colText.ReadOnly = true;

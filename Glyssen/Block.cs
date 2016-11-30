@@ -871,6 +871,7 @@ namespace Glyssen
 				while (indexOfFirstElementToRemove < BlockElements.Count)
 					BlockElements.RemoveAt(indexOfFirstElementToRemove);
 			}
+
 			return newBlock;
 		}
 

@@ -1191,6 +1191,39 @@ namespace GlyssenTests
 			Assert.IsNotNull(target.UnappliedSplits);
 			Assert.AreEqual(0, target.UnappliedSplits.Count);
 		}
+
+		[Test]
+		public void ApplyUserDecisions_SplitVersesHaveMatchedReferenceText_ReferenceTextSetAfterSplitReapplied()
+		{
+			var source = CreateStandardMarkScript();
+			var blockToSplit = source.Blocks.First(b => b.InitialStartVerseNumber > 0);
+			var newBlock = source.SplitBlock(blockToSplit, "1", 5);
+			blockToSplit.SetMatchedReferenceBlock("{" + blockToSplit.BlockElements.OfType<Verse>().First().Number + "} First part. ");
+			newBlock.SetMatchedReferenceBlock("Second part.");
+
+			var target = CreateStandardMarkScript();
+
+			target.ApplyUserDecisions(source);
+			Assert.True(source.GetScriptBlocks().SequenceEqual(target.GetScriptBlocks(), new BlockComparerIncludingReferenceText()));
+			Assert.IsNotNull(target.UnappliedSplits);
+			Assert.AreEqual(0, target.UnappliedSplits.Count);
+		}
+
+		private class BlockComparerIncludingReferenceText : IEqualityComparer<Block>
+		{
+			private BlockComparer m_baseComparer = new BlockComparer();
+
+			public bool Equals(Block x, Block y)
+			{
+				return m_baseComparer.Equals(x, y) && x.MatchesReferenceText == y.MatchesReferenceText &&
+					x.ReferenceBlocks.Select(rx => rx.GetText(true)).SequenceEqual(y.ReferenceBlocks.Select(ry => ry.GetText(true)));
+			}
+
+			public int GetHashCode(Block obj)
+			{
+				return m_baseComparer.GetHashCode(obj);
+			}
+		}
 		#endregion
 
 		#region ApplyUserDecisions Other Tests
@@ -1855,6 +1888,32 @@ namespace GlyssenTests
 			Assert.AreEqual(Block.kNotSplit, blocks[1].SplitId);
 			Assert.AreEqual(0, blocks[2].SplitId);
 			Assert.AreEqual(0, blocks[3].SplitId);
+		}
+
+		[Test]
+		public void SplitBlock_BlockHasReferenceText_RefererenceTextCleared()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(5));
+			//                                        0         1         2         3         4         5         6         7         8
+			//                                        012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+			var blockToSplit = NewSingleVersePara(36, "Ignorando lo que dijeron, Jesus le dijo al jefe de la sinagoga: No temas; solo cree.");
+			mrkBlocks.Add(blockToSplit);
+			blockToSplit.SetMatchedReferenceBlock("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.", blockToSplit.PrimaryReferenceText);
+			var bookScript = new BookScript("MRK", mrkBlocks);
+			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 64);
+			var blocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(3, blocks.Count);
+			Assert.AreEqual(blocks[2], newBlock);
+			Assert.AreEqual("{36}\u00A0Ignorando lo que dijeron, Jesus le dijo al jefe de la sinagoga: ", blocks[1].GetText(true));
+			Assert.AreEqual(36, newBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, newBlock.InitialEndVerseNumber);
+			Assert.AreEqual("No temas; solo cree.", newBlock.GetText(true));
+			Assert.IsFalse(blockToSplit.MatchesReferenceText);
+			Assert.IsFalse(blockToSplit.ReferenceBlocks.Any());
+			Assert.IsFalse(newBlock.MatchesReferenceText);
+			Assert.IsFalse(newBlock.ReferenceBlocks.Any());
 		}
 
 		[Test]

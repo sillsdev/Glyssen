@@ -550,6 +550,11 @@ namespace Glyssen.Dialogs
 					AddToRelevantBlocksIfNeeded(newBlock);
 				}
 			}
+			if (AttemptRefBlockMatchup)
+			{
+				// A split will always require the current matchup to be re-constructed.
+				SetBlockMatchupForCurrentVerse();
+			}
 		}
 		#endregion
 
