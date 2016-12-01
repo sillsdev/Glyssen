@@ -1,4 +1,4 @@
-Control File Version	111
+Control File Version	112
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12807,6 +12807,7 @@ MRK	3	9	Jesus	giving orders		Indirect
 MRK	3	11	evil spirits			Normal		
 MRK	3	12	Jesus			Indirect		
 MRK	3	14	Jesus			Indirect		
+MRK	3	15	Jesus			Indirect		
 MRK	3	17	narrator-MRK			Quotation		
 MRK	3	21	Jesus' family			Normal		
 MRK	3	22	teachers of religious law	insulting	teachers of religious law (from Jerusalem)	Normal		
