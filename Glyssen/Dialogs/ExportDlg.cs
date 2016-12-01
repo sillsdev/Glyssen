@@ -107,7 +107,7 @@ namespace Glyssen.Dialogs
 			{
 				m_lblBookDirectory.Visible = true;
 				m_lblBookDirectory.Text = string.Format(m_bookDirectoryFmt, m_viewModel.BookDirectory);
-				m_lblBookDirectoryExists.Visible = Directory.Exists(m_lblBookDirectory.Text);
+				m_lblBookDirectoryExists.Visible = Directory.Exists(m_viewModel.BookDirectory);
 			}
 			else
 			{
