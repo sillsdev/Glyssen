@@ -281,19 +281,19 @@ namespace Glyssen
 					{ "includeDelivery", m_includeDelivery.ToString() }
 				});
 
-			return GenerateFile(path, () => GetExportData());
+			return GenerateFile(path, () => GetExportData(), true);
 		}
 
-		private IEnumerable<Tuple<string, string>> GenerateFile(string path, Func<IEnumerable<List<object>>> getData)
+		private IEnumerable<Tuple<string, string>> GenerateFile(string path, Func<IEnumerable<List<object>>> getData, bool masterFileWithAnnotations = false)
 		{
-			Action<string, IEnumerable<List<object>>> generateFile = (SelectedFileType == ExportFileType.TabSeparated)
-				? (Action<string, IEnumerable<List<object>>>) GenerateTabSeparatedFile
+			Action<string, IEnumerable<List<object>>, bool> generateFile = (SelectedFileType == ExportFileType.TabSeparated)
+				? (Action<string, IEnumerable<List<object>>, bool>) GenerateTabSeparatedFile
 				: GenerateExcelFile;
 
 			Exception caughtException = null;
 			try
 			{
-				generateFile(path, getData());
+				generateFile(path, getData(), masterFileWithAnnotations);
 				m_numberOfFilesSuccessfullyExported++;
 			}
 			catch (Exception ex)
@@ -395,7 +395,7 @@ namespace Glyssen
 					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}
 
-		private void GenerateTabSeparatedFile(string path, IEnumerable<List<object>> data)
+		private void GenerateTabSeparatedFile(string path, IEnumerable<List<object>> data, bool b)
 		{
 			if (Path.GetExtension(path) != kTabDelimitedFileExtension)
 				path += kTabDelimitedFileExtension;
@@ -408,7 +408,7 @@ namespace Glyssen
 			}
 		}
 
-		private void GenerateExcelFile(string path, IEnumerable<List<object>> data)
+		private void GenerateExcelFile(string path, IEnumerable<List<object>> data, bool masterFileWithAnnotations)
 		{
 			if (Path.GetExtension(path) != kExcelFileExtension)
 				path += kExcelFileExtension;
@@ -432,7 +432,8 @@ namespace Glyssen
 				var firstCell = sheet.Cells["A1"];
 				firstCell.LoadFromArrays(dataArray);
 
-				ColorizeAnnotations(sheet);
+				if (masterFileWithAnnotations)
+					ColorizeAnnotations(sheet);
 
 				sheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
 				sheet.Row(1).Style.Font.Bold = true;

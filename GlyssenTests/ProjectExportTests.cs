@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Dialogs;
+using Glyssen.Rules;
+using Glyssen.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Windows.Forms;
@@ -49,9 +53,9 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor { Id = 1 }
+				new Glyssen.VoiceActor.VoiceActor {Id = 1}
 			};
-			project.CharacterGroupList.CharacterGroups.AddRange(new []
+			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
 				new CharacterGroup(project),
 				new CharacterGroup(project)
@@ -215,7 +219,7 @@ namespace GlyssenTests
 			project.IncludedBooks[0].SingleVoice = false;
 			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marlon" }
+				new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -241,8 +245,8 @@ namespace GlyssenTests
 			project.IncludedBooks[1].SingleVoice = true;
 			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marlon" },
-				new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Aiden" }
+				new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"},
+				new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Aiden"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -280,33 +284,33 @@ namespace GlyssenTests
 			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
 			var jude = project.IncludedBooks.Single();
 			jude.Blocks = new List<Block>(new[]
-				{
-					new Block("p", 1, 1) {CharacterId = narrator }.AddVerse("1", "A"),
-					new Block("s", 1, 1) {CharacterId = sectionHead, BlockElements = new List<BlockElement> {new ScriptText("Jude complains")}},
-					new Block("p", 1, 2) {CharacterId = "Enoch" }.AddVerse("2", "B"),
-					new Block("p", 1, 3) {CharacterId = narrator }.AddVerse("3", "C"),
-					new Block("p", 1, 4) {CharacterId = "Michael" }.AddVerse("4", "D"),
-					new Block("p", 1, 5) {CharacterId = narrator }.AddVerse("5", "E ").AddVerse("6", "F"),
-				});
+			{
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse("1", "A"),
+				new Block("s", 1, 1) {CharacterId = sectionHead, BlockElements = new List<BlockElement> {new ScriptText("Jude complains")}},
+				new Block("p", 1, 2) {CharacterId = "Enoch"}.AddVerse("2", "B"),
+				new Block("p", 1, 3) {CharacterId = narrator}.AddVerse("3", "C"),
+				new Block("p", 1, 4) {CharacterId = "Michael"}.AddVerse("4", "D"),
+				new Block("p", 1, 5) {CharacterId = narrator}.AddVerse("5", "E ").AddVerse("6", "F"),
+			});
 
 			var blocks = new List<Block>
 			{
-				new Block("p", 1, 1) { CharacterId = narrator }.AddVerse("1", "Ayy"),
+				new Block("p", 1, 1) {CharacterId = narrator}.AddVerse("1", "Ayy"),
 				new Block("p", 1, 2, 3) {CharacterId = narrator}.AddVerse("2-3", "Bee Cee"),
-				new Block("p", 1, 4) { CharacterId = "Michael" }.AddVerse(4, "Dee, "),
-				new Block("p", 1, 4) { CharacterId = narrator, BlockElements = new List<BlockElement> {new ScriptText("Michael said.")}},
-				new Block("p", 1, 5) { CharacterId = narrator }.AddVerse(5, "Ey"),
-				new Block("p", 1, 6) { CharacterId = narrator }.AddVerse(6, "Ef"),
+				new Block("p", 1, 4) {CharacterId = "Michael"}.AddVerse(4, "Dee, "),
+				new Block("p", 1, 4) {CharacterId = narrator, BlockElements = new List<BlockElement> {new ScriptText("Michael said.")}},
+				new Block("p", 1, 5) {CharacterId = narrator}.AddVerse(5, "Ey"),
+				new Block("p", 1, 6) {CharacterId = narrator}.AddVerse(6, "Ef"),
 			};
 			foreach (var refBlock in blocks)
 			{
 				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber)
-					{ CharacterId = refBlock.CharacterId };
+					{CharacterId = refBlock.CharacterId};
 				Verse verseElement = refBlock.BlockElements.First() as Verse;
 				if (verseElement != null)
 					secondaryRefBlock.AddVerse(verseElement.Number, "Secondary");
 				else
-					secondaryRefBlock.BlockElements = new List<BlockElement> { new ScriptText("the angel named Mike verbalized.") };
+					secondaryRefBlock.BlockElements = new List<BlockElement> {new ScriptText("the angel named Mike verbalized.")};
 				refBlock.SetMatchedReferenceBlock(secondaryRefBlock);
 			}
 			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("JUD", blocks);
@@ -399,46 +403,58 @@ namespace GlyssenTests
 			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 			var mark = project.IncludedBooks.Single();
 			mark.Blocks = new List<Block>
+			{
+				new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(39, "Jedus stanop, taak scrong ta de big breeze say, "),
+				new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> {new ScriptText("“Hush, stop blow.” ")}},
+				new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement> {new ScriptText("An e say ta de swellin wata, ")}},
+				new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> {new ScriptText("“Go down.” ")}},
+				new Block("p", 4, 39)
 				{
-					new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator }.AddVerse(39, "Jedus stanop, taak scrong ta de big breeze say, "),
-					new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> { new ScriptText("“Hush, stop blow.” ") } },
-					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement> { new ScriptText("An e say ta de swellin wata, ") } },
-					new Block("p", 4, 39) {CharacterId = "Jesus", Delivery = "forcefully", BlockElements = new List<BlockElement> { new ScriptText("“Go down.” ") } },
-					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement>
+					CharacterId = narrator, BlockElements = new List<BlockElement>
 					{
 						new ScriptText("De big breeze done hush an stop fa blow, an de swellin wata gone down an been peaceable an steady. "),
 						new Verse("40"),
 						new ScriptText("Den Jedus ton roun ta e ciple dem an e say, ")
-					} },
-					new Block("p", 4, 40) {CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
+					}
+				},
+				new Block("p", 4, 40)
+				{
+					CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
 					{
 						new ScriptText("“Hoccome oona so scaid? Stillyet oona ain bleebe pon God, ainty?”")
-					} }
-				};
+					}
+				}
+			};
 
 			var refBlocks = new List<Block>
+			{
+				new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator}.AddVerse(39, "He awoke, and rebuked the wind, and said to the sea, "),
+				new Block("p", 4, 39) {CharacterId = "Jesus", BlockElements = new List<BlockElement> {new ScriptText("“Peace! Be still!” ")}},
+				new Block("p", 4, 39)
 				{
-					new Block("p", 4, 39) {IsParagraphStart = true, CharacterId = narrator }.AddVerse(39, "He awoke, and rebuked the wind, and said to the sea, "),
-					new Block("p", 4, 39) {CharacterId = "Jesus", BlockElements = new List<BlockElement> { new ScriptText("“Peace! Be still!” ") } },
-					new Block("p", 4, 39) {CharacterId = narrator, BlockElements = new List<BlockElement>
+					CharacterId = narrator, BlockElements = new List<BlockElement>
 					{
 						new ScriptText("The wind ceased, and there was a great calm. "),
 						new Verse("40"),
 						new ScriptText("He said to them, ")
-					} },
-					new Block("p", 4, 40) {CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
+					}
+				},
+				new Block("p", 4, 40)
+				{
+					CharacterId = "Jesus", Delivery = "questioning", BlockElements = new List<BlockElement>
 					{
 						new ScriptText("“Why are you so afraid? How is it that you have no faith?”")
-					} }
-				};
+					}
+				}
+			};
 			foreach (var refBlock in refBlocks)
 			{
-				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber) { CharacterId = refBlock.CharacterId };
+				var secondaryRefBlock = new Block(refBlock.StyleTag, refBlock.ChapterNumber, refBlock.InitialStartVerseNumber, refBlock.InitialEndVerseNumber) {CharacterId = refBlock.CharacterId};
 				Verse verseElement = refBlock.BlockElements.First() as Verse;
 				if (verseElement != null)
 					secondaryRefBlock.AddVerse(verseElement.Number, "Some secondary reference text");
 				else
-					secondaryRefBlock.BlockElements = new List<BlockElement> { new ScriptText("Some secondary reference text") };
+					secondaryRefBlock.BlockElements = new List<BlockElement> {new ScriptText("Some secondary reference text")};
 				refBlock.SetMatchedReferenceBlock(secondaryRefBlock);
 			}
 			var primaryReferenceText = TestReferenceText.CreateTestReferenceText("MRK", refBlocks);
@@ -624,7 +640,7 @@ namespace GlyssenTests
 			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD, TestReferenceText.TestReferenceTextResource.AzeriREV);
-			var exporter = new ProjectExporter(project) { SelectedFileType = exportFileType };
+			var exporter = new ProjectExporter(project) {SelectedFileType = exportFileType};
 			// This is the default: exporter.ExportAnnotationsInSeparateRows = false;
 
 			var data = exporter.GetExportData().ToList();
@@ -636,8 +652,8 @@ namespace GlyssenTests
 			Assert.IsTrue(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).StartsWith(annotationInfoPlusVerseNum));
 			Assert.IsTrue(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).StartsWith(annotationInfoPlusVerseNum));
 			Assert.AreEqual("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
-							"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
-							"yam guto kiryo. ",
+				"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
+				"yam guto kiryo. ",
 				(string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for final verse in book (pauses come after verse text)
@@ -647,7 +663,7 @@ namespace GlyssenTests
 			Assert.IsTrue(((string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.IsTrue(((string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.AreEqual("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
-							"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
+				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
 				(string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for non-final verse in book (pauses come after verse text)
@@ -659,7 +675,7 @@ namespace GlyssenTests
 			Assert.IsTrue(((string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.IsTrue(((string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
-							"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
+				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
 				(string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(sectionHeadRowForRev1V3[exporter.GetColumnIndex(ExportColumn.CharacterId)].Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
 
@@ -670,8 +686,8 @@ namespace GlyssenTests
 			Assert.IsTrue(((string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.IsTrue(((string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]).EndsWith(annotationInfo));
 			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
-							"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
-							"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
+				"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
+				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
 				(string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 		}
 
@@ -766,7 +782,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -791,7 +807,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. {4}\u00A0Text of verse four. {5}\u00A0Text of verse five.\t\t");
@@ -818,7 +834,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -845,7 +861,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -870,7 +886,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -896,7 +912,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
@@ -917,11 +933,69 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Texto de versos uno y dos. "));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor { Name = "ActorGuy1" };
+			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			var data = ProjectExporter.GetExportDataForBlock(block, 465, "MRK", actor, null, true, true, true, @"c:\wherever\whenever\however", "MyProject");
 			Assert.AreEqual(13, data.Count);
 			Assert.AreEqual(@"c:\wherever\whenever\however\MRK\MyProject_00465_MRK_004_001.wav", data.Last());
+		}
+
+		/// <summary>
+		/// PG-855: Generating actor script files shouldn't fail
+		/// </summary>
+		[Test]
+		public void ExportNow_ExportActorExcelScripts_ScriptsCreated()
+		{
+			var project = TestProject.CreateBasicTestProject();
+			TestProject.SimulateDisambiguationForAllBooks(project);
+			var generator = new CharacterGroupGenerator(project, new CastSizeRowValues(4, 1, 0));
+			generator.GenerateCharacterGroups();
+			generator.ApplyGeneratedGroupsToProject();
+
+			int i = 1;
+			foreach (var group in project.CharacterGroupList.CharacterGroups)
+			{
+				var actor = (group.ContainsCharacterWithGender(CharacterGender.Female)) ?
+					new Glyssen.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
+					new Glyssen.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
+				project.VoiceActorList.AllActors.Add(actor);
+				group.VoiceActorId = actor.Id;
+			}
+			Assert.IsTrue(project.CharacterGroupList.AnyVoiceActorAssigned());
+			var exporter = new ProjectExporter(project);
+			exporter.SelectedFileType = ExportFileType.Excel;
+			exporter.IncludeActorBreakdown = true;
+			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportActorExcelScripts"))
+			{
+				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", ProjectExporter.kExcelFileExtension));
+				Assert.IsFalse(exporter.ExportNow(false).Any());
+				Assert.IsTrue(Directory.Exists(exporter.ActorDirectory));
+				foreach (var actor in project.CharacterGroupList.AssignedGroups.Select(g => g.VoiceActor.Name))
+				{
+					Assert.IsTrue(File.Exists(Path.Combine(exporter.ActorDirectory,
+						Path.ChangeExtension(actor, ProjectExporter.kExcelFileExtension))));
+				}
+			}
+		}
+
+		/// <summary>
+		/// PG-855: Generating book-by-book script files shouldn't fail
+		/// </summary>
+		[Test]
+		public void ExportNow_ExportBookBreakdownExcelScripts_ScriptsCreated()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.IIIJN, TestProject.TestBook.JUD);
+			var exporter = new ProjectExporter(project);
+			exporter.SelectedFileType = ExportFileType.Excel;
+			exporter.IncludeBookBreakdown = true;
+			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportBookBreakdownExcelScripts"))
+			{
+				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", ProjectExporter.kExcelFileExtension));
+				Assert.IsFalse(exporter.ExportNow(false).Any());
+				Assert.IsTrue(Directory.Exists(exporter.BookDirectory));
+				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("3JN", ProjectExporter.kExcelFileExtension))));
+				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("JUD", ProjectExporter.kExcelFileExtension))));
+			}
 		}
 	}
 }
