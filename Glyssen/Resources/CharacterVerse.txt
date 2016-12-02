@@ -1,4 +1,4 @@
-Control File Version	112
+Control File Version	113
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -13246,6 +13246,7 @@ MRK	14	71	Peter (Simon)	denial, strongest		Dialogue
 MRK	14	72	Jesus			Normal		
 MRK	15	2	Jesus			Dialogue		
 MRK	15	2	Pilate	to Jesus		Dialogue		
+MRK	15	3	chief priests	accusing		Indirect		
 MRK	15	4	Pilate	to Jesus		Dialogue		
 MRK	15	8	crowd before Pilate			Indirect		
 MRK	15	9	Pilate	to crowd		Dialogue		
