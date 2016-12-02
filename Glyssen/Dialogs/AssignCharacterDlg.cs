@@ -1309,8 +1309,9 @@ namespace Glyssen.Dialogs
 						// the line that sets the character in the reference text matchup will have already reset
 						// the delivery. This leaves the UI out of synch with the data in the block, so we need
 						// to fix that first.
-						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value =
-							AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
+						var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
+						if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
+							deliveryCell.Value = AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
 					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 
