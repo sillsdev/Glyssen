@@ -419,7 +419,9 @@ namespace Glyssen.Dialogs
 				if (cellToMakeCurrent.ReadOnly)
 				{
 					int c = cellToMakeCurrent.ColumnIndex + 1;
-					while (c < m_dataGridReferenceText.ColumnCount && m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly)
+					while (c < m_dataGridReferenceText.ColumnCount &&
+						(m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly ||
+						!m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].Visible))
 						c++;
 					if (c < m_dataGridReferenceText.ColumnCount)
 						cellToMakeCurrent = m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c];
