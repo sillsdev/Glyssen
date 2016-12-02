@@ -424,14 +424,14 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label5, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label5, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label5, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label5, "This is the first part of the instructions. The following line will display the name of the \"Voice Actor List\" dialog box.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label5, "DialogBoxes.CastSizePlanningDlg.NoteTop");
 			this.label5.Location = new System.Drawing.Point(3, 6);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(128, 39);
 			this.label5.TabIndex = 21;
-			this.label5.Text = "Note- If you have already recruited actors, you may enter them in";
+			this.label5.Text = "Note: If you have already recruited actors, please add them in";
 			this.glyssenColorPalette.SetUsePaletteColors(this.label5, true);
 			// 
 			// m_linkVoiceActorList
@@ -473,7 +473,7 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label6, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label6, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label6, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label6, "This is the second part of the instructions (following the line which displays the name of the \"Voice Actor List\" dialog box).");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label6, "DialogBoxes.CastSizePlanningDlg.NoteBottom");
 			this.label6.Location = new System.Drawing.Point(3, 64);
 			this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);

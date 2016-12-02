@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using L10NSharp;
+using SIL.Reporting;
 
 namespace Glyssen.Character
 {
@@ -50,6 +51,16 @@ namespace Glyssen.Character
 		public void Initialize(Project project)
 		{
 			m_project = project;
+			// This shouldn't be necessary, but if a prior crash (or someone mucking with the project files) has left a
+			// character assigned to a non-existent voice actor, we don't want the project permanently hamstrung, so we'll
+			// just report it non-fatally and clear the actor info.
+			if (VoiceActorId >= 0 && VoiceActor == null)
+			{
+				ErrorReport.NotifyUserOfProblem(LocalizationManager.GetString("CharacterGroup.InvalidActorId",
+					"Character group {0} is assigned to a voice actor who is no longer part of this project. " +
+					"This might have been caused by a previous failure. {1} will clear this assignment for you now."),
+					GroupIdForUiDisplay, Program.kProduct);
+			}
 			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(m_project.KeyStrokesByCharacterId);
 		}
 
