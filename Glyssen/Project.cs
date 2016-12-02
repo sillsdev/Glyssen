@@ -342,7 +342,7 @@ namespace Glyssen
 
 			if (CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor)
 			{
-				// Force values to snap to the number of authors, even if this means increasing or decresing the count.
+				// Force values to snap to the number of authors, even if this means increasing or decreasing the count.
 				Debug.Assert(CharacterGroupGenerationPreferences.NumberOfFemaleNarrators == 0);
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = AuthorCount;
 				return;
@@ -548,7 +548,12 @@ namespace Glyssen
 
 		public VoiceActorList VoiceActorList
 		{
-			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
+			get
+			{
+				if (m_voiceActorList == null)
+					LoadVoiceActorInformationData();
+				return m_voiceActorList;
+			}
 		}
 
 		public CharacterGroupList CharacterGroupList
@@ -1148,12 +1153,28 @@ namespace Glyssen
 				CharacterGroupCollectionChanged(this, new EventArgs());
 		}
 
-		private VoiceActorList LoadVoiceActorInformationData()
+		private void LoadVoiceActorInformationData()
 		{
 			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
 			if (File.Exists(path))
-				return VoiceActorList.LoadVoiceActorListFromFile(path);
-			return new VoiceActorList();
+				m_voiceActorList = VoiceActorList.LoadVoiceActorListFromFile(path);
+			m_voiceActorList = new VoiceActorList();
+			EnsureCastSizeOptionValid();
+		}
+
+		public void EnsureCastSizeOptionValid()
+		{
+			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList && !m_voiceActorList.AllActors.Any())
+			{
+				var groups = CharacterGroupList.CharacterGroups.Count;
+				if (groups == 0)
+					CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
+				else
+				{
+					CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.Custom;
+					CharacterGroupGenerationPreferences.???
+				}
+			}
 		}
 
 		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)

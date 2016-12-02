@@ -829,6 +829,7 @@ namespace Glyssen
 				ShowModalDialogWithWaitCursor(dlg);
 				launchCastSizePlanning = dlg.LaunchCastSizePlanningUponExit;
 			}
+			m_project.EnsureCastSizeOptionValid();
 			SaveCurrentProject();
 			UpdateDisplayOfProjectInfo();
 			if (launchCastSizePlanning)
