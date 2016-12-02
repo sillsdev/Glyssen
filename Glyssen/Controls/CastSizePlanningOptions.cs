@@ -33,6 +33,13 @@ namespace Glyssen.Controls
 		{
 			SetRowValues(e.Row, e.RowValues);
 
+			if (e.Row == CastSizeOption.MatchVoiceActorList)
+			{
+				m_rbMatchVoiceActorList.Enabled = m_viewModel.HasVoiceActors;
+				if (!m_rbMatchVoiceActorList.Enabled && m_rbMatchVoiceActorList.Checked)
+					m_rbRecommended.Checked = true;
+			}
+
 			if (e.KeepSelection || (e.Row != CastSizeOption.MatchVoiceActorList))
 				return;
 
