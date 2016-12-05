@@ -558,7 +558,12 @@ namespace Glyssen
 
 		public CharacterGroupList CharacterGroupList
 		{
-			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
+			get
+			{
+				if (m_characterGroupList == null)
+					LoadCharacterGroupData();
+				return m_characterGroupList;
+			}
 		}
 
 		public bool CharacterGroupListPreviouslyGenerated
@@ -1138,13 +1143,13 @@ namespace Glyssen
 			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}
 
-		private CharacterGroupList LoadCharacterGroupData()
+		private void LoadCharacterGroupData()
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			CharacterGroupList list;
-			list = File.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
-			list.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
-			return list;
+			m_characterGroupList = File.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
+			m_characterGroupList.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
+			if (m_voiceActorList != null)
+				EnsureCastSizeOptionValid();
 		}
 
 		void CharacterGroups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -1156,10 +1161,9 @@ namespace Glyssen
 		private void LoadVoiceActorInformationData()
 		{
 			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
-			if (File.Exists(path))
-				m_voiceActorList = VoiceActorList.LoadVoiceActorListFromFile(path);
-			m_voiceActorList = new VoiceActorList();
-			EnsureCastSizeOptionValid();
+			m_voiceActorList = (File.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
+			if (m_characterGroupList != null)
+				EnsureCastSizeOptionValid();
 		}
 
 		public void EnsureCastSizeOptionValid()
