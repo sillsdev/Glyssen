@@ -342,7 +342,7 @@ namespace Glyssen
 
 			if (CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor)
 			{
-				// Force values to snap to the number of authors, even if this means increasing or decresing the count.
+				// Force values to snap to the number of authors, even if this means increasing or decreasing the count.
 				Debug.Assert(CharacterGroupGenerationPreferences.NumberOfFemaleNarrators == 0);
 				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = AuthorCount;
 				return;
@@ -548,12 +548,22 @@ namespace Glyssen
 
 		public VoiceActorList VoiceActorList
 		{
-			get { return m_voiceActorList ?? (m_voiceActorList = LoadVoiceActorInformationData()); }
+			get
+			{
+				if (m_voiceActorList == null)
+					LoadVoiceActorInformationData();
+				return m_voiceActorList;
+			}
 		}
 
 		public CharacterGroupList CharacterGroupList
 		{
-			get { return m_characterGroupList ?? (m_characterGroupList = LoadCharacterGroupData()); }
+			get
+			{
+				if (m_characterGroupList == null)
+					LoadCharacterGroupData();
+				return m_characterGroupList;
+			}
 		}
 
 		public bool CharacterGroupListPreviouslyGenerated
@@ -1133,13 +1143,13 @@ namespace Glyssen
 			m_voiceActorList.SaveToFile(Path.Combine(ProjectFolder, kVoiceActorInformationFileName));
 		}
 
-		private CharacterGroupList LoadCharacterGroupData()
+		private void LoadCharacterGroupData()
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			CharacterGroupList list;
-			list = File.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
-			list.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
-			return list;
+			m_characterGroupList = File.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
+			m_characterGroupList.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
+			if (m_voiceActorList != null)
+				EnsureCastSizeOptionValid();
 		}
 
 		void CharacterGroups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -1148,12 +1158,40 @@ namespace Glyssen
 				CharacterGroupCollectionChanged(this, new EventArgs());
 		}
 
-		private VoiceActorList LoadVoiceActorInformationData()
+		private void LoadVoiceActorInformationData()
 		{
 			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
-			if (File.Exists(path))
-				return VoiceActorList.LoadVoiceActorListFromFile(path);
-			return new VoiceActorList();
+			m_voiceActorList = (File.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
+			if (m_characterGroupList != null)
+				EnsureCastSizeOptionValid();
+		}
+
+		public void EnsureCastSizeOptionValid()
+		{
+			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList && !m_voiceActorList.AllActors.Any())
+			{
+				var groups = CharacterGroupList.CharacterGroups;
+				if (groups.Count == 0)
+					CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
+				else
+				{
+					CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.Custom;
+					CharacterGroupGenerationPreferences.NumberOfMaleActors = 0;
+					CharacterGroupGenerationPreferences.NumberOfFemaleActors = 0;
+					CharacterGroupGenerationPreferences.NumberOfChildActors = 0;
+					foreach (var characterGroup in groups)
+					{
+						switch (characterGroup.GroupIdLabel)
+						{
+							case CharacterGroup.Label.Male: CharacterGroupGenerationPreferences.NumberOfMaleActors++; break;
+							case CharacterGroup.Label.Female: CharacterGroupGenerationPreferences.NumberOfFemaleActors++; break;
+							case CharacterGroup.Label.Child: CharacterGroupGenerationPreferences.NumberOfChildActors++; break;
+						}
+					}
+					CharacterGroupGenerationPreferences.NumberOfMaleActors += CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
+					CharacterGroupGenerationPreferences.NumberOfFemaleActors += CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
+				}
+			}
 		}
 
 		public VoiceActor.VoiceActor GetVoiceActorForCharacter(string characterId)
