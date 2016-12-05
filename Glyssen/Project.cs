@@ -1166,13 +1166,26 @@ namespace Glyssen
 		{
 			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList && !m_voiceActorList.AllActors.Any())
 			{
-				var groups = CharacterGroupList.CharacterGroups.Count;
-				if (groups == 0)
+				var groups = CharacterGroupList.CharacterGroups;
+				if (groups.Count == 0)
 					CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
 				else
 				{
 					CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.Custom;
-					CharacterGroupGenerationPreferences.???
+					CharacterGroupGenerationPreferences.NumberOfMaleActors = 0;
+					CharacterGroupGenerationPreferences.NumberOfFemaleActors = 0;
+					CharacterGroupGenerationPreferences.NumberOfChildActors = 0;
+					foreach (var characterGroup in groups)
+					{
+						switch (characterGroup.GroupIdLabel)
+						{
+							case CharacterGroup.Label.Male: CharacterGroupGenerationPreferences.NumberOfMaleActors++; break;
+							case CharacterGroup.Label.Female: CharacterGroupGenerationPreferences.NumberOfFemaleActors++; break;
+							case CharacterGroup.Label.Child: CharacterGroupGenerationPreferences.NumberOfChildActors++; break;
+						}
+					}
+					CharacterGroupGenerationPreferences.NumberOfMaleActors += CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
+					CharacterGroupGenerationPreferences.NumberOfFemaleActors += CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
 				}
 			}
 		}
