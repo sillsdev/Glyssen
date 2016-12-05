@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
@@ -23,7 +24,7 @@ namespace GlyssenTests.Dialogs
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Oneyda Figueroa" };
+			var actor1 = new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
 			var actor2 = new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
 			var actor3 = new Glyssen.VoiceActor.VoiceActor {Id = 3, Name = "Threesa Hawkins"};
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> {actor1, actor2, actor3};
@@ -51,12 +52,34 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void Description()
+		public void Description_Normal()
 		{
 			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
 			groupWithJesus.AssignVoiceActor(3);
 			var action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 1);
 			Assert.AreEqual("Assign voice actor Oneyda Figueroa", action.Description);
+		}
+
+		[Test]
+		public void Description_AfterDeletingActor_RemembersDeletedName()
+		{
+			var groupWithJesus = m_testProject.CharacterGroupList.GroupContainingCharacterId("Jesus");
+			VoiceActorAssignmentUndoAction action;
+			string descriptionBeforeDelete;
+
+			try
+			{
+				m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor() {Id = 400, Name = "Bruce Bliss"});
+				action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 400);
+				descriptionBeforeDelete = action.Description;
+				Assert.AreEqual("Assign voice actor Bruce Bliss", descriptionBeforeDelete);
+			}
+			finally
+			{
+				m_testProject.VoiceActorList.AllActors.RemoveAt(3);
+			}
+
+			Assert.AreEqual(descriptionBeforeDelete, action.Description);
 		}
 
 		[Test]

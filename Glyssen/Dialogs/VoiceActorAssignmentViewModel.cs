@@ -36,7 +36,7 @@ namespace Glyssen.Dialogs
 
 		private readonly Project m_project;
 
-		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected);
+		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected, bool requiresActorListRefresh);
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
 		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>(); 
@@ -151,7 +151,7 @@ namespace Glyssen.Dialogs
 			{
 				if (actionToSave == null)
 					actionToSave = m_undoStack.Peek();
-				Saved(this, actionToSave == null ? null : actionToSave.GroupsAffectedByLastOperation);
+				Saved(this, actionToSave == null ? null : actionToSave.GroupsAffectedByLastOperation, actionToSave is VoiceActorEditingUndoAction);
 			}
 		}
 

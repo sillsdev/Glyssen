@@ -196,18 +196,20 @@ namespace Glyssen.Dialogs
 			using (var actorDlg = new VoiceActorInformationDlg(actorInfoViewModel, false, true))
 			{
 				MainForm.LogDialogDisplay(actorDlg);
-				if (actorDlg.ShowDialog(this) == DialogResult.OK)
+				var result = actorDlg.ShowDialog(this);
+
+				m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
+				if (actorInfoViewModel.DataHasChangedInWaysThatMightAffectGroupGeneration)
 				{
-					m_actorAssignmentViewModel.NoteActorChanges(actorInfoViewModel.Changes);
-					if (actorInfoViewModel.DataHasChangedInWaysThatMightAffectGroupGeneration)
+					if (result == DialogResult.OK)
 					{
 						m_programmaticClickOfUpdateGroups = true;
 						HandleUpdateGroupsClick(actorDlg, e);
-
-						VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
-
-						SetVoiceActorCellDataSource();
 					}
+
+					VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+
+					SetVoiceActorCellDataSource();
 				}
 				adjustGroupsToMatchMyVoiceActorsToolStripMenuItem.Enabled = actorInfoViewModel.ActiveActors.Any();
 			}
@@ -539,13 +541,20 @@ namespace Glyssen.Dialogs
 		}
 
 		#region Character Group Grid
-		private void HandleModelSaved(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> changedGroups)
+		private void HandleModelSaved(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> changedGroups, bool requiresActorListRefresh)
 		{
 			m_selectingInResponseToDataChange = true;
 
 			int columnIndex = m_characterGroupGrid.CurrentCellAddress.X;
 
 			m_saveStatus.OnSaved();
+
+			if (requiresActorListRefresh)
+			{
+				VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+				SetVoiceActorCellDataSource();
+			}
+
 			if (!SetRowCount(changedGroups != null))
 				InvalidateRowsForGroups(changedGroups);
 			m_undoButton.Enabled = m_actorAssignmentViewModel.UndoActions.Any();
@@ -985,6 +994,7 @@ namespace Glyssen.Dialogs
 			{
 				m_selectingInResponseToDataChange = false;
 			}
+			// TODO: It would be nice to be able to immediately change the tool tip text for the button, but it would take some extra work.
 		}
 
 		private void HandleRedoButtonClick(object sender, EventArgs e)

@@ -96,7 +96,7 @@ namespace GlyssenTests.Dialogs
 //			newGroup.Name = "New group";
 			m_model.AssignActorToGroup(1, newGroup);
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			Assert.IsTrue(m_model.Undo());
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			Assert.AreEqual(1, m_model.RedoActions.Count);
@@ -213,7 +213,7 @@ namespace GlyssenTests.Dialogs
 			sourceGroup.CharacterIds = new CharacterIdHashSet(new[] { "John", "Andrew", "Moses" });
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			Assert.IsTrue(m_model.MoveCharactersToGroup(new List<string> { "John", "Moses" }, null));
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
 			Assert.IsNotNull(newGroup);
@@ -235,7 +235,7 @@ namespace GlyssenTests.Dialogs
 			sourceGroup.VoiceActorId = 5;
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			Assert.IsTrue(m_model.MoveCharactersToGroup(allThreeCharacters, null));
 
 			var newGroup = m_testProject.CharacterGroupList.GroupContainingCharacterId("Moses");
@@ -259,7 +259,7 @@ namespace GlyssenTests.Dialogs
 			var destGroup = AddNewGroup("foot", "ear");
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
 
 			Assert.IsTrue(affectedGroups.SequenceEqual(new[] { destGroup, sourceGroup }));
@@ -278,7 +278,7 @@ namespace GlyssenTests.Dialogs
 			sourceGroup.CharacterIds = new CharacterIdHashSet(characterIds);
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			Assert.False(m_model.MoveCharactersToGroup(characterIds, sourceGroup));
 			Assert.IsNull(affectedGroups);
 			Assert.AreEqual(0, m_model.UndoActions.Count);
@@ -295,7 +295,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(2, m_testProject.CharacterGroupList.CharacterGroups.Count);
 
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected) => { affectedGroups = affected.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			Assert.True(m_model.MoveCharactersToGroup(characterIds, destGroup));
 			Assert.AreEqual(destGroup, affectedGroups.Single());
 			Assert.AreEqual(1, m_testProject.CharacterGroupList.CharacterGroups.Count);
@@ -312,7 +312,7 @@ namespace GlyssenTests.Dialogs
 			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, affected) => { if (affected != null) affectedGroups = affected.ToList(); };
+			m_model.Saved += (sender, affected, f) => { if (affected != null) affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			m_model.RegenerateGroups(() =>
 			{
 				// This test is just testing the behavior of "RegenerateGroups" which just runs the action given to it.
@@ -418,7 +418,7 @@ namespace GlyssenTests.Dialogs
 		{
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			m_model.NoteActorChanges(new IVoiceActorUndoAction[0]);
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			Assert.IsNull(affectedGroups);
@@ -432,7 +432,7 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { affectedActor };
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsTrue(f); };
 			m_model.NoteActorChanges(new IVoiceActorUndoAction[] { new VoiceActorEditUndoAction(m_testProject, replacedActor) });
 			Assert.AreEqual("Edit voice actor B", m_model.UndoActions.Single());
 			Assert.AreEqual(0, affectedGroups.Count);
@@ -451,7 +451,7 @@ namespace GlyssenTests.Dialogs
 			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { affectedActor };
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			List<CharacterGroup> affectedGroups = null;
-			m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsTrue(f);};
 			m_model.NoteActorChanges(new IVoiceActorUndoAction[]
 			{
 				new VoiceActorEditUndoAction(m_testProject, replacedActor),
@@ -459,6 +459,52 @@ namespace GlyssenTests.Dialogs
 			});
 			Assert.AreEqual("Edit voice actors", m_model.UndoActions.Single());
 			Assert.AreEqual(characterGroup, affectedGroups.Single());
+		}
+
+		// Started writing this test because I thought group assignments were not being cleared at all. When I realized that
+		// that was not the problem, I abandoned this. It might still be a nice enhancement someday.
+		[Test]
+		[Ignore("Low priority feature")]
+		public void NoteActorChanges_AssignedActorsDeleted_SubUndoActionsAddedToEnableReassignments()
+		{
+		//	var deletedActor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Adam", Age = ActorAge.YoungAdult };
+		//	m_testProject.VoiceActorList.AllActors.Add(deletedActor1);
+		//	var characterGroupA1 = new CharacterGroup(m_testProject);
+		//	m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroupA1);
+		//	characterGroupA1.AssignVoiceActor(deletedActor1.Id);
+
+			//	var unchangedActor = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Baker", Age = ActorAge.Adult };
+			//	m_testProject.VoiceActorList.AllActors.Add(unchangedActor);
+			//	var characterGroupA2 = new CharacterGroup(m_testProject);
+			//	m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroupA2);
+			//	characterGroupA2.AssignVoiceActor(unchangedActor.Id);
+
+			//	var deletedActor2 = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Charlie", Age = ActorAge.Elder };
+			//	m_testProject.VoiceActorList.AllActors.Add(deletedActor2);
+			//	var characterGroupA3 = new CharacterGroup(m_testProject);
+			//	m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroupA3);
+			//	characterGroupA3.AssignVoiceActor(deletedActor2.Id);
+
+			//	var modifiedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			//	m_testProject.VoiceActorList.AllActors.Add(deletedActor1);
+			//	var characterGroup = new CharacterGroup(m_testProject);
+			//	m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
+			//	characterGroup.AssignVoiceActor(1);
+
+
+			//	var unchangedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
+			//	var deletedActor = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			//	m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { unchangedActor, modifiedActor };
+			//	Assert.AreEqual(0, m_model.UndoActions.Count);
+			//	List<CharacterGroup> affectedGroups = null;
+			//	m_model.Saved += (sender, args) => { affectedGroups = args.ToList(); };
+			//	m_model.NoteActorChanges(new IVoiceActorUndoAction[]
+			//	{
+			//		new VoiceActorEditUndoAction(m_testProject, replacedActor),
+			//		new VoiceActorDeletedUndoAction(m_testProject, deletedActor)
+			//	});
+			//	Assert.AreEqual("Edit voice actors", m_model.UndoActions.Single());
+			//	Assert.AreEqual(characterGroup, affectedGroups.Single());
 		}
 
 		[Test]

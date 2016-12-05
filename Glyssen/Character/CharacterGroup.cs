@@ -60,6 +60,7 @@ namespace Glyssen.Character
 					"Character group {0} is assigned to a voice actor who is no longer part of this project. " +
 					"This might have been caused by a previous failure. {1} will clear this assignment for you now."),
 					GroupIdForUiDisplay, Program.kProduct);
+				RemoveVoiceActor();
 			}
 			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(m_project.KeyStrokesByCharacterId);
 		}
