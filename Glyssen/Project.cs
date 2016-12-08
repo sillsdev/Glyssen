@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
@@ -84,7 +85,7 @@ namespace Glyssen
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
-			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? (projectBeingUpdated != null ? projectBeingUpdated.WritingSystem : null))
+			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
 			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
@@ -123,29 +124,23 @@ namespace Glyssen
 
 		public static IEnumerable<string> AllPublicationFolders
 		{
-			get
-			{
-				return Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
-			}
+			get { return Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories); }
 		}
 
 		public static IEnumerable<string> AllRecordingProjectFolders
 		{
-			get
-			{
-				return AllPublicationFolders.SelectMany(Directory.GetDirectories);
-			}
+			get { return AllPublicationFolders.SelectMany(Directory.GetDirectories); }
 		}
 
-        public string AudioStockNumber
-        {
-            get { return m_metadata.AudioStockNumber; }
-        }
+		public string AudioStockNumber
+		{
+			get { return m_metadata.AudioStockNumber; }
+		}
 
-        public string Id
-        {
-            get { return m_metadata.Id; }
-        }
+		public string Id
+		{
+			get { return m_metadata.Id; }
+		}
 
 		public string Name
 		{
@@ -252,7 +247,9 @@ namespace Glyssen
 					m_quoteSystem = value;
 					DoQuoteParse();
 				}
-				else if (quoteSystemChanged && !quoteSystemBeingSetForFirstTime)
+				else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
+				(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
+					ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
 				{
 					// These need to happen in this order
 					Save();
@@ -276,7 +273,10 @@ namespace Glyssen
 			set { m_metadata.ProjectStatus.QuoteSystemStatus = value; }
 		}
 
-		public bool IsQuoteSystemReadyForParse { get { return (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0; } }
+		public bool IsQuoteSystemReadyForParse
+		{
+			get { return (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0; }
+		}
 
 		public DateTime QuoteSystemDate
 		{
@@ -370,8 +370,8 @@ namespace Glyssen
 			get
 			{
 				return (from book in Books
-						where AvailableBooks.Where(ab => ab.IncludeInScript).Select(ab => ab.Code).Contains(book.BookId)
-						select book).ToList();
+					where AvailableBooks.Where(ab => ab.IncludeInScript).Select(ab => ab.Code).Contains(book.BookId)
+					select book).ToList();
 			}
 		}
 
@@ -414,9 +414,9 @@ namespace Glyssen
 				Directory.Move(ProjectFolder, newPath);
 				m_recordingProjectName = model.RecordingProjectName;
 			}
-		    m_metadata.AudioStockNumber = model.AudioStockNumber;
+			m_metadata.AudioStockNumber = model.AudioStockNumber;
 			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
-			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
+			m_metadata.FontSizeInPoints = (int)model.WsModel.CurrentDefaultFontSize;
 			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
 			ChapterAnnouncementStyle = model.ChapterAnnouncementStyle;
 			m_metadata.IncludeChapterAnnouncementForFirstChapter = !model.SkipChapterAnnouncementForFirstChapter;
@@ -505,7 +505,7 @@ namespace Glyssen
 					return;
 				m_projectState = value;
 				if (ProjectStateChanged != null)
-					ProjectStateChanged(this, new ProjectStateChangedEventArgs { ProjectState = m_projectState });
+					ProjectStateChanged(this, new ProjectStateChangedEventArgs {ProjectState = m_projectState});
 			}
 		}
 
@@ -539,7 +539,10 @@ namespace Glyssen
 			}
 		}
 
-		public string BookSelectionSummary { get { return IncludedBooks.BookSummary(); } }
+		public string BookSelectionSummary
+		{
+			get { return IncludedBooks.BookSummary(); }
+		}
 
 		/// <summary>
 		/// If this is set, the user decisions in it will be applied when the quote parser is done
@@ -619,10 +622,7 @@ namespace Glyssen
 				}
 				return m_referenceText;
 			}
-			set
-			{
-				m_referenceText = value;
-			}
+			set { m_referenceText = value; }
 		}
 
 		public ReferenceTextIdentifier ReferenceTextIdentifier
@@ -720,7 +720,7 @@ namespace Glyssen
 				return;
 			}
 			metadata.Inactive = hidden;
-			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
+			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save(); // TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
 		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, bool confirmAndRecycle = false)
@@ -824,7 +824,7 @@ namespace Glyssen
 			{
 				m_quotePercentComplete = 0;
 				UpdatePercentInitialized();
-				ProjectState = ProjectState.NeedsQuoteSystemConfirmation;
+				ProjectState = ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
 				return;
 			}
 			m_quotePercentComplete = 100;
@@ -868,13 +868,13 @@ namespace Glyssen
 
 		private void AddAndParseBooks(IEnumerable<UsxDocument> books, IStylesheet stylesheet)
 		{
-			ProjectState = ProjectState.Initial;
-			var usxWorker = new BackgroundWorker { WorkerReportsProgress = true };
+			ProjectState = ProjectState.Initial | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
+			var usxWorker = new BackgroundWorker {WorkerReportsProgress = true};
 			usxWorker.DoWork += UsxWorker_DoWork;
 			usxWorker.RunWorkerCompleted += UsxWorker_RunWorkerCompleted;
 			usxWorker.ProgressChanged += UsxWorker_ProgressChanged;
 
-			object[] parameters = { books, stylesheet };
+			object[] parameters = {books, stylesheet};
 			usxWorker.RunWorkerAsync(parameters);
 		}
 
@@ -926,8 +926,8 @@ namespace Glyssen
 
 		private void GuessAtQuoteSystem()
 		{
-			ProjectState = ProjectState.UsxComplete;
-			var guessWorker = new BackgroundWorker { WorkerReportsProgress = true };
+			ProjectState = ProjectState.UsxComplete | (ProjectState & ProjectState.WritingSystemRecoveryInProcess);
+			var guessWorker = new BackgroundWorker {WorkerReportsProgress = true};
 			guessWorker.DoWork += GuessWorker_DoWork;
 			guessWorker.RunWorkerCompleted += GuessWorker_RunWorkerCompleted;
 			guessWorker.ProgressChanged += GuessWorker_ProgressChanged;
@@ -961,7 +961,7 @@ namespace Glyssen
 		private void DoQuoteParse()
 		{
 			ProjectState = ProjectState.Parsing;
-			var quoteWorker = new BackgroundWorker { WorkerReportsProgress = true };
+			var quoteWorker = new BackgroundWorker {WorkerReportsProgress = true};
 			quoteWorker.DoWork += QuoteWorker_DoWork;
 			quoteWorker.RunWorkerCompleted += QuoteWorker_RunWorkerCompleted;
 			quoteWorker.ProgressChanged += QuoteWorker_ProgressChanged;
@@ -1076,13 +1076,13 @@ namespace Glyssen
 
 			Analytics.Track("ProjectAnalysis", new Dictionary<string, string>
 			{
-				{ "language", LanguageIsoCode },
-				{ "ID", Id },
-				{ "recordingProjectName", Name },
-				{ "TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture) },
-				{ "UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture) },
-				{ "TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture) },
-				{ "PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture) }
+				{"language", LanguageIsoCode},
+				{"ID", Id},
+				{"recordingProjectName", Name},
+				{"TotalBlocks", ProjectAnalysis.TotalBlocks.ToString(CultureInfo.InvariantCulture)},
+				{"UserPercentAssigned", ProjectAnalysis.UserPercentAssigned.ToString(CultureInfo.InvariantCulture)},
+				{"TotalPercentAssigned", ProjectAnalysis.TotalPercentAssigned.ToString(CultureInfo.InvariantCulture)},
+				{"PercentUnknown", ProjectAnalysis.PercentUnknown.ToString(CultureInfo.InvariantCulture)}
 			});
 
 			if (AnalysisCompleted != null)
@@ -1091,7 +1091,8 @@ namespace Glyssen
 
 		public void Save(bool saveCharacterGroups = false)
 		{
-			if (!m_projectFileIsWritable) return;
+			if (!m_projectFileIsWritable)
+				return;
 
 			Directory.CreateDirectory(ProjectFolder);
 
@@ -1112,7 +1113,9 @@ namespace Glyssen
 			SaveWritingSystem();
 			if (saveCharacterGroups)
 				SaveCharacterGroupData();
-			ProjectState = !IsQuoteSystemReadyForParse ? ProjectState.NeedsQuoteSystemConfirmation : ProjectState.FullyInitialized;
+			ProjectState = !IsQuoteSystemReadyForParse ?
+				ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess) :
+				ProjectState.FullyInitialized;
 		}
 
 		public void SaveBook(BookScript book)
@@ -1183,9 +1186,15 @@ namespace Glyssen
 					{
 						switch (characterGroup.GroupIdLabel)
 						{
-							case CharacterGroup.Label.Male: CharacterGroupGenerationPreferences.NumberOfMaleActors++; break;
-							case CharacterGroup.Label.Female: CharacterGroupGenerationPreferences.NumberOfFemaleActors++; break;
-							case CharacterGroup.Label.Child: CharacterGroupGenerationPreferences.NumberOfChildActors++; break;
+							case CharacterGroup.Label.Male:
+								CharacterGroupGenerationPreferences.NumberOfMaleActors++;
+								break;
+							case CharacterGroup.Label.Female:
+								CharacterGroupGenerationPreferences.NumberOfFemaleActors++;
+								break;
+							case CharacterGroup.Label.Child:
+								CharacterGroupGenerationPreferences.NumberOfChildActors++;
+								break;
 						}
 					}
 					CharacterGroupGenerationPreferences.NumberOfMaleActors += CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
@@ -1210,48 +1219,76 @@ namespace Glyssen
 					return m_wsDefinition;
 
 				m_wsDefinition = new WritingSystemDefinition();
-				if (File.Exists(LdmlFilePath))
-					new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
+				bool retry;
+
+				do
+				{
+					if (!File.Exists(LdmlFilePath))
+						break;
+					try
+					{
+						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
+						return m_wsDefinition;
+					}
+					catch (XmlException e)
+					{
+						var msg = String.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+								"The writing system definition file for project {0} could not be read.\nFilename: {1}\nError: {2}\n\n" +
+								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry." +
+								"Otherwise, click Ignore and {3} will repair the file for you. Some information might not be recoverable, " +
+								"so check the quote system and font settings carefully.",
+								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message; Param 3: \"Glyssen\""),
+							Name, LdmlFilePath, e.Message, Program.kProduct);
+						switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning))
+						{
+							default:
+								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
+								retry = false;
+								break;
+							case DialogResult.Retry:
+								retry = true;
+								break;
+							case DialogResult.Abort:
+								throw;
+						}
+					}
+				} while (retry);
+
+				if (IetfLanguageTag.IsValid(m_metadata.Language.Ldml))
+					m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
+				if (IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+					m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
+				if (m_wsDefinition.Id == null)
+				{
+					m_wsDefinition.Id = IsNullOrEmpty(m_metadata.Language.Ldml) ? m_metadata.Language.Iso : m_metadata.Language.Ldml;
+				}
 				else
 				{
-					if (IetfLanguageTag.IsValid(m_metadata.Language.Ldml))
-						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
-					if (IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
-						m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
-					if (m_wsDefinition.Id == null)
+					try
 					{
-						m_wsDefinition.Id = IsNullOrEmpty(m_metadata.Language.Ldml)
-							? m_metadata.Language.Iso
-							: m_metadata.Language.Ldml;
+						m_wsDefinition.Language = m_wsDefinition.Id;
 					}
-					else
+					catch (ArgumentException)
 					{
 						try
 						{
-							m_wsDefinition.Language = m_wsDefinition.Id;
+							if (m_metadata.Language.Ldml != m_metadata.Language.Iso && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+							{
+								m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
+								m_wsDefinition.Language = m_wsDefinition.Id;
+							}
 						}
 						catch (ArgumentException)
 						{
-							try
-							{
-								if (m_metadata.Language.Ldml != m_metadata.Language.Iso && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
-								{
-									m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
-									m_wsDefinition.Language = m_wsDefinition.Id;
-								}
-							}
-							catch (ArgumentException)
-							{
-								// Ignore. Following code should try to patch things up.
-							}
+							// Ignore. Following code should try to patch things up.
 						}
 					}
-					if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !IsNullOrEmpty(m_metadata.Language.Name))
-					{
-						// TODO: Strip off the first dash and anything following???
-						// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
-						m_wsDefinition.Language = new LanguageSubtag(m_wsDefinition.Id, m_metadata.Language.Name);
-					}
+				}
+				if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !IsNullOrEmpty(m_metadata.Language.Name))
+				{
+					// TODO: Strip off the first dash and anything following???
+					// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
+					m_wsDefinition.Language = new LanguageSubtag(m_wsDefinition.Id, m_metadata.Language.Name);
 				}
 
 				return m_wsDefinition;
@@ -1260,7 +1297,67 @@ namespace Glyssen
 
 		private void SaveWritingSystem()
 		{
-			new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
+			string backupPath = null;
+			try
+			{
+				if (File.Exists(LdmlFilePath))
+				{
+					backupPath = Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
+					if (File.Exists(backupPath))
+						SIL.IO.RobustFile.Delete(backupPath);
+					SIL.IO.RobustFile.Move(LdmlFilePath, backupPath);
+				}
+			}
+			catch
+			{
+				// Oh, well. Hope for the best...
+				backupPath = null;
+			}
+			bool newFileIsBogus = false;
+			try
+			{
+				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
+				// Now test to see if what we wrote is actually readable...
+				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
+			}
+			catch (Exception exSave)
+			{
+				Analytics.Track("Writing System Save Failure", new Dictionary<string, string>
+				{
+					{"exceptionMessage", exSave.Message},
+					{"CurrentProjectPath", Settings.Default.CurrentProject},
+				});
+				if (backupPath != null)
+				{
+					// If we ended up with an unreadable file, revert to backup???
+					try
+					{
+						var wsFromBackup = new WritingSystemDefinition();
+						SIL.IO.RobustFile.Delete(LdmlFilePath);
+						SIL.IO.RobustFile.Move(backupPath, LdmlFilePath);
+						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, wsFromBackup);
+						if (!wsFromBackup.QuotationMarks.SequenceEqual(WritingSystem.QuotationMarks) ||
+							wsFromBackup.DefaultFont.Name != WritingSystem.DefaultFont.Name ||
+							wsFromBackup.RightToLeftScript != WritingSystem.RightToLeftScript)
+						{
+							// There were significant changes that we couldn't save. Something bad is probably going to happen, so we need to tell the user.
+							ErrorReport.ReportNonFatalExceptionWithMessage(exSave, LocalizationManager.GetString("Project.RevertedToOutdatedBackupWs",
+								"The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but " +
+								"since the old settings were different, some things might not work correctly next time you open this project."),
+								Program.kProduct);
+						}
+					}
+					catch (Exception exRecover)
+					{
+						Analytics.Track("Recovery from backup Writing System File Failed.", new Dictionary<string, string>
+						{
+							{"exceptionMessage", exRecover.Message},
+							{"CurrentProjectPath", Settings.Default.CurrentProject},
+						});
+						throw exSave;
+					}
+				}
+			}
 		}
 
 		private void HandleQuoteSystemChanged()
@@ -1574,6 +1671,7 @@ namespace Glyssen
 		NeedsQuoteSystemConfirmation = 8,
 		QuoteParseComplete = 16,
 		FullyInitialized = 32,
+		WritingSystemRecoveryInProcess = 64,
 		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized
 	}
 }

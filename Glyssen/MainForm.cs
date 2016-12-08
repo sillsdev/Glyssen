@@ -289,7 +289,21 @@ namespace Glyssen
 			if (IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 				SetProject(null);
 			else
-				LoadProject(Settings.Default.CurrentProject);		
+			{
+				try
+				{
+					LoadProject(Settings.Default.CurrentProject);
+				}
+				catch (Exception ex)
+				{
+					Analytics.Track("Project Load Failure", new Dictionary<string, string>
+					{
+						{"exceptionMessage", ex.Message},
+						{"CurrentProjectPath", Settings.Default.CurrentProject},
+					});
+					throw;
+				}
+			}
 		}
 
 		private void InitializeProgress()
