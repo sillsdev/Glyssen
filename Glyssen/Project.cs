@@ -78,7 +78,7 @@ namespace Glyssen
 			m_wsDefinition = ws;
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
-			if (File.Exists(VersificationFilePath))
+			if (SIL.IO.RobustFile.Exists(VersificationFilePath))
 				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
 				InstallFontsIfNecessary();
@@ -100,8 +100,9 @@ namespace Glyssen
 			{
 				m_vers = LoadVersification(VersificationFilePath);
 			}
-			catch (InvalidVersificationLineException)
+			catch (InvalidVersificationLineException ex)
 			{
+				Logger.WriteError(ex);
 				DeleteProjectFolderAndEmptyContainingFolders(ProjectFolder);
 				throw;
 			}
@@ -118,7 +119,7 @@ namespace Glyssen
 			AddAndParseBooks(books, stylesheet);
 
 			Directory.CreateDirectory(ProjectFolder);
-			File.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
+			SIL.IO.RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
 			m_vers = LoadVersification(VersificationFilePath);
 		}
 
@@ -665,7 +666,7 @@ namespace Glyssen
 			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
-				if (!File.Exists(existingProject.OriginalBundlePath))
+				if (!SIL.IO.RobustFile.Exists(existingProject.OriginalBundlePath))
 				{
 					upgradeProject = false;
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
@@ -1060,6 +1061,8 @@ namespace Glyssen
 			}
 		}
 
+		private string LdmlBackupFilePath => Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
+
 		protected override string ProjectFolder
 		{
 			get { return GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
@@ -1149,7 +1152,7 @@ namespace Glyssen
 		private void LoadCharacterGroupData()
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			m_characterGroupList = File.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
+			m_characterGroupList = SIL.IO.RobustFile.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
 			m_characterGroupList.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
 			if (m_voiceActorList != null)
 				EnsureCastSizeOptionValid();
@@ -1164,7 +1167,7 @@ namespace Glyssen
 		private void LoadVoiceActorInformationData()
 		{
 			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
-			m_voiceActorList = (File.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
+			m_voiceActorList = (SIL.IO.RobustFile.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
 			if (m_characterGroupList != null)
 				EnsureCastSizeOptionValid();
 		}
@@ -1220,11 +1223,33 @@ namespace Glyssen
 
 				m_wsDefinition = new WritingSystemDefinition();
 				bool retry;
+				string backupPath = LdmlBackupFilePath;
+				bool attemptToUseBackup = SIL.IO.RobustFile.Exists(backupPath);
 
 				do
 				{
-					if (!File.Exists(LdmlFilePath))
-						break;
+					if (!SIL.IO.RobustFile.Exists(LdmlFilePath))
+					{
+						if (attemptToUseBackup)
+						{
+							try
+							{
+								SIL.IO.RobustFile.Move(LdmlFilePath, backupPath);
+								attemptToUseBackup = false;
+							}
+							catch (Exception exRestoreBackup)
+							{
+								Logger.WriteError(exRestoreBackup);
+								Analytics.Track("Failed to rename LDML backup", new Dictionary<string, string>
+								{
+									{"exceptionMessage", exRestoreBackup.Message},
+									{"LdmlFilePath", LdmlFilePath},
+								});
+							}
+						}
+						if (!SIL.IO.RobustFile.Exists(LdmlFilePath))
+							break;
+					}
 					try
 					{
 						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, m_wsDefinition);
@@ -1232,20 +1257,48 @@ namespace Glyssen
 					}
 					catch (XmlException e)
 					{
-						var msg = String.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
-								"The writing system definition file for project {0} could not be read.\nFilename: {1}\nError: {2}\n\n" +
-								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry." +
-								"Otherwise, click Ignore and {3} will repair the file for you. Some information might not be recoverable, " +
-								"so check the quote system and font settings carefully.",
-								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message; Param 3: \"Glyssen\""),
-							Name, LdmlFilePath, e.Message, Program.kProduct);
-						switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning))
+						var msg1 = String.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
+								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
+							Name, LdmlFilePath, e.Message);
+						var msg2 = attemptToUseBackup ?
+							LocalizationManager.GetString("Project.UseBackupLdmlFile",
+								"To use the automatically created backup (which might be out-of-date), click Retry.",
+								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
+								"created backup file exists.") :
+							LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
+								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.",
+								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
+								"created backup file does not exist.");
+						var msg3 = String.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
+							"Otherwise, click Ignore and {0} will repair the file for you. Some information might not be recoverable, " +
+							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), Program.kProduct);
+						var msg = msg1 + "\n\n" + msg2 + msg3;
+						Logger.WriteError(msg, e);
+						switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
 						{
 							default:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
 								retry = false;
 								break;
 							case DialogResult.Retry:
+								if (attemptToUseBackup)
+								{
+									try
+									{
+										string corruptedLdmlFilePath =
+											Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "corrupted");
+										SIL.IO.RobustFile.Delete(corruptedLdmlFilePath);
+										SIL.IO.RobustFile.Move(LdmlFilePath, corruptedLdmlFilePath);
+										SIL.IO.RobustFile.Move(backupPath, LdmlFilePath);
+									}
+									catch (Exception exReplaceCorruptedLdmlWithBackup)
+									{
+										Logger.WriteError(exReplaceCorruptedLdmlWithBackup);
+										// We'll come back around and display the "self-repair" version of the message.
+									}
+									attemptToUseBackup = false;
+								}
 								retry = true;
 								break;
 							case DialogResult.Abort:
@@ -1300,17 +1353,23 @@ namespace Glyssen
 			string backupPath = null;
 			try
 			{
-				if (File.Exists(LdmlFilePath))
+				if (SIL.IO.RobustFile.Exists(LdmlFilePath))
 				{
-					backupPath = Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
-					if (File.Exists(backupPath))
+					backupPath = LdmlBackupFilePath;
+					if (SIL.IO.RobustFile.Exists(backupPath))
 						SIL.IO.RobustFile.Delete(backupPath);
 					SIL.IO.RobustFile.Move(LdmlFilePath, backupPath);
 				}
 			}
-			catch
+			catch (Exception exMakeBackup)
 			{
 				// Oh, well. Hope for the best...
+				Logger.WriteError("Failed to create LDML backup", exMakeBackup);
+				Analytics.Track("Failed to create LDML backup", new Dictionary<string, string>
+				{
+					{ "exceptionMessage", exMakeBackup.Message},
+					{ "LdmlFilePath", LdmlFilePath },
+				});
 				backupPath = null;
 			}
 			bool newFileIsBogus = false;
@@ -1322,6 +1381,7 @@ namespace Glyssen
 			}
 			catch (Exception exSave)
 			{
+				Logger.WriteError("Writing System Save Failure", exSave);
 				Analytics.Track("Writing System Save Failure", new Dictionary<string, string>
 				{
 					{"exceptionMessage", exSave.Message},
@@ -1349,6 +1409,7 @@ namespace Glyssen
 					}
 					catch (Exception exRecover)
 					{
+						Logger.WriteError("Recovery from backup Writing System File Failed.", exRecover);
 						Analytics.Track("Recovery from backup Writing System File Failed.", new Dictionary<string, string>
 						{
 							{"exceptionMessage", exRecover.Message},
@@ -1367,7 +1428,7 @@ namespace Glyssen
 
 			m_books.Clear();
 
-			if (File.Exists(OriginalBundlePath) && QuoteSystem != null)
+			if (SIL.IO.RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
 			{
 				UserDecisionsProject = copyOfExistingProject;
 				using (var bundle = new GlyssenBundle(OriginalBundlePath))
@@ -1407,7 +1468,7 @@ namespace Glyssen
 		{
 			if (QuoteSystem == null)
 				return false;
-			if (File.Exists(OriginalBundlePath))
+			if (SIL.IO.RobustFile.Exists(OriginalBundlePath))
 				return true;
 			return false;
 		}
@@ -1465,8 +1526,9 @@ namespace Glyssen
 					{
 						Process.Start(ttfFile);
 					}
-					catch (Exception)
+					catch (Exception ex)
 					{
+						Logger.WriteError("There was a problem launching the font preview.Please install the font manually:" + ttfFile, ex);
 						MessageBox.Show(Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview", "There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
 					}
 				}
