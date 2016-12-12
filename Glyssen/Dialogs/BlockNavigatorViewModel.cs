@@ -513,7 +513,7 @@ namespace Glyssen.Dialogs
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
 				{
 					if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
-						GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last();
+						return GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last();
 					return IndexOfFirstBlockInCurrentGroup;
 				}
 				return m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count - 1;
