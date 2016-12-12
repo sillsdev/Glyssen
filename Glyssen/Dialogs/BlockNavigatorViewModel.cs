@@ -99,9 +99,8 @@ namespace Glyssen.Dialogs
 
 			if (startingIndices != null && !startingIndices.IsUndefined && startingIndices.BookIndex < m_project.IncludedBooks.Count)
 			{
-				var startingBook = m_project.IncludedBooks[startingIndices.BookIndex];
-				var blocks = startingBook.GetScriptBlocks();
-				if (blocks.Count > startingIndices.BlockIndex && !CharacterVerseData.IsCharacterExtraBiblical(blocks[startingIndices.BlockIndex].CharacterId))
+				var startingBlock = GetBlock(startingIndices);
+				if (startingBlock != null && !CharacterVerseData.IsCharacterExtraBiblical(startingBlock.CharacterId))
 				{
 					SetBlock(startingIndices);
 					m_currentBlockIndex = m_relevantBlocks.IndexOf(startingIndices);
@@ -111,7 +110,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		void HandleProjectQuoteParseCompleted(object sender, EventArgs e)
+		private void HandleProjectQuoteParseCompleted(object sender, EventArgs e)
 		{
 			m_navigator = new BlockNavigator(m_project.IncludedBooks);
 			ResetFilter(null);
@@ -635,7 +634,15 @@ namespace Glyssen.Dialogs
 			if (indices == null)
 				return false;
 			m_currentBlockIndex = m_relevantBlocks.IndexOf(indices);
-			m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? indices : null;
+			if (m_currentBlockIndex < 0)
+			{
+				var block = GetBlock(indices);
+				if (CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId))
+					return false;
+				m_temporarilyIncludedBlock = indices;
+			}
+			else
+				m_temporarilyIncludedBlock = null;
 			SetBlock(indices);
 			return true;
 		}
@@ -829,6 +836,13 @@ namespace Glyssen.Dialogs
 		internal BookBlockIndices GetBlockIndices(Block block)
 		{
 			return m_navigator.GetIndicesOfSpecificBlock(block);
+		}
+
+		private Block GetBlock(BookBlockIndices indices)
+		{
+			var startingBook = m_project.IncludedBooks[indices.BookIndex];
+			var blocks = startingBook.GetScriptBlocks();
+			return blocks.Count > indices.BlockIndex ? blocks[indices.BlockIndex] : null;
 		}
 
 		public static int GetIndexOfClosestRelevantBlock(List<BookBlockIndices> list, BookBlockIndices key, bool prev,
