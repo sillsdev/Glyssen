@@ -292,13 +292,9 @@ namespace Glyssen.Dialogs
 						{
 							// Just reset the anchor and get out.
 							m_currentRefBlockMatchups.ChangeAnchor(newAnchorBlock);
-							//var correspondingOrigBlock = m_currentRefBlockMatchups.GetCorrespondingOriginalBlock(newAnchorBlock);
-							//if (newAnchorBlock != null)
-							//{
 							var relevantBlockIndex = m_relevantBlocks.IndexOf(new BookBlockIndices(bookIndex, value));
 							if (relevantBlockIndex >= 0)
 								m_currentBlockIndex = relevantBlockIndex;
-							//}
 							HandleCurrentBlockChanged();
 						}
 						return;
