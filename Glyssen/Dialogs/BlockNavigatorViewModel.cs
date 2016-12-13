@@ -65,7 +65,7 @@ namespace Glyssen.Dialogs
 		public event EventHandler CurrentBlockMatchupChanged;
 		public event EventHandler FilterReset;
 
-		protected BookScript CurrentBook { get { return m_navigator.CurrentBook; } }
+		protected BookScript CurrentBook => m_navigator.CurrentBook;
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectSettingsViewModel settingsViewModel = null)
 			: this(project, mode, null, settingsViewModel)
@@ -275,14 +275,14 @@ namespace Glyssen.Dialogs
 				int index = value;
 				var bookIndex = m_navigator.GetIndices().BookIndex;
 
-				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook)
+				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 				{
 					if (index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count)
 					{
 						// Adjust index to account for any temporary additions resulting from splitting blocks in the matchup.
 						index -= m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 					}
-					else
+					else if (index >= m_currentRefBlockMatchups.IndexOfStartBlockInBook)
 					{
 						// A block within the existing matchup has been selected, so we need to translate the index to find the
 						// correct block within the sequence of correlated blocks rather than within the book.
@@ -292,30 +292,33 @@ namespace Glyssen.Dialogs
 						{
 							// Just reset the anchor and get out.
 							m_currentRefBlockMatchups.ChangeAnchor(newAnchorBlock);
-							//var correspondingOrigBlock = m_currentRefBlockMatchups.GetCorrespondingOriginalBlock(newAnchorBlock);
-							//if (newAnchorBlock != null)
-							//{
 							var relevantBlockIndex = m_relevantBlocks.IndexOf(new BookBlockIndices(bookIndex, value));
 							if (relevantBlockIndex >= 0)
 								m_currentBlockIndex = relevantBlockIndex;
-							//}
 							HandleCurrentBlockChanged();
 						}
 						return;
 					}
 				}
+				else
+					FindStartOfQuote(ref index);
 
-				Block b;
-				do
-				{
-					b = m_navigator.CurrentBook.GetScriptBlocks()[index];
-				} while ((b.MultiBlockQuote == MultiBlockQuote.Continuation || b.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) && --index >= 0);
-				Debug.Assert(index >= 0);
 				var location = new BookBlockIndices(bookIndex, index);
 				m_currentBlockIndex = m_relevantBlocks.IndexOf(location);
 				m_temporarilyIncludedBlock = m_currentBlockIndex < 0 ? location : null;
 				SetBlock(location);
 			}
+		}
+
+		public Block FindStartOfQuote(ref int index)
+		{
+			Block b;
+			do
+			{
+				b = CurrentBook.GetScriptBlocks()[index];
+			} while ((b.MultiBlockQuote == MultiBlockQuote.Continuation || b.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) && --index >= 0);
+			Debug.Assert(index >= 0);
+			return b;
 		}
 
 		public virtual BlocksToDisplay Mode
@@ -630,7 +633,7 @@ namespace Glyssen.Dialogs
 
 		public bool TryLoadBlock(VerseRef verseRef)
 		{
-			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef);
+			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef, AttemptRefBlockMatchup);
 			if (indices == null)
 				return false;
 			m_currentBlockIndex = m_relevantBlocks.IndexOf(indices);

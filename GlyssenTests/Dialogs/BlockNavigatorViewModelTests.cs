@@ -388,6 +388,32 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(m_model.RelevantBlockCount, m_model.CurrentBlockDisplayIndex);
 		}
 
+		[TestCase(MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
+		public void FindStartOfQuote_BlockIsQuoteContinuation_ReturnsQuoteStartBlock(MultiBlockQuote typeOfContinuation)
+		{
+			var blocks = m_testProject.IncludedBooks[0].GetScriptBlocks();
+			int quoteStart = -1;
+			int i = 1;
+			for (; i < blocks.Count; i++)
+			{
+				if (blocks[i].MultiBlockQuote == typeOfContinuation)
+				{
+					quoteStart = i - 1;
+					while (i + 1 < blocks.Count && blocks[i + 1].MultiBlockQuote == typeOfContinuation)
+						i++;
+					break;
+				}
+			}
+			if (quoteStart < 0)
+				Assert.Ignore("Couldn't find data suitable to test case " + typeOfContinuation);
+
+			var startBlock = m_model.FindStartOfQuote(ref i);
+			Assert.AreEqual(MultiBlockQuote.Start, startBlock.MultiBlockQuote);
+			Assert.AreEqual(blocks[quoteStart], startBlock);
+			Assert.AreEqual(quoteStart, i);
+		}
+
 		[Test]
 		public void SetCurrentBlockIndexInBook_BlockIsRelevantSingleBlockQuote_StateReflectsRelevantBlock()
 		{
