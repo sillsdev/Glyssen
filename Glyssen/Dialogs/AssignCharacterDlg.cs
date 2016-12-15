@@ -1263,6 +1263,8 @@ namespace Glyssen.Dialogs
 			if (e.ColumnIndex == colCharacter.Index || e.ColumnIndex == colDelivery.Index)
 			{
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+				if (matchup == null)
+					return; // This can happen when transitioning from one block matchup to another.
 				var correlatedBlock = matchup.CorrelatedBlocks[e.RowIndex];
 				if (correlatedBlock.MultiBlockQuote == MultiBlockQuote.Continuation || correlatedBlock.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
 				{
