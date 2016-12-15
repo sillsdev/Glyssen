@@ -1260,7 +1260,7 @@ namespace Glyssen.Dialogs
 
 		private void m_dataGridReferenceText_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
 		{
-			if (e.ColumnIndex == colCharacter.Index || e.ColumnIndex == colDelivery.Index)
+			if ((e.ColumnIndex == colCharacter.Index || e.ColumnIndex == colDelivery.Index) && m_dataGridReferenceText.IsCurrentCellDirty)
 			{
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
 				if (matchup == null)

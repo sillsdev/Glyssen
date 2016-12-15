@@ -5,6 +5,7 @@ using System.Linq;
 using Glyssen.Character;
 using Paratext;
 using SIL.Extensions;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen
@@ -27,7 +28,13 @@ namespace Glyssen
 			var originalAnchorBlock = blocks[iBlock];
 			var blocksForVersesCoveredByBlock =
 				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
-			m_iStartBlock = iBlock - blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
+			var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
+			if (indexOfAnchorBlockInVerse < 0)
+			{
+				throw new Exception($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
+					$"{originalAnchorBlock.InitialStartVerseNumber} (Does this verse occur more than once in the Scripture text?)");
+			}
+			m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
 			while (m_iStartBlock > 0)
 			{
 				if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
@@ -59,7 +66,18 @@ namespace Glyssen
 				blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
 
 			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
-			CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
+			try
+			{
+				CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
+			}
+			catch (Exception ex)
+			{
+				Logger.WriteEvent(ex.Message);
+				Logger.WriteEvent($"iBlock = {iBlock}; m_iStartBlock = {m_iStartBlock}");
+				foreach (var block in m_portion.GetScriptBlocks())
+					Logger.WriteEvent($"block = {block}");
+				throw;
+			}
 			if (splitBlocks != null)
 			{
 				int origCount = m_portion.GetScriptBlocks().Count;
