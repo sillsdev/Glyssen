@@ -24,6 +24,7 @@ using L10NSharp.UI;
 using Paratext;
 using SIL.Extensions;
 using SIL.Reporting;
+using static System.String;
 
 namespace Glyssen.Dialogs
 {
@@ -65,7 +66,7 @@ namespace Glyssen.Dialogs
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
 
-			Text = string.Format(Text, m_viewModel.ProjectName);
+			Text = Format(Text, m_viewModel.ProjectName);
 		}
 
 		public AssignCharacterDlg(AssignCharacterViewModel viewModel)
@@ -291,7 +292,7 @@ namespace Glyssen.Dialogs
 				m_scriptureReference.VerseControl.VerseRef = m_viewModel.GetBlockVerseRef();
 			m_labelXofY.Visible = m_viewModel.IsCurrentBlockRelevant;
 			UpdateNavigationIndexLabel();
-			m_chkSingleVoice.Text = string.Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
+			m_chkSingleVoice.Text = Format(m_singleVoiceCheckboxFmt, m_viewModel.CurrentBookId);
 
 			m_viewModel.GetBlockVerseRef().SendScrReference();
 
@@ -311,7 +312,7 @@ namespace Glyssen.Dialogs
 			if (m_labelXofY.Visible)
 			{
 				Debug.Assert(m_viewModel.RelevantBlockCount >= m_viewModel.CurrentBlockDisplayIndex);
-				m_labelXofY.Text = string.Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
+				m_labelXofY.Text = Format(m_xOfYFmt, m_viewModel.CurrentBlockDisplayIndex, m_viewModel.RelevantBlockCount);
 			}
 		}
 
@@ -404,9 +405,9 @@ namespace Glyssen.Dialogs
 					if (colDelivery.Visible)
 					{
 						var delivery = correlatedBlock.Delivery;
-						if (string.IsNullOrEmpty(delivery))
+						if (IsNullOrEmpty(delivery))
 							delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
-						if (string.IsNullOrEmpty(delivery))
+						if (IsNullOrEmpty(delivery))
 							delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
 						row.Cells[colDelivery.Index].Value = delivery;
 						row.Cells[colDelivery.Index].ReadOnly =
@@ -576,7 +577,7 @@ namespace Glyssen.Dialogs
 			if (m_listBoxCharacters.Items.Count == 0 || m_listBoxDeliveries.Items.Count == 0 || m_listBoxCharacters.SelectedItem == null)
 				return;
 			Block currentBlock = m_viewModel.CurrentBlock;
-			string currentDelivery = string.IsNullOrEmpty(currentBlock.Delivery) ? AssignCharacterViewModel.Delivery.Normal.Text : currentBlock.Delivery;
+			string currentDelivery = IsNullOrEmpty(currentBlock.Delivery) ? AssignCharacterViewModel.Delivery.Normal.Text : currentBlock.Delivery;
 
 			if (m_listBoxDeliveries.Items.Count == 1)
 				m_listBoxDeliveries.SelectedIndex = 0;
@@ -666,7 +667,7 @@ namespace Glyssen.Dialogs
 
 		private void AddNewCharacter(string character)
 		{
-			if (string.IsNullOrWhiteSpace(character))
+			if (IsNullOrWhiteSpace(character))
 				return;
 
 			var existingItem = CurrentContextCharacters.FirstOrDefault(c => c.ToString() == character);
@@ -692,7 +693,7 @@ namespace Glyssen.Dialogs
 
 		private void AddNewDelivery(string delivery)
 		{
-			if (string.IsNullOrWhiteSpace(delivery))
+			if (IsNullOrWhiteSpace(delivery))
 				return;
 			m_listBoxDeliveries.SelectedItem = m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>()
 				.FirstOrDefault(d => d.Text == delivery);
@@ -1162,7 +1163,7 @@ namespace Glyssen.Dialogs
 				{
 					m_characterListToolTip.Active = false;
 					var hoveredCharacter = ((AssignCharacterViewModel.Character)m_listBoxCharacters.Items[m_characterListHoveredIndex]);
-					if (!string.IsNullOrEmpty(hoveredCharacter.LocalizedAlias))
+					if (!IsNullOrEmpty(hoveredCharacter.LocalizedAlias))
 					{
 						m_characterListToolTip.SetToolTip(m_listBoxCharacters, hoveredCharacter.LocalizedCharacterId);
 						m_characterListToolTip.Active = true;
@@ -1252,10 +1253,32 @@ namespace Glyssen.Dialogs
 			else
 			{
 				m_viewModel.AttemptRefBlockMatchup = false;
-				//m_blocksViewer.HighlightStyle = BlockGroupingType.Quote;
 				m_blocksViewer.Text = m_defaultBlocksViewerText;
 			}
 			UpdateFilterItems();
+		}
+
+		private void m_dataGridReferenceText_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+		{
+			if ((e.ColumnIndex == colCharacter.Index || e.ColumnIndex == colDelivery.Index) && m_dataGridReferenceText.IsCurrentCellDirty)
+			{
+				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+				if (matchup == null)
+					return; // This can happen when transitioning from one block matchup to another.
+				var correlatedBlock = matchup.CorrelatedBlocks[e.RowIndex];
+				if (correlatedBlock.MultiBlockQuote == MultiBlockQuote.Continuation || correlatedBlock.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+				{
+					var index = matchup.IndexOfStartBlockInBook;
+					var verseWhereQuoteStarts = m_viewModel.FindStartOfQuote(ref index).LastVerseNum;
+
+					var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock", "The {0} cannot be changed for this block because it is in the middle of a quote. " +
+						"To change this, select the block that begins this quote (in verse {1}). If this quote block needs to be split up so that different characters or deliveries can be assigned, " +
+						"use the Split command.");
+					var columnName = m_dataGridReferenceText.Columns[e.ColumnIndex].HeaderText;
+					MessageBox.Show(this, Format(msgFmt, columnName, verseWhereQuoteStarts), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					m_dataGridReferenceText.CancelEdit();
+				}
+			}
 		}
 
 		private void m_dataGridReferenceText_CellValueChanged(object sender, DataGridViewCellEventArgs e)
