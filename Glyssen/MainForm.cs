@@ -24,6 +24,7 @@ using SIL.Progress;
 using SIL.Reporting;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
+using SIL.Windows.Forms.FileDialogExtender;
 using static System.String;
 
 namespace Glyssen
@@ -320,9 +321,15 @@ namespace Glyssen
 			UpdateDisplayOfProjectInfo();
 		}
 
-		private void LoadProject(string filePath)
+		private void LoadProject(string filePath, Action additionalActionAfterSettingProject = null)
 		{
-			if (!LoadAndHandleApplicationExceptions(() => SetProject(Project.Load(filePath))))
+			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
+			{
+				SetProject(Project.Load(filePath));
+				additionalActionAfterSettingProject?.Invoke();
+			});
+
+			if (!loadedSuccessfully)
 				SetProject(null);
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
@@ -704,6 +711,19 @@ namespace Glyssen
 
 		private void Assign_Click(object sender, EventArgs e)
 		{
+			if (m_project.ReferenceTextIdentifier.Missing)
+			{
+				var msg = Format(LocalizationManager.GetString("MainForm.ProjectUsesMissingReferenceText",
+					"This project uses a custom reference text ({0}) that is not available on this computer. If you have access " +
+					"to the reference text, please install it here:\n{1}" +
+					"\n\nOtherwise, open the Project Settings dialog box, select the Reference Text tab, and then choose an appropriate reference text from the available choices.",
+					"Param 0: name of missing reference text; Param 1: Path to Local Reference Texts folder; Note that \"Project Settings\" and \"Reference Text\" refer to localizable " +
+					"UI elements and should match the localized strings for those elements."),
+					m_project.ReferenceTextIdentifier.CustomIdentifier, m_project.ReferenceTextIdentifier.ProjectFolder);
+				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
 			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
 				DoDemoDisambiguation();
 
@@ -962,20 +982,28 @@ namespace Glyssen
 
 				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
 
-				// ReSharper disable once PossibleNullReferenceException
+				Debug.Assert(sourceDir != null);
+				Debug.Assert(sourceDir.StartsWith(Program.BaseDataFolder));
 				var nameInZip = sourceDir.Substring(Program.BaseDataFolder.Length);
 
-				// make sure the share directory exists
 				var share = Path.Combine(Program.BaseDataFolder, "share");
 				Directory.CreateDirectory(share);
 
-				var parts = nameInZip.Split(new[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
-				var saveAsName = Path.Combine(share, parts[0] + "_" + parts[parts.Length - 1] + ProjectBase.kShareFileExtension);
+				var saveAsName = Path.Combine(share, m_project.LanguageIsoCode + "_" + m_project.Name) + ProjectBase.kShareFileExtension;
 
 				using (var zip = new ZipFile())
 				{
 					zip.AddDirectory(sourceDir, nameInZip);
 					zip.Save(saveAsName);
+				}
+
+				if (m_project.ReferenceTextIdentifier.Type == ReferenceTextType.Custom)
+				{
+					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
+						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
+						"should be installed on the other computer before importing.");
+					MessageBox.Show(this, Format(msg, m_project.ReferenceTextIdentifier.CustomIdentifier),
+						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 
 				PathUtilities.SelectFileInExplorer(saveAsName);
@@ -1032,14 +1060,18 @@ namespace Glyssen
 				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
 				var targetDir = Path.Combine(Program.BaseDataFolder, path.FileName);
 
+				var projectFileName = path.FileName.Split('/').First() + Project.kProjectFileExtension;
+				var projectFilePath = Path.Combine(targetDir, projectFileName);
+
 				// warn the user if data will be overwritten
-				if (Directory.Exists(targetDir))
+				if (RobustFile.Exists(projectFilePath))
 				{
 					var msg = LocalizationManager.GetString("MainForm.ImportWarning",
-						"WARNING: If you continue, your existing files will be replaced by the files you are importing, possibly resulting in loss of data. Do you want to continue and overwrite the existing files?");
-					Logger.WriteEvent(msg);
+							"Warning: You are about to import a project that already exists. If you continue, the existing project files will be replaced by the files being imported, which " +
+							"might result in loss of data. Do you want to continue and overwrite the existing files?");
+					Logger.WriteEvent(msg + " " + projectFilePath);
 
-					if (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OKCancel) != DialogResult.OK)
+					if (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
 						return;
 				}
 
@@ -1049,9 +1081,21 @@ namespace Glyssen
 				zip.ExtractAll(Program.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
 
 				// open the imported project
-				var projectFile = Directory.EnumerateFiles(targetDir, $"*{ProjectBase.kProjectFileExtension}").FirstOrDefault();
-				if (File.Exists(projectFile))
-					LoadProject(projectFile);
+				if (RobustFile.Exists(projectFilePath))
+					LoadProject(projectFilePath, () =>
+					{
+						if (m_project.ReferenceTextIdentifier.Missing)
+						{
+							var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
+								"The imported project uses a custom reference text ({0}) that is not available on this computer. For best results, " +
+								"close {1} and install the reference text here:\n{2}" +
+								"\nThen restart {1} to continue working with this project.",
+								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
+							MessageBox.Show(this, Format(msg, m_project.ReferenceTextIdentifier.CustomIdentifier, ProductName,
+								m_project.ReferenceTextIdentifier.ProjectFolder),
+								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						}
+					});
 			}
 		}
 	}
