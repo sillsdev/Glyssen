@@ -109,16 +109,7 @@ namespace Glyssen.Controls
 				if (m_viewType == ScriptBlocksViewType.Html)
 					ChangeViewType(m_blocksDisplayBrowser, m_dataGridViewBlocks);
 				else
-				{
-					if (m_viewModel != null)
-					{
-						//m_viewModel.AttemptRefBlockMatchup = true;
-						//m_viewModel.BlockGroupingStyle = m_viewModel.CurrentReferenceTextMatchup == null ?
-						//	BlockGroupingType.Quote :
-						//	BlockGroupingType.BlockCorrelation;
-					}
 					ChangeViewType(m_dataGridViewBlocks, m_blocksDisplayBrowser);
-				}
 			}
 		}
 
@@ -140,20 +131,6 @@ namespace Glyssen.Controls
 			get { return m_title.Text; }
 			set { m_title.Text = value;  }
 		}
-
-		//[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		//[Browsable(false)]
-		//public BlockGroupingType HighlightStyle
-		//{
-		//	get { return m_viewModel.BlockGroupingStyle; }
-		//	set
-		//	{
-		//		if (m_viewModel.BlockGroupingStyle == value)
-		//			return;
-		//		m_viewModel.BlockGroupingStyle = value;
-		//		UpdateContextBlocksDisplay(this, new EventArgs());
-		//	}
-		//}
 		#endregion
 
 		#region public methods
@@ -168,12 +145,6 @@ namespace Glyssen.Controls
 			m_viewModel.FontSizeUiAdjustment--;
 			UpdateContextBlocksDisplay(null, null);
 		}
-
-		//public void Clear()
-		//{
-		//	m_blocksDisplayBrowser.DisplayHtml(String.Empty);
-		//	m_dataGridViewBlocks.Clear();
-		//}
 
 		public void ShowNothingMatchesFilterMessage()
 		{

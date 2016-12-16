@@ -1204,6 +1204,7 @@ namespace Glyssen.Dialogs
 			this.m_dataGridReferenceText.Size = new System.Drawing.Size(410, 295);
 			this.m_dataGridReferenceText.TabIndex = 35;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_dataGridReferenceText, true);
+			this.m_dataGridReferenceText.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_dataGridReferenceText_CellValidating);
 			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateRowSpecificButtonStates);
 			// 
 			// colCharacter
