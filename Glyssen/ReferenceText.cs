@@ -268,6 +268,10 @@ namespace Glyssen
 			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count && (iRefBlock < refBlockList.Count || iRefBlockMemory >= 0); iVernBlock++, iRefBlock++)
 			{
 				var currentVernBlock = vernBlockList[iVernBlock];
+				// TODO: This handles the only case I know of (and for which there is a test) where a versification pulls in verses
+				// from the end of the book to an earlier spot, namely Romans 14:24-26 <- Romans 16:25-27. If we ever have this same
+				// kind of behavior that is pulling from somewhere other than the *end* of the book, the logic to reset iRefBlock
+				// based on iRefBlockMemory will need to be moved/added elsewhere.
 				if (iRefBlockMemory >= 0 && iRefBlock >= refBlockList.Count)
 				{
 					iRefBlock = iRefBlockMemory;
