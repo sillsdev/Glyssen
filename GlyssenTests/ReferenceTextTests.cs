@@ -1856,6 +1856,59 @@ namespace GlyssenTests
 			Assert.IsTrue(result[1].MatchesReferenceText);
 		}
 
+		/// <summary>
+		/// PG-786: Prevent skipping chunks of reference text when versification pulls stuff into an earlier chapter
+		/// </summary>
+		[Test]
+		public void ApplyTo_VernacularAndReferenceVersificationsDoNotMatch_VersesMappedToEarlierChapter_InterveningMaterialMatches()
+		{
+			var chapterAnnouncementCharacter = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.BookOrChapter);
+			//ROM 14:24-26 = ROM 16:25-27
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Fourteen Twenty-three. ", true, 14, "ROM"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(24, "Fourteen Twenty-four.", true, 14, "ROM"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(25, "Fourteen Twenty-five.", false, 14, "ROM"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(26, "Fourteen Twenty-six.", false, 14, "ROM"));
+			vernacularBlocks.Add(CreateBlockForVerse(chapterAnnouncementCharacter, 0, "15", true, 15, "c"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Fifteen One.", true, 15, "ROM"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "Fifteen Two.", false, 15, "ROM"));
+			vernacularBlocks.Add(CreateBlockForVerse(chapterAnnouncementCharacter, 0, "16", true, 16, "c"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Sixteen One.", true, 16, "ROM"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Gaius, whose hospitality...", true, 16, "ROM"));
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Erastus sayas hi.", "ROM");
+			var vernBook = new BookScript("ROM", vernacularBlocks);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(vernacularBlocks.Count, result.Count);
+			Assert.IsTrue(vernacularBlocks.Take(9).All(b => b.MatchesReferenceText)); // This could be 10, but that's not the point of this test
+
+			Assert.IsTrue(result[0].PrimaryReferenceText.StartsWith("{23}\u00A0"));
+			Assert.AreEqual(14, result[0].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[1].PrimaryReferenceText.StartsWith("{25}\u00A0"));
+			Assert.AreEqual(16, result[1].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[2].PrimaryReferenceText.StartsWith("{26}\u00A0"));
+			Assert.AreEqual(16, result[2].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[3].PrimaryReferenceText.StartsWith("{27}\u00A0"));
+			Assert.AreEqual(16, result[3].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[4].ReferenceBlocks.Single().IsChapterAnnouncement);
+			Assert.AreEqual(15, result[4].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[5].PrimaryReferenceText.StartsWith("{1}\u00A0"));
+			Assert.AreEqual(15, result[5].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[6].PrimaryReferenceText.StartsWith("{2}\u00A0"));
+			Assert.AreEqual(15, result[6].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[7].ReferenceBlocks.Single().IsChapterAnnouncement);
+			Assert.AreEqual(16, result[7].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[8].PrimaryReferenceText.StartsWith("{1}\u00A0"));
+			Assert.AreEqual(16, result[8].ReferenceBlocks.Single().ChapterNumber);
+			Assert.AreEqual(16, result[9].ReferenceBlocks.Single().ChapterNumber);
+			Assert.IsTrue(result[9].PrimaryReferenceText.StartsWith("{23}\u00A0"));
+			Assert.IsFalse(result[10].ReferenceBlocks.Any());
+		}
+
 		[Test]
 		public void ApplyTo_VernacularAndReferenceVersificationsDoNotMatch_CrossChapterMapping_VersificationDifferencesResolvedBeforeMatching()
 		{
@@ -2491,7 +2544,7 @@ namespace GlyssenTests
 		[Test]
 		public void GetBlocksForVerseMatchedToReferenceText_VernBlockIsFirstVerseOfCombinedReferenceTextBlock_MatchupIncludesBothVerses()
 		{
-			var vernacularBlocks = new List<Block> { 
+			var vernacularBlocks = new List<Block> {
 				CreateNarratorBlockForVerse(24, "Köszöntsétek minden elõljárótokat és a szenteket mind. Köszöntenek titeket az Olaszországból valók. ", true, 13, "HEB"),
 				CreateNarratorBlockForVerse(25, "Kegyelem mindnyájatokkal! Ámen!", true, 13, "HEB")
 			};
