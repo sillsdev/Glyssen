@@ -501,12 +501,17 @@ namespace Glyssen
 						var filename = (string) sheet.Cells[i, columnNum].Value;
 						if (!IsNullOrEmpty(filename))
 						{
-							sheet.Cells[i, columnNum].Hyperlink = new ExcelHyperLink(filename, UriKind.Absolute) {Display = filename};
+							// This approach causes problems in Excel 2007
+							//sheet.Cells[i, columnNum].Hyperlink =  = new ExcelHyperLink(filename, UriKind.Absolute) {Display = filename};
+							//sheet.Cells[i, columnNum].Value = filename;
+							sheet.Cells[i, columnNum].Formula = "HYPERLINK(\"" + filename + "\",\"" + filename + "\")";
 							sheet.Cells[i, columnNum].Style.Font.UnderLine = true;
 							sheet.Cells[i, columnNum].Style.Font.Color.SetColor(SystemColors.HotTrack);
 						}
 					}
-					sheet.Column(columnNum).AutoFit(sheet.DefaultColWidth); // clip file length
+					// EPPlus doesn't support AutoFit of columns with formulas. The length of a filename + 1 gets us pretty close to the ideal width.
+					if (dataArray.Any())
+						sheet.Column(columnNum).Width = dataArray.Skip(1).First()[columnNum - 1].ToString().Length + 1; // clip file length
 				}
 
 				sheet.View.FreezePanes(2, 1);
