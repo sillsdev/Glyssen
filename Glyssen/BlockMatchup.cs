@@ -31,8 +31,11 @@ namespace Glyssen
 			var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
 			if (indexOfAnchorBlockInVerse < 0)
 			{
-				throw new Exception($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
-					$"{originalAnchorBlock.InitialStartVerseNumber} (Does this verse occur more than once in the Scripture text?)");
+				Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
+					$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
+				// REVIEW: This logic assumes that the repeated verse is wholly contained in this onwe block.
+				blocksForVersesCoveredByBlock = new List<Block>() { originalAnchorBlock };
+				indexOfAnchorBlockInVerse = 0;
 			}
 			m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
 			while (m_iStartBlock > 0)
