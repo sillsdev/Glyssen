@@ -1342,11 +1342,16 @@ namespace Glyssen.Dialogs
 					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
 					{
 						// The first one should always be "normal" - we want a more specific one, if any.
+						var existingValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value;
 						var delivery = m_viewModel.GetDeliveriesForCharacter(selectedCharacter).LastOrDefault();
-						string deliveryAsString = delivery == null
-							? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
-							: delivery.LocalizedDisplay;
-						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+						if (existingValue != null || (delivery != null && delivery != AssignCharacterViewModel.Delivery.Normal))
+						{
+							string deliveryAsString = delivery == null
+								? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
+								: delivery.LocalizedDisplay;
+							if (existingValue as string != deliveryAsString)
+								m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+						}
 					}
 
 					if (colDelivery.Visible)
