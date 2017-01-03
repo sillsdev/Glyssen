@@ -10,6 +10,7 @@ using Glyssen.Quote;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Unicode;
+using static System.String;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
@@ -128,7 +129,7 @@ namespace Glyssen
 				if (!block.MatchesReferenceText && !list[list.Count - 1].MatchesReferenceText &&
 					(!block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))))
 				{
-					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? string.Empty) == (prevBlock.Delivery ?? string.Empty))
+					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
 					{
 						list[list.Count - 1] = CombineBlockWithPreviousBlock(block, prevBlock);
 						continue;
@@ -144,10 +145,12 @@ namespace Glyssen
 		{
 			var newBlock = prevBlock.Clone();
 			var skip = 0;
-			if (prevBlock.BlockElements.Last() is ScriptText && block.BlockElements.First() is ScriptText)
+			var firstBlockAsScriptText = block.BlockElements.First() as ScriptText;
+			if (prevBlock.BlockElements.Last() is ScriptText && firstBlockAsScriptText != null)
 			{
 				var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
-				lastScriptText.Content += ((ScriptText)block.BlockElements.First()).Content;
+				var space = (char.IsWhiteSpace(lastScriptText.Content.Last()) || char.IsWhiteSpace(firstBlockAsScriptText.Content[0])) ? Empty : " ";
+				lastScriptText.Content += space + firstBlockAsScriptText.Content;
 				skip = 1;
 			}
 			foreach (var blockElement in block.BlockElements.Skip(skip))
@@ -161,7 +164,7 @@ namespace Glyssen
 		{
 			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
 			if (iFirstBlockToExamine < 0)
-				return String.Empty;
+				return Empty;
 			StringBuilder bldr = new StringBuilder();
 			bool foundVerseStart = false;
 			for (int index = iFirstBlockToExamine; index < m_blockCount; index++)
