@@ -254,11 +254,8 @@ namespace Glyssen
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
-						Debug.Assert(!block.CharacterIsUnclear(),
-							"Character in reference block not set: " + refBlock + ". This is probably the result of a bug in a " +
-							"previous version of Glyssen that allowed ref block assignment without specifying the character. It " +
-							"seems to be safe to ignore this.");
-						block.UserConfirmed = true; // This does not affect original block until Apply is called
+						if (!block.CharacterIsUnclear())
+							block.UserConfirmed = true; // This does not affect original block until Apply is called
 					}
 				}
 				else
