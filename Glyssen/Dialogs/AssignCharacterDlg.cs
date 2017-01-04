@@ -644,14 +644,24 @@ namespace Glyssen.Dialogs
 							DialogResult.Yes;
 					}
 				}
-				else
+				else if (m_userMadeChangesToReferenceTextMatchup)
 				{
-					if (m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
+					if (m_btnApplyReferenceTextMatches.Enabled)
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
 							"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?");
 						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							m_viewModel.ApplyCurrentReferenceTextMatchup();
+					}
+					else
+					{
+						// Technically, we shouyld have a separate message for the case where the Delivery column is showing, but in practice
+						// there is no way for the user to set the value for a cell in the Delivery column to null, so even though our code
+						// checks for this, it can't really happen.
+						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IncompleteCharacterAssignments",
+							"You have not finished specifying the character information for every block. Would you like to discard the changes you have made?");
+						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo,
+							MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
 					}
 				}
 
