@@ -26,7 +26,7 @@ namespace Glyssen.Rules
 		public AuthorStats(BiblicalAuthors.Author author, IEnumerable<string> bookIds, Dictionary<string, int> keyStrokesByCharacterId)
 		{
 			Author = author;
-			m_bookIds = bookIds.ToList();
+			m_bookIds = bookIds.Intersect(author.Books).ToList();
 			m_keyStrokesByCharacterId = keyStrokesByCharacterId;
 			foreach (var bookId in m_bookIds)
 				KeyStrokeCount += m_keyStrokesByCharacterId[CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator)];				

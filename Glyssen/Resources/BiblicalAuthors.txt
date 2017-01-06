@@ -179,7 +179,7 @@
 			<Book>REV</Book>
 		</Books>
 	</Author>
-	<Author name="Paul">
+	<Author name="Paul" combineAuthorAndNarrator="true">
 		<Books>
 			<Book>ROM</Book>
 			<Book>1CO</Book>
@@ -201,12 +201,12 @@
 			<Book>HEB</Book>
 		</Books>
 	</Author>
-	<Author name="James">
+	<Author name="James" combineAuthorAndNarrator="true">
 		<Books>
 			<Book>JAS</Book>
 		</Books>
 	</Author>
-	<Author name="Peter">
+	<Author name="Peter (Simon)" combineAuthorAndNarrator="true">
 		<Books>
 			<Book>1PE</Book>
 			<Book>2PE</Book>
