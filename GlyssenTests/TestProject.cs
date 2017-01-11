@@ -27,6 +27,7 @@ namespace GlyssenTests
 			RUT,
 			MRK,
 			LUK,
+			JHN,
 			ACT,
 			ICO,
 			GAL,
@@ -142,6 +143,12 @@ namespace GlyssenTests
 					book.LongName = "Gospel of Luke";
 					book.ShortName = "Luke";
 					xmlDocument.LoadXml(Properties.Resources.TestLUK);
+					break;
+				case TestBook.JHN:
+					book.Code = "JHN";
+					book.LongName = "Gospel of John";
+					book.ShortName = "John";
+					xmlDocument.LoadXml(Properties.Resources.TestJHN);
 					break;
 				case TestBook.ACT:
 					book.Code = "ACT";

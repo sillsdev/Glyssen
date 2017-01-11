@@ -594,6 +594,7 @@ namespace Glyssen.Dialogs
 
 				if (IsCurrentBlockRelevant)
 				{
+					Debug.Assert(m_currentBlockIndex >= 0);
 					if (m_currentBlockIndex == 0)
 						return false;
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
@@ -617,6 +618,7 @@ namespace Glyssen.Dialogs
 
 				if (IsCurrentBlockRelevant)
 				{
+					Debug.Assert(m_currentBlockIndex >= 0);
 					if (m_currentBlockIndex == RelevantBlockCount - 1)
 						return false;
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
@@ -794,8 +796,9 @@ namespace Glyssen.Dialogs
 				throw new InvalidOperationException("Current reference text block matchup has no outstanding changes!");
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentBlockIndex;
+			bool relevantBlockRemoved = false;
 			foreach (var block in m_currentRefBlockMatchups.OriginalBlocks)
-				m_relevantBlocks.Remove(m_navigator.GetIndicesOfSpecificBlock(block));
+				relevantBlockRemoved |= m_relevantBlocks.Remove(m_navigator.GetIndicesOfSpecificBlock(block));
 			m_currentRefBlockMatchups.Apply(m_project.Versification);
 			if (insertionIndex < 0)
 			{
@@ -807,9 +810,21 @@ namespace Glyssen.Dialogs
 			else if (insertionIndex > m_relevantBlocks.Count) // PG-823: We just removed multiple relevant blocks, such that the insertion index is out of range.
 				insertionIndex = m_relevantBlocks.Count;
 
-			var origRelevantBlockCount = RelevantBlockCount;
-			m_relevantBlocks.InsertRange(insertionIndex,
-				m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
+				var origRelevantBlockCount = RelevantBlockCount;
+			if (relevantBlockRemoved)
+			{
+				m_relevantBlocks.InsertRange(insertionIndex,
+					m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
+				if (m_temporarilyIncludedBlock != null)
+				{
+					var indexOfCurrentBlock = m_relevantBlocks.IndexOf(m_temporarilyIncludedBlock);
+					if (indexOfCurrentBlock >= 0)
+					{
+						m_temporarilyIncludedBlock = null;
+						m_currentBlockIndex = indexOfCurrentBlock;
+					}
+				}
+			}
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
 			// We can safely use the index of the anchor block in CorrelatedBlocks to find the correct block in OriginalBlocks.
