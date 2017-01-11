@@ -1104,9 +1104,9 @@ namespace GlyssenTests.Dialogs
 			// Create model and initialize state
 			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
 			model.AttemptRefBlockMatchup = false;
-			model.Mode = BlocksToDisplay.NeedAssignments;
+			model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
 
-			// 
+			// Get into correct state for this test and ensure initial conditions
 			Assert.AreEqual(1, model.RelevantBlockCount);
 			Assert.IsTrue(model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("JHN"), 12, 27), m_testProject.Versification)));
 			Assert.AreEqual(27, model.CurrentBlock.InitialStartVerseNumber);
@@ -1121,12 +1121,6 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(1, model.RelevantBlockCount);
 			Assert.IsTrue(model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(model.CanNavigateToNextRelevantBlock);
-
-			model.AttemptRefBlockMatchup = false;
-
-			model.LoadNextRelevantBlock();
-			Assert.AreEqual(origNextRelevantBlock, model.CurrentBlock);
-			Assert.AreEqual(1, model.CurrentBlockDisplayIndex);
 		}
 
 	}

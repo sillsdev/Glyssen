@@ -236,6 +236,7 @@ namespace GlyssenTests
 					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
 					{
 						block.SetCharacterAndCharacterIdInScript(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum, testProject.Versification);
+						block.UserConfirmed = true;
 					}
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 					{
@@ -244,6 +245,7 @@ namespace GlyssenTests
 								versification: testProject.Versification).First();
 						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, testProject.Versification);
 						block.Delivery = cvEntry.Delivery;
+						block.UserConfirmed = true;
 					}
 				}
 			}
