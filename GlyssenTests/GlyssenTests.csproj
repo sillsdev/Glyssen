@@ -217,6 +217,7 @@
     <None Include="Resources\TestGAL.xml" />
     <None Include="Resources\TestHEB.xml" />
     <None Include="Resources\TestJOS.xml" />
+    <None Include="Resources\TestJHN.xml" />
     <Content Include="Resources\TestLUK.xml" />
     <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />

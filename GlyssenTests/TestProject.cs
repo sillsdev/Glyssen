@@ -27,6 +27,7 @@ namespace GlyssenTests
 			RUT,
 			MRK,
 			LUK,
+			JHN,
 			ACT,
 			ICO,
 			GAL,
@@ -143,6 +144,12 @@ namespace GlyssenTests
 					book.ShortName = "Luke";
 					xmlDocument.LoadXml(Properties.Resources.TestLUK);
 					break;
+				case TestBook.JHN:
+					book.Code = "JHN";
+					book.LongName = "Gospel of John";
+					book.ShortName = "John";
+					xmlDocument.LoadXml(Properties.Resources.TestJHN);
+					break;
 				case TestBook.ACT:
 					book.Code = "ACT";
 					book.LongName = "The Acts of the Apostles";
@@ -229,6 +236,7 @@ namespace GlyssenTests
 					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
 					{
 						block.SetCharacterAndCharacterIdInScript(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum, testProject.Versification);
+						block.UserConfirmed = true;
 					}
 					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
 					{
@@ -237,6 +245,7 @@ namespace GlyssenTests
 								versification: testProject.Versification).First();
 						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, testProject.Versification);
 						block.Delivery = cvEntry.Delivery;
+						block.UserConfirmed = true;
 					}
 				}
 			}
