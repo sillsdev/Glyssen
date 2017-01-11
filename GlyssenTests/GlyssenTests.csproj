@@ -145,6 +145,7 @@
     <Compile Include="Quote\QuoteSystemTests.cs" />
     <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
     <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="Rules\AuthorStatsTests.cs" />
     <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
     <Compile Include="TestProject.cs" />
     <Compile Include="UsxParserTests.cs" />
