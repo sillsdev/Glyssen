@@ -31,8 +31,11 @@ namespace Glyssen
 			var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
 			if (indexOfAnchorBlockInVerse < 0)
 			{
-				throw new Exception($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
-					$"{originalAnchorBlock.InitialStartVerseNumber} (Does this verse occur more than once in the Scripture text?)");
+				Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
+					$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
+				// REVIEW: This logic assumes that the repeated verse is wholly contained in this onwe block.
+				blocksForVersesCoveredByBlock = new List<Block>() { originalAnchorBlock };
+				indexOfAnchorBlockInVerse = 0;
 			}
 			m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
 			while (m_iStartBlock > 0)
@@ -251,11 +254,8 @@ namespace Glyssen
 					{
 						var refBlock = block.ReferenceBlocks.Single();
 						block.SetCharacterAndDeliveryInfo(refBlock, bookNum, versification);
-						Debug.Assert(!block.CharacterIsUnclear(),
-							"Character in reference block not set: " + refBlock + ". This is probably the result of a bug in a " +
-							"previous version of Glyssen that allowed ref block assignment without specifying the character. It " +
-							"seems to be safe to ignore this.");
-						block.UserConfirmed = true; // This does not affect original block until Apply is called
+						if (!block.CharacterIsUnclear())
+							block.UserConfirmed = true; // This does not affect original block until Apply is called
 					}
 				}
 				else

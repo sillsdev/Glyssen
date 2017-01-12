@@ -448,6 +448,25 @@ namespace GlyssenTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;book id=&quot;JHN&quot; singlevoice=&quot;false&quot; pageheader=&quot;JON&quot; maintitle=&quot;JON&quot;&gt;
+        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JHN&quot;&gt;
+        ///    &lt;text&gt;JIRI ma JON ocoyo&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;JHN&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JHN&quot;&gt;
+        ///    &lt;text&gt;1&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;s1&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; initialStartVerse=&quot;0&quot; characterId=&quot;extra-JHN&quot;&gt;
+        ///    &lt;text&gt;Lok odoko dano&lt;/text&gt;
+        ///  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestJHN {
+            get {
+                return ResourceManager.GetString("TestJHN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
         ///  &lt;book code=&quot;JOS&quot; style=&quot;id&quot;&gt;- Kuna, San Blas - Bible -Panama 2014 (DBL -2014)&lt;/book&gt;
         ///  &lt;para style=&quot;h&quot;&gt;Josué&lt;/para&gt;

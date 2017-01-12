@@ -917,9 +917,9 @@ namespace GlyssenTests.Dialogs
 			var origTextOfFirstBlockInVerse = m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true);
 			var origCurrentBlockText = m_model.CurrentBlock.GetText(true);
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
-			
+
 			m_model.ApplyCurrentReferenceTextMatchup();
-			
+
 			Assert.AreEqual(matchupForMark921, m_model.CurrentReferenceTextMatchup);
 			Assert.AreEqual(0, matchupForMark921.CountOfBlocksAddedBySplitting);
 			Assert.IsFalse(matchupForMark921.HasOutstandingChangesToApply);
@@ -980,14 +980,17 @@ namespace GlyssenTests.Dialogs
 			var origNextRelevantBlock = m_model.CurrentBlock;
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
 			m_model.AttemptRefBlockMatchup = true;
+			var origRelevantBlockCount = m_model.RelevantBlockCount;
 
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
+			matchup.MatchAllBlocks(m_testProject.Versification);
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
+			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
 			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
 
@@ -1055,6 +1058,71 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(matchup, m_model.CurrentReferenceTextMatchup);
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
+	}
+
+	/// <summary>
+	/// JHN has data that allows us to test the special case of a quote being split by the reference text in a verse (12:27) that has
+	/// ambiguity (There are two speakers in John 12:28). Also, tests in this fixture can modify the test project data, so the folder
+	/// is cleaned up each time.
+	/// </summary>
+	[TestFixture]
+	class BlockNavigatorViewModelTestsForLukeAndJohn
+	{
+		private Project m_testProject;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.JHN);
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		/// <summary>
+		/// PG-879: 
+		/// </summary>
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_ApplyCausesSplittingOfUserConfirmedBlockThatDoesNotMatchFilter_NewBlocksAreNotAddedToRelevantBlocks()
+		{
+			// Set up initial data state
+			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+			var blockToMatchFilter = m_testProject.IncludedBooks.First().GetScriptBlocks().First(b => b.UserConfirmed);
+			blockToMatchFilter.UserConfirmed = false;
+			blockToMatchFilter.CharacterId = CharacterVerseData.kUnknownCharacter;
+
+			// Create model and initialize state
+			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			model.AttemptRefBlockMatchup = false;
+			model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+
+			// Get into correct state for this test and ensure initial conditions
+			Assert.AreEqual(1, model.RelevantBlockCount);
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("JHN"), 12, 27), m_testProject.Versification)));
+			Assert.AreEqual(27, model.CurrentBlock.InitialStartVerseNumber);
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(model.IsCurrentBlockRelevant);
+			var matchup = model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+			matchup.MatchAllBlocks(m_testProject.Versification);
+
+			model.ApplyCurrentReferenceTextMatchup();
+
+			Assert.AreEqual(1, model.RelevantBlockCount);
+			Assert.IsTrue(model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsFalse(model.CanNavigateToNextRelevantBlock);
+		}
+
 	}
 
 	[TestFixture]

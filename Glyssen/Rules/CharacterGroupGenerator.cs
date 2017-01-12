@@ -628,7 +628,8 @@ namespace Glyssen.Rules
 				bool favorFemaleExtraBiblicalGroups,
 				Dictionary<string, int> keyStrokesByCharacterId,
 				List<CharacterDetail> includedCharacterDetails, List<string> includedBooks,
-				ProjectDramatizationPreferences dramatizationPreferences)
+				ProjectDramatizationPreferences dramatizationPreferences,
+				bool useBookAuthorCharactersAsNarrators)
 			{
 				m_groups = characterGroups.Select(g => g.Copy()).ToList();
 				m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles = allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles;
@@ -707,7 +708,7 @@ namespace Glyssen.Rules
 					}
 				}
 
-				AssignNarratorCharactersToNarratorGroups(keyStrokesByCharacterId, includedBooks);
+				AssignNarratorCharactersToNarratorGroups(keyStrokesByCharacterId, includedBooks, useBookAuthorCharactersAsNarrators);
 
 				// assign extra-biblical groups
 				if (!extraBiblicalIsSet)
@@ -786,10 +787,10 @@ namespace Glyssen.Rules
 			// 0) number of narrators > number of books -> This should never happen!
 			// 1) single narrator -> EASY: only one group!
 			// 2) number of narrators == number of books -> Each narrator does one book
-			// 3) number of narrators == number of authors -> add narrator to group with other books by same other, if any; otherwise first empty group
+			// 3) number of narrators == number of authors -> add narrator to group with other books by same author, if any; otherwise first empty group
 			// 4) number of narrators < number of authors -> shorter books share narrators
 			// 5) number of narrators > number of authors -> break up most prolific authors into multiple narrator groups
-			private void AssignNarratorCharactersToNarratorGroups(Dictionary<string, int> keyStrokesByCharacterId, List<string> bookIds)
+			private void AssignNarratorCharactersToNarratorGroups(Dictionary<string, int> keyStrokesByCharacterId, List<string> bookIds, bool includeAuthorCharacters)
 			{
 				if (!NarratorGroups.Any())
 				{
@@ -808,14 +809,14 @@ namespace Glyssen.Rules
 				if (NarratorGroups.Count == 1)
 				{
 					foreach (var bookId in bookIds)
-						AddNarratorToGroup(NarratorGroups[0], bookId);
+						AddNarratorToGroup(NarratorGroups[0], bookId, includeAuthorCharacters);
 					return;
 				}
 				if (NarratorGroups.Count == bookIds.Count)
 				{
 					int n = 0;
 					foreach (var bookId in bookIds)
-						AddNarratorToGroup(NarratorGroups[n++], bookId);
+						AddNarratorToGroup(NarratorGroups[n++], bookId, includeAuthorCharacters);
 					return;
 				}
 
@@ -836,7 +837,7 @@ namespace Glyssen.Rules
 					foreach (var booksForAuthor in authors.Values)
 					{
 						foreach (var bookId in booksForAuthor)
-							AddNarratorToGroup(NarratorGroups[i], bookId);
+							AddNarratorToGroup(NarratorGroups[i], bookId, includeAuthorCharacters);
 						i++;
 					}
 					return;
@@ -854,9 +855,15 @@ namespace Glyssen.Rules
 					DistributeBooksAmongNarratorGroups(NarratorGroups, authors.Count, bookIds, keyStrokesByCharacterId);
 			}
 
-			private static void AddNarratorToGroup(CharacterGroup narratorGroup, string bookId)
+			private static void AddNarratorToGroup(CharacterGroup narratorGroup, string bookId, bool includeAuthorCharacter)
 			{
 				narratorGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
+				if (includeAuthorCharacter)
+				{
+					var author = BiblicalAuthors.GetAuthorOfBook(bookId);
+					if (author.CombineAuthorAndNarrator)
+						narratorGroup.CharacterIds.Add(author.Name);
+				}
 			}
 
 			/// <summary>
@@ -874,7 +881,7 @@ namespace Glyssen.Rules
 				for (int i = authorStats.Count - 1; i >= min; i--)
 				{
 					foreach (var bookId in authorStats[i].BookIds)
-						AddNarratorToGroup(narratorGroups[n], bookId);
+						AddNarratorToGroup(narratorGroups[n], bookId, false);
 
 					int numberOfRemainingNarratorGroupsToAssign = narratorGroups.Count - n - 1;
 					if (numberOfRemainingNarratorGroupsToAssign > 0)
@@ -921,7 +928,7 @@ namespace Glyssen.Rules
 									while (min <= lastAuthorToConsiderCombiningWithCurrent)
 									{
 										foreach (var bookId in authorStats[min++].BookIds)
-											AddNarratorToGroup(narratorGroups[n], bookId);
+											AddNarratorToGroup(narratorGroups[n], bookId, false);
 									}
 									currentMustCombine = true; // Once we find an author that combines, all subequent authors must also combine.
 									break;
@@ -1000,7 +1007,7 @@ namespace Glyssen.Rules
 						narratorGroupForBook = narratorGroups[n++];
 						narratorGroupsByAuthor[author] = new List<CharacterGroup> { narratorGroupForBook };
 					}
-					AddNarratorToGroup(narratorGroupForBook, bookId);
+					AddNarratorToGroup(narratorGroupForBook, bookId, false);
 				}
 			}
 
@@ -1236,19 +1243,21 @@ namespace Glyssen.Rules
 						numberOfExtraBiblicalGroups = 0;
 				}
 
+				var useBookAuthorCharactersAsNarrators =
+					project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor;
 				if (availableMaleGroups.Count >= Math.Max(Math.Min(1, numberOfExtraBiblicalGroups), numberOfUnassignedMaleNarrators))
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 						characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
 						false, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
-						dramatizationPreferences));
+						dramatizationPreferences, useBookAuthorCharactersAsNarrators));
 				}
 				if (allowFemaleExtraBiblical && numberOfExtraBiblicalGroups > 0 && availableFemaleGroups.Count >= Math.Max(1, numberOfUnassignedFemaleNarrators))
 				{
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 						characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
 						true, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
-						dramatizationPreferences));
+						dramatizationPreferences, useBookAuthorCharactersAsNarrators));
 				}
 				if (!list.Any() && allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles)
 				{
@@ -1256,7 +1265,7 @@ namespace Glyssen.Rules
 					list.Add(new TrialGroupConfiguration(allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles, characterGroups,
 					characterDetails, numberOfUnassignedMaleNarrators, numberOfUnassignedFemaleNarrators,
 					false, keyStrokesByCharacterId, includedCharacterDetails, includedBooks,
-					dramatizationPreferences));
+					dramatizationPreferences, useBookAuthorCharactersAsNarrators));
 					Debug.Assert(list[0].NarratorGroups.Count + maleGroupsWithExistingNarratorRoles + femaleGroupsWithExistingNarratorRoles == 1);
 				}
 

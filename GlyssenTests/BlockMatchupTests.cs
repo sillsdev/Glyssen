@@ -104,6 +104,23 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Constructor_AlternateVernVerseRepeatedLater_CorrelatedBlocksContainsCorrectAnchorVerse()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(8, "This is a leading verse that should not be included.", true, 16, "MRK"));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(9, "Habiendo resucitado Jesús, apareció a María Magdalena. ", true, 16, "MRK")
+				.AddVerse(10, "Ella lo hizo saber a los demas. ").AddVerse(11, "Ellos no creyeron. "));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(12, "Pero después apareció a 2 de ellos en el camino. ", true, 16, "MRK"));
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(9, "Ellas dieron las instrucciones a los hombres.", true, 16, "MRK")
+				.AddVerse(10, "Y después, Jesús envió por medio de ellos el mensaje de salvación. "));
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 3, null, i => true, null);
+			Assert.AreEqual(vernacularBlocks.Last().GetText(true), matchup.CorrelatedBlocks.Single().GetText(true));
+			Assert.AreEqual(0, vernacularBlocks.Intersect(matchup.CorrelatedBlocks).Count());
+			Assert.AreEqual(matchup.CorrelatedBlocks.Single(), matchup.CorrelatedAnchorBlock);
+		}
+
+		[Test]
 		public void IncludesBlock_VernVersesSplitByReferenceText_ReturnValuesReflectOriginalAndCorrelatedBlocks()
 		{
 			var vernacularBlocks = new List<Block>();

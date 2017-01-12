@@ -145,6 +145,7 @@
     <Compile Include="Quote\QuoteSystemTests.cs" />
     <Compile Include="Rules\CharacterGroupGeneratorTests.cs" />
     <Compile Include="Rules\ProximityTests.cs" />
+    <Compile Include="Rules\AuthorStatsTests.cs" />
     <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
     <Compile Include="TestProject.cs" />
     <Compile Include="UsxParserTests.cs" />
@@ -216,6 +217,7 @@
     <None Include="Resources\TestGAL.xml" />
     <None Include="Resources\TestHEB.xml" />
     <None Include="Resources\TestJOS.xml" />
+    <None Include="Resources\TestJHN.xml" />
     <Content Include="Resources\TestLUK.xml" />
     <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />
