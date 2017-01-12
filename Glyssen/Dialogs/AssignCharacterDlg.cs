@@ -1376,6 +1376,26 @@ namespace Glyssen.Dialogs
 			UpdateAssignOrApplyAndResetButtonState();
 		}
 
+		private void m_dataGridReferenceText_CellEnter(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
+				return;
+			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0 || (!Focused && (m_dataGridReferenceText.EditingControl == null || !m_dataGridReferenceText.EditingControl.Focused)))
+			{
+				var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
+				if (m_dataGridReferenceText.CurrentRow != null && m_dataGridReferenceText.CurrentRow.Height < minHeight)
+					m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
+			}
+		}
+
+		private void m_dataGridReferenceText_CellLeave(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
+				return;
+			if (e.RowIndex >= 0 && e.RowIndex < m_dataGridReferenceText.RowCount)
+				m_dataGridReferenceText.Rows[e.RowIndex].MinimumHeight = m_dataGridReferenceText.RowTemplate.MinimumHeight;
+		}
+
 		private void HandleMouseEnterButtonThatAffectsEntireGridRow(object sender, EventArgs e)
 		{
 			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0)

@@ -594,11 +594,11 @@ namespace Glyssen.Dialogs
 
 				if (IsCurrentBlockRelevant)
 				{
-					Debug.Assert(m_currentBlockIndex >= 0);
 					if (m_currentBlockIndex == 0)
 						return false;
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
 						return true;
+					Debug.Assert(m_currentBlockIndex >= 0);
 					return GetIndexOfPreviousRelevantBlockNotInCurrentMatchup() >= 0;
 				}
 
@@ -618,11 +618,11 @@ namespace Glyssen.Dialogs
 
 				if (IsCurrentBlockRelevant)
 				{
-					Debug.Assert(m_currentBlockIndex >= 0);
 					if (m_currentBlockIndex == RelevantBlockCount - 1)
 						return false;
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
 						return true;
+					Debug.Assert(m_currentBlockIndex >= 0);
 					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentBlockIndex;
 				}
 
