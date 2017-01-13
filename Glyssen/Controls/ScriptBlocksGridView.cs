@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Dialogs;
@@ -33,7 +34,7 @@ namespace Glyssen.Controls
 		protected override void OnRowHeightChanged(DataGridViewRowEventArgs e)
 		{
 			base.OnRowHeightChanged(e);
-			this.SafeInvoke(() =>
+			this.BeginInvoke((MethodInvoker)(() =>
 			{
 				if (!m_updatingContext && SelectedRows.Count > 0)
 				{
@@ -48,7 +49,7 @@ namespace Glyssen.Controls
 					if (e.Row.Index < lastRow + 2)
 						ScrollDesiredRowsIntoView(firstRow, lastRow);
 				}
-			}, true);
+			}));
 		}
 
 		protected override void OnCellMouseDown(DataGridViewCellMouseEventArgs e)
@@ -396,6 +397,9 @@ namespace Glyssen.Controls
 		{
 			if (m_viewModel.CurrentReferenceTextMatchup != null)
 			{
+				// I think that the fix for PG-884 (to call this method asynchronously from OnRowHeightChanged)
+				// is the "real" fix for PG-810. So most likely, this try-catch is no longer needed. But since
+				// I was never able to reproduce PG-810, I'm leaving it in here for now.
 				try
 				{
 					FirstDisplayedScrollingRowIndex = firstRow;
