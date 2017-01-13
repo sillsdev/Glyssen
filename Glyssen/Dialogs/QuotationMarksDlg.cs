@@ -69,6 +69,8 @@ namespace Glyssen.Dialogs
 
 			SetFilterControlsFromMode();
 
+			ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
+
 			if (readOnly)
 				MakeReadOnly();
 		}
@@ -324,6 +326,9 @@ namespace Glyssen.Dialogs
 			m_project.QuoteSystemStatus = QuoteSystemStatus.UserSet;
 
 			m_project.QuoteSystem = currentQuoteSystem;
+			// After setting this, the user could get a subsequent dialog box giving them the chance to review the settings,
+			// but since we've already saved their changes, they can't really "Cancel" those saved changes anymore.
+			m_btnCancel.DialogResult = DialogResult.OK;
 		}
 
 		private void HandleAnalysisCompleted(object sender, EventArgs e)
@@ -338,7 +343,8 @@ namespace Glyssen.Dialogs
 					dlg.ShowDialog();
 					if (dlg.UserWantsToReview)
 					{
-						SelectMissingExpectedQuotesFilter();
+						m_navigatorViewModel.BlockNavigator = new BlockNavigator(m_project.IncludedBooks);
+						ShowTestResults(percentageOfExpectedQuotesFound, true);
 						DisableForm(false);
 						return;
 					}
@@ -585,6 +591,9 @@ namespace Glyssen.Dialogs
 			if (!IsHandleCreated)
 				return;
 
+			if (!m_testResults.Visible)
+				UpdateTestParse(false);
+
 			BlocksToDisplay mode;
 
 			switch (m_toolStripComboBoxFilter.SelectedIndex)
@@ -717,12 +726,17 @@ namespace Glyssen.Dialogs
 
 		private void m_btnTest_Click(object sender, EventArgs e)
 		{
+			UpdateTestParse(true);
+		}
+
+		private void UpdateTestParse(bool changeFilterToShowMissingExpectedQuotes)
+		{
 			try
 			{
 				DisableForm(true);
 				var parsedBooks = QuoteParser.TestQuoteSystem(m_project, CurrentQuoteSystem);
-				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks);
-				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), true);
+				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks.Where(b => m_project.IncludedBooks.Any(ib => ib.BookId == b.BookId)).ToList());
+				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), changeFilterToShowMissingExpectedQuotes);
 			}
 			finally
 			{
@@ -736,5 +750,10 @@ namespace Glyssen.Dialogs
 				Settings.Default.QuotationMarksDlgSplitterDistance = e.SplitX;
 		}
 		#endregion
+
+		private void HandleSettingChange(object sender, EventArgs e)
+		{
+			m_testResults.Visible = false;
+		}
 	}
 }

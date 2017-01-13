@@ -665,7 +665,8 @@ namespace Glyssen.Quote
 		/// <param name="characterUnknown"></param>
 		private void FlushStringBuilderAndBlock(StringBuilder sb, string styleTag, bool nonNarrator, bool characterUnknown = false)
 		{
-			Debug.Assert(!m_ignoringNarratorQuotation);
+			Debug.Assert(!m_ignoringNarratorQuotation,
+				"This should only happen if the data is bad or the settings have an ending quote mark that is not properly paired with the starting quote mark.");
 			// reset this flag just to be safe.
 			m_ignoringNarratorQuotation = false;
 
