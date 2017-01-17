@@ -69,7 +69,10 @@ namespace Glyssen.Dialogs
 
 			SetFilterControlsFromMode();
 
-			ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
+			if (m_project.ProjectState == ProjectState.NeedsQuoteSystemConfirmation)
+				UpdateTestParse(false);
+			else
+				ShowTestResults(PercentageOfExpectedQuotesFound(m_project.Books), false);
 
 			if (readOnly)
 				MakeReadOnly();
