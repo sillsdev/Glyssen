@@ -205,7 +205,7 @@ namespace Glyssen.Quote
 			// Need to group because they could be more than one character each.
 			// ?: => non-matching group
 			// \w => word-forming character
-			return String.Format(@"((?:(?:{0})(?:[^\w{1}])*))", quoteMatcher, "{0}{1}");
+			return String.Format(@"((?:(?:{0})(?:[^ \w{1}])* *))", quoteMatcher, "{0}{1}");
 		}
 
 		/// <summary>
