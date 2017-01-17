@@ -1057,6 +1057,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("«Go»!! ", output[0].GetText(true));
 			Assert.AreEqual("he said.", output[1].GetText(true));
 		}
+
 		[Test]
 		public void Parse_PunctuationStaysWithPriorBlock_AtBlockEnd()
 		{
@@ -1068,6 +1069,26 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual("He said, ", output[0].GetText(true));
 			Assert.AreEqual("«Go»!", output[1].GetText(true));
+		}
+
+		/// <summary>
+		/// PG-789
+		/// </summary>
+		[TestCase("-")]
+		[TestCase("!")]
+		[TestCase("'")]
+		public void Parse_TrailingPunctuationFollowingSpace_TrailingPunctuationGoesWithNextBlock(string punctuation)
+		{
+			var block = new Block("p", 27);
+			// The en-dash is supposed to be a tone-mark that applies to the word "Ma".
+			block.AddVerse(23, $"Ɔ ya maa neencla le: «Nyinyia ‑anɩ saa ɔ ya 'lɛ nʋ bha?» {punctuation}Ma maa ka...");
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("{23}\u00A0Ɔ ya maa neencla le: ", output[0].GetText(true));
+			Assert.AreEqual("«Nyinyia ‑anɩ saa ɔ ya 'lɛ nʋ bha?» ", output[1].GetText(true));
+			Assert.AreEqual($"{punctuation}Ma maa ka...", output[2].GetText(true));
 		}
 
 		[Test]
