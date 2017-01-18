@@ -129,7 +129,15 @@ namespace Glyssen.Controls
 		public override string Text
 		{
 			get { return m_title.Text; }
-			set { m_title.Text = value;  }
+			set { m_title.Text = value; }
+		}
+
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+		[Browsable(true)]
+		public BorderStyle ContentBorderStyle
+		{
+			get { return m_dataGridViewBlocks.BorderStyle; }
+			set { m_dataGridViewBlocks.BorderStyle = m_blocksDisplayBrowser.BorderStyle = value; }
 		}
 		#endregion
 

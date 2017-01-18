@@ -1258,12 +1258,16 @@ namespace Glyssen.Dialogs
 				m_viewModel.AttemptRefBlockMatchup = true;
 				m_blocksViewer.Text =
 					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
-						"Match reference text to these blocks");
+						"Match reference text for each colored row.");
+				m_saveStatus.Visible = false;
+				m_blocksViewer.ContentBorderStyle = m_dataGridReferenceText.BorderStyle;
 			}
 			else
 			{
 				m_viewModel.AttemptRefBlockMatchup = false;
 				m_blocksViewer.Text = m_defaultBlocksViewerText;
+				m_saveStatus.Visible = true;
+				m_blocksViewer.ContentBorderStyle = BorderStyle.None;
 			}
 			UpdateFilterItems();
 		}
