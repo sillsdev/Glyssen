@@ -1372,7 +1372,6 @@ namespace Glyssen
 				});
 				backupPath = null;
 			}
-			bool newFileIsBogus = false;
 			try
 			{
 				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
