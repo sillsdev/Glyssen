@@ -27,7 +27,8 @@ namespace Glyssen.Dialogs
 		ExcludeUserConfirmed = 128,
 		AllQuotes = 256,
 		NotAlignedToReferenceText = 512,
-		NeedAssignments = Unexpected | Ambiguous,
+		NotAssignedAutomatically = Unexpected | Ambiguous,
+		NotYetAssigned = NotAssignedAutomatically | ExcludeUserConfirmed,
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 	}
 
@@ -787,6 +788,21 @@ namespace Glyssen.Dialogs
 			CurrentBlockMatchupChanged?.Invoke(this, new EventArgs());
 		}
 
+		protected IEnumerable<BookBlockIndices> IndicesOfOriginalRelevantBlocks
+		{
+			get
+			{
+				int bookIndex = GetCurrentBlockIndices().BookIndex;
+
+				for (int i = 0; i < CurrentReferenceTextMatchup.OriginalBlockCount; i++)
+				{
+					var indices = new BookBlockIndices(bookIndex, CurrentReferenceTextMatchup.IndexOfStartBlockInBook + i);
+					if (m_relevantBlocks.Contains(indices))
+						yield return indices;
+				}
+			}
+		}
+
 		public virtual void ApplyCurrentReferenceTextMatchup()
 		{
 			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
@@ -797,8 +813,12 @@ namespace Glyssen.Dialogs
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentBlockIndex;
 			bool relevantBlockRemoved = false;
-			foreach (var block in m_currentRefBlockMatchups.OriginalBlocks)
-				relevantBlockRemoved |= m_relevantBlocks.Remove(m_navigator.GetIndicesOfSpecificBlock(block));
+			if (insertions > 0)
+			{
+				foreach (var indices in IndicesOfOriginalRelevantBlocks)
+					relevantBlockRemoved |= m_relevantBlocks.Remove(indices);
+			}
+
 			m_currentRefBlockMatchups.Apply(m_project.Versification);
 			if (insertionIndex < 0)
 			{
@@ -810,7 +830,8 @@ namespace Glyssen.Dialogs
 			else if (insertionIndex > m_relevantBlocks.Count) // PG-823: We just removed multiple relevant blocks, such that the insertion index is out of range.
 				insertionIndex = m_relevantBlocks.Count;
 
-				var origRelevantBlockCount = RelevantBlockCount;
+			var origRelevantBlockCount = RelevantBlockCount;
+
 			if (relevantBlockRemoved)
 			{
 				m_relevantBlocks.InsertRange(insertionIndex,
@@ -825,14 +846,18 @@ namespace Glyssen.Dialogs
 					}
 				}
 			}
+
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
 			// We can safely use the index of the anchor block in CorrelatedBlocks to find the correct block in OriginalBlocks.
 			var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
 			SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
-			var currentBookIndex = m_navigator.GetIndices().BookIndex;
-			for (int i = insertionIndex + RelevantBlockCount - origRelevantBlockCount; i < RelevantBlockCount && m_relevantBlocks[i].BookIndex == currentBookIndex; i++)
-				m_relevantBlocks[i].BlockIndex += insertions;
+			if (insertions > 0)
+			{
+				var currentBookIndex = m_navigator.GetIndices().BookIndex;
+				for (int i = insertionIndex + RelevantBlockCount - origRelevantBlockCount; i < RelevantBlockCount && m_relevantBlocks[i].BookIndex == currentBookIndex; i++)
+					m_relevantBlocks[i].BlockIndex += insertions;
+			}
 		}
 
 		protected virtual void HandleCurrentBlockChanged()
@@ -917,17 +942,16 @@ namespace Glyssen.Dialogs
 
 		private bool IsRelevant(Block block, bool ignoreExcludeUserConfirmed = false)
 		{
-			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
-				return false;
-			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
-				return false;
-			if ((Mode & BlocksToDisplay.NeedAssignments) > 0)
-				return BlockNeedsAssignment(block);
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
+				if (!block.IsScripture)
+					return false;
+				if (BlockNeedsAssignment(block))
+					return true;
+				
 				// Note that the logic here is absolutely dependent on block being in CurrentBook!!!
 
-				if (!block.IsScripture || !m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
+				if (!m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
 					return false;
 
 				if (s_lastMatchup == null || !s_lastMatchup.OriginalBlocks.Contains(block))
@@ -937,6 +961,13 @@ namespace Glyssen.Dialogs
 				}
 				return s_lastMatchup.OriginalBlocks.Count() > 1 && !s_lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText);
 			}
+			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+				return false;
+			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
+				return false;
+			if ((Mode & BlocksToDisplay.NotAssignedAutomatically) > 0)
+				return BlockNeedsAssignment(block);
+
 			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
 				return IsBlockInVerseWithExpectedQuote(block);
 			if ((Mode & BlocksToDisplay.MissingExpectedQuote) > 0)

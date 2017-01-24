@@ -30,7 +30,7 @@ namespace GlyssenTests.Dialogs
 		[SetUp]
 		public void SetUp()
 		{
-			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 			m_model.BackwardContextBlockCount = 10;
 			m_model.ForwardContextBlockCount = 10;
 		}
@@ -129,14 +129,14 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void SetMode_CurrentBlockIsRelevantInNewMode_KeepCurrentBlock()
 		{
-			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
 			m_model.LoadNextRelevantBlock();
 			var block = m_model.CurrentBlock;
 
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.AreEqual(block, m_model.CurrentBlock);
 
-			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
 			Assert.AreEqual(block, m_model.CurrentBlock);
 		}
 
@@ -837,7 +837,7 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
-			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 		}
 
 		[TearDown]
@@ -870,8 +870,8 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 		}
 
-		[TestCase(BlocksToDisplay.NeedAssignments)]
-		[TestCase(BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed)]
+		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
+		[TestCase(BlocksToDisplay.NotYetAssigned)]
 		public void ApplyCurrentReferenceTextMatchup_Simple_SetsReferenceTextsForBlocksInGroupAndUpdatesState(BlocksToDisplay filterMode)
 		{
 			m_model.Mode = filterMode;
@@ -899,8 +899,8 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
 		}
 
-		[TestCase(BlocksToDisplay.NeedAssignments)]
-		[TestCase(BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed)]
+		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
+		[TestCase(BlocksToDisplay.NotYetAssigned)]
 		public void ApplyCurrentReferenceTextMatchup_Splits_BlocksInBookReplacedAndCurrentBlockNoLongerComesFromMatchupAndSubsequentRelevantBlockIndicesIncremented(BlocksToDisplay filterMode)
 		{
 			m_model.Mode = filterMode;
@@ -936,7 +936,7 @@ namespace GlyssenTests.Dialogs
 		public void ApplyCurrentReferenceTextMatchup_Splits_CurrentBlockDoesNotMatchFilter_ChangesAppliedAndSubsequentIndicesIncremented()
 		{
 			m_model.AttemptRefBlockMatchup = false;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
 			var blockIndex = m_model.CurrentBlockIndexInBook;
 			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("Jesus", 0, m_testProject.Versification);
@@ -944,7 +944,7 @@ namespace GlyssenTests.Dialogs
 			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("father of demon-possessed boy", 0, m_testProject.Versification);
 			m_model.LoadNextRelevantBlock();
 			var origNextRelevantBlock = m_model.CurrentBlock;
-			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
 			m_model.CurrentBlockIndexInBook = blockIndex;
 			m_model.AttemptRefBlockMatchup = true;
 
@@ -971,7 +971,7 @@ namespace GlyssenTests.Dialogs
 		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsPastLastBlockThatMatchesFilter_ChangesAppliedAndSubsequentIndicesIncremented()
 		{
 			m_model.AttemptRefBlockMatchup = false;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
 			Assert.AreEqual(23, m_model.CurrentBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, m_model.CurrentBlockDisplayIndex);
@@ -1005,7 +1005,7 @@ namespace GlyssenTests.Dialogs
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsNonRelevantBlockInLastBlockMatchup_ReturnsFalse()
 		{
 			m_model.AttemptRefBlockMatchup = false;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
 			m_model.LoadPreviousRelevantBlock();
 			m_model.CurrentBlockIndexInBook--;
@@ -1028,7 +1028,7 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ICO);
-			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 		}
 
 		[TearDown]
@@ -1041,7 +1041,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsLastRelevantBlockInLastMatchup_DoesNotCrashAndStaysOnCurrentMatchup()
 		{
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			m_model.AttemptRefBlockMatchup = true;
 
 			while (m_model.CanNavigateToNextRelevantBlock)
@@ -1102,9 +1102,9 @@ namespace GlyssenTests.Dialogs
 			blockToMatchFilter.CharacterId = CharacterVerseData.kUnknownCharacter;
 
 			// Create model and initialize state
-			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 			model.AttemptRefBlockMatchup = false;
-			model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			model.Mode = BlocksToDisplay.NotYetAssigned;
 
 			// Get into correct state for this test and ensure initial conditions
 			Assert.AreEqual(1, model.RelevantBlockCount);

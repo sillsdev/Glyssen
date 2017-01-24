@@ -89,11 +89,13 @@ namespace Glyssen
 			}
 		}
 
+		public int OriginalBlockCount => CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting;
+
 		public IEnumerable<Block> OriginalBlocks
 		{
 			get
 			{
-				return m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting);
+				return m_vernacularBook.GetScriptBlocks().Skip(m_iStartBlock).Take(OriginalBlockCount);
 			}
 		}
 

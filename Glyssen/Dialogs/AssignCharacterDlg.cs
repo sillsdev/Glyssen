@@ -33,7 +33,7 @@ namespace Glyssen.Dialogs
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
 		private string m_singleVoiceCheckboxFmt;
-		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
+		private bool m_promptToCloseWhenTaskIsComplete;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
 		private bool m_formLoading;
@@ -83,10 +83,8 @@ namespace Glyssen.Dialogs
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
 				// We want CheckChanged event to fire, so just setting Checked to true is not enough.
-				m_toolStripButtonMatchReferenceText.CheckState = (Settings.Default.AssignCharactersMatchReferenceText ||
-																(m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
-					? CheckState.Checked
-					: CheckState.Unchecked;
+				m_toolStripButtonMatchReferenceText.CheckState = (Settings.Default.AssignCharactersMatchReferenceText || m_viewModel.DoingAlignmentTask) ?
+					CheckState.Checked : CheckState.Unchecked;
 				HandleCharacterSelectionTabIndexChanged(m_tabControlCharacterSelection, new EventArgs());
 			}
 			else
@@ -187,13 +185,13 @@ namespace Glyssen.Dialogs
 			UpdateNavigationButtonState();
 		}
 
-		void m_viewModel_AssignedBlocksIncremented(AssignCharacterViewModel sender, int increment, int newMaximum)
+		void m_viewModel_AssignedBlocksIncremented(AssignCharacterViewModel sender, int increment)
 		{
 			this.SafeInvoke(() =>
 			{
 				if (m_progressBar.Visible)
 				{
-					m_progressBar.Maximum = newMaximum;
+					m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 					m_progressBar.Increment(increment);
 				}
 			});
@@ -201,11 +199,23 @@ namespace Glyssen.Dialogs
 
 		private void UpdateProgressBarForMode()
 		{
-			if ((m_viewModel.Mode & BlocksToDisplay.NeedAssignments) == BlocksToDisplay.NeedAssignments)
+			if (m_viewModel.InTaskMode)
 			{
 				m_progressBar.Visible = true;
 				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
-				m_progressBar.Value = m_viewModel.AssignedBlockCount;
+				m_progressBar.Value = m_viewModel.CompletedBlockCount;
+				if (m_viewModel.IsCurrentTaskComplete)
+				{
+					if (m_promptToCloseWhenTaskIsComplete)
+					{
+						// At some point while using this dialog, the user had one of the two "task" filters selected
+						// and had not yet completed the task, so now that they are switching back to that filter, we
+						// need to let them know they ARE done with that task now.
+						ShowCompletionMessage();
+					}
+				}
+				else
+					m_promptToCloseWhenTaskIsComplete = true;
 			}
 			else
 			{
@@ -213,31 +223,51 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private void ShowCompletionMessage()
+		{
+			string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.TaskCompleteTitle", "Task Complete");
+			string msg = m_viewModel.DoingAssignmentTask ?
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
+					"All character assignments have been made. ") :
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AlignmentsComplete",
+					"Alignment of blocks to the Reference Text is complete. ");
+
+			if (!char.IsWhiteSpace(msg.Last()))
+				msg += " ";
+
+			msg += LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "Would you like to return to the main window?");
+			if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				Close();
+				return;
+			}
+			m_promptToCloseWhenTaskIsComplete = false;
+		}
+
 		private void SetFilterControlsFromMode()
 		{
 			var mode = m_viewModel.Mode;
 			Logger.WriteEvent("Initial filter in Identify Speaking Parts dialog: " + mode);
 
-			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
+			if (mode == BlocksToDisplay.NotYetAssigned)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
+			else if (mode == BlocksToDisplay.NotAssignedAutomatically)
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
+			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
-			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
+			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 3;
-			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
+			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 4;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 5;
-			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 6;
+			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 7;
 			else
 				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
-
-			if ((mode & BlocksToDisplay.ExcludeUserConfirmed) != 0)
-				m_toolStripButtonExcludeUserConfirmed.Checked = true;
 		}
 
 		private void BlocksViewerVisibleChanged(object sender, EventArgs args)
@@ -793,19 +823,9 @@ namespace Glyssen.Dialogs
 
 		private void MoveOn()
 		{
-			if (m_viewModel.AreAllAssignmentsComplete && m_promptToCloseWhenAssignmentsAreComplete)
-			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
-					"Assignments Complete");
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage",
-					"All assignments have been made. Would you like to return to the main window?");
-				if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
-				{
-					Close();
-					return;
-				}
-				m_promptToCloseWhenAssignmentsAreComplete = false;
-			}
+			if (m_viewModel.IsCurrentTaskComplete && m_promptToCloseWhenTaskIsComplete)
+				ShowCompletionMessage();
+
 			if (m_viewModel.CanNavigateToNextRelevantBlock)
 				LoadNextRelevantBlock();
 		}
@@ -972,17 +992,15 @@ namespace Glyssen.Dialogs
 
 				switch (m_toolStripComboBoxFilter.SelectedIndex)
 				{
-					case 0: mode = BlocksToDisplay.NeedAssignments; break;
-					case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
-					case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-					case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
-					case 4: mode = BlocksToDisplay.AllQuotes; break;
+					case 0: mode = BlocksToDisplay.NotYetAssigned; break;
+					case 1: mode = BlocksToDisplay.NotAssignedAutomatically; break;
+					case 2: mode = BlocksToDisplay.MissingExpectedQuote; break;
+					case 3: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+					case 4: mode = BlocksToDisplay.AllExpectedQuotes; break;
+					case 5: mode = BlocksToDisplay.AllQuotes; break;
 					case 6: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
 					default: mode = BlocksToDisplay.AllScripture; break;
 				}
-
-				if (m_toolStripButtonExcludeUserConfirmed.Checked)
-					mode |= BlocksToDisplay.ExcludeUserConfirmed;
 
 				Logger.WriteEvent("Changed filter in Identify Speaking Parts dialog: " + mode);
 
@@ -1136,6 +1154,8 @@ namespace Glyssen.Dialogs
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
 			UpdateProgressBarForMode();
+			if (!m_chkSingleVoice.Checked && m_viewModel.InTaskMode && !m_viewModel.IsCurrentTaskComplete)
+				m_promptToCloseWhenTaskIsComplete = true;
 			UpdateNavigationButtonState();
 
 			// Enable or disable some controls
