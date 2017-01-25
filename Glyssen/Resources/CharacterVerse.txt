@@ -1,4 +1,4 @@
-Control File Version	113
+Control File Version	114
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -7999,6 +7999,8 @@ ISA	3	4	God		God (the LORD, the LORD Almighty)	Potential
 ISA	3	5	God		God (the LORD, the LORD Almighty)	Potential		
 ISA	3	6	man (hypothetical)			Hypothetical		
 ISA	3	7	man's brother (hypothetical)			Hypothetical		
+ISA	3	10	God			Hypothetical		
+ISA	3	10	narrator-ISA			Hypothetical		
 ISA	3	14	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	3	15	God		God (the LORD, the LORD Almighty)	Normal		
 ISA	3	16	God		God (the LORD)	Normal		
@@ -8088,12 +8090,30 @@ ISA	12	3	narrator-ISA			Hypothetical
 ISA	12	4	Israel			Hypothetical		
 ISA	12	5	Israel			Hypothetical		
 ISA	12	6	Israel			Hypothetical		
+ISA	14	4	you (people of Zion, restored)			Hypothetical		
+ISA	14	5	you (people of Zion, restored)			Hypothetical		
+ISA	14	6	you (people of Zion, restored)			Hypothetical		
+ISA	14	7	you (people of Zion, restored)			Hypothetical		
+ISA	14	8	you (people of Zion, restored)			Hypothetical		
 ISA	14	8	pine trees and cedars of Lebanon			Hypothetical		
+ISA	14	9	you (people of Zion, restored)			Hypothetical		
+ISA	14	10	you (people of Zion, restored)			Hypothetical		
 ISA	14	10	kings over the nations			Hypothetical		
+ISA	14	11	you (people of Zion, restored)			Hypothetical		
+ISA	14	12	you (people of Zion, restored)			Hypothetical		
+ISA	14	13	you (people of Zion, restored)			Hypothetical		
 ISA	14	13	king of Babylon			Quotation		
+ISA	14	14	you (people of Zion, restored)			Hypothetical		
 ISA	14	14	king of Babylon			Quotation		
+ISA	14	15	you (people of Zion, restored)			Hypothetical		
+ISA	14	16	you (people of Zion, restored)			Hypothetical		
 ISA	14	16	onlookers			Hypothetical		
+ISA	14	17	you (people of Zion, restored)			Hypothetical		
 ISA	14	17	onlookers			Hypothetical		
+ISA	14	18	you (people of Zion, restored)			Hypothetical		
+ISA	14	19	you (people of Zion, restored)			Hypothetical		
+ISA	14	20	you (people of Zion, restored)			Hypothetical		
+ISA	14	21	you (people of Zion, restored)			Hypothetical		
 ISA	14	22	God		God (the LORD Almighty)	Normal		
 ISA	14	23	God		God (the LORD Almighty)	Normal		
 ISA	14	24	God	has sworn	God (the LORD Almighty)	Normal		
@@ -8275,6 +8295,8 @@ ISA	39	6	Isaiah			Normal
 ISA	39	7	Isaiah			Normal		
 ISA	39	8	Hezekiah, king of Judah	response to Isaiah		Normal		
 ISA	39	8	Hezekiah, king of Judah	thought		Normal		
+ISA	40	1	God			Normal		
+ISA	40	2	God			Normal		
 ISA	40	3	voice of one calling (preparing way for Christ)			Normal		
 ISA	40	4	voice of one calling (preparing way for Christ)			Normal		
 ISA	40	5	voice of one calling (preparing way for Christ)			Normal		

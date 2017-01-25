@@ -20,3 +20,4 @@ DevTools/Resources/temporary/*
 /lib/dotnet/ICSharpCode.SharpZipLib.dll
 *.iml
 .idea/
+/Glyssen/Resources/Thumbs.db

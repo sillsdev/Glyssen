@@ -130,6 +130,7 @@ namespace Glyssen.Dialogs
 			this.m_menuInsertIntoSelectedRowOnly = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_menuInsertIntoAllEmptyCells = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_btnReset = new System.Windows.Forms.Button();
+			this.m_lblReferenceText = new System.Windows.Forms.Label();
 			this.m_splitContainer = new System.Windows.Forms.SplitContainer();
 			this.m_tabControlCharacterSelection = new System.Windows.Forms.TabControl();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
@@ -269,12 +270,12 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_llMoreChar.BackColor = System.Drawing.SystemColors.Control;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreChar, 2);
-			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDlg.MoreCharacters");
@@ -354,12 +355,12 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_llMoreDel.BackColor = System.Drawing.SystemColors.Control;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreDel, 2);
-			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDlg.MoreDeliveries");
@@ -889,8 +890,8 @@ namespace Glyssen.Dialogs
 			this.m_llClose.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_llClose.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.glyssenColorPalette.SetForeColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llClose.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.LinkColor);
@@ -1160,6 +1161,7 @@ namespace Glyssen.Dialogs
 			this.tabPageMatchReferenceText.BackColor = System.Drawing.SystemColors.Control;
 			this.tabPageMatchReferenceText.Controls.Add(this.m_dataGridReferenceText);
 			this.tabPageMatchReferenceText.Controls.Add(this.m_tableLayoutPanelMatchReferenceTextButtons);
+			this.tabPageMatchReferenceText.Controls.Add(this.m_lblReferenceText);
 			this.glyssenColorPalette.SetForeColor(this.tabPageMatchReferenceText, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.tabPageMatchReferenceText.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.tabPageMatchReferenceText, null);
@@ -1167,7 +1169,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizingId(this.tabPageMatchReferenceText, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.tabPageMatchReferenceText");
 			this.tabPageMatchReferenceText.Location = new System.Drawing.Point(4, 22);
 			this.tabPageMatchReferenceText.Name = "tabPageMatchReferenceText";
-			this.tabPageMatchReferenceText.Padding = new System.Windows.Forms.Padding(3, 32, 3, 3);
+			this.tabPageMatchReferenceText.Padding = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.tabPageMatchReferenceText.Size = new System.Drawing.Size(416, 396);
 			this.tabPageMatchReferenceText.TabIndex = 1;
 			this.tabPageMatchReferenceText.Text = "Match Reference Text";
@@ -1204,6 +1206,8 @@ namespace Glyssen.Dialogs
 			this.m_dataGridReferenceText.Size = new System.Drawing.Size(410, 295);
 			this.m_dataGridReferenceText.TabIndex = 35;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_dataGridReferenceText, true);
+			this.m_dataGridReferenceText.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridReferenceText_CellEnter);
+			this.m_dataGridReferenceText.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridReferenceText_CellLeave);
 			this.m_dataGridReferenceText.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.m_dataGridReferenceText_CellValidating);
 			this.m_dataGridReferenceText.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateRowSpecificButtonStates);
 			// 
@@ -1447,6 +1451,23 @@ namespace Glyssen.Dialogs
 			this.m_btnReset.UseVisualStyleBackColor = true;
 			this.m_btnReset.Click += new System.EventHandler(this.HandleResetMatchupClick);
 			// 
+			// m_lblReferenceText
+			// 
+			this.m_lblReferenceText.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblReferenceText, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblReferenceText.Dock = System.Windows.Forms.DockStyle.Top;
+			this.glyssenColorPalette.SetForeColor(this.m_lblReferenceText, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_lblReferenceText.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblReferenceText, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblReferenceText, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblReferenceText, "DialogBoxes.AssignCharacterDlg.label1");
+			this.m_lblReferenceText.Location = new System.Drawing.Point(3, 8);
+			this.m_lblReferenceText.Name = "m_lblReferenceText";
+			this.m_lblReferenceText.Size = new System.Drawing.Size(410, 24);
+			this.m_lblReferenceText.TabIndex = 42;
+			this.m_lblReferenceText.Text = "Reference Text";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblReferenceText, true);
+			// 
 			// m_splitContainer
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_splitContainer, Glyssen.Utilities.GlyssenColors.BackColor);
@@ -1672,5 +1693,6 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonSelectCharacter;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonMatchReferenceText;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+		private System.Windows.Forms.Label m_lblReferenceText;
 	}
 }
