@@ -1301,14 +1301,17 @@ namespace Glyssen.Dialogs
 			{
 				Debug.Assert(colDelivery.Visible);
 				var selectedDelivery = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Delivery;
-				if (selectedDelivery == null)
+                if (selectedDelivery == null)
 				{
 					var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
 					selectedDelivery =
 						colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
-					if (selectedDelivery == null)
-						throw new Exception("Selected delivery not found!");
-				}
+				    if (selectedDelivery == null)
+				    {
+                        var bibleReference = m_viewModel.CurrentBookId + " " + m_viewModel.CurrentBlock.ChapterNumber + ":" + m_viewModel.CurrentBlock.InitialStartVerseNumber;
+                        throw new Exception("Selected delivery '" + newValue + "' not found! (" + bibleReference + ")");
+                    }
+                }
 				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);
 			}
 			else
