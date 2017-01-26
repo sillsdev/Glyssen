@@ -73,6 +73,8 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
+			m_defaultBlocksViewerText = m_blocksViewer.Text;
+
 			const int numberOfFilterItemsForRainbowModeOnly = 1;
 			m_IndexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
 			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
@@ -120,7 +122,6 @@ namespace Glyssen.Dialogs
 			m_blocksViewer.Initialize(m_viewModel,
 				AssignCharacterViewModel.Character.GetCharacterIdForUi,
 				block => block.Delivery);
-			m_defaultBlocksViewerText = m_blocksViewer.Text;
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
 
