@@ -42,7 +42,7 @@ namespace Glyssen.Dialogs
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
-		private readonly string m_defaultBlocksViewerText;
+		private string m_defaultBlocksViewerText;
 		private int m_IndexOfFirstFilterItemRemoved;
 		private object[] m_filterItemsForRainbowModeOnly;
 
@@ -63,6 +63,7 @@ namespace Glyssen.Dialogs
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
 			UpdateFilterItems();
 
+			m_defaultBlocksViewerText = m_blocksViewer.Text;
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
 
@@ -73,8 +74,6 @@ namespace Glyssen.Dialogs
 		{
 			InitializeComponent();
 
-			m_defaultBlocksViewerText = m_blocksViewer.Text;
-
 			const int numberOfFilterItemsForRainbowModeOnly = 1;
 			m_IndexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
 			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
@@ -82,6 +81,10 @@ namespace Glyssen.Dialogs
 				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_IndexOfFirstFilterItemRemoved];
 
 			m_viewModel = viewModel;
+
+			HandleStringsLocalized();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
 				// We want CheckChanged event to fire, so just setting Checked to true is not enough.
@@ -129,9 +132,6 @@ namespace Glyssen.Dialogs
 
 			m_dataGridReferenceText.DataError += HandleDataGridViewDataError;
 			colPrimary.HeaderText = m_viewModel.PrimaryReferenceTextName;
-
-			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
 			colCharacter.DisplayMember = m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			colDelivery.DisplayMember = m_listBoxDeliveries.DisplayMember = "LocalizedDisplay";
