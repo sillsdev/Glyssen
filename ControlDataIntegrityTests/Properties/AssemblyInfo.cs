@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 // Only specify Major and Minor Build Numbers here. The others come from Team City
-[assembly: AssemblyVersion("0.17.0.0")]
-[assembly: AssemblyFileVersion("0.17.0.0")]
+[assembly: AssemblyVersion("0.18.0.0")]
+[assembly: AssemblyFileVersion("0.18.0.0")]
