@@ -727,7 +727,7 @@ namespace Glyssen.Dialogs
 				if (dlg.ShowDialog() != DialogResult.OK)
 					return;
 
-				m_viewModel.AddCharacterDetailToProject(character, dlg.Gender, dlg.Age);
+				m_viewModel.StoreCharacterDetail(character, dlg.Gender, dlg.Age);
 			}
 
 			var newItem = new AssignCharacterViewModel.Character(character);
