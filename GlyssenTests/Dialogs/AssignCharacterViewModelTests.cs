@@ -1180,7 +1180,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(m_testProject.AllCharacterDetailDictionary.ContainsKey("Thaddeus' wife"));
 
 			m_fullProjectRefreshRequired = true;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 
 			FindRefInMark(8, 5);
 			m_model.AttemptRefBlockMatchup = true;
@@ -1278,10 +1278,17 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(2, matchupForMark85.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
 			matchupForMark85.SetReferenceText(0, "Some random text: " + Guid.NewGuid());
 
-			m_model.ApplyCurrentReferenceTextMatchup();
+			try
+			{
+				m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
-			Assert.AreEqual(2, m_assigned);
+				Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
+				Assert.AreEqual(2, m_assigned);
+			}
+			finally
+			{
+				ResetAlignedBlocks(m_model.CurrentReferenceTextMatchup);
+			}
 		}
 
 		[Test]
@@ -1300,10 +1307,17 @@ namespace GlyssenTests.Dialogs
 			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Bartimaeus (a blind man)"));
 			m_model.SetReferenceTextMatchupDelivery(1, new AssignCharacterViewModel.Delivery("shouting", false));
 
-			m_model.ApplyCurrentReferenceTextMatchup();
+			try
+			{
+				m_model.ApplyCurrentReferenceTextMatchup();
 
-			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
-			Assert.AreEqual(1, m_assigned);
+				Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
+				Assert.AreEqual(1, m_assigned);
+			}
+			finally
+			{
+				ResetAlignedBlocks(m_model.CurrentReferenceTextMatchup);
+			}
 		}
 
 		[Test]
@@ -1311,7 +1325,6 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 12, 15);
-			var iBlock = m_model.CurrentBlockIndexInBook;
 			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 
