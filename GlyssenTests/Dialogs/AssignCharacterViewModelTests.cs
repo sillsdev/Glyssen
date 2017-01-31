@@ -1162,7 +1162,7 @@ namespace GlyssenTests.Dialogs
 				m_model.ApplyCurrentReferenceTextMatchup();
 
 				Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
-				Assert.AreEqual(4, m_assigned);
+				Assert.AreEqual(1, m_assigned);
 			}
 			finally
 			{
@@ -1200,7 +1200,7 @@ namespace GlyssenTests.Dialogs
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 10, 48);
 			m_model.AttemptRefBlockMatchup = true;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
-			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
+ 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchupForMark85.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchupForMark85.CorrelatedBlocks[1].CharacterIsUnclear());
 			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Bartimaeus (a blind man)"));
@@ -1209,7 +1209,7 @@ namespace GlyssenTests.Dialogs
 			m_model.ApplyCurrentReferenceTextMatchup();
 
 			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
-			Assert.AreEqual(2, m_assigned);
+			Assert.AreEqual(1, m_assigned);
 		}
 
 		[Test]
@@ -1219,17 +1219,16 @@ namespace GlyssenTests.Dialogs
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 12, 15);
 			var iBlock = m_model.CurrentBlockIndexInBook;
 			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
-			m_model.CurrentBlockIndexInBook = iBlock;
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
 			m_model.AttemptRefBlockMatchup = true;
-			var matchupForMark1213 = m_model.CurrentReferenceTextMatchup;
-			Assert.AreEqual(1, matchupForMark1213.CountOfBlocksAddedBySplitting);
-			Assert.AreEqual(1, matchupForMark1213.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
-			Assert.IsTrue(matchupForMark1213.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+			var matchupForMark1215 = m_model.CurrentReferenceTextMatchup;
+			Assert.AreEqual(1, matchupForMark1215.CountOfBlocksAddedBySplitting);
+			Assert.AreEqual(1, matchupForMark1215.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
+			Assert.IsTrue(matchupForMark1215.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			m_model.SetReferenceTextMatchupCharacter(4, new AssignCharacterViewModel.Character("Jesus"));
 
 			try
@@ -1271,8 +1270,8 @@ namespace GlyssenTests.Dialogs
 			{
 				m_model.ApplyCurrentReferenceTextMatchup();
 
-				Assert.AreEqual(origRelevantBlockCount + countOfBlocksAddedBySplitting, m_model.RelevantBlockCount);
-				Assert.AreEqual(3, m_assigned);
+				Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
+				Assert.AreEqual(1, m_assigned);
 			}
 			finally
 			{

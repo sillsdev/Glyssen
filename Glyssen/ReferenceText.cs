@@ -216,7 +216,7 @@ namespace Glyssen
 			return Books.Any(b => b.BookId == vernacularBook.BookId);
 		}
 
-		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification)
+		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification, uint predeterminedBlockCount = 0)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");
@@ -236,7 +236,7 @@ namespace Glyssen
 			{
 				nextVerse.Versification = vernacularVersification;
 				return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
-			}, this);
+			}, this, predeterminedBlockCount);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{

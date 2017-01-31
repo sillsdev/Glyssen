@@ -19,68 +19,78 @@ namespace Glyssen
 		private readonly IReferenceLanguageInfo m_referenceLanguageInfo;
 
 		public BlockMatchup(BookScript vernacularBook, int iBlock, Action<PortionScript> splitBlocks,
-			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider)
+			Func<VerseRef, bool> isOkayToBreakAtVerse, IReferenceLanguageInfo heSaidProvider, uint predeterminedBlockCount = 0)
 		{
 			m_vernacularBook = vernacularBook;
 			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 			m_referenceLanguageInfo = heSaidProvider;
 			var blocks = m_vernacularBook.GetScriptBlocks();
 			var originalAnchorBlock = blocks[iBlock];
-			var blocksForVersesCoveredByBlock =
-				vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
-			var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
-			if (indexOfAnchorBlockInVerse < 0)
+			if (predeterminedBlockCount == 0)
 			{
-				Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
-					$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
-				// REVIEW: This logic assumes that the repeated verse is wholly contained in this onwe block.
-				blocksForVersesCoveredByBlock = new List<Block>() { originalAnchorBlock };
-				indexOfAnchorBlockInVerse = 0;
-			}
-			m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
-			while (m_iStartBlock > 0)
-			{
-				if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
-					!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+				var blocksForVersesCoveredByBlock =
+					vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber, originalAnchorBlock.InitialStartVerseNumber).ToList();
+				var indexOfAnchorBlockInVerse = blocksForVersesCoveredByBlock.IndexOf(originalAnchorBlock);
+				if (indexOfAnchorBlockInVerse < 0)
 				{
-					var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
-						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
-					prepend.RemoveAt(prepend.Count - 1);
-					m_iStartBlock -= prepend.Count;
-					blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+					Logger.WriteEvent($"Anchor block not found in verse: {m_vernacularBook.BookId} {originalAnchorBlock.ChapterNumber}:" +
+						$"{originalAnchorBlock.InitialStartVerseNumber} Verse apparently occurs more than once in the Scripture text.");
+					// REVIEW: This logic assumes that the repeated verse is wholly contained in this onwe block.
+					blocksForVersesCoveredByBlock = new List<Block>() {originalAnchorBlock};
+					indexOfAnchorBlockInVerse = 0;
 				}
-				if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
-					blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
+				m_iStartBlock = iBlock - indexOfAnchorBlockInVerse;
+				while (m_iStartBlock > 0)
 				{
-					break;
+					if (blocksForVersesCoveredByBlock.First().InitialStartVerseNumber < originalAnchorBlock.InitialStartVerseNumber &&
+						!blocksForVersesCoveredByBlock.First().StartsAtVerseStart)
+					{
+						var prepend = vernacularBook.GetBlocksForVerse(originalAnchorBlock.ChapterNumber,
+							blocksForVersesCoveredByBlock.First().InitialStartVerseNumber).ToList();
+						prepend.RemoveAt(prepend.Count - 1);
+						m_iStartBlock -= prepend.Count;
+						blocksForVersesCoveredByBlock.InsertRange(0, prepend);
+					}
+					if (m_iStartBlock == 0 || isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber,
+						blocksForVersesCoveredByBlock.First().InitialStartVerseNumber)))
+					{
+						break;
+					}
+
+					m_iStartBlock--;
+					blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
 				}
+				int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
+				int i = iLastBlock;
+				AdvanceToCleanVerseBreak(blocks,
+					verseNum => isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum)),
+					ref i);
+				if (i > iLastBlock)
+					blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
+				while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+					blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
+				m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
 
-				m_iStartBlock--;
-				blocksForVersesCoveredByBlock.Insert(0, blocks[m_iStartBlock]);
+				try
+				{
+					CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
+				}
+				catch (Exception ex)
+				{
+					Logger.WriteEvent(ex.Message);
+					Logger.WriteEvent($"iBlock = {iBlock}; m_iStartBlock = {m_iStartBlock}");
+					foreach (var block in m_portion.GetScriptBlocks())
+						Logger.WriteEvent($"block = {block}");
+					throw;
+				}
 			}
-			int iLastBlock = m_iStartBlock + blocksForVersesCoveredByBlock.Count - 1;
-			int i = iLastBlock;
-			AdvanceToCleanVerseBreak(blocks,
-				verseNum => isOkayToBreakAtVerse(new VerseRef(bookNum, originalAnchorBlock.ChapterNumber, verseNum)),
-				ref i);
-			if (i > iLastBlock)
-				blocksForVersesCoveredByBlock.AddRange(blocks.Skip(iLastBlock + 1).Take(i - iLastBlock));
-			while (CharacterVerseData.IsCharacterOfType(blocksForVersesCoveredByBlock.Last().CharacterId, CharacterVerseData.StandardCharacter.ExtraBiblical))
-				blocksForVersesCoveredByBlock.RemoveAt(blocksForVersesCoveredByBlock.Count - 1);
+			else
+			{
+				m_iStartBlock = iBlock;
+				m_portion = new PortionScript(vernacularBook.BookId, vernacularBook.GetScriptBlocks().Skip(iBlock).Take((int)predeterminedBlockCount).Select(b => b.Clone()));
+				CorrelatedAnchorBlock = m_portion.GetScriptBlocks().First();
+			}
 
-			m_portion = new PortionScript(vernacularBook.BookId, blocksForVersesCoveredByBlock.Select(b => b.Clone()));
-			try
-			{
-				CorrelatedAnchorBlock = m_portion.GetScriptBlocks()[iBlock - m_iStartBlock];
-			}
-			catch (Exception ex)
-			{
-				Logger.WriteEvent(ex.Message);
-				Logger.WriteEvent($"iBlock = {iBlock}; m_iStartBlock = {m_iStartBlock}");
-				foreach (var block in m_portion.GetScriptBlocks())
-					Logger.WriteEvent($"block = {block}");
-				throw;
-			}
 			if (splitBlocks != null)
 			{
 				int origCount = m_portion.GetScriptBlocks().Count;

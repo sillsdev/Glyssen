@@ -204,6 +204,9 @@ namespace Glyssen.Dialogs
 				m_progressBar.Visible = true;
 				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 				m_progressBar.Value = m_viewModel.CompletedBlockCount;
+				m_progressBar.UnitName = m_viewModel.DoingAlignmentTask ?
+					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages") : null;
+				m_progressBar.Invalidate();
 				if (m_viewModel.IsCurrentTaskComplete)
 				{
 					if (m_promptToCloseWhenTaskIsComplete)
@@ -998,7 +1001,7 @@ namespace Glyssen.Dialogs
 					case 3: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
 					case 4: mode = BlocksToDisplay.AllExpectedQuotes; break;
 					case 5: mode = BlocksToDisplay.AllQuotes; break;
-					case 6: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
+					case 7: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
 					default: mode = BlocksToDisplay.AllScripture; break;
 				}
 

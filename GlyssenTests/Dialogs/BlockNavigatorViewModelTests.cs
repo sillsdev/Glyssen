@@ -221,6 +221,9 @@ namespace GlyssenTests.Dialogs
 
 			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
 			FindRefInMark(5, 41);
+			// The above line gets us to the first block for Mark 5:41. This verse has four blocks in it, so we advance 3 times to get to the
+			// end of the verse.
+			m_model.LoadNextRelevantBlock();
 			m_model.LoadNextRelevantBlock();
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
@@ -802,7 +805,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var restore = model.AttemptRefBlockMatchup;
 			model.AttemptRefBlockMatchup = false;
-			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentBlock.InitialStartVerseNumber != verse)
+			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentEndBlock.LastVerseNum < verse)
 			{
 				if (model.IsCurrentBlockRelevant && model.CurrentBlockDisplayIndex == model.RelevantBlockCount)
 					throw new Exception("Could not find Mark " + chapter + ":" + verse);
@@ -810,7 +813,7 @@ namespace GlyssenTests.Dialogs
 			}
 			Assert.AreEqual("MRK", model.CurrentBookId);
 			Assert.AreEqual(chapter, model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(verse, model.CurrentBlock.InitialStartVerseNumber);
+			Assert.IsTrue(verse >= model.CurrentBlock.InitialStartVerseNumber && verse <= model.CurrentEndBlock.LastVerseNum);
 			model.AttemptRefBlockMatchup = restore;
 		}
 	}

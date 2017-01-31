@@ -62,7 +62,7 @@ namespace Glyssen.Dialogs
 
 		public bool InTaskMode => DoingAssignmentTask || DoingAlignmentTask;
 
-		public bool IsCurrentTaskComplete => InTaskMode && CompletedBlockCount == m_relevantBlocks.Count;
+		public bool IsCurrentTaskComplete => InTaskMode && CompletedBlockCount == m_relevantBookBlockIndices.Count;
 
 		public bool IsCurrentBookSingleVoice => CurrentBook.SingleVoice;
 
@@ -89,7 +89,7 @@ namespace Glyssen.Dialogs
 			// REVIEW: Can/should we keep it in rainbow mode even for single-voice books?
 			if (singleVoice)
 			{
-				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
+				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
 				ClearBlockMatchup();
 			}
 			else // TODO: Ensure test coverage for this
@@ -426,7 +426,7 @@ namespace Glyssen.Dialogs
 			}
 			else if (DoingAlignmentTask)
 			{
-				numberOfBlocksCompleted += IndicesOfOriginalRelevantBlocks.Count();
+				numberOfBlocksCompleted = 1;
 			}
 			base.ApplyCurrentReferenceTextMatchup();
 
@@ -527,7 +527,7 @@ namespace Glyssen.Dialogs
 						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
 
 					var newBlockIndices = GetBlockIndices(newBlock);
-					var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
+					var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
 						r => r.BookIndex == newBlockIndices.BookIndex &&
 							r.BlockIndex >= newBlockIndices.BlockIndex);
 					foreach (var block in blocksIndicesNeedingUpdate)
