@@ -1108,6 +1108,100 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()));
 			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber > 9);
 		}
+		
+		[Test]
+		public void StoreCharacterDetail_CallTwiceWithSameCharacter_NotSavedInProject()
+		{
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			Assert.IsFalse(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
+		}
+
+		[Test]
+		public void GetUniqueCharacters_AfterAddingProjectSpecificCharacter_ListIncludesCharacter()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
+				AssignCharacterViewModel.Delivery.Normal);
+			Assert.IsTrue(m_model.GetUniqueCharacters("Larry").Any(c => c.CharacterId == "Larry"));
+		}
+
+		[Test]
+		public void StoreCharacterDetail_CallWithExistingCharacter_Throws()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
+				AssignCharacterViewModel.Delivery.Normal);
+			Assert.Throws<ArgumentException>(() =>
+			{
+				m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			});
+		}
+
+		[Test]
+		public void StoreCharacterDetail_CallWithExistingFactoryCharacter_Throws()
+		{
+			Assert.Throws<ArgumentException>(() =>
+			{
+				m_model.StoreCharacterDetail("Jesus", CharacterGender.Male, CharacterAge.Adult);
+			});
+		}
+
+		[Test]
+		public void SetCharacterAndDelivery_ProjectSpecificCharacter_CharacterDetailSavedInProject()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
+				AssignCharacterViewModel.Delivery.Normal);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
+		}
+
+		[Test]
+		public void StoreCharacterDetail_CharacterDetailChangedBeforeSavingInProject_ChangedDetailsSaved()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
+			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.YoungAdult);
+			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
+				AssignCharacterViewModel.Delivery.Normal);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_TwoAddedCharacters_AddsBothToProject()
+		{
+			Assert.IsFalse(m_testProject.AllCharacterDetailDictionary.ContainsKey("Christ"));
+			Assert.IsFalse(m_testProject.AllCharacterDetailDictionary.ContainsKey("Thaddeus' wife"));
+
+			m_fullProjectRefreshRequired = true;
+			m_model.Mode = BlocksToDisplay.NeedAssignments;
+
+			FindRefInMark(8, 5);
+			m_model.AttemptRefBlockMatchup = true;
+			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
+			m_model.StoreCharacterDetail("Christ", CharacterGender.Male, CharacterAge.Adult);
+			m_model.StoreCharacterDetail("Thaddeus' wife", CharacterGender.Female, CharacterAge.YoungAdult);
+			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Christ"));
+			m_model.SetReferenceTextMatchupCharacter(3, new AssignCharacterViewModel.Character("Thaddeus' wife"));
+
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+
+			var christ = reloadedProject.AllCharacterDetailDictionary["Christ"];
+			Assert.AreEqual(CharacterAge.Adult, christ.Age);
+			Assert.AreEqual(CharacterGender.Male, christ.Gender);
+
+			var wife = reloadedProject.AllCharacterDetailDictionary["Thaddeus' wife"];
+			Assert.AreEqual(CharacterAge.YoungAdult, wife.Age);
+			Assert.AreEqual(CharacterGender.Female, wife.Gender);
+		}
 
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NeedAssignmentsTask_ReferenceTextSetButNoAssignmentsMade_NoChange()
