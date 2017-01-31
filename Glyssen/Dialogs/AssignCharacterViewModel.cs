@@ -21,6 +21,7 @@ namespace Glyssen.Dialogs
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private int m_assignedBlocks;
+		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
@@ -28,6 +29,7 @@ namespace Glyssen.Dialogs
 		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment, int newMaximum);
 		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
+
 		#endregion
 
 		#region Constructors
@@ -111,11 +113,14 @@ namespace Glyssen.Dialogs
 			});
 		}
 
-		public void AddCharacterDetailToProject(string characterId, CharacterGender gender, CharacterAge age)
+		public void StoreCharacterDetail(string characterId, CharacterGender gender, CharacterAge age)
 		{
+			if (m_project.AllCharacterDetailDictionary.ContainsKey(characterId))
+			{
+				throw new ArgumentException("Project already contains a character with ID " + characterId);
+			}
 			var detail = new CharacterDetail { CharacterId = characterId, Gender = gender, Age = age, MaxSpeakers = 1 };
-			m_project.AddProjectCharacterDetail(detail);
-			m_project.SaveProjectCharacterDetailData();
+			m_pendingCharacterDetails[characterId] = detail;
 		}
 
 		private void OnSaveCurrentBook()
@@ -202,8 +207,18 @@ namespace Glyssen.Dialogs
 		{
 			m_currentCharacters = new HashSet<CharacterVerse>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
-			
+				if (m_pendingCharacterDetails.ContainsKey(block.CharacterId))
+				{
+					m_currentCharacters.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
+						block.CharacterId,
+						block.Delivery,
+						null,
+						true));
+				}
+			}
+
 			return GetUniqueCharacters(false);
 		}
 
@@ -488,6 +503,14 @@ namespace Glyssen.Dialogs
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
+			CharacterDetail detail;
+			if (m_pendingCharacterDetails.TryGetValue(character.CharacterId, out detail))
+			{
+				m_project.AddProjectCharacterDetail(detail);
+				m_project.SaveProjectCharacterDetailData();
+				m_pendingCharacterDetails.Remove(detail.CharacterId);
+			}
+
 			var cv = new CharacterVerse(
 				new BCVRef(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV),
 				character.IsNarrator
