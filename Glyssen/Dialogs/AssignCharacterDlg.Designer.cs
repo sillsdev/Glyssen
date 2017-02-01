@@ -96,7 +96,6 @@ namespace Glyssen.Dialogs
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_toolStripLabelFilter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
-			this.m_toolStripButtonExcludeUserConfirmed = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
 			this.m_menuBtnSplitBlock = new System.Windows.Forms.ToolStripButton();
@@ -228,10 +227,10 @@ namespace Glyssen.Dialogs
 			// m_labelWhoSpeaks
 			// 
 			this.m_labelWhoSpeaks.AutoSize = true;
-			this.m_labelWhoSpeaks.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_labelWhoSpeaks, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_labelWhoSpeaks, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_labelWhoSpeaks.BackColor = System.Drawing.SystemColors.Control;
 			this.m_labelWhoSpeaks.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_labelWhoSpeaks, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_labelWhoSpeaks, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_labelWhoSpeaks, "DialogBoxes.AssignCharacterDlg.WhoSpeaks");
@@ -272,8 +271,8 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreChar, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
@@ -357,8 +356,8 @@ namespace Glyssen.Dialogs
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreDel, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
@@ -399,8 +398,8 @@ namespace Glyssen.Dialogs
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_icnCharacterFilter, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_icnCharacterFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.m_icnCharacterFilter.ForeColor = System.Drawing.Color.White;
 			this.glyssenColorPalette.SetForeColor(this.m_icnCharacterFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_icnCharacterFilter.ForeColor = System.Drawing.Color.White;
 			this.m_icnCharacterFilter.Image = global::Glyssen.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnCharacterFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnCharacterFilter, null);
@@ -420,8 +419,8 @@ namespace Glyssen.Dialogs
 			this.m_icnDeliveryFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.glyssenColorPalette.SetBackColor(this.m_icnDeliveryFilter, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_icnDeliveryFilter.ForeColor = System.Drawing.Color.White;
 			this.glyssenColorPalette.SetForeColor(this.m_icnDeliveryFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_icnDeliveryFilter.ForeColor = System.Drawing.Color.White;
 			this.m_icnDeliveryFilter.Image = global::Glyssen.Properties.Resources.search_glyph;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_icnDeliveryFilter, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_icnDeliveryFilter, null);
@@ -446,8 +445,8 @@ namespace Glyssen.Dialogs
 			this.m_btnAddCharacter.FlatAppearance.BorderSize = 2;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnAddCharacter, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnAddCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.m_btnAddCharacter.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_btnAddCharacter, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_btnAddCharacter.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddCharacter, "Add New Character");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddCharacter, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddCharacter, "DialogBoxes.AssignCharacterDlg.AddCharacter");
@@ -471,8 +470,8 @@ namespace Glyssen.Dialogs
 			this.m_btnAddDelivery.FlatAppearance.BorderSize = 2;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnAddDelivery, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_btnAddDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.m_btnAddDelivery.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_btnAddDelivery, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_btnAddDelivery.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnAddDelivery, "Add New Delivery");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnAddDelivery, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnAddDelivery, "DialogBoxes.AssignCharacterDlg.AddDelivery");
@@ -606,7 +605,6 @@ namespace Glyssen.Dialogs
             this.toolStripSeparator1,
             this.m_toolStripLabelFilter,
             this.m_toolStripComboBoxFilter,
-            this.m_toolStripButtonExcludeUserConfirmed,
             this.toolStripSeparator3,
             this.m_scriptureReference,
             this.m_menuBtnSplitBlock});
@@ -715,8 +713,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator2
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator2, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator2, false);
@@ -759,8 +757,8 @@ namespace Glyssen.Dialogs
 			// toolStripSeparator1
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator1, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator1, false);
@@ -784,11 +782,12 @@ namespace Glyssen.Dialogs
 			this.m_toolStripComboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.glyssenColorPalette.SetForeColor(this.m_toolStripComboBoxFilter, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_toolStripComboBoxFilter.Items.AddRange(new object[] {
-            "Quotes not assigned automatically",
+            "Unassigned quotes",
+            "All quotes not assigned automatically",
             "Verses with missing expected quotes",
             "More quotes than expected in verse",
             "Verses with expected quotes",
-            "All Quotes",
+            "All quotes",
             "All Scripture",
             "Verses not aligned with reference text"});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripComboBoxFilter, null);
@@ -800,38 +799,19 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripComboBoxFilter, false);
 			this.m_toolStripComboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.HandleFilterChanged);
 			// 
-			// m_toolStripButtonExcludeUserConfirmed
-			// 
-			this.glyssenColorPalette.SetBackColor(this.m_toolStripButtonExcludeUserConfirmed, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_toolStripButtonExcludeUserConfirmed.CheckOnClick = true;
-			this.m_toolStripButtonExcludeUserConfirmed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.glyssenColorPalette.SetForeColor(this.m_toolStripButtonExcludeUserConfirmed, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_toolStripButtonExcludeUserConfirmed.Image = global::Glyssen.Properties.Resources.yellow_ok_icon;
-			this.m_toolStripButtonExcludeUserConfirmed.ImageTransparentColor = System.Drawing.Color.White;
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_toolStripButtonExcludeUserConfirmed, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_toolStripButtonExcludeUserConfirmed, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_toolStripButtonExcludeUserConfirmed, L10NSharp.LocalizationPriority.NotLocalizable);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_toolStripButtonExcludeUserConfirmed, "DialogBoxes.AssignCharacterDlg.m_toolStripButtonExcludeUserConfirmed");
-			this.m_toolStripButtonExcludeUserConfirmed.Name = "m_toolStripButtonExcludeUserConfirmed";
-			this.m_toolStripButtonExcludeUserConfirmed.Size = new System.Drawing.Size(23, 22);
-			this.m_toolStripButtonExcludeUserConfirmed.Text = "Exclude confirmed";
-			this.m_toolStripButtonExcludeUserConfirmed.ToolTipText = "Exclude blocks that are already user-confirmed";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonExcludeUserConfirmed, false);
-			this.m_toolStripButtonExcludeUserConfirmed.CheckedChanged += new System.EventHandler(this.HandleFilterChanged);
-			// 
 			// toolStripSeparator3
 			// 
 			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator3, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.toolStripSeparator3.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator3, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator3.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
 			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator3, false);
 			// 
 			// m_scriptureReference
 			// 
-			this.glyssenColorPalette.SetBackColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_scriptureReference.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_scriptureReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.glyssenColorPalette.SetForeColor(this.m_scriptureReference, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_scriptureReference, "");
@@ -868,8 +848,8 @@ namespace Glyssen.Dialogs
 			this.m_chkSingleVoice.BackColor = System.Drawing.SystemColors.Control;
 			this.m_chkSingleVoice.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_chkSingleVoice, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_chkSingleVoice.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_chkSingleVoice, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_chkSingleVoice.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_chkSingleVoice, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_chkSingleVoice, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_chkSingleVoice, "DialogBoxes.AssignCharacterDlg.m_chkSingleVoice");
@@ -915,9 +895,10 @@ namespace Glyssen.Dialogs
 			this.m_blocksViewer.AccessibleDescription = "";
 			this.m_blocksViewer.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_blocksViewer.ContentBorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.m_blocksViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.glyssenColorPalette.SetForeColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_blocksViewer.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_blocksViewer, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_blocksViewer, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_blocksViewer, "DialogBoxes.AssignCharacterDlg.ScriptBlocksViewer");
@@ -932,8 +913,8 @@ namespace Glyssen.Dialogs
 			// 
 			// m_progressBar
 			// 
-			this.m_progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.glyssenColorPalette.SetBackColor(this.m_progressBar, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(108)))));
 			this.m_progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.m_progressBar.ForeColor = System.Drawing.Color.White;
 			this.glyssenColorPalette.SetForeColor(this.m_progressBar, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -1453,11 +1434,11 @@ namespace Glyssen.Dialogs
 			// 
 			// m_lblReferenceText
 			// 
-			this.m_lblReferenceText.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_lblReferenceText, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_lblReferenceText.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lblReferenceText.Dock = System.Windows.Forms.DockStyle.Top;
-			this.glyssenColorPalette.SetForeColor(this.m_lblReferenceText, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblReferenceText.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_lblReferenceText, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblReferenceText, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblReferenceText, "DialogBoxes.AssignCharacterDlg.label1");
@@ -1515,8 +1496,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_tabControlCharacterSelection, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_tabControlCharacterSelection.Controls.Add(this.tabPageSelectCharacter);
 			this.m_tabControlCharacterSelection.Controls.Add(this.tabPageMatchReferenceText);
-			this.m_tabControlCharacterSelection.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_tabControlCharacterSelection, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_tabControlCharacterSelection.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_tabControlCharacterSelection.ItemSize = new System.Drawing.Size(91, 18);
 			this.m_tabControlCharacterSelection.Location = new System.Drawing.Point(5, 10);
 			this.m_tabControlCharacterSelection.Name = "m_tabControlCharacterSelection";
@@ -1657,7 +1638,6 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStrip m_toolStrip;
 		private System.Windows.Forms.ToolStripLabel m_toolStripLabelFilter;
 		private System.Windows.Forms.ToolStripComboBox m_toolStripComboBoxFilter;
-		private System.Windows.Forms.ToolStripButton m_toolStripButtonExcludeUserConfirmed;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonGridView;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonHtmlView;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

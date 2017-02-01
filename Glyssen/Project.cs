@@ -652,7 +652,7 @@ namespace Glyssen
 
 		internal void ClearAssignCharacterStatus()
 		{
-			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
+			Status.AssignCharacterMode = BlocksToDisplay.NotYetAssigned;
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
