@@ -743,7 +743,7 @@ namespace Glyssen
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 			{
 				col = GetColumnIndex(ExportColumn.SecondaryReferenceText);
-				rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
+				rowToModify[col] = modify((string)rowToModify[col] ?? Empty, annotationInfo);
 			}
 
 			return rowIndex;
