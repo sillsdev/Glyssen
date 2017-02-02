@@ -47,6 +47,31 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ChangeReferenceText_EnglishToFrenchHeSaid_ReferenceTextChangesToIlADit()
+		{
+			var block = new Block("p", 1, 10);
+			block.BlockElements.Add(new ScriptText("he said."));
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("he said.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English);
+			Assert.AreEqual("il a dit.", block.PrimaryReferenceText);
+			Assert.AreEqual("he said.", block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchHeSaidWithVerseNumber_ReferenceTextChangesToIlADitWithVerseNumber()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "he said.");
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0he said.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English);
+			Assert.AreEqual("{10}\u00A0il a dit.", block.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0he said.", block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
 		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
 		{
 			var block = new Block("c", 4);

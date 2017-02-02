@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using SIL.Scripture;
 using SIL.Xml;
+using static System.Char;
 
 namespace Glyssen
 {
@@ -452,7 +454,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return BlockElements.OfType<ScriptText>().First().Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c));
+				return BlockElements.OfType<ScriptText>().First().Content.All(c => IsPunctuation(c) || IsWhiteSpace(c));
 			}
 		}
 
@@ -955,6 +957,48 @@ namespace Glyssen
 				newRowBValue = newRowBValue.Substring(match.Length);
 			}
 			newRowAValue = leadingVerse + rowB;
+		}
+
+		public void ChangeReferenceText(string bookId, ReferenceText referenceText, Paratext.ScrVers versification)
+		{
+			if (!MatchesReferenceText)
+				return;
+			var refBook = referenceText.Books.FirstOrDefault(b => b.BookId == bookId);
+
+			if (refBook == null)
+				return;
+
+			var refBlocksForPassage = refBook.GetBlocksForVerse(ChapterNumber, InitialStartVerseNumber, LastVerseNum).ToList();
+
+			var referenceTextOfThisBlock = PrimaryReferenceText;
+			var referenceTextBlocks = new List<Block>();
+			do
+			{
+				var matchingRefBlock = refBlocksForPassage.FirstOrDefault(refBlock =>
+					referenceTextOfThisBlock.StartsWith(refBlock.PrimaryReferenceText));
+				if (matchingRefBlock == null)
+				{
+					var englishHeSaidText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English).HeSaidText;
+					if (referenceTextOfThisBlock.StartsWith(englishHeSaidText, StringComparison.OrdinalIgnoreCase))
+					{
+						var primaryRefBlock = new Block(StyleTag, ChapterNumber, InitialStartVerseNumber, InitialEndVerseNumber);
+						primaryRefBlock.BlockElements.Add(new ScriptText(referenceText.HeSaidText));
+						referenceTextBlocks.Add(primaryRefBlock);
+						primaryRefBlock.SetMatchedReferenceBlock(englishHeSaidText);
+						referenceTextOfThisBlock = referenceTextOfThisBlock.Remove(0, englishHeSaidText.Length).TrimStart();
+						continue;
+					}
+					else
+					{
+						// Deal with a verse number (tomorrow)
+					}
+				}
+				Debug.Assert(matchingRefBlock != null, "Write test for this case");
+				referenceTextBlocks.Add(matchingRefBlock);
+				referenceTextOfThisBlock = referenceTextOfThisBlock.Remove(0, matchingRefBlock.PrimaryReferenceText.Length).TrimStart();
+			} while (referenceTextOfThisBlock.Any(c => !IsWhiteSpace(c)));
+
+			SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), versification, referenceText, referenceTextBlocks);
 		}
 	}
 

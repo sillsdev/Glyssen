@@ -616,14 +616,19 @@ namespace Glyssen
 						ReferenceTextType type;
 						if (Enum.TryParse(ReferenceTextIdentifier.CustomIdentifier, out type))
 						{
-							ReferenceTextIdentifier = ReferenceTextIdentifier.GetOrCreate(type);
-							m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+							ChangeReferenceTextIdentifier(ReferenceTextIdentifier.GetOrCreate(type));
 						}
 					}
 				}
 				return m_referenceText;
 			}
-			set { m_referenceText = value; }
+			set
+			{
+				bool changing = m_referenceText != null;
+				m_referenceText = value;
+				if (changing)
+					ChangeReferenceText();
+			}
 		}
 
 		public ReferenceTextIdentifier ReferenceTextIdentifier
@@ -634,9 +639,26 @@ namespace Glyssen
 				if (value.Type == m_metadata.ReferenceTextType && value.CustomIdentifier == m_metadata.ProprietaryReferenceTextIdentifier)
 					return;
 
-				m_metadata.ReferenceTextType = value.Type;
-				m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
-				m_referenceText = null;
+				ChangeReferenceTextIdentifier(value);
+				ChangeReferenceText();
+			}
+		}
+
+		private void ChangeReferenceTextIdentifier(ReferenceTextIdentifier value)
+		{
+			m_metadata.ReferenceTextType = value.Type;
+			m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
+			m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+		}
+
+		private void ChangeReferenceText()
+		{
+			foreach (var book in m_books)
+			{
+				foreach (var block in book.GetScriptBlocks().Where(b => b.MatchesReferenceText))
+				{
+					block.ChangeReferenceText(book.BookId, m_referenceText, Versification);
+				}
 			}
 		}
 
