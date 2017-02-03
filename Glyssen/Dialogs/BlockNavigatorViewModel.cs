@@ -28,6 +28,10 @@ namespace Glyssen.Dialogs
 		AllQuotes = 256,
 		NotAlignedToReferenceText = 512,
 		NotAssignedAutomatically = Unexpected | Ambiguous,
+		/// <summary>
+		/// This name is ambiguous, but we'll keep it around for backwards compatibility.
+		/// </summary>
+		NeedAssignments = NotAssignedAutomatically,
 		NotYetAssigned = NotAssignedAutomatically | ExcludeUserConfirmed,
 		HotSpots = MissingExpectedQuote | MoreQuotesThanExpectedSpeakers | KnownTroubleSpots,
 	}
