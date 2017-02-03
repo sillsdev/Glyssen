@@ -1,4 +1,4 @@
-# Versification  "English"
+# Versification  "Sample"
 # Version=1.9
 #
 # modifications by Reinier de Blois 13/March/2012
