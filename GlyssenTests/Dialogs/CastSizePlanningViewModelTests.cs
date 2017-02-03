@@ -119,8 +119,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void
-			GetCastSizeRowValues_ProjectHasTwoBooksBySameAuthorsWithNoSpeakingParts_AllCastSizesHaveTwoMalesForNarratorAndExtra()
+		public void GetCastSizeRowValues_ProjectHasTwoBooksBySameAuthorsWithNoSpeakingParts_AllCastSizesHaveTwoMalesForNarratorAndExtra()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);

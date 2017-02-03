@@ -216,7 +216,7 @@ namespace Glyssen
 			return Books.Any(b => b.BookId == vernacularBook.BookId);
 		}
 
-		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification)
+		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification, uint predeterminedBlockCount = 0)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
 				throw new ArgumentOutOfRangeException("iBlock");
@@ -236,7 +236,7 @@ namespace Glyssen
 			{
 				nextVerse.Versification = vernacularVersification;
 				return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
-			}, this);
+			}, this, predeterminedBlockCount);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{
@@ -251,6 +251,7 @@ namespace Glyssen
 			var refBook = Books.Single(b => b.BookId == bookId);
 			var refBlockList = refBook.GetScriptBlocks();
 			int iRefBlock = 0;
+			int iRefBlockMemory = -1;
 			// The following is a minor performance enhancement to help when just hooking up one verse's worth of blocks.
 			// In it's current form, it doesn't work for tests that have partial reference texts that don't start at verse 1.
  			// Also, it doesn't take versification mappings into consideration.
@@ -264,9 +265,18 @@ namespace Glyssen
 			//	}
 			//}
 
-			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count && iRefBlock < refBlockList.Count; iVernBlock++, iRefBlock++)
+			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count && (iRefBlock < refBlockList.Count || iRefBlockMemory >= 0); iVernBlock++, iRefBlock++)
 			{
 				var currentVernBlock = vernBlockList[iVernBlock];
+				// TODO: This handles the only case I know of (and for which there is a test) where a versification pulls in verses
+				// from the end of the book to an earlier spot, namely Romans 14:24-26 <- Romans 16:25-27. If we ever have this same
+				// kind of behavior that is pulling from somewhere other than the *end* of the book, the logic to reset iRefBlock
+				// based on iRefBlockMemory will need to be moved/added elsewhere.
+				if (iRefBlockMemory >= 0 && iRefBlock >= refBlockList.Count)
+				{
+					iRefBlock = iRefBlockMemory;
+					iRefBlockMemory = -1;
+				}
 				var currentRefBlock = refBlockList[iRefBlock];
 				var vernInitStartVerse = new VerseRef(bookNum, currentVernBlock.ChapterNumber, currentVernBlock.InitialStartVerseNumber, vernacularVersification);
 				var refInitStartVerse = new VerseRef(bookNum, currentRefBlock.ChapterNumber, currentRefBlock.InitialStartVerseNumber, Versification);
@@ -299,7 +309,7 @@ namespace Glyssen
 						iRefBlock--;
 						continue;
 					default:
-						if (refInitStartVerse > vernInitStartVerse || currentVernBlock.MatchesReferenceText)
+						if (refInitStartVerse.CompareTo(vernInitStartVerse) > 0 || currentVernBlock.MatchesReferenceText)
 						{
 							iRefBlock--;
 							continue;
@@ -328,6 +338,18 @@ namespace Glyssen
 
 				if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk > 1)
 				{
+					var lastRefBlockInVerseChunk = refBlockList[iRefBlock];
+					var refVerse = new VerseRef(bookNum, lastRefBlockInVerseChunk.ChapterNumber, lastRefBlockInVerseChunk.InitialStartVerseNumber, Versification);
+					if (lastVernVerseFound.CompareTo(refVerse) == 0 && lastVernVerseFound.BBBCCCVVV < refVerse.BBBCCCVVV)
+					{
+						// A versification difference has us pulling a verse from later in the text, so we need to get out and look beyond our current
+						// index in the ref text, but remember this spot so we can come back to it.
+						iRefBlockMemory = indexOfRefVerseStart;
+						iRefBlock--;
+						iVernBlock--;
+						continue;
+					}
+
 					// Since there's only one vernacular block for this verse (or verse bridge), just combine all
 					// ref blocks into one and call it a match.
 					vernBlockList[indexOfVernVerseStart].SetMatchedReferenceBlock(bookNum, vernacularVersification, this,

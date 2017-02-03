@@ -33,7 +33,7 @@ namespace Glyssen.Dialogs
 		private readonly AssignCharacterViewModel m_viewModel;
 		private string m_xOfYFmt;
 		private string m_singleVoiceCheckboxFmt;
-		private bool m_promptToCloseWhenAssignmentsAreComplete = true;
+		private bool m_promptToCloseWhenTaskIsComplete;
 		int m_characterListHoveredIndex = -1;
 		private readonly ToolTip m_characterListToolTip = new ToolTip();
 		private bool m_formLoading;
@@ -42,7 +42,7 @@ namespace Glyssen.Dialogs
 		private Font m_primaryReferenceTextFont;
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
-		private readonly string m_defaultBlocksViewerText;
+		private string m_defaultBlocksViewerText;
 		private int m_IndexOfFirstFilterItemRemoved;
 		private object[] m_filterItemsForRainbowModeOnly;
 
@@ -63,6 +63,7 @@ namespace Glyssen.Dialogs
 			L10N.LocalizeComboList(m_toolStripComboBoxFilter, "DialogBoxes.AssignCharacterDlg.FilterOptions");
 			UpdateFilterItems();
 
+			m_defaultBlocksViewerText = m_blocksViewer.Text;
 			m_xOfYFmt = m_labelXofY.Text;
 			m_singleVoiceCheckboxFmt = m_chkSingleVoice.Text;
 
@@ -80,13 +81,15 @@ namespace Glyssen.Dialogs
 				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_IndexOfFirstFilterItemRemoved];
 
 			m_viewModel = viewModel;
+
+			HandleStringsLocalized();
+			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
+
 			if (m_viewModel.CanDisplayReferenceTextForCurrentBlock)
 			{
 				// We want CheckChanged event to fire, so just setting Checked to true is not enough.
-				m_toolStripButtonMatchReferenceText.CheckState = (Settings.Default.AssignCharactersMatchReferenceText ||
-																(m_viewModel.Mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
-					? CheckState.Checked
-					: CheckState.Unchecked;
+				m_toolStripButtonMatchReferenceText.CheckState = (Settings.Default.AssignCharactersMatchReferenceText || m_viewModel.DoingAlignmentTask) ?
+					CheckState.Checked : CheckState.Unchecked;
 				HandleCharacterSelectionTabIndexChanged(m_tabControlCharacterSelection, new EventArgs());
 			}
 			else
@@ -118,7 +121,6 @@ namespace Glyssen.Dialogs
 			m_blocksViewer.Initialize(m_viewModel,
 				AssignCharacterViewModel.Character.GetCharacterIdForUi,
 				block => block.Delivery);
-			m_defaultBlocksViewerText = m_blocksViewer.Text;
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
 
@@ -126,9 +128,6 @@ namespace Glyssen.Dialogs
 
 			m_dataGridReferenceText.DataError += HandleDataGridViewDataError;
 			colPrimary.HeaderText = m_viewModel.PrimaryReferenceTextName;
-
-			HandleStringsLocalized();
-			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
 			colCharacter.DisplayMember = m_listBoxCharacters.DisplayMember = "LocalizedDisplay";
 			colDelivery.DisplayMember = m_listBoxDeliveries.DisplayMember = "LocalizedDisplay";
@@ -144,7 +143,7 @@ namespace Glyssen.Dialogs
 			SetFilterControlsFromMode();
 
 			m_viewModel.CurrentBookSaved += UpdateSavedText;
-			m_viewModel.FilterReset +=HandleFilterReset;
+			m_viewModel.FilterReset += HandleFilterReset;
 
 			BlocksViewerOnMinimumWidthChanged(m_blocksViewer, new EventArgs());
 			m_blocksViewer.MinimumWidthChanged += BlocksViewerOnMinimumWidthChanged;
@@ -187,13 +186,13 @@ namespace Glyssen.Dialogs
 			UpdateNavigationButtonState();
 		}
 
-		void m_viewModel_AssignedBlocksIncremented(AssignCharacterViewModel sender, int increment, int newMaximum)
+		void m_viewModel_AssignedBlocksIncremented(AssignCharacterViewModel sender, int increment)
 		{
 			this.SafeInvoke(() =>
 			{
 				if (m_progressBar.Visible)
 				{
-					m_progressBar.Maximum = newMaximum;
+					m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 					m_progressBar.Increment(increment);
 				}
 			});
@@ -201,11 +200,26 @@ namespace Glyssen.Dialogs
 
 		private void UpdateProgressBarForMode()
 		{
-			if ((m_viewModel.Mode & BlocksToDisplay.NeedAssignments) == BlocksToDisplay.NeedAssignments)
+			if (m_viewModel.InTaskMode)
 			{
 				m_progressBar.Visible = true;
 				m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
-				m_progressBar.Value = m_viewModel.AssignedBlockCount;
+				m_progressBar.Value = m_viewModel.CompletedBlockCount;
+				m_progressBar.UnitName = m_viewModel.DoingAlignmentTask ?
+					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.PassageProgressUnitName", "Passages") : null;
+				m_progressBar.Invalidate();
+				if (m_viewModel.IsCurrentTaskComplete)
+				{
+					if (m_promptToCloseWhenTaskIsComplete)
+					{
+						// At some point while using this dialog, the user had one of the two "task" filters selected
+						// and had not yet completed the task, so now that they are switching back to that filter, we
+						// need to let them know they ARE done with that task now.
+						ShowCompletionMessage();
+					}
+				}
+				else
+					m_promptToCloseWhenTaskIsComplete = true;
 			}
 			else
 			{
@@ -213,31 +227,51 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private void ShowCompletionMessage()
+		{
+			string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.TaskCompleteTitle", "Task Complete");
+			string msg = m_viewModel.DoingAssignmentTask ?
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
+					"All character assignments have been made. ") :
+				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AlignmentsComplete",
+					"Alignment of blocks to the Reference Text is complete. ");
+
+			if (!char.IsWhiteSpace(msg.Last()))
+				msg += " ";
+
+			msg += LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage", "Would you like to return to the main window?");
+			if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				Close();
+				return;
+			}
+			m_promptToCloseWhenTaskIsComplete = false;
+		}
+
 		private void SetFilterControlsFromMode()
 		{
 			var mode = m_viewModel.Mode;
 			Logger.WriteEvent("Initial filter in Identify Speaking Parts dialog: " + mode);
 
-			if ((mode & BlocksToDisplay.NeedAssignments) != 0)
+			if (mode == BlocksToDisplay.NotYetAssigned)
 				m_toolStripComboBoxFilter.SelectedIndex = 0;
-			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
+			else if (mode == BlocksToDisplay.NotAssignedAutomatically)
 				m_toolStripComboBoxFilter.SelectedIndex = 1;
-			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
+			else if ((mode & BlocksToDisplay.MissingExpectedQuote) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 2;
-			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
+			else if ((mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 3;
-			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
+			else if ((mode & BlocksToDisplay.AllExpectedQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 4;
-			else if ((mode & BlocksToDisplay.AllScripture) != 0)
+			else if ((mode & BlocksToDisplay.AllQuotes) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 5;
-			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
+			else if ((mode & BlocksToDisplay.AllScripture) != 0)
 				m_toolStripComboBoxFilter.SelectedIndex = 6;
+			else if ((mode & BlocksToDisplay.NotAlignedToReferenceText) != 0)
+				m_toolStripComboBoxFilter.SelectedIndex = 7;
 			else
 				// ReSharper disable once NotResolvedInText
 				throw new InvalidEnumArgumentException("mode", (int)mode, typeof(BlocksToDisplay));
-
-			if ((mode & BlocksToDisplay.ExcludeUserConfirmed) != 0)
-				m_toolStripButtonExcludeUserConfirmed.Checked = true;
 		}
 
 		private void BlocksViewerVisibleChanged(object sender, EventArgs args)
@@ -365,6 +399,9 @@ namespace Glyssen.Dialogs
 				foreach (AssignCharacterViewModel.Character character in m_viewModel.GetCharactersForCurrentReferenceTextMatchup())
 					colCharacter.Items.Add(character);
 
+				colCharacter.ReadOnly = colCharacter.Items.Count == 1 &&
+					!m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
+
 				foreach (AssignCharacterViewModel.Delivery delivery in m_viewModel.GetDeliveriesForCurrentReferenceTextMatchup())
 					colDelivery.Items.Add(delivery);
 
@@ -374,6 +411,7 @@ namespace Glyssen.Dialogs
 				//colCharacter.Visible = colCharacter.Items.Count > 1 || m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
 				colDelivery.Visible = colDelivery.Items.Count > 1;
 				var primaryColumnIndex = colPrimary.Visible ? colPrimary.Index : colEnglish.Index;
+
 				int i = 0;
 				foreach (var correlatedBlock in m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks)
 				{
@@ -387,8 +425,18 @@ namespace Glyssen.Dialogs
 					string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
 						correlatedBlock.CharacterId;
 
-					if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-						row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character) colCharacter.Items[0];
+
+					if (CharacterVerseData.IsCharacterStandard(characterId))
+					{
+						if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+						{
+							row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character) colCharacter.Items[0];
+						}
+						else
+						{
+							row.Cells[colCharacter.Index].ReadOnly = true;
+						}
+					}
 					else
 					{
 						foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
@@ -414,7 +462,6 @@ namespace Glyssen.Dialogs
 							(row.Cells[colCharacter.Index].Value as AssignCharacterViewModel.Character) == AssignCharacterViewModel.Character.Narrator;
 					}
 				}
-				colCharacter.ReadOnly = colCharacter.Items.Count == 1 && !m_viewModel.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear());
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
 				if (cellToMakeCurrent.ReadOnly)
@@ -482,7 +529,9 @@ namespace Glyssen.Dialogs
 
 		private bool AreSelectionsCompleteForColumn(DataGridViewComboBoxColumn col)
 		{
-			return !col.Visible || m_dataGridReferenceText.Rows.Cast<DataGridViewRow>().All(row => row.Cells[col.Index].Value != null);
+			return !col.Visible ||
+				   m_dataGridReferenceText.Rows.Cast<DataGridViewRow>().All(row => row.Cells[col.Index].Value != null
+																				   || row.Cells[col.Index].ReadOnly);
 		}
 
 		private void ShowCharacterFilter()
@@ -644,14 +693,24 @@ namespace Glyssen.Dialogs
 							DialogResult.Yes;
 					}
 				}
-				else
+				else if (m_userMadeChangesToReferenceTextMatchup)
 				{
-					if (m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
+					if (m_btnApplyReferenceTextMatches.Enabled)
 					{
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
 							"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?");
 						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
 							m_viewModel.ApplyCurrentReferenceTextMatchup();
+					}
+					else
+					{
+						// Technically, we shouyld have a separate message for the case where the Delivery column is showing, but in practice
+						// there is no way for the user to set the value for a cell in the Delivery column to null, so even though our code
+						// checks for this, it can't really happen.
+						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.IncompleteCharacterAssignments",
+							"You have not finished specifying the character information for every block. Would you like to discard the changes you have made?");
+						result = MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo,
+							MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
 					}
 				}
 
@@ -683,7 +742,7 @@ namespace Glyssen.Dialogs
 				if (dlg.ShowDialog() != DialogResult.OK)
 					return;
 
-				m_viewModel.AddCharacterDetailToProject(character, dlg.Gender, dlg.Age);
+				m_viewModel.StoreCharacterDetail(character, dlg.Gender, dlg.Age);
 			}
 
 			var newItem = new AssignCharacterViewModel.Character(character);
@@ -724,6 +783,7 @@ namespace Glyssen.Dialogs
 		}
 
 		#region Form events
+
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
 		{
@@ -783,19 +843,9 @@ namespace Glyssen.Dialogs
 
 		private void MoveOn()
 		{
-			if (m_viewModel.AreAllAssignmentsComplete && m_promptToCloseWhenAssignmentsAreComplete)
-			{
-				string title = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.AssignmentsComplete",
-					"Assignments Complete");
-				string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CloseDialogMessage",
-					"All assignments have been made. Would you like to return to the main window?");
-				if (MessageBox.Show(this, msg, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
-				{
-					Close();
-					return;
-				}
-				m_promptToCloseWhenAssignmentsAreComplete = false;
-			}
+			if (m_viewModel.IsCurrentTaskComplete && m_promptToCloseWhenTaskIsComplete)
+				ShowCompletionMessage();
+
 			if (m_viewModel.CanNavigateToNextRelevantBlock)
 				LoadNextRelevantBlock();
 		}
@@ -807,7 +857,7 @@ namespace Glyssen.Dialogs
 			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
 			if (selectedCharacter != null && selectedCharacter.IsNarrator)
-				m_llMoreDel.Enabled = false;			
+				m_llMoreDel.Enabled = false;
 			UpdateAssignOrApplyAndResetButtonState();
 		}
 
@@ -962,17 +1012,15 @@ namespace Glyssen.Dialogs
 
 				switch (m_toolStripComboBoxFilter.SelectedIndex)
 				{
-					case 0: mode = BlocksToDisplay.NeedAssignments; break;
-					case 1: mode = BlocksToDisplay.MissingExpectedQuote; break;
-					case 2: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-					case 3: mode = BlocksToDisplay.AllExpectedQuotes; break;
-					case 4: mode = BlocksToDisplay.AllQuotes; break;
-					case 6: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
+					case 0: mode = BlocksToDisplay.NotYetAssigned; break;
+					case 1: mode = BlocksToDisplay.NotAssignedAutomatically; break;
+					case 2: mode = BlocksToDisplay.MissingExpectedQuote; break;
+					case 3: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
+					case 4: mode = BlocksToDisplay.AllExpectedQuotes; break;
+					case 5: mode = BlocksToDisplay.AllQuotes; break;
+					case 7: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
 					default: mode = BlocksToDisplay.AllScripture; break;
 				}
-
-				if (m_toolStripButtonExcludeUserConfirmed.Checked)
-					mode |= BlocksToDisplay.ExcludeUserConfirmed;
 
 				Logger.WriteEvent("Changed filter in Identify Speaking Parts dialog: " + mode);
 
@@ -1077,7 +1125,6 @@ namespace Glyssen.Dialogs
 
 		private void HandleSplitBlocksClick(object sender, EventArgs e)
 		{
-
 			Block blockToSplit;
 			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 			{
@@ -1126,6 +1173,8 @@ namespace Glyssen.Dialogs
 		{
 			m_viewModel.SetCurrentBookSingleVoice(m_chkSingleVoice.Checked);
 			UpdateProgressBarForMode();
+			if (!m_chkSingleVoice.Checked && m_viewModel.InTaskMode && !m_viewModel.IsCurrentTaskComplete)
+				m_promptToCloseWhenTaskIsComplete = true;
 			UpdateNavigationButtonState();
 
 			// Enable or disable some controls
@@ -1248,12 +1297,16 @@ namespace Glyssen.Dialogs
 				m_viewModel.AttemptRefBlockMatchup = true;
 				m_blocksViewer.Text =
 					LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlocksViewerInstructionsForMatchReferenceText",
-						"Match reference text to these blocks");
+						"Match reference text for each colored row.");
+				m_saveStatus.Visible = false;
+				m_blocksViewer.ContentBorderStyle = m_dataGridReferenceText.BorderStyle;
 			}
 			else
 			{
 				m_viewModel.AttemptRefBlockMatchup = false;
 				m_blocksViewer.Text = m_defaultBlocksViewerText;
+				m_saveStatus.Visible = true;
+				m_blocksViewer.ContentBorderStyle = BorderStyle.None;
 			}
 			UpdateFilterItems();
 		}
@@ -1293,7 +1346,11 @@ namespace Glyssen.Dialogs
 					selectedDelivery =
 						colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
 					if (selectedDelivery == null)
-						throw new Exception("Selected delivery not found!");
+					{
+						var bibleReference = m_viewModel.CurrentBookId + " " + m_viewModel.CurrentBlock.ChapterNumber + ":" +
+											 m_viewModel.CurrentBlock.InitialStartVerseNumber;
+						throw new Exception("Selected delivery '" + newValue + "' not found! (" + bibleReference + ")");
+					}
 				}
 				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);
 			}
@@ -1342,11 +1399,16 @@ namespace Glyssen.Dialogs
 					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
 					{
 						// The first one should always be "normal" - we want a more specific one, if any.
+						var existingValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value;
 						var delivery = m_viewModel.GetDeliveriesForCharacter(selectedCharacter).LastOrDefault();
-						string deliveryAsString = delivery == null
-							? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
-							: delivery.LocalizedDisplay;
-						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+						if (existingValue != null || (delivery != null && delivery != AssignCharacterViewModel.Delivery.Normal))
+						{
+							string deliveryAsString = delivery == null
+								? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
+								: delivery.LocalizedDisplay;
+							if (existingValue as string != deliveryAsString)
+								m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+						}
 					}
 
 					if (colDelivery.Visible)
@@ -1359,6 +1421,48 @@ namespace Glyssen.Dialogs
 			}
 			m_userMadeChangesToReferenceTextMatchup = true;
 			UpdateAssignOrApplyAndResetButtonState();
+		}
+
+		private void m_dataGridReferenceText_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+		{
+			if (!DesignMode && e.ColumnIndex == colCharacter.Index &&
+				e.RowIndex >= 0 &&
+				m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly &&
+				m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+			{
+				var correlatedBlock = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[e.RowIndex];
+				string characterId = correlatedBlock.CharacterId;
+				e.PaintBackground(e.ClipBounds, (e.State & DataGridViewElementStates.Selected) > 0);
+
+				var cellBounds = e.CellBounds;
+				var adjust = (new DataGridViewComboBoxEditingControl()).Margin.Top;
+				cellBounds.Height -= adjust;
+				cellBounds.Y += adjust;
+				TextRenderer.DrawText(e.Graphics, AssignCharacterViewModel.Character.GetCharacterIdForUi(characterId),
+					e.CellStyle.Font, cellBounds, e.CellStyle.ForeColor,
+					TextFormatFlags.WordBreak | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.GlyphOverhangPadding);
+				e.Handled = true;
+			}
+		}
+
+		private void m_dataGridReferenceText_CellEnter(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
+				return;
+			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0 || (!Focused && (m_dataGridReferenceText.EditingControl == null || !m_dataGridReferenceText.EditingControl.Focused)))
+			{
+				var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
+				if (m_dataGridReferenceText.CurrentRow != null && m_dataGridReferenceText.CurrentRow.Height < minHeight)
+					m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
+			}
+		}
+
+		private void m_dataGridReferenceText_CellLeave(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
+				return;
+			if (e.RowIndex >= 0 && e.RowIndex < m_dataGridReferenceText.RowCount)
+				m_dataGridReferenceText.Rows[e.RowIndex].MinimumHeight = m_dataGridReferenceText.RowTemplate.MinimumHeight;
 		}
 
 		private void HandleMouseEnterButtonThatAffectsEntireGridRow(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
 using SIL.Extensions;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen
@@ -21,6 +22,8 @@ namespace Glyssen
 
 		public static void MigrateProjectData(Project project, int fromControlFileVersion)
 		{
+			Logger.WriteEvent("Migrating project " + project.ProjectFilePath);
+
 			if (s_lastProjectMigrated != project)
 				s_migrationsRun = 0;
 

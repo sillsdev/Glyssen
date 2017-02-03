@@ -368,7 +368,7 @@ Gideon (Jerubbaal)	1	Male				JDG 6:13 <-(21 more)-> JDG 8:24
 Gilead, elders of	-1	Male				JDG 11:6 <-(1 more)-> JDG 11:10
 Gilead, leaders of	-1	Male				JDG 10:18
 Gilead, men of	-1	Male				JDG 12:5 & JDG 12:6
-God	1	Male		Y		GEN 1:3 <-(5368 more)-> REV 21:8
+God	1	Male		Y		GEN 1:3 <-(5371 more)-> REV 21:8
 Goliath, Philistine champion	1	Male	Adult			1SA 17:8 <-(3 more)-> 1SA 17:44
 Good Priest	1	Male			Many quotes resolve to this pseudo-character by default	
 great company of heavenly host	-1		Adult			LUK 2:14
@@ -1111,7 +1111,7 @@ worshipers of the beast	-1					REV 13:4
 Xerxes, king of Persia and Media (Ahasuerus)	1	Male				EST 1:15 <-(15 more)-> EST 9:12
 you (hypothetical Gentile)	1					ROM 11:19
 you (hypothetical)	-1					PRO 3:28 <-(9 more)-> 1PE 1:17
-you (people of Zion, restored)	-1					ISA 30:22
+you (people of Zion, restored)	-1					ISA 14:4 <-(17 more)-> ISA 30:22
 you (rebellious people)	-1					ISA 30:16
 you ought to say	1					JAS 4:15
 young man	1	Male	YoungAdult			NUM 11:27

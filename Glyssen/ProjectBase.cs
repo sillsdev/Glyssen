@@ -18,7 +18,7 @@ namespace Glyssen
 		public static ScrVers LoadVersification(string vrsPath)
 		{
 			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("Project.DefaultCustomVersificationName",
-				"custom", "Used as the versification name when a the versification file does not contain a name."));
+				"custom", "Used as the versification name when the versification file does not contain a name."));
 		}
 
 		protected static string ProjectsBaseFolder

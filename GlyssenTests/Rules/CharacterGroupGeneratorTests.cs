@@ -1426,6 +1426,7 @@ namespace GlyssenTests.Rules
 		{
 			m_testProject.VoiceActorList.AllActors.Clear();
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NotSet;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
@@ -1461,8 +1462,43 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
+		public void GenerateCharacterGroups_LargeCast_NarrationByAuthor_NarratorsGroupedByAuthorAndHaveDistinctNarrationRoles()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			SetVoiceActors(34, 4);
+			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
+
+			Assert.AreEqual(38, groups.Count);
+			var narMark = GetNarratorGroupForBook(groups, "MRK");
+			var narLuke = GetNarratorGroupForBook(groups, "LUK");
+			var narPaul = GetNarratorGroupForBook(groups, "EPH");
+			var narHebrews = GetNarratorGroupForBook(groups, "HEB");
+			var narJohn = GetNarratorGroupForBook(groups, "1JN");
+			var narJude = GetNarratorGroupForBook(groups, "JUD");
+
+			Assert.AreEqual(1, narMark.CharacterIds.Count);
+			Assert.AreEqual(2, narLuke.CharacterIds.Count);
+			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(4, narPaul.CharacterIds.Count);
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains("Paul"));
+			Assert.AreEqual(1, narHebrews.CharacterIds.Count);
+			Assert.AreEqual(4, narJohn.CharacterIds.Count);
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.AreEqual(1, narJude.CharacterIds.Count);
+		}
+
+		[Test]
 		public void GenerateCharacterGroups_LargeCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveDistinctNarrationRoles()
 		{
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
@@ -1493,8 +1529,43 @@ namespace GlyssenTests.Rules
 		}
 
 		[Test]
+		public void GenerateCharacterGroups_SmallCast_NarrationByAuthor_NarratorsGroupedByAuthorAndHaveCharacterRolesInOtherBooks()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			SetVoiceActors(10, 2);
+			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
+
+			Assert.AreEqual(12, groups.Count);
+			var narMark = GetNarratorGroupForBook(groups, "MRK");
+			var narLuke = GetNarratorGroupForBook(groups, "LUK");
+			var narPaul = GetNarratorGroupForBook(groups, "EPH");
+			var narHebrews = GetNarratorGroupForBook(groups, "HEB");
+			var narJohn = GetNarratorGroupForBook(groups, "1JN");
+			var narJude = GetNarratorGroupForBook(groups, "JUD");
+
+			Assert.IsTrue(narMark.CharacterIds.Count > 1);
+			Assert.IsTrue(narLuke.CharacterIds.Count > 2);
+			Assert.IsTrue(narLuke.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Count >= 4);
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narPaul.CharacterIds.Contains("Paul"));
+			Assert.IsTrue(narHebrews.CharacterIds.Count > 1);
+			Assert.IsTrue(narJohn.CharacterIds.Count > 4);
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
+			Assert.IsTrue(narJude.CharacterIds.Count > 1);
+		}
+
+		[Test]
 		public void GenerateCharacterGroups_SmallCast_NumberOfNarratorsMatchAuthors_NarratorsGroupedByAuthorAndHaveCharacterRolesInOtherBooks()
 		{
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;

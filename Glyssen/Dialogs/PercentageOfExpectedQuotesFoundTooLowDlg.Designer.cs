@@ -86,8 +86,8 @@
 			// m_rdoUseSettings
 			// 
 			this.m_rdoUseSettings.AutoSize = true;
-			this.glyssenColorPalette1.SetBackColor(this.m_rdoUseSettings, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoUseSettings.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette1.SetBackColor(this.m_rdoUseSettings, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoUseSettings.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette1.SetFlatAppearanceBorderColor(this.m_rdoUseSettings, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_rdoUseSettings.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -107,9 +107,6 @@
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableLayoutPanel1.AutoSize = true;
 			this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.glyssenColorPalette1.SetBackColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.BackColor);
@@ -122,8 +119,9 @@
 			this.tableLayoutPanel1.Controls.Add(this.m_lblPossibleProblemsWithFirstLevelQuotes, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.m_btnOk, 0, 5);
 			this.tableLayoutPanel1.Controls.Add(this.m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash, 0, 2);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.glyssenColorPalette1.SetForeColor(this.tableLayoutPanel1, Glyssen.Utilities.GlyssenColors.Default);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 13);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 12);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 6;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -133,7 +131,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 213);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(444, 215);
 			this.tableLayoutPanel1.TabIndex = 5;
 			this.glyssenColorPalette1.SetUsePaletteColors(this.tableLayoutPanel1, false);
 			// 
@@ -160,8 +158,8 @@
 			// m_rdoReview
 			// 
 			this.m_rdoReview.AutoSize = true;
-			this.glyssenColorPalette1.SetBackColor(this.m_rdoReview, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoReview.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette1.SetBackColor(this.m_rdoReview, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_rdoReview.Checked = true;
 			this.m_rdoReview.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette1.SetFlatAppearanceBorderColor(this.m_rdoReview, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -193,7 +191,7 @@
 			this.l10NSharpExtender1.SetLocalizationComment(this.m_btnOk, null);
 			this.l10NSharpExtender1.SetLocalizationPriority(this.m_btnOk, L10NSharp.LocalizationPriority.High);
 			this.l10NSharpExtender1.SetLocalizingId(this.m_btnOk, "Common.OK");
-			this.m_btnOk.Location = new System.Drawing.Point(182, 187);
+			this.m_btnOk.Location = new System.Drawing.Point(184, 189);
 			this.m_btnOk.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
 			this.m_btnOk.Name = "m_btnOk";
 			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
@@ -248,6 +246,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "PercentageOfExpectedQuotesFoundTooLowDlg";
+			this.Padding = new System.Windows.Forms.Padding(10, 12, 10, 12);
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

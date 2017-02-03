@@ -35,14 +35,10 @@ namespace GlyssenTests.Rules
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HOS", CharacterVerseData.StandardCharacter.Narrator)] = 12000;
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)] = 1000;
 			var authorStats = new List<AuthorStats>();
-			var jeremiah = new BiblicalAuthors.Author { Name = "Jeremiah" };
-			var ezekiel = new BiblicalAuthors.Author { Name = "Ezekiel" };
-			var hosea = new BiblicalAuthors.Author { Name = "Hosea" };
-			var jude = new BiblicalAuthors.Author { Name = "Jude" };
-			authorStats.Add(new AuthorStats(jeremiah, keyStrokesByBook, "JER"));
-			authorStats.Add(new AuthorStats(ezekiel, keyStrokesByBook, "EZK"));
-			authorStats.Add(new AuthorStats(hosea, keyStrokesByBook, "HOS"));
-			authorStats.Add(new AuthorStats(jude, keyStrokesByBook, "JUD"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("HOS"), keyStrokesByBook, "HOS"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JUD"), keyStrokesByBook, "JUD"));
 
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
@@ -67,18 +63,13 @@ namespace GlyssenTests.Rules
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator)] = 20000; // 42000 combined
 			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)] = 22000;
 			var authorStats = new List<AuthorStats>();
-			var moses = new BiblicalAuthors.Author { Name = "Moses" };
-			var isaiah = new BiblicalAuthors.Author { Name = "Isaiah" };
-			var jeremiah = new BiblicalAuthors.Author { Name = "Jeremiah" };
-			var ezekiel = new BiblicalAuthors.Author { Name = "Ezekiel" };
-			var luke = new BiblicalAuthors.Author { Name = "Luke" };
-			var john = new BiblicalAuthors.Author { Name = "John" };
-			authorStats.Add(new AuthorStats(moses, keyStrokesByBook, "GEN"));
-			authorStats.Add(new AuthorStats(isaiah, keyStrokesByBook, "ISA"));
-			authorStats.Add(new AuthorStats(jeremiah, keyStrokesByBook, "JER"));
-			authorStats.Add(new AuthorStats(ezekiel, keyStrokesByBook, "EZK"));
-			authorStats.Add(new AuthorStats(luke, keyStrokesByBook, "LUK", "ACT"));
-			authorStats.Add(new AuthorStats(john, keyStrokesByBook, "JHN", "REV"));
+
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), keyStrokesByBook, "GEN"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("ISA"), keyStrokesByBook, "ISA"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("LUK"), keyStrokesByBook, "LUK", "ACT"));
+			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JHN"), keyStrokesByBook, "JHN", "REV"));
 
 			var narratorGroups = GetNarratorCharacterGroups(3);
 
@@ -273,44 +264,44 @@ namespace GlyssenTests.Rules
 
 			m_authorStats = new List<AuthorStats>();
 
-			m_moses = new BiblicalAuthors.Author {Name = "Moses"};
-			m_joshua = new BiblicalAuthors.Author {Name = "Joshua"};
-			m_judges = new BiblicalAuthors.Author {Name = "Author of Judges"};
-			m_ruth = new BiblicalAuthors.Author {Name = "Author of Ruth"};
-			m_samuel = new BiblicalAuthors.Author {Name = "Samuel"};
-			m_kings = new BiblicalAuthors.Author {Name = "Author of Kings"};
-			m_chronicles = new BiblicalAuthors.Author {Name = "Author of Chronicles"};
-			m_ezra = new BiblicalAuthors.Author {Name = "Ezra"};
-			m_nehemiah = new BiblicalAuthors.Author {Name = "Nehemiah"};
-			m_esther = new BiblicalAuthors.Author {Name = "Author of Esther"};
-			m_job = new BiblicalAuthors.Author {Name = "Job"};
-			m_psalms = new BiblicalAuthors.Author {Name = "Author of Psalms"};
-			m_solomon = new BiblicalAuthors.Author {Name = "Solomon"};
-			m_isaiah = new BiblicalAuthors.Author {Name = "Isaiah"};
-			m_jeremiah = new BiblicalAuthors.Author {Name = "Jeremiah"};
-			m_ezekiel = new BiblicalAuthors.Author {Name = "Ezekiel"};
-			m_daniel = new BiblicalAuthors.Author {Name = "Daniel"};
-			m_hosea = new BiblicalAuthors.Author {Name = "Hosea"};
-			m_joel = new BiblicalAuthors.Author {Name = "Joel"};
-			m_amos = new BiblicalAuthors.Author {Name = "Amos"};
-			m_obadiah = new BiblicalAuthors.Author {Name = "Obadiah"};
-			m_jonah = new BiblicalAuthors.Author {Name = "Jonah"};
-			m_micah = new BiblicalAuthors.Author {Name = "Micah"};
-			m_nahum = new BiblicalAuthors.Author {Name = "Nahum"};
-			m_habakkuk = new BiblicalAuthors.Author {Name = "Habakkuk"};
-			m_zephaniah = new BiblicalAuthors.Author {Name = "Zephaniah"};
-			m_haggai = new BiblicalAuthors.Author {Name = "Haggai"};
-			m_zechariah = new BiblicalAuthors.Author {Name = "Zechariah"};
-			m_malachi = new BiblicalAuthors.Author {Name = "Malachi"};
-			m_matthew = new BiblicalAuthors.Author {Name = "Matthew"};
-			m_mark = new BiblicalAuthors.Author {Name = "Mark"};
-			m_luke = new BiblicalAuthors.Author {Name = "Luke"};
-			m_john = new BiblicalAuthors.Author {Name = "John"};
-			m_paul = new BiblicalAuthors.Author {Name = "Paul"};
-			m_hebrews = new BiblicalAuthors.Author {Name = "Author of Hebrews"};
-			m_james = new BiblicalAuthors.Author {Name = "James"};
-			m_peter = new BiblicalAuthors.Author {Name = "Peter"};
-			m_jude = new BiblicalAuthors.Author {Name = "Jude"};
+			m_moses = BiblicalAuthors.GetAuthorOfBook("GEN"); // Moses
+			m_joshua = BiblicalAuthors.GetAuthorOfBook("JOS"); //Joshua
+			m_judges = BiblicalAuthors.GetAuthorOfBook("JDG"); //Author of Judges
+			m_ruth = BiblicalAuthors.GetAuthorOfBook("RUT"); //Author of Ruth
+			m_samuel = BiblicalAuthors.GetAuthorOfBook("1SA"); //Samuel
+			m_kings = BiblicalAuthors.GetAuthorOfBook("1KI"); //Author of Kings
+			m_chronicles = BiblicalAuthors.GetAuthorOfBook("1CH"); //Author of Chronicles
+			m_ezra = BiblicalAuthors.GetAuthorOfBook("EZR"); //Ezra
+			m_nehemiah = BiblicalAuthors.GetAuthorOfBook("NEH"); //Nehemiah
+			m_esther = BiblicalAuthors.GetAuthorOfBook("EST"); //Author of Esther
+			m_job = BiblicalAuthors.GetAuthorOfBook("JOB"); //Job
+			m_psalms = BiblicalAuthors.GetAuthorOfBook("PSA"); //Author of Psalms
+			m_solomon = BiblicalAuthors.GetAuthorOfBook("PRO"); //Solomon
+			m_isaiah = BiblicalAuthors.GetAuthorOfBook("ISA"); //Isaiah
+			m_jeremiah = BiblicalAuthors.GetAuthorOfBook("JER"); //Jeremiah
+			m_ezekiel = BiblicalAuthors.GetAuthorOfBook("EZK"); //Ezekiel
+			m_daniel = BiblicalAuthors.GetAuthorOfBook("DAN"); //Daniel
+			m_hosea = BiblicalAuthors.GetAuthorOfBook("HOS"); //Hosea
+			m_joel = BiblicalAuthors.GetAuthorOfBook("JOL"); //Joel
+			m_amos = BiblicalAuthors.GetAuthorOfBook("AMO"); //Amos
+			m_obadiah = BiblicalAuthors.GetAuthorOfBook("OBA"); //Obadiah
+			m_jonah = BiblicalAuthors.GetAuthorOfBook("JON"); //Jonah
+			m_micah = BiblicalAuthors.GetAuthorOfBook("MIC"); //Micah
+			m_nahum = BiblicalAuthors.GetAuthorOfBook("NAM"); //Nahum
+			m_habakkuk = BiblicalAuthors.GetAuthorOfBook("HAB"); //Habakkuk
+			m_zephaniah = BiblicalAuthors.GetAuthorOfBook("ZEP"); //Zephaniah
+			m_haggai = BiblicalAuthors.GetAuthorOfBook("HAG"); //Haggai
+			m_zechariah = BiblicalAuthors.GetAuthorOfBook("ZEC"); //Zechariah
+			m_malachi = BiblicalAuthors.GetAuthorOfBook("MAL"); //Malachi
+			m_matthew = BiblicalAuthors.GetAuthorOfBook("MAT"); //Matthew
+			m_mark = BiblicalAuthors.GetAuthorOfBook("MRK"); //Mark
+			m_luke = BiblicalAuthors.GetAuthorOfBook("LUK"); //Luke
+			m_john = BiblicalAuthors.GetAuthorOfBook("JHN"); //John
+			m_paul = BiblicalAuthors.GetAuthorOfBook("ROM"); //Paul
+			m_hebrews = BiblicalAuthors.GetAuthorOfBook("HEB"); //Author of Hebrews
+			m_james = BiblicalAuthors.GetAuthorOfBook("JAS"); //James
+			m_peter = BiblicalAuthors.GetAuthorOfBook("1PE"); //Peter
+			m_jude = BiblicalAuthors.GetAuthorOfBook("JUD"); //Jude
 
 			m_authorStats.Add(new AuthorStats(m_moses, m_keyStrokesByBook, "GEN", "EXO", "LEV", "NUM", "DEU"));
 			m_authorStats.Add(new AuthorStats(m_joshua, m_keyStrokesByBook, "JOS"));
