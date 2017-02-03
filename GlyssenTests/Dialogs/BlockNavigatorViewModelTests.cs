@@ -249,6 +249,23 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(block1, m_model.CurrentBlock);
 		}
 
+		/// <summary>
+		/// PG-909
+		/// </summary>
+		[Test]
+		public void SetMode_SwitchFromNotAssignedAutomaticallyToNotAlignedWithReferenceText_CurrentMatchupIsRelevant_RelevantBlockIndicesSelected()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			FindRefInMark(8, 5);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			var origMatchup = m_model.CurrentReferenceTextMatchup;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook);
+			Assert.AreEqual(origMatchup.OriginalBlockCount, m_model.CurrentReferenceTextMatchup.OriginalBlockCount);
+		}
+
 		[Test]
 		public void BlockCountForCurrentBook_TestMrk_ReturnsTrue()
 		{

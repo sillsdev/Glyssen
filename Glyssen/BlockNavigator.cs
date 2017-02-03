@@ -402,7 +402,7 @@ namespace Glyssen
 			}
 		}
 
-		public int EffectiveFinalBlockIndex => BlockIndex + (int)MultiBlockCount - 1;
+		public int EffectiveFinalBlockIndex => IsMultiBlock ? BlockIndex + (int)MultiBlockCount - 1 : BlockIndex;
 
 		public bool IsUndefined => BookIndex == -1 || BlockIndex == -1;
 

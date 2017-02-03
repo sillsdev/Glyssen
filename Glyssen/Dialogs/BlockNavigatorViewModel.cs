@@ -383,8 +383,13 @@ namespace Glyssen.Dialogs
 
 		private bool SetAsCurrentLocationIfRelevant(BookBlockIndices indices)
 		{
-			var i = m_relevantBookBlockIndices.IndexOf(indices);
-			if (i < 0)
+			int i;
+			for (i = 0; i < m_relevantBookBlockIndices.Count; i++)
+			{
+				if (m_relevantBookBlockIndices[i] == indices || m_relevantBookBlockIndices[i].Contains(indices))
+					break;
+			}
+			if (i == m_relevantBookBlockIndices.Count)
 				return false;
 			m_currentRelevantIndex = i;
 			m_temporarilyIncludedBookBlockIndices = null;
