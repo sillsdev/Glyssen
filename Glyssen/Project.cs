@@ -657,7 +657,8 @@ namespace Glyssen
 			{
 				foreach (var block in book.GetScriptBlocks().Where(b => b.MatchesReferenceText))
 				{
-					block.ChangeReferenceText(book.BookId, m_referenceText, Versification);
+					// TODO: Implement delgate
+					block.ChangeReferenceText(book.BookId, m_referenceText, Versification, () => true);
 				}
 			}
 		}

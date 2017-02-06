@@ -49,26 +49,111 @@ namespace GlyssenTests
 		[Test]
 		public void ChangeReferenceText_EnglishToFrenchHeSaid_ReferenceTextChangesToIlADit()
 		{
+			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 			var block = new Block("p", 1, 10);
-			block.BlockElements.Add(new ScriptText("he said."));
+			block.BlockElements.Add(new ScriptText("dijo."));
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			block.SetMatchedReferenceBlock("he said.");
+			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
-			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English);
-			Assert.AreEqual("il a dit.", block.PrimaryReferenceText);
-			Assert.AreEqual("he said.", block.ReferenceBlocks.Single().PrimaryReferenceText);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English, () => true);
+			Assert.AreEqual(rtFrench.HeSaidText, block.PrimaryReferenceText);
+			Assert.AreEqual(rtEnglish.HeSaidText, block.ReferenceBlocks.Single().PrimaryReferenceText);
 		}
 
 		[Test]
 		public void ChangeReferenceText_EnglishToFrenchHeSaidWithVerseNumber_ReferenceTextChangesToIlADitWithVerseNumber()
 		{
-			var block = new Block("p", 1, 10).AddVerse(10, "he said.");
+			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var block = new Block("p", 1, 10).AddVerse(10, "dijo."); // vernacular
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
-			block.SetMatchedReferenceBlock("{10}\u00A0he said.");
+			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
-			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English);
-			Assert.AreEqual("{10}\u00A0il a dit.", block.PrimaryReferenceText);
-			Assert.AreEqual("{10}\u00A0he said.", block.ReferenceBlocks.Single().PrimaryReferenceText);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English, () => true);
+			Assert.AreEqual("{10}\u00A0" + rtFrench.HeSaidText, block.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0" + rtEnglish.HeSaidText, block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_UserRequestsClearing_ReferenceTextCleared()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English, () => true);
+			Assert.IsFalse(block.MatchesReferenceText);
+			Assert.IsNull(block.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_UserRequestsLeavingUnchanged_ReferenceTextNotModified()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English, () => false);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.PrimaryReferenceText);
+			Assert.IsFalse(block.ReferenceBlocks.Single().ReferenceBlocks.Any());
+			Assert.IsNull(block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyAfterVerseNumber_ReferenceTextNotModified()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0     ");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English, () => false);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0", block.PrimaryReferenceText);
+			Assert.IsTrue(block.ReferenceBlocks.Single().MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0", block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyNoVerseNumber_ReferenceTextNotModified()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("     ");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, ScrVers.English, () => false);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("", block.PrimaryReferenceText);
+			Assert.IsTrue(block.ReferenceBlocks.Single().MatchesReferenceText);
+			Assert.AreEqual("", block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToAzeriDifferentNumberOfBlockElements_DoesNotMatch_UserRequestsLeavingUnchanged_ReferenceTextNotModified()
+		{
+			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
+			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+			int callbackCount = 0;
+			block.ChangeReferenceText("REV", rtAzeri, ScrVers.English, () => { callbackCount++; return false; });
+			Assert.AreEqual(1, callbackCount);
+			Assert.AreEqual("{17}\u00A0Stuff that doesn't match...", block.PrimaryReferenceText);
+			Assert.IsFalse(block.ReferenceBlocks.Single().ReferenceBlocks.Any());
+			Assert.IsNull(block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToAzeriDifferentNumberOfBlockElements_DoesNotMatch_UserRequestsClearing_ReferenceTextCleared()
+		{
+			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
+			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+			int callbackCount = 0;
+			block.ChangeReferenceText("REV", rtAzeri, ScrVers.English, () => { callbackCount++; return true; });
+			Assert.AreEqual(1, callbackCount);
+			Assert.IsFalse(block.MatchesReferenceText);
+			Assert.IsNull(block.PrimaryReferenceText);
 		}
 
 		[Test]

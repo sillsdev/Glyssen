@@ -89,10 +89,7 @@ namespace Glyssen
 				}
 
 				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
-				{
 					blockToSplit.MatchesReferenceText = false;
-					blockToSplit.ReferenceBlocks.Clear();
-				}
 
 				blockToSplit.SplitId = newBlock.SplitId = splitId;
 			}
