@@ -20,19 +20,20 @@ namespace Glyssen.Dialogs
 		private readonly CharacterIdComparer m_characterComparer = new CharacterIdComparer();
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
-		private int m_assignedBlocks;
+		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
 
-		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment, int newMaximum);
+		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment);
 		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
+
 		#endregion
 
 		#region Constructors
 		public AssignCharacterViewModel(Project project)
-			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NeedAssignments, project.Status.AssignCharacterBlock)
+			: this(project, project.Status.AssignCharacterMode != 0 ? project.Status.AssignCharacterMode : BlocksToDisplay.NotYetAssigned, project.Status.AssignCharacterBlock)
 		{
 		}
 
@@ -45,7 +46,7 @@ namespace Glyssen.Dialogs
 		#endregion
 
 		#region Public properties
-		public int AssignedBlockCount { get { return m_assignedBlocks; } }
+		public int CompletedBlockCount { get; private set; }
 
 		public override BlocksToDisplay Mode
 		{
@@ -57,20 +58,17 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public bool AreAllAssignmentsComplete
-		{
-			get { return m_assignedBlocks == m_relevantBlocks.Count; }
-		}
+		public bool DoingAssignmentTask => (Mode & BlocksToDisplay.NotAssignedAutomatically) > 0;
 
-		public bool IsCurrentBookSingleVoice
-		{
-			get { return CurrentBook.SingleVoice; }
-		}
+		public bool DoingAlignmentTask => Mode == BlocksToDisplay.NotAlignedToReferenceText;
 
-		public bool HasSecondaryReferenceText
-		{
-			get { return m_project.ReferenceText.HasSecondaryReferenceText; }
-		}
+		public bool InTaskMode => DoingAssignmentTask || DoingAlignmentTask;
+
+		public bool IsCurrentTaskComplete => InTaskMode && CompletedBlockCount == m_relevantBookBlockIndices.Count;
+
+		public bool IsCurrentBookSingleVoice => CurrentBook.SingleVoice;
+
+		public bool HasSecondaryReferenceText => m_project.ReferenceText.HasSecondaryReferenceText;
 
 		public string PrimaryReferenceTextName => m_project.ReferenceText.LanguageName;
 		#endregion
@@ -93,7 +91,7 @@ namespace Glyssen.Dialogs
 			// REVIEW: Can/should we keep it in rainbow mode even for single-voice books?
 			if (singleVoice)
 			{
-				m_temporarilyIncludedBlock = GetCurrentBlockIndices();
+				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
 				ClearBlockMatchup();
 			}
 			else // TODO: Ensure test coverage for this
@@ -111,11 +109,14 @@ namespace Glyssen.Dialogs
 			});
 		}
 
-		public void AddCharacterDetailToProject(string characterId, CharacterGender gender, CharacterAge age)
+		public void StoreCharacterDetail(string characterId, CharacterGender gender, CharacterAge age)
 		{
+			if (m_project.AllCharacterDetailDictionary.ContainsKey(characterId))
+			{
+				throw new ArgumentException("Project already contains a character with ID " + characterId);
+			}
 			var detail = new CharacterDetail { CharacterId = characterId, Gender = gender, Age = age, MaxSpeakers = 1 };
-			m_project.AddProjectCharacterDetail(detail);
-			m_project.SaveProjectCharacterDetailData();
+			m_pendingCharacterDetails[characterId] = detail;
 		}
 
 		private void OnSaveCurrentBook()
@@ -126,8 +127,7 @@ namespace Glyssen.Dialogs
 
 		private void OnAssignedBlocksIncremented(int increment)
 		{
-			if (AssignedBlocksIncremented != null)
-				AssignedBlocksIncremented(this, increment, m_relevantBlocks.Count);
+			AssignedBlocksIncremented?.Invoke(this, increment);
 		}
 
 		#region Overridden methods
@@ -143,21 +143,7 @@ namespace Glyssen.Dialogs
 			{
 				if (CurrentReferenceTextMatchup == null || !CurrentReferenceTextMatchup.IncludesBlock(CurrentBlock))
 				{
-					//bool doMatchup = CurrentBlock.MultiBlockQuote == MultiBlockQuote.None;
-					//if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.Start)
-					//{
-					//	var firstVerseInMultiBlockQuote = CurrentBlock.InitialEndVerseNumber == 0 ? CurrentBlock.InitialStartVerseNumber :
-					//		CurrentBlock.InitialEndVerseNumber;
-					//	var lastVerseInMultiBlockQuote =
-					//		GetNthBlockInCurrentBook(GetIndicesOfQuoteContinuationBlocks(CurrentBlock).Last()).LastVerseNum;
-					//	doMatchup = firstVerseInMultiBlockQuote == lastVerseInMultiBlockQuote;
-					//	if (!doMatchup)
-					//		ClearBlockMatchup();
-					//}
-					//if (doMatchup)
-					//{
 					SetBlockMatchupForCurrentVerse();
-					//}
 				}
 				else
 				{
@@ -170,14 +156,14 @@ namespace Glyssen.Dialogs
 
 		protected override void PopulateRelevantBlocks()
 		{
-			m_assignedBlocks = 0;
+			CompletedBlockCount = 0;
 			base.PopulateRelevantBlocks();
 		}
 
 		protected override void RelevantBlockAdded(Block block)
 		{
 			if (block.UserConfirmed || IsCurrentBookSingleVoice)
-				m_assignedBlocks++;
+				CompletedBlockCount++;
 		}
 
 		protected override void StoreCurrentBlockIndices()
@@ -202,8 +188,18 @@ namespace Glyssen.Dialogs
 		{
 			m_currentCharacters = new HashSet<CharacterVerse>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
+			{
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
-			
+				if (m_pendingCharacterDetails.ContainsKey(block.CharacterId))
+				{
+					m_currentCharacters.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
+						block.CharacterId,
+						block.Delivery,
+						null,
+						true));
+				}
+			}
+
 			return GetUniqueCharacters(false);
 		}
 
@@ -419,7 +415,7 @@ namespace Glyssen.Dialogs
 		{
 			if (!CurrentBlockInOriginal.UserConfirmed)
 			{
-				m_assignedBlocks++;
+				CompletedBlockCount++;
 				OnAssignedBlocksIncremented(1);
 			}
 
@@ -438,8 +434,15 @@ namespace Glyssen.Dialogs
 
 		public override void ApplyCurrentReferenceTextMatchup()
 		{
-			var numberOfBlocksToAssignAndConfirm = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
-			int origRelevantBlocks = m_relevantBlocks.Count;
+			int numberOfBlocksCompleted = 0;
+			if (DoingAssignmentTask)
+			{
+				numberOfBlocksCompleted = CurrentReferenceTextMatchup.OriginalBlocks.Count(b => !b.UserConfirmed && b.CharacterIsUnclear());
+			}
+			else if (DoingAlignmentTask)
+			{
+				numberOfBlocksCompleted = 1;
+			}
 			base.ApplyCurrentReferenceTextMatchup();
 
 			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond,
@@ -454,12 +457,10 @@ namespace Glyssen.Dialogs
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
-			if (m_relevantBlocks.Count > origRelevantBlocks)
-				numberOfBlocksToAssignAndConfirm += m_relevantBlocks.Count - origRelevantBlocks;
-			if (numberOfBlocksToAssignAndConfirm > 0)
+			if (numberOfBlocksCompleted > 0)
 			{
-				m_assignedBlocks += numberOfBlocksToAssignAndConfirm;
-				OnAssignedBlocksIncremented(numberOfBlocksToAssignAndConfirm);
+				CompletedBlockCount += numberOfBlocksCompleted;
+				OnAssignedBlocksIncremented(numberOfBlocksCompleted);
 			}
 		}
 
@@ -488,6 +489,14 @@ namespace Glyssen.Dialogs
 
 		private void AddRecordToProjectCharacterVerseData(Block block, Character character, Delivery delivery)
 		{
+			CharacterDetail detail;
+			if (m_pendingCharacterDetails.TryGetValue(character.CharacterId, out detail))
+			{
+				m_project.AddProjectCharacterDetail(detail);
+				m_project.SaveProjectCharacterDetailData();
+				m_pendingCharacterDetails.Remove(detail.CharacterId);
+			}
+
 			var cv = new CharacterVerse(
 				new BCVRef(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV),
 				character.IsNarrator
@@ -541,7 +550,7 @@ namespace Glyssen.Dialogs
 						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
 
 					var newBlockIndices = GetBlockIndices(newBlock);
-					var blocksIndicesNeedingUpdate = m_relevantBlocks.Where(
+					var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
 						r => r.BookIndex == newBlockIndices.BookIndex &&
 							r.BlockIndex >= newBlockIndices.BlockIndex);
 					foreach (var block in blocksIndicesNeedingUpdate)

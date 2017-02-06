@@ -8,9 +8,12 @@ namespace Glyssen.Controls
 {
 	public partial class BlockProgressBar : ProgressBarUnanimated
 	{
+		private string m_unitName;
+
 		public BlockProgressBar()
 		{
 			InitializeComponent();
+			UnitName = null; // Force initialization to default value
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
@@ -21,12 +24,18 @@ namespace Glyssen.Controls
 			double percentComplete = Maximum == 0 ? 100 : (double)Value / Maximum * 100;
 			int blocksRemaining = Maximum - Value;
 			string text = string.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlockProgressFmt",
-				"{0:N1}% Complete; {1} Blocks Remaining"), percentComplete, blocksRemaining);
+				"{0:N1}% Complete; {1} {2} Remaining"), percentComplete, blocksRemaining, UnitName);
 
 			SizeF len = g.MeasureString(text, Font);
 			// Calculate the location of the text (the middle of progress bar)
 			var location = new Point(Convert.ToInt32((Width / 2) - len.Width / 2), Convert.ToInt32((Height / 2) - len.Height / 2));
 			g.DrawString(text, Font, Brushes.Black, location);
+		}
+
+		public string UnitName
+		{
+			get { return m_unitName; }
+			set { m_unitName = value ?? LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlockProgressUnitName", "Blocks"); }
 		}
 
 		// Avoids flicker of text on bar

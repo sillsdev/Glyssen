@@ -30,7 +30,7 @@ namespace GlyssenTests.Dialogs
 		[SetUp]
 		public void SetUp()
 		{
-			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 			m_model.BackwardContextBlockCount = 10;
 			m_model.ForwardContextBlockCount = 10;
 		}
@@ -129,14 +129,14 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void SetMode_CurrentBlockIsRelevantInNewMode_KeepCurrentBlock()
 		{
-			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
 			m_model.LoadNextRelevantBlock();
 			var block = m_model.CurrentBlock;
 
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.AreEqual(block, m_model.CurrentBlock);
 
-			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
 			Assert.AreEqual(block, m_model.CurrentBlock);
 		}
 
@@ -221,6 +221,9 @@ namespace GlyssenTests.Dialogs
 
 			m_model.Mode = BlocksToDisplay.AllExpectedQuotes;
 			FindRefInMark(5, 41);
+			// The above line gets us to the first block for Mark 5:41. This verse has four blocks in it, so we advance 3 times to get to the
+			// end of the verse.
+			m_model.LoadNextRelevantBlock();
 			m_model.LoadNextRelevantBlock();
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual("MRK 5:41", m_model.GetBlockReferenceString());
@@ -244,6 +247,23 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual("MRK 1:24", m_model.GetBlockReferenceString());
 			m_model.LoadPreviousRelevantBlock();
 			Assert.AreEqual(block1, m_model.CurrentBlock);
+		}
+
+		/// <summary>
+		/// PG-909
+		/// </summary>
+		[Test]
+		public void SetMode_SwitchFromNotAssignedAutomaticallyToNotAlignedWithReferenceText_CurrentMatchupIsRelevant_RelevantBlockIndicesSelected()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			FindRefInMark(8, 5);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			var origMatchup = m_model.CurrentReferenceTextMatchup;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook);
+			Assert.AreEqual(origMatchup.OriginalBlockCount, m_model.CurrentReferenceTextMatchup.OriginalBlockCount);
 		}
 
 		[Test]
@@ -802,7 +822,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var restore = model.AttemptRefBlockMatchup;
 			model.AttemptRefBlockMatchup = false;
-			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentBlock.InitialStartVerseNumber != verse)
+			while (model.CurrentBlock.ChapterNumber < chapter || model.CurrentEndBlock.LastVerseNum < verse)
 			{
 				if (model.IsCurrentBlockRelevant && model.CurrentBlockDisplayIndex == model.RelevantBlockCount)
 					throw new Exception("Could not find Mark " + chapter + ":" + verse);
@@ -810,7 +830,7 @@ namespace GlyssenTests.Dialogs
 			}
 			Assert.AreEqual("MRK", model.CurrentBookId);
 			Assert.AreEqual(chapter, model.CurrentBlock.ChapterNumber);
-			Assert.AreEqual(verse, model.CurrentBlock.InitialStartVerseNumber);
+			Assert.IsTrue(verse >= model.CurrentBlock.InitialStartVerseNumber && verse <= model.CurrentEndBlock.LastVerseNum);
 			model.AttemptRefBlockMatchup = restore;
 		}
 	}
@@ -837,7 +857,7 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
-			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 		}
 
 		[TearDown]
@@ -870,8 +890,8 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
 		}
 
-		[TestCase(BlocksToDisplay.NeedAssignments)]
-		[TestCase(BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed)]
+		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
+		[TestCase(BlocksToDisplay.NotYetAssigned)]
 		public void ApplyCurrentReferenceTextMatchup_Simple_SetsReferenceTextsForBlocksInGroupAndUpdatesState(BlocksToDisplay filterMode)
 		{
 			m_model.Mode = filterMode;
@@ -899,8 +919,8 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CanNavigateToNextRelevantBlock);
 		}
 
-		[TestCase(BlocksToDisplay.NeedAssignments)]
-		[TestCase(BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed)]
+		[TestCase(BlocksToDisplay.NotAssignedAutomatically)]
+		[TestCase(BlocksToDisplay.NotYetAssigned)]
 		public void ApplyCurrentReferenceTextMatchup_Splits_BlocksInBookReplacedAndCurrentBlockNoLongerComesFromMatchupAndSubsequentRelevantBlockIndicesIncremented(BlocksToDisplay filterMode)
 		{
 			m_model.Mode = filterMode;
@@ -917,9 +937,9 @@ namespace GlyssenTests.Dialogs
 			var origTextOfFirstBlockInVerse = m_model.GetNthBlockInCurrentBook(m_model.IndexOfFirstBlockInCurrentGroup).GetText(true);
 			var origCurrentBlockText = m_model.CurrentBlock.GetText(true);
 			Assert.IsFalse(m_testProject.Books[0].Blocks.Contains(m_model.CurrentBlock));
-			
+
 			m_model.ApplyCurrentReferenceTextMatchup();
-			
+
 			Assert.AreEqual(matchupForMark921, m_model.CurrentReferenceTextMatchup);
 			Assert.AreEqual(0, matchupForMark921.CountOfBlocksAddedBySplitting);
 			Assert.IsFalse(matchupForMark921.HasOutstandingChangesToApply);
@@ -936,7 +956,7 @@ namespace GlyssenTests.Dialogs
 		public void ApplyCurrentReferenceTextMatchup_Splits_CurrentBlockDoesNotMatchFilter_ChangesAppliedAndSubsequentIndicesIncremented()
 		{
 			m_model.AttemptRefBlockMatchup = false;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
 			var blockIndex = m_model.CurrentBlockIndexInBook;
 			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("Jesus", 0, m_testProject.Versification);
@@ -944,7 +964,7 @@ namespace GlyssenTests.Dialogs
 			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("father of demon-possessed boy", 0, m_testProject.Versification);
 			m_model.LoadNextRelevantBlock();
 			var origNextRelevantBlock = m_model.CurrentBlock;
-			m_model.Mode = BlocksToDisplay.NeedAssignments | BlocksToDisplay.ExcludeUserConfirmed;
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
 			m_model.CurrentBlockIndexInBook = blockIndex;
 			m_model.AttemptRefBlockMatchup = true;
 
@@ -971,7 +991,7 @@ namespace GlyssenTests.Dialogs
 		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsPastLastBlockThatMatchesFilter_ChangesAppliedAndSubsequentIndicesIncremented()
 		{
 			m_model.AttemptRefBlockMatchup = false;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
 			Assert.AreEqual(23, m_model.CurrentBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, m_model.CurrentBlockDisplayIndex);
@@ -980,14 +1000,17 @@ namespace GlyssenTests.Dialogs
 			var origNextRelevantBlock = m_model.CurrentBlock;
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
 			m_model.AttemptRefBlockMatchup = true;
+			var origRelevantBlockCount = m_model.RelevantBlockCount;
 
 			Assert.IsFalse(m_model.IsCurrentBlockRelevant);
 
 			var matchup = m_model.CurrentReferenceTextMatchup;
 			Assert.IsNotNull(matchup);
+			matchup.MatchAllBlocks(m_testProject.Versification);
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
+			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
 			Assert.IsTrue(m_model.CanNavigateToPreviousRelevantBlock);
 			Assert.IsFalse(m_model.CanNavigateToNextRelevantBlock);
 
@@ -1002,7 +1025,7 @@ namespace GlyssenTests.Dialogs
 		public void CanNavigateToNextRelevantBlock_CurrentBlockIsNonRelevantBlockInLastBlockMatchup_ReturnsFalse()
 		{
 			m_model.AttemptRefBlockMatchup = false;
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 27), m_testProject.Versification)));
 			m_model.LoadPreviousRelevantBlock();
 			m_model.CurrentBlockIndexInBook--;
@@ -1025,7 +1048,7 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ICO);
-			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NeedAssignments);
+			m_model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
 		}
 
 		[TearDown]
@@ -1038,7 +1061,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_CurrentBlockIsLastRelevantBlockInLastMatchup_DoesNotCrashAndStaysOnCurrentMatchup()
 		{
-			m_model.Mode = BlocksToDisplay.NeedAssignments;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			m_model.AttemptRefBlockMatchup = true;
 
 			while (m_model.CanNavigateToNextRelevantBlock)
@@ -1055,6 +1078,71 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(matchup, m_model.CurrentReferenceTextMatchup);
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
+	}
+
+	/// <summary>
+	/// JHN has data that allows us to test the special case of a quote being split by the reference text in a verse (12:27) that has
+	/// ambiguity (There are two speakers in John 12:28). Also, tests in this fixture can modify the test project data, so the folder
+	/// is cleaned up each time.
+	/// </summary>
+	[TestFixture]
+	class BlockNavigatorViewModelTestsForLukeAndJohn
+	{
+		private Project m_testProject;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.LUK, TestProject.TestBook.JHN);
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		/// <summary>
+		/// PG-879: 
+		/// </summary>
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_ApplyCausesSplittingOfUserConfirmedBlockThatDoesNotMatchFilter_NewBlocksAreNotAddedToRelevantBlocks()
+		{
+			// Set up initial data state
+			TestProject.SimulateDisambiguationForAllBooks(m_testProject);
+			var blockToMatchFilter = m_testProject.IncludedBooks.First().GetScriptBlocks().First(b => b.UserConfirmed);
+			blockToMatchFilter.UserConfirmed = false;
+			blockToMatchFilter.CharacterId = CharacterVerseData.kUnknownCharacter;
+
+			// Create model and initialize state
+			var model = new BlockNavigatorViewModel(m_testProject, BlocksToDisplay.NotAssignedAutomatically);
+			model.AttemptRefBlockMatchup = false;
+			model.Mode = BlocksToDisplay.NotYetAssigned;
+
+			// Get into correct state for this test and ensure initial conditions
+			Assert.AreEqual(1, model.RelevantBlockCount);
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("JHN"), 12, 27), m_testProject.Versification)));
+			Assert.AreEqual(27, model.CurrentBlock.InitialStartVerseNumber);
+			model.AttemptRefBlockMatchup = true;
+			Assert.IsFalse(model.IsCurrentBlockRelevant);
+			var matchup = model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+			matchup.MatchAllBlocks(m_testProject.Versification);
+
+			model.ApplyCurrentReferenceTextMatchup();
+
+			Assert.AreEqual(1, model.RelevantBlockCount);
+			Assert.IsTrue(model.CanNavigateToPreviousRelevantBlock);
+			Assert.IsFalse(model.CanNavigateToNextRelevantBlock);
+		}
+
 	}
 
 	[TestFixture]

@@ -106,13 +106,16 @@ namespace Glyssen
 				if (!IsNullOrEmpty(m_customFileName))
 					return m_customFileName;
 
-				var defaultFileName = Project.Name + " " +
+				var defaultFileName = OutputName + " " +
 					RecordingScriptFileNameSuffix + GetFileExtension(SelectedFileType);
 
 				return Path.Combine(DefaultDirectory, defaultFileName.Trim());
 			}
 			set { m_customFileName = value; }
 		}
+
+		private string OutputName => Project.Name +
+			((Project.AudioStockNumber != null) ? " " + Project.AudioStockNumber : Empty);
 
 		private string FileNameWithoutExtension
 		{
@@ -428,6 +431,7 @@ namespace Glyssen
 			dataArray.Insert(0, GetHeaders().ToArray());
 			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
+				xls.Workbook.Properties.Title = OutputName;
 				var sheet = xls.Workbook.Worksheets.Add("Script");
 				var firstCell = sheet.Cells["A1"];
 				firstCell.LoadFromArrays(dataArray);
@@ -739,7 +743,7 @@ namespace Glyssen
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 			{
 				col = GetColumnIndex(ExportColumn.SecondaryReferenceText);
-				rowToModify[col] = modify((string)rowToModify[col], annotationInfo);
+				rowToModify[col] = modify((string)rowToModify[col] ?? Empty, annotationInfo);
 			}
 
 			return rowIndex;
