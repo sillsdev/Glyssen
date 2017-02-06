@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
 using Paratext;
@@ -11,9 +12,8 @@ namespace Glyssen
 	{
 		private readonly IReadOnlyList<BookScript> m_books;
 		private BookScript m_currentBook;
-		private int m_currentBookIndex;
+		private BookBlockIndices m_currentIndices = new BookBlockIndices();
 		private Block m_currentBlock;
-		private int m_currentBlockIndex;
 
 		public BlockNavigator(IReadOnlyList<BookScript> books)
 		{
@@ -22,6 +22,7 @@ namespace Glyssen
 			if (m_currentBook == null)
 				throw new ArgumentException("The list of books must contain at least one block.");
 			m_currentBlock = m_currentBook[0];
+			m_currentIndices = new BookBlockIndices(0, 0);
 		}
 
 		public BookScript CurrentBook
@@ -30,7 +31,7 @@ namespace Glyssen
 			set
 			{
 				m_currentBook = value;
-				m_currentBookIndex = GetBookIndex(m_currentBook);
+				m_currentIndices.BookIndex = GetBookIndex(m_currentBook);
 			}
 		}
 
@@ -39,13 +40,15 @@ namespace Glyssen
 			get { return m_currentBlock; }
 			set
 			{
-				var indices = GetIndicesOfSpecificBlock(value);
+				m_currentIndices = GetIndicesOfSpecificBlock(value);
 				m_currentBlock = value;
-				m_currentBookIndex = indices.BookIndex;
-				m_currentBlockIndex = indices.BlockIndex;
-				m_currentBook = m_books[m_currentBookIndex];
+				m_currentBook = m_books[m_currentIndices.BookIndex];
 			}
 		}
+
+		public Block CurrentEndBlock => m_currentIndices.IsMultiBlock ?
+			m_books[m_currentIndices.BookIndex].GetScriptBlocks()[m_currentIndices.EffectiveFinalBlockIndex] :
+			CurrentBlock;
 
 		public void NavigateToFirstBlock()
 		{
@@ -54,15 +57,14 @@ namespace Glyssen
 
 		internal BookBlockIndices GetIndices()
 		{
-			return new BookBlockIndices(m_currentBookIndex, m_currentBlockIndex);
+			return new BookBlockIndices(m_currentIndices);
 		}
 
 		internal void SetIndices(BookBlockIndices indices)
 		{
-			m_currentBookIndex = indices.BookIndex;
-			m_currentBook = m_books[m_currentBookIndex];
-			m_currentBlockIndex = indices.BlockIndex;
-			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentBlockIndex];
+			m_currentIndices = new BookBlockIndices(indices);
+			m_currentBook = m_books[m_currentIndices.BookIndex];
+			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentIndices.BlockIndex];
 		}
 
 		internal BookBlockIndices GetIndicesOfSpecificBlock(Block block)
@@ -74,18 +76,18 @@ namespace Glyssen
 
 			var indexInCurrentBook = m_currentBook.GetScriptBlocks().IndexOf(block);
 			if (indexInCurrentBook >= 0)
-				return new BookBlockIndices(m_currentBookIndex, indexInCurrentBook);
+				return new BookBlockIndices(m_currentIndices.BookIndex, indexInCurrentBook);
 
 			for (int iBook = 0; iBook < m_books.Count; iBook++)
 			{
-				if (iBook == m_currentBookIndex)
+				if (iBook == m_currentIndices.BookIndex)
 					continue;
 				var book = m_books[iBook];
 				var iBlock = book.GetScriptBlocks().IndexOf(block);
 				if (iBlock >= 0)
 					return new BookBlockIndices(iBook, iBlock);
 			}
-			throw new ArgumentOutOfRangeException("block", block.ToString(), "Block not found in any book!");
+			throw new ArgumentOutOfRangeException(nameof(block), block.ToString(), "Block not found in any book!");
 		}
 
 		public BookBlockIndices GetIndicesOfFirstBlockAtReference(VerseRef verseRef, bool allowMidQuoteBlock = false)
@@ -184,14 +186,14 @@ namespace Glyssen
 		{
 			if (IsLastBook(m_currentBook))
 				return null;
-			return m_books[m_currentBookIndex + 1];
+			return m_books[m_currentIndices.BookIndex + 1];
 		}
 
 		private BookScript NextBook()
 		{
 			if (IsLastBook(m_currentBook))
 				return null;
-			return m_currentBook = m_books[++m_currentBookIndex];
+			return m_currentBook = m_books[++m_currentIndices.BookIndex];
 		}
 
 		public Block PeekNextBlock()
@@ -206,13 +208,13 @@ namespace Glyssen
 				return nextBook[0];
 			}
 
-			return m_currentBook[m_currentBlockIndex + 1];
+			return m_currentBook[m_currentIndices.BlockIndex + 1];
 		}
 
 		public IEnumerable<Block> PeekForwardWithinBook(int numberOfBlocks)
 		{
 			var blocks = new List<Block>();
-			int tempCurrentBlockIndex = m_currentBlockIndex;
+			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
 			for (int i = 0; i < numberOfBlocks; i++)
 			{
 				if (IsLastBlockInBook(m_currentBook, tempCurrentBlockIndex))
@@ -224,7 +226,7 @@ namespace Glyssen
 
 		public Block PeekNthNextBlockWithinBook(int n)
 		{
-			return PeekNthNextBlockWithinBook(n, m_currentBookIndex, m_currentBlockIndex);
+			return PeekNthNextBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
 		}
 
 		public Block PeekNthNextBlockWithinBook(int n, Block baseLineBlock)
@@ -246,7 +248,7 @@ namespace Glyssen
 		public IEnumerable<Block> PeekBackwardWithinBook(int numberOfBlocks)
 		{
 			var blocks = new List<Block>();
-			int tempCurrentBlockIndex = m_currentBlockIndex;
+			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
 			for (int i = 0; i < numberOfBlocks; i++)
 			{
 				if (tempCurrentBlockIndex == 0)
@@ -259,21 +261,21 @@ namespace Glyssen
 
 		public IEnumerable<Block> PeekBackwardWithinBookWhile(Func<Block, bool> predicate)
 		{
-			int tempCurrentBlockIndex = m_currentBlockIndex;
+			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
 			while (tempCurrentBlockIndex > 0 && predicate(m_currentBook[--tempCurrentBlockIndex]))
 				yield return m_currentBook[tempCurrentBlockIndex];
 		}
 
 		public IEnumerable<Block> PeekForwardWithinBookWhile(Func<Block, bool> predicate)
 		{
-			int tempCurrentBlockIndex = m_currentBlockIndex;
+			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
 			while (!IsLastBlockInBook(m_currentBook, tempCurrentBlockIndex) && predicate(m_currentBook[++tempCurrentBlockIndex]))
 				yield return m_currentBook[tempCurrentBlockIndex];
 		}
 
 		public Block PeekNthPreviousBlockWithinBook(int n)
 		{
-			return PeekNthPreviousBlockWithinBook(n, m_currentBookIndex, m_currentBlockIndex);
+			return PeekNthPreviousBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
 		}
 
 		public Block PeekNthPreviousBlockWithinBook(int n, Block baseLineBlock)
@@ -300,25 +302,25 @@ namespace Glyssen
 				BookScript nextBook = NextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
-				m_currentBlockIndex = 0;
-				return nextBook[m_currentBlockIndex];
+				m_currentIndices.BlockIndex = 0;
+				return nextBook[m_currentIndices.BlockIndex];
 			}
 
-			return m_currentBlock = m_currentBook[++m_currentBlockIndex];
+			return m_currentBlock = m_currentBook[++m_currentIndices.BlockIndex];
 		}
 
 		private BookScript PeekPreviousBook()
 		{
 			if (IsFirstBook(m_currentBook))
 				return null;
-			return m_books[m_currentBookIndex - 1];
+			return m_books[m_currentIndices.BookIndex - 1];
 		}
 
 		private BookScript PreviousBook()
 		{
 			if (IsFirstBook(m_currentBook))
 				return null;
-			return m_currentBook = m_books[--m_currentBookIndex];
+			return m_currentBook = m_books[--m_currentIndices.BookIndex];
 		}
 
 		public Block PeekPreviousBlock()
@@ -333,7 +335,7 @@ namespace Glyssen
 				return previousBook[previousBook.GetScriptBlocks().Count - 1];
 			}
 
-			return m_currentBook[m_currentBlockIndex - 1];
+			return m_currentBook[m_currentIndices.BlockIndex - 1];
 		}
 
 		public Block PreviousBlock()
@@ -345,27 +347,42 @@ namespace Glyssen
 				BookScript previousBook = PreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
-				m_currentBlockIndex = m_currentBook.GetScriptBlocks().Count - 1;
-				return previousBook[m_currentBlockIndex];
+				m_currentIndices.BlockIndex = m_currentBook.GetScriptBlocks().Count - 1;
+				return previousBook[m_currentIndices.BlockIndex];
 			}
 
-			return m_currentBlock = m_currentBook[--m_currentBlockIndex];
+			return m_currentBlock = m_currentBook[--m_currentIndices.BlockIndex];
+		}
+
+		public void ExtendCurrentBlockGroup(uint additionalBlocks)
+		{
+			m_currentIndices.MultiBlockCount += additionalBlocks;
 		}
 	}
 
 	[XmlRoot]
 	public class BookBlockIndices : IEquatable<BookBlockIndices>, IComparable<BookBlockIndices>
 	{
+		private uint m_multiBlockCount;
+
 		public BookBlockIndices()
 		{
 			BookIndex = -1;
 			BlockIndex = -1;
 		}
 
-		public BookBlockIndices(int bookIndex, int blockIndex)
+		public BookBlockIndices(int bookIndex, int blockIndex, uint multiBlockCount = 0)
 		{
 			BookIndex = bookIndex;
 			BlockIndex = blockIndex;
+			MultiBlockCount = multiBlockCount;
+		}
+
+		public BookBlockIndices(BookBlockIndices copyFrom)
+		{
+			BookIndex = copyFrom.BookIndex;
+			BlockIndex = copyFrom.BlockIndex;
+			MultiBlockCount = copyFrom.MultiBlockCount;
 		}
 
 		[XmlElement("bookIndex")]
@@ -374,7 +391,32 @@ namespace Glyssen
 		[XmlElement("blockIndex")]
 		public int BlockIndex { get; set; }
 
-		public bool IsUndefined { get { return BookIndex == -1 || BlockIndex == -1; } }
+		[XmlElement("multiBlockCount")]
+		public uint MultiBlockCount
+		{
+			get { return m_multiBlockCount; }
+			set
+			{
+				m_multiBlockCount = value;
+				Debug.Assert(MultiBlockCount >= 0);
+			}
+		}
+
+		public int EffectiveFinalBlockIndex => IsMultiBlock ? BlockIndex + (int)MultiBlockCount - 1 : BlockIndex;
+
+		public bool IsUndefined => BookIndex == -1 || BlockIndex == -1;
+
+
+		/// <summary>
+		/// Technically, this just means this object refers to a run of blocks of specified length. It could be 1, though this is
+		/// not likely.
+		/// </summary>
+		public bool IsMultiBlock => MultiBlockCount > 0;
+
+		public bool Contains(BookBlockIndices indices)
+		{
+			return BookIndex == indices.BookIndex && BlockIndex <= indices.BlockIndex && EffectiveFinalBlockIndex >= indices.EffectiveFinalBlockIndex;
+		}
 
 		#region equality members
 		public bool Equals(BookBlockIndices other)
@@ -383,7 +425,7 @@ namespace Glyssen
 				return false;
 			if (ReferenceEquals(this, other))
 				return true;
-			return BookIndex == other.BookIndex && BlockIndex == other.BlockIndex;
+			return BookIndex == other.BookIndex && BlockIndex == other.BlockIndex && MultiBlockCount == other.MultiBlockCount;
 		}
 
 		public int CompareTo(BookBlockIndices other)
@@ -391,6 +433,8 @@ namespace Glyssen
 			int result = BookIndex.CompareTo(other.BookIndex);
 			if (result == 0)
 				result = BlockIndex.CompareTo(other.BlockIndex);
+			if (result == 0)
+				result = MultiBlockCount.CompareTo(other.MultiBlockCount);
 			return result;
 		}
 

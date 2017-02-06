@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using SIL.Reporting;
 
 namespace Glyssen.Character
 {
@@ -32,8 +34,23 @@ namespace Glyssen.Character
 
 			var tabDelimitedCharacterDetailData = File.ReadAllText(fullPath);
 			var list = new HashSet<CharacterDetail>();
-			foreach (var line in tabDelimitedCharacterDetailData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
-				list.Add(ProcessLine(line.Split(new[] { "\t" }, StringSplitOptions.None)));
+			foreach (var line in tabDelimitedCharacterDetailData.Split(new[] {"\r", "\n"}, StringSplitOptions.RemoveEmptyEntries))
+			{
+				var detail = ProcessLine(line.Split(new[] {"\t"}, StringSplitOptions.None));
+				var existing = list.FirstOrDefault(cd => cd.CharacterId == detail.CharacterId);
+				if (existing != null)
+				{
+					// This should no longer be possible, but because of a prior bug (PG-903) in the software, this used to
+					// be possible, and we don't want Glyssen to crash trying to load projects with this problem.
+					Logger.WriteEvent($"Project character detail file ({fullPath}) contained a duplicate character ID: {detail.CharacterId} -- ignored!");
+					// Use values from the last duplicate character found
+					existing.MaxSpeakers = detail.MaxSpeakers;
+					existing.Gender = detail.Gender;
+					existing.Age = detail.Age;
+				}
+				else
+					list.Add(detail);
+			}
 			return list;
 		}
 

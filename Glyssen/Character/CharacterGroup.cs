@@ -349,6 +349,11 @@ namespace Glyssen.Character
 		{
 			m_estimatedHours = -1;
 		}
+
+		public override string ToString()
+		{
+			return GroupIdForUiDisplay;
+		}
 	}
 
 	#region CharacterGroupAttribute Definition

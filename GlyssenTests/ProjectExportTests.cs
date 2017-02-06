@@ -690,6 +690,60 @@ namespace GlyssenTests
 				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
 				(string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 		}
+		
+		/// <summary>
+		/// PG-905
+		/// </summary>
+		[Test]
+		public void GetExportData_NullPrimaryReferenceTextForAppendedAnnotation_PrimaryReferenceTextContainsOnlyAnnotation()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+
+			var rev =project.IncludedBooks.First();
+
+			// Force a block that has an appended annotation to have a null primary reference.
+			foreach (var block in rev.GetScriptBlocks().Where(b => b.ChapterNumber == 22 && b.InitialStartVerseNumber == 17))
+				block.SetMatchedReferenceBlock("Get, sәn dә elә et");
+
+			var exporter = new ProjectExporter(project) { SelectedFileType = ExportFileType.Excel };
+
+			var data = exporter.GetExportData().ToList();
+
+			//Pause for final verse in chapter (pauses come after verse text)
+			var rowsForRev22V17 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 22 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "17").ToList();
+			var textRowForRev22V17 = rowsForRev22V17.Last();
+			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
+			Assert.IsTrue(((string)textRowForRev22V17[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
+			Assert.AreEqual(annotationInfo, (string)textRowForRev22V17[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+		}
+
+		/// <summary>
+		/// PG-905
+		/// </summary>
+		[Test]
+		public void GetExportData_NullPrimaryReferenceTextForPrependedAnnotation_PrimaryReferenceTextContainsOnlyAnnotation()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.REV);
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+
+			// Force a block that has a prepended annotation to have a null primary reference.
+			var vernBlock = project.IncludedBooks.First().GetScriptBlocks().Single(b => b.ChapterNumber == 1 && b.InitialStartVerseNumber == 7);
+			vernBlock.SetMatchedReferenceBlock("{7}Verse Seven in Azeri.");
+
+			var exporter = new ProjectExporter(project) { SelectedFileType = ExportFileType.Excel };
+
+			var data = exporter.GetExportData().ToList();
+
+			//SFX (music/sfx come before verse text)
+			var rowsForRev1V7 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "7").ToList();
+			var textRowForRev1V7 = rowsForRev1V7.Single();
+			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{Music--Starts @ v7} ";
+			Assert.IsTrue(((string)textRowForRev1V7[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).StartsWith(annotationInfo));
+			Assert.AreEqual(annotationInfo, (string)textRowForRev1V7[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+		}
 
 		[Test]
 		public void GetExportData_ExportAnnotationsInSeparateRows_AnnotationWithOffset_ReferenceTextContainsAnnotationInCorrectLocation()

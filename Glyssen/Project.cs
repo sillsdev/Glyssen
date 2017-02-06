@@ -652,7 +652,7 @@ namespace Glyssen
 
 		internal void ClearAssignCharacterStatus()
 		{
-			Status.AssignCharacterMode = BlocksToDisplay.NeedAssignments;
+			Status.AssignCharacterMode = BlocksToDisplay.NotYetAssigned;
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
@@ -1372,7 +1372,6 @@ namespace Glyssen
 				});
 				backupPath = null;
 			}
-			bool newFileIsBogus = false;
 			try
 			{
 				new LdmlDataMapper(new WritingSystemFactory()).Write(LdmlFilePath, WritingSystem, null);
