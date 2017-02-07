@@ -37,6 +37,7 @@ namespace Glyssen
 		private string m_actorsAssignedFmt;
 		private string m_castSizeFmt;
 		private readonly List<Tuple<Button, string>> m_buttonFormats = new List<Tuple<Button, string>>();
+		private bool? m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 
 		public MainForm(IReadOnlyList<string> args)
 		{
@@ -804,6 +805,8 @@ namespace Glyssen
 			using (var dlg = new ProjectSettingsDlg(model))
 			{
 				LogDialogDisplay(dlg);
+				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated = null;
+				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = AskUserWhetherToClearExistingRefBlocksThatCannotBeMigrated;
 				var result = dlg.ShowDialog(this);
 				Cursor = origCursor;
 				if (result != DialogResult.OK)
@@ -811,6 +814,7 @@ namespace Glyssen
 
 				m_project.UpdateSettings(model);
 				SaveCurrentProject();
+				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = null;
 
 				if (dlg.UpdatedBundle != null)
 				{
@@ -827,6 +831,18 @@ namespace Glyssen
 				}
 			}
 			UpdateDisplayOfProjectInfo();
+		}
+
+		private bool AskUserWhetherToClearExistingRefBlocksThatCannotBeMigrated()
+		{
+			if (m_isOkayToClearExistingRefBlocksThatCannotBeMigrated == null)
+			{
+				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated =
+					MessageBox.Show(this, LocalizationManager.GetString("Project.OkayToClearExistingRefBlocksThatCannotBeMigrated",
+					"Is it okay?"),
+					ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes;
+			}
+			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 		}
 
 		private void Exit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -74,6 +74,38 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ChangeReferenceText_FrenchToEnglish_EnglishMovedFromSecondaryToPrimary()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var refBlock = block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary French reference text.");
+			refBlock.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
+			block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				ScrVers.English, () => true);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.PrimaryReferenceText);
+		}
+
+		[Test] public void ChangeReferenceText_FrenchToSpanish_MultipleMatchingCombinedRefBlocks_ReferenceTextChanged()
+		{
+			var block = new Block("p", 2, 1)
+				.AddVerse(1, "Now when Jesus was born in Bethlehem, Judea during King Herod's reign of terror, oriental magi came to Zion, ")
+				.AddVerse(2, "wondering where the King of the Jews was supposed to be born because they had seen his star in the sky and come to worship."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
+			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
+				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
+			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English, () => true);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesús ... {2}\u00A0y ... preguntaron: <<¿Dónde ... adorarlo.>>",
+				block.PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
+				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”",
+				block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
 		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_UserRequestsClearing_ReferenceTextCleared()
 		{
 			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
@@ -154,6 +186,48 @@ namespace GlyssenTests
 			Assert.AreEqual(1, callbackCount);
 			Assert.IsFalse(block.MatchesReferenceText);
 			Assert.IsNull(block.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchDifferentVersification_ReferenceTextChanged()
+		{
+			ScrVers vernVers;
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				vernVers = Versification.Table.Load(tempFile.Path);
+			}
+
+			var block = new Block("p", 9, 20);
+			block.BlockElements.Add(new ScriptText("<<Desde cuando le llega asi?>>"));
+			block.CharacterId = "Jesus";
+			block.SetMatchedReferenceBlock("“How long has it been since this has come to him?”");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, vernVers, () => true);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("<<Cela lui arrive depuis quand?>>", block.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchDifferentVersificationAcrossChapter_ReferenceTextChanged()
+		{
+			ScrVers vernVers;
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				vernVers = Versification.Table.Load(tempFile.Path);
+			}
+
+			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: “Tell no one about this!” Then he said: “Give her something to eat.” " +
+				"{1} He went out from there. He came into his own country, and his disciples followed him.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			block.ChangeReferenceText("MRK", rtFrench, vernVers, () => true);
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{43}\u00A0mais Jésus leur demandeforce: <<Ne dites rien à personne.>> Ensuite il leur dit: " +
+				"<<Donnez-lui quelque chose à manger.>> {1}\u00A0J... l'accompagnent.",
+				block.PrimaryReferenceText);
 		}
 
 		[Test]

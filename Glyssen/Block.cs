@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using Paratext;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Char;
@@ -986,7 +987,7 @@ namespace Glyssen
 			newRowAValue = leadingVerse + rowB;
 		}
 
-		public void ChangeReferenceText(string bookId, ReferenceText referenceText, Paratext.ScrVers versification, Func<bool> shouldClearUnmatchableReferenceText)
+		public void ChangeReferenceText(string bookId, ReferenceText referenceText, Paratext.ScrVers vernVersification, Func<bool> shouldClearUnmatchableReferenceText)
 		{
 			if (!MatchesReferenceText)
 				return;
@@ -995,12 +996,35 @@ namespace Glyssen
 			if (refBook == null)
 				return;
 
-			var refBlocksForPassage = refBook.GetBlocksForVerse(ChapterNumber, InitialStartVerseNumber, LastVerseNum).ToList();
+			var existingReferenceText = ReferenceBlocks.Single();
+
+			if (!referenceText.HasSecondaryReferenceText)
+			{
+				SetMatchedReferenceBlock(existingReferenceText.ReferenceBlocks.Single());
+				return;
+			}
+
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var bookNumber = BCVRef.BookToNumber(bookId);
+			var startVerse = new VerseRef(bookNumber, ChapterNumber, InitialStartVerseNumber, vernVersification);
+			var endVerse = new VerseRef(bookNumber, ChapterNumber, LastVerseNum, vernVersification);
+			startVerse.ChangeVersification(englishRefText.Versification);
+			endVerse.ChangeVersification(englishRefText.Versification);
+
+			List<Block> refBlocksForPassage;
+			if (startVerse.ChapterNum == endVerse.ChapterNum)
+				refBlocksForPassage = refBook.GetBlocksForVerse(startVerse.ChapterNum, startVerse.VerseNum, endVerse.VerseNum).ToList();
+			else
+			{
+				int lastVerseInStartChapter = englishRefText.Versification.LastVerse(bookNumber, startVerse.ChapterNum);
+				refBlocksForPassage = refBook.GetBlocksForVerse(startVerse.ChapterNum, startVerse.VerseNum, lastVerseInStartChapter).ToList();
+				refBlocksForPassage.AddRange(refBook.GetBlocksForVerse(endVerse.ChapterNum, 1, endVerse.VerseNum));
+			}
 
 			var matchingRefBlocks = refBlocksForPassage.Where(refBlock => refBlock.PrimaryReferenceText == PrimaryReferenceText).ToList();
 			if (matchingRefBlocks.Count == 1)
 			{
-				SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), versification, referenceText, matchingRefBlocks);
+				SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), vernVersification, referenceText, matchingRefBlocks);
 				return;
 			}
 
@@ -1021,13 +1045,16 @@ namespace Glyssen
 					englishToPrimaryDictionary[secondaryElement.Content] = primaryElement.Content;
 				}
 			}
-			var englishHeSaidText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English).HeSaidText;
+			var englishHeSaidText = englishRefText.HeSaidText;
 			if (!englishToPrimaryDictionary.ContainsKey(englishHeSaidText))
 				englishToPrimaryDictionary.Add(englishHeSaidText, referenceText.HeSaidText);
 
 			var referenceTextBlockElements = new List<Tuple<BlockElement, BlockElement>>(); // Item1 = Primary; Item 2 = English
 
-			foreach (var origRefTextBlockElement in ReferenceBlocks.Single().BlockElements)
+			var blockElements = existingReferenceText.MatchesReferenceText
+				? existingReferenceText.ReferenceBlocks.Single().BlockElements
+				: existingReferenceText.BlockElements;
+			foreach (var origRefTextBlockElement in blockElements)
 			{
 				var origScriptText = origRefTextBlockElement as ScriptText;
 				if (origScriptText != null)
@@ -1046,9 +1073,9 @@ namespace Glyssen
 									MatchesReferenceText = false;
 								return;
 							}
-							if (primaryRefText.Any() && !IsWhiteSpace(primaryRefText[0]))
-								primaryRefText += " ";
-							primaryRefText += englishToPrimaryDictionary[key];
+							//if (primaryRefText.Any() && !IsWhiteSpace(primaryRefText[0]))
+							//	primaryRefText += " ";
+							primaryRefText += englishToPrimaryDictionary[key] + " ";
 							origText = origText.Remove(0, key.Length).TrimStart();
 						}
 					}
@@ -1059,6 +1086,13 @@ namespace Glyssen
 				{
 					referenceTextBlockElements.Add(new Tuple<BlockElement, BlockElement>(origRefTextBlockElement, origRefTextBlockElement));
 				}
+			}
+
+			var last = referenceTextBlockElements.Last();
+			if (last.Item1 is ScriptText)
+			{
+				((ScriptText) last.Item1).Content = ((ScriptText) last.Item1).Content.TrimEnd();
+				((ScriptText) last.Item2).Content = ((ScriptText) last.Item2).Content.TrimEnd();
 			}
 
 			SetMatchedReferenceBlock(referenceTextBlockElements);

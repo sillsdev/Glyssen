@@ -71,6 +71,8 @@ namespace Glyssen
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
 
+		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
+
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false, WritingSystemDefinition ws = null)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
 		{
@@ -657,8 +659,7 @@ namespace Glyssen
 			{
 				foreach (var block in book.GetScriptBlocks().Where(b => b.MatchesReferenceText))
 				{
-					// TODO: Implement delgate
-					block.ChangeReferenceText(book.BookId, m_referenceText, Versification, () => true);
+					block.ChangeReferenceText(book.BookId, m_referenceText, Versification, IsOkayToClearExistingRefBlocksWhenChangingReferenceText);
 				}
 			}
 		}
