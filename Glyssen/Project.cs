@@ -71,6 +71,8 @@ namespace Glyssen
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
 
+		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
+
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false, WritingSystemDefinition ws = null)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
 		{
@@ -616,14 +618,19 @@ namespace Glyssen
 						ReferenceTextType type;
 						if (Enum.TryParse(ReferenceTextIdentifier.CustomIdentifier, out type))
 						{
-							ReferenceTextIdentifier = ReferenceTextIdentifier.GetOrCreate(type);
-							m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+							ChangeReferenceTextIdentifier(ReferenceTextIdentifier.GetOrCreate(type));
 						}
 					}
 				}
 				return m_referenceText;
 			}
-			set { m_referenceText = value; }
+			set
+			{
+				bool changing = m_referenceText != null;
+				m_referenceText = value;
+				if (changing)
+					ChangeReferenceText();
+			}
 		}
 
 		public ReferenceTextIdentifier ReferenceTextIdentifier
@@ -634,9 +641,45 @@ namespace Glyssen
 				if (value.Type == m_metadata.ReferenceTextType && value.CustomIdentifier == m_metadata.ProprietaryReferenceTextIdentifier)
 					return;
 
-				m_metadata.ReferenceTextType = value.Type;
-				m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
-				m_referenceText = null;
+				ChangeReferenceTextIdentifier(value);
+				ChangeReferenceText();
+			}
+		}
+
+		private void ChangeReferenceTextIdentifier(ReferenceTextIdentifier value)
+		{
+			m_metadata.ReferenceTextType = value.Type;
+			m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
+			m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+		}
+
+		private void ChangeReferenceText()
+		{
+			foreach (var book in m_books)
+			{
+				List<ReferenceText.VerseSplitLocation> refTextVerseSplitLocations = null;
+				var bookNum = BCVRef.BookToNumber(book.BookId);
+				var scriptBlocks = book.GetScriptBlocks();
+				for (var i = 0; i < scriptBlocks.Count; i++)
+				{
+					var block = scriptBlocks[i];
+					if (block.MatchesReferenceText)
+					{
+						if (!block.ChangeReferenceText(book.BookId, m_referenceText, Versification))
+						{
+							if (IsOkayToClearExistingRefBlocksWhenChangingReferenceText())
+							{
+								if (refTextVerseSplitLocations == null)
+									refTextVerseSplitLocations = m_referenceText.GetVerseSplitLocations(book.BookId);
+								var matchup = new BlockMatchup(book, i, null,
+									nextVerse => m_referenceText.IsOkayToSplitAtVerse(nextVerse, Versification, refTextVerseSplitLocations),
+									m_referenceText);
+								foreach (var blockToClear in matchup.OriginalBlocks)
+									blockToClear.MatchesReferenceText = false;
+							}
+						}
+					}
+				}
 			}
 		}
 

@@ -215,9 +215,11 @@ namespace Glyssen
 			m_blockCount += countOfInsertedBlocks;
 		}
 
-		public IEnumerable<Block> GetBlocksForVerse(int chapter, int verse)
+		public IEnumerable<Block> GetBlocksForVerse(int chapter, int startVerse, int endVerse = -1)
 		{
-			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
+			if (endVerse == -1)
+				endVerse = startVerse;
+			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, startVerse);
 			if (iFirstBlockToExamine >= 0)
 			{
 				for (int index = iFirstBlockToExamine; index < m_blockCount; index++)
@@ -225,9 +227,7 @@ namespace Glyssen
 					var block = m_blocks[index];
 					if (block.ChapterNumber != chapter)
 						break;
-					if (block.BlockElements.OfType<Verse>().Any(v => verse >= v.StartVerse && verse <= v.EndVerse))
-						yield return block;
-					else if (block.InitialStartVerseNumber == verse || (block.InitialEndVerseNumber != 0 && block.InitialStartVerseNumber < verse && block.InitialEndVerseNumber >= verse))
+					if (block.InitialStartVerseNumber <= endVerse && block.LastVerseNum >= startVerse)
 						yield return block;
 					else
 						break;

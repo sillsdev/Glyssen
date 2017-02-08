@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,12 @@ using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
+using Paratext;
 using SIL.Scripture;
 using SIL.Xml;
+using static System.Char;
+using static System.String;
+using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
@@ -42,6 +47,7 @@ namespace Glyssen
 		private int m_chapterNumber;
 		private string m_characterIdInScript;
 		private string m_delivery;
+		private bool m_matchesReferenceText;
 		private static string s_characterSelect;
 		private static Regex s_verseNumbersOrSounds;
 		private static Regex s_emptyVerseText;
@@ -196,7 +202,7 @@ namespace Glyssen
 			get { return m_delivery; }
 			set
 			{
-				if (string.IsNullOrWhiteSpace(value))
+				if (IsNullOrWhiteSpace(value))
 					value = null;
 				m_delivery = value;
 			}
@@ -216,7 +222,16 @@ namespace Glyssen
 
 		[XmlAttribute("matchesReferenceText")]
 		[DefaultValue(false)]
-		public bool MatchesReferenceText { get; set; }
+		public bool MatchesReferenceText
+		{
+			get { return m_matchesReferenceText; }
+			set
+			{
+				m_matchesReferenceText = value;
+				if (!m_matchesReferenceText)
+					ReferenceBlocks.Clear();
+			}
+		}
 
 		public string PrimaryReferenceText
 		{
@@ -306,6 +321,21 @@ namespace Glyssen
 		public Block SetMatchedReferenceBlock(string text, Block prevRefBlock = null)
 		{
 			var prevVerse = prevRefBlock == null ? (VerseNumberFromBlock)this : prevRefBlock.LastVerse;
+			var refBlock = GetEmptyReferenceBlock(prevVerse);
+			refBlock.ParsePlainText(text);
+			if (!refBlock.StartsAtVerseStart)
+			{
+				var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
+				if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse <= refBlock.InitialEndVerseNumber)
+					refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
+			}
+			SetMatchedReferenceBlock(refBlock);
+
+			return refBlock;
+		}
+
+		private Block GetEmptyReferenceBlock(IVerse prevVerse)
+		{
 			Block refBlock;
 			if (ReferenceBlocks != null && ReferenceBlocks.Count == 1)
 			{
@@ -319,16 +349,16 @@ namespace Glyssen
 			else
 				refBlock = new Block(StyleTag, ChapterNumber, prevVerse.StartVerse, prevVerse.LastVerseOfBridge);
 			refBlock.SetCharacterAndDeliveryInfo(this);
-			refBlock.ParsePlainText(text);
-			if (!refBlock.StartsAtVerseStart)
-			{
-				var firstVerseInRefBlock = refBlock.BlockElements.OfType<Verse>().FirstOrDefault();
-				if (firstVerseInRefBlock != null && firstVerseInRefBlock.EndVerse <= refBlock.InitialEndVerseNumber)
-					refBlock.InitialEndVerseNumber = firstVerseInRefBlock.EndVerse - 1;
-			}
-			SetMatchedReferenceBlock(refBlock);
-
 			return refBlock;
+		}
+
+		private void SetMatchedReferenceBlock(List<Tuple<BlockElement, BlockElement>> referenceTextBlockElements)
+		{
+			Block primaryBlock = GetEmptyReferenceBlock((VerseNumberFromBlock)this);
+			primaryBlock.BlockElements.AddRange(referenceTextBlockElements.Select(e => e.Item1));
+			var secondaryBlock = primaryBlock.GetEmptyReferenceBlock((VerseNumberFromBlock) primaryBlock);
+			secondaryBlock.BlockElements.AddRange(referenceTextBlockElements.Select(e => e.Item2));
+			primaryBlock.SetMatchedReferenceBlock(secondaryBlock);
 		}
 
 		private void ParsePlainText(string text)
@@ -452,7 +482,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return BlockElements.OfType<ScriptText>().First().Content.All(c => char.IsPunctuation(c) || char.IsWhiteSpace(c));
+				return BlockElements.OfType<ScriptText>().First().Content.All(c => IsPunctuation(c) || IsWhiteSpace(c));
 			}
 		}
 
@@ -476,7 +506,7 @@ namespace Glyssen
 				var text = blockElement as ScriptText;
 				if (text == null) continue;
 
-				var content = string.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, HttpUtility.HtmlEncode(text.Content));
+				var content = Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, HttpUtility.HtmlEncode(text.Content));
 				bldr.Append(content);
 			}
 
@@ -487,7 +517,7 @@ namespace Glyssen
 		{
 			var bldr = new StringBuilder();
 			var currVerse = InitialVerseNumberOrBridge;
-			var verseNumberHtml = string.Empty;
+			var verseNumberHtml = Empty;
 			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{0}{1}</div>";
 
 			foreach (var blockElement in BlockElements)
@@ -505,7 +535,7 @@ namespace Glyssen
 				var text = blockElement as ScriptText;
 				if (text == null) continue;
 
-				var encodedContent = string.Format(splitTextTemplate, verseNumberHtml, HttpUtility.HtmlEncode(text.Content), blockId, currVerse);
+				var encodedContent = Format(splitTextTemplate, verseNumberHtml, HttpUtility.HtmlEncode(text.Content), blockId, currVerse);
 				
 				if ((blockSplits != null) && blockSplits.Any())
 				{
@@ -544,11 +574,11 @@ namespace Glyssen
 						var newSegments = new List<string>();
 						foreach (var segment in segments)
 						{
-							newSegments.Add(string.Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse));
-							verseNumberHtml = string.Empty;
+							newSegments.Add(Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse));
+							verseNumberHtml = Empty;
 						}
 
-						encodedContent = string.Join(kAwooga, newSegments);
+						encodedContent = Join(kAwooga, newSegments);
 
 						foreach (var contentToInsert in allContentToInsert)
 							encodedContent = encodedContent.ReplaceFirst(kAwooga, contentToInsert);
@@ -558,7 +588,7 @@ namespace Glyssen
 				bldr.Append(encodedContent);
 
 				// reset verse number element
-				verseNumberHtml = string.Empty;
+				verseNumberHtml = Empty;
 			}
 
 			return bldr.ToString();
@@ -569,12 +599,12 @@ namespace Glyssen
 			const string template = "<sup>{1}{0}&#160;{1}</sup>";
 			var rtl = rightToLeftScript ? "&rlm;" : "";
 
-			return string.Format(template, verseNumber, rtl);
+			return Format(template, verseNumber, rtl);
 		}
 
 		public override string ToString()
 		{
-			return string.IsNullOrEmpty(CharacterId) ? GetText(true) : string.Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
+			return IsNullOrEmpty(CharacterId) ? GetText(true) : Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
 		}
 
 		public string ToString(bool includeReference, string bookId = null)
@@ -582,12 +612,12 @@ namespace Glyssen
 			if (!includeReference)
 				return ToString();
 
-			if (bookId == null && !string.IsNullOrEmpty(BookCode))
+			if (bookId == null && !IsNullOrEmpty(BookCode))
 				bookId = BookCode;
 			int bookNum;
 			if (bookId == null)
 			{
-				bookId = string.Empty;
+				bookId = Empty;
 				bookNum = 1;
 			}
 			else
@@ -707,7 +737,7 @@ namespace Glyssen
 			if (ids.Length > 1)
 			{
 				var cv = getMatchingCharacterForVerse();
-				CharacterIdInScript = (cv != null && !String.IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
+				CharacterIdInScript = (cv != null && !IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
 			}
 		}
 
@@ -724,13 +754,13 @@ namespace Glyssen
 
 		public static string BuildSplitLineHtml(int id)
 		{
-			return string.Format(kSplitLineFrame, id);
+			return Format(kSplitLineFrame, id);
 		}
 
 		public string CharacterSelect(int splitId, IEnumerable<AssignCharacterViewModel.Character> characters = null)
 		{
-			if ((characters == null) && !string.IsNullOrEmpty(s_characterSelect)) 
-				return string.Format(s_characterSelect, splitId);
+			if ((characters == null) && !IsNullOrEmpty(s_characterSelect)) 
+				return Format(s_characterSelect, splitId);
 
 			const string optionTemplate = "<option value=\"{0}\">{1}</option>";
 			var sb = new StringBuilder("<select class=\"select-character\" data-splitid=\"{0}\"><option value=\"\"></option>");
@@ -769,7 +799,7 @@ namespace Glyssen
 			sb.Append("</select>");
 			s_characterSelect = sb.ToString();
 
-			return string.Format(s_characterSelect, splitId);
+			return Format(s_characterSelect, splitId);
 		}
 
 		internal Block SplitBlock(string verseToSplit, int characterOffsetToSplit)
@@ -801,7 +831,7 @@ namespace Glyssen
 					{
 						if (BlockElements.Count > i + 1 && BlockElements[i + 1] is Verse)
 						{
-							content = string.Empty;
+							content = Empty;
 							characterOffsetToSplit = 0;
 							indexOfFirstElementToRemove = i + 1;
 						}
@@ -864,7 +894,7 @@ namespace Glyssen
 			}
 
 			if (newBlock == null)
-				throw new ArgumentException(String.Format("Verse {0} not found in given block: {1}", verseToSplit, GetText(true)), "verseToSplit");
+				throw new ArgumentException(Format("Verse {0} not found in given block: {1}", verseToSplit, GetText(true)), "verseToSplit");
 
 			if (indexOfFirstElementToRemove >= 0)
 			{
@@ -946,7 +976,7 @@ namespace Glyssen
 				return;
 			}
 
-			var leadingVerse = String.Empty;
+			var leadingVerse = Empty;
 			var verseNumbers = new Regex("^" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber);
 			var match = verseNumbers.Match(newRowBValue);
 			if (match.Success && !verseNumbers.IsMatch(rowB))
@@ -955,6 +985,114 @@ namespace Glyssen
 				newRowBValue = newRowBValue.Substring(match.Length);
 			}
 			newRowAValue = leadingVerse + rowB;
+		}
+
+		public bool ChangeReferenceText(string bookId, ReferenceText referenceText, ScrVers vernVersification)
+		{
+			if (!MatchesReferenceText)
+				throw new InvalidOperationException("ChangeReferenceText should not be called for a block that is not aligned to a reference text block.");
+			var refBook = referenceText.Books.FirstOrDefault(b => b.BookId == bookId);
+
+			if (refBook == null)
+				return true;
+
+			var existingReferenceText = ReferenceBlocks.Single();
+
+			if (!referenceText.HasSecondaryReferenceText)
+			{
+				SetMatchedReferenceBlock(existingReferenceText.ReferenceBlocks.Single());
+				return true;
+			}
+
+			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var bookNumber = BCVRef.BookToNumber(bookId);
+			var startVerse = new VerseRef(bookNumber, ChapterNumber, InitialStartVerseNumber, vernVersification);
+			var endVerse = new VerseRef(bookNumber, ChapterNumber, LastVerseNum, vernVersification);
+			startVerse.ChangeVersification(englishRefText.Versification);
+			endVerse.ChangeVersification(englishRefText.Versification);
+
+			List<Block> refBlocksForPassage;
+			if (startVerse.ChapterNum == endVerse.ChapterNum)
+				refBlocksForPassage = refBook.GetBlocksForVerse(startVerse.ChapterNum, startVerse.VerseNum, endVerse.VerseNum).ToList();
+			else
+			{
+				int lastVerseInStartChapter = englishRefText.Versification.LastVerse(bookNumber, startVerse.ChapterNum);
+				refBlocksForPassage = refBook.GetBlocksForVerse(startVerse.ChapterNum, startVerse.VerseNum, lastVerseInStartChapter).ToList();
+				refBlocksForPassage.AddRange(refBook.GetBlocksForVerse(endVerse.ChapterNum, 1, endVerse.VerseNum));
+			}
+
+			var matchingRefBlocks = refBlocksForPassage.Where(refBlock => refBlock.PrimaryReferenceText == PrimaryReferenceText).ToList();
+			if (matchingRefBlocks.Count == 1)
+			{
+				SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), vernVersification, referenceText, matchingRefBlocks);
+				return true;
+			}
+
+			var englishToPrimaryDictionary = new Dictionary<string, string>();
+			foreach (var refBlock in refBlocksForPassage)
+			{
+				var scriptBlocks = refBlock.BlockElements.OfType<ScriptText>().ToList();
+				if (scriptBlocks.Count != refBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().Count())
+				{
+					return false;
+				}
+				for (int i = 0; i < scriptBlocks.Count; i++)
+				{
+					var primaryElement = scriptBlocks[i];
+					var secondaryElement = refBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().ElementAt(i);
+					englishToPrimaryDictionary[secondaryElement.Content] = primaryElement.Content;
+				}
+			}
+			var englishHeSaidText = englishRefText.HeSaidText;
+			if (!englishToPrimaryDictionary.ContainsKey(englishHeSaidText))
+				englishToPrimaryDictionary.Add(englishHeSaidText, referenceText.HeSaidText);
+
+			var referenceTextBlockElements = new List<Tuple<BlockElement, BlockElement>>(); // Item1 = Primary; Item 2 = English
+
+			var blockElements = existingReferenceText.MatchesReferenceText
+				? existingReferenceText.ReferenceBlocks.Single().BlockElements
+				: existingReferenceText.BlockElements;
+			foreach (var origRefTextBlockElement in blockElements)
+			{
+				var origScriptText = origRefTextBlockElement as ScriptText;
+				if (origScriptText != null)
+				{
+					string primaryRefText;
+					if (!englishToPrimaryDictionary.TryGetValue(origScriptText.Content, out primaryRefText))
+					{
+						primaryRefText = Empty;
+						var origText = origScriptText.Content;
+						while (origText.Any(c => !IsWhiteSpace(c)))
+						{
+							var key = englishToPrimaryDictionary.Keys.FirstOrDefault(s => origText.StartsWith(s));
+							if (key == null)
+							{
+								return false;
+							}
+							//if (primaryRefText.Any() && !IsWhiteSpace(primaryRefText[0]))
+							//	primaryRefText += " ";
+							primaryRefText += englishToPrimaryDictionary[key] + " ";
+							origText = origText.Remove(0, key.Length).TrimStart();
+						}
+					}
+					referenceTextBlockElements.Add(new Tuple<BlockElement, BlockElement>(
+						new ScriptText(primaryRefText), origScriptText));
+				}
+				else // verse or annotation
+				{
+					referenceTextBlockElements.Add(new Tuple<BlockElement, BlockElement>(origRefTextBlockElement, origRefTextBlockElement));
+				}
+			}
+
+			var last = referenceTextBlockElements.Last();
+			if (last.Item1 is ScriptText)
+			{
+				((ScriptText) last.Item1).Content = ((ScriptText) last.Item1).Content.TrimEnd();
+				((ScriptText) last.Item2).Content = ((ScriptText) last.Item2).Content.TrimEnd();
+			}
+
+			SetMatchedReferenceBlock(referenceTextBlockElements);
+			return true;
 		}
 	}
 
