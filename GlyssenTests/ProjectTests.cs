@@ -814,6 +814,38 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void SetReferenceText_ChangeFromEnglishToFrenchWithOneBlockMismatched_ReferenceTextClearedForAllRelatedBlocks()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			testProject.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			testProject.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = () => true;
+			var mark = testProject.IncludedBooks[0];
+			var blocks = mark.GetScriptBlocks();
+
+			var mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
+			var matchup = testProject.ReferenceText.GetBlocksForVerseMatchedToReferenceText(mark, mark5V41, testProject.Versification);
+			Assert.AreEqual(5, matchup.CorrelatedBlocks.Count);
+			Assert.AreEqual(40, matchup.CorrelatedBlocks[0].InitialStartVerseNumber);
+			Assert.AreEqual(41, matchup.CorrelatedBlocks[1].InitialStartVerseNumber);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
+			matchup.MatchAllBlocks(null);
+			matchup.SetReferenceText(3, "this won't match.");
+			matchup.Apply(null);
+			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
+			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
+			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.PrimaryReferenceText)));
+
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			testProject.ReferenceText = rtFrench;
+
+			Assert.IsTrue(blocks.Single(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 40).MatchesReferenceText);
+			mark5V41 = blocks.IndexOf(b => b.ChapterNumber == 5 && b.InitialStartVerseNumber == 41);
+			var vernBlocksForMark5V41 = blocks.Skip(mark5V41).Take(4).ToList();
+			Assert.IsFalse(vernBlocksForMark5V41.Any(b => b.MatchesReferenceText));
+		}
+
+		[Test]
 		public void GetFormattedChapterAnnouncement_ChapterLabel_ReturnsNull()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IJN);

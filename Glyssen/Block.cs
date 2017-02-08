@@ -987,21 +987,21 @@ namespace Glyssen
 			newRowAValue = leadingVerse + rowB;
 		}
 
-		public void ChangeReferenceText(string bookId, ReferenceText referenceText, Paratext.ScrVers vernVersification, Func<bool> shouldClearUnmatchableReferenceText)
+		public bool ChangeReferenceText(string bookId, ReferenceText referenceText, ScrVers vernVersification)
 		{
 			if (!MatchesReferenceText)
-				return;
+				throw new InvalidOperationException("ChangeReferenceText should not be called for a block that is not aligned to a reference text block.");
 			var refBook = referenceText.Books.FirstOrDefault(b => b.BookId == bookId);
 
 			if (refBook == null)
-				return;
+				return true;
 
 			var existingReferenceText = ReferenceBlocks.Single();
 
 			if (!referenceText.HasSecondaryReferenceText)
 			{
 				SetMatchedReferenceBlock(existingReferenceText.ReferenceBlocks.Single());
-				return;
+				return true;
 			}
 
 			var englishRefText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
@@ -1025,7 +1025,7 @@ namespace Glyssen
 			if (matchingRefBlocks.Count == 1)
 			{
 				SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), vernVersification, referenceText, matchingRefBlocks);
-				return;
+				return true;
 			}
 
 			var englishToPrimaryDictionary = new Dictionary<string, string>();
@@ -1034,9 +1034,7 @@ namespace Glyssen
 				var scriptBlocks = refBlock.BlockElements.OfType<ScriptText>().ToList();
 				if (scriptBlocks.Count != refBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().Count())
 				{
-					if (shouldClearUnmatchableReferenceText())
-						MatchesReferenceText = false;
-					return;
+					return false;
 				}
 				for (int i = 0; i < scriptBlocks.Count; i++)
 				{
@@ -1069,9 +1067,7 @@ namespace Glyssen
 							var key = englishToPrimaryDictionary.Keys.FirstOrDefault(s => origText.StartsWith(s));
 							if (key == null)
 							{
-								if (shouldClearUnmatchableReferenceText())
-									MatchesReferenceText = false;
-								return;
+								return false;
 							}
 							//if (primaryRefText.Any() && !IsWhiteSpace(primaryRefText[0]))
 							//	primaryRefText += " ";
@@ -1096,6 +1092,7 @@ namespace Glyssen
 			}
 
 			SetMatchedReferenceBlock(referenceTextBlockElements);
+			return true;
 		}
 	}
 

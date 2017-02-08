@@ -657,9 +657,28 @@ namespace Glyssen
 		{
 			foreach (var book in m_books)
 			{
-				foreach (var block in book.GetScriptBlocks().Where(b => b.MatchesReferenceText))
+				List<ReferenceText.VerseSplitLocation> refTextVerseSplitLocations = null;
+				var bookNum = BCVRef.BookToNumber(book.BookId);
+				var scriptBlocks = book.GetScriptBlocks();
+				for (var i = 0; i < scriptBlocks.Count; i++)
 				{
-					block.ChangeReferenceText(book.BookId, m_referenceText, Versification, IsOkayToClearExistingRefBlocksWhenChangingReferenceText);
+					var block = scriptBlocks[i];
+					if (block.MatchesReferenceText)
+					{
+						if (!block.ChangeReferenceText(book.BookId, m_referenceText, Versification))
+						{
+							if (IsOkayToClearExistingRefBlocksWhenChangingReferenceText())
+							{
+								if (refTextVerseSplitLocations == null)
+									refTextVerseSplitLocations = m_referenceText.GetVerseSplitLocations(book.BookId);
+								var matchup = new BlockMatchup(book, i, null,
+									nextVerse => m_referenceText.IsOkayToSplitAtVerse(nextVerse, Versification, refTextVerseSplitLocations),
+									m_referenceText);
+								foreach (var blockToClear in matchup.OriginalBlocks)
+									blockToClear.MatchesReferenceText = false;
+							}
+						}
+					}
 				}
 			}
 		}

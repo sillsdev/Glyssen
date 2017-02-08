@@ -838,9 +838,13 @@ namespace Glyssen
 			if (m_isOkayToClearExistingRefBlocksThatCannotBeMigrated == null)
 			{
 				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated =
-					MessageBox.Show(this, LocalizationManager.GetString("Project.OkayToClearExistingRefBlocksThatCannotBeMigrated",
-					"Is it okay?"),
-					ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes;
+					MessageBox.Show(this, Format(LocalizationManager.GetString("Project.OkayToClearExistingRefBlocksThatCannotBeMigrated",
+					"This project has been changed to use the {0} reference text, but some blocks were already matched to " +
+					"the previous reference text. Some of those matches cannot be migrated, which means that the reference " +
+					"text data for those blocks is not in the correct language. " +
+					"To avoid confusion, it is probably best to allow Glyssen to clear the matches that cannot be migrated properly. " +
+					"Would you like Glyssen to do that?"), m_project.UiReferenceTextName),
+					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
 			}
 			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 		}

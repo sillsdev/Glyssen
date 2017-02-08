@@ -216,6 +216,12 @@ namespace Glyssen
 			return Books.Any(b => b.BookId == vernacularBook.BookId);
 		}
 
+		public bool IsOkayToSplitAtVerse(VerseRef nextVerse, ScrVers vernacularVersification, List<VerseSplitLocation> verseSplitLocationsBasedOnRef)
+		{
+			nextVerse.Versification = vernacularVersification;
+			return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
+		}
+
 		public BlockMatchup GetBlocksForVerseMatchedToReferenceText(BookScript vernacularBook, int iBlock, ScrVers vernacularVersification, uint predeterminedBlockCount = 0)
 		{
 			if (iBlock < 0 || iBlock >= vernacularBook.GetScriptBlocks().Count)
@@ -225,18 +231,14 @@ namespace Glyssen
 				return null;
 
 			int bookNum = BCVRef.BookToNumber(vernacularBook.BookId);
-			var referenceBook = Books.Single(b => b.BookId == vernacularBook.BookId);
-			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
+			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(vernacularBook.BookId);
 
 			var matchup = new BlockMatchup(vernacularBook, iBlock, portion =>
 			{
 				MakesSplits(portion, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
 			},
-			nextVerse =>
-			{
-				nextVerse.Versification = vernacularVersification;
-				return verseSplitLocationsBasedOnRef.Any(s => s.Before.CompareTo(nextVerse) == 0);
-			}, this, predeterminedBlockCount);
+			nextVerse => IsOkayToSplitAtVerse(nextVerse, vernacularVersification, verseSplitLocationsBasedOnRef),
+			this, predeterminedBlockCount);
 
 			if (!matchup.AllScriptureBlocksMatch)
 			{
@@ -443,7 +445,7 @@ namespace Glyssen
 			}
 		}
 
-		private class VerseSplitLocation
+		public class VerseSplitLocation
 		{
 			private readonly VerseRef m_after;
 			private readonly VerseRef m_before;
@@ -461,6 +463,13 @@ namespace Glyssen
 				return location.After;
 			}
 		}
+
+		public List<VerseSplitLocation> GetVerseSplitLocations(string bookId)
+		{
+			var referenceBook = Books.Single(b => b.BookId == bookId);
+			return GetVerseSplitLocations(referenceBook, BCVRef.BookToNumber(bookId));
+		}
+
 		private List<VerseSplitLocation> GetVerseSplitLocations(PortionScript script, int bookNum)
 		{
 			var splitLocations = new List<VerseSplitLocation>();
