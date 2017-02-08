@@ -979,7 +979,7 @@ namespace Glyssen.Dialogs
 			return IsRelevant(block, ref lastMatchup, ignoreExcludeUserConfirmed);
 		}
 
-		private bool IsRelevant(Block block, ref BlockMatchup lastMatchup, bool ignoreExcludeUserConfirmed = false)
+		private bool IsRelevant(Block block, ref BlockMatchup lastMatchup, bool ignoreExcludeUserConfirmed = true)
 		{
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
@@ -991,10 +991,20 @@ namespace Glyssen.Dialogs
 				if (!m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
 					return false;
 
+				///
+				/// PG-912 - attempt to exclude blocks already matched to reference text (LDV)
+				/// 
+				if (block.MatchesReferenceText)
+				{
+					return false;
+				}
+
 				if (lastMatchup != null && lastMatchup.OriginalBlocks.Contains(block))
 					return false;
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 					m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
+				
+				// 4 broken test cases from PG-912 code above.  Need to examine this condition (especially b.MatchesReferenceText (LDV)
 				return lastMatchup.OriginalBlocks.Any(BlockNeedsAssignment) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
