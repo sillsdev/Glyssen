@@ -1481,4 +1481,61 @@ namespace GlyssenTests.Dialogs
 			Assert.IsFalse(model.CanNavigateToPreviousRelevantBlock);
 		}
 	}
+
+	[TestFixture]
+	internal class AssignCharacterViewModelTests_Acts
+	{
+		private Project m_testProject;
+		private AssignCharacterViewModel m_model;
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT);
+			m_model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotYetAssigned,
+			m_testProject.Status.AssignCharacterBlock);
+			m_model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			m_testProject = null;
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
+		{
+			m_model.Mode = BlocksToDisplay.NotYetAssigned;
+			var verseRefActs837 = new VerseRef(44, 8, 37);
+			m_model.TryLoadBlock(verseRefActs837);
+			if (!m_model.IsCurrentBlockRelevant)
+				m_model.LoadNextRelevantBlock();
+			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
+
+			m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Philip the evangelist").First().CharacterId;
+			m_model.CurrentBlock.UserConfirmed = true;
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(37, m_model.CurrentBlock.InitialStartVerseNumber);
+			m_model.CurrentBlock.CharacterId = m_model.GetUniqueCharacters("Ethiop").First().CharacterId;
+			m_model.CurrentBlock.UserConfirmed = true;
+			m_model.LoadNextRelevantBlock();
+
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+
+			Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber <= 37);
+			while (m_model.CanNavigateToPreviousRelevantBlock && m_model.CurrentBlock.ChapterNumber >= 8)
+			{
+				m_model.LoadPreviousRelevantBlock();
+				Assert.IsFalse(m_model.CurrentBlock.ChapterNumber == 8 && m_model.CurrentBlock.InitialStartVerseNumber == 37);
+			}
+		}
+	}
 }

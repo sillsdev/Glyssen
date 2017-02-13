@@ -777,17 +777,6 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
-		{
-			FindRefInMark(8, 5);
-			m_model.AttemptRefBlockMatchup = true;
-			m_model.CurrentReferenceTextMatchup.SetReferenceText(0, "Some random text: " + Guid.NewGuid());
-			m_model.ApplyCurrentReferenceTextMatchup();
-			var e = Assert.Throws<InvalidOperationException>(() => m_model.ApplyCurrentReferenceTextMatchup());
-			Assert.AreEqual("Current reference text block matchup has no outstanding changes!", e.Message);
-		}
-
-		[Test]
 		public void GetNthBlockInCurrentBook_VernacularBlocksSplitByMatchupWithReferenceText_BlocksComeFromMatchupAndSubsequentBlocksUseAdjustedIndex()
 		{
 			FindRefInMark(9, 21);
@@ -1019,6 +1008,17 @@ namespace GlyssenTests.Dialogs
 			m_model.LoadNextRelevantBlock();
 			Assert.AreEqual(origNextRelevantBlock, m_model.CurrentBlock);
 			Assert.AreEqual(1, m_model.CurrentBlockDisplayIndex);
+		}
+
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_BlockMatchupAlreadyApplied_ThrowsInvalidOperationException()
+		{
+			BlockNavigatorViewModelTests.FindRefInMark(m_model, 8, 5);
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.CurrentReferenceTextMatchup.SetReferenceText(0, "Some random text: " + Guid.NewGuid());
+			m_model.ApplyCurrentReferenceTextMatchup();
+			var e = Assert.Throws<InvalidOperationException>(() => m_model.ApplyCurrentReferenceTextMatchup());
+			Assert.AreEqual("Current reference text block matchup has no outstanding changes!", e.Message);
 		}
 
 		[Test]

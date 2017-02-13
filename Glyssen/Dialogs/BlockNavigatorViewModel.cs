@@ -979,10 +979,14 @@ namespace Glyssen.Dialogs
 			return IsRelevant(block, ref lastMatchup, ignoreExcludeUserConfirmed);
 		}
 
-		private bool IsRelevant(Block block, ref BlockMatchup lastMatchup, bool ignoreExcludeUserConfirmed = true)
+		private bool IsRelevant(Block block, ref BlockMatchup lastMatchup, bool ignoreExcludeUserConfirmed = false)
 		{
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
+				// TODO (PG-784): If a book is single-voice, no block in it should match this filter.
+				//if (CurrentBookIsSingleVoice)
+				//	return false;
+
 				if (!block.IsScripture)
 					return false;
 				
@@ -991,21 +995,13 @@ namespace Glyssen.Dialogs
 				if (!m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
 					return false;
 
-				///
-				/// PG-912 - attempt to exclude blocks already matched to reference text (LDV)
-				/// 
-				if (block.MatchesReferenceText)
-				{
-					return false;
-				}
-
 				if (lastMatchup != null && lastMatchup.OriginalBlocks.Contains(block))
 					return false;
+				
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 					m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
 				
-				// 4 broken test cases from PG-912 code above.  Need to examine this condition (especially b.MatchesReferenceText (LDV)
-				return lastMatchup.OriginalBlocks.Any(BlockNeedsAssignment) ||
+				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
 			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
@@ -1013,7 +1009,7 @@ namespace Glyssen.Dialogs
 			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
 			if ((Mode & BlocksToDisplay.NotAssignedAutomatically) > 0)
-				return BlockNeedsAssignment(block);
+				return BlockNotAssignedAutomatically(block);
 
 			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
 				return IsBlockInVerseWithExpectedQuote(block);
@@ -1080,7 +1076,7 @@ namespace Glyssen.Dialogs
 				block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
 		}
 
-		private bool BlockNeedsAssignment(Block block)
+		private bool BlockNotAssignedAutomatically(Block block)
 		{
 			if (CurrentBookIsSingleVoice)
 				return false;
