@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gecko.Interop;
 using Glyssen.Character;
 using SIL.Scripture;
 using ScrVers = Paratext.ScrVers;
@@ -81,23 +82,32 @@ namespace Glyssen
 					blockToSplit.MultiBlockQuote = MultiBlockQuote.None;
 					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
 				}
-				else if ((blockToSplit.MultiBlockQuote == MultiBlockQuote.Continuation || blockToSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) &&
-					iBlock < m_blocks.Count - 2 &&
-					(m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.Continuation || m_blocks[iBlock + 2].MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
+				else if (blockToSplit.IsContinuationOfPreviousBlockQuote &&
+					iBlock < m_blocks.Count - 2 && m_blocks[iBlock + 2].IsContinuationOfPreviousBlockQuote)
 				{
 					newBlock.MultiBlockQuote = MultiBlockQuote.Start;
 				}
 
 				if (blockToSplit.ReferenceBlocks != null) // This is probably always true, but just to be safe.
-				{
 					blockToSplit.MatchesReferenceText = false;
-					blockToSplit.ReferenceBlocks.Clear();
-				}
 
 				blockToSplit.SplitId = newBlock.SplitId = splitId;
 			}
-			else if (blockToSplit.MultiBlockQuote != MultiBlockQuote.None)
-				newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+			else
+			{
+				if (blockToSplit.MultiBlockQuote == MultiBlockQuote.None)
+				{
+					if (blockToSplit.IsQuote)
+					{
+						blockToSplit.MultiBlockQuote = MultiBlockQuote.Start;
+						newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+					}
+				}
+				else
+				{
+					newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+				}
+			}
 			//TODO handle splitId already exists but userSplit == false
 
 			return newBlock;
