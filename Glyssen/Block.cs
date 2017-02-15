@@ -216,6 +216,8 @@ namespace Glyssen
 		[DefaultValue(MultiBlockQuote.None)]
 		public MultiBlockQuote MultiBlockQuote { get; set; }
 
+		public bool IsContinuationOfPreviousBlockQuote => MultiBlockQuote == MultiBlockQuote.Continuation;
+
 		[XmlAttribute("splitId")]
 		[DefaultValue(-1)]
 		public int SplitId { get; set; }
@@ -641,6 +643,8 @@ namespace Glyssen
 		{
 			get { return !CharacterVerseData.IsCharacterStandard(CharacterId) || UserConfirmed; }
 		}
+
+		public bool IsQuoteStart => IsQuote && !IsContinuationOfPreviousBlockQuote;
 
 		/// <summary>
 		/// Gets whether the specified block represents Scripture text. (Only Scripture blocks can have their

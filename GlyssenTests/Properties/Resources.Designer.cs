@@ -448,16 +448,18 @@ namespace GlyssenTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;JHN&quot; singlevoice=&quot;false&quot; pageheader=&quot;JON&quot; maintitle=&quot;JON&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JHN&quot;&gt;
-        ///    &lt;text&gt;JIRI ma JON ocoyo&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;c&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; book=&quot;JHN&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-JHN&quot;&gt;
-        ///    &lt;text&gt;1&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;s1&quot; paragraphStart=&quot;true&quot; chapter=&quot;1&quot; initialStartVerse=&quot;0&quot; characterId=&quot;extra-JHN&quot;&gt;
-        ///    &lt;text&gt;Lok odoko dano&lt;/text&gt;
-        ///  [rest of string was truncated]&quot;;.
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;JHN&quot; style=&quot;id&quot;&gt;Acholi Bible 1985 Digitised by Africa Typesetting Network for DBL April 2013&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;JON&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Jiri Ma Jon Ocoyo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Jon&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;JIRI ma&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;JON&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;ocoyo&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;s1&quot;&gt;Lok odoko dano&lt;/para&gt;
+        ///  &lt;para style [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TestJHN {
             get {
@@ -525,6 +527,23 @@ namespace GlyssenTests.Properties {
         internal static string TestLUK {
             get {
                 return ResourceManager.GetString("TestLUK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;book id=&quot;MAT&quot; singlevoice=&quot;false&quot; pageheader=&quot;Mateo&quot; maintitle=&quot;MATEO-GAYABURBA-NUED&quot;&gt;
+        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot;&gt;
+        ///    &lt;text&gt;MATEO-GAYABURBA-NUED MATEO&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;imt2&quot; paragraphStart=&quot;true&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;intro-MAT&quot;&gt;
+        ///    &lt;text&gt;GEBE-SOGLENAID&lt;/text&gt;
+        ///  &lt;/block&gt;
+        ///  &lt;block style=&quot;imt&quot; paragraphStart=&quot;true&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;intro-MAT&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestMATcuk {
+            get {
+                return ResourceManager.GetString("TestMATcuk", resourceCulture);
             }
         }
         

@@ -36,7 +36,7 @@ namespace Glyssen.Analysis
 			{
 				foreach (Block block in book.GetScriptBlocks())
 				{
-					if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+					if (block.IsContinuationOfPreviousBlockQuote)
 						continue;
 					TotalBlocks++;
 

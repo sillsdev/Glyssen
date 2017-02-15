@@ -530,21 +530,7 @@ namespace Glyssen
 					// Only values are Ambiguous and Unique. Set to Ambiguous.
 					SetCharacterAndDeliveryForMultipleBlocks(bookNum, multiBlockQuote, CharacterVerseData.kAmbiguousCharacter, null, versification);
 				}
-				else if (numUniqueCharacterDeliveries > numUniqueCharacters)
-				{
-					// Multiple deliveries for the same character
-					string delivery = "";
-					bool first = true;
-					foreach (Block block in multiBlockQuote)
-					{
-						if (first)
-							first = false;
-						else if (block.Delivery != delivery)
-							block.MultiBlockQuote = MultiBlockQuote.ChangeOfDelivery;
-						delivery = block.Delivery;
-					}
-				}
-				else
+				else if (numUniqueCharacterDeliveries <= numUniqueCharacters)
 				{
 					// Only one real character (and delivery). Set to that character (and delivery).
 					var realCharacter = uniqueCharacterDeliveries.Single(c => c.Character != CharacterVerseData.kAmbiguousCharacter && c.Character != CharacterVerseData.kUnknownCharacter);
