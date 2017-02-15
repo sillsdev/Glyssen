@@ -1614,5 +1614,31 @@ namespace GlyssenTests.Dialogs
 			}
 			Assert.IsFalse(continuationBlocks.Any());
 		}
+
+		[Test]
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuoteButMatchupContainsNoContinuationBlocks_DoesNotCrash()
+		{
+			Func<Block, bool> isStartBlockAtEndOfMatchup = block => block.MultiBlockQuote == MultiBlockQuote.Start && block == m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last();
+			m_model.AttemptRefBlockMatchup = true;
+			// Find a matchup that ends witht he first block of a multi-block quote.
+			while ((m_model.CurrentReferenceTextMatchup == null ||
+				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isStartBlockAtEndOfMatchup(b))) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+			Assert.IsTrue(isStartBlockAtEndOfMatchup(matchup.CorrelatedBlocks.Last()));
+			var indexOfQuoteStartBlock = matchup.CorrelatedBlocks.Count - 1;
+			var startBlock = matchup.CorrelatedBlocks[indexOfQuoteStartBlock];
+			m_indicesOfChangedBlocks.Clear();
+
+			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, new AssignCharacterViewModel.Character("Martin"));
+
+			Assert.AreEqual("Martin", startBlock.CharacterId);
+			Assert.IsFalse(m_indicesOfChangedBlocks.Any());
+		}
 	}
 }

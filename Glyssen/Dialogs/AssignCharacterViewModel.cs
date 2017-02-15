@@ -482,12 +482,11 @@ namespace Glyssen.Dialogs
 			SetCharacter(block, selectedCharacter);
 			if (block.MultiBlockQuote == MultiBlockQuote.Start)
 			{
-				do
+				while (++blockIndex < CurrentReferenceTextMatchup.CorrelatedBlocks.Count && CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex].IsContinuationOfPreviousBlockQuote)
 				{
-					block = CurrentReferenceTextMatchup.CorrelatedBlocks[++blockIndex];
-					SetCharacter(block, selectedCharacter);
+					SetCharacter(CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex], selectedCharacter);
 					CorrelatedBlockCharacterAssignmentChanged?.Invoke(this, blockIndex);
-				} while (block.IsContinuationOfPreviousBlockQuote && blockIndex + 1 < CurrentReferenceTextMatchup.CorrelatedBlocks.Count);
+				} 
 			}
 		}
 

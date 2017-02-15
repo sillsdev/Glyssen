@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
-using SIL.ObjectModel;
+using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
 using static System.String;
@@ -480,7 +480,7 @@ namespace Glyssen
 
 		public void CleanUpMultiBlockQuotes(ScrVers versification)
 		{
-			var model = new BlockNavigatorViewModel(new ReadOnlyList<BookScript>(new[] { this }), versification);
+			var model = new BlockNavigatorViewModel(new[] { this }.ToReadOnlyList(), versification);
 			foreach (IEnumerable<Block> multiBlock in GetScriptBlocks()
 				.Where(b => b.MultiBlockQuote == MultiBlockQuote.Start)
 				.Select(block => model.GetAllBlocksWhichContinueTheQuoteStartedByBlock(block)))
@@ -551,11 +551,29 @@ namespace Glyssen
 			}
 		}
 
-		public void ReplaceBlocks(int iStartBlock, int i, IEnumerable<Block> correlatedBlocks)
+		public void ReplaceBlocks(int iStartBlock, int count, IReadOnlyCollection<Block> replacementBlocks)
 		{
-			m_blocks.RemoveRange(iStartBlock, i);
-			m_blocks.InsertRange(iStartBlock, correlatedBlocks);
-			OnBlocksInserted(iStartBlock, correlatedBlocks.Count() - i);
+			var blockIndexFollowingReplacement = iStartBlock + count;
+			if (m_blocks.Count > blockIndexFollowingReplacement)
+			{
+				if (m_blocks[blockIndexFollowingReplacement].IsContinuationOfPreviousBlockQuote)
+				{
+					var lastReplacementBlock = replacementBlocks.Last();
+					if (lastReplacementBlock.MultiBlockQuote == MultiBlockQuote.None)
+					{
+						throw new ArgumentException("Last replacement block must have a MultiBlockQuote value of Start or Continuation, since the first " +
+							"block following the replacement range is a Continuation block.");
+					}
+					do
+					{
+						m_blocks[blockIndexFollowingReplacement].CharacterId = lastReplacementBlock.CharacterId;
+						m_blocks[blockIndexFollowingReplacement].CharacterIdOverrideForScript = lastReplacementBlock.CharacterIdOverrideForScript;
+					} while (++blockIndexFollowingReplacement < m_blocks.Count && m_blocks[blockIndexFollowingReplacement].IsContinuationOfPreviousBlockQuote);
+				}
+			}
+			m_blocks.RemoveRange(iStartBlock, count);
+			m_blocks.InsertRange(iStartBlock, replacementBlocks);
+			OnBlocksInserted(iStartBlock, replacementBlocks.Count - count);
 		}
 	}
 }
