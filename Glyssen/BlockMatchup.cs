@@ -133,14 +133,8 @@ namespace Glyssen
 			}
 		}
 
-		public bool AllScriptureBlocksMatch
-		{
-			get
-			{
-				return CorrelatedBlocks.All(b => b.MatchesReferenceText ||
-					b.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical));
-			}
-		}
+		public bool AllScriptureBlocksMatch => CorrelatedBlocks.All(b => b.MatchesReferenceText);
+
 		public int IndexOfStartBlockInBook
 		{
 			get { return m_iStartBlock; }
@@ -181,14 +175,12 @@ namespace Glyssen
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
 				m_vernacularBook.ReplaceBlocks(m_iStartBlock, CorrelatedBlocks.Count - m_numberOfBlocksAddedBySplitting,
-					CorrelatedBlocks.Select(b => b.Clone()));
+					CorrelatedBlocks.Select(b => b.Clone()).ToList());
 			}
 			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 			var origBlocks = m_vernacularBook.GetScriptBlocks();
 			for (int i = 0; i < CorrelatedBlocks.Count; i++)
 			{
-				if (!CorrelatedBlocks[i].MatchesReferenceText) // e.g., section head
-					continue;
 				var vernBlock = origBlocks[m_iStartBlock + i];
 
 				var refBlock = CorrelatedBlocks[i].ReferenceBlocks.Single();
@@ -201,15 +193,18 @@ namespace Glyssen
 						throw new InvalidOperationException("Character cannot be confirmed as ambigous or unknown.");
 					vernBlock.UserConfirmed = true;
 				}
-
-				//if (vernBlock.CharacterId != refBlock.CharacterId)
-				//{
-				//	vernBlock.CharacterId = refBlock.CharacterId;
-				//	if (refBlock.CharacterIdOverrideForScript != null)
-				//		vernBlock.CharacterIdOverrideForScript = refBlock.CharacterIdOverrideForScript;
-				//}
 			}
-			m_numberOfBlocksAddedBySplitting = 0;
+			if (m_numberOfBlocksAddedBySplitting == 0)
+			{
+				var lastBlockInMatchup = CorrelatedBlocks.Last();
+				foreach (var block in origBlocks.Skip(m_iStartBlock + OriginalBlockCount).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote))
+				{
+					block.CharacterId = lastBlockInMatchup.CharacterId;
+					block.CharacterIdOverrideForScript = lastBlockInMatchup.CharacterIdOverrideForScript;
+				}
+			}
+			else
+				m_numberOfBlocksAddedBySplitting = 0;
 		}
 
 		public Block SetReferenceText(int blockIndex, string text, int level = 0)

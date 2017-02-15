@@ -322,7 +322,7 @@ namespace Glyssen.Dialogs
 			do
 			{
 				b = CurrentBook.GetScriptBlocks()[index];
-			} while ((b.MultiBlockQuote == MultiBlockQuote.Continuation || b.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) && --index >= 0);
+			} while (b.IsContinuationOfPreviousBlockQuote && --index >= 0);
 			Debug.Assert(index >= 0);
 			return b;
 		}
@@ -480,7 +480,7 @@ namespace Glyssen.Dialogs
 				foreach (Block innerBlock in GetAllBlocksWhichContinueTheQuoteStartedByBlock(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
-				if (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery)
+				if (!block.IsContinuationOfPreviousBlockQuote)
 					bldr.Append(kHtmlLineBreak);
 			}
 			return bldr.ToString();
@@ -503,7 +503,6 @@ namespace Glyssen.Dialogs
 						yield return m_navigator.CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
-				case MultiBlockQuote.ChangeOfDelivery:
 					// These should all be brought in through a Start block, so don't do anything with them here
 					break;
 				default:
@@ -521,7 +520,7 @@ namespace Glyssen.Dialogs
 			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
 			{
 				Block block = m_navigator.CurrentBook[j];
-				if (block == null || (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery))
+				if (block == null || !block.IsContinuationOfPreviousBlockQuote)
 					break;
 				yield return j;
 			}
@@ -1004,7 +1003,7 @@ namespace Glyssen.Dialogs
 				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
-			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+			if (block.IsContinuationOfPreviousBlockQuote)
 				return false;
 			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
@@ -1048,15 +1047,13 @@ namespace Glyssen.Dialogs
 				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method. 
 				// Check surrounding blocks to count quote blocks for same verse.
 				actualquotes += m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
-					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
-					.Count(b => b.IsQuote && (b.MultiBlockQuote == MultiBlockQuote.Start || b.MultiBlockQuote == MultiBlockQuote.None));
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
 
 				if (actualquotes > expectedSpeakers)
 					return true;
 
 				actualquotes += m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
-					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
-					.Count(b => b.IsQuote && (b.MultiBlockQuote == MultiBlockQuote.Start || b.MultiBlockQuote == MultiBlockQuote.None));
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
 
 				return (actualquotes > expectedSpeakers);
 			}

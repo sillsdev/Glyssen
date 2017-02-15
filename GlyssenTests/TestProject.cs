@@ -25,6 +25,10 @@ namespace GlyssenTests
 		{
 			JOS,
 			RUT,
+			/// <summary>
+			/// This is derived from Kuna (cuk), not Acholi
+			/// </summary>
+			MAT,
 			MRK,
 			LUK,
 			JHN,
@@ -68,7 +72,7 @@ namespace GlyssenTests
 			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
 			var sampleWs = new WritingSystemDefinition();
-			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT)).AllLevels);
+			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT) || booksToInclude.Contains(TestBook.MAT)).AllLevels);
 
 			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
 
@@ -131,6 +135,12 @@ namespace GlyssenTests
 					book.LongName = "Ruth";
 					book.ShortName = "Ruth";
 					xmlDocument.LoadXml(Properties.Resources.TestRUT);
+					break;
+				case TestBook.MAT:
+					book.Code = "MAT";
+					book.LongName = "Gospel of Matthew";
+					book.ShortName = "Matthew";
+					xmlDocument.LoadXml(Properties.Resources.TestMATcuk);
 					break;
 				case TestBook.MRK:
 					book.Code = "MRK";

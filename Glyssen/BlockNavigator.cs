@@ -116,7 +116,7 @@ namespace Glyssen
 			int blockIndex = book.Blocks.IndexOf(block);
 			if (!allowMidQuoteBlock)
 			{
-				if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+				if (block.IsContinuationOfPreviousBlockQuote)
 					blockIndex = book.Blocks.FindLastIndex(blockIndex, b => b.MultiBlockQuote == MultiBlockQuote.Start);
 			}
 

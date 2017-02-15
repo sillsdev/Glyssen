@@ -1538,4 +1538,107 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 	}
+
+	[TestFixture]
+	internal class AssignCharacterViewModelMatKunaTests
+	{
+		private Project m_testProject;
+		private AssignCharacterViewModel m_model;
+		private readonly List<int> m_indicesOfChangedBlocks = new List<int>();
+
+		private void CorrelatedBlockCharacterAssignmentChanged(AssignCharacterViewModel sender, int index)
+		{
+			m_indicesOfChangedBlocks.Add(index);
+		}
+
+		[TestFixtureSetUp]
+		public void TestFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Properties.Resources.TestCharacterVerseOct2015;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			m_model = new AssignCharacterViewModel(m_testProject, BlocksToDisplay.NotAlignedToReferenceText, m_testProject.Status.AssignCharacterBlock);
+			m_model.SetUiStrings("narrator ({0})",
+				"book title or chapter ({0})",
+				"introduction ({0})",
+				"section head ({0})",
+				"normal");
+			m_model.CorrelatedBlockCharacterAssignmentChanged += CorrelatedBlockCharacterAssignmentChanged;
+		}
+
+		[TearDown]
+		public void TearDown()
+		{
+			m_model.CorrelatedBlockCharacterAssignmentChanged -= CorrelatedBlockCharacterAssignmentChanged;
+			m_testProject = null;
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		[Test]
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuote_CharacterSetForAllContinuationBlocks()
+		{
+			Func<Block, bool> isAmbiguousStartBlock = block => block.MultiBlockQuote == MultiBlockQuote.Start && block.CharacterId == CharacterVerseData.kAmbiguousCharacter;
+			m_model.AttemptRefBlockMatchup = true;
+			// Find a matchup that has a multi-block quote that is ambiguous.
+			while ((m_model.CurrentReferenceTextMatchup == null ||
+				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isAmbiguousStartBlock(b))) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+			var indexOfQuoteStartBlock = matchup.CorrelatedBlocks.IndexOf(b => isAmbiguousStartBlock(b));
+			var startBlock = matchup.CorrelatedBlocks[indexOfQuoteStartBlock];
+			var continuationBlocks = matchup.CorrelatedBlocks.Skip(indexOfQuoteStartBlock + 1).TakeWhile(b => b.IsContinuationOfPreviousBlockQuote).ToList();
+			Assert.IsTrue(continuationBlocks.Any());
+			m_indicesOfChangedBlocks.Clear();
+			var character = m_model.GetCharactersForCurrentReferenceTextMatchup().Last();
+
+			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, character);
+
+			Assert.AreEqual(character.CharacterId, startBlock.CharacterId);
+			Assert.IsTrue(continuationBlocks.TrueForAll(b => b.CharacterId == character.CharacterId));
+			foreach (var iBlock in m_indicesOfChangedBlocks)
+			{
+				var changedContBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iBlock];
+				var i = continuationBlocks.IndexOf(changedContBlock);
+				Assert.IsTrue(i >= 0);
+				continuationBlocks.RemoveAt(i);
+			}
+			Assert.IsFalse(continuationBlocks.Any());
+		}
+
+		[Test]
+		public void SetReferenceTextMatchupCharacter_BlockIsStartOfMultiblockQuoteButMatchupContainsNoContinuationBlocks_DoesNotCrash()
+		{
+			Func<Block, bool> isStartBlockAtEndOfMatchup = block => block.MultiBlockQuote == MultiBlockQuote.Start && block == m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Last();
+			m_model.AttemptRefBlockMatchup = true;
+			// Find a matchup that ends witht he first block of a multi-block quote.
+			while ((m_model.CurrentReferenceTextMatchup == null ||
+				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.Any(b => isStartBlockAtEndOfMatchup(b))) &&
+				m_model.CanNavigateToNextRelevantBlock)
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(matchup);
+			Assert.IsTrue(isStartBlockAtEndOfMatchup(matchup.CorrelatedBlocks.Last()));
+			var indexOfQuoteStartBlock = matchup.CorrelatedBlocks.Count - 1;
+			var startBlock = matchup.CorrelatedBlocks[indexOfQuoteStartBlock];
+			m_indicesOfChangedBlocks.Clear();
+
+			m_model.SetReferenceTextMatchupCharacter(indexOfQuoteStartBlock, new AssignCharacterViewModel.Character("Martin"));
+
+			Assert.AreEqual("Martin", startBlock.CharacterId);
+			Assert.IsFalse(m_indicesOfChangedBlocks.Any());
+		}
+	}
 }
