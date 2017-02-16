@@ -1389,6 +1389,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_RelevantMatchup_RemainsRelevant()
 		{
+			m_assigned = 0;
 			m_fullProjectRefreshRequired = true;
 			m_model.AttemptRefBlockMatchup = true;
 			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
