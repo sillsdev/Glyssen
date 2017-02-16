@@ -1588,11 +1588,6 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		private void HandleBlocksViewerSelectionChanged(object sender, EventArgs e)
-		{
-			this.SafeInvoke(SetReferenceTextGridRowToAnchorRow);
-		}
-
 		private void SetReferenceTextGridRowToAnchorRow()
 		{
 			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_dataGridReferenceText.CurrentCell != null)
