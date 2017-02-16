@@ -854,6 +854,35 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void TryLoadBlock_FromRelevantBlockToRelevantBlockInMatchup_RelevantBlockLoaded()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.LoadNextRelevantBlock();
+
+			m_model.TryLoadBlock(m_model.GetBlockVerseRef());
+			Assert.IsTrue(m_model.CurrentBlockDisplayIndex > 0);
+		}
+
+		[Test]
+		public void TryLoadBlock_FromIrrelevantBlockToRelevantBlockInMatchup_RelevantBlockLoaded()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.LoadNextRelevantBlock();
+			var targetRef = m_model.GetBlockVerseRef();
+
+			int v = 1;
+			while (m_model.IsCurrentBlockRelevant)
+			{
+				m_model.TryLoadBlock(new VerseRef(41, 1, v++));
+			}
+
+			m_model.TryLoadBlock(targetRef);
+			Assert.IsTrue(m_model.CurrentBlockDisplayIndex > 0);
+		}
+
+		[Test]
 		public void LoadNextRelevantBlock_FollowingInsertionOfBlockByApplyingMatchupWithSplits_LoadsARelevantBlock()
 		{
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
