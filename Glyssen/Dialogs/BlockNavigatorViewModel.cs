@@ -879,12 +879,25 @@ namespace Glyssen.Dialogs
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
 			// We can safely use the index of the anchor block in CorrelatedBlocks to find the correct block in OriginalBlocks.
-			var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
-			SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
+			if (!m_navigator.GetIndices().IsMultiBlock)
+			{
+				var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(
+						m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
+				SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
+			}
 			if (insertions > 0)
 			{
 				var currentBookIndex = m_navigator.GetIndices().BookIndex;
-				for (int i = insertionIndex + RelevantBlockCount - origRelevantBlockCount; i < RelevantBlockCount && m_relevantBookBlockIndices[i].BookIndex == currentBookIndex; i++)
+				var startIndex = insertionIndex + RelevantBlockCount - origRelevantBlockCount;
+				if (m_currentRelevantIndex >= 0 && m_navigator.GetIndices().IsMultiBlock)
+				{
+					// Since this "relevant passage" is a multi-block matchup (as opposed to a single block), rather than incrementing the
+					// BlockIndex, we want to extend the count. Otherwise, this will cease to be relevant, and when the user clicks
+					// the Previous button, they will no longer get the same blocks selected.
+					m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount += (uint) insertions;
+					startIndex++;
+				}
+				for (int i = startIndex; i < RelevantBlockCount && m_relevantBookBlockIndices[i].BookIndex == currentBookIndex; i++)
 					m_relevantBookBlockIndices[i].BlockIndex += insertions;
 			}
 		}
