@@ -1386,6 +1386,28 @@ namespace GlyssenTests.Dialogs
 			}
 		}
 
+		[Test]
+		public void ApplyCurrentReferenceTextMatchup_RelevantMatchup_RemainsRelevant()
+		{
+			m_fullProjectRefreshRequired = true;
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			var origRelevantBlockCount = m_model.RelevantBlockCount;
+			while (m_model.CurrentReferenceTextMatchup == null || m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting == 0 ||
+				!m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.All(
+				b => m_model.GetCharactersForCurrentReferenceTextMatchup().Any(c => c.CharacterId == b.CharacterId)))
+			{
+				m_model.LoadNextRelevantBlock();
+			}
+
+			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.CountOfBlocksAddedBySplitting > 0);
+			m_model.ApplyCurrentReferenceTextMatchup();
+
+			Assert.AreEqual(origRelevantBlockCount, m_model.RelevantBlockCount);
+			Assert.AreEqual(1, m_assigned);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+		}
+
 		private void FindRefInMark(int chapter, int verse)
 		{
 			while (m_model.CurrentBlock.ChapterNumber != chapter || m_model.CurrentBlock.InitialStartVerseNumber != verse)
