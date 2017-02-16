@@ -664,6 +664,7 @@ namespace Glyssen.Dialogs
 			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef, AttemptRefBlockMatchup);
 			if (indices == null)
 				return false;
+
 			m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(indices);
 			if (m_currentRelevantIndex < 0)
 			{
@@ -797,7 +798,16 @@ namespace Glyssen.Dialogs
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 				CurrentBlockIndexInBook, m_project.Versification, m_navigator.GetIndices().MultiBlockCount);
-			m_currentRefBlockMatchups?.MatchAllBlocks(m_project.Versification);
+			if (m_currentRefBlockMatchups != null)
+			{
+				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
+				if (IsCurrentBlockRelevant && !m_navigator.GetIndices().IsMultiBlock && m_temporarilyIncludedBookBlockIndices != null)
+				{
+					m_navigator.ExtendCurrentBlockGroup((uint)CurrentReferenceTextMatchup.OriginalBlockCount);
+					m_temporarilyIncludedBookBlockIndices = null;
+					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(m_navigator.GetIndices());
+				}
+			}
 			if (origValue != m_currentRefBlockMatchups)
 				CurrentBlockMatchupChanged?.Invoke(this, new EventArgs());
 		}
