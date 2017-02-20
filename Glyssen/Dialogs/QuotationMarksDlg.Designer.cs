@@ -192,7 +192,7 @@ namespace Glyssen.Dialogs
 			this.m_chkDialogueQuotations.Text = "This project marks dialogue with initial punctuation.";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_chkDialogueQuotations, true);
 			this.m_chkDialogueQuotations.UseVisualStyleBackColor = false;
-			this.m_chkDialogueQuotations.CheckedChanged += new System.EventHandler(this.HandleSettingChange);
+			this.m_chkDialogueQuotations.CheckedChanged += new System.EventHandler(this.m_chkDialogueQuotations_CheckedChanged);
 			// 
 			// m_cboQuotationDash
 			// 
