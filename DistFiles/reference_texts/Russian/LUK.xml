@@ -2276,8 +2276,8 @@
     <verse num="23" />
     <text>Что легче сказать: прощаются тебе грехи твои, или сказать: встань и ходи?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" delivery="giving orders" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" delivery="giving orders" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" delivery="giving orders" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="24" characterId="Jesus" delivery="giving orders" multiBlockQuote="Continuation">
       <verse num="24" />
       <text>But that you may know that the Son of Man has authority on earth to forgive sins”</text>
     </ReferenceBlocks>
@@ -4995,8 +4995,8 @@
     <verse num="15" />
     <text>И ты, Капернаум, до неба вознесшийся, до ада низвергнешься.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="16" />
       <text>Whoever listens to you listens to me, and whoever rejects you rejects me. Whoever rejects me rejects him who sent me.”</text>
     </ReferenceBlocks>
@@ -5709,8 +5709,8 @@
     <verse num="41" />
     <text>Подавайте лучше милостыню из того, что у вас есть, тогда всё будет у вас чисто.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="42" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="42" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="42" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="42" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="42" />
       <text>But woe to you Pharisees! For you tithe mint and rue and every herb, but you bypass justice and the love of God. You ought to have done these, and not to have left the other undone.</text>
     </ReferenceBlocks>

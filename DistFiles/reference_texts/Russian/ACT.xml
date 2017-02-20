@@ -3539,7 +3539,7 @@
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Peter (Simon)" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="10" initialStartVerse="36" characterId="Peter (Simon)" multiBlockQuote="Continuation">
       <verse num="36" />
-      <text>The word which he sent to the children of Israel, preaching good news of peace by Jesus Christ--he is Lord of all—</text>
+      <text>The word which he sent to the children of Israel, preaching good news of peace by Jesus Christ--he is Lord of all--</text>
     </ReferenceBlocks>
     <verse num="36" />
     <text>Он послал сынам Израилевым слово, благовествуя мир чрез Иисуса Христа; Сей есть Господь всех.</text>
@@ -8162,8 +8162,8 @@
     <verse num="4" />
     <text>Но, чтобы много не утруждать тебя, прошу тебя выслушать нас кратко, со свойственным тебе снисхождением.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="5" characterId="Tertullus, lawyer" delivery="accusing" multiBlockQuote="Continuation">
       <verse num="5" />
       <text>We have found this man to be a plague, an instigator of insurrections among all the Jews throughout the world, and a ringleader of the sect of the Nazarenes.</text>
     </ReferenceBlocks>

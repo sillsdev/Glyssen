@@ -32,6 +32,15 @@ namespace DevTools
 		private static readonly Regex s_verseNumberMarkupRegex = new Regex("(\\{\\d*?\\}\u00A0)", RegexOptions.Compiled);
 		private static readonly Regex s_extractVerseNumberRegex = new Regex("\\{(\\d*?)\\}\u00A0", RegexOptions.Compiled);
 		private static readonly Regex s_removeQuotes = new Regex("[“”\"'\u2018\u2019«»]|(--$)", RegexOptions.Compiled);
+		private static readonly Regex s_verseNumberInExcelRegex = new Regex("\\{(\\d*?)\\} ?", RegexOptions.Compiled);
+		private static readonly Regex s_doubleSingleOpenQuote = new Regex("(<< <)", RegexOptions.Compiled);
+		private static readonly Regex s_singleDoubleOpenQuote = new Regex("(< <<)", RegexOptions.Compiled);
+		private static readonly Regex s_doubleSingleCloseQuote = new Regex("(>> >)", RegexOptions.Compiled);
+		private static readonly Regex s_singleDoubleCloseQuote = new Regex("((> >>)|(>>>))", RegexOptions.Compiled);
+		private static readonly Regex s_doubleOpenQuote = new Regex("(<<)", RegexOptions.Compiled);
+		private static readonly Regex s_doubleCloseQuote = new Regex("(>>)", RegexOptions.Compiled);
+		private static readonly Regex s_singleOpenQuote = new Regex("(<)", RegexOptions.Compiled);
+		private static readonly Regex s_singleCloseQuote = new Regex("(>)", RegexOptions.Compiled);
 
 		private static Regex s_regexStartQuoteMarks;
 		private static Regex s_regexEndQuoteMarks;
@@ -198,6 +207,13 @@ namespace DevTools
 				List<Block> newBlocks = new List<Block>();
 				TitleAndChapterLabelInfo currentTitleAndChapterLabelInfo = null;
 				IReadOnlyList<Block> existingRefBlocksForLanguage = null;
+
+				string openDoubleQuote;
+				string closeDoubleQuote;
+				string openQuoteSingle;
+				string closeQuoteSingle;
+				GetQuoteMarksForLanguage(language, out openDoubleQuote, out closeDoubleQuote, out openQuoteSingle, out closeQuoteSingle);
+
 				foreach (var referenceTextRow in referenceTextRowsFromExcelSpreadsheet.Where(r => BCVRef.BookToNumber(ConvertFcbhBookCodeToSilBookCode(r.Book)) >= startBook))
 				{
 					if (prevBook != referenceTextRow.Book)
@@ -414,7 +430,17 @@ namespace DevTools
 						}
 
 						string originalText = referenceTextRow.GetText(language);
-						var modifiedText = Regex.Replace(originalText, "\\{(\\d*?)\\} ?", "{$1}\u00A0");
+						var verseNumberFixedText = s_verseNumberInExcelRegex.Replace(originalText, "{$1}\u00A0");
+						var modifiedText = s_doubleSingleOpenQuote.Replace(verseNumberFixedText, openDoubleQuote + "\u202F" + openQuoteSingle);
+						modifiedText = s_singleDoubleOpenQuote.Replace(modifiedText, openQuoteSingle + "\u202F" + openDoubleQuote);
+						modifiedText = s_doubleSingleCloseQuote.Replace(modifiedText, closeDoubleQuote + "\u202F" + closeQuoteSingle);
+						modifiedText = s_singleDoubleCloseQuote.Replace(modifiedText, closeQuoteSingle + "\u202F" + closeDoubleQuote);
+						modifiedText = s_doubleOpenQuote.Replace(modifiedText, openDoubleQuote);
+						modifiedText = s_doubleCloseQuote.Replace(modifiedText, closeDoubleQuote);
+						modifiedText = s_singleOpenQuote.Replace(modifiedText, openQuoteSingle);
+						modifiedText = s_singleCloseQuote.Replace(modifiedText, closeQuoteSingle);
+						if (verseNumberFixedText != modifiedText)
+							Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
 
 						if (!onlyRunToFindDifferencesBetweenCurrentVersionAndExcel ||
 							CompareIgnoringQuoteMarkDifferences(modifiedText, existingRefBlocksForLanguage[iBlock - 1], referenceTextRow.Book, ignoreWhitespaceAndPunctuationDifferences))
@@ -851,6 +877,34 @@ namespace DevTools
 			return false;
 		}
 
+		private static void GetQuoteMarksForLanguage(string languageName, out string doubleOpen, out string doubleClose, out string singleOpen, out string singleClose)
+		{
+			doubleOpen = "“";
+			doubleClose = "”";
+			singleOpen = "‘";
+			singleClose = "’";
+			switch (languageName)
+			{
+				case "Azeri":
+					doubleOpen = "\"";
+					doubleClose = "\"";
+					singleOpen = "“";
+					singleClose = "”";
+					break;
+				case "French":
+				case "Spanish":
+					doubleOpen = "«";
+					doubleClose = "»";
+					break;
+				case "TokPisin":
+					doubleOpen = "\"";
+					doubleClose = "\"";
+					singleOpen = "'";
+					singleClose = "'";
+					break;
+			}
+		}
+
 		public static bool LinkToEnglish()
 		{
 			bool errorOccurred = false;
@@ -859,6 +913,12 @@ namespace DevTools
 				Console.WriteLine("Processing " +
 					(referenceTextId.Type == ReferenceTextType.Custom ? referenceTextId.CustomIdentifier : referenceTextId.Type.ToString()) +
 					"...");
+
+				string openQuote;
+				string closeQuote;
+				string openQuoteSingle;
+				string closeQuoteSingle;
+				GetQuoteMarksForLanguage(referenceTextId.Name, out openQuote, out closeQuote, out openQuoteSingle, out closeQuoteSingle);
 
 				Console.Write("   ");
 

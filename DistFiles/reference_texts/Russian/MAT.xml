@@ -559,8 +559,8 @@
     <verse num="10" />
     <text>Уже и секира при корне дерев лежит: всякое дерево, не приносящее доброго плода, срубают и бросают в огонь.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="John the Baptist" delivery="humble" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="John the Baptist" delivery="humble" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="John the Baptist" delivery="humble" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="3" initialStartVerse="11" characterId="John the Baptist" delivery="humble" multiBlockQuote="Continuation">
       <verse num="11" />
       <text>I indeed baptize you in water for repentance, but there is one who comes after me is mightier than I, whose shoes I am not worthy to carry. He will baptize you in the Holy Spirit.</text>
     </ReferenceBlocks>
@@ -2256,8 +2256,8 @@
     </ReferenceBlocks>
     <text>“для чего вы мыслите худое в сердцах ваших?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="5" />
       <text>For which is easier, to say, ‘Your sins are forgiven;’ or to say, ‘Get up, and walk?’</text>
     </ReferenceBlocks>
@@ -3246,8 +3246,8 @@
     <verse num="26" />
     <text>ей, Отче! ибо таково было Твое благоволение.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="27" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="27" />
       <text>All things have been delivered to me by my Father. No one knows the Son, except the Father; neither does anyone know the Father, except the Son, and he to whom the Son desires to reveal him.”</text>
     </ReferenceBlocks>
@@ -3262,8 +3262,8 @@
     <verse num="28" />
     <text>“Придите ко Мне все труждающиеся и обремененные, и Я успокою вас;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="11" initialStartVerse="29" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="29" />
       <text>Take my yoke upon you, and learn from me, for I am gentle and lowly in heart; and you will find rest for your souls.</text>
     </ReferenceBlocks>
@@ -3688,8 +3688,8 @@
     <verse num="42" />
     <text>Царица южная восстанет на суд с родом сим и осудит его, ибо она приходила от пределов земли послушать мудрости Соломоновой; и вот, здесь больше Соломона.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="43" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="43" />
       <text>But the unclean spirit, when he is gone out of the man, passes through waterless places, seeking rest, and doesn't find it.</text>
     </ReferenceBlocks>
@@ -4284,8 +4284,8 @@
     </ReferenceBlocks>
     <text>“откуда у Него такая премудрость и силы?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="55" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="55" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="13" initialStartVerse="55" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="55" characterId="men in Nazareth synagogue" delivery="offended" multiBlockQuote="Continuation">
       <verse num="55" />
       <text>Isn't this the carpenter's son? Isn't his mother called Mary, and his brothers, James, Joses, Simon, and Judas?</text>
     </ReferenceBlocks>
@@ -5863,16 +5863,16 @@
     <verse num="9" />
     <text>и если глаз твой соблазняет тебя, вырви его и брось от себя: лучше тебе с одним глазом войти в жизнь, нежели с двумя глазами быть ввержену в геенну огненную.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="warning" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="warning" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="warning" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="10" characterId="Jesus" delivery="warning" multiBlockQuote="Continuation">
       <verse num="10" />
       <text>See that you don't despise one of these little ones, for I tell you that in heaven their angels always see the face of my Father who is in heaven.</text>
     </ReferenceBlocks>
     <verse num="10" />
     <text>Смотрите, не презирайте ни одного из малых сих; ибо говорю вам, что Ангелы их на небесах всегда видят лице Отца Моего Небесного.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="11" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="11" />
       <text>For the Son of Man came to save that which was lost.”</text>
     </ReferenceBlocks>
@@ -8230,7 +8230,7 @@
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="narrator-MAT" multiBlockQuote="Start">
       <text>(let the reader understand),</text>
     </ReferenceBlocks>
-    <text>читающий да разумеет,</text>
+    <text>—читающий да разумеет, —</text>
   </block>
   <block style="p" paragraphStart="true" chapter="24" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
@@ -9392,8 +9392,8 @@
     </ReferenceBlocks>
     <text>“вы всё еще спите и почиваете? вот, приблизился час, и Сын Человеческий предается в руки грешников;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="46" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="46" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="26" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="26" initialStartVerse="46" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="46" />
       <text>Arise, let's be going. Behold, he who betrays me is at hand.”</text>
     </ReferenceBlocks>

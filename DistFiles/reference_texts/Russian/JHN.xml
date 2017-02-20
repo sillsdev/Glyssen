@@ -3262,8 +3262,8 @@
     <verse num="26" />
     <text>Вот, Он говорит явно, и ничего не говорят Ему: не удостоверились ли начальники, что Он подлинно Христос?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="people of Jerusalem, some" delivery="arguing" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="people of Jerusalem, some" delivery="arguing" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="people of Jerusalem, some" delivery="arguing" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="7" initialStartVerse="27" characterId="people of Jerusalem, some" delivery="arguing" multiBlockQuote="Continuation">
       <verse num="27" />
       <text>However we know where this man comes from, but when the Christ comes, no one will know where he comes from.”</text>
     </ReferenceBlocks>
@@ -4540,8 +4540,8 @@
     </ReferenceBlocks>
     <text>“мы знаем, что это сын наш и что он родился слепым,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="parents of cured man, blind from birth" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="parents of cured man, blind from birth" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="parents of cured man, blind from birth" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="9" initialStartVerse="21" characterId="parents of cured man, blind from birth" multiBlockQuote="Continuation">
       <verse num="21" />
       <text>but how he now sees, we don't know; or who opened his eyes, we don't know. He is of age. Ask him. He will speak for himself.”</text>
     </ReferenceBlocks>

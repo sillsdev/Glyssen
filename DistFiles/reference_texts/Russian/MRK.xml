@@ -521,8 +521,8 @@
     </ReferenceBlocks>
     <text>“для чего так помышляете в сердцах ваших?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="9" />
       <text>Which is easier, to tell the paralytic, ‘Your sins are forgiven;’ or to say, ‘Arise, and take up your bed, and walk?’</text>
     </ReferenceBlocks>
@@ -539,7 +539,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="2" initialStartVerse="10" characterId="narrator-MRK">
-      <text>--he said to the paralytic—</text>
+      <text>--he said to the paralytic--</text>
     </ReferenceBlocks>
     <text>—говорит расслабленному:</text>
   </block>
@@ -3279,8 +3279,8 @@
     </ReferenceBlocks>
     <text>“что рассуждаете о том, что нет у вас хлебов? Еще ли не понимаете и не разумеете? Еще ли окаменено у вас сердце?</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="8" initialStartVerse="18" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
       <verse num="18" />
       <text>Having eyes, don't you see? Having ears, don't you hear? Don't you remember?</text>
     </ReferenceBlocks>
@@ -5419,8 +5419,8 @@
     </ReferenceBlocks>
     <text>“хорошо, Учитель! истину сказал Ты, что один есть Бог и нет иного, кроме Его;</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="12" initialStartVerse="33" characterId="expert in religious law" multiBlockQuote="Continuation">
       <verse num="33" />
       <text>And to love him with all the heart, and with all the understanding, with all the soul, and with all the strength, and to love his neighbor as himself, is more important than all whole burnt offerings and sacrifices.”</text>
     </ReferenceBlocks>
@@ -6397,8 +6397,8 @@
     </ReferenceBlocks>
     <text>“как будто на разбойника вышли вы с мечами и кольями, чтобы взять Меня.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="ChangeOfDelivery" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="ChangeOfDelivery">
+  <block style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="14" initialStartVerse="49" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="49" />
       <text>I was daily with you in the temple teaching, and you didn't arrest me. But this is so that the Scriptures might be fulfilled.”</text>
     </ReferenceBlocks>
