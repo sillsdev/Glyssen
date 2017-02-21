@@ -162,7 +162,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="6" characterId="narrator-ROM">
     <verse num="6" />
-    <text>He will pay back to everyone according to their works:</text>
+    <text>who “will pay back to everyone according to their works:”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="2" initialStartVerse="7" characterId="narrator-ROM">
     <verse num="7" />
@@ -1128,11 +1128,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="6" characterId="narrator-ROM">
     <verse num="6" />
-    <text>But the righteousness which is of faith says this, “Don't say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);”</text>
+    <text>But the righteousness which is of faith says this, “Don’t say in your heart, ‘Who will ascend into heaven?’ (that is, to bring Christ down);</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="7" characterId="narrator-ROM">
     <verse num="7" />
-    <text>“or, ‘Who will descend into the abyss?’ (that is, to bring Christ up from the dead.) </text>
+    <text>or, ‘Who will descend into the abyss?’ (that is, to bring Christ up from the dead.)” </text>
     <verse num="8" />
     <text>But what does it say?</text>
   </block>

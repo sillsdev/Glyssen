@@ -1548,10 +1548,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="38" characterId="narrator-ACT">
     <verse num="38" />
-    <text>As Lydda was near Joppa, the disciples, hearing that Peter was there, sent two men to him, imploring him</text>
+    <text>As Lydda was near Joppa, the disciples, hearing that Peter was there, sent two men to him, imploring him,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="38" characterId="disciples, two men (from Joppa)" delivery="urgent">
-    <text>“Do not to delay in coming.”</text>
+    <text>“Do not delay in coming.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="9" initialStartVerse="39" characterId="narrator-ACT">
     <verse num="39" />
@@ -2219,7 +2219,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="27" characterId="Paul" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="27" />
-    <text>For the inhabitants of Jerusalem and their rulers did not recognize Jesus. By condemning him they fulfilled the words of the prophets which are read every sabbath day.”</text>
+    <text>For the inhabitants of Jerusalem and their rulers did not recognize Jesus. By condemning him they fulfilled the words of the prophets which are read every sabbath day.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="28" characterId="Paul" delivery="preaching" multiBlockQuote="Start">
     <verse num="28" />
@@ -3497,7 +3497,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="35" characterId="Paul" multiBlockQuote="Continuation">
     <verse num="35" />
-    <text>In all things I gave you an example, that so laboring you ought to help the weak. We must remember the words that the Lord Jesus said, ‘It is more blessed to give than to receive.”</text>
+    <text>In all things I gave you an example, that so laboring you ought to help the weak. We must remember the words that the Lord Jesus said, ‘It is more blessed to give than to receive.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="36" characterId="narrator-ACT">
     <verse num="36" />
@@ -3886,7 +3886,7 @@
     <text>Paul said,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="5" characterId="Paul">
-    <text>“I didn’t know, brothers, that he was high priest. For it is written, ‘You shall not speak evil of a ruler of your people.”</text>
+    <text>“I didn’t know, brothers, that he was high priest. For it is written, ‘You shall not speak evil of a ruler of your people.’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="6" characterId="narrator-ACT">
     <verse num="6" />
@@ -4392,7 +4392,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="15" characterId="Paul">
     <verse num="15" />
-    <text>“I said, ‘Who are you, Lord?’” “He said, ‘I am Jesus, whom you are persecuting.</text>
+    <text>“I said, ‘Who are you, Lord?’ He said, ‘I am Jesus, whom you are persecuting.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="26" initialStartVerse="16" characterId="Paul" multiBlockQuote="Start">
     <verse num="16" />
