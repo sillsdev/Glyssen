@@ -1051,7 +1051,7 @@
     <text>He called to himself the twelve, and said to them:</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="7" characterId="Jesus" delivery="giving orders">
-    <text>“I am sending you out two by two and I am giving you authority over the unclean spirits”</text>
+    <text>“I am sending you out two by two and I am giving you authority over the unclean spirits.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="8" characterId="narrator-MRK">
     <verse num="8" />
@@ -1062,7 +1062,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="9" />
-    <text>Wear sandals, but only one tunic.</text>
+    <text>Wear sandals, but only one tunic.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="10" characterId="narrator-MRK">
     <verse num="10" />
@@ -1394,7 +1394,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="11" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="11" />
-    <text>But you say, ‘If a man tells his father or his mother, “Whatever profit you might have received from me is Corban, that is to say, given to God”’;</text>
+    <text>But you say, ‘If a man tells his father or his mother, “Whatever profit you might have received from me is Corban, that is to say, given to God;”’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="7" initialStartVerse="12" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="12" />
