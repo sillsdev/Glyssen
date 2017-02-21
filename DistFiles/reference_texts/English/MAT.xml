@@ -768,7 +768,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="6" initialStartVerse="34" characterId="Jesus" delivery="preaching" multiBlockQuote="Continuation">
     <verse num="34" />
-    <text>Therefore don't be anxious for tomorrow, for tomorrow will be anxious for itself. Each day's own evil is sufficient.”</text>
+    <text>Therefore don’t be anxious for tomorrow, for tomorrow will be anxious for itself. Each day’s own evil is sufficient.”</text>
   </block>
   <block style="c" paragraphStart="true" chapter="7" book="MAT" initialStartVerse="0" characterId="BC-MAT">
     <text>7</text>
@@ -2014,7 +2014,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="30" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="30" />
-    <text>Let both grow together until the harvest, and in the harvest time I will tell the reapers, First, gather up the weeds, and bind them in bundles to burn them; but gather the wheat into my barn.’”</text>
+    <text>Let both grow together until the harvest, and in the harvest time I will tell the reapers, “First, gather up the weeds, and bind them in bundles to burn them; but gather the wheat into my barn.”’”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="31" characterId="narrator-MAT">
     <verse num="31" />
@@ -3246,15 +3246,15 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="7" characterId="Jesus">
     <verse num="7" />
-    <text>“They said to him, ‘Because no one has hired us.’ “He said to them, ‘You also go into the vineyard, and you will receive whatever is right.’</text>
+    <text>They said to him, ‘Because no one has hired us.’ He said to them, ‘You also go into the vineyard, and you will receive whatever is right.’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="8" characterId="Jesus">
     <verse num="8" />
-    <text>When evening had come, the lord of the vineyard said to his manager, ‘Call the laborers and pay them their wages, beginning from the last to the first.’</text>
+    <text>“When evening had come, the lord of the vineyard said to his manager, ‘Call the laborers and pay them their wages, beginning from the last to the first.’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="9" characterId="Jesus" multiBlockQuote="Start">
     <verse num="9" />
-    <text>“When those who were hired at about the eleventh hour came, they each received a denarius.</text>
+    <text>When those who were hired at about the eleventh hour came, they each received a denarius.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="10" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="10" />
@@ -3268,7 +3268,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="13" characterId="Jesus" multiBlockQuote="Start">
     <verse num="13" />
-    <text>“But he answered one of them, ‘Friend, I am doing you no wrong. Didn’t you agree with me for a denarius?</text>
+    <text>But he answered one of them, ‘Friend, I am doing you no wrong. Didn’t you agree with me for a denarius?</text>
   </block>
   <block style="p" paragraphStart="true" chapter="20" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="14" />
@@ -3674,7 +3674,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="4" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="4" />
-    <text>Again he sent out other servants, saying, ‘Tell those who are invited, “Behold, I have prepared my dinner. My cattle and my fatlings are killed, and all things are ready. Come to the marriage feast!”’”</text>
+    <text>Again he sent out other servants, saying, ‘Tell those who are invited, “Behold, I have prepared my dinner. My cattle and my fatlings are killed, and all things are ready. Come to the marriage feast!”’</text>
   </block>
   <block style="p" paragraphStart="true" chapter="22" initialStartVerse="5" characterId="Jesus" multiBlockQuote="Start">
     <verse num="5" />
@@ -3932,11 +3932,11 @@
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="13" characterId="Jesus" delivery="rebuking">
     <verse num="13" />
-    <text>“Woe to you, scribes and Pharisees, hypocrites! For you devour widows’ houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.”</text>
+    <text>“But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don’t enter in yourselves, neither do you allow those who are entering in to enter.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="14" characterId="Jesus" delivery="rebuking" multiBlockQuote="Start">
     <verse num="14" />
-    <text>“But woe to you, scribes and Pharisees, hypocrites! Because you shut up the Kingdom of Heaven against men; for you don't enter in yourselves, neither do you allow those who are entering in to enter.</text>
+    <text>“Woe to you, scribes and Pharisees, hypocrites! For you devour widows’ houses, and as a pretense you make long prayers. Therefore you will receive greater damnation.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="23" initialStartVerse="15" characterId="Jesus" delivery="rebuking" multiBlockQuote="Continuation">
     <verse num="15" />

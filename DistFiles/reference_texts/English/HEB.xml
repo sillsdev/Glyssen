@@ -231,7 +231,7 @@
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="13" characterId="narrator-HEB">
     <verse num="13" />
-    <text>Exhort one another day by day, so long as it is called “today”; lest any one of you be hardened by the deceitfulness of sin.</text>
+    <text>Exhort one another day by day, so long as it is called “today;” lest any one of you be hardened by the deceitfulness of sin.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="3" initialStartVerse="14" characterId="narrator-HEB">
     <verse num="14" />
@@ -829,7 +829,7 @@
     <text>Previously saying,</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="scripture">
-    <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn't desire, neither had pleasure in them”</text>
+    <text>“Sacrifices and offerings and whole burnt offerings and sacrifices for sin you didn’t desire, neither had pleasure in them”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="10" initialStartVerse="8" characterId="narrator-HEB">
     <text>(although the law required them to be made), </text>
