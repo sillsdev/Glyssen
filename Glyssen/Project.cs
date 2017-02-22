@@ -1277,7 +1277,7 @@ namespace Glyssen
 						{
 							try
 							{
-								SIL.IO.RobustFile.Move(LdmlFilePath, backupPath);
+								SIL.IO.RobustFile.Move(backupPath, LdmlFilePath);
 								attemptToUseBackup = false;
 							}
 							catch (Exception exRestoreBackup)
