@@ -47,6 +47,163 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void ChangeReferenceText_EnglishToFrenchHeSaid_ReferenceTextChangesToIlADit()
+		{
+			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var block = new Block("p", 1, 10);
+			block.BlockElements.Add(new ScriptText("dijo."));
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
+			Assert.AreEqual(rtFrench.HeSaidText, block.PrimaryReferenceText);
+			Assert.AreEqual(rtEnglish.HeSaidText, block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchHeSaidWithVerseNumber_ReferenceTextChangesToIlADitWithVerseNumber()
+		{
+			var rtEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var block = new Block("p", 1, 10).AddVerse(10, "dijo."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
+			Assert.AreEqual("{10}\u00A0" + rtFrench.HeSaidText, block.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0" + rtEnglish.HeSaidText, block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_FrenchToEnglish_EnglishMovedFromSecondaryToPrimary()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var refBlock = block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary French reference text.");
+			refBlock.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
+			Assert.IsTrue(block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
+				ScrVers.English));
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.PrimaryReferenceText);
+		}
+
+		[Test] public void ChangeReferenceText_FrenchToSpanish_MultipleMatchingCombinedRefBlocks_ReferenceTextChanged()
+		{
+			var block = new Block("p", 2, 1)
+				.AddVerse(1, "Now when Jesus was born in Bethlehem, Judea during King Herod's reign of terror, oriental magi came to Zion, ")
+				.AddVerse(2, "wondering where the King of the Jews was supposed to be born because they had seen his star in the sky and come to worship."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			var frenchRefText = block.SetMatchedReferenceBlock("{1}\u00A0Jésus ... {2}\u00A0Ils ... demandent: <<Où ... l'adorer.>>");
+			frenchRefText.SetMatchedReferenceBlock("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
+				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”");
+			ReferenceText rtSpanish = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.SpanishMAT);
+			Assert.IsTrue(block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English));
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesús ... {2}\u00A0y ... preguntaron: <<¿Dónde ... adorarlo.>>",
+				block.PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
+				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”",
+				block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchArbitraryEditing_ReturnsFalse()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0This is some arbitrary English reference text.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsFalse(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
+			// Caller will be responsible for clearing the alignment (for this and other related blocks)
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.PrimaryReferenceText);
+			Assert.IsFalse(block.ReferenceBlocks.Single().MatchesReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyAfterVerseNumber_VerseNumberKeptAsReferenceText()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{10}\u00A0     ");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0", block.PrimaryReferenceText);
+			Assert.IsTrue(block.ReferenceBlocks.Single().MatchesReferenceText);
+			Assert.AreEqual("{10}\u00A0", block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchWhiteSpaceOnlyNoVerseNumber_BlankReferenceText()
+		{
+			var block = new Block("p", 1, 10).AddVerse(10, "blah blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("     ");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("", block.PrimaryReferenceText);
+			Assert.IsTrue(block.ReferenceBlocks.Single().MatchesReferenceText);
+			Assert.AreEqual("", block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToAzeriDifferentNumberOfBlockElements_DoesNotMatch_ReturnsFalse()
+		{
+			var block = new Block("p", 12, 17).AddVerse(17, "blah blah blah.").AddVerse(18, "More blah blah."); // vernacular
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{17} Stuff that doesn't match...");
+			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
+			Assert.IsFalse(block.ChangeReferenceText("REV", rtAzeri, ScrVers.English));
+			// Caller will be responsible for clearing the alignment (for this and other related blocks)
+			Assert.AreEqual("{17}\u00A0Stuff that doesn't match...", block.PrimaryReferenceText);
+			Assert.IsFalse(block.ReferenceBlocks.Single().MatchesReferenceText);
+			Assert.IsNull(block.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchDifferentVersification_ReferenceTextChanged()
+		{
+			ScrVers vernVers;
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				vernVers = Versification.Table.Load(tempFile.Path);
+			}
+
+			var block = new Block("p", 9, 20);
+			block.BlockElements.Add(new ScriptText("<<Desde cuando le llega asi?>>"));
+			block.CharacterId = "Jesus";
+			block.SetMatchedReferenceBlock("“How long has it been since this has come to him?”");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("<<Cela lui arrive depuis quand?>>", block.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void ChangeReferenceText_EnglishToFrenchDifferentVersificationAcrossChapter_ReferenceTextChanged()
+		{
+			ScrVers vernVers;
+			using (TempFile tempFile = new TempFile())
+			{
+				File.WriteAllText(tempFile.Path, Resources.TestVersification);
+				vernVers = Versification.Table.Load(tempFile.Path);
+			}
+
+			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{43} He strictly ordered them, saying: “Tell no one about this!” Then he said: “Give her something to eat.” " +
+				"{1} He went out from there. He came into his own country, and his disciples followed him.");
+			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
+			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual("{43}\u00A0mais Jésus leur demandeforce: <<Ne dites rien à personne.>> Ensuite il leur dit: " +
+				"<<Donnez-lui quelque chose à manger.>> {1}\u00A0J... l'accompagnent.",
+				block.PrimaryReferenceText);
+		}
+
+		[Test]
 		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
 		{
 			var block = new Block("c", 4);

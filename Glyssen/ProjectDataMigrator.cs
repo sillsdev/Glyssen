@@ -95,8 +95,7 @@ namespace Glyssen
 
 					if (subsequentBlocksInSplit.All(b => b.MultiBlockQuote == MultiBlockQuote.None) &&
 						(firstBlockAfterSplit == null ||
-						firstBlockAfterSplit.MultiBlockQuote == MultiBlockQuote.Continuation ||
-						firstBlockAfterSplit.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery))
+						firstBlockAfterSplit.IsContinuationOfPreviousBlockQuote))
 					{
 						if (firstBlockOfSplit.MultiBlockQuote == MultiBlockQuote.Start)
 							firstBlockOfSplit.MultiBlockQuote = MultiBlockQuote.None;

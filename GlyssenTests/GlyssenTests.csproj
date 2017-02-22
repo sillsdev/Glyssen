@@ -223,6 +223,7 @@
     <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />
     <None Include="Resources\TestREV.xml" />
+    <None Include="Resources\TestMATcuk.xml" />
     <Content Include="Resources\TestRUT.xml" />
     <None Include="Resources\TestReferenceTextJUD.xml" />
     <Content Include="Resources\TestVersification.txt" />

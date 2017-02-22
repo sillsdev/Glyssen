@@ -562,6 +562,7 @@ namespace Glyssen.Dialogs
 			m_lblStartDialogueQuote.Enabled = m_chkDialogueQuotations.Checked;
 			m_lblEndDialogueQuote.Enabled = m_chkDialogueQuotations.Checked;
 			m_chkAlternateSpeakersInFirstLevelQuotes.Enabled = m_chkDialogueQuotations.Checked;
+			HandleSettingChange(sender, e);
 		}
 
 		private bool QuotationDashSelected

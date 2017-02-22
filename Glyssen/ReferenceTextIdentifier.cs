@@ -59,9 +59,11 @@ namespace Glyssen
 		private GlyssenDblTextMetadata m_metadata;
 		private readonly string m_customId;
 
-		public ReferenceTextType Type { get { return m_referenceTextType; } }
-		public GlyssenDblTextMetadata Metadata { get { return m_metadata; } }
-		public string CustomIdentifier { get { return m_customId; } }
+		public ReferenceTextType Type => m_referenceTextType;
+		public GlyssenDblTextMetadata Metadata => m_metadata;
+		public string CustomIdentifier => m_customId;
+		public string Name => m_customId ?? Type.ToString();
+
 		public bool Missing
 		{
 			get
