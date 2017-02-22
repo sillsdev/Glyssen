@@ -563,36 +563,50 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void Apply_VernVerseCrossesUnmatchedSectionHead_VerseBlocksButNotSectionHeadSetAsMatchWithReferenceBlocks()
+		public void Apply_MatchupWithNoSplitsIsFollowedByContinuationBlocks_FollowingContinuationBlocksHaveCharacterIdUpdated()
 		{
 			var vernacularBlocks = new List<Block>();
-			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "This is a leading verse that should not be included.", true));
-			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(2, "Partieron de alli para Jerico. ", true));
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks,
-				CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical),
-				"Big Change in Topic", "s").IsParagraphStart = true;
-			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "Pedro dijo: ").IsParagraphStart = true;
-			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Peter", "Que buen lugar tienes!");
-			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is a trailing verse that should not be included.", true));
-			var vernBook = new BookScript("MAT", vernacularBlocks);
-			var matchup = new BlockMatchup(vernBook, 1, null, i => true, null);
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then an unknown person said:", true));
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 2, "This is the first thing I want to say.", true));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 3, "Also, it's worth pointing out something else.", true));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			vernacularBlocks.Add(ReferenceTextTests.CreateBlockForVerse(CharacterVerseData.kAmbiguousCharacter, 4, "But now my time has run out, ", true));
+			vernacularBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			ReferenceTextTests.AddNarratorBlockForVerseInProgress(vernacularBlocks, "he concluded.");
 
-			var refBlock1 = ReferenceTextTests.CreateBlockForVerse(vernacularBlocks[1].CharacterId, 2, "The left from there for Jericho. ", true);
-			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(refBlock1);
-			var refBlock2 = new Block("p", 1, 2) { CharacterId = vernacularBlocks[1].CharacterId };
-			refBlock2.BlockElements.Add(new ScriptText("Peter said: "));
-			matchup.CorrelatedBlocks[2].SetMatchedReferenceBlock(refBlock2);
-			var refBlock3 = new Block("p", 1, 2) { CharacterId = "Peter" };
-			refBlock3.BlockElements.Add(new ScriptText("Nice place you got here!"));
-			matchup.CorrelatedBlocks[3].SetMatchedReferenceBlock(refBlock3);
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 1, null, index => true, null);
+
+			Assert.AreEqual(1, matchup.OriginalBlockCount);
+			Assert.AreEqual(matchup.OriginalBlockCount, matchup.CorrelatedBlocks.Count);
 			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
+
+			var refBlock1 = ReferenceTextTests.CreateBlockForVerse("Marco/his friend", 2, "Za 1st Ting 2 say. ", true);
+			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(refBlock1);
+			matchup.CorrelatedBlocks[0].CharacterId = refBlock1.CharacterId;
+			matchup.CorrelatedBlocks[0].CharacterIdOverrideForScript = "his friend";
 
 			matchup.Apply(null);
 			var scriptBlocks = vernBook.GetScriptBlocks(true);
-			Assert.AreEqual(refBlock1, scriptBlocks[1].ReferenceBlocks.Single());
-			Assert.IsFalse(scriptBlocks[2].MatchesReferenceText);
-			Assert.AreEqual(refBlock2, scriptBlocks[3].ReferenceBlocks.Single());
-			Assert.AreEqual(refBlock3, scriptBlocks[4].ReferenceBlocks.Single());
+			int i = 1;
+			Assert.AreEqual(refBlock1, scriptBlocks[i].ReferenceBlocks.Single());
+			Assert.AreEqual(refBlock1.CharacterId, scriptBlocks[i].CharacterId);
+			Assert.AreEqual("his friend", scriptBlocks[i].CharacterIdOverrideForScript);
+			Assert.AreEqual(MultiBlockQuote.Start, scriptBlocks[i].MultiBlockQuote);
+			Assert.IsFalse(scriptBlocks[++i].MatchesReferenceText);
+			Assert.AreEqual(scriptBlocks[1].CharacterId, scriptBlocks[i].CharacterId);
+			Assert.AreEqual(scriptBlocks[1].CharacterIdOverrideForScript, scriptBlocks[i].CharacterIdOverrideForScript);
+			Assert.AreEqual(MultiBlockQuote.Continuation, scriptBlocks[i].MultiBlockQuote);
+			Assert.IsFalse(scriptBlocks[++i].MatchesReferenceText);
+			Assert.AreEqual(scriptBlocks[1].CharacterId, scriptBlocks[i].CharacterId);
+			Assert.AreEqual(scriptBlocks[1].CharacterIdOverrideForScript, scriptBlocks[i].CharacterIdOverrideForScript);
+			Assert.AreEqual(MultiBlockQuote.Continuation, scriptBlocks[i].MultiBlockQuote);
+			Assert.IsFalse(scriptBlocks[++i].MatchesReferenceText);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator),
+				scriptBlocks[i].CharacterId);
+			Assert.IsNull(scriptBlocks[i].CharacterIdOverrideForScript);
+			Assert.AreEqual(MultiBlockQuote.None, scriptBlocks[i].MultiBlockQuote);
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
 

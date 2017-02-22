@@ -2171,6 +2171,172 @@ namespace GlyssenTests
 		}
 		#endregion
 
+		#region ReplaceBlocks Tests
+		[TestCase(MultiBlockQuote.None, MultiBlockQuote.None, MultiBlockQuote.None)]
+		[TestCase(MultiBlockQuote.Start, MultiBlockQuote.None, MultiBlockQuote.None)]
+		[TestCase(MultiBlockQuote.None, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.Start, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
+		public void ReplaceBlocks_FollowingBlockIsNotContinuationOfQuote_NoChangesToFollowingBlock(MultiBlockQuote followingBlockMultiBlockQuoteType,
+			MultiBlockQuote firstReplacementBlockMultiBlockQuoteType, MultiBlockQuote subsequentReplacementBlockMultiBlockQuoteType)
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			mrkBlocks.Add(NewSingleVersePara(2));
+			mrkBlocks.Add(NewSingleVersePara(3));
+			var origLastBlockText = mrkBlocks.Last().GetText(true);
+			mrkBlocks.Last().CharacterId = "blind man";
+			mrkBlocks.Last().MultiBlockQuote = followingBlockMultiBlockQuoteType;
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			var replacementBlocks = new List<Block>();
+			replacementBlocks.Add(NewSingleVersePara(1, "This is the new text."));
+			replacementBlocks[0].MultiBlockQuote = firstReplacementBlockMultiBlockQuoteType;
+			replacementBlocks[0].CharacterId = "neighbors";
+			replacementBlocks[0].SetMatchedReferenceBlock("{1} Reference text for v1.");
+			replacementBlocks.Add(NewSingleVersePara(2, "This is the new text."));
+			replacementBlocks[1].MultiBlockQuote = subsequentReplacementBlockMultiBlockQuoteType;
+			replacementBlocks[1].CharacterId = "neighbors";
+			replacementBlocks[1].SetMatchedReferenceBlock("{2} Reference text for v2.");
+			replacementBlocks.Add(NewBlock("Again, I say, this is the new text."));
+			replacementBlocks[2].MultiBlockQuote = subsequentReplacementBlockMultiBlockQuoteType;
+			replacementBlocks[2].CharacterId = "neighbors";
+			replacementBlocks[2].SetMatchedReferenceBlock("More reference text for v2.");
+
+			bookScript.ReplaceBlocks(1, 2, replacementBlocks);
+
+			var newBlocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(5, newBlocks.Count);
+			Assert.AreEqual("{1}\u00A0This is the new text.", newBlocks[1].GetText(true));
+			Assert.AreEqual("{1}\u00A0Reference text for v1.", newBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual(firstReplacementBlockMultiBlockQuoteType, newBlocks[1].MultiBlockQuote);
+			Assert.AreEqual("neighbors", newBlocks[1].CharacterId);
+
+			Assert.AreEqual("{2}\u00A0This is the new text.", newBlocks[2].GetText(true));
+			Assert.AreEqual("{2}\u00A0Reference text for v2.", newBlocks[2].PrimaryReferenceText);
+			Assert.AreEqual(subsequentReplacementBlockMultiBlockQuoteType, newBlocks[2].MultiBlockQuote);
+			Assert.AreEqual("neighbors", newBlocks[2].CharacterId);
+
+			Assert.AreEqual("Again, I say, this is the new text.", newBlocks[3].GetText(true));
+			Assert.AreEqual("More reference text for v2.", newBlocks[3].PrimaryReferenceText);
+			Assert.AreEqual(subsequentReplacementBlockMultiBlockQuoteType, newBlocks[3].MultiBlockQuote);
+			Assert.AreEqual("neighbors", newBlocks[3].CharacterId);
+
+			Assert.AreEqual(origLastBlockText, newBlocks[4].GetText(true));
+			Assert.IsFalse(newBlocks[4].MatchesReferenceText);
+			Assert.AreEqual(followingBlockMultiBlockQuoteType, newBlocks[4].MultiBlockQuote);
+		}
+
+		[Test]
+		public void ReplaceBlocks_LastReplacementBlockIsNoneFollowingBlockIsContinuationOfQuote_ThrowsArgumentException()
+		{
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			mrkBlocks.Add(NewSingleVersePara(2));
+			mrkBlocks.Last().CharacterId = "blind man";
+			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Add(NewSingleVersePara(3));
+			mrkBlocks.Last().CharacterId = "blind man";
+			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			var replacementBlocks = new List<Block>();
+			replacementBlocks.Add(NewSingleVersePara(1, "This is the new text."));
+			replacementBlocks[0].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			replacementBlocks[0].SetMatchedReferenceBlock("{1} Reference text for v1.");
+			replacementBlocks.Add(NewSingleVersePara(2, "This is the new text."));
+			replacementBlocks[1].CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			replacementBlocks[1].SetMatchedReferenceBlock("{2} Reference text for v2.");
+
+			var exception = Assert.Throws<ArgumentException>(() => bookScript.ReplaceBlocks(1, 2, replacementBlocks));
+			Assert.AreEqual("Last replacement block must have a MultiBlockQuote value of Start or Continuation, since the first " +
+				"block following the replacement range is a Continuation block.", exception.Message);
+			Assert.AreEqual(4, bookScript.GetScriptBlocks().Count, "No replacements should have been made");
+		}
+
+		[TestCase(MultiBlockQuote.Continuation)]
+		[TestCase(MultiBlockQuote.Start)]
+		public void ReplaceBlocks_FollowingBlocksAreContinuationOfQuote_CharacterIdUpdatedForFollowingBlocks(MultiBlockQuote finalReplacementBlockMultiBlockQuoteType)
+		{
+			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
+			var mrkBlocks = new List<Block>();
+			mrkBlocks.Add(NewChapterBlock(1));
+			mrkBlocks.Add(NewSingleVersePara(1));
+			mrkBlocks.Add(NewSingleVersePara(2));
+			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Start;
+			mrkBlocks.Last().CharacterId = "blind man";
+			mrkBlocks.Add(NewSingleVersePara(3, "What the blind man says in verse 3."));
+			mrkBlocks.Last().CharacterId = "blind man";
+			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(NewSingleVersePara(4, "What the blind man says in verse 4, "));
+			mrkBlocks.Last().CharacterId = "blind man";
+			mrkBlocks.Last().MultiBlockQuote = MultiBlockQuote.Continuation;
+			mrkBlocks.Add(NewBlock("thus spake he forthwith."));
+			mrkBlocks.Last().CharacterId = narrator;
+			var bookScript = new BookScript("MRK", mrkBlocks);
+
+			var replacementBlocks = new List<Block>();
+			MultiBlockQuote firstReplacementBlockMultiBlockQuoteType;
+			string characterOfFirstReplacementBlock;
+			if (finalReplacementBlockMultiBlockQuoteType == MultiBlockQuote.Continuation)
+			{
+				firstReplacementBlockMultiBlockQuoteType = MultiBlockQuote.Start;
+				characterOfFirstReplacementBlock = "neighbors";
+			}
+			else
+			{
+				firstReplacementBlockMultiBlockQuoteType = MultiBlockQuote.None;
+				characterOfFirstReplacementBlock = narrator;
+			}
+			replacementBlocks.Add(NewSingleVersePara(2, "This is the new text."));
+			replacementBlocks.Last().MultiBlockQuote = firstReplacementBlockMultiBlockQuoteType;
+			replacementBlocks.Last().CharacterId = characterOfFirstReplacementBlock;
+			if (finalReplacementBlockMultiBlockQuoteType == MultiBlockQuote.Continuation)
+				replacementBlocks.Last().CharacterIdOverrideForScript = "Walter";
+			replacementBlocks.Last().SetMatchedReferenceBlock("{2} Reference text for v2.");
+			replacementBlocks.Add(NewBlock("This is the new text, spoken by the neighbors."));
+			replacementBlocks.Last().MultiBlockQuote = finalReplacementBlockMultiBlockQuoteType;
+			replacementBlocks.Last().CharacterId = "neighbors";
+			replacementBlocks.Last().CharacterIdOverrideForScript = "Walter";
+			replacementBlocks.Last().SetMatchedReferenceBlock("More reference text for v2.");
+
+			bookScript.ReplaceBlocks(2, 1, replacementBlocks);
+
+			var newBlocks = bookScript.GetScriptBlocks();
+			Assert.AreEqual(7, newBlocks.Count);
+			int i = 2;
+			Assert.AreEqual("{2}\u00A0This is the new text.", newBlocks[i].GetText(true));
+			Assert.AreEqual("{2}\u00A0Reference text for v2.", newBlocks[i].PrimaryReferenceText);
+			Assert.AreEqual(firstReplacementBlockMultiBlockQuoteType, newBlocks[i].MultiBlockQuote);
+			Assert.AreEqual(characterOfFirstReplacementBlock, newBlocks[i].CharacterId);
+
+			Assert.AreEqual("This is the new text, spoken by the neighbors.", newBlocks[++i].GetText(true));
+			Assert.AreEqual("More reference text for v2.", newBlocks[i].PrimaryReferenceText);
+			Assert.AreEqual(finalReplacementBlockMultiBlockQuoteType, newBlocks[i].MultiBlockQuote);
+			Assert.AreEqual("neighbors", newBlocks[i].CharacterId);
+			Assert.AreEqual("Walter", newBlocks[i].CharacterIdInScript);
+
+			Assert.AreEqual("{3}\u00A0What the blind man says in verse 3.", newBlocks[++i].GetText(true));
+			Assert.IsFalse(newBlocks[i].MatchesReferenceText);
+			Assert.AreEqual(MultiBlockQuote.Continuation, newBlocks[i].MultiBlockQuote);
+			Assert.AreEqual(newBlocks[3].CharacterId, newBlocks[i].CharacterId);
+			Assert.AreEqual(newBlocks[3].CharacterIdInScript, newBlocks[i].CharacterIdInScript);
+
+			Assert.AreEqual("{4}\u00A0What the blind man says in verse 4, ", newBlocks[++i].GetText(true));
+			Assert.IsFalse(newBlocks[i].MatchesReferenceText);
+			Assert.AreEqual(MultiBlockQuote.Continuation, newBlocks[i].MultiBlockQuote);
+			Assert.AreEqual(newBlocks[3].CharacterId, newBlocks[i].CharacterId);
+			Assert.AreEqual(newBlocks[3].CharacterIdInScript, newBlocks[i].CharacterIdInScript);
+
+			Assert.AreEqual("thus spake he forthwith.", newBlocks[++i].GetText(true));
+			Assert.IsFalse(newBlocks[i].MatchesReferenceText);
+			Assert.AreEqual(MultiBlockQuote.None, newBlocks[i].MultiBlockQuote);
+			Assert.AreEqual(narrator, newBlocks[i].CharacterId);
+			Assert.IsNull(newBlocks[i].CharacterIdOverrideForScript);
+		}
+		#endregion
+
 		#region Private Helper methods
 		private Block NewTitleBlock(string text)
 		{

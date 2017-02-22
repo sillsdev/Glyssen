@@ -37,6 +37,7 @@ namespace Glyssen
 		private string m_actorsAssignedFmt;
 		private string m_castSizeFmt;
 		private readonly List<Tuple<Button, string>> m_buttonFormats = new List<Tuple<Button, string>>();
+		private bool? m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 
 		public MainForm(IReadOnlyList<string> args)
 		{
@@ -804,6 +805,8 @@ namespace Glyssen
 			using (var dlg = new ProjectSettingsDlg(model))
 			{
 				LogDialogDisplay(dlg);
+				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated = null;
+				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = AskUserWhetherToClearExistingRefBlocksThatCannotBeMigrated;
 				var result = dlg.ShowDialog(this);
 				Cursor = origCursor;
 				if (result != DialogResult.OK)
@@ -811,6 +814,7 @@ namespace Glyssen
 
 				m_project.UpdateSettings(model);
 				SaveCurrentProject();
+				m_project.IsOkayToClearExistingRefBlocksWhenChangingReferenceText = null;
 
 				if (dlg.UpdatedBundle != null)
 				{
@@ -827,6 +831,22 @@ namespace Glyssen
 				}
 			}
 			UpdateDisplayOfProjectInfo();
+		}
+
+		private bool AskUserWhetherToClearExistingRefBlocksThatCannotBeMigrated()
+		{
+			if (m_isOkayToClearExistingRefBlocksThatCannotBeMigrated == null)
+			{
+				m_isOkayToClearExistingRefBlocksThatCannotBeMigrated =
+					MessageBox.Show(this, Format(LocalizationManager.GetString("Project.OkayToClearExistingRefBlocksThatCannotBeMigrated",
+					"This project has been changed to use the {0} reference text, but some blocks were already matched to " +
+					"the previous reference text. Some of those matches cannot be migrated, which means that the reference " +
+					"text data for those blocks is not in the correct language. " +
+					"To avoid confusion, it is probably best to allow Glyssen to clear the matches that cannot be migrated properly. " +
+					"Would you like Glyssen to do that?"), m_project.UiReferenceTextName),
+					ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+			}
+			return (bool)m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
 		}
 
 		private void Exit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
