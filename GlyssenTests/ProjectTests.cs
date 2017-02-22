@@ -558,7 +558,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountySpecified_ProjectIsCreatedSuccessfully()
+		public void Constructor_CreateNewProjectFromBundle_BundleHasNoLdmlFile_WsLdmlHasCountrySpecified_ProjectIsCreatedSuccessfully()
 		{
 			Sldr.Initialize();
 			try
