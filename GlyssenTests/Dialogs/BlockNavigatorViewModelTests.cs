@@ -521,6 +521,34 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
 		}
 
+
+		/// <summary>
+		/// PG-924
+		/// </summary>
+		[Test]
+		public void SetCurrentBlockIndexInBook_CurrentBlockIsNotTheFirstBlockOfRelevantMatchup_CurrentBlockRelevantAndDisplayIndexIsCorrect()
+		{
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.LoadNextRelevantBlock();
+			var followingMatchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(followingMatchup);
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			var origDisplayIndex = m_model.CurrentBlockDisplayIndex;
+			m_model.CurrentBlockIndexInBook = followingMatchup.IndexOfStartBlockInBook + followingMatchup.OriginalBlockCount + followingMatchup.CountOfBlocksAddedBySplitting;
+			Assert.AreNotEqual(followingMatchup, m_model.CurrentReferenceTextMatchup);
+
+			var precedingMatchup = m_model.CurrentReferenceTextMatchup;
+			Assert.IsNotNull(precedingMatchup);
+
+			m_model.CurrentBlockIndexInBook = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook - 1;
+
+			Assert.IsTrue(m_model.IsCurrentBlockRelevant);
+			Assert.AreEqual(origDisplayIndex, m_model.CurrentBlockDisplayIndex);
+			m_model.LoadNextRelevantBlock();
+			Assert.AreEqual(origDisplayIndex + 1, m_model.CurrentBlockDisplayIndex);
+		}
+
 		[Test]
 		public void SetCurrentBlockIndexInBook_BlockFollowsCurrentMatchup_StateReflectsCorrectBlock()
 		{
