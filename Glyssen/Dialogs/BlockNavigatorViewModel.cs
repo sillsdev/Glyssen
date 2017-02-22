@@ -322,7 +322,7 @@ namespace Glyssen.Dialogs
 			do
 			{
 				b = CurrentBook.GetScriptBlocks()[index];
-			} while ((b.MultiBlockQuote == MultiBlockQuote.Continuation || b.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery) && --index >= 0);
+			} while (b.IsContinuationOfPreviousBlockQuote && --index >= 0);
 			Debug.Assert(index >= 0);
 			return b;
 		}
@@ -480,7 +480,7 @@ namespace Glyssen.Dialogs
 				foreach (Block innerBlock in GetAllBlocksWhichContinueTheQuoteStartedByBlock(block))
 					bldr.Append(BuildHtml(innerBlock));
 				bldr.Append("</div>");
-				if (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery)
+				if (!block.IsContinuationOfPreviousBlockQuote)
 					bldr.Append(kHtmlLineBreak);
 			}
 			return bldr.ToString();
@@ -503,7 +503,6 @@ namespace Glyssen.Dialogs
 						yield return m_navigator.CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
-				case MultiBlockQuote.ChangeOfDelivery:
 					// These should all be brought in through a Start block, so don't do anything with them here
 					break;
 				default:
@@ -521,7 +520,7 @@ namespace Glyssen.Dialogs
 			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
 			{
 				Block block = m_navigator.CurrentBook[j];
-				if (block == null || (block.MultiBlockQuote != MultiBlockQuote.Continuation && block.MultiBlockQuote != MultiBlockQuote.ChangeOfDelivery))
+				if (block == null || !block.IsContinuationOfPreviousBlockQuote)
 					break;
 				yield return j;
 			}
@@ -665,6 +664,7 @@ namespace Glyssen.Dialogs
 			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef, AttemptRefBlockMatchup);
 			if (indices == null)
 				return false;
+
 			m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(indices);
 			if (m_currentRelevantIndex < 0)
 			{
@@ -798,7 +798,16 @@ namespace Glyssen.Dialogs
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 				CurrentBlockIndexInBook, m_project.Versification, m_navigator.GetIndices().MultiBlockCount);
-			m_currentRefBlockMatchups?.MatchAllBlocks(m_project.Versification);
+			if (m_currentRefBlockMatchups != null)
+			{
+				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
+				if (IsCurrentBlockRelevant && !m_navigator.GetIndices().IsMultiBlock && m_temporarilyIncludedBookBlockIndices != null)
+				{
+					m_navigator.ExtendCurrentBlockGroup((uint)CurrentReferenceTextMatchup.OriginalBlockCount);
+					m_temporarilyIncludedBookBlockIndices = null;
+					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(m_navigator.GetIndices());
+				}
+			}
 			if (origValue != m_currentRefBlockMatchups)
 				CurrentBlockMatchupChanged?.Invoke(this, new EventArgs());
 		}
@@ -880,12 +889,25 @@ namespace Glyssen.Dialogs
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
 			// We can safely use the index of the anchor block in CorrelatedBlocks to find the correct block in OriginalBlocks.
-			var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
-			SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
+			if (!m_navigator.GetIndices().IsMultiBlock)
+			{
+				var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(
+						m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
+				SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
+			}
 			if (insertions > 0)
 			{
 				var currentBookIndex = m_navigator.GetIndices().BookIndex;
-				for (int i = insertionIndex + RelevantBlockCount - origRelevantBlockCount; i < RelevantBlockCount && m_relevantBookBlockIndices[i].BookIndex == currentBookIndex; i++)
+				var startIndex = insertionIndex + RelevantBlockCount - origRelevantBlockCount;
+				if (m_currentRelevantIndex >= 0 && m_navigator.GetIndices().IsMultiBlock)
+				{
+					// Since this "relevant passage" is a multi-block matchup (as opposed to a single block), rather than incrementing the
+					// BlockIndex, we want to extend the count. Otherwise, this will cease to be relevant, and when the user clicks
+					// the Previous button, they will no longer get the same blocks selected.
+					m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount += (uint) insertions;
+					startIndex++;
+				}
+				for (int i = startIndex; i < RelevantBlockCount && m_relevantBookBlockIndices[i].BookIndex == currentBookIndex; i++)
 					m_relevantBookBlockIndices[i].BlockIndex += insertions;
 			}
 		}
@@ -983,6 +1005,10 @@ namespace Glyssen.Dialogs
 		{
 			if ((Mode & BlocksToDisplay.NotAlignedToReferenceText) > 0)
 			{
+				// TODO (PG-784): If a book is single-voice, no block in it should match this filter.
+				//if (CurrentBookIsSingleVoice)
+				//	return false;
+
 				if (!block.IsScripture)
 					return false;
 				
@@ -993,17 +1019,19 @@ namespace Glyssen.Dialogs
 
 				if (lastMatchup != null && lastMatchup.OriginalBlocks.Contains(block))
 					return false;
+				
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 					m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
-				return lastMatchup.OriginalBlocks.Any(BlockNeedsAssignment) ||
+				
+				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
-			if (block.MultiBlockQuote == MultiBlockQuote.Continuation || block.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+			if (block.IsContinuationOfPreviousBlockQuote)
 				return false;
 			if (!ignoreExcludeUserConfirmed && (Mode & BlocksToDisplay.ExcludeUserConfirmed) > 0 && block.UserConfirmed)
 				return false;
 			if ((Mode & BlocksToDisplay.NotAssignedAutomatically) > 0)
-				return BlockNeedsAssignment(block);
+				return BlockNotAssignedAutomatically(block);
 
 			if ((Mode & BlocksToDisplay.AllExpectedQuotes) > 0)
 				return IsBlockInVerseWithExpectedQuote(block);
@@ -1042,15 +1070,13 @@ namespace Glyssen.Dialogs
 				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method. 
 				// Check surrounding blocks to count quote blocks for same verse.
 				actualquotes += m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
-					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
-					.Count(b => b.IsQuote && (b.MultiBlockQuote == MultiBlockQuote.Start || b.MultiBlockQuote == MultiBlockQuote.None));
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
 
 				if (actualquotes > expectedSpeakers)
 					return true;
 
 				actualquotes += m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
-					b.InitialStartVerseNumber == block.InitialStartVerseNumber)
-					.Count(b => b.IsQuote && (b.MultiBlockQuote == MultiBlockQuote.Start || b.MultiBlockQuote == MultiBlockQuote.None));
+					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
 
 				return (actualquotes > expectedSpeakers);
 			}
@@ -1070,7 +1096,7 @@ namespace Glyssen.Dialogs
 				block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
 		}
 
-		private bool BlockNeedsAssignment(Block block)
+		private bool BlockNotAssignedAutomatically(Block block)
 		{
 			if (CurrentBookIsSingleVoice)
 				return false;

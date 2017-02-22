@@ -16,15 +16,17 @@ namespace DevTools
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");
-			Console.WriteLine("8) Diff new version of DG against previous -- need to set breakpoint in CompareIgnoringQuoteMarkDifferences method");
-			Console.WriteLine("9) Generate standard reference texts from Excel spreadsheet");
-			Console.WriteLine("10) Link standard reference texts to English");
-			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
-			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
+			Console.WriteLine("8) Diff new version of DG against previous -- set breakpoint in CompareIgnoringQuoteMarkDifferences if desired");
+			Console.WriteLine("9) Diff new version of DG against previous -- ignore whitespace and punctuation differences");
+			Console.WriteLine("10) Generate reference texts from Excel spreadsheet");
+			Console.WriteLine("11) Link reference texts to English");
+			Console.WriteLine("12) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
+			Console.WriteLine("13) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
-			bool errorOccurred = false;
+			bool waitForUserToSeeOutput = false;
+			string outputType = "errors";
 
 			switch (selection)
 			{
@@ -35,49 +37,56 @@ namespace DevTools
 				case "5": BiblicalTerms.Processor.Process(); break;
 				case "6": CharacterListProcessing.Process(); break;
 				case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
-				case "8": DiffDirectorGuide(); break;
-				case "9": errorOccurred = !ReferenceTextUtility.GenerateReferenceTexts(false, false); break;
-				case "10": errorOccurred = !ReferenceTextUtility.LinkToEnglish(); break;
-				case "11": ReferenceTextUtility.GenerateReferenceTexts(false, true); break;
-				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
+				case "8":
+				case "9":
+					DiffDirectorGuide(selection == "9");
+					outputType = "differences";
+					waitForUserToSeeOutput = true;
+					break;
+				case "10": waitForUserToSeeOutput = !ReferenceTextUtility.GenerateReferenceTexts(false, false); break;
+				case "11": waitForUserToSeeOutput = !ReferenceTextUtility.LinkToEnglish(); break;
+				case "12": ReferenceTextUtility.GenerateReferenceTexts(false, true); break;
+				case "13": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
 			}
 
-			if (errorOccurred)
+			if (waitForUserToSeeOutput)
 			{
-				Console.WriteLine("Review errors above, then press any key to close.");
+				Console.WriteLine($"Review {outputType} above, then press any key to close.");
 				Console.ReadLine();
 			}
 		}
 
-		private static void DiffDirectorGuide()
+		private static void DiffDirectorGuide(bool ignoreWhitespaceAndPunctuationDifferences = false)
 		{
-			Console.WriteLine("Enter the number corresponding to the language you want to diff:");
+			Console.WriteLine("Enter the number or name of the language you want to diff:");
 			Console.WriteLine("");
 			Console.WriteLine("1) All");
 			Console.WriteLine("2) English");
-			//Console.WriteLine("3) Azeri");
-			//Console.WriteLine("4) French");
-			//Console.WriteLine("5) Indonesian");
-			//Console.WriteLine("6) Portuguese");
-			Console.WriteLine("7) Russian");
-			//Console.WriteLine("8) Spanish");
-			//Console.WriteLine("9) Tok Pisin");
+			Console.WriteLine("3) Russian");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
-			ReferenceTextType type = ReferenceTextType.Unknown;
+			ReferenceTextIdentifier id = null;
+			string customId = null;
 			switch (selection)
 			{
-				case "2": type = ReferenceTextType.English; break;
-				//case "3": type = ReferenceTextType.Azeri; break;
-				//case "4": type = ReferenceTextType.French; break;
-				//case "5": type = ReferenceTextType.Indonesian; break;
-				//case "6": type = ReferenceTextType.Portuguese; break;
-				case "7": type = ReferenceTextType.Russian; break;
-				//case "8": type = ReferenceTextType.Spanish; break;
-				//case "9": type = ReferenceTextType.TokPisin; break;
+				case "1": break; // All
+				case "English":
+				case "english":
+				case "2": id = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.English); break;
+				case "Russian":
+				case "russian":
+				case "3": id = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Russian); break;
+				default:
+					id = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, selection);
+					if (id.Missing)
+					{
+						Console.WriteLine("Requested custom reference text not found!");
+						return;
+					}
+					break;
 			}
-			ReferenceTextUtility.GenerateReferenceTexts(true, false, type);
+			ReferenceTextUtility.GenerateReferenceTexts(true, false, id, ignoreWhitespaceAndPunctuationDifferences);
 		}
 	}
 }

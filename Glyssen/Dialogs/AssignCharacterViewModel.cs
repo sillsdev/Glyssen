@@ -28,6 +28,8 @@ namespace Glyssen.Dialogs
 		public delegate void AsssignedBlockIncrementEventHandler(AssignCharacterViewModel sender, int increment);
 		public event AsssignedBlockIncrementEventHandler AssignedBlocksIncremented;
 		public event EventHandler CurrentBookSaved;
+		public delegate void CorrelatedBlockChangedHandler(AssignCharacterViewModel sender, int index);
+		public event CorrelatedBlockChangedHandler CorrelatedBlockCharacterAssignmentChanged;
 
 		#endregion
 
@@ -393,8 +395,6 @@ namespace Glyssen.Dialogs
 			SetCharacter(block, selectedCharacter);
 
 			block.Delivery = selectedDelivery.IsNormal ? null : selectedDelivery.Text;
-
-			block.UserConfirmed = true;
 		}
 
 		private void SetCharacter(Block block, Character selectedCharacter)
@@ -409,6 +409,7 @@ namespace Glyssen.Dialogs
 			else
 				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
 					m_project.Versification);
+			block.UserConfirmed = !block.CharacterIsUnclear();
 		}
 
 		public void SetCharacterAndDelivery(Character selectedCharacter, Delivery selectedDelivery)
@@ -479,7 +480,14 @@ namespace Glyssen.Dialogs
 		{
 			var block = CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex];
 			SetCharacter(block, selectedCharacter);
-			block.UserConfirmed = !block.CharacterIsUnclear();
+			if (block.MultiBlockQuote == MultiBlockQuote.Start)
+			{
+				while (++blockIndex < CurrentReferenceTextMatchup.CorrelatedBlocks.Count && CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex].IsContinuationOfPreviousBlockQuote)
+				{
+					SetCharacter(CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex], selectedCharacter);
+					CorrelatedBlockCharacterAssignmentChanged?.Invoke(this, blockIndex);
+				} 
+			}
 		}
 
 		public void SetReferenceTextMatchupDelivery(int blockIndex, Delivery selectedDelivery)

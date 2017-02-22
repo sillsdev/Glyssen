@@ -123,6 +123,7 @@ namespace Glyssen.Dialogs
 				block => block.Delivery);
 			m_viewModel.CurrentBlockChanged += LoadBlock;
 			m_viewModel.CurrentBlockMatchupChanged += LoadBlockMatchup;
+			m_viewModel.CorrelatedBlockCharacterAssignmentChanged += HandleCorrelatedBlockCharacterAssignmentChanged;
 
 			UpdateProgressBarForMode();
 
@@ -422,45 +423,9 @@ namespace Glyssen.Dialogs
 					if (colPrimary.Visible)
 						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().PrimaryReferenceText;
 					row.Cells[primaryColumnIndex].Value = correlatedBlock.PrimaryReferenceText;
-					string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
-						correlatedBlock.CharacterId;
-
-
-					if (CharacterVerseData.IsCharacterStandard(characterId))
-					{
-						if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
-						{
-							row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character) colCharacter.Items[0];
-						}
-						else
-						{
-							row.Cells[colCharacter.Index].ReadOnly = true;
-						}
-					}
-					else
-					{
-						foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
-						{
-							if (character.CharacterId == characterId)
-							{
-								row.Cells[colCharacter.Index].Value = character;
-								break;
-							}
-						}
-						if (row.Cells[colCharacter.Index].Value == null)
-							Debug.WriteLine("Problem");
-					}
+					SetCharacterCellValue(row, correlatedBlock);
 					if (colDelivery.Visible)
-					{
-						var delivery = correlatedBlock.Delivery;
-						if (IsNullOrEmpty(delivery))
-							delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
-						if (IsNullOrEmpty(delivery))
-							delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
-						row.Cells[colDelivery.Index].Value = delivery;
-						row.Cells[colDelivery.Index].ReadOnly =
-							(row.Cells[colCharacter.Index].Value as AssignCharacterViewModel.Character) == AssignCharacterViewModel.Character.Narrator;
-					}
+						SetDeliveryCellValue(row, correlatedBlock);
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
@@ -482,6 +447,43 @@ namespace Glyssen.Dialogs
 			UpdateAssignOrApplyAndResetButtonState();
 
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
+		}
+
+		private void SetDeliveryCellValue(DataGridViewRow row, Block correlatedBlock)
+		{
+			var delivery = correlatedBlock.Delivery;
+			if (IsNullOrEmpty(delivery))
+				delivery = correlatedBlock.ReferenceBlocks.Single().Delivery;
+			if (IsNullOrEmpty(delivery))
+				delivery = ((AssignCharacterViewModel.Delivery)colDelivery.Items[0]).LocalizedDisplay;
+			row.Cells[colDelivery.Index].Value = delivery;
+			row.Cells[colDelivery.Index].ReadOnly =
+				(row.Cells[colCharacter.Index].Value as AssignCharacterViewModel.Character) == AssignCharacterViewModel.Character.Narrator;
+		}
+
+		private void SetCharacterCellValue(DataGridViewRow row, Block correlatedBlock)
+		{
+			string characterId = correlatedBlock.CharacterIsUnclear() ? correlatedBlock.ReferenceBlocks.Single().CharacterId :
+				correlatedBlock.CharacterId;
+
+			if (CharacterVerseData.IsCharacterStandard(characterId))
+			{
+				if (CharacterVerseData.IsCharacterOfType(characterId, CharacterVerseData.StandardCharacter.Narrator))
+					row.Cells[colCharacter.Index].Value = (AssignCharacterViewModel.Character)colCharacter.Items[0];
+				else
+					row.Cells[colCharacter.Index].ReadOnly = true;
+			}
+			else
+			{
+				foreach (AssignCharacterViewModel.Character character in colCharacter.Items)
+				{
+					if (character.CharacterId == characterId)
+					{
+						row.Cells[colCharacter.Index].Value = character;
+						break;
+					}
+				}
+			}
 		}
 
 		private void UpdateShortcutDisplay()
@@ -988,6 +990,13 @@ namespace Glyssen.Dialogs
 			return false;
 		}
 
+		private void HandleCorrelatedBlockCharacterAssignmentChanged(AssignCharacterViewModel sender, int index)
+		{
+			Debug.Assert(index < m_dataGridReferenceText.RowCount);
+			// REVIEW: Might need to disable CellValueChanged handler
+			SetCharacterCellValue(m_dataGridReferenceText.Rows[index], m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[index]);
+		}
+
 		private void AssignCharacterDialog_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Return && m_splitContainer.ContainsFocus)
@@ -1313,22 +1322,29 @@ namespace Glyssen.Dialogs
 
 		private void m_dataGridReferenceText_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
 		{
-			if ((e.ColumnIndex == colCharacter.Index || e.ColumnIndex == colDelivery.Index) && m_dataGridReferenceText.IsCurrentCellDirty)
+			if ((e.ColumnIndex == colCharacter.Index) && m_dataGridReferenceText.IsCurrentCellDirty)
 			{
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
 				if (matchup == null)
 					return; // This can happen when transitioning from one block matchup to another.
 				var correlatedBlock = matchup.CorrelatedBlocks[e.RowIndex];
-				if (correlatedBlock.MultiBlockQuote == MultiBlockQuote.Continuation || correlatedBlock.MultiBlockQuote == MultiBlockQuote.ChangeOfDelivery)
+				if (correlatedBlock.IsContinuationOfPreviousBlockQuote)
 				{
-					var index = matchup.IndexOfStartBlockInBook;
-					var verseWhereQuoteStarts = m_viewModel.FindStartOfQuote(ref index).LastVerseNum;
-
-					var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock", "The {0} cannot be changed for this block because it is in the middle of a quote. " +
-						"To change this, select the block that begins this quote (in verse {1}). If this quote block needs to be split up so that different characters or deliveries can be assigned, " +
+					var index = e.RowIndex - 1;
+					while (index >= 0 && matchup.CorrelatedBlocks[index].IsContinuationOfPreviousBlockQuote)
+						index--;
+					int verseWhereQuoteStarts;
+					if (index >= 0)
+						verseWhereQuoteStarts = matchup.CorrelatedBlocks[index].LastVerseNum;
+					else
+					{
+						index = matchup.IndexOfStartBlockInBook;
+						verseWhereQuoteStarts = m_viewModel.FindStartOfQuote(ref index).LastVerseNum;
+					}
+					var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.CannotChangeMidQuoteBlock", "The character cannot be changed for this block because it is in the middle of a quote. " +
+						"To change this, select the block that begins this quote (in verse {0}). If this quote block needs to be split up so that different characters can be assigned, " +
 						"use the Split command.");
-					var columnName = m_dataGridReferenceText.Columns[e.ColumnIndex].HeaderText;
-					MessageBox.Show(this, Format(msgFmt, columnName, verseWhereQuoteStarts), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					MessageBox.Show(this, Format(msgFmt, verseWhereQuoteStarts), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					m_dataGridReferenceText.CancelEdit();
 				}
 			}
@@ -1570,11 +1586,6 @@ namespace Glyssen.Dialogs
 						row.Cells[iCol].Selected = true;
 				}
 			}
-		}
-
-		private void HandleBlocksViewerSelectionChanged(object sender, EventArgs e)
-		{
-			this.SafeInvoke(SetReferenceTextGridRowToAnchorRow);
 		}
 
 		private void SetReferenceTextGridRowToAnchorRow()
