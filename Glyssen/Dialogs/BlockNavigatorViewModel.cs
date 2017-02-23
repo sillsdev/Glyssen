@@ -801,9 +801,14 @@ namespace Glyssen.Dialogs
 			if (m_currentRefBlockMatchups != null)
 			{
 				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
-				if (IsCurrentBlockRelevant && !m_navigator.GetIndices().IsMultiBlock && m_temporarilyIncludedBookBlockIndices != null)
+				// We might have gotten here by ad-hoc navigation (clicking or using the Verse Reference control). If we're using a filter
+				// that holds *groups* of relevant blocks (rather than individual ones) and the new current block is in one of those groups
+				// (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise, we'll lose
+				// track of our place in the list (which not only affects the display index but also can lead to crashes, such as PG-924)
+				// later when we try to go to the previous or next relevant passage).
+				if (IsCurrentBlockRelevant && m_temporarilyIncludedBookBlockIndices != null && !m_navigator.GetIndices().IsMultiBlock && m_relevantBookBlockIndices.Any(i => i.IsMultiBlock))
 				{
-					m_navigator.ExtendCurrentBlockGroup((uint)CurrentReferenceTextMatchup.OriginalBlockCount);
+					m_navigator.SetIndices(new BookBlockIndices(m_navigator.GetIndices().BookIndex, m_currentRefBlockMatchups.IndexOfStartBlockInBook, (uint)m_currentRefBlockMatchups.OriginalBlockCount));
 					m_temporarilyIncludedBookBlockIndices = null;
 					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(m_navigator.GetIndices());
 				}
