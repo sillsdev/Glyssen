@@ -1468,18 +1468,40 @@ namespace Glyssen.Dialogs
 
 			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0 || (!Focused && (m_dataGridReferenceText.EditingControl == null || !m_dataGridReferenceText.EditingControl.Focused)))
 			{
-				// Leave Height unchanged for cell with existing text
-				if (!m_dataGridReferenceText.CurrentCell.Value.Equals(""))
-					return;
-
-				// PG-897 For empty reference text cell, adjust Height based on contents of the clipboard
-				m_dataGridReferenceText.CurrentCell.Value = Clipboard.GetText();
-				var minHeight = m_dataGridReferenceText.Rows[e.RowIndex].Height;
-				m_dataGridReferenceText.CurrentCell.Value = "";
-				
-				if (m_dataGridReferenceText.CurrentRow != null && m_dataGridReferenceText.CurrentRow.Height < minHeight)
-					m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
+				if (m_dataGridReferenceText.CurrentRow != null)
+				{
+					const int kExtraHeightToallowForBordersAndMargin = 3;
+					var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
+					if (String.IsNullOrEmpty(m_dataGridReferenceText.CurrentCell.Value as string))
+					{
+						var clipboardText = Clipboard.GetText();
+						if (clipboardText.Length > 0)
+						{
+							using (Graphics g = CreateGraphics())
+							{
+								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
+									clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
+									m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +
+									kExtraHeightToallowForBordersAndMargin;
+								minHeight = Math.Max(minHeight, heightNeeded);
+							}
+						}
+					}
+					if (m_dataGridReferenceText.CurrentRow.Height < minHeight)
+						m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
+				}
 			}
+		}
+
+		private static TextFormatFlags ComputeTextFormatFlagsForCellStyleAlignment(bool rightToLeft)
+		{
+			TextFormatFlags tff = TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak;
+			if (rightToLeft)
+				tff |= TextFormatFlags.Right | TextFormatFlags.RightToLeft;
+			else
+				tff |= TextFormatFlags.Left;
+			return tff;
 		}
 
 		private void m_dataGridReferenceText_CellLeave(object sender, DataGridViewCellEventArgs e)
