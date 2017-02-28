@@ -1465,9 +1465,18 @@ namespace Glyssen.Dialogs
 		{
 			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
 				return;
+
 			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0 || (!Focused && (m_dataGridReferenceText.EditingControl == null || !m_dataGridReferenceText.EditingControl.Focused)))
 			{
-				var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
+				// Leave Height unchanged for cell with existing text
+				if (!m_dataGridReferenceText.CurrentCell.Value.Equals(""))
+					return;
+
+				// PG-897 For empty reference text cell, adjust Height based on contents of the clipboard
+				m_dataGridReferenceText.CurrentCell.Value = Clipboard.GetText();
+				var minHeight = m_dataGridReferenceText.Rows[e.RowIndex].Height;
+				m_dataGridReferenceText.CurrentCell.Value = "";
+				
 				if (m_dataGridReferenceText.CurrentRow != null && m_dataGridReferenceText.CurrentRow.Height < minHeight)
 					m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
 			}
