@@ -49,7 +49,7 @@ namespace GlyssenTests
 
 		public static void DeleteTestProjectFolder()
 		{
-			var testProjFolder = Path.Combine(Program.BaseDataFolder, kTest);
+			var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, kTest);
 			if (Directory.Exists(testProjFolder))
 				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 		}

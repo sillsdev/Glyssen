@@ -121,7 +121,7 @@ namespace Glyssen
 												"Versification file: {2}\r\n" +
 												"Error: {3}"),
 												projectFilePath, origBundlePath, versificationPath, ex.Message);
-											MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+											MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 											File.WriteAllText(errorlogPath, msg);
 										};
 										bundle.CopyVersificationFile(versificationPath);

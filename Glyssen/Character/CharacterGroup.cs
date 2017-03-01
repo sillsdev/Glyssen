@@ -59,7 +59,7 @@ namespace Glyssen.Character
 				ErrorReport.NotifyUserOfProblem(LocalizationManager.GetString("CharacterGroup.InvalidActorId",
 					"Character group {0} is assigned to a voice actor who is no longer part of this project. " +
 					"This might have been caused by a previous failure. {1} will clear this assignment for you now."),
-					GroupIdForUiDisplay, Program.kProduct);
+					GroupIdForUiDisplay, GlyssenInfo.kProduct);
 				RemoveVoiceActor();
 			}
 			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(m_project.KeyStrokesByCharacterId);
@@ -174,7 +174,7 @@ namespace Glyssen.Character
 							throw new InvalidOperationException("Character " + characterId + " is not in use the project.");
 						}
 					}
-					m_estimatedHours = keyStrokes / Program.kKeyStrokesPerHour;
+					m_estimatedHours = keyStrokes / GlyssenInfo.kKeyStrokesPerHour;
 				}
 				return m_estimatedHours;
 			}

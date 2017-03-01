@@ -61,7 +61,7 @@ namespace Glyssen.Utilities
 
 		public void Localize()
 		{
-			m_localizedText = LocalizationManager.GetDynamicString(Program.kApplicationId, m_localizationId, m_englishText);
+			m_localizedText = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, m_localizationId, m_englishText);
 		}
 
 		public override string ToString()

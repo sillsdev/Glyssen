@@ -114,7 +114,7 @@ namespace Glyssen.Character
 					localizedCharacterId = String.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BookChapterCharacter", kBookChapterAsEnglishCharacterName), GetBookCodeFromStandardCharacterId(characterId));
 					break;
 				default:
-					localizedCharacterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+					localizedCharacterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
 					break;
 			}
 			if (!SingletonLocalizedCharacterIdToCharacterIdDictionary.ContainsKey(localizedCharacterId))

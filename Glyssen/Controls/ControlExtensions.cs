@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Glyssen.Controls
 {
-	static class ControlExtensions
+	public static class ControlExtensions
 	{
 		public static void SafeInvoke(this Control uiElement, Action updater, bool ignoreIfDisposed = false, bool forceSynchronous = false)
 		{

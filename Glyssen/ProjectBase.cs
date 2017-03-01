@@ -21,14 +21,7 @@ namespace Glyssen
 				"custom", "Used as the versification name when the versification file does not contain a name."));
 		}
 
-		protected static string ProjectsBaseFolder
-		{
-			get
-			{
-				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					Program.kCompany, Program.kProduct);
-			}
-		}
+		protected static string ProjectsBaseFolder => GlyssenInfo.BaseDataFolder;
 
 		protected readonly GlyssenDblTextMetadata m_metadata;
 		protected readonly List<BookScript> m_books = new List<BookScript>();

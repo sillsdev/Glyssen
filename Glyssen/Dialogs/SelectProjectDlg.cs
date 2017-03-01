@@ -32,7 +32,7 @@ namespace Glyssen.Dialogs
 
 		protected override string ProductName
 		{
-			get { return Program.kProduct; }
+			get { return GlyssenInfo.kProduct; }
 		}
 
 		public static bool GiveUserChanceToFindOriginalBundle(Project project)

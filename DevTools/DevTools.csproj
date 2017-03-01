@@ -35,10 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="ParatextShared, Version=7.6.242.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
@@ -87,7 +83,6 @@
     <Compile Include="FCBH\TemplateDatum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReferenceTextUtility.cs" />
     <Compile Include="TermTranslator\BiblicalTerms.cs" />
     <Compile Include="TermTranslator\BiblicalTermsList.cs" />
     <Compile Include="TermTranslator\Processor.cs" />
@@ -119,6 +114,10 @@
     <Content Include="Resources\original_CharacterNames_BookChapterVerse.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RefTextDevUtilities\RefTextDevUtilities.csproj">
+      <Project>{49c0c51d-190f-450d-a7be-14e843c2e89d}</Project>
+      <Name>RefTextDevUtilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Glyssen\Glyssen.csproj">
       <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
       <Name>Glyssen</Name>

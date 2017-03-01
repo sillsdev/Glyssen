@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
 using OfficeOpenXml;
@@ -14,19 +13,22 @@ using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Xml;
 
-namespace DevTools
+namespace Glyssen.RefTextDevUtilities
 {
-	static class ReferenceTextUtility
+	public static class ReferenceTextUtility
 	{
 		private const string kOutputFileForAnnotations = @"..\..\Glyssen\Resources\Annotations.txt";
-		private const string kDirectorGuideInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDES.xlsx";
+		public const string kDirectorGuideInput = @"..\..\DevTools\Resources\DIRECTOR_GUIDES.xlsx";
+		public const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
+
+		public static string ProprietaryRefTextTempBaseFolder => Path.Combine(GlyssenInfo.BaseDataFolder, "Newly Generated Reference Texts");
 
 		private const string kBookHeader = "Book";
 		private const string kChapterHeader = "Cp";
 		private const string kVerseHeader = "Vs";
 		private const string kCharacterHeader = "CHARACTER";
 		private const string kEnglishHeader = "ENGLISH";
-		private const string kNewEnglishTempName = "NewEnglish";
+		public const string kTempFolderPrefix = "New";
 
 		private static readonly ReferenceText s_existingEnglish;
 		private static readonly Regex s_verseNumberMarkupRegex = new Regex("(\\{\\d*?\\}\u00A0)", RegexOptions.Compiled);
@@ -46,6 +48,12 @@ namespace DevTools
 		private static Regex s_regexEndQuoteMarks;
 		private static Regex s_regexStartEnglishDoubleQuoteMarks;
 		private static Regex s_regexEndEnglishDoubleQuoteMarks;
+
+		public static bool ErrorsOccurred { get; private set; }
+
+		public delegate void MessageEventHandler(string message, bool isError);
+
+		public static event MessageEventHandler OnMessageRaised;
 
 		private static void InitializeQuoteDetectionRegexes()
 		{
@@ -74,6 +82,12 @@ namespace DevTools
 			s_existingEnglish = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 		}
 
+		public static void WriteOutput(string msg = "", bool error = false)
+		{
+			ErrorsOccurred |= error;
+			OnMessageRaised?.Invoke(msg, error);
+		}
+
 		private class TitleAndChapterLabelInfo
 		{
 			public string Language { get; set; }
@@ -85,12 +99,8 @@ namespace DevTools
 
 		private class BookTitleAndChapterLabelInfo
 		{
-			private readonly List<TitleAndChapterLabelInfo> m_details = new List<TitleAndChapterLabelInfo>(8);
 			public string BookId { get; set; }
-			public List<TitleAndChapterLabelInfo> Details
-			{
-				get { return m_details; }
-			}
+			public List<TitleAndChapterLabelInfo> Details { get; } = new List<TitleAndChapterLabelInfo>(8);
 		}
 
 		private class CharacterMapping
@@ -102,13 +112,13 @@ namespace DevTools
 				Verse = verse;
 			}
 
-			private string GlyssenId { get; set; }
-			private string FcbhId { get; set; }
-			private BCVRef Verse { get; set; }
+			private string GlyssenId { get; }
+			private string FcbhId { get; }
+			private BCVRef Verse { get; }
 
 			public override string ToString()
 			{
-				return string.Format("{0}\t{1}\t{2}", Verse.AsString, GlyssenId, FcbhId);
+				return $"{Verse.AsString}\t{GlyssenId}\t{FcbhId}";
 			}
 		}
 
@@ -134,65 +144,107 @@ namespace DevTools
 			return sb.ToString();
 		}
 
-		public static bool GenerateReferenceTexts(
-			bool onlyRunToFindDifferencesBetweenCurrentVersionAndExcel,
-			bool onlyCreateCharacterMapping,
-			ReferenceTextIdentifier refTextId = null,
-			bool ignoreWhitespaceAndPunctuationDifferences = false)
+		public enum Mode
 		{
-			Debug.Assert(!onlyRunToFindDifferencesBetweenCurrentVersionAndExcel || !onlyCreateCharacterMapping);
+			Generate,
+			FindDifferencesBetweenCurrentVersionAndNewText,
+			CreateCharacterMapping,
+			CreateBookTitleAndChapterLabelSummary,
+		}
+
+		public enum Ignore
+		{
+			QuotationMarkDifferences,
+			AllDifferences,
+			WhitespaceDifferences,
+			AllDifferencesExceptAlphaNumericText,
+		}
+
+		public static Ignore ComparisonSensitivity { get; set; }
+
+		public static void ProcessReferenceTextData(Mode mode, ReferenceTextIdentifier refTextId = null)
+		{
+			ReferenceTextData data = null;
+			// This had better be in console mode!!!
+			if (!File.Exists(kDirectorGuideInput))
+			{
+				WriteOutput("File does not exist: " + kDirectorGuideInput, true);
+				return;
+			}
+			int attempt = 1;
+			do
+			{
+				if (attempt > 1)
+				{
+					Console.WriteLine("You probably have the Excel File open. If so, close it and press any key to try again...");
+					Console.ReadLine();
+				}
+
+				try
+				{
+					data = GetDataFromExcelFile(kDirectorGuideInput);
+				}
+				catch (IOException ex)
+				{
+					Console.WriteLine(ex.Message);
+					if (++attempt > 3)
+					{
+						WriteOutput("Giving up...", true);
+						return;
+					}
+				}
+			} while (data == null);
+
+			if (refTextId != null)
+				data.FilterBy(refTextId.Name);
+
+			ProcessReferenceTextData(mode, data, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null);
+		}
+
+		public static void ProcessReferenceTextData(Mode mode,
+			ReferenceTextData data,
+			Func<ReferenceText> getReferenceText = null)
+		{
+			ErrorsOccurred = false;
 
 			var characterMappings = new List<CharacterMapping>();
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
 			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
 
-			if (!File.Exists(kDirectorGuideInput))
-			{
-				Console.WriteLine("File does not exist: " + kDirectorGuideInput);
-				return false;
-			}
-
-			IEnumerable<string> languageNames;
-			var referenceTextRowsFromExcelSpreadsheet = GetDataFromExcelFile(out languageNames);
-
-			bool errorsOccurred = !referenceTextRowsFromExcelSpreadsheet.Any() || !languageNames.Any();
+			ErrorsOccurred = !data.IsValid;
 			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
 
 			var annotationsToOutput = new List<string>();
-			var languagesToProcess = (refTextId == null || refTextId.Type == ReferenceTextType.Unknown) ? languageNames :
-				languageNames.Where(l => l == refTextId.Name);
-
-			// This must match logic in Glyssen.Program.BaseDataFolder (but Program is an internal class)
-			var proprietaryRefTextTemBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-				"FCBH-SIL", "Glyssen", "Newly Generated Reference Texts");
 
 			ReferenceText existingReferenceTextForLanguage = null;
+			var languagesToProcess = data.LanguagesToProcess.ToList();
 
-			foreach (var language in languagesToProcess)
+			foreach (var languageInfo in languagesToProcess)
 			{
-				Console.WriteLine("Processing " + language + "...");
+				var language = languageInfo.Name;
+				WriteOutput("Processing " + language + "...");
 
-				if (onlyRunToFindDifferencesBetweenCurrentVersionAndExcel)
+				if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 				{
 					try
 					{
-						existingReferenceTextForLanguage = refTextId != null ? ReferenceText.GetReferenceText(refTextId) : GetReferenceTextFromString(language);
+						existingReferenceTextForLanguage = getReferenceText?.Invoke()?? GetReferenceTextFromString(language);
 					}
 					catch (ArgumentException)
 					{
-						Console.WriteLine($"No existing reference text for language {language}");
+						WriteOutput($"No existing reference text for language {language}",languagesToProcess.Count == 1);
 						continue;
 					}
 				}
 
-				const string kOutputDirDistfiles = @"..\..\DistFiles\reference_texts";
-				ReferenceTextType refTextType;
-				string outputDir = Enum.TryParse(language, out refTextType) ? kOutputDirDistfiles : proprietaryRefTextTemBaseFolder;
+				if (String.IsNullOrEmpty(languageInfo.OutputFolder))
+				{
+					ReferenceTextType refTextType;
+					languageInfo.OutputFolder = Enum.TryParse(language, out refTextType) ? kOutputDirDistfiles : ProprietaryRefTextTempBaseFolder;
+					languageInfo.OutputFolder = Path.Combine(languageInfo.OutputFolder, (languageInfo.IsEnglish ? kTempFolderPrefix : "") + language);
+				}
 
-				bool doingEnglish = language == ReferenceTextType.English.ToString();
-				string languageFolderName = doingEnglish ? kNewEnglishTempName : language;
-				string languageOutputDir = Path.Combine(outputDir, languageFolderName);
-				Directory.CreateDirectory(languageOutputDir);
+				Directory.CreateDirectory(languageInfo.OutputFolder);
 
 				string prevBook = null;
 				int iBook = 0;
@@ -214,7 +266,7 @@ namespace DevTools
 				string closeQuoteSingle;
 				GetQuoteMarksForLanguage(language, out openDoubleQuote, out closeDoubleQuote, out openQuoteSingle, out closeQuoteSingle);
 
-				foreach (var referenceTextRow in referenceTextRowsFromExcelSpreadsheet.Where(r => BCVRef.BookToNumber(ConvertFcbhBookCodeToSilBookCode(r.Book)) >= startBook))
+				foreach (var referenceTextRow in data.ReferenceTextRows.Where(r => BCVRef.BookToNumber(r.Book) >= startBook))
 				{
 					if (prevBook != referenceTextRow.Book)
 					{
@@ -224,7 +276,7 @@ namespace DevTools
 							newBlocks.Clear();
 						}
 						existingEnglishRefBook = existingEnglishRefBooks[iBook++];
-						if (onlyRunToFindDifferencesBetweenCurrentVersionAndExcel)
+						if (mode == Mode.FindDifferencesBetweenCurrentVersionAndNewText)
 							existingRefBlocksForLanguage = existingReferenceTextForLanguage.Books.Single(b => b.BookId == existingEnglishRefBook.BookId).GetScriptBlocks();
 						iBlock = 0;
 						chapterLabelForPrevBook = chapterLabel;
@@ -271,7 +323,7 @@ namespace DevTools
 								if (justTheWordForChapter != null)
 								{
 									chapterLabel = bookName + " " + justTheWordForChapter;
-									//Console.WriteLine("Guessing at chapter label: " + chapterLabel);
+									//WriteOutput("Guessing at chapter label: " + chapterLabel);
 								}
 								else
 								{
@@ -379,14 +431,11 @@ namespace DevTools
 									else
 									{
 										chapterLabel = bookName + " " + justTheWordForChapter;
-										//Console.WriteLine("Book title being left as \"" + bookName + "\" and chapter label set to: " + chapterLabel);
+										//WriteOutput("Book title being left as \"" + bookName + "\" and chapter label set to: " + chapterLabel);
 									}
 								}
 								else if (bookName != chapterLabel)
-								{
-									Console.WriteLine("Could not figure out book title: " + bookName);
-									errorsOccurred = true;
-								}
+									WriteOutput("Could not figure out book title: " + bookName, true);
 							}
 
 							currentTitleAndChapterLabelInfo.BookTitle = bookName;
@@ -407,7 +456,7 @@ namespace DevTools
 					}
 					else
 					{
-						if (onlyCreateCharacterMapping)
+						if (mode == Mode.CreateCharacterMapping)
 						{
 							if (!CharacterVerseData.IsCharacterOfType(existingEnglishRefBlock.CharacterId, CharacterVerseData.StandardCharacter.Narrator) || !referenceTextRow.CharacterId.StartsWith("Narr_0"))
 							{
@@ -442,19 +491,18 @@ namespace DevTools
 						if (verseNumberFixedText != modifiedText)
 							Debug.WriteLine($"{verseNumberFixedText} != {modifiedText}");
 
-						if (!onlyRunToFindDifferencesBetweenCurrentVersionAndExcel ||
-							CompareIgnoringQuoteMarkDifferences(modifiedText, existingRefBlocksForLanguage[iBlock - 1], referenceTextRow.Book, ignoreWhitespaceAndPunctuationDifferences))
+						if (mode != Mode.FindDifferencesBetweenCurrentVersionAndNewText ||
+							CompareVersions(modifiedText, existingRefBlocksForLanguage[iBlock - 1], referenceTextRow.Book))
 						{
 							if (int.Parse(referenceTextRow.Chapter) != existingEnglishRefBlock.ChapterNumber)
 							{
-								Console.WriteLine($"Chapters do not match. Book: {referenceTextRow.Book}, Excel: {referenceTextRow.Chapter}, Existing: {existingEnglishRefBlock.ChapterNumber}");
-								errorsOccurred = true;
+								WriteOutput($"Chapters do not match. Book: {referenceTextRow.Book}, Excel: {referenceTextRow.Chapter}, Existing: {existingEnglishRefBlock.ChapterNumber}",
+									true);
 							}
 							if (int.Parse(referenceTextRow.Verse) != existingEnglishRefBlock.InitialStartVerseNumber)
 							{
-								Console.WriteLine($"Verse numbers do not match. Book: {referenceTextRow.Book}, Ch: {referenceTextRow.Chapter}, " +
-									$"Excell: {referenceTextRow.Verse}, Existing: {existingEnglishRefBlock.InitialStartVerseNumber}");
-								errorsOccurred = true;
+								WriteOutput($"Verse numbers do not match. Book: {referenceTextRow.Book}, Ch: {referenceTextRow.Chapter}, " +
+									$"Excell: {referenceTextRow.Verse}, Existing: {existingEnglishRefBlock.InitialStartVerseNumber}", true);
 							}
 
 							var newBlock = new Block(existingEnglishRefBlock.StyleTag, int.Parse(referenceTextRow.Chapter), int.Parse(referenceTextRow.Verse))
@@ -510,7 +558,7 @@ namespace DevTools
 											}
 											else if (ConvertTextToControlScriptAnnotationElement(s, out annotation))
 											{
-												if (doingEnglish)
+												if (languageInfo.IsEnglish)
 												{
 													var pause = annotation as Pause;
 													var serializedAnnotation = pause != null ? XmlSerializationHelper.SerializeToString(pause, true) :
@@ -520,21 +568,19 @@ namespace DevTools
 
 													if (string.IsNullOrWhiteSpace(formattedAnnotationForDisplay) || string.IsNullOrWhiteSpace(serializedAnnotation))
 													{
-														Console.WriteLine("Annotation not formatted correctly (is null or whitespace): {0}", referenceTextRow.English);
-														Console.WriteLine();
-														errorsOccurred = true;
+														WriteOutput($"Annotation not formatted correctly (is null or whitespace): {referenceTextRow.English}", true);
+														WriteOutput();
 													}
 													var trimmedEnglish = referenceTextRow.English.TrimEnd();
 													if ((annotation is Pause && !trimmedEnglish.EndsWith(formattedAnnotationForDisplay)) ||
 														(annotation is Sound && !trimmedEnglish.StartsWith(formattedAnnotationForDisplay)))
 													{
+														// Although this is a good check to run for sanity, we can't treat it as an error
+														// because a few of the annotations are actually displayed slightly differently by
+														// FCBH (due to what are insignificant differences like 'before' vs. '@')
 														var bcv = new BCVRef(BCVRef.BookToNumber(existingEnglishRefBook.BookId), existingEnglishRefBlock.ChapterNumber, existingEnglishRefBlock.InitialStartVerseNumber);
-														Console.WriteLine("(warning) Annotation not formatted the same as FCBH: ({0}) {1} => {2}", bcv.AsString, referenceTextRow.English, formattedAnnotationForDisplay);
-														Console.WriteLine();
-														// This is a good check to run for sanity. But we can't fail as
-														// a few of the annotations are actually displayed slightly differently by FCBH
-														// (due to what are insignificant differences like 'before' vs. '@')
-														//errorsOccurred = true;
+														WriteOutput($"(warning) Annotation not formatted the same as FCBH: ({bcv.AsString}) {referenceTextRow.English} => {formattedAnnotationForDisplay}");
+														WriteOutput();
 													}
 													int offset = 0;
 													if ((existingEnglishRefBook.BookId == "MRK" && existingEnglishRefBlock.ChapterNumber == 4 && existingEnglishRefBlock.InitialVerseNumberOrBridge == "39") ||
@@ -548,16 +594,16 @@ namespace DevTools
 											}
 											else
 											{
-												Console.WriteLine("Could not parse annotation: " + referenceTextRow);
-												errorsOccurred = true;
+												WriteOutput("Could not parse annotation: " + referenceTextRow, true);
 											}
 										}
 										else
 										{
 											string text = s.TrimStart();
 											if (string.IsNullOrWhiteSpace(text))
-												Debug.Fail("");
-											newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
+												WriteOutput("No text found between annotations:" + referenceTextRow, true);
+											else
+												newBlock.BlockElements.Add(lastElementInBlock = new ScriptText(text));
 										}
 									}
 								}
@@ -572,50 +618,46 @@ namespace DevTools
 					prevBook = referenceTextRow.Book;
 				}
 
-				if (onlyCreateCharacterMapping)
+				if (mode == Mode.CreateCharacterMapping)
 				{
 					WriteCharacterMappingFiles(characterMappings, glyssenToFcbhIds, fcbhToGlyssenIds);
-					return true;
+					return;
 				}
 
-				if (!onlyRunToFindDifferencesBetweenCurrentVersionAndExcel)
+				if (mode == Mode.Generate)
 				{
 					newBooks.Add(new BookScript(existingEnglishRefBook.BookId, newBlocks) {PageHeader = chapterLabel});
 
 					foreach (var bookScript in newBooks)
 					{
-						if (!doingEnglish)
+						if (!languageInfo.IsEnglish)
 							LinkBlockByBlockInOrder(bookScript);
-						XmlSerializationHelper.SerializeToFile(Path.Combine(languageOutputDir, bookScript.BookId + ".xml"), bookScript);
+						XmlSerializationHelper.SerializeToFile(Path.Combine(languageInfo.OutputFolder, bookScript.BookId + ".xml"), bookScript);
 					}
 				}
 			}
 
-			if (onlyRunToFindDifferencesBetweenCurrentVersionAndExcel)
-				return true;
-
-			if (languagesToProcess.Any(l => l != ReferenceTextType.English.ToString()))
-				Console.WriteLine($"Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version " +
-					"is replaced by \"{kNewEnglishTempName}\", then the tool needs to re re-run to link all reference texts to the new English version.");
-
-			WriteAnnotationsFile(annotationsToOutput);
-
-			if (!errorsOccurred)
+			if (mode == Mode.Generate)
 			{
-				Console.WriteLine("Write book title and chapter label summary to file? Y/N");
-				var answer = Console.ReadLine();
-				if (answer == "Y" || answer == "y")
-					WriteTitleAndChapterSummaryResults(resultSummary);
+				if (languagesToProcess.Any(l => !l.IsEnglish))
+					WriteOutput($"Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version " +
+						"is replaced by \"{kNewEnglishTempName}\", then the tool needs to re re-run to link all reference texts to the new English version.");
 
-				return true;
+				WriteAnnotationsFile(annotationsToOutput);
 			}
-			return !errorsOccurred;
+
+			if (!ErrorsOccurred && mode == Mode.CreateBookTitleAndChapterLabelSummary)
+			{
+				WriteTitleAndChapterSummaryResults(resultSummary);
+			}
+
+			WriteOutput("Done!");
 		}
 
 		private static void WriteTitleAndChapterSummaryResults(List<BookTitleAndChapterLabelInfo> resultSummary)
 		{
 			var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-				"Protoscript Generator", "book title and chapter label summary.txt");
+				GlyssenInfo.kProduct, "book title and chapter label summary.txt");
 			using (var w = new StreamWriter(path))
 			{
 				foreach (var info in resultSummary)
@@ -632,106 +674,91 @@ namespace DevTools
 			Process.Start(path);
 		}
 
-		private static List<ReferenceTextRow> GetDataFromExcelFile(out IEnumerable<string> languageNames)
+		public static ReferenceTextData GetDataFromExcelFile(string path)
 		{
 			var allLanguages = new Dictionary<string, string>();
 
-			List<ReferenceTextRow> referenceTextRowsFromExcelSpreadsheet = new List<ReferenceTextRow>();
-			int attempt = 1;
-			while (attempt < 3)
+			var data = new ReferenceTextData();
+
+			using (var xls = new ExcelPackage(new FileInfo(path)))
 			{
-				if (attempt > 1)
-				{
-					Console.WriteLine("You probably have the Excel File open. If so, close it and press any key to try again...");
-					Console.ReadLine();
-				}
+				var worksheet = xls.Workbook.Worksheets["Sheet1"];
 
-				try
+				string bookCol = null, chapterCol = null, verseCol = null, characterCol = null;
+
+				var cells = worksheet.Cells;
+				var rowData = cells.GroupBy(c => c.Start.Row).ToList();
+				int rowsToSkip = -1;
+				for (int iRow = 0; iRow <= rowData.Count; iRow++)
 				{
-					using (var xls = new ExcelPackage(new FileInfo(kDirectorGuideInput)))
+					var nonNullCellAddresses = rowData[iRow].Where(er => !String.IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
+					var bookAddress = nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader))?.Address;
+					if (bookAddress != null)
 					{
-						var worksheet = xls.Workbook.Worksheets["Sheet1"];
-
-						string bookCol = null, chapterCol = null, verseCol = null, characterCol = null;
-
-						var cells = worksheet.Cells;
-						var rowData = cells.GroupBy(c => c.Start.Row).ToList();
-						int rowsToSkip = -1;
-						for (int iRow = 0; iRow <= rowData.Count; iRow++)
+						bookCol = GetColumnFromCellAddress(bookAddress);
+						foreach (var excelRange in nonNullCellAddresses.Skip(1))
 						{
-							var nonNullCellAddresses = rowData[iRow].Where(er => !String.IsNullOrWhiteSpace(cells[er.Address].Value?.ToString())).ToList();
-							var bookAddress = nonNullCellAddresses.FirstOrDefault(a => cells[a.Address].Value.Equals(kBookHeader))?.Address;
-							if (bookAddress != null)
+							var value = cells[excelRange.Address].Value.ToString();
+							var col = GetColumnFromCellAddress(excelRange.Address);
+							switch (value)
 							{
-								bookCol = GetColumnFromCellAddress(bookAddress);
-								foreach (var excelRange in nonNullCellAddresses.Skip(1))
-								{
-									var value = cells[excelRange.Address].Value.ToString();
-									var col = GetColumnFromCellAddress(excelRange.Address);
-									switch (value)
-									{
-										case kChapterHeader:
-											chapterCol = col;
-											break;
-										case kVerseHeader:
-											verseCol = col;
-											break;
-										case kCharacterHeader:
-											characterCol = col;
-											break;
-										case kEnglishHeader: // English is required and must come first!
-											allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
-											break;
-										default:
-											if (allLanguages.Any()) // Any other columns before English will be ignored
-												allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
-											break;
-									}
-								}
-								rowsToSkip = iRow + 1;
-								break;
+								case kChapterHeader:
+									chapterCol = col;
+									break;
+								case kVerseHeader:
+									verseCol = col;
+									break;
+								case kCharacterHeader:
+									characterCol = col;
+									break;
+								case kEnglishHeader: // English is required and must come first!
+									allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
+									break;
+								default:
+									if (allLanguages.Any()) // Any other columns before English will be ignored
+										allLanguages[NormalizeLanguageColumnHeaderName(value)] = col;
+									break;
 							}
 						}
-						if (bookCol == null)
-							throw new MissingFieldException($"Book column not found!", kBookHeader);
-						if (chapterCol == null)
-							throw new MissingFieldException($"Chapter number column not found!", kChapterHeader);
-						if (verseCol == null)
-							throw new MissingFieldException($"Verse number column not found!", kChapterHeader);
-						if (characterCol == null)
-							throw new MissingFieldException($"Character column not found!", kCharacterHeader);
-						if (!allLanguages.Any())
-							throw new MissingFieldException($"No language columns found! (English must exist and must be first)");
-
-						foreach (var textRow in rowData.Skip(rowsToSkip))
-						{
-							var row = textRow.Key;
-							var verseValue = cells[verseCol + row].Value;
-							if (verseValue == null)
-							{
-								Trace.WriteLine("Stopping at row " + row + " because verse column contained a null value.");
-								break;
-							}
-							var verseStr = verseValue as string ?? ((double)verseValue).ToString(CultureInfo.InvariantCulture);
-							referenceTextRowsFromExcelSpreadsheet.Add(new ReferenceTextRow(
-								(string)cells[bookCol + row].Value,
-								((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
-								verseStr,
-								(string)cells[characterCol + row].Value,
-								allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value.ToString())));
-						}
+						rowsToSkip = iRow + 1;
+						break;
 					}
-					break;
 				}
-				catch (IOException ex)
+				if (bookCol == null)
+					WriteOutput($"Book column {kBookHeader} not found!", true);
+				if (chapterCol == null)
+					WriteOutput($"Chapter number column {kChapterHeader} not found!", true);
+				if (verseCol == null)
+					WriteOutput($"Verse number column {kChapterHeader} not found!", true);
+				if (characterCol == null)
+					WriteOutput($"Character column {kCharacterHeader} not found!", true);
+				if (!allLanguages.Any())
+					WriteOutput("No language columns found! (English must exist and must be first)", true);
+
+				if (ErrorsOccurred)
+					return null;
+
+				foreach (var textRow in rowData.Skip(rowsToSkip))
 				{
-					Console.WriteLine(ex.Message);
-					attempt++;
+					var row = textRow.Key;
+					var verseValue = cells[verseCol + row].Value;
+					if (verseValue == null)
+					{
+						WriteOutput("Stopping at row " + row + " because verse column contained a null value.");
+						break;
+					}
+					var verseStr = verseValue as string ?? ((double)verseValue).ToString(CultureInfo.InvariantCulture);
+					data.ReferenceTextRows.Add(new ReferenceTextRow(
+						ConvertFcbhBookCodeToSilBookCode((string)cells[bookCol + row].Value),
+						((double)cells[chapterCol + row].Value).ToString(CultureInfo.InvariantCulture),
+						verseStr,
+						(string)cells[characterCol + row].Value,
+						allLanguages.ToDictionary(kvp => kvp.Key, kvp => cells[kvp.Value + row].Value.ToString())));
 				}
 			}
 
-			languageNames = allLanguages.Keys;
-			return referenceTextRowsFromExcelSpreadsheet;
+			data.AddLanguages(allLanguages.Keys);
+			return data;
 		}
 
 		private static ReferenceText GetReferenceTextFromString(string language)
@@ -753,6 +780,8 @@ namespace DevTools
 
 		private static void WriteCharacterMappingFiles(List<CharacterMapping> characterMappings, SortedDictionary<string, SortedSet<string>> glyssenToFcbhIds, SortedDictionary<string, SortedSet<string>> fcbhToGlyssenIds)
 		{
+			WriteOutput("Writing character mapping files");
+
 			const string kOutputDirForCharacterMapping = @"..\..\DevTools\Resources\temporary";
 			const string kOutputFileForCharacterMapping = @"CharacterMappingToFcbh.txt";
 			const string kOutputFileForGlyssenToFcbhMultiMap = @"GlyssenToFcbhMultiMap.txt";
@@ -762,7 +791,9 @@ namespace DevTools
 			var sb = new StringBuilder();
 			foreach (CharacterMapping characterMapping in characterMappings)
 				sb.Append(characterMapping).Append(Environment.NewLine);
-			File.WriteAllText(Path.Combine(kOutputDirForCharacterMapping, kOutputFileForCharacterMapping), sb.ToString());
+			var path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForCharacterMapping);
+			WriteOutput($"Writing {path}");
+			File.WriteAllText(path, sb.ToString());
 
 			sb.Clear();
 			foreach (var glyssenToFcbhIdsEntry in glyssenToFcbhIds)
@@ -772,7 +803,9 @@ namespace DevTools
 				{
 					sb.Append(string.Format("{0}\t{1}", glyssenToFcbhIdsEntry.Key, glyssenToFcbhIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
 				}
-			File.WriteAllText(Path.Combine(kOutputDirForCharacterMapping, kOutputFileForGlyssenToFcbhMultiMap), sb.ToString());
+			path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForGlyssenToFcbhMultiMap);
+			WriteOutput($"Writing {path}");
+			File.WriteAllText(path, sb.ToString());
 
 			sb.Clear();
 			foreach (var fcbhToGlyssenIdsEntry in fcbhToGlyssenIds)
@@ -780,7 +813,10 @@ namespace DevTools
 					CharacterVerseData.IsCharacterOfType(fcbhToGlyssenIdsEntry.Key, CharacterVerseData.StandardCharacter.Narrator) ||
 					fcbhToGlyssenIdsEntry.Value.Any(c => c.StartsWith("Narr_0")))
 					sb.Append(string.Format("{0}\t{1}", fcbhToGlyssenIdsEntry.Key, fcbhToGlyssenIdsEntry.Value.TabSeparated())).Append(Environment.NewLine);
-			File.WriteAllText(Path.Combine(kOutputDirForCharacterMapping, kOutputFileForFcbhToGlyssenMultiMap), sb.ToString());
+			path = Path.Combine(kOutputDirForCharacterMapping, kOutputFileForFcbhToGlyssenMultiMap);
+			WriteOutput($"Writing {path}");
+			File.WriteAllText(path, sb.ToString());
+			WriteOutput("Finished writing character mapping files!");
 		}
 
 		private static void WriteAnnotationsFile(List<string> annotationsToOutput)
@@ -835,16 +871,21 @@ namespace DevTools
 			}
 		}
 
-		private static bool CompareIgnoringQuoteMarkDifferences(string excelStr, Block existingBlock, string bookId, bool ignoreWhitespaceAndPunctuationDifferences)
+		private static bool CompareVersions(string excelStr, Block existingBlock, string bookId)
 		{
 			var existingStr = existingBlock.GetText(true);
 			var excelStrWithoutAnnotations = Regex.Replace(excelStr, " \\|\\|\\|.*?\\|\\|\\| ", "");
 			excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "{[^0-9]+.*?}", "");
 
-			if (ignoreWhitespaceAndPunctuationDifferences)
+			if (ComparisonSensitivity == Ignore.AllDifferencesExceptAlphaNumericText)
 			{
 				if (existingStr.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c)).SequenceEqual(
 					excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c) && !Char.IsPunctuation(c) && !Char.IsSymbol(c))))
+					return true;
+			}
+			else if (ComparisonSensitivity == Ignore.WhitespaceDifferences)
+			{
+				if (existingStr.Where(c => !Char.IsWhiteSpace(c)).SequenceEqual(excelStrWithoutAnnotations.Where(c => !Char.IsWhiteSpace(c))))
 					return true;
 			}
 			else
@@ -852,8 +893,14 @@ namespace DevTools
 				excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "  ", " ");
 				excelStrWithoutAnnotations = Regex.Replace(excelStrWithoutAnnotations, "\u00A0 ", "\u00A0");
 
-				var existingStrModified = Regex.Replace(s_removeQuotes.Replace(existingStr, ""), "\u00A0 ", "\u00A0").Trim();
-				excelStrWithoutAnnotations = s_removeQuotes.Replace(excelStrWithoutAnnotations, "").Trim();
+				string existingStrModified;
+				if (ComparisonSensitivity == Ignore.QuotationMarkDifferences)
+				{
+					existingStrModified = Regex.Replace(s_removeQuotes.Replace(existingStr, ""), "\u00A0 ", "\u00A0").Trim();
+					excelStrWithoutAnnotations = s_removeQuotes.Replace(excelStrWithoutAnnotations, "").Trim();
+				}
+				else
+					existingStrModified = existingStr;
 
 				if (excelStrWithoutAnnotations == existingStrModified)
 					return true;
@@ -867,9 +914,9 @@ namespace DevTools
 			else
 				lengthComparison = $"String length shrunk by {lengthChange} characters";
 
-			Console.WriteLine($"Difference found in text at {bookId} {existingBlock.ChapterNumber}:{existingBlock.InitialStartVerseNumber} - {lengthComparison}");
-			Console.WriteLine($"   Existing: {existingStr}");
-			Console.WriteLine($"   New:      {excelStr}");
+			WriteOutput($"Difference found in text at {bookId} {existingBlock.ChapterNumber}:{existingBlock.InitialStartVerseNumber} - {lengthComparison}");
+			WriteOutput($"   Existing: {existingStr}");
+			WriteOutput($"   New:      {excelStr}");
 			// ------------------------------------------
 			// Put a breakpoint here to investigate differences
 			// | | | |
@@ -1166,39 +1213,6 @@ namespace DevTools
 					XmlSerializationHelper.SerializeToFile(outputPath, book);
 				}
 			}
-		}
-	}
-
-	class ReferenceTextRow
-	{
-		private readonly Dictionary<string, string> m_text;
-
-		public ReferenceTextRow(string book, string chapter, string verse, string characterId, Dictionary<string, string> text)
-		{
-			m_text = text;
-			Book = book;
-			Chapter = chapter;
-			Verse = verse;
-			CharacterId = characterId;
-			m_text = text;
-			if (!m_text.ContainsKey("English"))
-				throw new ArgumentException("English is required", nameof(text));
-		}
-
-		public string Book { get; set; }
-		public string Chapter { get; set; }
-		public string Verse { get; set; }
-		public string CharacterId { get; set; }
-		public string English => m_text["English"];
-
-		public string GetText(string language)
-		{
-			return m_text[language];
-		}
-
-		public override string ToString()
-		{
-			return string.Format("{0} {1} {2} {3} {4}", Book, Chapter, Verse, CharacterId, English);
 		}
 	}
 
