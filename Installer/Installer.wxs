@@ -45,10 +45,10 @@ users to install just the shortcut for your app, then demand-install the
 rest of the app the first time the icon is run.  If this is not behavior you
 are trying to support, you're better off using non-advertised shortcuts. "-->
 
-    <PropertyRef Id="NETFRAMEWORK45" />
-    <Condition Message="Before Glyssen can install on older computers, you need to install Microsoft's free .NET Framework 4.5.">
-      Installed OR NETFRAMEWORK45
-    </Condition>
+	<PropertyRef Id="NETFRAMEWORK45"/>
+	<Condition Message="Glyssen requires .NET Framework 4.6.1 or later.  You need to install Microsoft's free .NET Framework then run this installer again.">
+    <![CDATA[Installed OR (NETFRAMEWORK45 >= "#394254")]]>
+	</Condition>
 
     <!--because of bug, this needs to be 1 -->
     <Property Id ="ALLUSERS">1</Property>

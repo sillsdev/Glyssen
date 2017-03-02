@@ -668,6 +668,9 @@ namespace Glyssen.Dialogs
 		{
 			bool result = true;
 
+			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
+
 			if (IsDirty())
 			{
 				if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
@@ -1075,6 +1078,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_toolStripButtonMatchReferenceText.Checked == m_toolStripButtonSelectCharacter.Checked)
 			{
+				IsOkayToLeaveBlock();	// returns true whether reply is Yes or No
 				m_toolStripButtonMatchReferenceText.Checked = !m_toolStripButtonSelectCharacter.Checked;
 
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
@@ -1465,12 +1469,43 @@ namespace Glyssen.Dialogs
 		{
 			if (e.ColumnIndex != colEnglish.Index && e.ColumnIndex != colPrimary.Index)
 				return;
+
 			if (m_dataGridReferenceText.CurrentCellAddress.Y < 0 || (!Focused && (m_dataGridReferenceText.EditingControl == null || !m_dataGridReferenceText.EditingControl.Focused)))
 			{
-				var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
-				if (m_dataGridReferenceText.CurrentRow != null && m_dataGridReferenceText.CurrentRow.Height < minHeight)
-					m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
+				if (m_dataGridReferenceText.CurrentRow != null)
+				{
+					const int kExtraHeightToallowForBordersAndMargin = 3;
+					var minHeight = m_dataGridReferenceText.RowTemplate.Height * 3;
+					if (String.IsNullOrEmpty(m_dataGridReferenceText.CurrentCell.Value as string))
+					{
+						var clipboardText = Clipboard.GetText();
+						if (clipboardText.Length > 0)
+						{
+							using (Graphics g = CreateGraphics())
+							{
+								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
+								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
+									clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
+									m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +
+									kExtraHeightToallowForBordersAndMargin;
+								minHeight = Math.Max(minHeight, heightNeeded);
+							}
+						}
+					}
+					if (m_dataGridReferenceText.CurrentRow.Height < minHeight)
+						m_dataGridReferenceText.CurrentRow.MinimumHeight = minHeight;
+				}
 			}
+		}
+
+		private static TextFormatFlags ComputeTextFormatFlagsForCellStyleAlignment(bool rightToLeft)
+		{
+			TextFormatFlags tff = TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak;
+			if (rightToLeft)
+				tff |= TextFormatFlags.Right | TextFormatFlags.RightToLeft;
+			else
+				tff |= TextFormatFlags.Left;
+			return tff;
 		}
 
 		private void m_dataGridReferenceText_CellLeave(object sender, DataGridViewCellEventArgs e)
@@ -1538,6 +1573,7 @@ namespace Glyssen.Dialogs
 		private void HandleHeSaidInserted(int iRow, int level, string text)
 		{
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
+			m_userMadeChangesToReferenceTextMatchup = true;
 			var column = level == 0 && colPrimary.Visible ? colPrimary : colEnglish;
 			m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
 			if (!colCharacter.ReadOnly)
