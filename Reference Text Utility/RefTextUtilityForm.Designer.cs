@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RefTextUtilityForm));
 			this.m_rdoSourceExcel = new System.Windows.Forms.RadioButton();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.m_lblProject = new System.Windows.Forms.Label();
@@ -246,8 +247,8 @@
 			this.Controls.Add(this.m_btnOk);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "RefTextUtilityForm";
-			this.ShowIcon = false;
 			this.Text = "Proprietary Reference Text Creation Utility";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();

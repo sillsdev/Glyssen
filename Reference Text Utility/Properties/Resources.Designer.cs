@@ -59,5 +59,15 @@ namespace Glyssen.ReferenceTextUtility.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon RefTextUtility {
+            get {
+                object obj = ResourceManager.GetObject("RefTextUtility", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
