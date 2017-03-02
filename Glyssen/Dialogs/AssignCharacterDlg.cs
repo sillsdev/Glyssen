@@ -668,6 +668,9 @@ namespace Glyssen.Dialogs
 		{
 			bool result = true;
 
+			if (m_dataGridReferenceText.IsCurrentCellInEditMode)
+				m_dataGridReferenceText.EndEdit(DataGridViewDataErrorContexts.LeaveControl);
+
 			if (IsDirty())
 			{
 				if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
@@ -1075,6 +1078,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_toolStripButtonMatchReferenceText.Checked == m_toolStripButtonSelectCharacter.Checked)
 			{
+				IsOkayToLeaveBlock();	// returns true whether reply is Yes or No
 				m_toolStripButtonMatchReferenceText.Checked = !m_toolStripButtonSelectCharacter.Checked;
 
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
@@ -1569,6 +1573,7 @@ namespace Glyssen.Dialogs
 		private void HandleHeSaidInserted(int iRow, int level, string text)
 		{
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
+			m_userMadeChangesToReferenceTextMatchup = true;
 			var column = level == 0 && colPrimary.Visible ? colPrimary : colEnglish;
 			m_dataGridReferenceText.Rows[iRow].Cells[column.Index].Value = text;
 			if (!colCharacter.ReadOnly)
