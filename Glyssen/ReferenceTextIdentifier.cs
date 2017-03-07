@@ -36,7 +36,7 @@ namespace Glyssen
 			get
 			{
 				if (s_proprietaryReferenceTextProjectFileLocation == null)
-					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(Program.BaseDataFolder, kLocalReferenceTextDirectoryName);
+					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, kLocalReferenceTextDirectoryName);
 
 				return s_proprietaryReferenceTextProjectFileLocation;
 			}
@@ -223,7 +223,7 @@ namespace Glyssen
 					throw new Exception(
 						String.Format(LocalizationManager.GetString("ReferenceText.NoReferenceTextsLoaded",
 							"No reference texts could be loaded. There might be a problem with your {0} installation. See InnerException " +
-							"for more details."), Program.kProduct),
+							"for more details."), GlyssenInfo.kProduct),
 						firstLoadError.Item1);
 				}
 				if (additionalErrors.Any())

@@ -140,9 +140,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilities">
-      <HintPath>..\lib\dotnet\Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\ProjectAnalysis.cs" />
@@ -310,6 +307,7 @@
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="PortionScript.cs" />
+    <Compile Include="GlyssenInfo.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
     <Compile Include="ReferenceText.cs" />

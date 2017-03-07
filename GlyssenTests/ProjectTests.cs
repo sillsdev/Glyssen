@@ -26,7 +26,7 @@ namespace GlyssenTests
 		private GlyssenBundle GetGlyssenBundleToBeUsedForProject(bool includeLdml = true)
 		{
 			var bundle = GlyssenBundleTests.GetNewGlyssenBundleForTest(includeLdml);
-			m_tempProjectFolders.Add(Path.Combine(Program.BaseDataFolder, bundle.Metadata.Id));
+			m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, bundle.Metadata.Id));
 			return bundle;
 		}
 
@@ -44,7 +44,7 @@ namespace GlyssenTests
 			CharacterDetailData.TabDelimitedCharacterDetailData = Properties.Resources.TestCharacterDetail;
 
 			// Clean up anything from previously aborted tests
-			foreach (var directory in Directory.GetDirectories(Program.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
+			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
 				DirectoryUtilities.DeleteDirectoryRobust(directory);
 		}
 
@@ -240,7 +240,7 @@ namespace GlyssenTests
 			var originalBundleAndFile = GlyssenBundleTests.GetNewGlyssenBundleAndFile();
 			try
 			{
-				m_tempProjectFolders.Add(Path.Combine(Program.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
+				m_tempProjectFolders.Add(Path.Combine(GlyssenInfo.BaseDataFolder, originalBundleAndFile.Item1.Metadata.Id));
 				var originalBundle = originalBundleAndFile.Item1;
 				var project = new Project(originalBundle);
 
@@ -688,7 +688,7 @@ namespace GlyssenTests
 			}
 			finally
 			{
-				var testProjFolder = Path.Combine(Program.BaseDataFolder, "~~funkyFrogLipsAndStuff");
+				var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, "~~funkyFrogLipsAndStuff");
 				if (Directory.Exists(testProjFolder))
 					DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
 			}

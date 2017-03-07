@@ -414,7 +414,7 @@ namespace Glyssen
 					"Error: {2}"),
 					bundlePath, DblBundleFileUtils.kVersificationFileName, error);
 				Logger.WriteError(msg, ex);
-				MessageBox.Show(this, msg, Program.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(this, msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				SetProject(null);
 			}
 
@@ -953,7 +953,7 @@ namespace Glyssen
 						dlg.Text, dlg.ReferenceTextTabPageName);
 					Logger.WriteEvent(msgFmt);
 				}
-				switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore))
+				switch (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore))
 				{
 					case DialogResult.Abort: return;
 					case DialogResult.Ignore:
@@ -1003,10 +1003,10 @@ namespace Glyssen
 				var sourceDir = Path.GetDirectoryName(m_project.ProjectFilePath);
 
 				Debug.Assert(sourceDir != null);
-				Debug.Assert(sourceDir.StartsWith(Program.BaseDataFolder));
-				var nameInZip = sourceDir.Substring(Program.BaseDataFolder.Length);
+				Debug.Assert(sourceDir.StartsWith(GlyssenInfo.BaseDataFolder));
+				var nameInZip = sourceDir.Substring(GlyssenInfo.BaseDataFolder.Length);
 
-				var share = Path.Combine(Program.BaseDataFolder, "share");
+				var share = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
 				Directory.CreateDirectory(share);
 
 				var saveAsName = Path.Combine(share, m_project.LanguageIsoCode + "_" + m_project.Name) + ProjectBase.kShareFileExtension;
@@ -1045,7 +1045,7 @@ namespace Glyssen
 			// show the user an Open File dialog
 			using (var ofd = new OpenFileDialog())
 			{
-				ofd.InitialDirectory = Path.Combine(Program.BaseDataFolder, "share");
+				ofd.InitialDirectory = Path.Combine(GlyssenInfo.BaseDataFolder, "share");
 				ofd.Filter = Format("Glyssen shares (*{0})|*{0}|All files (*.*)|*.*", ProjectBase.kShareFileExtension);
 				ofd.RestoreDirectory = true;
 
@@ -1078,7 +1078,7 @@ namespace Glyssen
 				if (zip.Entries.Count <= 0) return;
 
 				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
-				var targetDir = Path.Combine(Program.BaseDataFolder, path.FileName);
+				var targetDir = Path.Combine(GlyssenInfo.BaseDataFolder, path.FileName);
 
 				var projectFileName = path.FileName.Split('/').First() + Project.kProjectFileExtension;
 				var projectFilePath = Path.Combine(targetDir, projectFileName);
@@ -1091,14 +1091,14 @@ namespace Glyssen
 							"might result in loss of data. Do you want to continue and overwrite the existing files?");
 					Logger.WriteEvent(msg + " " + projectFilePath);
 
-					if (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+					if (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
 						return;
 				}
 
 				// close the current project
 				SetProject(null);
 
-				zip.ExtractAll(Program.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
+				zip.ExtractAll(GlyssenInfo.BaseDataFolder, ExtractExistingFileAction.OverwriteSilently);
 
 				// open the imported project
 				if (RobustFile.Exists(projectFilePath))

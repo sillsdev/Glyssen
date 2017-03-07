@@ -1,4 +1,4 @@
-Control File Version	114
+Control File Version	115
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -16116,10 +16116,10 @@ REV	18	14	merchants of the earth			Normal
 REV	18	14	voice from heaven, another			Normal		
 REV	18	15	voice from heaven, another			Normal		
 REV	18	15	merchants of the earth			Normal		
-REV	18	16	merchants of the earth	wailing		Normal		
-REV	18	16	voice from heaven, another	wailing		Normal		
-REV	18	17	merchants of the earth	wailing		Normal		
-REV	18	17	voice from heaven, another	wailing		Normal		
+REV	18	16	merchants of the earth	weeping		Normal		
+REV	18	16	voice from heaven, another	weeping		Normal		
+REV	18	17	merchants of the earth	weeping		Normal		
+REV	18	17	voice from heaven, another	weeping		Normal		
 REV	18	18	sea captains, seafarers, sailors	weeping		Normal		
 REV	18	18	voice from heaven, another	weeping		Normal		
 REV	18	19	sea captains, seafarers, sailors	weeping		Normal		

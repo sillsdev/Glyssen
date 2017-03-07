@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyssen", "Glyssen\Glyssen.csproj", "{45321F2E-174C-482A-BDA1-BF199366FBD6}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTools", "DevTools\DevTools.csproj", "{25EA56F0-139C-42D4-932E-F8515CEC6666}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlDataIntegrityTests", "ControlDataIntegrityTests\ControlDataIntegrityTests.csproj", "{1066E126-F1A9-49D7-B326-428C5986AAB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reference Text Utility", "Reference Text Utility\Reference Text Utility.csproj", "{8B40629B-EFD9-4823-B494-041766B8625F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefTextDevUtilities", "RefTextDevUtilities\RefTextDevUtilities.csproj", "{49C0C51D-190F-450D-A7BE-14E843C2E89D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +36,14 @@ Global
 		{1066E126-F1A9-49D7-B326-428C5986AAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1066E126-F1A9-49D7-B326-428C5986AAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1066E126-F1A9-49D7-B326-428C5986AAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B40629B-EFD9-4823-B494-041766B8625F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B40629B-EFD9-4823-B494-041766B8625F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B40629B-EFD9-4823-B494-041766B8625F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B40629B-EFD9-4823-B494-041766B8625F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C0C51D-190F-450D-A7BE-14E843C2E89D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C0C51D-190F-450D-A7BE-14E843C2E89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C0C51D-190F-450D-A7BE-14E843C2E89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C0C51D-190F-450D-A7BE-14E843C2E89D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

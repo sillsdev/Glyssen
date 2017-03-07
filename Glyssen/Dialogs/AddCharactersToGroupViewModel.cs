@@ -27,7 +27,7 @@ namespace Glyssen.Dialogs
 				m_cameoActor = cameoActor;
 				foreach (var kvp in charactersNotInGroup)
 				{
-					if ((kvp.Value / Program.kKeyStrokesPerHour) < Program.kCameoCharacterEstimatedHoursLimit)
+					if ((kvp.Value / GlyssenInfo.kKeyStrokesPerHour) < GlyssenInfo.kCameoCharacterEstimatedHoursLimit)
 					{
 						var detail = m_characterDetailDictionary[kvp.Key];
 						if (cameoActor.Matches(detail))
@@ -99,7 +99,7 @@ namespace Glyssen.Dialogs
 		public double GetEstimatedHoursForCharacter(int filteredCharacterIndex)
 		{
 			return m_keyStrokesByCharacterId[ActiveList[filteredCharacterIndex].CharacterId] /
-				Program.kKeyStrokesPerHour;
+				GlyssenInfo.kKeyStrokesPerHour;
 		}
 	}
 }

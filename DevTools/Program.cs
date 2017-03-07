@@ -1,5 +1,7 @@
 ﻿using System;
 using Glyssen;
+using Glyssen.RefTextDevUtilities;
+using Glyssen.Utilities;
 
 namespace DevTools
 {
@@ -16,17 +18,18 @@ namespace DevTools
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");
-			Console.WriteLine("8) Diff new version of DG against previous -- set breakpoint in CompareIgnoringQuoteMarkDifferences if desired");
-			Console.WriteLine("9) Diff new version of DG against previous -- ignore whitespace and punctuation differences");
-			Console.WriteLine("10) Generate reference texts from Excel spreadsheet");
-			Console.WriteLine("11) Link reference texts to English");
-			Console.WriteLine("12) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
-			Console.WriteLine("13) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
-			Console.WriteLine();
+			Console.WriteLine("8) Diff new version of DG against previous");
+			Console.WriteLine("9) Generate reference texts from Excel spreadsheet");
+			Console.WriteLine("10) Link reference texts to English");
+			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
+			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
+			Console.WriteLine("13) Generate reference text book title and chapter label summary");
 
 			string selection = Console.ReadLine();
-			bool waitForUserToSeeOutput = false;
 			string outputType = "errors";
+			bool waitForUserToSeeOutput = false;
+
+			ReferenceTextUtility.OnMessageRaised += (msg, error) => { Console.WriteLine(msg); };
 
 			switch (selection)
 			{
@@ -38,15 +41,26 @@ namespace DevTools
 				case "6": CharacterListProcessing.Process(); break;
 				case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
 				case "8":
-				case "9":
-					DiffDirectorGuide(selection == "9");
+					DiffDirectorGuide();
 					outputType = "differences";
 					waitForUserToSeeOutput = true;
 					break;
-				case "10": waitForUserToSeeOutput = !ReferenceTextUtility.GenerateReferenceTexts(false, false); break;
-				case "11": waitForUserToSeeOutput = !ReferenceTextUtility.LinkToEnglish(); break;
-				case "12": ReferenceTextUtility.GenerateReferenceTexts(false, true); break;
-				case "13": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
+				case "9":
+					ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.Generate);
+					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+					break;
+				case "10": ReferenceTextUtility.LinkToEnglish();
+					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+					break;
+				case "11":
+					ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.English));
+					waitForUserToSeeOutput = true;
+					break;
+				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
+				case "13":
+					ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
+					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+					break;
 			}
 
 			if (waitForUserToSeeOutput)
@@ -56,18 +70,18 @@ namespace DevTools
 			}
 		}
 
-		private static void DiffDirectorGuide(bool ignoreWhitespaceAndPunctuationDifferences = false)
+		private static void DiffDirectorGuide()
 		{
-			Console.WriteLine("Enter the number or name of the language you want to diff:");
+			Console.WriteLine("What language do you want to diff?");
 			Console.WriteLine("");
 			Console.WriteLine("1) All");
 			Console.WriteLine("2) English");
 			Console.WriteLine("3) Russian");
+			Console.WriteLine("** For a custom (proprietary) language,  type its name.");
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
 			ReferenceTextIdentifier id = null;
-			string customId = null;
 			switch (selection)
 			{
 				case "1": break; // All
@@ -86,7 +100,31 @@ namespace DevTools
 					}
 					break;
 			}
-			ReferenceTextUtility.GenerateReferenceTexts(true, false, id, ignoreWhitespaceAndPunctuationDifferences);
+
+			Console.WriteLine("Enter desired sensitivity?");
+			Console.WriteLine("");
+			Console.WriteLine("1) Report all differences");
+			Console.WriteLine("2) Ignore whitespace differences");
+			Console.WriteLine("3) Ignore quotation mark differences (default)");
+			Console.WriteLine("4) Report only alpha-numeric text differences (ignore differences in whitespace, punctuation, and symbols)");
+			Console.WriteLine("*** NOTE *** For more specific control or to see more details, set a breakpoint in CompareIgnoringQuoteMarkDifferences.");
+
+			Console.WriteLine();
+
+			string sensitivity = Console.ReadLine();
+			switch (sensitivity)
+			{
+				case "1":
+					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.AllDifferences;
+					break;
+				case "2":
+					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.WhitespaceDifferences;
+					break;
+				case "4":
+					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.AllDifferencesExceptAlphaNumericText;
+					break;
+			}
+			ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.FindDifferencesBetweenCurrentVersionAndNewText, id);
 		}
 	}
 }
