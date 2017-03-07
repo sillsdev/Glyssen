@@ -449,7 +449,7 @@ namespace Glyssen.Quote
 								}
 								else
 								{
-									blockEndedWithSentenceEndingPunctuation = !IsFollowOnParagraphStyle(m_workingBlock.StyleTag) && EndsWithSentenceEndingPunctuation(token);
+									blockEndedWithSentenceEndingPunctuation = !IsFollowOnParagraphStyle(m_workingBlock.StyleTag) && token.EndsWithSentenceEndingPunctuation();
 								}
 								sb.Append(token);
 							}
@@ -461,7 +461,7 @@ namespace Glyssen.Quote
 						else
 						{
 							var remainingText = content.Substring(pos);
-							if (m_quoteLevel == 1 && block == blockInWhichDialogueQuoteStarted && EndsWithSentenceEndingPunctuation(remainingText))
+							if (m_quoteLevel == 1 && block == blockInWhichDialogueQuoteStarted && remainingText.EndsWithSentenceEndingPunctuation())
 								blockEndedWithSentenceEndingPunctuation = true;
 							sb.Append(remainingText);
 							break;
@@ -578,28 +578,6 @@ namespace Glyssen.Quote
 		public string ContinuerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Continue; } }
 		public string CloserForCurrentLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel - 1].Close; } }
 		public string OpenerForNextLevel { get { return s_quoteSystem.NormalLevels[m_quoteLevel].Open; } }
-
-		private bool EndsWithSentenceEndingPunctuation(string text)
-		{
-			int i = text.Length - 1;
-			while (i >= 0)
-			{
-				char c = text[i];
-				if (char.IsPunctuation(c))
-				{
-					if (CharacterUtils.IsSentenceFinalPunctuation(c))
-					{
-						return true;
-					}
-				}
-				else if (!char.IsWhiteSpace(c))
-				{
-					return false;
-				}
-				i--;
-			}
-			return false;
-		}
 
 		/// <summary>
 		/// Flush the current string builder to a block element
@@ -770,9 +748,9 @@ namespace Glyssen.Quote
 			return styleTag == "p";
 		}
 
-		private bool IsFollowOnParagraphStyle(string styleTag)
+		internal static bool IsFollowOnParagraphStyle(string styleTag)
 		{
-			return styleTag.StartsWith("q") || styleTag == "m";
+			return styleTag.StartsWith("q") || styleTag == "m" || styleTag.StartsWith("pi");
 		}
 
 		public static ConcurrentDictionary<BookScript, IReadOnlyList<Block>> Unparse(IEnumerable<BookScript> books)

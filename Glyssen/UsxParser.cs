@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Glyssen.Character;
+using Glyssen.Quote;
 using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
@@ -209,7 +210,19 @@ namespace Glyssen
 						break;
 				}
 				if (block != null && block.BlockElements.Count > 0)
-					blocks.Add(block);
+				{
+					var prevBlock = blocks.LastOrDefault();
+					if (prevBlock != null &&
+						!prevBlock.IsChapterAnnouncement &&
+						!block.BlockElements.OfType<Verse>().Any() &&
+						!prevBlock.BlockElements.OfType<ScriptText>().Last().Content.EndsWithSentenceEndingPunctuation() &&
+						QuoteParser.IsFollowOnParagraphStyle(block.StyleTag))
+					{
+						prevBlock.CombineWith(block);
+					}
+					else
+						blocks.Add(block);
+				}
 			}
 			return blocks;
 		}

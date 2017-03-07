@@ -806,6 +806,28 @@ namespace Glyssen
 			return Format(s_characterSelect, splitId);
 		}
 
+		public static Block CombineBlocks(Block blockA, Block blockB)
+		{
+			return blockA.Clone().CombineWith(blockB);
+		}
+
+		public Block CombineWith(Block block)
+		{
+			var skip = 0;
+			var firstBlockAsScriptText = block.BlockElements.First() as ScriptText;
+			if (BlockElements.Last() is ScriptText && firstBlockAsScriptText != null)
+			{
+				var lastScriptText = (ScriptText)BlockElements.Last();
+				var space = (char.IsWhiteSpace(lastScriptText.Content.Last()) || char.IsWhiteSpace(firstBlockAsScriptText.Content[0])) ? Empty : " ";
+				lastScriptText.Content += space + firstBlockAsScriptText.Content;
+				skip = 1;
+			}
+			foreach (var blockElement in block.BlockElements.Skip(skip))
+				BlockElements.Add(blockElement.Clone());
+			UserConfirmed &= block.UserConfirmed;
+			return this;
+		}
+
 		internal Block SplitBlock(string verseToSplit, int characterOffsetToSplit)
 		{
 			var currVerse = InitialVerseNumberOrBridge;

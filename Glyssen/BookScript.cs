@@ -131,7 +131,7 @@ namespace Glyssen
 				{
 					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
 					{
-						list[list.Count - 1] = CombineBlockWithPreviousBlock(block, prevBlock);
+						list[list.Count - 1] = Block.CombineBlocks(prevBlock, block);
 						continue;
 					}
 				}
@@ -139,25 +139,6 @@ namespace Glyssen
 				list.Add(block);
 			}
 			return list;
-		}
-
-		private Block CombineBlockWithPreviousBlock(Block block, Block prevBlock)
-		{
-			var newBlock = prevBlock.Clone();
-			var skip = 0;
-			var firstBlockAsScriptText = block.BlockElements.First() as ScriptText;
-			if (prevBlock.BlockElements.Last() is ScriptText && firstBlockAsScriptText != null)
-			{
-				var lastScriptText = (ScriptText)newBlock.BlockElements.Last();
-				var space = (char.IsWhiteSpace(lastScriptText.Content.Last()) || char.IsWhiteSpace(firstBlockAsScriptText.Content[0])) ? Empty : " ";
-				lastScriptText.Content += space + firstBlockAsScriptText.Content;
-				skip = 1;
-			}
-			foreach (var blockElement in block.BlockElements.Skip(skip))
-				newBlock.BlockElements.Add(blockElement.Clone());
-			newBlock.UserConfirmed &= block.UserConfirmed;
-
-			return newBlock;
 		}
 
 		public string GetVerseText(int chapter, int verse)
