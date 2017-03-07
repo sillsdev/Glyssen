@@ -41,6 +41,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.DblBundle, Version=3.1.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Scripture, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Windows.Forms, Version=3.1.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
@@ -112,7 +120,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refTextMetadata.glyssen" />
     <None Include="Resources\RefTextUtility.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refTextMetadata.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

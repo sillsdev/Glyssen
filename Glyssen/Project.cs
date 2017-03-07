@@ -820,14 +820,7 @@ namespace Glyssen
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
-			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				string possibleFileName = Path.Combine(projectDir, bookCode + kBookScriptFileExtension);
-				if (files.Contains(possibleFileName))
-					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
-			}
+			ForEachBookFileInProject(projectDir, (bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects

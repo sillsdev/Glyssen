@@ -39,12 +39,14 @@
 			this.m_btnSelectSpreadsheetFile = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.m_dataGridRefTexts = new System.Windows.Forms.DataGridView();
-			this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.colAction = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.colDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_btnOk = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
 			this.m_lblLoading = new System.Windows.Forms.Label();
+			this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colAction = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.colDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colHeSaidText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.colIsoCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridRefTexts)).BeginInit();
@@ -76,7 +78,7 @@
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(633, 86);
+			this.groupBox1.Size = new System.Drawing.Size(703, 86);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Source";
@@ -144,7 +146,7 @@
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox2.Location = new System.Drawing.Point(12, 118);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(633, 164);
+			this.groupBox2.Size = new System.Drawing.Size(703, 164);
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Reference Text";
@@ -156,20 +158,58 @@
 			this.m_dataGridRefTexts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_dataGridRefTexts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.m_dataGridRefTexts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.m_dataGridRefTexts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colAction,
-            this.colDestination});
+            this.colDestination,
+            this.colHeSaidText,
+            this.colIsoCode});
 			this.m_dataGridRefTexts.Location = new System.Drawing.Point(7, 22);
 			this.m_dataGridRefTexts.Name = "m_dataGridRefTexts";
 			this.m_dataGridRefTexts.RowHeadersVisible = false;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.m_dataGridRefTexts.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.m_dataGridRefTexts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_dataGridRefTexts.Size = new System.Drawing.Size(620, 136);
+			this.m_dataGridRefTexts.Size = new System.Drawing.Size(690, 136);
 			this.m_dataGridRefTexts.TabIndex = 0;
 			this.m_dataGridRefTexts.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.m_dataGridRefTexts_CellValueChanged);
+			// 
+			// m_btnOk
+			// 
+			this.m_btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.m_btnOk.Enabled = false;
+			this.m_btnOk.Location = new System.Drawing.Point(285, 297);
+			this.m_btnOk.Name = "m_btnOk";
+			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
+			this.m_btnOk.TabIndex = 4;
+			this.m_btnOk.Text = "Process...";
+			this.m_btnOk.UseVisualStyleBackColor = true;
+			this.m_btnOk.Click += new System.EventHandler(this.m_btnProcess_Click);
+			// 
+			// m_btnCancel
+			// 
+			this.m_btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.m_btnCancel.Location = new System.Drawing.Point(367, 297);
+			this.m_btnCancel.Name = "m_btnCancel";
+			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
+			this.m_btnCancel.TabIndex = 5;
+			this.m_btnCancel.Text = "Close";
+			this.m_btnCancel.UseVisualStyleBackColor = true;
+			this.m_btnCancel.Click += new System.EventHandler(this.m_btnCancel_Click);
+			// 
+			// m_lblLoading
+			// 
+			this.m_lblLoading.AutoSize = true;
+			this.m_lblLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.m_lblLoading.ForeColor = System.Drawing.Color.Blue;
+			this.m_lblLoading.Location = new System.Drawing.Point(271, 120);
+			this.m_lblLoading.Name = "m_lblLoading";
+			this.m_lblLoading.Size = new System.Drawing.Size(71, 15);
+			this.m_lblLoading.TabIndex = 6;
+			this.m_lblLoading.Text = "Loading...";
+			this.m_lblLoading.Visible = false;
 			// 
 			// colName
 			// 
@@ -199,41 +239,21 @@
 			this.colDestination.HeaderText = "Destination Path";
 			this.colDestination.MaxInputLength = 256;
 			this.colDestination.Name = "colDestination";
+			this.colDestination.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			// 
-			// m_btnOk
+			// colHeSaidText
 			// 
-			this.m_btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.m_btnOk.Enabled = false;
-			this.m_btnOk.Location = new System.Drawing.Point(250, 297);
-			this.m_btnOk.Name = "m_btnOk";
-			this.m_btnOk.Size = new System.Drawing.Size(75, 23);
-			this.m_btnOk.TabIndex = 4;
-			this.m_btnOk.Text = "Process...";
-			this.m_btnOk.UseVisualStyleBackColor = true;
-			this.m_btnOk.Click += new System.EventHandler(this.m_btnProcess_Click);
+			this.colHeSaidText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colHeSaidText.HeaderText = "“He said” Text";
+			this.colHeSaidText.Name = "colHeSaidText";
+			this.colHeSaidText.Width = 131;
 			// 
-			// m_btnCancel
+			// colIsoCode
 			// 
-			this.m_btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.m_btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.m_btnCancel.Location = new System.Drawing.Point(332, 297);
-			this.m_btnCancel.Name = "m_btnCancel";
-			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.m_btnCancel.TabIndex = 5;
-			this.m_btnCancel.Text = "Close";
-			this.m_btnCancel.UseVisualStyleBackColor = true;
-			// 
-			// m_lblLoading
-			// 
-			this.m_lblLoading.AutoSize = true;
-			this.m_lblLoading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.m_lblLoading.ForeColor = System.Drawing.Color.Blue;
-			this.m_lblLoading.Location = new System.Drawing.Point(271, 120);
-			this.m_lblLoading.Name = "m_lblLoading";
-			this.m_lblLoading.Size = new System.Drawing.Size(71, 15);
-			this.m_lblLoading.TabIndex = 6;
-			this.m_lblLoading.Text = "Loading...";
-			this.m_lblLoading.Visible = false;
+			this.colIsoCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.colIsoCode.HeaderText = "ISO Code";
+			this.colIsoCode.Name = "colIsoCode";
+			this.colIsoCode.Width = 99;
 			// 
 			// RefTextUtilityForm
 			// 
@@ -241,7 +261,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.m_btnCancel;
-			this.ClientSize = new System.Drawing.Size(657, 333);
+			this.ClientSize = new System.Drawing.Size(727, 333);
 			this.Controls.Add(this.m_lblLoading);
 			this.Controls.Add(this.m_btnCancel);
 			this.Controls.Add(this.m_btnOk);
@@ -276,6 +296,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn colName;
 		private System.Windows.Forms.DataGridViewComboBoxColumn colAction;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colDestination;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colHeSaidText;
+		private System.Windows.Forms.DataGridViewTextBoxColumn colIsoCode;
 	}
 }
 

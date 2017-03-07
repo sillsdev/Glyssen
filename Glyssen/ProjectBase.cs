@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Glyssen.Bundle;
 using L10NSharp;
-using Paratext;
 using SIL.DblBundle;
+using SIL.Scripture;
+using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
@@ -89,6 +91,18 @@ namespace Glyssen
 		protected string VersificationFilePath
 		{
 			get { return Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName); }
+		}
+
+		public static void ForEachBookFileInProject(string projectDir, Action<string, string> action)
+		{
+			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
+			for (int i = 1; i <= BCVRef.LastBook; i++)
+			{
+				string bookCode = BCVRef.NumberToBookCode(i);
+				string possibleFileName = Path.Combine(projectDir, bookCode + kBookScriptFileExtension);
+				if (files.Contains(possibleFileName))
+					action(bookCode, possibleFileName);
+			}
 		}
 	}
 }

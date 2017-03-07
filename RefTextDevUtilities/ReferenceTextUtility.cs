@@ -640,8 +640,8 @@ namespace Glyssen.RefTextDevUtilities
 			if (mode == Mode.Generate)
 			{
 				if (languagesToProcess.Any(l => !l.IsEnglish))
-					WriteOutput($"Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version " +
-						"is replaced by \"{kNewEnglishTempName}\", then the tool needs to re re-run to link all reference texts to the new English version.");
+					WriteOutput("Reference texts (other than English) have been aligned to the EXISTING English reference text. If that version is " +
+						"replaced by a new version of the English text, then the tool needs to re re-run to link all reference texts to the new English version.");
 
 				WriteAnnotationsFile(annotationsToOutput);
 			}
@@ -761,17 +761,22 @@ namespace Glyssen.RefTextDevUtilities
 			return data;
 		}
 
-		private static ReferenceText GetReferenceTextFromString(string language)
+		public static ReferenceTextIdentifier GetReferenceTextIdFromString(string language)
 		{
 			ReferenceTextType type;
-			if (Enum.TryParse<ReferenceTextType>(language, out type))
+			if (Enum.TryParse(language, out type))
 			{
 				if (type == ReferenceTextType.Custom || type == ReferenceTextType.Unknown)
 					throw new ArgumentException("unknown language", nameof(language));
-				return ReferenceText.GetStandardReferenceText(type);
+				return ReferenceTextIdentifier.GetOrCreate(type);
 			}
 
-			var refTextId = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, language);
+			return ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, language);
+		}
+
+		private static ReferenceText GetReferenceTextFromString(string language)
+		{
+			var refTextId = GetReferenceTextIdFromString(language);
 			if (refTextId.Missing)
 				throw new ArgumentException("Unvailable custom language", nameof(language));
 

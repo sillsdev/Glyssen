@@ -61,6 +61,30 @@ namespace Glyssen.ReferenceTextUtility.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;DBLMetadata id=&quot;5453af4c7644271c&quot; type=&quot;text&quot; typeVersion=&quot;1.4&quot; revision=&quot;0&quot; usxparserversion=&quot;33&quot; controlfileversion=&quot;91&quot;&gt;
+        ///  &lt;language&gt;
+        ///    &lt;fontFamily&gt;Charis SIL&lt;/fontFamily&gt;
+        ///    &lt;fontSizeInPoints&gt;14&lt;/fontSizeInPoints&gt;
+        ///  &lt;/language&gt;
+        ///  &lt;copyright&gt;
+        ///    &lt;statement contentType=&quot;xhtml&quot;&gt;
+        ///    &lt;/statement&gt;
+        ///  &lt;/copyright&gt;
+        ///  &lt;promotion&gt;
+        ///    &lt;promoVersionInfo contentType=&quot;xhtml&quot; /&gt;
+        ///  &lt;/promotion&gt;
+        ///  &lt;contents&gt;
+        ///    &lt;bookList default=&quot;true&quot; id=&quot;0&quot;&gt;
+        ///      &lt;name&gt;AdHo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string refTextMetadata {
+            get {
+                return ResourceManager.GetString("refTextMetadata", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon RefTextUtility {

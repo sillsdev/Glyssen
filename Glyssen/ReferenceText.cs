@@ -124,19 +124,15 @@ namespace Glyssen
 		protected virtual void SetVersification()
 		{
 			Debug.Assert(m_referenceTextType == ReferenceTextType.Custom);
-			if (!File.Exists(VersificationFilePath))
+			if (File.Exists(VersificationFilePath))
 			{
-				var msg = new StringBuilder(LocalizationManager.GetString("ReferenceText.CustomVersificationFileMissing",
-					"The versification file for the proprietary reference text used by the project could not be found:"));
-				msg.Append(Environment.NewLine);
-				msg.Append(VersificationFilePath);
-				msg.Append(Environment.NewLine);
-				msg.Append(LocalizationManager.GetString("ReferenceText.FallbackToVersificationMessage",
-					"If you continue without the versification file, the standard English versification will be used."));
-				ErrorReport.ReportNonFatalMessageWithStackTrace(msg.ToString());
+				m_vers = LoadVersification(VersificationFilePath);
 			}
-			m_vers = File.Exists(VersificationFilePath) ? LoadVersification(VersificationFilePath) :
-				ScrVers.English;
+			else
+			{
+				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versisfication.");
+				m_vers = ScrVers.English;
+			}	
 		}
 
 		public bool HasSecondaryReferenceText

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DBLMetadata>
+  <language>
+    <fontFamily>Charis SIL</fontFamily>
+    <fontSizeInPoints>14</fontSizeInPoints>
+  </language>
+  <copyright>
+    <statement contentType="xhtml">
+    </statement>
+  </copyright>
+  <promotion>
+    <promoVersionInfo contentType="xhtml" />
+  </promotion>
+ <projectStatus>
+    <quoteSystemStatus>UserSet</quoteSystemStatus>
+    <quoteSystemDate>2016-03-08T12:27:38.1500615-07:00</quoteSystemDate>
+    <bookSelectionStatus>Reviewed</bookSelectionStatus>
+    <projectSettingsStatus>Reviewed</projectSettingsStatus>
+  </projectStatus>
+  <characterGroupGenerationPreferences />
+</DBLMetadata>
