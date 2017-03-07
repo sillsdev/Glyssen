@@ -3063,14 +3063,14 @@
     <verse num="16" />
     <text>и говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="weeping" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="weeping" multiBlockQuote="Start">
       <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!</text>
     </ReferenceBlocks>
     <text>“горе, горе тебе, великий город, одетый в виссон и порфиру и багряницу, украшенный золотом и камнями драгоценными и жемчугом,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="weeping" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="weeping" multiBlockQuote="Continuation">
       <verse num="17" />
       <text>For in an hour such great riches are made desolate.”</text>
     </ReferenceBlocks>
@@ -3087,8 +3087,8 @@
     <verse num="18" />
     <text>и, видя дым от пожара ее, возопили, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="wailing">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="weeping" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="weeping">
       <text>“What is like the great city?”</text>
     </ReferenceBlocks>
     <text>“какой город подобен городу великому!”</text>
@@ -3101,8 +3101,8 @@
     <verse num="19" />
     <text>И посыпали пеплом головы свои, и вопили, плача и рыдая:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="wailing" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="wailing">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="weeping" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="weeping">
       <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
     </ReferenceBlocks>
     <text>“горе, горе тебе, город великий, драгоценностями которого обогатились все, имеющие корабли на море, ибо опустел в один час!”</text>

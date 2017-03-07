@@ -166,7 +166,7 @@ namespace Glyssen.Character
 
 		private string GetLocalizedIndividualCharacterString(string character)
 		{
-			return LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + character, character);
+			return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + character, character);
 		}
 
 		#region Equality Members

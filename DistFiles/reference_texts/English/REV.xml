@@ -1532,10 +1532,10 @@
     <verse num="16" />
     <text>saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="16" characterId="merchants of the earth" delivery="weeping" multiBlockQuote="Start">
     <text>“Woe, woe, the great city, she who was dressed in fine linen, purple, and scarlet, and decked with gold and precious stones and pearls!</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="wailing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="17" characterId="merchants of the earth" delivery="weeping" multiBlockQuote="Continuation">
     <verse num="17" />
     <text>For in an hour such great riches are made desolate.”</text>
   </block>
@@ -1544,14 +1544,14 @@
     <verse num="18" />
     <text>and cried out as they looked at the smoke of her burning, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="wailing">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="18" characterId="sea captains, seafarers, sailors" delivery="weeping">
     <text>“What is like the great city?”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="narrator-REV">
     <verse num="19" />
     <text>They cast dust on their heads, and cried, weeping and mourning, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="wailing">
+  <block style="p" paragraphStart="true" chapter="18" initialStartVerse="19" characterId="sea captains, seafarers, sailors" delivery="weeping">
     <text>“Woe, woe, the great city, in which all who had their ships in the sea were made rich by reason of her great wealth! For in one hour is she made desolate.”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="18" initialStartVerse="20" characterId="sea captains, seafarers, sailors" delivery="weeping">

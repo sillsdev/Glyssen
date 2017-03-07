@@ -649,7 +649,7 @@ namespace Glyssen.Dialogs
 						if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
 							return "";
 						string relevantAlias = s_funcToGetRelevantAlias(characterId);
-						characterId = LocalizationManager.GetDynamicString(Program.kApplicationId, "CharacterName." + characterId, characterId);
+						characterId = LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "CharacterName." + characterId, characterId);
 						if (relevantAlias != null)
 							return characterId + " [" + relevantAlias + "]";
 						return characterId;

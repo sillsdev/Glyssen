@@ -18,13 +18,6 @@ namespace Glyssen
 {
 	static class Program
 	{
-		public const string kCompany = "FCBH-SIL";
-		public const string kProduct = "Glyssen";
-		public const string kApplicationId = "Glyssen";
-
-		public const double kKeyStrokesPerHour = 6000;
-		public const double kCameoCharacterEstimatedHoursLimit = 0.2;
-
 		private const string kOldProductName = "Protoscript Generator";
 
 		// From https://stackoverflow.com/questions/73515/how-to-tell-if-net-code-is-being-run-by-visual-studio-designer
@@ -77,18 +70,19 @@ namespace Glyssen
 				Logger.Init();
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					kCompany, kOldProductName);
-				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(BaseDataFolder))
-					Directory.Move(oldPgBaseFolder, BaseDataFolder);
+					GlyssenInfo.kCompany, kOldProductName);
+				var baseDataFolder = GlyssenInfo.BaseDataFolder;
+				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
+					Directory.Move(oldPgBaseFolder, baseDataFolder);
 
-				if (!Directory.Exists(BaseDataFolder))
+				if (!Directory.Exists(baseDataFolder))
 				{
 					// create the directory
-					Directory.CreateDirectory(BaseDataFolder);
+					Directory.CreateDirectory(baseDataFolder);
 				}
 
 				// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
-				DirectoryUtilities.SetFullControl(BaseDataFolder, false);
+				DirectoryUtilities.SetFullControl(baseDataFolder, false);
 
 				DataMigrator.UpgradeToCurrentDataFormatVersion();
 
@@ -116,15 +110,6 @@ namespace Glyssen
 			}
 		}
 
-		public static string BaseDataFolder
-		{
-			get
-			{
-				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					kCompany, kProduct);
-			}
-		}
-
 		public static string GetUserConfigFilePath()
 		{
 			try
@@ -143,7 +128,7 @@ namespace Glyssen
 				var confirmationString = LocalizationManager.GetString("Program.ConfirmDeleteUserSettingsFile",
 					"Do you want to delete your user settings? (This will clear your most-recently-used project, publishing settings, UI language settings, etc.  It will not affect your project data.)");
 
-				if (DialogResult.Yes == MessageBox.Show(confirmationString, kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+				if (DialogResult.Yes == MessageBox.Show(confirmationString, GlyssenInfo.kProduct, MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
 					File.Delete(userConfigSettingsPath);
 		}
 
@@ -166,10 +151,10 @@ namespace Glyssen
 		private static void SetUpLocalization()
 		{
 			string installedStringFileFolder = FileLocator.GetDirectoryDistributedWithApplication("localization");
-			string targetTmxFilePath = Path.Combine(kCompany, kProduct);
+			string targetTmxFilePath = Path.Combine(GlyssenInfo.kCompany, GlyssenInfo.kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
-			LocalizationManager = LocalizationManager.Create(desiredUiLangId, kApplicationId, Application.ProductName, Application.ProductVersion,
+			LocalizationManager = LocalizationManager.Create(desiredUiLangId, GlyssenInfo.kApplicationId, Application.ProductName, Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress, "Glyssen");
 
 			if (string.IsNullOrEmpty(desiredUiLangId))

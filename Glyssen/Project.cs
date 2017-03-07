@@ -820,14 +820,7 @@ namespace Glyssen
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
-			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				string possibleFileName = Path.Combine(projectDir, bookCode + kBookScriptFileExtension);
-				if (files.Contains(possibleFileName))
-					project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(possibleFileName));
-			}
+			ForEachBookFileInProject(projectDir, (bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects
@@ -1315,10 +1308,10 @@ namespace Glyssen
 								"created backup file does not exist.");
 						var msg3 = String.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
 							"Otherwise, click Ignore and {0} will repair the file for you. Some information might not be recoverable, " +
-							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), Program.kProduct);
+							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
-						switch (MessageBox.Show(msg, Program.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+						switch (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
 						{
 							default:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
@@ -1446,7 +1439,7 @@ namespace Glyssen
 							ErrorReport.ReportNonFatalExceptionWithMessage(exSave, LocalizationManager.GetString("Project.RevertedToOutdatedBackupWs",
 								"The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but " +
 								"since the old settings were different, some things might not work correctly next time you open this project."),
-								Program.kProduct);
+								GlyssenInfo.kProduct);
 						}
 					}
 					catch (Exception exRecover)
@@ -1558,9 +1551,9 @@ namespace Glyssen
 				m_fontInstallationAttempted = true;
 
 				if (count > 1)
-					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles", "The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."), m_metadata.FontFamily, Program.kProduct));
+					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles", "The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."), m_metadata.FontFamily, GlyssenInfo.kProduct));
 				else
-					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructions", "The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
+					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructions", "The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, GlyssenInfo.kProduct));
 
 				foreach (var ttfFile in ttfFilesToInstall)
 				{
@@ -1576,7 +1569,7 @@ namespace Glyssen
 				}
 			}
 			else
-				MessageBox.Show(Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, Program.kProduct));
+				MessageBox.Show(Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, GlyssenInfo.kProduct));
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
@@ -1711,7 +1704,7 @@ namespace Glyssen
 		public double GetEstimatedRecordingTime()
 		{
 			long keyStrokes = KeyStrokesByCharacterId.Values.Sum();
-			return keyStrokes / Program.kKeyStrokesPerHour;
+			return keyStrokes / GlyssenInfo.kKeyStrokesPerHour;
 		}
 
 		public CharacterGroup GetGroupById(string id)

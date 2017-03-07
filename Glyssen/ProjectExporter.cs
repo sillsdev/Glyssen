@@ -85,7 +85,7 @@ namespace Glyssen
 				var defaultDirectory = Settings.Default.DefaultExportDirectory;
 				if (IsNullOrWhiteSpace(defaultDirectory))
 				{
-					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Program.kProduct);
+					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), GlyssenInfo.kProduct);
 					if (!Directory.Exists(defaultDirectory))
 						Directory.CreateDirectory(defaultDirectory);
 				}

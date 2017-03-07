@@ -67,13 +67,13 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
         <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
           <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
             <RemoveFolder Id ="shortcutDirRemover" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="createAndRemoveOnUninstall" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
+            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="create" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
               <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
             </RegistryKey>
           </Component>
-
         </Directory>
       </Directory>
+	  
       <Directory Id="ProgramFilesFolder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">

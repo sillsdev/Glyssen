@@ -43,7 +43,7 @@ namespace Glyssen.Dialogs
 			for (int i = 0; i < m_cboBookMarker.Items.Count; i++)
 			{
 				var chapterAnnouncement = (ChapterAnnouncement)i;
-				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(Program.kApplicationId,
+				m_cboBookMarker.Items[i] = new ChapterAnnouncementItem(LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId,
 					"DialogBoxes.ProjectSettingsDlg.ChapterAnnouncementTab.BookMarkerComboBox.Items." + chapterAnnouncement,
 					m_cboBookMarker.Items[i].ToString()), chapterAnnouncement);
 			}
