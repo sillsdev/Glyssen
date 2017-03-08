@@ -315,121 +315,6 @@ namespace GlyssenTests
 			Assert.AreEqual("This is poetry, dude.", blocks[4].GetText(true));
 		}
 
-		[TestCase("p", "q1", "q2")]
-		[TestCase("p", "q", "m")]
-		[TestCase("p", "pi1", "pi2")]
-		[TestCase("q1", "q2", "m")]
-		public void Parse_TwoPoetryLinesInSingleVerseWithNoInterveningSentenceEndingPunctuation_DoNotSplitPoetryLinesIntoSeparateBlocks(string style1, string style2, string style3)
-		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc($"<para style=\"{style1}\">" +
-										"<verse number=\"1\" style=\"v\" />" +
-										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>" +
-										$"<para style=\"{style2}\">" +
-										"<verse number=\"2\" style=\"v\" />" +
-										"This is a poem, </para>" +
-										$"<para style=\"{style3}\">" +
-										"about something good.</para>");
-			var parser = GetUsxParser(doc);
-			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(3, blocks.Count);
-			Assert.AreEqual("c", blocks[0].StyleTag);
-			Assert.IsTrue(blocks[0].IsChapterAnnouncement);
-			Assert.AreEqual("MRK", blocks[0].BookCode);
-			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", blocks[0].GetText(true));
-			Assert.AreEqual(style1, blocks[1].StyleTag);
-			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[1].GetText(true));
-			Assert.AreEqual(style2, blocks[2].StyleTag);
-			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(2, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("{2}\u00A0This is a poem, about something good.", blocks[2].GetText(true));
-		}
-
-		[Test]
-		public void Parse_MultiplePoetryLinesInSingleVerseWithNoInterveningSentenceEndingPunctuation_DoNotSplitPoetryLinesIntoSeparateBlocks()
-		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
-										"<verse number=\"1\" style=\"v\" />" +
-										"This is what the LORD says\u2014</para>" +
-										"<para style=\"q2\">" +
-										"the Redeemer and Holy One of Israel\u2014</para>" +
-										"<para style=\"q1\">" +
-										"to him who was despised and abhorred by the nation,</para>" +
-										"<para style=\"q2\">" +
-										"to the servant of rulers:</para>" +
-										"<para style=\"q1\">" +
-										"“Kings will see you and rise up,</para>" +
-										"<para style=\"q2\">" +
-										"princes will see and bow down,</para>" +
-										"<para style=\"q1\">" +
-										"because of the LORD, who is faithful,</para>" +
-										"<para style=\"q2\">" +
-										"the Holy One of Israel, who has chosen you.”</para>" +
-										"<para style=\"q1\">" +
-										"<verse number=\"2\" style=\"v\" />" +
-										"This is what the LORD says:</para>");
-			var parser = GetUsxParser(doc);
-			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(3, blocks.Count);
-			Assert.AreEqual("c", blocks[0].StyleTag);
-			Assert.AreEqual("p", blocks[1].StyleTag);
-			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("{1}\u00A0This is what the LORD says\u2014 the Redeemer and Holy One of Israel\u2014 to him who " +
-							"was despised and abhorred by the nation, to the servant of rulers: “Kings will see you and rise up, " +
-							"princes will see and bow down, because of the LORD, who is faithful, the Holy One of Israel, who " +
-							"has chosen you.”", blocks[1].GetText(true));
-			Assert.AreEqual("q1", blocks[2].StyleTag);
-			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(2, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("{2}\u00A0This is what the LORD says:", blocks[2].GetText(true));
-		}
-
-		[TestCase("p", "q1", "q2")]
-		[TestCase("p", "q", "m")]
-		[TestCase("p", "pi1", "pi2")]
-		[TestCase("q1", "q2", "m")]
-		public void Parse_PoetryLinesInDifferentVersesWithNoInterveningSentenceEndingPunctuation_VersesAreNotCombined(string style1, string style2, string style3)
-		{
-			var doc = UsxDocumentTests.CreateMarkOneDoc($"<para style=\"{style1}\">" +
-										"<verse number=\"1\" style=\"v\" />" +
-										"Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.</para>" +
-										$"<para style=\"{style2}\">" +
-										"<verse number=\"2\" style=\"v\" />" +
-										"This is a poem, </para>" +
-										$"<para style=\"{style3}\">" +
-										"about something good;</para>" +
-										$"<para style=\"{style2}\">" +
-										"<verse number=\"3\" style=\"v\" />" +
-										"So you can see that</para>" +
-										$"<para style=\"{style3}\">" +
-										"it's not about something wood.</para>");
-			var parser = GetUsxParser(doc);
-			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(4, blocks.Count);
-			Assert.AreEqual("c", blocks[0].StyleTag);
-			Assert.IsTrue(blocks[0].IsChapterAnnouncement);
-			Assert.AreEqual("MRK", blocks[0].BookCode);
-			Assert.AreEqual(1, blocks[0].ChapterNumber);
-			Assert.AreEqual(0, blocks[0].InitialStartVerseNumber);
-			Assert.AreEqual("1", blocks[0].GetText(true));
-			Assert.AreEqual(style1, blocks[1].StyleTag);
-			Assert.AreEqual(1, blocks[1].ChapterNumber);
-			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
-			Assert.AreEqual("{1}\u00A0Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.", blocks[1].GetText(true));
-			Assert.AreEqual(style2, blocks[2].StyleTag);
-			Assert.AreEqual(1, blocks[2].ChapterNumber);
-			Assert.AreEqual(2, blocks[2].InitialStartVerseNumber);
-			Assert.AreEqual("{2}\u00A0This is a poem, about something good;", blocks[2].GetText(true));
-			Assert.AreEqual(style2, blocks[3].StyleTag);
-			Assert.AreEqual(1, blocks[3].ChapterNumber);
-			Assert.AreEqual(3, blocks[3].InitialStartVerseNumber);
-			Assert.AreEqual("{3}\u00A0So you can see that it's not about something wood.", blocks[3].GetText(true));
-		}
-
 		[Test]
 		public void Parse_ParaStartsWithVerseNumber_BlocksGetCorrectChapterAndVerseNumbers()
 		{
@@ -546,12 +431,18 @@ namespace GlyssenTests
 							"“Nen, acwalo lakwenana otelo nyimi,</para>");
 			var parser = GetUsxParser(doc);
 			var blocks = parser.Parse().ToList();
-			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual(3, blocks.Count);
 			Assert.AreEqual(1, blocks[1].ChapterNumber);
 			Assert.AreEqual(1, blocks[1].InitialStartVerseNumber);
 			Assert.AreEqual("p", blocks[1].StyleTag);
 			Assert.AreEqual(Block.kNotSet, blocks[1].CharacterId);
-			Assert.AreEqual("{1-2}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni, “Nen, acwalo lakwenana otelo nyimi,", blocks[1].GetText(true));
+			Assert.AreEqual("{1-2}\u00A0Acakki me lok me kwena maber i kom Yecu Kricito, Wod pa Lubaŋa, kit ma gicoyo kwede i buk pa lanebi Icaya ni,", blocks[1].GetText(true));
+
+			Assert.AreEqual(1, blocks[2].ChapterNumber);
+			Assert.AreEqual(1, blocks[2].InitialStartVerseNumber);
+			Assert.AreEqual("q1", blocks[2].StyleTag);
+			Assert.AreEqual(Block.kNotSet, blocks[2].CharacterId);
+			Assert.AreEqual("“Nen, acwalo lakwenana otelo nyimi,", blocks[2].GetText(true));
 		}
 
 		[Test]

@@ -49,7 +49,7 @@ namespace Glyssen.Utilities
 						return true;
 					}
 				}
-				else if (!char.IsWhiteSpace(c))
+				else if (!char.IsWhiteSpace(c) && !char.IsSymbol(c))
 				{
 					return false;
 				}

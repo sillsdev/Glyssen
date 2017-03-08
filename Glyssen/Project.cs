@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using DesktopAnalytics;
@@ -73,7 +75,8 @@ namespace Glyssen
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
-		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false, WritingSystemDefinition ws = null)
+		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
+			WritingSystemDefinition ws = null)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
 		{
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
@@ -90,7 +93,8 @@ namespace Glyssen
 			this(bundle.Metadata, recordingProjectName, false, bundle.WritingSystemDefinition ?? projectBeingUpdated?.WritingSystem)
 		{
 			Directory.CreateDirectory(ProjectFolder);
-			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null && bundle.WritingSystemDefinition.QuotationMarks.Any())
+			if (bundle.WritingSystemDefinition != null && bundle.WritingSystemDefinition.QuotationMarks != null &&
+				bundle.WritingSystemDefinition.QuotationMarks.Any())
 			{
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				ConvertContinuersToParatextAssumptions();
@@ -115,7 +119,8 @@ namespace Glyssen
 		/// <summary>
 		/// Used only for sample project and in tests.
 		/// </summary>
-		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet, WritingSystemDefinition ws)
+		internal Project(GlyssenDblTextMetadata metadata, IEnumerable<UsxDocument> books, IStylesheet stylesheet,
+			WritingSystemDefinition ws)
 			: this(metadata, ws: ws)
 		{
 			AddAndParseBooks(books, stylesheet);
@@ -251,8 +256,8 @@ namespace Glyssen
 					DoQuoteParse();
 				}
 				else if ((quoteSystemChanged && !quoteSystemBeingSetForFirstTime) ||
-				(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
-					ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
+						(QuoteSystemStatus == QuoteSystemStatus.Reviewed &&
+						ProjectState == (ProjectState.NeedsQuoteSystemConfirmation | ProjectState.WritingSystemRecoveryInProcess)))
 				{
 					// These need to happen in this order
 					Save();
@@ -331,7 +336,9 @@ namespace Glyssen
 			}
 			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 			{
-				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any() ? CastSizeOption.MatchVoiceActorList : CastSizeOption.Recommended;
+				CharacterGroupGenerationPreferences.CastSizeOption = VoiceActorList.ActiveActors.Any()
+					? CastSizeOption.MatchVoiceActorList
+					: CastSizeOption.Recommended;
 			}
 		}
 
@@ -397,7 +404,8 @@ namespace Glyssen
 			{
 				if (!m_projectCharacterDetailData.Any())
 					return CharacterDetailData.Singleton.GetDictionary();
-				Dictionary<string, CharacterDetail> characterDetails = new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
+				Dictionary<string, CharacterDetail> characterDetails =
+					new Dictionary<string, CharacterDetail>(CharacterDetailData.Singleton.GetDictionary());
 				characterDetails.AddRange(m_projectCharacterDetailData.ToDictionary(k => k.CharacterId));
 				return characterDetails;
 			}
@@ -419,7 +427,7 @@ namespace Glyssen
 			}
 			m_metadata.AudioStockNumber = model.AudioStockNumber;
 			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
-			m_metadata.FontSizeInPoints = (int)model.WsModel.CurrentDefaultFontSize;
+			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
 			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
 			ChapterAnnouncementStyle = model.ChapterAnnouncementStyle;
 			m_metadata.IncludeChapterAnnouncementForFirstChapter = !model.SkipChapterAnnouncementForFirstChapter;
@@ -429,7 +437,8 @@ namespace Glyssen
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
 		{
 			if ((ProjectState & ProjectState.ReadyForUserInteraction) == 0)
-				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " + ProjectState);
+				throw new InvalidOperationException("Project not in a valid state to update from text release bundle. ProjectState = " +
+													ProjectState);
 
 			// If we're updating the project in place, we need to make a backup. Otherwise, if it's moving to a new
 			// location, just mark the existing one as inactive.
@@ -535,9 +544,13 @@ namespace Glyssen
 			{
 				var sb = new StringBuilder(QuoteSystem.ShortSummary);
 				sb.Append(", ").Append(FontFamily);
-				sb.Append(", ").Append(FontSizeInPoints).Append(LocalizationManager.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
-				sb.Append(", ").Append(RightToLeftScript ? LocalizationManager.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system") :
-					LocalizationManager.GetString("WritingSystem.LeftToRight", "Left-to-right", "Describes a writing system"));
+				sb.Append(", ")
+					.Append(FontSizeInPoints)
+					.Append(LocalizationManager.GetString("WritingSystem.Points", "pt", "Units appended to font size to represent points"));
+				sb.Append(", ")
+					.Append(RightToLeftScript
+						? LocalizationManager.GetString("WritingSystem.RightToLeft", "Right-to-left", "Describes a writing system")
+						: LocalizationManager.GetString("WritingSystem.LeftToRight", "Left-to-right", "Describes a writing system"));
 				return sb.ToString();
 			}
 		}
@@ -635,7 +648,10 @@ namespace Glyssen
 
 		public ReferenceTextIdentifier ReferenceTextIdentifier
 		{
-			get { return ReferenceTextIdentifier.GetOrCreate(m_metadata.ReferenceTextType, m_metadata.ProprietaryReferenceTextIdentifier); }
+			get
+			{
+				return ReferenceTextIdentifier.GetOrCreate(m_metadata.ReferenceTextType, m_metadata.ProprietaryReferenceTextIdentifier);
+			}
 			set
 			{
 				if (value.Type == m_metadata.ReferenceTextType && value.CustomIdentifier == m_metadata.ProprietaryReferenceTextIdentifier)
@@ -714,7 +730,11 @@ namespace Glyssen
 					upgradeProject = false;
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
 					{
-						string msg = Format(LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg", "The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."), existingProject.OriginalBundlePath) +
+						string msg =
+							Format(
+								LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
+									"The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
+								existingProject.OriginalBundlePath) +
 							Environment.NewLine + Environment.NewLine +
 							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
 						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
@@ -728,7 +748,8 @@ namespace Glyssen
 				{
 					using (var bundle = new GlyssenBundle(existingProject.OriginalBundlePath))
 					{
-						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName, ws: existingProject.WritingSystem);
+						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName,
+							ws: existingProject.WritingSystem);
 
 						Analytics.Track("UpgradeProject", new Dictionary<string, string>
 						{
@@ -764,7 +785,8 @@ namespace Glyssen
 				return;
 			}
 			metadata.Inactive = hidden;
-			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save(); // TODO: preserve WritingSystemRecoveryInProcess flag
+			new Project(metadata, GetRecordingProjectNameFromProjectFilePath(projectFilePath)).Save();
+			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
 		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, bool confirmAndRecycle = false)
@@ -791,7 +813,9 @@ namespace Glyssen
 
 		private int UpdatePercentInitialized()
 		{
-			return PercentInitialized = (int)(m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
+			return
+				PercentInitialized =
+					(int) (m_usxPercentComplete * kUsxPercent + m_guessPercentComplete * kGuessPercent + m_quotePercentComplete * kQuotePercent);
 		}
 
 		private static Project LoadExistingProject(string projectFilePath)
@@ -800,7 +824,8 @@ namespace Glyssen
 			var isWritable = !FileUtils.IsFileLocked(projectFilePath);
 			if (!isWritable)
 			{
-				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg", "The project file is not writable. No changes will be saved."));
+				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg",
+					"The project file is not writable. No changes will be saved."));
 			}
 
 			Exception exception;
@@ -820,11 +845,13 @@ namespace Glyssen
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
-			ForEachBookFileInProject(projectDir, (bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
+			ForEachBookFileInProject(projectDir,
+				(bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
 			// For legacy projects
-			if (project.CharacterGroupList.CharacterGroups.Any() && project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
+			if (project.CharacterGroupList.CharacterGroups.Any() &&
+				project.CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.NotSet)
 				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
 
 			return project;
@@ -917,11 +944,13 @@ namespace Glyssen
 
 		private void UsxWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			var parameters = (object[])e.Argument;
-			var books = (IEnumerable<UsxDocument>)parameters[0];
-			var stylesheet = (IStylesheet)parameters[1];
+			var parameters = (object[]) e.Argument;
+			var books = (IEnumerable<UsxDocument>) parameters[0];
+			var stylesheet = (IStylesheet) parameters[1];
 
-			e.Result = UsxParser.ParseProject(books, stylesheet, sender as BackgroundWorker);
+			var backgroundWorker = (BackgroundWorker)sender;
+
+			e.Result = UsxParser.ParseProject(books, stylesheet, i => backgroundWorker.ReportProgress(i));
 		}
 
 		private void UsxWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -929,7 +958,7 @@ namespace Glyssen
 			if (e.Error != null)
 				throw e.Error;
 
-			var bookScripts = (List<BookScript>)e.Result;
+			var bookScripts = (List<BookScript>) e.Result;
 
 			// This code is an attempt to figure out how we are getting null reference exceptions when using the objects in the list (See PG-275 & PG-287)
 			foreach (var bookScript in bookScripts)
@@ -938,7 +967,8 @@ namespace Glyssen
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
 					var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
-					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage, bookScripts.Count, nonNullBookScriptsStr));
+					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage,
+						bookScripts.Count, nonNullBookScriptsStr));
 				}
 
 			m_books.AddRange(bookScripts);
@@ -974,7 +1004,8 @@ namespace Glyssen
 		private void GuessWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			bool certain;
-			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain, sender as BackgroundWorker);
+			e.Result = QuoteSystemGuesser.Guess(ControlCharacterVerseData.Singleton, m_books, Versification, out certain,
+				sender as BackgroundWorker);
 		}
 
 		private void GuessWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -983,7 +1014,7 @@ namespace Glyssen
 				throw e.Error;
 
 			QuoteSystemStatus = QuoteSystemStatus.Guessed;
-			QuoteSystem = (QuoteSystem)e.Result;
+			QuoteSystem = (QuoteSystem) e.Result;
 
 			Save();
 		}
@@ -1152,9 +1183,9 @@ namespace Glyssen
 			SaveWritingSystem();
 			if (saveCharacterGroups)
 				SaveCharacterGroupData();
-			ProjectState = !IsQuoteSystemReadyForParse ?
-				ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess) :
-				ProjectState.FullyInitialized;
+			ProjectState = !IsQuoteSystemReadyForParse
+				? ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess)
+				: ProjectState.FullyInitialized;
 		}
 
 		public void SaveBook(BookScript book)
@@ -1188,7 +1219,9 @@ namespace Glyssen
 		private void LoadCharacterGroupData()
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			m_characterGroupList = SIL.IO.RobustFile.Exists(path) ? CharacterGroupList.LoadCharacterGroupListFromFile(path, this) : new CharacterGroupList();
+			m_characterGroupList = SIL.IO.RobustFile.Exists(path)
+				? CharacterGroupList.LoadCharacterGroupListFromFile(path, this)
+				: new CharacterGroupList();
 			m_characterGroupList.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
 			if (m_voiceActorList != null)
 				EnsureCastSizeOptionValid();
@@ -1210,7 +1243,8 @@ namespace Glyssen
 
 		public void EnsureCastSizeOptionValid()
 		{
-			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList && !m_voiceActorList.AllActors.Any())
+			if (CharacterGroupGenerationPreferences.CastSizeOption == CastSizeOption.MatchVoiceActorList &&
+				!m_voiceActorList.AllActors.Any())
 			{
 				var groups = CharacterGroupList.CharacterGroups;
 				if (groups.Count == 0)
@@ -1297,12 +1331,12 @@ namespace Glyssen
 								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
 								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
 							Name, LdmlFilePath, e.Message);
-						var msg2 = attemptToUseBackup ?
-							LocalizationManager.GetString("Project.UseBackupLdmlFile",
+						var msg2 = attemptToUseBackup
+							? LocalizationManager.GetString("Project.UseBackupLdmlFile",
 								"To use the automatically created backup (which might be out-of-date), click Retry.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file exists.") :
-							LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
+								"created backup file exists.")
+							: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
 								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.",
 								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
 								"created backup file does not exist.");
@@ -1311,7 +1345,9 @@ namespace Glyssen
 							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
 						var msg = msg1 + "\n\n" + msg2 + msg3;
 						Logger.WriteError(msg, e);
-						switch (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+						switch (
+							MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
+								MessageBoxDefaultButton.Button2))
 						{
 							default:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
@@ -1403,8 +1439,8 @@ namespace Glyssen
 				Logger.WriteError("Failed to create LDML backup", exMakeBackup);
 				Analytics.Track("Failed to create LDML backup", new Dictionary<string, string>
 				{
-					{ "exceptionMessage", exMakeBackup.Message},
-					{ "LdmlFilePath", LdmlFilePath },
+					{"exceptionMessage", exMakeBackup.Message},
+					{"LdmlFilePath", LdmlFilePath},
 				});
 				backupPath = null;
 			}
@@ -1437,8 +1473,8 @@ namespace Glyssen
 						{
 							// There were significant changes that we couldn't save. Something bad is probably going to happen, so we need to tell the user.
 							ErrorReport.ReportNonFatalExceptionWithMessage(exSave, LocalizationManager.GetString("Project.RevertedToOutdatedBackupWs",
-								"The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but " +
-								"since the old settings were different, some things might not work correctly next time you open this project."),
+									"The current writing system settings could not be saved. Fortunately, {0} was able to recover from the backup, but " +
+									"since the old settings were different, some things might not work correctly next time you open this project."),
 								GlyssenInfo.kProduct);
 						}
 					}
@@ -1516,7 +1552,10 @@ namespace Glyssen
 
 		public bool IsSampleProject
 		{
-			get { return Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample; }
+			get
+			{
+				return Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
+			}
 		}
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
@@ -1551,9 +1590,17 @@ namespace Glyssen
 				m_fontInstallationAttempted = true;
 
 				if (count > 1)
-					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles", "The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."), m_metadata.FontFamily, GlyssenInfo.kProduct));
+					MessageBox.Show(
+						Format(
+							LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
+								"The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."),
+							m_metadata.FontFamily, GlyssenInfo.kProduct));
 				else
-					MessageBox.Show(Format(LocalizationManager.GetString("Font.InstallInstructions", "The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, GlyssenInfo.kProduct));
+					MessageBox.Show(
+						Format(
+							LocalizationManager.GetString("Font.InstallInstructions",
+								"The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
+							m_metadata.FontFamily, GlyssenInfo.kProduct));
 
 				foreach (var ttfFile in ttfFilesToInstall)
 				{
@@ -1564,12 +1611,19 @@ namespace Glyssen
 					catch (Exception ex)
 					{
 						Logger.WriteError("There was a problem launching the font preview.Please install the font manually:" + ttfFile, ex);
-						MessageBox.Show(Format(LocalizationManager.GetString("Font.UnableToLaunchFontPreview", "There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
+						MessageBox.Show(
+							Format(
+								LocalizationManager.GetString("Font.UnableToLaunchFontPreview",
+									"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
 					}
 				}
 			}
 			else
-				MessageBox.Show(Format(LocalizationManager.GetString("Font.FontFilesNotFound", "The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."), m_metadata.FontFamily, GlyssenInfo.kProduct));
+				MessageBox.Show(
+					Format(
+						LocalizationManager.GetString("Font.FontFilesNotFound",
+							"The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
+						m_metadata.FontFamily, GlyssenInfo.kProduct));
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
@@ -1620,6 +1674,7 @@ namespace Glyssen
 				NumberOfChapters = 1;
 				NonContiguousBlocksInCurrentChapter = 1;
 			}
+
 			internal int NonContiguousBlocksInMaxChapter { get; set; }
 			internal int NonContiguousBlocksInCurrentChapter { get; set; }
 			internal int NumberOfChapters { get; set; }
@@ -1645,9 +1700,12 @@ namespace Glyssen
 				var bookDistributionScoreStats = new Dictionary<string, DistributionScoreBookStats>();
 				bool singleVoice = book.SingleVoice;
 				string prevCharacter = null;
-				foreach (var block in book.GetScriptBlocks(/*true*/)) // The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
+				foreach (var block in book.GetScriptBlocks( /*true*/))
+					// The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
 				{
-					var character = singleVoice ? CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) : block.CharacterIdInScript;
+					var character = singleVoice
+						? CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator)
+						: block.CharacterIdInScript;
 
 					// REVIEW: It's possible that we should throw an exception if this happens (in production code).
 					if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
@@ -1689,9 +1747,12 @@ namespace Glyssen
 					if (stats.NonContiguousBlocksInCurrentChapter > stats.NonContiguousBlocksInMaxChapter)
 						stats.NonContiguousBlocksInMaxChapter = stats.NonContiguousBlocksInCurrentChapter;
 
-					var resultInBook = (stats.NumberOfChapters <= 1) ? stats.NonContiguousBlocksInMaxChapter :
-						(int)Math.Round(stats.NonContiguousBlocksInMaxChapter + (Math.Pow(stats.NumberOfChapters, 3) + stats.LastChapter - stats.FirstChapter) / 2,
-						MidpointRounding.AwayFromZero);
+					var resultInBook = (stats.NumberOfChapters <= 1)
+						? stats.NonContiguousBlocksInMaxChapter
+						: (int)
+						Math.Round(
+							stats.NonContiguousBlocksInMaxChapter + (Math.Pow(stats.NumberOfChapters, 3) + stats.LastChapter - stats.FirstChapter) / 2,
+							MidpointRounding.AwayFromZero);
 
 					int resultInMaxBook;
 					if (!m_speechDistributionScore.TryGetValue(characterStatsInfo.Key, out resultInMaxBook) || (resultInBook > resultInMaxBook))
@@ -1723,7 +1784,8 @@ namespace Glyssen
 			{
 				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
 				{
-					var oneLevelUp = replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
+					var oneLevelUp =
+						replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
 					if (oneLevelUp == null)
 						continue;
 					string oneLevelUpContinuer = oneLevelUp.Continue;
@@ -1742,7 +1804,7 @@ namespace Glyssen
 
 		public bool ProjectFileIsWritable
 		{
-			get { return m_projectFileIsWritable;  }
+			get { return m_projectFileIsWritable; }
 			set { m_projectFileIsWritable = value; }
 		}
 
@@ -1752,11 +1814,37 @@ namespace Glyssen
 		}
 
 		public string LastExportLocation => Directory.Exists(Status.LastExportLocation) ? Status.LastExportLocation : Empty;
-	}
 
-	public class ProjectStateChangedEventArgs : EventArgs
-	{
-		public ProjectState ProjectState { get; set; }
+		public IReadOnlyList<BookScript> TestQuoteSystem(QuoteSystem altQuoteSystem)
+		{
+			var cvInfo = new CombinedCharacterVerseData(this);
+
+			var bundle = new GlyssenBundle(OriginalBundlePath);
+			var books = UsxParser.ParseProject(bundle.UsxBooksToInclude, bundle.Stylesheet, null);
+
+			var blocksInBook = books.ToDictionary(b => b.BookId, b => b.GetScriptBlocks());
+
+			var parsedBlocksByBook = new ConcurrentDictionary<string, BookScript>();
+			QuoteParser.SetQuoteSystem(altQuoteSystem);
+			Parallel.ForEach(blocksInBook, bookidBlocksPair =>
+			{
+				var bookId = bookidBlocksPair.Key;
+				var blocks =
+					new QuoteParser(cvInfo, bookId, bookidBlocksPair.Value, Versification).Parse().ToList();
+				var parsedBook = new BookScript(bookId, blocks);
+				parsedBlocksByBook.AddOrUpdate(bookId, parsedBook, (s, script) => parsedBook);
+			});
+
+			// sort the list
+			var bookScripts = parsedBlocksByBook.Values.ToList();
+			bookScripts.Sort((a, b) => BCVRef.BookToNumber(a.BookId).CompareTo(BCVRef.BookToNumber(b.BookId)));
+			return bookScripts;
+		}
+
+		public class ProjectStateChangedEventArgs : EventArgs
+		{
+			public ProjectState ProjectState { get; set; }
+		}
 	}
 
 	[Flags]
