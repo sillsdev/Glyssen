@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Glyssen.Character;
+using Glyssen.Quote;
 using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
@@ -18,7 +19,7 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
-		public static List<BookScript> ParseProject(IEnumerable<UsxDocument> books, IStylesheet stylesheet, BackgroundWorker projectWorker)
+		public static List<BookScript> ParseProject(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();
 			var blocksInBook = new ConcurrentDictionary<string, XmlNodeList>();
@@ -47,7 +48,7 @@ namespace Glyssen
 					bookScripts.Add(bookScript);
 				Logger.WriteEvent("Added bookScript ({0}, {1})", bookId, bookScript.BookId);
 				completedProjectBlocks += numBlocksPerBook[bookId];
-				projectWorker.ReportProgress(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
+				reportProgressAsPercent?.Invoke(MathUtilities.Percent(completedProjectBlocks, allProjectBlocks, 99));
 			});
 
 			// This code is an attempt to figure out how we are getting null reference exceptions on the Sort call (See PG-275 & PG-287)
@@ -74,7 +75,7 @@ namespace Glyssen
 				throw new NullReferenceException("Null reference exception while sorting books." + sb, n);
 			}
 
-			projectWorker.ReportProgress(100);
+			reportProgressAsPercent?.Invoke(100);
 			return bookScripts;
 		}
 

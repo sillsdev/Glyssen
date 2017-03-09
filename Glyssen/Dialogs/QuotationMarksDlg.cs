@@ -738,7 +738,7 @@ namespace Glyssen.Dialogs
 			try
 			{
 				DisableForm(true);
-				var parsedBooks = QuoteParser.TestQuoteSystem(m_project, CurrentQuoteSystem);
+				var parsedBooks = m_project.TestQuoteSystem(CurrentQuoteSystem);
 				m_navigatorViewModel.BlockNavigator = new BlockNavigator(parsedBooks.Where(b => m_project.IncludedBooks.Any(ib => ib.BookId == b.BookId)).ToList());
 				ShowTestResults(PercentageOfExpectedQuotesFound(parsedBooks), changeFilterToShowMissingExpectedQuotes);
 			}

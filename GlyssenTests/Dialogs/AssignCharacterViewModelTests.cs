@@ -756,7 +756,7 @@ namespace GlyssenTests.Dialogs
 
 			m_model.CurrentBlockIndexInBook = 4;
 			var block1 = m_testProject.Books[0].Blocks[4];
-			;
+
 			Assert.AreEqual(block1, m_model.CurrentBlock);
 			var block2 = m_testProject.Books[0].Blocks[5];
 
@@ -767,7 +767,7 @@ namespace GlyssenTests.Dialogs
 					{
 						new BlockSplitData(1, block1, "2", 13),
 						new BlockSplitData(2, block2, null, 0),
-						new BlockSplitData(3, block2, "2", 10)
+						new BlockSplitData(3, block2, "3", 10)
 					}, GetListOfCharacters(4, new string[0]))
 			);
 		}
@@ -777,38 +777,54 @@ namespace GlyssenTests.Dialogs
 		{
 			m_fullProjectRefreshRequired = true;
 
-			m_model.CurrentBlockIndexInBook = 4;
-			var block1 = m_testProject.Books[0].Blocks[4];
-			;
-			Assert.AreEqual(block1, m_model.CurrentBlock);
-			var block2 = m_testProject.Books[0].Blocks[5];
+			// Find some place where we have a long run of continuation blocks, where the first two are in the
+			// same vere but the next one starts a new verse.
+			int i = 0;
+			for (; i < m_testProject.Books[0].Blocks.Count - 4; i++)
+			{
+				if (m_testProject.Books[0].Blocks[i].MultiBlockQuote == MultiBlockQuote.Start &&
+					m_testProject.Books[0].Blocks[i + 1].MultiBlockQuote == MultiBlockQuote.Continuation &&
+					!m_testProject.Books[0].Blocks[i + 1].StartsAtVerseStart &&
+					m_testProject.Books[0].Blocks[i + 2].MultiBlockQuote == MultiBlockQuote.Continuation &&
+					m_testProject.Books[0].Blocks[i + 3].MultiBlockQuote == MultiBlockQuote.Continuation &&
+					m_testProject.Books[0].Blocks[i + 2].StartsAtVerseStart)
+				{
+					break;
+				}
+			}
+
+			m_model.CurrentBlockIndexInBook = i;
+			var block1 = m_model.CurrentBlock;
+			var block2 = m_testProject.Books[0].Blocks[i + 1];
 
 			var text1 = block1.GetText(false);
 			var text2 = block2.GetText(false);
 
-			// make sure the data is good to start with
-			Assert.AreEqual(2, block1.InitialStartVerseNumber, "If this fails, update the test to reflect the test data.");
-			Assert.AreEqual(MultiBlockQuote.Start, block1.MultiBlockQuote, "If this fails, update the test to reflect the test data.");
-			Assert.AreEqual(MultiBlockQuote.Continuation, block2.MultiBlockQuote, "If this fails, update the test to reflect the test data.");
+			// make sure the blocks we found have enough text to accommodate our (arbitrary) character offsets where we split the text.
+			var block1StartVerse = block1.InitialStartVerseNumber;
+			Assert.True(block1.BlockElements.OfType<ScriptText>().First().Content.Length > 13);
+			Assert.True(block2.BlockElements.OfType<ScriptText>().First().Content.Length > 10);
+
+			// Now run the SUT
 
 			m_model.SplitBlock(new[]
 			{
-				new BlockSplitData(1, block1, "2", 13),
+				new BlockSplitData(1, block1, block1StartVerse.ToString(), 13),
 				new BlockSplitData(2, block2, null, 0),
-				new BlockSplitData(3, block2, "2", 10)
+				new BlockSplitData(3, block2, block1StartVerse.ToString(), 10)
 			}, GetListOfCharacters(4, new string[0]));
 
 			// check the text
-			Assert.AreEqual(text1.Substring(0, 13), m_testProject.Books[0].Blocks[4].GetText(false));
-			Assert.AreEqual(text1.Substring(13), m_testProject.Books[0].Blocks[5].GetText(false));
-			Assert.AreEqual(text2.Substring(0, 10), m_testProject.Books[0].Blocks[6].GetText(false));
-			Assert.AreEqual(text2.Substring(10), m_testProject.Books[0].Blocks[7].GetText(false));
+			Assert.AreEqual(text1.Substring(0, 13), m_testProject.Books[0].Blocks[i].GetText(false));
+			Assert.AreEqual(text1.Substring(13), m_testProject.Books[0].Blocks[i+1].GetText(false));
+			Assert.AreEqual(text2.Substring(0, 10), m_testProject.Books[0].Blocks[i + 2].GetText(false));
+			Assert.AreEqual(text2.Substring(10), m_testProject.Books[0].Blocks[i + 3].GetText(false));
 
 			// check the multi-block quote
-			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[4].MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[5].MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[6].MultiBlockQuote);
-			Assert.AreEqual(MultiBlockQuote.Start, m_testProject.Books[0].Blocks[7].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[i].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[i + 1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, m_testProject.Books[0].Blocks[i + 2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, m_testProject.Books[0].Blocks[i + 3].MultiBlockQuote);
 		}
 
 		[Test]
@@ -1206,7 +1222,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_NeedAssignmentsTask_ReferenceTextSetButNoAssignmentsMade_NoChange()
 		{
-			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			m_model.Mode = BlocksToDisplay.AllQuotes;
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 7, 6);
 			var iBlock = m_model.CurrentBlockIndexInBook;
 			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
@@ -1220,8 +1236,6 @@ namespace GlyssenTests.Dialogs
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(0, matchupForMark85.OriginalBlocks.Count(b => b.CharacterIsUnclear()));
-			matchupForMark85.SetReferenceText(2, "Some random text: " + Guid.NewGuid());
-			matchupForMark85.SetReferenceText(3, "Some random text: " + Guid.NewGuid());
 
 			try
 			{
@@ -1243,13 +1257,12 @@ namespace GlyssenTests.Dialogs
 			var origRelevantBlockCount = m_model.RelevantBlockCount;
 			m_assigned = 0;
 
-			BlockNavigatorViewModelTests.FindRefInMark(m_model, 7, 6);
+			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 34);
 			m_model.AttemptRefBlockMatchup = true;
-			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
-			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
-			Assert.AreEqual(4, matchupForMark85.CorrelatedBlocks.Count);
-			matchupForMark85.SetReferenceText(2, "Some random text: " + Guid.NewGuid());
-			matchupForMark85.SetReferenceText(3, "Some random text: " + Guid.NewGuid());
+			var matchup = m_model.CurrentReferenceTextMatchup;
+			Assert.AreEqual(0, matchup.CountOfBlocksAddedBySplitting);
+			Assert.AreEqual(2, matchup.CorrelatedBlocks.Count);
+			Assert.IsTrue(matchup.OriginalBlocks.All(b => !b.CharacterIsUnclear()));
 
 			try
 			{

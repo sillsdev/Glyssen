@@ -418,7 +418,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void Parse_UnpublishableText_NonpublishableDatExcluded()
+		public void Parse_UnpublishableText_NonpublishableDataExcluded()
 		{
 			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
 							"<verse number=\"1-2\" style=\"v\" />" +

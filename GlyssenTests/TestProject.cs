@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -10,6 +9,7 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Quote;
+using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
@@ -101,7 +101,10 @@ namespace GlyssenTests
 			foreach (var testBook in booksToInclude)
 				AddBook(testBook, sampleMetadata, books);
 
-			return UsxParser.ParseProject(books, SfmLoader.GetUsfmStylesheet(), new BackgroundWorker { WorkerReportsProgress = true });
+			int previousPercentageValue = 0;
+			var reportProgress = new Action<int>(i => Assert.IsTrue(previousPercentageValue <= i));
+
+			return UsxParser.ParseProject(books, SfmLoader.GetUsfmStylesheet(), reportProgress);
 		}
 
 		private static QuoteSystem GetTestQuoteSystem(bool includeDialogueDash)
