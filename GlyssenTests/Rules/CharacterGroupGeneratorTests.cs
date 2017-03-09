@@ -1175,8 +1175,8 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMale;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemale;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
-			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
-			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 
 			SetVoiceActors(6, 2);
 			var gen = new CharacterGroupGenerator(m_testProject);
