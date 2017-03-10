@@ -203,6 +203,50 @@ namespace GlyssenTests
 				block.PrimaryReferenceText);
 		}
 
+		[Test]
+		public void CombineBlocks_DoesNotModifyBlocks()
+		{
+			var blockA = new Block("p", 1, 4).AddVerse(4);
+			var origBlockAElements = blockA.BlockElements.ToList();
+			var origBlockAText = blockA.GetText(true);
+			blockA.SetMatchedReferenceBlock("Espanol A, ");
+			blockA.ReferenceBlocks.Single().SetMatchedReferenceBlock("English A, ");
+			var origSpanishRefTextA = blockA.PrimaryReferenceText;
+			var origEnglishRefTextA = blockA.ReferenceBlocks.Single().PrimaryReferenceText;
+			var blockB = new Block("q", 1, 4);
+			blockB.BlockElements.Add(new ScriptText("Whatever"));
+			var origBlockBElements = blockB.BlockElements.ToList();
+			var origBlockBText = blockB.GetText(true);
+			blockB.SetMatchedReferenceBlock("espanol B.");
+			blockB.ReferenceBlocks.Single().SetMatchedReferenceBlock("English B.");
+			var origSpanishRefTextB = blockB.PrimaryReferenceText;
+			var origEnglishRefTextB = blockB.ReferenceBlocks.Single().PrimaryReferenceText;
+			var newBlock = Block.CombineBlocks(blockA, blockB);
+			Assert.AreNotEqual(newBlock, blockA);
+			Assert.AreNotEqual(newBlock, blockB);
+			Assert.AreEqual(origBlockAText, blockA.GetText(true));
+			Assert.AreEqual(origBlockBText, blockB.GetText(true));
+			Assert.IsTrue(origBlockAElements.SequenceEqual(blockA.BlockElements));
+			Assert.IsTrue(origBlockBElements.SequenceEqual(blockB.BlockElements));
+			Assert.IsFalse(newBlock.BlockElements.Any(e => origBlockAElements.Contains(e)));
+			Assert.IsFalse(newBlock.BlockElements.Any(e => origBlockBElements.Contains(e)));
+			Assert.AreNotEqual(newBlock.ReferenceBlocks.Single(), blockA.ReferenceBlocks.Single());
+			Assert.AreNotEqual(newBlock.ReferenceBlocks.Single(), blockB.ReferenceBlocks.Single());
+			Assert.AreEqual(origSpanishRefTextA, blockA.PrimaryReferenceText);
+			Assert.AreEqual(origEnglishRefTextA, blockA.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(origSpanishRefTextB, blockB.PrimaryReferenceText);
+			Assert.AreEqual(origEnglishRefTextB, blockB.ReferenceBlocks.Single().PrimaryReferenceText);
+		}
+
+		[Test]
+		public void CombineWith_ReturnsThisBlock()
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4);
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText("Whatever"));
+			Assert.AreEqual(thisBlock, thisBlock.CombineWith(otherBlock));
+		}
+
 		[TestCase(true, false)]
 		[TestCase(false, true)]
 		[TestCase(false, false)]
@@ -264,39 +308,58 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void CombineWith_OnlyThisBlockHasRT_ReferenceTextFromThisBlockisPreserved()
+		public void CombineWith_OnlyThisBlockHasRT_ThrowsInvalidOperationException()
 		{
+			// So far, we have no known need for this. If we ever come up with such a need, we can adjust the expected results accordingly.
 			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
 			thisBlock.SetMatchedReferenceBlock("{4} First English.");
 			var otherBlock = new Block("q", 1, 4);
 			otherBlock.BlockElements.Add(new ScriptText("Second"));
-			thisBlock.CombineWith(otherBlock);
-			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
-			Assert.AreEqual("{4}\u00A0First English.", thisBlock.PrimaryReferenceText);
+			Assert.Throws<InvalidOperationException>(() => thisBlock.CombineWith(otherBlock));
 		}
 
 		[Test]
-		public void CombineWith_OnlyOtherBlockHasRT_ReferenceTextFromOtherBlockisPreserved()
+		public void CombineWith_OnlyOtherBlockHasRT_ThrowsInvalidOperationException()
 		{
+			// So far, we have no known need for this. If we ever come up with such a need, we can adjust the expected results accordingly.
 			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
 			var otherBlock = new Block("q", 1, 4);
 			otherBlock.BlockElements.Add(new ScriptText("Second"));
 			otherBlock.SetMatchedReferenceBlock("{4} Second English.");
-			thisBlock.CombineWith(otherBlock);
-			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
-			Assert.AreEqual("{4}\u00A0Second English.", thisBlock.PrimaryReferenceText);
+			Assert.Throws<InvalidOperationException>(() => thisBlock.CombineWith(otherBlock));
 		}
 
 		[Test]
-		public void CombineWith_OnlyThisBlockEndsWithAnnotation_ReferenceTextContainsThisBlockPlusAnnotation()
+		public void CombineWith_ThisBlockHasRefTextThatEndsWithAnnotation_ReferenceTextContainsTheAnnotation()
 		{
 			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
+			thisBlock.SetMatchedReferenceBlock("{4} First English. {F8 SFX--Whatever}");
+			Assert.AreEqual("Whatever", ((Sound)thisBlock.ReferenceBlocks.Single().BlockElements.Last()).EffectName);
 			var otherBlock = new Block("q", 1, 4);
 			otherBlock.BlockElements.Add(new ScriptText("Second"));
-			otherBlock.SetMatchedReferenceBlock("{4} Second English.");
+			otherBlock.SetMatchedReferenceBlock("Second English.");
 			thisBlock.CombineWith(otherBlock);
 			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
-			Assert.AreEqual("{4}\u00A0Second English.", thisBlock.PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0First English. {F8 SFX--Whatever} Second English.", thisBlock.PrimaryReferenceText);
+			Assert.AreEqual("Whatever", ((Sound)thisBlock.ReferenceBlocks.Single().BlockElements[2]).EffectName);
+		}
+
+		[Test]
+		public void CombineWith_MultipleLevelsOfReferenceText_ReferenceTextCombinedAtEachLevel()
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "Eins");
+			thisBlock.SetMatchedReferenceBlock("{4} Primer espanol, {F8 SFX--Whatever}");
+			thisBlock.ReferenceBlocks.Single().SetMatchedReferenceBlock("{4} First {F8 SFX--Whatever} English,");
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText("Zwei."));
+			otherBlock.SetMatchedReferenceBlock("segundo.");
+			otherBlock.ReferenceBlocks.Single().SetMatchedReferenceBlock("second.");
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual("{4}\u00A0Eins Zwei.", thisBlock.GetText(true));
+			Assert.AreEqual("{4}\u00A0Primer espanol, {F8 SFX--Whatever} segundo.", thisBlock.PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0First {F8 SFX--Whatever} English, second.", thisBlock.ReferenceBlocks.Single().PrimaryReferenceText.Replace("  ", " "));
+			Assert.AreEqual(4, thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements.Count);
+			Assert.AreEqual("Whatever", ((Sound)thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements[2]).EffectName);
 		}
 
 		[Test]

@@ -808,7 +808,9 @@ namespace Glyssen
 
 		public static Block CombineBlocks(Block blockA, Block blockB)
 		{
-			return blockA.Clone().CombineWith(blockB);
+			var clone = blockA.Clone();
+			clone.CloneReferenceBlocks();
+			return clone.CombineWith(blockB);
 		}
 
 		public Block CombineWith(Block otherBlock)
@@ -834,8 +836,15 @@ namespace Glyssen
 				BlockElements.Add(blockElement.Clone());
 
 			UserConfirmed &= otherBlock.UserConfirmed;
-			if (MatchesReferenceText && otherBlock.MatchesReferenceText)
-				ReferenceBlocks.Single().CombineWith(otherBlock.ReferenceBlocks.Single());
+			if (MatchesReferenceText)
+			{
+				if (otherBlock.MatchesReferenceText)
+					ReferenceBlocks.Single().CombineWith(otherBlock.ReferenceBlocks.Single());
+				else
+					throw new InvalidOperationException("No known need for combining blocks where only one of them is aligned to reference text.");
+			}
+			else if (otherBlock.MatchesReferenceText)
+				throw new InvalidOperationException("No known need for combining blocks where only one of them is aligned to reference text.");
 			return this;
 		}
 
