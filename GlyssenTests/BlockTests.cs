@@ -203,6 +203,102 @@ namespace GlyssenTests
 				block.PrimaryReferenceText);
 		}
 
+		[TestCase(true, false)]
+		[TestCase(false, true)]
+		[TestCase(false, false)]
+		public void CombineWith_BothBlocksAreNotkUserConfirmed_CombinedBlockIsNotUserConfirmed(bool thisBlockUserConfirmed, bool otherBlockUserConfirmed)
+		{
+			var thisBlock = new Block("p", 1, 4) { UserConfirmed = thisBlockUserConfirmed }.AddVerse(4);
+			var otherBlock = new Block("q", 1, 4) { UserConfirmed = otherBlockUserConfirmed };
+			otherBlock.BlockElements.Add(new ScriptText("Whatever"));
+			thisBlock.CombineWith(otherBlock);
+			Assert.IsFalse(thisBlock.UserConfirmed);
+		}
+
+		[Test]
+		public void CombineWith_BothBlocksUserConfirmed_CombinedBlockIsUserConfirmed()
+		{
+			var thisBlock = new Block("p", 1, 4) { UserConfirmed = true }.AddVerse(4);
+			var otherBlock = new Block("q", 1, 4) { UserConfirmed = true };
+			otherBlock.BlockElements.Add(new ScriptText("Whatever"));
+			thisBlock.CombineWith(otherBlock);
+			Assert.IsTrue(thisBlock.UserConfirmed);
+		}
+
+		[TestCase("", "")]
+		[TestCase(" ", "")]
+		[TestCase("", " ")]
+		public void CombineWith_TwoBlocksSingleVerse_CombinedBlockTextCombinedWithSpaceAddedAsNeeded(string trailingSpace, string leadingSpace)
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First" + trailingSpace);
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText(leadingSpace + "Second"));
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
+		}
+
+		[TestCase("")]
+		[TestCase(" ")]
+		public void CombineWith_SecondSBlockStartsWithVerseNumber_ScriptTextElementsNotCombined(string trailingSpace)
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First" + trailingSpace);
+			var otherBlock = new Block("q", 1, 5).AddVerse(5, "Second");
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual(4, thisBlock.BlockElements.Count);
+			Assert.AreEqual("{4}\u00A0First {5}\u00A0Second", thisBlock.GetText(true));
+		}
+
+		[TestCase("", "")]
+		[TestCase(" ", "")]
+		[TestCase("", " ")]
+		public void CombineWith_BothBlocksAreAlignedToEnglishReferenceText_ReferenceTextsAreCombined(string trailingSpace, string leadingSpace)
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
+			thisBlock.SetMatchedReferenceBlock("{4} First English." + trailingSpace);
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText("Second"));
+			otherBlock.SetMatchedReferenceBlock(leadingSpace + "Second English.");
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
+			Assert.AreEqual("{4}\u00A0First English. Second English.", thisBlock.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void CombineWith_OnlyThisBlockHasRT_ReferenceTextFromThisBlockisPreserved()
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
+			thisBlock.SetMatchedReferenceBlock("{4} First English.");
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText("Second"));
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
+			Assert.AreEqual("{4}\u00A0First English.", thisBlock.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void CombineWith_OnlyOtherBlockHasRT_ReferenceTextFromOtherBlockisPreserved()
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText("Second"));
+			otherBlock.SetMatchedReferenceBlock("{4} Second English.");
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
+			Assert.AreEqual("{4}\u00A0Second English.", thisBlock.PrimaryReferenceText);
+		}
+
+		[Test]
+		public void CombineWith_OnlyThisBlockEndsWithAnnotation_ReferenceTextContainsThisBlockPlusAnnotation()
+		{
+			var thisBlock = new Block("p", 1, 4).AddVerse(4, "First");
+			var otherBlock = new Block("q", 1, 4);
+			otherBlock.BlockElements.Add(new ScriptText("Second"));
+			otherBlock.SetMatchedReferenceBlock("{4} Second English.");
+			thisBlock.CombineWith(otherBlock);
+			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
+			Assert.AreEqual("{4}\u00A0Second English.", thisBlock.PrimaryReferenceText);
+		}
+
 		[Test]
 		public void GetText_GetBookNameNull_ChapterBlockTextBasedOnStoredText()
 		{

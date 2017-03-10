@@ -811,20 +811,31 @@ namespace Glyssen
 			return blockA.Clone().CombineWith(blockB);
 		}
 
-		public Block CombineWith(Block block)
+		public Block CombineWith(Block otherBlock)
 		{
 			var skip = 0;
-			var firstBlockAsScriptText = block.BlockElements.First() as ScriptText;
-			if (BlockElements.Last() is ScriptText && firstBlockAsScriptText != null)
+			var lastElementOfThisBlockAsScriptText = BlockElements.Last() as ScriptText;
+			if (lastElementOfThisBlockAsScriptText != null)
 			{
-				var lastScriptText = (ScriptText)BlockElements.Last();
-				var space = (char.IsWhiteSpace(lastScriptText.Content.Last()) || char.IsWhiteSpace(firstBlockAsScriptText.Content[0])) ? Empty : " ";
-				lastScriptText.Content += space + firstBlockAsScriptText.Content;
-				skip = 1;
+				var firstElementOfOtherBlockAsScriptText = otherBlock.BlockElements.First() as ScriptText;
+				if (firstElementOfOtherBlockAsScriptText != null)
+				{
+					var space = (IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) ||
+						IsWhiteSpace(firstElementOfOtherBlockAsScriptText.Content[0])) ? Empty : " ";
+					lastElementOfThisBlockAsScriptText.Content += space + firstElementOfOtherBlockAsScriptText.Content;
+					skip = 1;
+				}
+				else if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()))
+				{
+					lastElementOfThisBlockAsScriptText.Content += " ";
+				}
 			}
-			foreach (var blockElement in block.BlockElements.Skip(skip))
+			foreach (var blockElement in otherBlock.BlockElements.Skip(skip))
 				BlockElements.Add(blockElement.Clone());
-			UserConfirmed &= block.UserConfirmed;
+
+			UserConfirmed &= otherBlock.UserConfirmed;
+			if (MatchesReferenceText && otherBlock.MatchesReferenceText)
+				ReferenceBlocks.Single().CombineWith(otherBlock.ReferenceBlocks.Single());
 			return this;
 		}
 
