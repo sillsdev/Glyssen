@@ -56,6 +56,7 @@ namespace Glyssen
 
 	public class ScriptText : BlockElement
 	{
+		private static readonly Regex s_startsWithEllipsis = new Regex(@"^(\u2026|(\.\.\.))", RegexOptions.Compiled);
 		public ScriptText()
 		{
 			// Needed for deserialization
@@ -68,6 +69,10 @@ namespace Glyssen
 
 		[XmlText]
 		public string Content { get; set; }
+
+		public bool StartsWithEllipsis => s_startsWithEllipsis.IsMatch(Content);
+
+		public string ContentWithoutLeadingEllipsis => s_startsWithEllipsis.Replace(Content, String.Empty);
 	}
 
 	public interface IVerse

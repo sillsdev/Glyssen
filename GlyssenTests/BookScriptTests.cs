@@ -484,6 +484,127 @@ namespace GlyssenTests
 			Assert.AreEqual(5, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 		}
+
+		[TestCase(".", "...")]
+		[TestCase(".", "\u2026")]
+		[TestCase(",", "...")]
+		[TestCase(",", "\u2026")]
+		public void GetScriptBlocks_Joining_PrimaryReferenceTextStartsWithElipsesBeforeVerse_BlocksCombined(string vernBlock1EndingPunctuation, string ellipsis)
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock("{1} This is the genealogy of Jesus.");
+			vernacularBlocks.Add(block);
+			block = NewSingleVersePara(2, "Abraham fue el primero.");
+			block.BlockElements.Insert(0, new ScriptText("starting with the first patriarch: "));
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(ellipsis + "{2} Abraham was first.");
+			vernacularBlocks.Add(block);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(1, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation +
+				" starting with the first patriarch: {2}\u00A0Abraham fue el primero.", result[0].GetText(true));
+			Assert.AreEqual("{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first.", result[0].PrimaryReferenceText);
+		}
+
+		[TestCase(".", "q", " ", "This is not empty.")]
+		[TestCase(".", "q", "{1}", "This is not empty.")]
+		[TestCase("!", "q1", "{F8 SFX--Whatever}", "This is not empty...")]
+		[TestCase(".", "p", "This is not empty.", " ")]
+		[TestCase("!", "pi1", "This is fine", "and\u2026dandy.")]
+		[TestCase("?", "q2", "{1}\u00A0Freaky,", "isn't it?")]
+		public void GetScriptBlocks_JoiningWithReferenceTexts_VernBlockEndsInSentenceEndingPunctuation_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+			string block1RefText, string block2RefText)
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(block1RefText);
+			var origRefText1 = block.PrimaryReferenceText;
+			vernacularBlocks.Add(block);
+			block = new Block(block2StyleTag, m_curSetupChapter, 1);
+			if (block2StyleTag != "p")
+				block.IsParagraphStart = true;
+			block.BlockElements.Add(new ScriptText("Abraham fue el primero."));
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(block2RefText);
+			var origRefText2 = block.PrimaryReferenceText;
+			vernacularBlocks.Add(block);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(2, result.Count);
+			Assert.AreEqual(origRefText1, result[0].PrimaryReferenceText);
+			Assert.AreEqual(origRefText2, result[1].PrimaryReferenceText);
+		}
+
+		[TestCase(",", "q", " ", "This is not empty.")]
+		[TestCase(",", "q", "{1}", "This is not empty.")]
+		[TestCase(";", "q1", "{F8 SFX--Whatever}", "This is not empty...")]
+		[TestCase("", "p", "This is not empty.", " ")]
+		[TestCase(";", "pi1", "This is fine", "and\u2026dandy.")]
+		[TestCase(" - ", "q2", "{1}\u00A0Freaky,", "isn't it?")]
+		public void GetScriptBlocks_JoiningWithReferenceTexts_BlockBHasVerseNumber_BlocksNotCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+			string block1RefText, string block2RefText)
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(block1RefText);
+			var origRefText1 = block.PrimaryReferenceText;
+			vernacularBlocks.Add(block);
+			block = NewSingleVersePara(2, "Abraham fue el primero.");
+			if (block2StyleTag == "p")
+				block.IsParagraphStart = false;
+			else
+				block.StyleTag = block2StyleTag;
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(block2RefText);
+			var origRefText2 = block.PrimaryReferenceText;
+			vernacularBlocks.Add(block);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(2, result.Count);
+			Assert.AreEqual(origRefText1, result[0].PrimaryReferenceText);
+			Assert.AreEqual(origRefText2, result[1].PrimaryReferenceText);
+		}
+
+		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]
+		[TestCase(" - ", "p", "{1}   ", "Part 2", "{1}\u00A0Part 2")]
+		[TestCase(",", "pi1", "{1} Part 1.", " ", "{1}\u00A0Part 1.")]
+		[TestCase(",", "m", "Part 1", "", "Part 1")]
+		public void GetScriptBlocks_Joining_PrimaryReferenceTextIsBlank_BlocksCombined(string vernBlock1EndingPunctuation, string block2StyleTag,
+			string block1RefText, string block2RefText, string expectedCombinedRefText)
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(block1RefText);
+			vernacularBlocks.Add(block);
+			block = NewPara(block2StyleTag, "Abraham fue el primero.");
+			if (block2StyleTag == "p")
+				block.IsParagraphStart = false;
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			block.SetMatchedReferenceBlock(block2RefText);
+			vernacularBlocks.Add(block);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(1, result.Count);
+			Assert.IsTrue(result[0].MatchesReferenceText);
+			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
+				" Abraham fue el primero.", result[0].GetText(true));
+			Assert.AreEqual(expectedCombinedRefText, result[0].PrimaryReferenceText);
+		}
 		#endregion
 
 		#region ApplyUserDecisions Character Assignments Tests

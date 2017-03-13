@@ -178,7 +178,7 @@ namespace Glyssen
 									m_currentStartVerse = ScrReference.VerseToIntStart(verseNumStr);
 									m_currentEndVerse = ScrReference.VerseToIntEnd(verseNumStr);
 									if (!block.BlockElements.Any() ||
-									(block.BlockElements.Count == 1 && block.FirstTextElementIsOnlyPunctuation))
+										(block.BlockElements.Count == 1 && block.StartsWithScriptTextElementContainingOnlyPunctuation))
 									{
 										block.InitialStartVerseNumber = m_currentStartVerse;
 										block.InitialEndVerseNumber = m_currentEndVerse;

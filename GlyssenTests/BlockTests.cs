@@ -1235,7 +1235,7 @@ namespace GlyssenTests
 		public void SetMatchedReferenceBlock_ContainsMusicStart_AnnotationParsedAndIncludedAsBlockElement(int startVerse)
 		{
 			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
-			var music = new Sound {SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = startVerse, EndVerse = 0};
+			var music = new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = startVerse, EndVerse = 0 };
 			var refBlock = block.SetMatchedReferenceBlock("{2} Text of verse " + music.ToDisplay() + "three.");
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
@@ -1250,6 +1250,25 @@ namespace GlyssenTests
 			Assert.IsNull(effect.EffectName);
 			Assert.AreEqual("Text of verse ", refBlock.BlockElements.OfType<ScriptText>().First().Content);
 			Assert.AreEqual(" three.", refBlock.BlockElements.OfType<ScriptText>().Last().Content);
+		}
+
+		[TestCase(Sound.kNonSpecificStartOrStop)]
+		[TestCase(0)]
+		public void SetMatchedReferenceBlock_OnlyAnnotation_AnnotationParsed(int startVerse)
+		{
+			var block = new Block("p", 3, 2).AddVerse("2", "This is verse two.");
+			var music = new Sound { SoundType = SoundType.Music, UserSpecifiesLocation = true, StartVerse = startVerse, EndVerse = 0 };
+			var refBlock = block.SetMatchedReferenceBlock(music.ToDisplay());
+			Assert.IsTrue(block.MatchesReferenceText);
+			Assert.AreEqual(refBlock, block.ReferenceBlocks.Single());
+			Assert.AreEqual(2, refBlock.InitialStartVerseNumber);
+			Assert.IsFalse(refBlock.BlockElements.OfType<Verse>().Any());
+			var effect = refBlock.BlockElements.OfType<Sound>().Single();
+			Assert.AreEqual(SoundType.Music, effect.SoundType);
+			Assert.AreEqual(startVerse, effect.StartVerse);
+			Assert.IsTrue(effect.UserSpecifiesLocation);
+			Assert.IsNull(effect.EffectName);
+			Assert.IsFalse(refBlock.BlockElements.OfType<ScriptText>().Any());
 		}
 
 		[Test]
