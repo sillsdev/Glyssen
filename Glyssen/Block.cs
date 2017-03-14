@@ -825,17 +825,27 @@ namespace Glyssen
 			var lastElementOfThisBlockAsScriptText = BlockElements.Last() as ScriptText;
 			if (lastElementOfThisBlockAsScriptText != null)
 			{
-				var firstElementOfOtherBlockAsScriptText = otherBlock.BlockElements.First() as ScriptText;
-				if (firstElementOfOtherBlockAsScriptText != null)
+				if (lastElementOfThisBlockAsScriptText.Content.Any())
 				{
-					var followingContent = firstElementOfOtherBlockAsScriptText.ContentWithoutLeadingEllipsis;
-					var space = !lastElementOfThisBlockAsScriptText.Content.Any() || IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) || !followingContent.Any() || IsWhiteSpace(followingContent[0]) ? Empty : " ";
-					lastElementOfThisBlockAsScriptText.Content += space + followingContent;
-					skip = 1;
+					var firstElementOfOtherBlockAsScriptText = otherBlock.BlockElements.First() as ScriptText;
+					if (firstElementOfOtherBlockAsScriptText != null)
+					{
+						var followingContent = firstElementOfOtherBlockAsScriptText.ContentWithoutLeadingEllipsis;
+						var space = IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) ||
+							!followingContent.Any() || IsWhiteSpace(followingContent[0]) ? Empty : " ";
+						lastElementOfThisBlockAsScriptText.Content += space + followingContent;
+						skip = 1;
+						if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) && otherBlock.BlockElements.Skip(skip).Any())
+							lastElementOfThisBlockAsScriptText.Content += " ";
+					}
+					else if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()))
+					{
+						lastElementOfThisBlockAsScriptText.Content += " ";
+					}
 				}
-				else if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()))
+				else if (otherBlock.BlockElements.Any())
 				{
-					lastElementOfThisBlockAsScriptText.Content += " ";
+					BlockElements.RemoveAt(BlockElements.Count - 1);
 				}
 			}
 			foreach (var blockElement in otherBlock.BlockElements.Skip(skip))

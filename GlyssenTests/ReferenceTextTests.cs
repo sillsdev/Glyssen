@@ -2192,16 +2192,15 @@ namespace GlyssenTests
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
 
-			Assert.AreEqual(7, result.Count);
+			Assert.AreEqual(6, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
 			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
 			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].PrimaryReferenceText);
 			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].PrimaryReferenceText);
-			Assert.AreEqual("responded John the ", result[4].PrimaryReferenceText);
-			Assert.AreEqual("beloved.", result[5].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[6].PrimaryReferenceText);
+			Assert.AreEqual("responded John the beloved.", result[4].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].PrimaryReferenceText);
 		}
 
 		[Test]

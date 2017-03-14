@@ -135,7 +135,9 @@ namespace Glyssen
 						combine = block.ReferenceBlocks.Single().StartsWithEllipsis ||
 							((!block.IsParagraphStart || (block.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) &&
 							!block.ContainsVerseNumber &&
-							(block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
+							((!block.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
+							!CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false))) ||
+							block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
 							prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
 					}
 					else

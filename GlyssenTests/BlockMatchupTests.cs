@@ -638,7 +638,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, matchup.CountOfBlocksAddedBySplitting);
 
 			matchup.Apply(null);
-			var scriptBlocks = vernBook.GetScriptBlocks(true);
+			var scriptBlocks = vernBook.GetScriptBlocks(false);
 			Assert.AreEqual(vernacularBlocks.Count + 1, scriptBlocks.Count);
 			Assert.IsFalse(scriptBlocks[0].MatchesReferenceText);
 			Assert.AreEqual(refBlock0, scriptBlocks[1].ReferenceBlocks.Single());
