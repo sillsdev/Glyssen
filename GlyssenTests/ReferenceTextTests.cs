@@ -2204,6 +2204,41 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetBooksWithBlocksConnectedToReferenceText_SomeBlocksPrematchedAndJoined_PrematchedVersesDoNotGetResplit()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(new Block("c", 3) {BookCode = "MAT"});
+			vernacularBlocks.Last().BlockElements.Add(new ScriptText("3"));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(1, "Een dat time, John wa Bactize come ta de wildaness een Judea, an e staat fa preach dey. ", true, 3));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(2, "E tell um say, "));
+			AddBlockForVerseInProgress(vernacularBlocks, "John the Baptist", "“Oona mus change oona sinful way an dohn do um no mo. Cause de time mos yah wen God gwine rule oba we!” ");
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(3, "John been de man wa de prophet Isaiah beena taak bout wen e say,"));
+			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "“Somebody da holla een de wildaness say, ‘Oona mus cleah de road weh de Lawd gwine come shru.", "q1");
+			AddBlockForVerseInProgress(vernacularBlocks, "scripture", "Mek de pat scraight fa um fa waak!’ ”", "q2");
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			// Now pre-match the vern blocks for verses 1-2:
+			vernacularBlocks[1].SetMatchedReferenceBlock("In those days, John the Baptizer came, preaching in the wilderness of Judea,");
+			vernacularBlocks[2].SetMatchedReferenceBlock("...{2} saying,");
+			vernacularBlocks[3].SetMatchedReferenceBlock("“Repent, for the Kingdom of Heaven is at hand!”");
+
+			var result = ReferenceText.GetStandardReferenceText(ReferenceTextType.English).GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
+
+			Assert.AreEqual(6, result.Count);
+			Assert.IsFalse(result[0].MatchesReferenceText);
+			Assert.IsTrue(result[1].MatchesReferenceText);
+			Assert.IsTrue(result[2].MatchesReferenceText);
+			Assert.IsFalse(result[3].MatchesReferenceText);
+			Assert.IsFalse(result[4].MatchesReferenceText);
+			Assert.IsFalse(result[5].MatchesReferenceText);
+
+			Assert.AreEqual("In those days, John the Baptizer came, preaching in the wilderness of Judea, {2}\u00A0saying,", result[1].PrimaryReferenceText);
+			Assert.AreEqual("“Repent, for the Kingdom of Heaven is at hand!”", result[2].PrimaryReferenceText);
+		}
+
+		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_VernacularContainsQBlocks_ReferenceTextSingleBlock_VernacularBlocksCombined()
 		{
 			var vernacularBlocks = new List<Block>();
@@ -2593,7 +2628,8 @@ namespace GlyssenTests
 
 			var block = new Block(styleTag, lastBlock.ChapterNumber, initialStartVerse, initialEndVerse)
 			{
-				CharacterId = characterId
+				CharacterId = characterId,
+				IsParagraphStart = styleTag != lastBlock.StyleTag,
 			};
 			block.BlockElements.Add(new ScriptText(text));
 			list.Add(block);

@@ -426,6 +426,35 @@ namespace GlyssenTests
 				result[1].GetText(true));
 		}
 
+		[TestCase(" ")]
+		[TestCase("")]
+		public void GetScriptBlocks_Joining_VernacularContainsQBlocks_VernacularBlocksForDifferentVersesNotCombined(string trailingWhitespace)
+		{
+			var vernacularBlocks = new List<Block>();
+			var block = NewSingleVersePara(1, "Peter said, ");
+			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
+			vernacularBlocks.Add(block);
+			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("«This is line 1," + trailingWhitespace));
+			vernacularBlocks.Add(block);
+			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("This is line 2," + trailingWhitespace));
+			vernacularBlocks.Add(block);
+			block = new Block("q1", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new Verse("2"));
+			block.BlockElements.Add(new ScriptText("This is line 3," + trailingWhitespace));
+			vernacularBlocks.Add(block);
+			block = new Block("q2", m_curSetupChapter, m_curSetupVerse) { CharacterId = "Peter" };
+			block.BlockElements.Add(new ScriptText("This is line 4.»"));
+			vernacularBlocks.Add(block);
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var result = vernBook.GetScriptBlocks(true);
+			Assert.AreEqual(3, result.Count);
+			Assert.AreEqual("«This is line 1, This is line 2,", result[1].GetText(true).TrimEnd());
+			Assert.AreEqual("{2}\u00A0This is line 3, This is line 4.»", result[2].GetText(true));
+		}
+
 		[Test]
 		public void GetScriptBlocks_Joining_VernacularContainsQBlocksIntroducedByPBlock_AllVernacularBlocksCombined()
 		{

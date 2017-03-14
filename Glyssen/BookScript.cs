@@ -140,7 +140,7 @@ namespace Glyssen
 							block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
 							prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
 					}
-					else
+					else if (!block.StartsAtVerseStart)
 					{
 						var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
 						combine = !block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)));
