@@ -118,29 +118,29 @@ namespace Glyssen
 			// No op
 		}
 
-		public bool TrySplitBlockAtEndOfVerse(Block vernBlock, int verseNum)
+		internal string GetVerseStringToUseForSplittingBlock(Block block, int verseNum)
 		{
-			var firstVerseElement = vernBlock.BlockElements.OfType<Verse>().FirstOrDefault();
+			var firstVerseElement = block.BlockElements.OfType<Verse>().FirstOrDefault();
 			if (firstVerseElement == null)
-				return false;
-			var blockBeginsWithVerse = vernBlock.BlockElements.First() is Verse;
+				return null;
+			var blockBeginsWithVerse = block.BlockElements.First() is Verse;
 			var verseString = verseNum.ToString();
 
-			if (vernBlock.InitialEndVerseNumber == verseNum)
+			if (block.InitialEndVerseNumber == verseNum)
 			{
-				verseString = vernBlock.InitialVerseNumberOrBridge;
+				verseString = block.InitialVerseNumberOrBridge;
 				if (firstVerseElement.Number != verseString && blockBeginsWithVerse)
 				{
-					var secondPartOfVerse = vernBlock.BlockElements.Skip(2).OfType<Verse>().FirstOrDefault();
+					var secondPartOfVerse = block.BlockElements.Skip(2).OfType<Verse>().FirstOrDefault();
 					if (secondPartOfVerse == null)
-						return false;
+						return null;
 					verseString = secondPartOfVerse.Number;
 				}
 			}
 			else if (blockBeginsWithVerse ||
-				!(vernBlock.InitialEndVerseNumber == 0 && vernBlock.InitialStartVerseNumber == verseNum))
+				!(block.InitialEndVerseNumber == 0 && block.InitialStartVerseNumber == verseNum))
 			{
-				foreach (var verse in vernBlock.BlockElements.OfType<Verse>())
+				foreach (var verse in block.BlockElements.OfType<Verse>())
 				{
 					if (verse.Number == verseString)
 						break;
@@ -150,17 +150,26 @@ namespace Glyssen
 						break;
 					}
 					if (verse.StartVerse >= verseNum)
-						return false;
+						return null;
 				}
 			}
+
+			return verseString;
+		}
+
+		public bool TrySplitBlockAtEndOfVerse(Block block, int verseNum)
+		{
+			var verseString = GetVerseStringToUseForSplittingBlock(block, verseNum);
+			if (verseString == null)
+				return false;
 			try
 			{
-				var newBlock = SplitBlock(vernBlock, verseString, kSplitAtEndOfVerse, false);
-				if (vernBlock.MatchesReferenceText)
+				var newBlock = SplitBlock(block, verseString, kSplitAtEndOfVerse, false);
+				if (block.MatchesReferenceText)
 				{
 					// REVIEW: Should this be First or Single, or do we need to possibly handle the case of a sequence?
 					// For now, at least, matching implies there is exactly one reference block.
-					var refBlock = vernBlock.ReferenceBlocks.Single();
+					var refBlock = block.ReferenceBlocks.Single();
 					try
 					{
 						newBlock.SetMatchedReferenceBlock(refBlock.SplitBlock(verseString, kSplitAtEndOfVerse));

@@ -10,6 +10,7 @@ using Glyssen.Quote;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
+using static System.Char;
 using static System.String;
 using ScrVers = Paratext.ScrVers;
 
@@ -124,18 +125,32 @@ namespace Glyssen
 			{
 				var block = m_blocks[i];
 				var prevBlock = list.Last();
-				var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
 
-				if (!block.MatchesReferenceText && !list[list.Count - 1].MatchesReferenceText &&
-					(!block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))))
+				if (block.MatchesReferenceText == prevBlock.MatchesReferenceText &&
+					block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
 				{
-					if (block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
+					bool combine = false;
+					if (block.MatchesReferenceText)
+					{
+						combine = block.ReferenceBlocks.Single().StartsWithEllipsis ||
+							((!block.IsParagraphStart || (block.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) &&
+							!block.ContainsVerseNumber &&
+							((!block.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
+							!CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false))) ||
+							block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
+							prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
+					}
+					else if (!block.StartsAtVerseStart)
+					{
+						var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
+						combine = !block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)));
+					}
+					if (combine)
 					{
 						list[list.Count - 1] = Block.CombineBlocks(prevBlock, block);
 						continue;
 					}
 				}
-
 				list.Add(block);
 			}
 			return list;

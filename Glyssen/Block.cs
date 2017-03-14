@@ -13,6 +13,7 @@ using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using Paratext;
 using SIL.Scripture;
+using SIL.Unicode;
 using SIL.Xml;
 using static System.Char;
 using static System.String;
@@ -32,6 +33,8 @@ namespace Glyssen
 						".right-to-left{{direction:rtl}}" +
 						".scripttext {{display:inline}}";
 
+		private static readonly Regex s_regexFollowOnParagraphStyles;
+
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
 		public const string kSplitElementIdPrefix = "split";
@@ -49,8 +52,8 @@ namespace Glyssen
 		private string m_delivery;
 		private bool m_matchesReferenceText;
 		private static string s_characterSelect;
-		private static Regex s_verseNumbersOrSounds;
-		private static Regex s_emptyVerseText;
+		private static readonly Regex s_verseNumbersOrSounds;
+		private static readonly Regex s_emptyVerseText;
 
 		static Block()
 		{
@@ -58,6 +61,7 @@ namespace Glyssen
 				RegexOptions.Compiled);
 			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
 				RegexOptions.Compiled);
+			s_regexFollowOnParagraphStyles = new Regex("^((q.{0,2})|m|mi|(pi.?))$", RegexOptions.Compiled);
 		}
 
 		public Block()
@@ -476,15 +480,17 @@ namespace Glyssen
 		{
 			get
 			{
-				return BlockElements.First() is Verse || (FirstTextElementIsOnlyPunctuation && ContainsVerseNumber);
+				return BlockElements.First() is Verse || (StartsWithScriptTextElementContainingOnlyPunctuation && ContainsVerseNumber);
 			}
 		}
 
-		public bool FirstTextElementIsOnlyPunctuation
+		public bool StartsWithEllipsis => BlockElements.OfType<ScriptText>().FirstOrDefault()?.StartsWithEllipsis ?? false;
+
+		public bool StartsWithScriptTextElementContainingOnlyPunctuation
 		{
 			get
 			{
-				return BlockElements.OfType<ScriptText>().First().Content.All(c => IsPunctuation(c) || IsWhiteSpace(c));
+				return (BlockElements.FirstOrDefault() as ScriptText)?.Content.All(c => IsPunctuation(c) || IsWhiteSpace(c)) ?? false;
 			}
 		}
 
@@ -808,25 +814,57 @@ namespace Glyssen
 
 		public static Block CombineBlocks(Block blockA, Block blockB)
 		{
-			return blockA.Clone().CombineWith(blockB);
+			var clone = blockA.Clone();
+			clone.CloneReferenceBlocks();
+			return clone.CombineWith(blockB);
 		}
 
-		public Block CombineWith(Block block)
+		public Block CombineWith(Block otherBlock)
 		{
 			var skip = 0;
-			var firstBlockAsScriptText = block.BlockElements.First() as ScriptText;
-			if (BlockElements.Last() is ScriptText && firstBlockAsScriptText != null)
+			var lastElementOfThisBlockAsScriptText = BlockElements.Last() as ScriptText;
+			if (lastElementOfThisBlockAsScriptText != null)
 			{
-				var lastScriptText = (ScriptText)BlockElements.Last();
-				var space = (char.IsWhiteSpace(lastScriptText.Content.Last()) || char.IsWhiteSpace(firstBlockAsScriptText.Content[0])) ? Empty : " ";
-				lastScriptText.Content += space + firstBlockAsScriptText.Content;
-				skip = 1;
+				if (lastElementOfThisBlockAsScriptText.Content.Any())
+				{
+					var firstElementOfOtherBlockAsScriptText = otherBlock.BlockElements.First() as ScriptText;
+					if (firstElementOfOtherBlockAsScriptText != null)
+					{
+						var followingContent = firstElementOfOtherBlockAsScriptText.ContentWithoutLeadingEllipsis;
+						var space = IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) ||
+							!followingContent.Any() || IsWhiteSpace(followingContent[0]) ? Empty : " ";
+						lastElementOfThisBlockAsScriptText.Content += space + followingContent;
+						skip = 1;
+						if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) && otherBlock.BlockElements.Skip(skip).Any())
+							lastElementOfThisBlockAsScriptText.Content += " ";
+					}
+					else if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()))
+					{
+						lastElementOfThisBlockAsScriptText.Content += " ";
+					}
+				}
+				else if (otherBlock.BlockElements.Any())
+				{
+					BlockElements.RemoveAt(BlockElements.Count - 1);
+				}
 			}
-			foreach (var blockElement in block.BlockElements.Skip(skip))
+			foreach (var blockElement in otherBlock.BlockElements.Skip(skip))
 				BlockElements.Add(blockElement.Clone());
-			UserConfirmed &= block.UserConfirmed;
+
+			UserConfirmed &= otherBlock.UserConfirmed;
+			if (MatchesReferenceText)
+			{
+				if (otherBlock.MatchesReferenceText)
+					ReferenceBlocks.Single().CombineWith(otherBlock.ReferenceBlocks.Single());
+				else
+					throw new InvalidOperationException("No known need for combining blocks where only one of them is aligned to reference text.");
+			}
+			else if (otherBlock.MatchesReferenceText)
+				throw new InvalidOperationException("No known need for combining blocks where only one of them is aligned to reference text.");
 			return this;
 		}
+
+		public bool IsFollowOnParagraphStyle => s_regexFollowOnParagraphStyles.IsMatch(StyleTag);
 
 		internal Block SplitBlock(string verseToSplit, int characterOffsetToSplit)
 		{

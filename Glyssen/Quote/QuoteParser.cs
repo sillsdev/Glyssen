@@ -215,7 +215,7 @@ namespace Glyssen.Quote
 
 				if (m_quoteLevel == 1 && blockInWhichDialogueQuoteStarted != null &&
 					(!IsNormalParagraphStyle(blockInWhichDialogueQuoteStarted.StyleTag) || blockEndedWithSentenceEndingPunctuation ||
-					!IsFollowOnParagraphStyle(block.StyleTag)))
+					!block.IsFollowOnParagraphStyle))
 				{
 					DecrementQuoteLevel();
 					inPairedFirstLevelQuote = false;
@@ -425,7 +425,7 @@ namespace Glyssen.Quote
 								}
 								else
 								{
-									blockEndedWithSentenceEndingPunctuation = !IsFollowOnParagraphStyle(m_workingBlock.StyleTag) && token.EndsWithSentenceEndingPunctuation();
+									blockEndedWithSentenceEndingPunctuation = !m_workingBlock.IsFollowOnParagraphStyle && token.EndsWithSentenceEndingPunctuation();
 								}
 								sb.Append(token);
 							}
@@ -685,7 +685,7 @@ namespace Glyssen.Quote
 				m_workingBlock.MultiBlockQuote != MultiBlockQuote.None) &&
 				!m_workingBlock.BlockElements.OfType<Verse>().Any() &&
 				!prevBlock.BlockElements.OfType<ScriptText>().Last().Content.EndsWithSentenceEndingPunctuation() &&
-				IsFollowOnParagraphStyle(m_workingBlock.StyleTag))
+				m_workingBlock.IsFollowOnParagraphStyle)
 			{
 				prevBlock.CombineWith(m_workingBlock);
 			}
@@ -739,11 +739,6 @@ namespace Glyssen.Quote
 		private bool IsNormalParagraphStyle(string styleTag)
 		{
 			return styleTag == "p";
-		}
-
-		private static bool IsFollowOnParagraphStyle(string styleTag)
-		{
-			return styleTag.StartsWith("q") || styleTag == "m" || styleTag.StartsWith("pi");
 		}
 
 		//public static ConcurrentDictionary<BookScript, IReadOnlyList<Block>> Unparse(IEnumerable<BookScript> books)

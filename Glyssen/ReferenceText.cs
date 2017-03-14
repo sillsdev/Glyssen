@@ -199,7 +199,7 @@ namespace Glyssen
 
 			var verseSplitLocationsBasedOnRef = GetVerseSplitLocations(referenceBook, bookNum);
 			var verseSplitLocationsBasedOnVern = GetVerseSplitLocations(vernacularBook, bookNum);
-			MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName);
+			MakesSplits(vernacularBook, bookNum, vernacularVersification, verseSplitLocationsBasedOnRef, "vernacular", LanguageName, true);
 
 			if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
 				m_modifiedBooks.Add(referenceBook.BookId);
@@ -485,7 +485,7 @@ namespace Glyssen
 		/// <returns>A value indicating whether any splits were made</returns>
 		private static bool MakesSplits(PortionScript blocksToSplit, int bookNum, ScrVers versification,
 			List<VerseSplitLocation> verseSplitLocations, string descriptionOfProjectBeingSplit,
-			string descriptionOfProjectUsedToDetermineSplitLocations)
+			string descriptionOfProjectUsedToDetermineSplitLocations, bool preventSplittingBlocksAlreadyMatchedToRefText = false)
 		{
 			if (!verseSplitLocations.Any())
 				return false;
@@ -518,10 +518,16 @@ namespace Glyssen
 
 				if (initEndVerse.CompareTo(lastVerse) != 0 && lastVerse >= verseSplitLocations[iSplit].Before)
 				{
+					bool invalidSplitLocation = false;
 					versification.ChangeVersification(verseToSplitAfter);
-					if (blocksToSplit.TrySplitBlockAtEndOfVerse(block, verseToSplitAfter.VerseNum))
+					if (preventSplittingBlocksAlreadyMatchedToRefText && block.MatchesReferenceText)
+						invalidSplitLocation = blocksToSplit.GetVerseStringToUseForSplittingBlock(block, verseToSplitAfter.VerseNum) == null;
+					else if (blocksToSplit.TrySplitBlockAtEndOfVerse(block, verseToSplitAfter.VerseNum))
 						splitsMade = true;
 					else
+						invalidSplitLocation = true;
+
+					if (invalidSplitLocation)
 					{
 #if DEBUG
 						if (!BlockContainsVerseEndInMiddleOfVerseBridge(block, verseToSplitAfter.VerseNum))
