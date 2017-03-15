@@ -708,7 +708,7 @@ namespace Glyssen.Rules
 					}
 				}
 
-				AssignNarratorCharactersToNarratorGroups(keyStrokesByCharacterId, includedBooks, useBookAuthorCharactersAsNarrators);
+				AssignNarratorCharactersToNarratorGroups(keyStrokesByCharacterId, includedBooks, useBookAuthorCharactersAsNarrators ? (Func<string, bool>)keyStrokesByCharacterId.ContainsKey : null);
 
 				// assign extra-biblical groups
 				if (!extraBiblicalIsSet)
@@ -790,7 +790,7 @@ namespace Glyssen.Rules
 			// 3) number of narrators == number of authors -> add narrator to group with other books by same author, if any; otherwise first empty group
 			// 4) number of narrators < number of authors -> shorter books share narrators
 			// 5) number of narrators > number of authors -> break up most prolific authors into multiple narrator groups
-			private void AssignNarratorCharactersToNarratorGroups(Dictionary<string, int> keyStrokesByCharacterId, List<string> bookIds, bool includeAuthorCharacters)
+			private void AssignNarratorCharactersToNarratorGroups(Dictionary<string, int> keyStrokesByCharacterId, List<string> bookIds, Func<string, bool> includeAuthorCharacter)
 			{
 				if (!NarratorGroups.Any())
 				{
@@ -809,14 +809,14 @@ namespace Glyssen.Rules
 				if (NarratorGroups.Count == 1)
 				{
 					foreach (var bookId in bookIds)
-						AddNarratorToGroup(NarratorGroups[0], bookId, includeAuthorCharacters);
+						AddNarratorToGroup(NarratorGroups[0], bookId, includeAuthorCharacter);
 					return;
 				}
 				if (NarratorGroups.Count == bookIds.Count)
 				{
 					int n = 0;
 					foreach (var bookId in bookIds)
-						AddNarratorToGroup(NarratorGroups[n++], bookId, includeAuthorCharacters);
+						AddNarratorToGroup(NarratorGroups[n++], bookId, includeAuthorCharacter);
 					return;
 				}
 
@@ -837,7 +837,7 @@ namespace Glyssen.Rules
 					foreach (var booksForAuthor in authors.Values)
 					{
 						foreach (var bookId in booksForAuthor)
-							AddNarratorToGroup(NarratorGroups[i], bookId, includeAuthorCharacters);
+							AddNarratorToGroup(NarratorGroups[i], bookId, includeAuthorCharacter);
 						i++;
 					}
 					return;
@@ -855,13 +855,13 @@ namespace Glyssen.Rules
 					DistributeBooksAmongNarratorGroups(NarratorGroups, authors.Count, bookIds, keyStrokesByCharacterId);
 			}
 
-			private static void AddNarratorToGroup(CharacterGroup narratorGroup, string bookId, bool includeAuthorCharacter)
+			private static void AddNarratorToGroup(CharacterGroup narratorGroup, string bookId, Func<string, bool> includeAuthorCharacter = null)
 			{
 				narratorGroup.CharacterIds.Add(CharacterVerseData.GetStandardCharacterId(bookId, CharacterVerseData.StandardCharacter.Narrator));
-				if (includeAuthorCharacter)
+				if (includeAuthorCharacter != null)
 				{
 					var author = BiblicalAuthors.GetAuthorOfBook(bookId);
-					if (author.CombineAuthorAndNarrator)
+					if (includeAuthorCharacter(author.Name) && author.CombineAuthorAndNarrator)
 						narratorGroup.CharacterIds.Add(author.Name);
 				}
 			}
@@ -881,7 +881,7 @@ namespace Glyssen.Rules
 				for (int i = authorStats.Count - 1; i >= min; i--)
 				{
 					foreach (var bookId in authorStats[i].BookIds)
-						AddNarratorToGroup(narratorGroups[n], bookId, false);
+						AddNarratorToGroup(narratorGroups[n], bookId);
 
 					int numberOfRemainingNarratorGroupsToAssign = narratorGroups.Count - n - 1;
 					if (numberOfRemainingNarratorGroupsToAssign > 0)
@@ -928,7 +928,7 @@ namespace Glyssen.Rules
 									while (min <= lastAuthorToConsiderCombiningWithCurrent)
 									{
 										foreach (var bookId in authorStats[min++].BookIds)
-											AddNarratorToGroup(narratorGroups[n], bookId, false);
+											AddNarratorToGroup(narratorGroups[n], bookId);
 									}
 									currentMustCombine = true; // Once we find an author that combines, all subequent authors must also combine.
 									break;
@@ -1007,7 +1007,7 @@ namespace Glyssen.Rules
 						narratorGroupForBook = narratorGroups[n++];
 						narratorGroupsByAuthor[author] = new List<CharacterGroup> { narratorGroupForBook };
 					}
-					AddNarratorToGroup(narratorGroupForBook, bookId, false);
+					AddNarratorToGroup(narratorGroupForBook, bookId);
 				}
 			}
 
