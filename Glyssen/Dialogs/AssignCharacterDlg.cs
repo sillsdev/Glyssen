@@ -1377,6 +1377,7 @@ namespace Glyssen.Dialogs
 			else
 			{
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
+				var block = matchup.CorrelatedBlocks[e.RowIndex];
 
 				if ((colPrimary.Visible && e.ColumnIndex == colPrimary.Index) ||
 					(!colPrimary.Visible && e.ColumnIndex == colEnglish.Index))
@@ -1402,6 +1403,9 @@ namespace Glyssen.Dialogs
 							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
 					}
 
+					Logger.WriteMinorEvent(@"Setting character to {selectedCharacter.CharacterId} for " +
+						@"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
+
 					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
 					{
 						// Narrators are never allowed to have a delivery other than normal.
@@ -1411,11 +1415,13 @@ namespace Glyssen.Dialogs
 						// to fix that first.
 						var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
 						if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
+						{
+							Logger.WriteMinorEvent(@"Character is Narrator. Forcing delivery to normal.");
 							deliveryCell.Value = AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
+						}
 					}
 					m_viewModel.SetReferenceTextMatchupCharacter(e.RowIndex, selectedCharacter);
 
-					var block = matchup.CorrelatedBlocks[e.RowIndex];
 					if (m_viewModel.IsBlockAssignedToUnknownCharacterDeliveryPair(block))
 					{
 						// The first one should always be "normal" - we want a more specific one, if any.
@@ -1427,7 +1433,10 @@ namespace Glyssen.Dialogs
 								? AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay
 								: delivery.LocalizedDisplay;
 							if (existingValue as string != deliveryAsString)
+							{
+								Logger.WriteMinorEvent(@"Unknown Character-delivery pair. Forcing delivery to {deliveryAsString}.");
 								m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
+							}
 						}
 					}
 
