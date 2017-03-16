@@ -1367,9 +1367,9 @@ namespace Glyssen.Dialogs
 						colDelivery.Items.Cast<AssignCharacterViewModel.Delivery>().FirstOrDefault(d => d.LocalizedDisplay == newValue);
 					if (selectedDelivery == null)
 					{
-						var bibleReference = m_viewModel.CurrentBookId + " " + m_viewModel.CurrentBlock.ChapterNumber + ":" +
-											 m_viewModel.CurrentBlock.InitialStartVerseNumber;
-						throw new Exception("Selected delivery '" + newValue + "' not found! (" + bibleReference + ")");
+						var block = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[e.RowIndex];
+						throw new Exception($"Selected delivery '{newValue}' not found! " +
+							$"({m_viewModel.CurrentBookId} {block.ChapterNumber}:{block.InitialStartVerseNumber})");
 					}
 				}
 				m_viewModel.SetReferenceTextMatchupDelivery(e.RowIndex, selectedDelivery);
@@ -1394,17 +1394,17 @@ namespace Glyssen.Dialogs
 				{
 					Debug.Assert(e.ColumnIndex == colCharacter.Index);
 					Debug.Assert(!colCharacter.ReadOnly);
-					var selectedCharacter =
-						m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as AssignCharacterViewModel.Character;
+					var selectedCharacter = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex]
+						.Value as AssignCharacterViewModel.Character;
 					if (selectedCharacter == null)
 					{
 						var newValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as string;
-						selectedCharacter =
-							colCharacter.Items.Cast<AssignCharacterViewModel.Character>().FirstOrDefault(c => c.LocalizedDisplay == newValue);
+						selectedCharacter = colCharacter.Items.Cast<AssignCharacterViewModel.Character>()
+							.First(c => c.LocalizedDisplay == newValue);
 					}
 
-					Logger.WriteMinorEvent(@"Setting character to {selectedCharacter.CharacterId} for " +
-						@"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
+					Logger.WriteMinorEvent($"Setting character to {selectedCharacter.CharacterId} for " +
+						$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
 
 					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
 					{
@@ -1416,7 +1416,7 @@ namespace Glyssen.Dialogs
 						var deliveryCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index];
 						if (deliveryCell.Value as string != AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay)
 						{
-							Logger.WriteMinorEvent(@"Character is Narrator. Forcing delivery to normal.");
+							Logger.WriteMinorEvent("Character is Narrator. Forcing delivery to normal.");
 							deliveryCell.Value = AssignCharacterViewModel.Delivery.Normal.LocalizedDisplay;
 						}
 					}
@@ -1434,7 +1434,7 @@ namespace Glyssen.Dialogs
 								: delivery.LocalizedDisplay;
 							if (existingValue as string != deliveryAsString)
 							{
-								Logger.WriteMinorEvent(@"Unknown Character-delivery pair. Forcing delivery to {deliveryAsString}.");
+								Logger.WriteMinorEvent($"Unknown Character-delivery pair. Forcing delivery to {deliveryAsString}.");
 								m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value = deliveryAsString;
 							}
 						}

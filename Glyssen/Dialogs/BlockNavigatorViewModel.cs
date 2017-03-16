@@ -794,7 +794,8 @@ namespace Glyssen.Dialogs
 
 			var origValue = m_currentRefBlockMatchups;
 
-			Logger.WriteMinorEvent("Setting block matchup for block {0} in {1}", CurrentBlockIndexInBook, CurrentBook.BookId);
+			Logger.WriteMinorEvent($"Setting block matchup for block {CurrentBlockIndexInBook} in " +
+				$"{CurrentBook.BookId} {CurrentBlock.ChapterNumber}:{CurrentBlock.InitialStartVerseNumber}");
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
 				CurrentBlockIndexInBook, m_project.Versification, m_navigator.GetIndices().MultiBlockCount);
