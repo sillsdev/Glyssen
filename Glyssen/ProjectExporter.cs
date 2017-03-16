@@ -762,6 +762,7 @@ namespace Glyssen
 				Empty : " ";
 			return annotationInfo + separator + text;
 		}
+
 		private bool HasReferenceText(List<object> dataRow)
 		{
 			return !IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
