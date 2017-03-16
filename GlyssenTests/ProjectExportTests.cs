@@ -690,7 +690,85 @@ namespace GlyssenTests
 				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
 				(string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 		}
-		
+
+		[Test]
+		public void GetExportData_EmptyReferenceTextForVersesWithAnnotations_AnnotationsInsertedIntoEmptyReferenceTextsWithoutCrashing()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD, TestProject.TestBook.REV);
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian);
+			var jud = project.IncludedBooks[0];
+			var blockJud12 = jud.GetScriptBlocks().Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "12"));
+			if (blockJud12.InitialStartVerseNumber != 12)
+				blockJud12 = jud.SplitBlock(blockJud12, "11", PortionScript.kSplitAtEndOfVerse);
+			if (blockJud12.LastVerseNum != 12)
+				jud.SplitBlock(blockJud12, "12", PortionScript.kSplitAtEndOfVerse);
+			blockJud12.SetMatchedReferenceBlock("{12}").SetMatchedReferenceBlock("");
+			var blockJud25 = jud.GetScriptBlocks().Single(b => b.BlockElements.OfType<Verse>().Any(v => v.Number == "25"));
+			if (blockJud25.InitialStartVerseNumber != 25)
+				blockJud25 = jud.SplitBlock(blockJud25, "24", PortionScript.kSplitAtEndOfVerse);
+			Assert.AreEqual(25, blockJud25.LastVerseNum);
+			blockJud25.SetMatchedReferenceBlock("{25}").SetMatchedReferenceBlock("");
+			var rev = project.IncludedBooks[1];
+			var blockRev1V3 = rev.GetScriptBlocks().Single(b => b.ChapterNumber == 1 && b.BlockElements.OfType<Verse>().Any(v => v.Number == "3"));
+			if (blockRev1V3.InitialStartVerseNumber != 3)
+				blockRev1V3 = rev.SplitBlock(blockRev1V3, "2", PortionScript.kSplitAtEndOfVerse);
+			if (blockRev1V3.LastVerseNum != 3)
+				rev.SplitBlock(blockRev1V3, "3", PortionScript.kSplitAtEndOfVerse);
+			blockRev1V3.SetMatchedReferenceBlock("{3}").SetMatchedReferenceBlock("");
+			var blockRev1V20 = rev.GetScriptBlocks().Single(b => b.ChapterNumber == 1 && b.BlockElements.OfType<Verse>().Any(v => v.Number == "20"));
+			if (blockRev1V20.InitialStartVerseNumber != 20)
+				blockRev1V20 = rev.SplitBlock(blockRev1V20, "19", PortionScript.kSplitAtEndOfVerse);
+			if (blockRev1V20.LastVerseNum != 20)
+				rev.SplitBlock(blockRev1V20, "20", PortionScript.kSplitAtEndOfVerse);
+			blockRev1V20.SetMatchedReferenceBlock("{20}").SetMatchedReferenceBlock("");
+
+			var exporter = new ProjectExporter(project) { SelectedFileType = ExportFileType.Excel };
+
+			var data = exporter.GetExportData().ToList();
+
+			//SFX (music/sfx come before verse text)
+			var textRowForVerse12 = data.Single(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "12").ToList();
+			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12}";
+			var primaryColumnIndex = exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText);
+			var secondaryColumnIndex = exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText);
+			Assert.AreEqual(annotationInfo + " {12}\u00A0", (string)textRowForVerse12[primaryColumnIndex]);
+			Assert.AreEqual(annotationInfo, ((string)textRowForVerse12[secondaryColumnIndex]).TrimEnd());
+			Assert.IsTrue(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).StartsWith(annotationInfo + " {12}\u00A0"));
+			Assert.AreEqual("{12}\u00A0Gikelo lewic i karamawu me mar ka gicamo matek mukato kare laboŋo lworo, kun giparo pi komgi keken. " +
+				"Gubedo calo pol ma pii pe iye ma yamo kolo; girom ki yadi ma nyiggi pe nen i kare me cekgi, ma giputo lwitgi woko, " +
+				"yam guto kiryo. ",
+				(string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			//Pause for final verse in book (pauses come after verse text)
+			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "25").ToList();
+			var textRowForJude25 = rowsForJude25.Single();
+			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "5");
+			Assert.AreEqual("{25}\u00A0" + annotationInfo, (string)textRowForJude25[primaryColumnIndex]);
+			Assert.AreEqual(annotationInfo, ((string)textRowForJude25[secondaryColumnIndex]).TrimStart());
+			Assert.AreEqual("{25}\u00A0Deyo, dit, loc ki twer ducu obed bot Lubaŋa acel keken, ma Lalarwa, pi Yecu Kricito Rwotwa, " +
+				"cakke ma peya giketo lobo, nio koni, ki kare ma pe gik. Amen.",
+				(string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			//Pause for non-final verse in book (pauses come after verse text)
+			var textRowForRev1V3 = data.First(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "3").ToList();
+			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "2");
+			Assert.AreEqual("{3}\u00A0" + annotationInfo, (string)textRowForRev1V3[primaryColumnIndex]);
+			Assert.AreEqual(annotationInfo, ((string)textRowForRev1V3[secondaryColumnIndex]).TrimStart());
+			Assert.AreEqual("{3}\u00A0Ŋat ma kwano lok ma gitito i buk man i nyim lwak tye ki gum, jo ma winyo bene tye ki gum, ki jo ma lubo " +
+				"gin ma gicoyo iye bene tye ki gum, pien kare doŋ cok.",
+				(string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			//Pause for final verse in chapter (pauses come after verse text)
+			var textRowForRev1V20 = data.Single(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "20").ToList();
+			Assert.AreEqual("{20}\u00A0" + annotationInfo, (string)textRowForRev1V20[primaryColumnIndex]);
+			Assert.AreEqual(annotationInfo, ((string)textRowForRev1V20[secondaryColumnIndex]).TrimStart());
+			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
+				"Lakalatwe abiro gin aye lumalaika pa lwak muye Kricito ma gitye i kabedo abiro mapatpat, doŋ okar-mac abiro-ni gin " +
+				"aye lwak muye Kricito ma gitye i kabedo abiro mapatpat.”",
+				(string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+		}
+
 		/// <summary>
 		/// PG-905
 		/// </summary>
@@ -703,7 +781,7 @@ namespace GlyssenTests
 
 			var rev =project.IncludedBooks.First();
 
-			// Force a block that has an appended annotation to have a null primary reference.
+			// Force a block that has an appended annotation to have a null secondary reference.
 			foreach (var block in rev.GetScriptBlocks().Where(b => b.ChapterNumber == 22 && b.InitialStartVerseNumber == 17))
 				block.SetMatchedReferenceBlock("Get, sәn dә elә et");
 
@@ -729,7 +807,7 @@ namespace GlyssenTests
 			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
 			project.ReferenceText = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
 
-			// Force a block that has a prepended annotation to have a null primary reference.
+			// Force a block that has a prepended annotation to have a null secondary reference.
 			var vernBlock = project.IncludedBooks.First().GetScriptBlocks().Single(b => b.ChapterNumber == 1 && b.InitialStartVerseNumber == 7);
 			vernBlock.SetMatchedReferenceBlock("{7}Verse Seven in Azeri.");
 
