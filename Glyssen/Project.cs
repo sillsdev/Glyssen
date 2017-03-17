@@ -1711,6 +1711,12 @@ namespace Glyssen
 					if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
 						continue;
 
+					if (character == null)
+					{
+						throw new Exception($"Block has character set to null. This should never happen! " +
+							$"Block ({book.BookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}): {block}");
+					}
+
 					if (!m_keyStrokesByCharacterId.ContainsKey(character))
 					{
 						m_keyStrokesByCharacterId.Add(character, 0);
