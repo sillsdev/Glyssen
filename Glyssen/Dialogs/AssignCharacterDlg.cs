@@ -1285,17 +1285,29 @@ namespace Glyssen.Dialogs
 				var language = m_dataGridReferenceText.Columns[refTextColumnIndex].HeaderText;
 				if (problems.Count == 1)
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.SingleRefernceTextEndingWithVerse",
+					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.SingleReferenceTextEndsWithVerse",
 						"One of the {0} reference texts entered ends with a verse number.");
 				}
 				else if (problems.All(p => p.Item2 == firstProblem.Item2))
 				{
-					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.SingleRefernceTextEndingWithVerse",
-						"One of the {0} reference texts entered ends with a verse number.");
+					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfSameReferenceTextsEndWithVerse",
+						"Some of the {0} reference texts entered end with a verse number.");
+				}
+				else
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfDifferentReferenceTextsEndWithVerse",
+						"Some of the reference texts entered end with a verse number.");
 				}
 
-				msg = String.Format(msg, language) + LocalizationManager.GetString()
-				return false;
+				msg = String.Format(msg, language) + " " + LocalizationManager.GetString(
+					"DialogBoxes.AssignCharacterDlg.AllowReferenceTextsEndingWithVerse",
+					"Would you like to correct this before applying your changes?");
+				if (MessageBox.Show(this, msg, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+				{
+					var col = firstProblem.Item2 == 1 && colPrimary.Visible ? colPrimary : colEnglish;
+					m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[firstProblem.Item1].Cells[col.Index];
+					return false;
+				}
 			}
 			m_viewModel.ApplyCurrentReferenceTextMatchup();
 			return true;
