@@ -116,7 +116,7 @@ namespace Glyssen.Dialogs
 			m_scriptureReference.VerseControl.Versification = m_viewModel.Versification;
 			m_scriptureReference.VerseControl.VerseRefChanged += m_scriptureReference_VerseRefChanged;
 			m_scriptureReference.VerseControl.Disposed += (sender, args) =>
-				m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
+					m_scriptureReference.VerseControl.VerseRefChanged -= m_scriptureReference_VerseRefChanged;
 
 			m_blocksViewer.Initialize(m_viewModel,
 				AssignCharacterViewModel.Character.GetCharacterIdForUi,
@@ -372,7 +372,7 @@ namespace Glyssen.Dialogs
 		{
 			var matchup = m_viewModel.CurrentReferenceTextMatchup;
 			if (row != null && matchup != null && (matchup.CorrelatedBlocks[row.Index].
-				CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
+					CharacterIs(m_viewModel.CurrentBookId, CharacterVerseData.StandardCharacter.Narrator) ||
 				matchup.CorrelatedBlocks[row.Index].CharacterId == CharacterVerseData.kUnknownCharacter))
 			{
 				if (Block.IsEmptyVerseReferenceText(row.Cells[colEnglish.Index].Value as string))
@@ -433,7 +433,7 @@ namespace Glyssen.Dialogs
 				{
 					int c = cellToMakeCurrent.ColumnIndex + 1;
 					while (c < m_dataGridReferenceText.ColumnCount &&
-						(m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly ||
+					(m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].ReadOnly ||
 						!m_dataGridReferenceText.Rows[cellToMakeCurrent.RowIndex].Cells[c].Visible))
 						c++;
 					if (c < m_dataGridReferenceText.ColumnCount)
@@ -532,8 +532,8 @@ namespace Glyssen.Dialogs
 		private bool AreSelectionsCompleteForColumn(DataGridViewComboBoxColumn col)
 		{
 			return !col.Visible ||
-				   m_dataGridReferenceText.Rows.Cast<DataGridViewRow>().All(row => row.Cells[col.Index].Value != null
-																				   || row.Cells[col.Index].ReadOnly);
+				m_dataGridReferenceText.Rows.Cast<DataGridViewRow>().All(row => row.Cells[col.Index].Value != null
+					|| row.Cells[col.Index].ReadOnly);
 		}
 
 		private void ShowCharacterFilter()
@@ -571,8 +571,8 @@ namespace Glyssen.Dialogs
 		{
 			if (m_tabControlCharacterSelection.SelectedTab == tabPageSelectCharacter)
 			{
-				return m_viewModel.IsModified((AssignCharacterViewModel.Character) m_listBoxCharacters.SelectedItem,
-					(AssignCharacterViewModel.Delivery) m_listBoxDeliveries.SelectedItem);
+				return m_viewModel.IsModified((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
+					(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 			}
 			return m_viewModel.CurrentReferenceTextMatchup != null && m_viewModel.CurrentReferenceTextMatchup.HasOutstandingChangesToApply;
 		}
@@ -634,7 +634,7 @@ namespace Glyssen.Dialogs
 				m_listBoxDeliveries.SelectedIndex = 0;
 			else
 			{
-				if (currentBlock.CharacterId == ((AssignCharacterViewModel.Character) m_listBoxCharacters.SelectedItem).CharacterId)
+				if (currentBlock.CharacterId == ((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem).CharacterId)
 				{
 					foreach (var delivery in m_listBoxDeliveries.Items.Cast<AssignCharacterViewModel.Delivery>())
 					{
@@ -661,7 +661,7 @@ namespace Glyssen.Dialogs
 		private void SaveSelections()
 		{
 			m_viewModel.SetCharacterAndDelivery((AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem,
-				(AssignCharacterViewModel.Delivery) m_listBoxDeliveries.SelectedItem);
+				(AssignCharacterViewModel.Delivery)m_listBoxDeliveries.SelectedItem);
 		}
 
 		private bool IsOkayToLeaveBlock()
@@ -705,7 +705,7 @@ namespace Glyssen.Dialogs
 						string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesMessage",
 							"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before navigating?");
 						if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-							m_viewModel.ApplyCurrentReferenceTextMatchup();
+							result = CheckRefTextValuesAndApplyMatchup();
 					}
 					else
 					{
@@ -857,7 +857,7 @@ namespace Glyssen.Dialogs
 
 		private void m_listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			var selectedCharacter = (AssignCharacterViewModel.Character) m_listBoxCharacters.SelectedItem;
+			var selectedCharacter = (AssignCharacterViewModel.Character)m_listBoxCharacters.SelectedItem;
 
 			LoadDeliveryListBox(m_viewModel.GetDeliveriesForCharacter(selectedCharacter));
 			HideDeliveryFilter();
@@ -947,10 +947,10 @@ namespace Glyssen.Dialogs
 
 			if (m.Msg == WM_KEYDOWN)
 			{
-				if (m_blocksViewer.ContainsFocus && ((Keys) m.WParam | Keys.Control) == 0)
+				if (m_blocksViewer.ContainsFocus && ((Keys)m.WParam | Keys.Control) == 0)
 				{
 					m_listBoxCharacters.Focus();
-					PostMessage(Handle, (uint) m.Msg, m.WParam, m.LParam);
+					PostMessage(Handle, (uint)m.Msg, m.WParam, m.LParam);
 					return true;
 				}
 			}
@@ -1024,14 +1024,30 @@ namespace Glyssen.Dialogs
 
 				switch (m_toolStripComboBoxFilter.SelectedIndex)
 				{
-					case 0: mode = BlocksToDisplay.NotYetAssigned; break;
-					case 1: mode = BlocksToDisplay.NotAssignedAutomatically; break;
-					case 2: mode = BlocksToDisplay.MissingExpectedQuote; break;
-					case 3: mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers; break;
-					case 4: mode = BlocksToDisplay.AllExpectedQuotes; break;
-					case 5: mode = BlocksToDisplay.AllQuotes; break;
-					case 7: mode = BlocksToDisplay.NotAlignedToReferenceText; break;
-					default: mode = BlocksToDisplay.AllScripture; break;
+					case 0:
+						mode = BlocksToDisplay.NotYetAssigned;
+						break;
+					case 1:
+						mode = BlocksToDisplay.NotAssignedAutomatically;
+						break;
+					case 2:
+						mode = BlocksToDisplay.MissingExpectedQuote;
+						break;
+					case 3:
+						mode = BlocksToDisplay.MoreQuotesThanExpectedSpeakers;
+						break;
+					case 4:
+						mode = BlocksToDisplay.AllExpectedQuotes;
+						break;
+					case 5:
+						mode = BlocksToDisplay.AllQuotes;
+						break;
+					case 7:
+						mode = BlocksToDisplay.NotAlignedToReferenceText;
+						break;
+					default:
+						mode = BlocksToDisplay.AllScripture;
+						break;
 				}
 
 				Logger.WriteEvent("Changed filter in Identify Speaking Parts dialog: " + mode);
@@ -1078,7 +1094,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_toolStripButtonMatchReferenceText.Checked == m_toolStripButtonSelectCharacter.Checked)
 			{
-				IsOkayToLeaveBlock();	// returns true whether reply is Yes or No
+				IsOkayToLeaveBlock(); // returns true whether reply is Yes or No
 				m_toolStripButtonMatchReferenceText.Checked = !m_toolStripButtonSelectCharacter.Checked;
 
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
@@ -1146,7 +1162,8 @@ namespace Glyssen.Dialogs
 					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting",
 						"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?");
 					if (MessageBox.Show(this, msg, UnsavedChangesMessageBoxTitle, MessageBoxButtons.YesNo) == DialogResult.Yes)
-						m_viewModel.ApplyCurrentReferenceTextMatchup();
+						if (!CheckRefTextValuesAndApplyMatchup())
+							return;
 				}
 
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
@@ -1253,8 +1270,47 @@ namespace Glyssen.Dialogs
 
 		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
+			if (CheckRefTextValuesAndApplyMatchup())
+				MoveOn();
+		}
+
+		private bool CheckRefTextValuesAndApplyMatchup()
+		{
+			var problems = m_viewModel.CurrentReferenceTextMatchup.GetInvalidReferenceBlocksAtAnyLevel().ToList();
+			if (problems.Any())
+			{
+				string msg;
+				var firstProblem = problems.First();
+				var refTextColumnIndex = firstProblem.Item2 == 1 ? colPrimary.Index : colEnglish.Index;
+				var language = m_dataGridReferenceText.Columns[refTextColumnIndex].HeaderText;
+				if (problems.Count == 1)
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.SingleReferenceTextEndsWithVerse",
+						"One of the {0} reference texts entered ends with a verse number.");
+				}
+				else if (problems.All(p => p.Item2 == firstProblem.Item2))
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfSameReferenceTextsEndWithVerse",
+						"Some of the {0} reference texts entered end with a verse number.");
+				}
+				else
+				{
+					msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.MultipleCellsOfDifferentReferenceTextsEndWithVerse",
+						"Some of the reference texts entered end with a verse number.");
+				}
+
+				msg = String.Format(msg, language) + " " + LocalizationManager.GetString(
+					"DialogBoxes.AssignCharacterDlg.AllowReferenceTextsEndingWithVerse",
+					"Would you like to correct this before applying your changes?");
+				if (MessageBox.Show(this, msg, Text, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+				{
+					var col = firstProblem.Item2 == 1 && colPrimary.Visible ? colPrimary : colEnglish;
+					m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[firstProblem.Item1].Cells[col.Index];
+					return false;
+				}
+			}
 			m_viewModel.ApplyCurrentReferenceTextMatchup();
-			MoveOn();
+			return true;
 		}
 
 		private void UpdateRowSpecificButtonStates(object sender, DataGridViewCellEventArgs e)

@@ -142,25 +142,33 @@ namespace Glyssen
 
 		public Block CorrelatedAnchorBlock { get; private set; }
 
-#if !DEBUG
-		static
-#endif
-		private Block GetInvalidReferenceBlockAtAnyLevel(IEnumerable<Block> blocks)
+		public IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel()
 		{
-			var refBlocks = blocks.Where(b => b.MatchesReferenceText).Select(b => b.ReferenceBlocks.Single()).ToList();
-			var bogusRefBlock = refBlocks.FirstOrDefault(r => r.BlockElements.Last() is Verse);
-			if (bogusRefBlock != null)
-				return bogusRefBlock;
+			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1, m_vernacularBook.BookId);
+		}
+
+		private static IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel(IReadOnlyList<Block> blocks, int level, string bookId)
+		{
+			var refBlocks = new List<Block>();
+			for (int i = 0; i < blocks.Count; i++)
+			{
+				var block = blocks[i];
+				if (block.MatchesReferenceText)
+				{
+					var refBlock = block.ReferenceBlocks.Single();
+					if (refBlock.BlockElements.Last() is Verse)
+						yield return new Tuple<int, int>(i, level);
+					refBlocks.Add(refBlock);
+				}
+			}
 
 			if (refBlocks.Any(r => r.MatchesReferenceText))
 			{
-#if DEBUG
-				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical)),
+				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical)),
 					"All reference blocks should have the same number of levels of underlying reference blocks.");
-#endif
-				return GetInvalidReferenceBlockAtAnyLevel(refBlocks);
+				foreach (var bogusRefBlock in GetInvalidReferenceBlocksAtAnyLevel(refBlocks, level + 1, bookId))
+					yield return bogusRefBlock;
 			}
-			return null;
 		}
 
 		public void Apply(Paratext.ScrVers versification)
@@ -168,9 +176,9 @@ namespace Glyssen
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
 
-			var bogusRefBlock = GetInvalidReferenceBlockAtAnyLevel(CorrelatedBlocks);
-			if (bogusRefBlock != null)
-				throw new InvalidReferenceTextException(bogusRefBlock);
+			//var bogusRefBlock = GetInvalidReferenceBlockAtAnyLevel(CorrelatedBlocks);
+			//if (bogusRefBlock != null)
+			//	throw new InvalidReferenceTextException(bogusRefBlock);
 
 			if (m_numberOfBlocksAddedBySplitting > 0)
 			{
@@ -340,13 +348,6 @@ namespace Glyssen
 			if (!blockIndices.Any())
 				throw new ArgumentException();
 			return !blockIndices.Any(i => CorrelatedBlocks[i].CharacterIsStandard);
-		}
-	}
-
-	public class InvalidReferenceTextException :  Exception
-	{
-		public InvalidReferenceTextException(Block referenceTextBlock) : base(referenceTextBlock.GetText(true, true))
-		{
 		}
 	}
 }

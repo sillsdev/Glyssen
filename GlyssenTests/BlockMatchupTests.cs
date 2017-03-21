@@ -524,7 +524,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void Apply_PrimaryReferenceBlockEndsWithEmptyVerse_ThrowsInvalidOperationException()
+		public void GetInvalidReferenceBlocksAtAnyLevel_PrimaryReferenceBlockEndsWithEmptyVerse_ReturnsLevel1Block()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y dijo: ", true));
@@ -534,12 +534,13 @@ namespace GlyssenTests
 			matchup.SetReferenceText(0, "{1} Then Jesus opened his mouth and said: {2} ");
 			matchup.SetReferenceText(1, "why isn't the verse number at the start of this block?");
 
-			Assert.Throws<InvalidReferenceTextException>(() => matchup.Apply(null));
-			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
+			var blockWithInvalidReferences = matchup.GetInvalidReferenceBlocksAtAnyLevel().Single();
+			Assert.AreEqual(0, blockWithInvalidReferences.Item1);
+			Assert.AreEqual(1, blockWithInvalidReferences.Item2);
 		}
 
 		[Test]
-		public void Apply_SecondaryReferenceBlockEndsWithEmptyVerse_ThrowsInvalidOperationException()
+		public void GetInvalidReferenceBlocksAtAnyLevel_SecondaryReferenceBlockEndsWithEmptyVerse_ReturnsLevel2Block()
 		{
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y dijo: ", true));
@@ -557,9 +558,35 @@ namespace GlyssenTests
 			Assert.AreEqual("This is {2}\u00A0", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 
-			var e = Assert.Throws<InvalidReferenceTextException>(() => matchup.Apply(null));
-			Assert.AreEqual("This is {2}\u00A0", e.Message);
+			var blockWithInvalidReferences = matchup.GetInvalidReferenceBlocksAtAnyLevel().Single();
+			Assert.AreEqual(1, blockWithInvalidReferences.Item1);
+			Assert.AreEqual(2, blockWithInvalidReferences.Item2);
+		}
+
+		[Test]
+		public void GetInvalidReferenceBlocksAtAnyLevel_PrimaryAndSecondaryReferenceBlockConsistOfEmptyVerse_ReturnsBlocksFromBothLevels()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus abrio su boca y dijo: ", true));
+			ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "Este es").AddVerse(2, "versiculo dos.");
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var primaryRefBlock1 = new Block("p", 1, 1).AddVerse(1, "Ceci est un bloc.");
+			vernacularBlocks.First().SetMatchedReferenceBlock(primaryRefBlock1);
+			primaryRefBlock1.SetMatchedReferenceBlock(new Block("p", 1, 1).AddVerse(1, "This is a block."));
+			var primaryRefBlock2 = new Block("p", 1, 1).AddVerse(2, "Ceci est un verset.");
+			vernacularBlocks.Last().SetMatchedReferenceBlock(primaryRefBlock2);
+			primaryRefBlock2.SetMatchedReferenceBlock(new Block("p", 1, 1).AddVerse(2, "This is a verse."));
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, null);
+			matchup.SetReferenceText(1, "{2}", 0);
+			matchup.SetReferenceText(0, "{2}", 1);
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
+
+			var blocksWithInvalidReferences = matchup.GetInvalidReferenceBlocksAtAnyLevel().ToList();
+			Assert.AreEqual(2, blocksWithInvalidReferences.Count);
+			Assert.AreEqual(1, blocksWithInvalidReferences.First().Item1);
+			Assert.AreEqual(1, blocksWithInvalidReferences.First().Item2);
+			Assert.AreEqual(0, blocksWithInvalidReferences.Last().Item1);
+			Assert.AreEqual(2, blocksWithInvalidReferences.Last().Item2);
 		}
 
 		[Test]
