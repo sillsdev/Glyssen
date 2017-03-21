@@ -142,16 +142,12 @@ namespace Glyssen
 
 		public Block CorrelatedAnchorBlock { get; private set; }
 
-#if !DEBUG
-		static
-#endif
-
 		public IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel()
 		{
-			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1);
+			return GetInvalidReferenceBlocksAtAnyLevel(CorrelatedBlocks, 1, m_vernacularBook.BookId);
 		}
 
-		private IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel(IReadOnlyList<Block> blocks, int level)
+		private static IEnumerable<Tuple<int, int>> GetInvalidReferenceBlocksAtAnyLevel(IReadOnlyList<Block> blocks, int level, string bookId)
 		{
 			var refBlocks = new List<Block>();
 			for (int i = 0; i < blocks.Count; i++)
@@ -168,11 +164,9 @@ namespace Glyssen
 
 			if (refBlocks.Any(r => r.MatchesReferenceText))
 			{
-#if DEBUG
-				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.CharacterIs(m_vernacularBook.BookId, CharacterVerseData.StandardCharacter.ExtraBiblical)),
+				Debug.Assert(refBlocks.All(r => r.MatchesReferenceText || r.CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical)),
 					"All reference blocks should have the same number of levels of underlying reference blocks.");
-#endif
-				foreach (var bogusRefBlock in GetInvalidReferenceBlocksAtAnyLevel(refBlocks, level + 1))
+				foreach (var bogusRefBlock in GetInvalidReferenceBlocksAtAnyLevel(refBlocks, level + 1, bookId))
 					yield return bogusRefBlock;
 			}
 		}
