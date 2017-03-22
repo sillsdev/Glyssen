@@ -233,7 +233,7 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		public bool CanDisplayReferenceTextForCurrentBlock => m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook);
+		public bool CanDisplayReferenceTextForCurrentBlock => m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook) && !CurrentBook.SingleVoice;
 
 		public bool IsCurrentBlockRelevant
 		{
