@@ -849,6 +849,7 @@ namespace GlyssenTests
 			// Ensure block 1 not changed
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
 			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual(2, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().InitialStartVerseNumber);
 
 			Assert.AreEqual("Then Jesus told them that it was just verse two.", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
 			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
@@ -885,9 +886,123 @@ namespace GlyssenTests
 
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
 			Assert.AreEqual("“Continuation of previous verse in ref text. {3}\u00A0Three!”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual(1, refBlock2.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
 			Assert.AreEqual(2, followingRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, followingRefBlock.InitialEndVerseNumber);
 			Assert.AreEqual("Jesus", followingRefBlock.CharacterId);
+		}
+
+		[Test]
+		public void SetReferenceText_VerseNumberAddedToRefBlockOfFirstBlock_FollowingPrimaryAndSecondaryRefBlocksDoNotStartWithVerseNumbers_InitialVerseRefOfClonedFollowingReferenceBlocksChanged()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus hablo, diciendo: ", true));
+			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
+			var narrator = vernacularBlocks.Last().CharacterId;
+
+			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Yo soy el pan de vida.”", "p");
+			var primaryRefBlock2 = new Block("q", 1, 1);
+			primaryRefBlock2.CharacterId = "Jesus";
+			primaryRefBlock2.BlockElements.Add(new ScriptText("“Continuation of previous verse in primary ref text.”, "));
+			primaryRefBlock2.AddVerse(3, "Three!");
+			var secondaryRefBlock2 = new Block("q", 1, 1);
+			secondaryRefBlock2.CharacterId = "Jesus";
+			secondaryRefBlock2.BlockElements.Add(new ScriptText("“Continuation of verse three in secondary ref text.” "));
+			primaryRefBlock2.SetMatchedReferenceBlock(secondaryRefBlock2);
+			block2.ReferenceBlocks.Add(primaryRefBlock2);
+
+			var primaryRefBlock3 = new Block("q", 1, 3);
+			primaryRefBlock3.CharacterId = narrator;
+			primaryRefBlock3.BlockElements.Add(new ScriptText("so He spake."));
+			var secondaryRefBlock3 = new Block("q", 1, 1);
+			secondaryRefBlock3.CharacterId = narrator;
+			secondaryRefBlock3.BlockElements.Add(new ScriptText("(let the reader understand) "));
+			secondaryRefBlock3.AddVerse(3, "That's what Jesus said.");
+			primaryRefBlock3.SetMatchedReferenceBlock(secondaryRefBlock3);
+			block2.ReferenceBlocks.Add(primaryRefBlock3);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian));
+			matchup.MatchAllBlocks(null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			matchup.SetReferenceText(0, "Then Jesus told them {2} that verse two was important, too. ");
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual(1, primaryRefBlock2.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			Assert.AreEqual(3, primaryRefBlock3.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			Assert.AreEqual(1, secondaryRefBlock2.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			Assert.AreEqual(1, secondaryRefBlock3.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			var followingPrimaryRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
+			Assert.AreEqual(2, followingPrimaryRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, followingPrimaryRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Jesus", followingPrimaryRefBlock.CharacterId);
+			var followingSecondaryRefBlock = followingPrimaryRefBlock.ReferenceBlocks.Single();
+			Assert.AreEqual(2, followingSecondaryRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, followingSecondaryRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Jesus", followingSecondaryRefBlock.CharacterId);
+		}
+
+		[Test]
+		public void SetReferenceText_VerseNumberAddedToRefBlockOfFirstBlock_PrimaryAndSecondaryRefBlocksOfFollowingBlocksDoNotStartWithVerseNumbers_InitialVerseRefOfClonedFollowingReferenceBlocksChanged()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Entonces Jesus hablo, diciendo: ", true));
+			vernacularBlocks.Last().SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(1, "Then Jesus spoke unto them, ", true));
+			var narrator = vernacularBlocks.Last().CharacterId;
+
+			var block2 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Yo soy el pan de vida.", "p");
+			var primaryRefBlock2 = new Block("q", 1, 1);
+			primaryRefBlock2.CharacterId = "Jesus";
+			primaryRefBlock2.BlockElements.Add(new ScriptText("“Continuation of previous verse in primary ref text.”, "));
+			primaryRefBlock2.AddVerse(4, "Four!");
+			var secondaryRefBlock2 = new Block("q", 1, 1);
+			secondaryRefBlock2.CharacterId = "Jesus";
+			secondaryRefBlock2.BlockElements.Add(new ScriptText("“Continuation of verse three in secondary ref text.” "));
+			primaryRefBlock2.SetMatchedReferenceBlock(secondaryRefBlock2);
+			block2.SetMatchedReferenceBlock(primaryRefBlock2);
+
+			var block3 = ReferenceTextTests.AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "El que viniere a mi vivira.”", "q");
+			var primaryRefBlock3 = new Block("q", 1, 4);
+			primaryRefBlock3.CharacterId = narrator;
+			primaryRefBlock3.BlockElements.Add(new ScriptText("so He spake."));
+			var secondaryRefBlock3 = new Block("q", 1, 1);
+			secondaryRefBlock3.CharacterId = narrator;
+			secondaryRefBlock3.BlockElements.Add(new ScriptText("(let the reader understand) "));
+			secondaryRefBlock3.AddVerse(4, "That's what Jesus said.");
+			primaryRefBlock3.SetMatchedReferenceBlock(secondaryRefBlock3);
+			block3.SetMatchedReferenceBlock(primaryRefBlock3);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.Russian));
+			matchup.MatchAllBlocks(null);
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			matchup.SetReferenceText(0, "Then Jesus told them {2-3} that verse two was important, too. ");
+			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
+
+			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
+			Assert.AreEqual(1, primaryRefBlock2.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			Assert.AreEqual(4, primaryRefBlock3.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			Assert.AreEqual(1, secondaryRefBlock2.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			Assert.AreEqual(1, secondaryRefBlock3.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
+			var followingPrimaryRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
+			Assert.AreEqual(2, followingPrimaryRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(3, followingPrimaryRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Jesus", followingPrimaryRefBlock.CharacterId);
+			var followingSecondaryRefBlock = followingPrimaryRefBlock.ReferenceBlocks.Single();
+			Assert.AreEqual(2, followingSecondaryRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(3, followingSecondaryRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual("Jesus", followingSecondaryRefBlock.CharacterId);
+			var lastPrimaryRefBlock = matchup.CorrelatedBlocks[2].ReferenceBlocks.Single();
+			Assert.AreEqual(4, lastPrimaryRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(0, lastPrimaryRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual(narrator, lastPrimaryRefBlock.CharacterId);
+			var lastSecondaryRefBlock = lastPrimaryRefBlock.ReferenceBlocks.Single();
+			Assert.AreEqual(2, lastSecondaryRefBlock.InitialStartVerseNumber);
+			Assert.AreEqual(3, lastSecondaryRefBlock.InitialEndVerseNumber);
+			Assert.AreEqual(narrator, lastSecondaryRefBlock.CharacterId);
 		}
 
 		[Test]
