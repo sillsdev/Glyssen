@@ -94,6 +94,8 @@ namespace Glyssen.Dialogs
 			}
 			else
 			{
+				if (m_viewModel.Mode == BlocksToDisplay.NotAlignedToReferenceText)
+					m_viewModel.Mode = BlocksToDisplay.NotYetAssigned;
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
 				m_toolStripButtonMatchReferenceText.Enabled = false;
 			}
