@@ -666,9 +666,12 @@ namespace Glyssen.Quote
 					if (m_nextBlockContinuesQuote && m_workingBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
-					m_workingBlock.SetCharacterAndDelivery(
-						m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
-							m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification));
+
+					var characterVerseDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
+						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).ToList();
+					if (characterVerseDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
+						BreakOutInterruptionsFromWorkingBlock(characterVerseDetails);
+					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				}
 				else
 				{
@@ -717,6 +720,16 @@ namespace Glyssen.Quote
 				verseEndNum = lastVerse.EndVerse;
 			}
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
+		}
+
+		private void BreakOutInterruptionsFromWorkingBlock(List<CharacterVerse> characterVerseDetails)
+		{
+			var elementsWithInterruptions = m_workingBlock.BlockElements.OfType<ScriptText>().Where(s => Block.s_regexInterruption.IsMatch(s.Content)).ToList();
+			if (!elementsWithInterruptions.Any())
+				return;
+			// TODO: Finish this logic, splitting up m_workingBlock into parts and adding all but the last one to m_outputBlocks
+			//Block block = new Block(m_workingBlock.StyleTag, );
+			//m_outputBlocks.Add();
 		}
 
 		private void ProcessMultiBlock()

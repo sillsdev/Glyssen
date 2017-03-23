@@ -1,4 +1,4 @@
-Control File Version	115
+Control File Version	116
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12590,6 +12590,7 @@ MAT	24	12	Jesus			Normal
 MAT	24	13	Jesus			Normal		
 MAT	24	14	Jesus			Normal		
 MAT	24	15	Jesus			Normal		
+MAT	24	15	narrator-MAT			Interruption		
 MAT	24	16	Jesus			Normal		
 MAT	24	17	Jesus			Normal		
 MAT	24	18	Jesus			Normal		
@@ -12958,6 +12959,7 @@ MRK	7	8	Jesus	rebuking		Normal
 MRK	7	9	Jesus	rebuking		Normal		
 MRK	7	10	Jesus	rebuking		Normal		
 MRK	7	11	Jesus	rebuking		Normal		
+MRK	7	11	narrator-MRK			Interruption		
 MRK	7	12	Jesus	rebuking		Normal		
 MRK	7	13	Jesus	rebuking		Normal		
 MRK	7	14	Jesus			Normal		
@@ -13188,6 +13190,7 @@ MRK	13	11	Jesus			Normal
 MRK	13	12	Jesus			Normal		
 MRK	13	13	Jesus			Normal		
 MRK	13	14	Jesus			Normal		
+MRK	13	14	narrator-MRK			Interruption		
 MRK	13	15	Jesus			Normal		
 MRK	13	16	Jesus			Normal		
 MRK	13	17	Jesus			Normal		
@@ -14230,12 +14233,17 @@ JHN	1	34	John the Baptist			Normal
 JHN	1	36	John the Baptist			Dialogue		
 JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
+# This duplication fails the integrity test, but we need a way to distinguish between a narrator interruption that should never be
+# formatted using regular quotes (e.g., MRK 13:14, in which case the direct speech is unambiguous) and the case where it could be
+# formatted either as a paranthetical interruption OR using quotes (such as here).
 JHN	1	38	narrator-JHN			Quotation		
+JHN	1	38	narrator-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue		
 JHN	1	41	Andrew	excited		Dialogue		
 JHN	1	41	narrator-JHN			Quotation		
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
+JHN	1	42	narrator-JHN			Interruption		
 JHN	1	43	Jesus	inviting		Dialogue		
 JHN	1	45	Philip the apostle	excited	Philip	Dialogue		
 JHN	1	46	Nathanael			Dialogue		
@@ -15639,7 +15647,9 @@ ROM	9	32	narrator-ROM			Quotation
 ROM	9	33	scripture			Quotation	God	
 ROM	10	5	scripture			Quotation	Moses	
 ROM	10	6	scripture			Quotation	Moses	
+ROM	10	6	narrator-ROM			Interruption		
 ROM	10	7	scripture			Quotation	Moses	
+ROM	10	7	narrator-ROM			Interruption		
 ROM	10	8	scripture			Quotation	Moses	
 ROM	10	9	narrator-ROM			Hypothetical		
 ROM	10	11	scripture			Quotation	God	

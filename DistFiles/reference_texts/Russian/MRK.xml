@@ -5682,10 +5682,26 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not (let the reader understand), then let those who are in Judea flee to the mountains.</text>
+      <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not </text>
     </ReferenceBlocks>
     <verse num="14" />
-    <text>Когда же увидите мерзость запустения, реченную пророком Даниилом, стоящую, где не должно, —читающий да разумеет, —то пусть те кто находятся в Иудее да бегут в горы.</text>
+    <text>Когда же увидите мерзость запустения, реченную пророком Даниилом, стоящую, где не должно, </text>
+  </block>
+  <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
+    <ReferenceBlocks style="p" chapter="13" initialStartVerse="14" characterId="narrator-MRK">
+      <verse num="14" />
+      <text>(let the reader understand), </text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>—читающий да разумеет, —</text>
+  </block>
+  <block style="p" chapter="13" initialStartVerse="14" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks chapter="13" initialStartVerse="14" characterId="Jesus">
+      <verse num="14" />
+      <text>then let those who are in Judea flee to the mountains.</text>
+    </ReferenceBlocks>
+    <verse num="14" />
+    <text>то пусть те кто находятся в Иудее да бегут в горы.</text>
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Continuation">

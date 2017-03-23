@@ -4113,10 +4113,10 @@
     <verse num="15" />
     <text>“When, therefore, you see the abomination of desolation, which was spoken of through Daniel the prophet, standing in the holy place</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="narrator-MAT" multiBlockQuote="Start">
+  <block style="p" chapter="24" initialStartVerse="15" characterId="narrator-MAT">
     <text>(let the reader understand),</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" chapter="24" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="16" />
     <text>then let those who are in Judea flee to the mountains.</text>
   </block>

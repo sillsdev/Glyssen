@@ -8302,6 +8302,7 @@ MRK	13	11	Jesus			Normal
 MRK	13	12	Jesus			Normal		
 MRK	13	13	Jesus			Normal		
 MRK	13	14	Jesus			Normal		
+MRK	13	14	narrator-MRK			Interruption		
 MRK	13	15	Jesus			Normal		
 MRK	13	16	Jesus			Normal		
 MRK	13	17	Jesus			Normal		
@@ -9212,6 +9213,8 @@ JHN	1	34	John the Baptist			Normal
 JHN	1	36	John the Baptist			Dialogue
 JHN	1	38	disciples of John Baptist, two	curious		Dialogue
 JHN	1	38	Jesus	questioning		Dialogue
+JHN	1	38	narrator-JHN			Quotation		
+JHN	1	38	narrator-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue
 JHN	1	41	Andrew	excited		Dialogue
 JHN	1	41	narrator-JHN			Dialogue
@@ -10273,8 +10276,10 @@ ROM	9	29	scripture
 ROM	9	32	narrator-ROM		
 ROM	9	33	scripture		
 ROM	10	5	scripture		
-ROM	10	6	scripture		
-ROM	10	7	scripture		
+ROM	10	6	scripture			Quotation	Moses	
+ROM	10	6	narrator-ROM			Interruption		
+ROM	10	7	scripture			Quotation	Moses	
+ROM	10	7	narrator-ROM			Interruption		
 ROM	10	8	scripture		
 ROM	10	9	narrator-ROM		
 ROM	10	11	scripture		
