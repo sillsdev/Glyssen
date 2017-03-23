@@ -11,8 +11,8 @@ namespace Glyssen.Utilities
 { 
 	public class FormWithPersistedSettings: Form
 	{
-		public const int kChildFormLocationX = 202;
-		public const int kChildFormLocationY = 95;
+		protected const int kChildFormLocationX = 202;
+		protected const int kChildFormLocationY = 95;
 
 		private string m_formSettingsName;
 		private bool m_finishedLoading;
@@ -26,7 +26,7 @@ namespace Glyssen.Utilities
 			m_finishedLoading = true;
 
 			var workingArea = Screen.GetWorkingArea(this);
-			if (!workingArea.Contains(Bounds))
+			if (!workingArea.Contains(Bounds) && WindowState != FormWindowState.Maximized)
 			{
 				if (Bounds.Left < workingArea.Left || Bounds.Top < workingArea.Top)
 					Location = new Point(Math.Max(Bounds.Left, workingArea.Left), Math.Max(Bounds.Top, workingArea.Top));
@@ -45,9 +45,8 @@ namespace Glyssen.Utilities
 		protected override void OnResizeEnd(EventArgs e)
 		{
 			base.OnResizeEnd(e);
-			if (!m_finishedLoading) return;
-			if (WindowState != FormWindowState.Normal) return;
-			if (string.IsNullOrEmpty(m_formSettingsName)) return;
+			if (!m_finishedLoading || WindowState != FormWindowState.Normal || string.IsNullOrEmpty(m_formSettingsName))
+				return;
 			Settings.Default.Save();
 		}
 
@@ -71,7 +70,8 @@ namespace Glyssen.Utilities
 			{
 				m_formSettingsName = SettingExists(Name.Substring(0, Name.Length - 3) + "DialogFormSettings");
 			}
-			if (string.IsNullOrEmpty(m_formSettingsName)) return;
+			if (string.IsNullOrEmpty(m_formSettingsName))
+				return;
 
 			if (Settings.Default[m_formSettingsName] == null)
 			{
@@ -141,7 +141,7 @@ namespace Glyssen.Utilities
 		private static string SettingExists(string settingName)
 		{
 			var setting = Settings.Default.Properties.Cast<SettingsProperty>().FirstOrDefault(p => string.Equals(p.Name, settingName, StringComparison.CurrentCultureIgnoreCase));
-			return setting == null ? null : setting.Name;
+			return setting?.Name;
 		}
 
 		private static string GetGridSettingsName(DataGridView grid)
