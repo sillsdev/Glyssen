@@ -230,15 +230,35 @@ namespace Glyssen
 			if (text == null)
 				text = string.Empty;
 			var newRefBlock = block.SetMatchedReferenceBlock(text, (blockIndex > 0) ? CorrelatedBlocks[blockIndex - 1].ReferenceBlocks.LastOrDefault() : null);
-			if (blockIndex < CorrelatedBlocks.Count - 1)
+			bool foundFollowingPrimaryRefTextVerse = false;
+			bool foundFollowingSecondaryRefTextVerse = false;
+			while (++blockIndex < CorrelatedBlocks.Count)
 			{
-				var followingBlock = CorrelatedBlocks[blockIndex + 1];
-				if (followingBlock.MatchesReferenceText)
+				var followingBlock = CorrelatedBlocks[blockIndex];
+				var followingRefBlock = followingBlock.ReferenceBlocks.FirstOrDefault();
+				// Keep going as long as we have a ref block at either level that doesn't
+				if (followingRefBlock == null)
+					break;
+				foundFollowingPrimaryRefTextVerse |= followingRefBlock.StartsAtVerseStart;
+				foundFollowingSecondaryRefTextVerse |= !followingRefBlock.ReferenceBlocks.Any() || followingRefBlock.ReferenceBlocks.Single().StartsAtVerseStart;
+				if (foundFollowingPrimaryRefTextVerse && foundFollowingSecondaryRefTextVerse)
+					break;
+
+				var lastVerse = newRefBlock.LastVerse;
+				followingBlock.ReferenceBlocks[0] = followingRefBlock = followingRefBlock.Clone();
+				if (!foundFollowingPrimaryRefTextVerse)
 				{
-					var lastVerse = newRefBlock.LastVerse;
-					var followingRefBlock = followingBlock.ReferenceBlocks.Single();
 					followingRefBlock.InitialStartVerseNumber = lastVerse.StartVerse;
 					followingRefBlock.InitialEndVerseNumber = lastVerse.LastVerseOfBridge;
+					foundFollowingPrimaryRefTextVerse = followingRefBlock.BlockElements.OfType<Verse>().Any();
+				}
+				if (!foundFollowingSecondaryRefTextVerse)
+				{
+					followingRefBlock.CloneReferenceBlocks();
+					var secondaryRefBlock = followingRefBlock.ReferenceBlocks.Single();
+					secondaryRefBlock.InitialStartVerseNumber = lastVerse.StartVerse;
+					secondaryRefBlock.InitialEndVerseNumber = lastVerse.LastVerseOfBridge;
+					foundFollowingSecondaryRefTextVerse = secondaryRefBlock.BlockElements.OfType<Verse>().Any();
 				}
 			}
 			return newRefBlock;
