@@ -685,7 +685,7 @@ namespace Glyssen
 									var rowIndex = lastIndexOfPreviousVerse + 1 + verseAnnotation.Offset;
 									data.Insert(rowIndex,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(previousReferenceTextVerse.Book),
-											previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse.ToString()));
+											previousReferenceTextVerse.Chapter, previousReferenceTextVerse.Verse));
 									i++;
 									annotationRowIndexes.Add(rowIndex);
 								}
@@ -703,7 +703,7 @@ namespace Glyssen
 									var rowIndex = i++ + verseAnnotation.Offset;
 									data.Insert(rowIndex,
 										GetExportDataForAnnotation(verseAnnotation, BCVRef.NumberToBookCode(referenceTextVerse.Book),
-											referenceTextVerse.Chapter, referenceTextVerse.Verse.ToString()));
+											referenceTextVerse.Chapter, referenceTextVerse.Verse));
 									annotationRowIndexes.Add(rowIndex);
 								}
 								else
@@ -772,10 +772,10 @@ namespace Glyssen
 		{
 			return new BCVRef(BCVRef.BookToNumber((string)row[GetColumnIndex(ExportColumn.BookId)]),
 				(int)row[GetColumnIndex(ExportColumn.Chapter)],
-				ScrReference.VerseToIntStart((string)row[GetColumnIndex(ExportColumn.Verse)]));
+				(int)row[GetColumnIndex(ExportColumn.Verse)]);
 		}
 
-		private List<object> GetExportDataForAnnotation(VerseAnnotation verseAnnotation, string bookId, int chapter, string verse)
+		private List<object> GetExportDataForAnnotation(VerseAnnotation verseAnnotation, string bookId, int chapter, int verse)
 		{
 			var row = new List<object>();
 			row.Add(null);
@@ -809,7 +809,7 @@ namespace Glyssen
 			row.Add(refBlock.StyleTag);
 			row.Add(bookId);
 			row.Add(refBlock.ChapterNumber);
-			row.Add(refBlock.InitialVerseNumberOrBridge);
+			row.Add(refBlock.InitialStartVerseNumber);
 			row.Add((CharacterVerseData.IsCharacterStandard(refBlock.CharacterId) ?
 				CharacterVerseData.GetStandardCharacterIdAsEnglish(refBlock.CharacterId) : refBlock.CharacterId));
 			if (LocalizationManager.UILanguageId != "en")
@@ -877,7 +877,7 @@ namespace Glyssen
 			list.Add(block.StyleTag);
 			list.Add(bookId);
 			list.Add(block.ChapterNumber);
-			list.Add(block.InitialVerseNumberOrBridge);
+			list.Add(block.InitialStartVerseNumber);
 			string characterId;
 			if (singleVoiceNarratorOverride != null)
 				characterId = singleVoiceNarratorOverride;
