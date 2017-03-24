@@ -189,6 +189,41 @@ namespace GlyssenTests.Character
 			Assert.True(bookScript[3].UserConfirmed);
 		}
 
+		/// <summary>
+		/// PG-781
+		/// </summary>
+		[Test]
+		public void AssignAll_AssignedQuoteBlocksAndAmbiguousInterruptionBlock_NotModified()
+		{
+			var bookScript = XmlSerializationHelper.DeserializeFromString<BookScript>(@"
+				<book id=""MRK"">
+					<block style=""p"" chapter=""13"" initialStartVerse=""14"" characterId=""Jesus"" userConfirmed=""false"" multiBlockQuote=""Start"">
+						<verse num=""14"" />
+						<text>Oona gwine see ‘De Horrible Bad Ting wa mek God place empty’ da stanop een de place weh e ain oughta dey. </text>
+					</block>
+					<block style=""p"" chapter=""13"" initialStartVerse=""14"" characterId=""Ambiguous"" userConfirmed=""false"">
+						<text>(Leh oona wa da read ondastan wa dis mean.) </text>
+					</block>
+					<block style=""p"" chapter=""13"" initialStartVerse=""14"" characterId=""Jesus"" userConfirmed=""false"" multiBlockQuote=""Start"">
+						<text>Wen dat time come, de people een Judea mus ron way quick ta de hill country. </text>
+					</block>
+				</book>");
+			var cvInfo = MockRepository.GenerateMock<ICharacterVerseInfo>();
+			cvInfo.Stub(x => x.GetCharacters("MRK", 13, 14, 0, 14, ScrVers.English)).Return(new[]
+			{
+				new CharacterVerse(new BCVRef(41, 13, 14), "Jesus", null, null, false, QuoteType.Normal),
+				new CharacterVerse(new BCVRef(41, 13, 14), "narrator-MRK", null, null, false, QuoteType.Interruption)
+			});
+
+			Assert.IsFalse(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed));
+
+			new CharacterAssigner(cvInfo).AssignAll(new[] { bookScript }, ScrVers.English, false, false);
+			Assert.AreEqual("Jesus", bookScript[0].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, bookScript[1].CharacterId);
+			Assert.AreEqual("Jesus", bookScript[2].CharacterId);
+			Assert.IsFalse(bookScript.GetScriptBlocks().Any(b => b.UserConfirmed));
+		}
+
 		[Test]
 		public void AssignAll_MultiverseQuoteWithTwoCharactersInFirstVerseAndOneCharacterInSecond_AssignedToCharacterRatherThanAmbiguous()
 		{

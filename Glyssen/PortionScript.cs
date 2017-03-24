@@ -21,7 +21,8 @@ namespace Glyssen
 				m_blocks = blocks.ToList();
 		}
 
-		public string Id { get { return m_id; } }
+		public string Id => m_id;
+
 		public virtual IReadOnlyList<Block> GetScriptBlocks()
 		{
 			return m_blocks;

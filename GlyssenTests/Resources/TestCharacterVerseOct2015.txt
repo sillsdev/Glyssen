@@ -13812,6 +13812,7 @@ JHN	1	36	John the Baptist			Dialogue
 JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
 JHN	1	38	narrator-JHN			Quotation		
+JHN	1	38	narrator-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue		
 JHN	1	41	Andrew	excited		Dialogue		
 JHN	1	41	narrator-JHN			Quotation		

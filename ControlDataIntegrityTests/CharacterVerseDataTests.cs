@@ -104,7 +104,7 @@ namespace ControlDataIntegrityTests
 		{
 			// PG-152: Currently, the program does not handle duplicates where the
 			// only difference is between normal (blank) delivery and a specified delivery
-			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>(new BcvCharacterEqualityComparer());
+			ISet<CharacterVerse> uniqueCharacterVerses = new HashSet<CharacterVerse>(new BcvCharacterAndTypeEqualityComparer());
 			IList<CharacterVerse> duplicateCharacterVerses = new List<CharacterVerse>();
 			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo()
 				.OrderBy(cv => cv.BcvRef).ThenBy(cv => string.IsNullOrEmpty(cv.Delivery)))
@@ -208,6 +208,25 @@ namespace ControlDataIntegrityTests
 				referenceDoesntMatchLineFailures.OnePerLineWithIndent());
 			Assert.IsTrue(!charactersNotEqualFailures.Any(), "Characters do not match for one or more parallel passages:" + Environment.NewLine +
 				charactersNotEqualFailures.OnePerLineWithIndent());
+		}
+
+		private class BcvCharacterAndTypeEqualityComparer : IEqualityComparer<CharacterVerse>
+		{
+			public bool Equals(CharacterVerse x, CharacterVerse y)
+			{
+				return x.BcvRef.Equals(y.BcvRef) && x.Character.Equals(y.Character) &&
+					x.QuoteType == y.QuoteType;
+			}
+
+			public int GetHashCode(CharacterVerse obj)
+			{
+				unchecked
+				{
+					int hashCode = obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0;
+					hashCode = (hashCode * 397) ^ (obj.Character?.GetHashCode() ?? 0);
+					return hashCode;
+				}
+			}
 		}
 	}
 }

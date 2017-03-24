@@ -10,6 +10,7 @@ using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Quote;
 using Glyssen.Utilities;
 using Paratext;
 using SIL.Scripture;
@@ -34,6 +35,7 @@ namespace Glyssen
 						".scripttext {{display:inline}}";
 
 		private static readonly Regex s_regexFollowOnParagraphStyles;
+		internal static readonly Regex s_regexInterruption;
 
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
@@ -62,6 +64,9 @@ namespace Glyssen
 			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
 				RegexOptions.Compiled);
 			s_regexFollowOnParagraphStyles = new Regex("^((q.{0,2})|m|mi|(pi.?))$", RegexOptions.Compiled);
+			var dashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
+			s_regexInterruption = new Regex(@"((\([^)\]]\w+[^)\]]+\))|(\[[^)\]]\w+[^)\]]+\])" + Format(dashStyleInterruptionFmt, "-") +
+				Format(dashStyleInterruptionFmt, "\u2014") + Format(dashStyleInterruptionFmt + @")[^\w]*", "\u2015"), RegexOptions.Compiled);
 		}
 
 		public Block()
@@ -709,11 +714,39 @@ namespace Glyssen
 				}
 				else
 				{
-					CharacterId = CharacterVerseData.kAmbiguousCharacter;
-					CharacterIdOverrideForScript = null;
-					Delivery = null;
-					UserConfirmed = false;
+					if (characterList.Count(cd => cd.QuoteType == QuoteType.Interruption) == 1 &&
+						characterList.Count(cd => cd.QuoteType != QuoteType.Interruption) == 1 &&
+						!IsInterruption)
+					{
+						// Since this block does not appear to be an interruption, we can safely assign the character from
+						// the one and only cv record that is not an "Interruption" type.
+						var cv = characterList.First(cd => cd.QuoteType != QuoteType.Interruption);
+						SetCharacterAndCharacterIdInScript(cv.Character, () => cv);
+						Delivery = cv.Delivery;
+					}
+					else
+					{
+						CharacterId = CharacterVerseData.kAmbiguousCharacter;
+						CharacterIdOverrideForScript = null;
+						Delivery = null;
+						UserConfirmed = false;
+					}
 				}
+			}
+		}
+
+		public bool IsInterruption
+		{
+			get
+			{
+				if (BlockElements.Count != 1)
+					return false;
+				var textElement = BlockElements[0] as ScriptText;
+				if (textElement == null)
+					return false;
+				var text = textElement.Content;//.Trim();
+				var match = s_regexInterruption.Match(text);
+				return match.Success && match.Index == 0 && match.Length == text.Length;
 			}
 		}
 
@@ -1157,6 +1190,27 @@ namespace Glyssen
 
 			SetMatchedReferenceBlock(referenceTextBlockElements);
 			return true;
+		}
+
+		public Tuple<Match, string> GetNextInterruption(int startCharIndex = 0)
+		{
+			var verse = InitialVerseNumberOrBridge;
+			foreach (var element in BlockElements)
+			{
+				var text = element as ScriptText;
+				if (text != null)
+				{
+					var match = Block.s_regexInterruption.Match(text.Content, startCharIndex);
+					if (match.Success)
+						return new Tuple<Match, string>(match, verse);
+					startCharIndex = 0;
+				}
+				else
+				{
+					verse = ((Verse)element).Number;
+				}
+			}
+			return null;
 		}
 	}
 

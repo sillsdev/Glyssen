@@ -66,6 +66,16 @@ namespace Glyssen.Character
 		/// a foreign phrase, a title, or a literal name).
 		/// </summary>
 		Quotation,
+		/// <summary>
+		/// Technically not a "quote type" per se - rather, this is a special case of where a quote can be
+		/// interrupted (i.e., by the narrator) using a parenthetical remark. For example, in MAT 24:15 or
+		/// MRK 13:14, where it says: (let the reader understand). Technically, it is probably better for
+		/// the quote to be explicitly ended and re-opened, but it is not uncommon for translators to leave
+		/// these kinds of interruptions inside the surrounding direct speech. Because these are not easy
+		/// to identify unambiguously and there are different ideas about how best to dramatize them, they
+		/// will always be marked as ambiguous so the user has a chance to evaluate them and decide what to do.
+		/// </summary>
+		Interruption,
 	}
 
 	public class CharacterVerse
@@ -243,24 +253,6 @@ namespace Glyssen.Character
 				int hashCode = (obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (obj.Character != null ? obj.Character.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (obj.Delivery != null ? obj.Delivery.GetHashCode() : 0);
-				return hashCode;
-			}
-		}
-	}
-
-	public class BcvCharacterEqualityComparer : IEqualityComparer<CharacterVerse>
-	{
-		public bool Equals(CharacterVerse x, CharacterVerse y)
-		{
-			return x.BcvRef.Equals(y.BcvRef) && x.Character.Equals(y.Character);
-		}
-
-		public int GetHashCode(CharacterVerse obj)
-		{
-			unchecked
-			{
-				int hashCode = (obj.BcvRef != null ? obj.BcvRef.GetHashCode() : 0);
-				hashCode = (hashCode * 397) ^ (obj.Character != null ? obj.Character.GetHashCode() : 0);
 				return hashCode;
 			}
 		}

@@ -4678,6 +4678,112 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("ninmi. ", ((ScriptText)results[3].BlockElements[0]).Content);
 			Assert.AreEqual("«T»", ((ScriptText)results[4].BlockElements[1]).Content);
 		}
+
+		#region Interruption tests
+		// These tests all relate to PG-781
+
+		[TestCase("", "")]
+		[TestCase("(", ")")]
+		[TestCase("[", "]")]
+		[TestCase("-", "-")]
+		[TestCase("\u2014", "\u2014")]
+		[TestCase("\u2015", "\u2015")]
+		public void Parse_VerseWithInterruptionHasNoInterruptionInsideQuote_QuoteAndNarratorTextAssignedAutomatically(string leadingPunct, string trailingPunct)
+		{
+			string narratorTextV6 = leadingPunct + "that is, to bring Christ down" + trailingPunct;
+			string narratorTextV7 = leadingPunct + "that is, to bring Christ up from the dead" + trailingPunct + ".";
+			var block1 = new Block("p", 10, 6).AddVerse(6, "But the righteousness that is by faith says: «Do not say in your heart, ‹Who will ascend into heaven?›» " + narratorTextV6)
+				.AddVerse(7, "«or ‹Who will descend into the deep?›» " + narratorTextV7);
+			var input = new List<Block> { block1 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator);
+			int i = 0;
+			Assert.AreEqual("{6}\u00A0But the righteousness that is by faith says: ", results[i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?›» ", results[++i].GetText(true));
+			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(narratorTextV6, results[++i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual("{7}\u00A0«or ‹Who will descend into the deep?›» ", results[++i].GetText(true));
+			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(narratorTextV7, results[++i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+		}
+
+		[TestCase("(", ")")]
+		[TestCase("[", "]")]
+		[TestCase("-", "-")]
+		[TestCase("\u2014", "\u2014")]
+		[TestCase("\u2015", "\u2015")]
+		public void Parse_VerseWithInterruptionHasInterruptionInsideQuote_QuoteAndNarratorTextAssignedAutomatically(string leadingPunct, string trailingPunct)
+		{
+			string interruptionTextV6 = leadingPunct + "that is, to bring Christ down" + trailingPunct + " ";
+			string interruptionTextV7 = leadingPunct + "that is, to bring Christ up from the dead" + trailingPunct + ".» ";
+			var block1 = new Block("p", 10, 6).AddVerse(6, "But the righteousness that is by faith says: «Do not say in your heart, ‹Who will ascend into heaven?› " + interruptionTextV6)
+				.AddVerse(7, "or ‹Who will descend into the deep?› " + interruptionTextV7);
+			var input = new List<Block> { block1 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			int i = 0;
+			Assert.AreEqual("{6}\u00A0But the righteousness that is by faith says: ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), results[i].CharacterId);
+			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?› ", results[++i].GetText(true));
+			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(interruptionTextV6, results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			Assert.AreEqual("{7}\u00A0or ‹Who will descend into the deep?› ", results[++i].GetText(true));
+			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(interruptionTextV7, results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+		}
+
+		[Test]
+		public void Parse_InterruptionInDialogueQuoteWithNoExplicitEnd_NarratorCouldBeQuotationOrInterruption_DirectSpeechPortionIsAmbiguous()
+		{
+			var block1 = new Block("p", 1, 42).AddVerse("42", "He brought him unto Jesus.");
+			var block2 = new Block("p", 1, 42);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new ScriptText("Jesus looked upon him, and said: Thou art Simon the son of John; thou shalt be called Cephas (which is by interpretation, Peter)."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			int i = 0;
+			Assert.AreEqual("{42}\u00A0He brought him unto Jesus.", output[i].GetText(true));
+			Assert.IsTrue(output[i].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+
+			Assert.AreEqual("Jesus looked upon him, and said: ", output[++i].GetText(true));
+			Assert.IsTrue(output[i].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+
+			Assert.AreEqual("Thou art Simon the son of John; thou shalt be called Cephas ", output[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+
+			Assert.AreEqual("(which is by interpretation, Peter).", output[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+		}
+		#endregion
 	}
 
 
