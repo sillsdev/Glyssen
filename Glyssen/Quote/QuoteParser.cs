@@ -724,8 +724,6 @@ namespace Glyssen.Quote
 
 		private void BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
 		{
-			//Match currMatch = null;
-			//string verseToSplit;
 			var nextInterruption = m_workingBlock.GetNextInterruption();
 			if (nextInterruption == null)
 				return;
@@ -747,62 +745,6 @@ namespace Glyssen.Quote
 				b.SetCharacterAndDelivery(characterVerseDetails);
 				m_outputBlocks.Add(b);
 			}
-
-
-			//var elementsWithInterruptions = new List<Tuple<ScriptText, Match>>();
-			//foreach (var text in m_workingBlock.BlockElements.OfType<ScriptText>())
-			//{
-			//	foreach (Match match in Block.s_regexInterruption.Matches(text.Content))
-			//		elementsWithInterruptions.Add(new Tuple<ScriptText, Match>(text, match));
-			//}
-			//if (!elementsWithInterruptions.Any())
-			//	return;
-
-			//Block block = new Block(m_workingBlock.StyleTag, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber, m_workingBlock.InitialEndVerseNumber)
-			//{
-			//	IsParagraphStart = m_workingBlock.IsParagraphStart,
-			//	MultiBlockQuote = m_workingBlock.MultiBlockQuote
-			//};
-
-			//// TODO: Finish this logic, splitting up m_workingBlock into parts and adding all but the last one to m_outputBlocks
-			//int e = 0;
-			//var currInterruption = elementsWithInterruptions[e];
-			//for (int i = 0; i < elementsWithInterruptions.Count && e < m_workingBlock.BlockElements.Count; i++)
-			//{
-			//	var element = m_workingBlock.BlockElements[i];
-			//	if (element == currInterruption.Item1)
-			//	{
-			//		if (elementsWithInterruptions[e].Item2.Index > 0)
-			//		{
-			//			// Break off the part of the text before the interruption and add it as the final script text of the block being built.
-			//			block.BlockElements.Add(new ScriptText(currInterruption.Item1.Content.Substring(0, currInterruption.Item2.Index)));
-			//		}
-			//		else
-			//		{
-			//			throw new NotImplementedException("TODO: Need to handle case where interruption is the first thing in a quote. (Use existing block as the interruption).");
-			//		}
-			//		block.SetCharacterAndDelivery(characterVerseDetails);
-			//		m_outputBlocks.Add(block);
-			//		var initStartVerse = m_workingBlock.InitialStartVerseNumber;
-			//		var initEndVerse = m_workingBlock.InitialEndVerseNumber;
-			//		var lastVerse = block.BlockElements.OfType<Verse>().LastOrDefault();
-			//		if (lastVerse != null)
-			//		{
-			//			initStartVerse = lastVerse.StartVerse;
-			//			initEndVerse = lastVerse.EndVerse;
-			//		}
-			//		block = new Block(m_workingBlock.StyleTag, m_workingBlock.ChapterNumber, initStartVerse, initEndVerse)
-			//		{
-			//			IsParagraphStart = m_workingBlock.IsParagraphStart,
-			//			MultiBlockQuote = MultiBlockQuote.None
-			//		};
-			//	}
-			//	else
-			//	{
-			//		block.BlockElements.Add(element);
-			//	}
-			//}
-			//m_outputBlocks.Add();
 		}
 
 		private void ProcessMultiBlock()

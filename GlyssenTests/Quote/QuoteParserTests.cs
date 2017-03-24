@@ -4753,6 +4753,36 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(interruptionTextV7, results[++i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
 		}
+
+		[Test]
+		public void Parse_InterruptionInDialogueQuoteWithNoExplicitEnd_NarratorCouldBeQuotationOrInterruption_DirectSpeechPortionIsAmbiguous()
+		{
+			var block1 = new Block("p", 1, 42).AddVerse("42", "He brought him unto Jesus.");
+			var block2 = new Block("p", 1, 42);
+			block2.IsParagraphStart = true;
+			block2.BlockElements.Add(new ScriptText("Jesus looked upon him, and said: Thou art Simon the son of John; thou shalt be called Cephas (which is by interpretation, Peter)."));
+			var input = new List<Block> { block1, block2 };
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), ":", null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input).Parse().ToList();
+			Assert.AreEqual(4, output.Count);
+			int i = 0;
+			Assert.AreEqual("{42}\u00A0He brought him unto Jesus.", output[i].GetText(true));
+			Assert.IsTrue(output[i].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+
+			Assert.AreEqual("Jesus looked upon him, and said: ", output[++i].GetText(true));
+			Assert.IsTrue(output[i].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+
+			Assert.AreEqual("Thou art Simon the son of John; thou shalt be called Cephas ", output[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+
+			Assert.AreEqual("(which is by interpretation, Peter).", output[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
+			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
+		}
 		#endregion
 	}
 

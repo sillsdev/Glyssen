@@ -11884,6 +11884,7 @@ MAT	1	16	narrator-MAT			Quotation
 MAT	1	20	angel		angel of the LORD	Normal		
 MAT	1	21	angel		angel of the LORD	Normal		
 MAT	1	23	narrator-MAT			Quotation		
+MAT	1	23	narrator-MAT			Interruption		
 MAT	1	23	scripture		scripture (prophet)	Quotation	Isaiah	
 #If the language requires the words of the angel to be repeated in quotes, this could be read by the narrator
 MAT	1	24	narrator-MAT			Quotation		
@@ -14233,10 +14234,12 @@ JHN	1	34	John the Baptist			Normal
 JHN	1	36	John the Baptist			Dialogue		
 JHN	1	38	Andrew/another disciple of John Baptist	curious	disciples of John Baptist, two (Andrew and another)	Dialogue	Andrew	
 JHN	1	38	Jesus	questioning		Dialogue		
+JHN	1	38	narrator-JHN			Quotation		
 JHN	1	38	narrator-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue		
 JHN	1	41	Andrew	excited		Dialogue		
 JHN	1	41	narrator-JHN			Quotation		
+JHN	1	41	narrator-JHN			Interruption		
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
 JHN	1	42	narrator-JHN			Interruption		
@@ -14526,6 +14529,7 @@ JHN	9	4	Jesus			Normal
 JHN	9	5	Jesus			Normal		
 JHN	9	7	Jesus	giving orders		Dialogue		
 JHN	9	7	narrator-JHN			Quotation		
+JHN	9	7	narrator-JHN			Interruption		
 JHN	9	8	neighbors of man blind from birth			Normal		
 JHN	9	9	cured man, blind from birth			Normal		
 JHN	9	9	neighbors of man blind from birth, others			Normal		
@@ -14888,6 +14892,7 @@ JHN	20	15	Mary Magdalene			Dialogue
 JHN	20	16	Jesus			Dialogue		
 JHN	20	16	Mary Magdalene			Dialogue		
 JHN	20	16	narrator-JHN			Quotation		
+JHN	20	16	narrator-JHN			Interruption		
 JHN	20	17	Jesus			Dialogue		
 JHN	20	18	Mary Magdalene			Normal		
 JHN	20	19	Jesus			Dialogue		
