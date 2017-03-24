@@ -4726,10 +4726,10 @@ namespace GlyssenTests.Quote
 		[TestCase("\u2015", "\u2015")]
 		public void Parse_VerseWithInterruptionHasInterruptionInsideQuote_QuoteAndNarratorTextAssignedAutomatically(string leadingPunct, string trailingPunct)
 		{
-			string interruptionTextV6 = leadingPunct + "that is, to bring Christ down" + trailingPunct;
+			string interruptionTextV6 = leadingPunct + "that is, to bring Christ down" + trailingPunct + " ";
 			string interruptionTextV7 = leadingPunct + "that is, to bring Christ up from the dead" + trailingPunct + ".» ";
 			var block1 = new Block("p", 10, 6).AddVerse(6, "But the righteousness that is by faith says: «Do not say in your heart, ‹Who will ascend into heaven?› " + interruptionTextV6)
-				.AddVerse(7, " or ‹Who will descend into the deep?›" + interruptionTextV7);
+				.AddVerse(7, "or ‹Who will descend into the deep?› " + interruptionTextV7);
 			var input = new List<Block> { block1 };
 
 			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
@@ -4748,7 +4748,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("scripture", results[i].CharacterId);
 			Assert.AreEqual(interruptionTextV6, results[++i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
-			Assert.AreEqual("{7}\u00A0«or ‹Who will descend into the deep?›» ", results[++i].GetText(true));
+			Assert.AreEqual("{7}\u00A0or ‹Who will descend into the deep?› ", results[++i].GetText(true));
 			Assert.AreEqual("scripture", results[i].CharacterId);
 			Assert.AreEqual(interruptionTextV7, results[++i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);

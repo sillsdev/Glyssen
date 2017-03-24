@@ -10,6 +10,7 @@ using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Quote;
 using Glyssen.Utilities;
 using Paratext;
 using SIL.Scripture;
@@ -64,8 +65,8 @@ namespace Glyssen
 				RegexOptions.Compiled);
 			s_regexFollowOnParagraphStyles = new Regex("^((q.{0,2})|m|mi|(pi.?))$", RegexOptions.Compiled);
 			var dashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
-			s_regexInterruption = new Regex(@"(\([^)\]]\w+[^)\]]+\))|(\[[^)\]]\w+[^)\]]+\])" + Format(dashStyleInterruptionFmt, "-") +
-				Format(dashStyleInterruptionFmt, "\u2014") + Format(dashStyleInterruptionFmt, "\u2015"), RegexOptions.Compiled);
+			s_regexInterruption = new Regex(@"((\([^)\]]\w+[^)\]]+\))|(\[[^)\]]\w+[^)\]]+\])" + Format(dashStyleInterruptionFmt, "-") +
+				Format(dashStyleInterruptionFmt, "\u2014") + Format(dashStyleInterruptionFmt + @")[^\w]*", "\u2015"), RegexOptions.Compiled);
 		}
 
 		public Block()
@@ -743,9 +744,9 @@ namespace Glyssen
 				var textElement = BlockElements[0] as ScriptText;
 				if (textElement == null)
 					return false;
-				var trimmedText = textElement.Content.Trim();
-				var match = s_regexInterruption.Match(trimmedText);
-				return match.Success && match.Index == 0 && match.Length == trimmedText.Length;
+				var text = textElement.Content;//.Trim();
+				var match = s_regexInterruption.Match(text);
+				return match.Success && match.Index == 0 && match.Length == text.Length;
 			}
 		}
 
@@ -1189,6 +1190,27 @@ namespace Glyssen
 
 			SetMatchedReferenceBlock(referenceTextBlockElements);
 			return true;
+		}
+
+		public Tuple<Match, string> GetNextInterruption(int startCharIndex = 0)
+		{
+			var verse = InitialVerseNumberOrBridge;
+			foreach (var element in BlockElements)
+			{
+				var text = element as ScriptText;
+				if (text != null)
+				{
+					var match = Block.s_regexInterruption.Match(text.Content, startCharIndex);
+					if (match.Success)
+						return new Tuple<Match, string>(match, verse);
+					startCharIndex = 0;
+				}
+				else
+				{
+					verse = ((Verse)element).Number;
+				}
+			}
+			return null;
 		}
 	}
 
