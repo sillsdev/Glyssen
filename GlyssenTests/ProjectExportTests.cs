@@ -158,7 +158,8 @@ namespace GlyssenTests
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.IsTrue(data.Any());
-			Assert.AreEqual(expectedSectionHeadParagraphs, data.Count(t => ((string)t[1]).StartsWith("s", StringComparison.Ordinal)));
+			Assert.AreEqual(expectedSectionHeadParagraphs, data.Count(t => ((string)t[exporter.GetColumnIndex(ExportColumn.ParaTag)])
+				.StartsWith("s", StringComparison.Ordinal)));
 		}
 
 		[Test]
@@ -171,7 +172,7 @@ namespace GlyssenTests
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.IsTrue(data.Any());
-			Assert.IsFalse(data.Any(t => ((string)t[1]).StartsWith("s", StringComparison.Ordinal)));
+			Assert.IsFalse(data.Any(t => ((string)t[exporter.GetColumnIndex(ExportColumn.ParaTag)]).StartsWith("s", StringComparison.Ordinal)));
 		}
 
 		[Test]
@@ -183,7 +184,7 @@ namespace GlyssenTests
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.IsTrue(data.Any());
-			Assert.AreEqual(expected, data.Count(t => (string)t[5] == "book title or chapter (EPH)"));
+			Assert.AreEqual(expected, data.Count(t => (string)t[exporter.GetColumnIndex(ExportColumn.CharacterId)] == "book title or chapter (EPH)"));
 		}
 
 		[Test]
@@ -194,7 +195,7 @@ namespace GlyssenTests
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
 			Assert.IsTrue(data.Any());
-			Assert.IsFalse(data.Any(t => ((string)t[5]) == "book title or chapter (EPH)"));
+			Assert.IsFalse(data.Any(t => ((string)t[exporter.GetColumnIndex(ExportColumn.CharacterId)]) == "book title or chapter (EPH)"));
 		}
 
 		[Test]
@@ -206,7 +207,7 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData("2JN");
-			Assert.True(data.All(t => (string)t[2] == "2JN"));
+			Assert.True(data.All(t => (string)t[exporter.GetColumnIndex(ExportColumn.BookId)] == "2JN"));
 		}
 
 		[Test]
@@ -231,10 +232,10 @@ namespace GlyssenTests
 
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData(voiceActorId: 1).Single();
-			Assert.AreEqual("Marlon", (string)data[1]);
-			Assert.AreEqual(1, data[4]);
-			Assert.AreEqual("9", data[5]);
-			Assert.AreEqual("Michael, archangel", (string)data[6]);
+			Assert.AreEqual("Marlon", (string)data[exporter.GetColumnIndex(ExportColumn.Actor)]);
+			Assert.AreEqual(1, data[exporter.GetColumnIndex(ExportColumn.Chapter)]);
+			Assert.AreEqual(9, data[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("Michael, archangel", (string)data[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 		}
 
 		[Test]
@@ -323,7 +324,7 @@ namespace GlyssenTests
 			var row = data[i++];
 			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 1
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("1", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(1, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("{1}\u00A0A", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual("{1}\u00A0Ayy", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -332,7 +333,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 2
 			Assert.AreEqual("s", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("1", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(1, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("section head (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("Jude complains", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
@@ -341,7 +342,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 3
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("2", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(2, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Enoch", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("{2}\u00A0B", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
@@ -350,7 +351,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 4
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("3", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(3, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("{3}\u00A0C", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
@@ -359,7 +360,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.BlockId)] as string));
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("2-3", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(2, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.VernacularText)] as string));
 			Assert.AreEqual("{2-3}\u00A0Bee Cee", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -369,7 +370,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.AreEqual(5, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 5
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("4", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(4, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Michael", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("{4}\u00A0D", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual("{4}\u00A0Dee, Michael said.", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -378,7 +379,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.AreEqual(6, row[exporter.GetColumnIndex(ExportColumn.BlockId)]);
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("5", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(5, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("{5}\u00A0E ", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual("{5}\u00A0Ey", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -387,7 +388,7 @@ namespace GlyssenTests
 			row = data[i++];
 			Assert.AreEqual(7, row[exporter.GetColumnIndex(ExportColumn.BlockId)]);
 			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
-			Assert.AreEqual("6", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(6, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("narrator (JUD)", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual("{6}\u00A0F", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual("{6}\u00A0Ef", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -468,40 +469,40 @@ namespace GlyssenTests
 			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "MRK" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 4));
 			var i = 0;
 			var row = data[i];
-			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(39, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual(narratorInOutput, row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual(refBlocks[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 
 			row = data[++i];
-			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(39, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Jesus", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual(refBlocks[i].GetText(true) + "||| + 1.5 SECs |||", row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 			Assert.AreEqual("Some secondary reference text ||| + 1.5 SECs |||", row[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 
 			row = data[++i];
-			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(39, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual(narratorInOutput, row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
 
 			row = data[++i];
-			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(39, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Jesus", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string));
 
 			row = data[++i];
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.BlockId)] as string));
-			Assert.AreEqual("39", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(39, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual(narratorInOutput, row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual(refBlocks[i - 2].GetText(true), row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 
 			row = data[++i];
 			Assert.IsTrue(string.IsNullOrEmpty(row[exporter.GetColumnIndex(ExportColumn.BlockId)] as string));
-			Assert.AreEqual("40", row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual(40, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
 			Assert.AreEqual("Jesus", row[exporter.GetColumnIndex(ExportColumn.CharacterId)]);
 			Assert.AreEqual(mark.GetScriptBlocks()[i].GetText(true), row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 			Assert.AreEqual(refBlocks[i - 2].GetText(true), row[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
@@ -595,7 +596,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//SFX (sfx come before verse text)
-			var rowsForVerse12 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "12").ToList();
+			var rowsForVerse12 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 12).ToList();
 			Assert.AreEqual(2, rowsForVerse12.Count);
 			var annotationRowForVerse12 = rowsForVerse12[0];
 			var textRowForVerse12 = rowsForVerse12[1];
@@ -604,7 +605,7 @@ namespace GlyssenTests
 			Assert.IsFalse(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Contains("|||"));
 
 			//Pause for final verse in book (pauses come after verse text)
-			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "25").ToList();
+			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 25).ToList();
 			Assert.AreEqual(2, rowsForJude25.Count);
 			var textRowForJude25 = rowsForJude25[0];
 			var annotationRowForJude25 = rowsForJude25[1];
@@ -613,7 +614,7 @@ namespace GlyssenTests
 				((string)annotationRowForJude25[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Equals(string.Format(Pause.kPauseSecondsFormat, "5")));
 
 			//Pause for non-final verse in book (pauses come after verse text)
-			var rowsForRev1V3 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "3").ToList();
+			var rowsForRev1V3 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 3).ToList();
 			Assert.AreEqual(3, rowsForRev1V3.Count);
 			var textRowForRev1V3 = rowsForRev1V3[0];
 			var annotationRowForRev1V3 = rowsForRev1V3[1];
@@ -624,7 +625,7 @@ namespace GlyssenTests
 			Assert.IsTrue(sectionHeadRowForRev1V3[exporter.GetColumnIndex(ExportColumn.CharacterId)].Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
 
 			//Pause for final verse in chapter (pauses come after verse text)
-			var rowsForRev1V20 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "20").ToList();
+			var rowsForRev1V20 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 20).ToList();
 			Assert.AreEqual(2, rowsForRev1V20.Count);
 			var textRowForRev1V20 = rowsForRev1V20[0];
 			var annotationRowForRev1V20 = rowsForRev1V20[1];
@@ -646,7 +647,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//SFX (music/sfx come before verse text)
-			var rowsForVerse12 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "12").ToList();
+			var rowsForVerse12 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 12).ToList();
 			var textRowForVerse12 = rowsForVerse12.Single();
 			var annotationInfoPlusVerseNum = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12} {12}\u00A0";
 			Assert.IsTrue(((string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).StartsWith(annotationInfoPlusVerseNum));
@@ -657,7 +658,7 @@ namespace GlyssenTests
 				(string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for final verse in book (pauses come after verse text)
-			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "25").ToList();
+			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 25).ToList();
 			var textRowForJude25 = rowsForJude25.Single();
 			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "5");
 			Assert.IsTrue(((string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
@@ -667,7 +668,7 @@ namespace GlyssenTests
 				(string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for non-final verse in book (pauses come after verse text)
-			var rowsForRev1V3 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "3").ToList();
+			var rowsForRev1V3 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 3).ToList();
 			Assert.AreEqual(2, rowsForRev1V3.Count);
 			var textRowForRev1V3 = rowsForRev1V3[0];
 			var sectionHeadRowForRev1V3 = rowsForRev1V3[1];
@@ -680,7 +681,7 @@ namespace GlyssenTests
 			Assert.IsTrue(sectionHeadRowForRev1V3[exporter.GetColumnIndex(ExportColumn.CharacterId)].Equals(CharacterVerseData.GetStandardCharacterIdAsEnglish(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.ExtraBiblical))));
 
 			//Pause for final verse in chapter (pauses come after verse text)
-			var rowsForRev1V20 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "20").ToList();
+			var rowsForRev1V20 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 20).ToList();
 			var textRowForRev1V20 = rowsForRev1V20.Single();
 			annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
 			Assert.IsTrue(((string)textRowForRev1V20[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
@@ -728,7 +729,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//SFX (music/sfx come before verse text)
-			var textRowForVerse12 = data.Single(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "12").ToList();
+			var textRowForVerse12 = data.Single(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 12).ToList();
 			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{SFX--Eerie--Starts @ v12}";
 			var primaryColumnIndex = exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText);
 			var secondaryColumnIndex = exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText);
@@ -741,7 +742,7 @@ namespace GlyssenTests
 				(string)textRowForVerse12[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for final verse in book (pauses come after verse text)
-			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "25").ToList();
+			var rowsForJude25 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 25).ToList();
 			var textRowForJude25 = rowsForJude25.Single();
 			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "5");
 			Assert.AreEqual("{25}\u00A0" + annotationInfo, (string)textRowForJude25[primaryColumnIndex]);
@@ -751,7 +752,7 @@ namespace GlyssenTests
 				(string)textRowForJude25[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for non-final verse in book (pauses come after verse text)
-			var textRowForRev1V3 = data.First(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "3").ToList();
+			var textRowForRev1V3 = data.First(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 3).ToList();
 			annotationInfo = string.Format(Pause.kPauseSecondsFormat, "2");
 			Assert.AreEqual("{3}\u00A0" + annotationInfo, (string)textRowForRev1V3[primaryColumnIndex]);
 			Assert.AreEqual(annotationInfo, ((string)textRowForRev1V3[secondaryColumnIndex]).TrimStart());
@@ -760,7 +761,7 @@ namespace GlyssenTests
 				(string)textRowForRev1V3[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
 
 			//Pause for final verse in chapter (pauses come after verse text)
-			var textRowForRev1V20 = data.Single(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "20").ToList();
+			var textRowForRev1V20 = data.Single(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 20).ToList();
 			Assert.AreEqual("{20}\u00A0" + annotationInfo, (string)textRowForRev1V20[primaryColumnIndex]);
 			Assert.AreEqual(annotationInfo, ((string)textRowForRev1V20[secondaryColumnIndex]).TrimStart());
 			Assert.AreEqual("{20}\u00A0Koŋ agonnyi tyen lok me muŋ me lakalatwe abiro ma ineno i ciŋa tuŋ lacuc, ki okar-mac abiro me jabu. " +
@@ -790,7 +791,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//Pause for final verse in chapter (pauses come after verse text)
-			var rowsForRev22V17 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 22 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "17").ToList();
+			var rowsForRev22V17 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 22 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 17).ToList();
 			var textRowForRev22V17 = rowsForRev22V17.Last();
 			var annotationInfo = " " + string.Format(Pause.kPauseSecondsFormat, "2");
 			Assert.IsTrue(((string)textRowForRev22V17[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).EndsWith(annotationInfo));
@@ -816,7 +817,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//SFX (music/sfx come before verse text)
-			var rowsForRev1V7 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "7").ToList();
+			var rowsForRev1V7 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "REV" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 7).ToList();
 			var textRowForRev1V7 = rowsForRev1V7.Single();
 			var annotationInfo = Sound.kDoNotCombine + exporter.AnnotationElementSeparator + "{Music--Starts @ v7} ";
 			Assert.IsTrue(((string)textRowForRev1V7[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).StartsWith(annotationInfo));
@@ -834,7 +835,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//Pause mid-verse
-			var rowsForMark4V39 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "MRK" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 4 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "39").ToList();
+			var rowsForMark4V39 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "MRK" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 4 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 39).ToList();
 			Assert.AreEqual(4, rowsForMark4V39.Count);
 			var narratorTextRow1ForMark4V39 = rowsForMark4V39[0];
 			var jesusTextRowForMark4V39 = rowsForMark4V39[0];
@@ -858,7 +859,7 @@ namespace GlyssenTests
 			var data = exporter.GetExportData().ToList();
 
 			//Pause mid-verse
-			var rowsForMark4V39 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "MRK" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 4 && (string)d[exporter.GetColumnIndex(ExportColumn.Verse)] == "39").ToList();
+			var rowsForMark4V39 = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "MRK" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 4 && (int)d[exporter.GetColumnIndex(ExportColumn.Verse)] == 39).ToList();
 			Assert.AreEqual(3, rowsForMark4V39.Count);
 			var narratorTextRow1ForMark4V39 = rowsForMark4V39[0];
 			var jesusTextRowForMark4V39 = rowsForMark4V39[1];
