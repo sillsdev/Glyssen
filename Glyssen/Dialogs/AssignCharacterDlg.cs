@@ -1726,7 +1726,7 @@ namespace Glyssen.Dialogs
 			{
 				var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.InvalidSplitTextAction",
 					"To split the reference text, click the location where it is to be split. Do not attempt to make a text selection " +
-					"or click at the very start or end of the text. You will need to select the {} command again to enable splitting now.");
+					"or click at the very start or end of the text. You will need to select the {0} command again to enable splitting now.");
 				MessageBox.Show(this, String.Format(msgFmt, m_ContextMenuItemSplitText.Text), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				editingCtrl.Click -= HandleClickToSplitText;
 				return;
