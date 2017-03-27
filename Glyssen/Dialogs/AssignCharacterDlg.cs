@@ -1709,5 +1709,80 @@ namespace Glyssen.Dialogs
 			}
 		}
 		#endregion
+
+		private void m_ContextMenuItemSplitText_Click(object sender, EventArgs e)
+		{
+			if (!m_dataGridReferenceText.IsCurrentCellInEditMode)
+				m_dataGridReferenceText.BeginEdit(false);
+			var editingCtrl = (DataGridViewTextBoxEditingControl)m_dataGridReferenceText.EditingControl;
+			editingCtrl.Click += HandleClickToSplitText;
+			editingCtrl.HandleDestroyed -= HandleClickToSplitText;
+		}
+
+		private void HandleClickToSplitText(object sender, EventArgs eventArgs)
+		{
+			var editingCtrl = (DataGridViewTextBoxEditingControl)sender;
+			if (editingCtrl.SelectionStart <= 0 || editingCtrl.SelectionStart >= editingCtrl.TextLength || editingCtrl.SelectionLength > 0)
+			{
+				var msgFmt = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.InvalidSplitTextAction",
+					"To split the reference text, click the location where it is to be split. Do not attempt to make a text selection " +
+					"or click at the very start or end of the text. You will need to select the {} command again to enable splitting now.");
+				MessageBox.Show(this, String.Format(msgFmt, m_ContextMenuItemSplitText.Text), ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				editingCtrl.Click -= HandleClickToSplitText;
+				return;
+			}
+			var currCell = m_dataGridReferenceText.CurrentCell;
+			var textBeforeInsertionPoint = editingCtrl.Text.Substring(0, editingCtrl.SelectionStart);
+			var textAfterInsertionPoint = editingCtrl.Text.Substring(editingCtrl.SelectionStart);
+			var destCell = GetSplitTextDestination();
+			if (destCell.RowIndex < currCell.RowIndex)
+			{
+				destCell.Value = textBeforeInsertionPoint;
+				currCell.Value = textAfterInsertionPoint;
+			}
+			else
+			{
+				currCell.Value = textBeforeInsertionPoint;
+				destCell.Value = textAfterInsertionPoint;
+			}
+			m_dataGridReferenceText.CurrentCell = destCell;
+			if (GetSplitTextDestination() == null)
+				editingCtrl.Click -= HandleClickToSplitText;
+		}
+
+		private DataGridViewCell GetSplitTextDestination()
+		{
+			var rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
+			var colIndex = m_dataGridReferenceText.CurrentCellAddress.X;
+			if (rowIndex < m_dataGridReferenceText.RowCount - 1)
+			{
+				var cellBelow = m_dataGridReferenceText.Rows[rowIndex + 1].Cells[colIndex];
+				if (String.IsNullOrEmpty(cellBelow.Value as String))
+					return cellBelow;
+			}
+			if (rowIndex > 0)
+			{
+				var cellAbove = m_dataGridReferenceText.Rows[rowIndex - 1].Cells[colIndex];
+				if (String.IsNullOrEmpty(cellAbove.Value as String))
+					return cellAbove;
+			}
+			return null;
+		}
+
+		private void m_contextMenuRefTextCell_Opening(object sender, CancelEventArgs e)
+		{
+			m_ContextMenuItemSplitText.Enabled = GetSplitTextDestination() != null;
+		}
+
+		private void m_dataGridReferenceText_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Right)
+			{
+				//var restore = m_dataGridReferenceText.EditMode;
+				//m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditProgrammatically;
+				m_dataGridReferenceText.CurrentCell = m_dataGridReferenceText.Rows[e.RowIndex].Cells[e.ColumnIndex];
+				//m_dataGridReferenceText.EditMode = restore;
+			}
+		}
 	}
 }
