@@ -1324,7 +1324,7 @@ namespace Glyssen.Dialogs
 
 		private void HandleMoveReferenceTextUpOrDown_Click(object sender, EventArgs e)
 		{
-			bool down = sender == m_btnMoveReferenceTextDown;
+			bool down = (sender == m_btnMoveReferenceTextDown || sender == m_ContextMenuItemMoveDown);
 			var currentRowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
 			var rowA = m_dataGridReferenceText.Rows[down ? currentRowIndex : currentRowIndex - 1];
 			var rowB = m_dataGridReferenceText.Rows[rowA.Index + 1];
@@ -1637,6 +1637,12 @@ namespace Glyssen.Dialogs
 			UpdateAssignOrApplyAndResetButtonState();
 		}
 
+		private void HandleInsertContextMenuHeSaidClicked(object sender, EventArgs e)
+		{
+			m_viewModel.CurrentReferenceTextMatchup.InsertHeSaidText(m_dataGridReferenceText.CurrentCellAddress.Y, HandleHeSaidInserted);
+			UpdateAssignOrApplyAndResetButtonState();
+		}
+
 		private void HandleHeSaidInserted(int iRow, int level, string text)
 		{
 			m_dataGridReferenceText.CellValueChanged -= m_dataGridReferenceText_CellValueChanged;
@@ -1772,6 +1778,9 @@ namespace Glyssen.Dialogs
 		private void m_contextMenuRefTextCell_Opening(object sender, CancelEventArgs e)
 		{
 			m_ContextMenuItemSplitText.Enabled = GetSplitTextDestination() != null;
+			m_ContextMenuItemMoveUp.Enabled = m_dataGridReferenceText.CurrentCellAddress.Y != m_dataGridReferenceText.RowCount - 1;
+			m_btnMoveReferenceTextUp.Enabled = m_dataGridReferenceText.CurrentCellAddress.Y != 0;
+			m_ContextMenuItemInsertHeSaid.Enabled = GetColumnsIntoWhichHeSaidCanBeInserted(m_dataGridReferenceText.CurrentRow).Any();
 		}
 
 		private void m_dataGridReferenceText_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)

@@ -136,6 +136,10 @@ namespace Glyssen.Dialogs
 			this.m_tabControlCharacterSelection = new System.Windows.Forms.TabControl();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
+			this.m_ContextMenuItemMoveUp = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_ContextMenuItemMoveDown = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.m_ContextMenuItemInsertHeSaid = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -1229,12 +1233,16 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_contextMenuRefTextCell, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_contextMenuRefTextCell, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_contextMenuRefTextCell.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.m_ContextMenuItemSplitText});
+            this.m_ContextMenuItemSplitText,
+            this.m_ContextMenuItemMoveUp,
+            this.m_ContextMenuItemMoveDown,
+            this.toolStripSeparator5,
+            this.m_ContextMenuItemInsertHeSaid});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuRefTextCell, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_contextMenuRefTextCell, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuRefTextCell, "DialogBoxes.AssignCharacterDlg.contextMenuStrip1");
 			this.m_contextMenuRefTextCell.Name = "m_contextMenuRefTextCell";
-			this.m_contextMenuRefTextCell.Size = new System.Drawing.Size(123, 26);
+			this.m_contextMenuRefTextCell.Size = new System.Drawing.Size(164, 120);
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_contextMenuRefTextCell, false);
 			this.m_contextMenuRefTextCell.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuRefTextCell_Opening);
 			// 
@@ -1246,7 +1254,7 @@ namespace Glyssen.Dialogs
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemSplitText, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemSplitText, "DialogBoxes.AssignCharacterDlg.toolStripMenuItem1");
 			this.m_ContextMenuItemSplitText.Name = "m_ContextMenuItemSplitText";
-			this.m_ContextMenuItemSplitText.Size = new System.Drawing.Size(122, 22);
+			this.m_ContextMenuItemSplitText.Size = new System.Drawing.Size(163, 22);
 			this.m_ContextMenuItemSplitText.Text = "Split Text";
 			this.m_ContextMenuItemSplitText.ToolTipText = "After selecting this command, click in the text where you want to split the text." +
     "";
@@ -1568,6 +1576,53 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanelNavigationControls, false);
 			// 
+			// m_ContextMenuItemMoveUp
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemMoveUp, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemMoveUp, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemMoveUp, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.toolStripMenuItem1");
+			this.m_ContextMenuItemMoveUp.Name = "m_ContextMenuItemMoveUp";
+			this.m_ContextMenuItemMoveUp.Size = new System.Drawing.Size(163, 22);
+			this.m_ContextMenuItemMoveUp.Text = "Move Line Up";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemMoveUp, false);
+			this.m_ContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			// 
+			// m_ContextMenuItemMoveDown
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemMoveDown, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemMoveDown, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemMoveDown, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.toolStripMenuItem1");
+			this.m_ContextMenuItemMoveDown.Name = "m_ContextMenuItemMoveDown";
+			this.m_ContextMenuItemMoveDown.Size = new System.Drawing.Size(163, 22);
+			this.m_ContextMenuItemMoveDown.Text = "Move Line Down";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemMoveDown, false);
+			this.m_ContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			// 
+			// toolStripSeparator5
+			// 
+			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator5, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator5, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(160, 6);
+			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator5, false);
+			// 
+			// m_ContextMenuItemInsertHeSaid
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemInsertHeSaid, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemInsertHeSaid, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemInsertHeSaid, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemInsertHeSaid, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemInsertHeSaid, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.toolStripMenuItem1");
+			this.m_ContextMenuItemInsertHeSaid.Name = "m_ContextMenuItemInsertHeSaid";
+			this.m_ContextMenuItemInsertHeSaid.Size = new System.Drawing.Size(163, 22);
+			this.m_ContextMenuItemInsertHeSaid.Text = "Insert \"He Said\"";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemInsertHeSaid, false);
+			this.m_ContextMenuItemInsertHeSaid.Click += new System.EventHandler(this.HandleInsertContextMenuHeSaidClicked);
+			// 
 			// AssignCharacterDlg
 			// 
 			this.AcceptButton = this.m_btnAssign;
@@ -1714,5 +1769,9 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.DataGridViewTextBoxColumn colPrimary;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colEnglish;
 		private System.Windows.Forms.DataGridViewComboBoxColumn colDelivery;
+		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemMoveUp;
+		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemMoveDown;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemInsertHeSaid;
 	}
 }
