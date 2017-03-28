@@ -294,6 +294,11 @@ namespace Glyssen.Dialogs
 						// correct block within the sequence of correlated blocks rather than within the book.
 						index -= m_currentRefBlockMatchups.IndexOfStartBlockInBook;
 						var newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
+						while (newAnchorBlock.CharacterIs(CurrentBookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						{
+							index++; // A section head should NEVER be the last one in the matchup!
+							newAnchorBlock = m_currentRefBlockMatchups.CorrelatedBlocks[index];
+						}
 						if (newAnchorBlock != m_currentRefBlockMatchups.CorrelatedAnchorBlock)
 						{
 							// Just reset the anchor and get out.
