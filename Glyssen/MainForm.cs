@@ -182,6 +182,7 @@ namespace Glyssen
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
+			m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
 			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
 
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
@@ -483,9 +484,13 @@ namespace Glyssen
 			}
 
 			double percentAssigned = 0;
+			double percentAligned = 0;
 			if (m_project != null && m_project.ProjectAnalysis != null)
+			{
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
-			m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, percentAssigned) : Empty;
+				percentAligned = m_project.ProjectAnalysis.AlignmentPercent;
+			}
+			m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, percentAssigned, percentAligned) : Empty;
 		}
 
 		private void UpdateDisplayOfCastSizePlan(object sender, EventArgs e)

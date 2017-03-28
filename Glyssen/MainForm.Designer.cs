@@ -175,7 +175,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_exportMenu, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_exportMenu, "MainForm.Export");
 			this.m_exportMenu.Name = "m_exportMenu";
-			this.m_exportMenu.Size = new System.Drawing.Size(152, 22);
+			this.m_exportMenu.Size = new System.Drawing.Size(110, 22);
 			this.m_exportMenu.Text = "Export";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_exportMenu, false);
 			this.m_exportMenu.Click += new System.EventHandler(this.Export_Click);
@@ -189,7 +189,7 @@
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_importMenu, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_importMenu, "MainForm.Import");
 			this.m_importMenu.Name = "m_importMenu";
-			this.m_importMenu.Size = new System.Drawing.Size(152, 22);
+			this.m_importMenu.Size = new System.Drawing.Size(110, 22);
 			this.m_importMenu.Text = "Import";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_importMenu, false);
 			this.m_importMenu.Click += new System.EventHandler(this.Import_Click);
@@ -203,10 +203,10 @@
 			this.m_lastExportLocationLink.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lastExportLocationLink.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lastExportLocationLink, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -234,10 +234,10 @@
 			this.m_lnkExit.BackColor = System.Drawing.SystemColors.Control;
 			this.m_lnkExit.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
-			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
@@ -472,7 +472,7 @@
 			this.m_lblPercentAssigned.Name = "m_lblPercentAssigned";
 			this.m_lblPercentAssigned.Size = new System.Drawing.Size(333, 29);
 			this.m_lblPercentAssigned.TabIndex = 17;
-			this.m_lblPercentAssigned.Text = "{0:N1}% complete";
+			this.m_lblPercentAssigned.Text = "Assignments: {0:N1}% complete; Alignment to reference text: {1:N1}% complete";
 			this.m_lblPercentAssigned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblPercentAssigned, true);
 			// 
