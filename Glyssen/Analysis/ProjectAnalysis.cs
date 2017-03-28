@@ -9,6 +9,7 @@ namespace Glyssen.Analysis
 	public class ProjectAnalysis
 	{
 		private readonly Project m_projectToAnalyze;
+		private double m_alignmentPercent = -1;
 
 		public ProjectAnalysis(Project projectToAnalyze)
 		{
@@ -23,7 +24,15 @@ namespace Glyssen.Analysis
 		public int UserAssignedBlocks { get; private set; }
 		public int NeedsAssignment { get; private set; }
 		public double UserPercentAssigned { get; private set; }
-		public double AlignmentPercent { get; private set; }
+		public double AlignmentPercent
+		{
+			get
+			{
+				if (m_alignmentPercent < 0)
+					CalculateAlignmentPercentage();
+				return m_alignmentPercent;
+			}
+		}
 		public double PercentUnknown { get; private set; }
 
 		public void AnalyzeQuoteParse()
@@ -60,6 +69,18 @@ namespace Glyssen.Analysis
 						NeedsAssignment++;
 				}
 			}
+			m_alignmentPercent = -1;
+
+			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
+			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
+			PercentUnknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
+#if DEBUG
+			ReportInConsole();
+#endif
+		}
+
+		private void CalculateAlignmentPercentage()
+		{
 			int totalBlocksForExport = 0;
 			int blocksNotAlignedToReferenceText = 0;
 			var refText = m_projectToAnalyze.ReferenceText;
@@ -78,14 +99,7 @@ namespace Glyssen.Analysis
 					}
 				}
 			}
-
-			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
-			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
-			PercentUnknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
-			AlignmentPercent = MathUtilities.PercentAsDouble(totalBlocksForExport - blocksNotAlignedToReferenceText, totalBlocksForExport);
-#if DEBUG
-			ReportInConsole();
-#endif
+			m_alignmentPercent = MathUtilities.PercentAsDouble(totalBlocksForExport - blocksNotAlignedToReferenceText, totalBlocksForExport);
 		}
 
 		[SuppressMessage("ReSharper", "LocalizableElement")]
