@@ -7,6 +7,7 @@ using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
+using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Windows.Forms;
 using ScrVers = Paratext.ScrVers;
@@ -561,6 +562,26 @@ namespace GlyssenTests.Dialogs
 
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
 			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
+		}
+
+		/// <summary>
+		/// PG-956
+		/// </summary>
+		[Test]
+		public void SetCurrentBlockIndexInBook_SectionHeadBlockInCurrentMatchup_FollowingScriptureBlockSelected()
+		{
+			m_model.Mode = BlocksToDisplay.AllScripture;
+			m_model.AttemptRefBlockMatchup = true;
+			FindRefInMark(3, 19);
+
+			var iSectionHeadBlock = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks.IndexOf(b => b.CharacterIs("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical));
+			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook + iSectionHeadBlock;
+
+			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
+			Assert.AreNotEqual(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock.CharacterId);
+			Assert.AreEqual(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[iSectionHeadBlock + 1],
+				m_model.CurrentReferenceTextMatchup.CorrelatedAnchorBlock);
 		}
 
 		[Test]
