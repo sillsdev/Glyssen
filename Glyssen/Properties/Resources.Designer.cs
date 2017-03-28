@@ -219,7 +219,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	109
+        ///   Looks up a localized string similar to Control File Version	116
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -245,7 +245,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to # Versification  &quot;English&quot;
+        ///   Looks up a localized string similar to # Versification  &quot;Sample&quot;
         ///# Version=1.9
         ///#
         ///# modifications by Reinier de Blois 13/March/2012
@@ -254,7 +254,8 @@ namespace Glyssen.Properties {
         ///
         ///# modifications by Studge 26/June/2009
         ///# book definitions are for all books printed in any English of Spanish Bible
-        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions        /// [rest of string was truncated]&quot;;.
+        ///# this includes books for Protestant, Catholic and Protestant-Catholic-EasternOrthodox Interconfessional editions
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EnglishVersification {
             get {
@@ -533,6 +534,16 @@ namespace Glyssen.Properties {
         internal static System.Drawing.Bitmap WhoSpeaks {
             get {
                 object obj = ResourceManager.GetObject("WhoSpeaks", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellow_check {
+            get {
+                object obj = ResourceManager.GetObject("yellow_check", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

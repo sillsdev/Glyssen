@@ -563,6 +563,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
     <None Include="Resources\Silent.wav" />
     <None Include="Resources\UpdateGroups.png" />

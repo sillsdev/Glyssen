@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Glyssen.Character;
 using Glyssen.Utilities;
 
@@ -22,6 +23,7 @@ namespace Glyssen.Analysis
 		public int UserAssignedBlocks { get; private set; }
 		public int NeedsAssignment { get; private set; }
 		public double UserPercentAssigned { get; private set; }
+		public double AlignmentPercent { get; private set; }
 		public double PercentUnknown { get; private set; }
 
 		public void AnalyzeQuoteParse()
@@ -58,9 +60,29 @@ namespace Glyssen.Analysis
 						NeedsAssignment++;
 				}
 			}
+			int totalBlocksForExport = 0;
+			int blocksNotAlignedToReferenceText = 0;
+			var refText = m_projectToAnalyze.ReferenceText;
+			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze))
+			{
+				var blocks = book.GetScriptBlocks();
+				if (!refText.CanDisplayReferenceTextForBook(book) || book.SingleVoice)
+					totalBlocksForExport += blocks.Count;
+				else
+				{
+					foreach (Block block in blocks)
+					{
+						totalBlocksForExport++;
+						if (!CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId) && !block.MatchesReferenceText)
+							blocksNotAlignedToReferenceText++;
+					}
+				}
+			}
+
 			TotalPercentAssigned = MathUtilities.PercentAsDouble(TotalBlocks - (UnknownBlocks + AmbiguousBlocks), TotalBlocks);
 			UserPercentAssigned = MathUtilities.PercentAsDouble(UserAssignedBlocks, NeedsAssignment);
 			PercentUnknown = MathUtilities.PercentAsDouble(UnknownBlocks, TotalBlocks);
+			AlignmentPercent = MathUtilities.PercentAsDouble(totalBlocksForExport - blocksNotAlignedToReferenceText, totalBlocksForExport);
 #if DEBUG
 			ReportInConsole();
 #endif
