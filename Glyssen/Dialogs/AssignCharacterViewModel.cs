@@ -446,8 +446,9 @@ namespace Glyssen.Dialogs
 			}
 			base.ApplyCurrentReferenceTextMatchup();
 
-			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond,
-			// so we need to check to see whether this has happened and, if so, add an appropriate entry to the project CV data.
+			// PG-805: The block matchup UI does not prevent pairing a delivery with a character to which it does not correspond and
+			// also allows addition of new character/delivery pairs, so we need to check to see whether this has happened and, if
+			// so, add an appropriate entry to the project CV data.
 			foreach (var block in CurrentReferenceTextMatchup.OriginalBlocks.Where(IsBlockAssignedToUnknownCharacterDeliveryPair))
 			{
 				AddRecordToProjectCharacterVerseData(block,

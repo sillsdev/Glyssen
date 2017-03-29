@@ -116,9 +116,16 @@ namespace Glyssen.Dialogs
 			this.tabPageMatchReferenceText = new System.Windows.Forms.TabPage();
 			this.m_dataGridReferenceText = new System.Windows.Forms.DataGridView();
 			this.colCharacter = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.m_contextMenuCharacterOrDeliveryCell = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.m_ContextMenuItemAddCharacterOrDelivery = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
 			this.colPrimary = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_contextMenuRefTextCell = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.m_ContextMenuItemSplitText = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_ContextMenuItemInsertHeSaid = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+			this.m_RefTextContextMenuItemMoveUp = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_RefTextContextMenuItemMoveDown = new System.Windows.Forms.ToolStripMenuItem();
 			this.colEnglish = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.colDelivery = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.m_tableLayoutPanelMatchReferenceTextButtons = new System.Windows.Forms.TableLayoutPanel();
@@ -136,10 +143,8 @@ namespace Glyssen.Dialogs
 			this.m_tabControlCharacterSelection = new System.Windows.Forms.TabControl();
 			this.tableLayoutPanelNavigationControls = new System.Windows.Forms.TableLayoutPanel();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
-			this.m_ContextMenuItemMoveUp = new System.Windows.Forms.ToolStripMenuItem();
-			this.m_ContextMenuItemMoveDown = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-			this.m_ContextMenuItemInsertHeSaid = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_CharacterOrDeliveryContextMenuItemMoveUp = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_CharacterOrDeliveryContextMenuItemMoveDown = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnCharacterFilter)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_icnDeliveryFilter)).BeginInit();
@@ -153,6 +158,7 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelCharacter.SuspendLayout();
 			this.tabPageMatchReferenceText.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridReferenceText)).BeginInit();
+			this.m_contextMenuCharacterOrDeliveryCell.SuspendLayout();
 			this.m_contextMenuRefTextCell.SuspendLayout();
 			this.m_tableLayoutPanelMatchReferenceTextButtons.SuspendLayout();
 			this.m_flowLayoutPanelMatchReferenceTextLeftButtons.SuspendLayout();
@@ -273,15 +279,15 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llMoreChar.AutoSize = true;
-			this.m_llMoreChar.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_llMoreChar.BackColor = System.Drawing.SystemColors.Control;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreChar, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreChar.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetForeColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreChar.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_llMoreChar.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreChar, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreChar, "DialogBoxes.AssignCharacterDlg.MoreCharacters");
@@ -292,8 +298,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreChar.TabStop = true;
 			this.m_llMoreChar.Text = "More Characters";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llMoreChar, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreChar.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreChar, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreChar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreChar_LinkClicked);
 			// 
 			// m_txtCharacterFilter
@@ -358,15 +364,15 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llMoreDel.AutoSize = true;
-			this.m_llMoreDel.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_llMoreDel.BackColor = System.Drawing.SystemColors.Control;
 			this.m_pnlCharacterAndDeliverySelection.SetColumnSpan(this.m_llMoreDel, 2);
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_llMoreDel.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
 			this.glyssenColorPalette.SetForeColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_llMoreDel.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_llMoreDel.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llMoreDel, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llMoreDel, "DialogBoxes.AssignCharacterDlg.MoreDeliveries");
@@ -377,8 +383,8 @@ namespace Glyssen.Dialogs
 			this.m_llMoreDel.TabStop = true;
 			this.m_llMoreDel.Text = "More Deliveries";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llMoreDel, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreDel.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llMoreDel, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llMoreDel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llMoreDel_LinkClicked);
 			// 
 			// m_txtDeliveryFilter
@@ -875,14 +881,14 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.m_llClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_llClose.AutoSize = true;
-			this.m_llClose.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
+			this.m_llClose.BackColor = System.Drawing.SystemColors.Control;
 			this.m_llClose.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
-			this.m_llClose.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.glyssenColorPalette.SetForeColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.LinkColor);
+			this.m_llClose.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_llClose.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_llClose, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_llClose, "Common.Close");
@@ -893,8 +899,8 @@ namespace Glyssen.Dialogs
 			this.m_llClose.TabStop = true;
 			this.m_llClose.Text = "Close";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_llClose, true);
-			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llClose.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetVisitedLinkColor(this.m_llClose, Glyssen.Utilities.GlyssenColors.VisitedLinkColor);
 			this.m_llClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_llClose_LinkClicked);
 			// 
 			// m_blocksViewer
@@ -1205,6 +1211,7 @@ namespace Glyssen.Dialogs
 			// colCharacter
 			// 
 			this.colCharacter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colCharacter.ContextMenuStrip = this.m_contextMenuCharacterOrDeliveryCell;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
 			this.colCharacter.DefaultCellStyle = dataGridViewCellStyle1;
@@ -1215,6 +1222,45 @@ namespace Glyssen.Dialogs
 			this.colCharacter.HeaderText = "Character";
 			this.colCharacter.MinimumWidth = 56;
 			this.colCharacter.Name = "colCharacter";
+			// 
+			// m_contextMenuCharacterOrDeliveryCell
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_contextMenuCharacterOrDeliveryCell, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_contextMenuCharacterOrDeliveryCell, Glyssen.Utilities.GlyssenColors.Default);
+			this.m_contextMenuCharacterOrDeliveryCell.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_ContextMenuItemAddCharacterOrDelivery,
+            this.toolStripSeparator7,
+            this.m_CharacterOrDeliveryContextMenuItemMoveUp,
+            this.m_CharacterOrDeliveryContextMenuItemMoveDown});
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuCharacterOrDeliveryCell, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_contextMenuCharacterOrDeliveryCell, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_contextMenuCharacterOrDeliveryCell, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuCharacterOrDeliveryCell, "DialogBoxes.AssignCharacterDlg.contextMenuStrip1");
+			this.m_contextMenuCharacterOrDeliveryCell.Name = "m_contextMenuCharacterOrDeliveryCell";
+			this.m_contextMenuCharacterOrDeliveryCell.Size = new System.Drawing.Size(219, 98);
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_contextMenuCharacterOrDeliveryCell, false);
+			this.m_contextMenuCharacterOrDeliveryCell.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuCharacterOrDeliveryCell_Opening);
+			// 
+			// m_ContextMenuItemAddCharacterOrDelivery
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemAddCharacterOrDelivery, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemAddCharacterOrDelivery, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemAddCharacterOrDelivery, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemAddCharacterOrDelivery, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemAddCharacterOrDelivery, "DialogBoxes.AssignCharacterDlg.AddCharacterOrDeliveryContextMenuItem");
+			this.m_ContextMenuItemAddCharacterOrDelivery.Name = "m_ContextMenuItemAddCharacterOrDelivery";
+			this.m_ContextMenuItemAddCharacterOrDelivery.Size = new System.Drawing.Size(218, 22);
+			this.m_ContextMenuItemAddCharacterOrDelivery.Text = "Add Character or Delivery...";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemAddCharacterOrDelivery, false);
+			this.m_ContextMenuItemAddCharacterOrDelivery.Click += new System.EventHandler(this.ContextMenuItemAddCharacterOrDelivery_Click);
+			// 
+			// toolStripSeparator7
+			// 
+			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator7, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator7, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator7.Name = "toolStripSeparator7";
+			this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
+			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator7, false);
 			// 
 			// colPrimary
 			// 
@@ -1234,15 +1280,16 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_contextMenuRefTextCell, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_contextMenuRefTextCell.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_ContextMenuItemSplitText,
-            this.m_ContextMenuItemMoveUp,
-            this.m_ContextMenuItemMoveDown,
-            this.toolStripSeparator5,
-            this.m_ContextMenuItemInsertHeSaid});
+            this.m_ContextMenuItemInsertHeSaid,
+            this.toolStripSeparator6,
+            this.m_RefTextContextMenuItemMoveUp,
+            this.m_RefTextContextMenuItemMoveDown});
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_contextMenuRefTextCell, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_contextMenuRefTextCell, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_contextMenuRefTextCell, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_contextMenuRefTextCell, "DialogBoxes.AssignCharacterDlg.contextMenuStrip1");
 			this.m_contextMenuRefTextCell.Name = "m_contextMenuRefTextCell";
-			this.m_contextMenuRefTextCell.Size = new System.Drawing.Size(164, 120);
+			this.m_contextMenuRefTextCell.Size = new System.Drawing.Size(164, 98);
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_contextMenuRefTextCell, false);
 			this.m_contextMenuRefTextCell.Opening += new System.ComponentModel.CancelEventHandler(this.m_contextMenuRefTextCell_Opening);
 			// 
@@ -1250,9 +1297,10 @@ namespace Glyssen.Dialogs
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemSplitText, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemSplitText, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemSplitText, null);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemSplitText, "After selecting this command, click in the text where you want to split the text." +
+        "");
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemSplitText, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemSplitText, "DialogBoxes.AssignCharacterDlg.toolStripMenuItem1");
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemSplitText, "DialogBoxes.AssignCharacterDlg.SplitTextContextMenuItem");
 			this.m_ContextMenuItemSplitText.Name = "m_ContextMenuItemSplitText";
 			this.m_ContextMenuItemSplitText.Size = new System.Drawing.Size(163, 22);
 			this.m_ContextMenuItemSplitText.Text = "Split Text";
@@ -1260,6 +1308,53 @@ namespace Glyssen.Dialogs
     "";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemSplitText, false);
 			this.m_ContextMenuItemSplitText.Click += new System.EventHandler(this.m_ContextMenuItemSplitText_Click);
+			// 
+			// m_ContextMenuItemInsertHeSaid
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemInsertHeSaid, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemInsertHeSaid, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemInsertHeSaid, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemInsertHeSaid, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemInsertHeSaid, "DialogBoxes.AssignCharacterDlg.InsertHeSaidContextMenuItem");
+			this.m_ContextMenuItemInsertHeSaid.Name = "m_ContextMenuItemInsertHeSaid";
+			this.m_ContextMenuItemInsertHeSaid.Size = new System.Drawing.Size(163, 22);
+			this.m_ContextMenuItemInsertHeSaid.Text = "Insert \"He Said\"";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemInsertHeSaid, false);
+			this.m_ContextMenuItemInsertHeSaid.Click += new System.EventHandler(this.HandleInsertContextMenuHeSaidClicked);
+			// 
+			// toolStripSeparator6
+			// 
+			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator6, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator6, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			this.toolStripSeparator6.Size = new System.Drawing.Size(160, 6);
+			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator6, false);
+			// 
+			// m_RefTextContextMenuItemMoveUp
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_RefTextContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_RefTextContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_RefTextContextMenuItemMoveUp, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_RefTextContextMenuItemMoveUp, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_RefTextContextMenuItemMoveUp, "DialogBoxes.AssignCharacterDlg.MoveLineUpContextMenuItem");
+			this.m_RefTextContextMenuItemMoveUp.Name = "m_RefTextContextMenuItemMoveUp";
+			this.m_RefTextContextMenuItemMoveUp.Size = new System.Drawing.Size(163, 22);
+			this.m_RefTextContextMenuItemMoveUp.Text = "Move Line Up";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_RefTextContextMenuItemMoveUp, false);
+			this.m_RefTextContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			// 
+			// m_RefTextContextMenuItemMoveDown
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_RefTextContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_RefTextContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_RefTextContextMenuItemMoveDown, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_RefTextContextMenuItemMoveDown, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_RefTextContextMenuItemMoveDown, "DialogBoxes.AssignCharacterDlg.MoveLineDownContextMenuItem");
+			this.m_RefTextContextMenuItemMoveDown.Name = "m_RefTextContextMenuItemMoveDown";
+			this.m_RefTextContextMenuItemMoveDown.Size = new System.Drawing.Size(163, 22);
+			this.m_RefTextContextMenuItemMoveDown.Text = "Move Line Down";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_RefTextContextMenuItemMoveDown, false);
+			this.m_RefTextContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
 			// 
 			// colEnglish
 			// 
@@ -1276,6 +1371,7 @@ namespace Glyssen.Dialogs
 			// colDelivery
 			// 
 			this.colDelivery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.colDelivery.ContextMenuStrip = this.m_contextMenuCharacterOrDeliveryCell;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.Transparent;
 			this.colDelivery.DefaultCellStyle = dataGridViewCellStyle4;
@@ -1576,52 +1672,33 @@ namespace Glyssen.Dialogs
 			this.tableLayoutPanelNavigationControls.TabIndex = 30;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanelNavigationControls, false);
 			// 
-			// m_ContextMenuItemMoveUp
+			// m_CharacterOrDeliveryContextMenuItemMoveUp
 			// 
-			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemMoveUp, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemMoveUp, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemMoveUp, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.toolStripMenuItem1");
-			this.m_ContextMenuItemMoveUp.Name = "m_ContextMenuItemMoveUp";
-			this.m_ContextMenuItemMoveUp.Size = new System.Drawing.Size(163, 22);
-			this.m_ContextMenuItemMoveUp.Text = "Move Line Up";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemMoveUp, false);
-			this.m_ContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
+			this.glyssenColorPalette.SetBackColor(this.m_CharacterOrDeliveryContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_CharacterOrDeliveryContextMenuItemMoveUp, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_CharacterOrDeliveryContextMenuItemMoveUp, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_CharacterOrDeliveryContextMenuItemMoveUp, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_CharacterOrDeliveryContextMenuItemMoveUp, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_CharacterOrDeliveryContextMenuItemMoveUp, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.moveLineUpToolStripMenuItem");
+			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Name = "m_CharacterOrDeliveryContextMenuItemMoveUp";
+			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Size = new System.Drawing.Size(218, 22);
+			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Text = "Move Line Up";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_CharacterOrDeliveryContextMenuItemMoveUp, false);
+			this.m_CharacterOrDeliveryContextMenuItemMoveUp.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
 			// 
-			// m_ContextMenuItemMoveDown
+			// m_CharacterOrDeliveryContextMenuItemMoveDown
 			// 
-			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemMoveDown, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemMoveDown, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemMoveDown, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.toolStripMenuItem1");
-			this.m_ContextMenuItemMoveDown.Name = "m_ContextMenuItemMoveDown";
-			this.m_ContextMenuItemMoveDown.Size = new System.Drawing.Size(163, 22);
-			this.m_ContextMenuItemMoveDown.Text = "Move Line Down";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemMoveDown, false);
-			this.m_ContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
-			// 
-			// toolStripSeparator5
-			// 
-			this.glyssenColorPalette.SetBackColor(this.toolStripSeparator5, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.toolStripSeparator5, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(160, 6);
-			this.glyssenColorPalette.SetUsePaletteColors(this.toolStripSeparator5, false);
-			// 
-			// m_ContextMenuItemInsertHeSaid
-			// 
-			this.glyssenColorPalette.SetBackColor(this.m_ContextMenuItemInsertHeSaid, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_ContextMenuItemInsertHeSaid, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_ContextMenuItemInsertHeSaid, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.m_ContextMenuItemInsertHeSaid, null);
-			this.m_l10NSharpExtender.SetLocalizingId(this.m_ContextMenuItemInsertHeSaid, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.toolStripMenuItem1");
-			this.m_ContextMenuItemInsertHeSaid.Name = "m_ContextMenuItemInsertHeSaid";
-			this.m_ContextMenuItemInsertHeSaid.Size = new System.Drawing.Size(163, 22);
-			this.m_ContextMenuItemInsertHeSaid.Text = "Insert \"He Said\"";
-			this.glyssenColorPalette.SetUsePaletteColors(this.m_ContextMenuItemInsertHeSaid, false);
-			this.m_ContextMenuItemInsertHeSaid.Click += new System.EventHandler(this.HandleInsertContextMenuHeSaidClicked);
+			this.glyssenColorPalette.SetBackColor(this.m_CharacterOrDeliveryContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_CharacterOrDeliveryContextMenuItemMoveDown, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_CharacterOrDeliveryContextMenuItemMoveDown, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_CharacterOrDeliveryContextMenuItemMoveDown, null);
+			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_CharacterOrDeliveryContextMenuItemMoveDown, L10NSharp.LocalizationPriority.NotLocalizable);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_CharacterOrDeliveryContextMenuItemMoveDown, "DialogBoxes.AssignCharacterDlg.AssignCharacterDlg.moveLineDownToolStripMenuItem");
+			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Name = "m_CharacterOrDeliveryContextMenuItemMoveDown";
+			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Size = new System.Drawing.Size(218, 22);
+			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Text = "Move Line Down";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_CharacterOrDeliveryContextMenuItemMoveDown, false);
+			this.m_CharacterOrDeliveryContextMenuItemMoveDown.Click += new System.EventHandler(this.HandleMoveReferenceTextUpOrDown_Click);
 			// 
 			// AssignCharacterDlg
 			// 
@@ -1674,6 +1751,7 @@ namespace Glyssen.Dialogs
 			this.tabPageMatchReferenceText.ResumeLayout(false);
 			this.tabPageMatchReferenceText.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_dataGridReferenceText)).EndInit();
+			this.m_contextMenuCharacterOrDeliveryCell.ResumeLayout(false);
 			this.m_contextMenuRefTextCell.ResumeLayout(false);
 			this.m_tableLayoutPanelMatchReferenceTextButtons.ResumeLayout(false);
 			this.m_tableLayoutPanelMatchReferenceTextButtons.PerformLayout();
@@ -1765,13 +1843,18 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.Label m_lblReferenceText;
 		private System.Windows.Forms.ContextMenuStrip m_contextMenuRefTextCell;
 		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemSplitText;
+		private System.Windows.Forms.ToolStripMenuItem m_RefTextContextMenuItemMoveUp;
+		private System.Windows.Forms.ToolStripMenuItem m_RefTextContextMenuItemMoveDown;
+		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemInsertHeSaid;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+		private System.Windows.Forms.ContextMenuStrip m_contextMenuCharacterOrDeliveryCell;
+		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemAddCharacterOrDelivery;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
 		private System.Windows.Forms.DataGridViewComboBoxColumn colCharacter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colPrimary;
 		private System.Windows.Forms.DataGridViewTextBoxColumn colEnglish;
 		private System.Windows.Forms.DataGridViewComboBoxColumn colDelivery;
-		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemMoveUp;
-		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemMoveDown;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-		private System.Windows.Forms.ToolStripMenuItem m_ContextMenuItemInsertHeSaid;
+		private System.Windows.Forms.ToolStripMenuItem m_CharacterOrDeliveryContextMenuItemMoveUp;
+		private System.Windows.Forms.ToolStripMenuItem m_CharacterOrDeliveryContextMenuItemMoveDown;
 	}
 }
