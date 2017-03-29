@@ -226,6 +226,12 @@
     </Compile>
     <Compile Include="Controls\TextBoxExtensions.cs" />
     <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
+    <Compile Include="Dialogs\AddCharacterDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddCharacterDlg.Designer.cs">
+      <DependentUpon>AddCharacterDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AddCharactersToGroupViewModel.cs" />
     <Compile Include="Dialogs\AddCharacterToGroupDlg.cs">
       <SubType>Form</SubType>
@@ -448,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddCharacterDlg.resx">
+      <DependentUpon>AddCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddCharacterToGroupDlg.resx">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
