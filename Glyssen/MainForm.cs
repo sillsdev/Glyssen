@@ -24,13 +24,15 @@ using SIL.Progress;
 using SIL.Reporting;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
-using SIL.Windows.Forms.FileDialogExtender;
+using NetSparkle;
+using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
 
 namespace Glyssen
 {
 	public partial class MainForm : FormWithPersistedSettings
 	{
+		public static Sparkle UpdateChecker { get; private set; }
 		private Project m_project;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
 		private string m_percentAssignedFmt;
@@ -287,8 +289,10 @@ namespace Glyssen
 			}
 		}
 
-		private void MainForm_Load(object sender, EventArgs e)
+		protected override void OnLoad(EventArgs e)
 		{
+			base.OnLoad(e);
+
 			if (IsNullOrEmpty(Settings.Default.CurrentProject) || !File.Exists(Settings.Default.CurrentProject))
 				SetProject(null);
 			else
@@ -307,6 +311,11 @@ namespace Glyssen
 					throw;
 				}
 			}
+			UpdateChecker = new Sparkle(@"http://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
+	Icon);
+			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
+			// more importantly, when the toast notifier closes, it can sometimes clobber an error message being displayed for the user.
+			UpdateChecker.CheckOnFirstApplicationIdle();
 		}
 
 		private void InitializeProgress()
@@ -864,8 +873,24 @@ namespace Glyssen
 		{
 			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
+				dlg.CheckForUpdatesClicked += HandleAboutDialogCheckForUpdatesClick;
+				dlg.ReleaseNotesClicked += HandleAboutDialogReleaseNotesClicked;
 				dlg.ShowDialog(this);
 			}
+		}
+
+		private void HandleAboutDialogCheckForUpdatesClick(object sender, EventArgs e)
+		{
+			var updateStatus = UpdateChecker.CheckForUpdatesAtUserRequest();
+			if (updateStatus == Sparkle.UpdateStatus.UpdateNotAvailable)
+				((SILAboutBox)sender).NotifyNoUpdatesAvailable();
+		}
+
+		private void HandleAboutDialogReleaseNotesClicked(object sender, EventArgs e)
+		{
+			var path = FileLocator.GetFileDistributedWithApplication("ReleaseNotes.md");
+			using (var dlg = new ShowReleaseNotesDialog(((Form)sender).Icon, path))
+				dlg.ShowDialog();
 		}
 
 		private void AssignVoiceActors_Click(object sender, EventArgs e)

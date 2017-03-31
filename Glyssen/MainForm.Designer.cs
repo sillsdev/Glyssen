@@ -745,7 +745,6 @@
 			this.Text = "Glyssen";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).EndInit();
 			this.m_toolStrip.ResumeLayout(false);
 			this.m_toolStrip.PerformLayout();
