@@ -33,8 +33,8 @@ glyssen-support_lsdev@sil.org
 # What to Back Up
 Glyssen stores all its project files in the Program Data folder, under the
 SIL-FCBH\Glyssen directory. On a default installation of Windows 7, that would be
-here: <a href="file:///C:/ProgramData/SIL-FCBH/Glyssen">
-C:\ProgramData\SIL-FCBH\Glyssen</a>. To support multiple
+here: <a href="file:///C:/ProgramData/FCBH-SIL/Glyssen">
+C:\ProgramData\FCBH-SIL\Glyssen</a>. To support multiple
 recording projects, versions, and languages, there will be three levels of subfolders
 under that folder. Back up the whole thing. If you are using Glyssen to generate empty
 clip files for the recording phase, the software lets you choose where to create those.
