@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--This file is generated and then updated by an MSBuild task.  It preserves the automatically-generated guids assigned files that will be installed on user machines. So it should be held in source control.-->
 <InstallerMetadata>
+  <File Id="ProgramDir.ReleaseNotes.md" Guid="A4B4688E-735A-4B9F-9490-D590DFFA8A5A" />
   <File Id="ProgramDir.aboutBox.css" Guid="3b1ef786-bd56-4e61-9702-36634c252ea1" />
   <File Id="ProgramDir.aboutBox.htm" Guid="e070a5ca-31f2-4798-8501-d7b48237e0ca" />
   <File Id="ProgramDir.FCBH_logo.png" Guid="79c511bc-e4b5-498f-8039-cd6b470a7935" />

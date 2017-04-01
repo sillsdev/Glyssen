@@ -194,6 +194,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="Geckofx_Winforms.pdb" Name="Geckofx-Winforms.pdb" KeyPath="yes" Source="..\output\release\Geckofx-Winforms.pdb" />
           </Component>
 
+		  <Component Id="MarkdownDeep.dll" Guid="{066537FE-B008-4CAE-A65D-A259278FE54E}">
+			<File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\..\output\release\MarkdownDeep.dll" />
+		  </Component>
+
           <Component Id="icu.net.dll" Guid="{a145070d-4fae-49ab-a7f5-4980895f62ba}">
             <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
           </Component>
