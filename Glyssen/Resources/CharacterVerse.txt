@@ -15125,6 +15125,7 @@ ACT	8	22	Peter (Simon)	rebuking		Normal
 ACT	8	23	Peter (Simon)	rebuking		Normal		
 ACT	8	24	Simon, sorcerer			Dialogue		
 ACT	8	26	angel		angel of the LORD	Normal		
+ACT	8	26	narrator-ACT			Interruption		
 ACT	8	27	narrator-ACT			Quotation		
 ACT	8	29	Holy Spirit, the			Normal		
 ACT	8	30	Philip the evangelist		Philip	Dialogue		
