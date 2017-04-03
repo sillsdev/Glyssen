@@ -198,6 +198,10 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 			<File Id="MarkdownDeep.dll" Name="MarkdownDeep.dll" KeyPath="yes" Source="..\output\release\MarkdownDeep.dll" />
 		  </Component>
 
+		  <Component Id="NetSparkle.Net40.dll" Guid="{01cc5878-5e51-454b-9128-0d779751bc47}">
+			<File Id="NetSparkle.Net40.dll" Name="NetSparkle.Net40.dll" KeyPath="yes" Source="..\output\release\NetSparkle.Net40.dll" />
+		  </Component>
+
           <Component Id="icu.net.dll" Guid="{a145070d-4fae-49ab-a7f5-4980895f62ba}">
             <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
           </Component>
@@ -300,6 +304,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="MarkdownDeep.dll"/>
+	  <ComponentRef Id="NetSparkle.Net40.dll"/>
       <ComponentRef Id="icu.net.dll"/>
       <ComponentRef Id="icudt54.dll"/>
       <ComponentRef Id="icuin54.dll"/>
