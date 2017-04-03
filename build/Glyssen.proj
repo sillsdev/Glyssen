@@ -126,7 +126,7 @@
 			DestinationFiles ="$(RootDir)\output\installer\GlyssenInstaller.$(Version).download_info"/>
 			
 		<!-- appcast.xml is used as part of the update notification system -->
-		<Copy SourceFiles ="$(RootDir)\src\Installer\appcast.xml"
+		<Copy SourceFiles ="$(RootDir)\installer\appcast.xml"
 			DestinationFolder ="$(RootDir)\output\installer"/>
 
 		<FileUpdate File="$(RootDir)\output\installer\GlyssenInstaller.$(Version).download_info"
