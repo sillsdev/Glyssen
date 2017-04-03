@@ -1470,6 +1470,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 6;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
 
 			SetVoiceActors(34, 4);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
