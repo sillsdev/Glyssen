@@ -46,6 +46,7 @@ namespace Glyssen.Dialogs
 		private readonly int m_indexOfFirstFilterItemRemoved;
 		private readonly object[] m_filterItemsForRainbowModeOnly;
 		private bool m_addingCharacterDelivery;
+		private bool m_askedUserAboutAssigningOnDoubleClick;
 
 		private void HandleStringsLocalized()
 		{
@@ -1120,7 +1121,7 @@ namespace Glyssen.Dialogs
 			Block blockToSplit;
 			if (m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 			{
-				if (IsDirty&& m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
+				if (IsDirty && m_btnApplyReferenceTextMatches.Enabled && m_userMadeChangesToReferenceTextMatchup)
 				{
 					string msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UnsavedReferenceTextChangesBeforeSplitting",
 						"The alignment of the reference text to the vernacular script has not been applied. Do you want to save the alignment before splitting this block?");
@@ -1316,7 +1317,7 @@ namespace Glyssen.Dialogs
 		private void SwapRefText(DataGridViewRow rowA, DataGridViewRow rowB, int columnIndex)
 		{
 			string newRowAValue, newRowBValue;
-			Block.GetSwappedReferenceText((string) rowA.Cells[columnIndex].Value, (string) rowB.Cells[columnIndex].Value,
+			Block.GetSwappedReferenceText((string)rowA.Cells[columnIndex].Value, (string)rowB.Cells[columnIndex].Value,
 				out newRowAValue, out newRowBValue);
 			rowA.Cells[columnIndex].Value = newRowAValue;
 			rowB.Cells[columnIndex].Value = newRowBValue;
@@ -1513,8 +1514,8 @@ namespace Glyssen.Dialogs
 							{
 								TextFormatFlags flags = ComputeTextFormatFlagsForCellStyleAlignment(m_viewModel.Font.RightToLeftScript);
 								var heightNeeded = DataGridViewCell.MeasureTextHeight(g,
-									clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
-									m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +
+										clipboardText, m_dataGridReferenceText.CurrentCell.InheritedStyle.Font,
+										m_dataGridReferenceText.Columns[e.ColumnIndex].Width, flags) +
 									kExtraHeightToallowForBordersAndMargin;
 								minHeight = Math.Max(minHeight, heightNeeded);
 							}
@@ -1835,6 +1836,39 @@ namespace Glyssen.Dialogs
 					currentDeliveryCell.Value = selectedDelivery;
 			}
 		}
+
+		private void m_listBoxCharacters_DoubleClick(object sender, EventArgs e)
+		{
+			if (m_btnAssign.Enabled && m_listBoxDeliveries.Items.Count == 1)
+			{
+				if (!Settings.Default.AssignCharactersDoubleClickShouldAssign)
+				{
+					if (m_askedUserAboutAssigningOnDoubleClick)
+						return;
+					var msg = LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.UseDoubleClickAsShortcut",
+						"You just double-clicked. By default, Glyssen slows you down so you will take time to carefully review each selection. Do " +
+						"you want Glyssen to let you go faster by interpreting a double click as your confirmation of the selection, so you won't have to " +
+						"click the {0} button?");
+					if (MessageBox.Show(this, Format(msg, m_btnAssign.Text.Replace("&", Empty)), ProductName, MessageBoxButtons.YesNo) == DialogResult.No)
+					{
+						m_askedUserAboutAssigningOnDoubleClick = true;
+						return;
+					}
+					Settings.Default.AssignCharactersDoubleClickShouldAssign = true;
+				}
+				m_btnAssign.PerformClick();
+			}
+			else if (m_listBoxCharacters.SelectedIndex >= 0)
+			{
+				m_listBoxDeliveries.Focus();
+			}
+		}
 		#endregion
+
+		private void m_listBoxDeliveries_DoubleClick(object sender, EventArgs e)
+		{
+			if (m_btnAssign.Enabled && Settings.Default.AssignCharactersDoubleClickShouldAssign)
+				m_btnAssign.PerformClick();
+		}
 	}
 }
