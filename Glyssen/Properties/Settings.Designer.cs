@@ -312,5 +312,17 @@ namespace Glyssen.Properties {
                 this["AssignCharactersMatchReferenceText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AssignCharactersDoubleClickShouldAssign {
+            get {
+                return ((bool)(this["AssignCharactersDoubleClickShouldAssign"]));
+            }
+            set {
+                this["AssignCharactersDoubleClickShouldAssign"] = value;
+            }
+        }
     }
 }

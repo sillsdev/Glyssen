@@ -1034,6 +1034,7 @@ namespace Glyssen.Dialogs
 			this.m_listBoxDeliveries.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_listBoxDeliveries, false);
 			this.m_listBoxDeliveries.SelectedIndexChanged += new System.EventHandler(this.m_listBoxDeliveries_SelectedIndexChanged);
+			this.m_listBoxDeliveries.DoubleClick += new System.EventHandler(this.m_listBoxDeliveries_DoubleClick);
 			// 
 			// m_pnlCharacterFilter
 			// 
@@ -1087,6 +1088,7 @@ namespace Glyssen.Dialogs
 			this.m_listBoxCharacters.TabIndex = 0;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_listBoxCharacters, false);
 			this.m_listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.m_listBoxCharacters_SelectedIndexChanged);
+			this.m_listBoxCharacters.DoubleClick += new System.EventHandler(this.m_listBoxCharacters_DoubleClick);
 			this.m_listBoxCharacters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m_listBoxCharacters_KeyPress);
 			this.m_listBoxCharacters.MouseMove += new System.Windows.Forms.MouseEventHandler(this.m_listBoxCharacters_MouseMove);
 			// 
@@ -1666,8 +1668,6 @@ namespace Glyssen.Dialogs
 			this.Text = "Identify Speaking Parts - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
-			this.Load += new System.EventHandler(this.AssignCharacterDlg_Load);
-			this.Shown += new System.EventHandler(this.AssignCharacterDialog_Shown);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AssignCharacterDialog_KeyDown);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AssignCharacterDialog_KeyPress);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
