@@ -111,8 +111,7 @@ namespace Glyssen.Dialogs
 
 			m_txtCharacterFilter.CorrectHeight();
 			m_txtDeliveryFilter.CorrectHeight();
-			if (Settings.Default.AssignCharactersShowGridView || m_viewModel.BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
-				m_toolStripButtonGridView.Checked = true;
+			m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
 
 			var books = new BookSet();
 			foreach (var bookId in m_viewModel.IncludedBooks)
@@ -591,7 +590,6 @@ namespace Glyssen.Dialogs
 		private void LoadNextRelevantBlock()
 		{
 			m_viewModel.LoadNextRelevantBlock();
-			//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 		}
 
 		private void LoadCharacterListBox(IEnumerable<AssignCharacterViewModel.Character> characters)
@@ -845,7 +843,6 @@ namespace Glyssen.Dialogs
 			if (IsOkayToLeaveBlock())
 			{
 				m_viewModel.LoadPreviousRelevantBlock();
-				//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 			}
 		}
 
@@ -1066,7 +1063,6 @@ namespace Glyssen.Dialogs
 				if (m_viewModel.RelevantBlockCount > 0)
 				{
 					LoadBlock(sender, e);
-					//m_viewModel.AttemptRefBlockMatchup = m_toolStripButtonGridView.Checked;
 					LoadBlockMatchup(sender, e);
 				}
 				else
@@ -1092,8 +1088,6 @@ namespace Glyssen.Dialogs
 
 				Debug.Assert(!m_toolStripButtonSelectCharacter.Checked);
 
-				m_toolStripButtonGridView.Checked = true;
-				m_toolStripButtonHtmlView.Enabled = false;
 				m_tabControlCharacterSelection.SelectedTab = tabPageMatchReferenceText;
 				Settings.Default.AssignCharactersMatchReferenceText = true;
 			}
@@ -1108,54 +1102,20 @@ namespace Glyssen.Dialogs
 
 				Debug.Assert(!m_toolStripButtonMatchReferenceText.Checked);
 
-				m_toolStripButtonHtmlView.Enabled = true;
 				m_tabControlCharacterSelection.SelectedTab = tabPageSelectCharacter;
 				Settings.Default.AssignCharactersMatchReferenceText = false;
 			}
 		}
 
-		private void HandleHtmlViewCheckChanged(object sender, EventArgs e)
-		{
-			if (m_toolStripButtonHtmlView.Checked == m_toolStripButtonGridView.Checked)
-			{
-				m_toolStripButtonGridView.Checked = !m_toolStripButtonHtmlView.Checked;
-
-				Debug.Assert(!m_toolStripButtonGridView.Checked);
-				Debug.Assert(!m_viewModel.AttemptRefBlockMatchup);
-
-				//m_viewModel.AttemptRefBlockMatchup = false;
-				m_blocksViewer.ViewType = ScriptBlocksViewType.Html;
-				Settings.Default.AssignCharactersShowGridView = false;
-			}
-		}
-
-		private void HandleDataGridViewCheckChanged(object sender, EventArgs e)
-		{
-			if (m_toolStripButtonHtmlView.Checked == m_toolStripButtonGridView.Checked)
-			{
-				m_toolStripButtonHtmlView.Checked = !m_toolStripButtonGridView.Checked;
-
-				Debug.Assert(!m_toolStripButtonHtmlView.Checked);
-
-				m_blocksViewer.ViewType = ScriptBlocksViewType.Grid;
-				Settings.Default.AssignCharactersShowGridView = true;
-				//m_viewModel.AttemptRefBlockMatchup = true;
-			}
-		}
-
-		private void HandleTaskOrViewTypeToolStripButtonClick(object sender, EventArgs e)
+		private void HandleTaskToolStripButtonClick(object sender, EventArgs e)
 		{
 			var button = (ToolStripButton)sender;
-			var type = button.Tag as string;
 			if (!button.Checked)
 			{
 				button.Checked = true;
 
-				if (type != null)
-				{
-					Analytics.Track("Switch" + type, new Dictionary<string, string> {{"dialog", Name}, {type.ToLowerInvariant(), button.ToString()}});
-					Logger.WriteEvent("Changed " + type + " to " + button + " in Identify Speaking Parts dialog.");
-				}
+				Analytics.Track("SwitchTask", new Dictionary<string, string> {{"dialog", Name}, {"task", button.ToString()}});
+				Logger.WriteEvent($"Changed Task to {button} in Identify Speaking Parts dialog.");
 			}
 		}
 
