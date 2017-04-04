@@ -106,18 +106,6 @@ namespace Glyssen.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AssignCharactersShowGridView {
-            get {
-                return ((bool)(this["AssignCharactersShowGridView"]));
-            }
-            set {
-                this["AssignCharactersShowGridView"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings AssignCharacterDialogFormSettings {
             get {
                 return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["AssignCharacterDialogFormSettings"]));
