@@ -43,8 +43,8 @@ namespace Glyssen.Dialogs
 		private Font m_englishReferenceTextFont;
 		private bool m_userMadeChangesToReferenceTextMatchup;
 		private string m_defaultBlocksViewerText;
-		private int m_IndexOfFirstFilterItemRemoved;
-		private object[] m_filterItemsForRainbowModeOnly;
+		private readonly int m_indexOfFirstFilterItemRemoved;
+		private readonly object[] m_filterItemsForRainbowModeOnly;
 		private bool m_addingCharacterDelivery;
 
 		private void HandleStringsLocalized()
@@ -56,7 +56,7 @@ namespace Glyssen.Dialogs
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.ExtraCharacter", "section head ({0})"),
 				LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.NormalDelivery", "normal"));
 
-			if (m_toolStripComboBoxFilter.Items.Count == m_IndexOfFirstFilterItemRemoved)
+			if (m_toolStripComboBoxFilter.Items.Count == m_indexOfFirstFilterItemRemoved)
 			{
 				Debug.Assert(m_filterItemsForRainbowModeOnly != null);
 				m_toolStripComboBoxFilter.Items.AddRange(m_filterItemsForRainbowModeOnly);
@@ -81,10 +81,10 @@ namespace Glyssen.Dialogs
 			InitializeComponent();
 
 			const int numberOfFilterItemsForRainbowModeOnly = 1;
-			m_IndexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
+			m_indexOfFirstFilterItemRemoved = m_toolStripComboBoxFilter.Items.Count - numberOfFilterItemsForRainbowModeOnly;
 			m_filterItemsForRainbowModeOnly = new object[numberOfFilterItemsForRainbowModeOnly];
 			for (int i = 0; i < numberOfFilterItemsForRainbowModeOnly; i++)
-				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_IndexOfFirstFilterItemRemoved];
+				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_indexOfFirstFilterItemRemoved];
 
 			m_viewModel = viewModel;
 
@@ -161,19 +161,19 @@ namespace Glyssen.Dialogs
 		{
 			if (m_toolStripButtonMatchReferenceText.Checked)
 			{
-				if (m_toolStripComboBoxFilter.Items.Count == m_IndexOfFirstFilterItemRemoved)
+				if (m_toolStripComboBoxFilter.Items.Count == m_indexOfFirstFilterItemRemoved)
 					m_toolStripComboBoxFilter.Items.AddRange(m_filterItemsForRainbowModeOnly);
 			}
-			else if (m_toolStripComboBoxFilter.Items.Count > m_IndexOfFirstFilterItemRemoved)
+			else if (m_toolStripComboBoxFilter.Items.Count > m_indexOfFirstFilterItemRemoved)
 			{
 				Debug.Assert(m_filterItemsForRainbowModeOnly != null);
-				if (m_toolStripComboBoxFilter.SelectedIndex >= m_IndexOfFirstFilterItemRemoved)
+				if (m_toolStripComboBoxFilter.SelectedIndex >= m_indexOfFirstFilterItemRemoved)
 				{
 					m_toolStripComboBoxFilter.SelectedIndex = 0;
 					HandleFilterChanged(m_toolStripComboBoxFilter, new EventArgs());
 				}
-				while (m_toolStripComboBoxFilter.Items.Count != m_IndexOfFirstFilterItemRemoved)
-					m_toolStripComboBoxFilter.Items.RemoveAt(m_IndexOfFirstFilterItemRemoved);
+				while (m_toolStripComboBoxFilter.Items.Count != m_indexOfFirstFilterItemRemoved)
+					m_toolStripComboBoxFilter.Items.RemoveAt(m_indexOfFirstFilterItemRemoved);
 			}
 		}
 
@@ -794,8 +794,7 @@ namespace Glyssen.Dialogs
 			m_saveStatus.OnSaved();
 		}
 
-		#region Form events
-
+		#region Form overrides & key-press handling
 		/// ------------------------------------------------------------------------------------
 		protected override void OnLoad(EventArgs e)
 		{
@@ -807,23 +806,16 @@ namespace Glyssen.Dialogs
 				m_splitContainer.SplitterDistance = Settings.Default.AssignCharactersSliderLocation;
 
 			m_pnlShortcuts.Height = m_listBoxCharacters.ItemHeight * 5;
+
+			TileFormLocation();
 		}
 
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
+			m_formLoading = false;
 			if (m_viewModel.RelevantBlockCount == 0)
 				m_blocksViewer.ShowNothingMatchesFilterMessage();
-		}
-
-		private void AssignCharacterDlg_Load(object sender, EventArgs e)
-		{
-			TileFormLocation();
-		}
-
-		private void AssignCharacterDialog_Shown(object sender, EventArgs e)
-		{
-			m_formLoading = false;
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
@@ -832,6 +824,80 @@ namespace Glyssen.Dialogs
 			base.OnClosing(e);
 		}
 
+		protected override void OnActivated(EventArgs e)
+		{
+			base.OnActivated(e);
+			Application.AddMessageFilter(this);
+		}
+
+		protected override void OnDeactivate(EventArgs e)
+		{
+			Application.RemoveMessageFilter(this);
+			base.OnDeactivate(e);
+		}
+
+		[DllImport("user32.dll")]
+		private static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+		/// <summary>
+		/// If the block view has focus and is in the browser mode, it will eat the keystrokes, so we need to ensure
+		/// they post to this window so we can do the accelartor-key thing.
+		/// </summary>
+		/// <remarks>This is invoked because we implement IMessagFilter and call Application.AddMessageFilter(this)</remarks>
+		public bool PreFilterMessage(ref Message m)
+		{
+			const int WM_KEYDOWN = 0x100;
+
+			if (m.Msg == WM_KEYDOWN)
+			{
+				if (m_blocksViewer.ContainsFocus && ((Keys)m.WParam | Keys.Control) == 0)
+				{
+					m_listBoxCharacters.Focus();
+					PostMessage(Handle, (uint)m.Msg, m.WParam, m.LParam);
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus ||
+				m_tabControlCharacterSelection.SelectedTab != tabPageSelectCharacter)
+				return;
+
+			int selectedIndexOneBased;
+			Int32.TryParse(e.KeyChar.ToString(CultureInfo.InvariantCulture), out selectedIndexOneBased);
+			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
+			{
+				// Might be trying to select character by the first letter (e.g. s for Saul)
+				e.Handled = HandleCharacterSelectionKeyPress(e);
+			}
+			else if (m_pnlShortcuts.Visible)
+			{
+				if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
+					m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
+			}
+		}
+
+		private bool HandleCharacterSelectionKeyPress(KeyPressEventArgs e)
+		{
+			if (Char.IsLetter(e.KeyChar))
+			{
+				var charactersStartingWithSelectedLetter =
+					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
+				if (charactersStartingWithSelectedLetter.Count() == 1)
+					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
+				else
+					m_listBoxCharacters.SelectedItem = null;
+				return true;
+			}
+			return false;
+		}
+		#endregion
+
+		#region Event handlers & helpers
 		private void m_btnNext_Click(object sender, EventArgs e)
 		{
 			if (IsOkayToLeaveBlock())
@@ -925,78 +991,6 @@ namespace Glyssen.Dialogs
 		private void m_btnAddDelivery_Click(object sender, EventArgs e)
 		{
 			AddNewDelivery(m_txtDeliveryFilter.Text);
-		}
-
-		protected override void OnActivated(EventArgs e)
-		{
-			base.OnActivated(e);
-			Application.AddMessageFilter(this);
-		}
-
-		protected override void OnDeactivate(EventArgs e)
-		{
-			Application.RemoveMessageFilter(this);
-			base.OnDeactivate(e);
-		}
-
-		[DllImport("user32.dll")]
-		private static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-		/// <summary>
-		/// If the block view has focus and is in the browser mode, it will eat the keystrokes, so we need to ensure
-		/// they post to this window so we can do the accelartor-key thing.
-		/// </summary>
-		/// <remarks>This is invoked because we implement IMessagFilter and call Application.AddMessageFilter(this)</remarks>
-		public bool PreFilterMessage(ref Message m)
-		{
-			const int WM_KEYDOWN = 0x100;
-
-			if (m.Msg == WM_KEYDOWN)
-			{
-				if (m_blocksViewer.ContainsFocus && ((Keys)m.WParam | Keys.Control) == 0)
-				{
-					m_listBoxCharacters.Focus();
-					PostMessage(Handle, (uint)m.Msg, m.WParam, m.LParam);
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		private void AssignCharacterDialog_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (m_txtCharacterFilter.Focused || m_txtDeliveryFilter.Focused || m_scriptureReference.VerseControl.ContainsFocus ||
-				m_tabControlCharacterSelection.SelectedTab != tabPageSelectCharacter)
-				return;
-
-			int selectedIndexOneBased;
-			Int32.TryParse(e.KeyChar.ToString(CultureInfo.InvariantCulture), out selectedIndexOneBased);
-			if (selectedIndexOneBased < 1 || selectedIndexOneBased > 5)
-			{
-				// Might be trying to select character by the first letter (e.g. s for Saul)
-				e.Handled = HandleCharacterSelectionKeyPress(e);
-			}
-			else if (m_pnlShortcuts.Visible)
-			{
-				if (m_listBoxCharacters.Items.Count >= selectedIndexOneBased)
-					m_listBoxCharacters.SelectedIndex = selectedIndexOneBased - 1; //listBox is zero-based
-			}
-		}
-
-		private bool HandleCharacterSelectionKeyPress(KeyPressEventArgs e)
-		{
-			if (Char.IsLetter(e.KeyChar))
-			{
-				var charactersStartingWithSelectedLetter =
-					CurrentContextCharacters.Where(c => c.ToString().StartsWith(e.KeyChar.ToString(CultureInfo.InvariantCulture), true, CultureInfo.InvariantCulture));
-				if (charactersStartingWithSelectedLetter.Count() == 1)
-					m_listBoxCharacters.SelectedItem = charactersStartingWithSelectedLetter.Single();
-				else
-					m_listBoxCharacters.SelectedItem = null;
-				return true;
-			}
-			return false;
 		}
 
 		private void HandleCorrelatedBlockCharacterAssignmentChanged(AssignCharacterViewModel sender, int index)
@@ -1681,7 +1675,6 @@ namespace Glyssen.Dialogs
 				}
 			}
 		}
-		#endregion
 
 		private void m_ContextMenuItemSplitText_Click(object sender, EventArgs e)
 		{
@@ -1842,5 +1835,6 @@ namespace Glyssen.Dialogs
 					currentDeliveryCell.Value = selectedDelivery;
 			}
 		}
+		#endregion
 	}
 }

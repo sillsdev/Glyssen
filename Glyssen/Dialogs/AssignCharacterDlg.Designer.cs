@@ -1666,8 +1666,6 @@ namespace Glyssen.Dialogs
 			this.Text = "Identify Speaking Parts - {0}";
 			this.glyssenColorPalette.SetUsePaletteColors(this, true);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AssignCharacterDialog_FormClosing);
-			this.Load += new System.EventHandler(this.AssignCharacterDlg_Load);
-			this.Shown += new System.EventHandler(this.AssignCharacterDialog_Shown);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AssignCharacterDialog_KeyDown);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AssignCharacterDialog_KeyPress);
 			((System.ComponentModel.ISupportInitialize)(this.m_l10NSharpExtender)).EndInit();
