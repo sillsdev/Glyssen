@@ -126,6 +126,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripButtonHelp.Size = new System.Drawing.Size(52, 22);
 			this.m_toolStripButtonHelp.Text = "Help";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_toolStripButtonHelp, false);
+			this.m_toolStripButtonHelp.Visible = false;
 			// 
 			// m_dataGrid
 			// 

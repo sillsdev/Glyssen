@@ -877,6 +877,7 @@ namespace Glyssen.Dialogs
 			this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
 			this.helpToolStripMenuItem.Text = "Help";
 			this.glyssenColorPalette.SetUsePaletteColors(this.helpToolStripMenuItem, false);
+			this.helpToolStripMenuItem.Visible = false;
 			// 
 			// changeTheListOfGroupsToolStripMenuItem
 			// 
