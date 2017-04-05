@@ -719,9 +719,7 @@ Nahash the Ammonite	1	Male				1SA 11:2
 Naomi	1	Female				RUT 1:8 <-(16 more)-> RUT 3:18
 Nathan	1	Male				2SA 7:3 <-(20 more)-> 1CH 17:2
 Nathanael	1	Male				JHN 1:46 <-(1 more)-> JHN 1:49
-nations	-1					JER 16:19 & JER 16:20
-nations, people of the	-1					LAM 4:15
-nations, the	-1					PSA 79:10 <-(2 more)-> MIC 4:11
+nations	-1					PSA 79:10 <-(6 more)-> MIC 4:11
 Nebuchadnezzar, king of Babylon	1	Male				DAN 2:3 <-(36 more)-> DAN 4:37
 Nebuzaradan	1	Male				JER 39:12 <-(3 more)-> JER 40:5
 Neco, king of Egypt	1	Male				2CH 35:21
