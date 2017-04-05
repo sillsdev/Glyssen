@@ -3256,7 +3256,7 @@ DEU	6	24	Moses		Moses saying what Israel should say	Normal
 DEU	6	25	Moses		Moses saying what Israel should say	Normal		
 DEU	7	17	Moses		Moses saying what Israel may say	Normal		
 DEU	8	17	Moses		Moses saying what Israel may say	Normal		
-DEU	9	2	saying about Anakites			Normal		
+DEU	9	2	saying about Anakites			Quotation		
 DEU	9	4	Moses		Moses saying what Israel shouldn't say	Normal		
 DEU	9	12	God		God (the LORD)	Normal		
 DEU	9	13	God		God (the LORD)	Normal		
@@ -4139,7 +4139,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	9	6	servant of Saul			Normal		
 1SA	9	7	Saul			Normal		
 1SA	9	8	servant of Saul			Normal		
-1SA	9	9	saying about seer			Normal		
+1SA	9	9	saying about seer			Quotation		
 1SA	9	10	Saul			Normal		
 1SA	9	11	Saul/Saul's servant			Normal	Saul	
 1SA	9	12	young women (maidens)			Normal		
@@ -4352,7 +4352,7 @@ RUT	4	17	women of Bethlehem			Normal
 1SA	19	19	message to Saul			Normal		
 1SA	19	22	people at cistern			Normal		
 1SA	19	22	Saul			Normal		
-1SA	19	24	saying about Saul			Normal		
+1SA	19	24	saying about Saul			Quotation		
 1SA	20	1	David			Normal		
 1SA	20	2	Jonathan			Normal		
 1SA	20	3	David			Normal		
@@ -7543,7 +7543,7 @@ PSA	77	9	Asaph			Normal
 PSA	77	10	Asaph			Normal		
 PSA	78	19	Israelite community	unbelief		Normal		
 PSA	78	20	Israelite community	unbelief		Normal		
-PSA	79	10	nations, the		nations	Normal		
+PSA	79	10	nations			Hypothetical		
 PSA	80	0	narrator-PSA			Quotation		
 PSA	81	6	God		God (the LORD)	Normal		
 PSA	81	7	God		God (the LORD)	Normal		
@@ -7566,10 +7566,10 @@ PSA	82	7	God		God (the LORD)	Normal
 PSA	83	4	enemies of Israel			Normal		
 PSA	83	12	enemies of Israel			Normal		
 PSA	87	4	God			Normal		
-PSA	87	4	saying about Gentile nations			Normal		
+PSA	87	4	saying about Gentile nations			Hypothetical		
 PSA	87	5	God			Normal		
-PSA	87	5	saying about Zion			Normal		
-PSA	87	6	God		God (the LORD) will write	Normal		
+PSA	87	5	saying about Zion			Hypothetical		
+PSA	87	6	God		God (the LORD) will write	Hypothetical		
 PSA	87	7	musicians			Normal		
 PSA	89	3	God		God (the LORD)	Normal		
 PSA	89	4	God		God (the LORD)	Normal		
@@ -7608,7 +7608,7 @@ PSA	108	8	God		God (the LORD)	Normal
 PSA	108	9	God		God (the LORD)	Normal		
 PSA	110	1	God		God (the LORD)	Normal		
 PSA	110	4	God		God (the LORD)	Normal		
-PSA	115	2	nations, the			Hypothetical		
+PSA	115	2	nations			Quotation		
 PSA	118	2	Israel			Hypothetical		
 PSA	118	3	house of Aaron, the			Hypothetical		
 PSA	118	4	those who fear the Lord			Hypothetical		
@@ -8893,11 +8893,11 @@ JER	8	10	God		God (the LORD)(word of the LORD came)	Normal
 JER	8	11	God		God (the LORD)(word of the LORD came)	Normal		
 JER	8	12	God		God (the LORD)(word of the LORD came)	Potential		
 JER	8	13	God		God (the LORD)(word of the LORD came)	Normal		
-JER	8	14	God		God saying what the people will say	Normal		
+JER	8	14	God		God saying what the people will say	Hypothetical		
 JER	8	14	people			Normal		
-JER	8	15	God		God saying what the people will say	Normal		
+JER	8	15	God		God saying what the people will say	Hypothetical		
 JER	8	15	people			Normal		
-JER	8	16	God		God saying what the people will say	Normal		
+JER	8	16	God		God saying what the people will say	Hypothetical		
 JER	8	16	people			Normal		
 JER	8	17	God		God (the LORD)	Normal		
 JER	8	18	Jeremiah			Potential		
@@ -9901,8 +9901,8 @@ LAM	3	47	Jeremiah			Normal
 LAM	3	56	Jeremiah			Normal		
 LAM	3	57	God		God (the LORD)	Normal		
 LAM	4	4	children of Zion (Jerusalem)			Indirect		
-LAM	4	15	men			Normal		
-LAM	4	15	nations, people of the			Normal		
+LAM	4	15	men			Quotation		
+LAM	4	15	nations		people among the nations	Quotation		
 LAM	4	15	prophets/priests			Normal		
 EZK	2	1	voice of one speaking (in vision of God)			Normal		
 EZK	2	3	voice of one speaking (in vision of God)			Normal		
@@ -11359,7 +11359,8 @@ HOS	14	6	God		word of the LORD spoken through Hosea	Normal
 HOS	14	7	God		word of the LORD spoken through Hosea	Normal		
 HOS	14	8	God		word of the LORD spoken through Hosea	Normal		
 JOL	2	12	God		God (the LORD)	Normal		
-JOL	2	17	Joel saying what the priests should say			Normal		
+JOL	2	17	Joel saying what the priests should say			Hypothetical		
+JOL	2	17	nations			Hypothetical		
 JOL	2	19	God		God (the LORD)	Normal		
 JOL	2	20	God		God (the LORD)	Normal		
 JOL	2	25	God		God (the LORD)	Normal		
@@ -11571,11 +11572,11 @@ MIC	3	6	God		God (the LORD)	Normal
 MIC	3	7	God		God (the LORD)	Normal		
 MIC	3	8	Micah			Potential		
 MIC	3	11	leaders/priests/prophets			Normal		
-MIC	4	2	nations, the		nations, many	Normal		
+MIC	4	2	nations		nations, many	Hypothetical		
 MIC	4	6	God		God (the LORD)	Normal		
 MIC	4	7	God		God (the LORD)	Normal		
 MIC	4	8	God		God (the LORD)	Potential		
-MIC	4	11	nations, the		nations, many	Normal		
+MIC	4	11	nations		nations, many	Quotation		
 MIC	4	13	God		God (the LORD)	Potential		
 MIC	5	2	God		God (the LORD)	Implicit		
 MIC	5	10	God		God (the LORD)	Normal		
