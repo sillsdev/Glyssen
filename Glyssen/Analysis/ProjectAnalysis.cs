@@ -107,10 +107,10 @@ namespace Glyssen.Analysis
 		{
 			Console.WriteLine("*************************************************************");
 			Console.WriteLine("Language iso code: " + m_projectToAnalyze.LanguageIsoCode);
-			Console.WriteLine("Blocks assigned automatically: {0:N2}%", TotalPercentAssigned);
+			Console.WriteLine("Blocks assigned automatically: " + MathUtilities.FormattedPercent(TotalPercentAssigned, 2, 5));
 			double narrator = MathUtilities.PercentAsDouble(NarratorBlocks, TotalBlocks);
-			Console.WriteLine("Narrator: {0:N2}%", narrator);
-			Console.WriteLine("Unknown: {0:N2}%", PercentUnknown);
+			Console.WriteLine("Narrator: " + MathUtilities.FormattedPercent(narrator, 2, 5));
+			Console.WriteLine("Unknown: " + MathUtilities.FormattedPercent(PercentUnknown, 2, 5));
 			Console.WriteLine("*************************************************************");
 		}
 	}

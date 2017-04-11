@@ -466,13 +466,13 @@
 			this.glyssenColorPalette.SetForeColor(this.m_lblPercentAssigned, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_lblPercentAssigned.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lblPercentAssigned, null);
-			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblPercentAssigned, "{0:N1} is a number with one decimal point");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lblPercentAssigned, "Parameters are formatted percentages");
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lblPercentAssigned, "MainForm.PercentComplete");
 			this.m_lblPercentAssigned.Location = new System.Drawing.Point(216, 119);
 			this.m_lblPercentAssigned.Name = "m_lblPercentAssigned";
 			this.m_lblPercentAssigned.Size = new System.Drawing.Size(333, 29);
 			this.m_lblPercentAssigned.TabIndex = 17;
-			this.m_lblPercentAssigned.Text = "Assignments: {0:N1}% complete; Alignment to reference text: {1:N1}% complete";
+			this.m_lblPercentAssigned.Text = "Assignments: {0} complete; Alignment to reference text: {1} complete";
 			this.m_lblPercentAssigned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblPercentAssigned, true);
 			// 

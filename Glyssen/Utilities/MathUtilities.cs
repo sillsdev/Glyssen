@@ -31,5 +31,27 @@ namespace Glyssen.Utilities
 				return ((double)numerator / denominator) * 100;
 			return Math.Min(maxPercent, ((double)numerator / denominator) * 100);
 		}
+
+		public static object FormattedPercent(double value, int minDecimalPlaces, int maxDecimalPlaces, bool suppressDecimalPlacesFor100Pct = true)
+		{
+			if (value == 100d && suppressDecimalPlacesFor100Pct)
+				return "100%";
+			int n = minDecimalPlaces;
+			string output;
+			bool roundedUpTo100Pct;
+			do
+			{
+				output = String.Format("{0:N" + n + "}%", value);
+				roundedUpTo100Pct = value < 100 && output.Contains("100");
+			} while (roundedUpTo100Pct && ++n <= maxDecimalPlaces );
+			if (roundedUpTo100Pct)
+			{
+				output = "99";
+				if (maxDecimalPlaces > 0)
+					output += ".".PadRight(maxDecimalPlaces + 1, '9');
+				output += "%";
+			}
+			return output;
+		}
 	}
 }
