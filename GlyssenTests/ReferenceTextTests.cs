@@ -2595,6 +2595,28 @@ namespace GlyssenTests
 			Assert.AreEqual(0, matchup.CorrelatedBlocks[1].ReferenceBlocks.Count);
 		}
 
+		[Test]
+		public void GetBlocksForVerseMatchedToReferenceText_VernBlockHasLeadingSquareBracket_BlockIsNotSplitBetweenBracketAndVerseNumber()
+		{
+			var vernacularBlocks = new List<Block> {
+				CreateNarratorBlockForVerse(8, "Ci mon gukatti woko ki i lyel, gucako ŋwec ki myelkom pi lworo ma omakogi matek twatwal; lworo ogeŋogi tito lokke ki ŋatti mo. ", true, 16, "MRK"),
+				CreateNarratorBlockForVerse(9, "Ka en doŋ ocer odiko con i nino mukwoŋo me cabit, okwoŋo nyutte bot Maliam Lamagdala, ma yam en oryemo cen abiro i kome-ni. ", true, 16, "MRK")
+				.AddVerse(10, "En otugi tero lok bot jo ma yam gibedo kwede, i kare ma gitye ki cola ki kumu-gu. ").AddVerse(11, "Ka guwinyo ni en tye gire makwo, dok ni otyeko nyutte, kome onen bot Maliam, pe guye lokke. "),
+			};
+			vernacularBlocks.Last().BlockElements.Insert(0, new ScriptText("["));
+			var vernBook = new BookScript("MRK", vernacularBlocks);
+
+			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+
+			var matchup = refText.GetBlocksForVerseMatchedToReferenceText(vernBook, 1, m_vernVersification);
+			Assert.AreEqual(3, matchup.CorrelatedBlocks.Count);
+			var firstCorrelatedBlock = matchup.CorrelatedBlocks.First();
+			Assert.AreEqual(3, firstCorrelatedBlock.BlockElements.Count);
+			Assert.AreEqual("[", ((ScriptText)firstCorrelatedBlock.BlockElements[0]).Content);
+			Assert.AreEqual("9", ((Verse)firstCorrelatedBlock.BlockElements[1]).Number);
+			Assert.IsTrue(((ScriptText)firstCorrelatedBlock.BlockElements[2]).Content.StartsWith("Ka en doŋ"));
+		}
+
 		#region private helper methods
 		internal static Block CreateBlockForVerse(string characterId, int initialStartVerseNumber, string text, bool paraStart = false,
 			int chapter = 1, string styleTag = "p", int initialEndVerseNumber = 0)
