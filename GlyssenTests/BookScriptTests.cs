@@ -662,6 +662,26 @@ namespace GlyssenTests
 			Assert.AreEqual(origRefText2, result[1].PrimaryReferenceText);
 		}
 
+		[Test]
+		public void GetScriptBlocks_JoiningWithReferenceTexts_SingleVoice_BlocksCombinedByOrigParagraphAndReferenceTextIgnored()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			var jude = testProject.IncludedBooks.Single();
+			var countOfOrigParagraphs = jude.GetScriptBlocks().Count(b => b.IsParagraphStart || CharacterVerseData.IsCharacterOfType(b.CharacterId, CharacterVerseData.StandardCharacter.BookOrChapter));
+			foreach (var block in jude.GetScriptBlocks())
+			{
+				if (block.CharacterIsUnclear())
+					block.CharacterId = "Paul";
+				block.SetMatchedReferenceBlock("blah");
+			}
+			jude.SingleVoice = true;
+
+			var result = jude.GetScriptBlocks(true);
+			Assert.AreEqual(countOfOrigParagraphs, result.Count);
+			Assert.IsTrue(result.All(b => b.CharacterIsStandard));
+			Assert.IsFalse(result.Any(b => b.MatchesReferenceText));
+		}
+
 		[TestCase(";", "q1", "", "Part 2.", "Part 2.")]
 		[TestCase(" - ", "p", "{1}   ", "Part 2", "{1}\u00A0Part 2")]
 		[TestCase(",", "pi1", "{1} Part 1.", " ", "{1}\u00A0Part 1.")]
@@ -2715,8 +2735,9 @@ namespace GlyssenTests
 		}
 		#endregion
 
-		[Test]
-		public void Clone_AllMembersAndAutoPropertiesDeepCopied()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void Clone_AllMembersAndAutoPropertiesDeepCopied(bool singleVoice)
 		{
 			var blocks = GetStandardMarkScriptBlocks(true, true);
 			var i = blocks.Count;
@@ -2730,7 +2751,7 @@ namespace GlyssenTests
 
 			orig.MainTitle = "Main Title";
 			orig.PageHeader = "Page Header";
-			orig.SingleVoice = true;
+			orig.SingleVoice = singleVoice;
 
 			var block1 = new Block("m", 3, 2).AddVerse("2", "Verse 2 text.");
 			var block2 = new Block("m", 3, 3).AddVerse("3", "Verse 3 text.");
@@ -2738,11 +2759,13 @@ namespace GlyssenTests
 			var origMark1_4Blocks = orig.GetBlocksForVerse(1, 4).ToList(); // Populates orig.m_chapterStartBlockIndices
 			var origMark2_1Blocks = orig.GetBlocksForVerse(2, 1).ToList();
 
-			var clone = orig.Clone(true);
+			// for the single voice case, we don't want to join blocks, because it re-combines them into paragraphs and prevents
+			// block-by-block comparison.
+			var clone = orig.Clone(!singleVoice);
 			Assert.AreEqual("Main Title", clone.MainTitle);
 			Assert.AreEqual("Page Header", clone.PageHeader);
 			Assert.AreEqual("MRK", clone.BookId);
-			Assert.IsTrue(clone.SingleVoice);
+			Assert.AreEqual(singleVoice, clone.SingleVoice);
 			Assert.IsTrue(orig.Blocks.Select(b => b.GetText(true)).SequenceEqual(clone.Blocks.Select(b => b.GetText(true))));
 			Assert.IsFalse(orig.Blocks.SequenceEqual(clone.Blocks));
 			Assert.AreEqual(1, clone.UnappliedSplits.Count);

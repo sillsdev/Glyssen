@@ -87,12 +87,16 @@ namespace Glyssen
 			InitialEndVerseNumber = initialEndVerseNum;
 		}
 
-		public Block Clone()
+		public Block Clone(bool includeReferenceBlocks = false)
 		{
 			var newBlock = (Block)MemberwiseClone();
 			newBlock.BlockElements = new List<BlockElement>(BlockElements.Count);
 			foreach (var blockElement in BlockElements)
 				newBlock.BlockElements.Add(blockElement.Clone());
+
+			if (includeReferenceBlocks)
+				newBlock.CloneReferenceBlocks();
+
 			return newBlock;
 
 			// When cloning, we intentionally do not clone reference text info.
@@ -847,8 +851,7 @@ namespace Glyssen
 
 		public static Block CombineBlocks(Block blockA, Block blockB)
 		{
-			var clone = blockA.Clone();
-			clone.CloneReferenceBlocks();
+			var clone = blockA.Clone(true);
 			return clone.CombineWith(blockB);
 		}
 
@@ -938,6 +941,9 @@ namespace Glyssen
 					else
 					{
 						content = text.Content;
+
+						if (content.All(c => !char.IsLetter(c)))
+							continue; // Probably a leading square bracket.
 
 						if (BlockElements.Count > i + 1)
 						{
@@ -1056,12 +1062,7 @@ namespace Glyssen
 		public void CloneReferenceBlocks()
 		{
 			var origList = ReferenceBlocks;
-			ReferenceBlocks = new List<Block>(origList.Select(rb =>
-			{
-				var clone = rb.Clone();
-				clone.CloneReferenceBlocks();
-				return clone;
-			}));
+			ReferenceBlocks = new List<Block>(origList.Select(rb => rb.Clone(true)));
 		}
 
 		public static void GetSwappedReferenceText(string rowA, string rowB, out string newRowAValue, out string newRowBValue)

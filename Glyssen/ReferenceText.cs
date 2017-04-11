@@ -204,7 +204,7 @@ namespace Glyssen
 			if (MakesSplits(referenceBook, bookNum, Versification, verseSplitLocationsBasedOnVern, LanguageName, "vernacular"))
 				m_modifiedBooks.Add(referenceBook.BookId);
 
-			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification);
+			MatchVernBlocksToReferenceTextBlocks(vernacularBook.GetScriptBlocks(), vernacularBook.BookId, vernacularVersification, vernacularBook.SingleVoice);
 		}
 
 		public bool CanDisplayReferenceTextForBook(BookScript vernacularBook)
@@ -243,7 +243,7 @@ namespace Glyssen
 			return matchup;
 		}
 
-		private void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification)
+		private void MatchVernBlocksToReferenceTextBlocks(IReadOnlyList<Block> vernBlockList, string bookId, ScrVers vernacularVersification, bool forceMatch = false)
 		{
 			int bookNum = BCVRef.BookToNumber(bookId);
 			var refBook = Books.Single(b => b.BookId == bookId);
@@ -400,11 +400,21 @@ namespace Glyssen
 						}
 						else
 						{
-							vernBlockList[iVernBlock].MatchesReferenceText = false;
-							vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocks.ToList();
+							var remainingRefBlocksList = remainingRefBlocks.ToList();
+							if (forceMatch)
+							{
+								var refBlock = remainingRefBlocksList[0];
+								for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
+									refBlock.CombineWith(remainingRefBlocksList[rb]);
+								vernBlockList[iVernBlock].SetMatchedReferenceBlock(refBlock);
+							}
+							else
+							{
+								vernBlockList[iVernBlock].MatchesReferenceText = false;
+								vernBlockList[iVernBlock].ReferenceBlocks = remainingRefBlocksList;
+							}
 							iRefBlock = indexOfRefVerseStart + numberOfRefBlocksInVerseChunk - 1;
 						}
-
 						break;
 					}
 				}

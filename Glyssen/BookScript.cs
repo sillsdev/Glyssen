@@ -116,42 +116,68 @@ namespace Glyssen
 			if (!join || m_blockCount == 0)
 				return m_blocks;
 
-			var list = new List<Block>(m_blockCount) {m_blocks[0]};
+			var list = new List<Block>(m_blockCount);
 
-			if (m_styleSheet == null)
-				m_styleSheet = SfmLoader.GetUsfmStylesheet();
-
-			for (var i = 1; i < m_blockCount; i++)
+			if (SingleVoice)
 			{
-				var block = m_blocks[i];
-				var prevBlock = list.Last();
-
-				if (block.MatchesReferenceText == prevBlock.MatchesReferenceText &&
-					block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
+				list.Add(m_blocks[0].Clone());
+				var prevBlock = list.Single();
+				prevBlock.MatchesReferenceText = false;
+				var narrator = CharacterVerseData.GetStandardCharacterId(BookId, CharacterVerseData.StandardCharacter.Narrator);
+				for (var i = 1; i < m_blockCount; i++)
 				{
-					bool combine = false;
-					if (block.MatchesReferenceText)
+					var clonedBlock = m_blocks[i].Clone();
+					clonedBlock.MatchesReferenceText = false;
+					if (!clonedBlock.CharacterIsStandard)
+						clonedBlock.CharacterId = narrator;
+
+					if (!clonedBlock.IsParagraphStart || (clonedBlock.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) // && clonedBlock.CharacterId == prevBlock.CharacterId)
+						prevBlock.CombineWith(clonedBlock);
+					else
 					{
-						combine = block.ReferenceBlocks.Single().StartsWithEllipsis ||
-							((!block.IsParagraphStart || (block.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) &&
-							!block.ContainsVerseNumber &&
-							((!block.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
-							!CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false))) ||
-							block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
-							prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
-					}
-					else if (!block.StartsAtVerseStart)
-					{
-						var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
-						combine = !block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)));
-					}
-					if (combine)
-					{
-						list[list.Count - 1] = Block.CombineBlocks(prevBlock, block);
-						continue;
+						list.Add(clonedBlock);
+						prevBlock = clonedBlock;
 					}
 				}
-				list.Add(block);
+			}
+			else
+			{
+				list.Add(m_blocks[0]);
+				if (m_styleSheet == null)
+					m_styleSheet = SfmLoader.GetUsfmStylesheet();
+
+				for (var i = 1; i < m_blockCount; i++)
+				{
+					var block = m_blocks[i];
+					var prevBlock = list.Last();
+
+					if (block.MatchesReferenceText == prevBlock.MatchesReferenceText &&
+						block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
+					{
+						bool combine = false;
+						if (block.MatchesReferenceText)
+						{
+							combine = block.ReferenceBlocks.Single().StartsWithEllipsis ||
+							((!block.IsParagraphStart || (block.IsFollowOnParagraphStyle && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)))) &&
+								!block.ContainsVerseNumber &&
+								((!block.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
+										!CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false))) ||
+									block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
+									prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
+						}
+						else if (!block.StartsAtVerseStart)
+						{
+							var style = (StyleAdapter)m_styleSheet.GetStyle(block.StyleTag);
+							combine = !block.IsParagraphStart || (style.IsPoetic && !CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false)));
+						}
+						if (combine)
+						{
+							list[list.Count - 1] = Block.CombineBlocks(prevBlock, block);
+							continue;
+						}
+					}
+					list.Add(block);
+				}
 			}
 			return list;
 		}
