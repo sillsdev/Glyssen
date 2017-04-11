@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Glyssen.Utilities;
 using L10NSharp;
 
 namespace Glyssen.Controls
@@ -24,7 +25,7 @@ namespace Glyssen.Controls
 			double percentComplete = Maximum == 0 ? 100 : (double)Value / Maximum * 100;
 			int blocksRemaining = Maximum - Value;
 			string text = string.Format(LocalizationManager.GetString("DialogBoxes.AssignCharacterDlg.BlockProgressFmt",
-				"{0:N1}% Complete; {1} {2} Remaining"), percentComplete, blocksRemaining, UnitName);
+				"{0} Complete; {1} {2} Remaining"), MathUtilities.FormattedPercent(percentComplete, 1, 1), blocksRemaining, UnitName);
 
 			SizeF len = g.MeasureString(text, Font);
 			// Calculate the location of the text (the middle of progress bar)

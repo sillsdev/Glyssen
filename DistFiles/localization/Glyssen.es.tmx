@@ -5389,10 +5389,10 @@
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BlockProgressFmt">
       <tuv xml:lang="en">
-        <seg>{0:N1}% Complete; {1} Blocks Remaining</seg>
+        <seg>{0} Complete; {1} Blocks Remaining</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>{0:N1} % completo;  {1} bloques restantes</seg>
+        <seg>{0} completo;  {1} bloques restantes</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BookChapterCharacter">

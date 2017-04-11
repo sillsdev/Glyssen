@@ -499,7 +499,8 @@ namespace Glyssen
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
 				percentAligned = m_project.ProjectAnalysis.AlignmentPercent;
 			}
-			m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, percentAssigned, percentAligned) : Empty;
+			m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, MathUtilities.FormattedPercent(percentAssigned, 1, 2),
+				MathUtilities.FormattedPercent(percentAligned, 1, 2)) : Empty;
 		}
 
 		private void UpdateDisplayOfCastSizePlan(object sender, EventArgs e)
@@ -675,7 +676,8 @@ namespace Glyssen
 			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
 			{
 				dlgMessage = Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
-					"Character assignment is {0:N1}% complete. Are you sure you want to export a script?"), m_project.ProjectAnalysis.UserPercentAssigned);
+					"Character assignment is {0} complete. Are you sure you want to export a script?", "Parameter is a percentage."),
+					 MathUtilities.FormattedPercent(m_project.ProjectAnalysis.UserPercentAssigned, 1, 3));
 				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
 			}
 
