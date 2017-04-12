@@ -221,6 +221,7 @@ namespace Glyssen
 				try
 				{
 					Directory.CreateDirectory(ClipDirectory);
+					Project.BeginRecordingPhase(m_booksToExport, ClipDirectory, null /* TODO: Supply backup */);
 				}
 				catch (Exception ex)
 				{
@@ -905,8 +906,9 @@ namespace Glyssen
 
 			if (!IsNullOrEmpty(outputDirectory) && !IsNullOrEmpty(clipFileProjectId))
 			{
-				list.Add(Path.Combine(outputDirectory, bookId, clipFileProjectId +
-					$"_{blockNumber:D5}_{bookId}_{block.ChapterNumber:D3}_{block.InitialStartVerseNumber:D3}.wav"));
+				block.ClipFilePath = Path.Combine(outputDirectory, bookId, clipFileProjectId +
+					$"_{blockNumber:D5}_{bookId}_{block.ChapterNumber:D3}_{block.InitialStartVerseNumber:D3}.wav");
+				list.Add(block.ClipFilePath);
 			}
 			return list;
 		}

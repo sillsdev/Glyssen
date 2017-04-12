@@ -153,10 +153,14 @@ namespace Glyssen
 
 		[XmlAttribute("initialEndVerse")]
 		[DefaultValue(0)]
-		public int InitialEndVerseNumber {
+		public int InitialEndVerseNumber
+		{
 			get { return m_initialEndVerseNumber; }
 			set { m_initialEndVerseNumber = m_initialStartVerseNumber == value ? 0 : value; }
 		}
+
+		[XmlAttribute("clipFilePath")]
+		public string ClipFilePath { get; set; }
 
 		private class VerseNumberFromBlock : IVerse
 		{

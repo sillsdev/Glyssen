@@ -194,6 +194,15 @@ namespace Glyssen.Bundle
 		/// </summary>
 		[XmlAttribute("proprietaryReferenceTextIdentifier")]
 		public string ProprietaryReferenceTextIdentifier { get; set; }
+
+		/// <summary>
+		/// Monitored by the project to track recording progress.
+		/// </summary>
+		[XmlAttribute("clipFolder")]
+		public string ClipFolder { get; set; }
+
+		[XmlAttribute("clipBackupFolder")]
+		public string ClipBackupFolder { get; set; }
 		#endregion
 
 		public new string GetAsXml()
@@ -277,7 +286,7 @@ namespace Glyssen.Bundle
 			get { return default(int); }
 			set { FontSizeInPoints = value; }
 		}
-	    #endregion
+		#endregion
 
 		/// <summary>
 		/// "Clone" only the bits of metadata that the user can modify in Glyssen.

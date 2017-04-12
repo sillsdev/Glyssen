@@ -63,6 +63,7 @@
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_btnViewRecordingProgress = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.m_L10NSharpExtender)).BeginInit();
 			this.m_toolStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_imgCheckOpen)).BeginInit();
@@ -127,8 +128,8 @@
 			// 
 			this.m_uiLanguageMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_uiLanguageMenu.AutoToolTip = false;
-			this.m_uiLanguageMenu.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_uiLanguageMenu.BackColor = System.Drawing.SystemColors.Control;
 			this.m_uiLanguageMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.m_uiLanguageMenu.ForeColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetForeColor(this.m_uiLanguageMenu, Glyssen.Utilities.GlyssenColors.LinkColor);
@@ -148,8 +149,8 @@
 			// 
 			this.m_shareMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.m_shareMenu.AutoToolTip = false;
-			this.m_shareMenu.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.m_shareMenu, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_shareMenu.BackColor = System.Drawing.SystemColors.Control;
 			this.m_shareMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.m_shareMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_exportMenu,
@@ -169,8 +170,8 @@
 			// m_exportMenu
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_exportMenu, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_exportMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_exportMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.m_exportMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_exportMenu, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_exportMenu, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_exportMenu, "MainForm.Export");
@@ -183,8 +184,8 @@
 			// m_importMenu
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_importMenu, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.glyssenColorPalette.SetForeColor(this.m_importMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_importMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.glyssenColorPalette.SetForeColor(this.m_importMenu, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_importMenu, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_importMenu, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_importMenu, "MainForm.Import");
@@ -205,8 +206,8 @@
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_lastExportLocationLink.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_lastExportLocationLink.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_lastExportLocationLink, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lastExportLocationLink, null);
 			this.m_L10NSharpExtender.SetLocalizationPriority(this.m_lastExportLocationLink, L10NSharp.LocalizationPriority.NotLocalizable);
@@ -236,8 +237,8 @@
 			this.glyssenColorPalette.SetDisabledLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_lnkExit.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.ForeColor);
-			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_lnkExit.LinkColor = System.Drawing.SystemColors.HotTrack;
+			this.glyssenColorPalette.SetLinkColor(this.m_lnkExit, Glyssen.Utilities.GlyssenColors.LinkColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_lnkExit, null);
 			this.m_L10NSharpExtender.SetLocalizingId(this.m_lnkExit, "MainForm.Exit");
@@ -653,6 +654,7 @@
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanel.Controls.Add(this.m_btnViewRecordingProgress, 0, 8);
 			this.m_tableLayoutPanel.Controls.Add(this.m_lblSelectNextTask, 0, 0);
 			this.m_tableLayoutPanel.Controls.Add(this.m_btnOpenProject, 0, 1);
 			this.m_tableLayoutPanel.Controls.Add(this.m_imgCheckOpen, 1, 1);
@@ -701,8 +703,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tableLayoutPanel2.AutoSize = true;
 			this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
 			this.glyssenColorPalette.SetBackColor(this.tableLayoutPanel2, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
 			this.tableLayoutPanel2.ColumnCount = 3;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -719,6 +721,24 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(339, 13);
 			this.tableLayoutPanel2.TabIndex = 41;
 			this.glyssenColorPalette.SetUsePaletteColors(this.tableLayoutPanel2, false);
+			// 
+			// m_btnViewRecordingProgress
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_btnViewRecordingProgress, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.m_btnViewRecordingProgress.Enabled = false;
+			this.glyssenColorPalette.SetFlatAppearanceBorderColor(this.m_btnViewRecordingProgress, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.glyssenColorPalette.SetForeColor(this.m_btnViewRecordingProgress, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_btnViewRecordingProgress, "");
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_btnViewRecordingProgress, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_btnViewRecordingProgress, "MainForm.ViewRecordingProgress");
+			this.m_btnViewRecordingProgress.Location = new System.Drawing.Point(23, 238);
+			this.m_btnViewRecordingProgress.Name = "m_btnViewRecordingProgress";
+			this.m_btnViewRecordingProgress.Size = new System.Drawing.Size(159, 23);
+			this.m_btnViewRecordingProgress.TabIndex = 43;
+			this.m_btnViewRecordingProgress.Text = "View Recording Progress...";
+			this.m_btnViewRecordingProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_btnViewRecordingProgress, false);
+			this.m_btnViewRecordingProgress.UseVisualStyleBackColor = false;
 			// 
 			// MainForm
 			// 
@@ -799,6 +819,7 @@
 		private System.Windows.Forms.ToolStripDropDownButton m_shareMenu;
 		private System.Windows.Forms.ToolStripMenuItem m_exportMenu;
 		private System.Windows.Forms.ToolStripMenuItem m_importMenu;
+		private System.Windows.Forms.Button m_btnViewRecordingProgress;
 	}
 }
 

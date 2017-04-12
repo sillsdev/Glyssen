@@ -36,6 +36,8 @@ namespace Glyssen
 		public static Sparkle UpdateChecker { get; private set; }
 		private Project m_project;
 		private CastSizePlanningViewModel m_projectCastSizePlanningViewModel;
+		private Project.RecordingStatsComputedEventArgs m_recordingStats;
+		private DateTime m_lastStatsComputationTime;
 		private string m_percentAssignedFmt;
 		private string m_actorsAssignedFmt;
 		private string m_castSizeFmt;
@@ -87,9 +89,12 @@ namespace Glyssen
 				m_project.CharacterGroupCollectionChanged -= UpdateDisplayOfCastSizePlan;
 				m_project.CharacterGroupCollectionChanged -= ClearCastSizePlanningViewModel;
 				m_project.CharacterStatisticsCleared -= ClearCastSizePlanningViewModel;
+				m_project.RecordingStatsComputed -= ProjectOnRecordingStatsComputed;
 			}
 
 			m_projectCastSizePlanningViewModel = null;
+			m_recordingStats = null;
+			m_lastStatsComputationTime = DateTime.MinValue;
 			m_project = project;
 
 			if (m_project != null)
@@ -142,7 +147,21 @@ namespace Glyssen
 					{ "ID", m_project.Id },
 					{ "recordingProjectName", m_project.Name },
 				});
+
+				m_project.RecordingStatsComputed += ProjectOnRecordingStatsComputed;
+
+				if ((m_project.ProjectState & ProjectState.RecordingPhaseStarted) > 0)
+					m_project.EvaluateRecordingProgress();
 			}
+		}
+
+		private void ProjectOnRecordingStatsComputed(object sender, Project.RecordingStatsComputedEventArgs recordingStatsComputedEventArgs)
+		{
+			if (sender != m_project)
+				return; // results from some previous project.
+			m_recordingStats = recordingStatsComputedEventArgs;
+			m_lastStatsComputationTime = DateTime.Now;
+			UpdateButtons(false);
 		}
 
 		private void ClearCastSizePlanningViewModel(object sender, EventArgs e)
@@ -193,6 +212,7 @@ namespace Glyssen
 			else if (m_btnIdentify.Enabled)
 				m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
 			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
+			m_btnViewRecordingProgress.Enabled = validProject && m_recordingStats != null;
 
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
 			m_btnCastSizePlanning.Visible = m_btnAssignVoiceActors.Visible;
@@ -324,6 +344,16 @@ namespace Glyssen
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
 			// more importantly, when the toast notifier closes, it can sometimes clobber an error message being displayed for the user.
 			UpdateChecker.CheckOnFirstApplicationIdle();
+		}
+
+		protected override void OnActivated(EventArgs e)
+		{
+			base.OnActivated(e);
+			if (m_project != null && (m_project.ProjectState & ProjectState.RecordingPhaseStarted) > 0 &&
+				m_lastStatsComputationTime.AddMinutes(20) > DateTime.Now)
+			{
+				m_project.EvaluateRecordingProgress();
+			}
 		}
 
 		private void InitializeProgress()

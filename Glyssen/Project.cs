@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
@@ -18,6 +19,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Recording;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using Paratext;
@@ -26,6 +28,8 @@ using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.Extensions;
 using SIL.IO;
+using SIL.Media;
+using SIL.ObjectModel;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
@@ -72,6 +76,7 @@ namespace Glyssen
 		public event EventHandler AnalysisCompleted;
 		public event EventHandler CharacterGroupCollectionChanged;
 		public event EventHandler CharacterStatisticsCleared;
+		public event EventHandler<RecordingStatsComputedEventArgs> RecordingStatsComputed;
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
@@ -173,6 +178,80 @@ namespace Glyssen
 				m_metadata.ChapterAnnouncementStyle = value;
 				SetBlockGetChapterAnnouncement(value);
 			}
+		}
+
+		public string ClipFolder => m_metadata.ClipFolder;
+
+		public string ClipBackupFolder => m_metadata.ClipFolder;
+
+		public void BeginRecordingPhase(IEnumerable<BookScript> booksWithBlocksToRecord, string clipFolder, string clipBackupFolder)
+		{
+			Save();
+			CreateBackup("Backup before beginning recording phase");
+			m_metadata.ClipFolder = clipFolder;
+			m_metadata.ClipBackupFolder = clipBackupFolder;
+			m_books.Clear();
+			m_books.AddRange(booksWithBlocksToRecord);
+			ProjectState = ProjectState.RecordingPhaseStarted;
+			Save(); // TODO: Delete any books not being recorded
+		}
+
+		public void EvaluateRecordingProgress()
+		{
+			if (IsNullOrWhiteSpace(ClipFolder))
+				throw new InvalidOperationException("Recording Phase has not been started.");
+			if (!Directory.Exists(ClipFolder))
+				throw new DirectoryNotFoundException("Clip folder not found: " + ClipFolder);
+
+			var worker = new BackgroundWorker();
+			worker.DoWork += ComputeRecordingStats;
+			worker.RunWorkerCompleted += RecordingStatsComputationComplete;
+			worker.RunWorkerAsync();
+		}
+
+		private void RecordingStatsComputationComplete(object sender, RunWorkerCompletedEventArgs e)
+		{
+			if (e.Error != null)
+			{
+				// TODO
+			}
+			else
+			{
+				var eventArgs = (RecordingStatsComputedEventArgs)e.Result;
+				RecordingStatsComputed?.Invoke(this, eventArgs);
+			}
+		}
+
+		private void ComputeRecordingStats(object sender, DoWorkEventArgs e)
+		{
+			var charGroups = CharacterGroupList.CharacterGroups;
+			var recordingStats = new RecordingStatsComputedEventArgs(charGroups);
+
+			var emptyWavFileSize = Resources.Silent.Length;
+			foreach (var book in m_books)
+			{
+				int prevChapter = -1;
+				var bookId = book.BookId;
+				recordingStats.ChapterStats.Add(bookId, new Dictionary<int, RecordingStats>());
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.ChapterNumber > prevChapter)
+					{
+						recordingStats.ChapterStats[bookId].Add(block.ChapterNumber, new RecordingStats());
+						prevChapter = block.ChapterNumber;
+					}
+					var charGroup = charGroups.First(g => g.CharacterIds.Contains(block.CharacterIdInScript));
+					if (!RobustFile.Exists(block.ClipFilePath))
+					{
+						// TODO: Look for alternates or actor variants
+						throw new FileNotFoundException("Clip file not found", block.ClipFilePath);
+					}
+					var finfo = new FileInfo(block.ClipFilePath);
+					var seconds = (finfo.Length > emptyWavFileSize) ? MediaInfo.GetInfo(block.ClipFilePath).Audio.Duration.TotalSeconds : 0;
+					recordingStats.AddRecordingInfo(seconds, bookId, block.ChapterNumber, charGroup);
+				}
+			}
+			e.Result = recordingStats;
 		}
 
 		public bool SkipChapterAnnouncementForFirstChapter
@@ -375,7 +454,7 @@ namespace Glyssen
 			}
 		}
 
-		public IReadOnlyList<BookScript> IncludedBooks
+		public System.Collections.Generic.IReadOnlyList<BookScript> IncludedBooks
 		{
 			get
 			{
@@ -398,7 +477,7 @@ namespace Glyssen
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
 
-		public IReadOnlyDictionary<string, CharacterDetail> AllCharacterDetailDictionary
+		public System.Collections.Generic.IReadOnlyDictionary<string, CharacterDetail> AllCharacterDetailDictionary
 		{
 			get
 			{
@@ -516,8 +595,7 @@ namespace Glyssen
 				if (m_projectState == value)
 					return;
 				m_projectState = value;
-				if (ProjectStateChanged != null)
-					ProjectStateChanged(this, new ProjectStateChangedEventArgs {ProjectState = m_projectState});
+				ProjectStateChanged?.Invoke(this, new ProjectStateChangedEventArgs { ProjectState = m_projectState });
 			}
 		}
 
@@ -901,7 +979,7 @@ namespace Glyssen
 				UpdateControlFileVersion();
 			}
 			UpdatePercentInitialized();
-			ProjectState = ProjectState.FullyInitialized;
+			ProjectState = IsNullOrWhiteSpace(ClipFolder) ? ProjectState.FullyInitialized : ProjectState.RecordingPhaseStarted;
 			UpdateControlFileVersion();
 			Analyze();
 		}
@@ -1183,9 +1261,16 @@ namespace Glyssen
 			SaveWritingSystem();
 			if (saveCharacterGroups)
 				SaveCharacterGroupData();
-			ProjectState = !IsQuoteSystemReadyForParse
-				? ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess)
-				: ProjectState.FullyInitialized;
+			if (!IsNullOrWhiteSpace(ClipFolder))
+			{
+				ProjectState = ProjectState.RecordingPhaseStarted;
+			}
+			else
+			{
+				ProjectState = !IsQuoteSystemReadyForParse
+					? ProjectState.NeedsQuoteSystemConfirmation | (ProjectState & ProjectState.WritingSystemRecoveryInProcess)
+					: ProjectState.FullyInitialized;
+			}
 		}
 
 		public void SaveBook(BookScript book)
@@ -1842,7 +1927,7 @@ namespace Glyssen
 
 		public string LastExportLocation => Directory.Exists(Status.LastExportLocation) ? Status.LastExportLocation : Empty;
 
-		public IReadOnlyList<BookScript> TestQuoteSystem(QuoteSystem altQuoteSystem)
+		public System.Collections.Generic.IReadOnlyList<BookScript> TestQuoteSystem(QuoteSystem altQuoteSystem)
 		{
 			var cvInfo = new CombinedCharacterVerseData(this);
 
@@ -1872,6 +1957,38 @@ namespace Glyssen
 		{
 			public ProjectState ProjectState { get; set; }
 		}
+
+		public class RecordingStatsComputedEventArgs : EventArgs
+		{
+			public RecordingStatsComputedEventArgs(IObservableList<CharacterGroup> charGroups)
+			{
+				ProjectStats = new RecordingStats();
+				ChapterStats = new Dictionary<string, Dictionary<int, RecordingStats>>();
+				CharacterGroupStats = new Dictionary<CharacterGroup, RecordingStats>(charGroups.Count);
+				foreach (var characterGroup in charGroups.Where(g => g.CharacterIds.Any()))
+					CharacterGroupStats.Add(characterGroup, new RecordingStats());
+			}
+
+			public RecordingStats ProjectStats  { get; }
+			public Dictionary<string, Dictionary<int, RecordingStats>> ChapterStats  { get; }
+			public Dictionary<CharacterGroup, RecordingStats> CharacterGroupStats { get; }
+
+			public void AddRecordingInfo(double seconds, string bookId, int chapterNumber, CharacterGroup charGroup)
+			{
+				if (seconds > 0)
+				{
+					ProjectStats.AddRecording(seconds);
+					ChapterStats[bookId][chapterNumber].AddRecording(seconds);
+					CharacterGroupStats[charGroup].AddRecording(seconds);
+				}
+				else
+				{
+					ProjectStats.AddUnrecordedBlock();
+					ChapterStats[bookId][chapterNumber].AddUnrecordedBlock();
+					CharacterGroupStats[charGroup].AddUnrecordedBlock();
+				}
+			}
+		}
 	}
 
 	[Flags]
@@ -1884,6 +2001,7 @@ namespace Glyssen
 		QuoteParseComplete = 16,
 		FullyInitialized = 32,
 		WritingSystemRecoveryInProcess = 64,
-		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized
+		RecordingPhaseStarted = 128,
+		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized | RecordingPhaseStarted
 	}
 }
