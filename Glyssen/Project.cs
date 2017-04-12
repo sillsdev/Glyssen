@@ -1682,39 +1682,60 @@ namespace Glyssen
 			internal int LastChapter { get; set; }
 		}
 
-		public void ClearCharacterStatistics()
+		internal void ClearCharacterStatistics()
 		{
 			m_keyStrokesByCharacterId = null;
 			m_speechDistributionScore = null;
-			if (CharacterStatisticsCleared != null)
-				CharacterStatisticsCleared(this, new EventArgs());
+			CharacterStatisticsCleared?.Invoke(this, new EventArgs());
 		}
 
 		private void CalculateCharacterStatistics()
 		{
 			m_keyStrokesByCharacterId = new Dictionary<string, int>();
 			m_speechDistributionScore = new Dictionary<string, int>();
-
 			foreach (var book in IncludedBooks)
 			{
 				var bookDistributionScoreStats = new Dictionary<string, DistributionScoreBookStats>();
-				bool singleVoice = book.SingleVoice;
+				var narratorToUseForSingleVoiceBook = (book.SingleVoice) ?
+					CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator) :
+					null;
+
 				string prevCharacter = null;
 				foreach (var block in book.GetScriptBlocks( /*true*/))
 					// The logic for calculating keystrokes had join = true, but this seems likely to be less efficient and should not be needed.
 				{
-					var character = singleVoice
-						? CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator)
-						: block.CharacterIdInScript;
-
-					// REVIEW: It's possible that we should throw an exception if this happens (in production code).
-					if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
-						continue;
-
-					if (character == null)
+					string character;
+					if (narratorToUseForSingleVoiceBook != null)
+						character = narratorToUseForSingleVoiceBook;
+					else
 					{
-						throw new Exception($"Block has character set to null. This should never happen! " +
-							$"Block ({book.BookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}): {block}");
+						character = block.CharacterIdInScript;
+
+						// REVIEW: It's possible that we should throw an exception if this happens (in production code).
+						if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)
+							continue;
+
+						if (character == null)
+						{
+							throw new Exception($"Block has character set to null. This should never happen! " +
+								$"Block ({book.BookId} {block.ChapterNumber}:{block.InitialStartVerseNumber}): {block}");
+						}
+
+						switch (CharacterVerseData.GetStandardCharacterType(character))
+						{
+							case CharacterVerseData.StandardCharacter.Intro:
+								if (DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+									continue;
+								break;
+							case CharacterVerseData.StandardCharacter.ExtraBiblical:
+								if (DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+									continue;
+								break;
+							case CharacterVerseData.StandardCharacter.BookOrChapter:
+								if (DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+									continue;
+								break;
+						}
 					}
 
 					if (!m_keyStrokesByCharacterId.ContainsKey(character))
