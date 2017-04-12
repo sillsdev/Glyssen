@@ -1202,9 +1202,15 @@ namespace GlyssenTests.Dialogs
 			m_model.AttemptRefBlockMatchup = true;
 			Assert.IsNotNull(m_model.CurrentReferenceTextMatchup);
 			m_model.StoreCharacterDetail("Christ", CharacterGender.Male, CharacterAge.Adult);
+			var newCharacterChrist = new AssignCharacterViewModel.Character("Christ");
+			var block = m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[1];
+			m_model.AddPendingProjectCharacterVerseData(block, newCharacterChrist, new AssignCharacterViewModel.Delivery(block.Delivery));
+			m_model.SetReferenceTextMatchupDelivery(3, AssignCharacterViewModel.Delivery.Normal);
+			var newCharacterThadsWife = new AssignCharacterViewModel.Character("Thaddeus' wife");
+			m_model.AddPendingProjectCharacterVerseData(m_model.CurrentReferenceTextMatchup.CorrelatedBlocks[3], newCharacterThadsWife, null);
 			m_model.StoreCharacterDetail("Thaddeus' wife", CharacterGender.Female, CharacterAge.YoungAdult);
-			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Christ"));
-			m_model.SetReferenceTextMatchupCharacter(3, new AssignCharacterViewModel.Character("Thaddeus' wife"));
+			m_model.SetReferenceTextMatchupCharacter(1, newCharacterChrist);
+			m_model.SetReferenceTextMatchupCharacter(3, newCharacterThadsWife);
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 

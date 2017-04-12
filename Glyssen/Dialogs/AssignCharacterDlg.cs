@@ -1763,6 +1763,9 @@ namespace Glyssen.Dialogs
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					m_addingCharacterDelivery = true;
+
+					var block = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y];
+					m_viewModel.AddPendingProjectCharacterVerseData(block, dlg.SelectedCharacter, dlg.SelectedDelivery);
 					AddNewDeliveryIfNeeded(dlg.SelectedDelivery);
 
 					AssignCharacterViewModel.Character newCharacter = dlg.SelectedCharacter;
