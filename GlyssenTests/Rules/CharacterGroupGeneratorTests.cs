@@ -1201,6 +1201,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = bookTitleAndChapterOption;
 			m_testProject.DramatizationPreferences.SectionHeadDramatization = extraBiblicalOption;
+			m_testProject.ClearCharacterStatistics();
 
 			SetVoiceActors(6, 2);
 			var gen = new CharacterGroupGenerator(m_testProject);

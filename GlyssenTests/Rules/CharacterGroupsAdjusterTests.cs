@@ -12,7 +12,7 @@ namespace GlyssenTests.Rules
 	[TestFixture]
 	class CharacterGroupsAdjusterTests : CharacterGroupGeneratorAndAdjusterTestBase
 	{
-		[TestFixtureSetUpAttribute]
+		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
@@ -21,7 +21,7 @@ namespace GlyssenTests.Rules
 			RelatedCharactersData.Source = null;
 		}
 
-		[SetUpAttribute]
+		[SetUp]
 		public void SetUp()
 		{
 			CreateTestProject();
@@ -48,7 +48,7 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 		}
-	
+
 		private void GenerateGroups()
 		{
 			var generator = new CharacterGroupGenerator(m_testProject);
@@ -66,7 +66,7 @@ namespace GlyssenTests.Rules
 				newCharacterId, string.Empty, string.Empty, true));
 
 			if (!m_testProject.AllCharacterDetailDictionary.ContainsKey(newCharacterId))
-				m_testProject.AddProjectCharacterDetail(new CharacterDetail { CharacterId = newCharacterId });
+				m_testProject.AddProjectCharacterDetail(new CharacterDetail {CharacterId = newCharacterId});
 
 			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when user makes changes in AssignCharacterDlg
 		}
@@ -91,6 +91,19 @@ namespace GlyssenTests.Rules
 			Assert.IsFalse(adjuster.BooksHaveBeenExcluded);
 			Assert.IsFalse(adjuster.FullRegenerateRecommended);
 			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
+		}
+
+		/// <summary>
+		/// PG-965
+		/// </summary>
+		[Test]
+		public void CharactersNotCoveredByAnyGroup_ExtraBiblicalCharactersOmittedInSettings_ExtraBiblicalCharactersNotConsideredToBeMissing()
+		{
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.Omitted;
+			SetVoiceActors(9, 2, 1);
+			GenerateGroups();
+			var adjuster = new CharacterGroupsAdjuster(m_testProject);
+			Assert.IsFalse(adjuster.CharactersNotCoveredByAnyGroup.Any());
 		}
 
 		[Test]
