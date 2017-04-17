@@ -21,6 +21,7 @@ namespace Glyssen.Dialogs
 		private readonly DeliveryComparer m_deliveryComparer = new DeliveryComparer();
 		private readonly AliasComparer m_aliasComparer = new AliasComparer();
 		private readonly Dictionary<String, CharacterDetail> m_pendingCharacterDetails = new Dictionary<string, CharacterDetail>();
+		private readonly HashSet<CharacterVerse> m_pendingCharacterVerseAdditions = new HashSet<CharacterVerse>();
 		private HashSet<CharacterVerse> m_currentCharacters;
 		private IEnumerable<Character> m_generatedCharacterList;
 		private List<Delivery> m_currentDeliveries = new List<Delivery>();
@@ -44,6 +45,8 @@ namespace Glyssen.Dialogs
 		{
 			m_projectCharacterVerseData = project.ProjectCharacterVerseData;
 			m_combinedCharacterVerseData = new CombinedCharacterVerseData(project);
+
+			CurrentBlockMatchupChanged += (sender, args) => { m_pendingCharacterVerseAdditions.Clear(); };
 		}
 		#endregion
 
@@ -121,6 +124,16 @@ namespace Glyssen.Dialogs
 			m_pendingCharacterDetails[characterId] = detail;
 		}
 
+		public void AddPendingProjectCharacterVerseData(Block block, Character character, Delivery delivery)
+		{
+			m_pendingCharacterVerseAdditions.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
+					character.CharacterId,
+					delivery == null ? Delivery.Normal.Text : delivery.Text,
+					null,
+					true));
+			GetCharactersForCurrentReferenceTextMatchup(); // This forces the model's internal list to refresh to just the relevant ones
+		}
+
 		private void OnSaveCurrentBook()
 		{
 			if (CurrentBookSaved != null)
@@ -190,17 +203,8 @@ namespace Glyssen.Dialogs
 		{
 			m_currentCharacters = new HashSet<CharacterVerse>();
 			foreach (var block in CurrentReferenceTextMatchup.CorrelatedBlocks)
-			{
 				m_currentCharacters.UnionWith(GetUniqueCharacterVerseObjectsForBlock(block));
-				if (m_pendingCharacterDetails.ContainsKey(block.CharacterId))
-				{
-					m_currentCharacters.Add(new CharacterVerse(GetBlockVerseRef(block, ScrVers.English).BBBCCCVVV,
-						block.CharacterId,
-						block.Delivery,
-						null,
-						true));
-				}
-			}
+			m_currentCharacters.UnionWith(m_pendingCharacterVerseAdditions);
 
 			return GetUniqueCharacters(false);
 		}
@@ -456,6 +460,8 @@ namespace Glyssen.Dialogs
 					string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal : 
 					GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
 			}
+
+			m_pendingCharacterVerseAdditions.Clear();
 
 			m_project.SaveBook(CurrentBook);
 			OnSaveCurrentBook();
