@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared.Bundle;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;

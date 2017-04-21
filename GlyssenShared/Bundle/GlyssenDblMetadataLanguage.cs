@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Xml.Serialization;
-using Glyssen.Properties;
+using Glyssen.Shared.Properties;
 using SIL.DblBundle.Text;
 
 namespace Glyssen.Bundle

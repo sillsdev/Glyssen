@@ -18,6 +18,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Shared.Bundle;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.DblBundle;
@@ -32,7 +33,6 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
-using static Glyssen.ReferenceTextType;
 
 namespace Glyssen
 {
@@ -324,6 +324,26 @@ namespace Glyssen
 		{
 			get { return m_metadata.DramatizationPreferences; }
 			set { m_metadata.DramatizationPreferences = value; }
+		}
+
+		public bool IncludeCharacter(string characterId)
+		{
+			switch (CharacterVerseData.GetStandardCharacterType(characterId))
+			{
+				case CharacterVerseData.StandardCharacter.BookOrChapter:
+					if (DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+						return false;
+					break;
+				case CharacterVerseData.StandardCharacter.Intro:
+					if (DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+						return false;
+					break;
+				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+					if (DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+						return false;
+					break;
+			}
+			return true;
 		}
 
 		public void SetDefaultCharacterGroupGenerationPreferences()
@@ -626,7 +646,7 @@ namespace Glyssen
 						// If this is a custom reference text whose identifier happens to match a standard one
 						// just use it. The custom one has likely been removed because now it has become a
 						// standard one.
-						Debug.Assert(ReferenceTextIdentifier.Type == Custom);
+						Debug.Assert(ReferenceTextIdentifier.Type == ReferenceTextType.Custom);
 						ReferenceTextType type;
 						if (Enum.TryParse(ReferenceTextIdentifier.CustomIdentifier, out type))
 						{

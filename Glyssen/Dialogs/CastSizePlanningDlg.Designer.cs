@@ -1,4 +1,5 @@
-﻿using L10NSharp.UI;
+﻿using Glyssen.Shared.Bundle;
+using L10NSharp.UI;
 
 namespace Glyssen.Dialogs
 {
@@ -497,7 +498,7 @@ namespace Glyssen.Dialogs
 			this.m_castSizePlanningOptions.Location = new System.Drawing.Point(0, 0);
 			this.m_castSizePlanningOptions.Margin = new System.Windows.Forms.Padding(0);
 			this.m_castSizePlanningOptions.Name = "m_castSizePlanningOptions";
-			this.m_castSizePlanningOptions.SelectedCastSizeRow = Glyssen.Bundle.CastSizeOption.Recommended;
+			this.m_castSizePlanningOptions.SelectedCastSizeRow = CastSizeOption.Recommended;
 			this.m_castSizePlanningOptions.Size = new System.Drawing.Size(418, 151);
 			this.m_castSizePlanningOptions.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_castSizePlanningOptions, true);

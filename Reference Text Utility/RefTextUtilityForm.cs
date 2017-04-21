@@ -8,8 +8,9 @@ using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.ReferenceTextUtility.Properties;
 using Glyssen.RefTextDevUtilities;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using SIL.DblBundle.Text;
-using SIL.Scripture;
 using SIL.Xml;
 
 namespace Glyssen.ReferenceTextUtility
@@ -115,7 +116,7 @@ namespace Glyssen.ReferenceTextUtility
 		{
 			using (var openDlg = new OpenFileDialog {CheckFileExists = true})
 			{
-				openDlg.Filter = string.Format("Excel files ({0})|{0}", "*" + ProjectExporter.kExcelFileExtension);
+				openDlg.Filter = string.Format("Excel files ({0})|{0}", "*" + Constants.kExcelFileExtension);
 				openDlg.CheckFileExists = true;
 				if (openDlg.ShowDialog() == DialogResult.OK)
 				{

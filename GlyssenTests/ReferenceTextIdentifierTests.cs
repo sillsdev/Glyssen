@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Glyssen;
+using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 
 namespace GlyssenTests

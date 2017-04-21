@@ -1,4 +1,5 @@
-﻿using SIL.DblBundle.Text;
+﻿using Glyssen.Shared.Bundle;
+using SIL.DblBundle.Text;
 using SIL.WritingSystems;
 
 namespace Glyssen.Bundle

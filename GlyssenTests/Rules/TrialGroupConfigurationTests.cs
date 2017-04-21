@@ -2,10 +2,9 @@
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
-using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
+using Glyssen.Shared.Bundle;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;

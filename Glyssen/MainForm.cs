@@ -14,6 +14,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
+using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;

@@ -4,6 +4,7 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
+using Glyssen.Shared.Bundle;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 

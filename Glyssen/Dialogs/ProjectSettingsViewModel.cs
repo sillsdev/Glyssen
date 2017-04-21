@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Glyssen.Bundle;
+using Glyssen.Shared.Bundle;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
 

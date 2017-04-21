@@ -4,6 +4,7 @@ using System.Xml;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Shared.Bundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.WritingSystems;

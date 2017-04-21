@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Shared.Bundle;
 using Glyssen.VoiceActor;
 
 namespace Glyssen.Dialogs
