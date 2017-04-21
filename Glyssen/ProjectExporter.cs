@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -47,7 +48,6 @@ namespace Glyssen
 	{
 		private const string kExcelLineBreak = "\r\n"; ///????????????????????
 		private const string kTabFileAnnotationElementSeparator = " ";
-		public const string kExcelFileExtension = ".xlsx";
 		public const string kTabDelimitedFileExtension = ".txt";
 
 		private string m_customFileName;
@@ -414,8 +414,8 @@ namespace Glyssen
 
 		private void GenerateExcelFile(string path, IEnumerable<List<object>> data, bool masterFileWithAnnotations)
 		{
-			if (Path.GetExtension(path) != kExcelFileExtension)
-				path += kExcelFileExtension;
+			if (Path.GetExtension(path) != Constants.kExcelFileExtension)
+				path += Constants.kExcelFileExtension;
 
 			// If we got this far with a path to an existing file, the user has (in theory)
 			// confirmed he wants to overwrite it.
@@ -625,7 +625,7 @@ namespace Glyssen
 							continue;
 					}
 
-					if (!Project.DramatizationPreferences.IncludeCharacter(block.CharacterId))
+					if (!Project.IncludeCharacter(block.CharacterId))
 						continue;
 
 					VoiceActor.VoiceActor voiceActor = null;
@@ -924,7 +924,7 @@ namespace Glyssen
 			switch (fileType)
 			{
 				case ExportFileType.Excel:
-					return kExcelFileExtension;
+					return Constants.kExcelFileExtension;
 				case ExportFileType.TabSeparated:
 					return kTabDelimitedFileExtension;
 			}
@@ -944,8 +944,8 @@ namespace Glyssen
 
 		private void GenerateRolesForVoiceActorsExport(string path, List<List<object>> data)
 		{
-			if (Path.GetExtension(path) != kExcelFileExtension)
-				path += kExcelFileExtension;
+			if (Path.GetExtension(path) != Constants.kExcelFileExtension)
+				path += Constants.kExcelFileExtension;
 
 			// If we got this far with a path to an existing file, the user has (in theory)
 			// confirmed he wants to overwrite it.

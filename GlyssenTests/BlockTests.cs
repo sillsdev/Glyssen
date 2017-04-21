@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;

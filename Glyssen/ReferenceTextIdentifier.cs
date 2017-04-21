@@ -4,27 +4,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using DesktopAnalytics;
-using Glyssen.Bundle;
 using L10NSharp;
 using SIL.IO;
 using SIL.Reporting;
+using Glyssen.Shared.Bundle;
 
 namespace Glyssen
 {
-	public enum ReferenceTextType
-	{
-		Unknown,
-		English,
-		//Azeri,
-		//French,
-		//Indonesian,
-		//Portuguese,
-		Russian,
-		//Spanish,
-		//TokPisin,
-		Custom
-	}
-
 	public class ReferenceTextIdentifier
 	{
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";

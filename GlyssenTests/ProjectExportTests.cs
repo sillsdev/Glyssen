@@ -9,6 +9,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
+using Glyssen.Shared.Bundle;
 using Glyssen.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;

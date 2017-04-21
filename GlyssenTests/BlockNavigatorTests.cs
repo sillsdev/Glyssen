@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
+using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using Paratext;
 using SIL.Scripture;

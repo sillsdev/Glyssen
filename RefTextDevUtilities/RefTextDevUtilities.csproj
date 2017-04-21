@@ -64,13 +64,20 @@
     <Compile Include="ReferenceTextUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
+      <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
+      <Name>GlyssenShared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Glyssen\Glyssen.csproj">
       <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
       <Name>Glyssen</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

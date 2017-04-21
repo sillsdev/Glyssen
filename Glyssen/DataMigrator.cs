@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
+using Glyssen.Shared.Bundle;
 using L10NSharp;
 using Paratext;
 using SIL.DblBundle;

@@ -110,9 +110,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Glyssen\Glyssen.csproj">
-      <Project>{45321f2e-174c-482a-bda1-bf199366fbd6}</Project>
-      <Name>Glyssen</Name>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
+      <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
+      <Name>GlyssenShared</Name>
     </ProjectReference>
     <ProjectReference Include="..\RefTextDevUtilities\RefTextDevUtilities.csproj">
       <Project>{49c0c51d-190f-450d-a7be-14e843c2e89d}</Project>

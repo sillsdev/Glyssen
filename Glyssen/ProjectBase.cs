@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Bundle;
+using Glyssen.Shared.Bundle;
 using L10NSharp;
 using SIL.DblBundle;
 using SIL.Scripture;

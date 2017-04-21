@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using Glyssen;
 using Glyssen.Bundle;
+using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
 

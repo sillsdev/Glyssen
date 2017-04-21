@@ -8,6 +8,7 @@ using System.Text;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Shared.Bundle;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using Paratext;
