@@ -4230,10 +4230,10 @@ namespace GlyssenTests.Quote
 			var block1 = new Block(style1, 1, 1).AddVerse(1, "Ka nino okato manok, Yecu dok odwogo i Kapernaum, ci pire owinnye ni en tye paco.");
 			var block2 = new Block(style2, 1, 2).AddVerse(2, "This is a poem, ");
 			var block3 = new Block(style3, 1, 2);
-			block3.BlockElements.Add(new ScriptText {Content = "about something good;"});
+			block3.BlockElements.Add(new ScriptText("about something good;"));
 			var block4 = new Block(style2, 1, 3).AddVerse(3, "So you can see that");
 			var block5 = new Block(style3, 1, 3);
-			block5.BlockElements.Add(new ScriptText { Content = "it's not about something wood." });
+			block5.BlockElements.Add(new ScriptText("it's not about something wood."));
 
 			var input = new List<Block> { blockChapter1, block1, block2, block3, block4, block5 };
 

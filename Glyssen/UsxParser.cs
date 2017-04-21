@@ -231,7 +231,7 @@ namespace Glyssen
 				return;
 			var titleBlock = new Block("mt");
 			titleBlock.SetStandardCharacter(m_bookId, CharacterVerseData.StandardCharacter.BookOrChapter);
-			titleBlock.BlockElements.Add(new ScriptText { Content = titleBuilder.ToString().Trim() });
+			titleBlock.BlockElements.Add(new ScriptText(titleBuilder.ToString().Trim()));
 			blocks.Add(titleBlock);
 			titleBuilder.Clear();
 		}

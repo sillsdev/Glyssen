@@ -59,7 +59,7 @@ namespace Glyssen
 		private static readonly Regex s_startsWithEllipsis = new Regex(@"^(\u2026|(\.\.\.))", RegexOptions.Compiled);
 		private string m_content;
 
-		public ScriptText()
+		private ScriptText()
 		{
 			// Needed for deserialization
 		}
@@ -103,7 +103,7 @@ namespace Glyssen
 
 	public class Verse : BlockElement, IVerse
 	{
-		public Verse()
+		private Verse()
 		{
 			// Needed for deserialization
 		}
