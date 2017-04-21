@@ -16,7 +16,9 @@ using L10NSharp.UI;
 using Paratext;
 using SIL.ObjectModel;
 using SIL.Scripture;
+using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
+using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
@@ -65,7 +67,7 @@ namespace Glyssen.Dialogs
 			{
 				if (m_blocksViewer.Visible)
 					LoadBlock();
-			}, true);
+			}, GetType().FullName + " - anonymous delegate m_blocksViewer.VisibleChanged", ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
 
 			SetFilterControlsFromMode();
 
