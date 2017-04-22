@@ -24,6 +24,7 @@ using L10NSharp.UI;
 using Paratext;
 using SIL.Extensions;
 using SIL.Reporting;
+using SIL.Windows.Forms.Extensions;
 using static System.String;
 
 namespace Glyssen.Dialogs
@@ -204,7 +205,7 @@ namespace Glyssen.Dialogs
 					m_progressBar.Maximum = m_viewModel.RelevantBlockCount;
 					m_progressBar.Increment(increment);
 				}
-			});
+			}, GetType().FullName + ".m_viewModel_AssignedBlocksIncremented");
 		}
 
 		private void UpdateProgressBarForMode()
@@ -313,7 +314,7 @@ namespace Glyssen.Dialogs
 					SetReferenceTextGridRowToAnchorRow();
 					UpdateDisplay();
 					UpdateNavigationButtonState();
-				});
+				}, GetType().FullName + ".LoadBlock");
 			}
 		}
 
@@ -321,7 +322,7 @@ namespace Glyssen.Dialogs
 		{
 			if (m_blocksViewer.Visible)
 			{
-				this.SafeInvoke(UpdateReferenceTextTabPageDisplay);
+				this.SafeInvoke(UpdateReferenceTextTabPageDisplay, GetType().FullName + ".LoadBlockMatchup");
 				m_userMadeChangesToReferenceTextMatchup = false;
 			}
 		}

@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using Glyssen.Controls;
+using SIL.Windows.Forms.Extensions;
 
 namespace Glyssen.ReferenceTextUtility
 {
@@ -25,7 +25,7 @@ namespace Glyssen.ReferenceTextUtility
 					m_logBox.WriteError(message);
 				else
 					m_logBox.WriteMessage(message);
-			});
+			}, GetType().FullName + ".DisplayMessage");
 		}
 	}
 }
