@@ -9,6 +9,7 @@ using Gecko.Events;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using L10NSharp;
+using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
 namespace Glyssen.Controls
@@ -183,7 +184,7 @@ namespace Glyssen.Controls
 					m_blocksDisplayBrowser.DisplayHtml(m_viewModel.Html);
 				else if (m_dataGridViewBlocks.Visible)
 					m_dataGridViewBlocks.UpdateContext();
-			}, true);
+			}, GetType().FullName + ".UpdateContextBlocksDisplay", SIL.Windows.Forms.Extensions.ControlExtensions.ErrorHandlingAction.IgnoreIfDisposed);
 		}
 
 		private void HandleDataGridViewBlocksCellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
