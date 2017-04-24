@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -10,11 +9,9 @@ using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Quote;
 using Glyssen.Utilities;
 using Paratext;
 using SIL.Scripture;
-using SIL.Unicode;
 using SIL.Xml;
 using static System.Char;
 using static System.String;
@@ -69,7 +66,7 @@ namespace Glyssen
 				Format(dashStyleInterruptionFmt, "\u2014") + Format(dashStyleInterruptionFmt + @")[^\w]*", "\u2015"), RegexOptions.Compiled);
 		}
 
-		public Block()
+		internal Block()
 		{
 			// Needed for deserialization
 			SplitId = kNotSplit;

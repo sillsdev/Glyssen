@@ -238,10 +238,8 @@ namespace GlyssenTests.Character
 				new CharacterVerse(new BCVRef(40, 17, 27), "Jesus", null, null, false)
 			});
 
-			var bookScript = new BookScript
-			{
-				BookId = "MAT",
-				Blocks = new List<Block>
+			var bookScript = new BookScript("MAT",
+				new List<Block>
 				{
 					new Block
 					{
@@ -267,7 +265,7 @@ namespace GlyssenTests.Character
 						MultiBlockQuote = MultiBlockQuote.Continuation
 					}
 				}
-			};
+			);
 
 			Assert.AreEqual("Jesus", bookScript.Blocks[0].CharacterId);
 			Assert.AreEqual("Jesus", bookScript.Blocks[1].CharacterId);

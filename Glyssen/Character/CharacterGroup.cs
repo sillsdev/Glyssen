@@ -30,7 +30,7 @@ namespace Glyssen.Character
 		private double m_estimatedHours = -1;
 
 		//For Deserialization
-		public CharacterGroup()
+		internal CharacterGroup()
 		{
 			CharacterIds = new CharacterIdHashSet();
 			VoiceActorId = kNoActorAssigned;

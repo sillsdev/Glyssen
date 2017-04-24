@@ -24,7 +24,7 @@ namespace Glyssen
 		private ScrStylesheetAdapter m_styleSheet;
 		private int m_blockCount;
 
-		public BookScript() : base(null, null)
+		private BookScript() : base(null, null)
 		{
 			// Needed for deserialization
 		}
