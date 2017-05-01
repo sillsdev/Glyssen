@@ -573,6 +573,11 @@ namespace Glyssen
 
 		private void UpdateProjectState()
 		{
+			// Temporarily clear this setting. If something goes horribly wrong loading/migrating the project,
+			// we don't want to get the user into a situation where Glyssen is permanently hamstrung because it
+			// always attempts to open the same (corrupt) project.
+			Settings.Default.CurrentProject = null;
+			Settings.Default.Save();
 			if (m_project != null)
 				UpdateButtons((m_project.ProjectState & ProjectState.ReadyForUserInteraction) == 0);
 		}
