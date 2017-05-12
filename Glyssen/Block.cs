@@ -236,7 +236,10 @@ namespace Glyssen
 		[DefaultValue(false)]
 		public bool MatchesReferenceText
 		{
-			get { return m_matchesReferenceText; }
+			// m_matchesReferenceText should imply exactly one reference block (and I *so* wish I had modeled it
+			// that way), but if a previous program bug or deserialization issue should put a block into a bad
+			// state, there are lots of places where it could crash, so if there isn't exactly 1, return false.
+			get { return m_matchesReferenceText && ReferenceBlocks.Count ==  1; }
 			set
 			{
 				m_matchesReferenceText = value;

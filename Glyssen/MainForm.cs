@@ -22,6 +22,7 @@ using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
 using SIL.Reporting;
+using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
 using NetSparkle;
@@ -40,6 +41,7 @@ namespace Glyssen
 		private string m_castSizeFmt;
 		private readonly List<Tuple<Button, string>> m_buttonFormats = new List<Tuple<Button, string>>();
 		private bool? m_isOkayToClearExistingRefBlocksThatCannotBeMigrated;
+		private ReferenceText m_temporaryRefTextOverrideForExporting;
 
 		public MainForm(IReadOnlyList<string> args)
 		{
@@ -173,18 +175,23 @@ namespace Glyssen
 
 		private void UpdateButtons(bool readOnly)
 		{
-			bool validProject = m_project != null;
 			m_btnOpenProject.Enabled = !readOnly;
-			m_imgCheckOpen.Visible = validProject;
-			m_btnSettings.Enabled = !readOnly && validProject && m_project.ProjectFileIsWritable;
+			m_imgCheckOpen.Visible = true;
+			m_btnSettings.Enabled = !readOnly && m_project.ProjectFileIsWritable;
 			m_imgCheckSettings.Visible = m_btnSettings.Enabled && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.IsQuoteSystemReadyForParse;
-			m_btnSelectBooks.Enabled = !readOnly && validProject && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
+			m_btnSelectBooks.Enabled = !readOnly && m_project.ProjectSettingsStatus == ProjectSettingsStatus.Reviewed &&
 				m_project.ProjectFileIsWritable;
 			m_imgCheckBooks.Visible = m_btnSelectBooks.Enabled && m_project.BookSelectionStatus == BookSelectionStatus.Reviewed;
 			m_btnIdentify.Enabled = !readOnly && m_imgCheckSettings.Visible && m_imgCheckBooks.Visible;
 			m_imgCheckAssignCharacters.Visible = m_btnIdentify.Enabled && (int)(m_project.ProjectAnalysis.UserPercentAssigned) == 100;
-			m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
+			if (m_project.ReferenceText == null)
+			{
+				m_imgCheckAssignCharacters.Visible = true;
+				m_imgCheckAssignCharacters.Image = Resources.Alert;
+			}
+			else
+				m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
 			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
 
 			m_btnAssignVoiceActors.Visible = Environment.GetEnvironmentVariable("Glyssen_ProtoscriptOnly", EnvironmentVariableTarget.User) == null;
@@ -205,7 +212,7 @@ namespace Glyssen
 			m_imgCheckAssignActors.Visible = m_btnAssignVoiceActors.Visible && m_btnAssignVoiceActors.Enabled && m_project.IsVoiceActorScriptReady;
 			m_lnkExit.Enabled = !readOnly;
 
-			m_exportMenu.Enabled = validProject;
+			m_exportMenu.Enabled = true;
 		}
 
 		private void ResetUi()
@@ -263,7 +270,8 @@ namespace Glyssen
 			using (var dlg = new OpenProjectDlg(m_project))
 			{
 				var result = ShowModalDialogWithWaitCursor(dlg);
-				if (result != DialogResult.OK) return;
+				if (result != DialogResult.OK)
+					return;
 
 				try
 				{
@@ -312,7 +320,7 @@ namespace Glyssen
 				}
 			}
 			UpdateChecker = new Sparkle(@"http://build.palaso.org/guestAuth/repository/download/Glyssen_GlyssenMasterPublish/.lastSuccessful/appcast.xml",
-	Icon);
+				Icon);
 			// We don't want to do this until the main window is loaded because a) it's very easy for the user to overlook, and b)
 			// more importantly, when the toast notifier closes, it can sometimes clobber an error message being displayed for the user.
 			UpdateChecker.CheckOnFirstApplicationIdle();
@@ -494,13 +502,18 @@ namespace Glyssen
 
 			double percentAssigned = 0;
 			double percentAligned = 0;
-			if (m_project != null && m_project.ProjectAnalysis != null)
+			if (m_project?.ProjectAnalysis != null)
 			{
 				percentAssigned = m_project.ProjectAnalysis.UserPercentAssigned;
 				percentAligned = m_project.ProjectAnalysis.AlignmentPercent;
 			}
-			m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, MathUtilities.FormattedPercent(percentAssigned, 1, 2),
-				MathUtilities.FormattedPercent(percentAligned, 1, 2)) : Empty;
+			if (m_project != null && m_project.ReferenceText == null)
+				m_lblPercentAssigned.Text = LocalizationManager.GetString("MainForm.ReferenceTextUnavailable", "Reference text unavailable");
+			else
+			{
+				m_lblPercentAssigned.Text = percentAssigned > 0 ? Format(m_percentAssignedFmt, MathUtilities.FormattedPercent(percentAssigned, 1, 2),
+					MathUtilities.FormattedPercent(percentAligned, 1, 2)) : Empty;
+			}
 		}
 
 		private void UpdateDisplayOfCastSizePlan(object sender, EventArgs e)
@@ -568,7 +581,7 @@ namespace Glyssen
 			{
 				Logger.WriteEvent($"New Voice Actor info: {newValue}");
 				m_lblActorsAssigned.Text = newValue;
-			} 
+			}
 		}
 
 		private void UpdateProjectState()
@@ -681,16 +694,16 @@ namespace Glyssen
 			else if (m_project.ProjectAnalysis.UserPercentAssigned < 100d)
 			{
 				dlgMessage = Format(LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.CharacterAssignmentIncompleteMessage",
-					"Character assignment is {0} complete. Are you sure you want to export a script?", "Parameter is a percentage."),
-					 MathUtilities.FormattedPercent(m_project.ProjectAnalysis.UserPercentAssigned, 1, 3));
+						"Character assignment is {0} complete. Are you sure you want to export a script?", "Parameter is a percentage."),
+					MathUtilities.FormattedPercent(m_project.ProjectAnalysis.UserPercentAssigned, 1, 3));
 				dlgTitle = LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.TitleIncomplete", "Export Incomplete Script?");
 			}
 
 			if (dlgMessage != null)
 			{
 				dlgMessage += Environment.NewLine +
-							  LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
-								  "(Note: You can export the script again as many times as you want.)");
+					LocalizationManager.GetString("DialogBoxes.ExportIncompleteScript.MessageNote",
+						"(Note: You can export the script again as many times as you want.)");
 				export = MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) == DialogResult.Yes;
 			}
 
@@ -707,7 +720,7 @@ namespace Glyssen
 				string languageId = ((CultureInfo)item.Tag).IetfLanguageTag;
 				item.Click += ((a, b) =>
 				{
-					Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", languageId }, { "reapplyLocalizations", "true" } });
+					Analytics.Track("SetUiLanguage", new Dictionary<string, string> {{"uiLanguage", languageId}, {"reapplyLocalizations", "true"}});
 					Logger.WriteEvent($"UI language changed to {languageId}.");
 
 					LocalizationManager.SetUILanguage(languageId, true);
@@ -735,15 +748,8 @@ namespace Glyssen
 		{
 			if (m_project.ReferenceTextIdentifier.Missing)
 			{
-				var msg = Format(LocalizationManager.GetString("MainForm.ProjectUsesMissingReferenceText",
-					"This project uses a custom reference text ({0}) that is not available on this computer. If you have access " +
-					"to the reference text, please install it here:\n{1}" +
-					"\n\nOtherwise, open the Project Settings dialog box, select the Reference Text tab, and then choose an appropriate reference text from the available choices.",
-					"Param 0: name of missing reference text; Param 1: Path to Local Reference Texts folder; Note that \"Project Settings\" and \"Reference Text\" refer to localizable " +
-					"UI elements and should match the localized strings for those elements."),
-					m_project.ReferenceTextIdentifier.CustomIdentifier, m_project.ReferenceTextIdentifier.ProjectFolder);
-				MessageBox.Show(this, msg, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
+				if (!ResolveNullReferenceText())
+					return;
 			}
 
 			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -753,11 +759,11 @@ namespace Glyssen
 			Cursor = Cursors.WaitCursor;
 
 			using (var viewModel = new AssignCharacterViewModel(m_project))
-				using (var dlg = new AssignCharacterDlg(viewModel))
-				{
-					LogDialogDisplay(dlg);
-					dlg.ShowDialog(this);
-				}
+			using (var dlg = new AssignCharacterDlg(viewModel))
+			{
+				LogDialogDisplay(dlg);
+				dlg.ShowDialog(this);
+			}
 			Cursor = origCursor;
 
 			m_project.Analyze();
@@ -970,45 +976,81 @@ namespace Glyssen
 		{
 			EnsureGroupsAreInSynchWithCharactersInUse();
 
+			if (m_project.ReferenceText == null)
+			{
+				if (m_temporaryRefTextOverrideForExporting != null)
+					m_project.ReferenceText = m_temporaryRefTextOverrideForExporting;
+				else if (!ResolveNullReferenceText(LocalizationManager.GetString("Project.TemporarilyUseEnglishReferenceText",
+					"To continue and temporarily use the English reference text, click Ignore.")))
+				{
+					return;
+				}
+			}
+
+			try
+			{
+				var exporter = new ProjectExporter(m_project);
+
+				if (!IsOkToExport(exporter))
+					return;
+
+				using (var dlg = getProjectScriptPresenterDlg(exporter))
+				{
+					ShowModalDialogWithWaitCursor(dlg);
+					ShowLastLocation();
+				}
+			}
+			finally
+			{
+				// Reset the temporarily overriden ReferenceText property so it won't accidentally get used for the ISP dialog.
+				if (m_project.ReferenceTextIdentifier.Missing)
+					m_project.ReferenceText = null;
+			}
+		}
+
+		private bool ResolveNullReferenceText(string ignoreOptionText = null)
+		{
+			if (m_project.ReferenceText != null)
+				return true;
+
 			var model = new ProjectSettingsViewModel(m_project);
+			string projectSettingsDlgTitle, referenceTextTabName;
+			using (var dlg = new ProjectSettingsDlg(model))
+			{
+				projectSettingsDlgTitle = dlg.Text;
+				referenceTextTabName = dlg.ReferenceTextTabPageName;
+			}
+			var customReferenceTextFolder = m_project.ReferenceTextIdentifier.ProjectFolder;
+			if (customReferenceTextFolder.Any(c => c == ' '))
+				customReferenceTextFolder = customReferenceTextFolder.Replace(" ", "\u00A0");
+			customReferenceTextFolder = "file://" + customReferenceTextFolder;
 
 			while (m_project.ReferenceText == null)
 			{
 				string msg;
-				using (var dlg = new ProjectSettingsDlg(model))
+				var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
+					"This project uses a custom reference text ({0}) that is not available on this computer.\nIf you have access " +
+					"to the required reference text files, please put them in" +
+					"\n    {1}\n" +
+					"and then click Retry to use the {0} reference text.\n\n" +
+					"Otherwise, to permanently change the reference text used by this project, open the {2}\n" +
+					"dialog box and select the desired reference text on the {3} tab page.");
+				msg = Format(msgFmt, m_project.UiReferenceTextName, customReferenceTextFolder, projectSettingsDlgTitle, referenceTextTabName);
+				if (ignoreOptionText != null)
+					msg += "\n\n" + ignoreOptionText;
+				Logger.WriteEvent(msg);
+				switch (FlexibleMessageBox.Show(msg, GlyssenInfo.kProduct,
+					ignoreOptionText == null ? MessageBoxButtons.RetryCancel : MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
+					(sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); }))
 				{
-					var msgFmt = LocalizationManager.GetString("Project.UnavailableReferenceText",
-						"This project uses the {0} reference text, which is no longer available. " +
-						"If possible, put the required reference text files in" +
-						"\r\n   {1}\r\n" +
-						"and then click Retry to use the {0} reference text.\r\n" +
-						"Otherwise, to continue and temporarily use the English reference text, click Ignore.\r\n" +
-						"Note: to permanently change the reference text used by this project, open the {2} " +
-						"dialog box and select the desired reference text on the {3} tab page.");
-					msg = Format(msgFmt, m_project.UiReferenceTextName,
-						m_project.ReferenceTextIdentifier.ProjectFolder,
-						dlg.Text, dlg.ReferenceTextTabPageName);
-					Logger.WriteEvent(msgFmt);
-				}
-				switch (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore))
-				{
-					case DialogResult.Abort: return;
+					case DialogResult.Cancel:
+					case DialogResult.Abort: return false;
 					case DialogResult.Ignore:
-						m_project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+						m_project.ReferenceText = m_temporaryRefTextOverrideForExporting = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 						break;
-				}	
+				}
 			}
-
-			var exporter = new ProjectExporter(m_project);
-
-			if (!IsOkToExport(exporter))
-				return;
-
-			using (var dlg = getProjectScriptPresenterDlg(exporter))
-			{
-				ShowModalDialogWithWaitCursor(dlg);
-				ShowLastLocation();
-			}
+			return true;
 		}
 
 		protected override void OnKeyDown(KeyEventArgs e)
@@ -1144,13 +1186,14 @@ namespace Glyssen
 						if (m_project.ReferenceTextIdentifier.Missing)
 						{
 							var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
-								"The imported project uses a custom reference text ({0}) that is not available on this computer. For best results, " +
-								"close {1} and install the reference text here:\n{2}" +
+								"The imported project uses a custom reference text ({0}) that is not available on this computer.\nFor best results, " +
+								"close {1} and install the reference text here:" +
+								"\n    {2}\n" +
 								"\nThen restart {1} to continue working with this project.",
 								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
-							MessageBox.Show(this, Format(msg, m_project.ReferenceTextIdentifier.CustomIdentifier, ProductName,
-								m_project.ReferenceTextIdentifier.ProjectFolder),
-								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextIdentifier.CustomIdentifier, ProductName,
+								"file://" + m_project.ReferenceTextIdentifier.ProjectFolder),
+								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); });
 						}
 					});
 			}
