@@ -572,13 +572,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CharacterGroups.xlsx" />
-    <None Include="Resources\CharacterGroups_FCBH.xlsx" />
     <None Include="Resources\quoteSystems.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Alert.png" />
     <Content Include="Resources\yellow-check.png" />
     <None Include="Resources\WhoSpeaks.png" />
     <None Include="Resources\Silent.wav" />

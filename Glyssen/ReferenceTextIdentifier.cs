@@ -284,7 +284,7 @@ namespace Glyssen
 				Analytics.ReportException(exception);
 				string token = referenceTextType.ToString();
 				if (reportError == null)
-					throw new Exception(GetLoadErrorMessage(token, referenceProjectFilePath));
+					throw new ReferenceTextMetadataLoadException(GetLoadErrorMessage(token, referenceProjectFilePath), exception);
 				else
 					reportError(exception, token, referenceProjectFilePath);
 				return null;
@@ -343,6 +343,16 @@ namespace Glyssen
 		{
 			return String.Format(LocalizationManager.GetString("ReferenceText.CouldNotLoad", "The {0} reference text could not be loaded from: {1}"),
 				token, path);
+		}
+
+		/// <summary>
+		/// This class just makes it easier to ignore this kind of exception when debugging.
+		/// </summary>
+		private class ReferenceTextMetadataLoadException : Exception
+		{
+			public ReferenceTextMetadataLoadException(string message, Exception innerException) : base(message, innerException)
+			{
+			}
 		}
 	}
 }

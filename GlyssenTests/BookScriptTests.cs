@@ -1059,14 +1059,10 @@ namespace GlyssenTests
 				if (source[i].InitialStartVerseNumber % 2 == 1)
 				{
 					if (source[i].CharacterIsUnclear())
-					{
 						source[i].CharacterId = "Jesus";
-					}
 					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
 					if (i < 20)
-					{
 						refBlock.SetMatchedReferenceBlock("{19} Whatever");
-					}
 					source[i].UserConfirmed = true;
 					userConfirmedCharacterBlockIndices.Add(i);
 				}
@@ -1090,6 +1086,66 @@ namespace GlyssenTests
 						Assert.IsTrue(refBlock.MatchesReferenceText);
 						Assert.AreEqual("{19}\u00A0Whatever", refBlock.PrimaryReferenceText);
 						Assert.AreNotEqual(refBlock.ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single().ReferenceBlocks.Single());
+					}
+				}
+			}
+		}
+
+		[Test]
+		public void ApplyUserDecisions_MatchesReferenceTextTrueButNoReferenceBlock_IgnoredWithoutCrashing()
+		{
+			var source = CreateStandardMarkScript();
+			var userConfirmedCharacterBlockIndices = new List<int>();
+			for (int i = 0; i < source.GetScriptBlocks().Count && userConfirmedCharacterBlockIndices.Count < 6; i++)
+			{
+				if (source[i].InitialStartVerseNumber % 2 == 1)
+				{
+					if (source[i].CharacterIsUnclear())
+						source[i].CharacterId = "Jesus";
+					var refBlock = source[i].SetMatchedReferenceBlock(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.Reverse().ToArray()));
+					if (userConfirmedCharacterBlockIndices.Count >= 2)
+						refBlock.SetMatchedReferenceBlock("{19} Whatever");
+					source[i].UserConfirmed = true;
+					userConfirmedCharacterBlockIndices.Add(i);
+				}
+			}
+			Assert.IsTrue(userConfirmedCharacterBlockIndices.Count > 3, "oops - need to adjust test setup");
+			// These next two lines set up the bad data condition that we want to be able to tolerate without crashing:
+			source[userConfirmedCharacterBlockIndices[0]].ReferenceBlocks.Clear();
+			source[userConfirmedCharacterBlockIndices[2]].ReferenceBlocks[0].ReferenceBlocks.Clear();
+			var target = CreateStandardMarkScript();
+			target.ApplyUserDecisions(source);
+
+			for (int i = 0; i < target.GetScriptBlocks().Count; i++)
+			{
+				if (userConfirmedCharacterBlockIndices.Contains(i))
+				{
+					Assert.IsFalse(target[i].CharacterIsUnclear());
+					Assert.IsTrue(target[i].UserConfirmed);
+					if (i == userConfirmedCharacterBlockIndices[0])
+					{
+						Assert.IsFalse(target[i].MatchesReferenceText);
+					}
+					else
+					{
+						Assert.IsTrue(target[i].MatchesReferenceText);
+						Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
+						Assert.AreEqual(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Reverse().ToArray()), target[i].PrimaryReferenceText);
+					}
+					if (i >= userConfirmedCharacterBlockIndices[2])
+					{
+						var refBlock = target[i].ReferenceBlocks.Single();
+						if (i == userConfirmedCharacterBlockIndices[2])
+						{
+							Assert.IsFalse(refBlock.MatchesReferenceText);
+							Assert.AreEqual(0, refBlock.ReferenceBlocks.Count);
+						}
+						else
+						{
+							Assert.IsTrue(refBlock.MatchesReferenceText);
+							Assert.AreEqual("{19}\u00A0Whatever", refBlock.PrimaryReferenceText);
+							Assert.AreNotEqual(refBlock.ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single().ReferenceBlocks.Single());
+						}
 					}
 				}
 			}

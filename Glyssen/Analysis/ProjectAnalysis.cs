@@ -84,6 +84,11 @@ namespace Glyssen.Analysis
 			int totalBlocksForExport = 0;
 			int blocksNotAlignedToReferenceText = 0;
 			var refText = m_projectToAnalyze.ReferenceText;
+			if (refText == null)
+			{
+				m_alignmentPercent = 0;
+				return;
+			}
 			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze))
 			{
 				var blocks = book.GetScriptBlocks();
