@@ -81,8 +81,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\icu.net.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Ionic.Zip">
       <HintPath>..\lib\dotnet\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="L10NSharp">
@@ -103,9 +102,11 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ParatextShared, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    <Reference Include="ParatextData">
+      <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
+    </Reference>
+    <Reference Include="PtxUtils">
+      <HintPath>..\lib\dotnet\PtxUtils.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
@@ -637,14 +638,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <Target Name="AfterBuild">
-    <PropertyGroup>
-      <PTSharedDependenciesSource>..\..\lib\dotnet\ParatextShared</PTSharedDependenciesSource>
-      <PTSharedDependenciesDest>..\$(OutputPath)PTSharedDependencies</PTSharedDependenciesDest>
-    </PropertyGroup>
-    <Message Text="Copying versions of libPalaso DLLs needed by ParatextShared from $(PTSharedDependenciesSource) into $(PTSharedDependenciesDest)" Importance="High" />
-    <Exec Command="&#xD;&#xA;	xcopy /y /I $(PTSharedDependenciesSource)\*.* $(PTSharedDependenciesDest)&#xD;&#xA;	" WorkingDirectory="$(OutputPath)" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Character
 {

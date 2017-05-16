@@ -834,7 +834,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		private static bool IsSingleChapterBook(ReferenceTextRow referenceTextRow)
 		{
-			return s_existingEnglish.Versification.LastChapter(BCVRef.BookToNumber(referenceTextRow.Book)) == 1;
+			return s_existingEnglish.Versification.GetLastChapter(BCVRef.BookToNumber(referenceTextRow.Book)) == 1;
 		}
 
 		private static bool JustGetHalfOfRepeated(ref string stringWithPossibleReduplication, string suffix = null)

@@ -5267,6 +5267,600 @@
         <seg>jovenes (consejeros de Roboám)</seg>
       </tuv>
     </tu>
+    <tu tuid="Common.BookName.1CH">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Chronicles</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Crónicas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1CO">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Corinthians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Corintios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1JN">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 John</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Juan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1KI">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Kings</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Reyes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1PE">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Peter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Pedro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1SA">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Samuel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Samuel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1TH">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Thessalonians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Tesalonicenses</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.1TI">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>1 Timothy</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>1 Timoteo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2CH">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Chronicles</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Crónicas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2CO">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Corinthians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Corintios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2JN">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 John</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Juan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2KI">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Kings</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Reyes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2PE">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Peter</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Pedro</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2SA">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Samuel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Samuel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2TH">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Thessalonians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Tesalonicenses</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.2TI">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>2 Timothy</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>2 Timoteo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.3JN">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>3 John</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>3 Juan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.ACT">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Acts</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hechos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.AMO">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Amos</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Amós</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.COL">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Colossians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Colosenses</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.DAN">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Daniel (Hebrew)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Daniel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.DEU">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Deuteronomy</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Deuteronomio</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.ECC">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ecclesiastes</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Eclesiastés</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.EPH">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ephesians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Efesios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.EST">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Esther (Hebrew)</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ester</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.EXO">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Exodus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Exodo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.EZK">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ezekiel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Ezequiel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.EZR">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ezra</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Esdras</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.GAL">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Galatians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Gálatas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.GEN">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Genesis</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Génesis</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.HAB">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Habakkuk</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Habacuc</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.HAG">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Haggai</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hageo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.HEB">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hebrews</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Hebreos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.HOS">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Hosea</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Oseas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.ISA">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Isaiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Isaías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JAS">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>James</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Santiago</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JDG">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Judges</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jeremías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JER">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jeremiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Job</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JHN">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>John</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Joel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JOB">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Job</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Juan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JOL">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joel</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jonás</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JON">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jonah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Josué</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JOS">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Joshua</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Judas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.JUD">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Jude</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Jueces</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.LAM">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Lamentations</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lamentaciones</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.LEV">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Leviticus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Levítico</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.LUK">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Luke</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Lucas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.MAL">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Malachi</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Malaquías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.MAT">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Matthew</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Marcos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.MIC">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Micah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Mateo</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.MRK">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Mark</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Miqueas</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.NAM">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nahum</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nahúm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.NEH">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Nehemiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Nehemías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.NUM">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Numbers</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Números</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.OBA">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Obadiah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Abdías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.PHM">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Philemon</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Filemón</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.PHP">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Philippians</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Filipenses</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.PRO">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Proverbs</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Proverbios</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.PSA">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Psalms</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Salmos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.REV">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Revelation</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Apocalipsis</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.ROM">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Romans</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Romanos</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.RUT">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Ruth</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Rut</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.SNG">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Song of Songs</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Cantares</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.TIT">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Titus</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Tito</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.ZEC">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zechariah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Zacarías</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Common.BookName.ZEP">
+      <prop type="x-dynamic">true</prop>
+      <tuv xml:lang="en">
+        <seg>Zephaniah</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Sofonías</seg>
+      </tuv>
+    </tu>
     <tu tuid="Common.Cancel">
       <tuv xml:lang="en">
         <seg>Cancel</seg>
@@ -5392,7 +5986,7 @@
         <seg>{0} Complete; {1} Blocks Remaining</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>{0} completo;  {1} bloques restantes</seg>
+        <seg>{0} completo; {1} bloques restantes</seg>
       </tuv>
     </tu>
     <tu tuid="DialogBoxes.AssignCharacterDlg.BookChapterCharacter">
@@ -6204,10 +6798,10 @@
     </tu>
     <tu tuid="MainForm.Export">
       <tuv xml:lang="en">
-        <seg>({0}) Export...</seg>
+        <seg>Export</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>({0}) Exportar...</seg>
+        <seg>Exportar</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.Export_ToolTip_">
@@ -6216,6 +6810,14 @@
       </tuv>
       <tuv xml:lang="es">
         <seg>Exportar a un archivo de valores separados por tabulaciones</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainForm.Import">
+      <tuv xml:lang="en">
+        <seg>Import</seg>
+      </tuv>
+      <tuv xml:lang="es">
+        <seg>Importar</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.MoreMenuItem">
@@ -6244,12 +6846,12 @@
       </tuv>
     </tu>
     <tu tuid="MainForm.PercentComplete">
-      <note>{0:N1} is a number with one decimal point</note>
+      <note>Parameters are formatted percentages</note>
       <tuv xml:lang="en">
-        <seg>{0:N1}% complete</seg>
+        <seg>Assignments: {0} complete; Alignment to reference text: {1} complete</seg>
       </tuv>
       <tuv xml:lang="es">
-        <seg>{0:N1} % completo</seg>
+        <seg>Asignamiento {0} completo; alineamiento con el texto de referencia: {1} completo</seg>
       </tuv>
     </tu>
     <tu tuid="MainForm.ProjectSettings">

@@ -3,7 +3,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Glyssen.Utilities;
 using NUnit.Framework;
-using Paratext;
+using SIL.Scripture;
 using SIL.Windows.Forms.Scripture;
 
 namespace GlyssenTests.Utilities

@@ -218,43 +218,25 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="icuuc54.dll" Name="icuuc54.dll" KeyPath="yes" Source="..\output\release\icuuc54.dll" />
           </Component>
 
-          <Component Id="ParatextShared.dll" Guid="{8a047a21-cabf-4fe4-ab4e-40da9e23f9ce}">
-            <File Id="ParatextShared.dll" Name="ParatextShared.dll" KeyPath="yes" Source="..\output\release\ParatextShared.dll" />
+          <Component Id="ParatextData.dll" Guid="{64b44ac8-6ebd-4b0f-a0ec-27d4f289af34}">
+            <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" />
           </Component>
 
-          <Component Id="ParatextShared.pdb" Guid="{0a3ab828-7c0f-42c8-9d32-2361acdd0b0f}">
-            <File Id="ParatextShared.pdb" Name="ParatextShared.pdb" KeyPath="yes" Source="..\output\release\ParatextShared.pdb" />
+          <Component Id="ParatextData.pdb" Guid="{ac4e433e-961f-4dd5-94e5-41e8799a204b}">
+            <File Id="ParatextData.pdb" Name="ParatextData.pdb" KeyPath="yes" Source="..\output\release\ParatextData.pdb" />
           </Component>
 
-          <!--Needed for ParatextShared-->
-          <Component Id="NetLoc.dll" Guid="{350690e2-f5b9-47ba-a882-79037f7660fb}">
-            <File Id="NetLoc.dll" Name="NetLoc.dll" KeyPath="yes" Source="..\output\release\NetLoc.dll" />
-          </Component>
-          <Component Id="Utilities.dll" Guid="{28303157-060A-4ACD-A3B8-B55F42B91550}">
-            <File Id="Utilities.dll" Name="Utilities.dll" KeyPath="yes" Source="..\output\release\Utilities.dll" />
+          <!--Needed for ParatextData-->
+          <Component Id="PtxUtils.dll" Guid="{a93e8f57-72aa-46a0-9993-32e47b27c24d}">
+            <File Id="PtxUtils.dll" Name="PtxUtils.dll" KeyPath="yes" Source="..\output\release\PtxUtils.dll" />
           </Component>
           <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
             <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
           </Component>
-          <Component Id="NetLoc.pdb" Guid="{69b72021-5d29-4499-9752-f90346e9fe2f}">
-            <File Id="NetLoc.pdb" Name="NetLoc.pdb" KeyPath="yes" Source="..\output\release\NetLoc.pdb" />
+          <Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
+            <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
           </Component>
-          <Component Id="Utilities.pdb" Guid="{6e04ff42-2c96-49a7-aada-bb56771f2a41}">
-            <File Id="Utilities.pdb" Name="Utilities.pdb" KeyPath="yes" Source="..\output\release\Utilities.pdb" />
-          </Component>
-          		  
-	      <Directory Id="DependenciesForParatextShared" Name="PTSharedDependencies">
-            <Component Id="PTShared.SIL.Core.dll" Guid="{F649D6C7-C856-4F74-AA14-EAE8302CBBEF}">
-              <File Id="PTShared.SIL.Core.dll" Name="SIL.Core.dll" KeyPath="yes" Source="..\lib\dotnet\ParatextShared\SIL.Core.dll" />
-            </Component>
-            <Component Id="PTShared.SIL.Windows.Forms.Keyboarding.dll" Guid="{F4CF6A99-46DD-42B9-BFE9-2FEC2886278F}">
-              <File Id="PTShared.SIL.Windows.Forms.Keyboarding.dll" Name="SIL.Windows.Forms.Keyboarding.dll" KeyPath="yes" Source="..\lib\dotnet\ParatextShared\SIL.Windows.Forms.Keyboarding.dll" />
-            </Component>
-            <Component Id="PTShared.SIL.WritingSystems.dll" Guid="{9CCE5BD7-5714-4499-809D-6F4898E6AD07}">
-              <File Id="PTShared.SIL.WritingSystems.dll" Name="SIL.WritingSystems.dll" KeyPath="yes" Source="..\lib\dotnet\ParatextShared\SIL.WritingSystems.dll" />
-            </Component>
-	      </Directory>
-          <!--End Needed for ParatextShared-->
+          <!--End Needed for ParatextData-->
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
             <File Id="L10NSharp.dll" Name="L10NSharp.dll" KeyPath="yes" Source="..\output\release\L10NSharp.dll" />
@@ -309,9 +291,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="icudt54.dll"/>
       <ComponentRef Id="icuin54.dll"/>
       <ComponentRef Id="icuuc54.dll"/>
-      <ComponentRef Id="ParatextShared.dll"/>
-      <ComponentRef Id="NetLoc.dll"/>
-      <ComponentRef Id="Utilities.dll"/>
+      <ComponentRef Id="ParatextData.dll"/>
+      <ComponentRef Id="PtxUtils.dll"/>
       <ComponentRef Id="Ionic.Zip.dll"/>
       <ComponentRef Id="L10NSharp.dll"/>
       <ComponentRef Id="Glyssen.exe" />
@@ -333,12 +314,8 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
-      <ComponentRef Id="ParatextShared.pdb"/>
-      <ComponentRef Id="NetLoc.pdb"/>
-      <ComponentRef Id="Utilities.pdb"/>
-      <ComponentRef Id="PTShared.SIL.Core.dll"/>                       <!-- Needed for ParatextShared -->
-      <ComponentRef Id="PTShared.SIL.Windows.Forms.Keyboarding.dll"/>  <!-- Needed for ParatextShared -->
-      <ComponentRef Id="PTShared.SIL.WritingSystems.dll"/>             <!-- Needed for ParatextShared -->
+      <ComponentRef Id="ParatextData.pdb"/>
+      <ComponentRef Id="PtxUtils.pdb"/>
       <ComponentRef Id="L10NSharp.pdb"/>
       <ComponentRef Id="Glyssen.pdb" />
       

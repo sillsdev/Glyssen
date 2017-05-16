@@ -1,4 +1,4 @@
-﻿using Paratext;
+﻿using SIL.Scripture;
 using SIL.Windows.Forms.Scripture;
 
 namespace Glyssen.Utilities

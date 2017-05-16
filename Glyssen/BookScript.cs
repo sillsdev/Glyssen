@@ -12,7 +12,6 @@ using SIL.Scripture;
 using SIL.Unicode;
 using static System.Char;
 using static System.String;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {

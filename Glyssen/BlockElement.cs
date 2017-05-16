@@ -122,7 +122,7 @@ namespace Glyssen
 		/// </summary>
 		public int StartVerse
 		{
-			get { return ScrReference.VerseToIntStart(Number); }
+			get { return BCVRef.VerseToIntStart(Number); }
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace Glyssen
 		/// </summary>
 		public int EndVerse
 		{
-			get { return ScrReference.VerseToIntEnd(Number); }
+			get { return BCVRef.VerseToIntEnd(Number); }
 		}
 
 		/// <summary>

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
-using Paratext;
 using SIL.Extensions;
+using SIL.Scripture;
 
 namespace Glyssen
 {

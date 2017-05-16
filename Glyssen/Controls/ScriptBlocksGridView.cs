@@ -314,10 +314,10 @@ namespace Glyssen.Controls
 			m_colReference.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
 			int bookNum = BCVRef.BookToNumber(m_viewModel.CurrentBookId);
-			var lastChapter = m_viewModel.Versification.LastChapter(bookNum);
+			var lastChapter = m_viewModel.Versification.GetLastChapter(bookNum);
 			var maxVerse = 0;
 			for (int i = 1; i <= lastChapter; i++)
-				maxVerse = Math.Max(maxVerse, m_viewModel.Versification.LastVerse(bookNum, i));
+				maxVerse = Math.Max(maxVerse, m_viewModel.Versification.GetLastVerse(bookNum, i));
 
 			var startRef = new BCVRef(bookNum, lastChapter, maxVerse - 1);
 			var endRef = new BCVRef(bookNum, lastChapter, maxVerse);

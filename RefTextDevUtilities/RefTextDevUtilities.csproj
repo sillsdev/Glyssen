@@ -37,8 +37,8 @@
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ParatextShared">
-      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    <Reference Include="ParatextData">
+      <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>

@@ -14,7 +14,6 @@ using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
 using static System.Char;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Quote
 {
@@ -589,7 +588,7 @@ namespace Glyssen.Quote
 				{
 					var verse = m_nonScriptTextBlockElements.First() as Verse;
 					if (verse != null)
-						m_workingBlock.InitialStartVerseNumber = ScrReference.VerseToIntStart(verse.Number);
+						m_workingBlock.InitialStartVerseNumber = BCVRef.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 					m_workingBlock.MultiBlockQuote = (lastBlock.MultiBlockQuote == MultiBlockQuote.Start)
 						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote; 

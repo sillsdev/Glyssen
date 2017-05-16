@@ -7,7 +7,6 @@ using Glyssen.Bundle;
 using L10NSharp;
 using SIL.DblBundle;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
@@ -19,7 +18,7 @@ namespace Glyssen
 
 		public static ScrVers LoadVersification(string vrsPath)
 		{
-			return Paratext.Versification.Table.Load(vrsPath, LocalizationManager.GetString("Project.DefaultCustomVersificationName",
+			return SIL.Scripture.Versification.Table.Implementation.Load(vrsPath, LocalizationManager.GetString("Project.DefaultCustomVersificationName",
 				"custom", "Used as the versification name when the versification file does not contain a name."));
 		}
 

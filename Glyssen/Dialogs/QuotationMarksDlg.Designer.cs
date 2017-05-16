@@ -55,7 +55,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripLabelFilter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
+			this.m_scriptureReference = new SIL.Windows.Forms.Scripture.ToolStripVerseControl();
 			this.m_btnPrevious = new System.Windows.Forms.Button();
 			this.m_btnNext = new System.Windows.Forms.Button();
 			this.m_labelXofY = new System.Windows.Forms.Label();
@@ -1202,7 +1202,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripLabel m_toolStripLabelFilter;
 		private System.Windows.Forms.ToolStripComboBox m_toolStripComboBoxFilter;
-		private Paratext.ToolStripVerseControl m_scriptureReference;
+		private SIL.Windows.Forms.Scripture.ToolStripVerseControl m_scriptureReference;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private Controls.ScriptBlocksViewer m_blocksViewer;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanelDataBrowser;

@@ -17,7 +17,6 @@ using Glyssen.Rules;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
-using Paratext;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
@@ -26,6 +25,7 @@ using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
 using NetSparkle;
+using Paratext.Data;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
 

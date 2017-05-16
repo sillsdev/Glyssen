@@ -10,12 +10,10 @@ using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
-using Paratext;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Char;
 using static System.String;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {
@@ -315,7 +313,7 @@ namespace Glyssen
 			MatchesReferenceText = true;
 		}
 
-		public void SetMatchedReferenceBlock(int bookNum, Paratext.ScrVers versification,
+		public void SetMatchedReferenceBlock(int bookNum, ScrVers versification,
 			IReferenceLanguageInfo referenceLanguageInfo, IEnumerable<Block> referenceBlocksToJoin = null)
 		{
 			if (referenceBlocksToJoin == null)
@@ -754,7 +752,7 @@ namespace Glyssen
 			}
 		}
 
-		public void SetCharacterAndCharacterIdInScript(string characterId, int bookNumber, Paratext.ScrVers scrVers = null)
+		public void SetCharacterAndCharacterIdInScript(string characterId, int bookNumber, ScrVers scrVers = null)
 		{
 			SetCharacterAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
 		}
@@ -773,7 +771,7 @@ namespace Glyssen
 			UseDefaultForMultipleChoiceCharacter(getMatchingCharacterForVerse);
 		}
 
-		public void UseDefaultForMultipleChoiceCharacter(int bookNumber, Paratext.ScrVers scrVers = null)
+		public void UseDefaultForMultipleChoiceCharacter(int bookNumber, ScrVers scrVers = null)
 		{
 			UseDefaultForMultipleChoiceCharacter(() => GetMatchingCharacter(bookNumber, scrVers));
 		}
@@ -788,12 +786,12 @@ namespace Glyssen
 			}
 		}
 
-		private CharacterVerse GetMatchingCharacter(int bookNumber, Paratext.ScrVers scrVers)
+		private CharacterVerse GetMatchingCharacter(int bookNumber, ScrVers scrVers)
 		{
 			return GetMatchingCharacter(ControlCharacterVerseData.Singleton, bookNumber, scrVers);
 		}
 
-		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, Paratext.ScrVers scrVers)
+		public CharacterVerse GetMatchingCharacter(ICharacterVerseInfo cvInfo, int bookNumber, ScrVers scrVers)
 		{
 			return cvInfo.GetCharacters(bookNumber, ChapterNumber, InitialStartVerseNumber,
 				InitialEndVerseNumber, versification: scrVers).FirstOrDefault(c => c.Character == CharacterId);
@@ -1008,7 +1006,7 @@ namespace Glyssen
 			return newBlock;
 		}
 
-		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, Paratext.ScrVers scrVers)
+		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, ScrVers scrVers)
 		{
 			if (basedOnBlock.CharacterIdOverrideForScript == null)
 				SetCharacterAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
@@ -1114,7 +1112,7 @@ namespace Glyssen
 				refBlocksForPassage = refBook.GetBlocksForVerse(startVerse.ChapterNum, startVerse.VerseNum, endVerse.VerseNum).ToList();
 			else
 			{
-				int lastVerseInStartChapter = englishRefText.Versification.LastVerse(bookNumber, startVerse.ChapterNum);
+				int lastVerseInStartChapter = englishRefText.Versification.GetLastVerse(bookNumber, startVerse.ChapterNum);
 				refBlocksForPassage = refBook.GetBlocksForVerse(startVerse.ChapterNum, startVerse.VerseNum, lastVerseInStartChapter).ToList();
 				refBlocksForPassage.AddRange(refBook.GetBlocksForVerse(endVerse.ChapterNum, 1, endVerse.VerseNum));
 			}

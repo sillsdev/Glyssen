@@ -94,7 +94,7 @@ namespace Glyssen.Dialogs
 			this.m_toolStripLabelFilter = new System.Windows.Forms.ToolStripLabel();
 			this.m_toolStripComboBoxFilter = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.m_scriptureReference = new Paratext.ToolStripVerseControl();
+			this.m_scriptureReference = new SIL.Windows.Forms.Scripture.ToolStripVerseControl();
 			this.m_menuBtnSplitBlock = new System.Windows.Forms.ToolStripButton();
 			this.m_chkSingleVoice = new System.Windows.Forms.CheckBox();
 			this.m_llClose = new System.Windows.Forms.LinkLabel();
@@ -1752,7 +1752,7 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonSmallerFont;
 		private System.Windows.Forms.ToolStripButton m_toolStripButtonLargerFont;
-		private Paratext.ToolStripVerseControl m_scriptureReference;
+		private SIL.Windows.Forms.Scripture.ToolStripVerseControl m_scriptureReference;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanelNavigationControls;
 		private System.Windows.Forms.CheckBox m_chkSingleVoice;

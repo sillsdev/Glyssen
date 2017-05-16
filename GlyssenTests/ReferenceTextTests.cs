@@ -10,14 +10,12 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
-using Paratext;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.Xml;
 using static System.String;
-using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests
 {
@@ -35,7 +33,7 @@ namespace GlyssenTests
 			using (TempFile tempFile = new TempFile())
 			{
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
-				m_vernVersification = Versification.Table.Load(tempFile.Path);
+				m_vernVersification = Versification.Table.Implementation.Load(tempFile.Path);
 			}
 		}
 
@@ -2641,8 +2639,8 @@ namespace GlyssenTests
 			var lastVerseElement = lastBlock.BlockElements.OfType<Verse>().LastOrDefault();
 			if (lastVerseElement != null)
 			{
-				initialStartVerse = ScrReference.VerseToIntStart(lastVerseElement.Number);
-				initialEndVerse = ScrReference.VerseToIntEnd(lastVerseElement.Number);
+				initialStartVerse = BCVRef.VerseToIntStart(lastVerseElement.Number);
+				initialEndVerse = BCVRef.VerseToIntEnd(lastVerseElement.Number);
 			}
 
 			if (IsNullOrEmpty(styleTag))

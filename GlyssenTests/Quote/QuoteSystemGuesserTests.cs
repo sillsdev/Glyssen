@@ -11,7 +11,6 @@ using Glyssen.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests.Quote
 {

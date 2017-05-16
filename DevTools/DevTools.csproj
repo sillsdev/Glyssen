@@ -35,9 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ParatextShared, Version=7.6.242.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    <Reference Include="ParatextData">
+      <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>

@@ -3,7 +3,6 @@ using System.Linq;
 using Glyssen.Bundle;
 using SIL.Scripture;
 using SIL.Windows.Forms.WritingSystems;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
@@ -46,7 +45,7 @@ namespace Glyssen.Dialogs
 			if (block != null)
 				SampleText = block.GetText(false);
 
-			var multiChapterBooks = project.IncludedBooks.Where(book => Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) > 1);
+			var multiChapterBooks = project.IncludedBooks.Where(book => Versification.GetLastChapter(BCVRef.BookToNumber(book.BookId)) > 1);
 			foreach (var book in multiChapterBooks)
 			{
 				var chapterBlocks = book.GetScriptBlocks().Where(b => b.IsChapterAnnouncement).Take(2).ToList();
@@ -66,7 +65,7 @@ namespace Glyssen.Dialogs
 					break;
 				}
 			}
-			var singleChapterBook = project.IncludedBooks.FirstOrDefault(book => Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1);
+			var singleChapterBook = project.IncludedBooks.FirstOrDefault(book => Versification.GetLastChapter(BCVRef.BookToNumber(book.BookId)) == 1);
 			if (singleChapterBook != null)
 			{
 				var chapterBlock = singleChapterBook.GetScriptBlocks().FirstOrDefault(b => b.IsChapterAnnouncement);

@@ -100,10 +100,10 @@ namespace DevTools
 			result = Int32.Parse(object1.Chapter).CompareTo(Int32.Parse(object2.Chapter));
 			if (result != 0)
 				return result;
-			result = ScrReference.VerseToIntStart(object1.Verse).CompareTo(ScrReference.VerseToIntStart(object2.Verse));
+			result = BCVRef.VerseToIntStart(object1.Verse).CompareTo(BCVRef.VerseToIntStart(object2.Verse));
 			if (result != 0)
 				return result;
-			result = ScrReference.VerseToIntEnd(object1.Verse).CompareTo(ScrReference.VerseToIntEnd(object2.Verse));
+			result = BCVRef.VerseToIntEnd(object1.Verse).CompareTo(BCVRef.VerseToIntEnd(object2.Verse));
 			if (result != 0)
 				return result;
 			result = String.Compare(object1.Character, object2.Character, StringComparison.InvariantCulture);

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using L10NSharp;
-using Paratext;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Character
 {
@@ -340,7 +338,7 @@ namespace Glyssen.Character
 			int chapter;
 			if (!Int32.TryParse(items[1], out chapter))
 				Debug.Assert(false, string.Format("Invalid chapter number ({0}) on line {1}: {2}", items[1], lineNumber, items[0]));
-			for (int verse = ScrReference.VerseToIntStart(items[2]); verse <= ScrReference.VerseToIntEnd(items[2]); verse++)
+			for (int verse = BCVRef.VerseToIntStart(items[2]); verse <= BCVRef.VerseToIntEnd(items[2]); verse++)
 				list.Add(CreateCharacterVerse(new BCVRef(BCVRef.BookToNumber(items[0]), chapter, verse), items));
 
 			return list;

@@ -43,9 +43,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="ParatextShared, Version=7.6.52.19, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    <Reference Include="ParatextData">
+      <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

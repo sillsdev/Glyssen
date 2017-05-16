@@ -13,13 +13,11 @@ using Glyssen.Quote;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
-using Paratext;
 using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {
@@ -60,6 +58,7 @@ namespace Glyssen.Dialogs
 
 			SetupQuoteMarksComboBoxes(m_project.QuoteSystem);
 
+			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;
 
