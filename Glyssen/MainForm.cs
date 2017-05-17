@@ -190,7 +190,7 @@ namespace Glyssen
 				m_imgCheckAssignCharacters.Visible = true;
 				m_imgCheckAssignCharacters.Image = Resources.Alert;
 			}
-			else
+			else if (m_btnIdentify.Enabled)
 				m_imgCheckAssignCharacters.Image = m_project.ProjectAnalysis.AlignmentPercent == 100 ? Resources.green_check : Resources.yellow_check;
 			m_btnExport.Enabled = !readOnly && m_btnIdentify.Enabled;
 
