@@ -81,6 +81,11 @@ namespace Glyssen.Controls
 			m_dataGridViewBlocks.Dock = DockStyle.Fill;
 
 			Disposed += ScriptBlocksViewer_Disposed;
+		}
+
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
 
 			m_viewModel.CurrentBlockChanged += UpdateContextBlocksDisplay;
 			m_viewModel.CurrentBlockMatchupChanged += UpdateContextBlocksDisplay;
