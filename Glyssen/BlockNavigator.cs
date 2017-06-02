@@ -147,7 +147,7 @@ namespace Glyssen
 		private int GetBookIndex(BookScript bookToFind)
 		{
 			int i = 0;
-			foreach (BookScript book in m_books)
+			foreach (var book in m_books)
 			{
 				if (book == bookToFind)
 					return i;
@@ -170,7 +170,7 @@ namespace Glyssen
 
 		public bool IsFirstBlock(Block block)
 		{
-			BookScript book = GetBookScriptContainingBlock(block);
+			var book = GetBookScriptContainingBlock(block);
 			if (book == null)
 				return false;
 			return IsFirstBlockInBook(book, block) && IsFirstBook(book);
@@ -201,7 +201,7 @@ namespace Glyssen
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript nextBook = PeekNextBook();
+				var nextBook = PeekNextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
 				return nextBook[0];
@@ -238,7 +238,7 @@ namespace Glyssen
 
 		private Block PeekNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
 		{
-			BookScript book = m_books[bookIndex];
+			var book = m_books[bookIndex];
 			if (book.GetScriptBlocks().Count < blockIndex + n + 1)
 				return null;
 			return book[blockIndex + n];
@@ -298,7 +298,7 @@ namespace Glyssen
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript nextBook = NextBook();
+				var nextBook = NextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
 				m_currentIndices.BlockIndex = 0;
@@ -328,7 +328,7 @@ namespace Glyssen
 				return null;
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript previousBook = PeekPreviousBook();
+				var previousBook = PeekPreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
 				return previousBook[previousBook.GetScriptBlocks().Count - 1];
@@ -343,7 +343,7 @@ namespace Glyssen
 				return null;
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript previousBook = PreviousBook();
+				var previousBook = PreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
 				m_currentIndices.BlockIndex = m_currentBook.GetScriptBlocks().Count - 1;

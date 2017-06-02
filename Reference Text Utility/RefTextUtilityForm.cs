@@ -165,7 +165,7 @@ namespace Glyssen.ReferenceTextUtility
 					// Generate a new metadata file with the above info
 					var languageName = (string)newRefTextRow.Cells[colName.Index].Value;
 					var folder = Data.GetLanguageInfo(languageName).OutputFolder;
-					var projectPath = Path.Combine(folder, languageName + ProjectBase.kProjectFileExtension);
+					var projectPath = Path.Combine(folder, languageName + Constants.kProjectFileExtension);
 					if (File.Exists(projectPath))
 						HandleMessageRaised($"File {projectPath} already exists! Skipping. Please verify contents.", true);
 					else
@@ -178,7 +178,7 @@ namespace Glyssen.ReferenceTextUtility
 							Iso = newRefTextRow.Cells[colIsoCode.Index].Value as string
 						};
 						metadata.AvailableBooks = new List<Book>();
-						ProjectBase.ForEachBookFileInProject(folder,
+						ProjectUtilities.ForEachBookFileInProject(folder,
 							(bookId, fileName) => metadata.AvailableBooks.Add(new Book { Code = bookId, IncludeInScript = true}));
 						metadata.LastModified = DateTime.Now;
 
@@ -303,7 +303,7 @@ namespace Glyssen.ReferenceTextUtility
 				if (isFactoryRefText && m_distFilesDir != null)
 					defaultCreateDestination = Path.Combine(m_distFilesDir, languageInfo.Name);
 				else
-					defaultCreateDestination = Path.Combine(GlyssenInfo.BaseDataFolder, ReferenceTextIdentifier.kLocalReferenceTextDirectoryName, languageInfo.Name);
+					defaultCreateDestination = Path.Combine(GlyssenInfo.BaseDataFolder, Constants.kLocalReferenceTextDirectoryName, languageInfo.Name);
 				switch ((string)m_dataGridRefTexts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value)
 				{
 					case "Create in Temp Folder":
@@ -364,7 +364,7 @@ namespace Glyssen.ReferenceTextUtility
 					{
 						var destinationCellForeColor = r.Cells[e.ColumnIndex].Style.ForeColor;
 						var destValue = r.Cells[e.ColumnIndex].Value as string;
-						return (!String.IsNullOrWhiteSpace(destValue) || r.Cells[colAction.Index].Value as string == "Compare to Current") && 
+						return (!String.IsNullOrWhiteSpace(destValue) || r.Cells[colAction.Index].Value as string == "Compare to Current") &&
 							(destinationCellForeColor == default(Color) || destinationCellForeColor == m_dataGridRefTexts.DefaultCellStyle.ForeColor);
 					});
 					languageInfo.OutputFolder = newValue;

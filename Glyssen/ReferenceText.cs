@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using L10NSharp;
 using Paratext;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -31,14 +29,14 @@ namespace Glyssen
 		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
-		private static readonly Dictionary<ReferenceTextIdentifier, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<ReferenceTextIdentifier, ReferenceText>();
+		private static readonly Dictionary<IReferenceTextIdentifier, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextIdentifier, ReferenceText>();
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
 			return GetReferenceText(ReferenceTextIdentifier.GetOrCreate(referenceTextType));
 		}
 
-		public static ReferenceText GetReferenceText(ReferenceTextIdentifier id)
+		public static ReferenceText GetReferenceText(IReferenceTextIdentifier id)
 		{
 			ReferenceText referenceText;
 			if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))
@@ -67,11 +65,11 @@ namespace Glyssen
 
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
-			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + kBookScriptFileExtension);
+			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
 			return fileName != null ? XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName) : null;
 		}
 
-		private string[] BookScriptFiles { get { return Directory.GetFiles(ProjectFolder, "???" + kBookScriptFileExtension); } }
+		private string[] BookScriptFiles { get { return Directory.GetFiles(ProjectFolder, "???" + Constants.kBookScriptFileExtension); } }
 
 		private void LoadBooks()
 		{
@@ -133,7 +131,7 @@ namespace Glyssen
 			{
 				Logger.WriteMinorEvent($"Custom versification file for proprietary reference text used by this project not found: {VersificationFilePath} - Using standard English versisfication.");
 				m_vers = ScrVers.English;
-			}	
+			}
 		}
 
 		public bool HasSecondaryReferenceText

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
@@ -20,6 +20,7 @@ using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Recording;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.VoiceActor;
 using L10NSharp;
@@ -51,6 +52,10 @@ namespace Glyssen
 		private const double kUsxPercent = 0.25;
 		private const double kGuessPercent = 0.10;
 		private const double kQuotePercent = 0.65;
+
+		// Ideally these will be settings
+		public const double kKeyStrokesPerHour = 6000;
+		public const double kCameoCharacterEstimatedHoursLimit = 0.2;
 
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
@@ -88,7 +93,7 @@ namespace Glyssen
 			m_wsDefinition = ws;
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
 			m_projectCharacterDetailData = ProjectCharacterDetailData.Load(ProjectCharacterDetailDataPath);
-			if (SIL.IO.RobustFile.Exists(VersificationFilePath))
+			if (RobustFile.Exists(VersificationFilePath))
 				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
 				InstallFontsIfNecessary();
@@ -131,7 +136,7 @@ namespace Glyssen
 			AddAndParseBooks(books, stylesheet);
 
 			Directory.CreateDirectory(ProjectFolder);
-			SIL.IO.RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
+			RobustFile.WriteAllText(VersificationFilePath, Resources.EnglishVersification);
 			m_vers = LoadVersification(VersificationFilePath);
 		}
 
@@ -823,7 +828,7 @@ namespace Glyssen
 			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
-				if (!SIL.IO.RobustFile.Exists(existingProject.OriginalBundlePath))
+				if (!RobustFile.Exists(existingProject.OriginalBundlePath))
 				{
 					upgradeProject = false;
 					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
@@ -943,7 +948,7 @@ namespace Glyssen
 
 			var projectDir = Path.GetDirectoryName(projectFilePath);
 			Debug.Assert(projectDir != null);
-			ForEachBookFileInProject(projectDir,
+			ProjectUtilities.ForEachBookFileInProject(projectDir,
 				(bookId, fileName) => project.m_books.Add(XmlSerializationHelper.DeserializeFromFile<BookScript>(fileName)));
 			project.RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
 
@@ -1172,7 +1177,7 @@ namespace Glyssen
 
 		public static string GetProjectFilePath(string langId, string publicationId, string recordingProjectId)
 		{
-			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + kProjectFileExtension);
+			return Path.Combine(GetProjectFolderPath(langId, publicationId, recordingProjectId), langId + Constants.kProjectFileExtension);
 		}
 
 		public static string GetDefaultProjectFilePath(IBundle bundle)
@@ -1324,7 +1329,7 @@ namespace Glyssen
 		private void LoadCharacterGroupData()
 		{
 			string path = Path.Combine(ProjectFolder, kCharacterGroupFileName);
-			m_characterGroupList = SIL.IO.RobustFile.Exists(path)
+			m_characterGroupList = RobustFile.Exists(path)
 				? CharacterGroupList.LoadCharacterGroupListFromFile(path, this)
 				: new CharacterGroupList();
 			m_characterGroupList.CharacterGroups.CollectionChanged += CharacterGroups_CollectionChanged;
@@ -1332,7 +1337,7 @@ namespace Glyssen
 				EnsureCastSizeOptionValid();
 		}
 
-		void CharacterGroups_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+		void CharacterGroups_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
 			if (CharacterGroupCollectionChanged != null)
 				CharacterGroupCollectionChanged(this, new EventArgs());
@@ -1341,7 +1346,7 @@ namespace Glyssen
 		private void LoadVoiceActorInformationData()
 		{
 			string path = Path.Combine(ProjectFolder, kVoiceActorInformationFileName);
-			m_voiceActorList = (SIL.IO.RobustFile.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
+			m_voiceActorList = (RobustFile.Exists(path)) ? VoiceActorList.LoadVoiceActorListFromFile(path) : new VoiceActorList();
 			if (m_characterGroupList != null)
 				EnsureCastSizeOptionValid();
 		}
@@ -1399,17 +1404,17 @@ namespace Glyssen
 				m_wsDefinition = new WritingSystemDefinition();
 				bool retry;
 				string backupPath = LdmlBackupFilePath;
-				bool attemptToUseBackup = SIL.IO.RobustFile.Exists(backupPath);
+				bool attemptToUseBackup = RobustFile.Exists(backupPath);
 
 				do
 				{
-					if (!SIL.IO.RobustFile.Exists(LdmlFilePath))
+					if (!RobustFile.Exists(LdmlFilePath))
 					{
 						if (attemptToUseBackup)
 						{
 							try
 							{
-								SIL.IO.RobustFile.Move(backupPath, LdmlFilePath);
+								RobustFile.Move(backupPath, LdmlFilePath);
 								attemptToUseBackup = false;
 							}
 							catch (Exception exRestoreBackup)
@@ -1422,7 +1427,7 @@ namespace Glyssen
 								});
 							}
 						}
-						if (!SIL.IO.RobustFile.Exists(LdmlFilePath))
+						if (!RobustFile.Exists(LdmlFilePath))
 							break;
 					}
 					try
@@ -1465,9 +1470,9 @@ namespace Glyssen
 									{
 										string corruptedLdmlFilePath =
 											Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "corrupted");
-										SIL.IO.RobustFile.Delete(corruptedLdmlFilePath);
-										SIL.IO.RobustFile.Move(LdmlFilePath, corruptedLdmlFilePath);
-										SIL.IO.RobustFile.Move(backupPath, LdmlFilePath);
+										RobustFile.Delete(corruptedLdmlFilePath);
+										RobustFile.Move(LdmlFilePath, corruptedLdmlFilePath);
+										RobustFile.Move(backupPath, LdmlFilePath);
 									}
 									catch (Exception exReplaceCorruptedLdmlWithBackup)
 									{
@@ -1530,12 +1535,12 @@ namespace Glyssen
 			string backupPath = null;
 			try
 			{
-				if (SIL.IO.RobustFile.Exists(LdmlFilePath))
+				if (RobustFile.Exists(LdmlFilePath))
 				{
 					backupPath = LdmlBackupFilePath;
-					if (SIL.IO.RobustFile.Exists(backupPath))
-						SIL.IO.RobustFile.Delete(backupPath);
-					SIL.IO.RobustFile.Move(LdmlFilePath, backupPath);
+					if (RobustFile.Exists(backupPath))
+						RobustFile.Delete(backupPath);
+					RobustFile.Move(LdmlFilePath, backupPath);
 				}
 			}
 			catch (Exception exMakeBackup)
@@ -1569,8 +1574,8 @@ namespace Glyssen
 					try
 					{
 						var wsFromBackup = new WritingSystemDefinition();
-						SIL.IO.RobustFile.Delete(LdmlFilePath);
-						SIL.IO.RobustFile.Move(backupPath, LdmlFilePath);
+						RobustFile.Delete(LdmlFilePath);
+						RobustFile.Move(backupPath, LdmlFilePath);
 						new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, wsFromBackup);
 						if (!wsFromBackup.QuotationMarks.SequenceEqual(WritingSystem.QuotationMarks) ||
 							wsFromBackup.DefaultFont.Name != WritingSystem.DefaultFont.Name ||
@@ -1604,7 +1609,7 @@ namespace Glyssen
 
 			m_books.Clear();
 
-			if (SIL.IO.RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
+			if (RobustFile.Exists(OriginalBundlePath) && QuoteSystem != null)
 			{
 				UserDecisionsProject = copyOfExistingProject;
 				using (var bundle = new GlyssenBundle(OriginalBundlePath))
@@ -1634,7 +1639,7 @@ namespace Glyssen
 			DirectoryUtilities.CopyDirectoryContents(ProjectFolder, newDirectoryPath);
 			if (hidden)
 			{
-				var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + kProjectFileExtension).FirstOrDefault();
+				var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + Constants.kProjectFileExtension).FirstOrDefault();
 				if (newFilePath != null)
 					SetHiddenFlag(newFilePath, true);
 			}
@@ -1644,7 +1649,7 @@ namespace Glyssen
 		{
 			if (QuoteSystem == null)
 				return false;
-			if (SIL.IO.RobustFile.Exists(OriginalBundlePath))
+			if (RobustFile.Exists(OriginalBundlePath))
 				return true;
 			return false;
 		}
@@ -1897,7 +1902,7 @@ namespace Glyssen
 		public double GetEstimatedRecordingTime()
 		{
 			long keyStrokes = KeyStrokesByCharacterId.Values.Sum();
-			return keyStrokes / GlyssenInfo.kKeyStrokesPerHour;
+			return keyStrokes / kKeyStrokesPerHour;
 		}
 
 		public CharacterGroup GetGroupById(string id)

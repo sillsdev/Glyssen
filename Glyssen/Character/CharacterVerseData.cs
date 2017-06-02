@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Glyssen.Shared;
 using L10NSharp;
 using Paratext;
 using SIL.Scripture;

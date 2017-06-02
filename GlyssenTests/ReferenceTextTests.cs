@@ -8,6 +8,7 @@ using System.Text;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenTests.Properties;
 using NUnit.Framework;
@@ -538,7 +539,7 @@ namespace GlyssenTests
 				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].PrimaryReferenceText, desc);
 				Assert.IsTrue(result[i].MatchesReferenceText, desc);
 			}
-			
+
 			Assert.AreEqual(vernacularBlocks.Last().CharacterId, result.Last().CharacterId);
 			Assert.IsFalse(result.Last().ReferenceBlocks.Any());
 			Assert.IsFalse(result.Last().MatchesReferenceText);
@@ -1730,7 +1731,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result[1].MatchesReferenceText);
 
 			Assert.AreNotEqual(origBlockCountForMatthew, refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
-			
+
 			Assert.AreEqual(origBlockCountForMatthew,
 				ReferenceText.GetStandardReferenceText(ReferenceTextType.English).Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
 		}
@@ -2706,7 +2707,7 @@ namespace GlyssenTests
 				return metadata;
 			}
 		}
-			
+
 		public static TestReferenceText CreateTestReferenceText(string bookId, IList<Block> blocks)
 		{
 			return new TestReferenceText(NewMetadata, new BookScript(bookId, blocks)) { GetBookName = b => "The Gospel According to Thomas" };
@@ -2722,7 +2723,7 @@ namespace GlyssenTests
 			get
 			{
 				return !ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation.EndsWith(
-					ReferenceTextIdentifier.kLocalReferenceTextDirectoryName);
+					Constants.kLocalReferenceTextDirectoryName);
 			}
 		}
 
@@ -2730,7 +2731,7 @@ namespace GlyssenTests
 		{
 			if (!IsProprietaryReferenceTextLocationOveridden)
 				return;
-			
+
 			if (Directory.Exists(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation))
 				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
 
@@ -2807,7 +2808,7 @@ namespace GlyssenTests
 				customFolderId = folder;
 				Directory.CreateDirectory(rtFolder);
 				var lowercase = folder.ToLowerInvariant();
-				File.WriteAllBytes(Path.Combine(rtFolder, lowercase + kProjectFileExtension), (byte[])Resources.ResourceManager.GetObject(lowercase));
+				File.WriteAllBytes(Path.Combine(rtFolder, lowercase + Constants.kProjectFileExtension), (byte[])Resources.ResourceManager.GetObject(lowercase));
 				File.WriteAllText(Path.Combine(rtFolder, "versification.vrs"), Resources.EnglishVersification);
 			}
 			else if (customFolderId != folder)

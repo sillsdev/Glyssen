@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using DesktopAnalytics;
+using Glyssen.Shared;
 using L10NSharp;
 using SIL.IO;
 using SIL.Reporting;
@@ -11,10 +12,9 @@ using Glyssen.Shared.Bundle;
 
 namespace Glyssen
 {
-	public class ReferenceTextIdentifier
+	public class ReferenceTextIdentifier : IReferenceTextIdentifier
 	{
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
-		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 
 		#region static internals to support testing
 		internal static string ProprietaryReferenceTextProjectFileLocation
@@ -22,7 +22,7 @@ namespace Glyssen
 			get
 			{
 				if (s_proprietaryReferenceTextProjectFileLocation == null)
-					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, kLocalReferenceTextDirectoryName);
+					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, Constants.kLocalReferenceTextDirectoryName);
 
 				return s_proprietaryReferenceTextProjectFileLocation;
 			}
@@ -86,7 +86,7 @@ namespace Glyssen
 			var lowercase = m_customId.ToLowerInvariant();
 			try
 			{
-				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + ProjectBase.kProjectFileExtension));
+				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + Constants.kProjectFileExtension));
 			}
 			catch (Exception)
 			{
@@ -237,7 +237,7 @@ namespace Glyssen
 			Debug.Assert(customId != null);
 			if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
 				return false;
-			string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+			string projectFileName = customId.ToLowerInvariant() + Constants.kProjectFileExtension;
 			var refTextProjectFilePath = Path.Combine(dir, projectFileName);
 			if (!File.Exists(refTextProjectFilePath))
 				return false;
@@ -297,7 +297,7 @@ namespace Glyssen
 		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
 		{
 			Debug.Assert(IsStandardReferenceText(referenceTextType));
-			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + Constants.kProjectFileExtension;
 			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
 
@@ -309,7 +309,7 @@ namespace Glyssen
 			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
 		}
 
-		internal string ProjectFolder
+		public string ProjectFolder
 		{
 			get
 			{

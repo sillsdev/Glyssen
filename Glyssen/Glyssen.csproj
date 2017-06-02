@@ -320,7 +320,6 @@
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="PortionScript.cs" />
-    <Compile Include="GlyssenInfo.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />
     <Compile Include="Recording\RecordingStats.cs" />

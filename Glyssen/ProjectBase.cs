@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen.Bundle;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using L10NSharp;
 using SIL.DblBundle;
@@ -14,9 +15,7 @@ namespace Glyssen
 {
 	public abstract class ProjectBase
 	{
-		public const string kProjectFileExtension = ".glyssen";
 		public const string kShareFileExtension = ".glyssenshare";
-		protected const string kBookScriptFileExtension = ".xml";
 
 		public static ScrVers LoadVersification(string vrsPath)
 		{
@@ -92,18 +91,6 @@ namespace Glyssen
 		protected string VersificationFilePath
 		{
 			get { return Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName); }
-		}
-
-		public static void ForEachBookFileInProject(string projectDir, Action<string, string> action)
-		{
-			string[] files = Directory.GetFiles(projectDir, "???" + kBookScriptFileExtension);
-			for (int i = 1; i <= BCVRef.LastBook; i++)
-			{
-				string bookCode = BCVRef.NumberToBookCode(i);
-				string possibleFileName = Path.Combine(projectDir, bookCode + kBookScriptFileExtension);
-				if (files.Contains(possibleFileName))
-					action(bookCode, possibleFileName);
-			}
 		}
 	}
 }
