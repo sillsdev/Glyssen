@@ -4783,6 +4783,39 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
 			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
 		}
+
+		/// <summary>
+		/// PG-982: Fix logic to prevent crash caused by incorrectly using length of previous interruption to get
+		/// substring of last block element, whose length may be too short. Data is from the Poqomchi project.
+		/// </summary>
+		[Test]
+		public void Parse_VerseWithInterruptionInsideQuoteFollowedByShortVerse_InterruptionsParsedCorrectly()
+		{
+			var block1 = new Block("p", 10, 6).AddVerse(6, "Re' la' chiriij i korik wach k'uxliis re' inchalik ruuk' i kojb'aal iriq'or i Looq' laj Huuj chi je' wilih: «Ma-aq'or pan ak'ux: “Ha'wach narijohtiik pan taxaaj?” (re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ")
+				.AddVerse(7, "oon: “Ha'wach nariqajiik chipaam i richamiil i julkahq?”» (re're' je' cho ruksjiik i Kristo chikixilak taqeh kamnaq). ");
+			var input = new List<Block> { block1 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "«“", 2, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator);
+			int i = 0;
+			Assert.AreEqual("{6}\u00A0Re' la' chiriij i korik wach k'uxliis re' inchalik ruuk' i kojb'aal iriq'or i Looq' laj Huuj chi je' wilih: ", results[i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual("«Ma-aq'or pan ak'ux: “Ha'wach narijohtiik pan taxaaj?” ", results[++i].GetText(true));
+			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual("(re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ", results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			Assert.AreEqual("{7}\u00A0oon: “Ha'wach nariqajiik chipaam i richamiil i julkahq?”» ", results[++i].GetText(true));
+			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual("(re're' je' cho ruksjiik i Kristo chikixilak taqeh kamnaq). ", results[++i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+		}
 		#endregion
 	}
 

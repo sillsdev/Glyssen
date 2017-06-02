@@ -732,7 +732,7 @@ namespace Glyssen.Quote
 			{
 				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
 				var startCharIndex = nextInterruption.Item1.Length;
-				if (((ScriptText)m_workingBlock.BlockElements.Last()).Content.Substring(nextInterruption.Item1.Length).Any(IsLetter))
+				if (m_workingBlock.GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
 				{
 					m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
 					startCharIndex = 0;
