@@ -15,6 +15,7 @@ lib/dotnet/Geckofx*.dll
 lib/dotnet/Geckofx*.dll.config
 lib/xulrunner/
 build/Palaso.BuildTasks.dll
+build/SIL.BuildTasks.dll
 .nuget/NuGet.exe
 DevTools/Resources/temporary/*
 /lib/dotnet/ICSharpCode.SharpZipLib.dll
