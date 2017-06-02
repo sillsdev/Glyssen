@@ -9,8 +9,8 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Quote;
 using OfficeOpenXml;
+using SIL.Reflection;
 using SIL.Scripture;
-using SIL.Windows.Forms;
 using SIL.Xml;
 
 namespace Glyssen.RefTextDevUtilities

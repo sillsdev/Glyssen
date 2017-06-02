@@ -59,13 +59,11 @@
     <ApplicationIcon>Resources\glyssen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Analytics.NET, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Analytics.2.0.2\lib\Analytics.NET.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Analytics.NET, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Analytics.2.0.3\lib\Analytics.NET.dll</HintPath>
     </Reference>
-    <Reference Include="DesktopAnalytics, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DesktopAnalytics.1.2.1\lib\net40\DesktopAnalytics.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DesktopAnalytics, Version=1.2.4.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DesktopAnalytics.1.2.4.5\lib\net40\DesktopAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>

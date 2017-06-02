@@ -7,8 +7,8 @@ using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
+using SIL.Reflection;
 using SIL.Scripture;
-using SIL.Windows.Forms;
 
 namespace GlyssenTests.Dialogs
 {
@@ -515,7 +515,7 @@ namespace GlyssenTests.Dialogs
 
 			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook - 1;
 			var expectedBlock = m_testProject.IncludedBooks.Single(b => b.BookId == "MRK").GetScriptBlocks()[indexOfBlockToSelect];
-			
+
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
 			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
 		}
@@ -1184,7 +1184,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		/// <summary>
-		/// PG-879: 
+		/// PG-879:
 		/// </summary>
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_ApplyCausesSplittingOfUserConfirmedBlockThatDoesNotMatchFilter_NewBlocksAreNotAddedToRelevantBlocks()

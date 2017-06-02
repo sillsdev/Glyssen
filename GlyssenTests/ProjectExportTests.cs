@@ -12,7 +12,7 @@ using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
-using SIL.Windows.Forms;
+using SIL.Reflection;
 
 namespace GlyssenTests
 {

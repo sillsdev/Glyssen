@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- These variables define the Windows Installer product version, product code and upgrade code. They   -->
 <!-- will be used later on in this file.  this value should be B U I LD_SCRIPT_MUST_REPLACE_AT_RUNTIME (in quotes) -->
-<?define Property_ProductVersion = "BUILD_SCRIPT_MUST_REPLACE_AT_RUNTIME" ?>
+<?define Property_ProductVersion = "0.18.0" ?>
 <!--this is replaced at build time by the msbuild 'package' target -->
 <?define Property_ProductCode = "*" ?>
 <!-- auto-generate a new guid each time -->
@@ -62,7 +62,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
         </Directory>
 
         <Directory Id="DesktopFolder" Name="Desktop"/>
-        
+
       <Directory Id='ProgramMenuFolder' Name='Programs'>
         <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
           <Component Id ='removeShortcutDir' Guid ="{B8000306-EB15-4458-8264-97C1F888AD1E}">
@@ -73,7 +73,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           </Component>
         </Directory>
       </Directory>
-	  
+
       <Directory Id="ProgramFilesFolder" Name="PFiles">
 
         <Directory Id="ProgramDir" Name="Glyssen">
@@ -206,25 +206,25 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <File Id="icu.net.dll" Name="icu.net.dll" KeyPath="yes" Source="..\output\release\icu.net.dll" />
           </Component>
 
-          <Component Id="icudt54.dll" Guid="{73ee4690-c094-4aee-9ac2-b90ea1657887}">
-            <File Id="icudt54.dll" Name="icudt54.dll" KeyPath="yes" Source="..\output\release\icudt54.dll" />
+          <Component Id="icudt56.dll" Guid="{73ee4690-c094-4aee-9ac2-b90ea1657887}">
+            <File Id="icudt56.dll" Name="icudt56.dll" KeyPath="yes" Source="..\output\release\icudt56.dll" />
           </Component>
 
-          <Component Id="icuin54.dll" Guid="{fa40a15c-a057-4436-9f8c-a15bc154d36e}">
-            <File Id="icuin54.dll" Name="icuin54.dll" KeyPath="yes" Source="..\output\release\icuin54.dll" />
+          <Component Id="icuin56.dll" Guid="{fa40a15c-a057-4436-9f8c-a15bc154d36e}">
+            <File Id="icuin56.dll" Name="icuin56.dll" KeyPath="yes" Source="..\output\release\icuin56.dll" />
           </Component>
 
-          <Component Id="icuuc54.dll" Guid="{7c312256-e864-40d6-bbcb-2f5b02d44557}">
-            <File Id="icuuc54.dll" Name="icuuc54.dll" KeyPath="yes" Source="..\output\release\icuuc54.dll" />
+          <Component Id="icuuc56.dll" Guid="{7c312256-e864-40d6-bbcb-2f5b02d44557}">
+            <File Id="icuuc56.dll" Name="icuuc56.dll" KeyPath="yes" Source="..\output\release\icuuc56.dll" />
           </Component>
 
           <Component Id="ParatextData.dll" Guid="{64b44ac8-6ebd-4b0f-a0ec-27d4f289af34}">
             <File Id="ParatextData.dll" Name="ParatextData.dll" KeyPath="yes" Source="..\output\release\ParatextData.dll" />
           </Component>
 
-          <Component Id="ParatextData.pdb" Guid="{ac4e433e-961f-4dd5-94e5-41e8799a204b}">
+          <!--Component Id="ParatextData.pdb" Guid="{ac4e433e-961f-4dd5-94e5-41e8799a204b}">
             <File Id="ParatextData.pdb" Name="ParatextData.pdb" KeyPath="yes" Source="..\output\release\ParatextData.pdb" />
-          </Component>
+          </Component-->
 
           <!--Needed for ParatextData-->
           <Component Id="PtxUtils.dll" Guid="{a93e8f57-72aa-46a0-9993-32e47b27c24d}">
@@ -233,9 +233,9 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
           <Component Id="Ionic.Zip.dll" Guid="{EA956C01-1047-414D-AFDB-9AEE2B0B064F}">
             <File Id="Ionic.Zip.dll" Name="Ionic.Zip.dll" KeyPath="yes" Source="..\output\release\Ionic.Zip.dll" />
           </Component>
-          <Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
+          <!--Component Id="PtxUtils.pdb" Guid="{cb30daed-0d6d-417f-bcf4-3c0483e17355}">
             <File Id="PtxUtils.pdb" Name="PtxUtils.pdb" KeyPath="yes" Source="..\output\release\PtxUtils.pdb" />
-          </Component>
+          </Component-->
           <!--End Needed for ParatextData-->
 
           <Component Id="L10NSharp.dll" Guid="{59DBC21F-581C-4FA4-AF2F-EBDAC3A7697B}">
@@ -286,11 +286,11 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="Geckofx_Core.dll"/>
       <ComponentRef Id="Geckofx_Winforms.dll"/>
       <ComponentRef Id="MarkdownDeep.dll"/>
-	  <ComponentRef Id="NetSparkle.Net40.dll"/>
+      <ComponentRef Id="NetSparkle.Net40.dll"/>
       <ComponentRef Id="icu.net.dll"/>
-      <ComponentRef Id="icudt54.dll"/>
-      <ComponentRef Id="icuin54.dll"/>
-      <ComponentRef Id="icuuc54.dll"/>
+      <ComponentRef Id="icudt56.dll"/>
+      <ComponentRef Id="icuin56.dll"/>
+      <ComponentRef Id="icuuc56.dll"/>
       <ComponentRef Id="ParatextData.dll"/>
       <ComponentRef Id="PtxUtils.dll"/>
       <ComponentRef Id="Ionic.Zip.dll"/>
@@ -314,14 +314,14 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
       <ComponentRef Id="SIL.Windows.Forms.Scripture.pdb"/>
       <ComponentRef Id="Geckofx_Core.pdb"/>
       <ComponentRef Id="Geckofx_Winforms.pdb"/>
-      <ComponentRef Id="ParatextData.pdb"/>
-      <ComponentRef Id="PtxUtils.pdb"/>
+      <!--ComponentRef Id="ParatextData.pdb"/>
+      <ComponentRef Id="PtxUtils.pdb"/-->
       <ComponentRef Id="L10NSharp.pdb"/>
       <ComponentRef Id="Glyssen.pdb" />
-      
+
       <ComponentGroupRef Id="DistFiles"/>
       <ComponentGroupRef Id="XulRunner" />
-      
+
     </Feature>
     <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
     <Icon Id="Glyssen.exe" SourceFile ="..\output\release\Glyssen.exe" />

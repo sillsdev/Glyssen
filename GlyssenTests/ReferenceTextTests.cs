@@ -11,9 +11,9 @@ using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
+using SIL.Reflection;
 using SIL.Reporting;
 using SIL.Scripture;
-using SIL.Windows.Forms;
 using SIL.Xml;
 using static System.String;
 
@@ -535,7 +535,7 @@ namespace GlyssenTests
 				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].PrimaryReferenceText, desc);
 				Assert.IsTrue(result[i].MatchesReferenceText, desc);
 			}
-			
+
 			Assert.AreEqual(vernacularBlocks.Last().CharacterId, result.Last().CharacterId);
 			Assert.IsFalse(result.Last().ReferenceBlocks.Any());
 			Assert.IsFalse(result.Last().MatchesReferenceText);
@@ -1727,7 +1727,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result[1].MatchesReferenceText);
 
 			Assert.AreNotEqual(origBlockCountForMatthew, refText.Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
-			
+
 			Assert.AreEqual(origBlockCountForMatthew,
 				ReferenceText.GetStandardReferenceText(ReferenceTextType.English).Books.Single(b => b.BookId == "MAT").GetScriptBlocks().Count);
 		}
@@ -2703,7 +2703,7 @@ namespace GlyssenTests
 				return metadata;
 			}
 		}
-			
+
 		public static TestReferenceText CreateTestReferenceText(string bookId, IList<Block> blocks)
 		{
 			return new TestReferenceText(NewMetadata, new BookScript(bookId, blocks)) { GetBookName = b => "The Gospel According to Thomas" };
@@ -2727,7 +2727,7 @@ namespace GlyssenTests
 		{
 			if (!IsProprietaryReferenceTextLocationOveridden)
 				return;
-			
+
 			if (Directory.Exists(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation))
 				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
 
