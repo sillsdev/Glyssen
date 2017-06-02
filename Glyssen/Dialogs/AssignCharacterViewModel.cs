@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using DesktopAnalytics;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;

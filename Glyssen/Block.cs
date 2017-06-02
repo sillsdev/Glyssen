@@ -9,6 +9,7 @@ using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using SIL.Scripture;
 using SIL.Xml;

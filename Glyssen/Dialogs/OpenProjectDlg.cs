@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 
 namespace Glyssen.Dialogs
@@ -49,7 +50,7 @@ namespace Glyssen.Dialogs
 				if (dlg.ShowDialog() == DialogResult.OK)
 				{
 					SelectedProject = dlg.FileName;
-					if (Path.GetExtension(SelectedProject) == Project.kProjectFileExtension)
+					if (Path.GetExtension(SelectedProject) == Constants.kProjectFileExtension)
 						Type = ProjectType.ExistingProject;
 					else
 						Type = ProjectType.TextReleaseBundle;

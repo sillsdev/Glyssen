@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp;
 using SIL.DblBundle;
 using SIL.Windows.Forms.DblBundle;
@@ -22,7 +23,7 @@ namespace Glyssen.Dialogs
 
 		protected override string ProjectFileExtension
 		{
-			get { return Project.kProjectFileExtension; }
+			get { return Constants.kProjectFileExtension; }
 		}
 
 		protected override string Title

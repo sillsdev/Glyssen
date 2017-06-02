@@ -14,6 +14,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
@@ -372,7 +373,7 @@ namespace Glyssen
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
 			var publicationFolder = Project.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
-				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + ProjectBase.kProjectFileExtension)
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Constants.kProjectFileExtension)
 					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
@@ -1114,7 +1115,7 @@ namespace Glyssen
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}
-			
+
 		}
 
 		private void Import_Click(object sender, EventArgs e)
@@ -1160,7 +1161,7 @@ namespace Glyssen
 				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
 				var targetDir = Path.Combine(GlyssenInfo.BaseDataFolder, path.FileName);
 
-				var projectFileName = path.FileName.Split('/').First() + Project.kProjectFileExtension;
+				var projectFileName = path.FileName.Split('/').First() + Constants.kProjectFileExtension;
 				var projectFilePath = Path.Combine(targetDir, projectFileName);
 
 				// warn the user if data will be overwritten

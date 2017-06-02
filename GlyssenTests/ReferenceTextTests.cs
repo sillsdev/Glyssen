@@ -8,6 +8,7 @@ using System.Text;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenTests.Properties;
 using NUnit.Framework;
@@ -2788,7 +2789,7 @@ namespace GlyssenTests
 			get
 			{
 				return !ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation.EndsWith(
-					ReferenceTextIdentifier.kLocalReferenceTextDirectoryName);
+					Constants.kLocalReferenceTextDirectoryName);
 			}
 		}
 
@@ -2873,7 +2874,7 @@ namespace GlyssenTests
 				customFolderId = folder;
 				Directory.CreateDirectory(rtFolder);
 				var lowercase = folder.ToLowerInvariant();
-				File.WriteAllBytes(Path.Combine(rtFolder, lowercase + kProjectFileExtension), (byte[])Resources.ResourceManager.GetObject(lowercase));
+				File.WriteAllBytes(Path.Combine(rtFolder, lowercase + Constants.kProjectFileExtension), (byte[])Resources.ResourceManager.GetObject(lowercase));
 				File.WriteAllText(Path.Combine(rtFolder, "versification.vrs"), Resources.EnglishVersification);
 			}
 			else if (customFolderId != folder)

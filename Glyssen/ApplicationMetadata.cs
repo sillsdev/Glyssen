@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using SIL.Xml;
 
 namespace Glyssen

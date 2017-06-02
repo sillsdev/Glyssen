@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
 
@@ -149,7 +150,7 @@ namespace Glyssen.Dialogs
 				else
 					filename += " " + clipListFilenameSuffix;
 
-				filename += ProjectExporter.kExcelFileExtension;
+				filename += Constants.kExcelFileExtension;
 
 				m_lblClipListFilename.Text = string.Format(m_clipListFileFmt, Path.Combine(folder, filename));
 
@@ -159,7 +160,7 @@ namespace Glyssen.Dialogs
 			else
 			{
 				m_lblClipListFilename.Visible = false;
-				m_lblClipListFileExists.Visible = false;				
+				m_lblClipListFileExists.Visible = false;
 			}
 		}
 
@@ -180,10 +181,10 @@ namespace Glyssen.Dialogs
 				dlg.InitialDirectory = m_viewModel.CurrentBaseFolder;
 				dlg.FileName = Path.GetFileName(m_lblFileName.Text);
 				dlg.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}|{4} ({5})|{5}",
-					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + ProjectExporter.kExcelFileExtension,
+					LocalizationManager.GetString("DialogBoxes.ExportDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
 					LocalizationManager.GetString("DialogBoxes.ExportDlg.TabDelimitedFileTypeLabel", "Tab-delimited files"), "*" + ProjectExporter.kTabDelimitedFileExtension,
 					LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
-				dlg.DefaultExt = ProjectExporter.kExcelFileExtension;
+				dlg.DefaultExt = Constants.kExcelFileExtension;
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
 					switch (dlg.FilterIndex)

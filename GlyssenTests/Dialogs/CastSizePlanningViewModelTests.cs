@@ -319,9 +319,19 @@ namespace GlyssenTests.Dialogs
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 
 			Sldr.Initialize();
-			m_project = Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen");
-			TestProject.SimulateDisambiguationForAllBooks(m_project);
-			m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
+			try
+			{
+				m_project =
+					Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen");
+				TestProject.SimulateDisambiguationForAllBooks(m_project);
+				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
+			}
+			catch
+			{
+				// If we have an exception here, TestFixtureTearDown doesn't get called which means we need to call Sldr.Cleanup() now
+				Sldr.Cleanup();
+				throw;
+			}
 		}
 
 		[TestFixtureTearDown]
@@ -446,10 +456,23 @@ namespace GlyssenTests.Dialogs
 			CharacterDetailData.TabDelimitedCharacterDetailData = null;
 
 			Sldr.Initialize();
-			//Change this to Kuna and finish tests for OT books
-			m_project = Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio (1)\cuk.glyssen");
-			TestProject.SimulateDisambiguationForAllBooks(m_project);
-			m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
+			try
+			{
+				//Change this to Kuna and finish tests for OT books
+				m_project =
+					Project.Load(
+						@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio (1)\cuk.glyssen");
+				TestProject.SimulateDisambiguationForAllBooks(m_project);
+				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
+
+			}
+			catch
+			{
+				// If we have an exception here, TestFixtureTearDown doesn't get called which means we need to call Sldr.Cleanup() now.
+				// This can affect other tests, otherwise.
+				Sldr.Cleanup();
+				throw;
+			}
 		}
 
 		[TestFixtureTearDown]

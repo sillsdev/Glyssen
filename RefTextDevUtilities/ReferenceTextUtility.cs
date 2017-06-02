@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using OfficeOpenXml;
 using SIL.Reflection;
@@ -163,7 +164,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static Ignore ComparisonSensitivity { get; set; }
 
-		public static void ProcessReferenceTextData(Mode mode, ReferenceTextIdentifier refTextId = null)
+		public static void ProcessReferenceTextData(Mode mode, IReferenceTextIdentifier refTextId = null)
 		{
 			ReferenceTextData data = null;
 			// This had better be in console mode!!!
@@ -203,10 +204,16 @@ namespace Glyssen.RefTextDevUtilities
 		}
 
 		public static void ProcessReferenceTextData(Mode mode,
-			ReferenceTextData data,
-			Func<ReferenceText> getReferenceText = null)
+			ReferenceTextData data)
 		{
-			ErrorsOccurred = false;
+			ProcessReferenceTextData(mode, data, null);
+		}
+
+		public static void ProcessReferenceTextData(Mode mode,
+				ReferenceTextData data,
+				Func<ReferenceText> getReferenceText)
+			{
+				ErrorsOccurred = false;
 
 			var characterMappings = new List<CharacterMapping>();
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
@@ -762,7 +769,7 @@ namespace Glyssen.RefTextDevUtilities
 			return data;
 		}
 
-		public static ReferenceTextIdentifier GetReferenceTextIdFromString(string language)
+		public static IReferenceTextIdentifier GetReferenceTextIdFromString(string language)
 		{
 			ReferenceTextType type;
 			if (Enum.TryParse(language, out type))

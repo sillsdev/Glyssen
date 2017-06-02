@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using L10NSharp;
 using Paratext.Data;
@@ -137,7 +138,7 @@ namespace Glyssen
 				case 2:
 					foreach (var pgProjFile in Project.AllRecordingProjectFolders.SelectMany(d => Directory.GetFiles(d, "*" + kOldProjectExtension)))
 					{
-						var newName = Path.ChangeExtension(pgProjFile, Project.kProjectFileExtension);
+						var newName = Path.ChangeExtension(pgProjFile, Constants.kProjectFileExtension);
 						File.Move(pgProjFile, newName);
 						if (Settings.Default.CurrentProject == pgProjFile)
 							Settings.Default.CurrentProject = newName;

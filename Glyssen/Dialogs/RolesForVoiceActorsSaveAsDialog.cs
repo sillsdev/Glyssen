@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
@@ -32,7 +33,7 @@ namespace Glyssen.Dialogs
 					Directory.CreateDirectory(m_defaultDirectory);
 			}
 			string defaultFileName = m_projectExporter.Project.PublicationName + " " +
-				m_rolesForVoiceActorsFileNameSuffix + ProjectExporter.kExcelFileExtension;
+				m_rolesForVoiceActorsFileNameSuffix + Constants.kExcelFileExtension;
 			FileName = Path.Combine(m_defaultDirectory, defaultFileName);
 			m_saveFileDialog = new SaveFileDialog();
 			m_saveFileDialog.Title = LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.SaveFileDialog.Title", "Choose File Location");
@@ -40,9 +41,9 @@ namespace Glyssen.Dialogs
 			m_saveFileDialog.InitialDirectory = m_defaultDirectory;
 			m_saveFileDialog.FileName = Path.GetFileName(FileName);
 			m_saveFileDialog.Filter = string.Format("{0} ({1})|{1}|{2} ({3})|{3}",
-				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel", "Excel files"), "*" + ProjectExporter.kExcelFileExtension,
+				LocalizationManager.GetString("DialogBoxes.RolesForVoiceActorsSaveAsDlg.ExcelFileTypeLabel", "Excel files"), "*" + Constants.kExcelFileExtension,
 				LocalizationManager.GetString("DialogBoxes.FileDlg.AllFilesLabel", "All Files"), "*.*");
-			m_saveFileDialog.DefaultExt = ProjectExporter.kExcelFileExtension;
+			m_saveFileDialog.DefaultExt = Constants.kExcelFileExtension;
 			m_saveFileDialog.OverwritePrompt = true;
 		}
 

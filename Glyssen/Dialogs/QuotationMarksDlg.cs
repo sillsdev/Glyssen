@@ -10,6 +10,7 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Quote;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
@@ -141,7 +142,7 @@ namespace Glyssen.Dialogs
 			{
 				if (level.Level == 1)
 					m_chkPairedQuotations.Checked = !string.IsNullOrEmpty(level.Open);
-				
+
 				if (m_chkPairedQuotations.Checked)
 				{
 					switch (level.Level)
@@ -428,7 +429,7 @@ namespace Glyssen.Dialogs
 					if (!string.IsNullOrEmpty(level3Open))
 						levels.Add(new QuotationMark(level3Open, NoneBecomesBlank(m_cbLevel3End.Text), NoneBecomesBlank(m_cbLevel3Continue.Text), 3, QuotationMarkingSystemType.Normal));
 				}
-				
+
 				if (m_chkDialogueQuotations.Checked)
 				{
 					string quotationDashMarker = null;

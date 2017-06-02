@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
