@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Paratext;
+using Paratext.Data;
 using SIL.DblBundle;
 
 namespace Glyssen

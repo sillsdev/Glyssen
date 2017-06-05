@@ -37,17 +37,14 @@
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ParatextShared">
-      <HintPath>..\lib\dotnet\ParatextShared.dll</HintPath>
+    <Reference Include="ParatextData">
+      <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture">
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.Windows.Forms">
-      <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,6 +67,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿using Paratext;
+﻿using Paratext.Data;
 using SIL.IO;
 
 namespace Glyssen

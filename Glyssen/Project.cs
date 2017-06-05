@@ -20,7 +20,6 @@ using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.VoiceActor;
 using L10NSharp;
-using Paratext;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;

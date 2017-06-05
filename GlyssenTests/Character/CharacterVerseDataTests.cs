@@ -3,8 +3,8 @@ using System.Linq;
 using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
-using Paratext;
 using SIL.IO;
+using SIL.Scripture;
 
 namespace GlyssenTests.Character
 {
@@ -26,7 +26,7 @@ namespace GlyssenTests.Character
 			using (TempFile tempFile = new TempFile())
 			{
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
-				m_testVersification = Versification.Table.Load(tempFile.Path);
+				m_testVersification = Versification.Table.Implementation.Load(tempFile.Path);
 			}
 		}
 

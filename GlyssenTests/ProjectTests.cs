@@ -13,8 +13,8 @@ using SIL.DblBundle.Usx;
 using SIL.Extensions;
 using SIL.IO;
 using SIL.ObjectModel;
+using SIL.Reflection;
 using SIL.Scripture;
-using SIL.Windows.Forms;
 using SIL.WritingSystems;
 
 namespace GlyssenTests

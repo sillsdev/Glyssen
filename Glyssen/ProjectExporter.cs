@@ -620,7 +620,7 @@ namespace Glyssen
 						if (Project.SkipChapterAnnouncementForFirstChapter)
 							continue;
 						if (Project.SkipChapterAnnouncementForSingleChapterBooks &&
-							Project.Versification.LastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
+							Project.Versification.GetLastChapter(BCVRef.BookToNumber(book.BookId)) == 1)
 							continue;
 					}
 

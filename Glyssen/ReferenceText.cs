@@ -7,11 +7,9 @@ using System.Text;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using L10NSharp;
-using Paratext;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Xml;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen
 {

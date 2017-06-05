@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Properties;
 using NUnit.Framework;
-using Paratext;
 using SIL.Scripture;
 
 namespace ControlDataIntegrityTests
@@ -190,7 +189,7 @@ namespace ControlDataIntegrityTests
 				{
 					if (reference.StartsWith("*"))
 						continue;
-					var verseRefs = new VerseRef(reference.Trim().Replace(".", ":")).AllVerses();
+					var verseRefs = new VerseRef(reference.Trim().Replace(".", ":"), ScrVers.English).AllVerses();
 					foreach (var verseRef in verseRefs)
 						parallelPassageVersesForCurrentDatum.Add(new BCVRef(verseRef.BBBCCCVVV));
 				}

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Paratext;
+using SIL.Scripture;
 
 namespace Glyssen.Character
 {

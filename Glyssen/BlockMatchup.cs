@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
-using Paratext;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
@@ -171,7 +170,7 @@ namespace Glyssen
 			}
 		}
 
-		public void Apply(Paratext.ScrVers versification)
+		public void Apply(ScrVers versification)
 		{
 			if (!AllScriptureBlocksMatch)
 				throw new InvalidOperationException("Cannot apply reference blocks unless all Scripture blocks have corresponding reference blocks.");
@@ -277,7 +276,7 @@ namespace Glyssen
 			return OriginalBlocks.Contains(block) || CorrelatedBlocks.Contains(block);
 		}
 
-		public void MatchAllBlocks(Paratext.ScrVers versification)
+		public void MatchAllBlocks(ScrVers versification)
 		{
 			int bookNum = BCVRef.BookToNumber(m_vernacularBook.BookId);
 

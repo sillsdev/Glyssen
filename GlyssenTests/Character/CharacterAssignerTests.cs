@@ -7,7 +7,6 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
 using SIL.Xml;
-using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests.Character
 {

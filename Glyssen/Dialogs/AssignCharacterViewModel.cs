@@ -8,7 +8,6 @@ using Glyssen.Character;
 using Glyssen.Utilities;
 using L10NSharp;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {

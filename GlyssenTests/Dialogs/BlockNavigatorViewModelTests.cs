@@ -6,11 +6,9 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using GlyssenTests.Properties;
 using NUnit.Framework;
-using Paratext;
 using SIL.Extensions;
+using SIL.Reflection;
 using SIL.Scripture;
-using SIL.Windows.Forms;
-using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests.Dialogs
 {
@@ -517,7 +515,7 @@ namespace GlyssenTests.Dialogs
 
 			var indexOfBlockToSelect = m_model.CurrentReferenceTextMatchup.IndexOfStartBlockInBook - 1;
 			var expectedBlock = m_testProject.IncludedBooks.Single(b => b.BookId == "MRK").GetScriptBlocks()[indexOfBlockToSelect];
-			
+
 			m_model.CurrentBlockIndexInBook = indexOfBlockToSelect;
 			Assert.AreEqual(expectedBlock, m_model.CurrentBlock);
 		}
@@ -675,7 +673,7 @@ namespace GlyssenTests.Dialogs
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 3), new BCVRef(65, 1, 4)};
 
-			var model = new BlockNavigatorViewModel(bookList, ScrVers.English.BaseVersification);
+			var model = new BlockNavigatorViewModel(bookList, ScrVers.English);
 			var navigator = (BlockNavigator)ReflectionHelper.GetField(model, "m_navigator");
 			navigator.NavigateToFirstBlock();
 			navigator.NextBlock();
@@ -703,7 +701,7 @@ namespace GlyssenTests.Dialogs
 
 			var versesWithPotentialMissingQuote = new List<BCVRef> {new BCVRef(65, 1, 1), new BCVRef(65, 1, 2)};
 
-			var model = new BlockNavigatorViewModel(bookList, ScrVers.English.BaseVersification);
+			var model = new BlockNavigatorViewModel(bookList, ScrVers.English);
 			var navigator = (BlockNavigator) ReflectionHelper.GetField(model, "m_navigator");
 			navigator.NavigateToFirstBlock();
 			navigator.NextBlock();
@@ -1057,7 +1055,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.AttemptRefBlockMatchup = false;
 			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
-			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(new BCVRef(BCVRef.BookToNumber("ACT"), 28, 23), m_testProject.Versification)));
+			Assert.IsTrue(m_model.TryLoadBlock(new VerseRef(BCVRef.BookToNumber("ACT"), 28, 23, m_testProject.Versification)));
 			Assert.AreEqual(23, m_model.CurrentBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, m_model.CurrentBlockDisplayIndex);
 			m_model.LoadNextRelevantBlock();
@@ -1186,7 +1184,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		/// <summary>
-		/// PG-879: 
+		/// PG-879:
 		/// </summary>
 		[Test]
 		public void ApplyCurrentReferenceTextMatchup_ApplyCausesSplittingOfUserConfirmedBlockThatDoesNotMatchFilter_NewBlocksAreNotAddedToRelevantBlocks()

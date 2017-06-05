@@ -21,9 +21,9 @@ using Glyssen.Properties;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
-using Paratext;
 using SIL.Extensions;
 using SIL.Reporting;
+using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using static System.String;
 
@@ -89,6 +89,8 @@ namespace Glyssen.Dialogs
 				m_filterItemsForRainbowModeOnly[i] = m_toolStripComboBoxFilter.Items[m_indexOfFirstFilterItemRemoved];
 
 			m_viewModel = viewModel;
+
+			m_scriptureReference.VerseControl.GetLocalizedBookName = L10N.GetLocalizedBookNameFunc(m_scriptureReference.VerseControl.GetLocalizedBookName);
 
 			HandleStringsLocalized();
 			LocalizeItemDlg.StringsLocalized += HandleStringsLocalized;

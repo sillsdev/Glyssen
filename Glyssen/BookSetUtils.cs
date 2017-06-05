@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using L10NSharp;
-using Paratext;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 

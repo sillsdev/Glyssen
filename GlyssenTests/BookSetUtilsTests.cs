@@ -2,8 +2,8 @@
 using System.Linq;
 using Glyssen;
 using NUnit.Framework;
-using Paratext;
 using SIL.DblBundle.Text;
+using SIL.Scripture;
 
 namespace GlyssenTests
 {

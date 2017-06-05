@@ -6,11 +6,9 @@ using System.Text;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Utilities;
-using Paratext;
 using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
-using ScrVers = Paratext.ScrVers;
 
 namespace Glyssen.Dialogs
 {

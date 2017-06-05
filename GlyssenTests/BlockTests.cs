@@ -9,10 +9,8 @@ using SIL.TestUtilities;
 using SIL.Scripture;
 using SIL.Xml;
 using GlyssenTests.Properties;
-using Paratext;
 using Rhino.Mocks;
 using SIL.IO;
-using ScrVers = Paratext.ScrVers;
 
 namespace GlyssenTests
 {
@@ -30,7 +28,7 @@ namespace GlyssenTests
 			using (TempFile tempFile = new TempFile())
 			{
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
-				m_testVersification = Versification.Table.Load(tempFile.Path);
+				m_testVersification = Versification.Table.Implementation.Load(tempFile.Path);
 			}
 		}
 
@@ -168,7 +166,7 @@ namespace GlyssenTests
 			using (TempFile tempFile = new TempFile())
 			{
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
-				vernVers = Versification.Table.Load(tempFile.Path);
+				vernVers = Versification.Table.Implementation.Load(tempFile.Path);
 			}
 
 			var block = new Block("p", 9, 20);
@@ -188,7 +186,7 @@ namespace GlyssenTests
 			using (TempFile tempFile = new TempFile())
 			{
 				File.WriteAllText(tempFile.Path, Resources.TestVersification);
-				vernVers = Versification.Table.Load(tempFile.Path);
+				vernVers = Versification.Table.Implementation.Load(tempFile.Path);
 			}
 
 			var block = new Block("p", 5, 43).AddVerse(43, "Whatever. ").AddVerse(44, "Cool.");

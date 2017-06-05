@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using L10NSharp;
+using SIL.Scripture;
 
 namespace Glyssen.Utilities
 {
@@ -43,6 +44,18 @@ namespace Glyssen.Utilities
 			if (info == null) return null;
 
 			return (IList)info.GetValue(ctrl);
+		}
+
+		public static Func<string, string> GetLocalizedBookNameFunc(Func<string, string> getEnglishBookName)
+		{
+			return (id) =>
+			{
+				var englishName = getEnglishBookName(id);
+				// Prevent attempting to look up dynamic strings for non-canonical books (which should never actually appear in the Glyssen UI)
+				if (!String.IsNullOrEmpty(englishName) && BCVRef.BookToNumber(id) > 0)
+					return LocalizationManager.GetDynamicString(GlyssenInfo.kApplicationId, "Common.BookName." + id, englishName);
+				return englishName;
+			};
 		}
 	}
 

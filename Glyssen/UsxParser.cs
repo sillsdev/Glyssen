@@ -175,8 +175,8 @@ namespace Glyssen
 									}
 									RemoveLastElementIfVerse(block);
 									var verseNumStr = childNode.Attributes.GetNamedItem("number").Value;
-									m_currentStartVerse = ScrReference.VerseToIntStart(verseNumStr);
-									m_currentEndVerse = ScrReference.VerseToIntEnd(verseNumStr);
+									m_currentStartVerse = BCVRef.VerseToIntStart(verseNumStr);
+									m_currentEndVerse = BCVRef.VerseToIntEnd(verseNumStr);
 									if (!block.BlockElements.Any() ||
 										(block.BlockElements.Count == 1 && block.StartsWithScriptTextElementContainingOnlyPunctuation))
 									{
