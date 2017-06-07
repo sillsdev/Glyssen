@@ -12997,8 +12997,8 @@ MRK	8	12	Jesus	exasperated		Normal
 MRK	8	15	Jesus	warning		Dialogue		
 MRK	8	16	disciples	defensive		Normal		
 MRK	8	17	Jesus	rebuking		Dialogue		
-MRK	8	18	Jesus			Normal		
-MRK	8	19	Jesus			Normal		
+MRK	8	18	Jesus	rebuking		Normal		
+MRK	8	19	Jesus	rebuking		Normal		
 MRK	8	19	disciples	hesitant		Dialogue		
 MRK	8	20	disciples			Dialogue		
 MRK	8	20	Jesus	questioning		Dialogue		

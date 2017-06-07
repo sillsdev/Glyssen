@@ -1236,7 +1236,10 @@ namespace Glyssen.Dialogs
 		private void m_btnApplyReferenceTextMatches_Click(object sender, EventArgs e)
 		{
 			if (CheckRefTextValuesAndApplyMatchup())
+			{
+				m_btnApplyReferenceTextMatches.Enabled = false;
 				MoveOn();
+			}
 		}
 
 		private bool CheckRefTextValuesAndApplyMatchup()
