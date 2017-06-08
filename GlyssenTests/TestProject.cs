@@ -20,6 +20,7 @@ namespace GlyssenTests
 {
 	static class TestProject
 	{
+		private static Exception m_errorDuringProjectCreation;
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public enum TestBook
 		{
@@ -56,31 +57,49 @@ namespace GlyssenTests
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)
 		{
-			DeleteTestProjectFolder();
-			var sampleMetadata = new GlyssenDblTextMetadata();
-			sampleMetadata.AvailableBooks = new List<Book>();
-			var books = new List<UsxDocument>();
+			m_errorDuringProjectCreation = null;
 
-			foreach (var testBook in booksToInclude)
-				AddBook(testBook, sampleMetadata, books);
+			AppDomain.CurrentDomain.UnhandledException += HandleErrorDuringProjectCreation;
+			try
+			{
+				DeleteTestProjectFolder();
+				var sampleMetadata = new GlyssenDblTextMetadata();
+				sampleMetadata.AvailableBooks = new List<Book>();
+				var books = new List<UsxDocument>();
 
-			sampleMetadata.FontFamily = "Times New Roman";
-			sampleMetadata.FontSizeInPoints = 12;
-			sampleMetadata.Id = kTest;
-			sampleMetadata.Language = new GlyssenDblMetadataLanguage { Iso = kTest };
-			sampleMetadata.Identification = new DblMetadataIdentification { Name = kTest };
-			sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
+				foreach (var testBook in booksToInclude)
+					AddBook(testBook, sampleMetadata, books);
 
-			var sampleWs = new WritingSystemDefinition();
-			sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT) || booksToInclude.Contains(TestBook.MAT)).AllLevels);
+				sampleMetadata.FontFamily = "Times New Roman";
+				sampleMetadata.FontSizeInPoints = 12;
+				sampleMetadata.Id = kTest;
+				sampleMetadata.Language = new GlyssenDblMetadataLanguage {Iso = kTest};
+				sampleMetadata.Identification = new DblMetadataIdentification {Name = kTest};
+				sampleMetadata.ProjectStatus.QuoteSystemStatus = QuoteSystemStatus.Obtained;
 
-			var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
+				var sampleWs = new WritingSystemDefinition();
+				sampleWs.QuotationMarks.AddRange(GetTestQuoteSystem(booksToInclude.Contains(TestBook.JOS) || booksToInclude.Contains(TestBook.RUT) || booksToInclude.Contains(TestBook.MAT)).AllLevels);
 
-			// Wait for quote parse to finish
-			while (project.ProjectState != ProjectState.FullyInitialized)
-				Thread.Sleep(100);
+				var project = new Project(sampleMetadata, books, SfmLoader.GetUsfmStylesheet(), sampleWs);
+
+				// Wait for quote parse to finish
+				while (project.ProjectState != ProjectState.FullyInitialized && m_errorDuringProjectCreation == null)
+					Thread.Sleep(100);
+			}
+			finally
+			{
+				AppDomain.CurrentDomain.UnhandledException -= HandleErrorDuringProjectCreation;
+			}
+
+			if (m_errorDuringProjectCreation != null)
+				throw m_errorDuringProjectCreation;
 
 			return LoadExistingTestProject();
+		}
+
+		private static void HandleErrorDuringProjectCreation(object sender, UnhandledExceptionEventArgs e)
+		{
+			m_errorDuringProjectCreation = (e.ExceptionObject as Exception) ?? new Exception("Something went wrong on background thread trying to create test project.");
 		}
 
 		public static Project LoadExistingTestProject()

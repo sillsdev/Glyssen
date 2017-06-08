@@ -1450,6 +1450,10 @@ namespace Glyssen
 				// Now test to see if what we wrote is actually readable...
 				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
 			}
+			catch(FileLoadException loadException)
+			{
+				throw; // Don't want to ignore this error - should never happen on valid installation.
+			}
 			catch (Exception exSave)
 			{
 				Logger.WriteError("Writing System Save Failure", exSave);
