@@ -679,7 +679,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetExportData_VernVerseHasMorePartsThanReference_FinalBlockOfVersContainsStartOfFollowingVerseInBothVernAndRef_BeginningAndEndMatch()
+		public void GetExportData_VernVerseHasMorePartsThanReference_FinalBlockOfVerseContainsStartOfFollowingVerseInBothVernAndRef_BeginningAndEndMatch()
 		{
 			var narrator = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator);
 
@@ -2270,6 +2270,74 @@ namespace GlyssenTests
 			Assert.AreEqual("{1}\u00A0Juan dijo, 'This es estrofa 1, This es estrofa 2, This es estrofa 3, This es estrofa 4.'",
 				result.GetText(true));
 			Assert.AreEqual(referenceBlocks.Single().GetText(true), result.ReferenceBlocks.Single().GetText(true));
+		}
+
+		[Test]
+		public void GetBooksWithBlocksConnectedToReferenceText_AlternateEndings_AllBlocksInBothEndingsAreAligned()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(8, "Hanən dyamdyamb.", true, 16, "MRK"));
+			vernacularBlocks.Add(new Block("ms", 16, 8)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("Nyaa pɔ́g echě  Kálag e Makɔsɛ ésógé") }
+			});
+			vernacularBlocks.Add(new Block("mr", 16, 8)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("16.9-20") }
+			});
+			vernacularBlocks.Add(new Block("s", 16, 8)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté Maria Magdalɛnɛ yə̌l") }
+			});
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(9, "Áde Yesuɛ  bé mbéb saámbé áte. ", true, 16, "MRK")
+				.AddVerse(10, "Hɛ́ɛ ane mmwaád ákíí boŋ álāŋgē bad ábe bɔ́ɔbɛ Yesuɛ bébágéʼáá. Antán nɛ́ɛ béchyɛʼɛ́ kwééd eche Yesuɛ. ")
+				.AddVerse(11, "Boŋ áde béwógé bán Yesuɛ adé á aloŋgé, bán ane mmwaád anyíné-ʼɛ mɔ́, bénkêndúbɛ́ɛ́."));
+			vernacularBlocks.Add(new Block("s", 16, 11)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ alúmté ábɛ̄ bad bébɛ yə̌l") }
+			});
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(12, "Ámbīd e póndé Yesuɛ anlúméd. Boŋ enɛ́n ngen anlúméd yə̌l nyaa émpēe. ", true, 16, "MRK")
+				.AddVerse(13, "Hɛ́ɛ bad bétímé ámbīd, békɛ béláá baáb ábíníí."));
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(14, "Ámbīd e póndé Yesuɛ anlúméd yə̌l wɛ́ɛ ábē bembapɛɛ dyôm-ne-nhɔ́g áde bédyágkē ndyééd. ", true, 16, "MRK")
+				.AddVerse(15, "Anláá bɔ́ aá, "));
+			AddBlockForVerseInProgress(vernacularBlocks, "Jesus", "“Nyékag nkǒŋsé áte ńsyə̄ə̄l, nyékanle bad bésyə̄ə̄l nkalaŋ ḿ bwâm. ")
+				.AddVerse(16, "Kénzɛ́ɛ́ awě adúbpé boŋ bédusɛ́n-nɛ mɔ́ ǎkǔd eʼchoóchoŋ, boŋ kénzɛ́ɛ́ awě eedúbpe ǎkūd nkɔ́gsɛn. ")
+				.AddVerse(17, "Bad ábe bédúbpé bɛ́wōŋ ngíne âbɛl mam mé menyáké: bɛ́bīdtē bad eʼdəə́dəŋ bé mbéb áte á dǐn ádêm; bɛ́hɔ̄bē-ʼɛ mehɔ́b mékɔ̄ɔ̄lē. ")
+				.AddVerse(18, "Bɛ́kōbɛ̄n nyə̌ mekáá, éebɛnlé bɔ́ dyamdyam. Ké bémmwɛ̄-ʼɛ ké eʼwɛ, ábê eʼwɛ béebɛnlé bɔ́ dyamdyam. Bɛ́bān bad bé nkole mekáá á yə̌l, bad bé nkole bɛ̂ bédyɛ̄ɛ̄-ʼɛ bwâm.”");
+			vernacularBlocks.Add(new Block("s", 16, 18)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("Yesuɛ apǔmmé") }
+			});
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(19, "Áde Sáŋgú Yesuɛ ámáá bɔ́ ḿmɛ́n mekan aláa, dɔ́ɔ Dyǒb ábɛ́lé boŋ ápūmē ámīn. ", true, 16, "MRK")
+				.AddVerse(20, "Hɛ́ɛ bembapɛɛ bébídé, boŋ békɛ békalé Eyale é Dyǒb hǒm tɛ́ɛ́."));
+			vernacularBlocks.Add(new Block("ms", 16, 20)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("Nyaa empée echě kálag e Makɔsɛ ésógé") }
+			});
+			vernacularBlocks.Add(new Block("mr", 16, 20)
+			{
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				BlockElements = new List<BlockElement> { new ScriptText("16.9-10") }
+			});
+			var altEndingBlock = CreateNarratorBlockForVerse(9, "Hɛ́ɛ ábê bebaád békíí, boŋ mésyə̄ə̄l ḿme bénlyə̄gtɛ̄nnē bɔ́, bésɛ̄lē mɔ́ esóŋ-esóŋ. ", true, 16, "MRK")
+				.AddVerse(10, "Nɛ́ɛ nɛ̂ átómé, Yesuɛ mwěn anlóm bad nkǒŋsé áte ńsyə̄ə̄l âkal nkalaŋ ḿ bwâm.]");
+			altEndingBlock.BlockElements.Insert(0, new ScriptText("["));
+			vernacularBlocks.Add(altEndingBlock);
+
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
+			testProject.Books[0].Blocks = vernacularBlocks;
+
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.English));
+
+			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
+
+			Assert.IsTrue(result.Where(b => b.IsScripture).All(b => b.MatchesReferenceText));
 		}
 
 		[Test]

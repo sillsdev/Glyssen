@@ -261,8 +261,16 @@ namespace Glyssen
 			//	}
 			//}
 
-			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count && (iRefBlock < refBlockList.Count || iRefBlockMemory >= 0); iVernBlock++, iRefBlock++)
+			for (int iVernBlock = 0; iVernBlock < vernBlockList.Count; iVernBlock++, iRefBlock++)
 			{
+				if (iRefBlock >= refBlockList.Count && iRefBlockMemory < 0)
+				{
+					// We still have more vernacular verses to consider. Most likely, this is an
+					// additional alternate ending (in Mark). It's not very efficient, but we'll just
+					// start back at the beginning of the reference text block collection.
+					iRefBlock = 0;
+				}
+
 				var currentVernBlock = vernBlockList[iVernBlock];
 				// TODO: This handles the only case I know of (and for which there is a test) where a versification pulls in verses
 				// from the end of the book to an earlier spot, namely Romans 14:24-26 <- Romans 16:25-27. If we ever have this same
@@ -416,6 +424,9 @@ namespace Glyssen
 						break;
 					}
 				}
+				var indexOfLastVernVerseInVerseChunk = indexOfVernVerseStart + numberOfVernBlocksInVerseChunk - 1;
+				if (vernBlockList[indexOfLastVernVerseInVerseChunk].MatchesReferenceText)
+					iVernBlock = indexOfLastVernVerseInVerseChunk;
 			}
 		}
 
