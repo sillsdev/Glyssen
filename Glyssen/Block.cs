@@ -9,7 +9,7 @@ using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Shared.Bundle;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.Scripture;
 using SIL.Xml;
@@ -247,9 +247,9 @@ namespace Glyssen
 			}
 		}
 
-		public string PrimaryReferenceText
+		public string GetPrimaryReferenceText(bool scriptureTextOnly = false)
 		{
-			get { return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(true, true) : null; }
+			return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(!scriptureTextOnly, !scriptureTextOnly) : null;
 		}
 
 		/// <summary>
@@ -271,7 +271,7 @@ namespace Glyssen
 			if (!ReferenceBlocks.Any())
 				return "";
 			if (depth == 0)
-				return PrimaryReferenceText;
+				return GetPrimaryReferenceText();
 			if (ReferenceBlocks.Count == 1)
 				return ReferenceBlocks[0].GetReferenceTextAtDepth(depth - 1);
 			return null;
@@ -552,7 +552,7 @@ namespace Glyssen
 				if (text == null) continue;
 
 				var encodedContent = Format(splitTextTemplate, verseNumberHtml, HttpUtility.HtmlEncode(text.Content), blockId, currVerse);
-				
+
 				if ((blockSplits != null) && blockSplits.Any())
 				{
 					var preEncodedContent = text.Content;
@@ -560,7 +560,7 @@ namespace Glyssen
 					var allContentToInsert = new List<string>();
 					foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit, s.VerseToSplit }))
 					{
-						
+
 						var sortedGroupOfSplits = groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataOffsetComparer);
 						foreach (var blockSplit in sortedGroupOfSplits)
 						{
@@ -641,7 +641,7 @@ namespace Glyssen
 
 			var startRef = new BCVRef(bookNum, ChapterNumber, InitialStartVerseNumber);
 			var endRef = new BCVRef(bookNum, ChapterNumber, LastVerseNum);
-			
+
 			return BCVRef.MakeReferenceString(bookId, startRef, endRef, ":", "-") + " : " + ToString();
 		}
 
@@ -805,7 +805,7 @@ namespace Glyssen
 
 		public string CharacterSelect(int splitId, IEnumerable<AssignCharacterViewModel.Character> characters = null)
 		{
-			if ((characters == null) && !IsNullOrEmpty(s_characterSelect)) 
+			if ((characters == null) && !IsNullOrEmpty(s_characterSelect))
 				return Format(s_characterSelect, splitId);
 
 			const string optionTemplate = "<option value=\"{0}\">{1}</option>";
@@ -817,7 +817,7 @@ namespace Glyssen
 				{
 					if (CharacterVerseData.IsCharacterStandard(character.CharacterId))
 					{
-							
+
 					}
 					if (character.IsNarrator)
 					{
@@ -830,7 +830,7 @@ namespace Glyssen
 						var stdCharacterType = CharacterVerseData.GetStandardCharacterType(character.CharacterId);
 						if (stdCharacterType == CharacterVerseData.StandardCharacter.NonStandard)
 						{
-							sb.AppendFormat(optionTemplate, character.CharacterId, character.LocalizedDisplay);								
+							sb.AppendFormat(optionTemplate, character.CharacterId, character.LocalizedDisplay);
 						}
 						else
 						{
@@ -1118,7 +1118,7 @@ namespace Glyssen
 				refBlocksForPassage.AddRange(refBook.GetBlocksForVerse(endVerse.ChapterNum, 1, endVerse.VerseNum));
 			}
 
-			var matchingRefBlocks = refBlocksForPassage.Where(refBlock => refBlock.PrimaryReferenceText == PrimaryReferenceText).ToList();
+			var matchingRefBlocks = refBlocksForPassage.Where(refBlock => refBlock.GetPrimaryReferenceText() == GetPrimaryReferenceText()).ToList();
 			if (matchingRefBlocks.Count == 1)
 			{
 				SetMatchedReferenceBlock(BCVRef.BookToNumber(bookId), vernVersification, referenceText, matchingRefBlocks);

@@ -153,10 +153,13 @@
     <Compile Include="BlockMatchup.cs" />
     <Compile Include="BlockNavigator.cs" />
     <Compile Include="BlockSplitData.cs" />
+    <Compile Include="BookBlockIndices.cs" />
     <Compile Include="BookMetadata.cs" />
     <Compile Include="BookScript.cs" />
     <Compile Include="BookSetUtils.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="Bundle\GlyssenBundle.cs" />
+    <Compile Include="Bundle\GlyssenDblTextMetadata.cs" />
     <Compile Include="Character\CharacterAssigner.cs" />
     <Compile Include="Character\CharacterDetail.cs" />
     <Compile Include="Character\CharacterDetailData.cs" />
@@ -241,6 +244,7 @@
     <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
       <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\BlocksToDisplay.cs" />
     <Compile Include="Dialogs\CastSizePlanningDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -629,6 +633,7 @@
       <Name>GlyssenShared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -637,7 +642,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using DesktopAnalytics;
+using Glyssen.Bundle;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.IO;
@@ -46,7 +47,7 @@ namespace Glyssen
 		private readonly string m_customId;
 
 		public ReferenceTextType Type => m_referenceTextType;
-		public GlyssenDblTextMetadata Metadata => m_metadata;
+		public GlyssenDblTextMetadataBase Metadata => m_metadata;
 		public string CustomIdentifier => m_customId;
 		public string Name => m_customId ?? Type.ToString();
 

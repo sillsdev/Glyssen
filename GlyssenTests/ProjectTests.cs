@@ -765,7 +765,7 @@ namespace GlyssenTests
 			var matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.PrimaryReferenceText)));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 
 			// Case where two of the English reference text blocks get combined to match a vern block
 			var mark9V9 = blocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
@@ -777,13 +777,13 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.ReferenceBlocks.Count == 1));
 			var expectedEnglishRefTextForMark9V9 = englishRefBlocks[mark9V9EnglishRefText].GetText(true) + " " +
 				englishRefBlocks[mark9V9EnglishRefText + 1].GetText(true);
-			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			matchup.MatchAllBlocks(null);
 			matchup.Apply(null);
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.PrimaryReferenceText)));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;
@@ -793,26 +793,26 @@ namespace GlyssenTests
 			// Verify results for case where the vern blocks match 1-for-1 to the English reference text
 			matchedVernBlocks = blocks.Skip(mark8V5).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.PrimaryReferenceText)));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1));
-			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().PrimaryReferenceText)));
-			Assert.IsTrue(matchedVernBlocks.All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.PrimaryReferenceText &&
+			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())));
+			Assert.IsTrue(matchedVernBlocks.All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
 			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
-			b.ReferenceBlocks.Single().PrimaryReferenceText == fb.PrimaryReferenceText)));
+			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
 
 			// Verify results for case where two of the English reference text blocks get combined to match a vern block
 			matchedVernBlocks = blocks.Skip(mark9V9).Take(3).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.PrimaryReferenceText)));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 1));
-			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().PrimaryReferenceText)));
+			Assert.IsFalse(matchedVernBlocks.All(b => string.IsNullOrEmpty(b.ReferenceBlocks.Single().GetPrimaryReferenceText())));
 			var mark9V9FrenchRefText = frenchRefBlocks.IndexOf(b => b.ChapterNumber == 9 && b.InitialStartVerseNumber == 9);
 			Assert.AreEqual(frenchRefBlocks[mark9V9FrenchRefText].GetText(true) + " " + frenchRefBlocks[mark9V9FrenchRefText + 1].GetText(true),
-				matchedVernBlocks[0].PrimaryReferenceText);
-			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchedVernBlocks[0].ReferenceBlocks.Single().PrimaryReferenceText);
-			Assert.IsTrue(matchedVernBlocks.Skip(1).All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.PrimaryReferenceText &&
+				matchedVernBlocks[0].GetPrimaryReferenceText());
+			Assert.AreEqual(expectedEnglishRefTextForMark9V9, matchedVernBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.IsTrue(matchedVernBlocks.Skip(1).All(b => frenchRefBlocks.Any(fb => fb.GetText(true) == b.GetPrimaryReferenceText() &&
 			fb.ChapterNumber == b.ChapterNumber && fb.InitialVerseNumberOrBridge == b.InitialVerseNumberOrBridge &&
-			b.ReferenceBlocks.Single().PrimaryReferenceText == fb.PrimaryReferenceText)));
+			b.ReferenceBlocks.Single().GetPrimaryReferenceText() == fb.GetPrimaryReferenceText())));
 		}
 
 		[Test]
@@ -836,7 +836,7 @@ namespace GlyssenTests
 			var matchedVernBlocks = blocks.Skip(mark5V41).Take(4).ToList();
 			Assert.IsTrue(matchedVernBlocks.All(b => b.MatchesReferenceText));
 			Assert.IsTrue(matchedVernBlocks.All(b => b.ReferenceBlocks.Single().ReferenceBlocks.Count == 0));
-			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.PrimaryReferenceText)));
+			Assert.IsFalse(matchedVernBlocks.Any(b => string.IsNullOrEmpty(b.GetPrimaryReferenceText())));
 
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			testProject.ReferenceText = rtFrench;

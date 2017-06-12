@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -61,6 +62,8 @@ namespace Glyssen
 			return referenceText;
 		}
 
+		public ReferenceTextType Type => m_referenceTextType;
+
 		private BookScript TryLoadBook(string[] files, string bookCode)
 		{
 			var fileName = files.FirstOrDefault(f => Path.GetFileName(f) == bookCode + Constants.kBookScriptFileExtension);
@@ -101,7 +104,7 @@ namespace Glyssen
 			m_modifiedBooks.Clear();
 		}
 
-		protected ReferenceText(GlyssenDblTextMetadata metadata, ReferenceTextType referenceTextType, string projectFolder)
+		protected ReferenceText(GlyssenDblTextMetadataBase metadata, ReferenceTextType referenceTextType, string projectFolder)
 			: base(metadata, referenceTextType.ToString())
 		{
 			m_referenceTextType = referenceTextType;

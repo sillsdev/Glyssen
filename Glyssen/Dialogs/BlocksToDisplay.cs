@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Glyssen.Shared.Bundle
+namespace Glyssen.Dialogs
 {
 	[Flags]
 	public enum BlocksToDisplay

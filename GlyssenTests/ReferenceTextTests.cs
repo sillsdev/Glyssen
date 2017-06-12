@@ -119,7 +119,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks));
 			Assert.IsTrue(result.All(b => b.UserConfirmed));
 			Assert.IsTrue(result.All(b => b.SplitId == -1));
-			Assert.IsTrue(result.Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
 		}
 
 		[TestCase(MultiBlockQuote.None, MultiBlockQuote.Start, MultiBlockQuote.Continuation)]
@@ -182,7 +182,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result.Skip(1).All(b => b.MultiBlockQuote == expectedResultForSubsequentBlocks));
 			Assert.IsTrue(result.All(b => b.UserConfirmed));
 			Assert.IsTrue(result.All(b => b.SplitId == -1));
-			Assert.IsTrue(result.Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
 		}
 
 		[Test]
@@ -218,7 +218,7 @@ namespace GlyssenTests
 			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
 			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
 			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.IsTrue(result.Skip(2).Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
 		[Test]
@@ -300,22 +300,22 @@ namespace GlyssenTests
 			Assert.AreEqual("{31}\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual("Love", result[1].GetText(true));
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
 			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsNull(result[1].PrimaryReferenceText);
+			Assert.IsNull(result[1].GetPrimaryReferenceText());
 
 			Assert.AreEqual("And now I will show you...", result[2].GetText(true));
 			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
 			Assert.IsFalse(result[2].MatchesReferenceText);
-			Assert.IsNull(result[2].PrimaryReferenceText);
+			Assert.IsNull(result[2].GetPrimaryReferenceText());
 
 			Assert.AreEqual("{32}\u00A0This isn't here.", result[3].GetText(true));
 			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].PrimaryReferenceText);
+			Assert.AreEqual("{32}\u00A0The verse that was never supposed to exist.", result[3].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -341,17 +341,17 @@ namespace GlyssenTests
 			Assert.AreEqual("{31}\u00A0But eagerly desire the greater gifts.", result[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual("And now I will show you...", result[1].GetText(true));
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
 			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsNull(result[1].PrimaryReferenceText);
+			Assert.IsNull(result[1].GetPrimaryReferenceText());
 
 			Assert.AreEqual("{32}\u00A0This isn't here.", result[2].GetText(true));
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -407,7 +407,7 @@ namespace GlyssenTests
 			Assert.AreEqual("John", result[1].CharacterIdInScript);
 			Assert.IsTrue(result.All(b => !b.UserConfirmed));
 			Assert.IsTrue(result.All(b => b.SplitId == -1));
-			Assert.IsTrue(result.Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
 		}
 
 		[Test]
@@ -488,23 +488,23 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(referenceBlocks.Count, result.Count);
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[0].CharacterId);
-			Assert.AreEqual("The Gospel According to Saint Thomas", result[0].PrimaryReferenceText);
+			Assert.AreEqual("The Gospel According to Saint Thomas", result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[1].CharacterId);
-			Assert.AreEqual("The Gospel According to Thomas 1", result[1].PrimaryReferenceText);
+			Assert.AreEqual("The Gospel According to Thomas 1", result[1].GetPrimaryReferenceText());
 			Assert.AreEqual("Paul", result[2].CharacterId);
-			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].GetPrimaryReferenceText());
 			Assert.AreEqual("Paul", result[3].CharacterId);
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
 			Assert.AreEqual("Paul", result[4].CharacterId);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].GetPrimaryReferenceText());
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[5].CharacterId);
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].GetPrimaryReferenceText());
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter), result[6].CharacterId);
-			Assert.AreEqual("The Gospel According to Thomas 2", result[6].PrimaryReferenceText);
+			Assert.AreEqual("The Gospel According to Thomas 2", result[6].GetPrimaryReferenceText());
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.ExtraBiblical), result[7].CharacterId);
-			Assert.AreEqual(referenceBlocks[7].GetText(true), result[7].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[7].GetText(true), result[7].GetPrimaryReferenceText());
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator), result[8].CharacterId);
-			Assert.AreEqual(referenceBlocks[8].GetText(true), result[8].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[8].GetText(true), result[8].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -534,7 +534,7 @@ namespace GlyssenTests
 				var desc = "Block " + i + ": " + result[i].GetText(true);
 				Assert.AreEqual(vernacularBlocks[i].CharacterId, result[i].CharacterId, desc);
 				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].ReferenceBlocks.Single().GetText(true), desc);
-				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].PrimaryReferenceText, desc);
+				Assert.AreEqual(referenceBlocks[i].GetText(true), result[i].GetPrimaryReferenceText(), desc);
 				Assert.IsTrue(result[i].MatchesReferenceText, desc);
 			}
 
@@ -608,7 +608,7 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(referenceBlocks.Count, result.Count);
-			Assert.IsTrue(result.Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Select(r => r.GetText(true))));
 		}
 
 		[Test]
@@ -638,7 +638,7 @@ namespace GlyssenTests
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
 			Assert.IsTrue(result.Single().MatchesReferenceText);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].PrimaryReferenceText);
+			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -763,13 +763,13 @@ namespace GlyssenTests
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -802,13 +802,13 @@ namespace GlyssenTests
 			Assert.AreEqual(3, result.Count);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -1051,7 +1051,7 @@ namespace GlyssenTests
 
 			Assert.IsInstanceOf<Sound>(result[0].ReferenceBlocks.Single().BlockElements.Last());
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{50}\u00A0A certain one of them struck the servant of the high priest, and cut off his right ear. {F8 SFX--Man crying out} ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{50}\u00A0A certain one of them struck the servant of the high priest, and cut off his right ear. {F8 SFX--Man crying out} ", result[0].GetPrimaryReferenceText());
 
 			// We don't especially care how the remaining vern blocks align to the ref blocks as long as the first one
 			// is not a match, and each of the remaining reference blocks is hooked up (in the correct order) to exactly
@@ -1098,17 +1098,17 @@ namespace GlyssenTests
 			Assert.AreEqual("{1}\u00A0Entonces Jesús dijo que los reducirían un burro. ", result[0].GetText(true));
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Jesus told them where to find a donkey. ", result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual("{2-3a}\u00A0El número de ellos dónde encontrarlo. Y todo salió bien. {3f}\u00A0La segunda parte del versiculo. ",
 				result[1].GetText(true));
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true) + referenceBlocks[2].GetText(true), result[1].GetPrimaryReferenceText());
 
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.IsTrue(result[2].MatchesReferenceText);
-			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0Fourth verse.", result[2].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -1138,13 +1138,13 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(2, result.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(1, result[0].InitialStartVerseNumber);
 			Assert.AreEqual(0, result[0].InitialEndVerseNumber);
 			Assert.AreEqual(3, result[0].LastVerseNum);
 
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(4, result[1].InitialStartVerseNumber);
 			Assert.AreEqual(0, result[1].InitialEndVerseNumber);
@@ -1185,13 +1185,13 @@ namespace GlyssenTests
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
 			Assert.AreEqual(0, result[3].ReferenceBlocks.Count);
-			Assert.IsTrue(result.Take(4).All(b => b.PrimaryReferenceText == null));
+			Assert.IsTrue(result.Take(4).All(b => b.GetPrimaryReferenceText() == null));
 
 			// Verse 2 (different character IDs but we match them anyway because it is the entirety of the verse)
 			Assert.AreEqual(1, result[4].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].ReferenceBlocks[0].GetText(true));
 			Assert.AreEqual(referenceBlocks[4].CharacterId, result[4].ReferenceBlocks[0].CharacterId);
-			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[4].GetText(true), result[4].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -1217,11 +1217,11 @@ namespace GlyssenTests
 
 			Assert.AreEqual(referenceBlocks[0], result[0].ReferenceBlocks.Single());
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
 
 			Assert.IsFalse(result[1].MatchesReferenceText);
 			Assert.IsTrue(result[1].ReferenceBlocks.Select(r => r.GetText(true)).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
-			Assert.IsNull(result[1].PrimaryReferenceText);
+			Assert.IsNull(result[1].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -1245,7 +1245,7 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].PrimaryReferenceText);
+			Assert.IsNull(result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
@@ -1304,7 +1304,7 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].PrimaryReferenceText);
+			Assert.IsNull(result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
@@ -1368,11 +1368,11 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual(0, result[1].ReferenceBlocks.Count);
 			Assert.IsFalse(result[1].MatchesReferenceText);
-			Assert.IsNull(result[1].PrimaryReferenceText);
+			Assert.IsNull(result[1].GetPrimaryReferenceText());
 
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
@@ -1412,7 +1412,7 @@ namespace GlyssenTests
 
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), result[0].PrimaryReferenceText);
+			Assert.AreEqual(Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
@@ -1463,7 +1463,7 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].PrimaryReferenceText);
+			Assert.IsNull(result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
@@ -1487,7 +1487,7 @@ namespace GlyssenTests
 
 			var result = vernBook.GetScriptBlocks();
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
-			Assert.IsNull(result[0].PrimaryReferenceText);
+			Assert.IsNull(result[0].GetPrimaryReferenceText());
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
@@ -1537,7 +1537,7 @@ namespace GlyssenTests
 
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(referenceBlocks[0].GetText(true) + referenceBlocks[1].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true) + referenceBlocks[1].GetText(true), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
@@ -1636,13 +1636,13 @@ namespace GlyssenTests
 			Assert.AreEqual(5, result.Count);
 
 			Assert.AreEqual(frenchReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetText(true));
-			Assert.AreEqual("{16}\u00A0saying, ", result[0].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("{16}\u00A0saying, ", result[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(englishReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(englishReferenceBlocks[0].GetText(true), result[0].ReferenceBlocks.Single().GetPrimaryReferenceText());
 
 			Assert.AreEqual(frenchReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(englishReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(englishReferenceBlocks[1].GetText(true), result[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 
 			Assert.IsTrue(result[2].MatchesReferenceText);
 			Assert.AreEqual(frenchReferenceBlocks[2].GetText(true) + " " + frenchReferenceBlocks[3].GetText(true),
@@ -1652,11 +1652,11 @@ namespace GlyssenTests
 
 			Assert.AreEqual("{18}\u00A0et pleuré comme ils ont regardé la fumée de son embrasement: ", result[3].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[3].MatchesReferenceText);
-			Assert.AreEqual("{18}\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("{18}\u00A0and cried out as they looked at the smoke of her burning, saying, ", result[3].ReferenceBlocks.Single().GetPrimaryReferenceText());
 
 			Assert.AreEqual(frenchReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetText(true));
 			Assert.IsTrue(result[4].MatchesReferenceText);
-			Assert.AreEqual(englishReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(englishReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[TestCase(null)]
@@ -1819,13 +1819,13 @@ namespace GlyssenTests
 			Assert.AreEqual(7, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
-			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].PrimaryReferenceText);
-			Assert.AreEqual("responded John the ", result[4].PrimaryReferenceText);
-			Assert.AreEqual("beloved.", result[5].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[6].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].GetPrimaryReferenceText());
+			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].GetPrimaryReferenceText());
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
+			Assert.AreEqual("responded John the ", result[4].GetPrimaryReferenceText());
+			Assert.AreEqual("beloved.", result[5].GetPrimaryReferenceText());
+			Assert.AreEqual(referenceBlocks[5].GetText(true), result[6].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -1885,26 +1885,26 @@ namespace GlyssenTests
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
 			Assert.IsTrue(vernacularBlocks.Take(9).All(b => b.MatchesReferenceText)); // This could be 10, but that's not the point of this test
 
-			Assert.IsTrue(result[0].PrimaryReferenceText.StartsWith("{23}\u00A0"));
+			Assert.IsTrue(result[0].GetPrimaryReferenceText().StartsWith("{23}\u00A0"));
 			Assert.AreEqual(14, result[0].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[1].PrimaryReferenceText.StartsWith("{25}\u00A0"));
+			Assert.IsTrue(result[1].GetPrimaryReferenceText().StartsWith("{25}\u00A0"));
 			Assert.AreEqual(16, result[1].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[2].PrimaryReferenceText.StartsWith("{26}\u00A0"));
+			Assert.IsTrue(result[2].GetPrimaryReferenceText().StartsWith("{26}\u00A0"));
 			Assert.AreEqual(16, result[2].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[3].PrimaryReferenceText.StartsWith("{27}\u00A0"));
+			Assert.IsTrue(result[3].GetPrimaryReferenceText().StartsWith("{27}\u00A0"));
 			Assert.AreEqual(16, result[3].ReferenceBlocks.Single().ChapterNumber);
 			Assert.IsTrue(result[4].ReferenceBlocks.Single().IsChapterAnnouncement);
 			Assert.AreEqual(15, result[4].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[5].PrimaryReferenceText.StartsWith("{1}\u00A0"));
+			Assert.IsTrue(result[5].GetPrimaryReferenceText().StartsWith("{1}\u00A0"));
 			Assert.AreEqual(15, result[5].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[6].PrimaryReferenceText.StartsWith("{2}\u00A0"));
+			Assert.IsTrue(result[6].GetPrimaryReferenceText().StartsWith("{2}\u00A0"));
 			Assert.AreEqual(15, result[6].ReferenceBlocks.Single().ChapterNumber);
 			Assert.IsTrue(result[7].ReferenceBlocks.Single().IsChapterAnnouncement);
 			Assert.AreEqual(16, result[7].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[8].PrimaryReferenceText.StartsWith("{1}\u00A0"));
+			Assert.IsTrue(result[8].GetPrimaryReferenceText().StartsWith("{1}\u00A0"));
 			Assert.AreEqual(16, result[8].ReferenceBlocks.Single().ChapterNumber);
 			Assert.AreEqual(16, result[9].ReferenceBlocks.Single().ChapterNumber);
-			Assert.IsTrue(result[9].PrimaryReferenceText.StartsWith("{23}\u00A0"));
+			Assert.IsTrue(result[9].GetPrimaryReferenceText().StartsWith("{23}\u00A0"));
 			Assert.IsFalse(result[10].ReferenceBlocks.Any());
 		}
 
@@ -1932,7 +1932,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual("The Gospel According to Thomas 8", result[1].PrimaryReferenceText);
+			Assert.AreEqual("The Gospel According to Thomas 8", result[1].GetPrimaryReferenceText());
 			Assert.IsTrue(result[1].MatchesReferenceText);
 			Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
@@ -1973,7 +1973,7 @@ namespace GlyssenTests
 			Assert.AreEqual("{2}\u00A0Blah blah. ", result[2].GetText(true));
 			Assert.AreEqual("{3}\u00A0More blah blah. ", result[3].GetText(true));
 			Assert.AreEqual("{4}\u00A0The final blah blah.", result[4].GetText(true));
-			Assert.IsTrue(result.Skip(2).Select(v => v.PrimaryReferenceText).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
+			Assert.IsTrue(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
 		[Test]
@@ -2065,9 +2065,9 @@ namespace GlyssenTests
 						.Append("Actual: ").Append(block.GetText(true)).AppendLine().AppendLine();
 				if (block.MatchesReferenceText || expectedReferenceResults[i] == null)
 				{
-					if (expectedReferenceResults[i] != block.PrimaryReferenceText)
+					if (expectedReferenceResults[i] != block.GetPrimaryReferenceText())
 						sbForReferenceTextResults.Append("Expected: ").Append(expectedReferenceResults[i]).AppendLine()
-							.Append("Actual: ").Append(block.PrimaryReferenceText).AppendLine().AppendLine();
+							.Append("Actual: ").Append(block.GetPrimaryReferenceText()).AppendLine().AppendLine();
 				}
 				else
 				{
@@ -2130,13 +2130,13 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[0].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual("{2}\u00A0Blah blah. ", result[1].GetText(true));
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
 			Assert.IsTrue(result[1].MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -2195,12 +2195,12 @@ namespace GlyssenTests
 			Assert.AreEqual(6, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
 
-			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].PrimaryReferenceText);
-			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].PrimaryReferenceText);
-			Assert.AreEqual("responded John the beloved.", result[4].PrimaryReferenceText);
-			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+			Assert.AreEqual("{2}\u00A0Then Jesus said:", result[1].GetPrimaryReferenceText());
+			Assert.AreEqual(referenceBlocks[1].GetText(false), result[2].GetPrimaryReferenceText());
+			Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].GetPrimaryReferenceText());
+			Assert.AreEqual("responded John the beloved.", result[4].GetPrimaryReferenceText());
+			Assert.AreEqual(referenceBlocks[5].GetText(true), result[5].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -2234,8 +2234,8 @@ namespace GlyssenTests
 			Assert.IsFalse(result[4].MatchesReferenceText);
 			Assert.IsFalse(result[5].MatchesReferenceText);
 
-			Assert.AreEqual("In those days, John the Baptizer came, preaching in the wilderness of Judea, {2}\u00A0saying,", result[1].PrimaryReferenceText);
-			Assert.AreEqual("“Repent, for the Kingdom of Heaven is at hand!”", result[2].PrimaryReferenceText);
+			Assert.AreEqual("In those days, John the Baptizer came, preaching in the wilderness of Judea, {2}\u00A0saying,", result[1].GetPrimaryReferenceText());
+			Assert.AreEqual("“Repent, for the Kingdom of Heaven is at hand!”", result[2].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -2418,7 +2418,7 @@ namespace GlyssenTests
 			Assert.AreEqual(vernacularBlocks[iBlock].ToString(), result.Single().ToString());
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
 			Assert.IsTrue(result.Single().MatchesReferenceText);
-			Assert.AreEqual(referenceBlocks[iBlock].GetText(true), result.Single().PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[iBlock].GetText(true), result.Single().GetPrimaryReferenceText());
 		}
 
 		[TestCase(1)]
@@ -2451,7 +2451,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.PrimaryReferenceText)));
+			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())));
 		}
 
 		[TestCase(1)]
@@ -2517,7 +2517,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result.Select(b => b.ToString()).SequenceEqual(vernacularBlocks.Skip(1).Take(4).Select(b => b.ToString())));
 			Assert.AreEqual(0, vernacularBlocks.Intersect(result).Count());
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.PrimaryReferenceText)));
+			Assert.IsTrue(referenceBlocks.Skip(1).Take(4).Select(r => r.GetText(true)).SequenceEqual(result.Select(v => v.GetPrimaryReferenceText())));
 		}
 
 		[TestCase(0)]
@@ -2549,7 +2549,7 @@ namespace GlyssenTests
 			Assert.AreEqual("{2}\u00A0Entonces dijo Jesus: ", result[1].GetText(true));
 			Assert.AreEqual("Come to me you who are weary.", result[2].GetText(true));
 
-			Assert.IsTrue(result.Select(b => b.PrimaryReferenceText).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))));
+			Assert.IsTrue(result.Select(b => b.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Take(3).Select(b => b.GetText(true))));
 		}
 
 		[Test]
@@ -2579,7 +2579,7 @@ namespace GlyssenTests
 			Assert.AreEqual("{2}\u00A0\"Nupela pikinini em king bilong ol Juda, em i stap we ? Mipela i lukim sta bilong en long hap sankamap, na mipela i kam bilong lotu long em.\"", result[1].GetText(true));
 
 			Assert.IsTrue(result.Select(b => b.ReferenceBlocks.Single().GetText(true)).SequenceEqual(referenceBlocks.Take(2).Select(b => b.GetText(true))));
-			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].PrimaryReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
 		}
 
 		[TestCase(0)]

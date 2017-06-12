@@ -164,7 +164,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static Ignore ComparisonSensitivity { get; set; }
 
-		public static void ProcessReferenceTextData(Mode mode, IReferenceTextIdentifier refTextId = null)
+		public static void ProcessReferenceTextData(Mode mode, ReferenceTextIdentifier refTextId = null)
 		{
 			ReferenceTextData data = null;
 			// This had better be in console mode!!!
@@ -203,17 +203,22 @@ namespace Glyssen.RefTextDevUtilities
 			ProcessReferenceTextData(mode, data, () => refTextId != null ? ReferenceText.GetReferenceText(refTextId) : null);
 		}
 
-		public static void ProcessReferenceTextData(Mode mode,
-			ReferenceTextData data)
+		/// <summary>
+		/// An override to allow Reference Text Utility to compile
+		/// </summary>
+		/// <param name="mode"></param>
+		/// <param name="data"></param>
+		/// <param name="dummy"></param>
+		public static void ProcessReferenceTextData(Mode mode, ReferenceTextData data, string dummy)
 		{
-			ProcessReferenceTextData(mode, data, null);
+			ProcessReferenceTextData(mode, data, (Func<ReferenceText>)null);
 		}
 
 		public static void ProcessReferenceTextData(Mode mode,
 				ReferenceTextData data,
 				Func<ReferenceText> getReferenceText)
-			{
-				ErrorsOccurred = false;
+		{
+			ErrorsOccurred = false;
 
 			var characterMappings = new List<CharacterMapping>();
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();

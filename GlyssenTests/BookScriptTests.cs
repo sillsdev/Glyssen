@@ -512,8 +512,8 @@ namespace GlyssenTests
 			var result = vernBook.GetScriptBlocks(true);
 			Assert.AreEqual(2, result.Count);
 			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
-			Assert.AreEqual("rt0", result[0].PrimaryReferenceText);
-			Assert.AreEqual("rt1 rt2 rt3 rt4", result[1].PrimaryReferenceText);
+			Assert.AreEqual("rt0", result[0].GetPrimaryReferenceText());
+			Assert.AreEqual("rt1 rt2 rt3 rt4", result[1].GetPrimaryReferenceText());
 		}
 
 		[TestCase(".", "...")]
@@ -540,7 +540,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation +
 				" starting with the first patriarch: {2}\u00A0Abraham fue el primero.", result[0].GetText(true));
-			Assert.AreEqual("{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first.", result[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0This is the genealogy of Jesus. {2}\u00A0Abraham was first.", result[0].GetPrimaryReferenceText());
 		}
 
 		[TestCase(".", "p", "{1} This is not empty.", " ", "{1}\u00A0This is not empty.")]
@@ -567,7 +567,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
-			Assert.AreEqual(expectedCombinedRefText, result[0].PrimaryReferenceText);
+			Assert.AreEqual(expectedCombinedRefText, result[0].GetPrimaryReferenceText());
 		}
 
 		[TestCase(";", "p", "{1} This is not empty, ", "okay?", "{1}\u00A0This is not empty, okay?")]
@@ -595,7 +595,7 @@ namespace GlyssenTests
 			Assert.AreEqual(1, result.Count);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
-			Assert.AreEqual(expectedCombinedRefText, result[0].PrimaryReferenceText);
+			Assert.AreEqual(expectedCombinedRefText, result[0].GetPrimaryReferenceText());
 		}
 
 		[TestCase(".", "q", " ", "This is not empty.")]
@@ -610,7 +610,7 @@ namespace GlyssenTests
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock(block1RefText);
-			var origRefText1 = block.PrimaryReferenceText;
+			var origRefText1 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
 			block = new Block(block2StyleTag, m_curSetupChapter, 1);
 			if (block2StyleTag != "p")
@@ -618,15 +618,15 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Abraham fue el primero."));
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock(block2RefText);
-			var origRefText2 = block.PrimaryReferenceText;
+			var origRefText2 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 
 			var result = vernBook.GetScriptBlocks(true);
 			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(origRefText1, result[0].PrimaryReferenceText);
-			Assert.AreEqual(origRefText2, result[1].PrimaryReferenceText);
+			Assert.AreEqual(origRefText1, result[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origRefText2, result[1].GetPrimaryReferenceText());
 		}
 
 		[TestCase(",", "q", " ", "This is not empty.")]
@@ -642,7 +642,7 @@ namespace GlyssenTests
 			var block = NewSingleVersePara(1, "Este es la genealogia de Jesus" + vernBlock1EndingPunctuation);
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock(block1RefText);
-			var origRefText1 = block.PrimaryReferenceText;
+			var origRefText1 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
 			block = NewSingleVersePara(2, "Abraham fue el primero.");
 			if (block2StyleTag == "p")
@@ -651,15 +651,15 @@ namespace GlyssenTests
 				block.StyleTag = block2StyleTag;
 			block.CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			block.SetMatchedReferenceBlock(block2RefText);
-			var origRefText2 = block.PrimaryReferenceText;
+			var origRefText2 = block.GetPrimaryReferenceText();
 			vernacularBlocks.Add(block);
 
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 
 			var result = vernBook.GetScriptBlocks(true);
 			Assert.AreEqual(2, result.Count);
-			Assert.AreEqual(origRefText1, result[0].PrimaryReferenceText);
-			Assert.AreEqual(origRefText2, result[1].PrimaryReferenceText);
+			Assert.AreEqual(origRefText1, result[0].GetPrimaryReferenceText());
+			Assert.AreEqual(origRefText2, result[1].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -708,7 +708,7 @@ namespace GlyssenTests
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Este es la genealogia de Jesus" + vernBlock1EndingPunctuation.TrimEnd() +
 				" Abraham fue el primero.", result[0].GetText(true));
-			Assert.AreEqual(expectedCombinedRefText, result[0].PrimaryReferenceText);
+			Assert.AreEqual(expectedCombinedRefText, result[0].GetPrimaryReferenceText());
 		}
 		#endregion
 
@@ -1079,12 +1079,12 @@ namespace GlyssenTests
 					Assert.IsTrue(target[i].UserConfirmed);
 					Assert.IsTrue(target[i].MatchesReferenceText);
 					Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
-					Assert.AreEqual(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Reverse().ToArray()), target[i].PrimaryReferenceText);
+					Assert.AreEqual(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Reverse().ToArray()), target[i].GetPrimaryReferenceText());
 					if (i < 20)
 					{
 						var refBlock = target[i].ReferenceBlocks.Single();
 						Assert.IsTrue(refBlock.MatchesReferenceText);
-						Assert.AreEqual("{19}\u00A0Whatever", refBlock.PrimaryReferenceText);
+						Assert.AreEqual("{19}\u00A0Whatever", refBlock.GetPrimaryReferenceText());
 						Assert.AreNotEqual(refBlock.ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single().ReferenceBlocks.Single());
 					}
 				}
@@ -1130,7 +1130,7 @@ namespace GlyssenTests
 					{
 						Assert.IsTrue(target[i].MatchesReferenceText);
 						Assert.AreNotEqual(target[i].ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single());
-						Assert.AreEqual(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Reverse().ToArray()), target[i].PrimaryReferenceText);
+						Assert.AreEqual(new String(source[i].BlockElements.OfType<ScriptText>().First().Content.TrimEnd().Reverse().ToArray()), target[i].GetPrimaryReferenceText());
 					}
 					if (i >= userConfirmedCharacterBlockIndices[2])
 					{
@@ -1143,7 +1143,7 @@ namespace GlyssenTests
 						else
 						{
 							Assert.IsTrue(refBlock.MatchesReferenceText);
-							Assert.AreEqual("{19}\u00A0Whatever", refBlock.PrimaryReferenceText);
+							Assert.AreEqual("{19}\u00A0Whatever", refBlock.GetPrimaryReferenceText());
 							Assert.AreNotEqual(refBlock.ReferenceBlocks.Single(), source[i].ReferenceBlocks.Single().ReferenceBlocks.Single());
 						}
 					}
@@ -2183,7 +2183,7 @@ namespace GlyssenTests
 			var blockToSplit = NewSingleVersePara(36, "Ignorando lo que dijeron, Jesus le dijo al jefe de la sinagoga: No temas; solo cree.");
 			mrkBlocks.Add(blockToSplit);
 			blockToSplit.SetMatchedReferenceBlock("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.");
-			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.", blockToSplit.PrimaryReferenceText);
+			Assert.AreEqual("{36}\u00A0Ignoring what they said, Jesus told the synagogue ruler: Don't be afraid; just believe.", blockToSplit.GetPrimaryReferenceText());
 			var bookScript = new BookScript("MRK", mrkBlocks);
 			var newBlock = bookScript.SplitBlock(blockToSplit, "36", 64);
 			var blocks = bookScript.GetScriptBlocks();
@@ -2354,17 +2354,17 @@ namespace GlyssenTests
 			Assert.AreEqual(3, bookScript.GetScriptBlocks().Count);
 			var origSplitBlock = bookScript.GetScriptBlocks()[1];
 			Assert.AreEqual("{10}\u00A0Ich hörte hinter mir eine Stimme, die durchdringend wie eine Posaune klang ", origSplitBlock.GetText(true));
-			Assert.AreEqual("{10}\u00A0Oí detrás de mí una gran voz, como sonido de trompeta, que decía: ", origSplitBlock.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0Oí detrás de mí una gran voz, como sonido de trompeta, que decía: ", origSplitBlock.GetPrimaryReferenceText());
 			var newSplitBlock = bookScript.GetScriptBlocks()[2];
 			Assert.AreEqual("{11}\u00A0und die mir befahl: ", newSplitBlock.GetText(true));
-			Assert.AreEqual("", newSplitBlock.PrimaryReferenceText);
+			Assert.AreEqual("", newSplitBlock.GetPrimaryReferenceText());
 			var spanishRefBlockForOrigVernBlock = origSplitBlock.ReferenceBlocks.Single();
-			Assert.AreEqual("{10}\u00A0I heard behind me a loud voice like a trumpet {11}\u00A0saying, ", spanishRefBlockForOrigVernBlock.PrimaryReferenceText,
+			Assert.AreEqual("{10}\u00A0I heard behind me a loud voice like a trumpet {11}\u00A0saying, ", spanishRefBlockForOrigVernBlock.GetPrimaryReferenceText(),
 				"This might seem wrong, since we're splitting the vern at 11, but this is the English ref text that corresponded to the Spanish " +
 				"referenece text, and since that hasn't changed, this shouldn't either.");
 			Assert.IsTrue(spanishRefBlockForOrigVernBlock.MatchesReferenceText);
 			var spanishRefBlockForNewVernBlock = newSplitBlock.ReferenceBlocks.Single();
-			Assert.AreEqual("", spanishRefBlockForNewVernBlock.PrimaryReferenceText);
+			Assert.AreEqual("", spanishRefBlockForNewVernBlock.GetPrimaryReferenceText());
 			Assert.IsTrue(spanishRefBlockForNewVernBlock.MatchesReferenceText);
 		}
 		#endregion
@@ -2490,17 +2490,17 @@ namespace GlyssenTests
 			var newBlocks = bookScript.GetScriptBlocks();
 			Assert.AreEqual(5, newBlocks.Count);
 			Assert.AreEqual("{1}\u00A0This is the new text.", newBlocks[1].GetText(true));
-			Assert.AreEqual("{1}\u00A0Reference text for v1.", newBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Reference text for v1.", newBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(firstReplacementBlockMultiBlockQuoteType, newBlocks[1].MultiBlockQuote);
 			Assert.AreEqual("neighbors", newBlocks[1].CharacterId);
 
 			Assert.AreEqual("{2}\u00A0This is the new text.", newBlocks[2].GetText(true));
-			Assert.AreEqual("{2}\u00A0Reference text for v2.", newBlocks[2].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0Reference text for v2.", newBlocks[2].GetPrimaryReferenceText());
 			Assert.AreEqual(subsequentReplacementBlockMultiBlockQuoteType, newBlocks[2].MultiBlockQuote);
 			Assert.AreEqual("neighbors", newBlocks[2].CharacterId);
 
 			Assert.AreEqual("Again, I say, this is the new text.", newBlocks[3].GetText(true));
-			Assert.AreEqual("More reference text for v2.", newBlocks[3].PrimaryReferenceText);
+			Assert.AreEqual("More reference text for v2.", newBlocks[3].GetPrimaryReferenceText());
 			Assert.AreEqual(subsequentReplacementBlockMultiBlockQuoteType, newBlocks[3].MultiBlockQuote);
 			Assert.AreEqual("neighbors", newBlocks[3].CharacterId);
 
@@ -2589,12 +2589,12 @@ namespace GlyssenTests
 			Assert.AreEqual(7, newBlocks.Count);
 			int i = 2;
 			Assert.AreEqual("{2}\u00A0This is the new text.", newBlocks[i].GetText(true));
-			Assert.AreEqual("{2}\u00A0Reference text for v2.", newBlocks[i].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0Reference text for v2.", newBlocks[i].GetPrimaryReferenceText());
 			Assert.AreEqual(firstReplacementBlockMultiBlockQuoteType, newBlocks[i].MultiBlockQuote);
 			Assert.AreEqual(characterOfFirstReplacementBlock, newBlocks[i].CharacterId);
 
 			Assert.AreEqual("This is the new text, spoken by the neighbors.", newBlocks[++i].GetText(true));
-			Assert.AreEqual("More reference text for v2.", newBlocks[i].PrimaryReferenceText);
+			Assert.AreEqual("More reference text for v2.", newBlocks[i].GetPrimaryReferenceText());
 			Assert.AreEqual(finalReplacementBlockMultiBlockQuoteType, newBlocks[i].MultiBlockQuote);
 			Assert.AreEqual("neighbors", newBlocks[i].CharacterId);
 			Assert.AreEqual("Walter", newBlocks[i].CharacterIdInScript);

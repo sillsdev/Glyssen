@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Glyssen.Shared.Bundle
+namespace Glyssen
 {
 	[XmlRoot]
 	public class BookBlockIndices : IEquatable<BookBlockIndices>, IComparable<BookBlockIndices>

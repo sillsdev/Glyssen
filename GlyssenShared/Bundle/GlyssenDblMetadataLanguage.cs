@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 using Glyssen.Shared.Properties;
 using SIL.DblBundle.Text;
 
-namespace Glyssen.Bundle
+namespace Glyssen.Shared.Bundle
 {
 	[XmlRoot("DBLMetadata")]
 	public class GlyssenDblMetadataLanguage : DblMetadataLanguage

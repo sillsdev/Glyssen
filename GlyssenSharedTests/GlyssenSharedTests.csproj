@@ -65,8 +65,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Bundle\GlyssenBundleTests.cs" />
-    <Compile Include="Bundle\GlyssenDblTextMetadataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

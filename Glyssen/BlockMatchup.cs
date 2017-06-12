@@ -124,8 +124,8 @@ namespace Glyssen
 					var correlatedBlock = CorrelatedBlocks[i++];
 					if (realBlock.CharacterId != correlatedBlock.CharacterId ||
 						realBlock.Delivery != correlatedBlock.Delivery ||
-						realBlock.PrimaryReferenceText != correlatedBlock.PrimaryReferenceText ||
-						!realBlock.ReferenceBlocks.Select(r => r.PrimaryReferenceText).SequenceEqual(correlatedBlock.ReferenceBlocks.Select(r => r.PrimaryReferenceText)))
+						realBlock.GetPrimaryReferenceText() != correlatedBlock.GetPrimaryReferenceText() ||
+						!realBlock.ReferenceBlocks.Select(r => r.GetPrimaryReferenceText()).SequenceEqual(correlatedBlock.ReferenceBlocks.Select(r => r.GetPrimaryReferenceText())))
 					return true;
 				}
 				return false;

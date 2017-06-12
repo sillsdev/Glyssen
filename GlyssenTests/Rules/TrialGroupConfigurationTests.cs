@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
+using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Rules;
 using Glyssen.Shared.Bundle;

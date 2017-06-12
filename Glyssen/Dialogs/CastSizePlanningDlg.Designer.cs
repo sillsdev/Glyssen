@@ -1,4 +1,5 @@
-﻿using Glyssen.Shared.Bundle;
+﻿using Glyssen.Bundle;
+using Glyssen.Shared.Bundle;
 using L10NSharp.UI;
 
 namespace Glyssen.Dialogs

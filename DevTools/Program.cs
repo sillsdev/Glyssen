@@ -1,8 +1,7 @@
 ﻿using System;
 using Glyssen;
 using Glyssen.RefTextDevUtilities;
-using Glyssen.Shared.Bundle;
-using Glyssen.Utilities;
+using Glyssen.Shared;
 
 namespace DevTools
 {

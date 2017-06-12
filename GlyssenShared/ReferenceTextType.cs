@@ -1,4 +1,4 @@
-﻿namespace Glyssen.Shared.Bundle
+﻿namespace Glyssen.Shared
 {
 	public enum ReferenceTextType
 	{

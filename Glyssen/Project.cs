@@ -53,6 +53,7 @@ namespace Glyssen
 		public const double kKeyStrokesPerHour = 6000;
 		public const double kCameoCharacterEstimatedHoursLimit = 0.2;
 
+		private readonly GlyssenDblTextMetadata m_projectMetadata;
 		private int m_usxPercentComplete;
 		private int m_guessPercentComplete;
 		private int m_quotePercentComplete;
@@ -84,6 +85,7 @@ namespace Glyssen
 			WritingSystemDefinition ws = null)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
 		{
+			m_projectMetadata = metadata;
 			SetBlockGetChapterAnnouncement(ChapterAnnouncementStyle);
 			m_wsDefinition = ws;
 			ProjectCharacterVerseData = new ProjectCharacterVerseData(ProjectCharacterVerseDataPath);
@@ -135,60 +137,33 @@ namespace Glyssen
 			m_vers = LoadVersification(VersificationFilePath);
 		}
 
-		public static IEnumerable<string> AllPublicationFolders
-		{
-			get { return Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories); }
-		}
+		public static IEnumerable<string> AllPublicationFolders => Directory.GetDirectories(ProjectsBaseFolder).SelectMany(Directory.GetDirectories);
 
-		public static IEnumerable<string> AllRecordingProjectFolders
-		{
-			get { return AllPublicationFolders.SelectMany(Directory.GetDirectories); }
-		}
+		public static IEnumerable<string> AllRecordingProjectFolders => AllPublicationFolders.SelectMany(Directory.GetDirectories);
 
-		public string AudioStockNumber
-		{
-			get { return m_metadata.AudioStockNumber; }
-		}
+		public string AudioStockNumber => m_projectMetadata.AudioStockNumber;
 
-		public string Id
-		{
-			get { return m_metadata.Id; }
-		}
+		public string Id => m_metadata.Id;
 
-		public string Name
-		{
-			get { return m_recordingProjectName; }
-		}
+		public string Name => m_recordingProjectName;
 
-		public string PublicationName
-		{
-			get { return m_metadata.Identification == null ? null : m_metadata.Identification.Name; }
-		}
+		public string PublicationName => m_metadata.Identification?.Name;
 
-		public string LanguageIsoCode
-		{
-			get { return m_metadata.Language.Iso; }
-		}
+		public IReadOnlyGlyssenDblTextMetadata Metadata => m_metadata;
 
 		public ChapterAnnouncement ChapterAnnouncementStyle
 		{
-			get { return m_metadata.ChapterAnnouncementStyle; }
+			get { return m_projectMetadata.ChapterAnnouncementStyle; }
 			private set
 			{
-				m_metadata.ChapterAnnouncementStyle = value;
+				m_projectMetadata.ChapterAnnouncementStyle = value;
 				SetBlockGetChapterAnnouncement(value);
 			}
 		}
 
-		public bool SkipChapterAnnouncementForFirstChapter
-		{
-			get { return !m_metadata.IncludeChapterAnnouncementForFirstChapter; }
-		}
+		public bool SkipChapterAnnouncementForFirstChapter => !m_projectMetadata.IncludeChapterAnnouncementForFirstChapter;
 
-		public bool SkipChapterAnnouncementForSingleChapterBooks
-		{
-			get { return !m_metadata.IncludeChapterAnnouncementForSingleChapterBooks; }
-		}
+		public bool SkipChapterAnnouncementForSingleChapterBooks => !m_projectMetadata.IncludeChapterAnnouncementForSingleChapterBooks;
 
 		public void SetBlockGetChapterAnnouncement(ChapterAnnouncement announcementStyle)
 		{
@@ -230,15 +205,9 @@ namespace Glyssen
 			Block.FormatChapterAnnouncement = GetFormattedChapterAnnouncement;
 		}
 
-		public ProjectStatus Status
-		{
-			get { return m_metadata.ProjectStatus; }
-		}
+		public ProjectStatus Status => m_projectMetadata.ProjectStatus;
 
-		public ProjectAnalysis ProjectAnalysis
-		{
-			get { return m_analysis ?? (m_analysis = new ProjectAnalysis(this)); }
-		}
+		public ProjectAnalysis ProjectAnalysis => m_analysis ?? (m_analysis = new ProjectAnalysis(this));
 
 		public QuoteSystem QuoteSystem
 		{
@@ -282,54 +251,48 @@ namespace Glyssen
 
 		public QuoteSystemStatus QuoteSystemStatus
 		{
-			get { return m_metadata.ProjectStatus.QuoteSystemStatus; }
-			set { m_metadata.ProjectStatus.QuoteSystemStatus = value; }
+			get { return m_projectMetadata.ProjectStatus.QuoteSystemStatus; }
+			set { m_projectMetadata.ProjectStatus.QuoteSystemStatus = value; }
 		}
 
-		public bool IsQuoteSystemReadyForParse
-		{
-			get { return (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0; }
-		}
+		public bool IsQuoteSystemReadyForParse => (QuoteSystemStatus & QuoteSystemStatus.ParseReady) != 0;
 
-		public DateTime QuoteSystemDate
-		{
-			get { return m_metadata.ProjectStatus.QuoteSystemDate; }
-		}
+		public DateTime QuoteSystemDate => m_projectMetadata.ProjectStatus.QuoteSystemDate;
 
 		public BookSelectionStatus BookSelectionStatus
 		{
 			get
 			{
 				// don't make the user open the select books dialog if there is only 1 book
-				if ((m_metadata.ProjectStatus.BookSelectionStatus == BookSelectionStatus.UnReviewed) &&
+				if ((m_projectMetadata.ProjectStatus.BookSelectionStatus == BookSelectionStatus.UnReviewed) &&
 					(AvailableBooks.Count == 1) && (IncludedBooks.Count == 1))
 				{
-					m_metadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
+					m_projectMetadata.ProjectStatus.BookSelectionStatus = BookSelectionStatus.Reviewed;
 				}
 
-				return m_metadata.ProjectStatus.BookSelectionStatus;
+				return m_projectMetadata.ProjectStatus.BookSelectionStatus;
 			}
-			set { m_metadata.ProjectStatus.BookSelectionStatus = value; }
+			set { m_projectMetadata.ProjectStatus.BookSelectionStatus = value; }
 		}
 
 		public ProjectSettingsStatus ProjectSettingsStatus
 		{
-			get { return m_metadata.ProjectStatus.ProjectSettingsStatus; }
-			set { m_metadata.ProjectStatus.ProjectSettingsStatus = value; }
+			get { return m_projectMetadata.ProjectStatus.ProjectSettingsStatus; }
+			set { m_projectMetadata.ProjectStatus.ProjectSettingsStatus = value; }
 		}
 
 		public CharacterGroupGenerationPreferences CharacterGroupGenerationPreferences
 		{
-			get { return m_metadata.CharacterGroupGenerationPreferences; }
-			set { m_metadata.CharacterGroupGenerationPreferences = value; }
+			get { return m_projectMetadata.CharacterGroupGenerationPreferences; }
+			set { m_projectMetadata.CharacterGroupGenerationPreferences = value; }
 		}
 
 		// TODO: Implement this feature. Currently, this setting is not exposed in the UI and it is
 		// only used for estimating cast size.
 		public ProjectDramatizationPreferences DramatizationPreferences
 		{
-			get { return m_metadata.DramatizationPreferences; }
-			set { m_metadata.DramatizationPreferences = value; }
+			get { return m_projectMetadata.DramatizationPreferences; }
+			set { m_projectMetadata.DramatizationPreferences = value; }
 		}
 
 		public bool IncludeCharacter(string characterId)
@@ -410,15 +373,12 @@ namespace Glyssen
 			}
 		}
 
-		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks
-		{
-			get { return m_metadata.AvailableBibleBooks; }
-		}
+		public SIL.ObjectModel.IReadOnlyList<Book> AvailableBooks => m_metadata.AvailableBibleBooks;
 
 		public string OriginalBundlePath
 		{
-			get { return m_metadata.OriginalPathBundlePath; }
-			set { m_metadata.OriginalPathBundlePath = value; }
+			get { return m_projectMetadata.OriginalPathBundlePath; }
+			set { m_projectMetadata.OriginalPathBundlePath = value; }
 		}
 
 		public readonly ProjectCharacterVerseData ProjectCharacterVerseData;
@@ -450,13 +410,13 @@ namespace Glyssen
 				Directory.Move(ProjectFolder, newPath);
 				m_recordingProjectName = model.RecordingProjectName;
 			}
-			m_metadata.AudioStockNumber = model.AudioStockNumber;
-			m_metadata.FontFamily = model.WsModel.CurrentDefaultFontName;
-			m_metadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
+			m_projectMetadata.AudioStockNumber = model.AudioStockNumber;
+			m_projectMetadata.FontFamily = model.WsModel.CurrentDefaultFontName;
+			m_projectMetadata.FontSizeInPoints = (int) model.WsModel.CurrentDefaultFontSize;
 			m_metadata.Language.ScriptDirection = model.WsModel.CurrentRightToLeftScript ? "RTL" : "LTR";
 			ChapterAnnouncementStyle = model.ChapterAnnouncementStyle;
-			m_metadata.IncludeChapterAnnouncementForFirstChapter = !model.SkipChapterAnnouncementForFirstChapter;
-			m_metadata.IncludeChapterAnnouncementForSingleChapterBooks = !model.SkipChapterAnnouncementForSingleChapterBooks;
+			m_projectMetadata.IncludeChapterAnnouncementForFirstChapter = !model.SkipChapterAnnouncementForFirstChapter;
+			m_projectMetadata.IncludeChapterAnnouncementForSingleChapterBooks = !model.SkipChapterAnnouncementForSingleChapterBooks;
 		}
 
 		public Project UpdateProjectFromBundleData(GlyssenBundle bundle)
@@ -469,15 +429,15 @@ namespace Glyssen
 			// location, just mark the existing one as inactive.
 			bool moving = (ProjectFilePath != GetProjectFilePath(bundle.LanguageIso, bundle.Id, m_recordingProjectName));
 			if (moving)
-				m_metadata.Inactive = true;
+				m_projectMetadata.Inactive = true;
 			Save();
 			if (!moving)
 				CreateBackup("Backup before updating from new bundle");
 
-			bundle.Metadata.CopyGlyssenModifiableSettings(m_metadata);
+			bundle.Metadata.CopyGlyssenModifiableSettings(m_projectMetadata);
 
 			// PG-612: renaming bundle causes loss of assignments
-			bundle.Metadata.ControlFileVersion = m_metadata.ControlFileVersion;
+			bundle.Metadata.ControlFileVersion = m_projectMetadata.ControlFileVersion;
 
 			CopyQuoteMarksIfAppropriate(bundle.WritingSystemDefinition, bundle.Metadata);
 
@@ -580,10 +540,7 @@ namespace Glyssen
 			}
 		}
 
-		public string BookSelectionSummary
-		{
-			get { return IncludedBooks.BookSummary(); }
-		}
+		public string BookSelectionSummary => IncludedBooks.BookSummary();
 
 		/// <summary>
 		/// If this is set, the user decisions in it will be applied when the quote parser is done
@@ -610,15 +567,9 @@ namespace Glyssen
 			}
 		}
 
-		public bool CharacterGroupListPreviouslyGenerated
-		{
-			get { return CharacterGroupList.CharacterGroups.Any(); }
-		}
+		public bool CharacterGroupListPreviouslyGenerated => CharacterGroupList.CharacterGroups.Any();
 
-		public bool IsVoiceActorScriptReady
-		{
-			get { return IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter; }
-		}
+		public bool IsVoiceActorScriptReady => IsVoiceActorAssignmentsComplete && EveryAssignedGroupHasACharacter;
 
 		public bool IsVoiceActorAssignmentsComplete
 		{
@@ -675,11 +626,11 @@ namespace Glyssen
 		{
 			get
 			{
-				return ReferenceTextIdentifier.GetOrCreate(m_metadata.ReferenceTextType, m_metadata.ProprietaryReferenceTextIdentifier);
+				return ReferenceTextIdentifier.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
 			}
 			set
 			{
-				if (value.Type == m_metadata.ReferenceTextType && value.CustomIdentifier == m_metadata.ProprietaryReferenceTextIdentifier)
+				if (value.Type == m_projectMetadata.ReferenceTextType && value.CustomIdentifier == m_projectMetadata.ProprietaryReferenceTextIdentifier)
 					return;
 
 				ChangeReferenceTextIdentifier(value);
@@ -689,8 +640,8 @@ namespace Glyssen
 
 		private void ChangeReferenceTextIdentifier(ReferenceTextIdentifier value)
 		{
-			m_metadata.ReferenceTextType = value.Type;
-			m_metadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
+			m_projectMetadata.ReferenceTextType = value.Type;
+			m_projectMetadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
 			m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
 		}
 
@@ -724,10 +675,7 @@ namespace Glyssen
 			}
 		}
 
-		public string UiReferenceTextName
-		{
-			get { return ReferenceTextIdentifier.Missing ? m_metadata.ProprietaryReferenceTextIdentifier : ReferenceText.LanguageName; }
-		}
+		public string UiReferenceTextName => ReferenceTextIdentifier.Missing ? m_projectMetadata.ProprietaryReferenceTextIdentifier : ReferenceText.LanguageName;
 
 		public bool HasUnappliedSplits()
 		{
@@ -747,13 +695,13 @@ namespace Glyssen
 			if (existingProject == null)
 				return null;
 
-			if (!existingProject.IsSampleProject && existingProject.m_metadata.ParserVersion != Settings.Default.ParserVersion)
+			if (!existingProject.IsSampleProject && existingProject.m_projectMetadata.ParserVersion != Settings.Default.ParserVersion)
 			{
 				bool upgradeProject = true;
 				if (!RobustFile.Exists(existingProject.OriginalBundlePath))
 				{
 					upgradeProject = false;
-					if (Settings.Default.ParserVersion > existingProject.m_metadata.ParserUpgradeOptOutVersion)
+					if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
 					{
 						string msg =
 							Format(
@@ -766,14 +714,14 @@ namespace Glyssen
 						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
 							upgradeProject = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
 						if (!upgradeProject)
-							existingProject.m_metadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
+							existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 					}
 				}
 				if (upgradeProject)
 				{
 					using (var bundle = new GlyssenBundle(existingProject.OriginalBundlePath))
 					{
-						var upgradedProject = new Project(existingProject.m_metadata, existingProject.m_recordingProjectName,
+						var upgradedProject = new Project(existingProject.m_projectMetadata, existingProject.m_recordingProjectName,
 							ws: existingProject.WritingSystem);
 
 						Analytics.Track("UpgradeProject", new Dictionary<string, string>
@@ -781,13 +729,13 @@ namespace Glyssen
 							{"language", existingProject.LanguageIsoCode},
 							{"ID", existingProject.Id},
 							{"recordingProjectName", existingProject.Name},
-							{"oldParserVersion", existingProject.m_metadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
+							{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
 							{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
 						});
 
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
-						upgradedProject.m_metadata.ParserVersion = Settings.Default.ParserVersion;
+						upgradedProject.m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 						upgradedProject.InitializeLoadedProject();
 						return upgradedProject;
 					}
@@ -917,11 +865,11 @@ namespace Glyssen
 				return;
 			}
 			m_quotePercentComplete = 100;
-			if (m_metadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
+			if (m_projectMetadata.ControlFileVersion != ControlCharacterVerseData.Singleton.ControlFileVersion)
 			{
 				const int kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan = 78;
 				new CharacterAssigner(new CombinedCharacterVerseData(this)).AssignAll(m_books, Versification,
-					m_metadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
+					m_projectMetadata.ControlFileVersion < kControlFileVersionWhenOnTheFlyAssignmentOfCharacterIdInScriptBegan);
 
 				UpdateControlFileVersion();
 			}
@@ -933,10 +881,10 @@ namespace Glyssen
 
 		private void UpdateControlFileVersion()
 		{
-			if (m_metadata.ControlFileVersion != 0)
-				ProjectDataMigrator.MigrateProjectData(this, m_metadata.ControlFileVersion);
-			if (m_metadata.ControlFileVersion == 0 || ProjectState == ProjectState.FullyInitialized)
-				m_metadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
+			if (m_projectMetadata.ControlFileVersion != 0)
+				ProjectDataMigrator.MigrateProjectData(this, m_projectMetadata.ControlFileVersion);
+			if (m_projectMetadata.ControlFileVersion == 0 || ProjectState == ProjectState.FullyInitialized)
+				m_projectMetadata.ControlFileVersion = ControlCharacterVerseData.Singleton.ControlFileVersion;
 		}
 
 		private void ApplyUserDecisions(Project sourceProject)
@@ -997,7 +945,7 @@ namespace Glyssen
 				}
 
 			m_books.AddRange(bookScripts);
-			m_metadata.ParserVersion = Settings.Default.ParserVersion;
+			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
 			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
 				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 			UpdateControlFileVersion();
@@ -1127,20 +1075,11 @@ namespace Glyssen
 			return Path.Combine(ProjectsBaseFolder, langId);
 		}
 
-		public string ProjectFilePath
-		{
-			get { return GetProjectFilePath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
-		}
+		public string ProjectFilePath => GetProjectFilePath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName);
 
-		private string ProjectCharacterVerseDataPath
-		{
-			get { return Path.Combine(ProjectFolder, kProjectCharacterVerseFileName); }
-		}
+		private string ProjectCharacterVerseDataPath => Path.Combine(ProjectFolder, kProjectCharacterVerseFileName);
 
-		private string ProjectCharacterDetailDataPath
-		{
-			get { return Path.Combine(ProjectFolder, kProjectCharacterDetailFileName); }
-		}
+		private string ProjectCharacterDetailDataPath => Path.Combine(ProjectFolder, kProjectCharacterDetailFileName);
 
 		private string LdmlFilePath
 		{
@@ -1155,15 +1094,9 @@ namespace Glyssen
 
 		private string LdmlBackupFilePath => Path.ChangeExtension(LdmlFilePath, DblBundleFileUtils.kUnzippedLdmlFileExtension + "bak");
 
-		protected override string ProjectFolder
-		{
-			get { return GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName); }
-		}
+		protected override string ProjectFolder => GetProjectFolderPath(m_metadata.Language.Iso, m_metadata.Id, m_recordingProjectName);
 
-		private string LanguageFolder
-		{
-			get { return GetLanguageFolderPath(m_metadata.Language.Iso); }
-		}
+		private string LanguageFolder => GetLanguageFolderPath(m_metadata.Language.Iso);
 
 		public void Analyze()
 		{
@@ -1194,7 +1127,7 @@ namespace Glyssen
 			m_metadata.LastModified = DateTime.Now;
 			var projectPath = ProjectFilePath;
 			Exception error;
-			XmlSerializationHelper.SerializeToFile(projectPath, m_metadata, out error);
+			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
 			if (error != null)
 			{
 				MessageBox.Show(error.Message);
@@ -1475,7 +1408,7 @@ namespace Glyssen
 				// Now test to see if what we wrote is actually readable...
 				new LdmlDataMapper(new WritingSystemFactory()).Read(LdmlFilePath, new WritingSystemDefinition());
 			}
-			catch(FileLoadException loadException)
+			catch(FileLoadException)
 			{
 				throw; // Don't want to ignore this error - should never happen on valid installation.
 			}
@@ -1523,7 +1456,7 @@ namespace Glyssen
 
 		private void HandleQuoteSystemChanged()
 		{
-			Project copyOfExistingProject = new Project(m_metadata, Name, ws: WritingSystem);
+			Project copyOfExistingProject = new Project(m_projectMetadata, Name, ws: WritingSystem);
 			copyOfExistingProject.m_books.AddRange(m_books);
 
 			m_books.Clear();
@@ -1579,13 +1512,7 @@ namespace Glyssen
 				ProgressChanged(this, e);
 		}
 
-		public bool IsSampleProject
-		{
-			get
-			{
-				return Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
-			}
-		}
+		public bool IsSampleProject => Id.Equals(SampleProject.kSample, StringComparison.OrdinalIgnoreCase) && LanguageIsoCode == SampleProject.kSample;
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
@@ -1599,7 +1526,7 @@ namespace Glyssen
 
 		private void InstallFontsIfNecessary()
 		{
-			if (m_fontInstallationAttempted || FontHelper.FontInstalled(m_metadata.FontFamily))
+			if (m_fontInstallationAttempted || FontHelper.FontInstalled(m_projectMetadata.FontFamily))
 				return;
 
 			List<string> ttfFilesToInstall = new List<string>();
@@ -1609,7 +1536,7 @@ namespace Glyssen
 				using (PrivateFontCollection fontCol = new PrivateFontCollection())
 				{
 					fontCol.AddFontFile(ttfFile);
-					if (fontCol.Families[0].Name == m_metadata.FontFamily)
+					if (fontCol.Families[0].Name == m_projectMetadata.FontFamily)
 						ttfFilesToInstall.Add(ttfFile);
 				}
 			}
@@ -1623,13 +1550,13 @@ namespace Glyssen
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
 								"The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."),
-							m_metadata.FontFamily, GlyssenInfo.kProduct));
+							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
 					MessageBox.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructions",
 								"The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
-							m_metadata.FontFamily, GlyssenInfo.kProduct));
+							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 
 				foreach (var ttfFile in ttfFilesToInstall)
 				{
@@ -1652,7 +1579,7 @@ namespace Glyssen
 					Format(
 						LocalizationManager.GetString("Font.FontFilesNotFound",
 							"The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
-						m_metadata.FontFamily, GlyssenInfo.kProduct));
+						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 		}
 
 		public void UseDefaultForUnresolvedMultipleChoiceCharacters()
@@ -1684,15 +1611,9 @@ namespace Glyssen
 			}
 		}
 
-		public Dictionary<string, int>.KeyCollection AllCharacterIds
-		{
-			get { return KeyStrokesByCharacterId.Keys; }
-		}
+		public Dictionary<string, int>.KeyCollection AllCharacterIds => KeyStrokesByCharacterId.Keys;
 
-		public int TotalCharacterCount
-		{
-			get { return KeyStrokesByCharacterId.Count; }
-		}
+		public int TotalCharacterCount => KeyStrokesByCharacterId.Count;
 
 		private class DistributionScoreBookStats
 		{

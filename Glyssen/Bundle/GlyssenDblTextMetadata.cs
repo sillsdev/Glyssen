@@ -3,38 +3,19 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.Bundle;
-using SIL.DblBundle.Text;
+using Glyssen.Dialogs;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using SIL.Xml;
 
-namespace Glyssen.Shared.Bundle
+namespace Glyssen.Bundle
 {
 	[XmlRoot("DBLMetadata")]
-	public class GlyssenDblTextMetadata : DblTextMetadata<GlyssenDblMetadataLanguage>
+	public class GlyssenDblTextMetadata : GlyssenDblTextMetadataBase
 	{
-		private int m_fontSizeInPointsTemp;
-		private string m_fontFamilyTemp;
 		private ReferenceTextType m_referenceTextType = ReferenceTextType.English;
 
 		#region public Properties
-		[XmlElement("language")]
-		public override GlyssenDblMetadataLanguage Language
-		{
-			set
-			{
-				base.Language = value;
-				if (m_fontFamilyTemp != default(string))
-				{
-					Language.FontFamily = m_fontFamilyTemp;
-					m_fontFamilyTemp = default(string);
-				}
-				if (m_fontSizeInPointsTemp != default(int))
-				{
-					Language.FontSizeInPoints = m_fontSizeInPointsTemp;
-					m_fontSizeInPointsTemp = default(int);
-				}
-			}
-		}
 
 		///// <summary>This is only needed as a temporary place to store the recording project name when the user metadata
 		///// is created for a project that does not have a bundle - this can go away if we stop supporting those.</summary>
@@ -81,12 +62,6 @@ namespace Glyssen.Shared.Bundle
 		[DefaultValue(false)]
 		public bool Inactive { get; set; }
 
-		/// <summary>
-		/// Last modified date to project - updated when project is saved
-		/// </summary>
-		[XmlAttribute("modifieddate")]
-		public DateTime LastModified { get; set; }
-
 		[XmlElement("projectStatus")]
 		public ProjectStatus ProjectStatus = new ProjectStatus();
 
@@ -95,47 +70,6 @@ namespace Glyssen.Shared.Bundle
 
 		[XmlElement("projectDramatizationPreferences")]
 		public ProjectDramatizationPreferences DramatizationPreferences = new ProjectDramatizationPreferences();
-
-		/// <summary>
-		/// The font family for the language associated with this project.
-		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
-		/// </summary>
-		[XmlIgnore]
-		public string FontFamily
-		{
-			get { return Language == null ? m_fontFamilyTemp : Language.FontFamily; }
-			set
-			{
-				if (Language == null)
-					m_fontFamilyTemp = value;
-				else
-					Language.FontFamily = value;
-			}
-		}
-
-		/// <summary>
-		/// The font size for the language associated with this project.
-		/// This is pulled in from the stylesheet or set via the ProjectSettingsDlg.
-		/// </summary>
-		[XmlIgnore]
-		public int FontSizeInPoints
-		{
-			get { return Language == null ? m_fontSizeInPointsTemp : Language.FontSizeInPoints; }
-			set
-			{
-				if (Language == null)
-					m_fontSizeInPointsTemp = value;
-				else
-					Language.FontSizeInPoints = value;
-			}
-		}
-
-		[XmlIgnore]
-		public int FontSizeUiAdjustment
-		{
-			get { return Language == null ? 0 : Language.FontSizeUiAdjustment; }
-			set { Language.FontSizeUiAdjustment = value; }
-		}
 
 		/// <summary>
 		/// If a project does not come with a versification file, this is the name of the standard versification to be used.

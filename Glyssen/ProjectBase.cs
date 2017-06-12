@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using L10NSharp;
@@ -24,38 +22,30 @@ namespace Glyssen
 
 		protected static string ProjectsBaseFolder => GlyssenInfo.BaseDataFolder;
 
-		protected readonly GlyssenDblTextMetadata m_metadata;
+		protected readonly GlyssenDblTextMetadataBase m_metadata;
 		protected readonly List<BookScript> m_books = new List<BookScript>();
 		protected ScrVers m_vers;
 		protected string m_recordingProjectName;
 
-		protected ProjectBase(GlyssenDblTextMetadata metadata, string recordingProjectName)
+		protected ProjectBase(GlyssenDblTextMetadataBase metadata, string recordingProjectName)
 		{
 			m_metadata = metadata;
 			m_recordingProjectName = recordingProjectName;
 		}
 
-		public IReadOnlyList<BookScript> Books { get { return m_books; } }
+		public IReadOnlyList<BookScript> Books => m_books;
 
-		public ScrVers Versification
-		{
-			get { return m_vers; }
-		}
+		public ScrVers Versification => m_vers;
 
-		public string LanguageName
-		{
-			get { return m_metadata.Language.Name; }
-		}
+		public string LanguageName => m_metadata.Language.Name;
 
-		public string FontFamily
-		{
-			get { return m_metadata.FontFamily; }
-		}
+		public string LanguageIsoCode => m_metadata.Language.Iso;
 
-		public int FontSizeInPoints
-		{
-			get { return m_metadata.FontSizeInPoints; }
-		}
+		public string LanguageLdml => m_metadata.Language.Ldml;
+
+		public string FontFamily => m_metadata.FontFamily;
+
+		public int FontSizeInPoints => m_metadata.FontSizeInPoints;
 
 		public int FontSizeUiAdjustment
 		{
@@ -63,10 +53,7 @@ namespace Glyssen
 			set { m_metadata.FontSizeUiAdjustment = value; }
 		}
 
-		public bool RightToLeftScript
-		{
-			get { return m_metadata.Language.ScriptDirection == "RTL"; }
-		}
+		public bool RightToLeftScript => m_metadata.Language.ScriptDirection == "RTL";
 
 		protected abstract string ProjectFolder { get; }
 
@@ -74,9 +61,7 @@ namespace Glyssen
 
 		public string GetFormattedChapterAnnouncement(string bookCode, int chapterNumber)
 		{
-			if (GetBookName == null)
-				return null;
-			var bookName = GetBookName(bookCode);
+			var bookName = GetBookName?.Invoke(bookCode);
 			if (string.IsNullOrWhiteSpace(bookName))
 				return null;
 
@@ -87,9 +72,6 @@ namespace Glyssen
 			return bldr.ToString();
 		}
 
-		protected string VersificationFilePath
-		{
-			get { return Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName); }
-		}
+		protected string VersificationFilePath => Path.Combine(ProjectFolder, DblBundleFileUtils.kVersificationFileName);
 	}
 }

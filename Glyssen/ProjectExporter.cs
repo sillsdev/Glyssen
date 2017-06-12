@@ -52,7 +52,6 @@ namespace Glyssen
 
 		private string m_customFileName;
 		private int m_numberOfFilesSuccessfullyExported;
-		private readonly bool m_includeVoiceActors;
 		private readonly bool m_includeDelivery;
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		private List<int> m_annotatedRowIndexes;
@@ -61,13 +60,18 @@ namespace Glyssen
 		public ProjectExporter(Project project)
 		{
 			Project = project;
-			m_includeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
+			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
 			m_includeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
 		}
 
-		public Project Project { get; private set; }
-		public bool IncludeVoiceActors => m_includeVoiceActors;
+		public Project Project { get; }
+		public bool IncludeVoiceActors { get; }
+
+		/// <summary>
+		/// True to exclude verse numbers and annotations; default is false
+		/// </summary>
+		public bool ScriptureTextOnly { get; set; }
 		public bool IncludeActorBreakdown { get; set; }
 		public bool IncludeBookBreakdown { get; set; }
 		public bool IncludeCreateClips { get; set; }
@@ -447,7 +451,7 @@ namespace Glyssen
 
 				if (IncludeVoiceActors)
 					sheet.Column(columnNum++).AutoFit(2d, 20d); // voice actor
-				
+
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // style tag
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // book
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // chapter
@@ -579,14 +583,19 @@ namespace Glyssen
 		// internal for testing
 		internal int GetColumnIndex(ExportColumn column)
 		{
+			return GetColumnIndex(column, Project, IncludeVoiceActors, m_includeDelivery);
+		}
+
+		internal static int GetColumnIndex(ExportColumn column, Project project, bool includeVoiceActors = true, bool includeDelivery = true)
+		{
 			int columnNumber = (int)column;
-			if (column != ExportColumn.BlockId && !IncludeVoiceActors)
+			if (column != ExportColumn.BlockId && !includeVoiceActors)
 				columnNumber--;
-			if (column > ExportColumn.SecondaryReferenceText && !Project.ReferenceText.HasSecondaryReferenceText)
+			if (column > ExportColumn.SecondaryReferenceText && !project.ReferenceText.HasSecondaryReferenceText)
 				columnNumber--;
 			if (column > ExportColumn.CharacterId && LocalizationManager.UILanguageId != "en")
 				columnNumber++;
-			if (column > ExportColumn.Delivery && !m_includeDelivery)
+			if (column > ExportColumn.Delivery && !includeDelivery)
 				columnNumber--;
 			return columnNumber;
 		}
@@ -645,7 +654,7 @@ namespace Glyssen
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
 							IncludeVoiceActors, m_includeDelivery,
-							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId));
+							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId, ScriptureTextOnly));
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
@@ -656,7 +665,7 @@ namespace Glyssen
 						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 				}
 			}
-			if (bookId == null && voiceActorId == -1)
+			if (bookId == null && voiceActorId == -1 && !ScriptureTextOnly)
 				AddAnnotations(result);
 			return result;
 		}
@@ -817,9 +826,9 @@ namespace Glyssen
 			if (m_includeDelivery)
 				row.Add(refBlock.Delivery);
 			row.Add(null);
-			row.Add(refBlock.GetText(true, true));
+			row.Add(refBlock.GetText(!ScriptureTextOnly, !ScriptureTextOnly));
 			if (Project.ReferenceText.HasSecondaryReferenceText)
-				row.Add(refBlock.PrimaryReferenceText);
+				row.Add(refBlock.GetPrimaryReferenceText(ScriptureTextOnly));
 			row.Add(0);
 			if (IncludeCreateClips)
 				row.Add(null);
@@ -867,7 +876,8 @@ namespace Glyssen
 
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
 			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
-			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId)
+			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId,
+			bool scriptureTextOnly = false)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -888,16 +898,16 @@ namespace Glyssen
 			// add a column for the localized character id
 			if (LocalizationManager.UILanguageId != "en")
 				list.Add(CharacterVerseData.GetCharacterNameForUi(characterId));
-				
+
 			if (includeDelivery)
 				list.Add(block.Delivery);
-			list.Add(block.GetText(true));
-			list.Add(block.PrimaryReferenceText);
+			list.Add(block.GetText(!scriptureTextOnly));
+			list.Add(block.GetPrimaryReferenceText(scriptureTextOnly));
 			if (includeSecondaryDirectorsGuide)
 			{
 				var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
 				if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
-					list.Add(primaryRefBlock.PrimaryReferenceText);
+					list.Add(primaryRefBlock.GetPrimaryReferenceText(scriptureTextOnly));
 				else
 					list.Add(null);
 			}

@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using Glyssen;
 using Glyssen.Bundle;
+using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
@@ -96,7 +97,7 @@ namespace GlyssenTests.Bundle
 
 			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
-<DBLMetadata id=""id"" revision=""1"" controlfileversion=""0"" modifieddate=""0001-01-01T00:00:00"" referenceTextType=""Russian"">
+<DBLMetadata id=""id"" revision=""1"" modifieddate=""0001-01-01T00:00:00"" controlfileversion=""0"" referenceTextType=""Russian"">
 	<language>
 		<fontSizeInPoints>10</fontSizeInPoints>
 	</language>
