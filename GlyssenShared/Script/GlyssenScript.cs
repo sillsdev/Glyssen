@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 using Glyssen.Shared.Bundle;
 
@@ -7,20 +8,30 @@ namespace Glyssen.Shared.Script
 	[XmlRoot("glyssenscript")]
 	public class GlyssenScript : GlyssenDblTextMetadataBase
 	{
+		// Needed for serialization/deserialization
 		public GlyssenScript()
 		{
-			// Needed for serialization/deserialization
+			Version = "1.0";
 		}
 
-		public GlyssenScript(IReadOnlyGlyssenDblTextMetadata source)
+		public GlyssenScript(IReadOnlyGlyssenDblTextMetadata source) : this()
 		{
 			Copyright = source.Copyright;
+			UniqueRecordingProjectId = source.UniqueRecordingProjectId;
 			Id = source.Id;
 			Identification = source.Identification;
 			Language = source.Language;
 			LastModified = source.LastModified;
 			Revision = source.Revision;
 		}
+
+		/// <summary>
+		/// This is used by consuming applications to know which versions it is capable of opening.
+		/// We will use semver, so upgrade the minor for non-breaking changes and the major for
+		/// any change which could cause a consumer a problem when reading.
+		/// </summary>
+		[XmlAttribute("version")]
+		public string Version { get; set; }
 
 		[XmlElement("script")]
 		public Script Script { get; set; }

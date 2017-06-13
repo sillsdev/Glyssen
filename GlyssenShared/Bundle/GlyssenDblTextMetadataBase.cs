@@ -7,6 +7,7 @@ namespace Glyssen.Shared.Bundle
 	public interface IReadOnlyGlyssenDblTextMetadata
 	{
 		DblMetadataCopyright Copyright { get; }
+		Guid UniqueRecordingProjectId { get; }
 		string Id { get; }
 		DblMetadataIdentification Identification { get; }
 		GlyssenDblMetadataLanguage Language { get; }
@@ -18,6 +19,7 @@ namespace Glyssen.Shared.Bundle
 	{
 		protected int m_fontSizeInPointsTemp;
 		protected string m_fontFamilyTemp;
+		private Guid m_uniqueRecordingProjectId;
 
 		[XmlElement("language")]
 		public override GlyssenDblMetadataLanguage Language
@@ -43,6 +45,24 @@ namespace Glyssen.Shared.Bundle
 		/// </summary>
 		[XmlAttribute("modifieddate")]
 		public DateTime LastModified { get; set; }
+
+		/// <summary>
+		/// The idea is that every project has a unique identifier which
+		/// informs us if this is the exact project or a similar one.
+		/// This is useful when another application such as HearThis goes to load
+		/// a script and needs to know if it already knows about that recording project.
+		/// </summary>
+		[XmlAttribute("uniquerecordingprojectid")]
+		public Guid UniqueRecordingProjectId
+		{
+			get
+			{
+				if (m_uniqueRecordingProjectId == Guid.Empty)
+					m_uniqueRecordingProjectId = Guid.NewGuid();
+				return m_uniqueRecordingProjectId;
+			}
+			set { m_uniqueRecordingProjectId = value; }
+		}
 
 		/// <summary>
 		/// The font family for the language associated with this project.
