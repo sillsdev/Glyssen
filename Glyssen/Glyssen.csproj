@@ -59,8 +59,8 @@
     <ApplicationIcon>Resources\glyssen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Analytics.NET, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Analytics.2.0.3\lib\Analytics.NET.dll</HintPath>
+    <Reference Include="Analytics.NET, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Analytics.2.0.2\lib\Analytics.NET.dll</HintPath>
     </Reference>
     <Reference Include="DesktopAnalytics, Version=1.2.4.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DesktopAnalytics.1.2.4.5\lib\net40\DesktopAnalytics.dll</HintPath>
