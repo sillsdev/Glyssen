@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
@@ -104,8 +103,8 @@ namespace Glyssen.Dialogs
 
 		private void LoadReferenceTextOptions()
 		{
-			var dataSource = new Dictionary<string, ReferenceTextIdentifier>();
-			foreach (var refTextId in ReferenceTextIdentifier.AllAvailable)
+			var dataSource = new Dictionary<string, ReferenceTextProxy>();
+			foreach (var refTextId in ReferenceTextProxy.AllAvailable)
 			{
 				string key;
 				if (refTextId.Type == ReferenceTextType.Custom)
@@ -193,9 +192,9 @@ namespace Glyssen.Dialogs
 				m_chkChapterOneAnnouncements.Checked = !m_model.SkipChapterAnnouncementForFirstChapter;
 				m_chkAnnounceChaptersForSingleChapterBooks.Checked = !m_model.SkipChapterAnnouncementForSingleChapterBooks;
 
-				foreach (KeyValuePair<string, ReferenceTextIdentifier> kvp in m_ReferenceText.Items)
+				foreach (KeyValuePair<string, ReferenceTextProxy> kvp in m_ReferenceText.Items)
 				{
-					if (kvp.Value == m_model.Project.ReferenceTextIdentifier)
+					if (kvp.Value == m_model.Project.ReferenceTextProxy)
 					{
 						m_ReferenceText.SelectedItem = kvp;
 						break;
@@ -322,7 +321,7 @@ namespace Glyssen.Dialogs
             m_model.AudioStockNumber = AudioStockNumber;
 			m_model.ChapterAnnouncementStyle = ChapterAnnouncementStyle;
 			m_model.SkipChapterAnnouncementForFirstChapter = !m_chkChapterOneAnnouncements.Checked;
-			m_model.Project.ReferenceTextIdentifier = ((KeyValuePair<string, ReferenceTextIdentifier>)m_ReferenceText.SelectedItem).Value;
+			m_model.Project.ReferenceTextProxy = ((KeyValuePair<string, ReferenceTextProxy>)m_ReferenceText.SelectedItem).Value;
 
 			m_model.Project.DramatizationPreferences.BookIntroductionsDramatization = (ExtraBiblicalMaterialSpeakerOption)m_bookIntro.SelectedValue;
 			m_model.Project.DramatizationPreferences.SectionHeadDramatization = (ExtraBiblicalMaterialSpeakerOption)m_sectionHeadings.SelectedValue;
@@ -533,9 +532,9 @@ namespace Glyssen.Dialogs
 		{
 			m_linkRefTextAttribution.Text = String.Empty;
 			m_linkRefTextAttribution.Links.Clear();
-			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextIdentifier>)
+			if (m_ReferenceText.SelectedItem is KeyValuePair<string, ReferenceTextProxy>)
 			{
-				var metadata = ((KeyValuePair<string, ReferenceTextIdentifier>) m_ReferenceText.SelectedItem).Value.Metadata;
+				var metadata = ((KeyValuePair<string, ReferenceTextProxy>) m_ReferenceText.SelectedItem).Value.Metadata;
 				if (metadata == null)
 					return;
 				var copyright = metadata.Copyright;

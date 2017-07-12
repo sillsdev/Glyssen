@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Bundle;
-using Glyssen.Shared.Bundle;
 using L10NSharp;
 
 namespace Glyssen.Dialogs

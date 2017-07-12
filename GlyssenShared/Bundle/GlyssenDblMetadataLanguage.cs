@@ -5,6 +5,10 @@ using SIL.DblBundle.Text;
 
 namespace Glyssen.Shared.Bundle
 {
+	/// <summary>
+	/// Glyssen-specific language info.
+	/// This is in addition to the Digital Bible Library-provided info.
+	/// </summary>
 	[XmlRoot("DBLMetadata")]
 	public class GlyssenDblMetadataLanguage : DblMetadataLanguage
 	{

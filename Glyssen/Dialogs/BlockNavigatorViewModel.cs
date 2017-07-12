@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using Glyssen.Character;
 using Glyssen.Controls;
-using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Reporting;

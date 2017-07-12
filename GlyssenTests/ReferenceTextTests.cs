@@ -2181,11 +2181,11 @@ namespace GlyssenTests
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Doublespeak" };
 			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			var doublespeakFolder = Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, "Doublespeak");
+			var doublespeakFolder = Path.Combine(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation, "Doublespeak");
 			Directory.CreateDirectory(doublespeakFolder);
 			var glyssenFilePath = Path.Combine(doublespeakFolder, "doublespeak.glyssen");
 			XmlSerializationHelper.SerializeToFile(glyssenFilePath, metadata);
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Doublespeak"));
 			var books = (List<BookScript>)primaryReferenceText.Books;
 			var refBook = new BookScript(testProject.Books[0].BookId, referenceBlocks);
 			books.Add(refBook);
@@ -2256,11 +2256,11 @@ namespace GlyssenTests
 			var metadata = new GlyssenDblTextMetadata();
 			metadata.Language = new GlyssenDblMetadataLanguage { Name = "Poetian" };
 			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			var doublespeakFolder = Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, "Poetian");
+			var doublespeakFolder = Path.Combine(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation, "Poetian");
 			Directory.CreateDirectory(doublespeakFolder);
 			var glyssenFilePath = Path.Combine(doublespeakFolder, "poetian.glyssen");
 			XmlSerializationHelper.SerializeToFile(glyssenFilePath, metadata);
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, "Poetian"));
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Poetian"));
 
 			ReflectionHelper.SetField(primaryReferenceText, "m_vers", ScrVers.English);
 			var books = (List<BookScript>)primaryReferenceText.Books;
@@ -2335,7 +2335,7 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			testProject.Books[0].Blocks = vernacularBlocks;
 
-			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.English));
+			var primaryReferenceText = ReferenceText.GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 
 			var result = primaryReferenceText.GetBooksWithBlocksConnectedToReferenceText(testProject).Single().GetScriptBlocks();
 
@@ -2788,7 +2788,7 @@ namespace GlyssenTests
 		{
 			get
 			{
-				return !ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation.EndsWith(
+				return !ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation.EndsWith(
 					Constants.kLocalReferenceTextDirectoryName);
 			}
 		}
@@ -2798,19 +2798,19 @@ namespace GlyssenTests
 			if (!IsProprietaryReferenceTextLocationOveridden)
 				return;
 
-			if (Directory.Exists(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation))
-				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
+			if (Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation))
+				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
 
-			ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation = null;
+			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = null;
 		}
 
 		public static void OverrideProprietaryReferenceTextProjectFileLocationToTempLocation()
 		{
 			if (IsProprietaryReferenceTextLocationOveridden)
 				return;
-			ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation = Path.GetTempFileName();
-			File.Delete(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
-			Directory.CreateDirectory(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation);
+			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = Path.GetTempFileName();
+			File.Delete(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
+			Directory.CreateDirectory(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
 		}
 
 		public static ReferenceText CreateCustomReferenceText(params TestReferenceTextResource[] booksToInclude)
@@ -2825,7 +2825,7 @@ namespace GlyssenTests
 			foreach (var testBook in booksToInclude)
 				AddBook(testBook, ref customFolderId);
 
-			return GetReferenceText(ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, customFolderId));
+			return GetReferenceText(ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, customFolderId));
 		}
 
 		private static void AddBook(TestReferenceTextResource testResource, ref string customFolderId)
@@ -2868,7 +2868,7 @@ namespace GlyssenTests
 				default:
 					throw new ArgumentOutOfRangeException("testResource", testResource, null);
 			}
-			var rtFolder = Path.Combine(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation, folder);
+			var rtFolder = Path.Combine(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation, folder);
 			if (customFolderId == null)
 			{
 				customFolderId = folder;

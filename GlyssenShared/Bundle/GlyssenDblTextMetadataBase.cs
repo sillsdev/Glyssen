@@ -4,6 +4,9 @@ using SIL.DblBundle.Text;
 
 namespace Glyssen.Shared.Bundle
 {
+	/// <summary>
+	/// Lets us read the metadata without exposing it to possible revision
+	/// </summary>
 	public interface IReadOnlyGlyssenDblTextMetadata
 	{
 		DblMetadataCopyright Copyright { get; }
@@ -15,6 +18,12 @@ namespace Glyssen.Shared.Bundle
 		int Revision { get; }
 	}
 
+	/// <summary>
+	/// This class essentially exists to allow us to share serialization for certain elements across classes
+	/// (e.g. GlyssenScript and GlyssenDblTextMetadata)
+	///
+	/// It adds metadata to what we received from the Digital Bible Library (DBL)
+	/// </summary>
 	public abstract class GlyssenDblTextMetadataBase : DblTextMetadata<GlyssenDblMetadataLanguage>, IReadOnlyGlyssenDblTextMetadata
 	{
 		protected int m_fontSizeInPointsTemp;

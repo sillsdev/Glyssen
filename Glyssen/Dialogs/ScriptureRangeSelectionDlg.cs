@@ -8,7 +8,6 @@ using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Controls;
-using Glyssen.Shared.Bundle;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;

@@ -5,6 +5,9 @@ using SIL.Scripture;
 
 namespace Glyssen.Shared
 {
+	/// <summary>
+	/// Shared utilities for processing projects
+	/// </summary>
 	public static class ProjectUtilities
 	{
 		public static void ForEachBookFileInProject(string projectDir, Action<string, string> action)

@@ -1,5 +1,8 @@
 ﻿namespace Glyssen.Shared
 {
+	/// <summary>
+	/// Simply a holding ground for constants which are needed by multiple assemblies
+	/// </summary>
 	public static class Constants
 	{
 		public const string kProjectFileExtension = ".glyssen";

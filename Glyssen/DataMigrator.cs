@@ -8,7 +8,6 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using L10NSharp;
 using Paratext.Data;
 using SIL.DblBundle;

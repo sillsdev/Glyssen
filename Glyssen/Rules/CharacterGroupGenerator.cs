@@ -8,7 +8,6 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.VoiceActor;
- using Glyssen.Shared.Bundle;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.Progress;

@@ -5,7 +5,6 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
@@ -589,16 +588,16 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" + 
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" +
 				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
-							Block.BuildSplitLineHtml(1) + 
+							Block.BuildSplitLineHtml(1) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
 							Block.BuildSplitLineHtml(2) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers " + open + "sic" + close + " </div>" +
-							Block.BuildSplitLineHtml(3) + 
-							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" + 
+							Block.BuildSplitLineHtml(3) +
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"><sup>5&#160;</sup>Text</div>" +
-							Block.BuildSplitLineHtml(4) + 
+							Block.BuildSplitLineHtml(4) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"> of verse five.</div>";
 
 			var actual = block.GetSplitTextAsHtml(0, false, new[]
@@ -999,6 +998,28 @@ namespace GlyssenTests
 			var blockBefore = block.Clone();
 			var xmlString = XmlSerializationHelper.SerializeToString(block);
 			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/sound", 1);
+			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
+			Assert.AreEqual(blockBefore.GetText(true, true), blockAfter.GetText(true, true));
+		}
+
+		[Test]
+		public void SerializeDeserialize_ContainsPrimaryReferenceText_RoundtripDataRemainsTheSame()
+		{
+			var block = new Block();
+			block.BlockElements = new List<BlockElement>
+			{
+				new ScriptText("script text"),
+			};
+			var primaryReferenceTextBlock = new Block();
+			primaryReferenceTextBlock.BlockElements = new List<BlockElement>
+			{
+				new ScriptText("primary reference text")
+			};
+			block.SetMatchedReferenceBlock(primaryReferenceTextBlock);
+
+			var blockBefore = block.Clone();
+			var xmlString = XmlSerializationHelper.SerializeToString(block);
+			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/ReferenceBlocks/text[text()='primary reference text']", 1);
 			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
 			Assert.AreEqual(blockBefore.GetText(true, true), blockAfter.GetText(true, true));
 		}

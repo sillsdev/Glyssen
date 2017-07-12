@@ -4,7 +4,6 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 namespace GlyssenTests
 {

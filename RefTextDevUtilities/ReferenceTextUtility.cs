@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 using Glyssen.Character;
 using Glyssen.Quote;
 using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;
@@ -164,7 +163,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static Ignore ComparisonSensitivity { get; set; }
 
-		public static void ProcessReferenceTextData(Mode mode, ReferenceTextIdentifier refTextId = null)
+		public static void ProcessReferenceTextDataFromFile(Mode mode, ReferenceTextProxy refTextId = null)
 		{
 			ReferenceTextData data = null;
 			// This had better be in console mode!!!
@@ -204,14 +203,14 @@ namespace Glyssen.RefTextDevUtilities
 		}
 
 		/// <summary>
-		/// An override to allow Reference Text Utility to compile
+		/// We can't just roll this into the method below with an optional parameter because
+		/// ReferenceTextUtility doesn't have access to the definition of a 'ReferenceText'
 		/// </summary>
 		/// <param name="mode"></param>
 		/// <param name="data"></param>
-		/// <param name="dummy"></param>
-		public static void ProcessReferenceTextData(Mode mode, ReferenceTextData data, string dummy)
+		public static void ProcessReferenceTextData(Mode mode, ReferenceTextData data)
 		{
-			ProcessReferenceTextData(mode, data, (Func<ReferenceText>)null);
+			ProcessReferenceTextData(mode, data, null);
 		}
 
 		public static void ProcessReferenceTextData(Mode mode,
@@ -774,17 +773,17 @@ namespace Glyssen.RefTextDevUtilities
 			return data;
 		}
 
-		public static IReferenceTextIdentifier GetReferenceTextIdFromString(string language)
+		public static IReferenceTextProxy GetReferenceTextIdFromString(string language)
 		{
 			ReferenceTextType type;
 			if (Enum.TryParse(language, out type))
 			{
 				if (type == ReferenceTextType.Custom || type == ReferenceTextType.Unknown)
 					throw new ArgumentException("unknown language", nameof(language));
-				return ReferenceTextIdentifier.GetOrCreate(type);
+				return ReferenceTextProxy.GetOrCreate(type);
 			}
 
-			return ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, language);
+			return ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, language);
 		}
 
 		private static ReferenceText GetReferenceTextFromString(string language)
@@ -973,7 +972,7 @@ namespace Glyssen.RefTextDevUtilities
 		public static bool LinkToEnglish()
 		{
 			bool errorOccurred = false;
-			foreach (var referenceTextId in ReferenceTextIdentifier.AllAvailable.Where(r => r.Type != ReferenceTextType.English))
+			foreach (var referenceTextId in ReferenceTextProxy.AllAvailable.Where(r => r.Type != ReferenceTextType.English))
 			{
 				Console.WriteLine("Processing " +
 					(referenceTextId.Type == ReferenceTextType.Custom ? referenceTextId.CustomIdentifier : referenceTextId.Type.ToString()) +
@@ -1207,7 +1206,7 @@ namespace Glyssen.RefTextDevUtilities
 			if (!Directory.Exists(outputDir))
 				Directory.CreateDirectory(outputDir);
 
-			foreach (var rt in ReferenceTextIdentifier.AllAvailable.Where(r => r.Type == ReferenceTextType.Custom))
+			foreach (var rt in ReferenceTextProxy.AllAvailable.Where(r => r.Type == ReferenceTextType.Custom))
 			{
 				var refText = ReferenceText.GetReferenceText(rt);
 				foreach (var book in refText.Books)

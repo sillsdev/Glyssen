@@ -46,19 +46,19 @@ namespace DevTools
 					waitForUserToSeeOutput = true;
 					break;
 				case "9":
-					ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.Generate);
+					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.Generate);
 					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
 					break;
 				case "10": ReferenceTextUtility.LinkToEnglish();
 					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
 					break;
 				case "11":
-					ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.English));
+					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 					waitForUserToSeeOutput = true;
 					break;
 				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
 				case "13":
-					ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
+					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
 					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
 					break;
 			}
@@ -81,18 +81,18 @@ namespace DevTools
 			Console.WriteLine();
 
 			string selection = Console.ReadLine();
-			ReferenceTextIdentifier id = null;
+			ReferenceTextProxy id = null;
 			switch (selection)
 			{
 				case "1": break; // All
 				case "English":
 				case "english":
-				case "2": id = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.English); break;
+				case "2": id = ReferenceTextProxy.GetOrCreate(ReferenceTextType.English); break;
 				case "Russian":
 				case "russian":
-				case "3": id = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Russian); break;
+				case "3": id = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Russian); break;
 				default:
-					id = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, selection);
+					id = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, selection);
 					if (id.Missing)
 					{
 						Console.WriteLine("Requested custom reference text not found!");
@@ -124,7 +124,7 @@ namespace DevTools
 					ReferenceTextUtility.ComparisonSensitivity = ReferenceTextUtility.Ignore.AllDifferencesExceptAlphaNumericText;
 					break;
 			}
-			ReferenceTextUtility.ProcessReferenceTextData(ReferenceTextUtility.Mode.FindDifferencesBetweenCurrentVersionAndNewText, id);
+			ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.FindDifferencesBetweenCurrentVersionAndNewText, id);
 		}
 	}
 }

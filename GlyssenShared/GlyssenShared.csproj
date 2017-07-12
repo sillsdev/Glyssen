@@ -60,7 +60,7 @@
     <Compile Include="ReferenceTextType.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="GlyssenInfo.cs" />
-    <Compile Include="IReferenceTextIdentifier.cs" />
+    <Compile Include="IReferenceTextProxy.cs" />
     <Compile Include="ProjectUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

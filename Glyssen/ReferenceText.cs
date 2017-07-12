@@ -28,14 +28,14 @@ namespace Glyssen
 		private string m_projectFolder;
 		private readonly HashSet<string> m_modifiedBooks = new HashSet<string>();
 
-		private static readonly Dictionary<IReferenceTextIdentifier, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextIdentifier, ReferenceText>();
+		private static readonly Dictionary<IReferenceTextProxy, ReferenceText> s_instantiatedReferenceTexts = new Dictionary<IReferenceTextProxy, ReferenceText>();
 
 		public static ReferenceText GetStandardReferenceText(ReferenceTextType referenceTextType)
 		{
-			return GetReferenceText(ReferenceTextIdentifier.GetOrCreate(referenceTextType));
+			return GetReferenceText(ReferenceTextProxy.GetOrCreate(referenceTextType));
 		}
 
-		public static ReferenceText GetReferenceText(IReferenceTextIdentifier id)
+		public static ReferenceText GetReferenceText(IReferenceTextProxy id)
 		{
 			ReferenceText referenceText;
 			if (s_instantiatedReferenceTexts.TryGetValue(id, out referenceText))

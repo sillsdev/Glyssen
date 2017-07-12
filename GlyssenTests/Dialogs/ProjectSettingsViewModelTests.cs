@@ -1,6 +1,5 @@
 ﻿using Glyssen.Bundle;
 using Glyssen.Dialogs;
-using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs

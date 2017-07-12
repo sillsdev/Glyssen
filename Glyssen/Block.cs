@@ -247,9 +247,9 @@ namespace Glyssen
 			}
 		}
 
-		public string GetPrimaryReferenceText(bool scriptureTextOnly = false)
+		public string GetPrimaryReferenceText(bool textOnly = false)
 		{
-			return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(!scriptureTextOnly, !scriptureTextOnly) : null;
+			return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(!textOnly, !textOnly) : null;
 		}
 
 		/// <summary>

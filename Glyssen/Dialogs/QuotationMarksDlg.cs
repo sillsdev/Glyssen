@@ -11,7 +11,6 @@ using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared;
-using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;

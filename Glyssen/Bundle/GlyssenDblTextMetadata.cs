@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
+using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
@@ -408,6 +409,26 @@ namespace Glyssen.Bundle
 		[XmlElement("BookIntroductionsDramatization")]
 		[DefaultValue(ExtraBiblicalMaterialSpeakerOption.Omitted)]
 		public ExtraBiblicalMaterialSpeakerOption BookIntroductionsDramatization { get; set; }
+
+		public bool IncludeCharacter(string characterId)
+		{
+			switch (CharacterVerseData.GetStandardCharacterType(characterId))
+			{
+				case CharacterVerseData.StandardCharacter.BookOrChapter:
+					if (BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+						return false;
+					break;
+				case CharacterVerseData.StandardCharacter.Intro:
+					if (BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+						return false;
+					break;
+				case CharacterVerseData.StandardCharacter.ExtraBiblical:
+					if (SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
+						return false;
+					break;
+			}
+			return true;
+		}
 	}
 
 	[Flags]

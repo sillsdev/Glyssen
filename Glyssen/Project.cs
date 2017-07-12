@@ -49,7 +49,7 @@ namespace Glyssen
 		private const double kGuessPercent = 0.10;
 		private const double kQuotePercent = 0.65;
 
-		// Ideally these will be settings
+		// Enhance: these should be settings, eventually in the UI
 		public const double kKeyStrokesPerHour = 6000;
 		public const double kCameoCharacterEstimatedHoursLimit = 0.2;
 
@@ -293,26 +293,6 @@ namespace Glyssen
 		{
 			get { return m_projectMetadata.DramatizationPreferences; }
 			set { m_projectMetadata.DramatizationPreferences = value; }
-		}
-
-		public bool IncludeCharacter(string characterId)
-		{
-			switch (CharacterVerseData.GetStandardCharacterType(characterId))
-			{
-				case CharacterVerseData.StandardCharacter.BookOrChapter:
-					if (DramatizationPreferences.BookTitleAndChapterDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
-						return false;
-					break;
-				case CharacterVerseData.StandardCharacter.Intro:
-					if (DramatizationPreferences.BookIntroductionsDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
-						return false;
-					break;
-				case CharacterVerseData.StandardCharacter.ExtraBiblical:
-					if (DramatizationPreferences.SectionHeadDramatization == ExtraBiblicalMaterialSpeakerOption.Omitted)
-						return false;
-					break;
-			}
-			return true;
 		}
 
 		public void SetDefaultCharacterGroupGenerationPreferences()
@@ -596,18 +576,18 @@ namespace Glyssen
 			{
 				if (m_referenceText == null)
 				{
-					if (!ReferenceTextIdentifier.Missing)
-						m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+					if (!ReferenceTextProxy.Missing)
+						m_referenceText = ReferenceText.GetReferenceText(ReferenceTextProxy);
 					else
 					{
 						// If this is a custom reference text whose identifier happens to match a standard one
 						// just use it. The custom one has likely been removed because now it has become a
 						// standard one.
-						Debug.Assert(ReferenceTextIdentifier.Type == ReferenceTextType.Custom);
+						Debug.Assert(ReferenceTextProxy.Type == ReferenceTextType.Custom);
 						ReferenceTextType type;
-						if (Enum.TryParse(ReferenceTextIdentifier.CustomIdentifier, out type))
+						if (Enum.TryParse(ReferenceTextProxy.CustomIdentifier, out type))
 						{
-							ChangeReferenceTextIdentifier(ReferenceTextIdentifier.GetOrCreate(type));
+							ChangeReferenceTextIdentifier(ReferenceTextProxy.GetOrCreate(type));
 						}
 					}
 				}
@@ -622,11 +602,11 @@ namespace Glyssen
 			}
 		}
 
-		public ReferenceTextIdentifier ReferenceTextIdentifier
+		public ReferenceTextProxy ReferenceTextProxy
 		{
 			get
 			{
-				return ReferenceTextIdentifier.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
+				return ReferenceTextProxy.GetOrCreate(m_projectMetadata.ReferenceTextType, m_projectMetadata.ProprietaryReferenceTextIdentifier);
 			}
 			set
 			{
@@ -638,11 +618,11 @@ namespace Glyssen
 			}
 		}
 
-		private void ChangeReferenceTextIdentifier(ReferenceTextIdentifier value)
+		private void ChangeReferenceTextIdentifier(ReferenceTextProxy value)
 		{
 			m_projectMetadata.ReferenceTextType = value.Type;
 			m_projectMetadata.ProprietaryReferenceTextIdentifier = value.CustomIdentifier;
-			m_referenceText = ReferenceText.GetReferenceText(ReferenceTextIdentifier);
+			m_referenceText = ReferenceText.GetReferenceText(ReferenceTextProxy);
 		}
 
 		private void ChangeReferenceText()
@@ -675,7 +655,7 @@ namespace Glyssen
 			}
 		}
 
-		public string UiReferenceTextName => ReferenceTextIdentifier.Missing ? m_projectMetadata.ProprietaryReferenceTextIdentifier : ReferenceText.LanguageName;
+		public string UiReferenceTextName => ReferenceTextProxy.Missing ? m_projectMetadata.ProprietaryReferenceTextIdentifier : ReferenceText.LanguageName;
 
 		public bool HasUnappliedSplits()
 		{

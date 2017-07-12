@@ -18,7 +18,6 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
-using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;

@@ -4,7 +4,6 @@ using System.Text;
 using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Controls;
-using Glyssen.Shared.Bundle;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
