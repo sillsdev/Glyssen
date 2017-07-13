@@ -124,10 +124,10 @@ namespace Glyssen.Shared.Script
 		public TextWithLanguage VernacularText { get; set; }
 
 		[XmlElement("primaryref")]
-		public TextWithLanguage PrimaryReferenceTextText { get; set; }
+		public TextWithLanguage PrimaryReferenceTextContent { get; set; }
 
 		[XmlElement("secondaryref")]
-		public TextWithLanguage SecondaryReferenceTextText { get; set; }
+		public TextWithLanguage SecondaryReferenceTextContent { get; set; }
 	}
 
 	public class TextWithLanguage
