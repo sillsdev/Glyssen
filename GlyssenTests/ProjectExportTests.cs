@@ -9,6 +9,7 @@ using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
+using Glyssen.Shared;
 using Glyssen.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
@@ -1100,13 +1101,13 @@ namespace GlyssenTests
 			exporter.IncludeActorBreakdown = true;
 			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportActorExcelScripts"))
 			{
-				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", ProjectExporter.kExcelFileExtension));
+				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", Constants.kExcelFileExtension));
 				Assert.IsFalse(exporter.ExportNow(false).Any());
 				Assert.IsTrue(Directory.Exists(exporter.ActorDirectory));
 				foreach (var actor in project.CharacterGroupList.AssignedGroups.Select(g => g.VoiceActor.Name))
 				{
 					Assert.IsTrue(File.Exists(Path.Combine(exporter.ActorDirectory,
-						Path.ChangeExtension(actor, ProjectExporter.kExcelFileExtension))));
+						Path.ChangeExtension(actor, Constants.kExcelFileExtension))));
 				}
 			}
 		}
@@ -1123,11 +1124,11 @@ namespace GlyssenTests
 			exporter.IncludeBookBreakdown = true;
 			using (var tempDir = new SIL.TestUtilities.TemporaryFolder("PG855ExportBookBreakdownExcelScripts"))
 			{
-				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", ProjectExporter.kExcelFileExtension));
+				exporter.FullFileName = Path.Combine(tempDir.Path, Path.ChangeExtension("base", Constants.kExcelFileExtension));
 				Assert.IsFalse(exporter.ExportNow(false).Any());
 				Assert.IsTrue(Directory.Exists(exporter.BookDirectory));
-				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("3JN", ProjectExporter.kExcelFileExtension))));
-				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("JUD", ProjectExporter.kExcelFileExtension))));
+				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("3JN", Constants.kExcelFileExtension))));
+				Assert.IsTrue(File.Exists(Path.Combine(exporter.BookDirectory, Path.ChangeExtension("JUD", Constants.kExcelFileExtension))));
 			}
 		}
 	}

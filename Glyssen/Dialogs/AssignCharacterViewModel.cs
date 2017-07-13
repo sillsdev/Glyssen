@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using DesktopAnalytics;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
 using SIL.Scripture;
@@ -456,7 +457,7 @@ namespace Glyssen.Dialogs
 			{
 				AddRecordToProjectCharacterVerseData(block,
 					GetCharactersForCurrentReferenceTextMatchup().First(c => c.CharacterId == block.CharacterId),
-					string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal : 
+					string.IsNullOrEmpty(block.Delivery) ? Delivery.Normal :
 					GetDeliveriesForCurrentReferenceTextMatchup().First(d => d.Text == block.Delivery));
 			}
 
@@ -492,7 +493,7 @@ namespace Glyssen.Dialogs
 				{
 					SetCharacter(CurrentReferenceTextMatchup.CorrelatedBlocks[blockIndex], selectedCharacter);
 					CorrelatedBlockCharacterAssignmentChanged?.Invoke(this, blockIndex);
-				} 
+				}
 			}
 		}
 
@@ -560,7 +561,7 @@ namespace Glyssen.Dialogs
 					// get the character selected for this split
 					var characterId = characters.First(c => c.Key == blockSplitData.Id).Value;
 
-					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit, 
+					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
 						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
 
 					var newBlockIndices = GetBlockIndices(newBlock);
@@ -714,7 +715,7 @@ namespace Glyssen.Dialogs
 					if (x.CharacterId == "Jesus") return -1;
 					if (y.CharacterId == "Jesus") return 1;
 				}
-				
+
 				// this is not a special case
 				return string.Compare(xTextToCompare, yTextToCompare, StringComparison.InvariantCultureIgnoreCase);
 			}
@@ -736,7 +737,7 @@ namespace Glyssen.Dialogs
 			{
 				var xTextToCompare = string.IsNullOrEmpty(x.Alias) ? x.CharacterId : x.Alias;
 				var yTextToCompare = string.IsNullOrEmpty(y.Alias) ? y.CharacterId : y.Alias;
-				
+
 				var result = CompareSpecialCases(x, y, xTextToCompare, yTextToCompare);
 				return result != 0 ? result : string.Compare(x.CharacterId, y.CharacterId, StringComparison.InvariantCultureIgnoreCase);
 			}

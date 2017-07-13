@@ -11,6 +11,7 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
@@ -39,7 +40,7 @@ namespace Glyssen.Dialogs
 		public delegate void SavedEventHandler(VoiceActorAssignmentViewModel sender, IEnumerable<CharacterGroup> groupsAffected, bool requiresActorListRefresh);
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
-		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>(); 
+		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>();
 
 		public VoiceActorAssignmentViewModel(Project project)
 		{
@@ -122,7 +123,7 @@ namespace Glyssen.Dialogs
 		public double GetEstimatedHoursForCharacter(string localizedCharacterId)
 		{
 			var characterId = CharacterVerseData.SingletonLocalizedCharacterIdToCharacterIdDictionary[localizedCharacterId];
-			return m_project.KeyStrokesByCharacterId[characterId] / GlyssenInfo.kKeyStrokesPerHour;
+			return m_project.KeyStrokesByCharacterId[characterId] / Project.kKeyStrokesPerHour;
 		}
 
 		public IList<CharacterGroup> CharacterGroups { get { return m_project.CharacterGroupList.CharacterGroups; } }

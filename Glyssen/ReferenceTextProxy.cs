@@ -5,30 +5,22 @@ using System.IO;
 using System.Linq;
 using DesktopAnalytics;
 using Glyssen.Bundle;
+using Glyssen.Shared;
 using L10NSharp;
 using SIL.IO;
 using SIL.Reporting;
+using Glyssen.Shared.Bundle;
 
 namespace Glyssen
 {
-	public enum ReferenceTextType
-	{
-		Unknown,
-		English,
-		//Azeri,
-		//French,
-		//Indonesian,
-		//Portuguese,
-		Russian,
-		//Spanish,
-		//TokPisin,
-		Custom
-	}
-
-	public class ReferenceTextIdentifier
+	/// <summary>
+	/// Lets us work with a reference text even when we don't have an actual reference text object.
+	/// Originally (maybe still?) this enabled the use of "proprietary" reference texts
+	/// which can't ship with Glyssen for IP reasons but which we know FCBH is using.
+	/// </summary>
+	public class ReferenceTextProxy : IReferenceTextProxy
 	{
 		private const string kDistFilesReferenceTextDirectoryName = "reference_texts";
-		public const string kLocalReferenceTextDirectoryName = "Local Reference Texts";
 
 		#region static internals to support testing
 		internal static string ProprietaryReferenceTextProjectFileLocation
@@ -36,7 +28,7 @@ namespace Glyssen
 			get
 			{
 				if (s_proprietaryReferenceTextProjectFileLocation == null)
-					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, kLocalReferenceTextDirectoryName);
+					s_proprietaryReferenceTextProjectFileLocation = Path.Combine(GlyssenInfo.BaseDataFolder, Constants.kLocalReferenceTextDirectoryName);
 
 				return s_proprietaryReferenceTextProjectFileLocation;
 			}
@@ -51,7 +43,7 @@ namespace Glyssen
 		internal static Action<Exception, string, string> ErrorReporterForCopyrightedReferenceTexts { get; set; }
 		#endregion
 
-		private static List<ReferenceTextIdentifier> s_allAvailable;
+		private static List<ReferenceTextProxy> s_allAvailable;
 		private static bool s_allAvailableLoaded = false;
 		private static string s_proprietaryReferenceTextProjectFileLocation;
 
@@ -60,7 +52,7 @@ namespace Glyssen
 		private readonly string m_customId;
 
 		public ReferenceTextType Type => m_referenceTextType;
-		public GlyssenDblTextMetadata Metadata => m_metadata;
+		public GlyssenDblTextMetadataBase Metadata => m_metadata;
 		public string CustomIdentifier => m_customId;
 		public string Name => m_customId ?? Type.ToString();
 
@@ -74,7 +66,7 @@ namespace Glyssen
 			}
 		}
 
-		private ReferenceTextIdentifier(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
+		private ReferenceTextProxy(ReferenceTextType type, GlyssenDblTextMetadata metadata = null)
 		{
 			Debug.Assert(IsStandardReferenceText(type));
 			m_referenceTextType = type;
@@ -82,7 +74,7 @@ namespace Glyssen
 			m_metadata = metadata ?? LoadMetadata(type);
 		}
 
-		private ReferenceTextIdentifier(ReferenceTextType type, string customId, GlyssenDblTextMetadata metadata)
+		private ReferenceTextProxy(ReferenceTextType type, string customId, GlyssenDblTextMetadata metadata)
 		{
 			Debug.Assert(!IsStandardReferenceText(type));
 			Debug.Assert(customId != null);
@@ -100,14 +92,14 @@ namespace Glyssen
 			var lowercase = m_customId.ToLowerInvariant();
 			try
 			{
-				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + ProjectBase.kProjectFileExtension));
+				m_metadata = LoadMetadata(Type, Path.Combine(ProjectFolder, lowercase + Constants.kProjectFileExtension));
 			}
 			catch (Exception)
 			{
 			}
 		}
 
-		public static IEnumerable<ReferenceTextIdentifier> AllAvailable
+		public static IEnumerable<ReferenceTextProxy> AllAvailable
 		{
 			get
 			{
@@ -126,27 +118,27 @@ namespace Glyssen
 			s_allAvailableLoaded = false;
 		}
 
-		public static ReferenceTextIdentifier GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
+		public static ReferenceTextProxy GetOrCreate(ReferenceTextType referenceTextType, string proprietaryReferenceTextIdentifier = null)
 		{
-			ReferenceTextIdentifier identifier;
+			ReferenceTextProxy proxy;
 			bool standard = IsStandardReferenceText(referenceTextType);
 			if (s_allAvailable == null)
 			{
-				s_allAvailable = new List<ReferenceTextIdentifier>();
-				identifier = null;
+				s_allAvailable = new List<ReferenceTextProxy>();
+				proxy = null;
 			}
 			else
 			{
-				identifier = standard ? s_allAvailable.SingleOrDefault(i => i.Type == referenceTextType) :
+				proxy = standard ? s_allAvailable.SingleOrDefault(i => i.Type == referenceTextType) :
 					s_allAvailable.SingleOrDefault(i => i.CustomIdentifier == proprietaryReferenceTextIdentifier);
 			}
-			if (identifier == null)
+			if (proxy == null)
 			{
-				identifier = standard ? new ReferenceTextIdentifier(referenceTextType) :
-					new ReferenceTextIdentifier(referenceTextType, proprietaryReferenceTextIdentifier, null);
-				s_allAvailable.Add(identifier);
+				proxy = standard ? new ReferenceTextProxy(referenceTextType) :
+					new ReferenceTextProxy(referenceTextType, proprietaryReferenceTextIdentifier, null);
+				s_allAvailable.Add(proxy);
 			}
-			return identifier;
+			return proxy;
 		}
 
 		//public override bool Equals(object obj)
@@ -154,7 +146,7 @@ namespace Glyssen
 		//	return base.Equals(obj);
 		//}
 
-		//protected bool Equals(ReferenceTextIdentifier other)
+		//protected bool Equals(ReferenceTextProxy other)
 		//{
 		//	return m_referenceTextType == other.m_referenceTextType && Equals(m_metadata, other.m_metadata);
 		//}
@@ -167,12 +159,12 @@ namespace Glyssen
 		//	}
 		//}
 
-		//public static bool operator ==(ReferenceTextIdentifier left, ReferenceTextIdentifier right)
+		//public static bool operator ==(ReferenceTextProxy left, ReferenceTextProxy right)
 		//{
 		//	return Equals(left, right);
 		//}
 
-		//public static bool operator !=(ReferenceTextIdentifier left, ReferenceTextIdentifier right)
+		//public static bool operator !=(ReferenceTextProxy left, ReferenceTextProxy right)
 		//{
 		//	return !Equals(left, right);
 		//}
@@ -185,7 +177,7 @@ namespace Glyssen
 		private static void LoadAllAvailable()
 		{
 			if (s_allAvailable == null)
-				s_allAvailable = new List<ReferenceTextIdentifier>();
+				s_allAvailable = new List<ReferenceTextProxy>();
 			Tuple<Exception, string, string> firstLoadError = null;
 			var additionalErrors = new List<string>();
 			Action<Exception, string, string> errorReporter = (exception, token, path) =>
@@ -201,7 +193,7 @@ namespace Glyssen
 			{
 				var metadata = LoadMetadata(itm, errorReporter);
 				if (metadata != null)
-					s_allAvailable.Add(new ReferenceTextIdentifier(itm, metadata));
+					s_allAvailable.Add(new ReferenceTextProxy(itm, metadata));
 			}
 
 			if (ErrorReporterForCopyrightedReferenceTexts == null)
@@ -251,7 +243,7 @@ namespace Glyssen
 			Debug.Assert(customId != null);
 			if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
 				return false;
-			string projectFileName = customId.ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+			string projectFileName = customId.ToLowerInvariant() + Constants.kProjectFileExtension;
 			var refTextProjectFilePath = Path.Combine(dir, projectFileName);
 			if (!File.Exists(refTextProjectFilePath))
 				return false;
@@ -259,7 +251,7 @@ namespace Glyssen
 				ErrorReporterForCopyrightedReferenceTexts);
 			if (metadata != null)
 			{
-				s_allAvailable.Add(new ReferenceTextIdentifier(ReferenceTextType.Custom, customId, metadata));
+				s_allAvailable.Add(new ReferenceTextProxy(ReferenceTextType.Custom, customId, metadata));
 				return true;
 			}
 			return false;
@@ -299,7 +291,7 @@ namespace Glyssen
 				return false;
 
 			if (s_allAvailable == null)
-				s_allAvailable = new List<ReferenceTextIdentifier>();
+				s_allAvailable = new List<ReferenceTextProxy>();
 			else if (IsCustomReferenceTextIdentifierInListOfAvailable(customId))
 				return true;
 
@@ -311,7 +303,7 @@ namespace Glyssen
 		private static string GetReferenceTextProjectFileLocation(ReferenceTextType referenceTextType)
 		{
 			Debug.Assert(IsStandardReferenceText(referenceTextType));
-			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + ProjectBase.kProjectFileExtension;
+			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + Constants.kProjectFileExtension;
 			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
 
@@ -323,7 +315,7 @@ namespace Glyssen
 			return Path.GetDirectoryName(GetReferenceTextProjectFileLocation(referenceTextType));
 		}
 
-		internal string ProjectFolder
+		public string ProjectFolder
 		{
 			get
 			{

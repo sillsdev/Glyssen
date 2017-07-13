@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Xml.Serialization;
 using SIL.Extensions;
 using SIL.Scripture;
 
@@ -148,7 +146,7 @@ namespace Glyssen
 		private int GetBookIndex(BookScript bookToFind)
 		{
 			int i = 0;
-			foreach (BookScript book in m_books)
+			foreach (var book in m_books)
 			{
 				if (book == bookToFind)
 					return i;
@@ -171,7 +169,7 @@ namespace Glyssen
 
 		public bool IsFirstBlock(Block block)
 		{
-			BookScript book = GetBookScriptContainingBlock(block);
+			var book = GetBookScriptContainingBlock(block);
 			if (book == null)
 				return false;
 			return IsFirstBlockInBook(book, block) && IsFirstBook(book);
@@ -202,7 +200,7 @@ namespace Glyssen
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript nextBook = PeekNextBook();
+				var nextBook = PeekNextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
 				return nextBook[0];
@@ -239,7 +237,7 @@ namespace Glyssen
 
 		private Block PeekNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
 		{
-			BookScript book = m_books[bookIndex];
+			var book = m_books[bookIndex];
 			if (book.GetScriptBlocks().Count < blockIndex + n + 1)
 				return null;
 			return book[blockIndex + n];
@@ -299,7 +297,7 @@ namespace Glyssen
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript nextBook = NextBook();
+				var nextBook = NextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
 				m_currentIndices.BlockIndex = 0;
@@ -329,7 +327,7 @@ namespace Glyssen
 				return null;
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript previousBook = PeekPreviousBook();
+				var previousBook = PeekPreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
 				return previousBook[previousBook.GetScriptBlocks().Count - 1];
@@ -344,7 +342,7 @@ namespace Glyssen
 				return null;
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
-				BookScript previousBook = PreviousBook();
+				var previousBook = PreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
 				m_currentIndices.BlockIndex = m_currentBook.GetScriptBlocks().Count - 1;
@@ -359,133 +357,4 @@ namespace Glyssen
 			m_currentIndices.MultiBlockCount += additionalBlocks;
 		}
 	}
-
-	[XmlRoot]
-	public class BookBlockIndices : IEquatable<BookBlockIndices>, IComparable<BookBlockIndices>
-	{
-		private uint m_multiBlockCount;
-
-		public BookBlockIndices()
-		{
-			BookIndex = -1;
-			BlockIndex = -1;
-		}
-
-		public BookBlockIndices(int bookIndex, int blockIndex, uint multiBlockCount = 0)
-		{
-			BookIndex = bookIndex;
-			BlockIndex = blockIndex;
-			MultiBlockCount = multiBlockCount;
-		}
-
-		public BookBlockIndices(BookBlockIndices copyFrom)
-		{
-			BookIndex = copyFrom.BookIndex;
-			BlockIndex = copyFrom.BlockIndex;
-			MultiBlockCount = copyFrom.MultiBlockCount;
-		}
-
-		[XmlElement("bookIndex")]
-		public int BookIndex { get; set; }
-
-		[XmlElement("blockIndex")]
-		public int BlockIndex { get; set; }
-
-		[XmlElement("multiBlockCount")]
-		public uint MultiBlockCount
-		{
-			get { return m_multiBlockCount; }
-			set
-			{
-				m_multiBlockCount = value;
-				Debug.Assert(MultiBlockCount >= 0);
-			}
-		}
-
-		public int EffectiveFinalBlockIndex => IsMultiBlock ? BlockIndex + (int)MultiBlockCount - 1 : BlockIndex;
-
-		public bool IsUndefined => BookIndex == -1 || BlockIndex == -1;
-
-
-		/// <summary>
-		/// Technically, this just means this object refers to a run of blocks of specified length. It could be 1, though this is
-		/// not likely.
-		/// </summary>
-		public bool IsMultiBlock => MultiBlockCount > 0;
-
-		public bool Contains(BookBlockIndices indices)
-		{
-			return BookIndex == indices.BookIndex && BlockIndex <= indices.BlockIndex && EffectiveFinalBlockIndex >= indices.EffectiveFinalBlockIndex;
-		}
-
-		#region equality members
-		public bool Equals(BookBlockIndices other)
-		{
-			if (ReferenceEquals(null, other))
-				return false;
-			if (ReferenceEquals(this, other))
-				return true;
-			return BookIndex == other.BookIndex && BlockIndex == other.BlockIndex && MultiBlockCount == other.MultiBlockCount;
-		}
-
-		public int CompareTo(BookBlockIndices other)
-		{
-			int result = BookIndex.CompareTo(other.BookIndex);
-			if (result == 0)
-				result = BlockIndex.CompareTo(other.BlockIndex);
-			if (result == 0)
-				result = MultiBlockCount.CompareTo(other.MultiBlockCount);
-			return result;
-		}
-
-		public override bool Equals(object obj)
-		{
-			if (ReferenceEquals(null, obj))
-				return false;
-			if (ReferenceEquals(this, obj))
-				return true;
-			if (obj.GetType() != this.GetType())
-				return false;
-			return Equals((BookBlockIndices)obj);
-		}
-
-		public override int GetHashCode()
-		{
-			unchecked
-			{
-				return (BookIndex * 397) ^ BlockIndex;
-			}
-		}
-
-		public static bool operator ==(BookBlockIndices left, BookBlockIndices right)
-		{
-			return Equals(left, right);
-		}
-
-		public static bool operator !=(BookBlockIndices left, BookBlockIndices right)
-		{
-			return !Equals(left, right);
-		}
-		#endregion
-	}
-
-	//public static class IEnumerableExtensions
-	//{
-	//	public static int IndexOf<T>(this IEnumerable<T> enumeration, T item)
-	//	{
-	//		SIL.Extensions.CollectionExtensions.IndexOf()
-	//		return enumeration.IndexOf(a => Equals(a, item));
-	//	}
-
-	//	public static int IndexOf<T>(this IEnumerable<T> enumeration, Func<T, bool> match)
-	//	{
-	//		var list = enumeration.ToList();
-	//		for (int i = 0; i < list.Count; i++)
-	//		{
-	//			if (match(list[i]))
-	//				return i;
-	//		}
-	//		return -1;
-	//	}
-	//}
 }

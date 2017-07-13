@@ -14,6 +14,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
@@ -371,7 +372,7 @@ namespace Glyssen
 			// See if we already have project(s) for this bundle and give the user the option of opening an existing project instead.
 			var publicationFolder = Project.GetPublicationFolderPath(bundle);
 			if (Directory.Exists(publicationFolder) &&
-				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + ProjectBase.kProjectFileExtension)
+				Directory.GetDirectories(publicationFolder).Any(f => Directory.GetFiles(f, "*" + Constants.kProjectFileExtension)
 					.Any(filename => GlyssenDblTextMetadata.GetRevisionOrChangesetId(filename) == bundle.Metadata.RevisionOrChangesetId)))
 			{
 				using (var dlg = new SelectExistingProjectDlg(bundle))
@@ -746,7 +747,7 @@ namespace Glyssen
 
 		private void Assign_Click(object sender, EventArgs e)
 		{
-			if (m_project.ReferenceTextIdentifier.Missing)
+			if (m_project.ReferenceTextProxy.Missing)
 			{
 				if (!ResolveNullReferenceText())
 					return;
@@ -1003,7 +1004,7 @@ namespace Glyssen
 			finally
 			{
 				// Reset the temporarily overriden ReferenceText property so it won't accidentally get used for the ISP dialog.
-				if (m_project.ReferenceTextIdentifier.Missing)
+				if (m_project.ReferenceTextProxy.Missing)
 					m_project.ReferenceText = null;
 			}
 		}
@@ -1020,7 +1021,7 @@ namespace Glyssen
 				projectSettingsDlgTitle = dlg.Text;
 				referenceTextTabName = dlg.ReferenceTextTabPageName;
 			}
-			var customReferenceTextFolder = m_project.ReferenceTextIdentifier.ProjectFolder;
+			var customReferenceTextFolder = m_project.ReferenceTextProxy.ProjectFolder;
 			if (customReferenceTextFolder.Any(c => c == ' '))
 				customReferenceTextFolder = customReferenceTextFolder.Replace(" ", "\u00A0");
 			customReferenceTextFolder = "file://" + customReferenceTextFolder;
@@ -1096,12 +1097,12 @@ namespace Glyssen
 					zip.Save(saveAsName);
 				}
 
-				if (m_project.ReferenceTextIdentifier.Type == ReferenceTextType.Custom)
+				if (m_project.ReferenceTextProxy.Type == ReferenceTextType.Custom)
 				{
 					var msg = LocalizationManager.GetString("MainForm.ExportedProjectUsesCustomReferenceText",
 						"This project uses a custom reference text ({0}). For best results, if you share this project, the custom reference text " +
 						"should be installed on the other computer before importing.");
-					MessageBox.Show(this, Format(msg, m_project.ReferenceTextIdentifier.CustomIdentifier),
+					MessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier),
 						ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 
@@ -1113,7 +1114,7 @@ namespace Glyssen
 				Cursor.Current = Cursors.Default;
 				m_tableLayoutPanel.Enabled = true;
 			}
-			
+
 		}
 
 		private void Import_Click(object sender, EventArgs e)
@@ -1159,7 +1160,7 @@ namespace Glyssen
 				var path = zip.Entries.FirstOrDefault(ze => ze.IsDirectory);
 				var targetDir = Path.Combine(GlyssenInfo.BaseDataFolder, path.FileName);
 
-				var projectFileName = path.FileName.Split('/').First() + Project.kProjectFileExtension;
+				var projectFileName = path.FileName.Split('/').First() + Constants.kProjectFileExtension;
 				var projectFilePath = Path.Combine(targetDir, projectFileName);
 
 				// warn the user if data will be overwritten
@@ -1183,7 +1184,7 @@ namespace Glyssen
 				if (RobustFile.Exists(projectFilePath))
 					LoadProject(projectFilePath, () =>
 					{
-						if (m_project.ReferenceTextIdentifier.Missing)
+						if (m_project.ReferenceTextProxy.Missing)
 						{
 							var msg = LocalizationManager.GetString("MainForm.ImportedProjectUsesMissingReferenceText",
 								"The imported project uses a custom reference text ({0}) that is not available on this computer.\nFor best results, " +
@@ -1191,8 +1192,8 @@ namespace Glyssen
 								"\n    {2}\n" +
 								"\nThen restart {1} to continue working with this project.",
 								"Param 0: name of missing reference text; Param 1: \"Glyssen\"; Param 2: Path to Local Reference Texts folder");
-							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextIdentifier.CustomIdentifier, ProductName,
-								"file://" + m_project.ReferenceTextIdentifier.ProjectFolder),
+							FlexibleMessageBox.Show(this, Format(msg, m_project.ReferenceTextProxy.CustomIdentifier, ProductName,
+								"file://" + m_project.ReferenceTextProxy.ProjectFolder),
 								ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning, (sender, e) => { FileSystemUtils.SafeCreateAndOpenFolder(e.LinkText); });
 						}
 					});

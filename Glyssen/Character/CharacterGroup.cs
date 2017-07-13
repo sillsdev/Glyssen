@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Glyssen.Rules;
+using Glyssen.Shared;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Reporting;
@@ -174,7 +175,7 @@ namespace Glyssen.Character
 							throw new InvalidOperationException("Character " + characterId + " is not in use the project.");
 						}
 					}
-					m_estimatedHours = keyStrokes / GlyssenInfo.kKeyStrokesPerHour;
+					m_estimatedHours = keyStrokes / Project.kKeyStrokesPerHour;
 				}
 				return m_estimatedHours;
 			}

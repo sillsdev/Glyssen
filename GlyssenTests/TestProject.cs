@@ -9,6 +9,8 @@ using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared;
+using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;

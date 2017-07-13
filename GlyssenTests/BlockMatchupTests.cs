@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared;
 using NUnit.Framework;
 namespace GlyssenTests
 {
@@ -299,14 +300,14 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			Assert.AreEqual("someone", matchup.CorrelatedBlocks[0].CharacterId);
 			Assert.IsNull(matchup.CorrelatedBlocks[0].Delivery);
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("said Jesus. ", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("said Jesus. ", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual("disciples", matchup.CorrelatedBlocks[2].CharacterId);
 			Assert.AreEqual("confident", matchup.CorrelatedBlocks[2].Delivery);
-			Assert.AreEqual("“We knew that,” ", matchup.CorrelatedBlocks[2].PrimaryReferenceText);
+			Assert.AreEqual("“We knew that,” ", matchup.CorrelatedBlocks[2].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[3].CharacterId);
-			Assert.AreEqual("replied Matthew.", matchup.CorrelatedBlocks[3].PrimaryReferenceText);
+			Assert.AreEqual("replied Matthew.", matchup.CorrelatedBlocks[3].GetPrimaryReferenceText());
 			Assert.IsFalse(matchup.HasOutstandingChangesToApply);
 		}
 
@@ -338,18 +339,18 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
 			Assert.IsTrue(matchup.CorrelatedBlocks[0].UserConfirmed);
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
 			Assert.IsFalse(matchup.CorrelatedBlocks[1].UserConfirmed);
-			Assert.AreEqual("said Jesus. ", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("said Jesus. ", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual("Batholomew/Matthew", matchup.CorrelatedBlocks[2].CharacterId);
 			Assert.AreEqual("Matthew", matchup.CorrelatedBlocks[2].CharacterIdInScript);
 			Assert.IsTrue(matchup.CorrelatedBlocks[2].UserConfirmed);
 			Assert.AreEqual("smug", matchup.CorrelatedBlocks[2].Delivery);
-			Assert.AreEqual("“We knew that,” ", matchup.CorrelatedBlocks[2].PrimaryReferenceText);
+			Assert.AreEqual("“We knew that,” ", matchup.CorrelatedBlocks[2].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[3].CharacterId);
 			Assert.IsFalse(matchup.CorrelatedBlocks[3].UserConfirmed);
-			Assert.AreEqual("replied Matthew.", matchup.CorrelatedBlocks[3].PrimaryReferenceText);
+			Assert.AreEqual("replied Matthew.", matchup.CorrelatedBlocks[3].GetPrimaryReferenceText());
 			Assert.IsTrue(matchup.HasOutstandingChangesToApply);
 		}
 
@@ -386,13 +387,13 @@ namespace GlyssenTests
 			matchup.MatchAllBlocks(null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId, "If any of the ref blocks is narrator, default vern block to narrator.");
-			Assert.AreEqual("said Jesus. To which Matthew replied, “We knew that.”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("said Jesus. To which Matthew replied, “We knew that.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, matchup.CorrelatedBlocks[2].CharacterId);
-			Assert.AreEqual(string.Empty, matchup.CorrelatedBlocks[2].PrimaryReferenceText);
+			Assert.AreEqual(string.Empty, matchup.CorrelatedBlocks[2].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[3].CharacterId);
-			Assert.AreEqual("He said this {3}\u00A0because the day before Jesus had said, “Tomorrow will be verse two.”", matchup.CorrelatedBlocks[3].PrimaryReferenceText);
+			Assert.AreEqual("He said this {3}\u00A0because the day before Jesus had said, “Tomorrow will be verse two.”", matchup.CorrelatedBlocks[3].GetPrimaryReferenceText());
 			var joinedRefBlock = matchup.CorrelatedBlocks[3].ReferenceBlocks.Single();
 			// We may not technically really care too much about the next four lines (at least right now), but this is how we expect the reference block
 			// to be built.
@@ -434,10 +435,10 @@ namespace GlyssenTests
 			matchup.MatchAllBlocks(null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId, "If any of the ref blocks is narrator, default vern block to narrator.");
-			Assert.AreEqual("Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
-			Assert.AreEqual("said Jesus. To which Matthew replied, “We knew that.”", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("Jésus a dit. Pour que Matthieu a répondu, «Nous savions que.»", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
+			Assert.AreEqual("said Jesus. To which Matthew replied, “We knew that.”", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[TestCase(0)]
@@ -762,7 +763,7 @@ namespace GlyssenTests
 			matchup.SetReferenceText(1, refText);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 
-			Assert.AreEqual("", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			var newRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
 			Assert.AreEqual(narrator, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual(2, newRefBlock.InitialStartVerseNumber);
@@ -787,9 +788,9 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			// Ensure block 0 not changed
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 
-			Assert.AreEqual("said Jesus.", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("said Jesus.", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			var newRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
 			Assert.AreEqual(narrator, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
@@ -818,9 +819,9 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			// Ensure block 1 not changed
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 
-			Assert.AreEqual("Then Jesus told them {2}\u00A0that it was just verse two.", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("Then Jesus told them {2}\u00A0that it was just verse two.", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
@@ -848,10 +849,10 @@ namespace GlyssenTests
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			// Ensure block 1 not changed
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("{2-3}\u00A0“This is verse two.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(2, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().InitialStartVerseNumber);
 
-			Assert.AreEqual("Then Jesus told them that it was just verse two.", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("Then Jesus told them that it was just verse two.", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 			Assert.AreEqual(matchup.CorrelatedBlocks[0].ReferenceBlocks.Single(), newRefBlock);
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
@@ -885,7 +886,7 @@ namespace GlyssenTests
 			var followingRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
 
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("“Continuation of previous verse in ref text. {3}\u00A0Three!”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("“Continuation of previous verse in ref text. {3}\u00A0Three!”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(1, refBlock2.InitialStartVerseNumber, "Original should not have been changed -- SetReferenceText needs to make a clone to avoid corrupting original collection.");
 			Assert.AreEqual(2, followingRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(0, followingRefBlock.InitialEndVerseNumber);
@@ -1032,7 +1033,7 @@ namespace GlyssenTests
 			var followingRefBlock = matchup.CorrelatedBlocks[1].ReferenceBlocks.Single();
 
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("“Continuation of previous verse in ref text. {3}\u00A0Three!”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("“Continuation of previous verse in ref text. {3}\u00A0Three!”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(1, followingRefBlock.InitialStartVerseNumber);
 			Assert.AreEqual(3, followingRefBlock.InitialEndVerseNumber);
 			Assert.AreEqual("Jesus", followingRefBlock.CharacterId);
@@ -1055,10 +1056,10 @@ namespace GlyssenTests
 			// Ensure block 0 not changed
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, matchup.CorrelatedBlocks[0].CharacterId);
 			Assert.IsTrue(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.AreEqual("{1}\u00A0Then Jesus spoke unto them, ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{1}\u00A0Then Jesus spoke unto them, ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 
 			Assert.IsTrue(matchup.CorrelatedBlocks[0].MatchesReferenceText);
-			Assert.AreEqual("saying, {2-3}\u00A0“This is verse two and three.”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("saying, {2-3}\u00A0“This is verse two and three.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(matchup.CorrelatedBlocks[1].ReferenceBlocks.Single(), newRefBlock);
 			Assert.AreEqual("Jesus", newRefBlock.CharacterId, "Should get character info from vern block");
 			Assert.AreEqual(1, newRefBlock.InitialStartVerseNumber);
@@ -1081,15 +1082,15 @@ namespace GlyssenTests
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			matchup.MatchAllBlocks(null);
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
-			Assert.AreEqual("", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 
 			var newRefBlock = matchup.SetReferenceText(1, "{3}" + separator + "“And this is verse three {4}" + separator + "or maybe four.”");
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			// Ensure block 0 not changed
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 
-			Assert.AreEqual("{3}\u00A0“And this is verse three {4}\u00A0or maybe four.”", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("{3}\u00A0“And this is verse three {4}\u00A0or maybe four.”", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual(vernacularBlocks.Last().CharacterId, newRefBlock.CharacterId, "Should get character/delivery info from vern block");
 			Assert.AreEqual("expressionless", newRefBlock.Delivery, "Should get character/delivery info from vern block");
 			Assert.AreEqual(3, newRefBlock.InitialStartVerseNumber);
@@ -1109,7 +1110,7 @@ namespace GlyssenTests
 			matchup.CorrelatedBlocks[0].SetMatchedReferenceBlock(
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			matchup.MatchAllBlocks(null);
-			Assert.AreEqual("", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 
 			bool callbackCalled = false;
 
@@ -1126,10 +1127,10 @@ namespace GlyssenTests
 			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
 				"This matchup only has English - no additional levels should be present.");
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId,
 				"First reference text should not have been changed!");
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText,
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(),
 				"First reference text should not have been changed!");
 		}
 
@@ -1146,7 +1147,7 @@ namespace GlyssenTests
 				ReferenceTextTests.CreateBlockForVerse("Jesus", 2, "“This is verse two,” ", true));
 			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(3, ""));
 			matchup.MatchAllBlocks(null);
-			Assert.AreEqual("{3}\u00A0", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("{3}\u00A0", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 
 			bool callbackCalled = false;
 
@@ -1160,9 +1161,9 @@ namespace GlyssenTests
 			});
 			Assert.IsTrue(callbackCalled);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
-			Assert.AreEqual("{3}\u00A0he said.", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("{3}\u00A0he said.", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId, "First reference text should not have been changed!");
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText,
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(),
 				"First reference text should not have been changed!");
 		}
 
@@ -1176,13 +1177,13 @@ namespace GlyssenTests
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
-			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
+			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetPrimaryReferenceText()).All(t => t == ""));
 
 			bool callbackCalled = false;
 
 			matchup.InsertHeSaidText(0, (iRow, level, text) => { callbackCalled = true; });
 			Assert.IsFalse(callbackCalled);
-			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
+			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetPrimaryReferenceText()).All(t => t == ""));
 			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
 				"This matchup only has English - no additional levels should be present.");
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
@@ -1201,14 +1202,14 @@ namespace GlyssenTests
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(3, "This is not empty, dude."));
-			var origRefText = matchup.CorrelatedBlocks[1].PrimaryReferenceText;
+			var origRefText = matchup.CorrelatedBlocks[1].GetPrimaryReferenceText();
 			matchup.MatchAllBlocks(null);
 
 			bool callbackCalled = false;
 
 			matchup.InsertHeSaidText(1, (iRow, level, text) => { callbackCalled = true; });
 			Assert.IsFalse(callbackCalled);
-			Assert.AreEqual(origRefText, matchup.CorrelatedBlocks[1].PrimaryReferenceText,
+			Assert.AreEqual(origRefText, matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(),
 				"Reference text should not have been changed!");
 			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
 				"This matchup only has English - no additional levels should be present.");
@@ -1228,14 +1229,14 @@ namespace GlyssenTests
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.CorrelatedBlocks[1].SetMatchedReferenceBlock(ReferenceTextTests.CreateNarratorBlockForVerse(3, "").AddVerse(4, ""));
-			var origRefText = matchup.CorrelatedBlocks[1].PrimaryReferenceText;
+			var origRefText = matchup.CorrelatedBlocks[1].GetPrimaryReferenceText();
 			matchup.MatchAllBlocks(null);
 
 			bool callbackCalled = false;
 
 			matchup.InsertHeSaidText(1, (iRow, level, text) => { callbackCalled = true; });
 			Assert.IsFalse(callbackCalled);
-			Assert.AreEqual(origRefText, matchup.CorrelatedBlocks[1].PrimaryReferenceText,
+			Assert.AreEqual(origRefText, matchup.CorrelatedBlocks[1].GetPrimaryReferenceText(),
 				"Reference text should not have been changed!");
 			Assert.IsFalse(matchup.CorrelatedBlocks.Select(b => b.ReferenceBlocks.Single()).Any(rb => rb.ReferenceBlocks.Any()),
 				"This matchup only has English - no additional levels should be present.");
@@ -1254,7 +1255,7 @@ namespace GlyssenTests
 			var vernBook = new BookScript("MAT", vernacularBlocks);
 			var matchup = new BlockMatchup(vernBook, 0, null, i => true, ReferenceText.GetStandardReferenceText(ReferenceTextType.English));
 			matchup.MatchAllBlocks(null);
-			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.PrimaryReferenceText).All(t => t == ""));
+			Assert.IsTrue(matchup.CorrelatedBlocks.Select(b => b.GetPrimaryReferenceText()).All(t => t == ""));
 
 			bool callbackCalled = false;
 
@@ -1265,14 +1266,14 @@ namespace GlyssenTests
 			});
 			Assert.IsTrue(callbackCalled);
 
-			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 			var narrator = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId);
 
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId);
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId, "Reference text character id should not have been changed!");
-			Assert.AreEqual("", matchup.CorrelatedBlocks[0].PrimaryReferenceText);
+			Assert.AreEqual("", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText());
 		}
 
 		[TestCase(ReferenceTextType.Custom, TestReferenceText.TestReferenceTextResource.AzeriJUD, "dedi.")]
@@ -1301,7 +1302,7 @@ namespace GlyssenTests
 			matchup.MatchAllBlocks(null);
 
 			Assert.IsTrue(matchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
-			Assert.AreEqual("", matchup.CorrelatedBlocks[1].PrimaryReferenceText);
+			Assert.AreEqual("", matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
 
 			bool callbackCalledForEnglish = false;
 			bool callbackCalledForPrimary = false;
@@ -1330,16 +1331,16 @@ namespace GlyssenTests
 				"This matchup should have a primary reference text plus English.");
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].CharacterId);
 			Assert.AreEqual(narrator, matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().CharacterId);
-			Assert.AreEqual(expectedText, matchup.CorrelatedBlocks[1].PrimaryReferenceText);
-			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(expectedText, matchup.CorrelatedBlocks[1].GetPrimaryReferenceText());
+			Assert.AreEqual("he said.", matchup.CorrelatedBlocks[1].ReferenceBlocks.Single().GetPrimaryReferenceText());
 
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].CharacterId,
 				"First reference text (primary) should not have been changed!");
 			Assert.AreEqual("Jesus", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().CharacterId,
 				"First reference text (English) should not have been changed!");
-			Assert.AreEqual("{2}\u00A0“Esto es versiculo dos,” ", matchup.CorrelatedBlocks[0].PrimaryReferenceText,
+			Assert.AreEqual("{2}\u00A0“Esto es versiculo dos,” ", matchup.CorrelatedBlocks[0].GetPrimaryReferenceText(),
 				"First reference text (primary) should not have been changed!");
-			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().PrimaryReferenceText,
+			Assert.AreEqual("{2}\u00A0“This is verse two,” ", matchup.CorrelatedBlocks[0].ReferenceBlocks.Single().GetPrimaryReferenceText(),
 				"First reference text (English) should not have been changed!");
 		}
 
@@ -1380,20 +1381,20 @@ namespace GlyssenTests
 			var row1VernBlock = matchup.CorrelatedBlocks[1];
 			Assert.IsTrue(row1VernBlock.MatchesReferenceText);
 			Assert.AreEqual(narrator, row1VernBlock.CharacterId);
-			Assert.AreEqual("dijo Jesus. ", row1VernBlock.PrimaryReferenceText);
+			Assert.AreEqual("dijo Jesus. ", row1VernBlock.GetPrimaryReferenceText());
 			var row1SpanishRefBlock = row1VernBlock.ReferenceBlocks.Single();
 			Assert.IsTrue(row1SpanishRefBlock.MatchesReferenceText);
 			Assert.AreEqual(narrator, row1SpanishRefBlock.CharacterId);
-			Assert.AreEqual("he said. ", row1SpanishRefBlock.PrimaryReferenceText);
+			Assert.AreEqual("he said. ", row1SpanishRefBlock.GetPrimaryReferenceText());
 
 			var row3VernBlock = matchup.CorrelatedBlocks[3];
 			Assert.IsTrue(row3VernBlock.MatchesReferenceText);
 			Assert.AreEqual(narrator, row3VernBlock.CharacterId);
-			Assert.AreEqual("dijo.", row3VernBlock.PrimaryReferenceText);
+			Assert.AreEqual("dijo.", row3VernBlock.GetPrimaryReferenceText());
 			var row3SpanishRefBlock = row3VernBlock.ReferenceBlocks.Single();
 			Assert.IsTrue(row3SpanishRefBlock.MatchesReferenceText);
 			Assert.AreEqual(narrator, row3SpanishRefBlock.CharacterId);
-			Assert.AreEqual("Peter said.", row3SpanishRefBlock.PrimaryReferenceText);
+			Assert.AreEqual("Peter said.", row3SpanishRefBlock.GetPrimaryReferenceText());
 
 			Assert.IsFalse(matchup.CorrelatedBlocks[0].MatchesReferenceText);
 			Assert.IsFalse(matchup.CorrelatedBlocks[2].MatchesReferenceText);

@@ -4,7 +4,6 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;

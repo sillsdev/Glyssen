@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
+using Glyssen.Shared;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -47,12 +48,10 @@ namespace Glyssen
 	{
 		private const string kExcelLineBreak = "\r\n"; ///????????????????????
 		private const string kTabFileAnnotationElementSeparator = " ";
-		public const string kExcelFileExtension = ".xlsx";
 		public const string kTabDelimitedFileExtension = ".txt";
 
 		private string m_customFileName;
 		private int m_numberOfFilesSuccessfullyExported;
-		private readonly bool m_includeVoiceActors;
 		private readonly bool m_includeDelivery;
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		private List<int> m_annotatedRowIndexes;
@@ -61,13 +60,18 @@ namespace Glyssen
 		public ProjectExporter(Project project)
 		{
 			Project = project;
-			m_includeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
+			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
 			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
 			m_includeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
 		}
 
-		public Project Project { get; private set; }
-		public bool IncludeVoiceActors => m_includeVoiceActors;
+		public Project Project { get; }
+		public bool IncludeVoiceActors { get; }
+
+		/// <summary>
+		/// True to exclude verse numbers and annotations; default is false
+		/// </summary>
+		public bool TextOnly { get; set; }
 		public bool IncludeActorBreakdown { get; set; }
 		public bool IncludeBookBreakdown { get; set; }
 		public bool IncludeCreateClips { get; set; }
@@ -413,8 +417,8 @@ namespace Glyssen
 
 		private void GenerateExcelFile(string path, IEnumerable<List<object>> data, bool masterFileWithAnnotations)
 		{
-			if (Path.GetExtension(path) != kExcelFileExtension)
-				path += kExcelFileExtension;
+			if (Path.GetExtension(path) != Constants.kExcelFileExtension)
+				path += Constants.kExcelFileExtension;
 
 			// If we got this far with a path to an existing file, the user has (in theory)
 			// confirmed he wants to overwrite it.
@@ -447,7 +451,7 @@ namespace Glyssen
 
 				if (IncludeVoiceActors)
 					sheet.Column(columnNum++).AutoFit(2d, 20d); // voice actor
-				
+
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // style tag
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // book
 				sheet.Column(columnNum++).AutoFit(2d, sheet.DefaultColWidth); // chapter
@@ -579,14 +583,19 @@ namespace Glyssen
 		// internal for testing
 		internal int GetColumnIndex(ExportColumn column)
 		{
+			return GetColumnIndex(column, Project, IncludeVoiceActors, m_includeDelivery);
+		}
+
+		internal static int GetColumnIndex(ExportColumn column, Project project, bool includeVoiceActors = true, bool includeDelivery = true)
+		{
 			int columnNumber = (int)column;
-			if (column != ExportColumn.BlockId && !IncludeVoiceActors)
+			if (column != ExportColumn.BlockId && !includeVoiceActors)
 				columnNumber--;
-			if (column > ExportColumn.SecondaryReferenceText && !Project.ReferenceText.HasSecondaryReferenceText)
+			if (column > ExportColumn.SecondaryReferenceText && !project.ReferenceText.HasSecondaryReferenceText)
 				columnNumber--;
 			if (column > ExportColumn.CharacterId && LocalizationManager.UILanguageId != "en")
 				columnNumber++;
-			if (column > ExportColumn.Delivery && !m_includeDelivery)
+			if (column > ExportColumn.Delivery && !includeDelivery)
 				columnNumber--;
 			return columnNumber;
 		}
@@ -645,7 +654,7 @@ namespace Glyssen
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
 							IncludeVoiceActors, m_includeDelivery,
-							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId));
+							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId, TextOnly));
 						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
@@ -656,7 +665,7 @@ namespace Glyssen
 						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 				}
 			}
-			if (bookId == null && voiceActorId == -1)
+			if (bookId == null && voiceActorId == -1 && !TextOnly)
 				AddAnnotations(result);
 			return result;
 		}
@@ -817,9 +826,9 @@ namespace Glyssen
 			if (m_includeDelivery)
 				row.Add(refBlock.Delivery);
 			row.Add(null);
-			row.Add(refBlock.GetText(true, true));
+			row.Add(refBlock.GetText(!TextOnly, !TextOnly));
 			if (Project.ReferenceText.HasSecondaryReferenceText)
-				row.Add(refBlock.PrimaryReferenceText);
+				row.Add(refBlock.GetPrimaryReferenceText(TextOnly));
 			row.Add(0);
 			if (IncludeCreateClips)
 				row.Add(null);
@@ -867,7 +876,8 @@ namespace Glyssen
 
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
 			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
-			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId)
+			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId,
+			bool textOnly = false)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -884,20 +894,20 @@ namespace Glyssen
 			else
 				characterId = useCharacterIdInScript ? block.CharacterIdInScript : block.CharacterId;
 			list.Add(CharacterVerseData.IsCharacterStandard(characterId) ? CharacterVerseData.GetStandardCharacterIdAsEnglish(characterId) : characterId);
-			
+
 			// add a column for the localized character id
 			if (LocalizationManager.UILanguageId != "en")
 				list.Add(CharacterVerseData.GetCharacterNameForUi(characterId));
-				
+
 			if (includeDelivery)
 				list.Add(block.Delivery);
-			list.Add(block.GetText(true));
-			list.Add(block.PrimaryReferenceText);
+			list.Add(block.GetText(!textOnly));
+			list.Add(block.GetPrimaryReferenceText(textOnly));
 			if (includeSecondaryDirectorsGuide)
 			{
 				var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
 				if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
-					list.Add(primaryRefBlock.PrimaryReferenceText);
+					list.Add(primaryRefBlock.GetPrimaryReferenceText(textOnly));
 				else
 					list.Add(null);
 			}
@@ -922,7 +932,7 @@ namespace Glyssen
 			switch (fileType)
 			{
 				case ExportFileType.Excel:
-					return kExcelFileExtension;
+					return Constants.kExcelFileExtension;
 				case ExportFileType.TabSeparated:
 					return kTabDelimitedFileExtension;
 			}
@@ -942,8 +952,8 @@ namespace Glyssen
 
 		private void GenerateRolesForVoiceActorsExport(string path, List<List<object>> data)
 		{
-			if (Path.GetExtension(path) != kExcelFileExtension)
-				path += kExcelFileExtension;
+			if (Path.GetExtension(path) != Constants.kExcelFileExtension)
+				path += Constants.kExcelFileExtension;
 
 			// If we got this far with a path to an existing file, the user has (in theory)
 			// confirmed he wants to overwrite it.

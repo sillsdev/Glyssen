@@ -432,8 +432,8 @@ namespace Glyssen.Dialogs
 					var row = m_dataGridReferenceText.Rows[i];
 					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 					if (colPrimary.Visible)
-						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().PrimaryReferenceText;
-					row.Cells[primaryColumnIndex].Value = correlatedBlock.PrimaryReferenceText;
+						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().GetPrimaryReferenceText();
+					row.Cells[primaryColumnIndex].Value = correlatedBlock.GetPrimaryReferenceText();
 					SetCharacterCellValue(row, correlatedBlock);
 					if (colDelivery.Visible)
 						SetDeliveryCellValue(row, correlatedBlock);

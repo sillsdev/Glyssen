@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Glyssen;
+using Glyssen.Shared;
 using NUnit.Framework;
 
 namespace GlyssenTests
@@ -23,11 +24,11 @@ namespace GlyssenTests
 				TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 			else
 			{
-				ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
-				Assert.IsFalse(Directory.Exists(ReferenceTextIdentifier.ProprietaryReferenceTextProjectFileLocation));
+				ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = Path.GetFileNameWithoutExtension(Path.GetTempFileName());
+				Assert.IsFalse(Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation));
 			}
 
-			var publicDomainDistributedReferenceTexts = ReferenceTextIdentifier.AllAvailable.ToList();
+			var publicDomainDistributedReferenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
 			Assert.AreEqual(2, publicDomainDistributedReferenceTexts.Count);
 			VerifyBuiltInReferenceTexts(publicDomainDistributedReferenceTexts);
@@ -39,7 +40,7 @@ namespace GlyssenTests
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
 
-			var referenceTexts = ReferenceTextIdentifier.AllAvailable.ToList();
+			var referenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
 			VerifyBuiltInReferenceTexts(referenceTexts);
 
@@ -63,10 +64,10 @@ namespace GlyssenTests
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
 
-			ReferenceTextIdentifier.ClearCache();
-			var idAzeri = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, "Azeri");
+			ReferenceTextProxy.ClearCache();
+			var idAzeri = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "Azeri");
 
-			var referenceTexts = ReferenceTextIdentifier.AllAvailable.ToList();
+			var referenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
 			VerifyBuiltInReferenceTexts(referenceTexts);
 
@@ -79,11 +80,11 @@ namespace GlyssenTests
 		{
 			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
 
-			var idEpl = ReferenceTextIdentifier.GetOrCreate(ReferenceTextType.Custom, "EsperantoPigLatin");
+			var idEpl = ReferenceTextProxy.GetOrCreate(ReferenceTextType.Custom, "EsperantoPigLatin");
 
 			Assert.IsTrue(idEpl.Missing);
 
-			var referenceTexts = ReferenceTextIdentifier.AllAvailable.ToList();
+			var referenceTexts = ReferenceTextProxy.AllAvailable.ToList();
 
 			VerifyBuiltInReferenceTexts(referenceTexts);
 
@@ -97,17 +98,17 @@ namespace GlyssenTests
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.EnglishJUD);
 
-			ReferenceTextIdentifier.ClearCache();
-			Assert.IsTrue(ReferenceTextIdentifier.IsCustomReferenceAvailable("English"));
-			Assert.IsTrue(ReferenceTextIdentifier.IsCustomReferenceAvailable("Azeri"));
+			ReferenceTextProxy.ClearCache();
+			Assert.IsTrue(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
+			Assert.IsTrue(ReferenceTextProxy.IsCustomReferenceAvailable("Azeri"));
 		}
 
 		[Test]
 		public void IsCustomReferenceAvailable_NoCustomReferenceTexts_ReturnsFalse()
 		{
 			TestReferenceText.OverrideProprietaryReferenceTextProjectFileLocationToTempLocation();
-			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("English"));
-			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("Azeri"));
+			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
+			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("Azeri"));
 		}
 
 		[Test]
@@ -115,11 +116,11 @@ namespace GlyssenTests
 		{
 			TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriJUD);
 
-			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("Spanish"));
-			Assert.IsFalse(ReferenceTextIdentifier.IsCustomReferenceAvailable("English"));
+			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("Spanish"));
+			Assert.IsFalse(ReferenceTextProxy.IsCustomReferenceAvailable("English"));
 		}
 
-		private static void VerifyBuiltInReferenceTexts(IEnumerable<ReferenceTextIdentifier> referenceTexts)
+		private static void VerifyBuiltInReferenceTexts(IEnumerable<ReferenceTextProxy> referenceTexts)
 		{
 			var english = referenceTexts.Single(r => r.Type == ReferenceTextType.English);
 			Assert.AreEqual(ReferenceTextType.English, english.Type);

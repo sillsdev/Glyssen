@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen.Character;
+using Glyssen.Shared;
 
 namespace Glyssen.Dialogs
 {
@@ -27,7 +28,7 @@ namespace Glyssen.Dialogs
 				m_cameoActor = cameoActor;
 				foreach (var kvp in charactersNotInGroup)
 				{
-					if ((kvp.Value / GlyssenInfo.kKeyStrokesPerHour) < GlyssenInfo.kCameoCharacterEstimatedHoursLimit)
+					if ((kvp.Value / Project.kKeyStrokesPerHour) < Project.kCameoCharacterEstimatedHoursLimit)
 					{
 						var detail = m_characterDetailDictionary[kvp.Key];
 						if (cameoActor.Matches(detail))
@@ -98,8 +99,7 @@ namespace Glyssen.Dialogs
 
 		public double GetEstimatedHoursForCharacter(int filteredCharacterIndex)
 		{
-			return m_keyStrokesByCharacterId[ActiveList[filteredCharacterIndex].CharacterId] /
-				GlyssenInfo.kKeyStrokesPerHour;
+			return m_keyStrokesByCharacterId[ActiveList[filteredCharacterIndex].CharacterId] / Project.kKeyStrokesPerHour;
 		}
 	}
 }

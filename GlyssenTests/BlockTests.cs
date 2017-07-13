@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Scripture;
@@ -54,8 +55,8 @@ namespace GlyssenTests
 			block.SetMatchedReferenceBlock(rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
-			Assert.AreEqual(rtFrench.HeSaidText, block.PrimaryReferenceText);
-			Assert.AreEqual(rtEnglish.HeSaidText, block.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(rtFrench.HeSaidText, block.GetPrimaryReferenceText());
+			Assert.AreEqual(rtEnglish.HeSaidText, block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -67,8 +68,8 @@ namespace GlyssenTests
 			block.SetMatchedReferenceBlock("{10}\u00A0" + rtEnglish.HeSaidText);
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
-			Assert.AreEqual("{10}\u00A0" + rtFrench.HeSaidText, block.PrimaryReferenceText);
-			Assert.AreEqual("{10}\u00A0" + rtEnglish.HeSaidText, block.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0" + rtFrench.HeSaidText, block.GetPrimaryReferenceText());
+			Assert.AreEqual("{10}\u00A0" + rtEnglish.HeSaidText, block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -81,7 +82,7 @@ namespace GlyssenTests
 			Assert.IsTrue(block.ChangeReferenceText("MRK", ReferenceText.GetStandardReferenceText(ReferenceTextType.English),
 				ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.GetPrimaryReferenceText());
 		}
 
 		[Test] public void ChangeReferenceText_FrenchToSpanish_MultipleMatchingCombinedRefBlocks_ReferenceTextChanged()
@@ -97,10 +98,10 @@ namespace GlyssenTests
 			Assert.IsTrue(block.ChangeReferenceText("MAT", rtSpanish, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{1}\u00A0Jesús ... {2}\u00A0y ... preguntaron: <<¿Dónde ... adorarlo.>>",
-				block.PrimaryReferenceText);
+				block.GetPrimaryReferenceText());
 			Assert.AreEqual("{1}\u00A0Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, " +
 				"{2}\u00A0saying, “Where is the one who is born King of the Jews? For we saw his star in the east, and have come to worship him.”",
-				block.ReferenceBlocks.Single().PrimaryReferenceText);
+				block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -113,7 +114,7 @@ namespace GlyssenTests
 			Assert.IsFalse(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			// Caller will be responsible for clearing the alignment (for this and other related blocks)
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0This is some arbitrary English reference text.", block.GetPrimaryReferenceText());
 			Assert.IsFalse(block.ReferenceBlocks.Single().MatchesReferenceText);
 		}
 
@@ -126,9 +127,9 @@ namespace GlyssenTests
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("{10}\u00A0", block.PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0", block.GetPrimaryReferenceText());
 			Assert.IsTrue(block.ReferenceBlocks.Single().MatchesReferenceText);
-			Assert.AreEqual("{10}\u00A0", block.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("{10}\u00A0", block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -140,9 +141,9 @@ namespace GlyssenTests
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, ScrVers.English));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("", block.PrimaryReferenceText);
+			Assert.AreEqual("", block.GetPrimaryReferenceText());
 			Assert.IsTrue(block.ReferenceBlocks.Single().MatchesReferenceText);
-			Assert.AreEqual("", block.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual("", block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -154,9 +155,9 @@ namespace GlyssenTests
 			ReferenceText rtAzeri = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.AzeriREV);
 			Assert.IsFalse(block.ChangeReferenceText("REV", rtAzeri, ScrVers.English));
 			// Caller will be responsible for clearing the alignment (for this and other related blocks)
-			Assert.AreEqual("{17}\u00A0Stuff that doesn't match...", block.PrimaryReferenceText);
+			Assert.AreEqual("{17}\u00A0Stuff that doesn't match...", block.GetPrimaryReferenceText());
 			Assert.IsFalse(block.ReferenceBlocks.Single().MatchesReferenceText);
-			Assert.IsNull(block.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.IsNull(block.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -176,7 +177,7 @@ namespace GlyssenTests
 			ReferenceText rtFrench = TestReferenceText.CreateCustomReferenceText(TestReferenceText.TestReferenceTextResource.FrenchMRK);
 			Assert.IsTrue(block.ChangeReferenceText("MRK", rtFrench, vernVers));
 			Assert.IsTrue(block.MatchesReferenceText);
-			Assert.AreEqual("<<Cela lui arrive depuis quand?>>", block.PrimaryReferenceText);
+			Assert.AreEqual("<<Cela lui arrive depuis quand?>>", block.GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -198,7 +199,7 @@ namespace GlyssenTests
 			Assert.IsTrue(block.MatchesReferenceText);
 			Assert.AreEqual("{43}\u00A0mais Jésus leur demandeforce: <<Ne dites rien à personne.>> Ensuite il leur dit: " +
 				"<<Donnez-lui quelque chose à manger.>> {1}\u00A0J... l'accompagnent.",
-				block.PrimaryReferenceText);
+				block.GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -209,16 +210,16 @@ namespace GlyssenTests
 			var origBlockAText = blockA.GetText(true);
 			blockA.SetMatchedReferenceBlock("Espanol A, ");
 			blockA.ReferenceBlocks.Single().SetMatchedReferenceBlock("English A, ");
-			var origSpanishRefTextA = blockA.PrimaryReferenceText;
-			var origEnglishRefTextA = blockA.ReferenceBlocks.Single().PrimaryReferenceText;
+			var origSpanishRefTextA = blockA.GetPrimaryReferenceText();
+			var origEnglishRefTextA = blockA.ReferenceBlocks.Single().GetPrimaryReferenceText();
 			var blockB = new Block("q", 1, 4);
 			blockB.BlockElements.Add(new ScriptText("Whatever"));
 			var origBlockBElements = blockB.BlockElements.ToList();
 			var origBlockBText = blockB.GetText(true);
 			blockB.SetMatchedReferenceBlock("espanol B.");
 			blockB.ReferenceBlocks.Single().SetMatchedReferenceBlock("English B.");
-			var origSpanishRefTextB = blockB.PrimaryReferenceText;
-			var origEnglishRefTextB = blockB.ReferenceBlocks.Single().PrimaryReferenceText;
+			var origSpanishRefTextB = blockB.GetPrimaryReferenceText();
+			var origEnglishRefTextB = blockB.ReferenceBlocks.Single().GetPrimaryReferenceText();
 			var newBlock = Block.CombineBlocks(blockA, blockB);
 			Assert.AreNotEqual(newBlock, blockA);
 			Assert.AreNotEqual(newBlock, blockB);
@@ -230,10 +231,10 @@ namespace GlyssenTests
 			Assert.IsFalse(newBlock.BlockElements.Any(e => origBlockBElements.Contains(e)));
 			Assert.AreNotEqual(newBlock.ReferenceBlocks.Single(), blockA.ReferenceBlocks.Single());
 			Assert.AreNotEqual(newBlock.ReferenceBlocks.Single(), blockB.ReferenceBlocks.Single());
-			Assert.AreEqual(origSpanishRefTextA, blockA.PrimaryReferenceText);
-			Assert.AreEqual(origEnglishRefTextA, blockA.ReferenceBlocks.Single().PrimaryReferenceText);
-			Assert.AreEqual(origSpanishRefTextB, blockB.PrimaryReferenceText);
-			Assert.AreEqual(origEnglishRefTextB, blockB.ReferenceBlocks.Single().PrimaryReferenceText);
+			Assert.AreEqual(origSpanishRefTextA, blockA.GetPrimaryReferenceText());
+			Assert.AreEqual(origEnglishRefTextA, blockA.ReferenceBlocks.Single().GetPrimaryReferenceText());
+			Assert.AreEqual(origSpanishRefTextB, blockB.GetPrimaryReferenceText());
+			Assert.AreEqual(origEnglishRefTextB, blockB.ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -302,7 +303,7 @@ namespace GlyssenTests
 			otherBlock.SetMatchedReferenceBlock(leadingSpace + "Second English.");
 			thisBlock.CombineWith(otherBlock);
 			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
-			Assert.AreEqual("{4}\u00A0First English. Second English.", thisBlock.PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0First English. Second English.", thisBlock.GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -338,7 +339,7 @@ namespace GlyssenTests
 			otherBlock.SetMatchedReferenceBlock("Second English.");
 			thisBlock.CombineWith(otherBlock);
 			Assert.AreEqual("{4}\u00A0First Second", thisBlock.GetText(true));
-			Assert.AreEqual("{4}\u00A0First English. {F8 SFX--Whatever} Second English.", thisBlock.PrimaryReferenceText);
+			Assert.AreEqual("{4}\u00A0First English. {F8 SFX--Whatever} Second English.", thisBlock.GetPrimaryReferenceText());
 			Assert.AreEqual("Whatever", ((Sound)thisBlock.ReferenceBlocks.Single().BlockElements[2]).EffectName);
 		}
 
@@ -354,8 +355,8 @@ namespace GlyssenTests
 			otherBlock.ReferenceBlocks.Single().SetMatchedReferenceBlock("second.");
 			thisBlock.CombineWith(otherBlock);
 			Assert.AreEqual("{4}\u00A0Eins Zwei.", thisBlock.GetText(true));
-			Assert.AreEqual("{4}\u00A0Primer espanol, {F8 SFX--Whatever} segundo.", thisBlock.PrimaryReferenceText);
-			Assert.AreEqual("{4}\u00A0First {F8 SFX--Whatever} English, second.", thisBlock.ReferenceBlocks.Single().PrimaryReferenceText.Replace("  ", " "));
+			Assert.AreEqual("{4}\u00A0Primer espanol, {F8 SFX--Whatever} segundo.", thisBlock.GetPrimaryReferenceText());
+			Assert.AreEqual("{4}\u00A0First {F8 SFX--Whatever} English, second.", thisBlock.ReferenceBlocks.Single().GetPrimaryReferenceText().Replace("  ", " "));
 			Assert.AreEqual(4, thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements.Count);
 			Assert.AreEqual("Whatever", ((Sound)thisBlock.ReferenceBlocks.Single().ReferenceBlocks.Single().BlockElements[2]).EffectName);
 		}
@@ -587,16 +588,16 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" + 
+			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" +
 				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
-							Block.BuildSplitLineHtml(1) + 
+							Block.BuildSplitLineHtml(1) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
 							Block.BuildSplitLineHtml(2) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">vers " + open + "sic" + close + " </div>" +
-							Block.BuildSplitLineHtml(3) + 
-							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" + 
+							Block.BuildSplitLineHtml(3) +
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">four. </div>" +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"><sup>5&#160;</sup>Text</div>" +
-							Block.BuildSplitLineHtml(4) + 
+							Block.BuildSplitLineHtml(4) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"5\"> of verse five.</div>";
 
 			var actual = block.GetSplitTextAsHtml(0, false, new[]
@@ -1001,6 +1002,28 @@ namespace GlyssenTests
 			Assert.AreEqual(blockBefore.GetText(true, true), blockAfter.GetText(true, true));
 		}
 
+		[Test]
+		public void SerializeDeserialize_ContainsPrimaryReferenceText_RoundtripDataRemainsTheSame()
+		{
+			var block = new Block();
+			block.BlockElements = new List<BlockElement>
+			{
+				new ScriptText("script text"),
+			};
+			var primaryReferenceTextBlock = new Block();
+			primaryReferenceTextBlock.BlockElements = new List<BlockElement>
+			{
+				new ScriptText("primary reference text")
+			};
+			block.SetMatchedReferenceBlock(primaryReferenceTextBlock);
+
+			var blockBefore = block.Clone();
+			var xmlString = XmlSerializationHelper.SerializeToString(block);
+			AssertThatXmlIn.String(xmlString).HasSpecifiedNumberOfMatchesForXpath("/block/ReferenceBlocks/text[text()='primary reference text']", 1);
+			var blockAfter = XmlSerializationHelper.DeserializeFromString<Block>(xmlString);
+			Assert.AreEqual(blockBefore.GetText(true, true), blockAfter.GetText(true, true));
+		}
+
 		/// <summary>
 		/// Note that this tests more deeply recursive nesting than we actually expect to have in Glyssen:
 		/// Vernacular (Spanish) backed by French, backed by Portuguese, backed by English.
@@ -1020,11 +1043,11 @@ namespace GlyssenTests
 			rtEnglish.Expect(r => r.HasSecondaryReferenceText).Return(false);
 			vernBlock.SetMatchedReferenceBlock(40, m_testVersification, rtFrench);
 
-			Assert.AreEqual("", vernBlock.PrimaryReferenceText);
+			Assert.AreEqual("", vernBlock.GetPrimaryReferenceText());
 			var refBlockFrench = vernBlock.ReferenceBlocks.Single();
-			Assert.AreEqual("", refBlockFrench.PrimaryReferenceText);
+			Assert.AreEqual("", refBlockFrench.GetPrimaryReferenceText());
 			var refBlockPortuguese = refBlockFrench.ReferenceBlocks.Single();
-			Assert.AreEqual("", refBlockPortuguese.PrimaryReferenceText);
+			Assert.AreEqual("", refBlockPortuguese.GetPrimaryReferenceText());
 			var refBlockEnglish = refBlockPortuguese.ReferenceBlocks.Single();
 			Assert.IsFalse(refBlockEnglish.MatchesReferenceText);
 			Assert.IsFalse(refBlockEnglish.ReferenceBlocks.Any());
