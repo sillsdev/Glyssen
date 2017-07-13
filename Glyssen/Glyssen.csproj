@@ -252,6 +252,12 @@
       <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\CastSizePlanningViewModel.cs" />
+    <Compile Include="Dialogs\ExportToRecordingToolDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ExportToRecordingToolDlg.Designer.cs">
+      <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ExportDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +332,7 @@
     <Compile Include="Rules\AuthorStats.cs" />
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
+    <Compile Include="ScriptExporter.cs" />
     <Compile Include="Utilities\CustomColor.cs" />
     <Compile Include="Utilities\FontProxy.cs" />
     <Compile Include="Utilities\FormWithPersistedSettings.cs">
@@ -471,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\CastSizePlanningDlg.resx">
       <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ExportToRecordingToolDlg.resx">
+      <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ExportDlg.resx">
       <DependentUpon>ExportDlg.cs</DependentUpon>

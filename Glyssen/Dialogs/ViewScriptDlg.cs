@@ -20,6 +20,7 @@ namespace Glyssen.Dialogs
 		private void HandleStringsLocalized()
 		{
 			Text = string.Format(Text, m_viewModel.Project.Name);
+			m_exportToHearThisToolStripMenuItem.Text = string.Format(m_exportToHearThisToolStripMenuItem.Text, "HearThis");
 		}
 
 		private void m_exportMenuItem_Click(object sender, EventArgs e)
@@ -91,6 +92,16 @@ namespace Glyssen.Dialogs
 				m_lblLoading.Visible = false;
 				Cursor = Cursors.Default;
 			}
+		}
+
+		private void m_exportToHearThisToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			m_viewModel.TextOnly = true;
+			using (var dlg = new ExportToRecordingToolDlg(m_viewModel))
+			{
+				dlg.ShowDialog(this);
+			}
+			m_viewModel.TextOnly = false;
 		}
 	}
 }
