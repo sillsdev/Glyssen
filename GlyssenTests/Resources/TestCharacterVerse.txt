@@ -9216,8 +9216,9 @@ JHN	1	38	Jesus	questioning		Dialogue
 JHN	1	38	narrator-JHN			Quotation		
 JHN	1	38	narrator-JHN			Interruption		
 JHN	1	39	Jesus			Dialogue
-JHN	1	41	Andrew	excited		Dialogue
-JHN	1	41	narrator-JHN			Dialogue
+JHN	1	41	Andrew	excited		Dialogue		
+JHN	1	41	narrator-JHN			Quotation		
+JHN	1	41	narrator-JHN			Interruption	
 JHN	1	42	Jesus			Dialogue		
 JHN	1	42	narrator-JHN			Quotation		
 JHN	1	42	narrator-JHN			Interruption		
