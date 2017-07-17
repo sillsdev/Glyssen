@@ -49,6 +49,7 @@ namespace Glyssen.Quote
 		public static void SetQuoteSystem(QuoteSystem quoteSystem)
 		{
 			s_quoteSystem = quoteSystem;
+			Block.InitializeInterruptionRegEx(quoteSystem.QuotationDashMarker != null && quoteSystem.QuotationDashMarker.Any(c => c == '\u2014' || c == '\u2015'));
 		}
 
 		private readonly ICharacterVerseInfo m_cvInfo;
@@ -736,7 +737,7 @@ namespace Glyssen.Quote
 				if (m_workingBlock.GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
 				{
 					m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
-					startCharIndex = 0;
+					startCharIndex = 1;
 				}
 				nextInterruption = m_workingBlock.GetNextInterruption(startCharIndex);
 			}
