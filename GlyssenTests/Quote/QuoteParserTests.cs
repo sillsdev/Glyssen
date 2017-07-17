@@ -4680,7 +4680,14 @@ namespace GlyssenTests.Quote
 		}
 
 		#region Interruption tests
+
 		// These tests all relate to PG-781
+		private void AssertIsInterruption(Block block, string expectedInterruptionText)
+		{
+			Assert.AreEqual(expectedInterruptionText, block.GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, block.CharacterId,
+				"Interruption should be marked as ambiguous to force user to look at it.");
+		}
 
 		[TestCase("", "")]
 		[TestCase("(", ")")]
@@ -4750,8 +4757,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
 			Assert.AreEqual("{7}\u00A0or ‹Who will descend into the deep?› ", results[++i].GetText(true));
 			Assert.AreEqual("scripture", results[i].CharacterId);
-			Assert.AreEqual(interruptionTextV7, results[++i].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			AssertIsInterruption(results[++i], interruptionTextV7);
 		}
 
 		[Test]
@@ -4779,8 +4785,7 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
 			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
 
-			Assert.AreEqual("(which is by interpretation, Peter).", output[++i].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[i].CharacterId);
+			AssertIsInterruption(output[++i], "(which is by interpretation, Peter).");
 			Assert.AreEqual(42, output[i].InitialStartVerseNumber);
 		}
 
@@ -4809,16 +4814,146 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(narrator, results[i].CharacterId);
 			Assert.AreEqual("«Ma-aq'or pan ak'ux: “Ha'wach narijohtiik pan taxaaj?” ", results[++i].GetText(true));
 			Assert.AreEqual("scripture", results[i].CharacterId);
-			Assert.AreEqual("(re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ", results[++i].GetText(true));
-			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			AssertIsInterruption(results[++i], "(re're' je' cho yuq'unb'al reh i Kristo reh chi nariqajiik cho); ");
 			Assert.AreEqual("{7}\u00A0oon: “Ha'wach nariqajiik chipaam i richamiil i julkahq?”» ", results[++i].GetText(true));
 			Assert.AreEqual("scripture", results[i].CharacterId);
 			Assert.AreEqual("(re're' je' cho ruksjiik i Kristo chikixilak taqeh kamnaq). ", results[++i].GetText(true));
 			Assert.AreEqual(narrator, results[i].CharacterId);
 		}
+
+		/// <summary>
+		/// PG-1017: Don't interpret dashes as possible interruptions if they are being used as quotation marks
+		/// </summary>
+		[TestCase("\u2014")]
+		[TestCase("\u2015")]
+		public void Parse_QuoteSystemUsesOpenAndCloseDialogueDash_ClosingDialogueDashNotInterpretedAsInterruption(string dialogueDash)
+		{
+			var block1 = new Block("p", 1, 41).AddVerse(41, "Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri iriguentijeguite, inejapojaqueriqueate icampojiri: " + dialogueDash + "Nonejajiaqueri Meshiashi " + dialogueDash + "ocantaque: “Quirishito.”");
+			var input = new List<Block> {block1};
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, dialogueDash);
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(4, results.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator);
+			int i = 0;
+			Assert.AreEqual("{41}\u00A0Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri iriguentijeguite, inejapojaqueriqueate icampojiri: ", results[i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual(dialogueDash + "Nonejajiaqueri Meshiashi ", results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			Assert.AreEqual(dialogueDash + "ocantaque: ", results[++i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			AssertIsInterruption(results[++i], "“Quirishito.”");
+		}
+
+		/// <summary>
+		/// PG-1017: Don't interpret any kind of dashes as possible interruptions if dashes are being used as quotation marks
+		/// </summary>
+		[TestCase("\u2014", "\u2014")]
+		[TestCase("\u2014", "\u2015")]
+		[TestCase("\u2015", "\u2014")]
+		[TestCase("\u2015", "\u2015")]
+		public void Parse_QuoteSystemUsesOpenDialogueDash_SingleFollowingDashNotInterpretedAsInterruption(string dialogueDash, string dashUsedInText)
+		{
+			var block1 = new Block("p", 1, 41).AddVerse(41, "Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri iriguentijeguite, inejapojaqueriqueate icampojiri: " + dialogueDash + "Nonejajiaqueri Meshiashi " + dashUsedInText + "ocantaque: “Quirishito.”");
+			var input = new List<Block> { block1 };
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, null);
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(2, results.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator);
+			int i = 0;
+			Assert.AreEqual("{41}\u00A0Ariqueate iriatimpa iroqueti yoaquiti icoaguequitiri iriguentijeguite, inejapojaqueriqueate icampojiri: ", results[i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual(dialogueDash + "Nonejajiaqueri Meshiashi " + dashUsedInText + "ocantaque: “Quirishito.”", results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+		}
+
+		/// <summary>
+		/// PG-1017: Don't interpret any kind of dashes as possible interruptions if dashes are being used as quotation marks
+		/// </summary>
+		[TestCase("\u2014", "\u2014")]
+		[TestCase("\u2014", "\u2015")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", "\u2014")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", "\u2015")]
+		[TestCase("\u2014", " \u2014")]
+		[TestCase("\u2014", " \u2015")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", " \u2014")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", " \u2015")]
+		[TestCase("\u2014", "\u2014 ")]
+		[TestCase("\u2014", "\u2015 ")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", "\u2014 ")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", "\u2015 ")]
+		[TestCase("\u2014", " \u2014 ")]
+		[TestCase("\u2014", " \u2015 ")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", " \u2014 ")] // Technically, we could allow this to match as an interuption but because these two characters "look" the same, it's probably best not to, right?
+		[TestCase("\u2015", " \u2015 ")]
+		public void Parse_QuoteSystemUsesOpenDialogueDash_PairedFollowingDashesNotInterpretedAsInterruption(string dialogueDash, string followingDashesUsedInText)
+		{
+			var dialogueQuotation = dialogueDash + "Nonejajiaqueri Meshiashi" + followingDashesUsedInText + "Quirishito" + followingDashesUsedInText + "ocantaque.";
+			var block1 = new Block("p", 1, 41).AddVerse(41, "Ariqueate ... icampojiri: " + dialogueQuotation);
+			var input = new List<Block> { block1 };
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, null);
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(2, results.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator);
+			int i = 0;
+			Assert.AreEqual("{41}\u00A0Ariqueate ... icampojiri: ", results[i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual(dialogueQuotation, results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+		}
+
+		/// <summary>
+		/// PG-1017: If dashes are being used as quotation marks, still look for other characters that might signal an interruption.
+		/// </summary>
+		[TestCase("(", ")", "\u2014")]
+		[TestCase("(", ")", "\u2015")]
+		[TestCase("[", "]", "\u2014")]
+		[TestCase("[", "]", "\u2015")]
+		[TestCase("-", "-", "\u2014")]
+		[TestCase("-", "-", "\u2015")]
+		public void Parse_QuoteSystemUsesDialogueDash_OtherInterruptionCharactersInterpretedAsInterruptions(string leadingPunct, string trailingPunct, string dialogueDash)
+		{
+			var interruption = leadingPunct + "ocantaque: “Quirishito.”" + trailingPunct;
+			var block1 = new Block("p", 1, 41).AddVerse(41, "Ariqueate iriatimpa ... inejapojaqueriqueate icampojiri: " + dialogueDash + "Nonejajiaqueri Meshiashi " + interruption);
+			var input = new List<Block> { block1 };
+
+			var quoteSystem = QuoteSystem.GetOrCreateQuoteSystem(new QuotationMark("“", "”", "“", 1, QuotationMarkingSystemType.Normal), dialogueDash, null);
+			quoteSystem.AllLevels.Add(new QuotationMark("‘", "’", "“ ‘", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("“", "”", "“ ‘ “", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "JHN", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(3, results.Count);
+			var narrator = CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator);
+			int i = 0;
+			Assert.AreEqual("{41}\u00A0Ariqueate iriatimpa ... inejapojaqueriqueate icampojiri: ", results[i].GetText(true));
+			Assert.AreEqual(narrator, results[i].CharacterId);
+			Assert.AreEqual(dialogueDash + "Nonejajiaqueri Meshiashi ", results[++i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			AssertIsInterruption(results[++i], interruption);
+		}
 		#endregion
 	}
-
 
 	[TestFixture]
 	public class QuoteParserTestsWithTestCharacterVerseOct2015
