@@ -95,7 +95,6 @@ namespace Glyssen.Dialogs
 			this.m_lblDescription.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblDescription, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblDescription, "{0} is \"Glyssen\", {1} is a file extension, {2} is \"HearThis\"");
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_lblDescription, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblDescription, "DialogBoxes.ExportDlg.Description");
 			this.m_lblDescription.Location = new System.Drawing.Point(3, 0);
 			this.m_lblDescription.Name = "m_lblDescription";
@@ -116,7 +115,6 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.m_btnBrowse, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_btnBrowse, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_btnBrowse, null);
-			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_btnBrowse, L10NSharp.LocalizationPriority.NotLocalizable);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_btnBrowse, "DialogBoxes.ExportToRecordingDlg.Browse");
 			this.m_btnBrowse.Location = new System.Drawing.Point(413, 99);
 			this.m_btnBrowse.MaximumSize = new System.Drawing.Size(75, 23);

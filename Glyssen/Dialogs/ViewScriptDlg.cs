@@ -96,12 +96,10 @@ namespace Glyssen.Dialogs
 
 		private void m_exportToHearThisToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			m_viewModel.TextOnly = true;
 			using (var dlg = new ExportToRecordingToolDlg(m_viewModel))
 			{
 				dlg.ShowDialog(this);
 			}
-			m_viewModel.TextOnly = false;
 		}
 	}
 }

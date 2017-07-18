@@ -28,6 +28,12 @@ namespace Glyssen.Shared.Script
 			Language = source.Language;
 			LastModified = source.LastModified;
 			Revision = source.Revision;
+
+			Script = new Script
+			{
+				Books = new List<ScriptBook>(),
+				LanguageCode = source.Language.Ldml
+			};
 		}
 
 		/// <summary>
@@ -46,6 +52,9 @@ namespace Glyssen.Shared.Script
 	{
 		[XmlElement(ElementName = "book")]
 		public List<ScriptBook> Books { get; set; }
+
+		[XmlAttribute("xml:lang", DataType = "language")]
+		public string LanguageCode { get; set; }
 	}
 
 	/// <summary>

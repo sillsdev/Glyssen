@@ -148,6 +148,7 @@
     <Compile Include="Rules\ProximityTests.cs" />
     <Compile Include="Rules\AuthorStatsTests.cs" />
     <Compile Include="Rules\TrialGroupConfigurationTests.cs" />
+    <Compile Include="ScriptExporterTests.cs" />
     <Compile Include="TestProject.cs" />
     <Compile Include="UsxParserTests.cs" />
     <Compile Include="Dialogs\SelectProjectDlgTests.cs" />
