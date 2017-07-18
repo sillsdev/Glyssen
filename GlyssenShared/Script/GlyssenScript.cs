@@ -129,14 +129,11 @@ namespace Glyssen.Shared.Script
 		[XmlAttribute("delivery")]
 		public string Delivery { get; set; }
 
-		[XmlElement("vern")]
+		[XmlElement("text")]
 		public TextWithLanguage VernacularText { get; set; }
 
-		[XmlElement("primaryref")]
-		public TextWithLanguage PrimaryReferenceTextContent { get; set; }
-
-		[XmlElement("secondaryref")]
-		public TextWithLanguage SecondaryReferenceTextContent { get; set; }
+		[XmlElement(ElementName = "referencetext")]
+		public List<TextWithLanguage> ReferenceTexts { get; set; }
 	}
 
 	public class TextWithLanguage

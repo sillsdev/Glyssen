@@ -58,22 +58,9 @@ namespace Glyssen
 					{
 						Character = block.CharacterId,
 						Id = blockId++,
-						PrimaryReferenceTextContent =
-							new TextWithLanguage
-							{
-								LanguageCode = project.ReferenceText.LanguageLdml,
-								Text = block.PrimaryReferenceText
-							},
-						SecondaryReferenceTextContent =
-							project.ReferenceText.HasSecondaryReferenceText ?
-							new TextWithLanguage
-							{
-								LanguageCode = project.ReferenceText.SecondaryReferenceText.LanguageLdml,
-								Text = block.SecondaryReferenceText
-							} :
-							null,
+						ReferenceTexts = GetReferenceTexts(project, block),
 						Tag = block.StyleTag,
-						VernacularText = new TextWithLanguage { Text = vernacularText},
+						VernacularText = new TextWithLanguage {Text = vernacularText},
 						Verse = block.InitialStartVerseNumber.ToString()
 					};
 					var actor = block.VoiceActor;
@@ -89,6 +76,27 @@ namespace Glyssen
 			gs.Script.Books.Add(new ScriptBook {Id = bookCode, Chapters = chapters});
 
 			return gs;
+		}
+
+		private static List<TextWithLanguage> GetReferenceTexts(Project project, ProjectExporter.ExportBlock block)
+		{
+			var referenceTexts = new List<TextWithLanguage>(2)
+			{
+				new TextWithLanguage
+				{
+					LanguageCode = project.ReferenceText.LanguageLdml,
+					Text = block.PrimaryReferenceText
+				}
+			};
+			if (project.ReferenceText.HasSecondaryReferenceText)
+			{
+				referenceTexts.Add(new TextWithLanguage
+				{
+					LanguageCode = project.ReferenceText.SecondaryReferenceText.LanguageLdml,
+					Text = block.SecondaryReferenceText
+				});
+			}
+			return referenceTexts;
 		}
 	}
 }
