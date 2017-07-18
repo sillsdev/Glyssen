@@ -34,6 +34,7 @@
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.m_fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_exportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.m_exportToHearThisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.m_dataGridView = new System.Windows.Forms.DataGridView();
 			this.m_btnClose = new System.Windows.Forms.Button();
 			this.m_lblLoading = new System.Windows.Forms.Label();
@@ -73,7 +74,8 @@
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_fileMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.m_exportMenuItem});
+            this.m_exportMenuItem,
+            this.m_exportToHearThisToolStripMenuItem});
 			this.glyssenColorPalette.SetForeColor(this.m_fileMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_fileMenuItem, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_fileMenuItem, null);
@@ -89,12 +91,25 @@
 			this.glyssenColorPalette.SetForeColor(this.m_exportMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_exportMenuItem, null);
 			this.m_L10NSharpExtender.SetLocalizationComment(this.m_exportMenuItem, null);
-			this.m_L10NSharpExtender.SetLocalizingId(this.m_exportMenuItem, "DialogBoxes.ViewScriptDlg.ExportMenuItem");
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_exportMenuItem, "DialogBoxes.ViewScriptDlg.ExportToSpreadsheet");
 			this.m_exportMenuItem.Name = "m_exportMenuItem";
-			this.m_exportMenuItem.Size = new System.Drawing.Size(107, 22);
-			this.m_exportMenuItem.Text = "Export";
+			this.m_exportMenuItem.Size = new System.Drawing.Size(187, 22);
+			this.m_exportMenuItem.Text = "Export to spreadsheet";
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_exportMenuItem, false);
 			this.m_exportMenuItem.Click += new System.EventHandler(this.m_exportMenuItem_Click);
+			// 
+			// m_exportToHearThisToolStripMenuItem
+			// 
+			this.glyssenColorPalette.SetBackColor(this.m_exportToHearThisToolStripMenuItem, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_exportToHearThisToolStripMenuItem, Glyssen.Utilities.GlyssenColors.ForeColor);
+			this.m_L10NSharpExtender.SetLocalizableToolTip(this.m_exportToHearThisToolStripMenuItem, null);
+			this.m_L10NSharpExtender.SetLocalizationComment(this.m_exportToHearThisToolStripMenuItem, null);
+			this.m_L10NSharpExtender.SetLocalizingId(this.m_exportToHearThisToolStripMenuItem, "DialogBoxes.ViewScriptDlg.ExportToHearThis");
+			this.m_exportToHearThisToolStripMenuItem.Name = "m_exportToHearThisToolStripMenuItem";
+			this.m_exportToHearThisToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+			this.m_exportToHearThisToolStripMenuItem.Text = "Export to {0}";
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_exportToHearThisToolStripMenuItem, false);
+			this.m_exportToHearThisToolStripMenuItem.Click += new System.EventHandler(this.m_exportToHearThisToolStripMenuItem_Click);
 			// 
 			// m_dataGridView
 			// 
@@ -240,5 +255,6 @@
 		private System.Windows.Forms.TableLayoutPanel m_subTableLayout;
 		private System.Windows.Forms.Button m_btnClose;
 		private System.Windows.Forms.Label m_lblLoading;
+		private System.Windows.Forms.ToolStripMenuItem m_exportToHearThisToolStripMenuItem;
 	}
 }
