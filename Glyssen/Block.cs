@@ -31,7 +31,7 @@ namespace Glyssen
 						".scripttext {{display:inline}}";
 
 		private static readonly Regex s_regexFollowOnParagraphStyles;
-		internal static readonly Regex s_regexInterruption;
+		internal static Regex s_regexInterruption;
 
 		public static Func<string /* Book ID */, int /*Chapter Number*/, string> FormatChapterAnnouncement;
 
@@ -60,9 +60,21 @@ namespace Glyssen
 			s_emptyVerseText = new Regex("^ *(?<verseWithWhitespace>" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber + @")? *$",
 				RegexOptions.Compiled);
 			s_regexFollowOnParagraphStyles = new Regex("^((q.{0,2})|m|mi|(pi.?))$", RegexOptions.Compiled);
+			InitializeInterruptionRegEx(false);
+		}
+
+		internal static void InitializeInterruptionRegEx(bool excludeLongDashes)
+		{
 			var dashStyleInterruptionFmt = @"|({0}[^{0}]*\w+[^{0}]*{0})";
-			s_regexInterruption = new Regex(@"((\([^)\]]\w+[^)\]]+\))|(\[[^)\]]\w+[^)\]]+\])" + Format(dashStyleInterruptionFmt, "-") +
-				Format(dashStyleInterruptionFmt, "\u2014") + Format(dashStyleInterruptionFmt + @")[^\w]*", "\u2015"), RegexOptions.Compiled);
+			StringBuilder pattern = new StringBuilder(@"((\([^)\]]\w+[^)\]]+\))|(\[[^)\]]\w+[^)\]]+\])");
+			pattern.AppendFormat(dashStyleInterruptionFmt, "-");
+			if (!excludeLongDashes)
+			{
+				pattern.AppendFormat(dashStyleInterruptionFmt, "\u2014");
+				pattern.AppendFormat(dashStyleInterruptionFmt, "\u2015");
+			}
+			pattern.Append(@")[^\w]*");
+			s_regexInterruption = new Regex(pattern.ToString(), RegexOptions.Compiled);
 		}
 
 		internal Block()
@@ -1192,7 +1204,7 @@ namespace Glyssen
 			return true;
 		}
 
-		public Tuple<Match, string> GetNextInterruption(int startCharIndex = 0)
+		public Tuple<Match, string> GetNextInterruption(int startCharIndex = 1)
 		{
 			var verse = InitialVerseNumberOrBridge;
 			foreach (var element in BlockElements)
@@ -1203,7 +1215,7 @@ namespace Glyssen
 					var match = Block.s_regexInterruption.Match(text.Content, startCharIndex);
 					if (match.Success)
 						return new Tuple<Match, string>(match, verse);
-					startCharIndex = 0;
+					startCharIndex = 1;
 				}
 				else
 				{
