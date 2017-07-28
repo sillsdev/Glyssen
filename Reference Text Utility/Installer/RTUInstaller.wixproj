@@ -6,6 +6,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>GlyssenRefTextUtilInstaller</OutputName>
     <OutputType>Package</OutputType>
+	<DefineSolutionProperties>false</DefineSolutionProperties>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>..\..\output\RefTextUtilityInstaller\</OutputPath>

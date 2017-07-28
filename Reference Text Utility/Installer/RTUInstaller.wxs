@@ -47,11 +47,11 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
     <!--ProductSearch UpgradeCode='{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}' Variable='GLYSSENFOUND'/-->
     <Upgrade Id ="{cd92c128-d3c7-4c9a-acc6-81e4184ef6ca}" >
-      <UpgradeVersion Minimum ="0.18.2.0" IncludeMinimum ="yes" OnlyDetect ="yes" Property ="GLYSSENFOUND" />
+      <UpgradeVersion Minimum ="1.0.0.0" IncludeMinimum ="yes" OnlyDetect ="yes" Property ="GLYSSENFOUND" />
     </Upgrade >
 	
-	<Condition Message="The Reference Text Utility requires that Glyssen 0.18 or later be installed.">
-		<![CDATA[Installed OR (GLYSSENFOUND >= "0.18.0.0")]]>
+	<Condition Message="The Reference Text Utility requires that Glyssen 1.0 or later be installed.">
+		<![CDATA[Installed OR (GLYSSENFOUND >= "1.0.0.0")]]>
 	</Condition>
 
     <!--because of bug, this needs to be 1 -->
@@ -74,7 +74,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
         <Directory Id='GlyssenShortcutDir' Name='Glyssen'>
 		  <Component Id ='removeShortcutDir' Guid ="{1a00c239-ee2c-4bd7-bb7d-64a8f0d44e8c}">
             <RemoveFolder Id ="shortcutDirRemover" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcutDir" Action ="create" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
+            <RegistryKey Id="keyPathForRemoveShortcutDir" ForceCreateOnInstall="yes" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenShortcutDir">
               <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
             </RegistryKey>
           </Component>
@@ -85,7 +85,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
 
         <Directory Id="ProgramDir" Name="Glyssen">
           <Component Id="ReferenceTextUtility.exe" Guid="{92306462-199c-4484-b5ec-8c0f4346be65}">
-            <Registry Root="HKCU" Key="SOFTWARE\Glyssen\Components\ReferenceTextUtility.exe" KeyPath="yes" />
+            <RegistryKey Root="HKCU" Key="SOFTWARE\Glyssen\Components\ReferenceTextUtility.exe" />
             <File Id="ReferenceTextUtility.exe" Name="ReferenceTextUtility.exe" Source="..\..\output\release\ReferenceTextUtility.exe"/>
 			<File Id="ReferenceTextUtility.pdb" Name="ReferenceTextUtility.pdb" Source="..\..\output\release\ReferenceTextUtility.pdb"/>
           </Component>
@@ -94,7 +94,7 @@ are trying to support, you're better off using non-advertised shortcuts. "-->
             <Shortcut Id="startmenuShortcut" Directory="GlyssenShortcutDir" Name="Reference Text Utility for Glyssen"
                  WorkingDirectory="ProgramDir" Target="[!ReferenceTextUtility.exe]" Icon="ReferenceTextUtility.exe" />
 			<RemoveFile Id ="CleanupShortcut" Name="[!ReferenceTextUtility.exe]" On ="uninstall"/>
-            <RegistryKey Id="keyPathForRemoveShortcut" Action ="create" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenRTUShortcut">
+            <RegistryKey Id="keyPathForRemoveShortcut" ForceCreateOnInstall="yes" Root="HKCU" Key="SOFTWARE\Glyssen\Components\GlyssenRTUShortcut">
               <RegistryValue Type ="string" Value =""  Action ="write" KeyPath ="yes"/>
             </RegistryKey>
 			<Condition>
