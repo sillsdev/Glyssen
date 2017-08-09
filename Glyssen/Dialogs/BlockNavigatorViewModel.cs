@@ -629,7 +629,8 @@ namespace Glyssen.Dialogs
 						return false;
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
 						return true;
-					Debug.Assert(m_currentRelevantIndex >= 0);
+					if (m_currentRelevantIndex < 0)
+						throw new IndexOutOfRangeException("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!");
 					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentRelevantIndex;
 				}
 
@@ -716,11 +717,19 @@ namespace Glyssen.Dialogs
 		{
 			for (int i = m_currentRelevantIndex + 1; i < RelevantBlockCount; i++)
 			{
-				if (m_relevantBookBlockIndices[i].BookIndex != m_relevantBookBlockIndices[m_currentRelevantIndex].BookIndex ||
-					!m_currentRefBlockMatchups.OriginalBlocks.Contains(
-						CurrentBook.GetScriptBlocks(false)[m_relevantBookBlockIndices[i].BlockIndex]))
+				try
 				{
-					return i;
+					if (m_relevantBookBlockIndices[i].BookIndex != m_relevantBookBlockIndices[m_currentRelevantIndex].BookIndex ||
+						!m_currentRefBlockMatchups.OriginalBlocks.Contains(
+							CurrentBook.GetScriptBlocks(false)[m_relevantBookBlockIndices[i].BlockIndex]))
+					{
+						return i;
+					}
+				}
+				catch(IndexOutOfRangeException e)
+				{
+					throw new IndexOutOfRangeException($"Index out of range. RelevantBlockCount = {RelevantBlockCount}. " +
+						$"m_currentRelevantIndex = {m_currentRelevantIndex}. i = {i}.", e);
 				}
 			}
 			return -1;

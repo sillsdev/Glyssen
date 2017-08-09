@@ -1,4 +1,4 @@
-Control File Version	116
+Control File Version	117
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -16120,7 +16120,7 @@ REV	18	7	Babylon			Normal
 REV	18	7	voice from heaven, another			Normal		
 REV	18	8	voice from heaven, another			Normal		
 REV	18	9	voice from heaven, another			Normal		
-REV	18	10	kings of the earth			Normal		
+REV	18	10	kings of the earth	weeping		Normal		
 REV	18	10	voice from heaven, another			Normal		
 REV	18	11	voice from heaven, another			Normal		
 REV	18	12	voice from heaven, another			Normal		
@@ -16130,14 +16130,15 @@ REV	18	14	voice from heaven, another			Normal
 REV	18	15	voice from heaven, another			Normal		
 REV	18	15	merchants of the earth			Normal		
 REV	18	16	merchants of the earth	weeping		Normal		
-REV	18	16	voice from heaven, another	weeping		Normal		
+REV	18	16	voice from heaven, another			Normal		
 REV	18	17	merchants of the earth	weeping		Normal		
-REV	18	17	voice from heaven, another	weeping		Normal		
+REV	18	17	voice from heaven, another			Normal		
 REV	18	18	sea captains, seafarers, sailors	weeping		Normal		
-REV	18	18	voice from heaven, another	weeping		Normal		
+REV	18	18	voice from heaven, another			Normal		
 REV	18	19	sea captains, seafarers, sailors	weeping		Normal		
-REV	18	19	voice from heaven, another	weeping		Normal		
+REV	18	19	voice from heaven, another			Normal		
 REV	18	20	sea captains, seafarers, sailors	weeping		Normal		
+REV	18	20	voice from heaven, another			Normal		
 REV	18	21	angel, powerful			Normal		
 REV	18	22	angel, powerful			Normal		
 REV	18	23	angel, powerful			Normal		

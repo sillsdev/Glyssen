@@ -1429,7 +1429,8 @@ namespace Glyssen.Dialogs
 							.First(c => c.LocalizedDisplay == newValue);
 					}
 
-					Logger.WriteMinorEvent($"Setting character to {selectedCharacter.CharacterId} for " +
+					var characterIdForLog = selectedCharacter.IsNarrator ? selectedCharacter.ToString() : selectedCharacter.CharacterId;
+					Logger.WriteMinorEvent($"Setting character to {characterIdForLog} for " +
 						$"block {block.ChapterNumber}:{block.InitialStartVerseNumber} {block.GetText(true)}");
 
 					if (selectedCharacter == AssignCharacterViewModel.Character.Narrator && colDelivery.Visible)
