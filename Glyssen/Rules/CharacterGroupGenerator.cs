@@ -11,6 +11,7 @@ using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.Progress;
+ using SIL.Reporting;
 
 namespace Glyssen.Rules
 {
@@ -134,6 +135,12 @@ namespace Glyssen.Rules
 		{
 			var generator = (CharacterGroupGenerator)((ProgressState)e.Argument).Arguments;
 			generator.GenerateCharacterGroups();
+		}
+
+		private static void LogAndOutputToDebugConsole(string message)
+		{
+			Debug.WriteLine(message);
+			Logger.WriteEvent(message);
 		}
 
 		public List<CharacterGroup> GenerateCharacterGroups(bool enforceProximityAndGenderConstraints = false)
@@ -261,7 +268,7 @@ namespace Glyssen.Rules
 				if (!fallbackPass)
 				{
 					Debug.WriteLine("===========================================================");
-					Debug.WriteLine("First pass (no biblical character roles in narrator groups)");
+					LogAndOutputToDebugConsole("First pass (no biblical character roles in narrator groups)");
 					Debug.WriteLine("===========================================================");
 				}
 
@@ -280,7 +287,7 @@ namespace Glyssen.Rules
 				if (fallbackPass)
 				{
 					Debug.WriteLine("=================================================================");
-					Debug.WriteLine("Fallback pass (allow biblical character roles in narrator groups)");
+					LogAndOutputToDebugConsole("Fallback pass (allow biblical character roles in narrator groups)");
 					Debug.WriteLine("=================================================================");
 				}
 
@@ -322,50 +329,48 @@ namespace Glyssen.Rules
 					}
 					bestConfiguration = TrialGroupConfiguration.Best(trialConfigurationsForNarratorsAndExtras, bestConfiguration);
 
-#if DEBUG
-					Debug.WriteLine("Trial configurations for " + maleNarrators + " male narrators and " + femaleNarrators + " female narrators:");
+					LogAndOutputToDebugConsole("Trial configurations for " + maleNarrators + " male narrators and " + femaleNarrators + " female narrators:");
 					for (int index = 0; index < trialConfigurationsForNarratorsAndExtras.Count; index++)
 					{
 						var config = trialConfigurationsForNarratorsAndExtras[index];
-						Debug.WriteLine("   Configuration " + index + ((config == bestConfiguration) ? " (best)" : ""));
-						Debug.WriteLine("   Minimum Proximity: " + config.MinimumProximity);
-						Debug.WriteLine("   Conflicting Gender count: " + config.CharactersInGroupWithConflictingGender);
-						Debug.WriteLine("   Narrator Groups:");
+						LogAndOutputToDebugConsole("   Configuration " + index + ((config == bestConfiguration) ? " (best)" : ""));
+						LogAndOutputToDebugConsole("   Minimum Proximity: " + config.MinimumProximity);
+						LogAndOutputToDebugConsole("   Conflicting Gender count: " + config.CharactersInGroupWithConflictingGender);
+						LogAndOutputToDebugConsole("   Narrator Groups:");
 						foreach (var narrGroup in config.NarratorGroups)
-							Debug.WriteLine("      " + narrGroup.VoiceActor.Gender + " group: " + narrGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
+							LogAndOutputToDebugConsole("      " + narrGroup.VoiceActor.Gender + " group: " + narrGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
 						if (config.BookTitleChapterGroup != null)
 						{
 							if (config.NarratorGroups.Contains(config.BookTitleChapterGroup))
-								Debug.WriteLine("   BookTitleChapter Extra-biblical group is a narrator group!");
+								LogAndOutputToDebugConsole("   BookTitleChapter Extra-biblical group is a narrator group!");
 							else
-								Debug.WriteLine("   BookTitleChapter Extra-biblical group: " + config.BookTitleChapterGroup.VoiceActor.Gender + " - " +
+								LogAndOutputToDebugConsole("   BookTitleChapter Extra-biblical group: " + config.BookTitleChapterGroup.VoiceActor.Gender + " - " +
 												config.BookTitleChapterGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
 						}
 						if (config.SectionHeadGroup != null)
 						{
 							if (config.NarratorGroups.Contains(config.SectionHeadGroup))
-								Debug.WriteLine("   SectionHead Extra-biblical group is a narrator group!");
+								LogAndOutputToDebugConsole("   SectionHead Extra-biblical group is a narrator group!");
 							else
-								Debug.WriteLine("   SectionHead Extra-biblical group: " + config.SectionHeadGroup.VoiceActor.Gender + " - " +
+								LogAndOutputToDebugConsole("   SectionHead Extra-biblical group: " + config.SectionHeadGroup.VoiceActor.Gender + " - " +
 												config.SectionHeadGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
 						}
 						if (config.BookIntroductionGroup != null)
 						{
 							if (config.NarratorGroups.Contains(config.BookIntroductionGroup))
-								Debug.WriteLine("   BookIntroduction Extra-biblical group is a narrator group!");
+								LogAndOutputToDebugConsole("   BookIntroduction Extra-biblical group is a narrator group!");
 							else
-								Debug.WriteLine("   BookIntroduction Extra-biblical group: " + config.BookIntroductionGroup.VoiceActor.Gender + " - " +
+								LogAndOutputToDebugConsole("   BookIntroduction Extra-biblical group: " + config.BookIntroductionGroup.VoiceActor.Gender + " - " +
 												config.BookIntroductionGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
 						}
-						Debug.WriteLine("   Other Groups:");
+						LogAndOutputToDebugConsole("   Other Groups:");
 						foreach (
 							var group in config.Groups.Where(g => !config.NarratorGroups.Contains(g) &&
 								g != config.BookTitleChapterGroup && g != config.SectionHeadGroup && g != config.BookIntroductionGroup))
 						{
-							Debug.WriteLine("      " + @group.VoiceActor.Gender + " group: " + @group.CharacterIds.ToString().Replace("CharacterName.", ""));
+							LogAndOutputToDebugConsole("      " + @group.VoiceActor.Gender + " group: " + @group.CharacterIds.ToString().Replace("CharacterName.", ""));
 						}
 					}
-#endif
 
 					if (bestConfiguration.MinimumProximity >= Proximity.kDefaultMinimumProximity &&
 						bestConfiguration.CharactersInGroupWithConflictingGender == 0 &&
@@ -798,8 +803,8 @@ namespace Glyssen.Rules
 						return;
 					foreach (var characterGroup in Groups)
 					{
-						Debug.WriteLine("Cameo = " + characterGroup.AssignedToCameoActor);
-						Debug.WriteLine("CharacterIds = " + characterGroup.CharacterIds);
+						LogAndOutputToDebugConsole("Cameo = " + characterGroup.AssignedToCameoActor);
+						LogAndOutputToDebugConsole("CharacterIds = " + characterGroup.CharacterIds);
 					}
 					throw new Exception("None of the " + Groups.Count + " groups were suitable for narrator role.");
 				}
