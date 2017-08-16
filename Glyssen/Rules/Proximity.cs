@@ -21,7 +21,7 @@ namespace Glyssen.Rules
 			//m_dramatizationPreferences = dramatizationPreferences;
 			m_considerSameExtrabiblicalCharacter = new Dictionary<BookScript, Dictionary<CharacterVerseData.StandardCharacter, HashSet<string>>>();
 
-			// get the standard character mapping for each books
+			// get the standard character mapping for each book
 			foreach (var book in m_booksToConsider)
 			{
 				// initialize the standard character data

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -11,12 +10,11 @@ using Glyssen.Character;
 using Glyssen.Controls;
 using Glyssen.Properties;
 using Glyssen.Rules;
-using Glyssen.Shared;
 using Glyssen.Utilities;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
-using SIL.IO;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -41,6 +39,17 @@ namespace Glyssen.Dialogs
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
 		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>();
+		private Proximity m_projectProximity;
+
+		private Proximity ProjectProximity
+		{
+			get
+			{
+				if (m_projectProximity == null)
+					m_projectProximity = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
+				return m_projectProximity;
+			}
+		}
 
 		public VoiceActorAssignmentViewModel(Project project)
 		{
@@ -50,9 +59,8 @@ namespace Glyssen.Dialogs
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
 
 #if DEBUG
-			var p = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
 			foreach (var group in CharacterGroups.OrderBy(g => g.GroupIdForUiDisplay))
-				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + p.CalculateMinimumProximity(group.CharacterIds));
+				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + ProjectProximity.CalculateMinimumProximity(group.CharacterIds));
 #endif
 		}
 
@@ -231,14 +239,12 @@ namespace Glyssen.Dialogs
 
 			if (destGroup != null && warnUserAboutProximity && destGroup.CharacterIds.Count > 0)
 			{
-				var proximity = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
-
 				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
-				var resultsBefore = proximity.CalculateMinimumProximity(testGroup);
+				var resultsBefore = ProjectProximity.CalculateMinimumProximity(testGroup);
 				int proximityBefore = resultsBefore.NumberOfBlocks;
 
 				testGroup.AddRange(characterIds);
-				var resultsAfter = proximity.CalculateMinimumProximity(testGroup);
+				var resultsAfter = ProjectProximity.CalculateMinimumProximity(testGroup);
 				int proximityAfter = resultsAfter.NumberOfBlocks;
 
 				if (proximityBefore > proximityAfter && proximityAfter <= Proximity.kDefaultMinimumProximity)
@@ -251,21 +257,32 @@ namespace Glyssen.Dialogs
 							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] and [{2}] in {3}.") :
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
 							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] in {3} and [{2}] in {4}.");
-					dlgMessageFormat1 = string.Format(dlgMessageFormat1,
-						resultsAfter.NumberOfBlocks,
+					var dlgMessagePart1 = string.Format(dlgMessageFormat1,
+						proximityAfter,
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondCharacterId),
 						firstReference, secondReference);
-					var dlgMessageFormat2 =
+
+					Logger.WriteEvent($"{dlgMessagePart1}\r\n>>>Moving {characterIds.Count} characters to group {destGroup.GroupId}:\r\n   {String.Join("\r\n   ", characterIds)}");
+
+					var dlgMessagePart2 =
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
 							"Do you want to continue with this move?");
 
-					var dlgMessage = string.Format(dlgMessageFormat1 + Environment.NewLine + Environment.NewLine + dlgMessageFormat2);
+					var dlgMessage = dlgMessagePart1 + Environment.NewLine + Environment.NewLine + dlgMessagePart2;
 					var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
 						"Confirm");
 
 					if (MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes)
+					{
+						Logger.WriteEvent("User cancelled move of characters.");
 						return false;
+					}
+				}
+				else
+				{
+					Logger.WriteEvent($"Moving {characterIds.Count} character(s) to group {destGroup.GroupId} changed the " +
+						$"proximity from {proximityBefore} to {proximityAfter}.");
 				}
 			}
 
