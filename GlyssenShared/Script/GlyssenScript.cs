@@ -19,8 +19,9 @@ namespace Glyssen.Shared.Script
 			Version = "1.0";
 		}
 
-		public GlyssenScript(IReadOnlyGlyssenDblTextMetadata source) : this()
+		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source) : this()
 		{
+			RecordingProjectName = recordingProjectName;
 			Copyright = source.Copyright;
 			UniqueRecordingProjectId = source.UniqueRecordingProjectId;
 			Id = source.Id;
@@ -43,6 +44,9 @@ namespace Glyssen.Shared.Script
 		/// </summary>
 		[XmlAttribute("version")]
 		public string Version { get; set; }
+
+		[XmlAttribute("projName")]
+		public string RecordingProjectName { get; set; }
 
 		[XmlElement("script")]
 		public Script Script { get; set; }

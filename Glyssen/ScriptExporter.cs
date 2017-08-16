@@ -18,7 +18,7 @@ namespace Glyssen
 
 		internal static GlyssenScript CreateGlyssenScript(Project project, IEnumerable<ProjectExporter.ExportBlock> data)
 		{
-			var gs = new GlyssenScript(project.Metadata);
+			var gs = new GlyssenScript(project.Name, project.Metadata);
 
 			string bookCode = null;
 			int blockId = 1;
