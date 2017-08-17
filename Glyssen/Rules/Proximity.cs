@@ -360,13 +360,15 @@ namespace Glyssen.Rules
 			m_secondBlock = copyFrom.m_secondBlock;
 		}
 
+		private const string kProximityHeader = "Proximity";
+		public static string ReportHeader => kProximityHeader + "  | Characters & Locations";
 		public override string ToString()
 		{
 			if (m_firstBlock == null || m_secondBlock == null)
 				return "[no characters in group]";
 
 			var sb = new StringBuilder();
-			sb.Append(NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).Append("  |  ")
+			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).PadLeft(kProximityHeader.Length)).Append("  |  ")
 				.Append(FirstReference)
 				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
 				.Append(" - ")

@@ -39,29 +39,27 @@ namespace Glyssen.Dialogs
 		public event SavedEventHandler Saved;
 		private readonly UndoStack<ICharacterGroupsUndoAction> m_undoStack = new UndoStack<ICharacterGroupsUndoAction>();
 		private readonly Dictionary<string, HashSet<string>> m_findTextToMatchingCharacterIds = new Dictionary<string, HashSet<string>>();
-		private Proximity m_projectProximity;
 
-		private Proximity ProjectProximity
-		{
-			get
-			{
-				if (m_projectProximity == null)
-					m_projectProximity = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
-				return m_projectProximity;
-			}
-		}
+		private Proximity ProjectProximity { get; }
 
 		public VoiceActorAssignmentViewModel(Project project)
 		{
 			m_project = project;
+			ProjectProximity = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
 
-#if DEBUG
+			LogAndOutputToDebugConsole("Group".PadRight(7) + ": " + MinimumProximity.ReportHeader + Environment.NewLine +
+				"-".PadRight(100, '-'));
 			foreach (var group in CharacterGroups.OrderBy(g => g.GroupIdForUiDisplay))
-				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + ProjectProximity.CalculateMinimumProximity(group.CharacterIds));
-#endif
+				LogAndOutputToDebugConsole(group.GroupIdForUiDisplay.PadRight(7) + ": " + ProjectProximity.CalculateMinimumProximity(group.CharacterIds));
+		}
+
+		private static void LogAndOutputToDebugConsole(string message)
+		{
+			Debug.WriteLine(message);
+			Logger.WriteEvent(message);
 		}
 
 		private static string GetUiStringForCharacterGender(CharacterGender characterGender)
@@ -281,7 +279,7 @@ namespace Glyssen.Dialogs
 				}
 				else
 				{
-					Logger.WriteEvent($"Moving {characterIds.Count} character(s) to group {destGroup.GroupId} changed the " +
+					LogAndOutputToDebugConsole($"Moving {characterIds.Count} character(s) to group {destGroup.GroupId} changed the " +
 						$"proximity from {proximityBefore} to {proximityAfter}.");
 				}
 			}
