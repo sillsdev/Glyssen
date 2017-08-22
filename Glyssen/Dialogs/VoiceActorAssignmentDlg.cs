@@ -923,7 +923,8 @@ namespace Glyssen.Dialogs
 
 		private void SetVoiceActorCellDataSource()
 		{
-			if (m_characterGroupGrid.CurrentRow == null || m_characterGroupGrid.CurrentCell.EditType != typeof(DataGridViewMultiColumnComboBoxEditingControl))
+			if (m_characterGroupGrid.CurrentRow == null || m_characterGroupGrid.CurrentCell.EditType != typeof(DataGridViewMultiColumnComboBoxEditingControl) ||
+				m_characterGroupGrid.CurrentCellAddress.Y >= m_actorAssignmentViewModel.CharacterGroups.Count)
 				return;
 			var group = m_actorAssignmentViewModel.CharacterGroups[m_characterGroupGrid.CurrentCellAddress.Y];
 			var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
