@@ -98,7 +98,7 @@ namespace GlyssenTests.Bundle
 
 			const string expectedResult =
 @"<?xml version=""1.0"" encoding=""utf-16""?>
-<DBLMetadata id=""id"" revision=""1"" modifieddate=""0001-01-01T00:00:00"" uniquerecordingprojectid=""a6e56d00-5796-4dbc-b1a7-e78904ca7034""
+<DBLMetadata id=""id"" revision=""1"" modifieddate=""0001-01-01T00:00:00"" uniqueProjectId=""a6e56d00-5796-4dbc-b1a7-e78904ca7034""
 		controlfileversion=""0"" referenceTextType=""Russian"">
 	<language>
 		<fontSizeInPoints>10</fontSizeInPoints>

@@ -61,7 +61,7 @@ namespace Glyssen.Shared.Bundle
 		/// This is useful when another application such as HearThis goes to load
 		/// a script and needs to know if it already knows about that recording project.
 		/// </summary>
-		[XmlAttribute("uniquerecordingprojectid")]
+		[XmlAttribute("uniqueProjectId")]
 		public Guid UniqueRecordingProjectId
 		{
 			get

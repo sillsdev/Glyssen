@@ -10,7 +10,7 @@ namespace Glyssen.Shared.Script
 	/// Some of the DBL (Digital Bible Library) metadata is purposefully maintained from the bundle through the
 	/// project to the script (e.g. language info).
 	/// </summary>
-	[XmlRoot("glyssenscript")]
+	[XmlRoot("glyssenScript")]
 	public class GlyssenScript : GlyssenDblTextMetadataBase
 	{
 		// Needed for serialization/deserialization
@@ -45,7 +45,7 @@ namespace Glyssen.Shared.Script
 		[XmlAttribute("version")]
 		public string Version { get; set; }
 
-		[XmlAttribute("projName")]
+		[XmlAttribute("projectName")]
 		public string RecordingProjectName { get; set; }
 
 		[XmlElement("script")]
@@ -136,7 +136,7 @@ namespace Glyssen.Shared.Script
 		[XmlElement("text")]
 		public TextWithLanguage VernacularText { get; set; }
 
-		[XmlElement(ElementName = "referencetext")]
+		[XmlElement(ElementName = "referenceText")]
 		public List<TextWithLanguage> ReferenceTexts { get; set; }
 	}
 
