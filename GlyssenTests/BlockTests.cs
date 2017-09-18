@@ -552,11 +552,11 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void GetSplitTextAsHtml_OffsetTooHigh_ThrowsArgumentOutOfRangeException()
+		public void GetSplitTextAsHtml_OffsetTooHigh_ThrowsIndexOutOfRangeException()
 		{
 			var block = new Block("p", 4, 3);
 			block.BlockElements.Add(new ScriptText("Text"));
-			Assert.Throws<ArgumentOutOfRangeException>(
+			Assert.Throws<IndexOutOfRangeException>(
 				() => block.GetSplitTextAsHtml(0, false, new[] {new BlockSplitData(1, block, "3", 5)}, false));
 		}
 
