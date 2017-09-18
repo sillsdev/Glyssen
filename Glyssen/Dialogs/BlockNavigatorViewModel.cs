@@ -630,7 +630,14 @@ namespace Glyssen.Dialogs
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
 						return true;
 					if (m_currentRelevantIndex < 0)
-						throw new IndexOutOfRangeException("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!");
+					{
+						Debug.Fail("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!");
+						m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(m_navigator.GetIndices());
+						Logger.WriteEvent("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!" +
+							$"m_currentRelevantIndex reset to {m_currentRelevantIndex} in an attempt to recover.");
+						if (m_currentRelevantIndex < 0)
+							throw new IndexOutOfRangeException("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!");
+					}
 					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentRelevantIndex;
 				}
 
