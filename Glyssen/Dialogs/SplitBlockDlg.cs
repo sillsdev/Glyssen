@@ -10,6 +10,7 @@ using Gecko;
 using Gecko.DOM;
 using Glyssen.Properties;
 using Glyssen.Utilities;
+using SIL.Reporting;
 
 namespace Glyssen.Dialogs
 {
@@ -122,9 +123,19 @@ namespace Glyssen.Dialogs
 				}
 				else if (DetermineSplitLocation(geckoElement))
 				{
-					SetHtml();
-					m_btnOk.Enabled = true;
-					m_lblInvalidSplitLocation.Visible = false;
+					try
+					{
+						SetHtml();
+						m_btnOk.Enabled = true;
+						m_lblInvalidSplitLocation.Visible = false;
+					}
+					catch (Exception exception)
+					{
+						m_lblInvalidSplitLocation.Visible = true;
+						Logger.WriteError(exception);
+						m_splitLocations.Remove(m_splitLocations.Last());
+					}
+
 				}
 				else
 					m_lblInvalidSplitLocation.Visible = true;
@@ -288,7 +299,9 @@ namespace Glyssen.Dialogs
 					if (previousElement.GetAttribute("data-verse") != verseToSplit)
 						break;
 
-					sb.Append(m_verseNumberRegex.Replace(previousElement.InnerHtml, ""));
+					var textWithoutVerseNumbers = m_verseNumberRegex.Replace(previousElement.InnerHtml, "");
+					var unencodedText = System.Web.HttpUtility.HtmlDecode(textWithoutVerseNumbers);
+					sb.Append(unencodedText);
 				}
 				previousElement = previousElement.PreviousSibling as GeckoHtmlElement;
 			}

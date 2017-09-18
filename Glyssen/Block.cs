@@ -579,13 +579,11 @@ namespace Glyssen
 							var offsetToInsertExtra = blockSplit.CharacterOffsetToSplit;
 							if (blockSplit.VerseToSplit == currVerse)
 							{
-								if (offsetToInsertExtra == BookScript.kSplitAtEndOfVerse)
+								if (offsetToInsertExtra == PortionScript.kSplitAtEndOfVerse)
 									offsetToInsertExtra = preEncodedContent.Length;
 								if (offsetToInsertExtra < 0 || offsetToInsertExtra > preEncodedContent.Length)
 								{
-									// ReSharper disable once NotResolvedInText
-									throw new ArgumentOutOfRangeException("offsetToInsertExtra", offsetToInsertExtra,
-										@"Value must be greater than or equal to 0 and less than or equal to the length (" + preEncodedContent.Length +
+									throw new IndexOutOfRangeException(@"Value of offsetToInsertExtra must be greater than or equal to 0 and less than or equal to the length (" + preEncodedContent.Length +
 										@") of the encoded content of verse " + currVerse);
 								}
 								allContentToInsert.Insert(0, BuildSplitLineHtml(blockSplit.Id) + (showCharacters ? CharacterSelect(blockSplit.Id) : ""));
