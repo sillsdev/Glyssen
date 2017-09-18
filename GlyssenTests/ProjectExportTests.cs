@@ -399,6 +399,60 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void GetExportData_SingleVoiceBook_OutputNotMatchedToReferenceText()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			var narrator = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator);
+			var sectionHead = CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.ExtraBiblical);
+			var jude = project.IncludedBooks.Single();
+			jude.SingleVoice = true;
+			jude.Blocks = new List<Block>(new[]
+			{
+				new Block("p", 1, 1) {CharacterId = narrator, IsParagraphStart = true}.AddVerse("1", "A."),
+				new Block("s", 1, 1) {CharacterId = sectionHead, IsParagraphStart = true, BlockElements = new List<BlockElement> {new ScriptText("Jude complains")}},
+				new Block("p", 1, 2) {CharacterId = narrator, IsParagraphStart = true}.AddVerse("2", "B. ").AddVerse("3", "C."),
+				new Block("p", 1, 4) {CharacterId = narrator, IsParagraphStart = true}.AddVerse("4", "D. ").AddVerse("5", "E. ").AddVerse("6", "F."),
+			});
+
+			project.ReferenceText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
+			var exporter = new ProjectExporter(project);
+			var data = exporter.GetExportData().ToList();
+
+			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD" && (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1));
+			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.CharacterId)] == "narrator (JUD)"));
+			Assert.IsTrue(data.All(d => string.IsNullOrEmpty(d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] as string)));
+			Assert.IsTrue(data.All(d => string.IsNullOrEmpty(d[exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)] as string)));
+
+			var i = 0;
+			var row = data[i++];
+			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 1
+			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
+			Assert.AreEqual(1, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("{1}\u00A0A.", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			row = data[i++];
+			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 2
+			Assert.AreEqual("s", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
+			Assert.AreEqual(1, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("Jude complains", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			row = data[i++];
+			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 3
+			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
+			Assert.AreEqual(2, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("{2}\u00A0B. {3}\u00A0C.", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			row = data[i++];
+			Assert.AreEqual(i, row[exporter.GetColumnIndex(ExportColumn.BlockId)]); // Row 5
+			Assert.AreEqual("p", row[exporter.GetColumnIndex(ExportColumn.ParaTag)]);
+			Assert.AreEqual(4, row[exporter.GetColumnIndex(ExportColumn.Verse)]);
+			Assert.AreEqual("{4}\u00A0D. {5}\u00A0E. {6}\u00A0F.", row[exporter.GetColumnIndex(ExportColumn.VernacularText)]);
+
+			Assert.AreEqual(i, data.Count);
+		}
+
+		[Test]
 		public void GetExportData_AnnotationWithNegativeOffsetInVerseThatDoesNotMatchReferenceText_AnnotationInsertedCorrectlyWithoutCrashing()
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK);

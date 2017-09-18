@@ -105,14 +105,14 @@ namespace Glyssen
 			return base.GetScriptBlocks();
 		}
 
-		public System.Collections.Generic.IReadOnlyList<Block> GetScriptBlocks(bool join)
+		public IReadOnlyList<Block> GetScriptBlocks(bool join)
 		{
 			if (!join)
 				return GetScriptBlocks();
 
 			EnsureBlockCount();
 
-			if (!join || m_blockCount == 0)
+			if (m_blockCount == 0)
 				return m_blocks;
 
 			var list = new List<Block>(m_blockCount);

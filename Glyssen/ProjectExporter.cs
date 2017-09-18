@@ -11,6 +11,7 @@ using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -46,8 +47,39 @@ namespace Glyssen
 
 	public class ProjectExporter
 	{
-		private const string kExcelLineBreak = "\r\n"; ///????????????????????
+		public class Stats
+		{
+			public int TotalBlocks { get; private set; }
+			public int BlocksNotAlignedToReferenceText { get; private set; }
+			public double AlignmentPercent { get; }
+
+			internal Stats(IReadOnlyList<BookScript> books, ReferenceText refText)
+			{
+				TotalBlocks = 0;
+				foreach (var book in books)
+				{
+					var blocks = book.GetScriptBlocks();
+					if (!refText.CanDisplayReferenceTextForBook(book) || book.SingleVoice)
+						TotalBlocks += blocks.Count;
+					else
+					{
+						foreach (Block block in blocks)
+						{
+							TotalBlocks++;
+							if (!CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId) && !block.MatchesReferenceText)
+								BlocksNotAlignedToReferenceText++;
+						}
+					}
+				}
+				AlignmentPercent = MathUtilities.PercentAsDouble(TotalBlocks - BlocksNotAlignedToReferenceText, TotalBlocks);
+			}
+		}
+
+		private const string kExcelLineBreak = "\r\n";
+
+		///????????????????????
 		private const string kTabFileAnnotationElementSeparator = " ";
+
 		public const string kTabDelimitedFileExtension = ".txt";
 
 		private string m_customFileName;
@@ -56,13 +88,36 @@ namespace Glyssen
 		private readonly IReadOnlyList<BookScript> m_booksToExport;
 		private List<int> m_annotatedRowIndexes;
 		private readonly Regex m_splitRegex = new Regex(@"(\|\|\|[^\|]+\|\|\|)|(\{(?:Music|F8|SFX).*?\})");
+		private Stats m_statistics;
 
 		public ProjectExporter(Project project)
 		{
 			Project = project;
 			IncludeVoiceActors = Project.CharacterGroupList.AnyVoiceActorAssigned();
-			m_booksToExport = new List<BookScript>(Project.ReferenceText.GetBooksWithBlocksConnectedToReferenceText(project));
+			m_booksToExport = new List<BookScript>(GetClonedBooksWithBlocksSplitAndMatchedToReferenceText());
 			m_includeDelivery = m_booksToExport.Any(b => !b.SingleVoice);
+		}
+
+		private IEnumerable<BookScript> GetClonedBooksWithBlocksSplitAndMatchedToReferenceText()
+		{
+			var refText = Project.ReferenceText;
+
+			foreach (var book in Project.IncludedBooks)
+			{
+				var clone = book.Clone(true);
+
+				if (refText.Books.SingleOrDefault(b => b.BookId == book.BookId) == null)
+				{
+					// TODO: Break up the blocks in the clone according by verse number.
+				}
+				else
+				{
+					if (book.SingleVoice)
+						// TODO: Force reference text to be verse-based before applying it.
+					refText.ApplyTo(clone, Project.Versification);
+				}
+				yield return clone;
+			}
 		}
 
 		public Project Project { get; }
@@ -71,6 +126,16 @@ namespace Glyssen
 		public bool IncludeBookBreakdown { get; set; }
 		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
+
+		public Stats Statistics
+		{
+			get
+			{
+				if (m_statistics == null)
+					m_statistics = new Stats(m_booksToExport, Project.ReferenceText);
+				return m_statistics;
+			}
+		}
 
 		internal ExportFileType SelectedFileType { get; set; }
 
@@ -938,14 +1003,22 @@ namespace Glyssen
 			if (includeDelivery)
 				list.Add(block.Delivery);
 			list.Add(block.GetText(!textOnly));
-			list.Add(block.GetPrimaryReferenceText(textOnly));
-			if (includeSecondaryDirectorsGuide)
+			if (singleVoiceNarratorOverride == null)
 			{
-				var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
-				if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
-					list.Add(primaryRefBlock.GetPrimaryReferenceText(textOnly));
-				else
-					list.Add(null);
+				list.Add(block.GetPrimaryReferenceText(textOnly));
+				if (includeSecondaryDirectorsGuide)
+				{
+					var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
+					if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
+						list.Add(primaryRefBlock.GetPrimaryReferenceText(textOnly));
+					else
+						list.Add(null);
+				}
+			}
+			else
+			{
+				list.Add(null);
+				list.Add(null);
 			}
 			list.Add(block.GetText(false).Length);
 

@@ -177,8 +177,6 @@ namespace Glyssen
 			foreach (var book in project.IncludedBooks)
 			{
 				var referenceBook = Books.SingleOrDefault(b => b.BookId == book.BookId);
-				// REVIEW: Should we allow a reference text to be hooked up that does not have all the
-				// books in the vernacular? For now, Jon at FCBH says yes.
 				if (referenceBook == null)
 					yield return book;
 				else

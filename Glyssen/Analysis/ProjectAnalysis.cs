@@ -81,30 +81,8 @@ namespace Glyssen.Analysis
 
 		private void CalculateAlignmentPercentage()
 		{
-			int totalBlocksForExport = 0;
-			int blocksNotAlignedToReferenceText = 0;
 			var refText = m_projectToAnalyze.ReferenceText;
-			if (refText == null)
-			{
-				m_alignmentPercent = 0;
-				return;
-			}
-			foreach (var book in refText.GetBooksWithBlocksConnectedToReferenceText(m_projectToAnalyze))
-			{
-				var blocks = book.GetScriptBlocks();
-				if (!refText.CanDisplayReferenceTextForBook(book) || book.SingleVoice)
-					totalBlocksForExport += blocks.Count;
-				else
-				{
-					foreach (Block block in blocks)
-					{
-						totalBlocksForExport++;
-						if (!CharacterVerseData.IsCharacterExtraBiblical(block.CharacterId) && !block.MatchesReferenceText)
-							blocksNotAlignedToReferenceText++;
-					}
-				}
-			}
-			m_alignmentPercent = MathUtilities.PercentAsDouble(totalBlocksForExport - blocksNotAlignedToReferenceText, totalBlocksForExport);
+			m_alignmentPercent = refText == null ? 0 : new ProjectExporter(m_projectToAnalyze).Statistics.AlignmentPercent;
 		}
 
 		[SuppressMessage("ReSharper", "LocalizableElement")]
