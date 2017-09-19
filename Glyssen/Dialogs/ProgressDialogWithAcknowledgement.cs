@@ -304,9 +304,9 @@ namespace Glyssen.Dialogs
 			}
 		}
 
-		void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		protected virtual void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			if(e.Cancelled)
+			if(e.Cancelled || (ProgressStateResult != null && ProgressStateResult.Cancel))
 			{
 				DialogResult = DialogResult.Cancel;
 			}
@@ -354,15 +354,6 @@ namespace Glyssen.Dialogs
 				ProgressRangeMaximum = state.TotalNumberOfSteps;
 				Progress = state.NumberOfStepsCompleted;
 			}
-		}
-
-		/// <summary>
-		/// Close the dialog, ignoring cancel status
-		/// </summary>
-		public void ForceClose()
-		{
-			m_isClosing = true;
-			Close();
 		}
 
 		/// <summary>
