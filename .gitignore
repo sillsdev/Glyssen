@@ -24,3 +24,4 @@ DevTools/Resources/temporary/*
 /Glyssen/Resources/Thumbs.db
 lib/dotnet/NetSparkle.Net40.dll
 lib/dotnet/MarkdownDeep.dll
+/.vs
