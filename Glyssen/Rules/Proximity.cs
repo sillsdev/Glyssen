@@ -86,6 +86,7 @@ namespace Glyssen.Rules
 				var treatAsSameCharacter = m_considerSameExtrabiblicalCharacter[book];
 
 				currentBlockCount += kDefaultMinimumBlocks + 20; // 20 is a pretty arbitrary "magic number"
+				currentVerseByBlockCount += kDefaultMinimumVersesByBlock + 10; // 10 is a pretty arbitrary "magic number"
 
 				foreach (var block in book.Blocks)
 				{
@@ -411,7 +412,7 @@ namespace Glyssen.Rules
 				return "[no characters in group]";
 
 			var sb = new StringBuilder();
-			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).PadLeft(kProximityHeader.Length)).Append("  |  ")
+			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks + "(" + NumberOfVersesByBlocks + ")").PadLeft(kProximityHeader.Length)).Append("  |  ")
 				.Append(FirstReference)
 				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
 				.Append(" - ")
@@ -427,6 +428,8 @@ namespace Glyssen.Rules
 
 		public int WeightedNumberOfBlocks => (int)Math.Round(Math.Pow(NumberOfBlocks, WeightingPower));
 
+		public int WeightedNumberOfVersesByBlocks => (int)Math.Round(Math.Pow(NumberOfVersesByBlocks, WeightingPower));
+
 		public WeightedMinimumProximity(MinimumProximity minimumProximity) : base(minimumProximity)
 		{
 			WeightingPower = 1;
@@ -437,41 +440,37 @@ namespace Glyssen.Rules
 	{
 		public static bool IsAcceptable(this MinimumProximity minimumProximity)
 		{
-			return minimumProximity == null || minimumProximity.NumberOfBlocks >= Proximity.kDefaultMinimumBlocks;
+			return minimumProximity == null || minimumProximity.NumberOfVersesByBlocks >= Proximity.kDefaultMinimumVersesByBlock;
 		}
 
 		public static bool IsFinite(this MinimumProximity minimumProximity)
 		{
-			return minimumProximity != null && minimumProximity.NumberOfBlocks < Int32.MaxValue;
+			return minimumProximity != null && minimumProximity.NumberOfVersesByBlocks < Int32.MaxValue;
 		}
 
 		public static bool IsBetterThan(this MinimumProximity a, MinimumProximity b)
 		{
-			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
-			return (a?.NumberOfBlocks ?? Int32.MaxValue) > (b?.NumberOfBlocks ?? Int32.MaxValue);
+			return (a?.NumberOfVersesByBlocks ?? Int32.MaxValue) > (b?.NumberOfVersesByBlocks ?? Int32.MaxValue);
 		}
 
 		public static bool IsBetterThanOrEqualTo(this MinimumProximity a, MinimumProximity b)
 		{
-			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
-			return (a?.NumberOfBlocks ?? Int32.MaxValue) >= (b?.NumberOfBlocks ?? Int32.MaxValue);
+			return (a?.NumberOfVersesByBlocks ?? Int32.MaxValue) >= (b?.NumberOfVersesByBlocks ?? Int32.MaxValue);
 		}
 
 		public static bool IsAcceptable(this WeightedMinimumProximity weightedMinimumProximity)
 		{
-			return weightedMinimumProximity == null || weightedMinimumProximity.NumberOfBlocks >= Proximity.kDefaultMinimumBlocks;
+			return weightedMinimumProximity == null || weightedMinimumProximity.NumberOfVersesByBlocks >= Proximity.kDefaultMinimumVersesByBlock;
 		}
 
 		public static bool IsBetterThan(this WeightedMinimumProximity a, WeightedMinimumProximity b)
 		{
-			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
-			return (a?.WeightedNumberOfBlocks ?? Int32.MaxValue) > (b?.WeightedNumberOfBlocks ?? Int32.MaxValue);
+			return (a?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue) > (b?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue);
 		}
 
 		public static bool IsBetterThanOrEqualTo(this WeightedMinimumProximity a, WeightedMinimumProximity b)
 		{
-			// Null => no proximity calculated, which is assumed to mean infinitely distant (i.e. NumberOfBlocks = Int32.Max)
-			return (a?.WeightedNumberOfBlocks ?? Int32.MaxValue) >= (b?.WeightedNumberOfBlocks ?? Int32.MaxValue);
+			return (a?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue) >= (b?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue);
 		}
 	}
 }

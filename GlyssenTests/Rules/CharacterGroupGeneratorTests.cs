@@ -297,6 +297,9 @@ namespace GlyssenTests.Rules
 				AssertThatThereAreTwoDistinctNarratorGroups(groups);
 		}
 
+		[TestCase(8, 2, 3, 0)]
+		[TestCase(10, 5, 1, 0)]
+		[TestCase(15, 5, 1, 0)]
 		[TestCase(20, 5, 1, 0)]
 		[TestCase(25, 5, 2, 0)]
 		[TestCase(25, 6, 1, 1)]
