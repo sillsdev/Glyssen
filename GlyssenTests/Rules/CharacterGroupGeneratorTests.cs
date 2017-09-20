@@ -724,10 +724,10 @@ namespace GlyssenTests.Rules
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			SetVoiceActors(11, 3);
+			SetVoiceActors(13, 3);// REVIEW (PG-454): When we change the proximity calculation, the number of men should be able to go down (to 11 or fewer, hopefully).
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
-			Assert.AreEqual(14, groups.Count);
+			Assert.AreEqual(m_testProject.VoiceActorList.AllActors.Count, groups.Count, "One group expected per actor.");
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "JUD").ContainsCharacterWithGender(CharacterGender.Female));
 			VerifyProximityAndGenderConstraintsForAllGroups(groups, false, true);
@@ -1190,17 +1190,14 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(8, groups.Count);
 		}
 
-		[TestCase(ExtraBiblicalMaterialSpeakerOption.FemaleActor, ExtraBiblicalMaterialSpeakerOption.FemaleActor)]
-		[TestCase(ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender, ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender)]
-		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs(
-			ExtraBiblicalMaterialSpeakerOption bookTitleAndChapterOption,
-			ExtraBiblicalMaterialSpeakerOption extraBiblicalOption)
+		[Test]
+		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesExtraBiblicalAndCharacterRolesInActs()
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
-			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = bookTitleAndChapterOption;
-			m_testProject.DramatizationPreferences.SectionHeadDramatization = extraBiblicalOption;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
 			m_testProject.ClearCharacterStatistics();
 
 			SetVoiceActors(6, 2);
@@ -1211,6 +1208,30 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Count > 3);
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
 			Assert.IsTrue(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
+			Assert.AreEqual(1, narratorActsGroup.CharacterIds.Count);
+			AssertThatThereAreTwoDistinctNarratorGroups(groups);
+			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
+			Assert.AreEqual(8, groups.Count);
+		}
+		
+		[Test]
+		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesFemaleCharacterRolesInActsAndMaleGroupHandlesExtraBiblical()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+			m_testProject.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			m_testProject.ClearCharacterStatistics();
+
+			SetVoiceActors(6, 2);
+			var gen = new CharacterGroupGenerator(m_testProject);
+			var groups = gen.GenerateCharacterGroups();
+			var narratorLukeGroup = GetNarratorGroupForBook(groups, "LUK");
+			var narratorActsGroup = GetNarratorGroupForBook(groups, "ACT");
+			Assert.IsTrue(narratorLukeGroup.CharacterIds.Count > 1);
+			Assert.IsFalse(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter)));
+			Assert.IsFalse(narratorLukeGroup.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical)));
 			Assert.AreEqual(1, narratorActsGroup.CharacterIds.Count);
 			AssertThatThereAreTwoDistinctNarratorGroups(groups);
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
@@ -1597,6 +1618,24 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJohn.CharacterIds.Contains(CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)));
 			Assert.IsTrue(narJude.CharacterIds.Count > 1);
+
+			VerifyGenderConformityInGroups(groups, true);
+		}
+
+		[Test]
+		public void GenerateCharacterGroups_TooSmallCast_FourNarrators_AllCharactersConformToGroupGender()
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.Custom;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+
+			SetVoiceActors(9, 2);
+			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
+
+			Assert.AreEqual(11, groups.Count);
+
+			VerifyGenderConformityInGroups(groups, true);
 		}
 
 		[Test]
@@ -2125,16 +2164,45 @@ namespace GlyssenTests.Rules
 			{
 				var minProximity = p.CalculateMinimumProximity(group.CharacterIds);
 				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + minProximity);
-				Assert.True(minProximity.NumberOfBlocks >= Proximity.kDefaultMinimumProximity);
+				Assert.True(minProximity.NumberOfBlocks >= Proximity.kDefaultMinimumProximity, $"Group {group.GroupIdForUiDisplay} has proximity problem: " +
+					$"{minProximity.NumberOfBlocks} between {minProximity.FirstCharacterId} ({minProximity.FirstReference}) and " +
+					$"{minProximity.SecondCharacterId} ({minProximity.SecondReference}).");
 			}
 
+			VerifyGenderConformityInGroups(groups, allowMaleNarratorsToDoBiblicalCharacterRoles, allowFemaleNarratorsToDoBiblicalCharacterRoles);
+		}
+
+		protected void VerifyGenderConformityInGroups(List<CharacterGroup> groups,
+			bool allowMaleNarratorsToDoBiblicalCharacterRoles = false, bool allowFemaleNarratorsToDoBiblicalCharacterRoles = false)
+		{
 			foreach (var group in groups.Where(g => g.ContainsCharacterWithGender(CharacterGender.Female)))
 				Assert.IsTrue(CharacterGroup.Label.Female == group.GroupIdLabel ||
-					(allowFemaleNarratorsToDoBiblicalCharacterRoles && CharacterGroup.Label.Narrator == group.GroupIdLabel));
+					(allowFemaleNarratorsToDoBiblicalCharacterRoles && CharacterGroup.Label.Narrator == group.GroupIdLabel),
+					$"Group {group.GroupIdForUiDisplay} contains female characters.");
 
-			foreach (var group in groups.Where(g => g.ContainsCharacterWithGender(CharacterGender.Male)))
+
+			foreach (var group in groups.Where(g => g.CharactersWithGender(CharacterGender.Male, CharacterGender.PreferMale)
+				.Any(d => d.Age != CharacterAge.Child)))
+			{
 				Assert.IsTrue(CharacterGroup.Label.Male == group.GroupIdLabel ||
-					(allowMaleNarratorsToDoBiblicalCharacterRoles && CharacterGroup.Label.Narrator == group.GroupIdLabel));
+					(allowMaleNarratorsToDoBiblicalCharacterRoles && CharacterGroup.Label.Narrator == group.GroupIdLabel),
+					$"Group {group.GroupIdForUiDisplay} contains male characters.");
+			}
+		}
+
+		public bool ContainsAdultMaleCharacter(CharacterGroup group)
+		{
+			var characterDetails = m_testProject.AllCharacterDetailDictionary;
+			return group.CharacterIds.Any(c =>
+			{
+				if (CharacterVerseData.IsCharacterStandard(c))
+					return false;
+
+				CharacterDetail characterDetail;
+				if (!characterDetails.TryGetValue(c, out characterDetail))
+					return false;
+				return characterDetail.Age != CharacterAge.Child && (characterDetail.Gender == CharacterGender.Male || characterDetail.Gender == CharacterGender.PreferMale);
+			});
 		}
 	}
 }
