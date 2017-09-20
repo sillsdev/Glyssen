@@ -1673,7 +1673,7 @@ namespace Glyssen
 						m_keyStrokesByCharacterId.Add(character, 0);
 						m_speechDistributionScore.Add(character, 0);
 					}
-					m_keyStrokesByCharacterId[character] += block.GetText(false).Length;
+					m_keyStrokesByCharacterId[character] += block.Length;
 
 					DistributionScoreBookStats stats;
 					if (!bookDistributionScoreStats.TryGetValue(character, out stats))

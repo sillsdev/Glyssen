@@ -259,6 +259,10 @@ namespace Glyssen
 			}
 		}
 
+		public int Length => GetText(false).Length;
+
+		public int NumberOfVerses => LastVerseNum - InitialStartVerseNumber + 1;
+
 		public string GetPrimaryReferenceText(bool textOnly = false)
 		{
 			return MatchesReferenceText ? ReferenceBlocks[0].GetTextFromBlockElements(!textOnly, !textOnly) : null;

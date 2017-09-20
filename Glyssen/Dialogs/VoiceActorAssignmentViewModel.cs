@@ -239,13 +239,11 @@ namespace Glyssen.Dialogs
 			{
 				var testGroup = new CharacterIdHashSet(destGroup.CharacterIds);
 				var resultsBefore = ProjectProximity.CalculateMinimumProximity(testGroup);
-				int proximityBefore = resultsBefore.NumberOfBlocks;
 
 				testGroup.AddRange(characterIds);
 				var resultsAfter = ProjectProximity.CalculateMinimumProximity(testGroup);
-				int proximityAfter = resultsAfter.NumberOfBlocks;
 
-				if (proximityBefore > proximityAfter && proximityAfter <= Proximity.kDefaultMinimumProximity)
+				if (resultsBefore.IsBetterThan(resultsAfter) && !resultsAfter.IsAcceptable())
 				{
 					var firstReference = resultsAfter.FirstReference;
 					var secondReference = resultsAfter.SecondReference;
@@ -256,7 +254,7 @@ namespace Glyssen.Dialogs
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
 							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] in {3} and [{2}] in {4}.");
 					var dlgMessagePart1 = string.Format(dlgMessageFormat1,
-						proximityAfter,
+						resultsAfter.NumberOfBlocks,
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondCharacterId),
 						firstReference, secondReference);
@@ -280,7 +278,7 @@ namespace Glyssen.Dialogs
 				else
 				{
 					LogAndOutputToDebugConsole($"Moving {characterIds.Count} character(s) to group {destGroup.GroupId} changed the " +
-						$"proximity from {proximityBefore} to {proximityAfter}.");
+						$"proximity from {resultsBefore.NumberOfBlocks} to {resultsAfter.NumberOfBlocks}.");
 				}
 			}
 

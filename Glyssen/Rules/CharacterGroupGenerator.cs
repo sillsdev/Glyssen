@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -372,7 +372,7 @@ namespace Glyssen.Rules
 						}
 					}
 
-					if (bestConfiguration.MinimumProximity >= Proximity.kDefaultMinimumProximity &&
+					if (bestConfiguration.MinimumProximity.IsAcceptable() &&
 						!bestConfiguration.HasGenderMismatches &&
 						bestConfiguration.TotalCountOfNarratorGroupsIncludingCameos == maleNarrators + femaleNarrators)
 					{
@@ -388,7 +388,7 @@ namespace Glyssen.Rules
 			Debug.Assert(bestConfiguration != null);
 
 			if (enforceProximityAndGenderConstraints &&
-				(bestConfiguration.MinimumProximity < Proximity.kDefaultMinimumProximity || bestConfiguration.HasGenderMismatches))
+				(!bestConfiguration.MinimumProximity.IsAcceptable() || bestConfiguration.HasGenderMismatches
 				return null;
 
 			return GetFinalizedGroups(bestConfiguration, actorsWithRealAssignments, realActorsToReset);
@@ -525,71 +525,71 @@ namespace Glyssen.Rules
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable()) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Acceptable), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Perfect), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Acceptable), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			// The only combination that can have a gender match of "poor" is an age match of "poor" because it only happens when an
 			// adult female actor is compared against a male child character.
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Poor, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Perfect), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.3);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Acceptable), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.4);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.5);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Mismatch), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.7);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Mismatch), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.9);
 			}
-			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+			if (!groupToProximityDict.Any(i => i.Value.IsAcceptable() || i.Value.IsBetterThanOrEqualTo(configuration.MinimumProximity)) &&
 				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Mismatch), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 3.2);
 			}
-			var bestGroupEntry = groupToProximityDict.Aggregate((l, r) => l.Value.WeightedNumberOfBlocks > r.Value.WeightedNumberOfBlocks ? l : r);
+			var bestGroupEntry = groupToProximityDict.Aggregate((l, r) => l.Value.IsBetterThan(r.Value) ? l : r);
 			var bestGroup = bestGroupEntry.Key;
-			if (configuration.MinimumProximity > bestGroupEntry.Value)
+			if (configuration.MinimumProximity.IsBetterThan(bestGroupEntry.Value))
 			{
 				// We're adding the character to the best group we could find, but it is now the *worst* group in the configuration.
 				configuration.NoteGroupWithWorstProximity(bestGroupEntry.Key, bestGroupEntry.Value);
@@ -986,7 +986,7 @@ namespace Glyssen.Rules
 				// Go through the books in descending size order. Add each book to a group. If there are already one or more groups for that author, then:
 				// 1) if there are still any available "extra" narrator groups, use one of those;
  				// 2) otherwise, add this book to the smallest existing group for that author.
-	
+
 				var extraNarrators = narratorGroups.Count - countOfAuthors;
 				Debug.Assert(extraNarrators > 0);
 
@@ -1072,7 +1072,7 @@ namespace Glyssen.Rules
 					}
 					else
 					{
-						characterGroup.CharacterIds.Add(character.CharacterId);					
+						characterGroup.CharacterIds.Add(character.CharacterId);
 					}
 				}
 			}
@@ -1113,10 +1113,10 @@ namespace Glyssen.Rules
 				{
 					if (NarratorGroups.Count == 0)
 						throw new NullReferenceException(string.Format("No group was found for character '{0}'", characterId));
-					
-					possibleGroups = NarratorGroups.ToList();						
+
+					possibleGroups = NarratorGroups.ToList();
 				}
-				
+
 				if (possibleGroups.Count == 1)
 					return possibleGroups[0];
 
@@ -1154,10 +1154,10 @@ namespace Glyssen.Rules
 			{
 				if (!HasGenderMismatches && other.HasGenderMismatches)
 					return true;
-				if (HasGenderMismatches && !other.HasGenderMismatches || 
-					MinimumProximity < other.MinimumProximity)
+				if (HasGenderMismatches && !other.HasGenderMismatches ||
+					other.MinimumProximity.IsBetterThan(MinimumProximity))
 					return false;
-				if (MinimumProximity > other.MinimumProximity)
+				if (MinimumProximity.IsBetterThan(other.MinimumProximity))
 					return true;
 				return NarratorGroups.Count > other.NarratorGroups.Count;
 			}
@@ -1201,7 +1201,7 @@ namespace Glyssen.Rules
 			internal static List<TrialGroupConfiguration> GeneratePossibilities(bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles,
 				List<CharacterGroup> characterGroups,
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups, bool allowFemaleExtraBiblical, List<CharacterDetail> includedCharacterDetails,
-				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails, 
+				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails,
 				ProjectDramatizationPreferences dramatizationPreferences)
 			{
 				var includedBooks = project.IncludedBooks.Select(b => b.BookId).ToList();
@@ -1229,7 +1229,7 @@ namespace Glyssen.Rules
 						continue;
 
 					var minimumProximity = proximity.CalculateMinimumProximity(characterGroup.CharacterIds);
-					if ((worstProximity != null && minimumProximity < worstProximity) || minimumProximity < Int32.MaxValue)
+					if ((worstProximity != null && worstProximity.IsBetterThan(minimumProximity)) || minimumProximity.IsFinite())
 					{
 						groupWithWorstPrioximity = characterGroup;
 						worstProximity = minimumProximity;

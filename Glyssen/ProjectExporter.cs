@@ -947,7 +947,7 @@ namespace Glyssen
 				else
 					list.Add(null);
 			}
-			list.Add(block.GetText(false).Length);
+			list.Add(block.Length);
 
 			if (!IsNullOrEmpty(outputDirectory) && !IsNullOrEmpty(clipFileProjectId))
 			{
