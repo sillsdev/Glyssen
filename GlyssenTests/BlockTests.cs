@@ -1421,7 +1421,7 @@ namespace GlyssenTests
 		}
 
 		[Test]
-		public void NumberOfVerses_JustText_1Verse()
+		public void ScriptTextCount_JustText_1Verse()
 		{
 			var block = new Block("p", 1, 2)
 			{
@@ -1430,11 +1430,11 @@ namespace GlyssenTests
 					new ScriptText("abc")
 				}
 			};
-			Assert.AreEqual(1, block.NumberOfVerses);
+			Assert.AreEqual(1, block.ScriptTextCount);
 		}
 
 		[Test]
-		public void NumberOfVerses_VerseAndText_1Verse()
+		public void ScriptTextCount_VerseAndText_1Verse()
 		{
 			var block = new Block("p", 1, 2)
 			{
@@ -1444,11 +1444,11 @@ namespace GlyssenTests
 					new ScriptText("abc")
 				}
 			};
-			Assert.AreEqual(1, block.NumberOfVerses);
+			Assert.AreEqual(1, block.ScriptTextCount);
 		}
 
 		[Test]
-		public void Length_TextVerseText_2Verses()
+		public void ScriptTextCount_TextVerseText_2Verses()
 		{
 			var block = new Block("p", 1, 2, 3)
 			{
@@ -1459,11 +1459,11 @@ namespace GlyssenTests
 					new ScriptText("xyz")
 				}
 			};
-			Assert.AreEqual(2, block.NumberOfVerses);
+			Assert.AreEqual(2, block.ScriptTextCount);
 		}
 
 		[Test]
-		public void Length_VerseTextVerseText_2Verses()
+		public void ScriptTextCount_VerseTextVerseText_2Verses()
 		{
 			var block = new Block("p", 1, 2, 3)
 			{
@@ -1475,7 +1475,7 @@ namespace GlyssenTests
 					new ScriptText("xyz")
 				}
 			};
-			Assert.AreEqual(2, block.NumberOfVerses);
+			Assert.AreEqual(2, block.ScriptTextCount);
 		}
 
 		private CharacterVerse JesusQuestioning => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);

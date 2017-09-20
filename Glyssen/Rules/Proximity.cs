@@ -146,7 +146,7 @@ namespace Glyssen.Rules
 						else
 						{
 							currentBlockCount++;
-							currentVerseByBlockCount += block.NumberOfVerses;
+							currentVerseByBlockCount += block.ScriptTextCount;
 							// TODO we think we want this eventually, but it is not performant, and we are not ready to use it.
 							//currentKeystrokeCount += block.Length;
 						}
@@ -172,7 +172,7 @@ namespace Glyssen.Rules
 					else
 					{
 						currentBlockCount++;
-						currentVerseByBlockCount += block.NumberOfVerses;
+						currentVerseByBlockCount += block.ScriptTextCount;
 						// TODO we think we want this eventually, but it is not performant, and we are not ready to use it.
 						//currentKeystrokeCount += block.Length;
 					}

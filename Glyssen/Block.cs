@@ -261,7 +261,7 @@ namespace Glyssen
 
 		public int Length => GetText(false).Length;
 
-		public int NumberOfVerses => LastVerseNum - InitialStartVerseNumber + 1;
+		public int ScriptTextCount => BlockElements.Count(e => e is ScriptText);
 
 		public string GetPrimaryReferenceText(bool textOnly = false)
 		{
