@@ -177,7 +177,9 @@ namespace Glyssen.Dialogs
 		{
 			m_viewModel.NarratorOption = NarratorOption;
 
-			m_femaleNarrators.Enabled = m_maleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
+			m_femaleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
+			m_maleNarrators.Enabled = NarratorOption != NarratorsOption.SingleNarrator;
+
 			ShowOrHideNarratorCountWarning();
 		}
 

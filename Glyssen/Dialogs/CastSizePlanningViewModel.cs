@@ -40,7 +40,7 @@ namespace Glyssen.Dialogs
 				switch (NarratorOption)
 				{
 					case NarratorsOption.SingleNarrator: return 1;
-					case NarratorsOption.NarrationByAuthor: return Project.AuthorCount;
+					case NarratorsOption.NarrationByAuthor:
 					case NarratorsOption.Custom: return m_customMaleNarratorCount;
 					default: throw new InvalidOperationException("Attempt to get number of Male Narrators with NarratorOption not set to a valid value.");
 				}
@@ -53,13 +53,12 @@ namespace Glyssen.Dialogs
 					throw new ArgumentOutOfRangeException("value", "MaleNarrators cannot be negative.");
 				if (value > MaximumNarratorsValue)
 					throw new ArgumentOutOfRangeException("value", "MaleNarrators cannot be set to a value greater than MaximumNarratorsValue.");
-				if (NarratorOption != NarratorsOption.Custom)
-					throw new InvalidOperationException("Number of male narrators can only be set for the custom option.");
+				if (NarratorOption == NarratorsOption.SingleNarrator)
+					throw new InvalidOperationException("Number of male narrators cannot be set for Single narrator option.");
 				m_customMaleNarratorCount = value;
 				if (m_customMaleNarratorCount + m_customFemaleNarratorCount > MaximumNarratorsValue)
 					FemaleNarrators = MaximumNarratorsValue - MaleNarrators;
-				if (MaleNarratorsValueChanged != null)
-					MaleNarratorsValueChanged(this, value);
+				MaleNarratorsValueChanged?.Invoke(this, value);
 				NotifyOfRowValueChangesBasedOnNarratorChanges();
 			}
 		}
@@ -80,8 +79,7 @@ namespace Glyssen.Dialogs
 				m_customFemaleNarratorCount = value;
 				if (m_customMaleNarratorCount + m_customFemaleNarratorCount > MaximumNarratorsValue)
 					MaleNarrators = MaximumNarratorsValue - FemaleNarrators;
-				if (FemaleNarratorsValueChanged != null)
-					FemaleNarratorsValueChanged(this, value);
+				FemaleNarratorsValueChanged?.Invoke(this, value);
 				NotifyOfRowValueChangesBasedOnNarratorChanges();
 			}
 		}
@@ -112,10 +110,10 @@ namespace Glyssen.Dialogs
 			var prefs = m_project.CharacterGroupGenerationPreferences;
 
 			m_narratorsOption = prefs.NarratorsOption;
-			if (m_narratorsOption == NarratorsOption.Custom)
+			if (m_narratorsOption != NarratorsOption.SingleNarrator)
 			{
 				m_customMaleNarratorCount = prefs.NumberOfMaleNarrators;
-				m_customFemaleNarratorCount = prefs.NumberOfFemaleNarrators;
+				m_customFemaleNarratorCount = m_narratorsOption == NarratorsOption.NarrationByAuthor ? 0 : prefs.NumberOfFemaleNarrators;
 				if (m_customMaleNarratorCount + m_customFemaleNarratorCount > MaximumNarratorsValue)
 				{
 					var remainingFemaleNarrators = MaximumNarratorsValue - MaleNarrators;
@@ -451,10 +449,7 @@ namespace Glyssen.Dialogs
 			throw new InvalidEnumArgumentException(@"row", (int)row, typeof(CastSizeOption));
 		}
 
-		internal int MaximumNarratorsValue
-		{
-			get { return Project.IncludedBooks.Count; }
-		}
+		internal int MaximumNarratorsValue => m_narratorsOption == NarratorsOption.Custom ? Project.IncludedBooks.Count : Project.AuthorCount;
 
 		internal NarratorsOption NarratorOption
 		{
@@ -468,6 +463,8 @@ namespace Glyssen.Dialogs
 				int prevFemaleNarratorCount = FemaleNarrators;
 
 				m_narratorsOption = value;
+				if (m_narratorsOption == NarratorsOption.NarrationByAuthor)
+					MaleNarrators = Project.AuthorCount;
 
 				if (prevMaleNarratorCount != MaleNarrators && MaleNarratorsValueChanged != null)
 					MaleNarratorsValueChanged(this, MaleNarrators);

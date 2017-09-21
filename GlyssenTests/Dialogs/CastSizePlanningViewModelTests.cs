@@ -1,16 +1,9 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using Glyssen;
+﻿using System.Linq;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Rules;
 using GlyssenTests.Properties;
 using NUnit.Framework;
-using SIL.Scripture;
-using SIL.WritingSystems;
 
 namespace GlyssenTests.Dialogs
 {
@@ -35,9 +28,57 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetNarratorOption_NarrationByAuthorForTwoBooksWrittenBySameAuthor_DefaultsToOneNarrator()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV, TestProject.TestBook.IIIJN);
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
+			model.MaleNarratorsValueChanged += model_MaleNarratorsValueChanged;
+			model.FemaleNarratorsValueChanged += model_FemaleNarratorsValueChanged;
+			model.NarratorOption = NarratorsOption.Custom;
+			model.MaleNarrators = 2;
+			model.FemaleNarrators = 0;
+			m_femaleNarratorsValue = 0;
+			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			Assert.AreEqual(1, m_maleNarratorsValue);
+			Assert.AreEqual(0, m_femaleNarratorsValue);
+		}
+
+		[Test]
+		public void SetNarratorOption_NarrationByAuthorForThreeBooksWrittenByNonSpeakingAuthors_DefaultsToOneNarrator()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT, TestProject.TestBook.ACT, TestProject.TestBook.HEB);
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
+			model.MaleNarratorsValueChanged += model_MaleNarratorsValueChanged;
+			model.FemaleNarratorsValueChanged += model_FemaleNarratorsValueChanged;
+			model.NarratorOption = NarratorsOption.Custom;
+			model.MaleNarrators = 2;
+			model.FemaleNarrators = 1;
+			m_femaleNarratorsValue = 0;
+			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			Assert.AreEqual(1, m_maleNarratorsValue);
+			Assert.AreEqual(0, m_femaleNarratorsValue);
+		}
+
+		[Test]
+		public void SetNarratorOption_NarrationByAuthorForTwoBooksWrittenBySameSpeakingAuthorAndTwoBooksWrittenByDifferentNonSpeakingAuthors_DefaultsToTwoNarrators()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT, TestProject.TestBook.ACT, TestProject.TestBook.GAL, TestProject.TestBook.EPH);
+			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
+			model.MaleNarratorsValueChanged += model_MaleNarratorsValueChanged;
+			model.FemaleNarratorsValueChanged += model_FemaleNarratorsValueChanged;
+			model.NarratorOption = NarratorsOption.Custom;
+			model.MaleNarrators = 3;
+			model.FemaleNarrators = 1;
+			m_femaleNarratorsValue = 0;
+			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			Assert.AreEqual(2, m_maleNarratorsValue);
+			Assert.AreEqual(0, m_femaleNarratorsValue);
+		}
+
+		[Test]
 		public void SetNarratorOption_CallbackPublishesValues()
 		{
-			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PHM, TestProject.TestBook.IIIJN);
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.IIIJN);
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 			model.MaleNarratorsValueChanged += model_MaleNarratorsValueChanged;
 			model.FemaleNarratorsValueChanged += model_FemaleNarratorsValueChanged;
@@ -145,9 +186,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void
-			GetCastSizeRowValues_ProjectHasTwoBooksWithNoSpeakingPartsCustomNarratorValues_AllCastSizesHaveBasedOnCustomNarratorsPlusExtraMale
-			()
+		public void GetCastSizeRowValues_ProjectHasTwoBooksWithNoSpeakingPartsCustomNarratorValues_AllCastSizesHaveBasedOnCustomNarratorsPlusExtraMale()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
