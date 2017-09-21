@@ -1421,6 +1421,29 @@ namespace GlyssenTests
 		}
 
 		[Test]
+		public void Length_IsChapterAnnouncementWithFormat_LengthIsCorrect()
+		{
+			var text = "My Chapter Announcement";
+			var chapterAnnouncementBlock = new Block("c", 1)
+			{
+				BlockElements = { new ScriptText(text) },
+				BookCode = "MAT"
+			};
+
+			var originalChapterFormat = Block.FormatChapterAnnouncement;
+
+			Block.FormatChapterAnnouncement = (bookCode, chapterNumber) => $"{bookCode} {chapterNumber}";
+			Assert.AreEqual("MAT 1".Length, chapterAnnouncementBlock.Length);
+
+			// If the formating Func returns null, we get the text from the ScriptText element
+			Block.FormatChapterAnnouncement = (s, i) => null;
+			Assert.AreEqual(text.Length, chapterAnnouncementBlock.Length);
+
+			// Set it back to what it was so we don't mess up any other tests.
+			Block.FormatChapterAnnouncement = originalChapterFormat;
+		}
+
+		[Test]
 		public void ScriptTextCount_JustText_1Verse()
 		{
 			var block = new Block("p", 1, 2)
