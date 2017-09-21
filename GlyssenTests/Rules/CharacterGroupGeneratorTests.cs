@@ -720,14 +720,15 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "JUD").ContainsCharacterWithGender(CharacterGender.Female));
 		}
 
-		[Test]
-		public void GenerateCharacterGroups_NotEnoughActressesForMinimumProximityAndNarratorPreferences_NarratorGroupForJudeIncludesSomeFemaleCharactersInMark()
+		[TestCase(7)]
+		[TestCase(11)]
+		public void GenerateCharacterGroups_NotEnoughActressesForMinimumProximityAndNarratorPreferences_NarratorGroupForJudeIncludesSomeFemaleCharactersInMark(int maleActors)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			SetVoiceActors(13, 3);// REVIEW (PG-454): When we change the proximity calculation, the number of men should be able to go down (to 11 or fewer, hopefully).
+			SetVoiceActors(maleActors, 3);
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors.Count, groups.Count, "One group expected per actor.");
@@ -1216,7 +1217,7 @@ namespace GlyssenTests.Rules
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
 		}
-		
+
 		[Test]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesFemaleCharacterRolesInActsAndMaleGroupHandlesExtraBiblical()
 		{
@@ -2162,7 +2163,7 @@ namespace GlyssenTests.Rules
 		protected void VerifyProximityAndGenderConstraintsForAllGroups(List<CharacterGroup> groups,
 			bool allowMaleNarratorsToDoBiblicalCharacterRoles = false, bool allowFemaleNarratorsToDoBiblicalCharacterRoles = false)
 		{
-			var p = new Proximity(m_testProject.IncludedBooks, m_testProject.DramatizationPreferences);
+			var p = new Proximity(m_testProject);
 			foreach (var group in groups.Where(g => !CharacterGroupGenerator.ContainsDeityCharacter(g)))
 			{
 				var minProximity = p.CalculateMinimumProximity(group.CharacterIds);

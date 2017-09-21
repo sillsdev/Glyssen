@@ -51,7 +51,7 @@ namespace Glyssen.Rules
 		{
 			m_project = project;
 			m_ghostCastSize = ghostCastSize;
-			m_proximity = new Proximity(project.IncludedBooks, project.DramatizationPreferences);
+			m_proximity = new Proximity(project);
 			m_worker = worker ?? new BackgroundWorker();
 		}
 
@@ -281,7 +281,7 @@ namespace Glyssen.Rules
 				// based on a user-contolled option.
 				var trialConfigurationsForNarratorsAndExtras = TrialGroupConfiguration.GeneratePossibilities(fallbackPass, characterGroups,
 					maleNarrators, femaleNarrators, !enforceProximityAndGenderConstraints, includedCharacterDetails, m_project.KeyStrokesByCharacterId,
-					m_project, characterDetails, m_project.DramatizationPreferences);
+					m_project, characterDetails);
 
 				if (fallbackPass)
 				{
@@ -388,7 +388,7 @@ namespace Glyssen.Rules
 			Debug.Assert(bestConfiguration != null);
 
 			if (enforceProximityAndGenderConstraints &&
-				(!bestConfiguration.MinimumProximity.IsAcceptable() || bestConfiguration.HasGenderMismatches
+				(!bestConfiguration.MinimumProximity.IsAcceptable() || bestConfiguration.HasGenderMismatches))
 				return null;
 
 			return GetFinalizedGroups(bestConfiguration, actorsWithRealAssignments, realActorsToReset);
@@ -1201,15 +1201,15 @@ namespace Glyssen.Rules
 			internal static List<TrialGroupConfiguration> GeneratePossibilities(bool allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles,
 				List<CharacterGroup> characterGroups,
 				int numberOfMaleNarratorGroups, int numberOfFemaleNarratorGroups, bool allowFemaleExtraBiblical, List<CharacterDetail> includedCharacterDetails,
-				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails,
-				ProjectDramatizationPreferences dramatizationPreferences)
+				Dictionary<string, int> keyStrokesByCharacterId, Project project, IReadOnlyDictionary<string, CharacterDetail> characterDetails)
 			{
+				var dramatizationPreferences = project.DramatizationPreferences;
 				var includedBooks = project.IncludedBooks.Select(b => b.BookId).ToList();
 				int maleGroupsWithExistingNarratorRoles = 0;
 				int femaleGroupsWithExistingNarratorRoles = 0;
 				CharacterGroup groupWithWorstPrioximity = null;
 				MinimumProximity worstProximity = null;
-				var proximity = new Proximity(project.IncludedBooks, dramatizationPreferences);
+				var proximity = new Proximity(project);
 				foreach (var characterGroup in characterGroups)
 				{
 					var narratorRoles = characterGroup.CharacterIds.Where(c =>

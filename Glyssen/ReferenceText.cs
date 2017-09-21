@@ -190,6 +190,11 @@ namespace Glyssen
 			}
 		}
 
+		public bool HasContentForBook(string bookId)
+		{
+			return Books.Any(b => b.BookId == bookId);
+		}
+
 		internal void ApplyTo(BookScript vernacularBook, ScrVers vernacularVersification)
 		{
 			ReloadModifiedBooks();

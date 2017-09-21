@@ -10,18 +10,19 @@ namespace Glyssen.Rules
 {
 	public class Proximity
 	{
-		public const int kDefaultMinimumBlocks = 30;
-		public const int kDefaultMinimumVersesByBlock = 15;
-		public const int kDefaultMinimumKeystrokes = 110 * kDefaultMinimumVersesByBlock;
+		public const int kDefaultMinimumBlocks = 15;
+		//public const int kDefaultMinimumKeystrokes = 110 * kDefaultMinimumBlocks;
 
 		private readonly IReadOnlyList<BookScript> m_booksToConsider;
-		//private readonly ProjectDramatizationPreferences m_dramatizationPreferences;
+		private readonly ReferenceText m_referenceText;
 		private readonly Dictionary<BookScript, Dictionary<CharacterVerseData.StandardCharacter, HashSet<string>>> m_considerSameExtrabiblicalCharacter;
 
-		public Proximity(IReadOnlyList<BookScript> booksToConsider, ProjectDramatizationPreferences dramatizationPreferences)
+		public Proximity(Project project)
 		{
-			m_booksToConsider = booksToConsider;
-			//m_dramatizationPreferences = dramatizationPreferences;
+			m_referenceText = project.ReferenceText;
+			m_booksToConsider = m_referenceText.GetBooksWithBlocksConnectedToReferenceText(project).ToList();
+
+			var dramatizationPreferences = project.DramatizationPreferences;
 			m_considerSameExtrabiblicalCharacter = new Dictionary<BookScript, Dictionary<CharacterVerseData.StandardCharacter, HashSet<string>>>();
 
 			// get the standard character mapping for each book
@@ -57,16 +58,12 @@ namespace Glyssen.Rules
 		public MinimumProximity CalculateMinimumProximity(ISet<string> characterIdsToCalculate)
 		{
 			if (!characterIdsToCalculate.Any())
-				return new MinimumProximity(Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, null, null, null, null);
+				return new MinimumProximity(Int32.MaxValue, null, null, null, null);
 
 			RelatedCharactersData relChar = RelatedCharactersData.Singleton;
 			bool foundFirst = false;
 			int currentBlockCount = 0;
 			int minBlockProximity = Int32.MaxValue;
-			int currentVerseByBlockCount = 0;
-			int minVerseByBlockProximity = Int32.MaxValue;
-			int currentKeystrokeCount = 0;
-			int minKeystrokeProximity = Int32.MaxValue;
 			string prevCharacterId = null;
 			ISet<string> prevMatchingCharacterIds = null;
 			BookScript firstBook = null;
@@ -83,10 +80,12 @@ namespace Glyssen.Rules
 				if (breakOutOfBothLoops)
 					break;
 
+				var countVersesRatherThanBlocks = !m_referenceText.HasContentForBook(book.BookId);
+
 				var treatAsSameCharacter = m_considerSameExtrabiblicalCharacter[book];
 
-				currentBlockCount += kDefaultMinimumBlocks + 20; // 20 is a pretty arbitrary "magic number"
-				currentVerseByBlockCount += kDefaultMinimumVersesByBlock + 10; // 10 is a pretty arbitrary "magic number"
+				// We don't want to treat book ends as being directly adjacent but not infinitely distant, either.
+				currentBlockCount += kDefaultMinimumBlocks * 5 / 3; // The amount of padding is somewhat arbitrary.
 
 				foreach (var block in book.Blocks)
 				{
@@ -125,8 +124,6 @@ namespace Glyssen.Rules
 							(prevMatchingCharacterIds != null && prevMatchingCharacterIds.Contains(characterId)))
 						{
 							currentBlockCount = 0;
-							currentVerseByBlockCount = 0;
-							currentKeystrokeCount = 0;
 							prevBook = book;
 							prevBlock = block;
 						}
@@ -137,25 +134,18 @@ namespace Glyssen.Rules
 						{
 							if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst,
 								ref currentBlockCount, ref minBlockProximity,
-								ref currentVerseByBlockCount, ref minVerseByBlockProximity,
-								ref currentKeystrokeCount, ref minKeystrokeProximity,
 								ref firstBook, ref prevBook, ref firstBlock, ref prevBlock,
 								ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevCharacterId, ref prevMatchingCharacterIds))
 								break;
 						}
 						else
 						{
-							currentBlockCount++;
-							currentVerseByBlockCount += block.ScriptTextCount;
-							// TODO we think we want this eventually, but it is not performant, and we are not ready to use it.
-							//currentKeystrokeCount += block.Length;
+							IncrementCount(countVersesRatherThanBlocks, block, ref currentBlockCount);
 						}
 					}
 					else if (prevMatchingCharacterIds != null && matchingCharacterIds.Intersect(prevMatchingCharacterIds).Any())
 					{
 						currentBlockCount = 0;
-						currentVerseByBlockCount = 0;
-						currentKeystrokeCount = 0;
 						prevBook = book;
 						prevBlock = block;
 					}
@@ -163,23 +153,28 @@ namespace Glyssen.Rules
 					{
 						if (ProcessDifferentCharacter(book, block, characterId, matchingCharacterIds, ref foundFirst,
 							ref currentBlockCount, ref minBlockProximity,
-							ref currentVerseByBlockCount, ref minVerseByBlockProximity,
-							ref currentKeystrokeCount, ref minKeystrokeProximity,
 							ref firstBook, ref prevBook, ref firstBlock, ref prevBlock,
 							ref secondBook, ref secondBlock, ref breakOutOfBothLoops, ref prevCharacterId, ref prevMatchingCharacterIds))
 							break;
 					}
 					else
 					{
-						currentBlockCount++;
-						currentVerseByBlockCount += block.ScriptTextCount;
-						// TODO we think we want this eventually, but it is not performant, and we are not ready to use it.
-						//currentKeystrokeCount += block.Length;
+						IncrementCount(countVersesRatherThanBlocks, block, ref currentBlockCount);
 					}
 				}
 			}
 
-			return new MinimumProximity(minBlockProximity, minVerseByBlockProximity, minKeystrokeProximity, firstBook, secondBook, firstBlock, secondBlock);
+			return new MinimumProximity(minBlockProximity, firstBook, secondBook, firstBlock, secondBlock);
+		}
+
+		private void IncrementCount(bool countVersesRatherThanBlocks, Block block, ref int count)
+		{
+			if (countVersesRatherThanBlocks)
+				count += block.ScriptTextCount;
+			else
+				count++;
+			// TODO we think we want this eventually, but it is not performant, and we are not ready to use it.
+			//currentKeystrokeCount += block.Length;
 		}
 
 		/// <summary>Gets extra-biblical characters that should be considered same as the narrator</summary>
@@ -299,8 +294,6 @@ namespace Glyssen.Rules
 			BookScript book, Block block, string characterId, ISet<string> matchingCharacterIds,
 			ref bool foundFirst,
 			ref int currentBlockCount, ref int minBlockProximity,
-			ref int currentVerseByBlockCount, ref int minVerseByBlockProximity,
-			ref int currentKeystrokeCount, ref int minKeystrokeProximity,
 			ref BookScript firstBook, ref BookScript prevBook, ref Block firstBlock, ref Block prevBlock,
 			ref BookScript secondBook, ref Block secondBlock,
 			ref bool breakOutOfBothLoops,
@@ -311,8 +304,6 @@ namespace Glyssen.Rules
 				if (currentBlockCount < minBlockProximity)
 				{
 					minBlockProximity = currentBlockCount;
-					minVerseByBlockProximity = currentVerseByBlockCount;
-					minKeystrokeProximity = currentKeystrokeCount;
 					firstBook = prevBook;
 					firstBlock = prevBlock;
 					secondBook = book;
@@ -334,8 +325,6 @@ namespace Glyssen.Rules
 			}
 			foundFirst = true;
 			currentBlockCount = 0;
-			currentVerseByBlockCount = 0;
-			currentKeystrokeCount = 0;
 			prevCharacterId = characterId;
 			prevMatchingCharacterIds = matchingCharacterIds;
 
@@ -359,17 +348,9 @@ namespace Glyssen.Rules
 		public int NumberOfBlocks { get; }
 
 		/// <summary>
-		/// Number of verses <em>between</em> characters.
-		/// Verses are counted after blocks are broken by quotes, so
-		/// {1} "A quote," Adam said, "another quote." {2} But she said "blah" and the frog said "m-blat"
-		/// results in 3 between Adam and the frog, one for each block.
-		/// </summary>
-		public int NumberOfVersesByBlocks { get; }
-
-		/// <summary>
 		/// Number of "keystrokes" (writing system characters) <em>between</em> characters
 		/// </summary>
-		public int NumberOfKeystrokes { get; }
+		//public int NumberOfKeystrokes { get; }
 
 		public string FirstReference => new BCVRef(BCVRef.BookToNumber(m_firstBook.BookId), m_firstBlock.ChapterNumber,
 			m_firstBlock.InitialStartVerseNumber).ToString();
@@ -381,12 +362,9 @@ namespace Glyssen.Rules
 
 		public string SecondCharacterId => m_secondBlock.CharacterIdInScript;
 
-		public MinimumProximity(int numberOfBlocks, int numberOfVersesByBlocks, int numberOfKeystrokes,
-			BookScript firstBook, BookScript secondBook, Block firstBlock, Block secondBlock)
+		public MinimumProximity(int numberOfBlocks, BookScript firstBook, BookScript secondBook, Block firstBlock, Block secondBlock)
 		{
 			NumberOfBlocks = numberOfBlocks;
-			NumberOfVersesByBlocks = numberOfVersesByBlocks;
-			NumberOfKeystrokes = numberOfKeystrokes;
 			m_firstBook = firstBook;
 			m_secondBook = secondBook;
 			m_firstBlock = firstBlock;
@@ -396,8 +374,6 @@ namespace Glyssen.Rules
 		public MinimumProximity(MinimumProximity copyFrom)
 		{
 			NumberOfBlocks = copyFrom.NumberOfBlocks;
-			NumberOfVersesByBlocks = copyFrom.NumberOfVersesByBlocks;
-			NumberOfKeystrokes = copyFrom.NumberOfKeystrokes;
 			m_firstBook = copyFrom.m_firstBook;
 			m_secondBook = copyFrom.m_secondBook;
 			m_firstBlock = copyFrom.m_firstBlock;
@@ -412,7 +388,7 @@ namespace Glyssen.Rules
 				return "[no characters in group]";
 
 			var sb = new StringBuilder();
-			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks + "(" + NumberOfVersesByBlocks + ")").PadLeft(kProximityHeader.Length)).Append("  |  ")
+			sb.Append((NumberOfBlocks == Int32.MaxValue ? "MAX" : NumberOfBlocks.ToString()).PadLeft(kProximityHeader.Length)).Append("  |  ")
 				.Append(FirstReference)
 				.Append(" (").Append(m_firstBlock.CharacterIdInScript).Append(")")
 				.Append(" - ")
@@ -428,8 +404,6 @@ namespace Glyssen.Rules
 
 		public int WeightedNumberOfBlocks => (int)Math.Round(Math.Pow(NumberOfBlocks, WeightingPower));
 
-		public int WeightedNumberOfVersesByBlocks => (int)Math.Round(Math.Pow(NumberOfVersesByBlocks, WeightingPower));
-
 		public WeightedMinimumProximity(MinimumProximity minimumProximity) : base(minimumProximity)
 		{
 			WeightingPower = 1;
@@ -440,37 +414,37 @@ namespace Glyssen.Rules
 	{
 		public static bool IsAcceptable(this MinimumProximity minimumProximity)
 		{
-			return minimumProximity == null || minimumProximity.NumberOfVersesByBlocks >= Proximity.kDefaultMinimumVersesByBlock;
+			return minimumProximity == null || minimumProximity.NumberOfBlocks >= Proximity.kDefaultMinimumBlocks;
 		}
 
 		public static bool IsFinite(this MinimumProximity minimumProximity)
 		{
-			return minimumProximity != null && minimumProximity.NumberOfVersesByBlocks < Int32.MaxValue;
+			return minimumProximity != null && minimumProximity.NumberOfBlocks < Int32.MaxValue;
 		}
 
 		public static bool IsBetterThan(this MinimumProximity a, MinimumProximity b)
 		{
-			return (a?.NumberOfVersesByBlocks ?? Int32.MaxValue) > (b?.NumberOfVersesByBlocks ?? Int32.MaxValue);
+			return (a?.NumberOfBlocks ?? Int32.MaxValue) > (b?.NumberOfBlocks ?? Int32.MaxValue);
 		}
 
 		public static bool IsBetterThanOrEqualTo(this MinimumProximity a, MinimumProximity b)
 		{
-			return (a?.NumberOfVersesByBlocks ?? Int32.MaxValue) >= (b?.NumberOfVersesByBlocks ?? Int32.MaxValue);
+			return (a?.NumberOfBlocks ?? Int32.MaxValue) >= (b?.NumberOfBlocks ?? Int32.MaxValue);
 		}
 
 		public static bool IsAcceptable(this WeightedMinimumProximity weightedMinimumProximity)
 		{
-			return weightedMinimumProximity == null || weightedMinimumProximity.NumberOfVersesByBlocks >= Proximity.kDefaultMinimumVersesByBlock;
+			return weightedMinimumProximity == null || weightedMinimumProximity.NumberOfBlocks >= Proximity.kDefaultMinimumBlocks;
 		}
 
 		public static bool IsBetterThan(this WeightedMinimumProximity a, WeightedMinimumProximity b)
 		{
-			return (a?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue) > (b?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue);
+			return (a?.WeightedNumberOfBlocks ?? Int32.MaxValue) > (b?.WeightedNumberOfBlocks ?? Int32.MaxValue);
 		}
 
 		public static bool IsBetterThanOrEqualTo(this WeightedMinimumProximity a, WeightedMinimumProximity b)
 		{
-			return (a?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue) >= (b?.WeightedNumberOfVersesByBlocks ?? Int32.MaxValue);
+			return (a?.WeightedNumberOfBlocks ?? Int32.MaxValue) >= (b?.WeightedNumberOfBlocks ?? Int32.MaxValue);
 		}
 	}
 }

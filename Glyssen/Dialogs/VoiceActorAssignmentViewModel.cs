@@ -45,7 +45,7 @@ namespace Glyssen.Dialogs
 		public VoiceActorAssignmentViewModel(Project project)
 		{
 			m_project = project;
-			ProjectProximity = new Proximity(m_project.IncludedBooks, m_project.DramatizationPreferences);
+			ProjectProximity = new Proximity(m_project);
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
@@ -250,9 +250,9 @@ namespace Glyssen.Dialogs
 
 					var dlgMessageFormat1 = (firstReference == secondReference) ?
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] and [{2}] in {3}.") :
+							"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
 						LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
-							"This move will result in a group with a minimum proximity of {0} blocks between [{1}] in {3} and [{2}] in {4}.");
+							"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
 					var dlgMessagePart1 = string.Format(dlgMessageFormat1,
 						resultsAfter.NumberOfBlocks,
 						CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
