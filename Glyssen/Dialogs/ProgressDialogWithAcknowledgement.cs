@@ -24,7 +24,6 @@ namespace Glyssen.Dialogs
 		private Label m_progressLabel;
 		private Timer m_showWindowIfTakingLongTimeTimer;
 		private Timer m_progressTimer;
-		private bool m_isClosing;
 		private Label m_overviewLabel;
 		private DateTime m_startTime;
 		private BackgroundWorker m_backgroundWorker;
@@ -656,8 +655,6 @@ namespace Glyssen.Dialogs
 		private void OnCancelButton_Click(object sender, EventArgs e)
 		{
 			m_showWindowIfTakingLongTimeTimer.Stop();
-			if(m_isClosing)
-				return;
 
 			//Debug.WriteLine("Dialog:OnCancelButton_Click");
 

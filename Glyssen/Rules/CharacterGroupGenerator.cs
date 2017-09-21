@@ -57,7 +57,6 @@ namespace Glyssen.Rules
 
 		public List<CharacterGroup> GeneratedGroups { get; private set; }
 		internal MinimumProximity MinimumProximity { get; private set; }
-		internal int CountOfCharactersInGroupWithConflictingGender { get; private set; }
 
 		private CharacterGroupGenerationPreferences GroupGenerationPreferences
 		{
@@ -335,7 +334,8 @@ namespace Glyssen.Rules
 						var config = trialConfigurationsForNarratorsAndExtras[index];
 						LogAndOutputToDebugConsole("   Configuration " + index + ((config == bestConfiguration) ? " (best)" : ""));
 						LogAndOutputToDebugConsole("   Minimum Proximity: " + config.MinimumProximity);
-						LogAndOutputToDebugConsole("   Conflicting Gender count: " + config.CharactersInGroupWithConflictingGender);
+						if (config.HasGenderMismatches)
+							LogAndOutputToDebugConsole("   Has gender conflicts!");
 						LogAndOutputToDebugConsole("   Narrator Groups:");
 						foreach (var narrGroup in config.NarratorGroups)
 							LogAndOutputToDebugConsole("      " + narrGroup.VoiceActor.Gender + " group: " + narrGroup.CharacterIds.ToString().Replace("CharacterName.", ""));
@@ -368,12 +368,12 @@ namespace Glyssen.Rules
 							var group in config.Groups.Where(g => !config.NarratorGroups.Contains(g) &&
 								g != config.BookTitleChapterGroup && g != config.SectionHeadGroup && g != config.BookIntroductionGroup))
 						{
-							LogAndOutputToDebugConsole("      " + @group.VoiceActor.Gender + " group: " + @group.CharacterIds.ToString().Replace("CharacterName.", ""));
+							LogAndOutputToDebugConsole($"      {group.VoiceActor.Gender} {group.VoiceActor.Age} group: {group.CharacterIds.ToString().Replace("CharacterName.", "")}");
 						}
 					}
 
 					if (bestConfiguration.MinimumProximity >= Proximity.kDefaultMinimumProximity &&
-						bestConfiguration.CharactersInGroupWithConflictingGender == 0 &&
+						!bestConfiguration.HasGenderMismatches &&
 						bestConfiguration.TotalCountOfNarratorGroupsIncludingCameos == maleNarrators + femaleNarrators)
 					{
 						return GetFinalizedGroups(bestConfiguration, actorsWithRealAssignments, realActorsToReset);
@@ -388,8 +388,7 @@ namespace Glyssen.Rules
 			Debug.Assert(bestConfiguration != null);
 
 			if (enforceProximityAndGenderConstraints &&
-				(bestConfiguration.MinimumProximity < Proximity.kDefaultMinimumProximity ||
-				bestConfiguration.CharactersInGroupWithConflictingGender > 0))
+				(bestConfiguration.MinimumProximity < Proximity.kDefaultMinimumProximity || bestConfiguration.HasGenderMismatches))
 				return null;
 
 			return GetFinalizedGroups(bestConfiguration, actorsWithRealAssignments, realActorsToReset);
@@ -426,7 +425,6 @@ namespace Glyssen.Rules
 
 			GeneratedGroups = groups.Where(g => g.AssignedToCameoActor || g.CharacterIds.Any()).ToList();
 			MinimumProximity = configuration.MinimumProximity;
-			CountOfCharactersInGroupWithConflictingGender = configuration.CharactersInGroupWithConflictingGender;
 			EnsureActorListIsSetToRealActors(realActorsToReset);
 			return GeneratedGroups;
 		}
@@ -495,7 +493,20 @@ namespace Glyssen.Rules
 		{
 			List<CharacterGroup> groups;
 
-			IEnumerable<CharacterGroup> availableGroups = configuration.GroupsAvailableForBiblicalCharacterRoles;
+			List<CharacterGroup> availableGroups = configuration.GroupsAvailableForBiblicalCharacterRoles;
+			// PG-1055: Don't allow gender mismatches unless there are absolutely no alternatives. (Exception: do let a woman play a male child).
+			if (characterDetail.Age != CharacterAge.Child || characterDetail.Gender == CharacterGender.Female)
+			{
+				List<CharacterGroup> genderConformingGroups = availableGroups.Where(g => g.VoiceActor.GetGenderMatchQuality(characterDetail) != MatchLevel.Mismatch).ToList();
+				if (genderConformingGroups.Any())
+					availableGroups = genderConformingGroups;
+			}
+			if (characterDetail.Age == CharacterAge.Elder)
+			{
+				List<CharacterGroup> ageConformingGroups = availableGroups.Where(g => g.VoiceActor.GetAgeMatchQuality(characterDetail) != MatchLevel.Mismatch).ToList();
+				if (ageConformingGroups.Any())
+					availableGroups = ageConformingGroups;
+			}
 
 			var groupMatchQualityDictionary = new Dictionary<MatchQuality, List<CharacterGroup>>(configuration.Groups.Count);
 			foreach (var characterGroup in availableGroups)
@@ -504,67 +515,75 @@ namespace Glyssen.Rules
 				var quality = new MatchQuality(voiceActor.GetGenderMatchQuality(characterDetail), voiceActor.GetAgeMatchQuality(characterDetail));
 				if (!groupMatchQualityDictionary.TryGetValue(quality, out groups))
 					groupMatchQualityDictionary[quality] = groups = new List<CharacterGroup>();
+
 				groups.Add(characterGroup);
 			}
 
 			var groupToProximityDict = new Dictionary<CharacterGroup, WeightedMinimumProximity>();
 
-			if (groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Perfect), out groups))
+			if (groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Perfect), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.CloseAdult), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Acceptable), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.AdultVsChild), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Perfect), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Perfect), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.CloseAdult), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Acceptable), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.AdultVsChild), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Poor), out groups))
+			{
+				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
+			}
+			// The only combination that can have a gender match of "poor" is an age match of "poor" because it only happens when an
+			// adult female actor is compared against a male child character.
+			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Poor, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 1.1);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Perfect), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Perfect), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.3);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.CloseAdult), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Acceptable), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.4);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.AdultVsChild), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Poor), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.5);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Perfect, AgeMatchQuality.Mismatch), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Perfect, MatchLevel.Mismatch), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.7);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Acceptable, AgeMatchQuality.Mismatch), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Acceptable, MatchLevel.Mismatch), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 2.9);
 			}
 			if (!groupToProximityDict.Any(i => i.Value.WeightedNumberOfBlocks >= Proximity.kDefaultMinimumProximity || i.Value >= configuration.MinimumProximity) &&
-				groupMatchQualityDictionary.TryGetValue(new MatchQuality(GenderMatchQuality.Mismatch, AgeMatchQuality.Mismatch), out groups))
+				groupMatchQualityDictionary.TryGetValue(new MatchQuality(MatchLevel.Mismatch, MatchLevel.Mismatch), out groups))
 			{
 				CalculateProximityForGroups(characterDetail, groups, groupToProximityDict, 3.2);
 			}
@@ -602,7 +621,7 @@ namespace Glyssen.Rules
 			private readonly List<CharacterGroup> m_groups;
 			private readonly bool m_allowGroupsForNonBiblicalCharactersToDoBiblicalCharacterRoles;
 			private readonly IReadOnlyDictionary<string, CharacterDetail> m_characterDetails;
-			internal int CharactersInGroupWithConflictingGender { get; private set; }
+			internal bool HasGenderMismatches { get; private set; }
 			internal CharacterGroup GroupWithWorstProximity { get; private set; }
 			internal MinimumProximity MinimumProximity { get; private set; }
 			internal List<CharacterGroup> NarratorGroups { get; set; }
@@ -1133,9 +1152,9 @@ namespace Glyssen.Rules
 
 			private bool IsBetterThan(TrialGroupConfiguration other)
 			{
-				if (CharactersInGroupWithConflictingGender < other.CharactersInGroupWithConflictingGender)
+				if (!HasGenderMismatches && other.HasGenderMismatches)
 					return true;
-				if (CharactersInGroupWithConflictingGender > other.CharactersInGroupWithConflictingGender || 
+				if (HasGenderMismatches && !other.HasGenderMismatches || 
 					MinimumProximity < other.MinimumProximity)
 					return false;
 				if (MinimumProximity > other.MinimumProximity)
@@ -1296,23 +1315,15 @@ namespace Glyssen.Rules
 
 			private void CalculateConflicts()
 			{
-				foreach (var group in Groups.Where(g => g.VoiceActor.Age != ActorAge.Child))
+				foreach (var group in Groups)
 				{
-					if (group.VoiceActor.Gender == ActorGender.Female)
+					var characterDetailsForGroup = RelatedCharactersData.Singleton.UniqueIndividuals(group.CharacterIds).Select(c => m_characterDetails[c]).ToList();
+
+					if (characterDetailsForGroup.Any(d => group.VoiceActor.GetGenderMatchQuality(d) == MatchLevel.Mismatch))
 					{
-						CharactersInGroupWithConflictingGender += RelatedCharactersData.Singleton.UniqueIndividuals(group.CharacterIds).Count(c =>
-						{
-							var detail = m_characterDetails[c];
-							return detail.Gender == CharacterGender.Male || detail.Gender == CharacterGender.PreferMale;
-						});
-					}
-					else
-					{
-						CharactersInGroupWithConflictingGender += RelatedCharactersData.Singleton.UniqueIndividuals(group.CharacterIds).Count(c =>
-						{
-							var detail = m_characterDetails[c];
-							return detail.Gender == CharacterGender.Female || detail.Gender == CharacterGender.PreferFemale;
-						});
+						HasGenderMismatches = true;
+						LogAndOutputToDebugConsole($"Group has a gender mismatch! Characters: {group.CharacterIds.ToString().Replace("CharacterName.", "")}");
+						break;
 					}
 				}
 			}

@@ -262,17 +262,18 @@ namespace Glyssen.Character
 
 		public bool ContainsCharacterWithGender(CharacterGender gender)
 		{
-			var characterDetails = m_project.AllCharacterDetailDictionary;
-			return CharacterIds.Any(c =>
-			{
-				if (CharacterVerseData.IsCharacterStandard(c))
-					return gender == CharacterGender.Either;
+			return CharactersWithGender(gender).Any();
+		}
 
+		public IEnumerable<CharacterDetail> CharactersWithGender(params CharacterGender[] genders)
+		{
+			var characterDetails = m_project.AllCharacterDetailDictionary;
+			foreach (var c in CharacterIds)
+			{
 				CharacterDetail characterDetail;
-				if (!characterDetails.TryGetValue(c, out characterDetail))
-					return false;
-				return characterDetail.Gender == gender;
-			});
+				if (characterDetails.TryGetValue(c, out characterDetail) && genders.Contains(characterDetail.Gender))
+					yield return characterDetail;
+			}
 		}
 
 		public bool ContainsCharacterWithAge(CharacterAge age)
