@@ -30,6 +30,7 @@ namespace Glyssen.Dialogs
 
 			m_tableLayoutStartingOver.Visible = m_viewModel.Project.CharacterGroupListPreviouslyGenerated;
 			m_maleNarrators.Maximum = m_viewModel.MaximumNarratorsValue;
+			SetMinimumMaleNarrators();
 			m_maleNarrators.Value = m_viewModel.MaleNarrators;
 			m_femaleNarrators.Maximum = m_maleNarrators.Maximum;
 			m_femaleNarrators.Value = m_viewModel.FemaleNarrators;
@@ -166,21 +167,31 @@ namespace Glyssen.Dialogs
 		void m_viewModel_MaleNarratorsValueChanged(object sender, int e)
 		{
 			m_maleNarrators.Value = e;
+			UpdateButtonState();
 		}
 
 		void m_viewModel_FemaleNarratorsValueChanged(object sender, int e)
 		{
 			m_femaleNarrators.Value = e;
+			UpdateButtonState();
 		}
 
 		private void NarratorOptionChanged(object sender, EventArgs e)
 		{
 			m_viewModel.NarratorOption = NarratorOption;
 
+			if (NarratorOption == NarratorsOption.Custom)
+				m_femaleNarrators.Value = 0;
 			m_femaleNarrators.Enabled = NarratorOption == NarratorsOption.Custom;
 			m_maleNarrators.Enabled = NarratorOption != NarratorsOption.SingleNarrator;
+			SetMinimumMaleNarrators();
 
 			ShowOrHideNarratorCountWarning();
+		}
+
+		private void SetMinimumMaleNarrators()
+		{
+			m_maleNarrators.Minimum = m_viewModel.NarratorOption == NarratorsOption.NarrationByAuthor ? 1 : 0;
 		}
 
 		private void MaleNarratorsValueChanged(object sender, EventArgs e)
@@ -205,7 +216,7 @@ namespace Glyssen.Dialogs
 		{
 			var cast = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption);
 			m_tblNarratorWarning.Visible = ((m_maleNarrators.Value > cast.Male) || (m_femaleNarrators.Value > cast.Female));
-			m_btnGenerate.Enabled = !m_tblNarratorWarning.Visible;
+			UpdateButtonState();
 		}
 
 		private void m_btnGenerate_Click(object sender, EventArgs e)
@@ -232,7 +243,9 @@ namespace Glyssen.Dialogs
 
 		private void UpdateButtonState()
 		{
-			m_btnGenerate.Enabled = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption).Total != 0;
+			m_btnGenerate.Enabled = m_viewModel.GetCastSizeRowValues(m_viewModel.CastSizeOption).Total != 0 &&
+				m_viewModel.MaleNarrators + m_viewModel.FemaleNarrators > 0 &&
+				!m_tblNarratorWarning.Visible;
 		}
 
 		private void m_castSizePlanningOptions_CastSizeOptionChanged(object sender, CastSizeOptionChangedEventArgs e)
