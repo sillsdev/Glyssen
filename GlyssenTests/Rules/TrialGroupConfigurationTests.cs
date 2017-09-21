@@ -612,8 +612,7 @@ namespace GlyssenTests.Rules
 				includedCharacterDetails,
 				m_testProject.KeyStrokesByCharacterId,
 				m_testProject,
-				characterDetails,
-				m_testProject.DramatizationPreferences
+				characterDetails
 				)
 			);
 		}

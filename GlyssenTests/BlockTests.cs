@@ -1375,28 +1375,136 @@ namespace GlyssenTests
 			Assert.AreEqual("{21} Verse twenty-one.", newRowBValue);
 		}
 
-		private CharacterVerse JesusQuestioning
+		[TestCase("1234567")]
+		[TestCase("This is a pretty basic test")]
+		public void Length_JustText_LengthIsTextLength(string text)
 		{
-			get
+			var block = new Block("p", 1, 2)
 			{
-				return new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
-			}
+				BlockElements =
+				{
+					new ScriptText(text)
+				}
+			};
+			Assert.AreEqual(text.Length, block.Length);
 		}
 
-		private CharacterVerse JesusCommanding
+		[TestCase("1234567")]
+		[TestCase("This is a pretty basic test")]
+		public void Length_VerseAndText_LengthIsTextLength(string text)
 		{
-			get
+			var block = new Block("p", 1, 2)
 			{
-				return new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Commanding", null, false);
-			}
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText(text)
+				}
+			};
+			Assert.AreEqual(text.Length, block.Length);
 		}
 
-		private CharacterVerse Andrew
+		[TestCase("1234567", "123")]
+		[TestCase("This is a slightly more", "complicated test")]
+		public void Length_TextVerseText_LengthIsCombinedTextLength(string text1, string text2)
 		{
-			get
+			var block = new Block("p", 1, 2, 3)
 			{
-				return new CharacterVerse(new BCVRef(41, 4, 4), "Andrew", null, null, false);
-			}
+				BlockElements =
+				{
+					new ScriptText(text1),
+					new Verse("3"),
+					new ScriptText(text2)
+				}
+			};
+			Assert.AreEqual(text1.Length + text2.Length, block.Length);
 		}
+
+		[Test]
+		public void Length_IsChapterAnnouncementWithFormat_LengthIsCorrect()
+		{
+			var text = "My Chapter Announcement";
+			var chapterAnnouncementBlock = new Block("c", 1)
+			{
+				BlockElements = { new ScriptText(text) },
+				BookCode = "MAT"
+			};
+
+			var originalChapterFormat = Block.FormatChapterAnnouncement;
+
+			Block.FormatChapterAnnouncement = (bookCode, chapterNumber) => $"{bookCode} {chapterNumber}";
+			Assert.AreEqual("MAT 1".Length, chapterAnnouncementBlock.Length);
+
+			// If the formating Func returns null, we get the text from the ScriptText element
+			Block.FormatChapterAnnouncement = (s, i) => null;
+			Assert.AreEqual(text.Length, chapterAnnouncementBlock.Length);
+
+			// Set it back to what it was so we don't mess up any other tests.
+			Block.FormatChapterAnnouncement = originalChapterFormat;
+		}
+
+		[Test]
+		public void ScriptTextCount_JustText_1Verse()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				BlockElements =
+				{
+					new ScriptText("abc")
+				}
+			};
+			Assert.AreEqual(1, block.ScriptTextCount);
+		}
+
+		[Test]
+		public void ScriptTextCount_VerseAndText_1Verse()
+		{
+			var block = new Block("p", 1, 2)
+			{
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("abc")
+				}
+			};
+			Assert.AreEqual(1, block.ScriptTextCount);
+		}
+
+		[Test]
+		public void ScriptTextCount_TextVerseText_2Verses()
+		{
+			var block = new Block("p", 1, 2, 3)
+			{
+				BlockElements =
+				{
+					new ScriptText("abc"),
+					new Verse("3"),
+					new ScriptText("xyz")
+				}
+			};
+			Assert.AreEqual(2, block.ScriptTextCount);
+		}
+
+		[Test]
+		public void ScriptTextCount_VerseTextVerseText_2Verses()
+		{
+			var block = new Block("p", 1, 2, 3)
+			{
+				BlockElements =
+				{
+					new Verse("2"),
+					new ScriptText("abc"),
+					new Verse("3"),
+					new ScriptText("xyz")
+				}
+			};
+			Assert.AreEqual(2, block.ScriptTextCount);
+		}
+
+		private CharacterVerse JesusQuestioning => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
+
+		private CharacterVerse JesusCommanding => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Commanding", null, false);
+
+		private CharacterVerse Andrew => new CharacterVerse(new BCVRef(41, 4, 4), "Andrew", null, null, false);
 	}
 }
