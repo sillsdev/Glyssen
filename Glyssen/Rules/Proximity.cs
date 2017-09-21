@@ -37,7 +37,11 @@ namespace Glyssen.Rules
 
 				GetNarratorCharactersToTreatAsOne(book, dramatizationPreferences, bookData);
 				GetOtherCharactersToTreatAsOne(book, dramatizationPreferences, bookData);
-				m_considerSameExtrabiblicalCharacter[book] = bookData;
+
+				// For performance reasons, remove entries with a null value
+				m_considerSameExtrabiblicalCharacter[book] = new Dictionary<CharacterVerseData.StandardCharacter, HashSet<string>>(4);
+				foreach (var bookDatum in bookData.Where(kvp => kvp.Value != null))
+					m_considerSameExtrabiblicalCharacter[book].Add(bookDatum.Key, bookDatum.Value);
 			}
 		}
 
@@ -107,10 +111,7 @@ namespace Glyssen.Rules
 					{
 						foreach (var kvp in treatAsSameCharacter)
 						{
-							if (kvp.Value == null)
-								continue;
-
-							if (kvp.Value.Contains((characterId)))
+							if (kvp.Value.Contains(characterId))
 							{
 								matchingCharacterIds = kvp.Value;
 								break;
