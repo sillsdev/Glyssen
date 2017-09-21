@@ -464,7 +464,7 @@ namespace Glyssen.Dialogs
 
 				m_narratorsOption = value;
 				if (m_narratorsOption == NarratorsOption.NarrationByAuthor)
-					MaleNarrators = Project.AuthorCount;
+					MaleNarrators = Project.DefaultNarratorCountForNarrationByAuthor;
 
 				if (prevMaleNarratorCount != MaleNarrators && MaleNarratorsValueChanged != null)
 					MaleNarratorsValueChanged(this, MaleNarrators);
