@@ -257,7 +257,7 @@ namespace GlyssenTests.Rules
 			});
 			const int kNumberOfExtraBiblicalCharactersRemovedByCoalescing = 3;
 			int numberOfMaleActors = numberOfCharactersInProject - m_testProject.IncludedBooks.Count - numberOfFemaleActors + numberOfMaleNarrators -
-				numberOfCharactersRemovedByCoalescingCharactersWhichAreTheSameWithDifferentAges - 
+				numberOfCharactersRemovedByCoalescingCharactersWhichAreTheSameWithDifferentAges -
 				kNumberOfExtraBiblicalCharactersRemovedByCoalescing;
 			numberOfFemaleActors += numberOfFemaleNarrators;
 
@@ -297,6 +297,9 @@ namespace GlyssenTests.Rules
 				AssertThatThereAreTwoDistinctNarratorGroups(groups);
 		}
 
+		[TestCase(8, 2, 3, 0)]
+		[TestCase(10, 5, 1, 0)]
+		[TestCase(15, 5, 1, 0)]
 		[TestCase(20, 5, 1, 0)]
 		[TestCase(25, 5, 2, 0)]
 		[TestCase(25, 6, 1, 1)]
@@ -310,7 +313,7 @@ namespace GlyssenTests.Rules
 
 			SetVoiceActors(numberOfMaleActors, numberOfFemaleActors);
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
-			
+
 			Assert.AreEqual(numberOfMaleActors + numberOfFemaleActors, groups.Count);
 			VerifyProximityAndGenderConstraintsForAllGroups(groups);
 			if (numberOfMaleNarrators + numberOfFemaleNarrators == 2)
@@ -520,7 +523,7 @@ namespace GlyssenTests.Rules
 			var groupWithActorAssigned = groups.First(g => g.IsVoiceActorAssigned);
 			Assert.AreEqual(2, groupWithActorAssigned.CharacterIds.Count);
 			Assert.True(groupWithActorAssigned.CharacterIds.Contains("centurion at crucifixion"));
-			Assert.True(generator.MinimumProximity > Proximity.kDefaultMinimumProximity);
+			Assert.True(generator.MinimumProximity.IsAcceptable());
 		}
 
 		[Test]
@@ -717,14 +720,15 @@ namespace GlyssenTests.Rules
 			Assert.IsTrue(GetNarratorGroupForBook(groups, "JUD").ContainsCharacterWithGender(CharacterGender.Female));
 		}
 
-		[Test]
-		public void GenerateCharacterGroups_NotEnoughActressesForMinimumProximityAndNarratorPreferences_NarratorGroupForJudeIncludesSomeFemaleCharactersInMark()
+		[TestCase(7)]
+		[TestCase(11)]
+		public void GenerateCharacterGroups_NotEnoughActressesForMinimumProximityAndNarratorPreferences_NarratorGroupForJudeIncludesSomeFemaleCharactersInMark(int maleActors)
 		{
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
 			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 2;
 			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
 
-			SetVoiceActors(13, 3);// REVIEW (PG-454): When we change the proximity calculation, the number of men should be able to go down (to 11 or fewer, hopefully).
+			SetVoiceActors(maleActors, 3);
 
 			var groups = new CharacterGroupGenerator(m_testProject).GenerateCharacterGroups();
 			Assert.AreEqual(m_testProject.VoiceActorList.AllActors.Count, groups.Count, "One group expected per actor.");
@@ -1213,7 +1217,7 @@ namespace GlyssenTests.Rules
 			Assert.False(groups.Any(g => g.CharacterIds.Contains("BC-LUK")));
 			Assert.AreEqual(8, groups.Count);
 		}
-		
+
 		[Test]
 		public void GenerateCharacterGroups_ExplicitlyRequestTwoFemaleNarratorsWithTooSmallCast_LukeNarratorHandlesFemaleCharacterRolesInActsAndMaleGroupHandlesExtraBiblical()
 		{
@@ -1383,7 +1387,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(1, zachGroup.CharacterIds.Count);
 
 			m_testProject.AvailableBooks[0].IncludeInScript = false;
-			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg			
+			m_testProject.ClearCharacterStatistics(); // This simulates behavior in UI when the project is saved after displaying ScriptureRangeSelectionDlg
 			gen = new CharacterGroupGenerator(m_testProject);
 
 			groups = gen.GenerateCharacterGroups();
@@ -1904,7 +1908,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(42, groups.Count);
 			var narMrk = GetNarratorGroupForBook(groups, "MRK");
 			var narHeb = GetNarratorGroupForBook(groups, "HEB");
-			
+
 			Assert.AreEqual(6, narMrk.CharacterIds.Count);
 			Assert.IsTrue(narMrk.AssignedToCameoActor);
 			Assert.AreEqual(6, narHeb.CharacterIds.Count);
@@ -2075,7 +2079,7 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(2, groups.Count);
 			Assert.True(!CharacterVerseData.IsCharacterOfType(generator.MinimumProximity.FirstCharacterId, CharacterVerseData.StandardCharacter.Narrator) ||
 				!CharacterVerseData.IsCharacterOfType(generator.MinimumProximity.SecondCharacterId, CharacterVerseData.StandardCharacter.Narrator));
-			Assert.True(generator.MinimumProximity.NumberOfBlocks > Proximity.kDefaultMinimumProximity);
+			Assert.True(generator.MinimumProximity.IsAcceptable());
 		}
 	}
 
@@ -2159,12 +2163,12 @@ namespace GlyssenTests.Rules
 		protected void VerifyProximityAndGenderConstraintsForAllGroups(List<CharacterGroup> groups,
 			bool allowMaleNarratorsToDoBiblicalCharacterRoles = false, bool allowFemaleNarratorsToDoBiblicalCharacterRoles = false)
 		{
-			var p = new Proximity(m_testProject.IncludedBooks, m_testProject.DramatizationPreferences);
+			var p = new Proximity(m_testProject);
 			foreach (var group in groups.Where(g => !CharacterGroupGenerator.ContainsDeityCharacter(g)))
 			{
 				var minProximity = p.CalculateMinimumProximity(group.CharacterIds);
 				Debug.WriteLine(group.GroupIdForUiDisplay + ": " + minProximity);
-				Assert.True(minProximity.NumberOfBlocks >= Proximity.kDefaultMinimumProximity, $"Group {group.GroupIdForUiDisplay} has proximity problem: " +
+				Assert.True(minProximity.IsAcceptable(), $"Group {group.GroupIdForUiDisplay} has proximity problem: " +
 					$"{minProximity.NumberOfBlocks} between {minProximity.FirstCharacterId} ({minProximity.FirstReference}) and " +
 					$"{minProximity.SecondCharacterId} ({minProximity.SecondReference}).");
 			}
