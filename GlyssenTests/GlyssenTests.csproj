@@ -224,6 +224,7 @@
     <None Include="Resources\TestHEB.xml" />
     <None Include="Resources\TestJOS.xml" />
     <None Include="Resources\TestJHN.xml" />
+    <None Include="Resources\TestEmptyBook.xml" />
     <Content Include="Resources\TestLUK.xml" />
     <None Include="Resources\TestRelatedCharacters.xml" />
     <None Include="Resources\TestPHM.xml" />
