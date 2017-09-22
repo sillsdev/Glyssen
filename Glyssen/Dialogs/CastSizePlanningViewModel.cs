@@ -110,27 +110,22 @@ namespace Glyssen.Dialogs
 			var prefs = m_project.CharacterGroupGenerationPreferences;
 
 			m_narratorsOption = prefs.NarratorsOption;
-			if (m_narratorsOption != NarratorsOption.SingleNarrator)
-			{
-				m_customMaleNarratorCount = prefs.NumberOfMaleNarrators;
-				m_customFemaleNarratorCount = m_narratorsOption == NarratorsOption.NarrationByAuthor ? 0 : prefs.NumberOfFemaleNarrators;
-				if (m_customMaleNarratorCount + m_customFemaleNarratorCount > MaximumNarratorsValue)
-				{
-					var remainingFemaleNarrators = MaximumNarratorsValue - MaleNarrators;
-					m_customFemaleNarratorCount = Math.Max(remainingFemaleNarrators, 0);
-					if (remainingFemaleNarrators < 0)
-						m_customMaleNarratorCount += remainingFemaleNarrators;
-				}
-			}
-			else
+			// if not yet specified, use "Narration by Author"
+			if (m_narratorsOption == NarratorsOption.NotSet)
+				m_narratorsOption = NarratorsOption.NarrationByAuthor;
+
+			if (m_narratorsOption == NarratorsOption.SingleNarrator)
 			{
 				m_customMaleNarratorCount = 0;
 				m_customFemaleNarratorCount = 0;
 			}
-
-			// if not yet specified, use "Narration by Author"
-			if (m_narratorsOption == NarratorsOption.NotSet)
-				m_narratorsOption = NarratorsOption.NarrationByAuthor;
+			else
+			{
+				m_customMaleNarratorCount = prefs.NumberOfMaleNarrators;
+				m_customFemaleNarratorCount = m_narratorsOption == NarratorsOption.NarrationByAuthor ? 0 : prefs.NumberOfFemaleNarrators;
+				m_project.EnsureNarratorPreferencesAreValid(m_narratorsOption,
+					(v) => m_customMaleNarratorCount = v, (v) => m_customFemaleNarratorCount = v);
+			}
 
 			var smallCast = new CastSizeRowValues(2, 2, 0);
 			int extraCharacterCount = 0;

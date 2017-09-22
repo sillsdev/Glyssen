@@ -317,17 +317,29 @@ namespace Glyssen
 			//
 			// For example, the project might be a whole NT, and the user chooses to use 27 narrators.
 			// Later, the user may remove a book, but the requested number of narrators is still 27 (which is now invalid).
+			EnsureNarratorPreferencesAreValid(CharacterGroupGenerationPreferences.NarratorsOption,
+				(v) => CharacterGroupGenerationPreferences.NumberOfMaleNarrators = v,
+				(v) => CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = v);
+		}
 
+		/// <summary>
+		/// This implementation method allows CastSizePlanningViewModel to pass in a different
+		/// <paramref name="desiredOption"/> and setter methods so that the underlying preferences
+		/// aren't changed directly.
+		/// </summary>
+		public void EnsureNarratorPreferencesAreValid(NarratorsOption desiredOption,
+			Action<int> setNewMaleNarratorCount, Action<int> setNewFemaleNarratorCount)
+		{
 			int numMale = CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
 			int numFemale = CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
 
-			if (CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor)
+			if (desiredOption == NarratorsOption.NarrationByAuthor)
 			{
 				Debug.Assert(numFemale == 0);
 				if (numMale > AuthorCount)
-					CharacterGroupGenerationPreferences.NumberOfMaleNarrators = AuthorCount;
+					setNewMaleNarratorCount(AuthorCount);
 				else if (numMale == 0)
-					CharacterGroupGenerationPreferences.NumberOfMaleNarrators = DefaultNarratorCountForNarrationByAuthor;
+					setNewMaleNarratorCount(DefaultNarratorCountForNarrationByAuthor);
 				return;
 			}
 
@@ -337,11 +349,11 @@ namespace Glyssen
 			{
 				int numNarratorsToDecrement = (numMale + numFemale) - includedBooksCount;
 				if (numFemale >= numNarratorsToDecrement)
-					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators -= numNarratorsToDecrement;
+					setNewFemaleNarratorCount(numFemale - numNarratorsToDecrement);
 				else
 				{
-					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-					CharacterGroupGenerationPreferences.NumberOfMaleNarrators -= numNarratorsToDecrement - numFemale;
+					setNewFemaleNarratorCount(0);
+					setNewMaleNarratorCount(numMale - (numNarratorsToDecrement - numFemale));
 				}
 			}
 		}

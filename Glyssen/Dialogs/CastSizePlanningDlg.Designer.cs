@@ -65,6 +65,7 @@ namespace Glyssen.Dialogs
 			this.m_btnGenerate = new System.Windows.Forms.Button();
 			this.m_lblNarratorWarning = new System.Windows.Forms.Label();
 			this.m_imgNarratorWarning = new System.Windows.Forms.PictureBox();
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor = new System.Windows.Forms.Label();
 			this.glyssenColorPalette = new Glyssen.Utilities.GlyssenColorPalette();
 			this.m_tableLayoutStartingOver = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -111,8 +112,8 @@ namespace Glyssen.Dialogs
 			this.m_linkAbout.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkAbout.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkAbout.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkAbout.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkAbout, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_linkAbout.LinkColor = System.Drawing.SystemColors.HotTrack;
@@ -213,8 +214,8 @@ namespace Glyssen.Dialogs
 			// 
 			// m_linkMoreInfo
 			// 
-			this.m_linkMoreInfo.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
+			this.m_linkMoreInfo.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_linkMoreInfo.AutoSize = true;
 			this.glyssenColorPalette.SetBackColor(this.m_linkMoreInfo, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkMoreInfo.BackColor = System.Drawing.SystemColors.Control;
@@ -425,7 +426,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label5, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label5, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label5, "This is the first part of the instructions. The following line will display the name of the \"Voice Actor List\" dialog box.");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label5, "This is the first part of the instructions. The following line will display the n" +
+        "ame of the \"Voice Actor List\" dialog box.");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label5, "DialogBoxes.CastSizePlanningDlg.NoteTop");
 			this.label5.Location = new System.Drawing.Point(3, 6);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
@@ -441,8 +443,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetActiveLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ActiveLinkColor);
 			this.glyssenColorPalette.SetBackColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_linkVoiceActorList.BackColor = System.Drawing.SystemColors.Control;
-			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkVoiceActorList.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(133)))), ((int)(((byte)(133)))));
+			this.glyssenColorPalette.SetDisabledLinkColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.DisabledLinkColor);
 			this.m_linkVoiceActorList.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_linkVoiceActorList.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.glyssenColorPalette.SetForeColor(this.m_linkVoiceActorList, Glyssen.Utilities.GlyssenColors.ForeColor);
@@ -474,7 +476,8 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetForeColor(this.label6, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.label6, null);
-			this.m_l10NSharpExtender.SetLocalizationComment(this.label6, "This is the second part of the instructions (following the line which displays the name of the \"Voice Actor List\" dialog box).");
+			this.m_l10NSharpExtender.SetLocalizationComment(this.label6, "This is the second part of the instructions (following the line which displays th" +
+        "e name of the \"Voice Actor List\" dialog box).");
 			this.m_l10NSharpExtender.SetLocalizingId(this.label6, "DialogBoxes.CastSizePlanningDlg.NoteBottom");
 			this.label6.Location = new System.Drawing.Point(3, 64);
 			this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
@@ -490,15 +493,15 @@ namespace Glyssen.Dialogs
 			this.glyssenColorPalette.SetBackColor(this.m_castSizePlanningOptions, Glyssen.Utilities.GlyssenColors.BackColor);
 			this.m_castSizePlanningOptions.BackColor = System.Drawing.SystemColors.Control;
 			this.m_castSizePlanningOptions.Dock = System.Windows.Forms.DockStyle.Top;
-			this.glyssenColorPalette.SetForeColor(this.m_castSizePlanningOptions, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_castSizePlanningOptions.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.glyssenColorPalette.SetForeColor(this.m_castSizePlanningOptions, Glyssen.Utilities.GlyssenColors.ForeColor);
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_castSizePlanningOptions, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_castSizePlanningOptions, null);
 			this.m_l10NSharpExtender.SetLocalizingId(this.m_castSizePlanningOptions, "DialogBoxes.CastSizePlanningOptions");
 			this.m_castSizePlanningOptions.Location = new System.Drawing.Point(0, 0);
 			this.m_castSizePlanningOptions.Margin = new System.Windows.Forms.Padding(0);
 			this.m_castSizePlanningOptions.Name = "m_castSizePlanningOptions";
-			this.m_castSizePlanningOptions.SelectedCastSizeRow = CastSizeOption.Recommended;
+			this.m_castSizePlanningOptions.SelectedCastSizeRow = Glyssen.Bundle.CastSizeOption.Recommended;
 			this.m_castSizePlanningOptions.Size = new System.Drawing.Size(418, 151);
 			this.m_castSizePlanningOptions.TabIndex = 1;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_castSizePlanningOptions, true);
@@ -604,6 +607,27 @@ namespace Glyssen.Dialogs
 			this.m_imgNarratorWarning.TabStop = false;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_imgNarratorWarning, false);
 			// 
+			// m_lblWarningSuboptimalNarratorsForNarrationByAuthor
+			// 
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.BackColor = System.Drawing.SystemColors.Control;
+			this.glyssenColorPalette.SetBackColor(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, Glyssen.Utilities.GlyssenColors.BackColor);
+			this.glyssenColorPalette.SetForeColor(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, Glyssen.Utilities.GlyssenColors.Warning);
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.ForeColor = System.Drawing.Color.Red;
+			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, null);
+			this.m_l10NSharpExtender.SetLocalizationComment(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, null);
+			this.m_l10NSharpExtender.SetLocalizingId(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, "DialogBoxes.label7");
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Location = new System.Drawing.Point(314, 0);
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Name = "m_lblWarningSuboptimalNarratorsForNarrationByAuthor";
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Size = new System.Drawing.Size(218, 66);
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.TabIndex = 2;
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Text = "For best results, set the number of narrators to at least {0}.";
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.glyssenColorPalette.SetUsePaletteColors(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, true);
+			this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor.Visible = false;
+			// 
 			// m_tableLayoutStartingOver
 			// 
 			this.m_tableLayoutStartingOver.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -697,21 +721,25 @@ namespace Glyssen.Dialogs
 			// 
 			// m_layoutNarrators
 			// 
+			this.m_layoutNarrators.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_layoutNarrators.AutoSize = true;
 			this.m_layoutNarrators.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.glyssenColorPalette.SetBackColor(this.m_layoutNarrators, Glyssen.Utilities.GlyssenColors.BackColor);
-			this.m_layoutNarrators.ColumnCount = 2;
+			this.m_layoutNarrators.ColumnCount = 3;
 			this.m_layoutNarrators.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.m_layoutNarrators.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.m_layoutNarrators.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_layoutNarrators.Controls.Add(this.flowLayoutPanel1, 0, 0);
 			this.m_layoutNarrators.Controls.Add(this.m_layoutMaleFemale, 1, 0);
+			this.m_layoutNarrators.Controls.Add(this.m_lblWarningSuboptimalNarratorsForNarrationByAuthor, 2, 0);
 			this.glyssenColorPalette.SetForeColor(this.m_layoutNarrators, Glyssen.Utilities.GlyssenColors.Default);
 			this.m_layoutNarrators.Location = new System.Drawing.Point(26, 151);
 			this.m_layoutNarrators.Margin = new System.Windows.Forms.Padding(26, 3, 3, 6);
 			this.m_layoutNarrators.Name = "m_layoutNarrators";
 			this.m_layoutNarrators.RowCount = 1;
 			this.m_layoutNarrators.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_layoutNarrators.Size = new System.Drawing.Size(311, 66);
+			this.m_layoutNarrators.Size = new System.Drawing.Size(535, 66);
 			this.m_layoutNarrators.TabIndex = 22;
 			this.glyssenColorPalette.SetUsePaletteColors(this.m_layoutNarrators, false);
 			this.m_layoutNarrators.Paint += new System.Windows.Forms.PaintEventHandler(this.m_layoutNarrators_Paint);
@@ -955,5 +983,6 @@ namespace Glyssen.Dialogs
 		private System.Windows.Forms.TableLayoutPanel m_tblNarratorWarning;
 		private System.Windows.Forms.Label m_lblNarratorWarning;
 		private System.Windows.Forms.PictureBox m_imgNarratorWarning;
+		private System.Windows.Forms.Label m_lblWarningSuboptimalNarratorsForNarrationByAuthor;
 	}
 }
