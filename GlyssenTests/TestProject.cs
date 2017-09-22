@@ -41,6 +41,9 @@ namespace GlyssenTests
 			EPH,
 			PHM,
 			HEB,
+			JAS_NoData,
+			IPE_NoData,
+			IIPE_NoData,
 			IJN,
 			IIJN,
 			IIIJN,
@@ -219,6 +222,24 @@ namespace GlyssenTests
 					book.LongName = "Hebrews";
 					book.ShortName = "Hebrews";
 					xmlDocument.LoadXml(Properties.Resources.TestHEB);
+					break;
+				case TestBook.JAS_NoData:
+					book.Code = "JAS";
+					book.LongName = "The Epistle of James";
+					book.ShortName = "James";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IPE_NoData:
+					book.Code = "1PE";
+					book.LongName = "The First Epistle of Peter";
+					book.ShortName = "1 Peter";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IIPE_NoData:
+					book.Code = "2PE";
+					book.LongName = "The Second Epistle of Peter";
+					book.ShortName = "2 Peter";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.IJN:
 					book.Code = "1JN";
