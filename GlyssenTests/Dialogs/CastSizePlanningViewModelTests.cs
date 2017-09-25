@@ -254,10 +254,10 @@ namespace GlyssenTests.Dialogs
 			model.FemaleNarrators = 1;
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(4, smallCast.Male);
+			Assert.AreEqual(3, smallCast.Male);
 			Assert.AreEqual(5, smallCast.Female);
 			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(9, smallCast.Total);
+			Assert.AreEqual(8, smallCast.Total);
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
 			Assert.AreEqual(5, recommendedCast.Male);
