@@ -754,7 +754,7 @@ namespace Glyssen
 			}
 
 			if (ModifierKeys == Keys.Shift && MessageBox.Show("Are you sure you want to automatically disambiguate (for demo purposes)?", ProductName, MessageBoxButtons.YesNo) == DialogResult.Yes)
-				DoDemoDisambiguation();
+				m_project.DoDemoDisambiguation();
 
 			var origCursor = Cursor;
 			Cursor = Cursors.WaitCursor;
@@ -770,47 +770,6 @@ namespace Glyssen
 			m_project.Analyze();
 			UpdateDisplayOfProjectInfo();
 			SaveCurrentProject(true);
-		}
-
-		private void DoDemoDisambiguation()
-		{
-			Logger.WriteEvent("Doing demo disambiguation");
-			var cvData = new CombinedCharacterVerseData(m_project);
-
-			foreach (var book in m_project.IncludedBooks)
-			{
-				var bookNum = SIL.Scripture.BCVRef.BookToNumber(book.BookId);
-				int iCharacter = 0;
-				List<CharacterVerse> charactersForVerse = null;
-				foreach (var block in book.GetScriptBlocks())
-				{
-					if (block.StartsAtVerseStart)
-					{
-						iCharacter = 0;
-						charactersForVerse = null;
-					}
-					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
-					{
-						block.SetCharacterAndCharacterIdInScript(
-							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
-							m_project.Versification);
-						block.UserConfirmed = true;
-					}
-					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
-					{
-						if (charactersForVerse == null)
-							charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber, versification: m_project.Versification).ToList();
-
-						var cvEntry = charactersForVerse[iCharacter++];
-						if (iCharacter == charactersForVerse.Count)
-							iCharacter = 0;
-						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, m_project.Versification);
-						block.Delivery = cvEntry.Delivery;
-						block.UserConfirmed = true;
-					}
-				}
-			}
 		}
 
 		private void SelectBooks_Click(object sender, EventArgs e)

@@ -145,121 +145,121 @@ namespace Glyssen.Dialogs
 				switch (bookId)
 				{
 					case "GEN":
-						smallCast.Male = Math.Max(smallCast.Male, 9);
+						smallCast.Male = Math.Max(smallCast.Male, 6);
 						smallCast.Female = 3;
 						break;
 					case "EXO":
-						smallCast.Male = Math.Max(smallCast.Male, 6);
+						smallCast.Male = Math.Max(smallCast.Male, 3);
 						smallCast.Female = 3;
 						break;
 					case "LEV":
-						smallCast.Male = Math.Max(smallCast.Male, 3);
-						break;
-					case "NUM":
-						smallCast.Male = Math.Max(smallCast.Male, 8);
-						break;
-					case "DEU":
 						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
+					case "NUM":
+						smallCast.Male = Math.Max(smallCast.Male, 4);
+						break;
+					case "DEU":
+						smallCast.Male = Math.Max(smallCast.Male, 1);
+						break;
 					case "JOS":
-						smallCast.Male = Math.Max(smallCast.Male, 7);
+						smallCast.Male = Math.Max(smallCast.Male, 5);
 						break;
 					case "JDG":
-						smallCast.Male = Math.Max(smallCast.Male, 8);
+						smallCast.Male = Math.Max(smallCast.Male, 5);
 						break;
 					case "RUT":
-						smallCast.Male = Math.Max(smallCast.Male, 3);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						smallCast.Female = 4;
 						break;
 					case "1SA":
-						smallCast.Male = Math.Max(smallCast.Male, 11);
-						break;
-					case "2SA":
-						smallCast.Male = Math.Max(smallCast.Male, 12);
-						break;
-					case "1KI":
-						smallCast.Male = Math.Max(smallCast.Male, 10);
-						break;
-					case "2KI":
-						smallCast.Male = Math.Max(smallCast.Male, 9);
-						break;
-					case "1CH":
-						smallCast.Male = Math.Max(smallCast.Male, 5);
-						break;
-					case "2CH":
-						smallCast.Male = Math.Max(smallCast.Male, 9);
-						break;
-					case "EZR":
-						smallCast.Male = Math.Max(smallCast.Male, 5);
-						break;
-					case "NEH":
-						smallCast.Male = Math.Max(smallCast.Male, 7);
-						break;
-					case "EST":
 						smallCast.Male = Math.Max(smallCast.Male, 6);
 						break;
+					case "2SA":
+						smallCast.Male = Math.Max(smallCast.Male, 6);
+						break;
+					case "1KI":
+						smallCast.Male = Math.Max(smallCast.Male, 6);
+						break;
+					case "2KI":
+						smallCast.Male = Math.Max(smallCast.Male, 6);
+						break;
+					case "1CH":
+						smallCast.Male = Math.Max(smallCast.Male, 3);
+						break;
+					case "2CH":
+						smallCast.Male = Math.Max(smallCast.Male, 6);
+						break;
+					case "EZR":
+						smallCast.Male = Math.Max(smallCast.Male, 2);
+						break;
+					case "NEH":
+						smallCast.Male = Math.Max(smallCast.Male, 4);
+						break;
+					case "EST":
+						smallCast.Male = Math.Max(smallCast.Male, 2);
+						break;
 					case "JOB":
-						smallCast.Male = Math.Max(smallCast.Male, 7);
+						smallCast.Male = Math.Max(smallCast.Male, 6);
 						break;
 					case "PSA":
 						smallCast.Male = Math.Max(smallCast.Male, 3);
 						break;
 					case "PRO":
-						smallCast.Male = Math.Max(smallCast.Male, 0);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "ECC":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
+						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "SNG":
 						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
 					case "ISA":
-						smallCast.Male = Math.Max(smallCast.Male, 6);
+						smallCast.Male = Math.Max(smallCast.Male, 4);
 						break;
 					case "JER":
-						smallCast.Male = Math.Max(smallCast.Male, 9);
+						smallCast.Male = Math.Max(smallCast.Male, 4);
 						break;
 					case "LAM":
 						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "EZK":
-						smallCast.Male = Math.Max(smallCast.Male, 4);
+						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
 					case "DAN":
 						smallCast.Male = Math.Max(smallCast.Male, 5);
 						break;
 					case "HOS":
-						smallCast.Male = Math.Max(smallCast.Male, 2);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "JOL":
-						smallCast.Male = Math.Max(smallCast.Male, 2);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "AMO":
-						smallCast.Male = Math.Max(smallCast.Male, 4);
-						break;
-					case "OBA":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
-						break;
-					case "JON":
-						smallCast.Male = Math.Max(smallCast.Male, 4);
-						break;
-					case "MIC":
 						smallCast.Male = Math.Max(smallCast.Male, 3);
 						break;
-					case "NAM":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
+					case "OBA":
+						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
-					case "HAB":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
+					case "JON":
+						smallCast.Male = Math.Max(smallCast.Male, 3);
 						break;
-					case "ZEP":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
-						break;
-					case "HAG":
+					case "MIC":
 						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
+					case "NAM":
+						smallCast.Male = Math.Max(smallCast.Male, 0);
+						break;
+					case "HAB":
+						smallCast.Male = Math.Max(smallCast.Male, 0);
+						break;
+					case "ZEP":
+						smallCast.Male = Math.Max(smallCast.Male, 0);
+						break;
+					case "HAG":
+						smallCast.Male = Math.Max(smallCast.Male, 1);
+						break;
 					case "ZEC":
-						smallCast.Male = Math.Max(smallCast.Male, 5);
+						smallCast.Male = Math.Max(smallCast.Male, 4);
 						break;
 					case "MAL":
 						smallCast.Male = Math.Max(smallCast.Male, 1);

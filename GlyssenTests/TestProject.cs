@@ -260,29 +260,7 @@ namespace GlyssenTests
 
 		public static void SimulateDisambiguationForAllBooks(Project testProject)
 		{
-			var cvData = new CombinedCharacterVerseData(testProject);
-
-			foreach (var book in testProject.IncludedBooks)
-			{
-				var bookNum = BCVRef.BookToNumber(book.BookId);
-				foreach (var block in book.GetScriptBlocks())
-				{
-					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
-					{
-						block.SetCharacterAndCharacterIdInScript(CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum, testProject.Versification);
-						block.UserConfirmed = true;
-					}
-					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
-					{
-						var cvEntry =
-							cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber,
-								versification: testProject.Versification).First();
-						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, testProject.Versification);
-						block.Delivery = cvEntry.Delivery;
-						block.UserConfirmed = true;
-					}
-				}
-			}
+			testProject.DoTestDisambiguation();
 		}
 
 		public static List<CharacterDetail> GetIncludedCharacterDetails(Project project)
