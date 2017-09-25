@@ -259,33 +259,33 @@ namespace Glyssen.Dialogs
 						break;
 
 					//// New Testament
-						
+
 					case "MAT":
-						smallCast.Male = Math.Max(smallCast.Male, 10);
+						smallCast.Male = Math.Max(smallCast.Male, 5);
 						break;
 					case "MRK":
-						smallCast.Male = Math.Max(smallCast.Male, 12);
+						smallCast.Male = Math.Max(smallCast.Male, 5);
 						break;
 					case "LUK":
-						smallCast.Male = Math.Max(smallCast.Male, 13);
+						smallCast.Male = Math.Max(smallCast.Male, 6);
 						break;
 					case "JHN":
-						smallCast.Male = Math.Max(smallCast.Male, 10);
+						smallCast.Male = Math.Max(smallCast.Male, 8);
 						break;
 					case "ACT":
-						smallCast.Male = Math.Max(smallCast.Male, 13);
+						smallCast.Male = Math.Max(smallCast.Male, 7);
 						break;
 					case "ROM":
 						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
 					case "1CO":
-						smallCast.Male = Math.Max(smallCast.Male, 5);
+						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
 					case "2CO":
-						smallCast.Male = Math.Max(smallCast.Male, 3);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "GAL":
-						smallCast.Male = Math.Max(smallCast.Male, 3);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "EPH":
 						smallCast.Male = Math.Max(smallCast.Male, 0);
@@ -294,7 +294,7 @@ namespace Glyssen.Dialogs
 						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "COL":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
+						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "1TH":
 						smallCast.Male = Math.Max(smallCast.Male, 0);
@@ -309,7 +309,7 @@ namespace Glyssen.Dialogs
 						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "TIT":
-						smallCast.Male = Math.Max(smallCast.Male, 1);
+						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "PHM":
 						smallCast.Male = Math.Max(smallCast.Male, 0);
@@ -318,13 +318,13 @@ namespace Glyssen.Dialogs
 						switch (m_project.DramatizationPreferences.ScriptureQuotationsShouldBeSpokenBy)
 						{
 							case DramatizationOption.DedicatedCharacter:
-								smallCast.Male = Math.Max(smallCast.Male, 2);
+								smallCast.Male = Math.Max(smallCast.Male, 1);
 								break;
 							case DramatizationOption.DefaultCharacter:
 								smallCast.Male = Math.Max(smallCast.Male, 4); // Not sure if 4 is correct
 								break;
 							case DramatizationOption.Narrator:
-								smallCast.Male = Math.Max(smallCast.Male, 1);
+								smallCast.Male = Math.Max(smallCast.Male, 0);
 								break;
 						}
 						break;
@@ -335,7 +335,7 @@ namespace Glyssen.Dialogs
 						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "2PE":
-						smallCast.Male = Math.Max(smallCast.Male, 2);
+						smallCast.Male = Math.Max(smallCast.Male, 1);
 						break;
 					case "1JN":
 						smallCast.Male = Math.Max(smallCast.Male, 0);
@@ -347,10 +347,10 @@ namespace Glyssen.Dialogs
 						smallCast.Male = Math.Max(smallCast.Male, 0);
 						break;
 					case "JUD":
-						smallCast.Male = Math.Max(smallCast.Male, 3);
+						smallCast.Male = Math.Max(smallCast.Male, 2);
 						break;
 					case "REV":
-						smallCast.Male = Math.Max(smallCast.Male, 15);
+						smallCast.Male = Math.Max(smallCast.Male, 7);
 						break;
 				}
 			}
@@ -528,7 +528,7 @@ namespace Glyssen.Dialogs
 			Project.Save();
 		}
 	}
-	
+
 	public class CastSizeRowValues
 	{
 		public int Male { get; set; }

@@ -221,10 +221,10 @@ namespace GlyssenTests.Dialogs
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(5, smallCast.Male);
+			Assert.AreEqual(4, smallCast.Male);
 			Assert.AreEqual(0, smallCast.Female);
 			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(5, smallCast.Total);
+			Assert.AreEqual(4, smallCast.Total);
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
 			Assert.AreEqual(5, recommendedCast.Male);
@@ -247,22 +247,22 @@ namespace GlyssenTests.Dialogs
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(15, smallCast.Male);
+			Assert.AreEqual(9, smallCast.Male);
 			Assert.AreEqual(2, smallCast.Female);
 			Assert.AreEqual(0, smallCast.Child);
-			Assert.AreEqual(17, smallCast.Total);
+			Assert.AreEqual(11, smallCast.Total);
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(22, recommendedCast.Male);
+			Assert.AreEqual(13, recommendedCast.Male);
 			Assert.AreEqual(3, recommendedCast.Female);
 			Assert.AreEqual(0, recommendedCast.Child);
-			Assert.AreEqual(25, recommendedCast.Total);
+			Assert.AreEqual(16, recommendedCast.Total);
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(29, largeCast.Male); // TODO: Talk to Duane about logic for this
+			Assert.AreEqual(17, largeCast.Male); // TODO: Talk to Duane about logic for this
 			Assert.AreEqual(4, largeCast.Female);
 			Assert.AreEqual(0, largeCast.Child);
-			Assert.AreEqual(33, largeCast.Total);
+			Assert.AreEqual(21, largeCast.Total);
 		}
 
 		[TestCase(DramatizationOption.DedicatedCharacter, 2)]
@@ -323,23 +323,22 @@ namespace GlyssenTests.Dialogs
 			model.FemaleNarrators = 1;
 
 			var smallCast = model.GetCastSizeRowValues(CastSizeOption.Small);
-			Assert.AreEqual(15, smallCast.Male);
-				// 15 is actually big enough if the extra-biblical roles are assigned to a female actor, but our cast size estimates don't currently allow for this
+			Assert.AreEqual(9, smallCast.Male);
 			Assert.AreEqual(5, smallCast.Female);
 			Assert.AreEqual(1, smallCast.Child);
-			Assert.AreEqual(21, smallCast.Total);
+			Assert.AreEqual(15, smallCast.Total);
 
 			var recommendedCast = model.GetCastSizeRowValues(CastSizeOption.Recommended);
-			Assert.AreEqual(22, recommendedCast.Male);
+			Assert.AreEqual(13, recommendedCast.Male);
 			Assert.AreEqual(7, recommendedCast.Female);
 			Assert.AreEqual(1, recommendedCast.Child);
-			Assert.AreEqual(30, recommendedCast.Total);
+			Assert.AreEqual(21, recommendedCast.Total);
 
 			var largeCast = model.GetCastSizeRowValues(CastSizeOption.Large);
-			Assert.AreEqual(29, largeCast.Male); // TODO: Talk to Duane about logic for this
+			Assert.AreEqual(17, largeCast.Male); // TODO: Talk to Duane about logic for this
 			Assert.AreEqual(9, largeCast.Female);
 			Assert.AreEqual(1, largeCast.Child);
-			Assert.AreEqual(39, largeCast.Total);
+			Assert.AreEqual(27, largeCast.Total);
 		}
 	}
 }
