@@ -15607,12 +15607,12 @@ ROM	2	22	you (hypothetical)			Hypothetical
 ROM	2	23	you (hypothetical)			Hypothetical		
 ROM	2	24	scripture			Quotation	God	
 ROM	3	1	Jews, the	speaking ironically		Hypothetical		
-ROM	3	2	Paul			Potential		
+ROM	3	2	narrator-ROM			Potential		
 ROM	3	3	Jews, the	speaking ironically		Hypothetical		
 ROM	3	4	scripture			Quotation	David	
 ROM	3	5	Jews, the	speaking ironically		Hypothetical		
 ROM	3	7	someone	arguing		Hypothetical		
-ROM	3	8	Paul			Hypothetical		
+ROM	3	8	Paul		we (the Apostles, including Paul)	Hypothetical		
 ROM	3	10	scripture			Quotation	David	
 ROM	3	11	scripture			Quotation	David	
 ROM	3	12	scripture			Quotation	David	
@@ -15768,14 +15768,14 @@ GAL	1	8	narrator-GAL			Quotation
 GAL	1	9	narrator-GAL			Quotation		
 GAL	1	23	report concerning Paul			Quotation		
 GAL	2	10	James/Peter (Simon)/John		James/Peter (Cephas)/John	Quotation		
-GAL	2	14	Paul			Normal		
-GAL	2	15	Paul			Normal		
-GAL	2	16	Paul			Normal		
-GAL	2	17	Paul			Normal		
-GAL	2	18	Paul			Normal		
-GAL	2	19	Paul			Normal		
-GAL	2	20	Paul			Normal		
-GAL	2	21	Paul			Normal		
+GAL	2	14	narrator-GAL			Quotation		
+GAL	2	15	narrator-GAL			Quotation		
+GAL	2	16	narrator-GAL			Quotation		
+GAL	2	17	narrator-GAL			Quotation		
+GAL	2	18	narrator-GAL			Quotation		
+GAL	2	19	narrator-GAL			Quotation		
+GAL	2	20	narrator-GAL			Quotation		
+GAL	2	21	narrator-GAL			Quotation		
 GAL	3	6	scripture			Quotation		
 GAL	3	8	scripture			Quotation	God	
 GAL	3	10	scripture			Quotation	Moses	

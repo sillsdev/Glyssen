@@ -14,6 +14,7 @@ namespace Glyssen.Rules
 		//public const int kDefaultMinimumKeystrokes = 110 * kDefaultMinimumBlocks;
 
 		private readonly IReadOnlyList<BookScript> m_booksToConsider;
+		private readonly bool m_narrationByAuthor;
 		private readonly ReferenceText m_referenceText;
 		private readonly Dictionary<BookScript, Dictionary<CharacterVerseData.StandardCharacter, HashSet<string>>> m_considerSameExtrabiblicalCharacter;
 
@@ -23,6 +24,7 @@ namespace Glyssen.Rules
 			m_booksToConsider = m_referenceText.GetBooksWithBlocksConnectedToReferenceText(project).ToList();
 
 			var dramatizationPreferences = project.DramatizationPreferences;
+			m_narrationByAuthor = project.CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor;
 			m_considerSameExtrabiblicalCharacter = new Dictionary<BookScript, Dictionary<CharacterVerseData.StandardCharacter, HashSet<string>>>();
 
 			// get the standard character mapping for each book
@@ -87,6 +89,20 @@ namespace Glyssen.Rules
 				var countVersesRatherThanBlocks = !m_referenceText.HasContentForBook(book.BookId);
 
 				var treatAsSameCharacter = m_considerSameExtrabiblicalCharacter[book];
+				if (m_narrationByAuthor)
+				{
+					var author = BiblicalAuthors.GetAuthorOfBook(book.BookId);
+					if (author.CombineAuthorAndNarrator)
+					{
+						HashSet<string> charactersToTreatAsOneWithNarrator;
+						if (!treatAsSameCharacter.TryGetValue(CharacterVerseData.StandardCharacter.Narrator, out charactersToTreatAsOneWithNarrator))
+						{
+							charactersToTreatAsOneWithNarrator = new HashSet<string>();
+							treatAsSameCharacter.Add(CharacterVerseData.StandardCharacter.Narrator, charactersToTreatAsOneWithNarrator);
+						}
+						charactersToTreatAsOneWithNarrator.Add(author.Name);
+					}
+				}
 
 				// We don't want to treat book ends as being directly adjacent but not infinitely distant, either.
 				currentBlockCount += kDefaultMinimumBlocks * 5 / 3; // The amount of padding is somewhat arbitrary.

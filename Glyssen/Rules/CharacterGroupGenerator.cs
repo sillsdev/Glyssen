@@ -812,7 +812,13 @@ namespace Glyssen.Rules
 			// 1) single narrator -> EASY: only one group!
 			// 2) number of narrators == number of books -> Each narrator does one book
 			// 3) number of narrators == number of authors -> add narrator to group with other books by same author, if any; otherwise first empty group
-			// 4) number of narrators < number of authors -> shorter books share narrators
+			// 4) number of narrators < number of authors
+			// 4.a) includeAuthorCharacter
+			// 4.a.i)  number of narrators <= number of authors to be combined with the narrators of their books ->
+			//         separate narrator group(s) for most prolific author/narrator pairs. Remainder grouped together (along with their speaking characters, even though this might not be ideal)
+			// 4.a.ii) number of narrators > number of authors to be combined with the narrators of their books ->
+			//         separate narrator group(s) for all author/narrator pairs. Then use logic of scenario #4.b
+			// 4.b) !includeAuthorCharacter -> shorter books share narrators
 			// 5) number of narrators > number of authors -> break up most prolific authors into multiple narrator groups
 			private void AssignNarratorCharactersToNarratorGroups(Dictionary<string, int> keyStrokesByCharacterId, List<string> bookIds, Func<string, bool> includeAuthorCharacter)
 			{
@@ -870,9 +876,10 @@ namespace Glyssen.Rules
 				{
 					var authorStats = new List<AuthorStats>(authors.Count);
 					authorStats.AddRange(authors.Select(authorsAndBooks =>
-						new AuthorStats(authorsAndBooks.Key, authorsAndBooks.Value, keyStrokesByCharacterId)));
+						new AuthorStats(authorsAndBooks.Key, authorsAndBooks.Value, keyStrokesByCharacterId, includeAuthorCharacter != null)));
 
-					DistributeBooksAmongNarratorGroups(authorStats, NarratorGroups);
+					DistributeBooksAmongNarratorGroups(authorStats, NarratorGroups, includeAuthorCharacter);
+
 					return;
 				}
 				if (NarratorGroups.Count < bookIds.Count)
@@ -894,10 +901,14 @@ namespace Glyssen.Rules
 			/// This is broken out as a separate static method to facilitate faster and more complete unit testing
 			/// </summary>
 			/// <param name="authorStats">keystroke stats for each biblical author who wrote one or more books included in the project</param>
-			/// <param name="narratorGroups">list of available narrator groups (no greater than the total number of authors)</param>
-			public static void DistributeBooksAmongNarratorGroups(List<AuthorStats> authorStats, List<CharacterGroup> narratorGroups)
+			/// <param name="narratorGroups">list of available narrator groups (no greater than the total number of authors)</param>\
+			/// <param name="includeAuthorCharacter">A function to determine whether a book's author is a character with a speaking part
+			/// in an included book.</param>
+			public static void DistributeBooksAmongNarratorGroups(List<AuthorStats> authorStats, List<CharacterGroup> narratorGroups,
+				Func<string, bool> includeAuthorCharacter = null)
 			{
-				authorStats.Sort(new AuthorStatsComparer());
+				authorStats.Sort(new AuthorStatsComparer(includeAuthorCharacter != null));
+
 				int min = 0;
 				int n = 0;
 				bool addingAdditionalAuthorsToCurrentNarratorGroup = false;
@@ -905,16 +916,23 @@ namespace Glyssen.Rules
 				for (int i = authorStats.Count - 1; i >= min; i--)
 				{
 					foreach (var bookId in authorStats[i].BookIds)
-						AddNarratorToGroup(narratorGroups[n], bookId);
+						AddNarratorToGroup(narratorGroups[n], bookId, includeAuthorCharacter);
 
 					int numberOfRemainingNarratorGroupsToAssign = narratorGroups.Count - n - 1;
+					if (includeAuthorCharacter != null && numberOfRemainingNarratorGroupsToAssign >= 1 && authorStats[i].Author.CombineAuthorAndNarrator)
+					{
+						n++;
+						if (numberOfRemainingNarratorGroupsToAssign == 1)
+							includeAuthorCharacter = null;
+						continue; // For narration by author, try to avoid combining the top N authors 
+					}
 					if (numberOfRemainingNarratorGroupsToAssign > 0)
 					{
 						if (numberOfRemainingNarratorGroupsToAssign == 1)
 							currentMustCombine = true;
 						if (i < (authorStats.Count - narratorGroups.Count) * 2)
 						{
-							// We now need to work our way down through the list of authors to see which one(s), if any
+							// We now need to work our way down through the list of authors to see which one(s), if any,
 							// should be combined with the current author. For this purpose, we definitely need to skip
 							// enough authors to allow the "middle" ones to combine into groups of at least 2 authors.
 							// We don't want to combine this author with too many or too few of the smaller ones, so we're
@@ -952,7 +970,7 @@ namespace Glyssen.Rules
 									while (min <= lastAuthorToConsiderCombiningWithCurrent)
 									{
 										foreach (var bookId in authorStats[min++].BookIds)
-											AddNarratorToGroup(narratorGroups[n], bookId);
+											AddNarratorToGroup(narratorGroups[n], bookId, includeAuthorCharacter);
 									}
 									currentMustCombine = true; // Once we find an author that combines, all subequent authors must also combine.
 									break;

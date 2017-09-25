@@ -217,5 +217,32 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual("MRK 0:0", minProximity.FirstReference);
 			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
 		}
+
+		[Test]
+		public void CalculateMinimumProximity_NarrationByAuthor_CharacterSpeakingInBookHeNarratesResultsInMaxProximity()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL);
+			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
+			var idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
+			foreach (var block in project.IncludedBooks[0].GetBlocksForVerse(2, 15))
+			{
+				block.CharacterId = idPaul;
+			}
+
+			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			project.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
+
+			var proximity = new Proximity(project);
+
+			var characterIds = new HashSet<string>
+			{
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
+				idPaul
+			};
+
+			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+
+			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
+		}
 	}
 }

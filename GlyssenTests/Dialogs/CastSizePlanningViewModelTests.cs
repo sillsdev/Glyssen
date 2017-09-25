@@ -92,7 +92,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(1, m_maleNarratorsValue);
 			Assert.AreEqual(0, m_femaleNarratorsValue);
 			model.NarratorOption = NarratorsOption.Custom;
-			Assert.AreEqual(1, m_maleNarratorsValue);
+			Assert.AreEqual(2, m_maleNarratorsValue);
 			Assert.AreEqual(1, m_femaleNarratorsValue);
 		}
 

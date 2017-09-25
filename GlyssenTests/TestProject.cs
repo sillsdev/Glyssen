@@ -36,9 +36,18 @@ namespace GlyssenTests
 			LUK,
 			JHN,
 			ACT,
+			ROM_NoData,
 			ICO,
+			IICO_NoData,
 			GAL,
 			EPH,
+			PHP_NoData,
+			COL_NoData,
+			ITH_NoData,
+			IITH_NoData,
+			ITI_NoData,
+			IITI_NoData,
+			TIT_NoData,
 			PHM,
 			HEB,
 			JAS_NoData,
@@ -193,11 +202,23 @@ namespace GlyssenTests
 					book.ShortName = "Acts";
 					xmlDocument.LoadXml(Properties.Resources.TestACT);
 					break;
+				case TestBook.ROM_NoData:
+					book.Code = "ROM";
+					book.LongName = "The Epistle of Paul to the Romans";
+					book.ShortName = "Romans";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
 				case TestBook.ICO:
 					book.Code = "1CO";
 					book.LongName = "The First Epistle of Paul to the Church of Corinth";
 					book.ShortName = "1 Corinthians";
 					xmlDocument.LoadXml(Properties.Resources.Test1CO);
+					break;
+				case TestBook.IICO_NoData:
+					book.Code = "2CO";
+					book.LongName = "The First Epistle of Paul to the Church of Corinth";
+					book.ShortName = "2 Corinthians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.GAL:
 					book.Code = "GAL";
@@ -210,6 +231,48 @@ namespace GlyssenTests
 					book.LongName = "The Epistle of Paul to the Church of Ephesus";
 					book.ShortName = "Ephesians";
 					xmlDocument.LoadXml(Properties.Resources.TestEPH);
+					break;
+				case TestBook.PHP_NoData:
+					book.Code = "PHP";
+					book.LongName = "The Epistle of Paul to the Philippians";
+					book.ShortName = "Philippians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.COL_NoData:
+					book.Code = "COL";
+					book.LongName = "The Epistle of Paul to the Colossians";
+					book.ShortName = "Colossians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.ITH_NoData:
+					book.Code = "1TH";
+					book.LongName = "The First Epistle of Paul to the Thessalonians";
+					book.ShortName = "1 Thessalonians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IITH_NoData:
+					book.Code = "2TH";
+					book.LongName = "The Second Epistle of Paul to the Thessalonians";
+					book.ShortName = "2 Thessalonians";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.ITI_NoData:
+					book.Code = "1TI";
+					book.LongName = "The First Epistle of Paul to Timothy";
+					book.ShortName = "1 Timothy";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.IITI_NoData:
+					book.Code = "2TI";
+					book.LongName = "The Second Epistle of Paul to Timothy";
+					book.ShortName = "2 Timothy";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
+					break;
+				case TestBook.TIT_NoData:
+					book.Code = "TIT";
+					book.LongName = "The Epistle of Paul to Titus";
+					book.ShortName = "Titus";
+					xmlDocument.LoadXml(String.Format(Properties.Resources.TestEmptyBook, book.Code));
 					break;
 				case TestBook.PHM:
 					book.Code = "PHM";

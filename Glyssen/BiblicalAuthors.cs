@@ -50,6 +50,10 @@ namespace Glyssen
 			[DefaultValue(false)]
 			public bool CombineAuthorAndNarrator { get; set; }
 
+			[XmlAttribute("doNotCombineByDefault")]
+			[DefaultValue(false)]
+			public bool DoNotCombineByDefault { get; set; }
+
 			[XmlArrayItem("Book")]
 			public List<string> Books { get; set; }
 

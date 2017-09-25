@@ -1786,7 +1786,8 @@ namespace Glyssen
 			{
 				// For narration by author
 				var includedBookIds = IncludedBooks.Select(b => b.BookId).ToList();
-				var authorsToCombine = BiblicalAuthors.All().Where(a => a.CombineAuthorAndNarrator && a.Books.Any(b => includedBookIds.Contains(b))).ToList();
+				var authorsToCombine = BiblicalAuthors.All().Where(a => a.CombineAuthorAndNarrator &&
+					!a.DoNotCombineByDefault && a.Books.Any(b => includedBookIds.Contains(b))).ToList();
 				return authorsToCombine.Count + (IncludedBooks.All(b => authorsToCombine.SelectMany(a => a.Books).Contains(b.BookId)) ? 0 : 1);
 			}
 		}

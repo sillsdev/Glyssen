@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
@@ -29,10 +30,10 @@ namespace GlyssenTests.Rules
 		public void DistributeBooksAmongNarratorGroups_FourAuthorsOfFourBooksAmongThreeNarrators_TwoAuthorsWithShortestBooksCombined()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator)] = 52000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.StandardCharacter.Narrator)] = 48000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HOS", CharacterVerseData.StandardCharacter.Narrator)] = 12000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)] = 1000;
+			keyStrokesByBook[GetNarratorId("JER")] = 52000;
+			keyStrokesByBook[GetNarratorId("EZK")] = 48000;
+			keyStrokesByBook[GetNarratorId("HOS")] = 12000;
+			keyStrokesByBook[GetNarratorId("JUD")] = 1000;
 			var authorStats = new List<AuthorStats>();
 			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("JER"), keyStrokesByBook, "JER"));
 			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("EZK"), keyStrokesByBook, "EZK"));
@@ -53,14 +54,14 @@ namespace GlyssenTests.Rules
 		public void DistributeBooksAmongNarratorGroups_SixSimilarAuthorsOfEightBooksAmongThreeNarrators_AuthorOfLargestBookCombinesWithShortestEtc()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.Narrator)] = 50000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ISA", CharacterVerseData.StandardCharacter.Narrator)] = 66000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator)] = 52000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.StandardCharacter.Narrator)] = 48000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // 52000 combined
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator)] = 20000; // 42000 combined
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)] = 22000;
+			keyStrokesByBook[GetNarratorId("GEN")] = 50000;
+			keyStrokesByBook[GetNarratorId("ISA")] = 66000;
+			keyStrokesByBook[GetNarratorId("JER")] = 52000;
+			keyStrokesByBook[GetNarratorId("EZK")] = 48000;
+			keyStrokesByBook[GetNarratorId("LUK")] = 24000; // 52000 combined
+			keyStrokesByBook[GetNarratorId("ACT")] = 28000;
+			keyStrokesByBook[GetNarratorId("JHN")] = 20000; // 42000 combined
+			keyStrokesByBook[GetNarratorId("REV")] = 22000;
 			var authorStats = new List<AuthorStats>();
 
 			authorStats.Add(new AuthorStats(BiblicalAuthors.GetAuthorOfBook("GEN"), keyStrokesByBook, "GEN"));
@@ -92,12 +93,12 @@ namespace GlyssenTests.Rules
 		public void DistributeBooksAmongNarratorGroups_FourAuthorsOfSixBooksAmongFiveNarrators_AuthorWithLongestBooksSplit()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.Narrator)] = 50000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EXO", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator)] = 52000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LAM", CharacterVerseData.StandardCharacter.Narrator)] = 6000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HOS", CharacterVerseData.StandardCharacter.Narrator)] = 12000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)] = 1000;
+			keyStrokesByBook[GetNarratorId("GEN")] = 50000;
+			keyStrokesByBook[GetNarratorId("EXO")] = 28000;
+			keyStrokesByBook[GetNarratorId("JER")] = 52000;
+			keyStrokesByBook[GetNarratorId("LAM")] = 6000;
+			keyStrokesByBook[GetNarratorId("HOS")] = 12000;
+			keyStrokesByBook[GetNarratorId("JUD")] = 1000;
 
 			var narratorGroups = GetNarratorCharacterGroups(5);
 
@@ -120,12 +121,12 @@ namespace GlyssenTests.Rules
 		public void DistributeBooksAmongNarratorGroups_TwoAuthorsOfSixBooksAmongFiveNarrators_AuthorWithLongestBooksSplit()
 		{
 			var keyStrokesByBook = new Dictionary<string, int>();
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.Narrator)] = 50000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EXO", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("DEU", CharacterVerseData.StandardCharacter.Narrator)] = 28000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator)] = 20000;
-			keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)] = 22000;
+			keyStrokesByBook[GetNarratorId("GEN")] = 50000;
+			keyStrokesByBook[GetNarratorId("EXO")] = 28000;
+			keyStrokesByBook[GetNarratorId("LEV")] = 28000;
+			keyStrokesByBook[GetNarratorId("DEU")] = 28000;
+			keyStrokesByBook[GetNarratorId("JHN")] = 20000;
+			keyStrokesByBook[GetNarratorId("REV")] = 22000;
 
 			var narratorGroups = GetNarratorCharacterGroups(5);
 
@@ -189,77 +190,76 @@ namespace GlyssenTests.Rules
 		private BiblicalAuthors.Author m_peter;
 		private BiblicalAuthors.Author m_jude;
 
-
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
 			m_keyStrokesByBook = new Dictionary<string, int>();
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GEN", CharacterVerseData.StandardCharacter.Narrator)] = 50000; // MOSES
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EXO", CharacterVerseData.StandardCharacter.Narrator)] = 40000; // MOSES
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LEV", CharacterVerseData.StandardCharacter.Narrator)] = 27000; // MOSES
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("NUM", CharacterVerseData.StandardCharacter.Narrator)] = 36000; // MOSES
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("DEU", CharacterVerseData.StandardCharacter.Narrator)] = 34000; // MOSES:     187000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // JOSHUA:     24000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JDG", CharacterVerseData.StandardCharacter.Narrator)] = 21000; // JUDGES:     21000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("RUT", CharacterVerseData.StandardCharacter.Narrator)] = 4000; // RUTH:        4000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1SA", CharacterVerseData.StandardCharacter.Narrator)] = 31000; // SAMUEL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2SA", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // SAMUEL:     55000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1KI", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // KINGS
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2KI", CharacterVerseData.StandardCharacter.Narrator)] = 25000; // KINGS:      49000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1CH", CharacterVerseData.StandardCharacter.Narrator)] = 35000; // CHRONICLES
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2CH", CharacterVerseData.StandardCharacter.Narrator)] = 36000; // CHRONICLES: 71000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZR", CharacterVerseData.StandardCharacter.Narrator)] = 10000; // EZRA:       10000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("NEH", CharacterVerseData.StandardCharacter.Narrator)] = 13000; // NEHEMIAH:   13000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EST", CharacterVerseData.StandardCharacter.Narrator)] = 10000; // ESTHER:     10000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JOB", CharacterVerseData.StandardCharacter.Narrator)] = 42000; // JOB:        42000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("PSA", CharacterVerseData.StandardCharacter.Narrator)] = 99999; // PSALMS:     99999
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("PRO", CharacterVerseData.StandardCharacter.Narrator)] = 31000; // SOLOMON
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ECC", CharacterVerseData.StandardCharacter.Narrator)] = 12000; // SOLOMON
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("SNG", CharacterVerseData.StandardCharacter.Narrator)] = 8000; // SOLOMON:     51000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ISA", CharacterVerseData.StandardCharacter.Narrator)] = 66000; // ISAIAH:     66000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JER", CharacterVerseData.StandardCharacter.Narrator)] = 52000; // JEREMIAH
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LAM", CharacterVerseData.StandardCharacter.Narrator)] = 5000; // JEREMIAH:    57000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EZK", CharacterVerseData.StandardCharacter.Narrator)] = 48000; // EZEKIEL:    48000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("DAN", CharacterVerseData.StandardCharacter.Narrator)] = 12000; // DANIEL:     12000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HOS", CharacterVerseData.StandardCharacter.Narrator)] = 14000; // HOSEA:      14000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JOL", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // JOEL:         3000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("AMO", CharacterVerseData.StandardCharacter.Narrator)] = 9000; // AMOS:         9000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("OBA", CharacterVerseData.StandardCharacter.Narrator)] = 1000; // OBADIAH:      1000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JON", CharacterVerseData.StandardCharacter.Narrator)] = 4000; // JONAH:        4000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("MIC", CharacterVerseData.StandardCharacter.Narrator)] = 7000; // MICAH:        7000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("NAM", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // NAHUM:        3000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HAB", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // HABAKKUK:     3000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ZEP", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // ZEPHANIAH:    3000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HAG", CharacterVerseData.StandardCharacter.Narrator)] = 2000; // HAGGAI:       2000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ZEC", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // ZECHARIAH:    3000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("MAL", CharacterVerseData.StandardCharacter.Narrator)] = 4000; // MALACHI:      4000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.Narrator)] = 28000; // MATTHEW:    28000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator)] = 16000; // MARK:       16000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.Narrator)] = 24000; // LUKE
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator)] = 28000; // LUKE:       52000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JHN", CharacterVerseData.StandardCharacter.Narrator)] = 20000; // JOHN
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1JN", CharacterVerseData.StandardCharacter.Narrator)] = 5000; // JOHN
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2JN", CharacterVerseData.StandardCharacter.Narrator)] = 1000; // JOHN
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("3JN", CharacterVerseData.StandardCharacter.Narrator)] = 1000; // JOHN
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("REV", CharacterVerseData.StandardCharacter.Narrator)] = 22000; // JOHN:       49000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator)] = 16000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1CO", CharacterVerseData.StandardCharacter.Narrator)] = 16000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2CO", CharacterVerseData.StandardCharacter.Narrator)] = 13000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator)] = 6000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("EPH", CharacterVerseData.StandardCharacter.Narrator)] = 6000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("PHP", CharacterVerseData.StandardCharacter.Narrator)] = 4000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("COL", CharacterVerseData.StandardCharacter.Narrator)] = 4000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1TH", CharacterVerseData.StandardCharacter.Narrator)] = 5000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2TH", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1TI", CharacterVerseData.StandardCharacter.Narrator)] = 6000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2TI", CharacterVerseData.StandardCharacter.Narrator)] = 4000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("TIT", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // PAUL
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("PHM", CharacterVerseData.StandardCharacter.Narrator)] = 1000; // PAUL:        87000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("HEB", CharacterVerseData.StandardCharacter.Narrator)] = 13000; // HEBREWS:    13000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JAS", CharacterVerseData.StandardCharacter.Narrator)] = 5000; // JAMES:        5000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("1PE", CharacterVerseData.StandardCharacter.Narrator)] = 5000; // PETER
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("2PE", CharacterVerseData.StandardCharacter.Narrator)] = 3000; // PETER:        8000
-			m_keyStrokesByBook[CharacterVerseData.GetStandardCharacterId("JUD", CharacterVerseData.StandardCharacter.Narrator)] = 1000; // JUDE:         1000
+			m_keyStrokesByBook[GetNarratorId("GEN")] = 50000; // MOSES
+			m_keyStrokesByBook[GetNarratorId("EXO")] = 40000; // MOSES
+			m_keyStrokesByBook[GetNarratorId("LEV")] = 27000; // MOSES
+			m_keyStrokesByBook[GetNarratorId("NUM")] = 36000; // MOSES
+			m_keyStrokesByBook[GetNarratorId("DEU")] = 34000; // MOSES:     187000
+			m_keyStrokesByBook[GetNarratorId("JOS")] = 24000; // JOSHUA:     24000
+			m_keyStrokesByBook[GetNarratorId("JDG")] = 21000; // JUDGES:     21000
+			m_keyStrokesByBook[GetNarratorId("RUT")] = 4000; // RUTH:        4000
+			m_keyStrokesByBook[GetNarratorId("1SA")] = 31000; // SAMUEL
+			m_keyStrokesByBook[GetNarratorId("2SA")] = 24000; // SAMUEL:     55000
+			m_keyStrokesByBook[GetNarratorId("1KI")] = 24000; // KINGS
+			m_keyStrokesByBook[GetNarratorId("2KI")] = 25000; // KINGS:      49000
+			m_keyStrokesByBook[GetNarratorId("1CH")] = 35000; // CHRONICLES
+			m_keyStrokesByBook[GetNarratorId("2CH")] = 36000; // CHRONICLES: 71000
+			m_keyStrokesByBook[GetNarratorId("EZR")] = 10000; // EZRA:       10000
+			m_keyStrokesByBook[GetNarratorId("NEH")] = 13000; // NEHEMIAH:   13000
+			m_keyStrokesByBook[GetNarratorId("EST")] = 10000; // ESTHER:     10000
+			m_keyStrokesByBook[GetNarratorId("JOB")] = 42000; // JOB:        42000
+			m_keyStrokesByBook[GetNarratorId("PSA")] = 99999; // PSALMS:     99999
+			m_keyStrokesByBook[GetNarratorId("PRO")] = 31000; // SOLOMON
+			m_keyStrokesByBook[GetNarratorId("ECC")] = 12000; // SOLOMON
+			m_keyStrokesByBook[GetNarratorId("SNG")] = 8000; // SOLOMON:     51000
+			m_keyStrokesByBook[GetNarratorId("ISA")] = 66000; // ISAIAH:     66000
+			m_keyStrokesByBook[GetNarratorId("JER")] = 52000; // JEREMIAH
+			m_keyStrokesByBook[GetNarratorId("LAM")] = 5000; // JEREMIAH:    57000
+			m_keyStrokesByBook[GetNarratorId("EZK")] = 48000; // EZEKIEL:    48000
+			m_keyStrokesByBook[GetNarratorId("DAN")] = 12000; // DANIEL:     12000
+			m_keyStrokesByBook[GetNarratorId("HOS")] = 14000; // HOSEA:      14000
+			m_keyStrokesByBook[GetNarratorId("JOL")] = 3000; // JOEL:         3000
+			m_keyStrokesByBook[GetNarratorId("AMO")] = 9000; // AMOS:         9000
+			m_keyStrokesByBook[GetNarratorId("OBA")] = 1000; // OBADIAH:      1000
+			m_keyStrokesByBook[GetNarratorId("JON")] = 4000; // JONAH:        4000
+			m_keyStrokesByBook[GetNarratorId("MIC")] = 7000; // MICAH:        7000
+			m_keyStrokesByBook[GetNarratorId("NAM")] = 3000; // NAHUM:        3000
+			m_keyStrokesByBook[GetNarratorId("HAB")] = 3000; // HABAKKUK:     3000
+			m_keyStrokesByBook[GetNarratorId("ZEP")] = 3000; // ZEPHANIAH:    3000
+			m_keyStrokesByBook[GetNarratorId("HAG")] = 2000; // HAGGAI:       2000
+			m_keyStrokesByBook[GetNarratorId("ZEC")] = 3000; // ZECHARIAH:    3000
+			m_keyStrokesByBook[GetNarratorId("MAL")] = 4000; // MALACHI:      4000
+			m_keyStrokesByBook[GetNarratorId("MAT")] = 28000; // MATTHEW:    28000
+			m_keyStrokesByBook[GetNarratorId("MRK")] = 16000; // MARK:       16000
+			m_keyStrokesByBook[GetNarratorId("LUK")] = 24000; // LUKE
+			m_keyStrokesByBook[GetNarratorId("ACT")] = 28000; // LUKE:       52000
+			m_keyStrokesByBook[GetNarratorId("JHN")] = 20000; // JOHN
+			m_keyStrokesByBook[GetNarratorId("1JN")] = 5000; // JOHN
+			m_keyStrokesByBook[GetNarratorId("2JN")] = 1000; // JOHN
+			m_keyStrokesByBook[GetNarratorId("3JN")] = 1000; // JOHN
+			m_keyStrokesByBook[GetNarratorId("REV")] = 22000; // JOHN:       49000
+			m_keyStrokesByBook[GetNarratorId("ROM")] = 16000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("1CO")] = 16000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("2CO")] = 13000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("GAL")] = 6000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("EPH")] = 6000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("PHP")] = 4000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("COL")] = 4000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("1TH")] = 5000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("2TH")] = 3000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("1TI")] = 6000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("2TI")] = 4000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("TIT")] = 3000; // PAUL
+			m_keyStrokesByBook[GetNarratorId("PHM")] = 1000; // PAUL:        87000
+			m_keyStrokesByBook[GetNarratorId("HEB")] = 13000; // HEBREWS:    13000
+			m_keyStrokesByBook[GetNarratorId("JAS")] = 5000; // JAMES:        5000
+			m_keyStrokesByBook[GetNarratorId("1PE")] = 5000; // PETER
+			m_keyStrokesByBook[GetNarratorId("2PE")] = 3000; // PETER:        8000
+			m_keyStrokesByBook[GetNarratorId("JUD")] = 1000; // JUDE:         1000
 
 			m_authorStats = new List<AuthorStats>();
 
@@ -429,7 +429,7 @@ namespace GlyssenTests.Rules
 			// Obadiah and Jude are tied for the fewest number of keystrokes. Haggai is by itself in second-to-last place.
 			// Joel, Nahum, Habakkuk, Zephaniah, and Zechariah are all tied for third-to-last place.
 			var bookCombinedWithHaggai = CharacterVerseData.GetBookCodeFromStandardCharacterId(narratorGroups[35].CharacterIds.Single(
-				c => c != CharacterVerseData.GetStandardCharacterId("HAG", CharacterVerseData.StandardCharacter.Narrator)));
+				c => c != GetNarratorId("HAG")));
 			string bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor;
 			if (bookCombinedWithHaggai == "JUD")
 				bookWhoseAuthorCombinedWithThirdToLastPlaceAuthor = "OBA";
@@ -615,6 +615,477 @@ namespace GlyssenTests.Rules
 				characterDetails
 				)
 			);
+		}
+	}
+
+	[TestFixture]
+	class TrialGroupConfigurationTestsNarationByAuthorWithPaulPeterMisc : CharacterGroupGeneratorAndAdjusterTestBase
+	{
+		private readonly string idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
+		private readonly string idPeter = BiblicalAuthors.GetAuthorOfBook("2PE").Name;
+		private readonly string narratorGalForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator));
+		private readonly string narrator2PeForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("2PE", CharacterVerseData.StandardCharacter.Narrator));
+		private readonly string narratorMrkForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("MRK", CharacterVerseData.StandardCharacter.Narrator));
+		private readonly string narratorActForUi = CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.Narrator));
+		private Dictionary<string, int> m_keyStrokesByCharId;
+		private List<CharacterDetail> m_includedCharacterDetails;
+		private Dictionary<string, CharacterDetail> m_characterDetails;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.ACT, TestProject.TestBook.MRK,
+				TestProject.TestBook.GAL, TestProject.TestBook.IIPE_NoData);
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.AllActors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = Int32.MaxValue; // Tests have to set this to a valid value!
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		private List<CharacterGroup> PopulateGroups()
+		{
+			SetVoiceActors(m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+
+			var groups = new List<CharacterGroup>(m_testProject.VoiceActorList.AllActors.Count);
+			foreach (Glyssen.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
+			{
+				var group = new CharacterGroup(m_testProject);
+				group.AssignVoiceActor(actor.Id);
+				groups.Add(group);
+			}
+			return groups;
+		}
+
+		private void PopulateKeyStrokesByCharId(int charactersSpokenByNarratorOfGalatians,
+			int charactersSpokenByNarratorOf2Peter, int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_keyStrokesByCharId = new Dictionary<string, int>
+			{
+				[GetNarratorId("ACT")] = 50000,
+				[GetNarratorId("MRK")] = 25000,
+				[GetNarratorId("GAL")] = charactersSpokenByNarratorOfGalatians,
+				[GetNarratorId("2PE")] = charactersSpokenByNarratorOf2Peter,
+				[idPaul] = charactersSpokenByPaul,
+				[idPeter] = charactersSpokenByPeter
+			};
+		}
+
+		private void PopulateCharacterDetails()
+		{
+			m_includedCharacterDetails = new List<CharacterDetail>();
+			m_characterDetails = new Dictionary<string, CharacterDetail>();
+			foreach (var charId in m_keyStrokesByCharId.Keys)
+			{
+				var detail = new CharacterDetail
+				{
+					CharacterId = charId,
+					StandardCharacterType = CharacterVerseData.GetStandardCharacterType(charId)
+				};
+				m_includedCharacterDetails.Add(detail);
+				m_characterDetails[charId] = detail;
+			}
+		}
+
+		[TestCase(30000, 30000, 1000, 999, "GAL")]
+		[TestCase(30000, 30000, 999, 1000, "2PE")]
+		[TestCase(30000, 29000, 1000, 1000, "GAL")]
+		[TestCase(29000, 30000, 1000, 1000, "2PE")]
+		[TestCase(30000, 29000, 900, 1000, "GAL")]
+		[TestCase(29000, 30000, 1000, 900, "2PE")]
+		public void GeneratePossibilities_TwoNarrators_PaulByHimselfAndPeterNotInNarratorGroup(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter, string expectedBookToGroupWithAuthor)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+
+			var authorsGroup = GetNarratorGroupForBook(narratorGroups, expectedBookToGroupWithAuthor);
+			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
+			Assert.AreEqual(2, authorsGroup.CharacterIds.Count);
+			Assert.AreEqual(3, narratorGroupForActs.CharacterIds.Count);
+			string expectedNarrToGroupWithActsAndMark, idAuthorCharacter;
+			if (expectedBookToGroupWithAuthor == "GAL")
+			{
+				expectedNarrToGroupWithActsAndMark = narrator2PeForUi;
+				idAuthorCharacter = idPaul;
+			}
+			else
+			{
+				expectedNarrToGroupWithActsAndMark = narratorGalForUi;
+				idAuthorCharacter = idPeter;
+			}
+
+			Assert.IsTrue(authorsGroup.CharacterIds.ToList().Contains(idAuthorCharacter));
+			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { narratorMrkForUi, narratorActForUi, expectedNarrToGroupWithActsAndMark }));
+		}
+
+		[TestCase(30000, 2900, 1000, 999)]
+		[TestCase(3000, 3000, 999, 1000)]
+		[TestCase(2900, 3000, 1000, 999)]
+		[TestCase(2900, 3000, 999, 1000)]
+		public void GeneratePossibilities_ThreeNarrators_SplitGroupsForPaulAndPeterAndEverybodyElse(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+
+			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
+			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
+			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
+
+			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { narratorGalForUi, idPaul }));
+			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { narrator2PeForUi, idPeter }));
+			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { narratorMrkForUi, narratorActForUi }));
+		}
+
+		[TestCase(60000, 60000, 1000, 999)]
+		[TestCase(30000, 30000, 999, 1000)]
+		[TestCase(52000, 2900, 1000, 999)]
+		[TestCase(3000, 3000, 999, 1000)]
+		[TestCase(2900, 3000, 1000, 999)]
+		[TestCase(2900, 3000, 999, 1000)]
+		public void GeneratePossibilities_FourNarrators_SplitGroupsForPaulAndPeterAndLukeAndActs(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+
+			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
+			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
+			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
+			var narratorGroupForMark = GetNarratorGroupForBook(narratorGroups, "MRK");
+
+			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { narratorGalForUi, idPaul }));
+			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { narrator2PeForUi, idPeter }));
+			Assert.AreEqual(1, narratorGroupForActs.CharacterIds.Count);
+			Assert.AreEqual(1, narratorGroupForMark.CharacterIds.Count);
+		}
+	}
+
+	[TestFixture]
+	class TrialGroupConfigurationTestsNarationByAuthorWithWholeNT : CharacterGroupGeneratorAndAdjusterTestBase
+	{
+		private readonly string idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
+		private readonly string idPeter = BiblicalAuthors.GetAuthorOfBook("2PE").Name;
+		private readonly string idJames = BiblicalAuthors.GetAuthorOfBook("JAS").Name;
+		private Dictionary<string, int> m_keyStrokesByCharId;
+		private List<CharacterDetail> m_includedCharacterDetails;
+		private Dictionary<string, CharacterDetail> m_characterDetails;
+
+		[TestFixtureSetUp]
+		public void TextFixtureSetUp()
+		{
+			// Use a test version of the file so the tests won't break every time we fix a problem in the production control file.
+			ControlCharacterVerseData.TabDelimitedCharacterVerseData = Resources.TestCharacterVerse;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.TestCharacterDetail;
+			RelatedCharactersData.Source = Resources.TestRelatedCharacters;
+			m_testProject = TestProject.CreateTestProject(
+				TestProject.TestBook.MAT,
+				TestProject.TestBook.MRK,
+				TestProject.TestBook.LUK,
+				TestProject.TestBook.JHN,
+				TestProject.TestBook.ACT,
+				TestProject.TestBook.ROM_NoData,
+				TestProject.TestBook.ICO,
+				TestProject.TestBook.IICO_NoData,
+				TestProject.TestBook.GAL,
+				TestProject.TestBook.EPH,
+				TestProject.TestBook.PHP_NoData,
+				TestProject.TestBook.COL_NoData,
+				TestProject.TestBook.ITH_NoData,
+				TestProject.TestBook.IITH_NoData,
+				TestProject.TestBook.ITI_NoData,
+				TestProject.TestBook.IITI_NoData,
+				TestProject.TestBook.TIT_NoData,
+				TestProject.TestBook.PHM,
+				TestProject.TestBook.HEB,
+				TestProject.TestBook.JAS_NoData,
+				TestProject.TestBook.IPE_NoData,
+				TestProject.TestBook.IIPE_NoData,
+				TestProject.TestBook.IJN,
+				TestProject.TestBook.IIJN,
+				TestProject.TestBook.IIIJN,
+				TestProject.TestBook.JUD,
+				TestProject.TestBook.REV);
+			m_testProject.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.NotSet;
+			m_testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+			m_testProject.CharacterGroupGenerationPreferences.IsSetByUser = true;
+		}
+
+		[SetUp]
+		public void SetUp()
+		{
+			m_testProject.VoiceActorList.AllActors.Clear();
+			m_testProject.CharacterGroupList.CharacterGroups.Clear();
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = Int32.MaxValue; // Tests have to set this to a valid value!
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			TestProject.DeleteTestProjectFolder();
+		}
+
+		private List<CharacterGroup> PopulateGroups()
+		{
+			SetVoiceActors(m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+
+			var groups = new List<CharacterGroup>(m_testProject.VoiceActorList.AllActors.Count);
+			foreach (Glyssen.VoiceActor.VoiceActor actor in m_testProject.VoiceActorList.AllActors)
+			{
+				var group = new CharacterGroup(m_testProject);
+				group.AssignVoiceActor(actor.Id);
+				groups.Add(group);
+			}
+			return groups;
+		}
+
+		private void PopulateKeyStrokesByCharId(int charactersSpokenByNarratorOfGalatians,
+			int charactersSpokenByNarratorOf2Peter, int charactersSpokenByPaul, int charactersSpokenByPeter,
+			int defaultCharcCount = 9000)
+		{
+			m_keyStrokesByCharId = new Dictionary<string, int>
+			{
+				[GetNarratorId("ACT")] = 50000,
+				[GetNarratorId("MRK")] = 25000,
+				[GetNarratorId("JHN")] = 35000,
+				[GetNarratorId("REV")] = 25000,
+				[GetNarratorId("GAL")] = charactersSpokenByNarratorOfGalatians,
+				[GetNarratorId("2PE")] = charactersSpokenByNarratorOf2Peter,
+				[BiblicalAuthors.GetAuthorOfBook("JAS").Name] = 1000,
+				[idPaul] = charactersSpokenByPaul,
+				[idPeter] = charactersSpokenByPeter
+			};
+			foreach (var bookNarrator in m_testProject.IncludedBooks.Select(b => GetNarratorId(b.BookId)))
+			{
+				if (!m_keyStrokesByCharId.ContainsKey(bookNarrator))
+					m_keyStrokesByCharId[bookNarrator] = defaultCharcCount;
+			}
+		}
+
+		private void PopulateCharacterDetails()
+		{
+			m_includedCharacterDetails = new List<CharacterDetail>();
+			m_characterDetails = new Dictionary<string, CharacterDetail>();
+			foreach (var charId in m_keyStrokesByCharId.Keys)
+			{
+				var detail = new CharacterDetail
+				{
+					CharacterId = charId,
+					StandardCharacterType = CharacterVerseData.GetStandardCharacterType(charId)
+				};
+				m_includedCharacterDetails.Add(detail);
+				m_characterDetails[charId] = detail;
+			}
+		}
+
+		[TestCase(30000, 30000, 1000, 999)]
+		[TestCase(30000, 29000, 1000, 1000)]
+		[TestCase(30000, 29000, 900, 1000)]
+		public void GeneratePossibilities_TwoNarrators_OnlyPaulGroupedwithCharacter(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 2;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+
+			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
+			var authorsGroup = GetNarratorGroupForBook(narratorGroups, "ROM");
+			Assert.AreNotEqual(narratorGroupForActs, authorsGroup);
+
+			Assert.IsTrue(authorsGroup.CharacterIds.ToList().Contains(idPaul));
+			var narratorsForAuthor = authorsGroup.CharacterIds.Where(c => c != idPaul).ToList();
+			Assert.IsTrue(narratorsForAuthor.All(n => BiblicalAuthors.GetAuthorOfBook(CharacterVerseData.GetBookCodeFromStandardCharacterId(n))
+				.Name == idPaul));
+			Assert.IsTrue(narratorGroupForActs.CharacterIds.All(c =>
+				CharacterVerseData.GetStandardCharacterType(c) == CharacterVerseData.StandardCharacter.Narrator));
+			Assert.IsFalse(authorsGroup.CharacterIds.ToList().Intersect(narratorGroupForActs.CharacterIds.ToList()).Any());
+		}
+
+		[TestCase(30000, 2900, 1000, 999)]
+		[TestCase(3000, 3000, 999, 1000)]
+		[TestCase(2900, 3000, 1000, 999)]
+		[TestCase(2900, 3000, 999, 1000)]
+		public void GeneratePossibilities_ThreeNarrators_SplitGroupsForPaulAndPeterAndEverybodyElse(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 3;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+
+			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
+			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
+			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
+
+			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"), GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"),
+				GetNarrUi("2TH"), GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
+			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
+			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("MAT"), GetNarrUi("MRK"), GetNarrUi("LUK"),
+				GetNarrUi("JHN"), GetNarrUi("ACT"), GetNarrUi("HEB"), GetNarrUi("JAS"), GetNarrUi("1JN"),
+				GetNarrUi("2JN"), GetNarrUi("3JN"), GetNarrUi("JUD"), GetNarrUi("REV") }));
+		}
+
+		[TestCase(60000, 60000, 1000, 999)]
+		[TestCase(30000, 30000, 999, 1000)]
+		[TestCase(52000, 2900, 1000, 999)]
+		[TestCase(3000, 3000, 999, 1000)]
+		[TestCase(2900, 3000, 1000, 999)]
+		[TestCase(2900, 3000, 999, 1000)]
+		public void GeneratePossibilities_FourNarrators_SplitGroupsForPaulAndPeterAndJamesAndEverybodyElse(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 4;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+
+			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
+			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
+			var jamesGroup = GetNarratorGroupForBook(narratorGroups, "JAS");
+			var narratorGroupForActs = GetNarratorGroupForBook(narratorGroups, "ACT");
+
+			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"), GetNarrUi("GAL"), GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"),
+				GetNarrUi("2TH"), GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
+			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
+			Assert.IsTrue(jamesGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("JAS"), idJames }));
+			Assert.IsTrue(narratorGroupForActs.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("MAT"), GetNarrUi("MRK"), GetNarrUi("LUK"), GetNarrUi("JHN"), GetNarrUi("ACT"), GetNarrUi("HEB"), GetNarrUi("1JN"),
+				GetNarrUi("2JN"), GetNarrUi("3JN"), GetNarrUi("JUD"), GetNarrUi("REV") }));
+		}
+
+		[TestCase(60000, 60000, 1000, 999)]
+		[TestCase(30000, 30000, 999, 1000)]
+		[TestCase(52000, 2900, 1000, 999)]
+		[TestCase(3000, 3000, 999, 1000)]
+		[TestCase(2900, 3000, 1000, 999)]
+		[TestCase(2900, 3000, 999, 1000)]
+		public void GeneratePossibilities_FiveNarrators_SplitGroupsForPaulAndPeterAndJamesAndTwoOtherNarratorGroups(
+			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
+			int charactersSpokenByPaul, int charactersSpokenByPeter)
+		{
+			m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 5;
+
+			var groups = PopulateGroups();
+			PopulateKeyStrokesByCharId(charactersSpokenByNarratorOfGalatians, charactersSpokenByNarratorOf2Peter,
+				charactersSpokenByPaul, charactersSpokenByPeter);
+			PopulateCharacterDetails();
+
+			var result = CharacterGroupGenerator.TrialGroupConfiguration.GeneratePossibilities(false, groups,
+				m_testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators, 0, false,
+				m_includedCharacterDetails, m_keyStrokesByCharId, m_testProject, m_characterDetails).Single();
+
+			var narratorGroups = result.NarratorGroups;
+			Assert.AreEqual(groups.Count, narratorGroups.Count);
+			Assert.AreEqual(27, narratorGroups.Sum(g => g.CharacterIds.Count(
+				c => CharacterVerseData.IsCharacterOfType(c, CharacterVerseData.StandardCharacter.Narrator))));
+
+			var paulGroup = GetNarratorGroupForBook(narratorGroups, "GAL");
+			var peterGroup = GetNarratorGroupForBook(narratorGroups, "2PE");
+			var jamesGroup = GetNarratorGroupForBook(narratorGroups, "JAS");
+			var johnGroup = GetNarratorGroupForBook(narratorGroups, "JHN");
+			var otherNarratorGroup = GetNarratorGroupForBook(narratorGroups, "ACT");
+			Assert.AreNotEqual(johnGroup, otherNarratorGroup);
+
+			Assert.IsTrue(paulGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("ROM"), GetNarrUi("1CO"), GetNarrUi("2CO"),
+				GetNarrUi("GAL"), GetNarrUi("EPH"), GetNarrUi("PHP"), GetNarrUi("COL"), GetNarrUi("1TH"), GetNarrUi("2TH"),
+				GetNarrUi("1TI"), GetNarrUi("2TI"), GetNarrUi("TIT"), GetNarrUi("PHM"), idPaul }));
+			Assert.IsTrue(peterGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("1PE"), GetNarrUi("2PE"), idPeter }));
+			Assert.IsTrue(jamesGroup.CharacterIds.ToList().SetEquals(new[] { GetNarrUi("JAS"), idJames }));
+			// Algorithm will group another small book with John's
+			Assert.IsTrue(johnGroup.CharacterIds.IsProperSupersetOf(new[] { "narrator-JHN", "narrator-1JN", "narrator-2JN",
+				"narrator-3JN", "narrator-REV" }));
+			Assert.IsTrue(otherNarratorGroup.CharacterIds.IsProperSupersetOf(new[] { "narrator-ACT", "narrator-MRK" }));
+		}
+
+		private string GetNarrUi(string bookId)
+		{
+			return CharacterVerseData.GetCharacterNameForUi(CharacterVerseData.GetStandardCharacterId(
+				bookId, CharacterVerseData.StandardCharacter.Narrator));
 		}
 	}
 }
