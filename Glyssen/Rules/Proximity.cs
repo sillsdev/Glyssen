@@ -94,13 +94,20 @@ namespace Glyssen.Rules
 					var author = BiblicalAuthors.GetAuthorOfBook(book.BookId);
 					if (author.CombineAuthorAndNarrator)
 					{
+						var narrator = CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator);
 						HashSet<string> charactersToTreatAsOneWithNarrator;
-						if (!treatAsSameCharacter.TryGetValue(CharacterVerseData.StandardCharacter.Narrator, out charactersToTreatAsOneWithNarrator))
+						if (treatAsSameCharacter.TryGetValue(CharacterVerseData.StandardCharacter.Narrator, out charactersToTreatAsOneWithNarrator))
+						{
+							foreach (var set in treatAsSameCharacter.Values.Where(s => s.Contains(narrator)))
+								set.Add(author.Name);
+						}
+						else
 						{
 							charactersToTreatAsOneWithNarrator = new HashSet<string>();
 							treatAsSameCharacter.Add(CharacterVerseData.StandardCharacter.Narrator, charactersToTreatAsOneWithNarrator);
+							charactersToTreatAsOneWithNarrator.Add(narrator);
+							charactersToTreatAsOneWithNarrator.Add(author.Name);
 						}
-						charactersToTreatAsOneWithNarrator.Add(author.Name);
 					}
 				}
 
@@ -165,6 +172,7 @@ namespace Glyssen.Rules
 						currentBlockCount = 0;
 						prevBook = book;
 						prevBlock = block;
+						prevMatchingCharacterIds = matchingCharacterIds;
 					}
 					else if (characterIdsToCalculate.Intersect(matchingCharacterIds).Any())
 					{

@@ -218,8 +218,9 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
 		}
 
-		[Test]
-		public void CalculateMinimumProximity_NarrationByAuthor_CharacterSpeakingInBookHeNarratesResultsInMaxProximity()
+		[TestCase(CharacterVerseData.StandardCharacter.Narrator)]
+		[TestCase(CharacterVerseData.StandardCharacter.BookOrChapter)]
+		public void CalculateMinimumProximity_NarrationByAuthor_CharacterSpeakingInBookHeNarratesResultsInMaxProximity(CharacterVerseData.StandardCharacter typeOfStandardCharacter)
 		{
 			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL);
 			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
@@ -236,7 +237,7 @@ namespace GlyssenTests.Rules
 
 			var characterIds = new HashSet<string>
 			{
-				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", typeOfStandardCharacter),
 				idPaul
 			};
 
