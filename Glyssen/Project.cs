@@ -1829,6 +1829,101 @@ namespace Glyssen
 		{
 			public ProjectState ProjectState { get; set; }
 		}
+
+		/// <summary>
+		/// </summary>
+		/// <param name="runningTests">The logic when this is false is superior.
+		/// However, unfortunately, we have tests whose results depend on the inferior logic.
+		/// When I combined the TestProject method with this one, I was too lazy to bother reworking
+		/// those tests, so we have this optional parameter for now.</param>
+		public void DoDemoDisambiguation(bool runningTests = false)
+		{
+			Logger.WriteEvent("Doing demo disambiguation");
+			var cvData = new CombinedCharacterVerseData(this);
+
+			foreach (var book in IncludedBooks)
+			{
+				var bookNum = BCVRef.BookToNumber(book.BookId);
+				List<Block> blocksForMultiBlockQuote = null;
+				CharacterVerse characterForMultiBlockQuote = null;
+				int iCharacter = 0;
+				List<CharacterVerse> charactersForVerse = null;
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.StartsAtVerseStart)
+					{
+						iCharacter = 0;
+						charactersForVerse = null;
+					}
+					if (block.MultiBlockQuote == MultiBlockQuote.Start)
+						blocksForMultiBlockQuote = new List<Block>();
+					else if (block.MultiBlockQuote == MultiBlockQuote.None)
+					{
+						ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
+					}
+					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
+					{
+						block.SetCharacterAndCharacterIdInScript(
+							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
+							Versification);
+						block.UserConfirmed = true;
+					}
+					else if (block.CharacterId == CharacterVerseData.kAmbiguousCharacter)
+					{
+						blocksForMultiBlockQuote?.Add(block);
+
+						if (runningTests || charactersForVerse == null)
+							charactersForVerse = cvData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
+								block.InitialEndVerseNumber, versification: Versification).ToList();
+
+						if (!charactersForVerse.Any())
+							continue;
+
+						var cvEntry = runningTests ? charactersForVerse[0] : charactersForVerse[iCharacter++];
+						if (iCharacter == charactersForVerse.Count)
+							iCharacter = 0;
+						if (blocksForMultiBlockQuote != null)
+						{
+							characterForMultiBlockQuote = cvEntry;
+							continue;
+						}
+						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, Versification);
+						block.Delivery = cvEntry.Delivery;
+						block.UserConfirmed = true;
+					}
+				}
+				ProcessMultiBlock(bookNum, ref blocksForMultiBlockQuote, ref characterForMultiBlockQuote);
+
+#if DEBUG
+				foreach (var block in book.GetScriptBlocks())
+				{
+					if (block.CharacterIsUnclear())
+						Debug.Fail("Failed to disambiguate");
+				}
+#endif
+			}
+		}
+
+		private void ProcessMultiBlock(int bookNum, ref List<Block> blocksForMultiBlockQuote, ref CharacterVerse characterForMultiBlockQuote)
+		{
+			if (blocksForMultiBlockQuote != null)
+			{
+				foreach (var blockForMultiBlockQuote in blocksForMultiBlockQuote)
+				{
+					blockForMultiBlockQuote.SetCharacterAndCharacterIdInScript(characterForMultiBlockQuote.Character, bookNum,
+						Versification);
+					blockForMultiBlockQuote.Delivery = characterForMultiBlockQuote.Delivery;
+					blockForMultiBlockQuote.UserConfirmed = true;
+				}
+				blocksForMultiBlockQuote = null;
+				characterForMultiBlockQuote = null;
+			}
+		}
+
+		public void DoTestDisambiguation()
+		{
+			DoDemoDisambiguation(true);
+		}
 	}
 
 	[Flags]
