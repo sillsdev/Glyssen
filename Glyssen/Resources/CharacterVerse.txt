@@ -1,4 +1,4 @@
-Control File Version	117
+Control File Version	118
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -16016,15 +16016,15 @@ REV	3	20	Jesus		someone like a son of man	Normal
 REV	3	21	Jesus		someone like a son of man	Normal		
 REV	3	22	Jesus		someone like a son of man	Normal		
 REV	4	1	Jesus		voice like a trumpet	Normal		
-REV	4	8	four living creatures			Normal		
+REV	4	8	living creature, first/living creature, second/living creature, third/living creature, fourth		four living creatures	Normal		
 REV	4	11	twenty-four elders			Normal		
 REV	5	2	angel, powerful	loud		Normal		
 REV	5	5	elders, one of the			Normal		
-REV	5	9	four living creatures/twenty-four elders	singing		Normal		
-REV	5	10	four living creatures/twenty-four elders	singing		Normal		
+REV	5	9	living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders	singing	four living creatures/twenty-four elders	Normal		
+REV	5	10	living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders	singing	four living creatures/twenty-four elders	Normal		
 REV	5	12	angels, many	singing		Normal		
 REV	5	13	every created thing	singing		Normal		
-REV	5	14	four living creatures			Normal		
+REV	5	14	living creature, first/living creature, second/living creature, third/living creature, fourth		four living creatures	Normal		
 REV	6	1	living creature, first	loud		Normal		
 REV	6	3	living creature, second			Normal		
 REV	6	5	living creature, third			Normal		
@@ -16146,7 +16146,7 @@ REV	18	24	angel, powerful			Normal
 REV	19	1	voice of great crowd in heaven, loud	shouting		Normal		
 REV	19	2	voice of great crowd in heaven, loud	shouting		Normal		
 REV	19	3	voice of great crowd in heaven, loud	shouting		Normal		
-REV	19	4	twenty-four elders/four living creatures			Normal		
+REV	19	4	twenty-four elders/living creature, first/living creature, second/living creature, third/living creature, fourth		twenty-four elders/four living creatures	Normal		
 REV	19	5	voice from throne			Normal		
 REV	19	6	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
 REV	19	7	voice of great crowd, like roar of many waters, loud thunderclaps	shouting		Normal		
