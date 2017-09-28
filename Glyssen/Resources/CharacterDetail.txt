@@ -346,7 +346,6 @@ fool	1					PSA 14:1 & PSA 53:1
 foot	1	Neuter				1CO 12:15
 foreman	1	Male				RUT 2:6 & RUT 2:7
 fortune telling slave girl	1	Female	YoungAdult			ACT 16:17
-four living creatures	4					REV 4:8 & REV 5:14
 friends of Haman	-1	PreferMale				
 Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37
 Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37
@@ -779,7 +778,7 @@ owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
 parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(1 more)-> JHN 9:23
 Pashur	1	Male			son of Malkijah	
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
-Paul	1	Male				ACT 9:1 <-(193 more)-> 1TH 5:27
+Paul	1	Male				ACT 9:1 <-(184 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 people	-1					2CH 26:23 <-(18 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
@@ -1063,7 +1062,7 @@ voice behind you	1	PreferMale				ISA 30:21
 voice from altar	1	Male				REV 9:14
 voice from among living creatures	1	Male				REV 6:6
 voice from heaven (God?)	1	Male			Possibly God speaking (not identified)	REV 10:4 <-(2 more)-> REV 14:13
-voice from heaven, another	1	Male				REV 18:4 <-(14 more)-> REV 18:19
+voice from heaven, another	1	Male				REV 18:4 <-(15 more)-> REV 18:20
 voice from temple	1					REV 16:1
 voice from throne	1	Male				REV 19:5 <-(1 more)-> REV 21:4
 voice in heaven	13					REV 7:5 <-(4 more)-> REV 13:10

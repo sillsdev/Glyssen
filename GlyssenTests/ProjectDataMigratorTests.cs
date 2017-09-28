@@ -612,7 +612,7 @@ namespace GlyssenTests
 
 			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.True(singersInRev59.All(b => b.CharacterId == "four living creatures/twenty-four elders" &&
+			Assert.True(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
 				b.Delivery == "singing"));
 		}
 
@@ -669,8 +669,8 @@ namespace GlyssenTests
 
 			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.True(singersInRev59.All(b => b.CharacterId == "four living creatures/twenty-four elders" &&
-				b.CharacterIdInScript == "four living creatures"));
+			Assert.True(singersInRev59.All(b => b.CharacterId == "living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" &&
+				b.CharacterIdInScript == "living creature, first"));
 		}
 
 		[Test]
