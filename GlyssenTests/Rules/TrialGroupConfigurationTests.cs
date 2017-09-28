@@ -710,7 +710,7 @@ namespace GlyssenTests.Rules
 		[TestCase(29000, 30000, 1000, 1000, "2PE")]
 		[TestCase(30000, 29000, 900, 1000, "GAL")]
 		[TestCase(29000, 30000, 1000, 900, "2PE")]
-		public void GeneratePossibilities_TwoNarrators_PaulByHimselfAndPeterNotInNarratorGroup(
+		public void GeneratePossibilities_TwoNarrators_NarratorAndAuthorWithMostKeystrokesInSeparateNarratorGroupAndOtherAuthorCharacterNotInNarratorGroup(
 			int charactersSpokenByNarratorOfGalatians, int charactersSpokenByNarratorOf2Peter,
 			int charactersSpokenByPaul, int charactersSpokenByPeter, string expectedBookToGroupWithAuthor)
 		{
