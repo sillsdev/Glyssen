@@ -688,8 +688,8 @@
     <verse num="8" />
     <text>И каждое из четырех животных имело по шести крыл вокруг, а внутри они исполнены очей; и ни днем, ни ночью не имеют покоя, взывая:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="four living creatures" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="four living creatures">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth">
       <text>“Holy, holy, holy is the Lord God, the Almighty, who was and who is and who is to come!”</text>
     </ReferenceBlocks>
     <text>“свят, свят, свят Господь Бог Вседержитель, Который был, есть и грядет.”</text>
@@ -824,14 +824,14 @@
     <verse num="9" />
     <text>И поют новую песнь, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" delivery="singing" multiBlockQuote="Start" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" delivery="singing" multiBlockQuote="Start">
       <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.</text>
     </ReferenceBlocks>
     <text>“достоин Ты взять книгу и снять с нее печати, ибо Ты был заклан, и Кровию Своею искупил нас Богу из всякого колена и языка, и народа и племени,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" delivery="singing" multiBlockQuote="Continuation" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
       <verse num="10" />
       <text>You made us kings and priests to our God, and we will reign on earth.”</text>
     </ReferenceBlocks>
@@ -882,8 +882,8 @@
     <verse num="14" />
     <text>И четыре животных говорили:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="four living creatures" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="four living creatures">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth">
       <text>“Amen!”</text>
     </ReferenceBlocks>
     <text>“аминь.”</text>
@@ -3203,8 +3203,8 @@
     <verse num="4" />
     <text>Тогда двадцать четыре старца и четыре животных пали и поклонились Богу, сидящему на престоле, говоря:</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/living creature, first/living creature, second/living creature, third/living creature, fourth" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/living creature, first/living creature, second/living creature, third/living creature, fourth">
       <text>“Amen! Hallelujah!”</text>
     </ReferenceBlocks>
     <text>“аминь! аллилуия!”</text>

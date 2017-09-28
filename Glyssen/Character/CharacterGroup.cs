@@ -63,7 +63,7 @@ namespace Glyssen.Character
 					GroupIdForUiDisplay, GlyssenInfo.kProduct);
 				RemoveVoiceActor();
 			}
-			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(m_project.KeyStrokesByCharacterId);
+			CharacterIds.PriorityComparer = new CharacterByKeyStrokeComparer(characterId => m_project.KeyStrokesByCharacterId[characterId]);
 		}
 
 		public void AssignVoiceActor(int actorId)
@@ -602,19 +602,17 @@ namespace Glyssen.Character
 
 	public class CharacterByKeyStrokeComparer : IComparer<String>
 	{
-		private readonly Dictionary<string, int> m_keystrokesDictionary;
+		private Func<string, int> GetKeystrokesByCharacterId { get; }
 
-		public CharacterByKeyStrokeComparer(Dictionary<string, int> keystrokesDictionary)
+		public CharacterByKeyStrokeComparer(Func<string, int> getKeystrokesByCharacterId)
 		{
-			m_keystrokesDictionary = keystrokesDictionary;
+			GetKeystrokesByCharacterId = getKeystrokesByCharacterId;
 		}
 
 		public int Compare(string x, string y)
 		{
-			int xKeyStrokes;
-			int yKeyStrokes;
-			m_keystrokesDictionary.TryGetValue(x, out xKeyStrokes);
-			m_keystrokesDictionary.TryGetValue(y, out yKeyStrokes);
+			var xKeyStrokes = GetKeystrokesByCharacterId(x);
+			var yKeyStrokes = GetKeystrokesByCharacterId(y);
 			return -xKeyStrokes.CompareTo(yKeyStrokes);
 		}
 	}
