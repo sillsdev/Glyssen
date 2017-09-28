@@ -4109,14 +4109,14 @@
     <verse num="14" />
     <text>This Good News of the Kingdom will be preached in the whole world for a testimony to all the nations, and then the end will come.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Jesus">
     <verse num="15" />
     <text>“When, therefore, you see the abomination of desolation, which was spoken of through Daniel the prophet, standing in the holy place</text>
   </block>
   <block style="p" chapter="24" initialStartVerse="15" characterId="narrator-MAT">
     <text>(let the reader understand),</text>
   </block>
-  <block style="p" chapter="24" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Continuation">
+  <block style="p" chapter="24" initialStartVerse="16" characterId="Jesus" multiBlockQuote="Start">
     <verse num="16" />
     <text>then let those who are in Judea flee to the mountains.</text>
   </block>
