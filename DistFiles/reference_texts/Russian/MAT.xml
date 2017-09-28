@@ -8218,8 +8218,8 @@
     <verse num="14" />
     <text>И проповедано будет сие Евангелие Царствия по всей вселенной, во свидетельство всем народам; и тогда придет конец.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start" matchesReferenceText="true">
-    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Jesus" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Jesus" matchesReferenceText="true">
+    <ReferenceBlocks style="p" paragraphStart="true" chapter="24" initialStartVerse="15" characterId="Jesus">
       <verse num="15" />
       <text>“When, therefore, you see the abomination of desolation, which was spoken of through Daniel the prophet, standing in the holy place</text>
     </ReferenceBlocks>
