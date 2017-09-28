@@ -146,7 +146,8 @@ bride, the (referring to the Church)	-1	PreferFemale	Adult
 brothers at Antioch	-1	Male	Adult			ACT 15:33 & ACT 15:40
 brothers at Ephesus	-1	Male	Adult			ACT 18:27
 brothers at Lystra and Iconium	-1	Male	Adult			ACT 16:2
-brothers at Puteoli	-1	Male	Adult			ACT 28:14 & ACT 28:15
+brothers at Puteoli	-1	Male	Adult			ACT 28:14
+brothers at Rome	-1	Male	Adult			ACT 28:15
 brothers at Thessalonica	-1	Male	Adult			ACT 17:10
 brothers of beloved	-1	Male	Adult			SNG 8:8 & SNG 8:9
 buyer	1	Either	Adult			PRO 20:14
