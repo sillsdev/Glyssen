@@ -344,7 +344,7 @@
     <verse num="8" />
     <text>The four living creatures, each one of them having six wings, are full of eyes around and within. They have no rest day and night, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="four living creatures">
+  <block style="p" paragraphStart="true" chapter="4" initialStartVerse="8" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth">
     <text>“Holy, holy, holy is the Lord God, the Almighty, who was and who is and who is to come!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="4" initialStartVerse="9" characterId="narrator-REV">
@@ -412,10 +412,10 @@
     <verse num="9" />
     <text>They sang a new song, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Start">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="9" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" delivery="singing" multiBlockQuote="Start">
     <text>“You are worthy to take the book, and to open its seals: for you were killed, and bought us for God with your blood, out of every tribe, language, people, and nation.</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="four living creatures/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="10" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth/twenty-four elders" delivery="singing" multiBlockQuote="Continuation">
     <verse num="10" />
     <text>You made us kings and priests to our God, and we will reign on earth.”</text>
   </block>
@@ -441,7 +441,7 @@
     <verse num="14" />
     <text>The four living creatures said,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="four living creatures">
+  <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="living creature, first/living creature, second/living creature, third/living creature, fourth">
     <text>“Amen!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="5" initialStartVerse="14" characterId="narrator-REV">
@@ -1602,7 +1602,7 @@
     <verse num="4" />
     <text>The twenty-four elders and the four living creatures fell down and worshiped God who sits on the throne, saying,</text>
   </block>
-  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/four living creatures">
+  <block style="p" paragraphStart="true" chapter="19" initialStartVerse="4" characterId="twenty-four elders/living creature, first/living creature, second/living creature, third/living creature, fourth">
     <text>“Amen! Hallelujah!”</text>
   </block>
   <block style="p" paragraphStart="true" chapter="19" initialStartVerse="5" characterId="narrator-REV">
