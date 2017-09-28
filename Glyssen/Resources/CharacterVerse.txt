@@ -1,4 +1,4 @@
-Control File Version	118
+Control File Version	119
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15585,7 +15585,7 @@ ACT	28	4	Malta islanders	suspicious		Normal
 ACT	28	6	Malta islanders			Indirect		
 ACT	28	11	narrator-ACT			Quotation		
 ACT	28	14	brothers at Puteoli			Indirect		
-ACT	28	15	brothers at Puteoli			Indirect		
+ACT	28	15	brothers at Rome			Indirect		
 ACT	28	15	Paul			Indirect		
 ACT	28	17	Paul			Dialogue		
 ACT	28	18	Paul			Normal		
