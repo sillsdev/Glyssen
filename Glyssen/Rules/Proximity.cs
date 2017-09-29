@@ -48,7 +48,8 @@ namespace Glyssen.Rules
 		private static void AddOrNew(Dictionary<ExtraBiblicalMaterialSpeakerOption, HashSet<string>> bookData,
 			ExtraBiblicalMaterialSpeakerOption key, string value)
 		{
-			if (!bookData.TryGetValue(key, out var set))
+			HashSet<string> set = null;
+			if (!bookData.TryGetValue(key, out set))
 				bookData[key] = set = new HashSet<string>();
 
 			set.Add(value);
