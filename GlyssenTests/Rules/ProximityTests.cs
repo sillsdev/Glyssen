@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -216,6 +217,98 @@ namespace GlyssenTests.Rules
 			Assert.AreEqual(minProximity.FirstCharacterId, minProximity.SecondCharacterId);
 			Assert.AreEqual("MRK 0:0", minProximity.FirstReference);
 			Assert.AreEqual(minProximity.FirstReference, minProximity.SecondReference);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_NarrationByAuthor_CharacterSpeakingInBookHeNarratesResultsInMaxProximity()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL);
+			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
+			var idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
+			foreach (var block in project.IncludedBooks[0].GetBlocksForVerse(2, 15))
+			{
+				block.CharacterId = idPaul;
+			}
+
+			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.Narrator;
+			project.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 1;
+
+			var proximity = new Proximity(project);
+
+			var characterIds = new HashSet<string>
+			{
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.BookOrChapter),
+				idPaul
+			};
+
+			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+
+			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_NonStrictAdherenceToNarratorPrefs_AllStandardCharactersAndBookAuthorResultsInMaxProximity()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS); // Using Joshua because the test data for Joshua has into material 
+			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
+
+			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
+			// By making theses all different, we force the CharacterGroupGenerator (which we aren't calling here) to put each
+			// type of standard character in a different group, but with "not strict" proximity, we still consider it legit to
+			// manually put them in the same group.
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+
+			var proximity = new Proximity(project, false);
+
+			var characterIds = new HashSet<string>
+			{
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.Intro),
+				CharacterVerseData.GetStandardCharacterId("JOS", CharacterVerseData.StandardCharacter.BookOrChapter),
+			};
+
+			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+
+			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
+		}
+
+		[Test]
+		public void CalculateMinimumProximity_NarrationByAuthor_NonStrictAdherenceToNarratorPrefs_AllStandardCharactersAndBookAuthorResultsInMaxProximity()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL);
+			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
+			var idPaul = BiblicalAuthors.GetAuthorOfBook("GAL").Name;
+			foreach (var block in project.IncludedBooks[0].GetBlocksForVerse(2, 15))
+			{
+				block.CharacterId = idPaul;
+			}
+
+			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			// The following can be anything but omitted, but by making them all different, we prove that
+			// non-strict adherence to the the narrator prefs is really happening.
+			project.DramatizationPreferences.BookTitleAndChapterDramatization = ExtraBiblicalMaterialSpeakerOption.ActorOfEitherGender;
+			project.DramatizationPreferences.BookIntroductionsDramatization = ExtraBiblicalMaterialSpeakerOption.FemaleActor;
+			project.DramatizationPreferences.SectionHeadDramatization = ExtraBiblicalMaterialSpeakerOption.MaleActor;
+
+			var proximity = new Proximity(project, false);
+
+			var characterIds = new HashSet<string>
+			{
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Narrator),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.ExtraBiblical),
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.Intro), // Not actually used in GAL test data
+				CharacterVerseData.GetStandardCharacterId("GAL", CharacterVerseData.StandardCharacter.BookOrChapter),
+				idPaul
+			};
+
+			MinimumProximity minProximity = proximity.CalculateMinimumProximity(characterIds);
+
+			Assert.AreEqual(Int32.MaxValue, minProximity.NumberOfBlocks);
 		}
 	}
 }

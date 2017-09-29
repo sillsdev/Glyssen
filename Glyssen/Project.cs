@@ -315,30 +315,45 @@ namespace Glyssen
 			// We validate the values when the user can change them directly (in the Narration Preferences dialog),
 			// but this handles when other factors are changed which could invalidate the user's choices.
 			//
-			// For example, the project might be a whole NT, and the user chooses to use 27 authors.
-			// Later, the user may remove a book, but the requested number of authors is still 27 (which is now invalid).
+			// For example, the project might be a whole NT, and the user chooses to use 27 narrators.
+			// Later, the user may remove a book, but the requested number of narrators is still 27 (which is now invalid).
+			EnsureNarratorPreferencesAreValid(CharacterGroupGenerationPreferences.NarratorsOption,
+				(v) => CharacterGroupGenerationPreferences.NumberOfMaleNarrators = v,
+				(v) => CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = v);
+		}
 
-			if (CharacterGroupGenerationPreferences.NarratorsOption == NarratorsOption.NarrationByAuthor)
+		/// <summary>
+		/// This implementation method allows CastSizePlanningViewModel to pass in a different
+		/// <paramref name="desiredOption"/> and setter methods so that the underlying preferences
+		/// aren't changed directly.
+		/// </summary>
+		public void EnsureNarratorPreferencesAreValid(NarratorsOption desiredOption,
+			Action<int> setNewMaleNarratorCount, Action<int> setNewFemaleNarratorCount)
+		{
+			int numMale = CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
+			int numFemale = CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
+
+			if (desiredOption == NarratorsOption.NarrationByAuthor)
 			{
-				// Force values to snap to the number of authors, even if this means increasing or decreasing the count.
-				Debug.Assert(CharacterGroupGenerationPreferences.NumberOfFemaleNarrators == 0);
-				CharacterGroupGenerationPreferences.NumberOfMaleNarrators = AuthorCount;
+				Debug.Assert(numFemale == 0);
+				if (numMale > AuthorCount)
+					setNewMaleNarratorCount(AuthorCount);
+				else if (numMale == 0)
+					setNewMaleNarratorCount(DefaultNarratorCountForNarrationByAuthor);
 				return;
 			}
 
 			int includedBooksCount = IncludedBooks.Count;
-			int numMale = CharacterGroupGenerationPreferences.NumberOfMaleNarrators;
-			int numFemale = CharacterGroupGenerationPreferences.NumberOfFemaleNarrators;
 
 			if (numMale + numFemale > includedBooksCount)
 			{
 				int numNarratorsToDecrement = (numMale + numFemale) - includedBooksCount;
 				if (numFemale >= numNarratorsToDecrement)
-					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators -= numNarratorsToDecrement;
+					setNewFemaleNarratorCount(numFemale - numNarratorsToDecrement);
 				else
 				{
-					CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
-					CharacterGroupGenerationPreferences.NumberOfMaleNarrators -= numNarratorsToDecrement - numFemale;
+					setNewFemaleNarratorCount(0);
+					setNewMaleNarratorCount(numMale - (numNarratorsToDecrement - numFemale));
 				}
 			}
 		}
@@ -1763,6 +1778,18 @@ namespace Glyssen
 		{
 			get { return m_projectFileIsWritable; }
 			set { m_projectFileIsWritable = value; }
+		}
+
+		public int DefaultNarratorCountForNarrationByAuthor
+		{
+			get
+			{
+				// For narration by author
+				var includedBookIds = IncludedBooks.Select(b => b.BookId).ToList();
+				var authorsToCombine = BiblicalAuthors.All().Where(a => a.CombineAuthorAndNarrator &&
+					!a.DoNotCombineByDefault && a.Books.Any(b => includedBookIds.Contains(b))).ToList();
+				return authorsToCombine.Count + (IncludedBooks.All(b => authorsToCombine.SelectMany(a => a.Books).Contains(b.BookId)) ? 0 : 1);
+			}
 		}
 
 		public int AuthorCount

@@ -259,10 +259,7 @@ namespace Glyssen
 			}
 		}
 
-		// This call is not optimized. GetText() is a fairly expensive operation.
-		// A possible enhancement would be to just sum the lengths of the ScriptText elements,
-		// but that approach would need special logic for chapter announcements (see GetText).
-		public int Length => GetText(false).Length;
+		public int Length => IsChapterAnnouncement ? GetText(false).Length : BlockElements.OfType<ScriptText>().Sum(t => t.Content.Length);
 
 		public int ScriptTextCount => BlockElements.Count(e => e is ScriptText);
 

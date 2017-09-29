@@ -377,13 +377,26 @@ namespace GlyssenTests.Properties {
         ///# This is a TEST version of this file. It corresponds to version 79 of the actual production file (in use as of October 2015).
         ///# It can be used together with TestCharacterDetailOct2015 for testing code that requires the character verse data and the
         ///# character detail data to be in synch.
-        ///GEN	1	3	God		God (the LORD)	Normal		
-        ///GEN	1	5	narrator-GEN			Quotation		
-        ///#Languages which do not allow indirect s [rest of string was truncated]&quot;;.
+        ///# This is a regex that can be used in VS to find places where the delivery changes for a character: (MAT\t[0-9]+\t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TestCharacterVerseOct2015 {
             get {
                 return ResourceManager.GetString("TestCharacterVerseOct2015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;{0}&quot; style=&quot;id&quot;&gt;A&lt;/book&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;p&quot;&gt;
+        ///    &lt;verse number=&quot;1&quot; style=&quot;v&quot; /&gt;A.&lt;/para&gt;
+        ///&lt;/usx&gt;.
+        /// </summary>
+        internal static string TestEmptyBook {
+            get {
+                return ResourceManager.GetString("TestEmptyBook", resourceCulture);
             }
         }
         
@@ -532,14 +545,17 @@ namespace GlyssenTests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;book id=&quot;MAT&quot; singlevoice=&quot;false&quot; pageheader=&quot;Mateo&quot; maintitle=&quot;MATEO-GAYABURBA-NUED&quot;&gt;
-        ///  &lt;block style=&quot;mt&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;BC-MAT&quot;&gt;
-        ///    &lt;text&gt;MATEO-GAYABURBA-NUED MATEO&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;imt2&quot; paragraphStart=&quot;true&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;intro-MAT&quot;&gt;
-        ///    &lt;text&gt;GEBE-SOGLENAID&lt;/text&gt;
-        ///  &lt;/block&gt;
-        ///  &lt;block style=&quot;imt&quot; paragraphStart=&quot;true&quot; chapter=&quot;0&quot; initialStartVerse=&quot;0&quot; characterId=&quot;intro-MAT&quot; [rest of string was truncated]&quot;;.
+        ///&lt;usx version=&quot;2.0&quot;&gt;
+        ///  &lt;book code=&quot;MAT&quot; style=&quot;id&quot;&gt;- Kuna, San Blas - Bible -Panama 2014 (DBL -2014)&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;Mateo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc1&quot;&gt;Mateo-Gayaburba-Nued&lt;/para&gt;
+        ///  &lt;para style=&quot;toc2&quot;&gt;Mateo&lt;/para&gt;
+        ///  &lt;para style=&quot;toc3&quot;&gt;Mt&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;MATEO-GAYABURBA-NUED&lt;/para&gt;
+        ///  &lt;para style=&quot;mt2&quot;&gt;MATEO&lt;/para&gt;
+        ///  &lt;para style=&quot;imt2&quot;&gt;GEBE-SOGLENAID&lt;/para&gt;
+        ///  &lt;para style=&quot;imt&quot;&gt;Garda-nug&lt;/para&gt;
+        ///  &lt;para style=&quot;ip&quot;&gt;Mateo we-garda narmaksad. Mate [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TestMATcuk {
             get {

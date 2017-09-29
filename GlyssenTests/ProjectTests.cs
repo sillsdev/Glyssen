@@ -732,18 +732,31 @@ namespace GlyssenTests
 			Assert.AreEqual(resultFemale, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
 		}
 
-		[TestCase(1, 0)]
-		[TestCase(2, 0)]
-		[TestCase(3, 0)]
-		public void SetCharacterGroupGenerationPreferencesToValidValues_NarrationByAuthor_NumbersSnapToActualNumberOfAuthors(int numMaleNarrators, int numFemaleNarrators)
+		[Test]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_NarrationByAuthorValueIsZero_SetToDefault()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
+			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
+			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = 0;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
+
+			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
+			Assert.AreEqual(1, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
+		}
+
+		[TestCase(1, 1)]
+		[TestCase(2, 2)]
+		[TestCase(3, 2)]
+		public void SetCharacterGroupGenerationPreferencesToValidValues_NarrationByAuthor_CappedAtActualNumberOfAuthors(int numMaleNarrators, int expected)
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.LUK, TestProject.TestBook.ACT);
 			testProject.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.NarrationByAuthor;
 			testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators = numMaleNarrators;
-			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = numFemaleNarrators;
+			testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators = 0;
 
 			testProject.SetCharacterGroupGenerationPreferencesToValidValues();
-			Assert.AreEqual(2, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
+			Assert.AreEqual(expected, testProject.CharacterGroupGenerationPreferences.NumberOfMaleNarrators);
 			Assert.AreEqual(0, testProject.CharacterGroupGenerationPreferences.NumberOfFemaleNarrators);
 		}
 

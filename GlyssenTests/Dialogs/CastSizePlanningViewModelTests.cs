@@ -1,24 +1,45 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using Glyssen;
+﻿using System.Linq;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
-using Glyssen.Rules;
 using GlyssenTests.Properties;
 using NUnit.Framework;
-using SIL.Scripture;
-using SIL.WritingSystems;
 
 namespace GlyssenTests.Dialogs
 {
 	[TestFixture]
 	class CastSizePlanningViewModelTests
 	{
-		private int m_maleNarratorsValue = -1;
-		private int m_femaleNarratorsValue = -1;
+		private class MockCastSizePlanningDialog
+		{
+			// The model should never send a value of -1 (as asserted in the event handlers below), so when the test
+			// if the value of either of these is still -1, it means that the corresponding event never fired.
+			private int m_maleNarratorsValue = -1;
+			private int m_femaleNarratorsValue = -1;
+
+			public int MaleNarratorsValue => m_maleNarratorsValue;
+			public int FemaleNarratorsValue => m_femaleNarratorsValue;
+			public bool MaleNarratorsValueChangedEventNeverFired => m_maleNarratorsValue == -1;
+			public bool FemaleNarratorsValueChangedEventNeverFired => m_femaleNarratorsValue == -1;
+
+			public MockCastSizePlanningDialog(CastSizePlanningViewModel model)
+			{
+				model.MaleNarratorsValueChanged += model_MaleNarratorsValueChanged;
+				model.FemaleNarratorsValueChanged += model_FemaleNarratorsValueChanged;
+			}
+
+			private void model_MaleNarratorsValueChanged(object sender, int newValue)
+			{
+				Assert.That(newValue >= 0);
+				m_maleNarratorsValue = newValue;
+			}
+
+			private void model_FemaleNarratorsValueChanged(object sender, int newValue)
+			{
+				Assert.That(newValue >= 0);
+				m_femaleNarratorsValue = newValue;
+			}
+		}
 
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp()
@@ -34,35 +55,93 @@ namespace GlyssenTests.Dialogs
 			TestProject.DeleteTestProjectFolder();
 		}
 
+		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(Glyssen.Project project, int maleNarrators, int femaleNarrators)
+		{
+			var model = new CastSizePlanningViewModel(project);
+			model.NarratorOption = NarratorsOption.Custom;
+			model.MaleNarrators = maleNarrators;
+			model.FemaleNarrators = femaleNarrators;
+			return model;
+		}
+
+		private void VerifyThatModelAndDlgAreInSync(CastSizePlanningViewModel model, MockCastSizePlanningDialog dlg)
+		{
+			Assert.AreEqual(model.MaleNarrators, dlg.MaleNarratorsValue);
+			Assert.AreEqual(model.FemaleNarrators, dlg.FemaleNarratorsValue);
+		}
+
+		[Test]
+		public void SetNarratorOption_NarrationByAuthorForTwoBooksWrittenBySameAuthor_DefaultsToOneNarrator()
+		{
+			// Setup
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV, TestProject.TestBook.IIIJN);
+			var model = CreateModelWithInitialCustomValues(testProject, 2, 0);
+			var dlg = new MockCastSizePlanningDialog(model);
+			// Test
+			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			// Verify results
+			Assert.AreEqual(1, dlg.MaleNarratorsValue);
+			Assert.That(dlg.FemaleNarratorsValueChangedEventNeverFired);
+		}
+
+		[Test]
+		public void SetNarratorOption_NarrationByAuthorForThreeBooksWrittenByNonSpeakingAuthors_DefaultsToOneNarrator()
+		{
+			// Setup
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT, TestProject.TestBook.ACT, TestProject.TestBook.HEB);
+			var model = CreateModelWithInitialCustomValues(testProject, 2, 1);
+			var dlg = new MockCastSizePlanningDialog(model);
+			// Test
+			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			// Verify results
+			Assert.AreEqual(1, dlg.MaleNarratorsValue);
+			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			VerifyThatModelAndDlgAreInSync(model, dlg);
+		}
+
+		[Test]
+		public void SetNarratorOption_NarrationByAuthorForTwoBooksWrittenBySameSpeakingAuthorAndTwoBooksWrittenByDifferentNonSpeakingAuthors_DefaultsToTwoNarrators()
+		{
+			// Setup
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.RUT, TestProject.TestBook.ACT, TestProject.TestBook.GAL, TestProject.TestBook.EPH);
+			var model = CreateModelWithInitialCustomValues(testProject, 3, 1);
+			var dlg = new MockCastSizePlanningDialog(model);
+			// Test
+			model.NarratorOption = NarratorsOption.NarrationByAuthor;
+			// Verify results
+			Assert.AreEqual(2, dlg.MaleNarratorsValue);
+			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			VerifyThatModelAndDlgAreInSync(model, dlg);
+		}
+
 		[Test]
 		public void SetNarratorOption_CallbackPublishesValues()
 		{
-			var testProject = TestProject.CreateTestProject(TestProject.TestBook.PHM, TestProject.TestBook.IIIJN);
-			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);
-			model.MaleNarratorsValueChanged += model_MaleNarratorsValueChanged;
-			model.FemaleNarratorsValueChanged += model_FemaleNarratorsValueChanged;
-			model.NarratorOption = NarratorsOption.Custom;
-			model.MaleNarrators = 1;
-			model.FemaleNarrators = 1;
+			// Setup
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.IIIJN);
+			var model = CreateModelWithInitialCustomValues(testProject, 1, 1);
+			var dlg = new MockCastSizePlanningDialog(model);
+
+			// Test - Part 1
 			model.NarratorOption = NarratorsOption.NarrationByAuthor;
-			Assert.AreEqual(2, m_maleNarratorsValue);
-			Assert.AreEqual(0, m_femaleNarratorsValue);
+			// Verify results
+			Assert.AreEqual(2, dlg.MaleNarratorsValue);
+			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			VerifyThatModelAndDlgAreInSync(model, dlg);
+
+			// Test - Part 2
 			model.NarratorOption = NarratorsOption.SingleNarrator;
-			Assert.AreEqual(1, m_maleNarratorsValue);
-			Assert.AreEqual(0, m_femaleNarratorsValue);
+			// Verify results
+			Assert.AreEqual(1, dlg.MaleNarratorsValue);
+			Assert.AreEqual(0, dlg.FemaleNarratorsValue);
+			VerifyThatModelAndDlgAreInSync(model, dlg);
+
+			// Test - Part 3
 			model.NarratorOption = NarratorsOption.Custom;
-			Assert.AreEqual(1, m_maleNarratorsValue);
-			Assert.AreEqual(1, m_femaleNarratorsValue);
-		}
-
-		private void model_MaleNarratorsValueChanged(object sender, int newValue)
-		{
-			m_maleNarratorsValue = newValue;
-		}
-
-		private void model_FemaleNarratorsValueChanged(object sender, int newValue)
-		{
-			m_femaleNarratorsValue = newValue;
+			// Verify results
+			Assert.AreEqual(2, dlg.MaleNarratorsValue);
+			Assert.AreEqual(1, dlg.FemaleNarratorsValue);
+			VerifyThatModelAndDlgAreInSync(model, dlg);
 		}
 
 		[Test]
@@ -145,9 +224,7 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
-		public void
-			GetCastSizeRowValues_ProjectHasTwoBooksWithNoSpeakingPartsCustomNarratorValues_AllCastSizesHaveBasedOnCustomNarratorsPlusExtraMale
-			()
+		public void GetCastSizeRowValues_ProjectHasTwoBooksWithNoSpeakingPartsCustomNarratorValues_AllCastSizesHaveBasedOnCustomNarratorsPlusExtraMale()
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.IIJN, TestProject.TestBook.IIIJN);
 			CastSizePlanningViewModel model = new CastSizePlanningViewModel(testProject);

@@ -45,7 +45,7 @@ namespace Glyssen.Dialogs
 		public VoiceActorAssignmentViewModel(Project project)
 		{
 			m_project = project;
-			ProjectProximity = new Proximity(m_project);
+			ProjectProximity = new Proximity(m_project, false);
 
 			CharacterGroupAttribute<CharacterGender>.GetUiStringForValue = GetUiStringForCharacterGender;
 			CharacterGroupAttribute<CharacterAge>.GetUiStringForValue = GetUiStringForCharacterAge;
