@@ -211,6 +211,9 @@
     <Compile Include="Controls\ExistingProjectsList.Designer.cs">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MenuButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>
