@@ -501,7 +501,8 @@ namespace Glyssen.Rules
 				if (genderConformingGroups.Any())
 					availableGroups = genderConformingGroups;
 			}
-			if (characterDetail.Age == CharacterAge.Elder)
+			if (characterDetail.Age == CharacterAge.Elder ||
+				(characterDetail.Age == CharacterAge.Adult && (characterDetail.Gender == CharacterGender.Male || characterDetail.Gender == CharacterGender.PreferMale)))
 			{
 				List<CharacterGroup> ageConformingGroups = availableGroups.Where(g => g.VoiceActor.GetAgeMatchQuality(characterDetail) != MatchLevel.Mismatch).ToList();
 				if (ageConformingGroups.Any())
