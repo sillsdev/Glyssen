@@ -1,4 +1,4 @@
-Control File Version	119
+Control File Version	120
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -11906,6 +11906,7 @@ MAT	2	15	scripture			Quotation	God
 MAT	2	16	Herod the Great			Indirect		
 MAT	2	18	scripture			Quotation	God	
 MAT	2	20	angel	commanding	angel of the LORD	Normal		
+MAT	2	22	dream			Indirect	angel	
 MAT	2	23	scripture			Quotation		
 MAT	3	2	John the Baptist	proclaim		Normal		
 MAT	3	3	scripture			Quotation	Isaiah	
