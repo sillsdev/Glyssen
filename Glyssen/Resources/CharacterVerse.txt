@@ -1,4 +1,4 @@
-Control File Version	120
+Control File Version	121
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15170,9 +15170,11 @@ ACT	10	4	angel		angel of God	Normal
 ACT	10	4	Cornelius	afraid		Normal		
 ACT	10	5	angel		angel of God	Normal		
 ACT	10	6	angel		angel of God	Normal		
-ACT	10	13	Jesus		voice (in trance)	Normal		
+ACT	10	13	God		God (voice)	Normal		
+ACT	10	13	Jesus		Jesus (voice)	Normal		
 ACT	10	14	Peter (Simon)			Normal		
-ACT	10	15	Jesus		voice (in trance)	Normal		
+ACT	10	13	God		God (voice)	Normal		
+ACT	10	13	Jesus		Jesus (voice)	Normal		
 ACT	10	17	Peter (Simon)			Indirect		
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		
@@ -15957,8 +15959,8 @@ JUD	1	14	Enoch			Normal
 JUD	1	15	Enoch			Normal		
 JUD	1	18	apostles			Normal		
 REV	1	7	narrator-REV			Quotation		
-REV	1	8	God		Lord God Almighty (spoken by God-10 commentaries)	Normal		
-REV	1	8	Jesus		Lord God Almighty (spoken by Jesus-5 commentaries)	Normal		
+REV	1	8	God		God (Lord God Almighty)	Normal		
+REV	1	8	Jesus		Jesus (Lord God Almighty)	Normal		
 REV	1	11	Jesus		voice like a trumpet	Normal		
 REV	1	13	narrator-REV			Quotation		
 REV	1	17	Jesus		someone like a son of man	Normal		
