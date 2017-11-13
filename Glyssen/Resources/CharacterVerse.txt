@@ -15173,8 +15173,8 @@ ACT	10	6	angel		angel of God	Normal
 ACT	10	13	God		God (voice)	Normal		
 ACT	10	13	Jesus		Jesus (voice)	Normal		
 ACT	10	14	Peter (Simon)			Normal		
-ACT	10	13	God		God (voice)	Normal		
-ACT	10	13	Jesus		Jesus (voice)	Normal		
+ACT	10	15	God		God (voice)	Normal		
+ACT	10	15	Jesus		Jesus (voice)	Normal		
 ACT	10	17	Peter (Simon)			Indirect		
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		
