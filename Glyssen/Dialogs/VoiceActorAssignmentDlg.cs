@@ -357,7 +357,7 @@ namespace Glyssen.Dialogs
 			var cameoGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.VoiceActorId == (int) menuItem.Tag);
 
 			if (m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds.ToList(),
-				m_actorAssignmentViewModel.CharacterGroups[cameoGroupIndex], true))
+				m_actorAssignmentViewModel.CharacterGroups[cameoGroupIndex], UserConfirmsMove))
 			{
 				// Need to get this again because a group higher up in the list might have been deleted as a side-effect of the move.
 				cameoGroupIndex = m_actorAssignmentViewModel.CharacterGroups.IndexOf(g => g.VoiceActorId == (int)menuItem.Tag);
@@ -422,7 +422,7 @@ namespace Glyssen.Dialogs
 			int rowIndexOfTargetGroup = m_characterGroupGrid.SelectedRows[0].Index;
 			var selectedGroup = m_actorAssignmentViewModel.CharacterGroups[rowIndexOfTargetGroup];
 
-			if (m_actorAssignmentViewModel.MoveCharactersToGroup(m_pendingMoveCharacters, selectedGroup, true))
+			if (m_actorAssignmentViewModel.MoveCharactersToGroup(m_pendingMoveCharacters, selectedGroup, UserConfirmsMove))
 			{
 				// Need to get this again because a group higher up in the list might have been deleted as a side-effect of the move.
 				rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(selectedGroup);
@@ -465,7 +465,7 @@ namespace Glyssen.Dialogs
 				MainForm.LogDialogDisplay(dlg);
 				if (dlg.ShowDialog(this) == DialogResult.OK)
 				{
-					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup, true))
+					if (m_actorAssignmentViewModel.MoveCharactersToGroup(dlg.SelectedCharacters, characterGroup, UserConfirmsMove))
 					{
 						var rowIndexOfTargetGroup = m_actorAssignmentViewModel.CharacterGroups.IndexOf(characterGroup);
 						m_characterGroupGrid.CurrentCell = m_characterGroupGrid.Rows[rowIndexOfTargetGroup].Cells[CharacterIdsCol.Name];
@@ -667,7 +667,7 @@ namespace Glyssen.Dialogs
 			// Do this before creating the new group because it causes RowCount to go back down to reflect the number of non-empty rows.
 			m_characterGroupGrid.AllowUserToAddRows = false;
 
-			m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup, true);
+			m_actorAssignmentViewModel.MoveCharactersToGroup(characterIds, dropGroup, UserConfirmsMove);
 		}
 
 		private void m_characterGroupGrid_DragDrop(object sender, DragEventArgs e)
@@ -846,7 +846,7 @@ namespace Glyssen.Dialogs
 				//m_lblHowToAssignCharactersToCameoGroup.Visible = false;
 				m_btnMove.Enabled = m_pendingMoveCharacters != null && !currentGroup.CharacterIds.Contains(m_pendingMoveCharacters.First());
 			}
-			else 
+			else
 			{
 				//m_characterDetailsGrid.Visible = false;
 				//if (FirstSelectedCharacterGroup.AssignedToCameoActor)
@@ -1152,6 +1152,35 @@ namespace Glyssen.Dialogs
 			Close();
 		}
 
+		private static bool UserConfirmsMove(MinimumProximity resultsAfter)
+		{
+			var firstReference = resultsAfter.FirstReference;
+			var secondReference = resultsAfter.SecondReference;
+
+			var dlgMessageFormat1 = (firstReference == secondReference) ?
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+					"This move will result in the same voice actor speaking the parts of both [{1}] and [{2}] in {3}. This is not ideal. (Proximity: {0})") :
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part1",
+					"This move will result in the same voice actor speaking the parts of both [{1}] in {3} and [{2}] in {4}. This is not ideal. (Proximity: {0})");
+			var dlgMessagePart1 = string.Format(dlgMessageFormat1,
+				resultsAfter.NumberOfBlocks,
+				CharacterVerseData.GetCharacterNameForUi(resultsAfter.FirstCharacterId),
+				CharacterVerseData.GetCharacterNameForUi(resultsAfter.SecondCharacterId),
+				firstReference, secondReference);
+
+			Logger.WriteEvent(dlgMessagePart1);
+
+			var dlgMessagePart2 =
+				LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Message.Part2",
+					"Do you want to continue with this move?");
+
+			var dlgMessage = dlgMessagePart1 + Environment.NewLine + Environment.NewLine + dlgMessagePart2;
+			var dlgTitle = LocalizationManager.GetString("DialogBoxes.VoiceActorAssignmentDlg.MoveCharacterDialog.Title",
+				"Confirm");
+
+			return MessageBox.Show(dlgMessage, dlgTitle, MessageBoxButtons.YesNo) != DialogResult.Yes;
+		}
+
 		#region Events related to the Character Details grid
 		private void m_characterDetailsGrid_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
@@ -1254,7 +1283,7 @@ namespace Glyssen.Dialogs
 			}
 			object[] parameters = { m_toolStripTextBoxFindCharacter.Text, m_characterGroupGrid.CurrentCellAddress.Y,
 				m_characterDetailsGrid.Visible && m_characterDetailsGrid.RowCount > 0 ? m_characterDetailsGrid.CurrentCellAddress.Y : 0 };
-			
+
 			m_findCharacterBackgroundWorker.RunWorkerAsync(parameters);
 		}
 
