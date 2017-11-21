@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{45321F2E-174C-482A-BDA1-BF199366FBD6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Glyssen</RootNamespace>
     <AssemblyName>Glyssen</AssemblyName>
@@ -53,7 +53,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Glyssen.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\glyssen.ico</ApplicationIcon>
@@ -68,12 +69,6 @@
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Geckofx-Core">
-      <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Geckofx-Winforms">
-      <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
     <Reference Include="icu.net, Version=1.2.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -92,9 +87,6 @@
     <Reference Include="NetLoc, Version=7.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\dotnet\NetLoc.dll</HintPath>
-    </Reference>
-    <Reference Include="NetSparkle.Net40">
-      <HintPath>..\lib\dotnet\NetSparkle.Net40.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -121,12 +113,6 @@
     <Reference Include="SIL.Windows.Forms.DblBundle">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
-      <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.Windows.Forms.Scripture">
-      <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
-    </Reference>
     <Reference Include="SIL.Windows.Forms.WritingSystems">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
@@ -134,14 +120,11 @@
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -175,157 +158,15 @@
     <Compile Include="Character\ProjectCharacterVerseData.cs" />
     <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="ControlAnnotations.cs" />
-    <Compile Include="Controls\AutoScrollGrid.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\BlockProgressBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\BlockProgressBar.Designer.cs">
-      <DependentUpon>BlockProgressBar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Browser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Browser.Designer.cs">
-      <DependentUpon>Browser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\CastSizePlanningOptions.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\CastSizePlanningOptions.Designer.cs">
-      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ControlExtensions.cs" />
-    <Compile Include="Controls\DataGridViewDropdownColumnHeader.cs" />
-    <Compile Include="Controls\DataGridViewListBox.cs" />
-    <Compile Include="Controls\DataGridViewMultiColumnComboBoxCell.cs" />
-    <Compile Include="Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
-    <Compile Include="Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ExistingProjectsList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ExistingProjectsList.Designer.cs">
-      <DependentUpon>ExistingProjectsList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\MenuButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ProgressBarUnanimated.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\SaveStatus.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SaveStatus.Designer.cs">
-      <DependentUpon>SaveStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ScriptBlocksGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\ScriptBlocksViewer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ScriptBlocksViewer.Designer.cs">
-      <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TextBoxExtensions.cs" />
-    <Compile Include="Controls\VoiceActorInformationViewModel.cs" />
-    <Compile Include="Dialogs\AddCharacterDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\AddCharacterDlg.Designer.cs">
-      <DependentUpon>AddCharacterDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\AddCharactersToGroupViewModel.cs" />
-    <Compile Include="Dialogs\AddCharacterToGroupDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\AddCharacterToGroupDlg.Designer.cs">
-      <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\BlocksToDisplay.cs" />
-    <Compile Include="Dialogs\CastSizePlanningDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\CastSizePlanningDlg.Designer.cs">
-      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\CastSizePlanningViewModel.cs" />
-    <Compile Include="Dialogs\ExportToRecordingToolDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ExportToRecordingToolDlg.Designer.cs">
-      <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ExportDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ExportDlg.Designer.cs">
-      <DependentUpon>ExportDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\GenerateGroupsProgressDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\HtmlMessageDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\HtmlMessageDlg.Designer.cs">
-      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ProgressDialogWithAcknowledgement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
-    <Compile Include="Dialogs\UnappliedSplitsDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\UnappliedSplitsDlg.Designer.cs">
-      <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ViewScriptDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ViewScriptDlg.Designer.cs">
-      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\VoiceActorUndoAction.cs" />
-    <Compile Include="Dialogs\CharacterGroupsUndoAction.cs" />
-    <Compile Include="Dialogs\SelectExistingProjectDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\SelectExistingProjectDlg.Designer.cs">
-      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\NewCharacterDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\NewCharacterDlg.Designer.cs">
-      <DependentUpon>NewCharacterDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.Designer.cs">
-      <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.Designer.cs">
-      <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\RemoveVoiceActorAssignmentsUndoAction.cs" />
-    <Compile Include="Dialogs\MoveCharactersToGroupUndoAction.cs" />
-    <Compile Include="Dialogs\CharacterGroupUndoActionSequence.cs" />
-    <Compile Include="Dialogs\NarrationOptionsDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
-      <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\VoiceActorInformationViewModel.cs" />
+    <Compile Include="ViewModel\AddCharactersToGroupViewModel.cs" />
+    <Compile Include="ViewModel\BlocksToDisplay.cs" />
+    <Compile Include="ViewModel\CastSizePlanningViewModel.cs" />
+    <Compile Include="ViewModel\Undo\VoiceActorUndoAction.cs" />
+    <Compile Include="ViewModel\Undo\CharacterGroupsUndoAction.cs" />
+    <Compile Include="ViewModel\Undo\RemoveVoiceActorAssignmentsUndoAction.cs" />
+    <Compile Include="ViewModel\Undo\MoveCharactersToGroupUndoAction.cs" />
+    <Compile Include="ViewModel\Undo\CharacterGroupUndoActionSequence.cs" />
     <Compile Include="IBlockAccessor.cs" />
     <Compile Include="PortionScript.cs" />
     <Compile Include="ProjectBase.cs" />
@@ -336,51 +177,12 @@
     <Compile Include="Rules\CharacterGroupsAdjuster.cs" />
     <Compile Include="SampleProject.cs" />
     <Compile Include="ScriptExporter.cs" />
-    <Compile Include="Utilities\CustomColor.cs" />
     <Compile Include="Utilities\FontProxy.cs" />
-    <Compile Include="Utilities\FormWithPersistedSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Utilities\GeckoUtilities.cs" />
-    <Compile Include="Utilities\GlyssenColorPalette.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Utilities\L10N.cs" />
     <Compile Include="Utilities\UndoActionSequence.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentUndoAction.cs" />
-    <Compile Include="Dialogs\VoiceActorAssignmentViewModel.cs" />
-    <Compile Include="Controls\VoiceActorInformationGrid.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\VoiceActorInformationGrid.Designer.cs">
-      <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\Undo\VoiceActorAssignmentUndoAction.cs" />
+    <Compile Include="ViewModel\VoiceActorAssignmentViewModel.cs" />
     <Compile Include="DataMigrator.cs" />
-    <Compile Include="Dialogs\ProjectSettingsViewModel.cs" />
-    <Compile Include="Dialogs\SplitCharacterGroupDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\SplitCharacterGroupDlg.Designer.cs">
-      <DependentUpon>SplitCharacterGroupDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\SplitBlockDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\SplitBlockDlg.Designer.cs">
-      <DependentUpon>SplitBlockDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\VoiceActorAssignmentDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\VoiceActorAssignmentDlg.Designer.cs">
-      <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\VoiceActorInformationDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\VoiceActorInformationDlg.Designer.cs">
-      <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\ProjectSettingsViewModel.cs" />
     <Compile Include="Utilities\IUndoAction.cs" />
     <Compile Include="ProjectExporter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -389,39 +191,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ApplicationMetadata.cs" />
-    <Compile Include="Dialogs\AssignCharacterDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\AssignCharacterDlg.Designer.cs">
-      <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\AssignCharacterViewModel.cs" />
-    <Compile Include="Dialogs\BlockNavigatorViewModel.cs" />
-    <Compile Include="Dialogs\OpenProjectDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\OpenProjectDlg.Designer.cs">
-      <DependentUpon>OpenProjectDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\QuotationMarksDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\QuotationMarksDlg.Designer.cs">
-      <DependentUpon>QuotationMarksDlg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ScriptureRangeSelectionDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ScriptureRangeSelectionDlg.Designer.cs">
-      <DependentUpon>ScriptureRangeSelectionDlg.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\AssignCharacterViewModel.cs" />
+    <Compile Include="ViewModel\BlockNavigatorViewModel.cs" />
     <Compile Include="Dialogs\SelectProjectDlg.cs" />
-    <Compile Include="Dialogs\ProjectSettingsDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ProjectSettingsDlg.Designer.cs">
-      <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
-    </Compile>
     <Compile Include="IScrBook.cs" />
     <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />
@@ -429,13 +201,6 @@
     <Compile Include="Quote\QuoteParser.cs" />
     <Compile Include="Quote\QuoteSystem.cs" />
     <Compile Include="Quote\QuoteSystemGuesser.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\CharacterAgeMatchingOptions.cs" />
     <Compile Include="Rules\CharacterGenderMatchingOptions.cs" />
@@ -448,104 +213,9 @@
     <Compile Include="Utilities\FileSystemUtils.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
-    <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="Character\CharacterGroupList.cs" />
     <Compile Include="VoiceActor\VoiceActor.cs" />
     <Compile Include="VoiceActor\VoiceActorList.cs" />
-    <EmbeddedResource Include="Controls\Browser.resx">
-      <DependentUpon>Browser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CastSizePlanningOptions.resx">
-      <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ExistingProjectsList.resx">
-      <DependentUpon>ExistingProjectsList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SaveStatus.resx">
-      <DependentUpon>SaveStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ScriptBlocksViewer.resx">
-      <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\VoiceActorInformationGrid.resx">
-      <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\AddCharacterDlg.resx">
-      <DependentUpon>AddCharacterDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\AddCharacterToGroupDlg.resx">
-      <DependentUpon>AddCharacterToGroupDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\AssignCharacterDlg.resx">
-      <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\CastSizePlanningDlg.resx">
-      <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExportToRecordingToolDlg.resx">
-      <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ExportDlg.resx">
-      <DependentUpon>ExportDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\GenerateGroupsProgressDialog.resx">
-      <DependentUpon>GenerateGroupsProgressDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\HtmlMessageDlg.resx">
-      <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ProgressDialogWithAcknowledgement.resx">
-      <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SelectExistingProjectDlg.resx">
-      <DependentUpon>SelectExistingProjectDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\NewCharacterDlg.resx">
-      <DependentUpon>NewCharacterDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\UnappliedSplitsDlg.resx">
-      <DependentUpon>UnappliedSplitsDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\TooManyUnexpectedQuotesFoundDlg.resx">
-      <DependentUpon>TooManyUnexpectedQuotesFoundDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.resx">
-      <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SplitCharacterGroupDlg.resx">
-      <DependentUpon>SplitCharacterGroupDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\OpenProjectDlg.resx">
-      <DependentUpon>OpenProjectDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\QuotationMarksDlg.resx">
-      <DependentUpon>QuotationMarksDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ScriptureRangeSelectionDlg.resx">
-      <DependentUpon>ScriptureRangeSelectionDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ProjectSettingsDlg.resx">
-      <DependentUpon>ProjectSettingsDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SplitBlockDlg.resx">
-      <DependentUpon>SplitBlockDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ViewScriptDlg.resx">
-      <DependentUpon>ViewScriptDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\VoiceActorAssignmentDlg.resx">
-      <DependentUpon>VoiceActorAssignmentDlg.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\VoiceActorInformationDlg.resx">
-      <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\NarrationOptionsDlg.resx">
-      <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

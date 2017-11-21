@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using Glyssen.Utilities;
+using GlyssenApp.UI.Utilities;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.Windows.Forms.Scripture;

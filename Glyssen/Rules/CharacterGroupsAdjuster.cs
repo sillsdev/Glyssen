@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Glyssen.Character;
 using SIL.Extensions;
 
 namespace Glyssen.Rules
 {
-	class CharacterGroupsAdjuster
+	public class CharacterGroupsAdjuster
 	{
 		private readonly Project m_project;
 		private readonly HashSet<string> m_charactersNotCoveredByAnyGroup;

@@ -11,6 +11,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Utilities;
+using Glyssen.ViewModel;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.Char;

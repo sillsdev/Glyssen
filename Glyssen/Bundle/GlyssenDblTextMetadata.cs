@@ -7,6 +7,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using Glyssen.ViewModel;
 using SIL.Xml;
 
 namespace Glyssen.Bundle

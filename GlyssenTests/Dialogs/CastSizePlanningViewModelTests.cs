@@ -2,6 +2,7 @@
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.ViewModel;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 

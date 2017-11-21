@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
@@ -14,21 +13,22 @@ using SIL.DblBundle;
 
 namespace Glyssen
 {
-	internal static class DataMigrator
+	public static class DataMigrator
 	{
 		private const string kOldProjectExtension = ".pgproj";
-		public static void UpgradeToCurrentDataFormatVersion()
+		public static void UpgradeToCurrentDataFormatVersion(Func<string, string, bool> ConfirmAndRecycleAction, out string warning)
 		{
-			Exception error;
-			var settings = ApplicationMetadata.Load(out error);
+			var settings = ApplicationMetadata.Load(out var error);
 			if (error != null)
 				throw error;
-			if (UpgradeToCurrentDataFormatVersion(settings))
+			if (UpgradeToCurrentDataFormatVersion(settings, ConfirmAndRecycleAction, out warning))
 				settings.Save();
 		}
 
-		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info)
+		private static bool UpgradeToCurrentDataFormatVersion(ApplicationMetadata info, Func<string, string, bool> ConfirmAndRecycleAction, out string warning)
 		{
+			warning = null;
+
 			if (info.DataVersion >= Settings.Default.DataFormatVersion)
 				return false;
 
@@ -50,8 +50,7 @@ namespace Glyssen
 						var projectFilePath = Directory.GetFiles(publicationFolder, "*" + kOldProjectExtension).FirstOrDefault();
 						if (projectFilePath != null)
 						{
-							Exception exception;
-							var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out exception);
+							var metadata = GlyssenDblTextMetadata.Load<GlyssenDblTextMetadata>(projectFilePath, out var exception);
 							string recordingProjectName;
 							if (exception != null)
 							{
@@ -101,7 +100,7 @@ namespace Glyssen
 									{
 										try
 										{
-											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, true);
+											Project.DeleteProjectFolderAndEmptyContainingFolders(recordingProjectFolder, ConfirmAndRecycleAction);
 										}
 										catch (Exception)
 										{
@@ -112,9 +111,10 @@ namespace Glyssen
 									{
 										var bundle = new GlyssenBundle(origBundlePath);
 										var errorlogPath = Path.Combine(recordingProjectFolder, "errorlog.txt");
+										string versificationWarning = null;
 										Versification.Table.HandleVersificationLineError = ex =>
 										{
-											var msg = string.Format(LocalizationManager.GetString("DataMigration.InvalidVersificationFile",
+											versificationWarning = string.Format(LocalizationManager.GetString("DataMigration.InvalidVersificationFile",
 												"Invalid versification file encountered during data migration. Errors must be fixed or subsequent " +
 												"attempts to open this project will fail.\r\n" +
 												"Project: {0}\r\n" +
@@ -122,9 +122,9 @@ namespace Glyssen
 												"Versification file: {2}\r\n" +
 												"Error: {3}"),
 												projectFilePath, origBundlePath, versificationPath, ex.Message);
-											MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-											File.WriteAllText(errorlogPath, msg);
+											File.WriteAllText(errorlogPath, versificationWarning);
 										};
+										warning = versificationWarning;
 										bundle.CopyVersificationFile(versificationPath);
 										Project.LoadVersification(versificationPath);
 									}

@@ -21,6 +21,7 @@ using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
+using Glyssen.ViewModel;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.DblBundle;
@@ -31,7 +32,6 @@ using SIL.IO;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
-using SIL.Windows.Forms.FileSystem;
 using SIL.WritingSystems;
 using SIL.Xml;
 using static System.String;
@@ -677,7 +677,7 @@ namespace Glyssen
 			return IncludedBooks.Any(b => b.UnappliedSplits.Any());
 		}
 
-		internal void ClearAssignCharacterStatus()
+		public void ClearAssignCharacterStatus()
 		{
 			Status.AssignCharacterMode = BlocksToDisplay.NotAlignedToReferenceText;
 			Status.AssignCharacterBlock = new BookBlockIndices();
@@ -757,11 +757,11 @@ namespace Glyssen
 			// TODO: preserve WritingSystemRecoveryInProcess flag
 		}
 
-		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, bool confirmAndRecycle = false)
+		public static void DeleteProjectFolderAndEmptyContainingFolders(string projectFolder, Func<string, string, bool> ConfirmAndRecycleAction = null)
 		{
-			if (confirmAndRecycle)
+			if (ConfirmAndRecycleAction != null)
 			{
-				if (!ConfirmRecycleDialog.ConfirmThenRecycle(Format("Standard format project \"{0}\"", projectFolder), projectFolder))
+				if (!ConfirmAndRecycleAction($"Standard format project \"{projectFolder}\"", projectFolder))
 					return;
 			}
 			else if (Directory.Exists(projectFolder))
@@ -1514,7 +1514,7 @@ namespace Glyssen
 			return Format("{0} {1}", publicationName, LocalizationManager.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
 		}
 
-		internal static string GetDefaultRecordingProjectName(IBundle bundle)
+		public static string GetDefaultRecordingProjectName(IBundle bundle)
 		{
 			return GetDefaultRecordingProjectName(bundle.Name);
 		}
@@ -1627,7 +1627,7 @@ namespace Glyssen
 			internal int LastChapter { get; set; }
 		}
 
-		internal void ClearCharacterStatistics()
+		public void ClearCharacterStatistics()
 		{
 			m_keyStrokesByCharacterId = null;
 			m_speechDistributionScore = null;

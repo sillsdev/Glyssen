@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Controls;
 using Glyssen.Dialogs;
+using Glyssen.ViewModel;
+using Glyssen.ViewModel.Undo;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 

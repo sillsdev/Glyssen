@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyssen", "Glyssen\Glyssen.csproj", "{45321F2E-174C-482A-BDA1-BF199366FBD6}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenShared", "GlyssenShared\GlyssenShared.csproj", "{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenSharedTests", "GlyssenSharedTests\GlyssenSharedTests.csproj", "{A91A6D5E-F3A1-4E6F-B9A8-4FA5C3AF7707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenApp", "GlyssenApp\GlyssenApp.csproj", "{15159489-BD89-4D97-9885-5E8F42A6A32F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,8 +58,15 @@ Global
 		{A91A6D5E-F3A1-4E6F-B9A8-4FA5C3AF7707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A91A6D5E-F3A1-4E6F-B9A8-4FA5C3AF7707}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A91A6D5E-F3A1-4E6F-B9A8-4FA5C3AF7707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15159489-BD89-4D97-9885-5E8F42A6A32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15159489-BD89-4D97-9885-5E8F42A6A32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15159489-BD89-4D97-9885-5E8F42A6A32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15159489-BD89-4D97-9885-5E8F42A6A32F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {148E98D5-A2ED-4962-990F-85A22C31DCDB}
 	EndGlobalSection
 EndGlobal

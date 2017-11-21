@@ -72,9 +72,9 @@ namespace Glyssen
 		public bool IncludeCreateClips { get; set; }
 		public bool ExportAnnotationsInSeparateRows { get; set; }
 
-		internal ExportFileType SelectedFileType { get; set; }
+		public ExportFileType SelectedFileType { get; set; }
 
-		internal string RecordingScriptFileNameSuffix =>
+		public string RecordingScriptFileNameSuffix =>
 			LocalizationManager.GetString("DialogBoxes.ExportDlg.RecordingScriptFileNameDefaultSuffix", "Recording Script");
 
 		private string DefaultDirectory
@@ -93,12 +93,12 @@ namespace Glyssen
 			}
 		}
 
-		internal string CurrentBaseFolder
+		public string CurrentBaseFolder
 		{
 			get { return Path.GetDirectoryName(FullFileName); }
 		}
 
-		internal string FullFileName
+		public string FullFileName
 		{
 			get
 			{
@@ -121,7 +121,7 @@ namespace Glyssen
 			get { return Path.GetFileNameWithoutExtension(FullFileName); }
 		}
 
-		internal string ActorDirectory
+		public string ActorDirectory
 		{
 			get
 			{
@@ -130,7 +130,7 @@ namespace Glyssen
 			}
 		}
 
-		internal string BookDirectory
+		public string BookDirectory
 		{
 			get
 			{
@@ -139,7 +139,7 @@ namespace Glyssen
 			}
 		}
 
-		internal string ClipDirectory
+		public string ClipDirectory
 		{
 			get
 			{
@@ -166,7 +166,7 @@ namespace Glyssen
 		//	return lockedFiles;
 		//}
 
-		internal IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
+		public IReadOnlyDictionary<string, List<string>> ExportNow(bool openForMe)
 		{
 			var lockedFiles = new List<Tuple<string, string>>();
 
@@ -261,7 +261,7 @@ namespace Glyssen
 			}
 		}
 
-		internal DataTable GeneratePreviewTable()
+		public DataTable GeneratePreviewTable()
 		{
 			var dt = new DataTable();
 

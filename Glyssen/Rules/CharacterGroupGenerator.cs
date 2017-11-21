@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.ViewModel;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
@@ -105,28 +106,28 @@ namespace Glyssen.Rules
 			if (forceMatchToActors)
 				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
 			bool saveGroups = false;
-			using (var progressDialog = new GenerateGroupsProgressDialog(project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
-			{
-				var generator = new CharacterGroupGenerator(project, ghostCastSize, progressDialog.BackgroundWorker);
-				progressDialog.ProgressState.Arguments = generator;
+			//using (var progressDialog = new GenerateGroupsProgressDialog(project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
+			//{
+			//	var generator = new CharacterGroupGenerator(project, ghostCastSize, progressDialog.BackgroundWorker);
+			//	progressDialog.ProgressState.Arguments = generator;
 
-				if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
-				{
-					var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
-					generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+			//	if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
+			//	{
+			//		var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
+			//		generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
 
-					if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
-					{
-						var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
-							"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
-						MessageBox.Show(msg);
-					}
+			//		if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+			//		{
+			//			var msg = LocalizationManager.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+			//				"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+			//			MessageBox.Show(msg);
+			//		}
 
-					saveGroups = true;
-				}
-				else if (forceMatchToActors)
-					project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
-			}
+			//		saveGroups = true;
+			//	}
+			//	else if (forceMatchToActors)
+			//		project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
+			//}
 			project.Save(saveGroups);
 		}
 
@@ -925,7 +926,7 @@ namespace Glyssen.Rules
 						n++;
 						if (numberOfRemainingNarratorGroupsToAssign == 1)
 							includeAuthorCharacter = null;
-						continue; // For narration by author, try to avoid combining the top N authors 
+						continue; // For narration by author, try to avoid combining the top N authors
 					}
 					if (numberOfRemainingNarratorGroupsToAssign > 0)
 					{

@@ -22,7 +22,7 @@ namespace Glyssen.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -256,7 +256,7 @@ namespace Glyssen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon glyssenIcon {
+        public static System.Drawing.Icon glyssenIcon {
             get {
                 object obj = ResourceManager.GetObject("glyssenIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));

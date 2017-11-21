@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Glyssen.Controls;
+using GlyssenApp.UI;
 using NUnit.Framework;
 
 namespace GlyssenTests.Controls

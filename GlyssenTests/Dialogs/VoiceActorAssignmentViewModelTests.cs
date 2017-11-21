@@ -6,6 +6,8 @@ using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Rules;
+using Glyssen.ViewModel;
+using Glyssen.ViewModel.Undo;
 using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
