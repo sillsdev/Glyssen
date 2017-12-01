@@ -430,13 +430,19 @@ namespace Glyssen.Dialogs
 					Debug.Assert(correlatedBlock.MatchesReferenceText);
 
 					var row = m_dataGridReferenceText.Rows[i];
-					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 					if (colPrimary.Visible)
 						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().GetPrimaryReferenceText();
 					row.Cells[primaryColumnIndex].Value = correlatedBlock.GetPrimaryReferenceText();
+					if (correlatedBlock.IsContinuationOfPreviousBlockQuote && i > 0)
+					{
+						correlatedBlock.CharacterId = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[i - 1].CharacterId;
+						if (colDelivery.Visible)
+							correlatedBlock.Delivery = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[i - 1].Delivery;
+					}
 					SetCharacterCellValue(row, correlatedBlock);
 					if (colDelivery.Visible)
 						SetDeliveryCellValue(row, correlatedBlock);
+					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
