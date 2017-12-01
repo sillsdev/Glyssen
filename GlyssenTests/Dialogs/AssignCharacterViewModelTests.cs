@@ -885,6 +885,88 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SplitBlock_SplitBetweenBlocks_IndicesNotChanged()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.NotYetAssigned;
+			model.AttemptRefBlockMatchup = false;
+
+			while (model.CurrentBlock.MultiBlockQuote != MultiBlockQuote.Start)
+				model.LoadNextRelevantBlock();
+
+			Assert.IsTrue(model.CanNavigateToNextRelevantBlock, "Did not find a block sufficient for testing this scenario - no subsequent relevant blocks");
+			var blockToSplit = model.CurrentBlock;
+			Assert.IsTrue(blockToSplit.MultiBlockQuote == MultiBlockQuote.Start, "Did not find a block sufficient for testing this scenario");
+
+			var originalNextBlock = model.BlockAccessor.GetNextBlock();
+
+			model.LoadNextRelevantBlock();
+			var indexOfNextRelevantBlock = model.BlockAccessor.GetIndices().BlockIndex;
+			model.LoadPreviousRelevantBlock();
+
+			Assert.AreEqual(blockToSplit, model.CurrentBlock, "setup problem!");
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, blockToSplit.LastVerseNum.ToString(), BookScript.kSplitAtEndOfVerse) },
+				GetListOfCharacters(2, new string[] { null, null }));
+
+			// Validates our test was set up correctly
+			Assert.AreEqual(originalNextBlock, model.BlockAccessor.GetNthNextBlockWithinBook(1, blockToSplit));
+
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(originalNextBlock, model.CurrentBlock);
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(indexOfNextRelevantBlock, model.BlockAccessor.GetIndices().BlockIndex,
+				"Index of next relevant block should not have been incremented.");
+		}
+
+		[Test]
+		public void SplitBlock_SplitBetweenBlocksAndHasReferenceMatchup_IndicesNotChangedAndNoBlockAddedToBlockMatchup()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MRK, TestProject.TestBook.ACT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			model.AttemptRefBlockMatchup = true;
+
+			Block blockToSplit;
+			BlockMatchup matchup;
+			do
+			{
+				model.LoadNextRelevantBlock();
+				matchup = model.CurrentReferenceTextMatchup;
+				blockToSplit = matchup.CountOfBlocksAddedBySplitting == 0 ? model.CurrentBlock : null;
+			} while (blockToSplit == null || blockToSplit.MultiBlockQuote != MultiBlockQuote.Start);
+
+			Assert.IsTrue(model.CanNavigateToNextRelevantBlock, "Did not find a block sufficient for testing this scenario - no subsequent relevant blocks");
+			Assert.IsTrue(blockToSplit.MultiBlockQuote == MultiBlockQuote.Start, "Did not find a block sufficient for testing this scenario");
+
+			var originalNextBlock = model.BlockAccessor.GetNextBlock();
+			var origOriginalBlockCount = matchup.OriginalBlockCount;
+			var origCorrelatedBlocks = matchup.CorrelatedBlocks.ToList();
+
+			model.LoadNextRelevantBlock();
+			var indexOfNextRelevantBlock = model.BlockAccessor.GetIndices().BlockIndex;
+			model.LoadPreviousRelevantBlock();
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, blockToSplit.LastVerseNum.ToString(), BookScript.kSplitAtEndOfVerse) },
+				GetListOfCharacters(2, new string[] { "", "" }));
+
+			// Validates our test was set up correctly
+			Assert.AreEqual(originalNextBlock, model.BlockAccessor.GetNthNextBlockWithinBook(1, blockToSplit));
+
+			Assert.AreEqual(origOriginalBlockCount, model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.IsTrue(model.CurrentReferenceTextMatchup.CorrelatedBlocks.Select(b => b.GetText(true))
+				.SequenceEqual(origCorrelatedBlocks.Select(b => b.GetText(true))));
+
+			model.LoadNextRelevantBlock();
+
+			Assert.AreEqual(indexOfNextRelevantBlock, model.BlockAccessor.GetIndices().BlockIndex,
+				"Index of next relevant block should not have been incremented.");
+		}
+
+		[Test]
 		public void SetCurrentBookSingleVoice_UnassignedQuotesInOtherBooks_CurrentBlockInNextBook()
 		{
 			var project = TestProject.CreateTestProject(
@@ -1124,7 +1206,7 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(m_model.CurrentReferenceTextMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()));
 			Assert.IsTrue(m_model.CurrentBlock.ChapterNumber > 9);
 		}
-		
+
 		[Test]
 		public void StoreCharacterDetail_CallTwiceWithSameCharacter_NotSavedInProject()
 		{
