@@ -46,7 +46,7 @@ namespace Glyssen.Dialogs
 		public event EventHandler CurrentBlockMatchupChanged;
 		public event EventHandler FilterReset;
 
-		protected BookScript CurrentBook => m_navigator.CurrentBook;
+		protected BookScript CurrentBook => BlockAccessor.CurrentBook;
 
 		public BlockNavigatorViewModel(Project project, BlocksToDisplay mode = BlocksToDisplay.AllScripture, ProjectSettingsViewModel settingsViewModel = null)
 			: this(project, mode, null, settingsViewModel)
@@ -152,7 +152,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				var actualCount = m_navigator.CurrentBook.GetScriptBlocks().Count;
+				var actualCount = BlockAccessor.CurrentBook.GetScriptBlocks().Count;
 				var adjustment = BlockGroupingStyle == BlockGroupingType.BlockCorrelation ? m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting : 0;
 				return actualCount + adjustment;
 			}
@@ -176,19 +176,23 @@ namespace Glyssen.Dialogs
 				return m_currentRelevantIndex + 1;
 			}
 		}
-		public string CurrentBookId { get { return m_navigator.CurrentBook.BookId; } }
-		public bool CurrentBookIsSingleVoice { get { return m_navigator.CurrentBook.SingleVoice; } }
+
+		public IBlockAccessor BlockAccessor => m_navigator;
+
+		public string CurrentBookId => BlockAccessor.CurrentBook.BookId;
+		public bool CurrentBookIsSingleVoice => BlockAccessor.CurrentBook.SingleVoice;
+
 		public Block CurrentBlock
 		{
 			get
 			{
 				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
 					return m_currentRefBlockMatchups.CorrelatedAnchorBlock;
-				return m_navigator.CurrentBlock;
+				return BlockAccessor.CurrentBlock;
 			}
 		}
-		public Block CurrentEndBlock => m_navigator.CurrentEndBlock;
-		protected Block CurrentBlockInOriginal => m_navigator.CurrentBlock;
+		public Block CurrentEndBlock => BlockAccessor.CurrentEndBlock;
+		protected Block CurrentBlockInOriginal => BlockAccessor.CurrentBlock;
 		public BlockMatchup CurrentReferenceTextMatchup => m_currentRefBlockMatchups;
 		public int BackwardContextBlockCount { get; set; }
 		public int ForwardContextBlockCount { get; set; }
@@ -215,7 +219,7 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
-				BookBlockIndices indices = m_navigator.GetIndices();
+				BookBlockIndices indices = BlockAccessor.GetIndices();
 				return m_relevantBookBlockIndices.Any(i => i.Contains(indices));
 			}
 		}
@@ -248,14 +252,11 @@ namespace Glyssen.Dialogs
 
 		public int CurrentBlockIndexInBook
 		{
-			get
-			{
-				return m_navigator.GetIndices().BlockIndex;
-			}
+			get => BlockAccessor.GetIndices().BlockIndex;
 			set
 			{
 				int index = value;
-				var bookIndex = m_navigator.GetIndices().BookIndex;
+				var bookIndex = BlockAccessor.GetIndices().BookIndex;
 
 				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation)
 				{
@@ -318,7 +319,7 @@ namespace Glyssen.Dialogs
 
 				m_mode = value;
 				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
-				ResetFilter(m_navigator.CurrentBlock);
+				ResetFilter(BlockAccessor.CurrentBlock);
 			}
 		}
 
@@ -351,12 +352,12 @@ namespace Glyssen.Dialogs
 			}
 			else if (selectedBlock != null)
 			{
-				m_temporarilyIncludedBookBlockIndices = m_navigator.GetIndicesOfSpecificBlock(selectedBlock);
+				m_temporarilyIncludedBookBlockIndices = BlockAccessor.GetIndicesOfSpecificBlock(selectedBlock);
 				m_navigator.SetIndices(m_temporarilyIncludedBookBlockIndices);
 			}
 			else
 			{
-				m_temporarilyIncludedBookBlockIndices = m_navigator.GetIndices();
+				m_temporarilyIncludedBookBlockIndices = BlockAccessor.GetIndices();
 			}
 
 			FilterReset?.Invoke(this, new EventArgs());
@@ -382,12 +383,12 @@ namespace Glyssen.Dialogs
 		#region Context blocks
 		protected IEnumerable<Block> ContextBlocksBackward
 		{
-			get { return m_navigator.PeekBackwardWithinBook(BackwardContextBlockCount); }
+			get { return BlockAccessor.GetPreviousNBlocksWithinBook(BackwardContextBlockCount); }
 		}
 
 		protected IEnumerable<Block> ContextBlocksForward
 		{
-			get { return m_navigator.PeekForwardWithinBook(ForwardContextBlockCount); }
+			get { return BlockAccessor.GetNextNBlocksWithinBook(ForwardContextBlockCount); }
 		}
 		#endregion
 
@@ -440,7 +441,7 @@ namespace Glyssen.Dialogs
 				bldr.Append(" class=\"block scripture\"");
 			else
 				bldr.Append(" class=\"block\"");
-			bldr.Append(" data-block-index-in-book=\"").Append(m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex).Append("\"");
+			bldr.Append(" data-block-index-in-book=\"").Append(BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex).Append("\"");
 			bldr.Append(">");
 			bldr.Append(text);
 			bldr.Append("</div>");
@@ -481,7 +482,7 @@ namespace Glyssen.Dialogs
 				case MultiBlockQuote.Start:
 					yield return firstBlock;
 					foreach (var i in GetIndicesOfQuoteContinuationBlocks(firstBlock))
-						yield return m_navigator.CurrentBook[i];
+						yield return BlockAccessor.CurrentBook[i];
 					break;
 				case MultiBlockQuote.Continuation:
 					// These should all be brought in through a Start block, so don't do anything with them here
@@ -498,9 +499,9 @@ namespace Glyssen.Dialogs
 			// Note this method assumes the startQuoteBlock is in the navigator's current book.
 			Debug.Assert(startQuoteBlock.MultiBlockQuote == MultiBlockQuote.Start);
 
-			for (int j = m_navigator.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
+			for (int j = BlockAccessor.GetIndicesOfSpecificBlock(startQuoteBlock).BlockIndex + 1; j < BlockCountForCurrentBook; j++)
 			{
-				Block block = m_navigator.CurrentBook[j];
+				Block block = BlockAccessor.CurrentBook[j];
 				if (block == null || !block.IsContinuationOfPreviousBlockQuote)
 					break;
 				yield return j;
@@ -512,7 +513,7 @@ namespace Glyssen.Dialogs
 			get
 			{
 				if (BlockGroupingStyle == BlockGroupingType.Quote)
-					return m_navigator.GetIndicesOfSpecificBlock(CurrentBlock).BlockIndex;
+					return BlockAccessor.GetIndicesOfSpecificBlock(CurrentBlock).BlockIndex;
 				return m_currentRefBlockMatchups.IndexOfStartBlockInBook;
 			}
 		}
@@ -534,7 +535,7 @@ namespace Glyssen.Dialogs
 		#region GetBlockReference
 		public string GetBlockReferenceString(Block block = null)
 		{
-			block = block ?? m_navigator.CurrentBlock;
+			block = block ?? BlockAccessor.CurrentBlock;
 			var startRef = new BCVRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber);
 			var lastVerseInBlock = block.LastVerseNum;
 			var endRef = (lastVerseInBlock <= block.InitialStartVerseNumber) ? startRef :
@@ -549,7 +550,7 @@ namespace Glyssen.Dialogs
 
 		public VerseRef GetBlockVerseRef(Block block = null, ScrVers targetVersification = null)
 		{
-			block = block ?? m_navigator.CurrentBlock;
+			block = block ?? BlockAccessor.CurrentBlock;
 			var verseRef =  new VerseRef(BCVRef.BookToNumber(CurrentBookId), block.ChapterNumber, block.InitialStartVerseNumber, Versification);
 			if (targetVersification != null)
 				verseRef.ChangeVersification(targetVersification);
@@ -569,7 +570,7 @@ namespace Glyssen.Dialogs
 			if (CurrentBlock.MultiBlockQuote == MultiBlockQuote.None)
 				return CurrentBlock;
 
-			var lastBlock = m_navigator.PeekForwardWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start).LastOrDefault();
+			var lastBlock = BlockAccessor.GetNextBlocksWithinBookWhile(b => b.MultiBlockQuote != MultiBlockQuote.None && b.MultiBlockQuote != MultiBlockQuote.Start).LastOrDefault();
 			return lastBlock ?? CurrentBlock;
 		}
 		#endregion
@@ -579,17 +580,17 @@ namespace Glyssen.Dialogs
 		{
 			if (BlockGroupingStyle != BlockGroupingType.BlockCorrelation)
 			{
-				return m_navigator.CurrentBook.GetScriptBlocks()[i];
+				return BlockAccessor.CurrentBook.GetScriptBlocks()[i];
 			}
 			if (m_currentRefBlockMatchups.IndexOfStartBlockInBook > i)
 			{
-				return m_navigator.CurrentBook.GetScriptBlocks()[i];
+				return BlockAccessor.CurrentBook.GetScriptBlocks()[i];
 			}
 			if (i < m_currentRefBlockMatchups.IndexOfStartBlockInBook + m_currentRefBlockMatchups.CorrelatedBlocks.Count)
 			{
 				return m_currentRefBlockMatchups.CorrelatedBlocks[i - m_currentRefBlockMatchups.IndexOfStartBlockInBook];
 			}
-			return m_navigator.CurrentBook.GetScriptBlocks()[i - m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting];
+			return BlockAccessor.CurrentBook.GetScriptBlocks()[i - m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting];
 		}
 
 		public bool CanNavigateToPreviousRelevantBlock
@@ -611,7 +612,7 @@ namespace Glyssen.Dialogs
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block before it.
 				var firstRelevantBlock = m_relevantBookBlockIndices[0];
-				var indicesOfCurrentLocation = m_temporarilyIncludedBookBlockIndices ?? m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
+				var indicesOfCurrentLocation = m_temporarilyIncludedBookBlockIndices ?? BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
 				return s_bookBlockComparer.Compare(firstRelevantBlock, indicesOfCurrentLocation) < 0;
 			}
 		}
@@ -636,14 +637,14 @@ namespace Glyssen.Dialogs
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
 				var indicesOfCurrentLocation = m_currentRefBlockMatchups == null ? m_temporarilyIncludedBookBlockIndices :
-					m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.Last());
+					BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.Last());
 				return s_bookBlockComparer.Compare(m_relevantBookBlockIndices.Last(), indicesOfCurrentLocation) > 0;
 			}
 		}
 
 		public bool TryLoadBlock(VerseRef verseRef)
 		{
-			var indices = m_navigator.GetIndicesOfFirstBlockAtReference(verseRef, AttemptRefBlockMatchup);
+			var indices = BlockAccessor.GetIndicesOfFirstBlockAtReference(verseRef, AttemptRefBlockMatchup);
 			if (indices == null)
 				return false;
 
@@ -666,10 +667,10 @@ namespace Glyssen.Dialogs
 		{
 			if (!CanNavigateToNextRelevantBlock)
 				return;
-			if (m_navigator.IsLastBook(CurrentBook))
+			if (BlockAccessor.IsLastBook(CurrentBook))
 				return;
 
-			var currentBookIndex = m_navigator.GetIndicesOfSpecificBlock(m_navigator.CurrentBlock).BookIndex;
+			var currentBookIndex = BlockAccessor.GetIndicesOfSpecificBlock(BlockAccessor.CurrentBlock).BookIndex;
 
 			var blockIndex = (IsCurrentBlockRelevant) ? m_currentRelevantIndex + 1 :
 				GetIndexOfClosestRelevantBlock(m_relevantBookBlockIndices, m_temporarilyIncludedBookBlockIndices, false, 0, RelevantBlockCount - 1);
@@ -788,7 +789,7 @@ namespace Glyssen.Dialogs
 				$"{CurrentBook.BookId} {CurrentBlock.ChapterNumber}:{CurrentBlock.InitialStartVerseNumber}");
 
 			m_currentRefBlockMatchups = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-				CurrentBlockIndexInBook, m_project.Versification, m_navigator.GetIndices().MultiBlockCount);
+				CurrentBlockIndexInBook, m_project.Versification, BlockAccessor.GetIndices().MultiBlockCount);
 			if (m_currentRefBlockMatchups != null)
 			{
 				m_currentRefBlockMatchups.MatchAllBlocks(m_project.Versification);
@@ -797,11 +798,11 @@ namespace Glyssen.Dialogs
 				// (i.e., it is relevant), we need to set indices based on the group rather than the individual block. Otherwise, we'll lose
 				// track of our place in the list (which not only affects the display index but also can lead to crashes, such as PG-924)
 				// later when we try to go to the previous or next relevant passage).
-				if (IsCurrentBlockRelevant && m_temporarilyIncludedBookBlockIndices != null && !m_navigator.GetIndices().IsMultiBlock && m_relevantBookBlockIndices.Any(i => i.IsMultiBlock))
+				if (IsCurrentBlockRelevant && m_temporarilyIncludedBookBlockIndices != null && !BlockAccessor.GetIndices().IsMultiBlock && m_relevantBookBlockIndices.Any(i => i.IsMultiBlock))
 				{
-					m_navigator.SetIndices(new BookBlockIndices(m_navigator.GetIndices().BookIndex, m_currentRefBlockMatchups.IndexOfStartBlockInBook, (uint)m_currentRefBlockMatchups.OriginalBlockCount));
+					m_navigator.SetIndices(new BookBlockIndices(BlockAccessor.GetIndices().BookIndex, m_currentRefBlockMatchups.IndexOfStartBlockInBook, (uint)m_currentRefBlockMatchups.OriginalBlockCount));
 					m_temporarilyIncludedBookBlockIndices = null;
-					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(m_navigator.GetIndices());
+					m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(BlockAccessor.GetIndices());
 				}
 			}
 			if (origValue != m_currentRefBlockMatchups)
@@ -844,7 +845,7 @@ namespace Glyssen.Dialogs
 			var insertions = m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting;
 			var insertionIndex = m_currentRelevantIndex;
 			bool relevantBlockRemoved = false;
-			if (insertions > 0 && !m_navigator.GetIndices().IsMultiBlock)
+			if (insertions > 0 && !BlockAccessor.GetIndices().IsMultiBlock)
 			{
 				foreach (var indices in IndicesOfOriginalRelevantBlocks)
 					relevantBlockRemoved |= m_relevantBookBlockIndices.Remove(indices);
@@ -853,7 +854,7 @@ namespace Glyssen.Dialogs
 			m_currentRefBlockMatchups.Apply(m_project.Versification);
 			if (insertionIndex < 0)
 			{
-				var indicesOfFirstBlock = m_navigator.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
+				var indicesOfFirstBlock = BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.First());
 				insertionIndex = GetIndexOfClosestRelevantBlock(m_relevantBookBlockIndices, indicesOfFirstBlock, false, 0, m_relevantBookBlockIndices.Count - 1);
 				if (insertionIndex == -1)
 					insertionIndex = m_relevantBookBlockIndices.Count;
@@ -866,7 +867,7 @@ namespace Glyssen.Dialogs
 			if (relevantBlockRemoved)
 			{
 				m_relevantBookBlockIndices.InsertRange(insertionIndex,
-					m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => m_navigator.GetIndicesOfSpecificBlock(b)));
+					m_currentRefBlockMatchups.OriginalBlocks.Where(b => IsRelevant(b, true)).Select(b => BlockAccessor.GetIndicesOfSpecificBlock(b)));
 				if (m_temporarilyIncludedBookBlockIndices != null)
 				{
 					var indexOfCurrentBlock = m_relevantBookBlockIndices.IndexOf(m_temporarilyIncludedBookBlockIndices);
@@ -877,7 +878,7 @@ namespace Glyssen.Dialogs
 					}
 				}
 			}
-			else if (m_navigator.GetIndices().IsMultiBlock)
+			else if (BlockAccessor.GetIndices().IsMultiBlock)
 			{
 				m_navigator.ExtendCurrentBlockGroup((uint)insertions);
 			}
@@ -885,17 +886,17 @@ namespace Glyssen.Dialogs
 			// Insertions before the anchor block can mess up m_currentBlockIndex, so we need to reset it to point to the newly inserted
 			// block that corresponds to the "anchor" block. Since the "OriginalBlocks" is not a cloned copy of the "CorrelatedBlocks",
 			// We can safely use the index of the anchor block in CorrelatedBlocks to find the correct block in OriginalBlocks.
-			if (!m_navigator.GetIndices().IsMultiBlock)
+			if (!BlockAccessor.GetIndices().IsMultiBlock)
 			{
 				var originalAnchorBlock = m_currentRefBlockMatchups.OriginalBlocks.ElementAt(
 						m_currentRefBlockMatchups.CorrelatedBlocks.IndexOf(m_currentRefBlockMatchups.CorrelatedAnchorBlock));
-				SetBlock(m_navigator.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
+				SetBlock(BlockAccessor.GetIndicesOfSpecificBlock(originalAnchorBlock), false);
 			}
 			if (insertions > 0)
 			{
-				var currentBookIndex = m_navigator.GetIndices().BookIndex;
+				var currentBookIndex = BlockAccessor.GetIndices().BookIndex;
 				var startIndex = insertionIndex + RelevantBlockCount - origRelevantBlockCount;
-				if (m_currentRelevantIndex >= 0 && m_navigator.GetIndices().IsMultiBlock)
+				if (m_currentRelevantIndex >= 0 && BlockAccessor.GetIndices().IsMultiBlock)
 				{
 					// Since this "relevant passage" is a multi-block matchup (as opposed to a single block), rather than incrementing the
 					// BlockIndex, we want to extend the count. Otherwise, this will cease to be relevant, and when the user clicks
@@ -920,12 +921,12 @@ namespace Glyssen.Dialogs
 
 		protected BookBlockIndices GetCurrentBlockIndices()
 		{
-			return m_navigator.GetIndices();
+			return BlockAccessor.GetIndices();
 		}
 
 		internal BookBlockIndices GetBlockIndices(Block block)
 		{
-			return m_navigator.GetIndicesOfSpecificBlock(block);
+			return BlockAccessor.GetIndicesOfSpecificBlock(block);
 		}
 
 		private Block GetBlock(BookBlockIndices indices)
@@ -964,26 +965,26 @@ namespace Glyssen.Dialogs
 		{
 			BlockMatchup lastMatchup = null;
 
-			m_navigator.NavigateToFirstBlock();
+			m_navigator.GoToFirstBlock();
 			m_relevantBookBlockIndices = new List<BookBlockIndices>();
-			Block block = m_navigator.CurrentBlock;
+			Block block = BlockAccessor.CurrentBlock;
 			for (; ; )
 			{
 				if (IsRelevant(block, ref lastMatchup))
 				{
-					var indices = m_navigator.GetIndices();
+					var indices = BlockAccessor.GetIndices();
 					if (lastMatchup == null)
 						RelevantBlockAdded(block);
 					else
 						indices.MultiBlockCount = (uint)lastMatchup.OriginalBlockCount;
 					m_relevantBookBlockIndices.Add(indices);
 				}
-				if (m_navigator.IsLastBlock())
+				if (BlockAccessor.IsLastBlock())
 					break;
-				block = m_navigator.NextBlock();
+				block = m_navigator.GoToNextBlock();
 			}
 
-			m_navigator.NavigateToFirstBlock();
+			m_navigator.GoToFirstBlock();
 		}
 
 		protected virtual void RelevantBlockAdded(Block block)
@@ -1007,7 +1008,7 @@ namespace Glyssen.Dialogs
 
 				if (!block.IsScripture)
 					return false;
-				
+
 				// Note that the logic here is absolutely dependent on block being in CurrentBook!!!
 
 				if (!m_project.ReferenceText.CanDisplayReferenceTextForBook(CurrentBook))
@@ -1015,10 +1016,10 @@ namespace Glyssen.Dialogs
 
 				if (lastMatchup != null && lastMatchup.OriginalBlocks.Contains(block))
 					return false;
-				
+
 				lastMatchup = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
-					m_navigator.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
-				
+					BlockAccessor.GetIndicesOfSpecificBlock(block).BlockIndex, m_project.Versification);
+
 				return lastMatchup.OriginalBlocks.Any(b => b.CharacterIsUnclear()) ||
 					(lastMatchup.OriginalBlocks.Count() > 1 && !lastMatchup.CorrelatedBlocks.All(b => b.MatchesReferenceText));
 			}
@@ -1047,7 +1048,7 @@ namespace Glyssen.Dialogs
 				if (!withPotentialMissingQuote.Any())
 					return false;
 
-				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method. 
+				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method.
 				return CurrentBlockHasMissingExpectedQuote(withPotentialMissingQuote);
 			}
 			if ((Mode & BlocksToDisplay.MoreQuotesThanExpectedSpeakers) > 0)
@@ -1063,15 +1064,15 @@ namespace Glyssen.Dialogs
 				if (actualquotes > expectedSpeakers)
 					return true;
 
-				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method. 
+				// REVIEW: This method peeks forward/backward from the *CURRENT* block, which might not be the block passed in to this method.
 				// Check surrounding blocks to count quote blocks for same verse.
-				actualquotes += m_navigator.PeekBackwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
+				actualquotes += BlockAccessor.GetPreviousBlocksWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
 					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
 
 				if (actualquotes > expectedSpeakers)
 					return true;
 
-				actualquotes += m_navigator.PeekForwardWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
+				actualquotes += BlockAccessor.GetNextBlocksWithinBookWhile(b => b.ChapterNumber == block.ChapterNumber &&
 					b.InitialStartVerseNumber == block.InitialStartVerseNumber).Count(b => b.IsQuoteStart);
 
 				return (actualquotes > expectedSpeakers);
@@ -1104,8 +1105,8 @@ namespace Glyssen.Dialogs
 		{
 			foreach (var verse in versesWithPotentialMissingQuote)
 			{
-				if (m_navigator.PeekBackwardWithinBookWhile(b => PeekBackwardBlocksMatch(b, verse)).All(b => !b.IsQuote) &&
-					m_navigator.PeekForwardWithinBookWhile(b => PeekForwardBlocksMatch(b, verse)).All(b => !b.IsQuote))
+				if (BlockAccessor.GetPreviousBlocksWithinBookWhile(b => PeekBackwardBlocksMatch(b, verse)).All(b => !b.IsQuote) &&
+					BlockAccessor.GetNextBlocksWithinBookWhile(b => PeekForwardBlocksMatch(b, verse)).All(b => !b.IsQuote))
 					return true;
 			}
 			return false;
@@ -1142,7 +1143,7 @@ namespace Glyssen.Dialogs
 			if (m_currentRefBlockMatchups != null)
 			{
 				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
-				var currentIndices = m_navigator.GetIndices();
+				var currentIndices = BlockAccessor.GetIndices();
 				if (currentIndices.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
 					currentIndices.BlockIndex <= indicesOfNewOrModifiedBlock.BlockIndex &&
 					currentIndices.EffectiveFinalBlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex - 1)

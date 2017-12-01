@@ -1140,7 +1140,17 @@ namespace Glyssen.Dialogs
 				}
 
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
-				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y]);
+				var rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
+				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[rowIndex]);
+				while (blockToSplit.IsContinuationOfPreviousBlockQuote)
+				{
+					if (rowIndex > 0)
+						blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[--rowIndex]);
+					else
+					{
+						blockToSplit = m_viewModel.BlockAccessor.GetNthPreviousBlockWithinBook(1, blockToSplit);
+					}
+				}
 			}
 			else
 				blockToSplit = m_viewModel.CurrentBlock;
