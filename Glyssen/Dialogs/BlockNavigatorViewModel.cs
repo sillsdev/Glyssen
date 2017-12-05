@@ -1138,26 +1138,29 @@ namespace Glyssen.Dialogs
 			return false;
 		}
 
-		protected void AddToRelevantBlocksIfNeeded(Block newOrModifiedBlock)
+		protected void AddToRelevantBlocksIfNeeded(Block newOrModifiedBlock, bool blockIsNew)
 		{
 			if (m_currentRefBlockMatchups != null)
 			{
-				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
-				var currentIndices = BlockAccessor.GetIndices();
-				if (currentIndices.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
-					currentIndices.BlockIndex <= indicesOfNewOrModifiedBlock.BlockIndex &&
-					currentIndices.EffectiveFinalBlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex - 1)
+				if (blockIsNew)
 				{
-					// We need to increment the count of blocks in both the navigator and the current
-					// relevant block (if the current matchup is relevant). These BookBlockIndices objects
-					// are (hopefully identical?) copies of each other.
-					m_navigator.ExtendCurrentBlockGroup(1);
-					if (m_currentRelevantIndex >= 0)
-						m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount++;
-				}
-				else
-				{
-					Debug.Fail("Look at this scenario. I don't think this should ever happen.");
+					var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
+					var currentIndices = BlockAccessor.GetIndices();
+					if (currentIndices.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
+						currentIndices.BlockIndex <= indicesOfNewOrModifiedBlock.BlockIndex &&
+						currentIndices.EffectiveFinalBlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex - 1)
+					{
+						// We need to increment the count of blocks in both the navigator and the current
+						// relevant block (if the current matchup is relevant). These BookBlockIndices objects
+						// are (hopefully identical?) copies of each other.
+						m_navigator.ExtendCurrentBlockGroup(1);
+						if (m_currentRelevantIndex >= 0)
+							m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount++;
+					}
+					else
+					{
+						Debug.Fail("Look at this scenario. I don't think this should ever happen.");
+					}
 				}
 			}
 			else if (IsRelevant(newOrModifiedBlock, true))
