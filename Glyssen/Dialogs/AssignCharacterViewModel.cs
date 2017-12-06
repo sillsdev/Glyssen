@@ -350,6 +350,11 @@ namespace Glyssen.Dialogs
 
 			return m_currentDeliveries;
 		}
+
+		public IEnumerable<Delivery> GetDeliveriesForCharacterInCurrentReferenceTextMatchup(Character character)
+		{
+			return GetDeliveriesForCharacter(character).Intersect(GetDeliveriesForCurrentReferenceTextMatchup());
+		}
 		#endregion
 
 		#region Character/delivery assignment methods
