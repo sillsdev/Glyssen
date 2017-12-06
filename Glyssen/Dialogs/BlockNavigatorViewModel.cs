@@ -1159,6 +1159,9 @@ namespace Glyssen.Dialogs
 					}
 					else
 					{
+						Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+						Logger.WriteEvent("In AddToRelevantBlocksIfNeeded, we created a scenario which we don't think should ever happen! currentIndices ({0}), indicesOfNewOrModifiedBlock ({1})", currentIndices, indicesOfNewOrModifiedBlock);
+						Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 						Debug.Fail("Look at this scenario. I don't think this should ever happen.");
 					}
 				}

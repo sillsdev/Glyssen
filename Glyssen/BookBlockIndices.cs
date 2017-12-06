@@ -82,6 +82,11 @@ namespace Glyssen
 			return result;
 		}
 
+		public override string ToString()
+		{
+			return $"BookIndex: {BookIndex}, BlockIndex: {BlockIndex}, MultiBlockCount: {MultiBlockCount}, EffectiveFinalBlockIndex: {EffectiveFinalBlockIndex}";
+		}
+
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
