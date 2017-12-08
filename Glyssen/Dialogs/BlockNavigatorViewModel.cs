@@ -186,6 +186,10 @@ namespace Glyssen.Dialogs
 		{
 			get
 			{
+				// Where we left things in our debugging mid-December:
+				// We expected CurrentBlock to be the CorrelatedAnchorBlock in our failing test, but it isn't because CountOfBlocksAddedBySplitting == 0.
+				// The result is that when we get to Split Block, CurrentBlock is the narrator block instead of the Jesus block which results in
+				// catastrophic failure (narrator block assigned to Jesus, etc.).
 				if (BlockGroupingStyle == BlockGroupingType.BlockCorrelation && m_currentRefBlockMatchups.CountOfBlocksAddedBySplitting != 0)
 					return m_currentRefBlockMatchups.CorrelatedAnchorBlock;
 				return BlockAccessor.CurrentBlock;
@@ -976,6 +980,7 @@ namespace Glyssen.Dialogs
 					if (lastMatchup == null)
 						RelevantBlockAdded(block);
 					else
+						//TODO call RelevantBlockAdded for each original block
 						indices.MultiBlockCount = (uint)lastMatchup.OriginalBlockCount;
 					m_relevantBookBlockIndices.Add(indices);
 				}
@@ -1138,17 +1143,67 @@ namespace Glyssen.Dialogs
 			return false;
 		}
 
-		protected void AddToRelevantBlocksIfNeeded(Block newOrModifiedBlock, bool blockIsNew)
+		protected void AddToRelevantBlocksIfNeeded(Block newOrModifiedBlock)
 		{
+			var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
+
 			if (m_currentRefBlockMatchups != null)
 			{
-				if (blockIsNew)
+				//if (blockIsNew)
+				//{
+				//	var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
+				//	var currentIndices = BlockAccessor.GetIndices();
+				//	if (currentIndices.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
+				//		currentIndices.BlockIndex <= indicesOfNewOrModifiedBlock.BlockIndex &&
+				//		currentIndices.EffectiveFinalBlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex - 1)
+				//	{
+				//		// We need to increment the count of blocks in both the navigator and the current
+				//		// relevant block (if the current matchup is relevant). These BookBlockIndices objects
+				//		// are (hopefully identical?) copies of each other.
+				//		m_navigator.ExtendCurrentBlockGroup(1);
+				//		if (m_currentRelevantIndex >= 0)
+				//			m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount++;
+				//	}
+				//	else
+				//	{
+				//		Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				//		Logger.WriteEvent("In AddToRelevantBlocksIfNeeded, we created a scenario which we don't think should ever happen! currentIndices ({0}), indicesOfNewOrModifiedBlock ({1})", currentIndices, indicesOfNewOrModifiedBlock);
+				//		Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				//		Debug.Fail("Look at this scenario. I don't think this should ever happen.");
+				//	}
+				//}
+
+				// Cases:
+				// 1) Orig matchup was/is relevant, but new one isn't
+				// 2) Orig matchup was/is relevant, it continues to be relevant and covers the new block
+				// 3) Orig matchup was not relevant and neither is the new one
+				// 4) Orig matchup was not relevant, but the new one is
+				// 5) Orig matchup was not relevant, but now it is and it covers the new block
+				// 6?) Orig matchup was not relevant, but now it is, but it does NOT cover the new block
+				// 7?) Orig matchup was/is relevant, but now it isn't, and it covers the new block
+				// 8?) Orig matchup was/is relevant, but now it isn't, and it does not cover the new block
+
+				// If the rainbow matchup that covers the new block is relevant (or contains relevant blocks), we need to either
+				// update the indices corresponding to the existing rainbow matchup or add a new set of indices to
+				// m_relevantBookBlockIndices.
+				BlockMatchup matchupForNewBlock;
+				bool matchupCoveringNewBlockIsRelevant;
+				if (IsCurrentBlockRelevant)
 				{
-					var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
-					var currentIndices = BlockAccessor.GetIndices();
-					if (currentIndices.BookIndex == indicesOfNewOrModifiedBlock.BookIndex &&
-						currentIndices.BlockIndex <= indicesOfNewOrModifiedBlock.BlockIndex &&
-						currentIndices.EffectiveFinalBlockIndex >= indicesOfNewOrModifiedBlock.BlockIndex - 1)
+					matchupForNewBlock = m_currentRefBlockMatchups;
+					matchupCoveringNewBlockIsRelevant = IsRelevant(newOrModifiedBlock, ref matchupForNewBlock, true);
+				}
+				else
+				{
+					matchupForNewBlock = m_project.ReferenceText.GetBlocksForVerseMatchedToReferenceText(CurrentBook,
+						BlockAccessor.GetIndicesOfSpecificBlock(newOrModifiedBlock).BlockIndex, m_project.Versification);
+					matchupCoveringNewBlockIsRelevant = IsRelevant(newOrModifiedBlock, true);
+				}
+				if (matchupCoveringNewBlockIsRelevant)
+				{
+					// If the resulting matchup starts where the original one did, we know that we are dealing with the
+					// same range of blocks.
+					if (matchupForNewBlock.OriginalBlocks.First() == m_currentRefBlockMatchups.OriginalBlocks.First())
 					{
 						// We need to increment the count of blocks in both the navigator and the current
 						// relevant block (if the current matchup is relevant). These BookBlockIndices objects
@@ -1156,19 +1211,25 @@ namespace Glyssen.Dialogs
 						m_navigator.ExtendCurrentBlockGroup(1);
 						if (m_currentRelevantIndex >= 0)
 							m_relevantBookBlockIndices[m_currentRelevantIndex].MultiBlockCount++;
+						else
+						{
+							indicesOfNewOrModifiedBlock.MultiBlockCount = (uint)matchupForNewBlock.OriginalBlockCount;
+							m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
+							m_relevantBookBlockIndices.Sort();
+						}
 					}
 					else
 					{
-						Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-						Logger.WriteEvent("In AddToRelevantBlocksIfNeeded, we created a scenario which we don't think should ever happen! currentIndices ({0}), indicesOfNewOrModifiedBlock ({1})", currentIndices, indicesOfNewOrModifiedBlock);
-						Logger.WriteEvent("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-						Debug.Fail("Look at this scenario. I don't think this should ever happen.");
+						indicesOfNewOrModifiedBlock.MultiBlockCount = (uint) matchupForNewBlock.OriginalBlockCount;
+						m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
+						m_relevantBookBlockIndices.Sort();
 					}
+					// TODO: if (m_currentRelevantIndex == -1 && ??? CurrentBlock.Equals(newOrModifiedBlock))
+						//m_currentRelevantIndex = m_relevantBookBlockIndices.IndexOf(indicesOfNewOrModifiedBlock);
 				}
 			}
 			else if (IsRelevant(newOrModifiedBlock, true))
 			{
-				var indicesOfNewOrModifiedBlock = GetBlockIndices(newOrModifiedBlock);
 				m_relevantBookBlockIndices.Add(indicesOfNewOrModifiedBlock);
 				m_relevantBookBlockIndices.Sort();
 				RelevantBlockAdded(newOrModifiedBlock);

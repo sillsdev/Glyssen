@@ -586,7 +586,7 @@ namespace Glyssen.Dialogs
 						// We "split" between existing blocks in a multiblock quote,
 						// so we don't need to do the same kind of cleanup above.
 					}
-					AddToRelevantBlocksIfNeeded(chipOffTheOldBlock, isNewBlock);
+					AddToRelevantBlocksIfNeeded(chipOffTheOldBlock);
 				}
 			}
 			if (AttemptRefBlockMatchup)

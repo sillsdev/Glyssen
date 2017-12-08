@@ -967,6 +967,121 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SplitBlock_SplitWhereMatchupHasCreatedPseudoSplit_ResultingBlockShouldBeRelevant()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			model.AttemptRefBlockMatchup = true;
+
+			// Go to MAT 5:18
+			while (model.CurrentBlock.ChapterNumber != 5 || model.CurrentBlock.InitialStartVerseNumber != 18)
+				model.LoadNextRelevantBlock();
+
+			var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.First();
+
+			// Validate our setup
+			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.AreEqual(18, model.CurrentBlock.LastVerseNum, "CurrentBlock is not an original block, so it should end with v. 18");
+			Assert.AreEqual(1, model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.Greater(blockToSplit.LastVerseNum, 18);
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "18", PortionScript.kSplitAtEndOfVerse) },
+				GetListOfCharacters(2, new[] { "", "" }));
+
+			model.LoadNextRelevantBlock();
+
+			Assert.AreEqual(19, model.CurrentBlock.InitialStartVerseNumber);
+			Assert.AreEqual(19, model.CurrentReferenceTextMatchup.OriginalBlocks.First().InitialStartVerseNumber);
+		}
+
+		[Test]
+		public void SplitBlock_SplitMidReferenceTextBlock_BlockMatchupShouldContainBothBlocksAndStillBeRelevant()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			model.AttemptRefBlockMatchup = true;
+
+			// Go to MAT 5:18
+			while (model.CurrentBlock.ChapterNumber != 5 || model.CurrentBlock.InitialStartVerseNumber != 18)
+				model.LoadNextRelevantBlock();
+
+			var origRelevantBlockCount = model.RelevantBlockCount;
+			var origBlock = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
+			var origBlockText = origBlock.GetText(true);
+			var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.First();
+
+			model.LoadNextRelevantBlock();
+			var origNextRelevantBlockText = model.CurrentBlock.GetText(true);
+			model.LoadPreviousRelevantBlock();
+
+			// Validate our setup
+			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.AreEqual(18, model.CurrentBlock.LastVerseNum, "CurrentBlock is not an original block, so it should end with v. 18");
+			Assert.Greater(blockToSplit.LastVerseNum, 18);
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "18", 10) },
+				GetListOfCharacters(2, new[] { "", "" }));
+
+			Assert.AreEqual(origRelevantBlockCount, model.RelevantBlockCount);
+			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.AreEqual(18, model.CurrentBlock.LastVerseNum);
+			Assert.AreEqual(2, model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.AreEqual(origBlock, model.CurrentReferenceTextMatchup.OriginalBlocks.First());
+			Assert.AreEqual(String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))), origBlockText);
+
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(origNextRelevantBlockText, model.CurrentBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_SplitQuoteInNonRelevantMatchupAndOnlyAssignCharacterToFirstPart_BlockMatchupForNewBlockIsRelevant()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.MAT);
+			var model = new AssignCharacterViewModel(project);
+
+			model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			model.AttemptRefBlockMatchup = true;
+
+			// Go to MAT 9:22
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(040009022)));
+
+			var origRelevantBlockCount = model.RelevantBlockCount;
+			var origOriginalBlocCount = model.CurrentReferenceTextMatchup.OriginalBlockCount;
+		    var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single(b => b.CharacterId == "Jesus");
+			var origMatchupText = String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true)));
+
+			model.LoadNextRelevantBlock();
+			var origNextRelevantBlockText = model.CurrentBlock.GetText(true);
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(040009022)));
+			model.CurrentBlockIndexInBook++;
+
+			// Validate our setup
+			Assert.False(model.IsCurrentBlockRelevant);
+			Assert.AreEqual("Jesus", model.CurrentBlock.CharacterId);
+			Assert.AreEqual(22, model.CurrentBlock.InitialStartVerseNumber);
+
+			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "22", 22) },
+				GetListOfCharacters(2, new[] { "Jesus", "" }));
+
+			Assert.AreEqual(origRelevantBlockCount + 1, model.RelevantBlockCount);
+			Assert.True(model.IsCurrentBlockRelevant);
+			Assert.AreEqual(22, model.CurrentBlock.LastVerseNum, "Sanity check");
+			Assert.AreEqual(origOriginalBlocCount + 1, model.CurrentReferenceTextMatchup.OriginalBlockCount);
+			Assert.IsTrue(model.CurrentReferenceTextMatchup.OriginalBlocks.Contains(blockToSplit));
+			Assert.AreEqual(origMatchupText, String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))));
+
+			model.LoadNextRelevantBlock();
+			Assert.AreEqual(origNextRelevantBlockText, model.CurrentBlock.GetText(true));
+			model.LoadPreviousRelevantBlock();
+			Assert.AreEqual(origMatchupText, String.Join("", model.CurrentReferenceTextMatchup.OriginalBlocks.Select(b => b.GetText(true))),
+				"We should have gotten back to the matchup that covers our split block because it is now relevant.");
+		}
+
+		[Test]
 		public void SetCurrentBookSingleVoice_UnassignedQuotesInOtherBooks_CurrentBlockInNextBook()
 		{
 			var project = TestProject.CreateTestProject(

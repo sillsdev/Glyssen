@@ -354,7 +354,14 @@ namespace Glyssen
 
 		public void ExtendCurrentBlockGroup(uint additionalBlocks)
 		{
-			m_currentIndices.MultiBlockCount += additionalBlocks;
+			if (m_currentIndices.IsMultiBlock)
+				m_currentIndices.MultiBlockCount += additionalBlocks;
+			else
+			{
+				// Since it wasn't a multi-block before, we need 1 to account for the single block that
+				// this index previously represented.
+				m_currentIndices.MultiBlockCount = additionalBlocks + 1;
+			}
 		}
 	}
 }
