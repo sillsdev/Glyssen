@@ -61,6 +61,11 @@ namespace Glyssen.Character
 			return m_dictionary = m_data.ToDictionary(k => k.CharacterId);
 		}
 
+		public IEnumerable<string> GetAllCharacterIdsAsLowerInvariant()
+		{
+			return m_data.Select(c => c.CharacterId.ToLowerInvariant());
+		}
+
 		private void LoadData(string tabDelimitedCharacterDetailData)
 		{
 			var list = new List<CharacterDetail>();

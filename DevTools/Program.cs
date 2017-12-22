@@ -24,6 +24,7 @@ namespace DevTools
 			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
 			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
 			Console.WriteLine("13) Generate reference text book title and chapter label summary");
+			Console.WriteLine("14) Create new English reference text (see comments in the Mode enum in ReferenceTextUtility)");
 
 			string selection = Console.ReadLine();
 			string outputType = "errors";
@@ -47,7 +48,7 @@ namespace DevTools
 					break;
 				case "9":
 					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.Generate);
-					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+					waitForUserToSeeOutput = true;
 					break;
 				case "10": ReferenceTextUtility.LinkToEnglish();
 					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
@@ -56,10 +57,15 @@ namespace DevTools
 					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
 					waitForUserToSeeOutput = true;
 					break;
-				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources(); break;
+				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources();
+					break;
 				case "13":
 					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
 					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+					break;
+				case "14":
+					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.GenerateEnglish);
+					waitForUserToSeeOutput = true;
 					break;
 			}
 

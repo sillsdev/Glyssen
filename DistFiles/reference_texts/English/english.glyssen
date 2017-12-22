@@ -34,6 +34,106 @@
     <dateUpdated>2016-03-08T19:25:53.5903051+00:00</dateUpdated>
   </archiveStatus>
   <bookNames>
+    <book code="GEN">
+      <long>GENESIS</long>
+      <short>GENESIS</short>
+      <abbr />
+    </book>
+    <book code="EXO">
+      <long>EXODUS</long>
+      <short>EXODUS</short>
+      <abbr />
+    </book>
+    <book code="LEV">
+      <long>LEVITICUS</long>
+      <short>LEVITICUS</short>
+      <abbr />
+    </book>
+    <book code="NUM">
+      <long>NUMBERS</long>
+      <short>NUMBERS</short>
+      <abbr />
+    </book>
+    <book code="DEU">
+      <long>DEUTERONOMY</long>
+      <short>DEUTERONOMY</short>
+      <abbr />
+    </book>
+    <book code="JOS">
+      <long>JOSHUA</long>
+      <short>JOSHUA</short>
+      <abbr />
+    </book>
+    <book code="JDG">
+      <long>JUDGES</long>
+      <short>JUDGES</short>
+      <abbr />
+    </book>
+    <book code="RUT">
+      <long>RUTH</long>
+      <short>RUTH</short>
+      <abbr />
+    </book>
+    <book code="1SA">
+      <long>1 SAMUEL</long>
+      <short>1 SAMUEL</short>
+      <abbr />
+    </book>
+    <book code="2SA">
+      <long>2 SAMUEL</long>
+      <short>2 SAMUEL</short>
+      <abbr />
+    </book>
+    <book code="1KI">
+      <long>1 KINGS</long>
+      <short>1 KINGS</short>
+      <abbr />
+    </book>
+    <book code="2KI">
+      <long>2 KINGS</long>
+      <short>2 KINGS</short>
+      <abbr />
+    </book>
+    <book code="1CH">
+      <long>1 CHRONICLES</long>
+      <short>1 CHRONICLES</short>
+      <abbr />
+    </book>
+    <book code="2CH">
+      <long>2 CHRONICLES</long>
+      <short>2 CHRONICLES</short>
+      <abbr />
+    </book>
+    <book code="EZR">
+      <long>EZRA</long>
+      <short>EZR</short>
+      <abbr />
+    </book>
+    <book code="EST">
+      <long>ESTHER</long>
+      <short>ESTHER</short>
+      <abbr />
+    </book>
+    <book code="JOB">
+      <long>JOB</long>
+      <short>JOB</short>
+      <abbr />
+    </book>
+    <book code="ECC">
+      <long>ECCLESIASTES</long>
+      <short>ECCLESIASTES</short>
+      <abbr />
+    </book>
+    <book code="JON">
+      <long>JONAH</long>
+      <short>JONAH</short>
+      <abbr />
+    </book>
+    <book code="HAB">
+      <long>HABAKKUK</long>
+      <short>HABAKKUK</short>
+      <abbr />
+    </book>
     <book code="MAT">
       <long>MATTHEW</long>
       <short>MATTHEW</short>
@@ -179,6 +279,26 @@
       <description />
       <descriptionLocal />
       <books>
+        <book code="GEN" />
+        <book code="EXO" />
+        <book code="LEV" />
+        <book code="NUM" />
+        <book code="DEU" />
+        <book code="JOS" />
+        <book code="JDG" />
+        <book code="RUT" />
+        <book code="1SA" />
+        <book code="2SA" />
+        <book code="1KI" />
+        <book code="2KI" />
+        <book code="1CH" />
+        <book code="2CH" />
+        <book code="EZR" />
+        <book code="EST" />
+        <book code="JOB" />
+        <book code="ECC" />
+        <book code="JON" />
+        <book code="HAB" />
         <book code="MAT" />
         <book code="MRK" />
         <book code="LUK" />
