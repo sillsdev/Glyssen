@@ -627,27 +627,54 @@ namespace Glyssen.Dialogs
 			}
 		}
 
+		private bool m_isRecursiveCall;
 		public bool CanNavigateToNextRelevantBlock
 		{
 			get
 			{
 				if (RelevantBlockCount == 0)
+				{
+					m_isRecursiveCall = false;
 					return false;
+				}
 
 				if (IsCurrentBlockRelevant)
 				{
 					if (m_currentRelevantIndex == RelevantBlockCount - 1)
+					{
+						m_isRecursiveCall = false;
 						return false;
+					}
+
 					if (BlockGroupingStyle == BlockGroupingType.Quote)
+					{
+						m_isRecursiveCall = false;
 						return true;
+					}
+
 					if (m_currentRelevantIndex < 0)
-						throw new IndexOutOfRangeException("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!");
+					{
+						if (m_isRecursiveCall)
+						{
+							throw new IndexOutOfRangeException("If Current Block is Relevant, m_currentRelevantIndex should be the index of that block!");
+						}
+
+						// My original hope was that I had fully solved this with a call to SetModeInternal at the end of SplitBlock.
+						// However, just after I had completed and tested that change (but before it was deployed),
+						// a case of this exception was reported for which there was no evidence of any split having been performed (PG-1078).
+						// So, here is yet another hack to try to recover from a state we should never get in...
+						SetModeInternal(Mode, true);
+						m_isRecursiveCall = true;
+						return CanNavigateToNextRelevantBlock;
+					}
+					m_isRecursiveCall = false;
 					return GetIndexOfNextRelevantBlockNotInCurrentMatchup() > m_currentRelevantIndex;
 				}
 
 				// Current block was navigated to ad-hoc and doesn't match the filter. See if there is a relevant block after it.
 				var indicesOfCurrentLocation = m_currentRefBlockMatchups == null ? m_temporarilyIncludedBookBlockIndices :
 					BlockAccessor.GetIndicesOfSpecificBlock(m_currentRefBlockMatchups.OriginalBlocks.Last());
+				m_isRecursiveCall = false;
 				return s_bookBlockComparer.Compare(m_relevantBookBlockIndices.Last(), indicesOfCurrentLocation) > 0;
 			}
 		}
