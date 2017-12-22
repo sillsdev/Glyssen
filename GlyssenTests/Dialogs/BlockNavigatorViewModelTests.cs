@@ -266,6 +266,22 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetMode_SwitchFromNotAlignedWithReferenceTextToNotAssignedAutomatically_MatchupIsTheSame()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			FindRefInMark(8, 20);
+			var origBlock = m_model.CurrentBlock;
+			var origMatchup = m_model.CurrentReferenceTextMatchup;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			var newMatchup = m_model.CurrentReferenceTextMatchup;
+			Assert.AreEqual(origBlock.GetText(true), m_model.CurrentBlock.GetText(true));
+			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, newMatchup.IndexOfStartBlockInBook);
+			Assert.AreEqual(origMatchup.OriginalBlockCount, newMatchup.OriginalBlockCount);
+			Assert.AreEqual(origMatchup.CorrelatedAnchorBlock.GetText(true), newMatchup.CorrelatedAnchorBlock.GetText(true));
+		}
+
+		[Test]
 		public void BlockCountForCurrentBook_TestMrk_ReturnsTrue()
 		{
 			int expectedCount = m_testProject.IncludedBooks[0].Blocks.Count;

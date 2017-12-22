@@ -311,19 +311,24 @@ namespace Glyssen.Dialogs
 
 		public virtual BlocksToDisplay Mode
 		{
-			get { return m_mode; }
+			get => m_mode;
 			set
 			{
 				if (m_mode == value)
 					return;
 
-				m_mode = value;
-				m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
-				ResetFilter(BlockAccessor.CurrentBlock);
+				SetModeInternal(value);
 			}
 		}
 
-		protected void ResetFilter(Block selectedBlock)
+		protected void SetModeInternal(BlocksToDisplay mode, bool stayOnCurrentBlock = false)
+		{
+			m_mode = mode;
+			m_temporarilyIncludedBookBlockIndices = GetCurrentBlockIndices();
+			ResetFilter(BlockAccessor.CurrentBlock, stayOnCurrentBlock);
+		}
+
+		protected void ResetFilter(Block selectedBlock, bool stayOnCurrentBlock = false)
 		{
 			PopulateRelevantBlocks();
 
@@ -346,6 +351,11 @@ namespace Glyssen.Dialogs
 							if (SetAsCurrentLocationIfRelevant(indices))
 								return;
 						}
+					}
+					if (stayOnCurrentBlock)
+					{
+						SetBlock(m_temporarilyIncludedBookBlockIndices);
+						return;
 					}
 				}
 				LoadNextRelevantBlock();

@@ -594,6 +594,10 @@ namespace Glyssen.Dialogs
 				// A split will always require the current matchup to be re-constructed.
 				SetBlockMatchupForCurrentVerse();
 			}
+
+			// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
+			// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
+			SetModeInternal(Mode, true);
 		}
 		#endregion
 
