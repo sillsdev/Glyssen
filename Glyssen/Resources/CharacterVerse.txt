@@ -1,4 +1,4 @@
-Control File Version	122
+Control File Version	123
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -12262,6 +12262,7 @@ MAT	14	2	Herod Antipas (the tetrarch)	fearful		Normal
 MAT	14	4	John the Baptist	rebuking		Normal		
 MAT	14	7	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	8	Herodias' daughter			Normal		
+MAT	14	8	Herodias			Indirect		
 MAT	14	9	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	10	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	15	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
@@ -15037,7 +15038,7 @@ ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue
 ACT	5	9	Peter (Simon)			Dialogue		
 ACT	5	20	angel	commanding	angel of the LORD	Normal		
 ACT	5	23	officers	perplexed		Normal		
-ACT	5	24	captain of the temple guard/chief priests			Indirect		
+ACT	5	24	Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
 ACT	5	28	Ananias (Annas), the high priest (father-in-law of Caiaphas)		high priest	Dialogue		
 ACT	5	29	Peter (Simon)			Dialogue		
