@@ -432,19 +432,19 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual("He said, ", output[0].GetText(false));
 			Assert.IsTrue(output[0].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
-			
+
 			Assert.AreEqual("«Go!", output[1].GetText(false));
 			Assert.IsFalse(output[1].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.Start, output[1].MultiBlockQuote);
-			
+
 			Assert.AreEqual(firstLevelContinuer + "‹Get!", output[2].GetText(false));
 			Assert.IsFalse(output[2].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
-			
+
 			Assert.AreEqual("«No!»", output[3].GetText(false));
 			Assert.IsFalse(output[3].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[3].MultiBlockQuote);
-			
+
 			Assert.AreEqual("Still in quote.›»", output[4].GetText(false));
 			Assert.IsFalse(output[4].CharacterIs("LUK", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[4].MultiBlockQuote);
@@ -1936,7 +1936,7 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[0].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[0].ChapterNumber);
 			Assert.AreEqual(6, output[0].InitialStartVerseNumber);
-			
+
 			Assert.AreEqual("Yo soy el camino, y la verdad, y la vida; nadie viene al Padre sino por mí. {7}\u00A0Si me hubierais conocido, también hubierais conocido a mi Padre; desde ahora le conocéis y le habéis visto.", output[1].GetText(true));
 			Assert.AreEqual("Jesus", output[1].CharacterId);
 			Assert.AreEqual(null, output[1].Delivery);
@@ -1947,7 +1947,7 @@ namespace GlyssenTests.Quote
 			Assert.IsTrue(output[2].CharacterIs("JHN", CharacterVerseData.StandardCharacter.Narrator));
 			Assert.AreEqual(14, output[2].ChapterNumber);
 			Assert.AreEqual(8, output[2].InitialStartVerseNumber);
-			
+
 			Assert.AreEqual("Señor, muéstranos al Padre, y nos basta.", output[3].GetText(true));
 			Assert.AreEqual("Philip", output[3].CharacterId);
 			Assert.AreEqual(null, output[3].Delivery);
@@ -4952,6 +4952,95 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
 			AssertIsInterruption(results[++i], interruption);
 		}
+
+		#region PG-1079 - I wanted to use MAT 10:23 for these tests like the original error but changing CharacterVerse for that broke an existing test
+		[Test]
+		public void Parse_InterruptionNotInMultiBlockQuote_MultiBlockQuoteSetCorrectly()
+		{
+			var block = new Block("p", 13, 14)
+				.AddVerse(14, "«The virgin will conceive and give birth to a son, and they will call him Immanuel (which means God with us).»");
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_InterruptionAtEndOfMultiBlockQuote_MultiBlockQuoteSetCorrectly()
+		{
+			var block = new Block("p", 13, 14).AddVerse(14, "«The virgin will conceive and give birth to a son, ");
+			var block2 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us).»");
+			var input = new List<Block> { block, block2 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_InterruptionAtEndof3PartMultiBlockQuote_MultiBlockQuoteSetCorrectly()
+		{
+			var block = new Block("p", 13, 14).AddVerse(14, "«The virgin will conceive ");
+			var block2 = new Block("p", 13, 14).AddText("and give birth to a son, ");
+			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us).»");
+			var input = new List<Block> { block, block2, block3 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(4, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_InterruptionNearEndOfMultiBlockQuote_MultiBlockQuoteSetCorrectly()
+		{
+			var block = new Block("p", 13, 14).AddVerse(14, "«The virgin will conceive ");
+			var block2 = new Block("p", 13, 14).AddText("and give birth to a son, ");
+			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us) ");
+			var block4 = new Block("p", 13, 14).AddText("thusly.»");
+			var input = new List<Block> { block, block2, block3, block4 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(5, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+		}
+
+		[Test]
+		public void Parse_InterruptionInMiddleOfMultiBlockQuote_MultiBlockQuoteSetCorrectly()
+		{
+			var block = new Block("p", 13, 14).AddVerse(14, "«The virgin will conceive ");
+			var block2 = new Block("p", 13, 14).AddText("and give birth to a son, ");
+			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us) ");
+			var block4 = new Block("p", 13, 14).AddText("thusly ");
+			var block5 = new Block("p", 13, 14).AddText("and such»");
+			var input = new List<Block> { block, block2, block3, block4, block5 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, output[4].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[5].MultiBlockQuote);
+		}
+		#endregion
 		#endregion
 	}
 
