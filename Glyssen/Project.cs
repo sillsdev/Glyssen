@@ -1703,7 +1703,7 @@ namespace Glyssen
 								stats.NonContiguousBlocksInMaxChapter = stats.NonContiguousBlocksInCurrentChapter;
 							stats.LastChapter = block.ChapterNumber;
 							stats.NonContiguousBlocksInCurrentChapter = 1;
-							stats.NumberOfChapters++;
+							//stats.NumberOfChapters++;
 						}
 						else if (prevCharacter != character)
 						{
