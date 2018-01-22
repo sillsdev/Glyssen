@@ -644,6 +644,7 @@ namespace Glyssen.Quote
 				m_workingBlock.StyleTag = styleTag;
 				return;
 			}
+			Block blockFollowingInterruption = null;
 			if (characterUnknown)
 			{
 				m_workingBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
@@ -666,11 +667,12 @@ namespace Glyssen.Quote
 					if (m_nextBlockContinuesQuote && m_workingBlock.MultiBlockQuote != MultiBlockQuote.Continuation)
 						m_workingBlock.MultiBlockQuote = MultiBlockQuote.Start;
 
-
 					var characterVerseDetails = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.InitialStartVerseNumber,
 						m_workingBlock.InitialEndVerseNumber, m_workingBlock.LastVerseNum, m_versification).ToList();
 					if (characterVerseDetails.Any(cv => cv.QuoteType == QuoteType.Interruption))
-						BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
+					{
+						blockFollowingInterruption = BreakOutInterruptionsFromWorkingBlock(m_bookId, characterVerseDetails);
+					}
 					m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				}
 				else
@@ -711,6 +713,12 @@ namespace Glyssen.Quote
 				m_outputBlocks.Add(m_workingBlock);
 			}
 
+			if (blockFollowingInterruption != null)
+			{
+				m_outputBlocks.Add(blockFollowingInterruption);
+				m_currentMultiBlockQuote.Add(blockFollowingInterruption);
+			}
+
 			var lastVerse = m_workingBlock.BlockElements.OfType<Verse>().LastOrDefault();
 			int verseStartNum = m_workingBlock.InitialStartVerseNumber;
 			int verseEndNum = m_workingBlock.InitialEndVerseNumber;
@@ -722,29 +730,98 @@ namespace Glyssen.Quote
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
 
-		private void BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
+		//private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
+		//{
+		//	var nextInterruption = m_workingBlock.GetNextInterruption();
+		//	if (nextInterruption == null)
+		//		return null;
+
+		//	Block blockFollowingLastInterruption = null;
+		//	var blocks = new PortionScript(bookId, new[] { m_workingBlock });
+
+		//	var blockToSplit = blocks.GetScriptBlocks().Last();
+		//	m_workingBlock = blocks.SplitBlock(blockToSplit, nextInterruption.Item2, nextInterruption.Item1.Index, false);
+		//	if (blockToSplit.IsQuote && !m_currentMultiBlockQuote.Contains(blockToSplit))
+		//		m_currentMultiBlockQuote.Add(blockToSplit);
+
+		//	foreach (var b in blocks.GetScriptBlocks().TakeWhile(b => b != m_workingBlock))
+		//	{
+		//		b.SetCharacterAndDelivery(characterVerseDetails);
+		//		m_outputBlocks.Add(b);
+		//	}
+		//	while (nextInterruption != null)
+		//	{
+		//		var startCharIndex = nextInterruption.Item1.Length;
+		//		if (m_workingBlock.GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
+		//		{
+		//			if (blockFollowingLastInterruption != null)
+		//			{
+		//				m_outputBlocks.Add(m_workingBlock);
+		//				m_outputBlocks.Add(blockFollowingLastInterruption);
+		//				Debug.Assert(blockFollowingLastInterruption == blocks.GetScriptBlocks().Last());
+		//			}
+		//			blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
+		//			blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote ? MultiBlockQuote.Start : MultiBlockQuote.None;
+		//			blockFollowingLastInterruption.CharacterId = blockToSplit.CharacterId;
+		//			blockFollowingLastInterruption.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
+		//			blockFollowingLastInterruption.Delivery = blockToSplit.Delivery;
+
+		//			startCharIndex = 1;
+		//		}
+		//		nextInterruption = tempBlock.GetNextInterruption(startCharIndex);
+		//	}
+
+		//	m_workingBlock = tempBlock;
+
+		//	return blockFollowingLastInterruption;
+		//}
+
+
+		/// <summary>
+		/// This deals with parenthetical interruptions in a quote, like (let the reader understand).
+		/// Coming out of this method, m_workingBlock will always be the last interruption found.
+		/// </summary>
+		/// <param name="bookId"></param>
+		/// <param name="characterVerseDetails"></param>
+		/// <returns>Any portion of the block following the (last) interruption we detect</returns>
+		private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
 		{
 			var nextInterruption = m_workingBlock.GetNextInterruption();
 			if (nextInterruption == null)
-				return;
+				return null;
+
+			Block blockFollowingLastInterruption = null;
 
 			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
-			while (nextInterruption != null)
+			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
+			
+			while (true)
 			{
 				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
+				if (blockFollowingLastInterruption == null)
+					originalQuoteBlock.SetCharacterAndDelivery(characterVerseDetails);
 				var startCharIndex = nextInterruption.Item1.Length;
-				if (m_workingBlock.GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
+				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
 				{
-					m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
+					blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
+					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote ? MultiBlockQuote.Start : MultiBlockQuote.None;
+					blockFollowingLastInterruption.CharacterId = originalQuoteBlock.CharacterId;
+					blockFollowingLastInterruption.CharacterIdOverrideForScript = originalQuoteBlock.CharacterIdOverrideForScript;
+					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
 					startCharIndex = 1;
 				}
-				nextInterruption = m_workingBlock.GetNextInterruption(startCharIndex);
+				nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
+				if (nextInterruption == null)
+					break;
+				m_workingBlock = blocks.GetScriptBlocks().Last();
 			}
+
 			foreach (var b in blocks.GetScriptBlocks().TakeWhile(b => b != m_workingBlock))
 			{
-				b.SetCharacterAndDelivery(characterVerseDetails);
 				m_outputBlocks.Add(b);
 			}
+
+			return blockFollowingLastInterruption;
 		}
 
 		private void ProcessMultiBlock()

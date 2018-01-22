@@ -92,21 +92,6 @@ namespace Glyssen
 
 				blockToSplit.SplitId = newBlock.SplitId = splitId;
 			}
-			else
-			{
-				if (blockToSplit.MultiBlockQuote == MultiBlockQuote.None)
-				{
-					if (blockToSplit.IsQuote)
-					{
-						blockToSplit.MultiBlockQuote = MultiBlockQuote.Start;
-						newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
-					}
-				}
-				else
-				{
-					newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
-				}
-			}
 			//TODO handle splitId already exists but userSplit == false
 
 			return newBlock;
@@ -164,6 +149,18 @@ namespace Glyssen
 			try
 			{
 				var newBlock = SplitBlock(block, verseString, kSplitAtEndOfVerse, false);
+				if (block.MultiBlockQuote == MultiBlockQuote.None)
+				{
+					if (block.IsQuote)
+					{
+						block.MultiBlockQuote = MultiBlockQuote.Start;
+						newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+					}
+				}
+				else
+				{
+					newBlock.MultiBlockQuote = MultiBlockQuote.Continuation;
+				}
 				if (block.MatchesReferenceText)
 				{
 					// REVIEW: Should this be First or Single, or do we need to possibly handle the case of a sequence?

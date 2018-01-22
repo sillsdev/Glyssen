@@ -4953,7 +4953,7 @@ namespace GlyssenTests.Quote
 			AssertIsInterruption(results[++i], interruption);
 		}
 
-		#region PG-1079 - I wanted to use MAT 10:23 for these tests like the original error but changing CharacterVerse for that broke an existing test
+		#region PG-1079 - I wanted to use MAT 1:23 for these tests like the original error but changing CharacterVerse (to add the Interruption) for that verse broke an existing test
 		[Test]
 		public void Parse_InterruptionNotInMultiBlockQuote_MultiBlockQuoteSetCorrectly()
 		{
@@ -4965,7 +4965,9 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(2, output.Count);
+			Assert.AreEqual("«The virgin will conceive and give birth to a son, and they will call him Immanuel ", output[0].GetText(false));
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual("(which means God with us).»", output[1].GetText(false));
 			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
 		}
 
@@ -4979,8 +4981,11 @@ namespace GlyssenTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			Assert.AreEqual(3, output.Count);
+			Assert.AreEqual("«The virgin will conceive and give birth to a son, ", output[0].GetText(false));
 			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual("and they will call him Immanuel ", output[1].GetText(false));
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual("(which means God with us).»", output[2].GetText(false));
 			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
 		}
 
@@ -5018,6 +5023,29 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+			Assert.AreEqual(output[0].CharacterId, output[4].CharacterId);
+		}
+
+		[Test]
+		public void Parse_InterruptionInMiddleOfMultiBlockQuoteWithFollowingTextInSamePara_MultiBlockQuoteSetCorrectly()
+		{
+			var block = new Block("p", 13, 14).AddVerse(14, "«The virgin will conceive ");
+			var block2 = new Block("p", 13, 14).AddText("and give birth to a son, ");
+			var block3 = new Block("p", 13, 14).AddText("and they will call him Immanuel (which means God with us) thusly ");
+			var block5 = new Block("p", 13, 14).AddText("and such»");
+			var input = new List<Block> { block, block2, block3, block5 };
+			QuoteParser.SetQuoteSystem(QuoteSystem.Default);
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
+
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Start, output[4].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.Continuation, output[5].MultiBlockQuote);
+			Assert.AreEqual(output[0].CharacterId, output[4].CharacterId);
+			Assert.AreEqual(output[4].CharacterId, output[5].CharacterId);
 		}
 
 		[Test]
@@ -5039,6 +5067,8 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Start, output[4].MultiBlockQuote);
 			Assert.AreEqual(MultiBlockQuote.Continuation, output[5].MultiBlockQuote);
+			Assert.AreEqual(output[0].CharacterId, output[4].CharacterId);
+			Assert.AreEqual(output[4].CharacterId, output[5].CharacterId);
 		}
 		#endregion
 		#endregion
