@@ -12,7 +12,7 @@ namespace Glyssen.Rules
 	{
 		private readonly bool m_strictlyAdhereToNarratorPreferences;
 
-		public const int kDefaultMinimumBlocks = 15;
+		public const int kDefaultMinimumBlocks = 14;
 		//public const int kDefaultMinimumKeystrokes = 110 * kDefaultMinimumBlocks;
 
 		private readonly IReadOnlyList<BookScript> m_booksToConsider;
