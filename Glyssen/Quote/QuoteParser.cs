@@ -794,6 +794,7 @@ namespace Glyssen.Quote
 
 			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
 			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
+			m_currentMultiBlockQuote.Add(originalQuoteBlock);
 			
 			while (true)
 			{
@@ -825,6 +826,9 @@ namespace Glyssen.Quote
 			{
 				m_outputBlocks.Add(b);
 			}
+
+			if (blockFollowingLastInterruption == null)
+				m_nextBlockContinuesQuote = false;
 
 			return blockFollowingLastInterruption;
 		}
