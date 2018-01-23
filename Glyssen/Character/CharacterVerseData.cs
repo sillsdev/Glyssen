@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
-using SIL.CommandLineProcessing;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -189,7 +188,6 @@ namespace Glyssen.Character
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private IList<CharacterVerse> m_data = new List<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
-		//private Dictionary<int, List<int>> m_interruptions;
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
@@ -209,13 +207,6 @@ namespace Glyssen.Character
 			if (versification == null)
 				versification = ScrVers.English;
 
-			//CharacterVerse interruption = null;
-			//if (m_interruptions.TryGetValue(bookId * 1000 + chapter, out var listOfInterruptions))
-			//{
-			//	var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
-			//	verseRef.ChangeVersification(ScrVers.English);
-			//}
-
 			IEnumerable<CharacterVerse> result;
 
 			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
@@ -226,15 +217,17 @@ namespace Glyssen.Character
 			}
 			else
 			{
+				// REVIEW: Don't we need to call ChangeVersification here?
 				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
 				int end = new BCVRef(bookId, chapter, initialEndVerse).BBCCCVVV;
 				result = Enumerable.Empty<CharacterVerse>();
 				for (int i = start; i <= end; i++)
 					result = result.Union(m_lookup[i]);
 			}
-			if (finalVerse == 0) // || result.Count() == 1)
+			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
 
+			// This is a list (because that makes it easy to do a Union), but it should only ever have exactly one item in it.
 			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
 
 			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
@@ -322,7 +315,7 @@ namespace Glyssen.Character
 
 		private void ResetCaches()
 		{
-			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);//.Where(c => c.QuoteType != QuoteType.Interruption).ToLookup(c => c.BcvRef.BBCCCVVV);
+			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
