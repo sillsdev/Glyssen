@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using L10NSharp;
+using SIL.CommandLineProcessing;
 using SIL.Scripture;
 
 namespace Glyssen.Character
@@ -188,6 +189,7 @@ namespace Glyssen.Character
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
 		private IList<CharacterVerse> m_data = new List<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
+		//private Dictionary<int, List<int>> m_interruptions;
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
 
@@ -207,6 +209,13 @@ namespace Glyssen.Character
 			if (versification == null)
 				versification = ScrVers.English;
 
+			//CharacterVerse interruption = null;
+			//if (m_interruptions.TryGetValue(bookId * 1000 + chapter, out var listOfInterruptions))
+			//{
+			//	var verseRef = new VerseRef(bookId, chapter, initialStartVerse, versification);
+			//	verseRef.ChangeVersification(ScrVers.English);
+			//}
+
 			IEnumerable<CharacterVerse> result;
 
 			if (initialEndVerse == 0 || initialStartVerse == initialEndVerse)
@@ -223,8 +232,10 @@ namespace Glyssen.Character
 				for (int i = start; i <= end; i++)
 					result = result.Union(m_lookup[i]);
 			}
-			if (finalVerse == 0 || result.Count() == 1)
+			if (finalVerse == 0) // || result.Count() == 1)
 				return result;
+
+			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
 
 			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
 			while (nextVerse <= finalVerse)
@@ -232,7 +243,12 @@ namespace Glyssen.Character
 				var verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
 				verseRef.ChangeVersification(ScrVers.English);
 				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
-				if (!nextResult.Any())
+				if (nextResult.Any())
+				{
+					if (!interruption.Any())
+						interruption = nextResult.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
+				}
+				else
 				{
 					nextVerse++;
 					continue;
@@ -251,7 +267,7 @@ namespace Glyssen.Character
 				}
 				nextVerse++;
 			}
-			return result;
+			return result.Union(interruption);
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
@@ -267,9 +283,7 @@ namespace Glyssen.Character
 		protected virtual void AddCharacterVerse(CharacterVerse cv)
 		{
 			m_data.Add(cv);
-			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
-			m_uniqueDeliveries = null;
+			ResetCaches();
 		}
 
 		public bool Any()
@@ -303,7 +317,12 @@ namespace Glyssen.Character
 			foreach (CharacterVerse cv in intersection)
 				m_data.Remove(cv);
 
-			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
+			ResetCaches();
+		}
+
+		private void ResetCaches()
+		{
+			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);//.Where(c => c.QuoteType != QuoteType.Interruption).ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
 		}
@@ -322,9 +341,16 @@ namespace Glyssen.Character
 					data.AddRange(cvs);
 			}
 			m_data = data;
-			m_lookup = data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
-			m_uniqueDeliveries = null;
+			ResetCaches();
+			//m_interruptions = new Dictionary<int, List<int>>();
+			//foreach (var interruption in m_data.Where(c => c.QuoteType == QuoteType.Interruption))
+			//{
+			//	int bookAndChapter = interruption.Book * 1000 + interruption.Chapter;
+			//	if (!m_interruptions.TryGetValue(bookAndChapter, out var listOfVersesWithInterruptions))
+			//		m_interruptions.Add(bookAndChapter, new List<int> {interruption.Verse});
+			//	else
+			//		listOfVersesWithInterruptions.Add(interruption.Verse);
+			//}
 		}
 
 		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)

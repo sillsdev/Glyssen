@@ -4726,6 +4726,187 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(narrator, results[i].CharacterId);
 		}
 
+		[Test]
+		public void Parse_VerseWithInterruptionInBlockByItselfWithQuoteContinuedAfterwardAndInFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
+		{
+			var block1 = new Block("p", 24, 15).AddVerse(15, "«Then you will see the ‹abomination of desolation› \u2015let the reader understand\u2015 spoken of by Daniel the prohet. ");
+			var block2 = new Block("p", 24, 16).AddVerse(16, "«At that point, the people of Judea need to flee.")
+				.AddVerse(17, "Don't go into your house if you're on the roof.")
+				.AddVerse(18, "Don't go back to get your coat. ")
+				.AddVerse(19, "It will stink if you are pregnant! ");
+			var block3 = new Block("p", 24, 20).AddVerse(20, "«Pray that it does not happen in winter. ")
+				.AddVerse(21, "It's going to be downright ugly!»");
+			var input = new List<Block> { block1, block2, block3 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			// Text preceeding interruption in original first block:
+			int i = 0;
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
+			Assert.AreEqual("{15}\u00A0«Then you will see the ‹abomination of desolation› ", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Interruption:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("\u2015let the reader understand\u2015 ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+
+			// Text following interruption in original first block:
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual("spoken of by Daniel the prohet. ", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Following blocks:
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{16}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{20}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+		}
+
+		[Test]
+		public void Parse_VerseWithInterruptionInBlockByItselfWithQuoteContinuedInFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
+		{
+			var block1 = new Block("p", 24, 15).AddVerse(15, "«Then you will see the ‹abomination of desolation› spoken of by Daniel the prohet (let the reader understand). ");
+			var block2 = new Block("p", 24, 16).AddVerse(16, "«At that point, the people of Judea need to flee.")
+				.AddVerse(17, "Don't go into your house if you're on the roof.")
+				.AddVerse(18, "Don't go back to get your coat. ")
+				.AddVerse(19, "It will stink if you are pregnant! ");
+			var block3 = new Block("p", 24, 20).AddVerse(20, "«Pray that it does not happen in winter. ")
+				.AddVerse(21, "It's going to be downright ugly!»");
+			var input = new List<Block> { block1, block2, block3 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(4, results.Count);
+			// Text preceeding interruption in original first block:
+			int i = 0;
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
+			Assert.AreEqual("{15}\u00A0«Then you will see the ‹abomination of desolation› spoken of by Daniel the prohet ", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Interruption:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("(let the reader understand). ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+
+			// Following blocks:
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{16}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{20}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+		}
+
+		[Test]
+		public void Parse_InterruptionInFirstVerseOfBlockWithQuoteContinuedInFollowingVersesAndFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
+		{
+			var block1 = new Block("p", 24, 15).AddVerse(15, "«When you see the ‹abomination of desolation› that Daniel prophesied about \u2015let the reader understand\u2015 ")
+				.AddVerse(16, "then let those who are in Judea flee. ").AddVerse(17, "Don't go into your house if you're on the roof.");
+			var block2 = new Block("p", 24, 18).AddVerse(18, "«Don't go back to get your coat. ")
+				.AddVerse(19, "It will stink if you are pregnant!");
+			var block3 = new Block("p", 24, 20).AddVerse(20, "«Pray that it does not happen in winter. ")
+				.AddVerse(21, "It's going to be downright ugly!»");
+			var input = new List<Block> { block1, block2, block3 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			// Text preceeding interruption in original first block:
+			int i = 0;
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
+			Assert.AreEqual("{15}\u00A0«When you see the ‹abomination of desolation› that Daniel prophesied about ", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Interruption:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("\u2015let the reader understand\u2015 ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+
+			// Text following interruption in original first block:
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual("{16}\u00A0then let those who are in Judea flee. {17}\u00A0Don't go into your house if you're on the roof.", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Following blocks:
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{18}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{20}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+		}
+
+		[Test]
+		public void Parse_InterruptionInSubsequentVerseOfBlockWithQuoteContinuedInFollowingVersesAndFollowingBlocks_MultiBlockQuoteSettingsAreCorrect()
+		{
+			var block1 = new Block("p", 24, 14).AddVerse(14, "«And this gospel... ").AddVerse(15, "When you see the ‹abomination of desolation› that Daniel prophesied about \u2015let the reader understand\u2015 ")
+				.AddVerse(16, "then let those who are in Judea flee. ").AddVerse(17, "Don't go into your house if you're on the roof.");
+			var block2 = new Block("p", 24, 18).AddVerse(18, "«Don't go back to get your coat. ")
+				.AddVerse(19, "It will stink if you are pregnant!");
+			var block3 = new Block("p", 24, 20).AddVerse(20, "«Pray that it does not happen in winter. ")
+				.AddVerse(21, "It's going to be downright ugly!»");
+			var input = new List<Block> { block1, block2, block3 };
+
+			var quoteSystem = new QuoteSystem(new QuotationMark("«", "»", "«", 1, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("‹", "›", "«‹", 2, QuotationMarkingSystemType.Normal));
+			quoteSystem.AllLevels.Add(new QuotationMark("«", "»", "«‹«", 3, QuotationMarkingSystemType.Normal));
+			QuoteParser.SetQuoteSystem(quoteSystem);
+
+			var parser = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input);
+			var results = parser.Parse().ToList();
+
+			Assert.AreEqual(5, results.Count);
+			// Text preceeding interruption in original first block:
+			int i = 0;
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
+			Assert.AreEqual("{14}\u00A0«And this gospel... {15}\u00A0When you see the ‹abomination of desolation› that Daniel prophesied about ", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Interruption:
+			Assert.AreEqual(MultiBlockQuote.None, results[++i].MultiBlockQuote);
+			Assert.AreEqual("\u2015let the reader understand\u2015 ", results[i].GetText(true));
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+
+			// Text following interruption in original first block:
+			Assert.AreEqual(MultiBlockQuote.Start, results[++i].MultiBlockQuote);
+			Assert.AreEqual("{16}\u00A0then let those who are in Judea flee. {17}\u00A0Don't go into your house if you're on the roof.", results[i].GetText(true));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			// Following blocks:
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{18}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+
+			Assert.AreEqual(MultiBlockQuote.Continuation, results[++i].MultiBlockQuote);
+			Assert.IsTrue(results[i].GetText(true).StartsWith("{20}\u00A0«"));
+			Assert.AreEqual("Jesus", results[i].CharacterId);
+		}
+
 		[TestCase("(", ")")]
 		[TestCase("[", "]")]
 		[TestCase("-", "-")]

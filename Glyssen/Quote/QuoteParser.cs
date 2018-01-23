@@ -730,53 +730,6 @@ namespace Glyssen.Quote
 			m_workingBlock = new Block(styleTag, m_workingBlock.ChapterNumber, verseStartNum, verseEndNum);
 		}
 
-		//private Block BreakOutInterruptionsFromWorkingBlock(string bookId, List<CharacterVerse> characterVerseDetails)
-		//{
-		//	var nextInterruption = m_workingBlock.GetNextInterruption();
-		//	if (nextInterruption == null)
-		//		return null;
-
-		//	Block blockFollowingLastInterruption = null;
-		//	var blocks = new PortionScript(bookId, new[] { m_workingBlock });
-
-		//	var blockToSplit = blocks.GetScriptBlocks().Last();
-		//	m_workingBlock = blocks.SplitBlock(blockToSplit, nextInterruption.Item2, nextInterruption.Item1.Index, false);
-		//	if (blockToSplit.IsQuote && !m_currentMultiBlockQuote.Contains(blockToSplit))
-		//		m_currentMultiBlockQuote.Add(blockToSplit);
-
-		//	foreach (var b in blocks.GetScriptBlocks().TakeWhile(b => b != m_workingBlock))
-		//	{
-		//		b.SetCharacterAndDelivery(characterVerseDetails);
-		//		m_outputBlocks.Add(b);
-		//	}
-		//	while (nextInterruption != null)
-		//	{
-		//		var startCharIndex = nextInterruption.Item1.Length;
-		//		if (m_workingBlock.GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
-		//		{
-		//			if (blockFollowingLastInterruption != null)
-		//			{
-		//				m_outputBlocks.Add(m_workingBlock);
-		//				m_outputBlocks.Add(blockFollowingLastInterruption);
-		//				Debug.Assert(blockFollowingLastInterruption == blocks.GetScriptBlocks().Last());
-		//			}
-		//			blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
-		//			blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote ? MultiBlockQuote.Start : MultiBlockQuote.None;
-		//			blockFollowingLastInterruption.CharacterId = blockToSplit.CharacterId;
-		//			blockFollowingLastInterruption.CharacterIdOverrideForScript = blockToSplit.CharacterIdOverrideForScript;
-		//			blockFollowingLastInterruption.Delivery = blockToSplit.Delivery;
-
-		//			startCharIndex = 1;
-		//		}
-		//		nextInterruption = tempBlock.GetNextInterruption(startCharIndex);
-		//	}
-
-		//	m_workingBlock = tempBlock;
-
-		//	return blockFollowingLastInterruption;
-		//}
-
-
 		/// <summary>
 		/// This deals with parenthetical interruptions in a quote, like (let the reader understand).
 		/// Coming out of this method, m_workingBlock will always be the last interruption found.

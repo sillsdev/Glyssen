@@ -7815,7 +7815,9 @@ MAT	23	35	Jesus			Normal
 MAT	23	37	Jesus	rebuking		Normal
 MAT	24	2	Jesus			Dialogue
 MAT	24	3	Peter (Simon)	confused	Peter (Simon)/James/John/Andrew=disciples=they	Dialogue
-MAT	24	4-24	Jesus			Normal
+MAT	24	4-15	Jesus			Normal
+MAT	24	15	narrator-MAT			Interruption
+MAT	24	16-24	Jesus			Normal
 MAT	24	25	Jesus	sternly		Normal
 MAT	24	26-51	Jesus			Normal
 MAT	25	1-46	Jesus			Normal
