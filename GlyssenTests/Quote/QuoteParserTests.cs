@@ -4751,12 +4751,16 @@ namespace GlyssenTests.Quote
 			int i = 0;
 			Assert.AreEqual("{6}\u00A0But the righteousness that is by faith says: ", results[i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), results[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("«Do not say in your heart, ‹Who will ascend into heaven?› ", results[++i].GetText(true));
 			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual(interruptionTextV6, results[++i].GetText(true));
 			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, results[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			Assert.AreEqual("{7}\u00A0or ‹Who will descend into the deep?› ", results[++i].GetText(true));
 			Assert.AreEqual("scripture", results[i].CharacterId);
+			Assert.AreEqual(MultiBlockQuote.None, results[i].MultiBlockQuote);
 			AssertIsInterruption(results[++i], interruptionTextV7);
 		}
 

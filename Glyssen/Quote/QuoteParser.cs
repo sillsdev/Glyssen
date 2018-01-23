@@ -798,7 +798,7 @@ namespace Glyssen.Quote
 			while (true)
 			{
 				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
-				if (blockFollowingLastInterruption == null)
+				if (originalQuoteBlock.CharacterId == null)
 					originalQuoteBlock.SetCharacterAndDelivery(characterVerseDetails);
 				var startCharIndex = nextInterruption.Item1.Length;
 				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
@@ -810,9 +810,14 @@ namespace Glyssen.Quote
 					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
 					startCharIndex = 1;
 				}
+				else
+				{
+					blockFollowingLastInterruption = null;
+				}
 				nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
 				if (nextInterruption == null)
 					break;
+				m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
 				m_workingBlock = blocks.GetScriptBlocks().Last();
 			}
 
