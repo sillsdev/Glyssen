@@ -335,15 +335,6 @@ namespace Glyssen.Character
 			}
 			m_data = data;
 			ResetCaches();
-			//m_interruptions = new Dictionary<int, List<int>>();
-			//foreach (var interruption in m_data.Where(c => c.QuoteType == QuoteType.Interruption))
-			//{
-			//	int bookAndChapter = interruption.Book * 1000 + interruption.Chapter;
-			//	if (!m_interruptions.TryGetValue(bookAndChapter, out var listOfVersesWithInterruptions))
-			//		m_interruptions.Add(bookAndChapter, new List<int> {interruption.Verse});
-			//	else
-			//		listOfVersesWithInterruptions.Add(interruption.Verse);
-			//}
 		}
 
 		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)
