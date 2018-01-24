@@ -266,6 +266,22 @@ namespace GlyssenTests.Dialogs
 		}
 
 		[Test]
+		public void SetMode_SwitchFromNotAlignedWithReferenceTextToNotAssignedAutomatically_MatchupIsTheSame()
+		{
+			m_model.AttemptRefBlockMatchup = true;
+			m_model.Mode = BlocksToDisplay.NotAlignedToReferenceText;
+			FindRefInMark(8, 20);
+			var origBlock = m_model.CurrentBlock;
+			var origMatchup = m_model.CurrentReferenceTextMatchup;
+			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
+			var newMatchup = m_model.CurrentReferenceTextMatchup;
+			Assert.AreEqual(origBlock.GetText(true), m_model.CurrentBlock.GetText(true));
+			Assert.AreEqual(origMatchup.IndexOfStartBlockInBook, newMatchup.IndexOfStartBlockInBook);
+			Assert.AreEqual(origMatchup.OriginalBlockCount, newMatchup.OriginalBlockCount);
+			Assert.AreEqual(origMatchup.CorrelatedAnchorBlock.GetText(true), newMatchup.CorrelatedAnchorBlock.GetText(true));
+		}
+
+		[Test]
 		public void BlockCountForCurrentBook_TestMrk_ReturnsTrue()
 		{
 			int expectedCount = m_testProject.IncludedBooks[0].Blocks.Count;
@@ -639,10 +655,10 @@ namespace GlyssenTests.Dialogs
 
 			//Create bad data
 			BlockNavigator navigator = (BlockNavigator)ReflectionHelper.GetField(m_model, "m_navigator");
-			Block nextBlock = navigator.NextBlock();
+			Block nextBlock = navigator.GoToNextBlock();
 			var originalStatus = nextBlock.MultiBlockQuote;
 			nextBlock.MultiBlockQuote = followingStatus;
-			navigator.PreviousBlock();
+			navigator.GoToPreviousBlock();
 
 			Assert.AreEqual(MultiBlockQuote.Start, m_model.CurrentBlock.MultiBlockQuote);
 
@@ -650,7 +666,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(m_model.CurrentBlock, lastBlock);
 
 			//Reset data for other tests
-			nextBlock = navigator.NextBlock();
+			nextBlock = navigator.GoToNextBlock();
 			nextBlock.MultiBlockQuote = originalStatus;
 		}
 
@@ -675,11 +691,11 @@ namespace GlyssenTests.Dialogs
 
 			var model = new BlockNavigatorViewModel(bookList, ScrVers.English);
 			var navigator = (BlockNavigator)ReflectionHelper.GetField(model, "m_navigator");
-			navigator.NavigateToFirstBlock();
-			navigator.NextBlock();
-			navigator.NextBlock();
-			navigator.NextBlock();
-			navigator.NextBlock();
+			navigator.GoToFirstBlock();
+			navigator.GoToNextBlock();
+			navigator.GoToNextBlock();
+			navigator.GoToNextBlock();
+			navigator.GoToNextBlock();
 
 			var found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
 
@@ -703,13 +719,13 @@ namespace GlyssenTests.Dialogs
 
 			var model = new BlockNavigatorViewModel(bookList, ScrVers.English);
 			var navigator = (BlockNavigator) ReflectionHelper.GetField(model, "m_navigator");
-			navigator.NavigateToFirstBlock();
-			navigator.NextBlock();
+			navigator.GoToFirstBlock();
+			navigator.GoToNextBlock();
 
 			var found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
 			Assert.False(found);
 
-			navigator.NextBlock();
+			navigator.GoToNextBlock();
 			found = model.CurrentBlockHasMissingExpectedQuote(versesWithPotentialMissingQuote);
 			Assert.False(found);
 		}

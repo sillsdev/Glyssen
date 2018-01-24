@@ -6,7 +6,7 @@ using SIL.Scripture;
 
 namespace Glyssen
 {
-	public class BlockNavigator
+	public class BlockNavigator : IBlockAccessor
 	{
 		private readonly IReadOnlyList<BookScript> m_books;
 		private BookScript m_currentBook;
@@ -48,12 +48,12 @@ namespace Glyssen
 			m_books[m_currentIndices.BookIndex].GetScriptBlocks()[m_currentIndices.EffectiveFinalBlockIndex] :
 			CurrentBlock;
 
-		public void NavigateToFirstBlock()
+		public void GoToFirstBlock()
 		{
 			SetIndices(new BookBlockIndices(0, 0));
 		}
 
-		internal BookBlockIndices GetIndices()
+		public BookBlockIndices GetIndices()
 		{
 			return new BookBlockIndices(m_currentIndices);
 		}
@@ -65,7 +65,7 @@ namespace Glyssen
 			m_currentBlock = m_currentBook.GetScriptBlocks()[m_currentIndices.BlockIndex];
 		}
 
-		internal BookBlockIndices GetIndicesOfSpecificBlock(Block block)
+		public BookBlockIndices GetIndicesOfSpecificBlock(Block block)
 		{
 			if (block == m_currentBlock)
 				return GetIndices();
@@ -180,27 +180,27 @@ namespace Glyssen
 			return block == book.GetScriptBlocks().FirstOrDefault();
 		}
 
-		private BookScript PeekNextBook()
+		private BookScript GetNextBook()
 		{
 			if (IsLastBook(m_currentBook))
 				return null;
 			return m_books[m_currentIndices.BookIndex + 1];
 		}
 
-		private BookScript NextBook()
+		private BookScript GoToNextBook()
 		{
 			if (IsLastBook(m_currentBook))
 				return null;
 			return m_currentBook = m_books[++m_currentIndices.BookIndex];
 		}
 
-		public Block PeekNextBlock()
+		public Block GetNextBlock()
 		{
 			if (IsLastBlock())
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
-				var nextBook = PeekNextBook();
+				var nextBook = GetNextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
 				return nextBook[0];
@@ -209,7 +209,7 @@ namespace Glyssen
 			return m_currentBook[m_currentIndices.BlockIndex + 1];
 		}
 
-		public IEnumerable<Block> PeekForwardWithinBook(int numberOfBlocks)
+		public IEnumerable<Block> GetNextNBlocksWithinBook(int numberOfBlocks)
 		{
 			var blocks = new List<Block>();
 			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
@@ -222,20 +222,20 @@ namespace Glyssen
 			return blocks;
 		}
 
-		public Block PeekNthNextBlockWithinBook(int n)
+		public Block GetNthNextBlockWithinBook(int n)
 		{
-			return PeekNthNextBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
+			return GetNthNextBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
 		}
 
-		public Block PeekNthNextBlockWithinBook(int n, Block baseLineBlock)
+		public Block GetNthNextBlockWithinBook(int n, Block baseLineBlock)
 		{
 			if (baseLineBlock == m_currentBlock)
-				return PeekNthNextBlockWithinBook(n);
+				return GetNthNextBlockWithinBook(n);
 			BookBlockIndices indices = GetIndicesOfSpecificBlock(baseLineBlock);
-			return PeekNthNextBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
+			return GetNthNextBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
 		}
 
-		private Block PeekNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
+		private Block GetNthNextBlockWithinBook(int n, int bookIndex, int blockIndex)
 		{
 			var book = m_books[bookIndex];
 			if (book.GetScriptBlocks().Count < blockIndex + n + 1)
@@ -243,7 +243,7 @@ namespace Glyssen
 			return book[blockIndex + n];
 		}
 
-		public IEnumerable<Block> PeekBackwardWithinBook(int numberOfBlocks)
+		public IEnumerable<Block> GetPreviousNBlocksWithinBook(int numberOfBlocks)
 		{
 			var blocks = new List<Block>();
 			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
@@ -257,47 +257,47 @@ namespace Glyssen
 			return blocks;
 		}
 
-		public IEnumerable<Block> PeekBackwardWithinBookWhile(Func<Block, bool> predicate)
+		public IEnumerable<Block> GetPreviousBlocksWithinBookWhile(Func<Block, bool> predicate)
 		{
 			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
 			while (tempCurrentBlockIndex > 0 && predicate(m_currentBook[--tempCurrentBlockIndex]))
 				yield return m_currentBook[tempCurrentBlockIndex];
 		}
 
-		public IEnumerable<Block> PeekForwardWithinBookWhile(Func<Block, bool> predicate)
+		public IEnumerable<Block> GetNextBlocksWithinBookWhile(Func<Block, bool> predicate)
 		{
 			int tempCurrentBlockIndex = m_currentIndices.BlockIndex;
 			while (!IsLastBlockInBook(m_currentBook, tempCurrentBlockIndex) && predicate(m_currentBook[++tempCurrentBlockIndex]))
 				yield return m_currentBook[tempCurrentBlockIndex];
 		}
 
-		public Block PeekNthPreviousBlockWithinBook(int n)
+		public Block GetNthPreviousBlockWithinBook(int n)
 		{
-			return PeekNthPreviousBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
+			return GetNthPreviousBlockWithinBook(n, m_currentIndices.BookIndex, m_currentIndices.BlockIndex);
 		}
 
-		public Block PeekNthPreviousBlockWithinBook(int n, Block baseLineBlock)
+		public Block GetNthPreviousBlockWithinBook(int n, Block baseLineBlock)
 		{
 			if (baseLineBlock == m_currentBlock)
-				return PeekNthPreviousBlockWithinBook(n);
+				return GetNthPreviousBlockWithinBook(n);
 			BookBlockIndices indices = GetIndicesOfSpecificBlock(baseLineBlock);
-			return PeekNthPreviousBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
+			return GetNthPreviousBlockWithinBook(n, indices.BookIndex, indices.BlockIndex);
 		}
 
-		private Block PeekNthPreviousBlockWithinBook(int n, int bookIndex, int blockIndex)
+		private Block GetNthPreviousBlockWithinBook(int n, int bookIndex, int blockIndex)
 		{
 			if (blockIndex - n < 0)
 				return null;
 			return m_books[bookIndex][blockIndex - n];
 		}
 
-		public Block NextBlock()
+		public Block GoToNextBlock()
 		{
 			if (IsLastBlock())
 				return null;
 			if (IsLastBlockInBook(m_currentBook, m_currentBlock))
 			{
-				var nextBook = NextBook();
+				var nextBook = GoToNextBook();
 				if (!nextBook.HasScriptBlocks)
 					return null;
 				m_currentIndices.BlockIndex = 0;
@@ -307,27 +307,27 @@ namespace Glyssen
 			return m_currentBlock = m_currentBook[++m_currentIndices.BlockIndex];
 		}
 
-		private BookScript PeekPreviousBook()
+		private BookScript GetPreviousBook()
 		{
 			if (IsFirstBook(m_currentBook))
 				return null;
 			return m_books[m_currentIndices.BookIndex - 1];
 		}
 
-		private BookScript PreviousBook()
+		private BookScript GoToPreviousBook()
 		{
 			if (IsFirstBook(m_currentBook))
 				return null;
 			return m_currentBook = m_books[--m_currentIndices.BookIndex];
 		}
 
-		public Block PeekPreviousBlock()
+		public Block GetPreviousBlock()
 		{
 			if (IsFirstBlock(m_currentBlock))
 				return null;
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
-				var previousBook = PeekPreviousBook();
+				var previousBook = GetPreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
 				return previousBook[previousBook.GetScriptBlocks().Count - 1];
@@ -336,13 +336,13 @@ namespace Glyssen
 			return m_currentBook[m_currentIndices.BlockIndex - 1];
 		}
 
-		public Block PreviousBlock()
+		public Block GoToPreviousBlock()
 		{
 			if (IsFirstBlock(m_currentBlock))
 				return null;
 			if (IsFirstBlockInBook(m_currentBook, m_currentBlock))
 			{
-				var previousBook = PreviousBook();
+				var previousBook = GoToPreviousBook();
 				if (!previousBook.HasScriptBlocks)
 					return null;
 				m_currentIndices.BlockIndex = m_currentBook.GetScriptBlocks().Count - 1;

@@ -327,6 +327,7 @@
     <Compile Include="Dialogs\NarrationOptionsDlg.Designer.cs">
       <DependentUpon>NarrationOptionsDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="IBlockAccessor.cs" />
     <Compile Include="PortionScript.cs" />
     <Compile Include="ProjectBase.cs" />
     <Compile Include="ProjectDataMigrator.cs" />

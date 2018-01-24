@@ -430,13 +430,19 @@ namespace Glyssen.Dialogs
 					Debug.Assert(correlatedBlock.MatchesReferenceText);
 
 					var row = m_dataGridReferenceText.Rows[i];
-					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 					if (colPrimary.Visible)
 						row.Cells[colEnglish.Index].Value = correlatedBlock.ReferenceBlocks.Single().GetPrimaryReferenceText();
 					row.Cells[primaryColumnIndex].Value = correlatedBlock.GetPrimaryReferenceText();
+					if (correlatedBlock.IsContinuationOfPreviousBlockQuote && i > 0)
+					{
+						correlatedBlock.CharacterId = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[i - 1].CharacterId;
+						if (colDelivery.Visible)
+							correlatedBlock.Delivery = m_viewModel.CurrentReferenceTextMatchup.CorrelatedBlocks[i - 1].Delivery;
+					}
 					SetCharacterCellValue(row, correlatedBlock);
 					if (colDelivery.Visible)
 						SetDeliveryCellValue(row, correlatedBlock);
+					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
@@ -1134,7 +1140,17 @@ namespace Glyssen.Dialogs
 				}
 
 				var matchup = m_viewModel.CurrentReferenceTextMatchup;
-				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[m_dataGridReferenceText.CurrentCellAddress.Y]);
+				var rowIndex = m_dataGridReferenceText.CurrentCellAddress.Y;
+				blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[rowIndex]);
+				while (blockToSplit.IsContinuationOfPreviousBlockQuote)
+				{
+					if (rowIndex > 0)
+						blockToSplit = matchup.GetCorrespondingOriginalBlock(matchup.CorrelatedBlocks[--rowIndex]);
+					else
+					{
+						blockToSplit = m_viewModel.BlockAccessor.GetNthPreviousBlockWithinBook(1, blockToSplit);
+					}
+				}
 			}
 			else
 				blockToSplit = m_viewModel.CurrentBlock;
@@ -1453,7 +1469,7 @@ namespace Glyssen.Dialogs
 					{
 						// The first one should always be "normal" - we want a more specific one, if any.
 						var existingValue = m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].Value;
-						var delivery = m_viewModel.GetDeliveriesForCharacter(selectedCharacter).LastOrDefault();
+						var delivery = m_viewModel.GetDeliveriesForCharacterInCurrentReferenceTextMatchup(selectedCharacter).LastOrDefault();
 						if (existingValue != null || (delivery != null && delivery != AssignCharacterViewModel.Delivery.Normal))
 						{
 							string deliveryAsString = delivery == null

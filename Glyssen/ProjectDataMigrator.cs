@@ -38,8 +38,12 @@ namespace Glyssen
 			if (project.ProjectState == ProjectState.FullyInitialized)
 			{
 				if (fromControlFileVersion < 96)
-				{
 					MigrateInvalidMultiBlockQuoteData(project.Books);
+				if (fromControlFileVersion < 124)
+				{
+					// This method was originally called for the < 96 case above, but we found a new case
+					// for which it is needed. Therefore, we call it here to keep it in the same order
+					// as it was before (though, technically, we aren't sure we care).
 					CleanUpOrphanedMultiBlockQuoteStati(project.Books);
 				}
 				if (fromControlFileVersion < 102)
@@ -122,25 +126,40 @@ namespace Glyssen
 				MultiBlockQuote previousBlockMultiBlockStatus = previousBlock.MultiBlockQuote;
 				foreach (var block in blocks.Skip(1))
 				{
-					if (block.MultiBlockQuote == MultiBlockQuote.None)
+					switch (block.MultiBlockQuote)
 					{
-						if (previousBlockMultiBlockStatus == MultiBlockQuote.Start)
-							previousBlock.MultiBlockQuote = MultiBlockQuote.None;
-					}
-					else if (block.MultiBlockQuote == MultiBlockQuote.Start)
-					{
-						if (previousBlockMultiBlockStatus == MultiBlockQuote.Start)
-							previousBlock.MultiBlockQuote = MultiBlockQuote.None;
-					}
-					else
-					{
-						if (previousBlockMultiBlockStatus == MultiBlockQuote.None)
-							block.MultiBlockQuote = MultiBlockQuote.None;
+						case MultiBlockQuote.None:
+							if (previousBlockMultiBlockStatus == MultiBlockQuote.Start)
+								previousBlock.MultiBlockQuote = MultiBlockQuote.None;
+
+							break;
+						case MultiBlockQuote.Start:
+							if (previousBlockMultiBlockStatus == MultiBlockQuote.Start)
+								previousBlock.MultiBlockQuote = MultiBlockQuote.None;
+
+							break;
+						case MultiBlockQuote.Continuation:
+							// One could make the case that we should check if we are dealing with a quote and, if so,
+							// set to Start here. If is an orphan, it will be cleaned up in the next pass, but if it is
+							// followed by one or more Continuations, we will now have those grouped together.
+							// However,
+							// 1) This is the safer bet.
+							//    Marking multiple blocks as not being the same quote if they really are (hopefully) just means
+							//    the user might have a little more work to do.
+							//    Marking multiple blocks as being in the same quote if they aren't is an actual data problem.
+							// 2) We don't think the actual cases we are cleaning up have this problem.
+							if (previousBlockMultiBlockStatus == MultiBlockQuote.None)
+								block.MultiBlockQuote = MultiBlockQuote.None;
+
+							break;
 					}
 
 					previousBlock = block;
 					previousBlockMultiBlockStatus = block.MultiBlockQuote;
 				}
+
+				if (previousBlock.MultiBlockQuote == MultiBlockQuote.Start)
+					previousBlock.MultiBlockQuote = MultiBlockQuote.None;
 			}
 		}
 

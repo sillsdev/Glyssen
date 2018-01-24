@@ -350,6 +350,11 @@ namespace Glyssen.Dialogs
 
 			return m_currentDeliveries;
 		}
+
+		public IEnumerable<Delivery> GetDeliveriesForCharacterInCurrentReferenceTextMatchup(Character character)
+		{
+			return GetDeliveriesForCharacter(character).Intersect(GetDeliveriesForCurrentReferenceTextMatchup());
+		}
 		#endregion
 
 		#region Character/delivery assignment methods
@@ -556,22 +561,32 @@ namespace Glyssen.Dialogs
 
 			foreach (var groupOfSplits in blockSplits.GroupBy(s => new { s.BlockToSplit }))
 			{
-				foreach (var blockSplitData in groupOfSplits.OrderByDescending(s => s, BlockSplitData.BlockSplitDataVerseAndOffsetComparer))
+				foreach (var blockSplitData in groupOfSplits.OrderByDescending(s => s,
+					BlockSplitData.BlockSplitDataVerseAndOffsetComparer))
 				{
 					// get the character selected for this split
 					var characterId = characters.First(c => c.Key == blockSplitData.Id).Value;
 
-					var newBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
+					var originalNextBlock = BlockAccessor.GetNthNextBlockWithinBook(1, blockSplitData.BlockToSplit);
+					var chipOffTheOldBlock = CurrentBook.SplitBlock(blockSplitData.BlockToSplit, blockSplitData.VerseToSplit,
 						blockSplitData.CharacterOffsetToSplit, true, characterId, m_project.Versification);
 
-					var newBlockIndices = GetBlockIndices(newBlock);
-					var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
-						r => r.BookIndex == newBlockIndices.BookIndex &&
-							r.BlockIndex >= newBlockIndices.BlockIndex);
-					foreach (var block in blocksIndicesNeedingUpdate)
-						block.BlockIndex++;
-
-					AddToRelevantBlocksIfNeeded(newBlock);
+					var isNewBlock = originalNextBlock != chipOffTheOldBlock;
+					if (isNewBlock)
+					{
+						var newBlockIndices = GetBlockIndices(chipOffTheOldBlock);
+						var blocksIndicesNeedingUpdate = m_relevantBookBlockIndices.Where(
+							r => r.BookIndex == newBlockIndices.BookIndex &&
+								r.BlockIndex >= newBlockIndices.BlockIndex);
+						foreach (var bookBlockIndices in blocksIndicesNeedingUpdate)
+							bookBlockIndices.BlockIndex++;
+					}
+					else
+					{
+						// We "split" between existing blocks in a multiblock quote,
+						// so we don't need to do the same kind of cleanup above.
+					}
+					AddToRelevantBlocksIfNeeded(chipOffTheOldBlock, isNewBlock);
 				}
 			}
 			if (AttemptRefBlockMatchup)
@@ -579,6 +594,10 @@ namespace Glyssen.Dialogs
 				// A split will always require the current matchup to be re-constructed.
 				SetBlockMatchupForCurrentVerse();
 			}
+
+			// This is basically a hack. All kinds of problems were occurring after splits causing our indices to get off.
+			// See https://jira.sil.org/browse/PG-1075. This ensures our state is valid every time.
+			SetModeInternal(Mode, true);
 		}
 		#endregion
 

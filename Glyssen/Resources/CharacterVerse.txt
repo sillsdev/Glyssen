@@ -1,4 +1,4 @@
-Control File Version	121
+Control File Version	124
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -356,7 +356,6 @@ GEN	26	4	God		God (the LORD)	Normal
 GEN	26	5	God		God (the LORD)	Normal		
 GEN	26	7	men of Gerar			Indirect		
 GEN	26	7	Isaac	deceiving		Normal		
-GEN	26	7	Isaac	afraid to say		Hypothetical	narrator-GEN	
 GEN	26	7	Isaac	thought		Normal		
 GEN	26	7	narrator-GEN			Hypothetical		
 GEN	26	9	Abimelech, king of the Philistines (in Gerar)		Abimelech, king of the Philistines	Normal		
@@ -12263,6 +12262,7 @@ MAT	14	2	Herod Antipas (the tetrarch)	fearful		Normal
 MAT	14	4	John the Baptist	rebuking		Normal		
 MAT	14	7	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	8	Herodias' daughter			Normal		
+MAT	14	8	Herodias			Indirect		
 MAT	14	9	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	10	Herod Antipas (the tetrarch)			Indirect		
 MAT	14	15	disciples	taking charge		Dialogue		MAT 14.15;MRK 6.35-36;LUK 9.12
@@ -12749,12 +12749,12 @@ MAT	27	19	Pilate's wife			Normal
 MAT	27	20	chief priests/elders			Indirect		
 MAT	27	21	crowd before Pilate			Dialogue		
 MAT	27	21	Pilate	to crowd		Dialogue		
-MAT	27	22	crowd before Pilate	shouting		Dialogue	mob	MAT 27.22;MRK 15.13
+MAT	27	22	crowd before Pilate	shouting		Dialogue		MAT 27.22;MRK 15.13
 MAT	27	22	Pilate	to crowd		Dialogue		
-MAT	27	23	crowd before Pilate	shouting		Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
+MAT	27	23	crowd before Pilate	shouting		Dialogue		MAT 27.23;MRK 15.14;LUK 23.21
 MAT	27	23	Pilate	to crowd		Dialogue		
 MAT	27	24	Pilate	to crowd		Dialogue		
-MAT	27	25	crowd before Pilate	shouting		Dialogue	people, all the	
+MAT	27	25	crowd before Pilate	shouting	people, all the	Dialogue		
 MAT	27	26	Pilate			Indirect		
 MAT	27	29	soldiers, Roman	mocking		Dialogue		
 MAT	27	32	soldiers, Roman	giving orders		Indirect		
@@ -13281,8 +13281,8 @@ MRK	15	9	Pilate	to crowd		Dialogue
 MRK	15	11	chief priests			Indirect		
 MRK	15	11	crowd before Pilate			Indirect		
 MRK	15	12	Pilate	to crowd		Dialogue		
-MRK	15	13	crowd before Pilate	shouting		Dialogue	mob	MAT 27.22;MRK 15.13
-MRK	15	14	crowd before Pilate	shouting		Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
+MRK	15	13	crowd before Pilate	shouting		Dialogue		MAT 27.22;MRK 15.13
+MRK	15	14	crowd before Pilate	shouting		Dialogue		MAT 27.23;MRK 15.14;LUK 23.21
 MRK	15	14	Pilate	to crowd		Dialogue		
 MRK	15	15	Pilate			Indirect		
 MRK	15	18	soldiers, Roman	mocking		Dialogue		
@@ -14165,7 +14165,7 @@ LUK	23	15	Pilate	to crowd		Normal
 LUK	23	16	Pilate	to crowd		Normal		
 LUK	23	18	crowd	shouting	whole crowd	Dialogue		
 LUK	23	20	Pilate			Indirect		
-LUK	23	21	crowd before Pilate		whole crowd	Dialogue	mob	MAT 27.23;MRK 15.14;LUK 23.21
+LUK	23	21	crowd before Pilate		whole crowd	Dialogue		MAT 27.23;MRK 15.14;LUK 23.21
 LUK	23	22	Pilate	to crowd		Dialogue		
 LUK	23	23	crowd			Indirect		
 LUK	23	24	Pilate			Indirect		
@@ -15038,7 +15038,7 @@ ACT	5	8	Sapphira, wife of Ananias of Jerusalem			Dialogue
 ACT	5	9	Peter (Simon)			Dialogue		
 ACT	5	20	angel	commanding	angel of the LORD	Normal		
 ACT	5	23	officers	perplexed		Normal		
-ACT	5	24	captain of the temple guard/chief priests			Indirect		
+ACT	5	24	Ananias (Annas), the high priest (father-in-law of Caiaphas)/captain of the temple guard/chief priests			Indirect		
 ACT	5	25	person who told the guards and priests where the apostles were	excited		Normal		
 ACT	5	28	Ananias (Annas), the high priest (father-in-law of Caiaphas)		high priest	Dialogue		
 ACT	5	29	Peter (Simon)			Dialogue		
@@ -15173,8 +15173,8 @@ ACT	10	6	angel		angel of God	Normal
 ACT	10	13	God		God (voice)	Normal		
 ACT	10	13	Jesus		Jesus (voice)	Normal		
 ACT	10	14	Peter (Simon)			Normal		
-ACT	10	13	God		God (voice)	Normal		
-ACT	10	13	Jesus		Jesus (voice)	Normal		
+ACT	10	15	God		God (voice)	Normal		
+ACT	10	15	Jesus		Jesus (voice)	Normal		
 ACT	10	17	Peter (Simon)			Indirect		
 ACT	10	17	men from Cornelius			Indirect		
 ACT	10	18	men from Cornelius			Indirect		

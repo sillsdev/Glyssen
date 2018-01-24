@@ -2857,6 +2857,14 @@ namespace GlyssenTests
 			return block;
 		}
 
+		internal static Block AddText(this Block block, string text = null)
+		{
+			if (text == null)
+				text = RandomString();
+			block.BlockElements.Add(new ScriptText(text));
+			return block;
+		}
+
 		internal static string RandomString()
 		{
 			var chars = " AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !?? AAAAABB CCDDD EEEEFF GGHHIIJK LLMMNNN OOPPP QRRRS SSTTTTU VWWXYYZ aaaaaabb cccddd eeeeefff gggghhh iiiiijjk llll mmmnnnn ooooo pppp qqrrrr sssss tttttuu vvwwwxyyz ,,,.... !??\u2014";
