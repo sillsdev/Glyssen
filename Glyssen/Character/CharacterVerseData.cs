@@ -217,14 +217,18 @@ namespace Glyssen.Character
 			}
 			else
 			{
+				// REVIEW: Don't we need to call ChangeVersification here?
 				int start = new BCVRef(bookId, chapter, initialStartVerse).BBCCCVVV;
 				int end = new BCVRef(bookId, chapter, initialEndVerse).BBCCCVVV;
 				result = Enumerable.Empty<CharacterVerse>();
 				for (int i = start; i <= end; i++)
 					result = result.Union(m_lookup[i]);
 			}
-			if (finalVerse == 0 || result.Count() == 1)
+			if (finalVerse == 0) // Because of the possibility of interruptions, we can't quit early when we're down to 1 character/delivery // || result.Count() == 1)
 				return result;
+
+			// This is a list (because that makes it easy to do a Union), but it should only ever have exactly one item in it.
+			var interruption = result.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
 
 			var nextVerse = Math.Max(initialStartVerse, initialEndVerse) + 1;
 			while (nextVerse <= finalVerse)
@@ -232,7 +236,12 @@ namespace Glyssen.Character
 				var verseRef = new VerseRef(bookId, chapter, nextVerse, versification);
 				verseRef.ChangeVersification(ScrVers.English);
 				IEnumerable<CharacterVerse> nextResult = m_lookup[verseRef.BBBCCCVVV];
-				if (!nextResult.Any())
+				if (nextResult.Any())
+				{
+					if (!interruption.Any())
+						interruption = nextResult.Where(c => c.QuoteType == QuoteType.Interruption).ToList();
+				}
+				else
 				{
 					nextVerse++;
 					continue;
@@ -251,7 +260,7 @@ namespace Glyssen.Character
 				}
 				nextVerse++;
 			}
-			return result;
+			return result.Union(interruption);
 		}
 
 		public IEnumerable<CharacterVerse> GetAllQuoteInfo()
@@ -267,9 +276,7 @@ namespace Glyssen.Character
 		protected virtual void AddCharacterVerse(CharacterVerse cv)
 		{
 			m_data.Add(cv);
-			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
-			m_uniqueDeliveries = null;
+			ResetCaches();
 		}
 
 		public bool Any()
@@ -303,6 +310,11 @@ namespace Glyssen.Character
 			foreach (CharacterVerse cv in intersection)
 				m_data.Remove(cv);
 
+			ResetCaches();
+		}
+
+		private void ResetCaches()
+		{
 			m_lookup = m_data.ToLookup(c => c.BcvRef.BBCCCVVV);
 			m_uniqueCharacterAndDeliveries = null;
 			m_uniqueDeliveries = null;
@@ -322,9 +334,7 @@ namespace Glyssen.Character
 					data.AddRange(cvs);
 			}
 			m_data = data;
-			m_lookup = data.ToLookup(c => c.BcvRef.BBCCCVVV);
-			m_uniqueCharacterAndDeliveries = null;
-			m_uniqueDeliveries = null;
+			ResetCaches();
 		}
 
 		protected virtual IList<CharacterVerse> ProcessLine(string[] items, int lineNumber)

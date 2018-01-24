@@ -469,12 +469,11 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, block4.MultiBlockQuote);
 		}
 
-		[TestCase(MultiBlockQuote.Continuation)]
-		[TestCase(MultiBlockQuote.ChangeOfDelivery)]
-		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByNonStart_NonStartChangedToNone(MultiBlockQuote continuingStatus)
+		[Test]
+		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByNonStart_NonStartChangedToNone()
 		{
 			var block1 = CreateTestBlock(1, MultiBlockQuote.None);
-			var block2 = CreateTestBlock(2, continuingStatus);
+			var block2 = CreateTestBlock(2, MultiBlockQuote.Continuation);
 
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
@@ -490,15 +489,32 @@ namespace GlyssenTests
 			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
 		}
 
-		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.Continuation)]
-		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.Continuation)]
-		[TestCase(MultiBlockQuote.Continuation, MultiBlockQuote.ChangeOfDelivery)]
-		[TestCase(MultiBlockQuote.ChangeOfDelivery, MultiBlockQuote.ChangeOfDelivery)]
-		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByMultipleNonStarts_NonStartsChangedToNone(MultiBlockQuote continuingStatus1, MultiBlockQuote continuingStatus2)
+		[Test]
+		public void CleanUpOrphanedMultiBlockQuoteStati_LastBlockIsStart_StartChangedToNone()
 		{
 			var block1 = CreateTestBlock(1, MultiBlockQuote.None);
-			var block2 = CreateTestBlock(2, continuingStatus1);
-			var block3 = CreateTestBlock(3, continuingStatus2);
+			var block2 = CreateTestBlock(2, MultiBlockQuote.Start);
+
+			var block1Original = block1.Clone();
+			var block2Original = block2.Clone();
+
+			var book = new BookScript("MAT", new List<Block> { block1, block2 });
+			var books = new List<BookScript> { book };
+			ProjectDataMigrator.CleanUpOrphanedMultiBlockQuoteStati(books);
+
+			Assert.AreEqual(2, book.Blocks.Count);
+			Assert.AreEqual(block1Original.GetText(true), block1.GetText(true));
+			Assert.AreEqual(block2Original.GetText(true), block2.GetText(true));
+			Assert.AreEqual(MultiBlockQuote.None, block1.MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, block2.MultiBlockQuote);
+		}
+
+		[Test]
+		public void CleanUpOrphanedMultiBlockQuoteStati_NoneFollowedByMultipleNonStarts_NonStartsChangedToNone()
+		{
+			var block1 = CreateTestBlock(1, MultiBlockQuote.None);
+			var block2 = CreateTestBlock(2, MultiBlockQuote.Continuation);
+			var block3 = CreateTestBlock(3, MultiBlockQuote.Continuation);
 
 			var block1Original = block1.Clone();
 			var block2Original = block2.Clone();
