@@ -23,7 +23,7 @@ namespace Glyssen.Dialogs
 			m_exportToHearThisToolStripMenuItem.Text = string.Format(m_exportToHearThisToolStripMenuItem.Text, "HearThis");
 		}
 
-		private void m_exportMenuItem_Click(object sender, EventArgs e)
+		private void m_exportToSpreadsheetMenuItem_Click(object sender, EventArgs e)
 		{
 			using (var dlg = new ExportDlg(m_viewModel))
 			{
