@@ -10,7 +10,7 @@ namespace Glyssen.RefTextDevUtilities
 		private List<ReferenceTextLanguageInfo> m_languages = new List<ReferenceTextLanguageInfo>();
 		private string[] m_refTextFilter;
 		public List<ReferenceTextRow> ReferenceTextRows { get; }
-		public bool IsValid => !ReferenceTextRows.Any() || !m_languages.Any();
+		public bool IsValid => ReferenceTextRows.Any() && m_languages.Any();
 		public IEnumerable<ReferenceTextLanguageInfo> LanguagesToProcess => (m_refTextFilter == null) ? m_languages :
 				m_languages.Where(l => m_refTextFilter.Contains(l.Name));
 
@@ -91,7 +91,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public override string ToString()
 		{
-			return string.Format("{0} {1} {2} {3} {4}", Book, Chapter, Verse, CharacterId, English);
+			return $"{Book} {Chapter} {Verse} {CharacterId} {English}";
 		}
 	}
 }

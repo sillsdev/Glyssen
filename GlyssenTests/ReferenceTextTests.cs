@@ -45,18 +45,18 @@ namespace GlyssenTests
 			TestReferenceText.DeleteTempCustomReferenceProjectFolder();
 		}
 
-		[TestCase(ReferenceTextType.English)]
+		[TestCase(ReferenceTextType.English, 47)] // NT plus 20 OT books
 		//[TestCase(ReferenceTextType.Azeri)]
 		//[TestCase(ReferenceTextType.French)]
 		//[TestCase(ReferenceTextType.Indonesian)]
 		//[TestCase(ReferenceTextType.Portuguese)]
-		[TestCase(ReferenceTextType.Russian)]
+		[TestCase(ReferenceTextType.Russian, 27)] // NT only
 		//[TestCase(ReferenceTextType.Spanish)]
 		//[TestCase(ReferenceTextType.TokPisin)]
-		public void GetStandardReferenceText_AllStandardReferenceTextsAreLoadedCorrectly(ReferenceTextType referenceTextType)
+		public void GetStandardReferenceText_AllStandardReferenceTextsAreLoadedCorrectly(ReferenceTextType referenceTextType, int numberOfBooks)
 		{
 			var referenceText = ReferenceText.GetStandardReferenceText(referenceTextType);
-			Assert.AreEqual(27, referenceText.Books.Count); //Only NT so far. Hopefully soon, it will include the OT also.
+			Assert.AreEqual(numberOfBooks, referenceText.Books.Count);
 			Assert.AreEqual(ScrVers.English, referenceText.Versification);
 		}
 
