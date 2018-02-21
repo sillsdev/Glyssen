@@ -35,6 +35,9 @@ for the sake of convenience, you may want to.
 
 # Release Notes
 
+## February 2018
+Added reference texts for much of the Old Testament
+
 ## January 2018
 Glyssen can now export a script for recording using [HearThis](https://software.sil.org/hearthis/).
 
