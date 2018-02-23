@@ -19,10 +19,10 @@ namespace Glyssen.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -91,22 +91,23 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MAT	1	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
-        ///MAT	1	17	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	1	25	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	2	8	0	&lt;Sound startVerse=&quot;8&quot; /&gt;
-        ///MAT	2	23	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	3	17	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	11	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	17	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	22	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	4	25	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	5	48	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	6	7	0	&lt;Sound endVerse=&quot;7&quot; /&gt;
-        ///MAT	6	15	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	6	34	0	&lt;Pause time=&quot;2&quot; /&gt;
-        ///MAT	7	2	0	&lt;Sound startVerse=&quot;2&quot; /&gt;
-        ///MAT	7	29	0	&lt;Pause time=&quot;2&quot; /&gt; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to GEN	1	30	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	2	25	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	3	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	4	26	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	5	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	6	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	7	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	8	22	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	9	29	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	10	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	11	32	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	12	20	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	13	18	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	14	24	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	15	19	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	16	16	0	&lt;Pause time=&quot;2&quot; /&gt;
+        ///GEN	17	27 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Annotations {
             get {
@@ -209,7 +210,7 @@ namespace Glyssen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Control File Version	116
+        ///   Looks up a localized string similar to Control File Version	125
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
         ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
         ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -256,7 +257,7 @@ namespace Glyssen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon glyssenIcon {
+        internal static System.Drawing.Icon glyssenIcon {
             get {
                 object obj = ResourceManager.GetObject("glyssenIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
