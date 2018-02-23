@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
-using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen

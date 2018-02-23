@@ -47,14 +47,14 @@ namespace GlyssenTests
 
 			// Clean up anything from previously aborted tests
 			foreach (var directory in Directory.GetDirectories(GlyssenInfo.BaseDataFolder, GlyssenBundleTests.kTestBundleIdPrefix + "*"))
-				DirectoryUtilities.DeleteDirectoryRobust(directory);
+				RobustIO.DeleteDirectoryAndContents(directory);
 		}
 
 		[TestFixtureTearDown]
 		public void TestFixtureTeardown()
 		{
 			foreach (var folder in m_tempProjectFolders)
-				DirectoryUtilities.DeleteDirectoryRobust(folder);
+				RobustIO.DeleteDirectoryAndContents(folder);
 		}
 
 		[Test]
@@ -692,7 +692,7 @@ namespace GlyssenTests
 			{
 				var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, "~~funkyFrogLipsAndStuff");
 				if (Directory.Exists(testProjFolder))
-					DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
+					RobustIO.DeleteDirectoryAndContents(testProjFolder);
 			}
 		}
 

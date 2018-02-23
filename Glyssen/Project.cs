@@ -29,7 +29,6 @@ using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.Extensions;
 using SIL.IO;
-using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms;
 using SIL.WritingSystems;
@@ -106,7 +105,12 @@ namespace Glyssen
 				QuoteSystemStatus = QuoteSystemStatus.Obtained;
 				ConvertContinuersToParatextAssumptions();
 			}
-			bundle.CopyFontFiles(LanguageFolder);
+
+			if (!bundle.CopyFontFiles(LanguageFolder, out var filesWhichFailedToCopy) && filesWhichFailedToCopy.Any())
+				ErrorReport.ReportNonFatalMessageWithStackTrace(
+					LocalizationManager.GetString("DblBundle.FontFileCopyFailed", "An attempt to copy font file {0} from the bundle to {1} failed."),
+					Path.GetFileName(filesWhichFailedToCopy.First()), LanguageFolder);
+
 			InstallFontsIfNecessary();
 			bundle.CopyVersificationFile(VersificationFilePath);
 			try
@@ -789,7 +793,7 @@ namespace Glyssen
 		private static Project LoadExistingProject(string projectFilePath)
 		{
 			// PG-433, 04 JAN 2015, PH: Let the user know if the project file is not writable
-			var isWritable = !FileUtils.IsFileLocked(projectFilePath);
+			var isWritable = !FileHelper.IsLocked(projectFilePath);
 			if (!isWritable)
 			{
 				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg",
@@ -1483,7 +1487,7 @@ namespace Glyssen
 					newDirectoryPath = Format(fmt, n++);
 				} while (Directory.Exists(newDirectoryPath));
 			}
-			DirectoryUtilities.CopyDirectoryContents(ProjectFolder, newDirectoryPath);
+			DirectoryHelper.Copy(ProjectFolder, newDirectoryPath);
 			if (hidden)
 			{
 				var newFilePath = Directory.GetFiles(newDirectoryPath, "*" + Constants.kProjectFileExtension).FirstOrDefault();

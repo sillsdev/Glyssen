@@ -14,7 +14,6 @@ using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
-using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Xml;
 using static System.String;
@@ -2992,7 +2991,7 @@ namespace GlyssenTests
 				return;
 
 			if (Directory.Exists(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation))
-				DirectoryUtilities.DeleteDirectoryRobust(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
+				RobustIO.DeleteDirectoryAndContents(ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation);
 
 			ReferenceTextProxy.ProprietaryReferenceTextProjectFileLocation = null;
 		}

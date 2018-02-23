@@ -64,7 +64,7 @@ namespace GlyssenTests
 		{
 			var testProjFolder = Path.Combine(GlyssenInfo.BaseDataFolder, kTest);
 			if (Directory.Exists(testProjFolder))
-				DirectoryUtilities.DeleteDirectoryRobust(testProjFolder);
+				RobustIO.DeleteDirectoryAndContents(testProjFolder);
 		}
 
 		public static Project CreateTestProject(params TestBook[] booksToInclude)

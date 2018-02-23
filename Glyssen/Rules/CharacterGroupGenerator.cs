@@ -12,7 +12,6 @@ using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
 using SIL.Progress;
- using SIL.Reporting;
 
 namespace Glyssen.Rules
 {

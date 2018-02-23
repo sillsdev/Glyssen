@@ -7,8 +7,6 @@ using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Shared;
 using L10NSharp;
-using SIL.IO;
-using SIL.Reporting;
 using Glyssen.Shared.Bundle;
 
 namespace Glyssen

@@ -7,7 +7,6 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using SIL.Extensions;
-using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Glyssen.ViewModel

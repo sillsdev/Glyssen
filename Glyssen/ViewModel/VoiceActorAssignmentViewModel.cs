@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Rules;
 using Glyssen.Utilities;
@@ -14,7 +13,6 @@ using Glyssen.ViewModel.Undo;
 using Glyssen.VoiceActor;
 using L10NSharp;
 using SIL.Extensions;
-using SIL.Reporting;
 
 namespace Glyssen.ViewModel
 {

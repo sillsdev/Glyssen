@@ -14,6 +14,7 @@ using Glyssen.Utilities;
 using Glyssen.ViewModel;
 using GlyssenApp.Properties;
 using SIL.Reporting;
+using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs
 {

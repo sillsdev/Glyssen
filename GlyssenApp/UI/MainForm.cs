@@ -32,6 +32,7 @@ using NetSparkle;
 using Paratext.Data;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
+using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI
 {

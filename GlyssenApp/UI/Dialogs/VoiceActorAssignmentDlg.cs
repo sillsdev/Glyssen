@@ -18,6 +18,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Reporting;
+using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs
 {

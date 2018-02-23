@@ -28,6 +28,7 @@ using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
+using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs
 {

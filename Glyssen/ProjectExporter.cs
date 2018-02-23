@@ -15,7 +15,6 @@ using L10NSharp;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using SIL.IO;
-using SIL.Reporting;
 using SIL.Scripture;
 using static System.String;
 
@@ -179,7 +178,7 @@ namespace Glyssen
 			if (!IsNullOrEmpty(m_customFileName))
 			{
 				// if the directory is not the stored default directory, make the new directory the default
-				if (!DirectoryUtilities.AreDirectoriesEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
+				if (!DirectoryHelper.AreEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
 					Settings.Default.DefaultExportDirectory = Project.Status.LastExportLocation;
 			}
 
