@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Glyssen;
 using Glyssen.Bundle;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 using L10NSharp;
 

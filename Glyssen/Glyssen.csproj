@@ -198,7 +198,6 @@
     <Compile Include="ApplicationMetadata.cs" />
     <Compile Include="ViewModel\AssignCharacterViewModel.cs" />
     <Compile Include="ViewModel\BlockNavigatorViewModel.cs" />
-    <Compile Include="Dialogs\SelectProjectDlg.cs" />
     <Compile Include="IScrBook.cs" />
     <Compile Include="MultiBlockQuote.cs" />
     <Compile Include="Project.cs" />

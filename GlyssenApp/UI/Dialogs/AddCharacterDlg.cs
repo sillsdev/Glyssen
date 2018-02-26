@@ -5,7 +5,6 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs

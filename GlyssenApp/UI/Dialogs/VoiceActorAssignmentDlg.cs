@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.ViewModel;
 using GlyssenApp.Properties;

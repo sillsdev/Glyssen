@@ -7,7 +7,6 @@ using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
 using Glyssen;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 using L10NSharp;
 using SIL.Windows.Forms.Extensions;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.ViewModel;
 using NUnit.Framework;
@@ -1459,7 +1458,7 @@ namespace GlyssenTests.Dialogs
 		{
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, GiveUserChanceToFindOriginalBundle);
 			Assert.IsFalse(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1502,7 +1501,7 @@ namespace GlyssenTests.Dialogs
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.Adult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, GiveUserChanceToFindOriginalBundle);
 			Assert.IsTrue(reloadedProject.AllCharacterDetailDictionary.ContainsKey("Larry"));
 		}
 
@@ -1514,7 +1513,7 @@ namespace GlyssenTests.Dialogs
 			m_model.StoreCharacterDetail("Larry", CharacterGender.Male, CharacterAge.YoungAdult);
 			m_model.SetCharacterAndDelivery(new AssignCharacterViewModel.Character("Larry"),
 				AssignCharacterViewModel.Delivery.Normal);
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, GiveUserChanceToFindOriginalBundle);
 			Assert.AreEqual(CharacterAge.YoungAdult, reloadedProject.AllCharacterDetailDictionary["Larry"].Age);
 		}
 
@@ -1543,7 +1542,7 @@ namespace GlyssenTests.Dialogs
 
 			m_model.ApplyCurrentReferenceTextMatchup();
 
-			var reloadedProject = Project.Load(m_testProject.ProjectFilePath);
+			var reloadedProject = Project.Load(m_testProject.ProjectFilePath, GiveUserChanceToFindOriginalBundle);
 
 			var christ = reloadedProject.AllCharacterDetailDictionary["Christ"];
 			Assert.AreEqual(CharacterAge.Adult, christ.Age);
@@ -1791,6 +1790,12 @@ namespace GlyssenTests.Dialogs
 					block.CharacterId = CharacterVerseData.kAmbiguousCharacter;
 				}
 			}
+		}
+
+		private bool GiveUserChanceToFindOriginalBundle(Project project)
+		{
+			// Should never get called in test code
+			throw new NotImplementedException();
 		}
 	}
 

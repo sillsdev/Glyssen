@@ -1,5 +1,4 @@
 ﻿using Glyssen.Bundle;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 using NUnit.Framework;
 

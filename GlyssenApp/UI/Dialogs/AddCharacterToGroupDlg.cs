@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 using L10NSharp;
 using L10NSharp.UI;

@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Glyssen;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using Glyssen.ViewModel;
 using GlyssenApp.Properties;

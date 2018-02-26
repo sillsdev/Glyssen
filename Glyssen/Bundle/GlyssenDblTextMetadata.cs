@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using Glyssen.ViewModel;

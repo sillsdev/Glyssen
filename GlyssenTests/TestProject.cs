@@ -116,7 +116,7 @@ namespace GlyssenTests
 
 		public static Project LoadExistingTestProject()
 		{
-			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)));
+			return Project.Load(Project.GetProjectFilePath(kTest, kTest, Project.GetDefaultRecordingProjectName(kTest)), project => throw new NotImplementedException());
 		}
 
 		public static Project CreateBasicTestProject()

@@ -12,7 +12,6 @@ using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using GlyssenApp.Properties;
 using Glyssen.Rules;
 using Glyssen.Shared;
@@ -352,7 +351,7 @@ namespace GlyssenApp.UI
 		{
 			bool loadedSuccessfully = LoadAndHandleApplicationExceptions(() =>
 			{
-				SetProject(Project.Load(filePath));
+				SetProject(Project.Load(filePath, GiveUserChanceToFindOriginalBundle));
 				additionalActionAfterSettingProject?.Invoke();
 			});
 
@@ -361,6 +360,22 @@ namespace GlyssenApp.UI
 
 			m_lastExportLocationLink.Text = m_project?.LastExportLocation;
 			m_lblFilesAreHere.Visible = !IsNullOrEmpty(m_lastExportLocationLink.Text);
+		}
+
+		private bool GiveUserChanceToFindOriginalBundle(Project existingProject)
+		{
+			bool result = false;
+			string msg =
+				Format(
+					LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
+						"The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
+					existingProject.OriginalBundlePath) +
+				Environment.NewLine + Environment.NewLine +
+				LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
+			string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
+			if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
+				result = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+			return result;
 		}
 
 		private void LoadBundle(string bundlePath)

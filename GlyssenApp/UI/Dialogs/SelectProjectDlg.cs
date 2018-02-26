@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows.Forms;
+using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
@@ -7,7 +8,7 @@ using L10NSharp;
 using SIL.DblBundle;
 using SIL.Windows.Forms.DblBundle;
 
-namespace Glyssen.Dialogs
+namespace GlyssenApp.UI.Dialogs
 {
 	public class SelectProjectDlg : SelectProjectDlgBase
 	{

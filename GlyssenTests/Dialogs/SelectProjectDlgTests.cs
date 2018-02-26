@@ -1,5 +1,5 @@
 ﻿using System;
-using Glyssen.Dialogs;
+using GlyssenApp.UI.Dialogs;
 using NUnit.Framework;
 
 namespace GlyssenTests.Dialogs

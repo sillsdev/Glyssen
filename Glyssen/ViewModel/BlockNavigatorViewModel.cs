@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;

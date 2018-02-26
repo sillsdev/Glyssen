@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs

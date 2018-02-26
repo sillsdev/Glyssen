@@ -16,7 +16,6 @@ using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Properties;
 using Glyssen.Quote;
 using Glyssen.Shared;
@@ -687,7 +686,7 @@ namespace Glyssen
 			Status.AssignCharacterBlock = new BookBlockIndices();
 		}
 
-		public static Project Load(string projectFilePath)
+		public static Project Load(string projectFilePath, Func<Project, bool> giveUserChanceToFindOriginalBundle)
 		{
 			Project existingProject = LoadExistingProject(projectFilePath);
 
@@ -702,16 +701,7 @@ namespace Glyssen
 					upgradeProject = false;
 					if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
 					{
-						string msg =
-							Format(
-								LocalizationManager.GetString("Project.ParserUpgradeBundleMissingMsg",
-									"The splitting engine has been upgraded. To make use of the new engine, the original text bundle must be available, but it is not in the original location ({0})."),
-								existingProject.OriginalBundlePath) +
-							Environment.NewLine + Environment.NewLine +
-							LocalizationManager.GetString("Project.LocateBundleYourself", "Would you like to locate the text bundle yourself?");
-						string caption = LocalizationManager.GetString("Project.UnableToLocateTextBundle", "Unable to Locate Text Bundle");
-						if (DialogResult.Yes == MessageBox.Show(msg, caption, MessageBoxButtons.YesNo))
-							upgradeProject = SelectProjectDlg.GiveUserChanceToFindOriginalBundle(existingProject);
+						upgradeProject = giveUserChanceToFindOriginalBundle(existingProject);
 						if (!upgradeProject)
 							existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
 					}

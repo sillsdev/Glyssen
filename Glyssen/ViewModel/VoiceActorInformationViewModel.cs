@@ -4,7 +4,6 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel.Undo;
 using Glyssen.VoiceActor;
 using L10NSharp;

@@ -166,6 +166,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
+    <Compile Include="UI\Dialogs\SelectProjectDlg.cs" />
     <Compile Include="UI\ExistingProjectsList.cs">
       <SubType>UserControl</SubType>
     </Compile>

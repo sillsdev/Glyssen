@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Glyssen.Bundle;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using Glyssen.ViewModel;
 using GlyssenApp.UI.Utilities;

@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Serialization;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.Utilities;
 using Glyssen.ViewModel;

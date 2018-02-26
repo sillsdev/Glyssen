@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel.Undo;
 using NUnit.Framework;
 

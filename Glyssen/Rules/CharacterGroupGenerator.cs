@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.ViewModel;
 using Glyssen.VoiceActor;
 using L10NSharp;

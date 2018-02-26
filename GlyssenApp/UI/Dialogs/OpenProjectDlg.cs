@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
 using GlyssenApp.Properties;
 

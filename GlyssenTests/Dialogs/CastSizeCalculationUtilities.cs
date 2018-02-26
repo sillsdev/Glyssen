@@ -1,11 +1,11 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Rules;
 using Glyssen.ViewModel;
 using NUnit.Framework;
@@ -44,7 +44,7 @@ namespace GlyssenTests.Dialogs
 			try
 			{
 				m_project =
-					Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen");
+					Project.Load(@"C:\ProgramData\FCBH-SIL\Glyssen\ach\3b9fdc679b9319c3\Acholi New Test 1985 Audio\ach.glyssen", project => throw new NotImplementedException());
 				TestProject.SimulateDisambiguationForAllBooks(m_project);
 				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 			}
@@ -184,7 +184,7 @@ namespace GlyssenTests.Dialogs
 				//Change this to Kuna and finish tests for OT books
 				m_project =
 					Project.Load(
-						@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen");
+						@"C:\ProgramData\FCBH-SIL\Glyssen\cuk\5a6b88fafe1c8f2b\The Bible in Kuna, San Blas Audio\cuk.glyssen", project => throw new NotImplementedException());
 				TestProject.SimulateDisambiguationForAllBooks(m_project);
 				m_project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;
 

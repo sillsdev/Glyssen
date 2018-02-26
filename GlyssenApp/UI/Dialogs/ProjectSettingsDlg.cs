@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Bundle;
-using Glyssen.Dialogs;
 using Glyssen.Shared;
 using Glyssen.ViewModel;
 using L10NSharp;

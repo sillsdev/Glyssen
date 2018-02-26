@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using Glyssen.ViewModel;
 using SIL.Reporting;

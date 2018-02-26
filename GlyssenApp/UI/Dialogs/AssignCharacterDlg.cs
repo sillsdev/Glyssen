@@ -17,7 +17,6 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using Glyssen.ViewModel;
 using GlyssenApp.Properties;

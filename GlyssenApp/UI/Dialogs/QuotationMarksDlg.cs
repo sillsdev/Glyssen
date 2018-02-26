@@ -8,7 +8,6 @@ using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Bundle;
 using Glyssen.Character;
-using Glyssen.Dialogs;
 using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Utilities;
