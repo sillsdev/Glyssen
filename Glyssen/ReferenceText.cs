@@ -300,7 +300,7 @@ namespace Glyssen
 						{
 							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
 							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
-							if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
+							if (currentRefBlock.MatchesReferenceText)
 								refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
 							if (currentRefBlock.IsChapterAnnouncement)
