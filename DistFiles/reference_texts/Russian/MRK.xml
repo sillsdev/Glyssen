@@ -5682,14 +5682,14 @@
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation" matchesReferenceText="true">
     <ReferenceBlocks style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
       <verse num="14" />
-      <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not </text>
+      <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not</text>
     </ReferenceBlocks>
     <verse num="14" />
     <text>Когда же увидите мерзость запустения, реченную пророком Даниилом, стоящую, где не должно,</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-MRK" matchesReferenceText="true">
     <ReferenceBlocks style="p" chapter="13" initialStartVerse="14" characterId="narrator-MRK">
-      <text>(let the reader understand), </text>
+      <text>(let the reader understand),</text>
     </ReferenceBlocks>
     <text>—читающий да разумеет, —</text>
   </block>

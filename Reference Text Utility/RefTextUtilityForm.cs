@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen.Bundle;
 using Glyssen.ReferenceTextUtility.Properties;
 using Glyssen.RefTextDevUtilities;
 using Glyssen.Shared;
@@ -169,7 +170,7 @@ namespace Glyssen.ReferenceTextUtility
 						HandleMessageRaised($"File {projectPath} already exists! Skipping. Please verify contents.", true);
 					else
 					{
-						var metadata = XmlSerializationHelper.DeserializeFromString<GlyssenDblTextMetadataBase>(Resources.refTextMetadata);
+						var metadata = XmlSerializationHelper.DeserializeFromString<GlyssenDblTextMetadata>(Resources.refTextMetadata);
 						metadata.Language = new GlyssenDblMetadataLanguage
 						{
 							Name = languageName,
