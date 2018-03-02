@@ -114,6 +114,10 @@
       <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>
       <Name>GlyssenShared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Glyssen\Glyssen.csproj">
+      <Project>{45321F2E-174C-482A-BDA1-BF199366FBD6}</Project>
+      <Name>Glyssen</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RefTextDevUtilities\RefTextDevUtilities.csproj">
       <Project>{49c0c51d-190f-450d-a7be-14e843c2e89d}</Project>
       <Name>RefTextDevUtilities</Name>

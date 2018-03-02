@@ -2843,10 +2843,10 @@
   </block>
   <block style="p" paragraphStart="true" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Continuation">
     <verse num="14" />
-    <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not </text>
+    <text>But when you see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="14" characterId="narrator-MRK">
-    <text>(let the reader understand), </text>
+    <text>(let the reader understand),</text>
   </block>
   <block style="p" chapter="13" initialStartVerse="14" characterId="Jesus" multiBlockQuote="Start">
     <text>then let those who are in Judea flee to the mountains.</text>

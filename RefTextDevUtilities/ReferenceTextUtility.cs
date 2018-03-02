@@ -252,15 +252,19 @@ namespace Glyssen.RefTextDevUtilities
 			var glyssenToFcbhIds = new SortedDictionary<string, SortedSet<string>>();
 			var fcbhToGlyssenIds = new SortedDictionary<string, SortedSet<string>>();
 
-			ErrorsOccurred = !ntData.IsValid || !otData.IsValid;
+			ErrorsOccurred = !ntData.IsValid || (otData != null && !otData.IsValid);
 			var resultSummary = new List<BookTitleAndChapterLabelInfo>(66); // Though all we have currently is the NT
 
 			var annotationsToOutput = new List<string>();
 
 			ReferenceText existingReferenceTextForLanguage = null;
-			var languagesToProcess = ntData.LanguagesToProcess.Union(otData.LanguagesToProcess).ToList();
+			List<ReferenceTextLanguageInfo> languagesToProcess;
+			if (otData != null)
+				languagesToProcess = ntData.LanguagesToProcess.Union(otData.LanguagesToProcess).ToList();
+			else
+				languagesToProcess = ntData.LanguagesToProcess.ToList();
 
-			for (int iData = 0; iData < 2; iData++)
+			for (int iData = 0 + (otData == null ? 1 : 0); iData < 2; iData++)
 			{
 				languagesToProcess = iData == 0 ? otData.LanguagesToProcess.ToList() : ntData.LanguagesToProcess.ToList();
 
