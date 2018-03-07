@@ -2865,6 +2865,8 @@
   <block style="p" chapter="27" initialStartVerse="11" characterId="narrator-DEU">
     <verse num="11" />
     <text>Moses commanded the people the same day, saying, </text>
+  </block>
+  <block style="p" chapter="27" initialStartVerse="12" characterId="Moses">
     <verse num="12" />
     <text>These shall stand on Mount Gerizim to bless the people, when you have passed over the Jordan: Simeon, and Levi, and Judah, and Issachar, and Joseph, and Benjamin.</text>
   </block>

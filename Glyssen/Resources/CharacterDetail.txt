@@ -121,7 +121,7 @@ beast, the	1		Adult			REV 13:14
 believers who were Pharisees	-1	Male	Adult			ACT 15:5
 believers, circumcised (in Jerusalem)	-1	Male	Adult			ACT 11:3 & ACT 11:18
 believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or one of the other eleven disciples	ACT 1:24 & ACT 1:25
-beloved	1	Female	Adult			SNG 1:2 <-(66 more)-> SNG 8:14
+beloved	1	Female	Adult			SNG 1:2 <-(68 more)-> SNG 8:14
 Belshazzar, king of Babylon	1	Male	Adult			DAN 5:7 <-(3 more)-> DAN 5:16
 Benaiah, son of Jehoiada	1	Male				1KI 1:36 <-(1 more)-> 1KI 2:30
 Ben-Hadad, king of Aram	1	Male				1KI 20:12 <-(8 more)-> 2KI 8:14
@@ -584,13 +584,13 @@ living creature, third	1					REV 6:5
 lookout	1	Male				ISA 21:8 & ISA 21:9
 lookout in Jezreel	1	Male				2KI 9:17 <-(1 more)-> 2KI 9:20
 Lot	1	Male				GEN 19:2 <-(5 more)-> GEN 19:20
-lover	1	Male				SNG 1:8 <-(46 more)-> SNG 8:13
+lover	1	Male				SNG 1:8 <-(53 more)-> SNG 8:13
 Lydia	1	Female				ACT 16:15
 Macedonian	1	Male				ACT 16:9
 magi (wise men from East)	-1	Male				MAT 2:2
 magicians	-1	Male				EXO 8:19
 magistrates, chief	-1	Male				ACT 16:39
-maidens	-1	Female	YoungAdult			SNG 1:4 <-(13 more)-> SNG 8:5
+maidens	-1	Female	YoungAdult			SNG 1:4 <-(15 more)-> SNG 8:7
 Makir	1	Male			son of Ammiel from Lo Debar	
 Malta islanders	-1					ACT 28:4 & ACT 28:6
 man (at Shechem)	1	Male				GEN 37:15 & GEN 37:17
