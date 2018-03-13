@@ -414,7 +414,11 @@ namespace Glyssen
 						else
 						{
 							var remainingRefBlocksList = remainingRefBlocks.ToList();
-							if (forceMatch)
+							if (!remainingRefBlocksList.Any())
+							{
+								// do nothing (PG-1085)
+							}
+							else if (forceMatch)
 							{
 								var refBlock = remainingRefBlocksList[0];
 								for (int rb = 1; rb < remainingRefBlocksList.Count; rb++)
