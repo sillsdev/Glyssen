@@ -1659,6 +1659,57 @@ namespace GlyssenTests
 			Assert.AreEqual(englishReferenceBlocks.Last().GetText(true), result[4].ReferenceBlocks.Single().GetPrimaryReferenceText());
 		}
 
+		/// <summary>
+		/// PG-943
+		/// </summary>
+		[Test]
+		public void ApplyTo_ChapterLabelFollowsMatchedBlock_SecondaryReferenceTextIsCorrect()
+		{
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateBlockForVerse("scripture", 23, "Jadi omátám. Dená’ pun antang diam di kampong Nasaret di da’erah Galilea nyén...", false, 2));
+			vernacularBlocks.Add(new Block("c", 3)
+			{
+				BookCode = "MAT",
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				BlockElements = new List<BlockElement> { new ScriptText("3") }
+			});
+
+			var indonesianReferenceBlocks = new List<Block>();
+			indonesianReferenceBlocks.Add(CreateBlockForVerse("scripture", 23, "<<Orang Nazaret.>>", false, 2));
+			indonesianReferenceBlocks.Add(new Block("c", 3)
+			{
+				BookCode = "MAT",
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				BlockElements = new List<BlockElement> { new ScriptText("3") }
+			});
+
+			var englishReferenceBlocks = new List<Block>();
+			englishReferenceBlocks.Add(CreateBlockForVerse("scripture", 23, "“He will be called a Nazarene.”", false, 2));
+			englishReferenceBlocks.Add(new Block("c", 3)
+			{
+				BookCode = "MAT",
+				CharacterId = CharacterVerseData.GetStandardCharacterId("MAT", CharacterVerseData.StandardCharacter.BookOrChapter),
+				BlockElements = new List<BlockElement> { new ScriptText("3") }
+			});
+
+			for (int i = 0; i < englishReferenceBlocks.Count; i++)
+				indonesianReferenceBlocks[i].SetMatchedReferenceBlock(englishReferenceBlocks[i]);
+
+			vernacularBlocks[0].SetMatchedReferenceBlock(indonesianReferenceBlocks[0]);
+
+			var vernBook = new BookScript("MAT", vernacularBlocks);
+
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, indonesianReferenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(2, result.Count);
+			Assert.IsTrue(result.All(b => b.MatchesReferenceText));
+
+			Assert.False(IsNullOrEmpty(result[1].ReferenceBlocks.Single().GetPrimaryReferenceText()));
+		}
+
 		[TestCase(null)]
 		[TestCase("[")] // PG-760
 		[TestCase("[ ")] // PG-760
