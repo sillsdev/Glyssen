@@ -1976,6 +1976,33 @@ namespace GlyssenTests
 			Assert.IsTrue(result.Skip(2).Select(v => v.GetPrimaryReferenceText()).SequenceEqual(referenceBlocks.Skip(1).Select(r => r.GetText(true))));
 		}
 
+		// PG-1085
+		[Test]
+		public void ApplyTo_SingleVoice_HasSectionHeadingMidVerse_AppliesCorrectly()
+		{
+			// Acts 10:23
+			var vernacularBlocks = new List<Block>();
+			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Narrator before SH", true, 10, "ACT"));
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter), "SH", "s");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Narrator after SH", "ACT");
+			var vernBook = new BookScript("ACT", vernacularBlocks);
+			vernBook.SingleVoice = true;
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(23, "verse 23a in reftext - has no SH", true, 10, "ACT"));
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "verse 23b in reftext - has no SH", "ACT");
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(3, result.Count);
+
+			Assert.AreEqual("verse 23a in reftext - has no SH", result[0].GetPrimaryReferenceText(true));
+			Assert.Null(result[1].GetPrimaryReferenceText(true));
+			Assert.AreEqual("verse 23b in reftext - has no SH", result[2].GetPrimaryReferenceText(true));
+		}
+
 		[Test]
 		public void GetBooksWithBlocksConnectedToReferenceText_WholeBookOfJude_AppliedCorrectly()
 		{
