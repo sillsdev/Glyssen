@@ -28,6 +28,7 @@ namespace Glyssen.Shared.Script
 			Identification = source.Identification;
 			Language = source.Language;
 			LastModified = source.LastModified;
+			AudioStockNumber = source.AudioStockNumber;
 			Revision = source.Revision;
 
 			Script = new Script

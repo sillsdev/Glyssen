@@ -15,6 +15,7 @@ namespace Glyssen.Shared.Bundle
 		DblMetadataIdentification Identification { get; }
 		GlyssenDblMetadataLanguage Language { get; }
 		DateTime LastModified { get; }
+		string AudioStockNumber { get; }
 		int Revision { get; }
 	}
 
@@ -72,6 +73,12 @@ namespace Glyssen.Shared.Bundle
 			}
 			set { m_uniqueRecordingProjectId = value; }
 		}
+
+		/// <summary>
+		/// Optional ID for tracking a project (used by FCBH's internal database)
+		/// </summary>
+		[XmlAttribute("audiostocknumber")]
+		public string AudioStockNumber { get; set; }
 
 		/// <summary>
 		/// The font family for the language associated with this project.
