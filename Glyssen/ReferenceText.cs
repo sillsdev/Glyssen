@@ -300,8 +300,38 @@ namespace Glyssen
 						{
 							var refChapterBlock = new Block(currentVernBlock.StyleTag, currentVernBlock.ChapterNumber);
 							refChapterBlock.BlockElements.Add(new ScriptText(GetFormattedChapterAnnouncement(bookId, currentVernBlock.ChapterNumber)));
-							if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
-								refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
+
+							if (HasSecondaryReferenceText)
+							{
+								if (currentRefBlock.IsChapterAnnouncement && currentRefBlock.MatchesReferenceText)
+								{
+									refChapterBlock.SetMatchedReferenceBlock(currentRefBlock.ReferenceBlocks.Single().Clone());
+								}
+								else if (!currentRefBlock.IsChapterAnnouncement)
+								{
+									// Find the reference text's chapter announcement to get the secondary reference text chapter announcement
+									var i = iRefBlock + 1;
+									while (i < refBlockList.Count)
+									{
+										var workingRefBlock = refBlockList[i];
+										var workingRefInitStartVerse = new VerseRef(bookNum, workingRefBlock.ChapterNumber, workingRefBlock.InitialStartVerseNumber, Versification);
+
+										var compareResult = workingRefInitStartVerse.CompareTo(vernInitStartVerse);
+
+										if (compareResult > 0) // break out early; we passed the verse reference, so there is no chapter label
+											break;
+
+										if (compareResult == 0 && workingRefBlock.IsChapterAnnouncement && workingRefBlock.MatchesReferenceText)
+										{
+											refChapterBlock.SetMatchedReferenceBlock(workingRefBlock.ReferenceBlocks.Single().Clone());
+											break;
+										}
+
+										i++;
+									}
+								}
+							}
+
 							currentVernBlock.SetMatchedReferenceBlock(refChapterBlock);
 							if (currentRefBlock.IsChapterAnnouncement)
 								continue;
