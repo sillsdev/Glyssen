@@ -189,7 +189,13 @@ namespace Glyssen
 								case "char":
 									IStyle charStyle = m_stylesheet.GetStyle((new UsxNode(childNode)).StyleTag);
 									if (!charStyle.IsInlineQuotationReference && charStyle.IsPublishable)
-										sb.Append(childNode.InnerText);
+									{
+										// Starting with USFM 3.0, char styles can have attributes separated by |
+										var tokens = childNode.InnerText.Split('|');
+										if (tokens.Any())
+											sb.Append(tokens[0]);
+									}
+
 									break;
 								case "#text":
 									sb.Append(childNode.InnerText);

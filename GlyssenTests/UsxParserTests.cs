@@ -180,6 +180,21 @@ namespace GlyssenTests
 			Assert.AreEqual("If you don't always remember things, you will sometimes forget!", blocks[1].GetText(false));
 		}
 
+		// PG-1084
+		[Test]
+		public void Parse_ParagraphWithCharacterStyleAndAttributes_AttributesNotIncluded()
+		{
+			var doc = UsxDocumentTests.CreateMarkOneDoc("<para style=\"p\">" +
+														"If you don't always remember things, you will " +
+														"<char style=\"b\">" +
+														"sometimes|strong=\"H01234,G05485\"</char>" +
+														" forget!</para >");
+			var parser = GetUsxParser(doc);
+			var blocks = parser.Parse().ToList();
+			Assert.AreEqual(2, blocks.Count);
+			Assert.AreEqual("If you don't always remember things, you will sometimes forget!", blocks[1].GetText(false));
+		}
+
 		[Test]
 		public void Parse_WhitespaceAtBeginningOfParaNotPreserved()
 		{
