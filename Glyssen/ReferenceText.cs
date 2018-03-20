@@ -377,6 +377,12 @@ namespace Glyssen
 				int numberOfVernBlocksInVerseChunk = iVernBlock - indexOfVernVerseStart + 1;
 				int numberOfRefBlocksInVerseChunk = iRefBlock - indexOfRefVerseStart + 1;
 
+				for (int i = indexOfVernVerseStart; i <= iVernBlock; i++)
+				{
+					if (vernBlockList[i].CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+						numberOfVernBlocksInVerseChunk--;
+				}
+
 				if (numberOfVernBlocksInVerseChunk == 1 && numberOfRefBlocksInVerseChunk > 1)
 				{
 					var lastRefBlockInVerseChunk = refBlockList[iRefBlock];
@@ -418,6 +424,8 @@ namespace Glyssen
 					else
 					{
 						iVernBlock = indexOfVernVerseStart + i;
+						if (vernBlockList[iVernBlock].CharacterIs(bookId, CharacterVerseData.StandardCharacter.ExtraBiblical))
+							iVernBlock++;
 
 						int j = 0;
 						if (numberOfVernBlocksInVerseChunk - i >= 2)

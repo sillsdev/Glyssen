@@ -2034,7 +2034,7 @@ namespace GlyssenTests
 			// Acts 10:23
 			var vernacularBlocks = new List<Block>();
 			vernacularBlocks.Add(CreateNarratorBlockForVerse(23, "Narrator before SH", true, 10, "ACT"));
-			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.BookOrChapter), "SH", "s");
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("ACT", CharacterVerseData.StandardCharacter.ExtraBiblical), "SH", "s");
 			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Narrator after SH", "ACT");
 			var vernBook = new BookScript("ACT", vernacularBlocks);
 			vernBook.SingleVoice = true;
@@ -2052,6 +2052,121 @@ namespace GlyssenTests
 			Assert.AreEqual("verse 23a in reftext - has no SH", result[0].GetPrimaryReferenceText(true));
 			Assert.Null(result[1].GetPrimaryReferenceText(true));
 			Assert.AreEqual("verse 23b in reftext - has no SH", result[2].GetPrimaryReferenceText(true));
+		}
+
+		// PG-1086
+		[TestCase(true)]
+		[TestCase(false)]
+		public void ApplyTo_SectionHeadingMidVerse_ReferenceHasMoreThanOneBlockForVerse_FirstBlockMatchedAndRemainingBlocksNotMatched(bool singleVoice)
+		{
+			// Luke 9:42-43
+			var vernacularBlocks = new List<Block>();
+			var block = CreateNarratorBlockForVerse(42, "Mi tana bona na gari", true, 9, "LUK");
+			block.AddVerse(43, "Mana vure subo tara");
+			vernacularBlocks.Add(block);
+			AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.ExtraBiblical), "Jesus te ghoi bosaa na mateana", "s");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tana bona na vure tara", "LUK");
+			var vernBook = new BookScript("LUK", vernacularBlocks);
+			vernBook.SingleVoice = singleVoice;
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(42, "While he was still coming,", true, 9, "LUK"));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(43, "They were all astonished and said:", true, 9, "LUK"));
+			AddBlockForVerseInProgress(referenceBlocks, "everyone who witnessed healing of boy", "“Behold the majesty of God!”", "LUK");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "But while all were marveling", "LUK");
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(4, result.Count);
+
+			Assert.True(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+
+			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
+			Assert.True(result[1].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
+
+			Assert.AreEqual("Jesus te ghoi bosaa na mateana", result[2].GetText(true));
+			Assert.AreEqual(0, result[2].ReferenceBlocks.Count);
+			Assert.False(result[2].MatchesReferenceText);
+			Assert.Null(result[2].GetPrimaryReferenceText());
+
+			if (!singleVoice)
+			{
+				Assert.AreEqual(2, result[3].ReferenceBlocks.Count);
+				Assert.False(result[3].MatchesReferenceText);
+				Assert.AreEqual(referenceBlocks[2].GetText(true), result[3].ReferenceBlocks[0].GetText(true));
+				Assert.AreEqual(referenceBlocks[3].GetText(true), result[3].ReferenceBlocks[1].GetText(true));
+				Assert.Null(result[3].GetPrimaryReferenceText());
+			}
+			else
+			{
+				Assert.AreEqual(1, result[3].ReferenceBlocks.Count);
+				Assert.True(result[3].MatchesReferenceText);
+				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[3].ReferenceBlocks[0].GetText(true));
+				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[3].GetPrimaryReferenceText());
+			}
+		}
+
+		// PG-1086
+		// I created this test to prove to myself that the one above had the correct expected results. I decided to leave it here rather than delete it.
+		// So I named it the same as the one above but with _Control at the end. So the name doesn't match the condition but rather it is the same test
+		// without a section heading.
+		[TestCase(true)]
+		[TestCase(false)]
+		public void ApplyTo_SectionHeadingMidVerse_ReferenceHasMoreThanOneBlockForVerse_FirstBlockMatchedAndRemainingBlocksNotMatched_Control(bool singleVoice)
+		{
+			// Luke 9:42-43
+			var vernacularBlocks = new List<Block>();
+			var block = CreateNarratorBlockForVerse(42, "Mi tana bona na gari", true, 9, "LUK");
+			block.AddVerse(43, "Mana vure subo tara");
+			vernacularBlocks.Add(block);
+			//AddBlockForVerseInProgress(vernacularBlocks, CharacterVerseData.GetStandardCharacterId("LUK", CharacterVerseData.StandardCharacter.ExtraBiblical), "Jesus te ghoi bosaa na mateana", "s");
+			AddNarratorBlockForVerseInProgress(vernacularBlocks, "Tana bona na vure tara", "LUK");
+			var vernBook = new BookScript("LUK", vernacularBlocks);
+			vernBook.SingleVoice = singleVoice;
+
+			var referenceBlocks = new List<Block>();
+			referenceBlocks.Add(CreateNarratorBlockForVerse(42, "While he was still coming,", true, 9, "LUK"));
+			referenceBlocks.Add(CreateNarratorBlockForVerse(43, "They were all astonished and said:", true, 9, "LUK"));
+			AddBlockForVerseInProgress(referenceBlocks, "everyone who witnessed healing of boy", "“Behold the majesty of God!”",
+				"LUK");
+			AddNarratorBlockForVerseInProgress(referenceBlocks, "But while all were marveling", "LUK");
+			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
+
+			refText.ApplyTo(vernBook, m_vernVersification);
+
+			var result = vernBook.GetScriptBlocks();
+			Assert.AreEqual(3, result.Count);
+
+			Assert.True(result[0].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[0].GetText(true), result[0].GetPrimaryReferenceText());
+
+			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
+			Assert.True(result[1].MatchesReferenceText);
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
+			Assert.AreEqual(referenceBlocks[1].GetText(true), result[1].GetPrimaryReferenceText());
+
+			if (!singleVoice)
+			{
+				Assert.AreEqual(2, result[2].ReferenceBlocks.Count);
+				Assert.False(result[2].MatchesReferenceText);
+				Assert.AreEqual(referenceBlocks[2].GetText(true), result[2].ReferenceBlocks[0].GetText(true));
+				Assert.AreEqual(referenceBlocks[3].GetText(true), result[2].ReferenceBlocks[1].GetText(true));
+				Assert.Null(result[2].GetPrimaryReferenceText());
+			}
+			else
+			{
+				Assert.AreEqual(1, result[2].ReferenceBlocks.Count);
+				Assert.True(result[2].MatchesReferenceText);
+				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[2].ReferenceBlocks[0].GetText(true));
+				Assert.AreEqual("“Behold the majesty of God!” But while all were marveling", result[2].GetPrimaryReferenceText());
+			}
 		}
 
 		[Test]
