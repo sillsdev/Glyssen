@@ -19,7 +19,7 @@ namespace GlyssenTests.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -580,6 +580,23 @@ namespace GlyssenTests.Properties {
         internal static string TestMRK {
             get {
                 return ResourceManager.GetString("TestMRK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;usx version=&quot;2.5&quot;&gt;
+        ///  &lt;book code=&quot;MAT&quot; style=&quot;id&quot;&gt;MOM Hans Doyapo 10/23/2008 12:20 AM&lt;/book&gt;
+        ///  &lt;para style=&quot;h&quot;&gt;MATIOO&lt;/para&gt;
+        ///  &lt;para style=&quot;mt1&quot;&gt;MATIOO&lt;/para&gt;
+        ///  &lt;chapter number=&quot;1&quot; style=&quot;c&quot; /&gt;
+        ///  &lt;para style=&quot;p&quot;&gt;
+        ///    &lt;verse number=&quot;1&quot; style=&quot;v&quot; /&gt;Verse 1 text. &lt;verse number=&quot;2-6a&quot; style=&quot;v&quot; /&gt;Verses 2-6a text. &lt;verse number=&quot;6b-11&quot; style=&quot;v&quot; /&gt;Verses 6b-11 text. &lt;verse number=&quot;12-16&quot; style=&quot;v&quot; /&gt;Verses 12-16 text. &lt;verse number=&quot;17&quot; style=&quot;v&quot; /&gt;Verse 17 text.
+        ///  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TestOBAwithInterestingVerseNums {
+            get {
+                return ResourceManager.GetString("TestOBAwithInterestingVerseNums", resourceCulture);
             }
         }
         

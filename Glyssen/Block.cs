@@ -991,9 +991,8 @@ namespace Glyssen
 					}
 					else
 					{
-						var verseNumParts = verseToSplit.Split(new[] {'-'}, 2, StringSplitOptions.None);
-						initialStartVerse = int.Parse(verseNumParts[0]);
-						initialEndVerse = verseNumParts.Length == 2 ? int.Parse(verseNumParts[1]) : 0;
+						initialStartVerse = BCVRef.VerseToIntStart(verseToSplit);
+						initialEndVerse = BCVRef.VerseToIntEnd(verseToSplit);
 					}
 					newBlock = new Block(StyleTag, ChapterNumber, initialStartVerse, initialEndVerse)
 					{

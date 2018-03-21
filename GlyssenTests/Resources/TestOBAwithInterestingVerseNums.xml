@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<usx version="2.5">
+  <book code="OBA" style="id">O</book>
+  <para style="h">O</para>
+  <para style="mt1">O</para>
+  <chapter number="1" style="c" />
+  <para style="p">
+    <verse number="1" style="v" />Verse 1 text. <verse number="2-6a" style="v" />Verses 2-6a text. <verse number="6b-11" style="v" />Verses 6b-11 text. <verse number="12-16" style="v" />Verses 12-16 text. <verse number="17" style="v" />Verse 17 text. </para>
+  <para style="p">
+    <verse number="18a" />Verse 18a text. <verse number="18b" />Verse 18b text. </para>
+  <para style="p">
+    <verse number="19" />Verse 19 text. <verse number="19-20" />Verses 19-20 text. </para>
+  <para style="p">
+    <verse number="21" />Verse 21 text. <verse number="21b" />Verse 21b text. </para>
+</usx>

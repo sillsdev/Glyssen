@@ -1071,6 +1071,123 @@ namespace GlyssenTests.Dialogs
 			Assert.IsTrue(model.CanNavigateToNextRelevantBlock);
 		}
 
+		//PG-1081
+		[Test]
+		public void SplitBlock_VerseBridgeAndMoreThanOneSplit_SplitsCorrectly()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			var model = new AssignCharacterViewModel(project);
+
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(031001012)));
+
+			var blockToSplit = model.CurrentBlock;
+			var blockIndex = model.CurrentBlockIndexInBook;
+
+			model.SplitBlock(new[]
+			{
+				new BlockSplitData(1, blockToSplit, "12-16", 3),
+				new BlockSplitData(2, blockToSplit, "17", 8)
+			}, GetListOfCharacters(3, new[] { "", "", "" }));
+
+			Assert.AreEqual("Verse 1 text. Verses 2-6a text. Verses 6b-11 text. Ver", project.Books[0].Blocks[blockIndex].GetText(false));
+			Assert.AreEqual("ses 12-16 text. Verse 17", project.Books[0].Blocks[blockIndex + 1].GetText(false));
+			Assert.AreEqual(" text. ", project.Books[0].Blocks[blockIndex + 2].GetText(false));
+		}
+
+		//PG-1081
+		[Test]
+		public void SplitBlock_VerseSegmentAndMoreThanOneSplit_SplitsCorrectly()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			var model = new AssignCharacterViewModel(project);
+
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(031001018)));
+
+			var blockToSplit = model.CurrentBlock;
+			var blockIndex = model.CurrentBlockIndexInBook;
+
+			model.SplitBlock(new[]
+			{
+				new BlockSplitData(1, blockToSplit, "18a", 4),
+				new BlockSplitData(2, blockToSplit, "18b", 5)
+			}, GetListOfCharacters(3, new[] { "", "", "" }));
+
+			Assert.AreEqual("Vers", project.Books[0].Blocks[blockIndex].GetText(false));
+			Assert.AreEqual("e 18a text. Verse", project.Books[0].Blocks[blockIndex + 1].GetText(false));
+			Assert.AreEqual(" 18b text. ", project.Books[0].Blocks[blockIndex + 2].GetText(false));
+		}
+
+		//PG-1081
+		[Test]
+		public void SplitBlock_VerseBridgeWithSegmentAndMoreThanOneSplit_SplitsCorrectly()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			var model = new AssignCharacterViewModel(project);
+
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(031001001)));
+
+			var blockToSplit = model.CurrentBlock;
+			var blockIndex = model.CurrentBlockIndexInBook;
+
+			model.SplitBlock(new[]
+			{
+				new BlockSplitData(1, blockToSplit, "1", 4),
+				new BlockSplitData(2, blockToSplit, "2-6a", 7)
+			}, GetListOfCharacters(3, new[] { "", "", "" }));
+
+			Assert.AreEqual("Vers", project.Books[0].Blocks[blockIndex].GetText(false));
+			Assert.AreEqual("e 1 text. Verses ", project.Books[0].Blocks[blockIndex + 1].GetText(false));
+			Assert.AreEqual("2-6a text. Verses 6b-11 text. Verses 12-16 text. Verse 17 text. ", project.Books[0].Blocks[blockIndex + 2].GetText(false));
+		}
+
+		//PG-1081
+		// Not sure if we will ever get data in this form, but testing just in case
+		[Test]
+		public void SplitBlock_VerseWhichContinuesIntoVerseBridgeAndMoreThanOneSplit_SplitsCorrectly()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			var model = new AssignCharacterViewModel(project);
+
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(031001019)));
+
+			var blockToSplit = model.CurrentBlock;
+			var blockIndex = model.CurrentBlockIndexInBook;
+
+			model.SplitBlock(new[]
+			{
+				new BlockSplitData(1, blockToSplit, "19", 4),
+				new BlockSplitData(2, blockToSplit, "19-20", 7)
+			}, GetListOfCharacters(3, new[] { "", "", "" }));
+
+			Assert.AreEqual("Vers", project.Books[0].Blocks[blockIndex].GetText(false));
+			Assert.AreEqual("e 19 text. Verses ", project.Books[0].Blocks[blockIndex + 1].GetText(false));
+			Assert.AreEqual("19-20 text. ", project.Books[0].Blocks[blockIndex + 2].GetText(false));
+		}
+
+		//PG-1081
+		// Not sure if we will ever get data in this form, but testing just in case
+		[Test]
+		public void SplitBlock_VerseWithAndWithoutSegmentAndMoreThanOneSplit_SplitsCorrectly()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			var model = new AssignCharacterViewModel(project);
+
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(031001021)));
+
+			var blockToSplit = model.CurrentBlock;
+			var blockIndex = model.CurrentBlockIndexInBook;
+
+			model.SplitBlock(new[]
+			{
+				new BlockSplitData(1, blockToSplit, "21", 4),
+				new BlockSplitData(2, blockToSplit, "21b", 7)
+			}, GetListOfCharacters(3, new[] { "", "", "" }));
+
+			Assert.AreEqual("Vers", project.Books[0].Blocks[blockIndex].GetText(false));
+			Assert.AreEqual("e 21 text. Verse 2", project.Books[0].Blocks[blockIndex + 1].GetText(false));
+			Assert.AreEqual("1b text. ", project.Books[0].Blocks[blockIndex + 2].GetText(false));
+		}
+
 		[Test]
 		public void SetCurrentBookSingleVoice_UnassignedQuotesInOtherBooks_CurrentBlockInNextBook()
 		{

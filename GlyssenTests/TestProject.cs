@@ -28,10 +28,8 @@ namespace GlyssenTests
 		{
 			JOS,
 			RUT,
-			/// <summary>
-			/// This is derived from Kuna (cuk), not Acholi
-			/// </summary>
-			MAT,
+			OBA, // This is a playground book, currently useful for verse bridges and verse segments
+			MAT, // This is derived from Kuna (cuk), not Acholi
 			MRK,
 			LUK,
 			JHN,
@@ -171,6 +169,12 @@ namespace GlyssenTests
 					book.LongName = "Ruth";
 					book.ShortName = "Ruth";
 					xmlDocument.LoadXml(Properties.Resources.TestRUT);
+					break;
+				case TestBook.OBA:
+					book.Code = "OBA";
+					book.LongName = "Obadiah";
+					book.ShortName = "Obadiah";
+					xmlDocument.LoadXml(Properties.Resources.TestOBAwithInterestingVerseNums);
 					break;
 				case TestBook.MAT:
 					book.Code = "MAT";
