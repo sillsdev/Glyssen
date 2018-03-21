@@ -1501,6 +1501,42 @@ namespace GlyssenTests
 			Assert.AreEqual(2, block.ScriptTextCount);
 		}
 
+		[Test]
+		public void SplitBlock_VerseBridge_SplitsCorrectly()
+		{
+			var block = new Block("p", 1, 1)
+			{
+				BlockElements =
+				{
+					new Verse("1b"),
+					new ScriptText("abcdef ghi")
+				}
+			};
+			var newBlock = block.SplitBlock("1b", 3);
+
+			Assert.AreEqual("{1b}\u00A0abc", block.GetText(true));
+			Assert.AreEqual("def ghi", newBlock.GetText(true));
+		}
+
+		[Test]
+		public void SplitBlock_VerseSegment_SplitsCorrectly()
+		{
+			var block = new Block("p", 1, 1)
+			{
+				BlockElements =
+				{
+					new Verse("1"),
+					new ScriptText("abcdef ghi "),
+					new Verse("2-3"),
+					new ScriptText("jk lmno p")
+				}
+			};
+			var newBlock = block.SplitBlock("2-3", 4);
+
+			Assert.AreEqual("{1}\u00A0abcdef ghi {2-3}\u00A0jk l", block.GetText(true));
+			Assert.AreEqual("mno p", newBlock.GetText(true));
+		}
+
 		private CharacterVerse JesusQuestioning => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Questioning", null, false);
 
 		private CharacterVerse JesusCommanding => new CharacterVerse(new BCVRef(41, 4, 4), "Jesus", "Commanding", null, false);

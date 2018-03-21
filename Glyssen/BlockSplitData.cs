@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIL.Scripture;
 
 namespace Glyssen
 {
@@ -50,7 +51,29 @@ namespace Glyssen
 			if (y.VerseToSplit == null)
 				return 1;
 
-			return int.Parse(x.VerseToSplit) < int.Parse(y.VerseToSplit) ? -1 : 1;
+			BCVRef xStart = BCVRef.Empty;
+			BCVRef xEnd = BCVRef.Empty;
+			BCVRef yStart = BCVRef.Empty;
+			BCVRef yEnd = BCVRef.Empty;
+			BCVRef.VerseToScrRef(x.VerseToSplit, out var xLiteralVerse, out var xRemainingText, ref xStart, ref xEnd);
+			BCVRef.VerseToScrRef(y.VerseToSplit, out var yLiteralVerse, out var yRemainingText, ref yStart, ref yEnd);
+
+			if (xStart == yStart)
+			{
+				if (xEnd == yEnd)
+				{
+					// Sort verse segments correctly
+					if (string.IsNullOrEmpty(xRemainingText))
+						return -1;
+					if (string.IsNullOrEmpty(yRemainingText))
+						return 1;
+					return String.Compare(xRemainingText, yRemainingText, StringComparison.InvariantCulture);
+				}
+
+				return xEnd < yEnd ? -1 : 1;
+			}
+
+			return xStart < yStart ? -1 : 1;
 		}
 	}
 
