@@ -23,7 +23,6 @@ using L10NSharp.UI;
 using SIL.DblBundle;
 using SIL.IO;
 using SIL.Progress;
-using SIL.Reporting;
 using SIL.Windows.Forms;
 using SIL.Windows.Forms.Miscellaneous;
 using Ionic.Zip;
@@ -32,6 +31,7 @@ using Paratext.Data;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
 using Logger = SIL.Reporting.Logger;
+using PathUtilities = SIL.IO.PathUtilities;
 
 namespace GlyssenApp.UI
 {
@@ -866,7 +866,7 @@ namespace GlyssenApp.UI
 
 		private void About_Click(object sender, EventArgs e)
 		{
-			using (var dlg = new SILAboutBox(FileLocator.GetFileDistributedWithApplication("aboutbox.htm")))
+			using (var dlg = new SILAboutBox(FileLocationUtilities.GetFileDistributedWithApplication("aboutbox.htm")))
 			{
 				dlg.CheckForUpdatesClicked += HandleAboutDialogCheckForUpdatesClick;
 				dlg.ReleaseNotesClicked += HandleAboutDialogReleaseNotesClicked;
@@ -883,7 +883,7 @@ namespace GlyssenApp.UI
 
 		private void HandleAboutDialogReleaseNotesClicked(object sender, EventArgs e)
 		{
-			var path = FileLocator.GetFileDistributedWithApplication("ReleaseNotes.md");
+			var path = FileLocationUtilities.GetFileDistributedWithApplication("ReleaseNotes.md");
 			using (var dlg = new ShowReleaseNotesDialog(((Form)sender).Icon, path))
 				dlg.ShowDialog();
 		}

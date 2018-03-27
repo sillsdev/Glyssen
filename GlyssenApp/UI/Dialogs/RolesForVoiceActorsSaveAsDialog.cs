@@ -9,6 +9,8 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
+using ErrorReport = SIL.Reporting.ErrorReport;
+using PathUtilities = SIL.IO.PathUtilities;
 
 namespace GlyssenApp.UI.Dialogs
 {

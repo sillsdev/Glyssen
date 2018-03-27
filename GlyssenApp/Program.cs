@@ -5,17 +5,23 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
 using DesktopAnalytics;
+using Glyssen;
 using GlyssenApp.Properties;
 using GlyssenApp.UI;
 using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
+using SIL;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.FileSystem;
+using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
+using ErrorReport = SIL.Reporting.ErrorReport;
+using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp
 {
@@ -37,6 +43,9 @@ namespace GlyssenApp
 		static void Main(string[] args)
 		{
 			IsRunning = true;
+
+			MessageModal.SetInstance(new WinFormsMessageModal());
+			Glyssen.PathUtilities.SetInstance(new DesktopPathUtilities());
 
 			if (GetRunningGlyssenProcessCount() > 1)
 			{
@@ -71,6 +80,9 @@ namespace GlyssenApp
 #endif
 			{
 				Logger.Init();
+				Glyssen.Logger.SetInstance(new DesktopLogger());
+
+				Project.HelpUserRecoverFromBadLdmlFile = HelpUserRecoverFromBadLdmlFile;
 
 				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 					GlyssenInfo.kCompany, kOldProductName);
@@ -143,6 +155,8 @@ namespace GlyssenApp
 			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
 			ErrorReport.EmailAddress = IssuesEmailAddress;
 			ErrorReport.AddStandardProperties();
+			Glyssen.ErrorReport.SetInstance(new DesktopErrorReport());
+
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
 			ExceptionHandler.AddDelegate(ReportError);
 		}
@@ -156,7 +170,7 @@ namespace GlyssenApp
 
 		private static void SetUpLocalization()
 		{
-			string installedStringFileFolder = FileLocator.GetDirectoryDistributedWithApplication("localization");
+			string installedStringFileFolder = FileLocationUtilities.GetDirectoryDistributedWithApplication("localization");
 			string targetTmxFilePath = Path.Combine(GlyssenInfo.kCompany, GlyssenInfo.kProduct);
 			string desiredUiLangId = Settings.Default.UserInterfaceLanguage;
 
@@ -178,6 +192,8 @@ namespace GlyssenApp
 			LocalizationManager.Create(uiLanguage, "Palaso", "Palaso", Application.ProductVersion,
 				installedStringFileFolder, targetTmxFilePath, Resources.glyssenIcon, IssuesEmailAddress,
 				"SIL.Windows.Forms.WritingSystems", "SIL.DblBundle", "SIL.Windows.Forms.DblBundle", "SIL.Windows.Forms.Miscellaneous");
+
+			Localizer.Default = new L10NSharpLocalizer();
 		}
 
 		/// <summary>
@@ -195,6 +211,35 @@ namespace GlyssenApp
 		public static int GetRunningGlyssenProcessCount()
 		{
 			return Process.GetProcesses().Count(p => p.ProcessName.ToLowerInvariant().Contains("glyssen"));
+		}
+
+		public static HelpUserRecoverResult HelpUserRecoverFromBadLdmlFile(bool attemptToUseBackup, string projectName, string ldmlFilePath, XmlException e)
+		{
+			var msg1 = string.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
+					"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
+					"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
+				projectName, ldmlFilePath, e.Message);
+			var msg2 = attemptToUseBackup
+				? LocalizationManager.GetString("Project.UseBackupLdmlFile",
+					"To use the automatically created backup (which might be out-of-date), click Retry.",
+					"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
+					"created backup file exists.")
+				: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
+					"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.",
+					"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
+					"created backup file does not exist.");
+			var msg3 = string.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
+				"Otherwise, click Ignore and {0} will repair the file for you. Some information might not be recoverable, " +
+				"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
+			var msg = msg1 + "\n\n" + msg2 + msg3;
+			Logger.WriteError(msg, e);
+
+			switch (MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+			{
+				default: return HelpUserRecoverResult.Default;
+				case DialogResult.Retry: return HelpUserRecoverResult.Retry;
+				case DialogResult.Abort: return HelpUserRecoverResult.Abort;
+			}
 		}
 	}
 }

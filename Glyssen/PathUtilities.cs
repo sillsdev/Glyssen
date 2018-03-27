@@ -1,15 +1,33 @@
-﻿namespace Glyssen
+﻿using System;
+using System.Diagnostics;
+
+namespace Glyssen
 {
-	internal class PathUtilities
+	public interface IPathUtilities
 	{
-		public static void OpenDirectoryInExplorer(string statusLastExportLocation)
+		void OpenDirectoryInExplorer(string directory);
+	}
+
+	public class PathUtilities
+	{
+		private static IPathUtilities s_instance;
+
+		public static void SetInstance(IPathUtilities instance)
 		{
-			throw new System.NotImplementedException();
+			s_instance = instance;
 		}
 
-		public static void OpenFileInApplication(string fullFileName)
+		internal static void OpenDirectoryInExplorer(string directory)
 		{
-			throw new System.NotImplementedException();
+			if (s_instance == null)
+				throw new InvalidOperationException("You must call SetInstance() first.");
+
+			s_instance.OpenDirectoryInExplorer(directory);
+		}
+
+		internal static void OpenFileInApplication(string filePath)
+		{
+			Process.Start(filePath);
 		}
 	}
 }

@@ -1,54 +1,57 @@
 ﻿using System;
-using System.Xml;
-using SIL.Scripture;
 
 namespace Glyssen
 {
+	public interface ILogger
+	{
+		void WriteEvent(string message, params object[] args);
+
+		void WriteMinorEvent(string message, params object[] args);
+
+		void WriteError(Exception e);
+
+		void WriteError(string msg, Exception e);
+	}
+
 	public static class Logger
 	{
-		public static void WriteEvent(string exMessage)
+		private static ILogger s_instance;
+
+		public static void SetInstance(ILogger instance)
 		{
-			throw new System.NotImplementedException();
+			s_instance = instance;
 		}
 
-		public static void WriteError(InvalidVersificationLineException invalidVersificationLineException)
+		internal static void WriteEvent(string message, params object[] args)
 		{
-			throw new System.NotImplementedException();
+			if (s_instance == null)
+				throw new InvalidOperationException("You must call SetInstance() first.");
+
+			s_instance.WriteEvent(message, args);
 		}
 
-		internal static void WriteError(Exception exRestoreBackup)
+		internal static void WriteMinorEvent(string message, params object[] args)
 		{
-			throw new NotImplementedException();
+			if (s_instance == null)
+				throw new InvalidOperationException("You must call SetInstance() first.");
+
+			s_instance.WriteMinorEvent(message, args);
 		}
 
-		internal static void WriteError(string msg, XmlException e)
+		internal static void WriteError(Exception e)
 		{
-			throw new NotImplementedException();
+			if (s_instance == null)
+				throw new InvalidOperationException("You must call SetInstance() first.");
+
+			s_instance.WriteError(e);
 		}
 
-		public static void WriteMinorEvent(string s)
+		internal static void WriteError(string msg, Exception e)
 		{
-			throw new NotImplementedException();
-		}
+			if (s_instance == null)
+				throw new InvalidOperationException("You must call SetInstance() first.");
 
-		internal static void WriteError(string v, Exception exMakeBackup)
-		{
-			throw new NotImplementedException();
-		}
-
-		internal static void WriteEvent(string v, BookBlockIndices currentIndices, BookBlockIndices indicesOfNewOrModifiedBlock)
-		{
-			throw new NotImplementedException();
-		}
-
-		internal static void WriteEvent(string v, string bookId)
-		{
-			throw new NotImplementedException();
-		}
-
-		internal static void WriteEvent(string v, string bookId1, string bookId2)
-		{
-			throw new NotImplementedException();
+			s_instance.WriteError(msg, e);
 		}
 	}
 }

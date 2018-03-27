@@ -799,7 +799,7 @@ namespace GlyssenApp.UI.Dialogs
 			}
 
 			Analytics.ReportException(e.Exception);
-			ErrorReport.ReportFatalException(e.Exception);
+			SIL.Reporting.ErrorReport.ReportFatalException(e.Exception);
 			throw e.Exception;
 		}
 

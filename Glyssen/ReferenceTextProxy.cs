@@ -8,6 +8,7 @@ using Glyssen.Bundle;
 using Glyssen.Shared;
 using L10NSharp;
 using Glyssen.Shared.Bundle;
+using SIL.IO;
 
 namespace Glyssen
 {
@@ -302,7 +303,7 @@ namespace Glyssen
 		{
 			Debug.Assert(IsStandardReferenceText(referenceTextType));
 			string projectFileName = referenceTextType.ToString().ToLowerInvariant() + Constants.kProjectFileExtension;
-			return FileLocator.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
+			return FileLocationUtilities.GetFileDistributedWithApplication(kDistFilesReferenceTextDirectoryName, referenceTextType.ToString(), projectFileName);
 		}
 
 		internal static string GetProjectFolderForStandardReferenceText(ReferenceTextType referenceTextType)

@@ -79,6 +79,8 @@ namespace Glyssen
 
 		public Func<bool> IsOkayToClearExistingRefBlocksWhenChangingReferenceText { get; set; }
 
+		public static Func<bool, string, string, XmlException, HelpUserRecoverResult> HelpUserRecoverFromBadLdmlFile;
+
 		private Project(GlyssenDblTextMetadata metadata, string recordingProjectName = null, bool installFonts = false,
 			WritingSystemDefinition ws = null)
 			: base(metadata, recordingProjectName ?? GetDefaultRecordingProjectName(metadata.Identification.Name))
@@ -92,6 +94,9 @@ namespace Glyssen
 				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
 				InstallFontsIfNecessary();
+
+			if (HelpUserRecoverFromBadLdmlFile == null)
+				throw new InvalidOperationException();
 		}
 
 		public Project(GlyssenBundle bundle, string recordingProjectName = null, Project projectBeingUpdated = null) :
@@ -786,7 +791,7 @@ namespace Glyssen
 			var isWritable = !FileHelper.IsLocked(projectFilePath);
 			if (!isWritable)
 			{
-				MessageBox.Show(LocalizationManager.GetString("Project.NotWritableMsg",
+				MessageModal.Show(LocalizationManager.GetString("Project.NotWritableMsg",
 					"The project file is not writable. No changes will be saved."));
 			}
 
@@ -1119,7 +1124,7 @@ namespace Glyssen
 			XmlSerializationHelper.SerializeToFile(projectPath, m_projectMetadata, out error);
 			if (error != null)
 			{
-				MessageBox.Show(error.Message);
+				MessageModal.Show(error.Message);
 				return;
 			}
 			Settings.Default.CurrentProject = projectPath;
@@ -1140,7 +1145,7 @@ namespace Glyssen
 			Exception error;
 			XmlSerializationHelper.SerializeToFile(Path.ChangeExtension(Path.Combine(ProjectFolder, book.BookId), "xml"), book, out error);
 			if (error != null)
-				MessageBox.Show(error.Message);
+				MessageModal.Show(error.Message);
 		}
 
 		public void SaveProjectCharacterVerseData()
@@ -1274,33 +1279,13 @@ namespace Glyssen
 					}
 					catch (XmlException e)
 					{
-						var msg1 = String.Format(LocalizationManager.GetString("Project.LdmlFileLoadError",
-								"The writing system definition file for project {0} could not be read:\n{1}\nError: {2}",
-								"Param 0: project name; Param 1: LDML filename; Param 2: XML Error message"),
-							Name, LdmlFilePath, e.Message);
-						var msg2 = attemptToUseBackup
-							? LocalizationManager.GetString("Project.UseBackupLdmlFile",
-								"To use the automatically created backup (which might be out-of-date), click Retry.",
-								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file exists.")
-							: LocalizationManager.GetString("Project.AdvancedUserLdmlRepairInstructions",
-								"If you can replace it with a valid backup or know how to repair it yourself, do so and then click Retry.",
-								"Appears between \"Project.LdmlFileLoadError\" and \"Project.IgnoreToRepairLdmlFile\" when an automatically " +
-								"created backup file does not exist.");
-						var msg3 = String.Format(LocalizationManager.GetString("Project.IgnoreToRepairLdmlFile",
-							"Otherwise, click Ignore and {0} will repair the file for you. Some information might not be recoverable, " +
-							"so check the quote system and font settings carefully.", "Param 0: \"Glyssen\""), GlyssenInfo.kProduct);
-						var msg = msg1 + "\n\n" + msg2 + msg3;
-						Logger.WriteError(msg, e);
-						switch (
-							MessageBox.Show(msg, GlyssenInfo.kProduct, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning,
-								MessageBoxDefaultButton.Button2))
+						switch (HelpUserRecoverFromBadLdmlFile(attemptToUseBackup, Name, LdmlFilePath, e))
 						{
 							default:
 								ProjectState |= ProjectState.WritingSystemRecoveryInProcess;
 								retry = false;
 								break;
-							case DialogResult.Retry:
+							case HelpUserRecoverResult.Retry:
 								if (attemptToUseBackup)
 								{
 									try
@@ -1320,7 +1305,7 @@ namespace Glyssen
 								}
 								retry = true;
 								break;
-							case DialogResult.Abort:
+							case HelpUserRecoverResult.Abort:
 								throw;
 						}
 					}
@@ -1535,13 +1520,13 @@ namespace Glyssen
 				m_fontInstallationAttempted = true;
 
 				if (count > 1)
-					MessageBox.Show(
+					MessageModal.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructionsMultipleStyles",
 								"The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
-					MessageBox.Show(
+					MessageModal.Show(
 						Format(
 							LocalizationManager.GetString("Font.InstallInstructions",
 								"The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
@@ -1556,7 +1541,7 @@ namespace Glyssen
 					catch (Exception ex)
 					{
 						Logger.WriteError("There was a problem launching the font preview.Please install the font manually:" + ttfFile, ex);
-						MessageBox.Show(
+						MessageModal.Show(
 							Format(
 								LocalizationManager.GetString("Font.UnableToLaunchFontPreview",
 									"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
@@ -1564,7 +1549,7 @@ namespace Glyssen
 				}
 			}
 			else
-				MessageBox.Show(
+				MessageModal.Show(
 					Format(
 						LocalizationManager.GetString("Font.FontFilesNotFound",
 							"The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
@@ -1931,5 +1916,12 @@ namespace Glyssen
 		FullyInitialized = 32,
 		WritingSystemRecoveryInProcess = 64,
 		ReadyForUserInteraction = NeedsQuoteSystemConfirmation | FullyInitialized
+	}
+
+	public enum HelpUserRecoverResult
+	{
+		Default,
+		Retry,
+		Abort
 	}
 }

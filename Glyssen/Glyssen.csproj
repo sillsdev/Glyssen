@@ -160,8 +160,8 @@
     <Compile Include="Character\RelatedCharacters.cs" />
     <Compile Include="ControlAnnotations.cs" />
     <Compile Include="ErrorReport.cs" />
-    <Compile Include="FileLocator.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="MessageModal.cs" />
     <Compile Include="PathUtilities.cs" />
     <Compile Include="ViewModel\VoiceActorInformationViewModel.cs" />
     <Compile Include="ViewModel\AddCharactersToGroupViewModel.cs" />
