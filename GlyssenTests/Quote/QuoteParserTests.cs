@@ -5256,6 +5256,37 @@ namespace GlyssenTests.Quote
 			Assert.AreEqual(output[4].CharacterId, output[5].CharacterId);
 		}
 		#endregion
+
+		//PG-1088
+		[Test]
+		public void Parse_MultipleInterruptionsInMiddleOfMultiBlockQuote_MultiBlockQuoteSetCorrectly()
+		{
+			// Rom 10:5-8
+			var block = new Block("p", 10, 5).AddVerse(5, "Augwan ... endagai: Gareg ... naro.")
+			.AddVerse(6, "Doba ... ginero. (Anai ... ucugwohob.) ")
+			.AddVerse(7, "Dara ... touwero. (Anai ... touohob.) ")
+			.AddVerse(8, "Doba ... endagai: Allah ... terimda.");
+			var input = new List<Block> { block };
+			QuoteParser.SetQuoteSystem(new QuoteSystem(new BulkObservableList<QuotationMark>
+			{
+				new QuotationMark(":", null, null, 1, QuotationMarkingSystemType.Narrative)
+			}));
+			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "ROM", input).Parse().ToList();
+
+			Assert.AreEqual(6, output.Count);
+			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[1].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[2].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[3].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[4].MultiBlockQuote);
+			Assert.AreEqual(MultiBlockQuote.None, output[5].MultiBlockQuote);
+			Assert.AreEqual(CharacterVerseData.GetStandardCharacterId("ROM", CharacterVerseData.StandardCharacter.Narrator), output[0].CharacterId);
+			Assert.AreEqual("scripture", output[1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[2].CharacterId);
+			Assert.AreEqual("scripture", output[3].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kAmbiguousCharacter, output[4].CharacterId);
+			Assert.AreEqual("scripture", output[5].CharacterId);
+		}
 		#endregion
 	}
 

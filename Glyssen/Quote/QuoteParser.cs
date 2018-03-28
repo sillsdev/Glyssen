@@ -592,7 +592,7 @@ namespace Glyssen.Quote
 						m_workingBlock.InitialStartVerseNumber = BCVRef.VerseToIntStart(verse.Number);
 					m_workingBlock.BlockElements.InsertRange(0, m_nonScriptTextBlockElements);
 					m_workingBlock.MultiBlockQuote = (lastBlock.MultiBlockQuote == MultiBlockQuote.Start)
-						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote; 
+						? MultiBlockQuote.Continuation : lastBlock.MultiBlockQuote;
 
 					// If we removed all block elements, remove the block
 					if (!lastBlock.BlockElements.Any())
@@ -748,7 +748,7 @@ namespace Glyssen.Quote
 			var blocks = new PortionScript(bookId, new[] {m_workingBlock});
 			Block originalQuoteBlock = blocks.GetScriptBlocks().Last();
 			m_currentMultiBlockQuote.Add(originalQuoteBlock);
-			
+
 			while (true)
 			{
 				m_workingBlock = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Index, false);
@@ -758,17 +758,18 @@ namespace Glyssen.Quote
 				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
 				{
 					blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
-					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote ? MultiBlockQuote.Start : MultiBlockQuote.None;
+					startCharIndex = 1;
+					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
+					blockFollowingLastInterruption.MultiBlockQuote = m_nextBlockContinuesQuote && nextInterruption == null ? MultiBlockQuote.Start : MultiBlockQuote.None;
 					blockFollowingLastInterruption.CharacterId = originalQuoteBlock.CharacterId;
 					blockFollowingLastInterruption.CharacterIdOverrideForScript = originalQuoteBlock.CharacterIdOverrideForScript;
 					blockFollowingLastInterruption.Delivery = originalQuoteBlock.Delivery;
-					startCharIndex = 1;
 				}
 				else
 				{
 					blockFollowingLastInterruption = null;
+					nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
 				}
-				nextInterruption = blocks.GetScriptBlocks().Last().GetNextInterruption(startCharIndex);
 				if (nextInterruption == null)
 					break;
 				m_workingBlock.SetCharacterAndDelivery(characterVerseDetails);
