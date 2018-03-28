@@ -219,7 +219,7 @@ namespace Glyssen
 					{
 						var unknownCharacter = !characterDetailDictionary.ContainsKey(block.CharacterIdInScript);
 						if (unknownCharacter && project.ProjectCharacterVerseData.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber,
-								block.InitialEndVerseNumber).
+								block.InitialEndVerseNumber, block.LastVerseNum).
 								Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 						{
 							// PG-471: This is a known character who spoke in an unexpected location and was therefore added to the project CV file,
@@ -232,7 +232,7 @@ namespace Glyssen
 						}
 						else
 						{
-							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber).ToList();
+							var characters = cvInfo.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum).ToList();
 							if (unknownCharacter || !characters.Any(c => c.Character == block.CharacterId && c.Delivery == (block.Delivery ?? "")))
 							{
 								if (characters.Count(c => c.Character == block.CharacterId) == 1)

@@ -3,6 +3,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using NUnit.Framework;
+using SIL.Reflection;
 using SIL.Scripture;
 
 namespace GlyssenTests
@@ -694,15 +695,15 @@ namespace GlyssenTests
 		{
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
-			var blockInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
-			blockInRev711.SetCharacterAndCharacterIdInScript("angels, all the", 66);
-			blockInRev711.CharacterIdOverrideForScript = "angels, all, the";
-			Assert.AreEqual("angels, all, the", blockInRev711.CharacterIdInScript);
+			var blockInRev43 = testProject.IncludedBooks.Single().GetBlocksForVerse(4, 3).First();
+			blockInRev43.SetCharacterAndCharacterIdInScript("angels, all the", 66);
+			blockInRev43.CharacterIdOverrideForScript = "angels, all, the";
+			Assert.AreEqual("angels, all, the", blockInRev43.CharacterIdInScript);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev711.CharacterId);
-			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev711.CharacterIdInScript);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, blockInRev43.CharacterIdInScript);
 		}
 
 		[Test]
@@ -737,6 +738,41 @@ namespace GlyssenTests
 
 			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, unexpectedPeterInRev711.CharacterId);
 			Assert.IsFalse(testProject.ProjectCharacterVerseData.Any());
+		}
+
+		[Test]
+		public void MigrateDeprecatedCharacterIds_FirstVerseInQuoteIsUnexpectedForCharacter_CharacterIdNotSetToUnknown()
+		{
+			var testProject = TestProject.CreateTestProject(TestProject.TestBook.JUD);
+			TestProject.SimulateDisambiguationForAllBooks(testProject);
+
+			var bookScript = testProject.IncludedBooks.Single();
+			var verses13and14Block = bookScript.GetBlocksForVerse(1, 13).Single();
+			var originalVerse14Blocks = bookScript.GetBlocksForVerse(1, 14);
+
+			// Use reflection to get around a check to ensure we don't do this in production code
+			List<Block> blocks = (List<Block>)ReflectionHelper.GetField(bookScript, "m_blocks");
+			int blockCount = (int)ReflectionHelper.GetField(bookScript, "m_blockCount");
+
+			//Combine verse 13 and 14 blocks
+			foreach (var block in originalVerse14Blocks)
+			{
+				verses13and14Block.BlockElements.AddRange(block.BlockElements);
+
+				blocks.Remove(block);
+				blockCount--;
+			}
+			ReflectionHelper.SetField(bookScript, "m_blockCount", blockCount);
+
+			verses13and14Block.CharacterId = "Enoch";
+
+			//Setup check
+			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
+
+			//SUT
+			Assert.AreEqual(0, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
+
+			Assert.AreEqual("Enoch", verses13and14Block.CharacterId);
 		}
 
 		[Test]
