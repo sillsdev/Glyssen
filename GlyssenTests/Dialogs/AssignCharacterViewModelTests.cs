@@ -1188,6 +1188,29 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual("1b text. ", project.Books[0].Blocks[blockIndex + 2].GetText(false));
 		}
 
+		// PG-1089
+		[Test]
+		public void SplitBlock_CharacterIdsAreEmptyString_CharactersSetToUnknown()
+		{
+			var project = TestProject.CreateTestProject(TestProject.TestBook.OBA);
+			var model = new AssignCharacterViewModel(project);
+
+			Assert.IsTrue(model.TryLoadBlock(new VerseRef(031001021)));
+
+			var blockToSplit = model.CurrentBlock;
+			var blockIndex = model.CurrentBlockIndexInBook;
+
+			model.SplitBlock(new[]
+			{
+				new BlockSplitData(1, blockToSplit, "21", 4),
+				new BlockSplitData(2, blockToSplit, "21b", 7)
+			}, GetListOfCharacters(3, new[] { "", "", "" }));
+
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, project.Books[0].Blocks[blockIndex].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, project.Books[0].Blocks[blockIndex + 1].CharacterId);
+			Assert.AreEqual(CharacterVerseData.kUnknownCharacter, project.Books[0].Blocks[blockIndex + 2].CharacterId);
+		}
+
 		[Test]
 		public void SetCurrentBookSingleVoice_UnassignedQuotesInOtherBooks_CurrentBlockInNextBook()
 		{
