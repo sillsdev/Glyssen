@@ -555,7 +555,10 @@ namespace Glyssen.Dialogs
 			var firstCharacterId = characters.First(c => c.Key == 0).Value;
 			if (currentBlock.CharacterId != firstCharacterId)
 			{
-				currentBlock.CharacterId = firstCharacterId;
+				if (string.IsNullOrEmpty(firstCharacterId))
+					currentBlock.CharacterId = CharacterVerseData.kUnknownCharacter;
+				else
+					currentBlock.CharacterId = firstCharacterId;
 				currentBlock.Delivery = null;
 			}
 
