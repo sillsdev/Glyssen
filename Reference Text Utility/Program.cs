@@ -21,9 +21,9 @@ namespace Glyssen.ReferenceTextUtility
 
 		private static void SetUpErrorHandling()
 		{
-			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
-			ErrorReport.EmailAddress = "glyssen-support_lsdev@sil.org";
-			ErrorReport.AddStandardProperties();
+			SIL.Reporting.ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
+			SIL.Reporting.ErrorReport.EmailAddress = "glyssen-support_lsdev@sil.org";
+			SIL.Reporting.ErrorReport.AddStandardProperties();
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
 		}
 	}
