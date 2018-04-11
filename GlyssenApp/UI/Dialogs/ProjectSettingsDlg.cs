@@ -14,6 +14,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
+using SIL.Windows.Forms.WritingSystems;
 using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs
@@ -169,7 +170,7 @@ namespace GlyssenApp.UI.Dialogs
 				m_txtVersification.Text = value.Versification.Name;
 				m_lblQuoteMarkSummary.Text = value.Project.QuoteSystem.ShortSummary;
 
-				m_wsFontControl.BindToModel(m_model.WsModel);
+				m_wsFontControl.BindToModel(GetWritingSystemSetupModel(m_model.WsModel));
 
 				if (!string.IsNullOrWhiteSpace(m_model.SampleText))
 					m_wsFontControl.TestAreaText = m_model.SampleText;
@@ -241,6 +242,16 @@ namespace GlyssenApp.UI.Dialogs
 		{
 			get { return m_txtPublicationId.Text; }
 			set { m_txtPublicationId.Text = value; }
+		}
+
+		private WritingSystemSetupModel GetWritingSystemSetupModel(WritingSystemInfo wsInfo)
+		{
+			return new WritingSystemSetupModel(wsInfo.WritingSystemDefinition)
+			{
+				CurrentDefaultFontName = wsInfo.CurrentDefaultFontName,
+				CurrentDefaultFontSize = wsInfo.CurrentDefaultFontSize,
+				CurrentRightToLeftScript = wsInfo.CurrentRightToLeftScript
+			};
 		}
 
 		private void UpdateQuotePageDisplay()

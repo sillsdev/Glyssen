@@ -3,7 +3,7 @@ using System.Linq;
 using Glyssen.Bundle;
 using Glyssen.Shared;
 using SIL.Scripture;
-using SIL.Windows.Forms.WritingSystems;
+using SIL.WritingSystems;
 
 namespace Glyssen.ViewModel
 {
@@ -23,7 +23,7 @@ namespace Glyssen.ViewModel
 		{
 			Project = project;
 
-			WsModel = new WritingSystemSetupModel(project.WritingSystem)
+			WsModel = new WritingSystemInfo(project.WritingSystem)
 			{
 				CurrentDefaultFontName = project.FontFamily,
 				CurrentDefaultFontSize = project.FontSizeInPoints,
@@ -80,7 +80,7 @@ namespace Glyssen.ViewModel
 		}
 
 		public Project Project { get; private set; }
-		public WritingSystemSetupModel WsModel { get; private set; }
+		public WritingSystemInfo WsModel { get; private set; }
 		public string LanguageName { get; private set; }
 		public string IsoCode { get; private set; }
 		public string PublicationName { get; private set; }
@@ -171,5 +171,18 @@ namespace Glyssen.ViewModel
 			if (m_chapterAnnouncementStyle != Project.ChapterAnnouncementStyle)
 				ChapterAnnouncementStyle = Project.ChapterAnnouncementStyle;
 		}
+	}
+
+	public class WritingSystemInfo
+	{
+		public WritingSystemInfo(WritingSystemDefinition definition)
+		{
+			WritingSystemDefinition = definition;
+		}
+
+		public WritingSystemDefinition WritingSystemDefinition { get; }
+		public string CurrentDefaultFontName { get; set; }
+		public int CurrentDefaultFontSize { get; set; }
+		public bool CurrentRightToLeftScript { get; set; }
 	}
 }
