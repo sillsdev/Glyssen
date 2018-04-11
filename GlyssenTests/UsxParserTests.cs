@@ -2,6 +2,7 @@
 using System.Xml;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;

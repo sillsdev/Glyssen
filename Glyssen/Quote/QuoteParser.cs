@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Glyssen.Character;
+using Glyssen.Shared;
 using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;

@@ -596,7 +596,7 @@ namespace Glyssen
 		}
 
 		// internal for testing
-		internal List<List<object>> GetExportData(string bookId = null, int voiceActorId = -1, bool textOnly = false)
+		internal List<List<object>> GetExportData(string bookId = null, int voiceActorId = -1, bool getBlockElements = false)
 		{
 			var result = new List<List<object>>();
 
@@ -644,23 +644,25 @@ namespace Glyssen
 						if (pendingMismatchedReferenceBlocks != null && block.ReferenceBlocks.Any())
 						{
 							foreach (var refBlock in pendingMismatchedReferenceBlocks)
-								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId, textOnly));
+								result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 							pendingMismatchedReferenceBlocks = null;
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
 							IncludeVoiceActors, m_includeDelivery,
-							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId, textOnly));
-						if (!block.MatchesReferenceText && block.ReferenceBlocks.Any())
+							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId, getBlockElements));
+
+						// At least for now, if getBlockElements is true, we don't want any blocks which don't have vernacular text
+						if (!getBlockElements && !block.MatchesReferenceText && block.ReferenceBlocks.Any())
 							pendingMismatchedReferenceBlocks = block.ReferenceBlocks;
 					}
 				}
 				if (pendingMismatchedReferenceBlocks != null)
 				{
 					foreach (var refBlock in pendingMismatchedReferenceBlocks)
-						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId, textOnly));
+						result.Add(GetExportDataForReferenceBlock(refBlock, book.BookId));
 				}
 			}
-			if (bookId == null && voiceActorId == -1 && !textOnly)
+			if (bookId == null && voiceActorId == -1 && !getBlockElements)
 				AddAnnotations(result);
 			return result;
 		}
@@ -668,21 +670,13 @@ namespace Glyssen
 		/// <summary>
 		/// Get a list of ExportBlocks which represent the data we want in our export
 		/// </summary>
-		/// <param name="bookId">the book to filter by or null for all; null by default</param>
-		/// <param name="voiceActorId">the voice actor to filter by or -1 for all; -1 by default</param>
-		/// <param name="textOnly">true to include only text (i.e. no verse numbers, no annotations such as sound effects); false by default</param>
-		/// <returns></returns>
-		internal IEnumerable<ExportBlock> GetExportBlocks(string bookId = null, int voiceActorId = -1, bool textOnly = false)
+		internal IEnumerable<ExportBlock> GetExportBlocks()
 		{
-			foreach (var row in GetExportData(bookId, voiceActorId, textOnly))
+			foreach (var row in GetExportData(getBlockElements: true))
 			{
-				var clipFilePath = IncludeCreateClips ? (string) row[GetColumnIndex(ExportColumn.ClipFileLink)] : null;
 				var delivery = m_includeDelivery ? (string) row[GetColumnIndex(ExportColumn.Delivery)] : null;
 				var localizedCharacterId = LocalizationManager.UILanguageId != "en"
 					? (string) row[GetColumnIndex(ExportColumn.CharacterId) + 1]
-					: null;
-				var secondaryReferenceText = Project.ReferenceText.HasSecondaryReferenceText
-					? (string) row[GetColumnIndex(ExportColumn.SecondaryReferenceText)]
 					: null;
 				var voiceActor = IncludeVoiceActors ? (string) row[GetColumnIndex(ExportColumn.Actor)] : null;
 
@@ -691,16 +685,16 @@ namespace Glyssen
 					BookId = (string) row[GetColumnIndex(ExportColumn.BookId)],
 					ChapterNumber = (int) row[GetColumnIndex(ExportColumn.Chapter)],
 					CharacterId = (string) row[GetColumnIndex(ExportColumn.CharacterId)],
-					ClipFilePath = clipFilePath,
 					Delivery = delivery,
 					InitialStartVerseNumber = (int) row[GetColumnIndex(ExportColumn.Verse)],
 					LocalizedCharacterId = localizedCharacterId,
-					PrimaryReferenceText = (string) row[GetColumnIndex(ExportColumn.PrimaryReferenceText)],
-					SecondaryReferenceText = secondaryReferenceText,
 					StyleTag = (string) row[GetColumnIndex(ExportColumn.ParaTag)],
-					Text = (string) row[GetColumnIndex(ExportColumn.VernacularText)],
-					TextLength = (int) row[GetColumnIndex(ExportColumn.VernacularTextLength)],
-					VoiceActor = voiceActor
+					VoiceActor = voiceActor,
+					VernacularBlockElements = (IEnumerable<BlockElement>)row[GetColumnIndex(ExportColumn.VernacularText)],
+					PrimaryReferenceTextBlockElements = (IEnumerable<BlockElement>)row[GetColumnIndex(ExportColumn.PrimaryReferenceText)],
+					SecondaryReferenceTextBlockElements = Project.ReferenceText.HasSecondaryReferenceText
+						? (IEnumerable<BlockElement>)row[GetColumnIndex(ExportColumn.SecondaryReferenceText)]
+						: null
 				};
 			}
 		}
@@ -844,7 +838,7 @@ namespace Glyssen
 			return row;
 		}
 
-		private List<object> GetExportDataForReferenceBlock(Block refBlock, string bookId, bool textOnly)
+		private List<object> GetExportDataForReferenceBlock(Block refBlock, string bookId)
 		{
 			var row = new List<object>();
 			row.Add(null);
@@ -862,9 +856,10 @@ namespace Glyssen
 			if (m_includeDelivery)
 				row.Add(refBlock.Delivery);
 			row.Add(null);
-			row.Add(refBlock.GetText(!textOnly, !textOnly));
+			row.Add(refBlock.GetText(true, true));
 			if (Project.ReferenceText.HasSecondaryReferenceText)
-				row.Add(refBlock.GetPrimaryReferenceText(textOnly));
+				row.Add(refBlock.GetPrimaryReferenceText());
+
 			row.Add(0);
 			if (IncludeCreateClips)
 				row.Add(null);
@@ -913,7 +908,7 @@ namespace Glyssen
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
 			VoiceActor.VoiceActor voiceActor, string singleVoiceNarratorOverride, bool useCharacterIdInScript,
 			bool includeDelivery, bool includeSecondaryDirectorsGuide, string outputDirectory, string clipFileProjectId,
-			bool textOnly = false)
+			bool getBlockElements = false)
 		{
 			// NOTE: if the order here changes, there may be changes needed in GenerateExcelFile
 			List<object> list = new List<object>();
@@ -937,16 +932,34 @@ namespace Glyssen
 
 			if (includeDelivery)
 				list.Add(block.Delivery);
-			list.Add(block.GetText(!textOnly));
-			list.Add(block.GetPrimaryReferenceText(textOnly));
-			if (includeSecondaryDirectorsGuide)
+
+			if (!getBlockElements)
 			{
-				var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
-				if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
-					list.Add(primaryRefBlock.GetPrimaryReferenceText(textOnly));
-				else
-					list.Add(null);
+				list.Add(block.GetText(true));
+				list.Add(block.GetPrimaryReferenceText());
+				if (includeSecondaryDirectorsGuide)
+				{
+					var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
+					if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
+						list.Add(primaryRefBlock.GetPrimaryReferenceText());
+					else
+						list.Add(null);
+				}
 			}
+			else
+			{
+				list.Add(block.BlockElements);
+				list.Add(block.ReferenceBlocks.SelectMany(b => b.BlockElements));
+				if (includeSecondaryDirectorsGuide)
+				{
+					var primaryRefBlock = (block.MatchesReferenceText) ? block.ReferenceBlocks.Single() : null;
+					if (primaryRefBlock != null && primaryRefBlock.MatchesReferenceText)
+						list.Add(primaryRefBlock.ReferenceBlocks.SelectMany(b => b.BlockElements));
+					else
+						list.Add(null);
+				}
+			}
+
 			list.Add(block.Length);
 
 			if (!IsNullOrEmpty(outputDirectory) && !IsNullOrEmpty(clipFileProjectId))
@@ -1080,11 +1093,10 @@ namespace Glyssen
 			public string CharacterId { get; set; }
 			public string LocalizedCharacterId { get; set; }
 			public string Delivery { get; set; }
-			public string Text { get; set; }
-			public string PrimaryReferenceText { get; set; }
-			public string SecondaryReferenceText { get; set; }
-			public int TextLength { get; set; }
 			public string ClipFilePath { get; set; }
+			public IEnumerable<BlockElement> VernacularBlockElements { get; set; }
+			public IEnumerable<BlockElement> PrimaryReferenceTextBlockElements { get; set; }
+			public IEnumerable<BlockElement> SecondaryReferenceTextBlockElements { get; set; }
 		}
 	}
 }
