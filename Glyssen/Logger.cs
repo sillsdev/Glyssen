@@ -17,41 +17,35 @@ namespace Glyssen
 	{
 		private static ILogger s_instance;
 
-		public static void SetInstance(ILogger instance)
+		public static ILogger Default
 		{
-			s_instance = instance;
+			get
+			{
+				if (s_instance == null)
+					throw new InvalidOperationException("Not Initialized. Set Logger.Default first.");
+				return s_instance;
+			}
+			set => s_instance = value;
 		}
 
 		internal static void WriteEvent(string message, params object[] args)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.WriteEvent(message, args);
+			Default.WriteEvent(message, args);
 		}
 
 		internal static void WriteMinorEvent(string message, params object[] args)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.WriteMinorEvent(message, args);
+			Default.WriteMinorEvent(message, args);
 		}
 
 		internal static void WriteError(Exception e)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.WriteError(e);
+			Default.WriteError(e);
 		}
 
 		internal static void WriteError(string msg, Exception e)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.WriteError(msg, e);
+			Default.WriteError(msg, e);
 		}
 	}
 }

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Windows.Forms;
 using Glyssen.Bundle;
 using Glyssen.Character;
 using Glyssen.ViewModel;
 using Glyssen.VoiceActor;
-using L10NSharp;
 using SIL.Extensions;
 using SIL.Progress;
 

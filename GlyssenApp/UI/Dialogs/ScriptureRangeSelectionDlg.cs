@@ -12,6 +12,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
+using Analytics = Glyssen.Analytics;
 
 namespace GlyssenApp.UI.Dialogs
 {

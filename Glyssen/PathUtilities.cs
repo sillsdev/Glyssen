@@ -12,17 +12,20 @@ namespace Glyssen
 	{
 		private static IPathUtilities s_instance;
 
-		public static void SetInstance(IPathUtilities instance)
+		public static IPathUtilities Default
 		{
-			s_instance = instance;
+			get
+			{
+				if (s_instance == null)
+					throw new InvalidOperationException("Not Initialized. Set PathUtilities.Default first.");
+				return s_instance;
+			}
+			set => s_instance = value;
 		}
 
 		internal static void OpenDirectoryInExplorer(string directory)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.OpenDirectoryInExplorer(directory);
+			Default.OpenDirectoryInExplorer(directory);
 		}
 
 		internal static void OpenFileInApplication(string filePath)

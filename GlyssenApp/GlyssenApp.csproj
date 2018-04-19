@@ -35,8 +35,8 @@
     <Reference Include="Analytics.NET, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Analytics.2.0.0\lib\Analytics.NET.dll</HintPath>
     </Reference>
-    <Reference Include="DesktopAnalytics, Version=1.2.4.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DesktopAnalytics.1.2.4.5\lib\net40\DesktopAnalytics.dll</HintPath>
+    <Reference Include="DesktopAnalytics, Version=1.2.4.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DesktopAnalytics.1.2.4.11\lib\net40\DesktopAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="Geckofx-Core, Version=29.0.24.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -55,8 +55,8 @@
     <Reference Include="NetSparkle.Net40">
       <HintPath>..\lib\dotnet\NetSparkle.Net40.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ParatextData">
       <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
@@ -107,6 +107,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SegmentAnalytics.cs" />
     <Compile Include="DesktopErrorReport.cs" />
     <Compile Include="DesktopLogger.cs" />
     <Compile Include="DesktopPathUtilities.cs" />

@@ -9,6 +9,7 @@ using L10NSharp;
 using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
+using Analytics = Glyssen.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using PathUtilities = SIL.IO.PathUtilities;
 

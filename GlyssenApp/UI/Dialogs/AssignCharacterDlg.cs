@@ -27,6 +27,7 @@ using SIL.Extensions;
 using SIL.Reporting;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
+using Analytics = Glyssen.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using Logger = SIL.Reporting.Logger;
 

@@ -20,6 +20,7 @@ using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
+using Analytics = Glyssen.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 
 namespace GlyssenApp.UI.Dialogs

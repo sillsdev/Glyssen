@@ -15,6 +15,7 @@ using L10NSharp.UI;
 using SIL.IO;
 using SIL.Reporting;
 using SIL.Windows.Forms.WritingSystems;
+using Analytics = Glyssen.Analytics;
 using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs
@@ -327,7 +328,7 @@ namespace GlyssenApp.UI.Dialogs
 					DialogResult = DialogResult.None;
 					return;
 				}
-				DirectoryUtilities.DeleteDirectoryRobust(Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName));
+				RobustIO.DeleteDirectoryAndContents(Project.GetProjectFolderPath(IsoCode, PublicationId, RecordingProjectName));
 			}
 
             m_model.RecordingProjectName = RecordingProjectName;

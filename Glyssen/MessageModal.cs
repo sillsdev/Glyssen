@@ -5,24 +5,26 @@ namespace Glyssen
 	public interface IMessageModal
 	{
 		void Show(string text);
-		//void Show(string text, string caption);
 	}
 
 	public static class MessageModal
 	{
 		private static IMessageModal s_instance;
 
-		public static void SetInstance(IMessageModal instance)
+		public static IMessageModal Default
 		{
-			s_instance = instance;
+			get
+			{
+				if (s_instance == null)
+					throw new InvalidOperationException("Not Initialized. Set MessageModal.Default first.");
+				return s_instance;
+			}
+			set => s_instance = value;
 		}
 
 		public static void Show(string text)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.Show(text);
+			Default.Show(text);
 		}
 	}
 }

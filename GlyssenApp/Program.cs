@@ -20,6 +20,7 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
+using Analytics = Glyssen.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using Logger = SIL.Reporting.Logger;
 
@@ -44,8 +45,9 @@ namespace GlyssenApp
 		{
 			IsRunning = true;
 
-			MessageModal.SetInstance(new WinFormsMessageModal());
-			Glyssen.PathUtilities.SetInstance(new DesktopPathUtilities());
+			MessageModal.Default = new WinFormsMessageModal();
+			Glyssen.PathUtilities.Default = new DesktopPathUtilities();
+			Analytics.Default = new SegmentAnalytics();
 
 			if (GetRunningGlyssenProcessCount() > 1)
 			{
@@ -69,18 +71,18 @@ namespace GlyssenApp
 			SetUpErrorHandling();
 
 #if DEBUG
-			using (new Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }))
+			using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }))
 #else
 			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
 
 			//default is to allow tracking
 			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
 
-			using (new Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
+			using (new DesktopAnalytics.Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
 #endif
 			{
 				Logger.Init();
-				Glyssen.Logger.SetInstance(new DesktopLogger());
+				Glyssen.Logger.Default = new DesktopLogger();
 
 				Project.HelpUserRecoverFromBadLdmlFile = HelpUserRecoverFromBadLdmlFile;
 
@@ -155,7 +157,7 @@ namespace GlyssenApp
 			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
 			ErrorReport.EmailAddress = IssuesEmailAddress;
 			ErrorReport.AddStandardProperties();
-			Glyssen.ErrorReport.SetInstance(new DesktopErrorReport());
+			Glyssen.ErrorReport.Default = new DesktopErrorReport();
 
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
 			ExceptionHandler.AddDelegate(ReportError);

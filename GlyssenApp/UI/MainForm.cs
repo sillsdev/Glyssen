@@ -30,6 +30,7 @@ using NetSparkle;
 using Paratext.Data;
 using SIL.Windows.Forms.ReleaseNotes;
 using static System.String;
+using Analytics = Glyssen.Analytics;
 using Logger = SIL.Reporting.Logger;
 using PathUtilities = SIL.IO.PathUtilities;
 

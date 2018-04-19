@@ -17,44 +17,39 @@ namespace Glyssen
 	{
 		private static IErrorReport s_instance;
 
-		public static void SetInstance(IErrorReport instance)
+		public static IErrorReport Default
 		{
-			s_instance = instance;
+			get
+			{
+				if (s_instance == null)
+					throw new InvalidOperationException("Not Initialized. Set Logger.Default first.");
+				return s_instance;
+			}
+			set => s_instance = value;
 		}
 
 		internal static void ReportNonFatalMessageWithStackTrace(string message, params object[] args)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.ReportNonFatalMessageWithStackTrace(message, args);
+			Default.ReportNonFatalMessageWithStackTrace(message, args);
 		}
 
 		internal static void ReportNonFatalExceptionWithMessage(Exception error, string message, params object[] args)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.ReportNonFatalExceptionWithMessage(error, message, args);
+			Default.ReportNonFatalExceptionWithMessage(error, message, args);
 		}
 
 		internal static void NotifyUserOfProblem(string message, params object[] args)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.NotifyUserOfProblem(message, args);
+			Default.NotifyUserOfProblem(message, args);
 		}
 
 		internal static void NotifyUserOfProblem(Exception error, string messageFmt, params object[] args)
 		{
-			if (s_instance == null)
-				throw new InvalidOperationException("You must call SetInstance() first.");
-
-			s_instance.NotifyUserOfProblem(error, messageFmt, args);
+			Default.NotifyUserOfProblem(error, messageFmt, args);
 		}
 
 		#region unfortunately copied from SIL.Desktop
+		//TODO refactoring figure out how to clean this up
 		private static bool s_justRecordNonFatalMessagesForTesting;
 		private static string s_previousNonFatalMessage;
 		private static Exception s_previousNonFatalException;
