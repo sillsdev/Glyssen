@@ -24,7 +24,7 @@ namespace GlyssenApp.UI.Dialogs
 			else
 			{
 				m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Text = String.Format(m_lblPossibleProblemsWithLowerLevelQuotesOrDialogueDash.Text,
-					Glyssen.Properties.Settings.Default.TargetPercentageOfQuotesFound);
+					Properties.Settings.Default.TargetPercentageOfQuotesFound);
 				m_lblPossibleProblemsWithFirstLevelQuotes.Visible = false;
 			}
 		}

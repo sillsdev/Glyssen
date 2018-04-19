@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using DesktopAnalytics;
 using Glyssen.Bundle;
 using Glyssen.Properties;
 using Glyssen.Shared;
@@ -15,6 +14,8 @@ namespace Glyssen
 {
 	public static class DataMigrator
 	{
+		public const int kCurrentDataVersion = 3;
+
 		private const string kOldProjectExtension = ".pgproj";
 		public static void UpgradeToCurrentDataFormatVersion(Func<string, string, bool> ConfirmAndRecycleAction, out string warning)
 		{
@@ -29,13 +30,13 @@ namespace Glyssen
 		{
 			warning = null;
 
-			if (info.DataVersion >= Settings.Default.DataFormatVersion)
+			if (info.DataVersion >= kCurrentDataVersion)
 				return false;
 
 			Analytics.Track("DataVersionUpgrade", new Dictionary<string, string>
 			{
 				{ "old", info.DataVersion.ToString(CultureInfo.InvariantCulture) },
-				{ "new", Settings.Default.DataFormatVersion.ToString(CultureInfo.InvariantCulture) }
+				{ "new", kCurrentDataVersion.ToString(CultureInfo.InvariantCulture) }
 			});
 
 			switch (info.DataVersion)
@@ -69,9 +70,9 @@ namespace Glyssen
 							Directory.CreateDirectory(recordingProjectFolder);
 							foreach (var file in filesToMove)
 								File.Move(file, Path.Combine(recordingProjectFolder, Path.GetFileName(file)));
-							if (Settings.Default.CurrentProject == projectFilePath)
+							if (UserSettings.CurrentProject == projectFilePath)
 							{
-								Settings.Default.CurrentProject = Path.Combine(recordingProjectFolder,
+								UserSettings.CurrentProject = Path.Combine(recordingProjectFolder,
 									Path.GetFileName(projectFilePath));
 							}
 						}
@@ -139,15 +140,15 @@ namespace Glyssen
 					{
 						var newName = Path.ChangeExtension(pgProjFile, Constants.kProjectFileExtension);
 						File.Move(pgProjFile, newName);
-						if (Settings.Default.CurrentProject == pgProjFile)
-							Settings.Default.CurrentProject = newName;
+						if (UserSettings.CurrentProject == pgProjFile)
+							UserSettings.CurrentProject = newName;
 					}
 					break;
 				default:
 					throw new Exception("No migration found from the existing data version!");
 			}
 
-			info.DataVersion = Settings.Default.DataFormatVersion;
+			info.DataVersion = kCurrentDataVersion;
 			return true;
 		}
 	}

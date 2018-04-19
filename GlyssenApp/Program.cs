@@ -47,6 +47,7 @@ namespace GlyssenApp
 
 			MessageModal.Default = new WinFormsMessageModal();
 			Glyssen.PathUtilities.Default = new DesktopPathUtilities();
+			UserSettings.Default = new DesktopUserSettings();
 			Analytics.Default = new SegmentAnalytics();
 
 			if (GetRunningGlyssenProcessCount() > 1)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Utilities;

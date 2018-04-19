@@ -11,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using DesktopAnalytics;
 using Glyssen.Analysis;
 using Glyssen.Bundle;
 using Glyssen.Character;
@@ -697,17 +696,17 @@ namespace Glyssen
 			if (existingProject == null)
 				return null;
 
-			if (!existingProject.IsSampleProject && existingProject.m_projectMetadata.ParserVersion != Settings.Default.ParserVersion)
+			if (!existingProject.IsSampleProject && existingProject.m_projectMetadata.ParserVersion != UsxParser.kCurrentParserVersion)
 			{
 				bool upgradeProject = true;
 				if (!RobustFile.Exists(existingProject.OriginalBundlePath))
 				{
 					upgradeProject = false;
-					if (Settings.Default.ParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
+					if (UsxParser.kCurrentParserVersion > existingProject.m_projectMetadata.ParserUpgradeOptOutVersion)
 					{
 						upgradeProject = giveUserChanceToFindOriginalBundle(existingProject);
 						if (!upgradeProject)
-							existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = Settings.Default.ParserVersion;
+							existingProject.m_projectMetadata.ParserUpgradeOptOutVersion = UsxParser.kCurrentParserVersion;
 					}
 				}
 				if (upgradeProject)
@@ -723,12 +722,12 @@ namespace Glyssen
 							{"ID", existingProject.Id},
 							{"recordingProjectName", existingProject.Name},
 							{"oldParserVersion", existingProject.m_projectMetadata.ParserVersion.ToString(CultureInfo.InvariantCulture)},
-							{"newParserVersion", Settings.Default.ParserVersion.ToString(CultureInfo.InvariantCulture)}
+							{"newParserVersion", UsxParser.kCurrentParserVersion.ToString(CultureInfo.InvariantCulture)}
 						});
 
 						upgradedProject.UserDecisionsProject = existingProject;
 						upgradedProject.PopulateAndParseBooks(bundle);
-						upgradedProject.m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
+						upgradedProject.m_projectMetadata.ParserVersion = UsxParser.kCurrentParserVersion;
 						upgradedProject.InitializeLoadedProject();
 						return upgradedProject;
 					}
@@ -938,7 +937,7 @@ namespace Glyssen
 				}
 
 			m_books.AddRange(bookScripts);
-			m_projectMetadata.ParserVersion = Settings.Default.ParserVersion;
+			m_projectMetadata.ParserVersion = UsxParser.kCurrentParserVersion;
 			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
 				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 			UpdateControlFileVersion();
@@ -1126,7 +1125,7 @@ namespace Glyssen
 				MessageModal.Show(error.Message);
 				return;
 			}
-			Settings.Default.CurrentProject = projectPath;
+			UserSettings.CurrentProject = projectPath;
 			foreach (var book in m_books)
 				SaveBook(book);
 			SaveProjectCharacterVerseData();
@@ -1391,7 +1390,7 @@ namespace Glyssen
 				Analytics.Track("Writing System Save Failure", new Dictionary<string, string>
 				{
 					{"exceptionMessage", exSave.Message},
-					{"CurrentProjectPath", Settings.Default.CurrentProject},
+					{"CurrentProjectPath", UserSettings.CurrentProject},
 				});
 				if (backupPath != null)
 				{
@@ -1419,7 +1418,7 @@ namespace Glyssen
 						Analytics.Track("Recovery from backup Writing System File Failed.", new Dictionary<string, string>
 						{
 							{"exceptionMessage", exRecover.Message},
-							{"CurrentProjectPath", Settings.Default.CurrentProject},
+							{"CurrentProjectPath", UserSettings.CurrentProject},
 						});
 						throw exSave;
 					}

@@ -13,7 +13,7 @@ namespace GlyssenApp.UI.Dialogs
 
 			m_lblOnlyNPercentOfExpectedQuotesFound.Text = String.Format(m_lblOnlyNPercentOfExpectedQuotesFound.Text, percentageOfQuotesFoundThatWereUnexpected);
 
-			m_lblPossibleProblemsWithFirstLevelQuotes.Text = String.Format(m_lblPossibleProblemsWithFirstLevelQuotes.Text, Glyssen.Properties.Settings.Default.MaxAcceptablePercentageOfUnknownQuotes);
+			m_lblPossibleProblemsWithFirstLevelQuotes.Text = String.Format(m_lblPossibleProblemsWithFirstLevelQuotes.Text, Properties.Settings.Default.MaxAcceptablePercentageOfUnknownQuotes);
 		}
 
 		public bool UserWantsToReview

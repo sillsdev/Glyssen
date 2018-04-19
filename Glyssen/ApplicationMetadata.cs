@@ -26,12 +26,12 @@ namespace Glyssen
 				if (!Directory.Exists(GlyssenInfo.BaseDataFolder))
 				{
 					// In production, Installer is responsible for creating the base data folder.
-					// The version number will be initially set to 0, but since their won't be any
+					// The version number will be initially set to 0, but since there won't be any
 					// projects to migrate, the migrator won't do anything but set the version number.
 					// However, on a developer machine (or in the event that a user has blown away or
 					// renamed the folder), we need to force its creation now.
 					Directory.CreateDirectory(GlyssenInfo.BaseDataFolder);
-					metadata.DataVersion = Settings.Default.DataFormatVersion;
+					metadata.DataVersion = DataMigrator.kCurrentDataVersion;
 					metadata.Save();
 				}
 			}

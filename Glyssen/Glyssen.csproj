@@ -131,6 +131,7 @@
     <Compile Include="Logger.cs" />
     <Compile Include="MessageModal.cs" />
     <Compile Include="PathUtilities.cs" />
+    <Compile Include="UserSettings.cs" />
     <Compile Include="ViewModel\VoiceActorInformationViewModel.cs" />
     <Compile Include="ViewModel\AddCharactersToGroupViewModel.cs" />
     <Compile Include="ViewModel\BlocksToDisplay.cs" />
@@ -194,15 +195,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

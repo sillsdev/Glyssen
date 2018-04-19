@@ -107,6 +107,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesktopUserSettings.cs" />
     <Compile Include="SegmentAnalytics.cs" />
     <Compile Include="DesktopErrorReport.cs" />
     <Compile Include="DesktopLogger.cs" />

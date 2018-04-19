@@ -1,14 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using DesktopAnalytics;
 using Glyssen;
-using Glyssen.Properties;
+using GlyssenApp.Properties;
 using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
-using SIL.IO;
-using SIL.Reporting;
 using Analytics = Glyssen.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using PathUtilities = SIL.IO.PathUtilities;

@@ -17,6 +17,8 @@ namespace Glyssen
 {
 	public class UsxParser
 	{
+		public const int kCurrentParserVersion = 42;
+
 		public static List<BookScript> ParseProject(IEnumerable<UsxDocument> books, IStylesheet stylesheet, Action<int> reportProgressAsPercent)
 		{
 			var numBlocksPerBook = new ConcurrentDictionary<string, int>();

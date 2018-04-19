@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using DesktopAnalytics;
 using Glyssen.Character;
 using Glyssen.Properties;
 using Glyssen.Shared;
@@ -80,7 +79,7 @@ namespace Glyssen
 		{
 			get
 			{
-				var defaultDirectory = Settings.Default.DefaultExportDirectory;
+				var defaultDirectory = UserSettings.DefaultExportDirectory;
 				if (IsNullOrWhiteSpace(defaultDirectory))
 				{
 					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), GlyssenInfo.kProduct);
@@ -179,7 +178,7 @@ namespace Glyssen
 			{
 				// if the directory is not the stored default directory, make the new directory the default
 				if (!DirectoryHelper.AreEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
-					Settings.Default.DefaultExportDirectory = Project.Status.LastExportLocation;
+					UserSettings.DefaultExportDirectory = Project.Status.LastExportLocation;
 			}
 
 			if (IncludeActorBreakdown)
