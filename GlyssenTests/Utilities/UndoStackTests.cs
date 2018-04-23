@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Glyssen.Utilities;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Waxuquerque.Utilities;
 
 namespace GlyssenTests.Utilities
 {

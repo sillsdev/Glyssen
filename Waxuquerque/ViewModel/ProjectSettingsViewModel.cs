@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Shared;
 using SIL.Scripture;
 using SIL.WritingSystems;
+using Waxuquerque.Bundle;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	public class ProjectSettingsViewModel
 	{

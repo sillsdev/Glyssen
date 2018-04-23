@@ -4,6 +4,7 @@ using Glyssen;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
+using Waxuquerque;
 
 namespace GlyssenTests
 {

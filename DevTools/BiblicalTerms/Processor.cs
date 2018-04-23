@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen.Character;
 using SIL.Xml;
+using Waxuquerque.Character;
 
 namespace DevTools.BiblicalTerms
 {

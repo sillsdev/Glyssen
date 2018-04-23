@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.ViewModel.Undo;
-using Glyssen.VoiceActor;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel.Undo;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenTests.Dialogs
 {
@@ -52,16 +53,16 @@ namespace GlyssenTests.Dialogs
 		{
 			Assert.Throws<ArgumentException>(() =>
 			{
-				new VoiceActorEditUndoAction(m_testProject, new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
+				new VoiceActorEditUndoAction(m_testProject, new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
 			});
 		}
 
 		[Test]
 		public void VoiceActorEditUndoAction_Constructor_EditedActor_AffectedActorEqualsReplacedActor_NotARename()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
+			m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult });
 			var action = new VoiceActorEditUndoAction(m_testProject,
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult });
 			Assert.AreEqual(action.PreviousNameOfActor, action.ActorAffected);
 			Assert.IsFalse(action.JustChangedName);
 		}
@@ -72,9 +73,9 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Description_ChangedNameOfActor_NameChangeIndicated()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
 			var action = new VoiceActorEditUndoAction(m_testProject,
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Prince" });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Prince" });
 			Assert.AreEqual("Change name of voice actor from Prince to Icon", action.Description);
 		}
 
@@ -82,9 +83,9 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Description_ChangedNameAndDetailsOfActor_EditingOfActorRefersToNewName()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
 			var action = new VoiceActorEditUndoAction(m_testProject,
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child });
 			Assert.AreEqual("Edit voice actor Aimee", action.Description);
 		}
 
@@ -92,9 +93,9 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Description_ChangedDetailsOfActor_EditingOfActorIndicated()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Arnold", Gender = ActorGender.Male, Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Arnold", Gender = ActorGender.Male, Age = ActorAge.YoungAdult });
 			var action = new VoiceActorEditUndoAction(m_testProject,
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Arnold", Gender = ActorGender.Female, Age = ActorAge.Child });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Arnold", Gender = ActorGender.Female, Age = ActorAge.Child });
 			Assert.AreEqual("Edit voice actor Arnold", action.Description);
 		}
 		#endregion
@@ -103,8 +104,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorEditUndoAction_Undo_ChangedNameOfActor_NameRestored()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
-			var action = new VoiceActorEditUndoAction(m_testProject, new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Prince" });
+			m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
+			var action = new VoiceActorEditUndoAction(m_testProject, new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Prince" });
 			Assert.IsTrue(action.Undo());
 			Assert.AreEqual("Prince", m_testProject.VoiceActorList.GetVoiceActorById(1).Name);
 		}
@@ -113,8 +114,8 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Undo_ChangedNameAndDetailsOfActor_NameAndDetailsRestored()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
-			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
+			var replacedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
 			var action = new VoiceActorEditUndoAction(m_testProject, replacedActor);
 
 			Assert.IsTrue(action.Undo());
@@ -127,11 +128,11 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Undo_ChangedNameOfActorAndSubsequentlyAddedActorWithPreviousName_ReturnsFalse()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
-			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
+			var replacedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
 			var action = new VoiceActorEditUndoAction(m_testProject, replacedActor);
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Elder, VoiceQuality = VoiceQuality.Dramatic });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Elder, VoiceQuality = VoiceQuality.Dramatic });
 
 			Assert.IsFalse(action.Undo());
 			Assert.AreEqual("Aimee", m_testProject.VoiceActorList.GetVoiceActorById(1).Name);
@@ -143,8 +144,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorEditUndoAction_Redo_ChangedNameOfActor_NameSetBackToNewValue()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
-			var action = new VoiceActorEditUndoAction(m_testProject, new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Prince" });
+			m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Icon" });
+			var action = new VoiceActorEditUndoAction(m_testProject, new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Prince" });
 			action.Undo();
 
 			Assert.IsTrue(action.Redo());
@@ -155,12 +156,12 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Redo_AddedActorWithNewNameAfterUndo_ReturnsFalse()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
-			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
+			var replacedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
 			var action = new VoiceActorEditUndoAction(m_testProject, replacedActor);
 			action.Undo();
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.Adult, VoiceQuality = VoiceQuality.Suspicious});
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.Adult, VoiceQuality = VoiceQuality.Suspicious});
 
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual("Amy", m_testProject.VoiceActorList.GetVoiceActorById(1).Name);
@@ -171,8 +172,8 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorEditUndoAction_Redo_ChangedNameAndDetailsOfActor_NameAndDetailsRestored()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
-			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Aimee", Gender = ActorGender.Female, Age = ActorAge.YoungAdult });
+			var replacedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Amy", Gender = ActorGender.Female, Age = ActorAge.Child };
 			var action = new VoiceActorEditUndoAction(m_testProject, replacedActor);
 			action.Undo();
 
@@ -199,7 +200,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorAddedUndoAction_Constructor_ActorInProject_NotARename()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+			m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			Assert.AreEqual("Chuck", action.ActorAffected);
@@ -211,7 +212,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorAddedUndoAction_Description_Normal_AddedActorReferencedByName()
 		{
-			m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+			m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			Assert.AreEqual("Add voice actor Chuck", action.Description);
@@ -220,7 +221,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorAddedUndoAction_Description_ActorSubsequentlyDeleted_AddedActorReferencedByName()
 		{
-			var addedActor = new Glyssen.VoiceActor.VoiceActor {Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult};
+			var addedActor = new Waxuquerque.VoiceActor.VoiceActor {Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult};
 			m_testProject.VoiceActorList.AllActors.Add(addedActor);
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			m_testProject.VoiceActorList.AllActors.Remove(addedActor);
@@ -233,7 +234,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorAddedUndoAction_Undo_Normal_ActorDeleted()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 
 			Assert.IsTrue(action.Undo());
@@ -244,7 +245,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorAddedUndoAction_Undo_ActorSubsequentlyDeleted_ReturnsFalse()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			Assert.AreEqual(0, m_testProject.VoiceActorList.AllActors.Count);
@@ -256,7 +257,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorAddedUndoAction_Undo_ActorSubsequentlyModified_ActorDeleted()
 		{
-			var addedActor = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult };
+			var addedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult };
 			m_testProject.VoiceActorList.AllActors.Add(addedActor);
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			addedActor.Name = "Charlie";
@@ -273,7 +274,7 @@ namespace GlyssenTests.Dialogs
 			group.CharacterIds = new CharacterIdHashSet(new[] { "Moses" });
 			m_testProject.CharacterGroupList.CharacterGroups.Add(group);
 
-			var addedActor = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult };
+			var addedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult };
 			m_testProject.VoiceActorList.AllActors.Add(addedActor);
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			group.AssignVoiceActor(addedActor.Id);
@@ -288,7 +289,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorAddedUndoAction_Redo_Normal_ActorReinstated()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			action.Undo();
 
@@ -302,13 +303,13 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorAddedUndoAction_Redo_AddedDifferentActorWithSameIdAfterUndo_ActorReinstatedWithUniqueId()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			Assert.AreEqual(0, m_testProject.VoiceActorList.AllActors.Count);
 			action.Undo();
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Maggie", Gender = ActorGender.Female});
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Maggie", Gender = ActorGender.Female});
 
 			Assert.IsTrue(action.Redo());
 			Assert.AreEqual(2, m_testProject.VoiceActorList.AllActors.Count);
@@ -321,13 +322,13 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorAddedUndoAction_Redo_AddedActorWithSameNameAfterUndo_ReturnsFalse()
 		{
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "Chuck", Age = ActorAge.YoungAdult });
 			var action = new VoiceActorAddedUndoAction(m_testProject, 3);
 			m_testProject.VoiceActorList.AllActors.Clear();
 			Assert.AreEqual(0, m_testProject.VoiceActorList.AllActors.Count);
 			action.Undo();
 			m_testProject.VoiceActorList.AllActors.Add(
-				new Glyssen.VoiceActor.VoiceActor { Id = 40, Name = "Chuck", Age = ActorAge.Elder});
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 40, Name = "Chuck", Age = ActorAge.Elder});
 
 			Assert.IsFalse(action.Redo());
 			Assert.AreEqual(ActorAge.Elder, m_testProject.VoiceActorList.AllActors.Single().Age);
@@ -352,7 +353,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Constructor_Normal_NotARename()
 		{
 			var action = new VoiceActorDeletedUndoAction(m_testProject,
-				new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult });
 			Assert.IsFalse(action.JustChangedName);
 			Assert.IsNull(action.ActorAffected);
 			Assert.AreEqual("Dominic", action.DeletedActorName);
@@ -364,7 +365,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Description_Normal_DeletedActorReferencedByName()
 		{
 			var action = new VoiceActorDeletedUndoAction(m_testProject,
-				new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult });
+				new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult });
 			Assert.AreEqual("Delete voice actor Dominic", action.Description);
 		}
 		#endregion
@@ -373,7 +374,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Undo_Normal_ActorRestored()
 		{
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor);
 			Assert.IsTrue(action.Undo());
@@ -388,7 +389,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Undo_ActorAssignedToGroup_ActorAndAssignmentRestored()
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			Assert.IsTrue(action.Undo());
@@ -404,7 +405,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Undo_ActorAssignedToGroupWhichIsSubsequentlyRegeneratedWithSameCharacters_ActorAndAssignmentRestored()
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			m_testProject.CharacterGroupList.CharacterGroups.Remove(assignedGroup);
@@ -423,7 +424,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Undo_ActorAssignedToGroupWhichIsSubsequentlyDeleted_ReturnsFalse()
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			m_testProject.CharacterGroupList.CharacterGroups.Remove(assignedGroup);
@@ -442,11 +443,11 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Undo_AnotherActorAddedWithSameId_ActorRestoredWithUniqueId()
 		{
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor);
 
-			var reAddedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Marshall", Age = ActorAge.Elder };
+			var reAddedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Marshall", Age = ActorAge.Elder };
 			m_testProject.VoiceActorList.AllActors.Add(reAddedActor);
 
 			Assert.IsTrue(action.Undo());
@@ -461,11 +462,11 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Undo_AnotherActorAddedWithSameName_ReturnsFalse()
 		{
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor);
 
-			m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Dominic", Age = ActorAge.Child });
+			m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "Dominic", Age = ActorAge.Child });
 
 			Assert.IsFalse(action.Undo());
 		}
@@ -475,7 +476,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Redo_Normal_ActorReDeleted()
 		{
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor);
 			action.Undo();
@@ -489,7 +490,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Redo_ActorAssignedToGroup_ActorReDeletedAndAssignmentRemoved()
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			action.Undo();
@@ -504,7 +505,7 @@ namespace GlyssenTests.Dialogs
 		public void VoiceActorDeletedUndoAction_Redo_ActorAssignedToGroupWhichIsSubsequentlyUnassigned_ActorReDeleted()
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 
@@ -524,7 +525,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			var differentGroup = AddCharacterGroup("Thomas", "Jonah");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 			action.Undo();
@@ -547,7 +548,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var assignedGroup = AddCharacterGroup("Barnabas", "Caleb", "Hosea");
 			AddCharacterGroup("Adam", "Lot");
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor, assignedGroup);
 
@@ -564,7 +565,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void VoiceActorDeletedUndoAction_Redo_ActorSubsequentlyDeleted_ReturnsTrueButNoChange()
 		{
-			var removedActor = new Glyssen.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
+			var removedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, Name = "Dominic", Age = ActorAge.YoungAdult };
 			var action = new VoiceActorDeletedUndoAction(m_testProject, removedActor);
 			action.Undo();
 

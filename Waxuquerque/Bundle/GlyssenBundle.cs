@@ -2,7 +2,7 @@
 using SIL.DblBundle.Text;
 using SIL.WritingSystems;
 
-namespace Glyssen.Bundle
+namespace Waxuquerque.Bundle
 {
 	public class GlyssenBundle : TextBundle<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
 	{

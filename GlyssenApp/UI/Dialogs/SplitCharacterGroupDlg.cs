@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen.Character;
-using Glyssen.ViewModel;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs
 {

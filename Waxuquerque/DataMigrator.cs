@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Glyssen.Bundle;
-using Glyssen.Properties;
 using Glyssen.Shared;
 using Paratext.Data;
 using SIL;
 using SIL.DblBundle;
+using Waxuquerque.Bundle;
+using Waxuquerque.Properties;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public static class DataMigrator
 	{

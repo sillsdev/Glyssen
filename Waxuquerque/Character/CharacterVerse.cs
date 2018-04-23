@@ -5,7 +5,7 @@ using Glyssen.Shared;
 using SIL;
 using SIL.Scripture;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public enum QuoteType
 	{

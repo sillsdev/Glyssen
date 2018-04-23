@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public static class ProjectCharacterDetailData
 	{

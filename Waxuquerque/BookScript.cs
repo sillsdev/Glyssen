@@ -4,17 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
-using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
-using Glyssen.ViewModel;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
-using static System.Char;
-using static System.String;
+using Waxuquerque.Character;
+using Waxuquerque.Quote;
+using Waxuquerque.ViewModel;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	[XmlRoot("book")]
 	public class BookScript : PortionScript, IScrBook
@@ -152,7 +150,7 @@ namespace Glyssen
 					var prevBlock = list.Last();
 
 					if (block.MatchesReferenceText == prevBlock.MatchesReferenceText &&
-						block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? Empty) == (prevBlock.Delivery ?? Empty))
+						block.CharacterIdInScript == prevBlock.CharacterIdInScript && (block.Delivery ?? String.Empty) == (prevBlock.Delivery ?? String.Empty))
 					{
 						bool combine = false;
 						if (block.MatchesReferenceText)
@@ -162,8 +160,8 @@ namespace Glyssen
 								!block.ContainsVerseNumber &&
 								((!block.ReferenceBlocks.Single().BlockElements.OfType<Verse>().Any() &&
 										!CharacterUtils.EndsWithSentenceFinalPunctuation(prevBlock.GetText(false))) ||
-									block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace)) ||
-									prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(IsWhiteSpace))));
+									block.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(Char.IsWhiteSpace)) ||
+									prevBlock.ReferenceBlocks.Single().BlockElements.OfType<ScriptText>().All(t => t.Content.All(Char.IsWhiteSpace))));
 						}
 						else if (!block.StartsAtVerseStart)
 						{
@@ -186,7 +184,7 @@ namespace Glyssen
 		{
 			var iFirstBlockToExamine = GetIndexOfFirstBlockForVerse(chapter, verse);
 			if (iFirstBlockToExamine < 0)
-				return Empty;
+				return String.Empty;
 			StringBuilder bldr = new StringBuilder();
 			bool foundVerseStart = false;
 			for (int index = iFirstBlockToExamine; index < m_blockCount; index++)

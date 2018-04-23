@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Rules;
-using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenTests.Rules
 {

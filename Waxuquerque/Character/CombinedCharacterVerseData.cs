@@ -2,7 +2,7 @@
 using System.Linq;
 using SIL.Scripture;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	class CombinedCharacterVerseData : ICharacterVerseInfo
 	{

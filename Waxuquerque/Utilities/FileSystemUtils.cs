@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Glyssen.Utilities
+namespace Waxuquerque.Utilities
 {
 	public static class FileSystemUtils
 	{

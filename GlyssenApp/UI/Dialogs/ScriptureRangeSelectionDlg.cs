@@ -7,12 +7,13 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen;
-using Glyssen.Bundle;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
-using Analytics = Glyssen.Analytics;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Analytics = Waxuquerque.Analytics;
 
 namespace GlyssenApp.UI.Dialogs
 {

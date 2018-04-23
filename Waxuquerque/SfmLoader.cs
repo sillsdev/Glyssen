@@ -1,7 +1,7 @@
 ﻿using Paratext.Data;
 using SIL.IO;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public static class SfmLoader
 	{

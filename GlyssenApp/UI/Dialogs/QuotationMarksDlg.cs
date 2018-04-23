@@ -6,12 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
-using Glyssen.Utilities;
-using Glyssen.ViewModel;
 using GlyssenApp.Properties;
 using GlyssenApp.UI.Utilities;
 using L10NSharp;
@@ -20,7 +15,12 @@ using SIL.ObjectModel;
 using SIL.Scripture;
 using SIL.Windows.Forms.Extensions;
 using SIL.WritingSystems;
-using Analytics = Glyssen.Analytics;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Quote;
+using Waxuquerque.ViewModel;
+using Analytics = Waxuquerque.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 
 namespace GlyssenApp.UI.Dialogs

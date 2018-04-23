@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Glyssen.Utilities
+namespace Waxuquerque.Utilities
 {
 	public class FontProxy : IDisposable
 	{

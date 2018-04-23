@@ -1,5 +1,6 @@
 ﻿using Glyssen;
 using NUnit.Framework;
+using Waxuquerque;
 
 namespace GlyssenTests
 {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
 using NUnit.Framework;
 using SIL.IO;
+using Waxuquerque.Character;
 
 namespace GlyssenTests
 {

@@ -1,12 +1,13 @@
 ﻿using System.IO;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.Bundle;
 using GlyssenApp.Properties;
 using Glyssen.Shared;
 using L10NSharp;
 using SIL.DblBundle;
 using SIL.Windows.Forms.DblBundle;
+using Waxuquerque;
+using Waxuquerque.Bundle;
 
 namespace GlyssenApp.UI.Dialogs
 {

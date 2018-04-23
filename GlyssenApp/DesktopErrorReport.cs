@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SIL.Reporting;
+using Waxuquerque;
+using ErrorReport = SIL.Reporting.ErrorReport;
 
 namespace GlyssenApp
 {
-	class DesktopErrorReport : Glyssen.IErrorReport
+	class DesktopErrorReport : IErrorReport
 	{
 		public void ReportNonFatalMessageWithStackTrace(string message, params object[] args)
 		{

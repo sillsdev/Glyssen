@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Rules;
-using Glyssen.ViewModel;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenTests.Dialogs
 {

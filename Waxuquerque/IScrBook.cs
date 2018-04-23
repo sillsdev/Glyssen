@@ -1,5 +1,5 @@
 ﻿
-namespace Glyssen
+namespace Waxuquerque
 {
 	public interface IScrBook
 	{

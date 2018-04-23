@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen.Properties;
 using SIL.Scripture;
+using Waxuquerque.Properties;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{

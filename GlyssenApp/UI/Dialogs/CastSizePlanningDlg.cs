@@ -2,12 +2,12 @@
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Bundle;
-using Glyssen.Utilities;
-using Glyssen.ViewModel;
 using GlyssenApp.UI.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
+using Waxuquerque.Bundle;
+using Waxuquerque.Utilities;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs
 {

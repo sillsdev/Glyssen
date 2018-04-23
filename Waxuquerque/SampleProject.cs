@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using Glyssen.Bundle;
-using Glyssen.Properties;
-using Glyssen.Quote;
 using Glyssen.Shared.Bundle;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.WritingSystems;
+using Waxuquerque.Bundle;
+using Waxuquerque.Properties;
+using Waxuquerque.Quote;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public static class SampleProject
 	{

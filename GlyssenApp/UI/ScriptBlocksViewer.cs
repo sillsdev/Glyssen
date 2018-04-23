@@ -7,10 +7,11 @@ using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
 using Glyssen;
-using Glyssen.ViewModel;
 using L10NSharp;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
+using Waxuquerque;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI
 {

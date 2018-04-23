@@ -5,7 +5,8 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.ViewModel;
+using Waxuquerque;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs
 {

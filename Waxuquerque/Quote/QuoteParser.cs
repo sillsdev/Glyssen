@@ -8,15 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
-using static System.Char;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.Quote
+namespace Waxuquerque.Quote
 {
 	public class QuoteParser
 	{
@@ -143,7 +142,7 @@ namespace Glyssen.Quote
 				if (!String.IsNullOrWhiteSpace(quoteSystemLevel.Continue))
 					sbAllCharacters.Append(quoteSystemLevel.Continue);
 			}
-			quoteChars.AddRange(sbAllCharacters.ToString().Where(c => !IsWhiteSpace(c)));
+			quoteChars.AddRange(sbAllCharacters.ToString().Where(c => !Char.IsWhiteSpace(c)));
 
 			foreach (var expr in regexExpressions)
 			{
@@ -328,7 +327,7 @@ namespace Glyssen.Quote
 								{
 									thisBlockStartsWithAContinuer = true;
 									int i = ContinuerForCurrentLevel.Length;
-									while (i < token.Length && IsWhiteSpace(token[i]))
+									while (i < token.Length && Char.IsWhiteSpace(token[i]))
 										i++;
 									sb.Append(token.Substring(0, i));
 									if (token.Length == i)
@@ -384,7 +383,7 @@ namespace Glyssen.Quote
 							}
 							else if (s_quoteSystem.NormalLevels.Count > m_quoteLevel && token.StartsWith(OpenerForNextLevel) && blockInWhichDialogueQuoteStarted == null)
 							{
-								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(IsPunctuation))))
+								if (m_quoteLevel == 0 && (sb.Length > 0 || m_workingBlock.BlockElements.OfType<ScriptText>().Any(e => !e.Content.All(Char.IsPunctuation))))
 								{
 									var characters = m_cvInfo.GetCharacters(m_bookNum, m_workingBlock.ChapterNumber, m_workingBlock.LastVerse.StartVerse, m_workingBlock.LastVerse.EndVerse, versification: m_versification).ToList();
 									// PG-814: If the only character for this verse is a narrator "Quotation", then do not treat it as speech.
@@ -513,14 +512,14 @@ namespace Glyssen.Quote
 				pos == 0 || pos >= content.Length - 1)
 				return false;
 
-			if (IsPunctuation(content[pos - 1]) || IsWhiteSpace(content[pos - 1]) ||
-				IsPunctuation(content[pos + 1]))
+			if (Char.IsPunctuation(content[pos - 1]) || Char.IsWhiteSpace(content[pos - 1]) ||
+				Char.IsPunctuation(content[pos + 1]))
 				return false;
 
-			if (IsLetter(content[pos + 1]))
+			if (Char.IsLetter(content[pos + 1]))
 				return true;
 
-			if (!IsWhiteSpace(content[pos + 1]))
+			if (!Char.IsWhiteSpace(content[pos + 1]))
 				return false;
 
 			var regex = m_regexes[m_quoteLevel >= m_regexes.Count ? m_regexes.Count - 1 : m_quoteLevel];
@@ -567,7 +566,7 @@ namespace Glyssen.Quote
 			else
 			{
 				var text = sb.ToString();
-				if (text.Any(IsLetterOrDigit)) // If not, just keep anything (probably opening punctuation) in the builder to be included with the next bit of text.
+				if (text.Any(Char.IsLetterOrDigit)) // If not, just keep anything (probably opening punctuation) in the builder to be included with the next bit of text.
 				{
 					MoveTrailingElementsIfNecessary();
 					m_workingBlock.BlockElements.Add(new ScriptText(text));
@@ -756,7 +755,7 @@ namespace Glyssen.Quote
 				if (originalQuoteBlock.CharacterId == null)
 					originalQuoteBlock.SetCharacterAndDelivery(characterVerseDetails);
 				var startCharIndex = nextInterruption.Item1.Length;
-				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(IsLetter))
+				if (blocks.GetScriptBlocks().Last().GetText(true).Substring(nextInterruption.Item1.Length).Any(Char.IsLetter))
 				{
 					blockFollowingLastInterruption = blocks.SplitBlock(blocks.GetScriptBlocks().Last(), nextInterruption.Item2, nextInterruption.Item1.Length, false);
 					startCharIndex = 1;

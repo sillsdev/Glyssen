@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
 using SIL.Extensions;
 using SIL.Scripture;
+using Waxuquerque.Character;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	internal class ProjectDataMigrator
 	{

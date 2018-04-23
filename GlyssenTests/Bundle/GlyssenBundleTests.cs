@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using Glyssen.Bundle;
 using SIL.DblBundle.Tests.Text;
 using SIL.IO;
+using Waxuquerque.Bundle;
 
 namespace GlyssenTests.Bundle
 {

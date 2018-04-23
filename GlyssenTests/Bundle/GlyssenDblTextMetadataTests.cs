@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
-using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.TestUtilities;
+using Waxuquerque.Bundle;
 
 namespace GlyssenTests.Bundle
 {

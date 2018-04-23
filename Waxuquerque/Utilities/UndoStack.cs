@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Glyssen.Utilities
+namespace Waxuquerque.Utilities
 {
 	/// <summary>
 	/// Collection of undoable/redoable IUndoActions with a "pointer" to the current position, so that if a new action

@@ -6,13 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using OfficeOpenXml;
 using SIL.Reflection;
 using SIL.Scripture;
 using SIL.Xml;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.Quote;
 
 namespace Glyssen.RefTextDevUtilities
 {

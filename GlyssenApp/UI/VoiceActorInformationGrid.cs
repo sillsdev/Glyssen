@@ -5,11 +5,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.ViewModel;
-using Glyssen.VoiceActor;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Reporting;
+using Waxuquerque.ViewModel;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenApp.UI
 {
@@ -130,7 +130,7 @@ namespace GlyssenApp.UI
 			if (GetCountOfConfirmedActorsToDelete() == 0)
 				return;
 
-			m_actorInformationViewModel.DeleteVoiceActors(new HashSet<Glyssen.VoiceActor.VoiceActor> { m_actorInformationViewModel.Actors[iRow] });
+			m_actorInformationViewModel.DeleteVoiceActors(new HashSet<VoiceActor> { m_actorInformationViewModel.Actors[iRow] });
 		}
 
 		private void SaveVoiceActorInformation()
@@ -277,7 +277,7 @@ namespace GlyssenApp.UI
 				if (m_dataGrid.Rows[e.RowIndex].IsNewRow)
 					return;
 
-				Glyssen.VoiceActor.VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
+				VoiceActor editedActor = e.RowIndex < m_actorInformationViewModel.Actors.Count
 					? m_actorInformationViewModel.Actors[e.RowIndex]
 					: null;
 				Debug.Assert(editedActor != null);
@@ -305,7 +305,7 @@ namespace GlyssenApp.UI
 					(m_actorInformationViewModel.ValidateActor(e.RowIndex) ==
 					VoiceActorInformationViewModel.ActorValidationState.NoName))
 				{
-					var actorsToRemove = new HashSet<Glyssen.VoiceActor.VoiceActor>();
+					var actorsToRemove = new HashSet<VoiceActor>();
 					actorsToRemove.Add(m_actorInformationViewModel.Actors[e.RowIndex]);
 					m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove);
 					m_dataGrid.CancelEdit();
@@ -381,7 +381,7 @@ namespace GlyssenApp.UI
 
 		private void m_dataGrid_CellValuePushed(object sender, DataGridViewCellValueEventArgs e)
 		{
-			Glyssen.VoiceActor.VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
+			VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
 
 			if (e.Value == null)
 				return;
@@ -407,7 +407,7 @@ namespace GlyssenApp.UI
 			if (m_selectedActorsRemainingToDelete > 0)
 			{
 				m_selectedActorsRemainingToDelete--;
-				var actorsToRemove = new HashSet<Glyssen.VoiceActor.VoiceActor>();
+				var actorsToRemove = new HashSet<VoiceActor>();
 				actorsToRemove.Add(m_actorInformationViewModel.Actors[e.RowIndex]);
 				m_actorInformationViewModel.DeleteVoiceActors(actorsToRemove);
 			}
@@ -442,7 +442,7 @@ namespace GlyssenApp.UI
 
 		private int GetCountOfConfirmedActorsToDelete()
 		{
-			var actorsToRemove = new HashSet<Glyssen.VoiceActor.VoiceActor>();
+			var actorsToRemove = new HashSet<VoiceActor>();
 			foreach (DataGridViewRow row in m_dataGrid.SelectedRows)
 				actorsToRemove.Add(m_actorInformationViewModel.Actors[row.Index]);
 
@@ -517,7 +517,7 @@ namespace GlyssenApp.UI
 			if (m_actorInformationViewModel == null || e.RowIndex < 0 || e.RowIndex >= m_actorInformationViewModel.Actors.Count)
 				return;
 
-			Glyssen.VoiceActor.VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
+			VoiceActor actor = m_actorInformationViewModel.Actors[e.RowIndex];
 			if (actor.IsInactive)
 				e.CellStyle.ForeColor = Color.Gray;
 		}

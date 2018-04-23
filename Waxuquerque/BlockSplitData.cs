@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SIL.Scripture;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public class BlockSplitData
 	{

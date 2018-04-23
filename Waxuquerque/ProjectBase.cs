@@ -8,7 +8,7 @@ using SIL;
 using SIL.DblBundle;
 using SIL.Scripture;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public abstract class ProjectBase
 	{

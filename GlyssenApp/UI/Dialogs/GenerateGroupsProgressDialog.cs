@@ -3,9 +3,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.ViewModel;
 using L10NSharp;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs
 {

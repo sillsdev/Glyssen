@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public interface IUserSettings
 	{

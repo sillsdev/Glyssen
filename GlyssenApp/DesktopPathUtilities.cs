@@ -1,8 +1,9 @@
-﻿using SIL.IO;
+﻿using Waxuquerque;
+using PathUtilities = SIL.IO.PathUtilities;
 
 namespace GlyssenApp
 {
-	internal class DesktopPathUtilities : Glyssen.IPathUtilities
+	internal class DesktopPathUtilities : IPathUtilities
 	{
 		public void OpenDirectoryInExplorer(string directory)
 		{

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using Glyssen.Properties;
 using SIL.Xml;
+using Waxuquerque.Properties;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	[XmlRoot("BiblicalAuthors")]
 	public class BiblicalAuthors : List<BiblicalAuthors.Author>

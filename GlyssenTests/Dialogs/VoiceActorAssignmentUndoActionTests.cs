@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.ViewModel.Undo;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel.Undo;
 
 namespace GlyssenTests.Dialogs
 {
@@ -24,10 +25,10 @@ namespace GlyssenTests.Dialogs
 		public void FixtureSetup()
 		{
 			m_testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
-			var actor1 = new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
-			var actor2 = new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
-			var actor3 = new Glyssen.VoiceActor.VoiceActor {Id = 3, Name = "Threesa Hawkins"};
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> {actor1, actor2, actor3};
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor {Id = 1, Name = "Oneyda Figueroa"};
+			var actor2 = new Waxuquerque.VoiceActor.VoiceActor {Id = 2, Name = "Paul Twomey"};
+			var actor3 = new Waxuquerque.VoiceActor.VoiceActor {Id = 3, Name = "Threesa Hawkins"};
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> {actor1, actor2, actor3};
 
 			AddCharacterGroup("Jesus");
 		}
@@ -69,7 +70,7 @@ namespace GlyssenTests.Dialogs
 
 			try
 			{
-				m_testProject.VoiceActorList.AllActors.Add(new Glyssen.VoiceActor.VoiceActor() {Id = 400, Name = "Bruce Bliss"});
+				m_testProject.VoiceActorList.AllActors.Add(new Waxuquerque.VoiceActor.VoiceActor() {Id = 400, Name = "Bruce Bliss"});
 				action = new VoiceActorAssignmentUndoAction(m_testProject, groupWithJesus, 400);
 				descriptionBeforeDelete = action.Description;
 				Assert.AreEqual("Assign voice actor Bruce Bliss", descriptionBeforeDelete);

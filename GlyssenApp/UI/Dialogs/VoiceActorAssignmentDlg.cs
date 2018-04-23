@@ -9,15 +9,16 @@ using System.Text;
 using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.Rules;
-using Glyssen.ViewModel;
 using GlyssenApp.Properties;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Extensions;
 using SIL.Reporting;
-using Analytics = Glyssen.Analytics;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
+using Waxuquerque.ViewModel;
+using Analytics = Waxuquerque.Analytics;
 using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs

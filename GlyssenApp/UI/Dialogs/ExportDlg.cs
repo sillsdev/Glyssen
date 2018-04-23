@@ -8,6 +8,7 @@ using Glyssen;
 using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
+using Waxuquerque;
 
 namespace GlyssenApp.UI.Dialogs
 {

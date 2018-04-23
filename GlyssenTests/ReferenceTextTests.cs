@@ -6,8 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenTests.Properties;
@@ -16,6 +14,9 @@ using SIL.IO;
 using SIL.Reflection;
 using SIL.Scripture;
 using SIL.Xml;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
 using static System.String;
 
 namespace GlyssenTests

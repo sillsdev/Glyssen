@@ -4,7 +4,7 @@ using System.Linq;
 using SIL;
 using SIL.WritingSystems;
 
-namespace Glyssen.Quote
+namespace Waxuquerque.Quote
 {
 	public static class QuoteUtils
 	{

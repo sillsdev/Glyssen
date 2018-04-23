@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
+using Waxuquerque.Character;
 
-namespace Glyssen.Rules
+namespace Waxuquerque.Rules
 {
 	public class AuthorStats
 	{

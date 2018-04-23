@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using SIL.Scripture;
 using SIL.Xml;
+using Waxuquerque.Character;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 
 	public interface IReferenceLanguageInfo

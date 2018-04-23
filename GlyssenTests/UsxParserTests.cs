@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using System.Xml;
 using Glyssen;
-using Glyssen.Character;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.DblBundle;
 using SIL.DblBundle.Tests.Usx;
 using SIL.DblBundle.Usx;
+using Waxuquerque;
+using Waxuquerque.Character;
 
 namespace GlyssenTests
 {

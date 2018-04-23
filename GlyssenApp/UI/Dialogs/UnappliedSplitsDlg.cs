@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.Utilities;
 using L10NSharp.UI;
 using SIL.Scripture;
+using Waxuquerque;
+using Waxuquerque.Utilities;
 
 namespace GlyssenApp.UI.Dialogs
 {

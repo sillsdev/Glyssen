@@ -1,4 +1,4 @@
-﻿namespace Glyssen.Utilities
+﻿namespace Waxuquerque.Utilities
 {
 	public interface IUndoAction
 	{

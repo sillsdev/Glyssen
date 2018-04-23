@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	[XmlRoot]
 	public class BookBlockIndices : IEquatable<BookBlockIndices>, IComparable<BookBlockIndices>

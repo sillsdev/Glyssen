@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.ViewModel;
-using Glyssen.VoiceActor;
 using SIL.Extensions;
 using SIL.Progress;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
+using Waxuquerque.VoiceActor;
 
-namespace Glyssen.Rules
+namespace Waxuquerque.Rules
 {
 	public class CharacterGroupGenerator
 	{

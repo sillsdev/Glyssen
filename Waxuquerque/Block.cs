@@ -7,16 +7,14 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
-using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Utilities;
-using Glyssen.ViewModel;
 using SIL.Scripture;
 using SIL.Xml;
-using static System.Char;
-using static System.String;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
+using Waxuquerque.ViewModel;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	[XmlRoot("block")]
 	public class Block
@@ -223,7 +221,7 @@ namespace Glyssen
 			get { return m_delivery; }
 			set
 			{
-				if (IsNullOrWhiteSpace(value))
+				if (String.IsNullOrWhiteSpace(value))
 					value = null;
 				m_delivery = value;
 			}
@@ -514,7 +512,7 @@ namespace Glyssen
 		{
 			get
 			{
-				return (BlockElements.FirstOrDefault() as ScriptText)?.Content.All(c => IsPunctuation(c) || IsWhiteSpace(c)) ?? false;
+				return (BlockElements.FirstOrDefault() as ScriptText)?.Content.All(c => Char.IsPunctuation(c) || Char.IsWhiteSpace(c)) ?? false;
 			}
 		}
 
@@ -538,7 +536,7 @@ namespace Glyssen
 				var text = blockElement as ScriptText;
 				if (text == null) continue;
 
-				var content = Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, WebUtility.HtmlEncode(text.Content));
+				var content = String.Format("<div id=\"{0}\" class=\"scripttext\">{1}</div>", currVerse, WebUtility.HtmlEncode(text.Content));
 				bldr.Append(content);
 			}
 
@@ -549,7 +547,7 @@ namespace Glyssen
 		{
 			var bldr = new StringBuilder();
 			var currVerse = InitialVerseNumberOrBridge;
-			var verseNumberHtml = Empty;
+			var verseNumberHtml = String.Empty;
 			const string splitTextTemplate = "<div class=\"splittext\" data-blockid=\"{2}\" data-verse=\"{3}\">{0}{1}</div>";
 
 			foreach (var blockElement in BlockElements)
@@ -567,7 +565,7 @@ namespace Glyssen
 				var text = blockElement as ScriptText;
 				if (text == null) continue;
 
-				var encodedContent = Format(splitTextTemplate, verseNumberHtml, WebUtility.HtmlEncode(text.Content), blockId, currVerse);
+				var encodedContent = String.Format(splitTextTemplate, verseNumberHtml, WebUtility.HtmlEncode(text.Content), blockId, currVerse);
 
 				if ((blockSplits != null) && blockSplits.Any())
 				{
@@ -604,11 +602,11 @@ namespace Glyssen
 						var newSegments = new List<string>();
 						foreach (var segment in segments)
 						{
-							newSegments.Add(Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse));
-							verseNumberHtml = Empty;
+							newSegments.Add(String.Format(splitTextTemplate, verseNumberHtml, segment, blockId, currVerse));
+							verseNumberHtml = String.Empty;
 						}
 
-						encodedContent = Join(kAwooga, newSegments);
+						encodedContent = String.Join(kAwooga, newSegments);
 
 						foreach (var contentToInsert in allContentToInsert)
 							encodedContent = encodedContent.ReplaceFirst(kAwooga, contentToInsert);
@@ -618,7 +616,7 @@ namespace Glyssen
 				bldr.Append(encodedContent);
 
 				// reset verse number element
-				verseNumberHtml = Empty;
+				verseNumberHtml = String.Empty;
 			}
 
 			return bldr.ToString();
@@ -629,12 +627,12 @@ namespace Glyssen
 			const string template = "<sup>{1}{0}&#160;{1}</sup>";
 			var rtl = rightToLeftScript ? "&rlm;" : "";
 
-			return Format(template, verseNumber, rtl);
+			return String.Format(template, verseNumber, rtl);
 		}
 
 		public override string ToString()
 		{
-			return IsNullOrEmpty(CharacterId) ? GetText(true) : Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
+			return String.IsNullOrEmpty(CharacterId) ? GetText(true) : String.Format("{0}: ({1}) {2}", CharacterId, MultiBlockQuote.ShortName(), GetText(true));
 		}
 
 		public string ToString(bool includeReference, string bookId = null)
@@ -642,12 +640,12 @@ namespace Glyssen
 			if (!includeReference)
 				return ToString();
 
-			if (bookId == null && !IsNullOrEmpty(BookCode))
+			if (bookId == null && !String.IsNullOrEmpty(BookCode))
 				bookId = BookCode;
 			int bookNum;
 			if (bookId == null)
 			{
-				bookId = Empty;
+				bookId = String.Empty;
 				bookNum = 1;
 			}
 			else
@@ -797,7 +795,7 @@ namespace Glyssen
 			if (ids.Length > 1)
 			{
 				var cv = getMatchingCharacterForVerse();
-				CharacterIdInScript = (cv != null && !IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
+				CharacterIdInScript = (cv != null && !String.IsNullOrEmpty(cv.DefaultCharacter) ? cv.DefaultCharacter : ids[0]);
 			}
 		}
 
@@ -814,13 +812,13 @@ namespace Glyssen
 
 		public static string BuildSplitLineHtml(int id)
 		{
-			return Format(kSplitLineFrame, id);
+			return String.Format(kSplitLineFrame, id);
 		}
 
 		public string CharacterSelect(int splitId, IEnumerable<AssignCharacterViewModel.Character> characters = null)
 		{
-			if ((characters == null) && !IsNullOrEmpty(s_characterSelect))
-				return Format(s_characterSelect, splitId);
+			if ((characters == null) && !String.IsNullOrEmpty(s_characterSelect))
+				return String.Format(s_characterSelect, splitId);
 
 			const string optionTemplate = "<option value=\"{0}\">{1}</option>";
 			var sb = new StringBuilder("<select class=\"select-character\" data-splitid=\"{0}\"><option value=\"\"></option>");
@@ -859,7 +857,7 @@ namespace Glyssen
 			sb.Append("</select>");
 			s_characterSelect = sb.ToString();
 
-			return Format(s_characterSelect, splitId);
+			return String.Format(s_characterSelect, splitId);
 		}
 
 		public static Block CombineBlocks(Block blockA, Block blockB)
@@ -880,14 +878,14 @@ namespace Glyssen
 					if (firstElementOfOtherBlockAsScriptText != null)
 					{
 						var followingContent = firstElementOfOtherBlockAsScriptText.ContentWithoutLeadingEllipsis;
-						var space = IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) ||
-							!followingContent.Any() || IsWhiteSpace(followingContent[0]) ? Empty : " ";
+						var space = Char.IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) ||
+							!followingContent.Any() || Char.IsWhiteSpace(followingContent[0]) ? String.Empty : " ";
 						lastElementOfThisBlockAsScriptText.Content += space + followingContent;
 						skip = 1;
-						if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) && otherBlock.BlockElements.Skip(skip).Any())
+						if (!Char.IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()) && otherBlock.BlockElements.Skip(skip).Any())
 							lastElementOfThisBlockAsScriptText.Content += " ";
 					}
-					else if (!IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()))
+					else if (!Char.IsWhiteSpace(lastElementOfThisBlockAsScriptText.Content.Last()))
 					{
 						lastElementOfThisBlockAsScriptText.Content += " ";
 					}
@@ -944,7 +942,7 @@ namespace Glyssen
 					{
 						if (BlockElements.Count > i + 1 && BlockElements[i + 1] is Verse)
 						{
-							content = Empty;
+							content = String.Empty;
 							characterOffsetToSplit = 0;
 							indexOfFirstElementToRemove = i + 1;
 						}
@@ -1009,7 +1007,7 @@ namespace Glyssen
 			}
 
 			if (newBlock == null)
-				throw new ArgumentException(Format("Verse {0} not found in given block: {1}", verseToSplit, GetText(true)), "verseToSplit");
+				throw new ArgumentException(String.Format("Verse {0} not found in given block: {1}", verseToSplit, GetText(true)), "verseToSplit");
 
 			if (indexOfFirstElementToRemove >= 0)
 			{
@@ -1086,7 +1084,7 @@ namespace Glyssen
 				return;
 			}
 
-			var leadingVerse = Empty;
+			var leadingVerse = String.Empty;
 			var verseNumbers = new Regex("^" + kRegexForVerseNumber + kRegexForWhitespaceFollowingVerseNumber);
 			var match = verseNumbers.Match(newRowBValue);
 			if (match.Success && !verseNumbers.IsMatch(rowB))
@@ -1170,9 +1168,9 @@ namespace Glyssen
 					string primaryRefText;
 					if (!englishToPrimaryDictionary.TryGetValue(origScriptText.Content, out primaryRefText))
 					{
-						primaryRefText = Empty;
+						primaryRefText = String.Empty;
 						var origText = origScriptText.Content;
-						while (origText.Any(c => !IsWhiteSpace(c)))
+						while (origText.Any(c => !Char.IsWhiteSpace(c)))
 						{
 							var key = englishToPrimaryDictionary.Keys.FirstOrDefault(s => origText.StartsWith(s));
 							if (key == null)

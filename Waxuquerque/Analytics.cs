@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public interface IAnalytics
 	{

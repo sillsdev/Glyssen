@@ -1,4 +1,4 @@
-﻿namespace Glyssen.Character
+﻿namespace Waxuquerque.Character
 {
 	public interface ICharacterGroupSource
 	{

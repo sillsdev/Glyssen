@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Glyssen.Character;
 using NUnit.Framework;
+using Waxuquerque.Character;
 
 namespace ControlDataIntegrityTests
 {

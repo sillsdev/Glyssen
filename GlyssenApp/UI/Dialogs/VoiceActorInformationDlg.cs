@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Glyssen.ViewModel;
-using Glyssen.VoiceActor;
 using L10NSharp;
 using L10NSharp.UI;
+using Waxuquerque.ViewModel;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenApp.UI.Dialogs
 {

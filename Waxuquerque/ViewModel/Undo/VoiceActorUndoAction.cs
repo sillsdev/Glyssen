@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
-using Glyssen.Utilities;
 using SIL;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.ViewModel.Undo
+namespace Waxuquerque.ViewModel.Undo
 {
 	public interface IVoiceActorUndoAction : IUndoAction
 	{

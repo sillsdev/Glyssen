@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Utilities;
 using SIL.DblBundle;
 using SIL.DblBundle.Usx;
 using SIL.Scripture;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public class UsxParser
 	{

@@ -7,17 +7,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Properties;
 using Glyssen.Shared;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using SIL;
 using SIL.IO;
 using SIL.Scripture;
-using static System.String;
+using Waxuquerque.Character;
+using Waxuquerque.Properties;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public enum ExportFileType
 	{
@@ -80,7 +79,7 @@ namespace Glyssen
 			get
 			{
 				var defaultDirectory = UserSettings.DefaultExportDirectory;
-				if (IsNullOrWhiteSpace(defaultDirectory))
+				if (String.IsNullOrWhiteSpace(defaultDirectory))
 				{
 					defaultDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), GlyssenInfo.kProduct);
 					if (!Directory.Exists(defaultDirectory))
@@ -100,7 +99,7 @@ namespace Glyssen
 		{
 			get
 			{
-				if (!IsNullOrEmpty(m_customFileName))
+				if (!String.IsNullOrEmpty(m_customFileName))
 					return m_customFileName;
 
 				var defaultFileName = OutputName + " " +
@@ -112,7 +111,7 @@ namespace Glyssen
 		}
 
 		private string OutputName => Project.Name +
-			((Project.AudioStockNumber != null) ? " " + Project.AudioStockNumber : Empty);
+			((Project.AudioStockNumber != null) ? " " + Project.AudioStockNumber : String.Empty);
 
 		private string FileNameWithoutExtension
 		{
@@ -174,7 +173,7 @@ namespace Glyssen
 
 			// remember the location (at least for this project and possibly as new default)
 			Project.Status.LastExportLocation = CurrentBaseFolder;
-			if (!IsNullOrEmpty(m_customFileName))
+			if (!String.IsNullOrEmpty(m_customFileName))
 			{
 				// if the directory is not the stored default directory, make the new directory the default
 				if (!DirectoryHelper.AreEquivalent(Project.Status.LastExportLocation, DefaultDirectory))
@@ -192,7 +191,7 @@ namespace Glyssen
 				{
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
-						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
+						String.Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportActors",
 								"Could not create destination folder for voice actor script files: {0}", "{0} is a directory name."),
 							ActorDirectory));
 				}
@@ -208,7 +207,7 @@ namespace Glyssen
 				{
 					Analytics.ReportException(ex);
 					ErrorReport.NotifyUserOfProblem(ex,
-						Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
+						String.Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportBooks",
 							"Could not create destination folder for book script files: {0}", "{0} is a directory name."), BookDirectory));
 				}
 			}
@@ -345,7 +344,7 @@ namespace Glyssen
 			foreach (var row in data)
 			{
 				var fileName = row[clipFileColIndex] as string;
-				if (IsNullOrEmpty(fileName))
+				if (String.IsNullOrEmpty(fileName))
 					continue;
 
 				var directory = Path.GetDirectoryName(fileName);
@@ -379,7 +378,7 @@ namespace Glyssen
 					{
 						Analytics.ReportException(ex);
 						ErrorReport.NotifyUserOfProblem(ex,
-							Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
+							String.Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotCreateClipFile",
 								"Error writing file: {0}. Creation of clip files aborted.", "{0} is a WAV file path."), fileName));
 						return;
 					}
@@ -391,7 +390,7 @@ namespace Glyssen
 		{
 			Analytics.ReportException(ex);
 			ErrorReport.NotifyUserOfProblem(ex,
-				Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
+				String.Format(Localizer.GetString("DialogBoxes.ExportDlg.CouldNotExportClips",
 					"Could not create destination folder for clip files: {0}", "{0} is a directory name."), folder));
 		}
 
@@ -474,7 +473,7 @@ namespace Glyssen
 				sheet.Column(columnNum).Style.WrapText = true;
 				if (Project.ReferenceText.LanguageName != "English")
 				{
-					if (!IsNullOrEmpty(Project.ReferenceText.FontFamily))
+					if (!String.IsNullOrEmpty(Project.ReferenceText.FontFamily))
 						sheet.Column(columnNum).Style.Font.Name = Project.ReferenceText.FontFamily;
 
 					if (Project.ReferenceText.FontSizeInPoints > 9)
@@ -500,7 +499,7 @@ namespace Glyssen
 					for (int i = 2; i <= dataArray.Count; i++)
 					{
 						var filename = (string) sheet.Cells[i, columnNum].Value;
-						if (!IsNullOrEmpty(filename))
+						if (!String.IsNullOrEmpty(filename))
 						{
 							// This approach causes problems in Excel 2007
 							//sheet.Cells[i, columnNum].Hyperlink =  = new ExcelHyperLink(filename, UriKind.Absolute) {Display = filename};
@@ -543,7 +542,7 @@ namespace Glyssen
 		{
 			// do nothing if the cell is empty
 			var cellValue = cell.Value as string;
-			if (IsNullOrEmpty(cellValue)) return;
+			if (String.IsNullOrEmpty(cellValue)) return;
 
 			var splits = m_splitRegex.Split(cellValue);
 
@@ -605,7 +604,7 @@ namespace Glyssen
 				: m_booksToExport.Where(b => b.BookId == bookId);
 
 			var projectClipFileId = (IncludeCreateClips) ?
-				!IsNullOrWhiteSpace(Project.AudioStockNumber) ? Project.AudioStockNumber : Project.Name.Replace(" ", "_") :
+				!String.IsNullOrWhiteSpace(Project.AudioStockNumber) ? Project.AudioStockNumber : Project.Name.Replace(" ", "_") :
 				null;
 
 			foreach (var book in booksToInclude)
@@ -779,7 +778,7 @@ namespace Glyssen
 			if (Project.ReferenceText.HasSecondaryReferenceText)
 			{
 				col = GetColumnIndex(ExportColumn.SecondaryReferenceText);
-				rowToModify[col] = modify((string)rowToModify[col] ?? Empty, annotationInfo);
+				rowToModify[col] = modify((string)rowToModify[col] ?? String.Empty, annotationInfo);
 			}
 
 			return rowIndex;
@@ -788,20 +787,20 @@ namespace Glyssen
 		private string AppendAnnotationInfo(string text, string annotationInfo)
 		{
 			var separator = char.IsWhiteSpace(text.LastOrDefault()) || char.IsWhiteSpace(annotationInfo.FirstOrDefault()) ?
-				Empty : " ";
+				String.Empty : " ";
 			return text + separator + annotationInfo;
 		}
 
 		private string PrependAnnotationInfo(string text, string annotationInfo)
 		{
 			var separator = char.IsWhiteSpace(annotationInfo.LastOrDefault()) || char.IsWhiteSpace(text.FirstOrDefault()) ?
-				Empty : " ";
+				String.Empty : " ";
 			return annotationInfo + separator + text;
 		}
 
 		private bool HasReferenceText(List<object> dataRow)
 		{
-			return !IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			return !String.IsNullOrEmpty((string)dataRow[GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
 		}
 
 		private BCVRef GetBcvRefForRow(List<object> row)
@@ -900,7 +899,7 @@ namespace Glyssen
 
 		private void AddDirectorsGuideHeader(List<object> headers, string languageName)
 		{
-			headers.Add(Format("{0} Director's Guide", languageName));
+			headers.Add(String.Format("{0} Director's Guide", languageName));
 		}
 
 		internal static List<object> GetExportDataForBlock(Block block, int blockNumber, string bookId,
@@ -960,7 +959,7 @@ namespace Glyssen
 
 			list.Add(block.Length);
 
-			if (!IsNullOrEmpty(outputDirectory) && !IsNullOrEmpty(clipFileProjectId))
+			if (!String.IsNullOrEmpty(outputDirectory) && !String.IsNullOrEmpty(clipFileProjectId))
 			{
 				list.Add(Path.Combine(outputDirectory, bookId, clipFileProjectId +
 					$"_{blockNumber:D5}_{bookId}_{block.ChapterNumber:D3}_{block.InitialStartVerseNumber:D3}.wav"));
@@ -971,7 +970,7 @@ namespace Glyssen
 		internal static string GetTabSeparatedLine(List<object> items)
 		{
 			const string kTabSeparator = "\t";
-			return Join(kTabSeparator, items);
+			return String.Join(kTabSeparator, items);
 		}
 
 		public static string GetFileExtension(ExportFileType fileType)
@@ -1065,8 +1064,8 @@ namespace Glyssen
 				group.Add(characterGroup.GroupIdForUiDisplay);
 				group.Add(characterGroup.CharacterIds);
 				group.Add(characterGroup.AttributesDisplay);
-				group.Add(Format("{0:N2}", characterGroup.EstimatedHours));
-				group.Add(characterGroup.IsVoiceActorAssigned ? characterGroup.VoiceActor.Name : Empty);
+				group.Add(String.Format("{0:N2}", characterGroup.EstimatedHours));
+				group.Add(characterGroup.IsVoiceActorAssigned ? characterGroup.VoiceActor.Name : String.Empty);
 				groups.Add(group);
 			}
 			return groups;

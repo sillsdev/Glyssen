@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.Rules;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
 
 namespace GlyssenTests.Rules
 {

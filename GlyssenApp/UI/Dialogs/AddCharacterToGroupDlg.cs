@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Glyssen.ViewModel;
 using L10NSharp;
 using L10NSharp.UI;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI.Dialogs
 {

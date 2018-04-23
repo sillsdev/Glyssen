@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Rules;
 using Glyssen.Shared;
-using Glyssen.ViewModel;
-using Glyssen.VoiceActor;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
+using Waxuquerque.ViewModel;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenTests
 {
@@ -52,9 +53,9 @@ namespace GlyssenTests
 			var metadata = (GlyssenDblTextMetadata)ReflectionHelper.GetField(project, "m_metadata");
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
-			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor {Id = 1}
+				new Waxuquerque.VoiceActor.VoiceActor {Id = 1}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -219,9 +220,9 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForFirstChapter = true;
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			project.IncludedBooks[0].SingleVoice = false;
-			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"}
+				new Waxuquerque.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -245,10 +246,10 @@ namespace GlyssenTests
 			var project = TestProject.CreateTestProject(TestProject.TestBook.GAL, TestProject.TestBook.JUD);
 			project.IncludedBooks[0].SingleVoice = true;
 			project.IncludedBooks[1].SingleVoice = true;
-			project.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor>
+			project.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"},
-				new Glyssen.VoiceActor.VoiceActor {Id = 2, Name = "Aiden"}
+				new Waxuquerque.VoiceActor.VoiceActor {Id = 1, Name = "Marlon"},
+				new Waxuquerque.VoiceActor.VoiceActor {Id = 2, Name = "Aiden"}
 			};
 			project.CharacterGroupList.CharacterGroups.AddRange(new[]
 			{
@@ -916,7 +917,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -941,7 +942,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("5"));
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse three, part two. ".Length + "Text of verse four. ".Length + "Text of verse five.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t3\t\t\tText of verse three, part two. {4}\u00A0Text of verse four. {5}\u00A0Text of verse five.\t\t");
@@ -968,7 +969,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tnarrator (MRK)\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -995,7 +996,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tMarko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -1020,7 +1021,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new Verse("2"));
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tp\tMRK\t4\t1\tFred/Marko\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t\t");
@@ -1046,7 +1047,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Text of verse two."));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			int textLength = "Text of verse one. ".Length + "Text of verse two.".Length;
 			var expectedLine = new StringBuilder("0\tActorGuy1\tp\tMRK\t4\t1\tFred\tWith great gusto and quivering frustration\t{1}\u00A0Text of verse one. {2}\u00A0Text of verse two.\t{1-2}\u00A0Text of verses one and two bridged in harmony and goodness.\t");
@@ -1067,7 +1068,7 @@ namespace GlyssenTests
 			block.BlockElements.Add(new ScriptText("Texto de versos uno y dos. "));
 			block.SetMatchedReferenceBlock(new Block("p", 4, 1, 2).AddVerse("1-2", "Text of verses one and two bridged in harmony and goodness."));
 
-			var actor = new Glyssen.VoiceActor.VoiceActor {Name = "ActorGuy1"};
+			var actor = new Waxuquerque.VoiceActor.VoiceActor {Name = "ActorGuy1"};
 
 			var data = ProjectExporter.GetExportDataForBlock(block, 465, "MRK", actor, null, true, true, true, @"c:\wherever\whenever\however", "MyProject");
 			Assert.AreEqual(13, data.Count);
@@ -1090,8 +1091,8 @@ namespace GlyssenTests
 			foreach (var group in project.CharacterGroupList.CharacterGroups)
 			{
 				var actor = (group.ContainsCharacterWithGender(CharacterGender.Female)) ?
-					new Glyssen.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
-					new Glyssen.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
+					new Waxuquerque.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Female, Name = "Judy" + i++ } :
+					new Waxuquerque.VoiceActor.VoiceActor() { Id = i, Gender = ActorGender.Male, Name = "Bob" + i++ };
 				project.VoiceActorList.AllActors.Add(actor);
 				group.VoiceActorId = actor.Id;
 			}

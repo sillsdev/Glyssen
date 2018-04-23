@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
+using Waxuquerque.Character;
+using Waxuquerque.Properties;
 
 namespace ControlDataIntegrityTests
 {

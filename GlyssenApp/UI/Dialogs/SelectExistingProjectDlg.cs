@@ -2,9 +2,10 @@
 using System.IO;
 using System.Windows.Forms;
 using Glyssen;
-using Glyssen.Bundle;
 using Glyssen.Shared.Bundle;
 using SIL.DblBundle;
+using Waxuquerque;
+using Waxuquerque.Bundle;
 
 namespace GlyssenApp.UI.Dialogs
 {

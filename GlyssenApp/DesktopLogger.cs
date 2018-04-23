@@ -1,9 +1,10 @@
 ﻿using System;
 using SIL.Reporting;
+using ILogger = Waxuquerque.ILogger;
 
 namespace GlyssenApp
 {
-	class DesktopLogger : Glyssen.ILogger
+	class DesktopLogger : ILogger
 	{
 		public void WriteEvent(string message, params object[] args)
 		{

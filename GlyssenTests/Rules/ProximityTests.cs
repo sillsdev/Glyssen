@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Rules;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
 
 namespace GlyssenTests.Rules
 {

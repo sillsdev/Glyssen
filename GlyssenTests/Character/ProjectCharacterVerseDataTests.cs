@@ -1,9 +1,10 @@
 ﻿using System.IO;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
 using NUnit.Framework;
 using SIL.IO;
+using Waxuquerque;
+using Waxuquerque.Character;
 
 namespace GlyssenTests.Character
 {

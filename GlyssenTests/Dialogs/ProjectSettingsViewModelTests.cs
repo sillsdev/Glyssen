@@ -1,6 +1,6 @@
-﻿using Glyssen.Bundle;
-using Glyssen.ViewModel;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using Waxuquerque.Bundle;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenTests.Dialogs
 {

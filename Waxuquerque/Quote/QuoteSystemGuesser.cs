@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
-using Glyssen.Utilities;
 using SIL.Scripture;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.Quote
+namespace Waxuquerque.Quote
 {
 	public class QuoteSystemGuesser
 	{

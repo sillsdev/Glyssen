@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using SIL.ObjectModel;
 using SIL.Xml;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	[XmlRoot("CharacterGroupList")]
 	public class CharacterGroupList

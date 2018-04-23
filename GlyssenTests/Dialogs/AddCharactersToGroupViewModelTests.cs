@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.ViewModel;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenTests.Dialogs
 {

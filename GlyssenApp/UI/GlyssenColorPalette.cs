@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Glyssen.Utilities;
 using GlyssenApp.UI.Utilities;
 using SIL.Windows.Forms.AppColorPalette;
 

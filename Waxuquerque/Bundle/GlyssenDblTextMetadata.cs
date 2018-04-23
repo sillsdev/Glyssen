@@ -3,13 +3,13 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
-using Glyssen.Character;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using Glyssen.ViewModel;
 using SIL.Xml;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
 
-namespace Glyssen.Bundle
+namespace Waxuquerque.Bundle
 {
 	[XmlRoot("DBLMetadata")]
 	public class GlyssenDblTextMetadata : GlyssenDblTextMetadataBase

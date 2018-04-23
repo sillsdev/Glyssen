@@ -1,9 +1,10 @@
 ﻿using System.Linq;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.ViewModel;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenTests.Dialogs
 {
@@ -55,7 +56,7 @@ namespace GlyssenTests.Dialogs
 			TestProject.DeleteTestProjectFolder();
 		}
 
-		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(Glyssen.Project project, int maleNarrators, int femaleNarrators)
+		private CastSizePlanningViewModel CreateModelWithInitialCustomValues(Project project, int maleNarrators, int femaleNarrators)
 		{
 			var model = new CastSizePlanningViewModel(project);
 			model.NarratorOption = NarratorsOption.Custom;

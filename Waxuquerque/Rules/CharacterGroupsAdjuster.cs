@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
 using SIL.Extensions;
+using Waxuquerque.Character;
 
-namespace Glyssen.Rules
+namespace Waxuquerque.Rules
 {
 	public class CharacterGroupsAdjuster
 	{

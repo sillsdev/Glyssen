@@ -5,16 +5,16 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Glyssen.Character;
-using Glyssen.Properties;
-using Glyssen.Rules;
-using Glyssen.Utilities;
-using Glyssen.ViewModel.Undo;
-using Glyssen.VoiceActor;
 using SIL;
 using SIL.Extensions;
+using Waxuquerque.Character;
+using Waxuquerque.Properties;
+using Waxuquerque.Rules;
+using Waxuquerque.Utilities;
+using Waxuquerque.ViewModel.Undo;
+using Waxuquerque.VoiceActor;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	#region SortBy enumeration
 	public enum SortedBy

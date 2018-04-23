@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.Rules;
-using Glyssen.ViewModel;
-using Glyssen.ViewModel.Undo;
-using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
+using Waxuquerque.ViewModel;
+using Waxuquerque.ViewModel.Undo;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenTests.Dialogs
 {
@@ -48,8 +49,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void AssignActorToGroup_CanAssignTrue_ActorAssigned()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Puni Upalari" };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actor1 };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Puni Upalari" };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { actor1 };
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor1.Id, group);
 			Assert.AreEqual(actor1.Id, group.VoiceActorId);
@@ -61,8 +62,8 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void AssignActorToGroup_AssignedToSameActor_NoChangeAndNoUndoAction()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Puni Upalari" };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actor1 };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Puni Upalari" };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { actor1 };
 			var group = m_model.CharacterGroups[0];
 			group.VoiceActorId = actor1.Id;
 			m_model.AssignActorToGroup(actor1.Id, group);
@@ -73,7 +74,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void AssignActorToGroup_ExistingGroupAssignedToActor_ActorUnassignedFromPreviousGroupAndAssignedToRequestedGroup()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
 			m_testProject.VoiceActorList.AllActors.Add(actor1);
 			var existingGroup = m_model.CharacterGroups[0];
 			existingGroup.VoiceActorId = 1;
@@ -89,7 +90,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Undo_AssignActorToGroup_ExistingGroupAssignedToActor_ActorUnassignedFromAssignedGroupAndReassignedToPreviousGroup()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Eduardo Lopez" };
 			m_testProject.VoiceActorList.AllActors.Add(actor1);
 			var existingGroup = m_model.CharacterGroups[0];
 			existingGroup.VoiceActorId = 1;
@@ -110,9 +111,9 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void UnAssignActorFromGroups_ByGroup()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo" };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo" };
 			m_testProject.VoiceActorList.AllActors.Add(actor1);
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
+			var actor2 = new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.AllActors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
 			group1.SetGroupIdLabel();
@@ -132,9 +133,9 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void UnAssignActorFromGroups_GroupsContainsCameoGroup_CameoGroupNotUnassigned()
 		{
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo", IsCameo = true };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "Marco Polo", IsCameo = true };
 			m_testProject.VoiceActorList.AllActors.Add(actor1);
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
+			var actor2 = new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "Wilbur Wright" };
 			m_testProject.VoiceActorList.AllActors.Add(actor2);
 			var group1 = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actor2.Id, group1);
@@ -308,10 +309,10 @@ namespace GlyssenTests.Dialogs
 		public void RegenerateGroups()
 		{
 			m_testProject.CharacterGroupList.CharacterGroups.Clear();
-			var actor1 = new Glyssen.VoiceActor.VoiceActor { Id = 1 };
-			var actor2 = new Glyssen.VoiceActor.VoiceActor { Id = 2, Gender = ActorGender.Female};
-			var actor3 = new Glyssen.VoiceActor.VoiceActor { Id = 3 };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
+			var actor1 = new Waxuquerque.VoiceActor.VoiceActor { Id = 1 };
+			var actor2 = new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Gender = ActorGender.Female};
+			var actor3 = new Waxuquerque.VoiceActor.VoiceActor { Id = 3 };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { actor1, actor2, actor3 };
 			List<CharacterGroup> affectedGroups = null;
 			m_model.Saved += (sender, affected, f) => { if (affected != null) affectedGroups = affected.ToList(); Assert.IsFalse(f);};
 			m_model.RegenerateGroups(() =>
@@ -377,10 +378,10 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetMultiColumnActorDataTable_NoActorsAssigned_GetsAllActorsInAlphbeticalOrder()
 		{
-			var actorB = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B" };
-			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
-			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
+			var actorB = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B" };
+			var actorC = new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			var actorA = new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "A" };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { actorB, actorC, actorA };
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
@@ -396,10 +397,10 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void GetMultiColumnActorDataTable_ActorAssigned_AssignedActorSortsLast()
 		{
-			var actorB = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B" };
-			var actorC = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
-			var actorA = new Glyssen.VoiceActor.VoiceActor { Id = 3, Name = "A" };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { actorB, actorC, actorA };
+			var actorB = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B" };
+			var actorC = new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			var actorA = new Waxuquerque.VoiceActor.VoiceActor { Id = 3, Name = "A" };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { actorB, actorC, actorA };
 			var generator = new CharacterGroupGenerator(m_testProject);
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
@@ -428,9 +429,9 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void NoteActorChanges_SingleChangeToUnassignedActor_NewUndoActionAddedWithDescriptionBasedOnSingleChange_NoGroupsAffected()
 		{
-			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
-			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { affectedActor };
+			var affectedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
+			var replacedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { affectedActor };
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			List<CharacterGroup> affectedGroups = null;
 			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsTrue(f); };
@@ -442,14 +443,14 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void NoteActorChanges_MultipleChanges_NewUndoActionAddedWithGeneralDescription_GroupsAffected()
 		{
-			var replacedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
+			var replacedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.YoungAdult };
 			m_testProject.VoiceActorList.AllActors.Add(replacedActor);
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
 			characterGroup.AssignVoiceActor(1);
-			var affectedActor = new Glyssen.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
-			var deletedActor = new Glyssen.VoiceActor.VoiceActor { Id = 2, Name = "C" };
-			m_testProject.VoiceActorList.AllActors = new List<Glyssen.VoiceActor.VoiceActor> { affectedActor };
+			var affectedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 1, Name = "B", Age = ActorAge.Adult };
+			var deletedActor = new Waxuquerque.VoiceActor.VoiceActor { Id = 2, Name = "C" };
+			m_testProject.VoiceActorList.AllActors = new List<Waxuquerque.VoiceActor.VoiceActor> { affectedActor };
 			Assert.AreEqual(0, m_model.UndoActions.Count);
 			List<CharacterGroup> affectedGroups = null;
 			m_model.Saved += (sender, affected, f) => { affectedGroups = affected.ToList(); Assert.IsTrue(f);};
@@ -623,7 +624,7 @@ namespace GlyssenTests.Dialogs
 			Assert.AreEqual(ActorAge.Child, newActor3.Age);
 		}
 
-		private List<Glyssen.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
+		private List<Waxuquerque.VoiceActor.VoiceActor> GetActorListFromDataTable(DataTable dataTable)
 		{
 			return (from DataRow row in dataTable.Rows select m_testProject.VoiceActorList.GetVoiceActorById((int)row.ItemArray[0])).ToList();
 		}

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using Glyssen.Character;
 using Glyssen.Shared;
-using Glyssen.Utilities;
 using SIL;
 using SIL.Scripture;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	public class AssignCharacterViewModel : BlockNavigatorViewModel
 	{

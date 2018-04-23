@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Glyssen.Quote;
 using NUnit.Framework;
 using SIL.WritingSystems;
+using Waxuquerque.Quote;
 
 namespace GlyssenTests.Quote
 {

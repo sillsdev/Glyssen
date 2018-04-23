@@ -4,7 +4,7 @@ using System.Linq;
 using SIL.Extensions;
 using SIL.Scripture;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public class BlockNavigator : IBlockAccessor
 	{

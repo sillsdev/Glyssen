@@ -2,6 +2,7 @@
 using Glyssen;
 using Glyssen.RefTextDevUtilities;
 using Glyssen.Shared;
+using Waxuquerque;
 
 namespace DevTools
 {

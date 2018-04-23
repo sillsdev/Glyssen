@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Glyssen;
 using Glyssen.Shared;
 using GlyssenApp.Properties;
+using Waxuquerque;
 
 namespace GlyssenApp.UI.Dialogs
 {

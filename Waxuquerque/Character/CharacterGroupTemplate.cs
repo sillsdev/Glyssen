@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public class CharacterGroupTemplate
 	{

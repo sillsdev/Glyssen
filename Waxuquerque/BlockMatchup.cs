@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
 using Glyssen.Shared;
 using SIL.Extensions;
 using SIL.Scripture;
+using Waxuquerque.Character;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public class BlockMatchup
 	{

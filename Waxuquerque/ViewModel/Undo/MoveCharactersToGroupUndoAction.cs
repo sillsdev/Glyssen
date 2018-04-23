@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
 using SIL;
 using SIL.Extensions;
+using Waxuquerque.Character;
 
-namespace Glyssen.ViewModel.Undo
+namespace Waxuquerque.ViewModel.Undo
 {
 	public class MoveCharactersToGroupUndoAction : CharacterGroupsUndoAction
 	{

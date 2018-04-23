@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Xml;
+using Waxuquerque.Character;
 
 namespace GlyssenTests.Character
 {

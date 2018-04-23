@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Glyssen.Character;
-using Glyssen.Utilities;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.ViewModel.Undo
+namespace Waxuquerque.ViewModel.Undo
 {
 	public interface ICharacterGroupsUndoAction : IUndoAction
 	{

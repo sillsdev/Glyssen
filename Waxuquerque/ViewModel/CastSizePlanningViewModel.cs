@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.VoiceActor;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.VoiceActor;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	public class CastSizePlanningViewModel
 	{

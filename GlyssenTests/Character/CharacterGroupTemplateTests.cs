@@ -1,6 +1,6 @@
 ﻿using Glyssen;
-using Glyssen.Character;
 using NUnit.Framework;
+using Waxuquerque.Character;
 
 namespace GlyssenTests.Character
 {

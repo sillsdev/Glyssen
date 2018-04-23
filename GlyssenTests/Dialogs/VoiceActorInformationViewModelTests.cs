@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.ViewModel;
-using Glyssen.ViewModel.Undo;
 using GlyssenTests.Properties;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel;
+using Waxuquerque.ViewModel.Undo;
 
 namespace GlyssenTests.Dialogs
 {
@@ -28,12 +29,12 @@ namespace GlyssenTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject.VoiceActorList.AllActors.Clear();
-			m_testProject.VoiceActorList.AllActors.AddRange(new List<Glyssen.VoiceActor.VoiceActor>
+			m_testProject.VoiceActorList.AllActors.AddRange(new List<Waxuquerque.VoiceActor.VoiceActor>
 			{
-				new Glyssen.VoiceActor.VoiceActor{Id = 1, Name = "Mergat"},
-				new Glyssen.VoiceActor.VoiceActor{Id = 2, Name = "Hendrick"},
-				new Glyssen.VoiceActor.VoiceActor{Id = 3, Name = "Polygo"},
-				new Glyssen.VoiceActor.VoiceActor{Id = 4, Name = "Imran"},
+				new Waxuquerque.VoiceActor.VoiceActor{Id = 1, Name = "Mergat"},
+				new Waxuquerque.VoiceActor.VoiceActor{Id = 2, Name = "Hendrick"},
+				new Waxuquerque.VoiceActor.VoiceActor{Id = 3, Name = "Polygo"},
+				new Waxuquerque.VoiceActor.VoiceActor{Id = 4, Name = "Imran"},
 			});
 			m_model = new VoiceActorInformationViewModel(m_testProject);
 		}
@@ -84,7 +85,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void DeleteVoiceActors_ActorsDeleted()
 		{
-			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
+			var actorsToDelete = new HashSet<Waxuquerque.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
 			Assert.AreEqual(2, m_testProject.VoiceActorList.AllActors.Count);
@@ -93,7 +94,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void DeleteVoiceActors_SomeActorsAssigned_CountsAreAccurateAndAssignmentsAreRemoved()
 		{
-			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
+			var actorsToDelete = new HashSet<Waxuquerque.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id < 3));
 			var characterGroup1 = new CharacterGroup(m_testProject);
 			var characterGroup2 = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup1);
@@ -110,13 +111,13 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void DeleteVoiceActors_NoActorsProvided_ReturnsFalse()
 		{
-			Assert.False(m_model.DeleteVoiceActors(new HashSet<Glyssen.VoiceActor.VoiceActor>()));
+			Assert.False(m_model.DeleteVoiceActors(new HashSet<Waxuquerque.VoiceActor.VoiceActor>()));
 		}
 
 		[Test]
 		public void SetInactive_PreviouslyInactiveSetToInactive_NoChange()
 		{
-			var actor = new Glyssen.VoiceActor.VoiceActor { Id = 5, Name = "Gubaru", IsInactive = true };
+			var actor = new Waxuquerque.VoiceActor.VoiceActor { Id = 5, Name = "Gubaru", IsInactive = true };
 			m_testProject.VoiceActorList.AllActors.Add(actor);
 			var characterGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(characterGroup);
@@ -192,7 +193,7 @@ namespace GlyssenTests.Dialogs
 		[Test]
 		public void Changes_VoiceActorDeleted_UndoActionCreated()
 		{
-			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id == 3));
+			var actorsToDelete = new HashSet<Waxuquerque.VoiceActor.VoiceActor>(m_testProject.VoiceActorList.AllActors.Where(a => a.Id == 3));
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
 			Assert.IsTrue(m_model.Changes.Single() is VoiceActorDeletedUndoAction);
 		}
@@ -202,7 +203,7 @@ namespace GlyssenTests.Dialogs
 		{
 			var addedActor = m_model.AddNewActor();
 			Assert.AreEqual(5, m_testProject.VoiceActorList.AllActors.Count);
-			var actorsToDelete = new HashSet<Glyssen.VoiceActor.VoiceActor>();
+			var actorsToDelete = new HashSet<Waxuquerque.VoiceActor.VoiceActor>();
 			actorsToDelete.Add(addedActor);
 			Assert.True(m_model.DeleteVoiceActors(actorsToDelete));
 			Assert.AreEqual(4, m_testProject.VoiceActorList.AllActors.Count);

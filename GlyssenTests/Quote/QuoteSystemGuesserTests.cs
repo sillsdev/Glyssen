@@ -6,11 +6,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.Quote;
 using NUnit.Framework;
 using Rhino.Mocks;
 using SIL.Scripture;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.Quote;
 
 namespace GlyssenTests.Quote
 {

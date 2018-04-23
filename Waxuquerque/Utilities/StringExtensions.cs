@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using SIL.Unicode;
 
-namespace Glyssen.Utilities
+namespace Waxuquerque.Utilities
 {
 	public static class StringExtensions
 	{

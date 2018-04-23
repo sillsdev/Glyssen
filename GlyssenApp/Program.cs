@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using System.Xml;
 using DesktopAnalytics;
 using Glyssen;
-using Glyssen.Character;
 using GlyssenApp.Properties;
 using GlyssenApp.UI;
 using Glyssen.Shared;
@@ -21,8 +20,12 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Analytics = Waxuquerque.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using Logger = SIL.Reporting.Logger;
+using PathUtilities = Waxuquerque.PathUtilities;
 
 namespace GlyssenApp
 {
@@ -46,9 +49,9 @@ namespace GlyssenApp
 			IsRunning = true;
 
 			MessageModal.Default = new WinFormsMessageModal();
-			Glyssen.PathUtilities.Default = new DesktopPathUtilities();
+			PathUtilities.Default = new DesktopPathUtilities();
 			UserSettings.Default = new DesktopUserSettings();
-			Glyssen.Analytics.Default = new SegmentAnalytics();
+			Analytics.Default = new SegmentAnalytics();
 
 			if (GetRunningGlyssenProcessCount() > 1)
 			{
@@ -83,7 +86,7 @@ namespace GlyssenApp
 #endif
 			{
 				Logger.Init();
-				Glyssen.Logger.Default = new DesktopLogger();
+				Waxuquerque.Logger.Default = new DesktopLogger();
 
 				Project.HelpUserRecoverFromBadLdmlFile = HelpUserRecoverFromBadLdmlFile;
 
@@ -102,12 +105,12 @@ namespace GlyssenApp
 				// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
 				DirectoryUtilities.SetFullControl(baseDataFolder, false);
 
-				Glyssen.DataMigrator.UpgradeToCurrentDataFormatVersion((label, path) => ConfirmRecycleDialog.ConfirmThenRecycle(label, path), out var warning);
+				DataMigrator.UpgradeToCurrentDataFormatVersion((label, path) => ConfirmRecycleDialog.ConfirmThenRecycle(label, path), out var warning);
 
 				if (!string.IsNullOrWhiteSpace(warning))
 					MessageBox.Show(warning, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-				Glyssen.SampleProject.CreateSampleProjectIfNeeded();
+				SampleProject.CreateSampleProjectIfNeeded();
 
 				SetUpLocalization();
 				LocalizeItemDlg.StringsLocalized += ControlCharacterVerseData.Singleton.HandleStringsLocalized;
@@ -159,7 +162,7 @@ namespace GlyssenApp
 			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
 			ErrorReport.EmailAddress = IssuesEmailAddress;
 			ErrorReport.AddStandardProperties();
-			Glyssen.ErrorReport.Default = new DesktopErrorReport();
+			Waxuquerque.ErrorReport.Default = new DesktopErrorReport();
 
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
 			ExceptionHandler.AddDelegate(ReportError);

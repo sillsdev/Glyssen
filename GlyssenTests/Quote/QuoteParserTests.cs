@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.ObjectModel;
 using SIL.WritingSystems;
+using Waxuquerque;
+using Waxuquerque.Character;
+using Waxuquerque.Quote;
 
 namespace GlyssenTests.Quote
 {

@@ -4,7 +4,7 @@ using SIL;
 using SIL.DblBundle.Text;
 using SIL.Scripture;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public static class BookSetUtils
 	{

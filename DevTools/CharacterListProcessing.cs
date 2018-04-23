@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Glyssen.Character;
+using Waxuquerque.Character;
 
 namespace DevTools
 {
@@ -249,10 +249,10 @@ namespace DevTools
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}
 
-		private static void FindDeliveries(IEnumerable<Glyssen.Character.CharacterVerse> allCv)
+		private static void FindDeliveries(IEnumerable<Waxuquerque.Character.CharacterVerse> allCv)
 		{
 			var deliveries = new SortedSet<string>();
-			foreach (Glyssen.Character.CharacterVerse cv in allCv)
+			foreach (Waxuquerque.Character.CharacterVerse cv in allCv)
 				deliveries.Add(cv.Delivery);
 			File.WriteAllText(Path.Combine(kBaseDirForHelperOutput, "UniqueDeliveries.txt"), TabDelimited(deliveries));
 		}

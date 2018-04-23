@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public enum SingleVoiceReason
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public interface IPathUtilities
 	{

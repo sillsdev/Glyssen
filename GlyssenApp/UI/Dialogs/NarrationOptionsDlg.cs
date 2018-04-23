@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Glyssen;
 using L10NSharp;
+using Waxuquerque;
 
 namespace GlyssenApp.UI.Dialogs
 {

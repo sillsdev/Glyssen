@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Glyssen.Character;
+using Waxuquerque.Character;
 
-namespace Glyssen.Rules
+namespace Waxuquerque.Rules
 {
 	public class CharacterGenderMatchingOptions
 	{

@@ -1,4 +1,4 @@
-﻿namespace Glyssen
+﻿namespace Waxuquerque
 {
 	public enum MultiBlockQuote
 	{

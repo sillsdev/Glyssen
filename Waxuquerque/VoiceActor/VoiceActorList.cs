@@ -3,7 +3,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using SIL.Xml;
 
-namespace Glyssen.VoiceActor
+namespace Waxuquerque.VoiceActor
 {
 	[XmlRoot("VoiceActors")]
 	public class VoiceActorList

@@ -6,6 +6,7 @@ using Glyssen;
 using SIL.DblBundle.Usx;
 using SIL.Scripture;
 using SIL.Xml;
+using Waxuquerque;
 
 namespace DevTools
 {

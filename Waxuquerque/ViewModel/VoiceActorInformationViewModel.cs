@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen.Character;
-using Glyssen.ViewModel.Undo;
-using Glyssen.VoiceActor;
 using SIL;
 using SIL.Extensions;
+using Waxuquerque.Character;
+using Waxuquerque.ViewModel.Undo;
+using Waxuquerque.VoiceActor;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	#region SortBy enumeration
 	public enum VoiceActorsSortedBy

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using Glyssen.Character;
-using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	public enum BlockGroupingType
 	{

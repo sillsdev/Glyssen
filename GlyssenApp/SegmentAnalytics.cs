@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Glyssen;
+using Waxuquerque;
 
 namespace GlyssenApp
 {

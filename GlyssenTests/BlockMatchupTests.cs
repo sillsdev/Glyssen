@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
 using Glyssen.Shared;
 using NUnit.Framework;
+using Waxuquerque;
+using Waxuquerque.Character;
+
 namespace GlyssenTests
 {
 	[TestFixture]

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SIL.Scripture;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public interface ICharacterVerseInfo
 	{

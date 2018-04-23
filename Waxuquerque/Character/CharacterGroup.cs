@@ -5,11 +5,11 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using Glyssen.Rules;
-using Glyssen.VoiceActor;
 using SIL;
+using Waxuquerque.Rules;
+using Waxuquerque.VoiceActor;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public class CharacterGroup
 	{

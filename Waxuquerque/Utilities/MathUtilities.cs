@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Glyssen.Utilities
+namespace Waxuquerque.Utilities
 {
 	public static class MathUtilities
 	{

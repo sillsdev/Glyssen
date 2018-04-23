@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using OfficeOpenXml;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public class CharacterGroupTemplateExcelFile : ICharacterGroupSource
 	{

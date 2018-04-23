@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Character;
-using Glyssen.Utilities;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.ViewModel.Undo
+namespace Waxuquerque.ViewModel.Undo
 {
 	public class CharacterGroupUndoActionSequence : UndoActionSequence<CharacterGroupsUndoAction>, ICharacterGroupsUndoAction
 	{

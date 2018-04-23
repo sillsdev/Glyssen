@@ -11,15 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using Glyssen.Analysis;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Properties;
-using Glyssen.Quote;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using Glyssen.ViewModel;
-using Glyssen.VoiceActor;
 using SIL;
 using SIL.DblBundle;
 using SIL.DblBundle.Text;
@@ -29,9 +22,15 @@ using SIL.IO;
 using SIL.Scripture;
 using SIL.WritingSystems;
 using SIL.Xml;
-using static System.String;
+using Waxuquerque.Analysis;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Properties;
+using Waxuquerque.Quote;
+using Waxuquerque.ViewModel;
+using Waxuquerque.VoiceActor;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	public class Project : ProjectBase
 	{
@@ -403,7 +402,7 @@ namespace Glyssen
 
 		public void UpdateSettings(ProjectSettingsViewModel model)
 		{
-			Debug.Assert(!IsNullOrEmpty(model.RecordingProjectName));
+			Debug.Assert(!String.IsNullOrEmpty(model.RecordingProjectName));
 			var newPath = GetProjectFolderPath(model.IsoCode, model.PublicationId, model.RecordingProjectName);
 			if (newPath != ProjectFolder)
 			{
@@ -511,13 +510,13 @@ namespace Glyssen
 			get
 			{
 				var sb = new StringBuilder(Name);
-				if (!IsNullOrEmpty(m_metadata.Language.Name))
+				if (!String.IsNullOrEmpty(m_metadata.Language.Name))
 					sb.Append(", ").Append(m_metadata.Language.Name);
-				if (!IsNullOrEmpty(LanguageIsoCode))
+				if (!String.IsNullOrEmpty(LanguageIsoCode))
 					sb.Append(" (").Append(LanguageIsoCode).Append(")");
-				if (!IsNullOrEmpty(PublicationName))
+				if (!String.IsNullOrEmpty(PublicationName))
 					sb.Append(", ").Append(PublicationName);
-				if (!IsNullOrEmpty(Id))
+				if (!String.IsNullOrEmpty(Id))
 					sb.Append(" (").Append(Id).Append(")");
 				return sb.ToString();
 			}
@@ -929,15 +928,15 @@ namespace Glyssen
 				if (bookScript == null || bookScript.BookId == null)
 				{
 					var nonNullBookScripts = bookScripts.Where(b => b != null).Select(b => b.BookId);
-					var nonNullBookScriptsStr = Join(";", nonNullBookScripts);
+					var nonNullBookScriptsStr = String.Join(";", nonNullBookScripts);
 					var initialMessage = bookScript == null ? "BookScript is null." : "BookScript has null BookId.";
-					throw new ApplicationException(Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage,
+					throw new ApplicationException(String.Format("{0} Number of BookScripts: {1}. BookScripts which are NOT null: {2}", initialMessage,
 						bookScripts.Count, nonNullBookScriptsStr));
 				}
 
 			m_books.AddRange(bookScripts);
 			m_projectMetadata.ParserVersion = UsxParser.kCurrentParserVersion;
-			if (m_books.All(b => IsNullOrEmpty(b.PageHeader)))
+			if (m_books.All(b => String.IsNullOrEmpty(b.PageHeader)))
 				ChapterAnnouncementStyle = ChapterAnnouncement.ChapterLabel;
 			UpdateControlFileVersion();
 			RemoveAvailableBooksThatDoNotCorrespondToExistingBooks();
@@ -1310,11 +1309,11 @@ namespace Glyssen
 
 				if (IetfLanguageTag.IsValid(m_metadata.Language.Ldml))
 					m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Ldml);
-				if (IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
+				if (String.IsNullOrWhiteSpace(m_wsDefinition.Id) && IetfLanguageTag.IsValid(m_metadata.Language.Iso))
 					m_wsDefinition.Id = IetfLanguageTag.GetLanguageSubtag(m_metadata.Language.Iso);
 				if (m_wsDefinition.Id == null)
 				{
-					m_wsDefinition.Id = IsNullOrEmpty(m_metadata.Language.Ldml) ? m_metadata.Language.Iso : m_metadata.Language.Ldml;
+					m_wsDefinition.Id = String.IsNullOrEmpty(m_metadata.Language.Ldml) ? m_metadata.Language.Iso : m_metadata.Language.Ldml;
 				}
 				else
 				{
@@ -1338,7 +1337,7 @@ namespace Glyssen
 						}
 					}
 				}
-				if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !IsNullOrEmpty(m_metadata.Language.Name))
+				if ((m_wsDefinition.Language == null || m_wsDefinition.Language.IsPrivateUse) && !String.IsNullOrEmpty(m_metadata.Language.Name))
 				{
 					// TODO: Strip off the first dash and anything following???
 					// Couldn't find the language in the official repo. Create a better "private-use" one using the name from the metadata.
@@ -1456,7 +1455,7 @@ namespace Glyssen
 				int n = 1;
 				do
 				{
-					newDirectoryPath = Format(fmt, n++);
+					newDirectoryPath = String.Format(fmt, n++);
 				} while (Directory.Exists(newDirectoryPath));
 			}
 			DirectoryHelper.Copy(ProjectFolder, newDirectoryPath);
@@ -1487,7 +1486,7 @@ namespace Glyssen
 
 		internal static string GetDefaultRecordingProjectName(string publicationName)
 		{
-			return Format("{0} {1}", publicationName, Localizer.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
+			return String.Format("{0} {1}", publicationName, Localizer.GetString("Project.RecordingProjectDefaultSuffix", "Audio"));
 		}
 
 		public static string GetDefaultRecordingProjectName(IBundle bundle)
@@ -1518,13 +1517,13 @@ namespace Glyssen
 
 				if (count > 1)
 					MessageModal.Show(
-						Format(
+						String.Format(
 							Localizer.GetString("Font.InstallInstructionsMultipleStyles",
 								"The font ({0}) used by this project has not been installed on this machine. We will now launch multiple font preview windows, one for each font style. In the top left of each window, click Install. After installing each font style, you will need to restart {1} to make use of the font."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
 				else
 					MessageModal.Show(
-						Format(
+						String.Format(
 							Localizer.GetString("Font.InstallInstructions",
 								"The font used by this project ({0}) has not been installed on this machine. We will now launch a font preview window. In the top left, click Install. After installing the font, you will need to restart {1} to make use of it."),
 							m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
@@ -1539,7 +1538,7 @@ namespace Glyssen
 					{
 						Logger.WriteError("There was a problem launching the font preview.Please install the font manually:" + ttfFile, ex);
 						MessageModal.Show(
-							Format(
+							String.Format(
 								Localizer.GetString("Font.UnableToLaunchFontPreview",
 									"There was a problem launching the font preview. Please install the font manually. {0}"), ttfFile));
 					}
@@ -1547,7 +1546,7 @@ namespace Glyssen
 			}
 			else
 				MessageModal.Show(
-					Format(
+					String.Format(
 						Localizer.GetString("Font.FontFilesNotFound",
 							"The font ({0}) used by this project has not been installed on this machine, and {1} could not find the relevant font files. Either they were not copied from the bundle correctly, or they have been moved. You will need to install {0} yourself. After installing the font, you will need to restart {1} to make use of it."),
 						m_projectMetadata.FontFamily, GlyssenInfo.kProduct));
@@ -1745,14 +1744,14 @@ namespace Glyssen
 			List<QuotationMark> replacementQuotationMarks = new List<QuotationMark>();
 			foreach (var level in m_wsDefinition.QuotationMarks.OrderBy(q => q, QuoteSystem.QuotationMarkTypeAndLevelComparer))
 			{
-				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !IsNullOrWhiteSpace(level.Continue))
+				if (level.Type == QuotationMarkingSystemType.Normal && level.Level > 1 && !String.IsNullOrWhiteSpace(level.Continue))
 				{
 					var oneLevelUp =
 						replacementQuotationMarks.SingleOrDefault(q => q.Level == level.Level - 1 && q.Type == QuotationMarkingSystemType.Normal);
 					if (oneLevelUp == null)
 						continue;
 					string oneLevelUpContinuer = oneLevelUp.Continue;
-					if (IsNullOrWhiteSpace(oneLevelUpContinuer))
+					if (String.IsNullOrWhiteSpace(oneLevelUpContinuer))
 						continue;
 					string newContinuer = oneLevelUpContinuer + " " + level.Continue;
 					replacementQuotationMarks.Add(new QuotationMark(level.Open, level.Close, newContinuer, level.Level, level.Type));
@@ -1788,7 +1787,7 @@ namespace Glyssen
 			get { return BiblicalAuthors.GetAuthorCount(IncludedBooks.Select(b => b.BookId)); }
 		}
 
-		public string LastExportLocation => Directory.Exists(Status.LastExportLocation) ? Status.LastExportLocation : Empty;
+		public string LastExportLocation => Directory.Exists(Status.LastExportLocation) ? Status.LastExportLocation : String.Empty;
 
 		public IReadOnlyList<BookScript> TestQuoteSystem(QuoteSystem altQuoteSystem)
 		{

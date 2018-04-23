@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Glyssen.Character;
-using Glyssen.Utilities;
+using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
-namespace Glyssen.Analysis
+namespace Waxuquerque.Analysis
 {
 	public class ProjectAnalysis
 	{

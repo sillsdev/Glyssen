@@ -9,10 +9,11 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Glyssen;
-using Glyssen.Utilities;
-using Glyssen.ViewModel;
 using GlyssenApp.Properties;
 using SIL.Reporting;
+using Waxuquerque;
+using Waxuquerque.Utilities;
+using Waxuquerque.ViewModel;
 using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs

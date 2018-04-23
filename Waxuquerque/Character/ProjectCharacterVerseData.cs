@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using SIL.Scripture;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public class ProjectCharacterVerseData : CharacterVerseData
 	{

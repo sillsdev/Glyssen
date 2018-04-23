@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Glyssen.Bundle;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using SIL;
 using SIL.IO;
+using Waxuquerque.Bundle;
 
-namespace Glyssen
+namespace Waxuquerque
 {
 	/// <summary>
 	/// Lets us work with a reference text even when we don't have an actual reference text object.

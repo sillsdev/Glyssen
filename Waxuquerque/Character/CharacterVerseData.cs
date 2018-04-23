@@ -6,7 +6,7 @@ using Glyssen.Shared;
 using SIL;
 using SIL.Scripture;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public abstract class CharacterVerseData : ICharacterVerseInfo
 	{

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen.Properties;
 using SIL.Scripture;
+using Waxuquerque.Properties;
 
-namespace Glyssen.Character
+namespace Waxuquerque.Character
 {
 	public class CharacterDetailData
 	{

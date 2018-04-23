@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Glyssen.Bundle;
-using Glyssen.Utilities;
-using Glyssen.ViewModel;
 using GlyssenApp.UI.Utilities;
+using Waxuquerque.Bundle;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI
 {

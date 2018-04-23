@@ -4,14 +4,15 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using Glyssen;
-using Glyssen.Bundle;
-using Glyssen.Character;
-using Glyssen.Rules;
-using Glyssen.ViewModel;
-using Glyssen.VoiceActor;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
+using Waxuquerque;
+using Waxuquerque.Bundle;
+using Waxuquerque.Character;
+using Waxuquerque.Rules;
+using Waxuquerque.ViewModel;
+using Waxuquerque.VoiceActor;
 
 namespace GlyssenTests.Rules
 {
@@ -685,7 +686,7 @@ namespace GlyssenTests.Rules
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
-			var actor4 = new Glyssen.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
+			var actor4 = new Waxuquerque.VoiceActor.VoiceActor { Id = 4, IsCameo = true };
 			m_testProject.VoiceActorList.AllActors.Add(actor4);
 			var cameoGroup = new CharacterGroup(m_testProject);
 			m_testProject.CharacterGroupList.CharacterGroups.Add(cameoGroup);
@@ -2152,16 +2153,16 @@ namespace GlyssenTests.Rules
 		protected Project m_testProject;
 		protected void SetVoiceActors(int numberOfAdultMales, int numberOfAdultFemales = 0, int numberOfMaleChildren = 0, int numberOfFemaleChildren = 0)
 		{
-			var actorList = new List<Glyssen.VoiceActor.VoiceActor>();
+			var actorList = new List<Waxuquerque.VoiceActor.VoiceActor>();
 			int actorNumber = 0;
 			for (int i = 0; i < numberOfAdultMales; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor { Id = actorNumber++ } );
+				actorList.Add(new Waxuquerque.VoiceActor.VoiceActor { Id = actorNumber++ } );
 			for (int i = 0; i < numberOfAdultFemales; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female });
+				actorList.Add(new Waxuquerque.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female });
 			for (int i = 0; i < numberOfMaleChildren; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor {  Id = actorNumber++, Age = ActorAge.Child });
+				actorList.Add(new Waxuquerque.VoiceActor.VoiceActor {  Id = actorNumber++, Age = ActorAge.Child });
 			for (int i = 0; i < numberOfFemaleChildren; i++)
-				actorList.Add(new Glyssen.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female, Age = ActorAge.Child });
+				actorList.Add(new Waxuquerque.VoiceActor.VoiceActor {  Id = actorNumber++, Gender = ActorGender.Female, Age = ActorAge.Child });
 			m_testProject.VoiceActorList.AllActors = actorList;
 		}
 

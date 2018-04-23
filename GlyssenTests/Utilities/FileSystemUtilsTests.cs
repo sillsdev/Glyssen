@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using Glyssen.Utilities;
 using NUnit.Framework;
 using SIL.IO;
+using Waxuquerque.Utilities;
 
 namespace GlyssenTests.Utilities
 {

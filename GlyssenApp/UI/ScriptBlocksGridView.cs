@@ -5,10 +5,10 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DesktopAnalytics;
-using Glyssen.Utilities;
-using Glyssen.ViewModel;
 using SIL.Reporting;
 using SIL.Scripture;
+using Waxuquerque.Utilities;
+using Waxuquerque.ViewModel;
 
 namespace GlyssenApp.UI
 {

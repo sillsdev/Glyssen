@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Glyssen;
-using Glyssen.Character;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.TestUtilities;
@@ -12,6 +11,8 @@ using SIL.Xml;
 using GlyssenTests.Properties;
 using Rhino.Mocks;
 using SIL.IO;
+using Waxuquerque;
+using Waxuquerque.Character;
 
 namespace GlyssenTests
 {

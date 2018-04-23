@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Glyssen.ViewModel
+namespace Waxuquerque.ViewModel
 {
 	[Flags]
 	public enum BlocksToDisplay
