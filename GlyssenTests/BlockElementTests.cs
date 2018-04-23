@@ -1,4 +1,5 @@
 ﻿using Glyssen;
+using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Xml;

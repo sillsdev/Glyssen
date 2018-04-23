@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen;
 using Glyssen.Character;
+using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.Reflection;
 using SIL.Scripture;

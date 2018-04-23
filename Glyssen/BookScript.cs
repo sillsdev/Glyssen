@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
+using Glyssen.Shared;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;

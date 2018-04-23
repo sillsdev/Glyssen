@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using Glyssen.Shared.Bundle;
 
@@ -16,7 +17,7 @@ namespace Glyssen.Shared.Script
 		// Needed for serialization/deserialization
 		public GlyssenScript()
 		{
-			Version = "1.0";
+			Version = "2.0";
 		}
 
 		public GlyssenScript(string recordingProjectName, IReadOnlyGlyssenDblTextMetadata source) : this()
@@ -134,7 +135,7 @@ namespace Glyssen.Shared.Script
 		[XmlAttribute("delivery")]
 		public string Delivery { get; set; }
 
-		[XmlElement("text")]
+		[XmlElement("vernacularText")]
 		public TextWithLanguage VernacularText { get; set; }
 
 		[XmlElement(ElementName = "referenceText")]
@@ -146,7 +147,21 @@ namespace Glyssen.Shared.Script
 		[XmlAttribute("xml:lang", DataType = "language")]
 		public string LanguageCode { get; set; }
 
-		[XmlText]
-		public string Text { get; set; }
+		[XmlElement(Type = typeof(ScriptText), ElementName = "text")]
+		[XmlElement(Type = typeof(Verse), ElementName = "verse")]
+		[XmlElement(Type = typeof(Sound), ElementName = "sound")]
+		[XmlElement(Type = typeof(Pause), ElementName = "pause")]
+		public List<BlockElement> BlockElements { get; set; }
+
+		[XmlIgnore]
+		public string Text
+		{
+			get
+			{
+				if (BlockElements == null)
+					return null;
+				return string.Join("", BlockElements.OfType<ScriptText>().Select(st => st.Content));
+			}
+		}
 	}
 }

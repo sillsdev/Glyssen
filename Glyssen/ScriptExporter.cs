@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Glyssen.Shared.Script;
 using SIL.Xml;
 
@@ -50,17 +51,16 @@ namespace Glyssen
 				if (!project.DramatizationPreferences.IncludeCharacter(blockCharacterId))
 					continue;
 
-				// I don't see any point in exporting a block with no vernacular text
-				string vernacularText = block.Text;
-				if (!string.IsNullOrWhiteSpace(vernacularText))
+				if (block.VernacularBlockElements != null && block.VernacularBlockElements.Any())
 				{
 					var gsBlock = new ScriptBlock
 					{
+						// Enhance: add localizedCharacterId to script
 						Character = block.CharacterId,
 						Id = blockId++,
 						ReferenceTexts = GetReferenceTexts(project, block),
 						Tag = block.StyleTag,
-						VernacularText = new TextWithLanguage {Text = vernacularText},
+						VernacularText = new TextWithLanguage {BlockElements = block.VernacularBlockElements.ToList()},
 						Verse = block.InitialStartVerseNumber.ToString()
 					};
 					var actor = block.VoiceActor;
@@ -85,7 +85,7 @@ namespace Glyssen
 				new TextWithLanguage
 				{
 					LanguageCode = project.ReferenceText.LanguageLdml,
-					Text = block.PrimaryReferenceText
+					BlockElements = block.PrimaryReferenceTextBlockElements?.ToList()
 				}
 			};
 			if (project.ReferenceText.HasSecondaryReferenceText)
@@ -93,7 +93,7 @@ namespace Glyssen
 				referenceTexts.Add(new TextWithLanguage
 				{
 					LanguageCode = project.ReferenceText.SecondaryReferenceText.LanguageLdml,
-					Text = block.SecondaryReferenceText
+					BlockElements = block.SecondaryReferenceTextBlockElements?.ToList()
 				});
 			}
 			return referenceTexts;

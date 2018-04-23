@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using SIL.Scripture;
 
-namespace Glyssen
+namespace Glyssen.Shared
 {
 	[XmlInclude(typeof(ScriptText))]
 	[XmlInclude(typeof(Verse))]
@@ -88,7 +88,7 @@ namespace Glyssen
 		/// starting number in the bridge.
 		/// </summary>
 		int StartVerse { get; }
-		
+
 		/// <summary>
 		/// Gets the verse number as an integer. If the Verse number represents a verse bridge, this will be the
 		/// ending number in the bridge.
@@ -289,7 +289,7 @@ namespace Glyssen
 		public override string ToDisplay(string elementSeparator = " ")
 		{
 			const string kEndDisplayString = "Ends";
-		
+
 			string details = null;
 			var sb = new StringBuilder();
 

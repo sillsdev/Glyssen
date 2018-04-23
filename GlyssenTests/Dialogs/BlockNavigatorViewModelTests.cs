@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Dialogs;
+using Glyssen.Shared;
 using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;

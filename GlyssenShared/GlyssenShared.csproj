@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockElement.cs" />
     <Compile Include="Bundle\GlyssenDblMetadataLanguage.cs" />
     <Compile Include="Bundle\GlyssenDblTextMetadataBase.cs" />
     <Compile Include="ReferenceTextType.cs" />

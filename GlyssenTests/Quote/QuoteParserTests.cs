@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen;
 using Glyssen.Character;
 using Glyssen.Quote;
+using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.ObjectModel;
 using SIL.WritingSystems;
