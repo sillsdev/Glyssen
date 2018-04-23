@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using DesktopAnalytics;
 using Glyssen;
+using Glyssen.Character;
 using GlyssenApp.Properties;
 using GlyssenApp.UI;
 using Glyssen.Shared;
@@ -20,7 +21,6 @@ using SIL.Windows.Forms.FileSystem;
 using SIL.Windows.Forms.i18n;
 using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
-using Analytics = Glyssen.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using Logger = SIL.Reporting.Logger;
 
@@ -48,7 +48,7 @@ namespace GlyssenApp
 			MessageModal.Default = new WinFormsMessageModal();
 			Glyssen.PathUtilities.Default = new DesktopPathUtilities();
 			UserSettings.Default = new DesktopUserSettings();
-			Analytics.Default = new SegmentAnalytics();
+			Glyssen.Analytics.Default = new SegmentAnalytics();
 
 			if (GetRunningGlyssenProcessCount() > 1)
 			{
@@ -110,6 +110,7 @@ namespace GlyssenApp
 				Glyssen.SampleProject.CreateSampleProjectIfNeeded();
 
 				SetUpLocalization();
+				LocalizeItemDlg.StringsLocalized += ControlCharacterVerseData.Singleton.HandleStringsLocalized;
 
 				// The following not only gets the location of the settings file;
 				// it also detects corruption and deletes it if needed so we don't crash.
@@ -166,7 +167,7 @@ namespace GlyssenApp
 
 		private static void ReportError(object sender, CancelExceptionHandlingEventArgs e)
 		{
-			Analytics.ReportException(e.Exception);
+			DesktopAnalytics.Analytics.ReportException(e.Exception);
 		}
 
 		private static LocalizationManager LocalizationManager { get; set; }
@@ -185,7 +186,7 @@ namespace GlyssenApp
 					using (var dlg = new LanguageChoosingSimpleDialog(Resources.glyssenIcon))
 						if (DialogResult.OK == dlg.ShowDialog())
 						{
-							Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", dlg.SelectedLanguage }, { "initialStartup", "true" } });
+							DesktopAnalytics.Analytics.Track("SetUiLanguage", new Dictionary<string, string> { { "uiLanguage", dlg.SelectedLanguage }, { "initialStartup", "true" } });
 
 							LocalizationManager.SetUILanguage(dlg.SelectedLanguage, true);
 							Settings.Default.UserInterfaceLanguage = dlg.SelectedLanguage;

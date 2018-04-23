@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <!--TargetFrameworks>netstandard2.0;net461</TargetFrameworks-->
+    <!--TargetFrameworks>netstandard2.0;net461;netcoreapp2.0</TargetFrameworks-->
+    <Configurations>Debug;Release</Configurations>
+    <Description>Waxuquerque is a shared library useful to Glyssen and Encore</Description>
+    <Company>FCBH-SIL</Company>
+    <Copyright>Copyright © 2014-2018 Faith Comes By Hearing and SIL International</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ParatextData">
+      <HintPath>..\lib\dotnet\ParatextData.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core">
+      <HintPath>..\lib\dotnet\SIL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DblBundle">
+      <HintPath>..\lib\dotnet\SIL.DblBundle.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Scripture">
+      <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems">
+      <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
