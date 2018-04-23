@@ -20,15 +20,15 @@ namespace Waxuquerque.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -36,13 +36,13 @@ namespace Waxuquerque.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Glyssen.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Waxuquerque.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -56,7 +56,7 @@ namespace Waxuquerque.Properties {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to GEN	1	30	0	&lt;Pause time=&quot;2&quot; /&gt;
         ///GEN	2	25	0	&lt;Pause time=&quot;2&quot; /&gt;
@@ -111,7 +111,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("Annotations", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;BiblicalAuthors&gt;
         ///	&lt;Author name=&quot;Moses&quot;&gt;
@@ -148,9 +148,9 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("BiblicalAuthors", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to 
+        ///   Looks up a localized string similar to
         ///select {
         ///    float: right;
         ///    margin-bottom: 6px;
@@ -168,7 +168,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("BlockSplitCss", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -178,7 +178,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -188,14 +188,14 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to #Character ID	Max Speakers	Gender	Age	Status	Comment	Reference Comment
-        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John	
-        ///250 Israelite leaders	250	Male	Adult			
-        ///a Jew	1	Male	Adult			
+        ///2 other disciples	2	Male	Adult		Not Peter (Simon), Thomas, Nathaniel, James, or John
+        ///250 Israelite leaders	250	Male	Adult
+        ///a Jew	1	Male	Adult
         ///Aaron	1	Male	Adult			EXO 32:2 &lt;-(6 more)-&gt; NUM 12:12
-        ///Abednego	1	Male	Adult		original Hebrew name: Azariah	
+        ///Abednego	1	Male	Adult		original Hebrew name: Azariah
         ///Abigail	1	Female	Adult			1SA 25:19 &lt;-(8 more)-&gt; 1SA 25:41
         ///Abijah, king of Judah	1	Male	Adult			2CH 13:4 &lt;-(7 more)-&gt; 2CH 13:12
         ///Abimelech, king of Gerar	1	Male	Adult			GEN 20:4 &lt;- [rest of string was truncated]&quot;;.
@@ -205,15 +205,15 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("CharacterDetail", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Control File Version	125
         ///#	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
-        ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
-        ///# PSA will be handled as complete units, each psalm will be spoken by one voice								
-        ///# SNG we will need to review again								
-        ///# ISA more review necessary on who is speaking: God or the Isaiah								
-        ///# JER possibly no markup of this book... will need to review								
+        ///# DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5
+        ///# PSA will be handled as complete units, each psalm will be spoken by one voice
+        ///# SNG we will need to review again
+        ///# ISA more review necessary on who is speaking: God or the Isaiah
+        ///# JER possibly no markup of this book... will need to review
         ///#  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CharacterVerseData {
@@ -221,7 +221,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("CharacterVerseData", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -231,7 +231,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to # Versification  &quot;Sample&quot;
         ///# Version=1.9
@@ -250,7 +250,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("EnglishVersification", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
@@ -260,7 +260,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -270,7 +270,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -280,7 +280,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -290,7 +290,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -300,7 +300,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
@@ -324,7 +324,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("HtmlMsg", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -334,7 +334,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -344,7 +344,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -354,7 +354,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -364,7 +364,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;QuoteSystems&gt;
         ///	&lt;QuoteSystem&gt;
@@ -387,7 +387,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("QuoteSystemData", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -397,7 +397,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -407,7 +407,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;RelatedCharacterSets&gt;
         ///	&lt;RelatedCharacters RelationshipType=&quot;SameCharacterWithMultipleAges&quot;&gt;
@@ -427,7 +427,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("RelatedCharacters", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -437,7 +437,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;usx version=&quot;2.0&quot;&gt;
@@ -456,7 +456,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetString("SampleMRK", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -466,7 +466,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
@@ -475,7 +475,7 @@ namespace Waxuquerque.Properties {
                 return ResourceManager.GetStream("Silent", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -485,7 +485,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -495,7 +495,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -505,7 +505,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -515,7 +515,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -525,7 +525,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -535,7 +535,7 @@ namespace Waxuquerque.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

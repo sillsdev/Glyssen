@@ -81,6 +81,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\GlyssenAlt\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Windows.Forms.Scripture, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\GlyssenAlt\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
@@ -95,6 +98,9 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0-preview2-26406-04\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
