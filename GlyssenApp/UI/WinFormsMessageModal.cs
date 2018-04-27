@@ -1,5 +1,4 @@
-﻿using Glyssen;
-using Waxuquerque;
+﻿using Waxuquerque;
 
 namespace GlyssenApp.UI
 {

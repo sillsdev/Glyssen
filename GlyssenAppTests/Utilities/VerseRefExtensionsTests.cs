@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using GlyssenApp.UI.Utilities;
+using GlyssenApp.Utilities;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.Windows.Forms.Scripture;
 
-namespace GlyssenTests.Utilities
+namespace GlyssenAppTests.Utilities
 {
 	class VerseRefExtensionsTests
 	{

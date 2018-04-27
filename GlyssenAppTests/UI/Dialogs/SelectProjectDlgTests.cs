@@ -2,7 +2,7 @@
 using GlyssenApp.UI.Dialogs;
 using NUnit.Framework;
 
-namespace GlyssenTests.Dialogs
+namespace GlyssenAppTests.UI.Dialogs
 {
 	[TestFixture]
 	public class SelectProjectDlgTests

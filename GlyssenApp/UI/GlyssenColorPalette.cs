@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using GlyssenApp.UI.Utilities;
+using GlyssenApp.Utilities;
 using SIL.Windows.Forms.AppColorPalette;
 
 namespace GlyssenApp.UI

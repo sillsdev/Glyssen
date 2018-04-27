@@ -331,8 +331,8 @@
     <Compile Include="UI\Dialogs\VoiceActorInformationDlg.Designer.cs">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Utilities\CustomColor.cs" />
-    <Compile Include="UI\Utilities\VerseRefExtensions.cs" />
+    <Compile Include="Utilities\CustomColor.cs" />
+    <Compile Include="Utilities\VerseRefExtensions.cs" />
     <Compile Include="UI\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>

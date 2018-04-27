@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using GlyssenApp.UI;
 using NUnit.Framework;
 
-namespace GlyssenTests.Controls
+namespace GlyssenAppTests.UI.Controls
 {
 	class BrowserTests
 	{

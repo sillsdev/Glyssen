@@ -1,5 +1,4 @@
-﻿using Glyssen;
-using GlyssenApp.Properties;
+﻿using GlyssenApp.Properties;
 using Waxuquerque;
 
 namespace GlyssenApp

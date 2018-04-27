@@ -8,7 +8,7 @@ using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Shared;
 using GlyssenApp.Properties;
-using GlyssenApp.UI.Utilities;
+using GlyssenApp.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.ObjectModel;

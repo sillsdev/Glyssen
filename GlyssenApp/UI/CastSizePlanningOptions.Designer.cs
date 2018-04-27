@@ -1,4 +1,4 @@
-﻿using GlyssenApp.UI.Utilities;
+﻿using GlyssenApp.Utilities;
 
 namespace GlyssenApp.UI
 {

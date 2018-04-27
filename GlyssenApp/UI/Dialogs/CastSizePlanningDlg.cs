@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using GlyssenApp.UI.Utilities;
+using GlyssenApp.Utilities;
 using L10NSharp;
 using L10NSharp.UI;
 using Waxuquerque.Bundle;

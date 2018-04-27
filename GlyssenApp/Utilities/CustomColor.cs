@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace GlyssenApp.UI.Utilities
+namespace GlyssenApp.Utilities
 {
 	public interface IGlyssenColorScheme
 	{

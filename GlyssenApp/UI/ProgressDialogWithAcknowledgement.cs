@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using GlyssenApp.UI.Utilities;
+using GlyssenApp.Utilities;
 using L10NSharp;
 using SIL.Progress;
 using SIL.Reporting;

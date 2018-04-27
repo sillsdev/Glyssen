@@ -1,4 +1,4 @@
-﻿using GlyssenApp.UI.Utilities;
+﻿using GlyssenApp.Utilities;
 using L10NSharp.UI;
 
 namespace GlyssenApp.UI.Dialogs

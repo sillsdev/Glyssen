@@ -1,5 +1,5 @@
 ﻿using GlyssenApp.UI.Controls;
-using GlyssenApp.UI.Utilities;
+using GlyssenApp.Utilities;
 
 namespace GlyssenApp.UI.Dialogs
 {
