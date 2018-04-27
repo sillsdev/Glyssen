@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -10,7 +9,7 @@ using SIL.Xml;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	[TestFixture]
 	public class CharacterAssignerTests

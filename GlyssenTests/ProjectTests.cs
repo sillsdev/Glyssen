@@ -2,10 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Threading;
-using Glyssen;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using GlyssenTests.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
@@ -19,8 +17,9 @@ using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Quote;
+using WaxuquerqueTests.Bundle;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture, Timeout(60000)]
 	class ProjectTests

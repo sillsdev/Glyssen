@@ -1,8 +1,7 @@
-﻿using Glyssen;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Waxuquerque;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class BookMetadataTests

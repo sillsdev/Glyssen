@@ -1,12 +1,11 @@
 ﻿using System.Linq;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	class CastSizePlanningViewModelTests

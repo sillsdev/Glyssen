@@ -4,7 +4,7 @@ using SIL.IO;
 using SIL.TestUtilities;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.VoiceActor
+namespace WaxuquerqueTests.VoiceActor
 {
 	[TestFixture]
 	class VoiceActorListTests

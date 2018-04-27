@@ -4,7 +4,7 @@ using NUnit.Framework;
 using SIL.IO;
 using Waxuquerque.Utilities;
 
-namespace GlyssenTests.Utilities
+namespace WaxuquerqueTests.Utilities
 {
 	class FileSystemUtilsTests
 	{

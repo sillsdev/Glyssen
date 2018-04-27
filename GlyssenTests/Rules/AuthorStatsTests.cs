@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using Glyssen;
 using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
 
-namespace GlyssenTests.Rules
+namespace WaxuquerqueTests.Rules
 {
 	[TestFixture]
 	class AuthorStatsTests

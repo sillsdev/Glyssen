@@ -2,7 +2,7 @@
 using Waxuquerque.Bundle;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	public class ProjectSettingsViewModelTests

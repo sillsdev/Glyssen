@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Glyssen;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
 
-namespace GlyssenTests.Rules
+namespace WaxuquerqueTests.Rules
 {
 	[TestFixture]
 	class ProximityTests

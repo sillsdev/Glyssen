@@ -1,11 +1,10 @@
-﻿using Glyssen;
-using Glyssen.Shared;
+﻿using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.TestUtilities;
 using SIL.Xml;
 using Waxuquerque;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	class BlockElementTests
 	{

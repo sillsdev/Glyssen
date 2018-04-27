@@ -1,11 +1,10 @@
 ﻿using System;
 using System.IO;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	[TestFixture]
 	public class CharacterGroupTemplateExcelFileTests

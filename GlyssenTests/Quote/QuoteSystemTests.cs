@@ -3,7 +3,7 @@ using SIL.WritingSystems;
 using SIL.Xml;
 using Waxuquerque.Quote;
 
-namespace GlyssenTests.Quote
+namespace WaxuquerqueTests.Quote
 {
 	[TestFixture]
 	class QuoteSystemTests

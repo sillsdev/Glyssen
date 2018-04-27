@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 using SIL.Reflection;
@@ -12,7 +10,7 @@ using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	class BlockNavigatorViewModelTests

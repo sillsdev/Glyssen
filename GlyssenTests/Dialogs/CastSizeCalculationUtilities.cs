@@ -3,7 +3,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen;
 using NUnit.Framework;
 using SIL.Scripture;
 using SIL.WritingSystems;
@@ -13,7 +12,7 @@ using Waxuquerque.Character;
 using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	/// <summary>
 	/// This class and the one below are designed to help the developer calculate and set the minimum

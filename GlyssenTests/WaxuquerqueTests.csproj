@@ -8,8 +8,8 @@
     <ProjectGuid>{82A5F002-6E73-49AF-9B98-80C8086C77EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GlyssenTests</RootNamespace>
-    <AssemblyName>GlyssenTests</AssemblyName>
+    <RootNamespace>WaxuquerqueTests</RootNamespace>
+    <AssemblyName>WaxuquerqueTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using SIL.WritingSystems;
 using Waxuquerque.Quote;
 
-namespace GlyssenTests.Quote
+namespace WaxuquerqueTests.Quote
 {
 	[TestFixture]
 	public class QuoteUtilsTests

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.ObjectModel;
@@ -10,7 +9,7 @@ using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.Quote;
 
-namespace GlyssenTests.Quote
+namespace WaxuquerqueTests.Quote
 {
 	[TestFixture]
 	public class QuoteParserTests

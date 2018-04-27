@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Waxuquerque.Utilities;
 
-namespace GlyssenTests.Utilities
+namespace WaxuquerqueTests.Utilities
 {
 	[TestFixture]
 	public class MathUtilitiesTests

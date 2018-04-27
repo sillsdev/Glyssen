@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Xml;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.DblBundle;
@@ -9,7 +8,7 @@ using SIL.DblBundle.Usx;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class UsxParserTests

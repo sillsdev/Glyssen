@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Glyssen;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 using Waxuquerque;
@@ -13,7 +11,7 @@ using Waxuquerque.ViewModel;
 using Waxuquerque.ViewModel.Undo;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	class VoiceActorAssignmentViewModelTests

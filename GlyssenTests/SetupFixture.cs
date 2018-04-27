@@ -3,7 +3,7 @@ using GlyssenApp;
 using NUnit.Framework;
 using Waxuquerque;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	/// <summary>
 	/// The methods in this class run once before and after each test run, i.e. they get executed exactly once.

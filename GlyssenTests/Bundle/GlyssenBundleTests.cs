@@ -4,7 +4,7 @@ using SIL.DblBundle.Tests.Text;
 using SIL.IO;
 using Waxuquerque.Bundle;
 
-namespace GlyssenTests.Bundle
+namespace WaxuquerqueTests.Bundle
 {
 	internal static class GlyssenBundleTests
 	{

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using NUnit.Framework;
 using SIL.Extensions;
 using Waxuquerque;
@@ -9,7 +7,7 @@ using Waxuquerque.Character;
 using Waxuquerque.ViewModel.Undo;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	class VoiceActorEditingUndoActionTests

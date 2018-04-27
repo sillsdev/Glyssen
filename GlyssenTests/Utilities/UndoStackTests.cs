@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using Waxuquerque.Utilities;
 
-namespace GlyssenTests.Utilities
+namespace WaxuquerqueTests.Utilities
 {
 	[TestFixture]
 	class UndoStackTests

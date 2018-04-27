@@ -1,8 +1,7 @@
-﻿using Glyssen;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	[TestFixture]
 	public class CharacterGroupTemplateTests

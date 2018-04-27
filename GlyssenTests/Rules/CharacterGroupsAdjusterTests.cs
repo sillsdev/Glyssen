@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Scripture;
 using Waxuquerque.Bundle;
@@ -7,7 +6,7 @@ using Waxuquerque.Character;
 using Waxuquerque.Rules;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.Rules
+namespace WaxuquerqueTests.Rules
 {
 	[TestFixture]
 	class CharacterGroupsAdjusterTests : CharacterGroupGeneratorAndAdjusterTestBase

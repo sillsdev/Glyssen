@@ -1,11 +1,9 @@
-﻿using System;
-using Glyssen;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	class CharacterGroupTests
 	{

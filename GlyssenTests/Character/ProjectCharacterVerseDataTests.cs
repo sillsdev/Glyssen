@@ -1,12 +1,11 @@
 ﻿using System.IO;
 using System.Linq;
-using Glyssen;
 using NUnit.Framework;
 using SIL.IO;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	[TestFixture]
 	class ProjectCharacterVerseDataTests

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Reflection;
@@ -16,9 +15,8 @@ using SIL.Xml;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
-using static System.String;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class ReferenceTextTests
@@ -637,7 +635,7 @@ namespace GlyssenTests
 			Assert.AreEqual(vernacularBlocks.Count, result.Count);
 			Assert.IsTrue(result.Single().MatchesReferenceText);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].GetPrimaryReferenceText());
+			Assert.AreEqual(String.Join("", referenceBlocks.Select(r => r.GetText(true))), result[0].GetPrimaryReferenceText());
 		}
 
 		[Test]
@@ -1411,7 +1409,7 @@ namespace GlyssenTests
 
 			Assert.IsTrue(result[0].MatchesReferenceText);
 			Assert.AreEqual(1, result[0].ReferenceBlocks.Count);
-			Assert.AreEqual(Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), result[0].GetPrimaryReferenceText());
+			Assert.AreEqual(String.Join(" ", referenceBlocks.Take(2).Select(b => b.GetText(true))), result[0].GetPrimaryReferenceText());
 
 			Assert.AreEqual(1, result[1].ReferenceBlocks.Count);
 			Assert.AreEqual(referenceBlocks[2].GetText(true), result[1].ReferenceBlocks[0].GetText(true));
@@ -2887,7 +2885,7 @@ namespace GlyssenTests
 				CharacterId = characterId,
 			};
 			if (initialEndVerseNumber > 0)
-				block.AddVerse(Format("{0}-{1}", initialStartVerseNumber, initialEndVerseNumber), text);
+				block.AddVerse(String.Format("{0}-{1}", initialStartVerseNumber, initialEndVerseNumber), text);
 			else
 				block.AddVerse(initialStartVerseNumber, text);
 			return block;
@@ -2905,7 +2903,7 @@ namespace GlyssenTests
 				initialEndVerse = BCVRef.VerseToIntEnd(lastVerseElement.Number);
 			}
 
-			if (IsNullOrEmpty(styleTag))
+			if (String.IsNullOrEmpty(styleTag))
 				styleTag = lastBlock.StyleTag;
 
 			var block = new Block(styleTag, lastBlock.ChapterNumber, initialStartVerse, initialEndVerse)

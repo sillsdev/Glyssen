@@ -1,12 +1,11 @@
 ﻿using System.IO;
 using System.Linq;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Scripture;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	/// <summary>
 	/// Not that these tests purport to test the GetCharacters method, but in fact that is just a simple LINQ statement;

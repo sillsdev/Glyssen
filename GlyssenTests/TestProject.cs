@@ -5,21 +5,19 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
-using Glyssen;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using NUnit.Framework;
 using SIL.DblBundle.Text;
 using SIL.DblBundle.Usx;
 using SIL.IO;
-using SIL.Scripture;
 using SIL.WritingSystems;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Quote;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	static class TestProject
 	{

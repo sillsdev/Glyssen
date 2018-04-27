@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using NUnit.Framework;
 using SIL.Scripture;
 using Waxuquerque;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class BlockNavigatorTests

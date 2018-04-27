@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.Reflection;
@@ -8,7 +7,7 @@ using SIL.Scripture;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	class ProjectDataMigratorTests
 	{

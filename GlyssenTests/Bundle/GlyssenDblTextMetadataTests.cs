@@ -7,7 +7,7 @@ using NUnit.Framework;
 using SIL.TestUtilities;
 using Waxuquerque.Bundle;
 
-namespace GlyssenTests.Bundle
+namespace WaxuquerqueTests.Bundle
 {
 	class GlyssenDblTextMetadataTests
 	{

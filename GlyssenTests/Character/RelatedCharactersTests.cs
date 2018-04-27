@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Xml;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	class RelatedCharactersTests
 	{

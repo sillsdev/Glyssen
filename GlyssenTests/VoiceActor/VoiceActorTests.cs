@@ -2,7 +2,7 @@
 using Waxuquerque.Character;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.VoiceActor
+namespace WaxuquerqueTests.VoiceActor
 {
 	class VoiceActorTests
 	{

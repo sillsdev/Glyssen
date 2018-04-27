@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
-using SIL.TestUtilities;
-using SIL.Scripture;
-using SIL.Xml;
-using GlyssenTests.Properties;
 using Rhino.Mocks;
 using SIL.IO;
+using SIL.Scripture;
+using SIL.TestUtilities;
+using SIL.Xml;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class BlockTests

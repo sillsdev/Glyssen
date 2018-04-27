@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.Extensions;
@@ -10,7 +9,7 @@ using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	internal class AssignCharacterViewModelTests

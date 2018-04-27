@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Glyssen;
 using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel.Undo;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.Dialogs
+namespace WaxuquerqueTests.Dialogs
 {
 	[TestFixture]
 	class VoiceActorUndoActionTests

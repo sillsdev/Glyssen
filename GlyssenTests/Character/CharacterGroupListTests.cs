@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Glyssen;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests.Character
+namespace WaxuquerqueTests.Character
 {
 	[TestFixture]
 	class CharacterGroupListTests

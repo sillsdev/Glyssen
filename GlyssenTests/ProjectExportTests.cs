@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Glyssen;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.Extensions;
@@ -16,7 +15,7 @@ using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class ProjectExportTests

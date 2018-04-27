@@ -4,9 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Glyssen;
 using Glyssen.Shared;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.IO;
 using SIL.Scripture;
@@ -14,7 +12,7 @@ using SIL.Xml;
 using Waxuquerque;
 using Waxuquerque.Character;
 
-namespace GlyssenTests
+namespace WaxuquerqueTests
 {
 	[TestFixture]
 	class BookScriptTests

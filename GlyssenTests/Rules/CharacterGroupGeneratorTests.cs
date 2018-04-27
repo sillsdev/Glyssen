@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using Glyssen;
-using GlyssenTests.Properties;
 using NUnit.Framework;
 using SIL.Extensions;
 using Waxuquerque;
@@ -14,7 +12,7 @@ using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenTests.Rules
+namespace WaxuquerqueTests.Rules
 {
 	[TestFixture]
 	class CharacterGroupGeneratorTestsWithTwoBooksWithNoChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase
