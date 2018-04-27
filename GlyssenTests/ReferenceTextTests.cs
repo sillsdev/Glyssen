@@ -5,7 +5,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Glyssen;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using GlyssenTests.Properties;
@@ -756,7 +755,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			using (new ErrorReport.NoNonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();
@@ -795,7 +794,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			using (new ErrorReport.NoNonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();
@@ -832,7 +831,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			using (new ErrorReport.NoNonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();
@@ -866,7 +865,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			using (new ErrorReport.NoNonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();
@@ -915,7 +914,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			//using (new ErrorReport.NoNonFatalErrorReportExpected())
+			//using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();
@@ -960,9 +959,9 @@ namespace GlyssenTests
 			var refText = ReferenceText.GetStandardReferenceText(ReferenceTextType.English);
 
 #if DEBUG
-			using (new ErrorReport.NonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NonFatalErrorReportExpected())
 #else
-			using (new ErrorReport.NoNonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 #endif
 				refText.ApplyTo(vernBook, m_vernVersification);
 		}
@@ -1043,7 +1042,7 @@ namespace GlyssenTests
 
 			var refText = TestReferenceText.CreateTestReferenceText(vernBook.BookId, referenceBlocks);
 
-			using (new ErrorReport.NoNonFatalErrorReportExpected())
+			using (new SIL.Reporting.ErrorReport.NoNonFatalErrorReportExpected())
 				refText.ApplyTo(vernBook, m_vernVersification);
 
 			var result = vernBook.GetScriptBlocks();

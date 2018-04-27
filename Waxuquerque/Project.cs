@@ -27,6 +27,7 @@ using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Properties;
 using Waxuquerque.Quote;
+using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 
@@ -90,6 +91,9 @@ namespace Waxuquerque
 				m_vers = LoadVersification(VersificationFilePath);
 			if (installFonts)
 				InstallFontsIfNecessary();
+
+			if (GeneralUtilities.RunningUnitTests)
+				return;
 
 			if (HelpUserRecoverFromBadLdmlFile == null)
 				throw new InvalidOperationException();
