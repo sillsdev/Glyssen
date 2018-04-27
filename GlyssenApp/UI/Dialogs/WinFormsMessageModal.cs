@@ -1,6 +1,6 @@
 ﻿using Waxuquerque;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Dialogs
 {
 	public class WinFormsMessageModal : IMessageModal
 	{

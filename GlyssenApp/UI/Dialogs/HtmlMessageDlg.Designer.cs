@@ -1,4 +1,6 @@
-﻿namespace GlyssenApp.UI.Dialogs
+﻿using GlyssenApp.UI.Controls;
+
+namespace GlyssenApp.UI.Dialogs
 {
 	partial class HtmlMessageDlg
 	{

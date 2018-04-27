@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using SIL.Windows.Forms.Widgets.BetterGrid;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	/// <summary>
 	/// AutoScrollGrid will auto-scroll when dragging at the top or bottom.

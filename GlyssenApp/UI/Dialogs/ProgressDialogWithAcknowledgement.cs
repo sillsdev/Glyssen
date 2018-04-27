@@ -11,7 +11,7 @@ using L10NSharp;
 using SIL.Progress;
 using SIL.Reporting;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Dialogs
 {
 	/// <summary>
 	/// Provides a progress dialog which forces the user to acknowledge is complete by clicking OK
@@ -413,11 +413,11 @@ namespace GlyssenApp.UI
 			this.m_buttonPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_glyssenColorPalette)).BeginInit();
 			this.SuspendLayout();
-			// 
+			//
 			// m_statusLabel
-			// 
-			this.m_statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			//
+			this.m_statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_statusLabel.AutoSize = true;
 			this.m_statusLabel.BackColor = System.Drawing.SystemColors.Control;
 			this.m_glyssenColorPalette.SetBackColor(this.m_statusLabel, GlyssenColors.BackColor);
@@ -433,11 +433,11 @@ namespace GlyssenApp.UI
 			this.m_statusLabel.Text = "#";
 			this.m_statusLabel.UseMnemonic = false;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_statusLabel, true);
-			// 
+			//
 			// m_progressBar
-			// 
-			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			//
+			this.m_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_glyssenColorPalette.SetBackColor(this.m_progressBar, GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_progressBar, 2);
 			this.m_glyssenColorPalette.SetForeColor(this.m_progressBar, GlyssenColors.ForeColor);
@@ -449,11 +449,11 @@ namespace GlyssenApp.UI
 			this.m_progressBar.TabIndex = 11;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_progressBar, false);
 			this.m_progressBar.Value = 1;
-			// 
+			//
 			// m_progressLabel
-			// 
-			this.m_progressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			//
+			this.m_progressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_progressLabel.AutoEllipsis = true;
 			this.m_progressLabel.AutoSize = true;
 			this.m_glyssenColorPalette.SetBackColor(this.m_progressLabel, GlyssenColors.BackColor);
@@ -467,22 +467,22 @@ namespace GlyssenApp.UI
 			this.m_progressLabel.Text = "#";
 			this.m_progressLabel.UseMnemonic = false;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_progressLabel, true);
-			// 
+			//
 			// m_showWindowIfTakingLongTimeTimer
-			// 
+			//
 			this.m_showWindowIfTakingLongTimeTimer.Interval = 2000;
 			this.m_showWindowIfTakingLongTimeTimer.Tick += new System.EventHandler(this.OnTakingLongTimeTimerClick);
-			// 
+			//
 			// m_progressTimer
-			// 
+			//
 			this.m_progressTimer.Enabled = true;
 			this.m_progressTimer.Interval = 1000;
 			this.m_progressTimer.Tick += new System.EventHandler(this.progressTimer_Tick);
-			// 
+			//
 			// m_overviewLabel
-			// 
-			this.m_overviewLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			//
+			this.m_overviewLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_overviewLabel.AutoSize = true;
 			this.m_glyssenColorPalette.SetBackColor(this.m_overviewLabel, GlyssenColors.BackColor);
 			this.m_tableLayout.SetColumnSpan(this.m_overviewLabel, 2);
@@ -497,9 +497,9 @@ namespace GlyssenApp.UI
 			this.m_overviewLabel.Text = "#";
 			this.m_overviewLabel.UseMnemonic = false;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_overviewLabel, true);
-			// 
+			//
 			// m_tableLayout
-			// 
+			//
 			this.m_tableLayout.AutoSize = true;
 			this.m_tableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.m_tableLayout.BackColor = System.Drawing.Color.Transparent;
@@ -527,9 +527,9 @@ namespace GlyssenApp.UI
 			this.m_tableLayout.TabIndex = 13;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_tableLayout, false);
 			this.m_tableLayout.SizeChanged += new System.EventHandler(this.HandleTableLayoutSizeChanged);
-			// 
+			//
 			// m_buttonPanel
-			// 
+			//
 			this.m_buttonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.m_buttonPanel.AutoSize = true;
 			this.m_buttonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -548,9 +548,9 @@ namespace GlyssenApp.UI
 			this.m_buttonPanel.Size = new System.Drawing.Size(124, 23);
 			this.m_buttonPanel.TabIndex = 14;
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_buttonPanel, false);
-			// 
+			//
 			// m_okButton
-			// 
+			//
 			this.m_okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_okButton.AutoSize = true;
 			this.m_glyssenColorPalette.SetBackColor(this.m_okButton, GlyssenColors.BackColor);
@@ -565,9 +565,9 @@ namespace GlyssenApp.UI
 			this.m_okButton.Text = "&OK";
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_okButton, false);
 			this.m_okButton.Visible = false;
-			// 
+			//
 			// m_cancelButton
-			// 
+			//
 			this.m_cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.m_cancelButton.AutoSize = true;
 			this.m_glyssenColorPalette.SetBackColor(this.m_cancelButton, GlyssenColors.BackColor);
@@ -582,9 +582,9 @@ namespace GlyssenApp.UI
 			this.m_cancelButton.Text = "&Cancel";
 			this.m_glyssenColorPalette.SetUsePaletteColors(this.m_cancelButton, false);
 			this.m_cancelButton.Click += new System.EventHandler(this.OnCancelButton_Click);
-			// 
+			//
 			// m_cancelLink
-			// 
+			//
 			this.m_cancelLink.ActiveLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_glyssenColorPalette.SetActiveLinkColor(this.m_cancelLink, GlyssenColors.ActiveLinkColor);
 			this.m_cancelLink.AutoSize = true;
@@ -609,9 +609,9 @@ namespace GlyssenApp.UI
 			this.m_cancelLink.VisitedLinkColor = System.Drawing.SystemColors.HotTrack;
 			this.m_glyssenColorPalette.SetVisitedLinkColor(this.m_cancelLink, GlyssenColors.VisitedLinkColor);
 			this.m_cancelLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnCancelLink_LinkClicked);
-			// 
+			//
 			// ProgressDialogWithAcknowledgement
-			// 
+			//
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.AutoSize = true;
@@ -688,10 +688,10 @@ namespace GlyssenApp.UI
 				double estimatedSeconds = (elapsed.TotalSeconds * range) / m_progressBar.Value;
 				TimeSpan estimatedToGo = new TimeSpan(0, 0, 0, (int)(estimatedSeconds - elapsed.TotalSeconds), 0);
 				//_progressLabel.Text = String.Format(
-				//    System.Globalization.CultureInfo.CurrentUICulture,
-				//    "Elapsed: {0} Remaining: {1}",
-				//    GetStringFor(elapsed),
-				//    GetStringFor(estimatedToGo));
+				//	System.Globalization.CultureInfo.CurrentUICulture,
+				//	"Elapsed: {0} Remaining: {1}",
+				//	GetStringFor(elapsed),
+				//	GetStringFor(estimatedToGo));
 				m_progressLabel.Text = String.Format(
 					CultureInfo.CurrentUICulture,
 					"{0}",

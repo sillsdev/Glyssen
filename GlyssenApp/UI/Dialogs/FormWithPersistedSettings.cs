@@ -7,8 +7,8 @@ using System.Windows.Forms;
 using GlyssenApp.Properties;
 using SIL.Windows.Forms.PortableSettingsProvider;
 
-namespace GlyssenApp.UI
-{ 
+namespace GlyssenApp.UI.Dialogs
+{
 	public class FormWithPersistedSettings: Form
 	{
 		protected const int kChildFormLocationX = 202;
@@ -80,7 +80,7 @@ namespace GlyssenApp.UI
 			}
 			else
 			{
-				((FormSettings)Settings.Default[m_formSettingsName]).InitializeForm(this);					
+				((FormSettings)Settings.Default[m_formSettingsName]).InitializeForm(this);
 			}
 		}
 
@@ -110,7 +110,7 @@ namespace GlyssenApp.UI
 						if (gridSettings.Columns.Length == grid.Columns.Count)
 							gridSettings.InitializeGrid(grid);
 					}
-				} 
+				}
 			}
 
 			foreach (Control child in control.Controls)

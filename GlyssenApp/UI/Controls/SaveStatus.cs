@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using L10NSharp;
 using Timer = System.Timers.Timer;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public partial class SaveStatus : UserControl
 	{

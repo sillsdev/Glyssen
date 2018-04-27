@@ -141,19 +141,19 @@
     <Compile Include="UI\Dialogs\AssignCharacterDlg.Designer.cs">
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AutoScrollGrid.cs">
+    <Compile Include="UI\Controls\AutoScrollGrid.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\BlockProgressBar.cs">
+    <Compile Include="UI\Controls\BlockProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\BlockProgressBar.Designer.cs">
+    <Compile Include="UI\Controls\BlockProgressBar.Designer.cs">
       <DependentUpon>BlockProgressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Browser.cs">
+    <Compile Include="UI\Controls\Browser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Browser.Designer.cs">
+    <Compile Include="UI\Controls\Browser.Designer.cs">
       <DependentUpon>Browser.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\CastSizePlanningDlg.cs">
@@ -162,26 +162,26 @@
     <Compile Include="UI\Dialogs\CastSizePlanningDlg.Designer.cs">
       <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CastSizePlanningOptions.cs">
+    <Compile Include="UI\Controls\CastSizePlanningOptions.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\CastSizePlanningOptions.Designer.cs">
+    <Compile Include="UI\Controls\CastSizePlanningOptions.Designer.cs">
       <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ControlExtensions.cs" />
-    <Compile Include="UI\DataGridViewDropdownColumnHeader.cs" />
-    <Compile Include="UI\DataGridViewListBox.cs" />
-    <Compile Include="UI\DataGridViewMultiColumnComboBoxCell.cs" />
-    <Compile Include="UI\DataGridViewMultiColumnComboBoxColumn.cs" />
-    <Compile Include="UI\DataGridViewMultiColumnComboBoxEditingControl.cs">
+    <Compile Include="UI\Controls\ControlExtensions.cs" />
+    <Compile Include="UI\Controls\DataGridViewDropdownColumnHeader.cs" />
+    <Compile Include="UI\Controls\DataGridViewListBox.cs" />
+    <Compile Include="UI\Controls\DataGridViewMultiColumnComboBoxCell.cs" />
+    <Compile Include="UI\Controls\DataGridViewMultiColumnComboBoxColumn.cs" />
+    <Compile Include="UI\Controls\DataGridViewMultiColumnComboBoxEditingControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\RolesForVoiceActorsSaveAsDialog.cs" />
     <Compile Include="UI\Dialogs\SelectProjectDlg.cs" />
-    <Compile Include="UI\ExistingProjectsList.cs">
+    <Compile Include="UI\Controls\ExistingProjectsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\ExistingProjectsList.Designer.cs">
+    <Compile Include="UI\Controls\ExistingProjectsList.Designer.cs">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\ExportDlg.cs">
@@ -196,10 +196,10 @@
     <Compile Include="UI\Dialogs\ExportToRecordingToolDlg.Designer.cs">
       <DependentUpon>ExportToRecordingToolDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FormWithPersistedSettings.cs">
+    <Compile Include="UI\Dialogs\FormWithPersistedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\GeckoUtilities.cs" />
+    <Compile Include="Utilities\GeckoUtilities.cs" />
     <Compile Include="UI\Dialogs\GenerateGroupsProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,7 +212,7 @@
     <Compile Include="UI\Dialogs\HtmlMessageDlg.Designer.cs">
       <DependentUpon>HtmlMessageDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\L10N.cs" />
+    <Compile Include="UI\Controls\L10N.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,10 +243,10 @@
     <Compile Include="UI\Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.Designer.cs">
       <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ProgressBarUnanimated.cs">
+    <Compile Include="UI\Controls\ProgressBarUnanimated.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\ProgressDialogWithAcknowledgement.cs">
+    <Compile Include="UI\Dialogs\ProgressDialogWithAcknowledgement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\ProjectSettingsDlg.cs">
@@ -261,19 +261,19 @@
     <Compile Include="UI\Dialogs\QuotationMarksDlg.Designer.cs">
       <DependentUpon>QuotationMarksDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SaveStatus.cs">
+    <Compile Include="UI\Controls\SaveStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\SaveStatus.Designer.cs">
+    <Compile Include="UI\Controls\SaveStatus.Designer.cs">
       <DependentUpon>SaveStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ScriptBlocksGridView.cs">
+    <Compile Include="UI\Controls\ScriptBlocksGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\ScriptBlocksViewer.cs">
+    <Compile Include="UI\Controls\ScriptBlocksViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\ScriptBlocksViewer.Designer.cs">
+    <Compile Include="UI\Controls\ScriptBlocksViewer.Designer.cs">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\ScriptureRangeSelectionDlg.cs">
@@ -300,7 +300,7 @@
     <Compile Include="UI\Dialogs\SplitCharacterGroupDlg.Designer.cs">
       <DependentUpon>SplitCharacterGroupDlg.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\TextBoxExtensions.cs" />
+    <Compile Include="UI\Controls\TextBoxExtensions.cs" />
     <Compile Include="UI\Dialogs\TooManyUnexpectedQuotesFoundDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,13 +333,13 @@
     </Compile>
     <Compile Include="Utilities\CustomColor.cs" />
     <Compile Include="Utilities\VerseRefExtensions.cs" />
-    <Compile Include="UI\VoiceActorInformationGrid.cs">
+    <Compile Include="UI\Controls\VoiceActorInformationGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\VoiceActorInformationGrid.Designer.cs">
+    <Compile Include="UI\Controls\VoiceActorInformationGrid.Designer.cs">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\WinFormsMessageModal.cs" />
+    <Compile Include="UI\Dialogs\WinFormsMessageModal.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -359,16 +359,16 @@
       <DependentUpon>AssignCharacterDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Browser.resx">
+    <EmbeddedResource Include="UI\Controls\Browser.resx">
       <DependentUpon>Browser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\CastSizePlanningDlg.resx">
       <DependentUpon>CastSizePlanningDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CastSizePlanningOptions.resx">
+    <EmbeddedResource Include="UI\Controls\CastSizePlanningOptions.resx">
       <DependentUpon>CastSizePlanningOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExistingProjectsList.resx">
+    <EmbeddedResource Include="UI\Controls\ExistingProjectsList.resx">
       <DependentUpon>ExistingProjectsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\ExportDlg.resx">
@@ -398,7 +398,7 @@
     <EmbeddedResource Include="UI\Dialogs\PercentageOfExpectedQuotesFoundTooLowDlg.resx">
       <DependentUpon>PercentageOfExpectedQuotesFoundTooLowDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ProgressDialogWithAcknowledgement.resx">
+    <EmbeddedResource Include="UI\Dialogs\ProgressDialogWithAcknowledgement.resx">
       <DependentUpon>ProgressDialogWithAcknowledgement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\ProjectSettingsDlg.resx">
@@ -407,10 +407,10 @@
     <EmbeddedResource Include="UI\Dialogs\QuotationMarksDlg.resx">
       <DependentUpon>QuotationMarksDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SaveStatus.resx">
+    <EmbeddedResource Include="UI\Controls\SaveStatus.resx">
       <DependentUpon>SaveStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ScriptBlocksViewer.resx">
+    <EmbeddedResource Include="UI\Controls\ScriptBlocksViewer.resx">
       <DependentUpon>ScriptBlocksViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dialogs\ScriptureRangeSelectionDlg.resx">
@@ -441,7 +441,7 @@
     <EmbeddedResource Include="UI\Dialogs\VoiceActorInformationDlg.resx">
       <DependentUpon>VoiceActorInformationDlg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\VoiceActorInformationGrid.resx">
+    <EmbeddedResource Include="UI\Controls\VoiceActorInformationGrid.resx">
       <DependentUpon>VoiceActorInformationGrid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

@@ -10,7 +10,7 @@ using SIL.Scripture;
 using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public class ScriptBlocksGridView : DataGridView
 	{
@@ -198,7 +198,7 @@ namespace GlyssenApp.UI
 		{
 			m_updatingContext = true;
 			SuspendLayout();
-	
+
 			ResetSelectionBackColors();
 
 			ClearSelection();
@@ -233,7 +233,7 @@ namespace GlyssenApp.UI
 
 			if (changingRowCount)
 				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-			
+
 			ResumeLayout();
 
 			m_updatingContext = false;
@@ -338,15 +338,15 @@ namespace GlyssenApp.UI
 		}
 
 		private static TextFormatFlags ComputeTextFormatFlagsForCellStyleAlignment(bool rightToLeft)
-        {
-            TextFormatFlags tff = TextFormatFlags.Top | TextFormatFlags.SingleLine | TextFormatFlags.NoPrefix | TextFormatFlags.PreserveGraphicsClipping;
-            if (rightToLeft)
-                tff |= TextFormatFlags.Right |TextFormatFlags.RightToLeft;
-            else
-                tff |= TextFormatFlags.Left;
-            return tff;
-        }
- 
+		{
+			TextFormatFlags tff = TextFormatFlags.Top | TextFormatFlags.SingleLine | TextFormatFlags.NoPrefix | TextFormatFlags.PreserveGraphicsClipping;
+			if (rightToLeft)
+				tff |= TextFormatFlags.Right |TextFormatFlags.RightToLeft;
+			else
+				tff |= TextFormatFlags.Left;
+			return tff;
+		}
+
 
 		private void CalculateMinimumWidth()
 		{

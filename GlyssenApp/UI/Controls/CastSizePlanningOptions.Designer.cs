@@ -1,6 +1,6 @@
 ﻿using GlyssenApp.Utilities;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	partial class CastSizePlanningOptions
 	{

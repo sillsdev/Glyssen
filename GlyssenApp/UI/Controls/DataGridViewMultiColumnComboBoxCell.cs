@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	/// <summary>
 	/// Displays a DataGridViewMultiColumnComboBoxEditingControl in a <see cref="T:System.Windows.Forms.DataGridView"/> control.
@@ -153,7 +153,7 @@ namespace GlyssenApp.UI
 		/// </summary>
 		///
 		/// <returns>
-		/// An <see cref="T:System.Object"/> that represents the cloned <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxCell"/>.
+		/// An <see cref="T:System.Object"/> that represents the cloned <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxCell"/>.
 		/// </returns>
 		public override object Clone()
 		{

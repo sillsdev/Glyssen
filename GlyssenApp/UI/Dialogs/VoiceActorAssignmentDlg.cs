@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
 using GlyssenApp.Properties;
+using GlyssenApp.UI.Controls;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.Extensions;

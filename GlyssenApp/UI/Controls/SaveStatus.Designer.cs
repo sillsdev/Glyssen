@@ -1,4 +1,4 @@
-﻿namespace GlyssenApp.UI
+﻿namespace GlyssenApp.UI.Controls
 {
 	partial class SaveStatus
 	{

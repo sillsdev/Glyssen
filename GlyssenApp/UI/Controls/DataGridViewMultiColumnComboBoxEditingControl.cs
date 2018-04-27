@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	/// <summary>
 	/// Represents the hosted Multi-Column Combo Box control in a <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxCell"/>.
@@ -27,7 +27,7 @@ namespace GlyssenApp.UI
 		#region "Constructor"
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxEditingControl"/> class.
+		/// Initializes a new instance of the <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxEditingControl"/> class.
 		/// </summary>
 		public DataGridViewMultiColumnComboBoxEditingControl()
 		{

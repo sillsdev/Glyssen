@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Glyssen;
+using GlyssenApp.UI.Controls;
 using Waxuquerque;
 using Waxuquerque.ViewModel;
 

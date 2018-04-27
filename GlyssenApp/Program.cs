@@ -11,6 +11,7 @@ using Glyssen;
 using GlyssenApp.Properties;
 using GlyssenApp.UI;
 using Glyssen.Shared;
+using GlyssenApp.UI.Dialogs;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL;

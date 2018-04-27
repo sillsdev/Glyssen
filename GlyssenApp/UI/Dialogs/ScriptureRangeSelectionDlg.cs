@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DesktopAnalytics;
 using Glyssen;
+using GlyssenApp.UI.Controls;
 using L10NSharp;
 using L10NSharp.UI;
 using SIL.DblBundle.Text;

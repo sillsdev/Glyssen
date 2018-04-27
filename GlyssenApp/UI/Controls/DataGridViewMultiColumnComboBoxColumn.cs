@@ -6,10 +6,10 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	/// <summary>
-	/// Represents a column of <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxColumn"/> objects.
+	/// Represents a column of <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxColumn"/> objects.
 	/// http://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/
 	/// </summary>
 	/// <filterpriority>2</filterpriority>
@@ -20,7 +20,7 @@ namespace GlyssenApp.UI
 		#region "Constructor"
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxColumn"/> class to the default state.
+		/// Initializes a new instance of the <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxColumn"/> class to the default state.
 		/// </summary>
 		public DataGridViewMultiColumnComboBoxColumn()
 		{
@@ -36,9 +36,9 @@ namespace GlyssenApp.UI
 		/// </summary>
 		///
 		/// <returns>
-		/// A <see cref="T:System.Windows.Forms.DataGridViewCell"/> that all other cells in the column are modeled after. The default value is a new <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxCell"/>.
+		/// A <see cref="T:System.Windows.Forms.DataGridViewCell"/> that all other cells in the column are modeled after. The default value is a new <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxCell"/>.
 		/// </returns>
-		/// <exception cref="T:System.InvalidCastException">When setting this property to a value that is not of type <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxCell"/>. </exception><filterpriority>1</filterpriority>
+		/// <exception cref="T:System.InvalidCastException">When setting this property to a value that is not of type <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxCell"/>. </exception><filterpriority>1</filterpriority>
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override sealed DataGridViewCell CellTemplate
@@ -315,7 +315,7 @@ namespace GlyssenApp.UI
 		/// </summary>
 		///
 		/// <returns>
-		/// An <see cref="T:System.Object"/> that represents the cloned <see cref="T:GlyssenApp.UI.DataGridViewMultiColumnComboBoxColumn"/>.
+		/// An <see cref="T:System.Object"/> that represents the cloned <see cref="T:GlyssenApp.UI.Controls.DataGridViewMultiColumnComboBoxColumn"/>.
 		/// </returns>
 		public override object Clone()
 		{

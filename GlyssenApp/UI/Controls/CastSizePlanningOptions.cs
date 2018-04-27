@@ -5,7 +5,7 @@ using GlyssenApp.Utilities;
 using Waxuquerque.Bundle;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public partial class CastSizePlanningOptions : UserControl
 	{
@@ -169,7 +169,7 @@ namespace GlyssenApp.UI
 
 		public void SetCastSizeOptionValues(CastSizePlanningViewModel model)
 		{
-			SetRowValues(CastSizeOption.Small, model.GetCastSizeRowValues(CastSizeOption.Small)); 
+			SetRowValues(CastSizeOption.Small, model.GetCastSizeRowValues(CastSizeOption.Small));
 			SetRowValues(CastSizeOption.Recommended, model.GetCastSizeRowValues(CastSizeOption.Recommended));
 			SetRowValues(CastSizeOption.Large, model.GetCastSizeRowValues(CastSizeOption.Large));
 			SetRowValues(CastSizeOption.Custom, model.GetCastSizeRowValues(CastSizeOption.Custom));

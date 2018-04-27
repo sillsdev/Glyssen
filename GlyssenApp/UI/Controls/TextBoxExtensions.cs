@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public static class TextBoxExtensions
 	{

@@ -1,4 +1,5 @@
-﻿using GlyssenApp.Utilities;
+﻿using GlyssenApp.UI.Controls;
+using GlyssenApp.Utilities;
 using L10NSharp.UI;
 using Waxuquerque.Bundle;
 using Waxuquerque.ViewModel;

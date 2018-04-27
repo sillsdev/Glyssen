@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	//Modified from example at https://msdn.microsoft.com/en-us/library/7tas5c80(v=vs.110).aspx
 

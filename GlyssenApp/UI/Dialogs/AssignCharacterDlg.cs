@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using DesktopAnalytics;
 using Glyssen;
 using GlyssenApp.Properties;
+using GlyssenApp.UI.Controls;
 using GlyssenApp.Utilities;
 using L10NSharp;
 using L10NSharp.UI;

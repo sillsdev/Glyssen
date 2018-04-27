@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using GlyssenApp.UI.Controls;
 using GlyssenApp.Utilities;
 
 namespace GlyssenApp.UI.Dialogs

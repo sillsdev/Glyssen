@@ -1,7 +1,7 @@
 ﻿using Gecko;
 using Gecko.DOM;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.Utilities
 {
 	static class GeckoUtilities
 	{

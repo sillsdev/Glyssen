@@ -6,7 +6,7 @@ using Glyssen.Shared;
 using L10NSharp;
 using SIL.Scripture;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	internal class L10N
 	{

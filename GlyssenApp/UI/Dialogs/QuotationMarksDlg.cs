@@ -8,6 +8,7 @@ using DesktopAnalytics;
 using Glyssen;
 using Glyssen.Shared;
 using GlyssenApp.Properties;
+using GlyssenApp.UI.Controls;
 using GlyssenApp.Utilities;
 using L10NSharp;
 using L10NSharp.UI;

@@ -11,7 +11,7 @@ using SIL.Reporting;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public partial class VoiceActorInformationGrid : UserControl
 	{

@@ -6,14 +6,14 @@ using System.Windows.Forms;
 using Gecko;
 using Gecko.DOM;
 using Gecko.Events;
-using Glyssen;
+using GlyssenApp.Utilities;
 using L10NSharp;
 using SIL.Windows.Forms.Extensions;
 using SIL.Windows.Forms.PortableSettingsProvider;
 using Waxuquerque;
 using Waxuquerque.ViewModel;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public enum ScriptBlocksViewType
 	{

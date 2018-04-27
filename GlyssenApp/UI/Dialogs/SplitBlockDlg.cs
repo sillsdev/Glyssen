@@ -10,6 +10,7 @@ using Gecko;
 using Gecko.DOM;
 using Glyssen;
 using GlyssenApp.Properties;
+using GlyssenApp.Utilities;
 using SIL.Reporting;
 using Waxuquerque;
 using Waxuquerque.Utilities;

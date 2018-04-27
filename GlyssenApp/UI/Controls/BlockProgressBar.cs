@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using L10NSharp;
 using Waxuquerque.Utilities;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public partial class BlockProgressBar : ProgressBarUnanimated
 	{

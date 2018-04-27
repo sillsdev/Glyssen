@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using Glyssen;
 using Glyssen.Shared;
 using Glyssen.Shared.Bundle;
 using SIL.DblBundle;
@@ -10,7 +9,7 @@ using SIL.Windows.Forms.DblBundle;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 
-namespace GlyssenApp.UI
+namespace GlyssenApp.UI.Controls
 {
 	public partial class ExistingProjectsList : ProjectsListBase<GlyssenDblTextMetadata, GlyssenDblMetadataLanguage>
 	{
