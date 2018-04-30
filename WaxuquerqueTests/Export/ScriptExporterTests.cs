@@ -2,6 +2,7 @@
 using System.Linq;
 using Glyssen.Shared;
 using NUnit.Framework;
+using Waxuquerque;
 using Waxuquerque.Export;
 
 namespace WaxuquerqueTests.Export

@@ -668,7 +668,7 @@ namespace Waxuquerque.Export
 		/// <summary>
 		/// Get a list of ExportBlocks which represent the data we want in our export
 		/// </summary>
-		internal IEnumerable<ExportBlock> GetExportBlocks()
+		public IEnumerable<ExportBlock> GetExportBlocks()
 		{
 			foreach (var row in GetExportData(getBlockElements: true))
 			{

@@ -19,7 +19,6 @@
     <Reference Include="SIL.Scripture">
       <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
-    <Compile Include="BlockElement.cs" />
   </ItemGroup>
 
 </Project>

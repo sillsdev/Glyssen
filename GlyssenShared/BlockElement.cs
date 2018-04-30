@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using SIL.Scripture;
 
-namespace Waxuquerque
+namespace Glyssen.Shared
 {
 	[XmlInclude(typeof(ScriptText))]
 	[XmlInclude(typeof(Verse))]
