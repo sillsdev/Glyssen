@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GlyssenTests")]
+[assembly: AssemblyTitle("WaxuquerqueTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FCBH-SIL")]
-[assembly: AssemblyProduct("GlyssenTests")]
+[assembly: AssemblyProduct("WaxuquerqueTests")]
 [assembly: AssemblyCopyright("Copyright © 2014-2018 Faith Comes By Hearing and SIL International")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

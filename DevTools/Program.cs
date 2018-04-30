@@ -23,7 +23,7 @@ namespace DevTools
 			Console.WriteLine("9) Generate reference texts from Excel spreadsheet");
 			Console.WriteLine("10) Link reference texts to English");
 			Console.WriteLine("11) Generate character mapping FCBH<->Glyssen (output in Resources/temporary)");
-			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in GlyssenTests/Resources/temporary)");
+			Console.WriteLine("12) Obfuscate proprietary reference texts to make testing resources (output in WaxuquerqueTests/Resources/temporary)");
 			Console.WriteLine("13) Generate reference text book title and chapter label summary");
 			Console.WriteLine("14) Create new English reference text (see comments in the Mode enum in ReferenceTextUtility)");
 

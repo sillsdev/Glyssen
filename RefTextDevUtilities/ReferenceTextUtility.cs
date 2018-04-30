@@ -1467,7 +1467,7 @@ namespace Glyssen.RefTextDevUtilities
 
 		public static void ObfuscateProprietaryReferenceTextsToMakeTestingResources()
 		{
-			var baseResourcesDir = Path.Combine("..", "..", "GlyssenTests", "Resources");
+			var baseResourcesDir = Path.Combine("..", "..", "WaxuquerqueTests", "Resources");
 			var outputDir = Path.Combine(baseResourcesDir, "temporary");
 
 			if (!Directory.Exists(outputDir))
