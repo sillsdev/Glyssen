@@ -1,5 +1,6 @@
 ﻿using System;
 using Waxuquerque;
+using Waxuquerque.Utilities;
 using ErrorReport = SIL.Reporting.ErrorReport;
 
 namespace GlyssenApp.Utilities

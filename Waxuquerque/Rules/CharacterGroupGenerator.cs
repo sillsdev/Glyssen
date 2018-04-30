@@ -7,6 +7,7 @@ using SIL.Extensions;
 using SIL.Progress;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 

@@ -1,4 +1,5 @@
 ﻿using Waxuquerque;
+using Waxuquerque.Utilities;
 using PathUtilities = SIL.IO.PathUtilities;
 
 namespace GlyssenApp.Utilities

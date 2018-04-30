@@ -17,6 +17,7 @@ using SIL.Extensions;
 using SIL.Reporting;
 using Waxuquerque;
 using Waxuquerque.Character;
+using Waxuquerque.Export;
 using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 using Analytics = Waxuquerque.Utilities.Analytics;

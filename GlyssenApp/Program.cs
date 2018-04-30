@@ -23,10 +23,11 @@ using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
 using Waxuquerque;
 using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 using Analytics = Waxuquerque.Utilities.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using Logger = SIL.Reporting.Logger;
-using PathUtilities = Waxuquerque.PathUtilities;
+using PathUtilities = Waxuquerque.Utilities.PathUtilities;
 
 namespace GlyssenApp
 {
@@ -87,7 +88,7 @@ namespace GlyssenApp
 #endif
 			{
 				Logger.Init();
-				Waxuquerque.Logger.Default = new DesktopLogger();
+				Waxuquerque.Utilities.Logger.Default = new DesktopLogger();
 
 				Project.HelpUserRecoverFromBadLdmlFile = HelpUserRecoverFromBadLdmlFile;
 
@@ -163,7 +164,7 @@ namespace GlyssenApp
 			ErrorReport.SetErrorReporter(new WinFormsErrorReporter());
 			ErrorReport.EmailAddress = IssuesEmailAddress;
 			ErrorReport.AddStandardProperties();
-			Waxuquerque.ErrorReport.Default = new DesktopErrorReport();
+			Waxuquerque.Utilities.ErrorReport.Default = new DesktopErrorReport();
 
 			ExceptionHandler.Init(new WinFormsExceptionHandler());
 			ExceptionHandler.AddDelegate(ReportError);

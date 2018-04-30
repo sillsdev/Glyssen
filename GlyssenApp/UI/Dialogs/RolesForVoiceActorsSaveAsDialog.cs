@@ -7,6 +7,7 @@ using Glyssen.Shared;
 using L10NSharp;
 using L10NSharp.UI;
 using Waxuquerque;
+using Waxuquerque.Export;
 using Analytics = Waxuquerque.Utilities.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using PathUtilities = SIL.IO.PathUtilities;

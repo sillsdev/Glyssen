@@ -6,6 +6,7 @@ using Glyssen.Shared;
 using SIL.Extensions;
 using SIL.Scripture;
 using Waxuquerque.Character;
+using Waxuquerque.Utilities;
 
 namespace Waxuquerque
 {

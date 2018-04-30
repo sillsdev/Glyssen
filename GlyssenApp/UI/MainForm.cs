@@ -27,6 +27,7 @@ using SIL.Windows.Forms.ReleaseNotes;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
+using Waxuquerque.Export;
 using Waxuquerque.Rules;
 using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Glyssen;
 using L10NSharp.UI;
 using Waxuquerque;
+using Waxuquerque.Export;
 
 namespace GlyssenApp.UI.Dialogs
 {

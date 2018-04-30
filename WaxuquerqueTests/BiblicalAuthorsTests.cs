@@ -2,6 +2,7 @@
 using SIL.TestUtilities;
 using SIL.Xml;
 using Waxuquerque;
+using Waxuquerque.Utilities;
 
 namespace WaxuquerqueTests
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using SIL.Reporting;
-using ILogger = Waxuquerque.ILogger;
+using ILogger = Waxuquerque.Utilities.ILogger;
 
 namespace GlyssenApp.Utilities
 {

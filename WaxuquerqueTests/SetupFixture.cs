@@ -1,7 +1,7 @@
 ﻿using System;
 using GlyssenApp.Utilities;
 using NUnit.Framework;
-using Waxuquerque;
+using Waxuquerque.Utilities;
 
 namespace WaxuquerqueTests
 {

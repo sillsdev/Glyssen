@@ -1,4 +1,5 @@
 ﻿using Waxuquerque;
+using Waxuquerque.Utilities;
 
 namespace GlyssenApp.UI.Dialogs
 {

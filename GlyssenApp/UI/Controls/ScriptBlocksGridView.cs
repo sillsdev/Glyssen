@@ -9,6 +9,7 @@ using SIL.Scripture;
 using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
 using Analytics = DesktopAnalytics.Analytics;
+using ErrorReport = SIL.Reporting.ErrorReport;
 
 namespace GlyssenApp.UI.Controls
 {
