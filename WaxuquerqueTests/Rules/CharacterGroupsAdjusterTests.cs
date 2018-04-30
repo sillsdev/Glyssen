@@ -5,6 +5,7 @@ using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
 using Waxuquerque.VoiceActor;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Rules
 {
@@ -273,7 +274,7 @@ namespace WaxuquerqueTests.Rules
 			var countOfCharactersNotCovered = adjuster.CharactersNotCoveredByAnyGroup.Count();
 			Assert.AreEqual(0, adjuster.CharactersNoLongerInUse.Count());
 			var originalCountOfGroups = m_testProject.CharacterGroupList.CharacterGroups.Count;
-			
+
 			adjuster.MakeMinimalAdjustments();
 			Assert.IsFalse(adjuster.GroupsAreNotInSynchWithData);
 			Assert.AreEqual(0, adjuster.CharactersNotCoveredByAnyGroup.Count());

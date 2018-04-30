@@ -11,6 +11,7 @@ using SIL.TestUtilities;
 using SIL.Xml;
 using Waxuquerque;
 using Waxuquerque.Character;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests
 {
@@ -588,7 +589,7 @@ namespace WaxuquerqueTests
 			block.BlockElements.Add(new ScriptText("Text of verse five."));
 
 			var expected = "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"3\">Text of verse three, part two " + open + "2" + close + ". </div>" +
-				            "<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
+							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\"><sup>4&#160;</sup>Text </div>" +
 							Block.BuildSplitLineHtml(1) +
 							"<div class=\"splittext\" data-blockid=\"0\" data-verse=\"4\">of </div>" +
 							Block.BuildSplitLineHtml(2) +

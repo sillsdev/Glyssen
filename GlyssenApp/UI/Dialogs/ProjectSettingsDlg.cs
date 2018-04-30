@@ -16,7 +16,7 @@ using SIL.Windows.Forms.WritingSystems;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.ViewModel;
-using Analytics = Waxuquerque.Analytics;
+using Analytics = Waxuquerque.Utilities.Analytics;
 using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs

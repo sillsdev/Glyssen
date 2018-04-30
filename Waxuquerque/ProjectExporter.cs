@@ -15,6 +15,7 @@ using SIL.IO;
 using SIL.Scripture;
 using Waxuquerque.Character;
 using Waxuquerque.Properties;
+using Waxuquerque.Utilities;
 
 namespace Waxuquerque
 {

@@ -14,7 +14,7 @@ using SIL.DblBundle.Text;
 using SIL.Scripture;
 using Waxuquerque;
 using Waxuquerque.Bundle;
-using Analytics = Waxuquerque.Analytics;
+using Analytics = Waxuquerque.Utilities.Analytics;
 
 namespace GlyssenApp.UI.Dialogs
 {

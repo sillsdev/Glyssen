@@ -4,6 +4,7 @@ using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Dialogs
 {

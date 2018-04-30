@@ -1054,7 +1054,7 @@ namespace WaxuquerqueTests.Dialogs
 			// LUK 21:20
 			Assert.IsTrue(model.TryLoadBlock(new VerseRef(042021020)));
 
-		    var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
+			var blockToSplit = model.CurrentReferenceTextMatchup.OriginalBlocks.Single();
 			model.SplitBlock(new[] { new BlockSplitData(1, blockToSplit, "20", PortionScript.kSplitAtEndOfVerse) },
 				GetListOfCharacters(2, new[] { "", "" }));
 
@@ -1648,7 +1648,7 @@ namespace WaxuquerqueTests.Dialogs
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 10, 48);
 			m_model.AttemptRefBlockMatchup = true;
 			var matchupForMark85 = m_model.CurrentReferenceTextMatchup;
- 			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
+			Assert.AreEqual(0, matchupForMark85.CountOfBlocksAddedBySplitting);
 			Assert.AreEqual(2, matchupForMark85.CorrelatedBlocks.Count);
 			Assert.IsTrue(matchupForMark85.CorrelatedBlocks[1].CharacterIsUnclear());
 			m_model.SetReferenceTextMatchupCharacter(1, new AssignCharacterViewModel.Character("Bartimaeus (a blind man)"));

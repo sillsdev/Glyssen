@@ -1,5 +1,5 @@
 ﻿using System;
-using GlyssenApp;
+using GlyssenApp.Utilities;
 using NUnit.Framework;
 using Waxuquerque;
 

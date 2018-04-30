@@ -5,6 +5,7 @@ using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Rules
 {
@@ -249,7 +250,7 @@ namespace WaxuquerqueTests.Rules
 		[Test]
 		public void CalculateMinimumProximity_NonStrictAdherenceToNarratorPrefs_AllStandardCharactersAndBookAuthorResultsInMaxProximity()
 		{
-			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS); // Using Joshua because the test data for Joshua has into material 
+			var project = TestProject.CreateTestProject(TestProject.TestBook.JOS); // Using Joshua because the test data for Joshua has into material
 			project.UseDefaultForUnresolvedMultipleChoiceCharacters();
 
 			project.CharacterGroupGenerationPreferences.NarratorsOption = NarratorsOption.SingleNarrator;

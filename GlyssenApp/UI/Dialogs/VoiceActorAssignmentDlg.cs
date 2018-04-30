@@ -19,7 +19,7 @@ using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
-using Analytics = Waxuquerque.Analytics;
+using Analytics = Waxuquerque.Utilities.Analytics;
 using Logger = SIL.Reporting.Logger;
 
 namespace GlyssenApp.UI.Dialogs

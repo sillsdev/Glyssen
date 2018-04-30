@@ -31,7 +31,7 @@ using Waxuquerque.Rules;
 using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
 using static System.String;
-using Analytics = Waxuquerque.Analytics;
+using Analytics = Waxuquerque.Utilities.Analytics;
 using Logger = SIL.Reporting.Logger;
 using PathUtilities = SIL.IO.PathUtilities;
 

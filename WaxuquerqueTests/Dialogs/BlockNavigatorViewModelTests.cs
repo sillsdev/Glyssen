@@ -9,6 +9,7 @@ using SIL.Scripture;
 using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Dialogs
 {

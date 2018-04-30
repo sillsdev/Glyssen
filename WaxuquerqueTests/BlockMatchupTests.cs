@@ -731,7 +731,7 @@ namespace WaxuquerqueTests
 
 			for (int i = 0; i < 4; i++)
 				matchup.CorrelatedBlocks[i].SetMatchedReferenceBlock(referenceBlocks[i]);
-			
+
 			matchup.MatchAllBlocks(null);
 			for (int i = 0; i < 4; i++)
 				Assert.AreEqual(referenceBlocks[i].CharacterId, matchup.CorrelatedBlocks[i].CharacterId);
@@ -1322,7 +1322,7 @@ namespace WaxuquerqueTests
 					Assert.AreEqual(0, level);
 					Assert.AreEqual(expectedText, text);
 					Assert.IsFalse(callbackCalledForPrimary);
-					callbackCalledForPrimary = true;					
+					callbackCalledForPrimary = true;
 				}
 			});
 			Assert.IsTrue(callbackCalledForEnglish);

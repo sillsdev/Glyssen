@@ -11,6 +11,7 @@ using SIL.Scripture;
 using SIL.Xml;
 using Waxuquerque;
 using Waxuquerque.Character;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Waxuquerque;
+using Waxuquerque.Utilities;
 
-namespace GlyssenApp
+namespace GlyssenApp.Utilities
 {
 	class SegmentAnalytics : IAnalytics
 	{

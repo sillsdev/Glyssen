@@ -21,7 +21,7 @@ using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Quote;
 using Waxuquerque.ViewModel;
-using Analytics = Waxuquerque.Analytics;
+using Analytics = Waxuquerque.Utilities.Analytics;
 using ControlExtensions = SIL.Windows.Forms.Extensions.ControlExtensions;
 
 namespace GlyssenApp.UI.Dialogs

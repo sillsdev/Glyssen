@@ -11,7 +11,7 @@ namespace WaxuquerqueTests.Dialogs
 	internal class RemoveVoiceActorAssignmentsUndoActionTests
 	{
 		private Project m_testProject;
-			
+
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{

@@ -2,7 +2,7 @@
 using SIL.Reporting;
 using ILogger = Waxuquerque.ILogger;
 
-namespace GlyssenApp
+namespace GlyssenApp.Utilities
 {
 	class DesktopLogger : ILogger
 	{

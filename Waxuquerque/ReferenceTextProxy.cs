@@ -8,6 +8,7 @@ using Glyssen.Shared.Bundle;
 using SIL;
 using SIL.IO;
 using Waxuquerque.Bundle;
+using Waxuquerque.Utilities;
 
 namespace Waxuquerque
 {

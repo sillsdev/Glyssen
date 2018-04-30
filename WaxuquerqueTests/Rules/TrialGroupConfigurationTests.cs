@@ -9,6 +9,7 @@ using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 using Waxuquerque.Rules;
 using Waxuquerque.VoiceActor;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Rules
 {

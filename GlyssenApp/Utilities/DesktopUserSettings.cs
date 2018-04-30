@@ -1,7 +1,7 @@
 ﻿using GlyssenApp.Properties;
 using Waxuquerque;
 
-namespace GlyssenApp
+namespace GlyssenApp.Utilities
 {
 	internal class DesktopUserSettings : IUserSettings
 	{

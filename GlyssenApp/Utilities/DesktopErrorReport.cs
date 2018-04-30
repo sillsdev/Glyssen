@@ -2,7 +2,7 @@
 using Waxuquerque;
 using ErrorReport = SIL.Reporting.ErrorReport;
 
-namespace GlyssenApp
+namespace GlyssenApp.Utilities
 {
 	class DesktopErrorReport : IErrorReport
 	{

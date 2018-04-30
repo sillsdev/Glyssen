@@ -3,6 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using SIL.Xml;
 using Waxuquerque.Character;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Character
 {

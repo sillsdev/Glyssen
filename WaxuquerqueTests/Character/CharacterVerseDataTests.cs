@@ -4,6 +4,7 @@ using NUnit.Framework;
 using SIL.IO;
 using SIL.Scripture;
 using Waxuquerque.Character;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Character
 {

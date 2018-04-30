@@ -10,6 +10,7 @@ using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 using Waxuquerque.ViewModel.Undo;
 using Waxuquerque.VoiceActor;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Dialogs
 {

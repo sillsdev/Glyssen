@@ -11,6 +11,7 @@ using Waxuquerque.Character;
 using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Rules
 {

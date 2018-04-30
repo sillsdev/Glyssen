@@ -6,6 +6,7 @@ using Waxuquerque;
 using Waxuquerque.Character;
 using Waxuquerque.ViewModel;
 using Waxuquerque.ViewModel.Undo;
+using WaxuquerqueTests.Properties;
 
 namespace WaxuquerqueTests.Dialogs
 {

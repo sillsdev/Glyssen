@@ -113,11 +113,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesktopUserSettings.cs" />
-    <Compile Include="SegmentAnalytics.cs" />
-    <Compile Include="DesktopErrorReport.cs" />
-    <Compile Include="DesktopLogger.cs" />
-    <Compile Include="DesktopPathUtilities.cs" />
+    <Compile Include="Utilities\DesktopUserSettings.cs" />
+    <Compile Include="Utilities\SegmentAnalytics.cs" />
+    <Compile Include="Utilities\DesktopErrorReport.cs" />
+    <Compile Include="Utilities\DesktopLogger.cs" />
+    <Compile Include="Utilities\DesktopPathUtilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Controls\MenuButton.cs">

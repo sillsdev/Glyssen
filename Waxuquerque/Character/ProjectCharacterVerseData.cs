@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using SIL.Scripture;
+using Waxuquerque.Utilities;
 
 namespace Waxuquerque.Character
 {

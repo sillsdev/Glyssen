@@ -29,14 +29,14 @@ namespace WaxuquerqueTests.Dialogs
 		public void SetUp()
 		{
 			m_testProject.ClearAssignCharacterStatus(); //Otherwise tests interfere with each other in an undesirable way
-			
+
 			// These 2 loops are to make sure m_characterDetails and m_keystrokesByCharacterId contain the same characters
 			m_characterDetails = new Dictionary<string, CharacterDetail>();
 			m_keystrokesByCharacterId = new Dictionary<string, int>();
 
 			foreach (var kvp in m_testProject.AllCharacterDetailDictionary.Where(kvp => m_testProject.AllCharacterIds.Contains(kvp.Key)))
 				m_characterDetails.Add(kvp.Key, kvp.Value);
-			
+
 			foreach (var kvp in m_testProject.KeyStrokesByCharacterId.Where(kvp => m_characterDetails.ContainsKey(kvp.Key)))
 			{
 				m_keystrokesByCharacterId.Add(kvp.Key, kvp.Value);
