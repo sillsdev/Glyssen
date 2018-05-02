@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using Glyssen;
 using L10NSharp;
 using Waxuquerque;
 using Waxuquerque.Bundle;
@@ -14,7 +13,7 @@ namespace GlyssenApp.UI.Dialogs
 	{
 		private readonly string m_sizeInfo;
 
-		public GenerateGroupsProgressDialog(Project project, DoWorkEventHandler doWorkEventHandler, bool firstRun, bool replaceCancelButtonWithLink = false)
+		public GenerateGroupsProgressDialog(Project project, BackgroundWorker backgroundWorker, bool firstRun, bool replaceCancelButtonWithLink = false)
 		{
 			InitializeComponent();
 
@@ -56,10 +55,7 @@ namespace GlyssenApp.UI.Dialogs
 			ReplaceCancelButtonWithLink = replaceCancelButtonWithLink;
 			ProgressLabelTextWhenComplete = LocalizationManager.GetString("DialogBoxes.GenerateGroupsProgressDialog.Complete", "Group generation is complete.");
 			BarStyle = ProgressBarStyle.Marquee;
-			BackgroundWorker worker = new BackgroundWorker();
-			worker.WorkerSupportsCancellation = true;
-			worker.DoWork += doWorkEventHandler;
-			BackgroundWorker = worker;
+			BackgroundWorker = backgroundWorker;
 		}
 
 		protected override void OnBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

@@ -657,9 +657,10 @@ namespace GlyssenApp.UI
 			var adjuster = new CharacterGroupsAdjuster(m_project);
 			if (adjuster.GroupsAreNotInSynchWithData)
 			{
-				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, OnGenerateGroupsWorkerDoWork, false, true))
+				var backgroundWorker = CharacterGroupGenerator.CreateGenerateGroupsBackgroundWorker(OnGenerateGroupsWorkerDoWork);
+				using (var progressDialog = new GenerateGroupsProgressDialog(m_project, backgroundWorker, false, true))
 				{
-					var generator = new CharacterGroupGenerator(m_project, ProjectCastSizePlanningViewModel.SelectedCastSize, progressDialog.BackgroundWorker);
+					var generator = new CharacterGroupGenerator(m_project, ProjectCastSizePlanningViewModel.SelectedCastSize, backgroundWorker);
 					progressDialog.ProgressState.Arguments = generator;
 
 					if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
@@ -901,9 +902,9 @@ namespace GlyssenApp.UI
 				EnsureGroupsAreInSynchWithCharactersInUse();
 
 			if (!m_project.CharacterGroupList.CharacterGroups.Any())
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, false, true, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, false, true, false, UserWantsToApplyGeneratedGroups, ProjectCastSizePlanningViewModel.SelectedCastSize);
 			else if (regenerateGroups)
-				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, true, false, false, ProjectCastSizePlanningViewModel.SelectedCastSize);
+				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project, true, false, false, UserWantsToApplyGeneratedGroups, ProjectCastSizePlanningViewModel.SelectedCastSize);
 
 			bool launchCastSizePlanning;
 			using (var dlg = new VoiceActorAssignmentDlg(new VoiceActorAssignmentViewModel(m_project)))
@@ -916,6 +917,15 @@ namespace GlyssenApp.UI
 			UpdateDisplayOfProjectInfo();
 			if (launchCastSizePlanning)
 				m_btnCastSizePlanning_Click(m_btnCastSizePlanning, new EventArgs());
+		}
+
+		internal static bool UserWantsToApplyGeneratedGroups(Project project, BackgroundWorker backgroundWorker, bool firstGroupGenerationRun, bool cancelLink, CharacterGroupGenerator generator)
+		{
+			using (var progressDialog = new GenerateGroupsProgressDialog(project, backgroundWorker, firstGroupGenerationRun, cancelLink))
+			{
+				progressDialog.ProgressState.Arguments = generator;
+				return progressDialog.ShowDialog() == DialogResult.OK;
+			}
 		}
 
 		private class NoBorderToolStripRenderer : ToolStripProfessionalRenderer

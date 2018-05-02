@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using SIL;
 using SIL.Extensions;
 using SIL.Progress;
 using Waxuquerque.Bundle;
@@ -97,35 +98,41 @@ namespace Waxuquerque.Rules
 			}
 		}
 
-		public static void GenerateGroupsWithProgress(Project project, bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors, CastSizeRowValues ghostCastSize = null, bool cancelLink = false)
+		public static void GenerateGroupsWithProgress(Project project, bool attemptToPreserveActorAssignments, bool firstGroupGenerationRun, bool forceMatchToActors,
+			Func<Project, BackgroundWorker, bool, bool, CharacterGroupGenerator, bool> userWantsToApplyGeneratedGroups, CastSizeRowValues ghostCastSize = null, bool cancelLink = false)
 		{
 			var castSizeOption = project.CharacterGroupGenerationPreferences.CastSizeOption;
 			if (forceMatchToActors)
 				project.CharacterGroupGenerationPreferences.CastSizeOption = CastSizeOption.MatchVoiceActorList;
 			bool saveGroups = false;
-			//using (var progressDialog = new GenerateGroupsProgressDialog(project, OnGenerateGroupsWorkerDoWork, firstGroupGenerationRun, cancelLink))
-			//{
-			//	var generator = new CharacterGroupGenerator(project, ghostCastSize, progressDialog.BackgroundWorker);
-			//	progressDialog.ProgressState.Arguments = generator;
+			var backgroundWorker = CreateGenerateGroupsBackgroundWorker(OnGenerateGroupsWorkerDoWork);
+			var generator = new CharacterGroupGenerator(project, ghostCastSize, backgroundWorker);
 
-			//	if (progressDialog.ShowDialog() == DialogResult.OK && generator.GeneratedGroups != null)
-			//	{
-			//		var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
-			//		generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
+			if (userWantsToApplyGeneratedGroups.Invoke(project, backgroundWorker, firstGroupGenerationRun, cancelLink, generator) && generator.GeneratedGroups != null)
+			{
+				var assignedBefore = project.CharacterGroupList.CountVoiceActorsAssigned();
+				generator.ApplyGeneratedGroupsToProject(attemptToPreserveActorAssignments);
 
-			//		if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
-			//		{
-			//			var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
-			//				"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
-			//			MessageBox.Show(msg);
-			//		}
+				if (project.CharacterGroupList.CountVoiceActorsAssigned() < assignedBefore)
+				{
+					var msg = Localizer.GetString("MainForm.FewerAssignedActorsAfterGeneration",
+						"An actor assignment had to be removed. Please review the Voice Actor assignments, and adjust where necessary.");
+					MessageModal.Show(msg);
+				}
 
-			//		saveGroups = true;
-			//	}
-			//	else if (forceMatchToActors)
-			//		project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
-			//}
+				saveGroups = true;
+			}
+			else if (forceMatchToActors)
+				project.CharacterGroupGenerationPreferences.CastSizeOption = castSizeOption;
+
 			project.Save(saveGroups);
+		}
+
+		public static BackgroundWorker CreateGenerateGroupsBackgroundWorker(DoWorkEventHandler doWorkEventHandler)
+		{
+			BackgroundWorker worker = new BackgroundWorker { WorkerSupportsCancellation = true };
+			worker.DoWork += doWorkEventHandler;
+			return worker;
 		}
 
 		private static void OnGenerateGroupsWorkerDoWork(object s, DoWorkEventArgs e)

@@ -498,7 +498,7 @@ namespace GlyssenApp.UI.Dialogs
 
 			m_actorAssignmentViewModel.RegenerateGroups(() => {
 				CharacterGroupGenerator.GenerateGroupsWithProgress(m_project,
-					true, false, true, null, m_programmaticClickOfUpdateGroups);
+					true, false, true, MainForm.UserWantsToApplyGeneratedGroups, null, m_programmaticClickOfUpdateGroups);
 			});
 			m_programmaticClickOfUpdateGroups = false;
 			SortByColumn(m_sortedColumn, m_sortedAscending);
