@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using SIL;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 using Waxuquerque.VoiceActor;
 
 namespace Waxuquerque.Character

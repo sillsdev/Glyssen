@@ -11,8 +11,8 @@ using SIL.Reflection;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
+using Waxuquerque.CharacterGroupGeneration;
 using Waxuquerque.Export;
-using Waxuquerque.Rules;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 

@@ -4,10 +4,10 @@ using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 using WaxuquerqueTests.Properties;
 
-namespace WaxuquerqueTests.Rules
+namespace WaxuquerqueTests.CharacterGroupGeneration
 {
 	[TestFixture]
 	class ProximityTests

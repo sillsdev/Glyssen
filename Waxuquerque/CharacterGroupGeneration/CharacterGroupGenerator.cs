@@ -12,7 +12,7 @@ using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 
-namespace Waxuquerque.Rules
+namespace Waxuquerque.CharacterGroupGeneration
 {
 	public class CharacterGroupGenerator
 	{

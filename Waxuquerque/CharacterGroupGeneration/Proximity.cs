@@ -6,7 +6,7 @@ using SIL.Scripture;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
 
-namespace Waxuquerque.Rules
+namespace Waxuquerque.CharacterGroupGeneration
 {
 	public class Proximity
 	{

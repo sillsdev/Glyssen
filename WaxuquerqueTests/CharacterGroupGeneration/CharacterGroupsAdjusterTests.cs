@@ -3,11 +3,11 @@ using NUnit.Framework;
 using SIL.Scripture;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 using Waxuquerque.VoiceActor;
 using WaxuquerqueTests.Properties;
 
-namespace WaxuquerqueTests.Rules
+namespace WaxuquerqueTests.CharacterGroupGeneration
 {
 	[TestFixture]
 	class CharacterGroupsAdjusterTests : CharacterGroupGeneratorAndAdjusterTestBase

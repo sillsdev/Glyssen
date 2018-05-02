@@ -6,7 +6,7 @@ using NUnit.Framework;
 using SIL.Extensions;
 using Waxuquerque;
 using Waxuquerque.Character;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 using Waxuquerque.ViewModel;
 using Waxuquerque.ViewModel.Undo;
 using Waxuquerque.VoiceActor;

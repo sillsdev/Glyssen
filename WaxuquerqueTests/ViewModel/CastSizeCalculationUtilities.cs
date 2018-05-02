@@ -9,7 +9,7 @@ using SIL.WritingSystems;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 using Waxuquerque.ViewModel;
 
 namespace WaxuquerqueTests.ViewModel

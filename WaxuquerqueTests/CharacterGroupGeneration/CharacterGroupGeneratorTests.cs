@@ -8,12 +8,12 @@ using SIL.Extensions;
 using Waxuquerque;
 using Waxuquerque.Bundle;
 using Waxuquerque.Character;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 using Waxuquerque.ViewModel;
 using Waxuquerque.VoiceActor;
 using WaxuquerqueTests.Properties;
 
-namespace WaxuquerqueTests.Rules
+namespace WaxuquerqueTests.CharacterGroupGeneration
 {
 	[TestFixture]
 	class CharacterGroupGeneratorTestsWithTwoBooksWithNoChildrenInScript : CharacterGroupGeneratorAndAdjusterTestBase

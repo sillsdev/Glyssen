@@ -2,7 +2,7 @@
 using System.Linq;
 using Waxuquerque.Character;
 
-namespace Waxuquerque.Rules
+namespace Waxuquerque.CharacterGroupGeneration
 {
 	public class AuthorStats
 	{

@@ -2,9 +2,9 @@
 using NUnit.Framework;
 using Waxuquerque;
 using Waxuquerque.Character;
-using Waxuquerque.Rules;
+using Waxuquerque.CharacterGroupGeneration;
 
-namespace WaxuquerqueTests.Rules
+namespace WaxuquerqueTests.CharacterGroupGeneration
 {
 	[TestFixture]
 	class AuthorStatsTests
