@@ -588,10 +588,10 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var johnSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(1);
-			johnSpeakingInRev714.SetCharacterAndCharacterIdInScript("John", 66);
+			johnSpeakingInRev714.SetCharacterIdAndCharacterIdInScript("John", 66);
 			johnSpeakingInRev714.UserConfirmed = true;
 			var elderSpeakingInRev714 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 14).ElementAt(3);
-			elderSpeakingInRev714.SetCharacterAndCharacterIdInScript("elders, one of the", 66);
+			elderSpeakingInRev714.SetCharacterIdAndCharacterIdInScript("elders, one of the", 66);
 			Assert.True(johnSpeakingInRev714.UserConfirmed);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
@@ -609,7 +609,7 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var angelsSpeakingInRev712 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 12).ElementAt(1);
-			angelsSpeakingInRev712.SetCharacterAndCharacterIdInScript("tons of angelic beings", 66);
+			angelsSpeakingInRev712.SetCharacterIdAndCharacterIdInScript("tons of angelic beings", 66);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
@@ -683,7 +683,7 @@ namespace GlyssenTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var singersInRev59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).Skip(1).ToList();
 			foreach (var block in singersInRev59)
-				block.SetCharacterAndCharacterIdInScript("cuatro living creatures/twenty-four elders", 66);
+				block.SetCharacterIdAndCharacterIdInScript("cuatro living creatures/twenty-four elders", 66);
 
 			Assert.AreEqual(singersInRev59.Count, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
@@ -697,7 +697,7 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var blockInRev43 = testProject.IncludedBooks.Single().GetBlocksForVerse(4, 3).First();
-			blockInRev43.SetCharacterAndCharacterIdInScript("angels, all the", 66);
+			blockInRev43.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
 			blockInRev43.CharacterIdOverrideForScript = "angels, all, the";
 			Assert.AreEqual("angels, all, the", blockInRev43.CharacterIdInScript);
 
@@ -713,7 +713,7 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.REV);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var blockInRev13V10 = testProject.IncludedBooks.Single().GetBlocksForVerse(13, 10).First();
-			blockInRev13V10.SetCharacterAndCharacterIdInScript("angels, all the", 66);
+			blockInRev13V10.SetCharacterIdAndCharacterIdInScript("angels, all the", 66);
 			blockInRev13V10.CharacterIdOverrideForScript = "angels, all, the";
 			Assert.AreEqual("angels, all, the", blockInRev13V10.CharacterIdInScript);
 
@@ -733,7 +733,7 @@ namespace GlyssenTests
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var unexpectedPeterInRev711 = testProject.IncludedBooks.Single().GetBlocksForVerse(7, 11).First();
 			testProject.ProjectCharacterVerseData.Add(new CharacterVerse(new BCVRef(66, 7, 11), "peter", "", "", true));
-			unexpectedPeterInRev711.SetCharacterAndCharacterIdInScript("peter", 66);
+			unexpectedPeterInRev711.SetCharacterIdAndCharacterIdInScript("peter", 66);
 
 			Assert.AreEqual(1, ProjectDataMigrator.MigrateDeprecatedCharacterIds(testProject));
 
@@ -782,7 +782,7 @@ namespace GlyssenTests
 			var testProject = TestProject.CreateTestProject(TestProject.TestBook.MRK);
 			TestProject.SimulateDisambiguationForAllBooks(testProject);
 			var jesusSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(1);
-			jesusSpeakingInMrk59.SetCharacterAndCharacterIdInScript("Jesus", 66);
+			jesusSpeakingInMrk59.SetCharacterIdAndCharacterIdInScript("Jesus", 66);
 			jesusSpeakingInMrk59.UserConfirmed = true;
 			var demonSpeakingInMrk59 = testProject.IncludedBooks.Single().GetBlocksForVerse(5, 9).ElementAt(3);
 			demonSpeakingInMrk59.CharacterId = "demons (Legion)/man delivered from Legion of demons";

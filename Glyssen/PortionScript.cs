@@ -73,7 +73,7 @@ namespace Glyssen
 					var bookNum = BCVRef.BookToNumber(Id);
 					if (bookNum < 0)
 						throw new InvalidOperationException("Attempting a user-originated split of a block which is not part of a known Scripture book. Possible characters cannot be determined.");
-					newBlock.SetCharacterAndCharacterIdInScript(characterId, BCVRef.BookToNumber(Id), versification);
+					newBlock.SetCharacterIdAndCharacterIdInScript(characterId, BCVRef.BookToNumber(Id), versification);
 					newBlock.UserConfirmed = true;
 				}
 

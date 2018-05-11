@@ -854,14 +854,15 @@ namespace Glyssen.RefTextDevUtilities
 			//if (TryGetKnownNameMatch(characterId, out var knownMatch))
 			//	return knownMatch;
 
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookId, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum);
+			var bookNum = BCVRef.BookToNumber(bookId);
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(bookNum, block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, block.LastVerseNum);
 			var charactersCount = characters.Count();
-			var bcvRef = new BCVRef(BCVRef.BookToNumber(bookId), block.ChapterNumber, block.InitialStartVerseNumber);
+			var bcvRef = new BCVRef(bookNum, block.ChapterNumber, block.InitialStartVerseNumber);
 			if (charactersCount == 1)
 			{
 				// These three lines ensure we are handling characterIds with slashes correctly.
 				block.CharacterId = characters.Single().Character;
-				block.UseDefaultForMultipleChoiceCharacter(BCVRef.BookToNumber(bookId));
+				block.UseDefaultForMultipleChoiceCharacter(bookNum);
 				var characterIdToUse = block.CharacterIdInScript;
 
 				if (characterIdToUse.ToLowerInvariant().StartsWith(fcbhCharacterLabel.ToLowerInvariant()))
