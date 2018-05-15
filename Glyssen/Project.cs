@@ -1863,7 +1863,7 @@ namespace Glyssen
 					}
 					if (block.CharacterId == CharacterVerseData.kUnknownCharacter)
 					{
-						block.SetCharacterAndCharacterIdInScript(
+						block.SetCharacterIdAndCharacterIdInScript(
 							CharacterVerseData.GetStandardCharacterId(book.BookId, CharacterVerseData.StandardCharacter.Narrator), bookNum,
 							Versification);
 						block.UserConfirmed = true;
@@ -1887,7 +1887,7 @@ namespace Glyssen
 							characterForMultiBlockQuote = cvEntry;
 							continue;
 						}
-						block.SetCharacterAndCharacterIdInScript(cvEntry.Character, bookNum, Versification);
+						block.SetCharacterIdAndCharacterIdInScript(cvEntry.Character, bookNum, Versification);
 						block.Delivery = cvEntry.Delivery;
 						block.UserConfirmed = true;
 					}
@@ -1910,7 +1910,7 @@ namespace Glyssen
 			{
 				foreach (var blockForMultiBlockQuote in blocksForMultiBlockQuote)
 				{
-					blockForMultiBlockQuote.SetCharacterAndCharacterIdInScript(characterForMultiBlockQuote.Character, bookNum,
+					blockForMultiBlockQuote.SetCharacterIdAndCharacterIdInScript(characterForMultiBlockQuote.Character, bookNum,
 						Versification);
 					blockForMultiBlockQuote.Delivery = characterForMultiBlockQuote.Delivery;
 					blockForMultiBlockQuote.UserConfirmed = true;

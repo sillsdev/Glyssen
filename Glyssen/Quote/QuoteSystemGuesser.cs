@@ -69,6 +69,8 @@ namespace Glyssen.Quote
 			// Start with the New Testament because that's where most of the dialogue quotes are, and it makes guessing A LOT faster!
 			foreach (var book in bookList.SkipWhile(b => BCVRef.BookToNumber(b.BookId) < 40).Union(bookList.TakeWhile(b => BCVRef.BookToNumber(b.BookId) < 40)))
 			{
+				var bookNum = BCVRef.BookToNumber(book.BookId);
+
 				if (worker != null)
 					worker.ReportProgress(MathUtilities.Percent(++booksProcessed, bookCount));
 
@@ -144,7 +146,7 @@ namespace Glyssen.Quote
 							{
 								for (int i = 1; i <= maxFollowingVersesToSearch; i++)
 								{
-									if (!cvInfo.GetCharacters(book.BookId, quote.Chapter, quote.Verse + i, versification: versification).Any())
+									if (!cvInfo.GetCharacters(bookNum, quote.Chapter, quote.Verse + i, versification: versification).Any())
 										break;
 									string followingText;
 									if (followingVerses.Count >= i )

@@ -710,7 +710,7 @@ namespace Glyssen
 			var characterList = characters.ToList();
 			if (characterList.Count == 1)
 			{
-				SetCharacterAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
+				SetCharacterIdAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
 				Delivery = characterList[0].Delivery;
 			}
 			else if (characterList.Count == 0)
@@ -726,7 +726,7 @@ namespace Glyssen
 				var set = new SortedSet<CharacterVerse>(characterList, new CharacterDeliveryComparer());
 				if (set.Count == 1)
 				{
-					SetCharacterAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
+					SetCharacterIdAndCharacterIdInScript(characterList[0].Character, () => characterList[0]);
 					Delivery = set.First().Delivery;
 				}
 				else
@@ -738,7 +738,7 @@ namespace Glyssen
 						// Since this block does not appear to be an interruption, we can safely assign the character from
 						// the one and only cv record that is not an "Interruption" type.
 						var cv = characterList.First(cd => cd.QuoteType != QuoteType.Interruption);
-						SetCharacterAndCharacterIdInScript(cv.Character, () => cv);
+						SetCharacterIdAndCharacterIdInScript(cv.Character, () => cv);
 						Delivery = cv.Delivery;
 					}
 					else
@@ -767,12 +767,12 @@ namespace Glyssen
 			}
 		}
 
-		public void SetCharacterAndCharacterIdInScript(string characterId, int bookNumber, ScrVers scrVers = null)
+		public void SetCharacterIdAndCharacterIdInScript(string characterId, int bookNumber, ScrVers scrVers = null)
 		{
-			SetCharacterAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
+			SetCharacterIdAndCharacterIdInScript(characterId, () => GetMatchingCharacter(bookNumber, scrVers));
 		}
 
-		private void SetCharacterAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
+		private void SetCharacterIdAndCharacterIdInScript(string characterId, Func<CharacterVerse> getMatchingCharacterForVerse)
 		{
 			if (characterId == CharacterVerseData.kAmbiguousCharacter || characterId == CharacterVerseData.kUnknownCharacter)
 			{
@@ -1023,7 +1023,7 @@ namespace Glyssen
 		public void SetCharacterAndDeliveryInfo(Block basedOnBlock, int bookNumber, ScrVers scrVers)
 		{
 			if (basedOnBlock.CharacterIdOverrideForScript == null)
-				SetCharacterAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
+				SetCharacterIdAndCharacterIdInScript(basedOnBlock.CharacterId, bookNumber, scrVers);
 			SetCharacterAndDeliveryInfo(basedOnBlock);
 		}
 
