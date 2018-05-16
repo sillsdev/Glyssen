@@ -82,34 +82,23 @@ namespace Glyssen.Character
 	public class CharacterVerse
 	{
 		internal const string kMultiCharacterIdSeparator = "/";
-
-		private readonly string m_character;
-		private readonly BCVRef m_bcvRef;
-
-		private readonly string m_delivery;
-		private readonly string m_alias;
-		private readonly string m_defaultCharacter;
-		private readonly string m_parallelPassageReferences;
-		private readonly bool m_projectSpecific;
-		private readonly QuoteType m_quoteType;
-
 		private string m_localizedCharacter;
 		private string m_localizedAlias;
 
 		private bool m_localized;
 
-		public BCVRef BcvRef { get { return m_bcvRef; } }
-		public string BookCode { get { return BCVRef.NumberToBookCode(m_bcvRef.Book); } }
-		public int Book { get { return m_bcvRef.Book; } }
-		public int Chapter { get { return m_bcvRef.Chapter; } }
-		public int Verse { get { return m_bcvRef.Verse; } }
-		public string Character { get { return m_character; } }
-		public string Delivery { get { return m_delivery; } }
-		public string Alias { get { return m_alias; } }
-		public QuoteType QuoteType { get { return m_quoteType; } }
-		public bool IsDialogue { get { return m_quoteType == QuoteType.Dialogue; } }
-		public bool IsExpected { get { return m_quoteType == QuoteType.Dialogue || m_quoteType == QuoteType.Normal; } }
-		public string DefaultCharacter { get { return m_defaultCharacter; } }
+		public BCVRef BcvRef { get; }
+		public string BookCode => BCVRef.NumberToBookCode(BcvRef.Book);
+		public int Book => BcvRef.Book;
+		public int Chapter => BcvRef.Chapter;
+		public int Verse => BcvRef.Verse;
+		public string Character { get; }
+		public string Delivery { get; }
+		public string Alias { get; }
+		public QuoteType QuoteType { get; }
+		public bool IsDialogue => QuoteType == QuoteType.Dialogue;
+		public bool IsExpected => QuoteType == QuoteType.Dialogue || QuoteType == QuoteType.Normal;
+		public string DefaultCharacter { get; }
 		public string LocalizedCharacter
 		{
 			get
@@ -128,20 +117,20 @@ namespace Glyssen.Character
 				return m_localizedAlias;
 			}
 		}
-		public string ParallelPassageReferences { get { return m_parallelPassageReferences; } }
-		public bool ProjectSpecific { get { return m_projectSpecific; } }
+		public string ParallelPassageReferences { get; }
+		public bool ProjectSpecific { get; }
 
 		public CharacterVerse(BCVRef bcvRef, string character, string delivery, string alias, bool projectSpecific,
 			QuoteType quoteType = QuoteType.Normal, string defaultCharacter = null, string parallelPassageReferences = null)
 		{
-			m_bcvRef = bcvRef;
-			m_character = character;
-			m_delivery = delivery;
-			m_alias = alias;
-			m_defaultCharacter = defaultCharacter;
-			m_parallelPassageReferences = parallelPassageReferences;
-			m_projectSpecific = projectSpecific;
-			m_quoteType = quoteType;
+			BcvRef = bcvRef;
+			Character = character;
+			Delivery = delivery;
+			Alias = alias;
+			DefaultCharacter = defaultCharacter;
+			ParallelPassageReferences = parallelPassageReferences;
+			ProjectSpecific = projectSpecific;
+			QuoteType = quoteType;
 		}
 
 		public override string ToString()
@@ -153,7 +142,7 @@ namespace Glyssen.Character
 		{
 			if (string.IsNullOrEmpty(Delivery))
 				return Character;
-			return string.Format("{0} [{1}]", Character, Delivery);
+			return $"{Character} [{Delivery}]";
 		}
 
 		public void ResetLocalization()
@@ -163,8 +152,8 @@ namespace Glyssen.Character
 
 		private void Localize()
 		{
-			m_localizedCharacter = GetLocalizedCharacterString(m_character);
-			m_localizedAlias = string.IsNullOrWhiteSpace(m_alias) ? null : GetLocalizedCharacterString(m_alias);
+			m_localizedCharacter = GetLocalizedCharacterString(Character);
+			m_localizedAlias = string.IsNullOrWhiteSpace(Alias) ? null : GetLocalizedCharacterString(Alias);
 			m_localized = true;
 		}
 
@@ -183,7 +172,7 @@ namespace Glyssen.Character
 		#region Equality Members
 		protected bool Equals(CharacterVerse other)
 		{
-			return Equals(m_bcvRef, other.m_bcvRef) &&
+			return Equals(BcvRef, other.BcvRef) &&
 				string.Equals(Character, other.Character) &&
 				string.Equals(Delivery, other.Delivery) &&
 				string.Equals(Alias, other.Alias) &&
@@ -205,7 +194,7 @@ namespace Glyssen.Character
 		{
 			unchecked
 			{
-				int hashCode = (m_bcvRef != null ? m_bcvRef.GetHashCode() : 0);
+				int hashCode = (BcvRef != null ? BcvRef.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (Character != null ? Character.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (Delivery != null ? Delivery.GetHashCode() : 0);
 				hashCode = (hashCode * 397) ^ (Alias != null ? Alias.GetHashCode() : 0);
@@ -227,7 +216,7 @@ namespace Glyssen.Character
 
 	public static class CharacterStringExtensions
 	{
-		private readonly static char[] s_multiCharacterIdSeparators;
+		private static readonly char[] s_multiCharacterIdSeparators;
 
 		static CharacterStringExtensions()
 		{
