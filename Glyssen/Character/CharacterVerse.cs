@@ -16,6 +16,7 @@ namespace Glyssen.Character
 		/// and other forms of spoken discourse) will typically be identified as Dialogue.
 		/// </summary>
 		Normal,
+
 		/// <summary>
 		/// Used for speech in passages that are know to be spoken by a particular character
 		/// and can be assigned as such even if no punctuation is present to indicate the spoken
@@ -24,12 +25,14 @@ namespace Glyssen.Character
 		/// that might make explicit use of first-level quotation marks more unwieldy.
 		/// </summary>
 		Implicit,
+
 		/// <summary>
 		/// Conversation between two or more characters, generally consisting of relatively short
 		/// exchanges. (Some writing systems use punctuation to distinguish between dialogue
 		/// and other forms of spoken discourse.)
 		/// </summary>
 		Dialogue,
+
 		/// <summary>
 		/// Speech that is commonly rendered in an indirect way rather than as a direct quote.
 		/// Since quotation marks were not in use when the Bible was written, this distinction is
@@ -39,6 +42,7 @@ namespace Glyssen.Character
 		/// marked as Indirect will not be considered as "expected" quotes.
 		/// </summary>
 		Indirect,
+
 		/// <summary>
 		/// Potential direct speech that is
 		/// a) in verses that are not found in some manuscripts and may be omitted from translations;
@@ -51,6 +55,7 @@ namespace Glyssen.Character
 		/// considered as "expected" quotes.
 		/// </summary>
 		Potential,
+
 		/// <summary>
 		/// Speech not attributed to a real, historical figure. This includes things that someone
 		/// might say, predicted future speech*, hypothetical words expressing an attitude held
@@ -59,6 +64,7 @@ namespace Glyssen.Character
 		/// dramatically) need not be regarded as hypothetical.
 		/// </summary>
 		Hypothetical,
+
 		/// <summary>
 		/// Quotations of actual past speech or written words, proverbs, etc. Typically, these can be
 		/// read by the narrator, though in some cases it may be useful to use another voice and/or
@@ -67,6 +73,7 @@ namespace Glyssen.Character
 		/// a foreign phrase, a title, or a literal name).
 		/// </summary>
 		Quotation,
+
 		/// <summary>
 		/// Technically not a "quote type" per se - rather, this is a special case of where a quote can be
 		/// interrupted (i.e., by the narrator) using a parenthetical remark. For example, in MAT 24:15 or

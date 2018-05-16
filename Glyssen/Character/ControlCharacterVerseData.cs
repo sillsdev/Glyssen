@@ -10,6 +10,25 @@ namespace Glyssen.Character
 {
 	public class ControlCharacterVerseData : CharacterVerseData
 	{
+		// This is only here (for the moment) for ControlDataIntegrityTests to be able to validate the actual
+		// control file independent of how we want to read out the data.
+		public static bool ReadHypotheticalAsNarrator
+		{
+			get => s_readHypotheticalAsNarrator;
+			set
+			{
+				if (value == s_readHypotheticalAsNarrator)
+					return;
+
+				if (Program.IsRunning)
+					throw new InvalidOperationException();
+				s_readHypotheticalAsNarrator = value;
+				s_singleton = null;
+			}
+		}
+
+		private static bool s_readHypotheticalAsNarrator = true;
+
 		private static ControlCharacterVerseData s_singleton;
 		private static string s_tabDelimitedCharacterVerseData;
 		private Dictionary<int, Dictionary<int, HashSet<int>>> m_expectedQuotes;
@@ -98,13 +117,27 @@ namespace Glyssen.Character
 				var value = items[kiQuoteType];
 				if (value != "FALSE" && value != String.Empty && !Enum.TryParse(value, out quoteType))
 				{
-					throw new InvalidDataException(string.Format("items[{0}] has a value of {1}, which is not a valid {2}",
-						kiQuoteType, value, typeof (QuoteType).Name));
+					throw new InvalidDataException(
+						$"items[{kiQuoteType}] has a value of {value}, which is not a valid {typeof(QuoteType).Name}");
 				}
 			}
-			return new CharacterVerse(bcvRef, items[3], items[4], items[5], false, quoteType,
-				(items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null,
-				(items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null);
+
+			var characterId = items[3];
+			var delivery = items[4];
+			var alias = items[5];
+			var defaultCharacter = (items.Length > kiDefaultCharacter) ? items[kiDefaultCharacter] : null;
+			var parallelPassageInfo = (items.Length > kiParallelPassageInfo) ? items[kiParallelPassageInfo] : null;
+
+			if (ReadHypotheticalAsNarrator && quoteType == QuoteType.Hypothetical)
+			{
+				characterId = GetStandardCharacterId(BCVRef.NumberToBookCode(bcvRef.Book), StandardCharacter.Narrator);
+				delivery = string.Empty;
+				alias = string.Empty;
+				quoteType = QuoteType.Quotation;
+				defaultCharacter = string.Empty;
+				parallelPassageInfo = string.Empty;
+			}
+			return new CharacterVerse(bcvRef, characterId, delivery, alias, false, quoteType, defaultCharacter, parallelPassageInfo);
 		}
 
 		private void InitializeExpectedQuotes()

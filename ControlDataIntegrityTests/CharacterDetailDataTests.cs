@@ -17,6 +17,14 @@ namespace ControlDataIntegrityTests
 		{
 			// Fixes issue where other test project was interfering with the running of this one (by setting the data to test data).
 			ControlCharacterVerseData.TabDelimitedCharacterVerseData = null;
+
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+		}
+
+		[TestFixtureTearDown]
+		public void TestFixtureTearDown()
+		{
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = true;
 		}
 
 		[Test]
