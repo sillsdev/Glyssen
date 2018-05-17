@@ -448,7 +448,7 @@ namespace GlyssenApp.UI.Dialogs
 			this.m_btnAddCharacter.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.glyssenColorPalette.SetBackColor(this.m_btnAddCharacter, GlyssenColors.BackColor);
 			this.m_btnAddCharacter.BackColor = System.Drawing.SystemColors.Control;
-			this.m_btnAddCharacter.BackgroundImage = global::GlyssenApp.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_btnAddCharacter.BackgroundImage = global::GlyssenApp.Properties.Resources.GreenPlus;
 			this.m_btnAddCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_btnAddCharacter.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
 			this.m_btnAddCharacter.FlatAppearance.BorderSize = 2;
@@ -473,7 +473,7 @@ namespace GlyssenApp.UI.Dialogs
 			this.m_btnAddDelivery.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.glyssenColorPalette.SetBackColor(this.m_btnAddDelivery, GlyssenColors.BackColor);
 			this.m_btnAddDelivery.BackColor = System.Drawing.SystemColors.Control;
-			this.m_btnAddDelivery.BackgroundImage = global::GlyssenApp.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_btnAddDelivery.BackgroundImage = global::GlyssenApp.Properties.Resources.GreenPlus;
 			this.m_btnAddDelivery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.m_btnAddDelivery.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
 			this.m_btnAddDelivery.FlatAppearance.BorderSize = 2;

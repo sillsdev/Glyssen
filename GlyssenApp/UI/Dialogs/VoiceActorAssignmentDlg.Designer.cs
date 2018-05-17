@@ -150,7 +150,7 @@ namespace GlyssenApp.UI.Dialogs
 			// 
 			this.glyssenColorPalette.SetBackColor(this.m_menuItemCreateNewGroup, GlyssenColors.BackColor);
 			this.glyssenColorPalette.SetForeColor(this.m_menuItemCreateNewGroup, GlyssenColors.ForeColor);
-			this.m_menuItemCreateNewGroup.Image = global::GlyssenApp.Properties.Resources._112_Plus_Green_16x16_72;
+			this.m_menuItemCreateNewGroup.Image = global::GlyssenApp.Properties.Resources.GreenPlus;
 			this.m_l10NSharpExtender.SetLocalizableToolTip(this.m_menuItemCreateNewGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationComment(this.m_menuItemCreateNewGroup, null);
 			this.m_l10NSharpExtender.SetLocalizationPriority(this.m_menuItemCreateNewGroup, L10NSharp.LocalizationPriority.NotLocalizable);

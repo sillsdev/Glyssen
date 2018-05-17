@@ -385,7 +385,7 @@ namespace WaxuquerqueTests.ViewModel
 			generator.GenerateCharacterGroups();
 			generator.ApplyGeneratedGroupsToProject(false);
 
-			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
+			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0], null);
 			var actorList = GetActorListFromDataTable(dataTable);
 			Assert.AreEqual(actorA, actorList[0]);
 			Assert.AreEqual(actorB, actorList[1]);
@@ -406,7 +406,7 @@ namespace WaxuquerqueTests.ViewModel
 			var group = m_model.CharacterGroups[0];
 			m_model.AssignActorToGroup(actorA.Id, group);
 
-			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0]);
+			var dataTable = m_model.GetMultiColumnActorDataTable(m_model.CharacterGroups[0], null);
 			var actorList = GetActorListFromDataTable(dataTable);
 			Assert.AreEqual(actorB, actorList[0]);
 			Assert.AreEqual(actorC, actorList[1]);

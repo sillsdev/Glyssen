@@ -67,7 +67,7 @@ namespace GlyssenApp.UI.Dialogs
 			m_actorAssignmentViewModel = viewModel;
 			m_actorAssignmentViewModel.Saved += HandleModelSaved;
 
-			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null, Resources.RemoveActor);
 			VoiceActorCol.ValueMember = "ID";
 			VoiceActorCol.DisplayMember = "Name";
 			VoiceActorCol.GetSpecialDropDownImageToDraw += VoiceActorCol_GetSpecialDropDownImageToDraw;
@@ -221,7 +221,7 @@ namespace GlyssenApp.UI.Dialogs
 						HandleUpdateGroupsClick(actorDlg, e);
 					}
 
-					VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+					VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null, Resources.RemoveActor);
 
 					SetVoiceActorCellDataSource();
 				}
@@ -565,7 +565,7 @@ namespace GlyssenApp.UI.Dialogs
 
 			if (requiresActorListRefresh)
 			{
-				VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+				VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null, Resources.RemoveActor);
 				SetVoiceActorCellDataSource();
 			}
 
@@ -932,7 +932,7 @@ namespace GlyssenApp.UI.Dialogs
 				return;
 			var group = m_actorAssignmentViewModel.CharacterGroups[m_characterGroupGrid.CurrentCellAddress.Y];
 			var cell = (DataGridViewComboBoxCell)m_characterGroupGrid.CurrentCell;
-			cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group);
+			cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(group, Resources.RemoveActor);
 		}
 
 		private void ResetVoiceActorCellDataSource()
@@ -944,7 +944,7 @@ namespace GlyssenApp.UI.Dialogs
 				var cell = m_characterGroupGrid.CurrentCell as DataGridViewComboBoxCell;
 				if (cell == null)
 					return;
-				cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+				cell.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null, Resources.RemoveActor);
 			}
 		}
 
@@ -1083,7 +1083,7 @@ namespace GlyssenApp.UI.Dialogs
 				m_characterGroupGrid[VoiceActorCol.DisplayIndex, rowIndex].Value = value;
 			}
 			SetVoiceActorCellDataSource();
-			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null);
+			VoiceActorCol.DataSource = m_actorAssignmentViewModel.GetMultiColumnActorDataTable(null, Resources.RemoveActor);
 		}
 
 		private bool DataTableTryGetValueForDisplayMember(DataGridViewMultiColumnComboBoxColumn column, string formattedValue, out int value)

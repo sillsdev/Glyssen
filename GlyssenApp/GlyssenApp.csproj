@@ -113,6 +113,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\DesktopUserSettings.cs" />
     <Compile Include="Utilities\SegmentAnalytics.cs" />
     <Compile Include="Utilities\DesktopErrorReport.cs" />
@@ -342,13 +347,9 @@
     <Compile Include="UI\Dialogs\WinFormsMessageModal.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="UI\Dialogs\AddCharacterDlg.resx">
       <DependentUpon>AddCharacterDlg.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,6 +469,8 @@
       <Name>Waxuquerque</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\RemoveActor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

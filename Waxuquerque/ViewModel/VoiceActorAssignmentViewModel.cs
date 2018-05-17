@@ -276,7 +276,7 @@ namespace Waxuquerque.ViewModel
 			return null;
 		}
 
-		public DataTable GetMultiColumnActorDataTable(CharacterGroup group)
+		public DataTable GetMultiColumnActorDataTable(CharacterGroup group, Image removeActorIcon)
 		{
 			var table = new DataTable();
 			table.Columns.Add("ID", typeof(int));
@@ -299,7 +299,7 @@ namespace Waxuquerque.ViewModel
 			table.Rows.Add(
 				-1,
 				null,
-				Resources.RemoveActor,
+				removeActorIcon,
 				"",
 				//Localizer.GetString("DialogBoxes.VoiceActorAssignmentDlg.RemoveVoiceActorAssignment", "Remove Voice Actor Assignment"),
 				"",
