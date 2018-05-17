@@ -26,3 +26,4 @@ lib/dotnet/NetSparkle.Net40.dll
 lib/dotnet/MarkdownDeep.dll
 /.vs
 /DistFiles/reference_texts/NewEnglish/
+*.bak

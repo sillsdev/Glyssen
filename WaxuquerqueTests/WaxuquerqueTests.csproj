@@ -165,9 +165,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlyssenApp\GlyssenApp.csproj">
+    <ProjectReference Include="..\Glyssen\Glyssen.csproj">
       <Project>{15159489-BD89-4D97-9885-5E8F42A6A32F}</Project>
-      <Name>GlyssenApp</Name>
+      <Name>Glyssen</Name>
     </ProjectReference>
     <ProjectReference Include="..\GlyssenShared\GlyssenShared.csproj">
       <Project>{965c34cf-8afb-4132-a2ff-fd4ebb0b410d}</Project>

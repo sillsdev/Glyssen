@@ -15,11 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefTextDevUtilities", "RefT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlyssenShared", "GlyssenShared\GlyssenShared.csproj", "{965C34CF-8AFB-4132-A2FF-FD4EBB0B410D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenApp", "GlyssenApp\GlyssenApp.csproj", "{15159489-BD89-4D97-9885-5E8F42A6A32F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyssen", "Glyssen\Glyssen.csproj", "{15159489-BD89-4D97-9885-5E8F42A6A32F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waxuquerque", "Waxuquerque\Waxuquerque.csproj", "{BF588DDB-0D04-492C-8E5A-BFFD74CEC6C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenAppTests", "GlyssenAppTests\GlyssenAppTests.csproj", "{63019729-FCA7-4082-8C2E-D622FE217F3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlyssenTests", "GlyssenTests\GlyssenTests.csproj", "{63019729-FCA7-4082-8C2E-D622FE217F3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -32,4 +32,42 @@
   <File Id="ProgramDir.reference_texts.English.REV.xml" Guid="9318b4ac-1cec-4ca8-b8af-f1a590c0428d" />
   <File Id="ProgramDir.reference_texts.English.ROM.xml" Guid="0c7953c2-7e4c-45a8-b2ca-d4eecc6bc112" />
   <File Id="ProgramDir.reference_texts.English.TIT.xml" Guid="bb034470-51a2-4c86-a273-125a48c8b13e" />
+  <File Id="ProgramDir.reference_texts.English.1CH.xml" Guid="a7bd163f-e912-4b26-b996-ebe3a4bf88f3" />
+  <File Id="ProgramDir.reference_texts.English.1KI.xml" Guid="57c2be06-f868-4613-b704-e0ce8634df52" />
+  <File Id="ProgramDir.reference_texts.English.1SA.xml" Guid="01df57fd-ce0b-4bd7-bf47-fc8617fba05e" />
+  <File Id="ProgramDir.reference_texts.English.2CH.xml" Guid="1f5d7dec-87a5-438e-8f4c-998f46677976" />
+  <File Id="ProgramDir.reference_texts.English.2KI.xml" Guid="108d2d50-ae1c-4ce5-a87c-a8022d116d47" />
+  <File Id="ProgramDir.reference_texts.English.2SA.xml" Guid="7a1e52e3-02fc-461f-8ecb-18aa7358129d" />
+  <File Id="ProgramDir.reference_texts.English.AMO.xml" Guid="a695e9df-1c60-4fa5-8f88-ae81c89a0d36" />
+  <File Id="ProgramDir.reference_texts.English.DAN.xml" Guid="7ec54a9c-fd0c-4374-b81b-643eaba76dad" />
+  <File Id="ProgramDir.reference_texts.English.DEU.xml" Guid="4bb194ff-d3b8-405f-9702-0f1efd8eec25" />
+  <File Id="ProgramDir.reference_texts.English.ECC.xml" Guid="ba17798f-8d42-4d8f-a7d1-3ccec9bb6a2a" />
+  <File Id="ProgramDir.reference_texts.English.EST.xml" Guid="d29c4aab-3f06-4263-8357-654a49374905" />
+  <File Id="ProgramDir.reference_texts.English.EXO.xml" Guid="44351e91-ac47-4a59-9553-3a59111a3029" />
+  <File Id="ProgramDir.reference_texts.English.EZK.xml" Guid="496f2a17-3704-408e-a811-7e818c8b8da5" />
+  <File Id="ProgramDir.reference_texts.English.EZR.xml" Guid="2a570b9c-c770-4c18-a8e3-cd2276d3f2b3" />
+  <File Id="ProgramDir.reference_texts.English.GEN.xml" Guid="67624d99-8ebf-40d6-8381-7b772e4636f2" />
+  <File Id="ProgramDir.reference_texts.English.HAB.xml" Guid="aa6a1154-b8e0-450b-b2b1-5409f142c529" />
+  <File Id="ProgramDir.reference_texts.English.HAG.xml" Guid="64ee81f0-3df7-45be-ad75-7c1d76fe88e6" />
+  <File Id="ProgramDir.reference_texts.English.HOS.xml" Guid="8b94839a-1072-4f06-8ae8-7facbcd7fbe9" />
+  <File Id="ProgramDir.reference_texts.English.ISA.xml" Guid="4ad3c057-47f6-4e9d-8039-a1b77358fd67" />
+  <File Id="ProgramDir.reference_texts.English.JDG.xml" Guid="54aefe69-6bf1-41b7-b3b6-931a844fbaba" />
+  <File Id="ProgramDir.reference_texts.English.JER.xml" Guid="a7bd397a-a912-4ade-bc79-0dd664832a2b" />
+  <File Id="ProgramDir.reference_texts.English.JOB.xml" Guid="40f571ae-bcd4-4537-b648-50c4ed946aa3" />
+  <File Id="ProgramDir.reference_texts.English.JOL.xml" Guid="a22d7b7b-88ba-4d31-a4fc-b9d98ba8e940" />
+  <File Id="ProgramDir.reference_texts.English.JON.xml" Guid="27d7151e-dfcf-4e98-b161-9cbd07815d55" />
+  <File Id="ProgramDir.reference_texts.English.JOS.xml" Guid="c25ae6d2-704c-4021-8ef6-7fb8a0a94751" />
+  <File Id="ProgramDir.reference_texts.English.LAM.xml" Guid="0bba777e-b761-40c8-991a-c479801236a7" />
+  <File Id="ProgramDir.reference_texts.English.LEV.xml" Guid="65257189-4ee0-406d-ae2c-1dba41849b6a" />
+  <File Id="ProgramDir.reference_texts.English.MAL.xml" Guid="a96f6d48-3a2b-4b47-90a6-d349330b2e22" />
+  <File Id="ProgramDir.reference_texts.English.MIC.xml" Guid="8ac3f4c0-e4dc-4fa1-b47e-80087e387d84" />
+  <File Id="ProgramDir.reference_texts.English.NAM.xml" Guid="1624f446-a58a-4dec-911c-a257b0e86a88" />
+  <File Id="ProgramDir.reference_texts.English.NEH.xml" Guid="46fc828d-5dac-4196-852f-8f13d18228f8" />
+  <File Id="ProgramDir.reference_texts.English.NUM.xml" Guid="b736ccf2-b2d9-406c-9af0-e69606626c7a" />
+  <File Id="ProgramDir.reference_texts.English.OBA.xml" Guid="91f442f7-022d-488c-88c2-e863cbb5fb49" />
+  <File Id="ProgramDir.reference_texts.English.PRO.xml" Guid="938476ea-290d-44b3-bf88-206dfe138233" />
+  <File Id="ProgramDir.reference_texts.English.PSA.xml" Guid="4d4b4592-6cb4-4f1c-8bf9-92282fcb4244" />
+  <File Id="ProgramDir.reference_texts.English.RUT.xml" Guid="3ab2449c-38a6-4aa4-8522-c9a3b552755f" />
+  <File Id="ProgramDir.reference_texts.English.ZEC.xml" Guid="7523ae3b-6eea-49c3-ad45-2ea1b3971f08" />
+  <File Id="ProgramDir.reference_texts.English.ZEP.xml" Guid="53f1e5c5-44b2-4fbf-826a-cc6af2cfc352" />
 </InstallerMetadata>
