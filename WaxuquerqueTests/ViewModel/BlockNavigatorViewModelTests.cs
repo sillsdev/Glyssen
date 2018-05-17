@@ -1039,9 +1039,9 @@ namespace WaxuquerqueTests.ViewModel
 			m_model.Mode = BlocksToDisplay.NotAssignedAutomatically;
 			BlockNavigatorViewModelTests.FindRefInMark(m_model, 9, 21);
 			var blockIndex = m_model.CurrentBlockIndexInBook;
-			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("Jesus", 0, m_testProject.Versification);
+			m_model.CurrentBlock.SetCharacterIdAndCharacterIdInScript("Jesus", 0, m_testProject.Versification);
 			m_model.LoadNextRelevantBlock();
-			m_model.CurrentBlock.SetCharacterAndCharacterIdInScript("father of demon-possessed boy", 0, m_testProject.Versification);
+			m_model.CurrentBlock.SetCharacterIdAndCharacterIdInScript("father of demon-possessed boy", 0, m_testProject.Versification);
 			m_model.LoadNextRelevantBlock();
 			var origNextRelevantBlock = m_model.CurrentBlock;
 			m_model.Mode = BlocksToDisplay.NotYetAssigned;

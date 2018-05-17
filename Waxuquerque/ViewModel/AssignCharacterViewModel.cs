@@ -194,7 +194,7 @@ namespace Waxuquerque.ViewModel
 
 		private HashSet<CharacterVerse> GetUniqueCharacterVerseObjectsForBlock(Block block)
 		{
-			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookId,
+			return new HashSet<CharacterVerse>(m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber,
 				block.ChapterNumber, block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification));
 		}
 
@@ -227,7 +227,7 @@ namespace Waxuquerque.ViewModel
 			{
 				// This will get any expected characters from other verses in the current block.
 				var block = CurrentBlock;
-				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
+				foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
 						block.InitialStartVerseNumber, block.LastVerseNum, versification: Versification))
 				{
 					m_currentCharacters.Add(character);
@@ -244,7 +244,7 @@ namespace Waxuquerque.ViewModel
 				// This will get any potential or actual characters from surrounding material.
 				foreach (var block in ContextBlocksBackward.Union(ContextBlocksForward))
 				{
-					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookId, block.ChapterNumber,
+					foreach (var character in m_combinedCharacterVerseData.GetCharacters(CurrentBookNumber, block.ChapterNumber,
 						block.InitialStartVerseNumber, block.InitialEndVerseNumber, versification: Versification))
 					{
 						m_currentCharacters.Add(character);
@@ -415,7 +415,7 @@ namespace Waxuquerque.ViewModel
 			else if (selectedCharacter.IsNarrator)
 				block.SetStandardCharacter(CurrentBookId, CharacterVerseData.StandardCharacter.Narrator);
 			else
-				block.SetCharacterAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
+				block.SetCharacterIdAndCharacterIdInScript(selectedCharacter.CharacterId, BCVRef.BookToNumber(CurrentBookId),
 					m_project.Versification);
 			block.UserConfirmed = !block.CharacterIsUnclear();
 		}

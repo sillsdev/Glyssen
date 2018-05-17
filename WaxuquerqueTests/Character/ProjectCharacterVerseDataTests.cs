@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using SIL.IO;
+using SIL.Scripture;
 using Waxuquerque;
 using Waxuquerque.Character;
 
@@ -10,6 +11,8 @@ namespace WaxuquerqueTests.Character
 	[TestFixture]
 	class ProjectCharacterVerseDataTests
 	{
+		private static readonly int kMATbookNum = BCVRef.BookToNumber("MAT");
+
 		[Test]
 		public void Constructor_PostVersion33Format_LoadsDataFromFile()
 		{
@@ -20,7 +23,7 @@ namespace WaxuquerqueTests.Character
 
 				var data = new ProjectCharacterVerseData(file.Path);
 
-				var quoteInfo = data.GetCharacters("MAT", 24, 1).Single();
+				var quoteInfo = data.GetCharacters(kMATbookNum, 24, 1).Single();
 
 				Assert.AreEqual("Peter/Andrew", quoteInfo.Character);
 				Assert.AreEqual("Confused", quoteInfo.Delivery);
@@ -42,7 +45,7 @@ namespace WaxuquerqueTests.Character
 
 				var data = new ProjectCharacterVerseData(file.Path);
 
-				var quoteInfo = data.GetCharacters("MAT", 24, 1).Single();
+				var quoteInfo = data.GetCharacters(kMATbookNum, 24, 1).Single();
 
 				Assert.AreEqual("Jesus", quoteInfo.Character);
 				Assert.AreEqual("Mysteriously", quoteInfo.Delivery);

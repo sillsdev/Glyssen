@@ -4,6 +4,7 @@ using System.Linq;
 using Glyssen.Shared;
 using NUnit.Framework;
 using SIL.ObjectModel;
+using SIL.Scripture;
 using SIL.WritingSystems;
 using Waxuquerque;
 using Waxuquerque.Character;
@@ -14,6 +15,10 @@ namespace WaxuquerqueTests.Quote
 	[TestFixture]
 	public class QuoteParserTests
 	{
+		private static readonly int kMATbookNum = BCVRef.BookToNumber("MAT");
+		private static readonly int kMRKbookNum = BCVRef.BookToNumber("MRK");
+		private static readonly int kLUKbookNum = BCVRef.BookToNumber("LUK");
+
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
@@ -3739,8 +3744,8 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("teachers of religious law/Pharisees", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 7).Select(cv => cv.Character).Single());
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 2, 8).Select(cv => cv.Character).Single());
+			Assert.AreEqual("teachers of religious law/Pharisees", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 2, 7).Select(cv => cv.Character).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 2, 8).Select(cv => cv.Character).Single());
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
@@ -3766,10 +3771,10 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("ruler, a certain=man, rich young", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 16).Select(cv => cv.Character).Single());
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 17).Select(cv => cv.Character).Single());
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("Jesus"));
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
+			Assert.AreEqual("ruler, a certain=man, rich young", ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 16).Select(cv => cv.Character).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 17).Select(cv => cv.Character).Single());
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character).Contains("Jesus"));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
@@ -3797,9 +3802,9 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 8, 23).Select(cv => cv.Character).Single());
-			Assert.AreEqual("blind man", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 8, 24).Select(cv => cv.Character).Single());
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MRK", 8, 25).Any());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 23).Select(cv => cv.Character).Single());
+			Assert.AreEqual("blind man", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 24).Select(cv => cv.Character).Single());
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 8, 25).Any());
 
 			Assert.AreEqual(3, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
@@ -3824,9 +3829,9 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 17).Select(cv => cv.Character).Single());
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("Jesus"));
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 17).Select(cv => cv.Character).Single());
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character).Contains("Jesus"));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
@@ -3849,8 +3854,8 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 8).Select(cv => cv.Character).Single());
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 9).Any());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 8).Select(cv => cv.Character).Single());
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 9).Any());
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
@@ -3873,9 +3878,9 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MAT", input).Parse().ToList();
 
 			// Validate environment
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("Jesus"));
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
-			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters("MAT", 19, 19).Any());
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character).Contains("Jesus"));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 18).Select(cv => cv.Character).Contains("ruler, a certain=man, rich young"));
+			Assert.IsFalse(ControlCharacterVerseData.Singleton.GetCharacters(kMATbookNum, 19, 19).Any());
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.None, output[0].MultiBlockQuote);
@@ -3898,10 +3903,10 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "MRK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 16).Select(cv => cv.Character).Single());
-			Assert.AreEqual("giving orders", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 16).Select(cv => cv.Delivery).Single());
-			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 17).Select(cv => cv.Character).Single());
-			Assert.AreEqual("", ControlCharacterVerseData.Singleton.GetCharacters("MRK", 16, 17).Select(cv => cv.Delivery).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 16, 16).Select(cv => cv.Character).Single());
+			Assert.AreEqual("giving orders", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 16, 16).Select(cv => cv.Delivery).Single());
+			Assert.AreEqual("Jesus", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 16, 17).Select(cv => cv.Character).Single());
+			Assert.AreEqual("", ControlCharacterVerseData.Singleton.GetCharacters(kMRKbookNum, 16, 17).Select(cv => cv.Delivery).Single());
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);
@@ -3926,10 +3931,10 @@ namespace WaxuquerqueTests.Quote
 			IList<Block> output = new QuoteParser(ControlCharacterVerseData.Singleton, "LUK", input).Parse().ToList();
 
 			// Validate environment
-			Assert.AreEqual("angel of the LORD, an", ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 28).Select(cv => cv.Character).Single());
-			Assert.AreEqual("to Mary", ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 28).Select(cv => cv.Delivery).Single());
-			Assert.AreEqual(1, ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 29).Count(c => c.Character == "angel of the LORD, an" && c.Delivery == ""));
-			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters("LUK", 1, 29).Select(cv => cv.Character).Contains("Mary (Jesus' mother)"));
+			Assert.AreEqual("angel of the LORD, an", ControlCharacterVerseData.Singleton.GetCharacters(kLUKbookNum, 1, 28).Select(cv => cv.Character).Single());
+			Assert.AreEqual("to Mary", ControlCharacterVerseData.Singleton.GetCharacters(kLUKbookNum, 1, 28).Select(cv => cv.Delivery).Single());
+			Assert.AreEqual(1, ControlCharacterVerseData.Singleton.GetCharacters(kLUKbookNum, 1, 29).Count(c => c.Character == "angel of the LORD, an" && c.Delivery == ""));
+			Assert.IsTrue(ControlCharacterVerseData.Singleton.GetCharacters(kLUKbookNum, 1, 29).Select(cv => cv.Character).Contains("Mary (Jesus' mother)"));
 
 			Assert.AreEqual(2, output.Count);
 			Assert.AreEqual(MultiBlockQuote.Start, output[0].MultiBlockQuote);

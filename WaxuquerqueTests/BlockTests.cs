@@ -923,7 +923,7 @@ namespace WaxuquerqueTests
 			Assert.AreEqual("chief monkey", block.CharacterIdOverrideForScript);
 			// end setup
 
-			block.SetCharacterAndCharacterIdInScript(unclearCharacterId, BCVRef.BookToNumber("EXO"));
+			block.SetCharacterIdAndCharacterIdInScript(unclearCharacterId, BCVRef.BookToNumber("EXO"));
 			Assert.AreEqual(unclearCharacterId, block.CharacterId);
 			Assert.AreEqual(unclearCharacterId, block.CharacterIdInScript);
 			Assert.IsNull(block.CharacterIdOverrideForScript);
@@ -933,7 +933,7 @@ namespace WaxuquerqueTests
 		public void SetCharacterAndCharacterIdInScript_NotMultipleChoice_CharacterIdInScriptRemainsNull()
 		{
 			var block = new Block("p", 40, 8);
-			block.SetCharacterAndCharacterIdInScript("chief monkey", BCVRef.BookToNumber("EXO"));
+			block.SetCharacterIdAndCharacterIdInScript("chief monkey", BCVRef.BookToNumber("EXO"));
 			Assert.AreEqual("chief monkey", block.CharacterId);
 			Assert.AreEqual("chief monkey", block.CharacterIdInScript);
 			Assert.IsNull(block.CharacterIdOverrideForScript);
@@ -945,7 +945,7 @@ namespace WaxuquerqueTests
 			var block = new Block("p", 40, 8);
 			block.CharacterId = "live frog";
 			block.CharacterIdInScript = "dead frog";
-			block.SetCharacterAndCharacterIdInScript("subordinate monkey", BCVRef.BookToNumber("REV"));
+			block.SetCharacterIdAndCharacterIdInScript("subordinate monkey", BCVRef.BookToNumber("REV"));
 			Assert.AreEqual("subordinate monkey", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
 		}
@@ -956,7 +956,7 @@ namespace WaxuquerqueTests
 			var block = new Block("p", 40, 8);
 			block.CharacterId = "chief cupbearer/chief baker";
 			block.CharacterIdInScript = "dead frog";
-			block.SetCharacterAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
+			block.SetCharacterIdAndCharacterIdInScript("chief cupbearer/chief baker", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("chief cupbearer/chief baker", block.CharacterId);
 			Assert.AreEqual("dead frog", block.CharacterIdInScript);
 		}
@@ -967,7 +967,7 @@ namespace WaxuquerqueTests
 			// MRK 9:10 in the Vulgate should translate to 9:11 in the "original"
 			// The control file overrides the default speaker in MRK 9:11 to be John.
 			var block = new Block("p", 9, 10);
-			block.SetCharacterAndCharacterIdInScript("Peter (Simon)/James/John", BCVRef.BookToNumber("MRK"), m_testVersification);
+			block.SetCharacterIdAndCharacterIdInScript("Peter (Simon)/James/John", BCVRef.BookToNumber("MRK"), m_testVersification);
 			Assert.AreEqual("Peter (Simon)/James/John", block.CharacterId);
 			Assert.AreEqual("John", block.CharacterIdInScript);
 		}
@@ -978,7 +978,7 @@ namespace WaxuquerqueTests
 			var block = new Block("p", 40, 8);
 			block.CharacterId = "chief cupbearer/chief baker";
 			block.CharacterIdInScript = "chief cupbearer";
-			block.SetCharacterAndCharacterIdInScript("David/Goliath", BCVRef.BookToNumber("GEN"));
+			block.SetCharacterIdAndCharacterIdInScript("David/Goliath", BCVRef.BookToNumber("GEN"));
 			Assert.AreEqual("David/Goliath", block.CharacterId);
 			Assert.AreEqual("David", block.CharacterIdInScript);
 		}
@@ -1296,7 +1296,7 @@ namespace WaxuquerqueTests
 		public void SetMatchedReferenceBlock_VernBlockHasCharacter_AnnotationParsedAndIncludedAsBlockElement()
 		{
 			var block = new Block("p", 8, 29).AddVerse("29", "“¡No te metas con nosotros, Hijo de Dios! ¿Viniste acá para atormentarnos antes de tiempo?”");
-			block.SetCharacterAndCharacterIdInScript(@"demons (Legion)/man delivered from Legion of demons", 40, m_testVersification);
+			block.SetCharacterIdAndCharacterIdInScript(@"demons (Legion)/man delivered from Legion of demons", 40, m_testVersification);
 			Assert.AreEqual(@"demons (Legion)", block.CharacterIdOverrideForScript);
 			var refBlock = block.SetMatchedReferenceBlock("{29} “What do we have to do with you, Jesus, Son of God? Have you come here to torment us before the time?”");
 			Assert.IsTrue(block.MatchesReferenceText);

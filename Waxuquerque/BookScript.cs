@@ -36,8 +36,15 @@ namespace Waxuquerque
 		public string BookId
 		{
 			get { return Id; }
-			set { m_id = value; }
+			set
+			{
+				m_id = value;
+				BookNumber = BCVRef.BookToNumber(m_id);
+			}
 		}
+
+		[XmlIgnore]
+		public int BookNumber { get; private set; }
 
 		[XmlAttribute("singlevoice")]
 		public bool SingleVoice { get; set; }
@@ -387,7 +394,7 @@ namespace Waxuquerque
 						m_blocks[iTarget].BlockElements.SequenceEqual(sourceBlock.BlockElements, comparer))
 					{
 						if (sourceBlock.CharacterIdOverrideForScript == null)
-							m_blocks[iTarget].SetCharacterAndCharacterIdInScript(sourceBlock.CharacterId, bookNum, versification);
+							m_blocks[iTarget].SetCharacterIdAndCharacterIdInScript(sourceBlock.CharacterId, bookNum, versification);
 						else
 						{
 							m_blocks[iTarget].CharacterId = sourceBlock.CharacterId;
@@ -563,7 +570,7 @@ namespace Waxuquerque
 		{
 			foreach (Block block in blocks)
 			{
-				block.SetCharacterAndCharacterIdInScript(character, bookNum, versification);
+				block.SetCharacterIdAndCharacterIdInScript(character, bookNum, versification);
 				block.Delivery = delivery;
 
 				if (character == CharacterVerseData.kAmbiguousCharacter || character == CharacterVerseData.kUnknownCharacter)

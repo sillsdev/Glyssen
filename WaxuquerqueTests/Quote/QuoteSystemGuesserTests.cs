@@ -211,9 +211,12 @@ namespace WaxuquerqueTests.Quote
 			m_highlyConsistentData = highlyConsistentData;
 			m_includeSecondLevelQuotes = includeSecondLevelQuotes && m_desiredQuoteSystem.NormalLevels.Count > 1;
 			BookId = BCVRef.NumberToBookCode(bookNum);
+			BookNumber = bookNum;
 		}
 
-		public string BookId { get; private set; }
+		public string BookId { get; }
+
+		private int BookNumber { get; }
 
 		private enum QuotePosition
 		{
@@ -231,9 +234,9 @@ namespace WaxuquerqueTests.Quote
 
 			var verseText = new StringBuilder();
 
-			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse).ToList();
+			var characters = ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse).ToList();
 			// If previous verse had same character talking, it's probably a longer discourse, so minimize the number of start quotes.
-			bool quoteStartExpected = (verse == 1 || characters.Count > 1 || !ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse - 1)
+			bool quoteStartExpected = (verse == 1 || characters.Count > 1 || !ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse - 1)
 				.SequenceEqual(characters) || verse % 5 == 0);
 
 			// The following attempts to more-or-less simulate real data.
@@ -337,7 +340,7 @@ namespace WaxuquerqueTests.Quote
 					{
 						verseText.Insert(pos, m_desiredQuoteSystem.NormalLevels[1].Open);
 
-						if (characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookId, chapter, verse + 1)
+						if (characters.Count == 1 && ControlCharacterVerseData.Singleton.GetCharacters(BookNumber, chapter, verse + 1)
 							.SequenceEqual(characters) && (verse + 1) % 5 == 0)
 							likelihoodFactor = 1;
 

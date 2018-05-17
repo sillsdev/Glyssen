@@ -184,6 +184,7 @@ namespace Waxuquerque.ViewModel
 		public IBlockAccessor BlockAccessor => m_navigator;
 
 		public string CurrentBookId => BlockAccessor.CurrentBook.BookId;
+		public int CurrentBookNumber => BlockAccessor.CurrentBook.BookNumber;
 		public bool CurrentBookIsSingleVoice => BlockAccessor.CurrentBook.SingleVoice;
 
 		public Block CurrentBlock
@@ -1082,7 +1083,7 @@ namespace Waxuquerque.ViewModel
 					return false;
 
 				IEnumerable<BCVRef> versesWithPotentialMissingQuote =
-					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
+					ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber, block.InitialStartVerseNumber,
 					block.LastVerseNum, versification: Versification).Where(c => c.IsExpected).Select(c => c.BcvRef);
 
 				var withPotentialMissingQuote = versesWithPotentialMissingQuote as IList<BCVRef> ?? versesWithPotentialMissingQuote.ToList();
@@ -1097,7 +1098,7 @@ namespace Waxuquerque.ViewModel
 				if (!block.IsQuote || CurrentBookIsSingleVoice)
 					return false;
 
-				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber, block.InitialStartVerseNumber,
+				var expectedSpeakers = ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber, block.InitialStartVerseNumber,
 					block.InitialEndVerseNumber, versification: Versification).Distinct(new CharacterEqualityComparer()).Count();
 
 				var actualquotes = 1; // this is the quote represented by the given block.
@@ -1129,7 +1130,7 @@ namespace Waxuquerque.ViewModel
 		{
 			if (!block.IsScripture)
 				return false;
-			return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookId, block.ChapterNumber,
+			return ControlCharacterVerseData.Singleton.GetCharacters(CurrentBookNumber, block.ChapterNumber,
 				block.InitialStartVerseNumber,
 				block.LastVerseNum, versification: Versification).Any(c => c.IsExpected);
 		}
