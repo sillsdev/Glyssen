@@ -40,11 +40,11 @@
     </Reference>
     <Reference Include="Geckofx-Core, Version=29.0.24.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GlyssenAlt\lib\dotnet\Geckofx-Core.dll</HintPath>
+      <HintPath>..\lib\dotnet\Geckofx-Core.dll</HintPath>
     </Reference>
     <Reference Include="Geckofx-Winforms, Version=29.0.24.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GlyssenAlt\lib\dotnet\Geckofx-Winforms.dll</HintPath>
+      <HintPath>..\lib\dotnet\Geckofx-Winforms.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\lib\dotnet\Ionic.Zip.dll</HintPath>
@@ -72,25 +72,25 @@
     </Reference>
     <Reference Include="SIL.Scripture, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GlyssenAlt\lib\dotnet\SIL.Scripture.dll</HintPath>
+      <HintPath>..\lib\dotnet\SIL.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.DblBundle, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GlyssenAlt\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.DblBundle.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.GeckoBrowserAdapter">
       <HintPath>..\lib\dotnet\SIL.Windows.Forms.GeckoBrowserAdapter.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.Scripture, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GlyssenAlt\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.Scripture.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Windows.Forms.WritingSystems, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GlyssenAlt\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
+      <HintPath>..\lib\dotnet\SIL.Windows.Forms.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems">
       <HintPath>..\lib\dotnet\SIL.WritingSystems.dll</HintPath>
