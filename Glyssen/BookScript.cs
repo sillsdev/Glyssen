@@ -32,6 +32,7 @@ namespace Glyssen
 		public BookScript(string bookId, IEnumerable<Block> blocks) : base(bookId, blocks)
 		{
 			OnBlocksReset();
+			BookNumber = BCVRef.BookToNumber(bookId);
 		}
 
 		[XmlAttribute("id")]
