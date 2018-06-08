@@ -491,7 +491,7 @@ Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeroboam	1	Male				1KI 12:26 <-(6 more)-> 1KI 14:3
 Jeshua	1	Male				
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		MAT 3:15 <-(2101 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		MAT 3:15 <-(2102 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
