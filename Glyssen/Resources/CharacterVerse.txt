@@ -1,4 +1,4 @@
-Control File Version	129
+Control File Version	130
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -14572,10 +14572,12 @@ LUK	6	2	Pharisees, some	angry		Dialogue
 LUK	6	3	Jesus			Dialogue		
 LUK	6	4	Jesus			Normal		
 LUK	6	5	Jesus			Dialogue		
+LUK	6	7	Pharisees/teachers of religious law			Indirect		
 LUK	6	8	Jesus	giving orders		Dialogue		
 LUK	6	9	Jesus	questioning		Dialogue		
 LUK	6	10	Jesus			Dialogue		
 LUK	6	11	Pharisees/teachers of religious law			Indirect		
+LUK	6	13	Jesus			Indirect		
 LUK	6	15	narrator-LUK			Quotation		
 LUK	6	20	Jesus			Normal		
 LUK	6	21	Jesus			Normal		
@@ -14626,6 +14628,7 @@ LUK	7	25	Jesus			Normal
 LUK	7	26	Jesus			Normal		
 LUK	7	27	Jesus			Normal		
 LUK	7	28	Jesus			Normal		
+LUK	7	29	people, all the			Indirect		
 LUK	7	31	Jesus			Normal		
 LUK	7	32	Jesus			Normal		
 LUK	7	33	Jesus			Normal		
@@ -14675,6 +14678,7 @@ LUK	8	31	demons (Legion)/man delivered from Legion of demons		demons (Legion) ma
 LUK	8	32	demons (Legion)/man delivered from Legion of demons	begging	demons (Legion)	Indirect		MAT 8:29,31; MRK 5.7,9,10,12; LUK 8.28,30,32
 LUK	8	32	Jesus			Indirect		
 LUK	8	34	herdsmen of pigs			Indirect		
+LUK	8	35	Gadarene (or Gerasenes) people	fearful	people of the region of the Gerasenes	Indirect		
 LUK	8	36	herdsmen of pigs		those that saw demon possessed man cured	Indirect		
 LUK	8	37	Gadarene (or Gerasenes) people	fearful	people of the region of the Gerasenes	Indirect		MAT 8.34;MRK 5.17;LUK 8.37
 LUK	8	38	man delivered from Legion of demons			Indirect		
@@ -14891,6 +14895,7 @@ LUK	12	56	Jesus			Normal
 LUK	12	57	Jesus			Normal		
 LUK	12	58	Jesus			Normal		
 LUK	12	59	Jesus			Normal		
+LUK	13	1	people, some			Indirect		
 LUK	13	2	Jesus			Normal		
 LUK	13	3	Jesus			Normal		
 LUK	13	4	Jesus			Normal		
@@ -15097,6 +15102,8 @@ LUK	19	7	people in Jericho, all the	complaining		Normal
 LUK	19	8	Zaccheaus			Dialogue		
 LUK	19	9	Jesus			Dialogue		
 LUK	19	10	Jesus			Normal		
+LUK	19	11	crowd at Jericho			Indirect		
+LUK	19	11	Jesus			Indirect		
 LUK	19	12	Jesus			Normal		
 LUK	19	13	Jesus			Normal		
 LUK	19	14	Jesus			Normal		
@@ -15265,6 +15272,7 @@ LUK	23	4	Pilate	to crowd		Dialogue
 LUK	23	5	chief priests/crowd	angry		Dialogue		
 LUK	23	6	Pilate			Indirect		
 LUK	23	7	chief priests/crowd			Indirect		
+LUK	23	8	Herod Antipas (the tetrarch)			Indirect		
 LUK	23	14	Pilate	to crowd		Dialogue		
 LUK	23	15	Pilate	to crowd		Normal		
 LUK	23	16	Pilate	to crowd		Normal		
@@ -15275,6 +15283,7 @@ LUK	23	22	Pilate	to crowd		Dialogue
 LUK	23	23	crowd			Indirect		
 LUK	23	24	Pilate			Indirect		
 LUK	23	25	Pilate			Indirect		
+LUK	23	26	soldiers, Roman			Indirect		
 LUK	23	28	Jesus			Dialogue		
 LUK	23	29	Jesus			Normal		
 LUK	23	30	Jesus			Normal		
@@ -15297,6 +15306,8 @@ LUK	24	5	angels in white, two		men (angels) in clothes that gleamed like lightni
 LUK	24	6	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		MAT 28.5-6;MRK 16.6;LUK 24.6
 LUK	24	7	angels in white, two		men (angels) in clothes that gleamed like lightning, two	Dialogue		
 LUK	24	8	Mary Magdalene/Mary mother of James/Salome			Indirect	Mary Magdalene	
+LUK	24	11	Mary Magdalene/Mary mother of James/Salome			Indirect		
+LUK	24	11	apostles			Indirect		
 LUK	24	17	Jesus	questioning		Dialogue		
 LUK	24	18	Cleopas			Dialogue		
 LUK	24	19	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas	
@@ -15312,6 +15323,7 @@ LUK	24	29	Cleopas/Cleopas' companion (on road to Emmaus)	urging	Cleopas and his 
 LUK	24	29	Jesus			Indirect		
 LUK	24	32	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Dialogue	Cleopas' companion (on road to Emmaus)	
 LUK	24	34	Eleven/those with the Eleven			Dialogue	John	
+LUK	24	35	Cleopas/Cleopas' companion (on road to Emmaus)		Cleopas and his companion (on road to Emmaus)	Indirect		
 LUK	24	36	Jesus			Dialogue		
 LUK	24	38	Jesus			Dialogue		
 LUK	24	39	Jesus			Normal		
@@ -16090,7 +16102,9 @@ ACT	2	37	crowd in Jerusalem on Pentecost			Dialogue
 ACT	2	38	Peter (Simon)			Dialogue		
 ACT	2	39	Peter (Simon)			Normal		
 ACT	2	40	Peter (Simon)			Dialogue		
+ACT	2	43	everyone			Indirect		
 ACT	3	2	narrator-ACT			Quotation		
+ACT	3	3	crippled man			Indirect		
 ACT	3	4	Peter (Simon)			Dialogue		
 ACT	3	5	crippled man			Indirect		
 ACT	3	6	Peter (Simon)			Dialogue		
@@ -16111,6 +16125,8 @@ ACT	3	23	Peter (Simon)			Normal
 ACT	3	24	Peter (Simon)			Normal		
 ACT	3	25	Peter (Simon)			Normal		
 ACT	3	26	Peter (Simon)			Normal		
+ACT	4	1	Peter (Simon)/John			Indirect	Peter (Simon)	
+ACT	4	1	priests/captain of the temple guard/Sadducees			Indirect		
 ACT	4	7	Ananias (Annas), the high priest (father-in-law of Caiaphas)/Caiaphas, the high priest/John, Alexander, and other men of the high priest's family/elders/teachers of religious law/Sanhedrin		men in the Sanhedrin	Dialogue	Ananias (Annas), the high priest (father-in-law of Caiaphas)	
 ACT	4	8	Peter (Simon)			Dialogue		
 ACT	4	9	Peter (Simon)			Normal		
@@ -16226,6 +16242,8 @@ ACT	7	59	Stephen			Normal
 ACT	7	60	Stephen	calling out		Normal		
 ACT	8	9	Simon, sorcerer			Indirect		
 ACT	8	10	people of Samaria, all the			Normal		
+ACT	8	14	apostles			Indirect		
+ACT	8	14	informer			Indirect		
 ACT	8	19	Simon, sorcerer			Normal		
 ACT	8	20	Peter (Simon)	rebuking		Dialogue		
 ACT	8	21	Peter (Simon)	rebuking		Normal		
@@ -16245,6 +16263,8 @@ ACT	8	35	Philip the evangelist		Philip	Indirect
 ACT	8	36	Ethiopian officer of Queen Candace			Dialogue		
 ACT	8	37	Ethiopian officer of Queen Candace			Indirect		
 ACT	8	37	Philip the evangelist		Philip	Potential		
+ACT	8	38	Ethiopian officer of Queen Candace			Indirect		
+ACT	8	40	Philip the evangelist			Indirect		
 ACT	9	1	Paul		Saul (Paul)	Indirect		
 ACT	9	2	Paul		Saul (Paul)	Indirect		
 ACT	9	4	Jesus	questioning		Normal		
@@ -16306,8 +16326,11 @@ ACT	10	40	Peter (Simon)			Normal
 ACT	10	41	Peter (Simon)			Normal		
 ACT	10	42	Peter (Simon)			Normal		
 ACT	10	43	Peter (Simon)			Normal		
+ACT	10	45	believers who came with Peter			Indirect		
 ACT	10	47	Peter (Simon)			Dialogue		
 ACT	10	48	Peter (Simon)	giving orders		Indirect		
+ACT	10	48	Cornelius			Indirect		
+ACT	11	1	informer			Indirect		
 ACT	11	3	believers, circumcised (in Jerusalem)	critical		Normal		
 ACT	11	5	Peter (Simon)			Dialogue		
 ACT	11	6	Peter (Simon)			Normal		
@@ -16386,6 +16409,7 @@ ACT	14	15	Barnabas/Paul	preaching		Dialogue	Paul
 ACT	14	16	Barnabas/Paul	preaching		Normal	Paul	
 ACT	14	17	Barnabas/Paul	preaching		Normal	Paul	
 ACT	14	22	Barnabas/Paul			Normal	Paul	
+ACT	14	27	Barnabas/Paul			Indirect	Paul	
 ACT	15	1	men from Judea, some	harsh		Normal		
 ACT	15	5	believers who were Pharisees			Dialogue		
 ACT	15	7	Peter (Simon)			Dialogue		
@@ -16520,6 +16544,7 @@ ACT	21	4	disciples		Holy Spirit through disciples	Indirect
 ACT	21	11	Agabus the prophet	proclaim		Dialogue		
 ACT	21	13	Paul	sad		Dialogue		
 ACT	21	14	Paul's traveling companions, Luke and	resigned		Dialogue		
+ACT	21	19	Paul			Indirect		
 ACT	21	20	James/all the elders			Normal	James	
 ACT	21	21	James/all the elders			Normal	James	
 ACT	21	22	James/all the elders			Normal	James	
@@ -16527,6 +16552,7 @@ ACT	21	23	James/all the elders			Normal	James
 ACT	21	24	James/all the elders			Normal	James	
 ACT	21	25	James/all the elders			Normal	James	
 ACT	21	28	Jews from Asia	shouting		Normal		
+ACT	21	31	informer			Indirect		
 ACT	21	33	commander of Roman troops in Jerusalem			Indirect		
 ACT	21	34	crowd	shouting		Indirect		
 ACT	21	36	crowd	shouting		Normal		
@@ -16566,6 +16592,7 @@ ACT	22	27	Paul			Dialogue
 ACT	22	28	commander of Roman troops in Jerusalem			Dialogue		
 ACT	22	28	Paul			Dialogue		
 ACT	22	29	commander of Roman troops in Jerusalem			Indirect		
+ACT	22	30	commander of Roman troops in Jerusalem			Indirect		
 ACT	23	1	Paul	sternly		Dialogue		
 ACT	23	2	Ananias (Annas), the high priest (father-in-law of Caiaphas)	commanding	Ananias, the high priest	Indirect		
 ACT	23	3	Paul	rebuking		Dialogue		
@@ -16676,6 +16703,7 @@ ACT	26	32	King Herod Agrippa II			Dialogue
 ACT	27	1	narrator-ACT			Quotation		
 ACT	27	10	Paul	warning		Normal		
 ACT	27	12	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		majority (ship's crew)	Indirect		
+ACT	27	13	captain of ship to Italy (Rome)/sailors on ship to Italy (Rome)		majority (ship's crew)	Indirect		
 ACT	27	14	narrator-ACT			Quotation		
 ACT	27	21	Paul			Normal		
 ACT	27	22	Paul			Normal		
@@ -16696,16 +16724,24 @@ ACT	28	11	narrator-ACT			Quotation
 ACT	28	14	brothers at Puteoli			Indirect		
 ACT	28	15	brothers at Rome			Indirect		
 ACT	28	15	Paul			Indirect		
+ACT	28	16	one who allowed Paul to live by himself			Indirect		
 ACT	28	17	Paul			Dialogue		
 ACT	28	18	Paul			Normal		
 ACT	28	19	Paul			Normal		
 ACT	28	20	Paul			Normal		
 ACT	28	21	Jews, leaders of the (in Rome)		Jews, leaders of the	Dialogue		
 ACT	28	22	Jews, leaders of the (in Rome)		Jews, leaders of the	Dialogue		
+ACT	28	23	Paul			Indirect		
+ACT	28	24	Paul			Indirect		
+ACT	28	24	some convinced by Paul			Indirect		
+ACT	28	24	others who would not believe			Indirect		
+ACT	28	25	others who would not believe			Indirect		
 ACT	28	25	Paul			Normal		
 ACT	28	26	Paul			Normal		
 ACT	28	27	Paul			Normal		
 ACT	28	28	Paul			Normal		
+ACT	28	30	Paul			Indirect		
+ACT	28	31	Paul			Indirect		
 ROM	1	17	scripture			Quotation	God	
 ROM	2	1	Jews, the	accusing		Hypothetical		
 ROM	2	6	scripture			Quotation	David	

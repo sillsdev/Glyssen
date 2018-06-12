@@ -81,7 +81,7 @@ answer from Israel	1		Adult			ISA 14:32
 anyone	1		Adult			1CO 10:28 <-(3 more)-> 2JN 1:11
 anyone with complaint for king	1		Adult			2SA 15:2
 Apollos	1	Male	Adult			ACT 18:28
-apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(6 more)-> JUD 1:18
+apostles	11	Male	Adult		Not Judas Iscariot	LUK 17:5 <-(8 more)-> JUD 1:18
 apostles, elders, and whole church at Jerusalem	-1		Adult			ACT 15:22
 Aramean soldiers	-1	Male	Adult			2KI 7:6
 Araunah, the Jebusite	1	Male	Adult			2SA 24:21 <-(2 more)-> 1CH 21:23
@@ -118,6 +118,7 @@ Barzillai	1	Male	Adult		Gileadite
 Barzillai (old)	1	Male	Elder		Gileadite	2SA 19:34 <-(2 more)-> 2SA 19:37
 Bathsheba	1	Female	Adult			2SA 11:5 <-(11 more)-> 1KI 2:21
 beast, the	1		Adult			REV 13:14
+believers who came with Peter	-1	Male	Adult			ACT 10:45
 believers who were Pharisees	-1	Male	Adult			ACT 15:5
 believers, circumcised (in Jerusalem)	-1	Male	Adult			ACT 11:3 & ACT 11:18
 believers, one hundred twenty	120	PreferMale	Adult		Probably spoken by Peter or one of the other eleven disciples	ACT 1:24 & ACT 1:25
@@ -188,7 +189,7 @@ Claudius	1	Male	Adult			ACT 18:2
 Cleopas	1	Male	Adult			LUK 24:18
 Cleopas' companion (on road to Emmaus)	1	Either	Adult			
 collectors of temple tax	-1	Male	Adult			MAT 17:24
-commander of Roman troops in Jerusalem	1	Male	Adult			ACT 21:33 <-(16 more)-> ACT 23:30
+commander of Roman troops in Jerusalem	1	Male	Adult			ACT 21:33 <-(17 more)-> ACT 23:30
 commander of the LORD's army	1	Male	Adult		Default character should be Jesus	JOS 5:14 & JOS 5:15
 company of the prophets	-1		Adult			2KI 4:40 <-(3 more)-> 2KI 6:5
 company of the prophets (Bethel)	-1		Adult			2KI 2:3
@@ -197,14 +198,14 @@ company of the prophets, one of (the LORD says) (young man)	1	Male	YoungAdult			
 company of the prophets, one of (young man)	1	Male	YoungAdult			2KI 9:5
 conquerors of beast, image & his name	-1		Adult			REV 15:3 & REV 15:4
 conquerors of Lo Debar	-1	Male	Adult			AMO 6:13
-Cornelius	1	Male	Adult			ACT 10:4 <-(3 more)-> ACT 10:33
+Cornelius	1	Male	Adult			ACT 10:4 <-(4 more)-> ACT 10:48
 council of elders	-1	Male	Elder			
 craftsman	1	Male	Adult			EXO 36:5 <-(4 more)-> ISA 44:20
 craftsmen and workmen	-1	Male	Adult			ACT 19:28 <-(1 more)-> ACT 19:34
 Cretan prophet	1	Male				TIT 1:12
 criminal on cross, insulting	1	Male	Adult			LUK 23:39
 criminal on cross, repentant	1	Male	Adult			LUK 23:40 <-(1 more)-> LUK 23:42
-crippled man	1	Male	Adult			ACT 3:5
+crippled man	1	Male	Adult			ACT 3:3 & ACT 3:5
 crowd	-1		Adult			MAT 9:8 <-(16 more)-> ACT 21:36
 crowd after mute healed	-1		Adult			MAT 9:33
 crowd at Festival of Tabernacles in Jerusalem, many in the	-1		Adult			JHN 7:31
@@ -212,7 +213,7 @@ crowd at Festival of Tabernacles in Jerusalem, others	-1		Adult			JHN 7:12 & JHN
 crowd at Festival of Tabernacles in Jerusalem, some	-1		Adult			JHN 7:12 & JHN 7:40
 crowd at Festival of Tabernacles in Jerusalem, still others	-1		Adult			JHN 7:41 & JHN 7:42
 crowd at Festival of Tabernacles in Jerusalem, the	-1		Adult			JHN 7:20
-crowd at Jericho	-1		Adult			MAT 20:30 <-(2 more)-> LUK 18:37
+crowd at Jericho	-1		Adult			MAT 20:30 <-(3 more)-> LUK 19:11
 crowd before Pilate	-1		Adult			MAT 27:21 <-(7 more)-> LUK 23:21
 crowd in Jerusalem	-1		Adult			ACT 22:22 & ACT 22:24
 crowd in Jerusalem on Pentecost	-1		Adult			ACT 2:37
@@ -310,10 +311,10 @@ Epicurean and Stoic philosophers, sneering	-1					ACT 17:32
 Epicurean and Stoic philosophers, some	-1					ACT 17:18
 Esau	1	Male	Adult			GEN 25:30 <-(12 more)-> GEN 33:15
 Esther, queen	1	Female	Adult			EST 4:11 <-(9 more)-> EST 9:13
-Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(2 more)-> ACT 8:37
+Ethiopian officer of Queen Candace	1	Male				ACT 8:31 <-(3 more)-> ACT 8:38
 Eve	1	Female	Adult			GEN 3:2 <-(3 more)-> GEN 4:25
 every created thing	-1					REV 5:13
-everyone	-1					LUK 4:38 & PHP 2:11
+everyone	-1					LUK 4:38 <-(1 more)-> PHP 2:11
 everyone in Judean hills who heard	-1					LUK 1:65 & LUK 1:66
 everyone seeing healing of paralyzed man	-1					LUK 5:26
 everyone who saw healing of paralytic	-1					MRK 2:12
@@ -354,7 +355,7 @@ friends of Haman	-1	PreferMale
 Gaal, son of Ebed	1	Male				JDG 9:28 <-(2 more)-> JDG 9:37
 Gabriel	1	Male				DAN 8:17 <-(28 more)-> LUK 1:37
 Gad the prophet, David's seer	1	Male				1SA 22:5 <-(3 more)-> 1CH 21:12
-Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(1 more)-> LUK 8:37
+Gadarene (or Gerasenes) people	-1					MAT 8:34 <-(2 more)-> LUK 8:37
 Gadites	-1	Male				
 Gallio, proconsul of Achaia	1	Male				ACT 18:14 & ACT 18:15
 Gamaliel	1	Male				ACT 5:34 <-(4 more)-> ACT 5:39
@@ -399,7 +400,7 @@ hearers	-1					ISA 28:9 & ISA 28:10
 herald	1	Male				DAN 3:4 <-(1 more)-> DAN 3:6
 herdsman	1	Male				GEN 26:20
 herdsmen of pigs	-1	Male				MAT 8:33 <-(2 more)-> LUK 8:36
-Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(10 more)-> LUK 9:9
+Herod Antipas (the tetrarch)	1	Male				MAT 14:2 <-(11 more)-> LUK 23:8
 Herod the Great	1	Male				MAT 2:4 <-(2 more)-> MAT 2:16
 Herodias	1	Female				MAT 14:8 & MRK 6:24
 Herodias' daughter	1	Female				MAT 14:8 <-(1 more)-> MRK 6:25
@@ -428,7 +429,7 @@ hymn, early creedal	1	PreferMale				1TI 3:16
 idolaters from Judah (men)	-1	Male				JER 44:16 <-(1 more)-> JER 44:18
 idolaters from Judah (women)	-1	Female				JER 44:19
 immoral woman	1	Female				PRO 7:14 <-(5 more)-> PRO 7:20
-informer	-1	PreferMale				JDG 15:6 <-(6 more)-> 1KI 1:51
+informer	-1	PreferMale				JDG 15:6 <-(9 more)-> ACT 21:31
 inscription on forehead of Babylon	1	PreferFemale				REV 17:5
 invaders	-1	Male				JER 6:4 & JER 6:5
 invalid for 38 years	1	Male				JHN 5:7 <-(1 more)-> JHN 5:15
@@ -491,7 +492,7 @@ Jeremiah's enemies	-1	Male				JER 11:19 <-(2 more)-> JER 20:10
 Jeroboam	1	Male				1KI 12:26 <-(6 more)-> 1KI 14:3
 Jeshua	1	Male				
 Jesse	1	Male				1SA 16:11 <-(2 more)-> 1SA 17:19
-Jesus	1	Male	Adult	Y		MAT 3:15 <-(2102 more)-> REV 22:20
+Jesus	1	Male	Adult	Y		MAT 3:15 <-(2104 more)-> REV 22:20
 Jesus (child)	1	Male	Child	Y	youth (12)	LUK 2:49
 Jesus' brothers	4	Male				JHN 7:3 & JHN 7:4
 Jesus' family	-1	Either				MAT 12:46 <-(1 more)-> MRK 3:31
@@ -765,6 +766,7 @@ On	1	Male			son of Peleth (Reubenite)
 one at table of Pharisee (expert in religious law)	1	Male				LUK 14:15
 one of you	-1					ROM 9:19 & JAS 2:16
 one other who looked like a man	1	Male				DAN 12:6
+one who allowed Paul to live by himself	-1	Male				ACT 28:16
 one who brings good news	-1	PreferMale				ISA 40:9 & ISA 52:7
 one who looked like a man	1	Male				DAN 10:11 <-(54 more)-> DAN 12:4
 one with garments stained crimson (Christ?)	1	Male			Default character should be Jesus	ISA 63:1 <-(3 more)-> ISA 63:6
@@ -775,13 +777,14 @@ Orpah	1	Female
 other guests at Pharisee (Simon)'s house	-1	Male				LUK 7:49
 others	-1					ISA 43:9
 others (testing Jesus)	-1					LUK 11:16
+others who would not believe	-1	Male				ACT 28:24 & ACT 28:25
 owners of colt	-1	PreferMale				MRK 11:5 & LUK 19:33
 owners of fortune telling slave girl	-1	Male				ACT 16:20 & ACT 16:21
 parents of cured man, blind from birth	2	Either			May want to assign one or more of these lines to female, as appropriate	JHN 9:20 <-(1 more)-> JHN 9:23
 parents of rebellious son	2	Either				DEU 21:20
 Pashur	1	Male			son of Malkijah	
 passers by	-1					LAM 2:15 <-(2 more)-> MRK 15:30
-Paul	1	Male				ACT 9:1 <-(184 more)-> 1TH 5:27
+Paul	1	Male				ACT 9:1 <-(189 more)-> 1TH 5:27
 Paul's traveling companions, Luke and	-1					ACT 21:14
 people	-1					2CH 26:23 <-(18 more)-> 1TH 5:3
 people at cistern	-1					1SA 19:22
@@ -803,7 +806,7 @@ people of Tyre and Sidon	-1					ACT 12:22
 people praying at John Mark's mother's house	-1					ACT 12:15
 people who had known Saul	-1					1SA 10:11
 people who saw healing of demon-possessed man who was blind and mute	-1					MAT 12:23
-people, all the	-1					1KI 1:39 <-(5 more)-> MRK 9:15
+people, all the	-1					1KI 1:39 <-(6 more)-> LUK 7:29
 people, arrogant wicked	-1					PSA 73:11
 people, God's	-1					ISA 25:9
 people, hurried	-1					ISA 5:19
@@ -811,7 +814,7 @@ people, Israel, tribes of	-1					2SA 19:9 & 2SA 19:10
 people at Gennesaret (sick)	-1					MAT 14:36 & MRK 6:56
 people, other	-1					MRK 6:15 & LUK 9:8
 people, righteous	-1					PSA 52:7 & PSA 92:15
-people, some	-1					MRK 2:18 <-(1 more)-> MRK 8:22
+people, some	-1					MRK 2:18 <-(2 more)-> LUK 13:1
 people, still others	-1					MRK 6:15
 peoples, many	-1					ISA 2:3
 person asking someone to read a sealed book	1	Male				ISA 29:11 & ISA 29:12
@@ -850,7 +853,7 @@ Pharisees, other	-1	Male				LUK 11:37 & JHN 9:16
 Pharisees, some	-1	Male				MAT 12:2 <-(8 more)-> JHN 9:40
 Phicol	1	Male				
 Philip the apostle	1	Male				MRK 6:37 <-(3 more)-> JHN 14:8
-Philip the evangelist	1	Male				ACT 8:30 <-(1 more)-> ACT 8:37
+Philip the evangelist	1	Male				ACT 8:30 <-(2 more)-> ACT 8:40
 Philistine commanders	-1	Male				1SA 29:3 <-(1 more)-> 1SA 29:5
 Philistine priests and fortune tellers	-1	Male				1SA 6:3 <-(5 more)-> 1SA 6:9
 Philistine rulers	-1	Male				JDG 16:5 <-(2 more)-> 1CH 12:19
@@ -1009,9 +1012,10 @@ sluggard	1	Male	Adult			PRO 22:13 & PRO 26:13
 soldier at the cross	1	Male	Adult			LUK 23:37
 soldiers	-1	Male	Adult			ACT 12:18 & ACT 27:42
 soldiers, Assyrian	-1	Male	Adult			ISA 10:29
-soldiers, Roman	-1	Male	Adult			MAT 27:29 <-(4 more)-> JHN 19:24
+soldiers, Roman	-1	Male	Adult			MAT 27:29 <-(5 more)-> JHN 19:24
 soldiers, some (near Jordan River)	-1	Male	Adult			LUK 3:14
 Solomon, king	1	Male				1KI 1:52 <-(124 more)-> 2CH 8:11
+some convinced by Paul	-1	Male				ACT 28:24
 some people (quoted by Paul)	-1					2CO 10:10
 someone	-1					ECC 1:10 <-(6 more)-> JAS 4:13
 someone (hypothetical argument)	-1					PSA 11:1 <-(3 more)-> 2CO 12:16
