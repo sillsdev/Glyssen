@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using SIL.Scripture;
 using Waxuquerque.Properties;
+using Waxuquerque.Utilities;
 
 namespace Waxuquerque.Character
 {
@@ -19,7 +20,7 @@ namespace Waxuquerque.Character
 				if (value == s_readHypotheticalAsNarrator)
 					return;
 
-				if (Program.IsRunning)
+				if (!GeneralUtilities.RunningUnitTests)
 					throw new InvalidOperationException();
 				s_readHypotheticalAsNarrator = value;
 				s_singleton = null;
