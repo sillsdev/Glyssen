@@ -112,7 +112,7 @@ namespace Waxuquerque.Export
 		}
 
 		private string OutputName => Project.Name +
-			((Project.AudioStockNumber != null) ? " " + Project.AudioStockNumber : String.Empty);
+			(!String.IsNullOrWhiteSpace(Project.AudioStockNumber) ? " " + Project.AudioStockNumber : String.Empty);
 
 		private string FileNameWithoutExtension
 		{
@@ -608,6 +608,7 @@ namespace Waxuquerque.Export
 				!String.IsNullOrWhiteSpace(Project.AudioStockNumber) ? Project.AudioStockNumber : Project.Name.Replace(" ", "_") :
 				null;
 
+			var clipDirectory = ClipDirectory; // for optimization
 			foreach (var book in booksToInclude)
 			{
 				string singleVoiceNarratorOverride = null;
@@ -647,7 +648,7 @@ namespace Waxuquerque.Export
 						}
 						result.Add(GetExportDataForBlock(block, blockNumber++, book.BookId, voiceActor, singleVoiceNarratorOverride,
 							IncludeVoiceActors, m_includeDelivery,
-							Project.ReferenceText.HasSecondaryReferenceText, ClipDirectory, projectClipFileId, getBlockElements));
+							Project.ReferenceText.HasSecondaryReferenceText, clipDirectory, projectClipFileId, getBlockElements));
 
 						// At least for now, if getBlockElements is true, we don't want any blocks which don't have vernacular text
 						if (!getBlockElements && !block.MatchesReferenceText && block.ReferenceBlocks.Any())

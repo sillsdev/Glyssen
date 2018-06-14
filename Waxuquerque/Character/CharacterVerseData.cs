@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using Glyssen.Shared;
 using SIL;
+using SIL.Extensions;
 using SIL.Scripture;
 
 namespace Waxuquerque.Character
@@ -186,7 +187,7 @@ namespace Waxuquerque.Character
 		private const string kBookChapterAsEnglishCharacterName = "book title or chapter ({0})";
 
 		private readonly CharacterDeliveryEqualityComparer m_characterDeliveryEqualityComparer = new CharacterDeliveryEqualityComparer();
-		private IList<CharacterVerse> m_data = new List<CharacterVerse>();
+		private ISet<CharacterVerse> m_data = new HashSet<CharacterVerse>();
 		private ILookup<int, CharacterVerse> m_lookup;
 		private IEnumerable<CharacterVerse> m_uniqueCharacterAndDeliveries;
 		private IEnumerable<string> m_uniqueDeliveries;
@@ -311,7 +312,7 @@ namespace Waxuquerque.Character
 
 		public void LoadData(string tabDelimitedCharacterVerseData)
 		{
-			var data = new List<CharacterVerse>();
+			var data = new HashSet<CharacterVerse>();
 			int lineNumber = 0;
 			foreach (var line in tabDelimitedCharacterVerseData.Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries))
 			{

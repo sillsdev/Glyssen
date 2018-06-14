@@ -24,6 +24,7 @@ namespace DevTools
 
 		private static void PopulateReferences(List<CharacterDetailLine> lines)
 		{
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
 			Dictionary<string, List<BCVRef>> dictionary = ControlCharacterVerseData.Singleton.GetAllQuoteInfo().GroupBy(c => c.Character).ToDictionary(c => c.Key, cv => cv.Select(c => c.BcvRef).ToList());
 			foreach (var line in lines)
 			{
