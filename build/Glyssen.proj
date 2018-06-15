@@ -1,16 +1,37 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
-		<RootDir>$(teamcity_build_checkoutDir)</RootDir>
+		<RootDir Condition="'$(teamcity_version)' == ''">$(MSBuildProjectDirectory)\..</RootDir>
+		<RootDir Condition="'$(teamcity_version)' != ''">$(teamcity_build_checkoutDir)</RootDir>
+		<BUILD_NUMBER Condition="'$(BUILD_NUMBER)'==''">0.0.0.0</BUILD_NUMBER>
 		<Solution>Glyssen.sln</Solution>
 		<ApplicationName>Glyssen</ApplicationName>
 		<Configuration>Release</Configuration>
+		<RestartBuild Condition="!Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">true</RestartBuild>
+		<RestartBuild Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')">false</RestartBuild>
 	</PropertyGroup>
 
-	<UsingTask TaskName="StampAssemblies" AssemblyFile="$(RootDir)/build/SIL.BuildTasks.dll" />
-	<UsingTask TaskName="MakeWixForDirTree" AssemblyFile="$(RootDir)/build/SIL.BuildTasks.dll" />
-	<UsingTask TaskName="Split" AssemblyFile="$(RootDir)/build/SIL.BuildTasks.dll" />
-	<UsingTask TaskName="FileUpdate" AssemblyFile="$(RootDir)/build/SIL.BuildTasks.dll" />
+  <UsingTask TaskName="StampAssemblies"
+    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+  <UsingTask TaskName="MakeWixForDirTree"
+    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+  <UsingTask TaskName="Split"
+    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
+  <UsingTask TaskName="FileUpdate"
+    AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
+    Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
 	<UsingTask TaskName="NUnitTeamCity" AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)" Condition="'$(OS)'=='Windows_NT'"/>
+
+  <Import Project="../.nuget/NuGet.targets" />
+
+  <Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
+    <Message Text="RestartBuild=$(RestartBuild)"/>
+    <Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 1.0.2 -source "$(PackageSources)" -solutionDirectory "$(SolutionDir)."' />
+    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal"
+      Properties="Configuration=$(Configuration)" Condition="$(RestartBuild)" />
+  </Target>
 
 	<Target Name="VersionNumbers">
 	<Message Text="BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
@@ -77,12 +98,16 @@
 	<StampAssemblies Version="$(Version)" InputAssemblyPaths="@(AssemblyInfoFiles)" />
 	</Target>
 
-	<Target Name="Build" DependsOnTargets="SetAssemblyVersion">
+  <Target Name="Build">
+    <CallTarget Targets="RestoreBuildTasks"/>
+    <CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
+  </Target>
 
-	<MSBuild Projects="$(RootDir)/$(Solution)"
-			 Targets="Rebuild"
-			 Properties="Configuration=$(Configuration)" />
-	</Target>
+  <Target Name="BuildInternal" DependsOnTargets="SetAssemblyVersion">
+    <MSBuild Projects="$(RootDir)/$(Solution)"
+      Targets="Rebuild"
+      Properties="Configuration=$(Configuration)" />
+  </Target>
 
 	<Target Name="Test" DependsOnTargets="Build">
 		<!-- Note: the Exclude here is (hopefully) a temporary solution.
