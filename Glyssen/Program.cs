@@ -23,11 +23,8 @@ using SIL.Windows.Forms.Reporting;
 using SIL.WritingSystems;
 using Waxuquerque;
 using Waxuquerque.Character;
-using Waxuquerque.Utilities;
-using Analytics = Waxuquerque.Utilities.Analytics;
 using ErrorReport = SIL.Reporting.ErrorReport;
 using Logger = SIL.Reporting.Logger;
-using PathUtilities = Waxuquerque.Utilities.PathUtilities;
 
 namespace Glyssen
 {
@@ -50,90 +47,105 @@ namespace Glyssen
 		{
 			IsRunning = true;
 
-			MessageModal.Default = new WinFormsMessageModal();
-			PathUtilities.Default = new DesktopPathUtilities();
-			UserSettings.Default = new DesktopUserSettings();
-			Analytics.Default = new SegmentAnalytics();
+			Waxuquerque.Utilities.GeneralUtilities.InitializeLibrary();
 
-			if (GetRunningGlyssenProcessCount() > 1)
+			try
 			{
-				ErrorReport.NotifyUserOfProblem("There is another copy of Glyssen already running. This instance of Glyssen will now shut down.");
-				return;
-			}
+				Waxuquerque.Utilities.MessageModal.Default = new WinFormsMessageModal();
+				Waxuquerque.Utilities.PathUtilities.Default = new DesktopPathUtilities();
+				Waxuquerque.Utilities.UserSettings.Default = new DesktopUserSettings();
+				Waxuquerque.Utilities.Analytics.Default = new SegmentAnalytics();
 
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+				if (GetRunningGlyssenProcessCount() > 1)
+				{
+					ErrorReport.NotifyUserOfProblem(
+						"There is another copy of Glyssen already running. This instance of Glyssen will now shut down.");
+					return;
+				}
 
-			//bring in settings from any previous version
-			if (Settings.Default.NeedUpgrade)
-			{
-				//see http://stackoverflow.com/questions/3498561/net-applicationsettingsbase-should-i-call-upgrade-every-time-i-load
-				Settings.Default.Upgrade();
-				Settings.Default.Reload();
-				Settings.Default.NeedUpgrade = false;
-				Settings.Default.Save();
-			}
+				Application.EnableVisualStyles();
+				Application.SetCompatibleTextRenderingDefault(false);
 
-			SetUpErrorHandling();
+				//bring in settings from any previous version
+				if (Settings.Default.NeedUpgrade)
+				{
+					//see http://stackoverflow.com/questions/3498561/net-applicationsettingsbase-should-i-call-upgrade-every-time-i-load
+					Settings.Default.Upgrade();
+					Settings.Default.Reload();
+					Settings.Default.NeedUpgrade = false;
+					Settings.Default.Save();
+				}
+
+				SetUpErrorHandling();
 
 #if DEBUG
-			using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }))
+				using (new DesktopAnalytics.Analytics("jBh7Qg4jw2nRFE8j8EY1FDipzin3RFIP",
+					new UserInfo {UILanguageCode = Settings.Default.UserInterfaceLanguage}))
 #else
-			string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
+				string feedbackSetting = Environment.GetEnvironmentVariable("FEEDBACK");
 
-			//default is to allow tracking
-			var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
+				//default is to allow tracking
+				var allowTracking = string.IsNullOrEmpty(feedbackSetting) || feedbackSetting.ToLower() == "yes" || feedbackSetting.ToLower() == "true";
 
-			using (new DesktopAnalytics.Analytics("WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy", new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage }, allowTracking))
+				using (new DesktopAnalytics.Analytics(
+					"WEyYj2BOnZAP9kplKmo2BDPvfyofbMZy",
+					new UserInfo { UILanguageCode = Settings.Default.UserInterfaceLanguage },
+					allowTracking))
 #endif
+				{
+					Logger.Init();
+					Waxuquerque.Utilities.Logger.Default = new DesktopLogger();
+
+					Project.HelpUserRecoverFromBadLdmlFile = HelpUserRecoverFromBadLdmlFile;
+
+					var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+						GlyssenInfo.kCompany, kOldProductName);
+					var baseDataFolder = GlyssenInfo.BaseDataFolder;
+					if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
+						Directory.Move(oldPgBaseFolder, baseDataFolder);
+
+					if (!Directory.Exists(baseDataFolder))
+					{
+						// create the directory
+						Directory.CreateDirectory(baseDataFolder);
+					}
+
+					// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
+					DirectoryUtilities.SetFullControl(baseDataFolder, false);
+
+					DataMigrator.UpgradeToCurrentDataFormatVersion(
+						(label, path) => ConfirmRecycleDialog.ConfirmThenRecycle(label, path), out var warning);
+
+					if (!string.IsNullOrWhiteSpace(warning))
+						MessageBox.Show(warning, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+					SampleProject.CreateSampleProjectIfNeeded();
+
+					SetUpLocalization();
+					LocalizeItemDlg.StringsLocalized += ControlCharacterVerseData.Singleton.HandleStringsLocalized;
+
+					// The following not only gets the location of the settings file;
+					// it also detects corruption and deletes it if needed so we don't crash.
+					string userConfigSettingsPath = GetUserConfigFilePath();
+
+					if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
+						HandleDeleteUserSettings(userConfigSettingsPath);
+
+					Sldr.Initialize();
+
+					try
+					{
+						Application.Run(new MainForm(args, LocalizationManager));
+					}
+					finally
+					{
+						Sldr.Cleanup();
+					}
+				}
+			}
+			finally
 			{
-				Logger.Init();
-				Waxuquerque.Utilities.Logger.Default = new DesktopLogger();
-
-				Project.HelpUserRecoverFromBadLdmlFile = HelpUserRecoverFromBadLdmlFile;
-
-				var oldPgBaseFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-					GlyssenInfo.kCompany, kOldProductName);
-				var baseDataFolder = GlyssenInfo.BaseDataFolder;
-				if (Directory.Exists(oldPgBaseFolder) && !Directory.Exists(baseDataFolder))
-					Directory.Move(oldPgBaseFolder, baseDataFolder);
-
-				if (!Directory.Exists(baseDataFolder))
-				{
-					// create the directory
-					Directory.CreateDirectory(baseDataFolder);
-				}
-
-				// PG-433, 07 JAN 2016, PH: Set the permissions so everyone can read and write to this directory
-				DirectoryUtilities.SetFullControl(baseDataFolder, false);
-
-				DataMigrator.UpgradeToCurrentDataFormatVersion((label, path) => ConfirmRecycleDialog.ConfirmThenRecycle(label, path), out var warning);
-
-				if (!string.IsNullOrWhiteSpace(warning))
-					MessageBox.Show(warning, GlyssenInfo.kProduct, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-				SampleProject.CreateSampleProjectIfNeeded();
-
-				SetUpLocalization();
-				LocalizeItemDlg.StringsLocalized += ControlCharacterVerseData.Singleton.HandleStringsLocalized;
-
-				// The following not only gets the location of the settings file;
-				// it also detects corruption and deletes it if needed so we don't crash.
-				string userConfigSettingsPath = GetUserConfigFilePath();
-
-				if ((Control.ModifierKeys & Keys.Shift) > 0 && !string.IsNullOrEmpty(userConfigSettingsPath))
-					HandleDeleteUserSettings(userConfigSettingsPath);
-
-				Sldr.Initialize();
-
-				try
-				{
-					Application.Run(new MainForm(args, LocalizationManager));
-				}
-				finally
-				{
-					Sldr.Cleanup();
-				}
+				Waxuquerque.Utilities.GeneralUtilities.CleanupLibrary();
 			}
 		}
 
