@@ -9,6 +9,7 @@
     <Company>FCBH-SIL</Company>
     <Copyright>Copyright © 2014-2018 Faith Comes By Hearing and SIL International</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
