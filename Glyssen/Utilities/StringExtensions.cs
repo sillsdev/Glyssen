@@ -57,5 +57,11 @@ namespace Glyssen.Utilities
 			}
 			return false;
 		}
+
+		public static string CombineGuaranteeingWhitespaceBetween(this string str, string otherStr)
+		{
+			var space = char.IsWhiteSpace(str.Last()) || !otherStr.Any() || char.IsWhiteSpace(otherStr[0]) ? string.Empty : " ";
+			return str + space + otherStr;
+		}
 	}
 }

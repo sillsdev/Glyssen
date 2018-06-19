@@ -8,6 +8,7 @@ using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Quote;
 using Glyssen.Shared;
+using Glyssen.Utilities;
 using SIL.Extensions;
 using SIL.Scripture;
 using SIL.Unicode;
@@ -187,6 +188,29 @@ namespace Glyssen
 					list.Add(block);
 				}
 			}
+			return list;
+		}
+
+		public List<Block> CombineBookChapterBlocks()
+		{
+			var list = new List<Block>(m_blockCount);
+
+			list.Add(m_blocks[0]);
+
+			for (var i = 1; i < m_blockCount; i++)
+			{
+				var block = m_blocks[i];
+				var prevBlock = list.Last();
+
+				if (block.CharacterIdInScript == prevBlock.CharacterIdInScript &&
+				    CharacterVerseData.IsCharacterOfType(block.CharacterIdInScript, CharacterVerseData.StandardCharacter.BookOrChapter))
+				{
+					list[list.Count - 1] = prevBlock.AppendTextFrom(block);
+					continue;
+				}
+				list.Add(block);
+			}
+
 			return list;
 		}
 

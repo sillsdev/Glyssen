@@ -172,7 +172,7 @@ namespace Glyssen
 		/// correspond to this reference text (in which case, the books and blocks returned are copies, so
 		/// that the project itself is not modified).
 		/// </summary>
-		public IEnumerable<BookScript> GetBooksWithBlocksConnectedToReferenceText(Project project)
+		public IEnumerable<BookScript> GetBooksWithBlocksConnectedToReferenceText(Project project, bool combineBookChapter = false)
 		{
 			foreach (var book in project.IncludedBooks)
 			{
@@ -185,6 +185,17 @@ namespace Glyssen
 				{
 					var clone = book.Clone(true);
 					ApplyTo(clone, project.Versification);
+
+					if (combineBookChapter)
+					{
+						var lastChapter = project.Versification.GetLastChapter(BCVRef.BookToNumber(book.BookId));
+						if ((!project.SkipChapterAnnouncementForFirstChapter && lastChapter > 1) ||
+						    (!project.SkipChapterAnnouncementForSingleChapterBooks && lastChapter == 1))
+						{
+							clone.Blocks = clone.CombineBookChapterBlocks();
+						}
+					}
+
 					yield return clone;
 				}
 			}

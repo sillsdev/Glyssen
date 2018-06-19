@@ -83,7 +83,7 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = false;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			var chapterBlockForEphesians = data.Single(t => (string)t[1] == "cl" && (int)t[3] == 1);
+			var chapterBlockForEphesians = data.Single(t => (string)t[1] == "cl" && (int)t[3] == 2);
 			Assert.AreEqual("EPH", chapterBlockForEphesians[2]);
 		}
 
@@ -96,7 +96,15 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = true;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			Assert.AreEqual(2, data.Count(t => (string)t[1] == "c" && (int)t[3] == 1));
+			Assert.AreEqual(0, data.Count(t => (string)t[1] == "c" && (int)t[3] == 1));
+
+			// Includes title and chapter 1 announcement
+			var titleAndChapterBlockForEphesians = data.Single(t => (string)t[1] == "mt" && (string)t[2] == "EPH" && (int)t[3] == 0);
+			Assert.AreEqual("EPHESIANS EPHESIANS CHP 1", titleAndChapterBlockForEphesians[8]);
+
+			// Includes title and chapter 1 announcement
+			var titleAndChapterBlockForJude = data.Single(t => (string)t[1] == "mt" && (string)t[2] == "JUD" && (int)t[3] == 0);
+			Assert.AreEqual("JUDE JUDE CHP 1", titleAndChapterBlockForJude[8]);
 		}
 
 		[Test]
@@ -119,8 +127,15 @@ namespace GlyssenTests
 			metadata.IncludeChapterAnnouncementForSingleChapterBooks = false;
 			var exporter = new ProjectExporter(project);
 			var data = exporter.GetExportData();
-			var chapterBlockForEphesians = data.Single(t => (string)t[1] == "c" && (int)t[3] == 1);
-			Assert.AreEqual("EPH", chapterBlockForEphesians[2]);
+			Assert.AreEqual(0, data.Count(t => (string)t[1] == "c" && (int)t[3] == 1));
+
+			// Includes title and chapter 1 announcement
+			var titleAndChapterBlockForEphesians = data.Single(t => (string)t[1] == "mt" && (string)t[2] == "EPH" && (int)t[3] == 0);
+			Assert.AreEqual("EPHESIANS EPHESIANS CHP 1", titleAndChapterBlockForEphesians[8]);
+
+			// Includes title only
+			var titleBlockForJude = data.Single(t => (string)t[1] == "mt" && (string)t[2] == "JUD" && (int)t[3] == 0);
+			Assert.AreEqual("JUDE", titleBlockForJude[8]);
 		}
 
 		[Test]
@@ -524,11 +539,11 @@ namespace GlyssenTests
 			Assert.IsTrue(data.All(d => d.Count == 11));
 			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD"));
 			Assert.IsTrue(data.All(d => d.Count == exporter.GetColumnIndex(ExportColumn.VernacularTextLength) + 1));
-			Assert.AreEqual("YӘHUDANIN MӘKTUBU", data[0][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("JUDE", data[0][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("YӘHUDANIN MӘKTUBU YӘHUDA 1", data[0][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("JUDE JUDE CHP 1", data[0][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 			Assert.IsTrue(data.Skip(1).All(d => (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1));
-			Assert.AreEqual("YӘHUDA 1", data[1][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("JUDE CHP 1", data[1][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreNotEqual("YӘHUDA 1", data[1][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreNotEqual("JUDE CHP 1", data[1][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 			var matchedRows = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.VernacularText)] != null && (string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] != null).ToList();
 			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Contains("Ә"))); // A letter that should be in Azeri, but not English
@@ -562,11 +577,11 @@ namespace GlyssenTests
 			Assert.IsTrue(data.All(d => d.Count == 11));
 			Assert.IsTrue(data.All(d => (string)d[exporter.GetColumnIndex(ExportColumn.BookId)] == "JUD"));
 			Assert.IsTrue(data.All(d => d.Count == exporter.GetColumnIndex(ExportColumn.VernacularTextLength) + 1));
-			Assert.AreEqual("Иуда", data[0][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("JUDE", data[0][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreEqual("Иуда Иуда 1", data[0][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreEqual("JUDE JUDE CHP 1", data[0][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 			Assert.IsTrue(data.Skip(1).All(d => (int)d[exporter.GetColumnIndex(ExportColumn.Chapter)] == 1));
-			Assert.AreEqual("Иуда 1", data[1][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
-			Assert.AreEqual("JUDE CHP 1", data[1][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
+			Assert.AreNotEqual("Иуда 1", data[1][exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]);
+			Assert.AreNotEqual("JUDE CHP 1", data[1][exporter.GetColumnIndex(ExportColumn.SecondaryReferenceText)]);
 			var matchedRows = data.Where(d => (string)d[exporter.GetColumnIndex(ExportColumn.VernacularText)] != null && (string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)] != null).ToList();
 			Assert.IsTrue(matchedRows.Count > data.Count / 2); // This is kind of arbitrary, but I just want to say we got a reasonable number of matches
 			Assert.IsTrue(matchedRows.Any(d => ((string)d[exporter.GetColumnIndex(ExportColumn.PrimaryReferenceText)]).Contains("п"))); // A letter that should be in Russian, but not English

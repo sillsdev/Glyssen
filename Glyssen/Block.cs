@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -911,6 +912,27 @@ namespace Glyssen
 			else if (otherBlock.MatchesReferenceText)
 				throw new InvalidOperationException("No known need for combining blocks where only one of them is aligned to reference text.");
 			return this;
+		}
+
+		/// <summary>
+		/// This is basically a simplified version of CombineWith which assumes we are just dealing with simple text
+		/// </summary>
+		public Block AppendTextFrom(Block blockWithTextToAppend)
+		{
+			var clone = Clone(true);
+
+			Debug.Assert(clone.BlockElements.Count == 1);
+			Debug.Assert(clone.BlockElements.OfType<ScriptText>().Count() == 1);
+			Debug.Assert(blockWithTextToAppend.BlockElements.Count == 1);
+			Debug.Assert(blockWithTextToAppend.BlockElements.OfType<ScriptText>().Count() == 1);
+
+			var baseBlockText = clone.GetText(false);
+			clone.BlockElements.OfType<ScriptText>().Single().Content = baseBlockText.CombineGuaranteeingWhitespaceBetween(blockWithTextToAppend.GetText(false));
+
+			if (clone.MatchesReferenceText && blockWithTextToAppend.MatchesReferenceText)
+				clone.ReferenceBlocks[0] = clone.ReferenceBlocks.Single().AppendTextFrom(blockWithTextToAppend.ReferenceBlocks.Single());
+
+			return clone;
 		}
 
 		public bool IsFollowOnParagraphStyle => s_regexFollowOnParagraphStyles.IsMatch(StyleTag);
