@@ -294,5 +294,16 @@ namespace Glyssen.Properties {
                 this["AssignCharactersDoubleClickShouldAssign"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings ViewScriptDlgFormSettings {
+            get {
+                return ((global::SIL.Windows.Forms.PortableSettingsProvider.FormSettings)(this["ViewScriptDlgFormSettings"]));
+            }
+            set {
+                this["ViewScriptDlgFormSettings"] = value;
+            }
+        }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using Glyssen.Utilities;
 using L10NSharp.UI;
 using Waxuquerque.Export;
 
 namespace Glyssen.UI.Dialogs
 {
-	public partial class ViewScriptDlg : Form
+	public partial class ViewScriptDlg : FormWithPersistedSettings
 	{
 		private readonly ProjectExporter m_viewModel;
 
