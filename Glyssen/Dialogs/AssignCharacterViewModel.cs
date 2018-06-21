@@ -628,6 +628,13 @@ namespace Glyssen.Dialogs
 			public string LocalizedAlias { get { return m_localizedAlias; } }
 			public bool ProjectSpecific { get { return m_projectSpecific; } }
 			public bool IsNarrator { get { return Equals(s_narrator); } }
+			public bool IsStandard => new List<String>
+			{
+				s_narrator.CharacterId,
+				s_bookChapterCharacter,
+				s_introCharacter,
+				s_extraCharacter
+			}.Contains(CharacterId);
 
 			public string LocalizedDisplay { get { return ToLocalizedString(); } }
 
