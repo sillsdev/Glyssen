@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using DesktopAnalytics;
+using Glyssen.Character;
 using Glyssen.Dialogs;
 using Glyssen.Utilities;
 using L10NSharp;
@@ -200,7 +201,7 @@ namespace Glyssen.Controls
 		{
 			m_updatingContext = true;
 			SuspendLayout();
-	
+
 			ResetSelectionBackColors();
 
 			ClearSelection();
@@ -230,12 +231,15 @@ namespace Glyssen.Controls
 				{
 					Rows[i].DefaultCellStyle.SelectionBackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i - firstRow);
 					Rows[i].DefaultCellStyle.SelectionForeColor = Color.Black;
+
+					var characterId = (string)Rows[i].Cells["colCharacter"].Value;
+					Rows[i].Cells["colText"].Style.SelectionForeColor = GlyssenColorPalette.ColorScheme.GetForeColorByCharacterId(characterId);
 				}
 			}
 
 			if (changingRowCount)
 				AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-			
+
 			ResumeLayout();
 
 			m_updatingContext = false;
@@ -348,7 +352,7 @@ namespace Glyssen.Controls
                 tff |= TextFormatFlags.Left;
             return tff;
         }
- 
+
 
 		private void CalculateMinimumWidth()
 		{
@@ -383,6 +387,7 @@ namespace Glyssen.Controls
 				{
 					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
 					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
+					row.Cells["colText"].Style.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
 				}
 			}
 		}
