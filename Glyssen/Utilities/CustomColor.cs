@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using Glyssen.Character;
+using Glyssen.Dialogs;
 
 namespace Glyssen.Utilities
 {
@@ -17,8 +19,13 @@ namespace Glyssen.Utilities
 		Color Highlight1 { get; }
 		Color Highlight2 { get; }
 		Color Highlight3 { get; }
+		Color SpeechJesus { get; }
+		Color SpeechCharacter { get; }
+		Color SpeechNonCharacter { get; }
 
 		Color GetMatchColor(int i);
+		Color GetForeColorByCharacter(AssignCharacterViewModel.Character character);
+		Color GetForeColorByCharacterId(string characterId);
 	}
 
 	public class DefaultColorScheme : IGlyssenColorScheme
@@ -35,6 +42,9 @@ namespace Glyssen.Utilities
 		public virtual Color Highlight1 { get { return Color.DarkBlue; } }
 		public virtual Color Highlight2 { get { return Color.MediumBlue; } }
 		public virtual Color Highlight3 { get { return Color.Blue; } }
+		public virtual Color SpeechJesus => Color.DarkRed;
+		public virtual Color SpeechCharacter => Color.Blue;
+		public virtual Color SpeechNonCharacter => Color.Black;
 
 		public static readonly List<Color> MaxContrastColorList = new List<Color>
 		{
@@ -56,6 +66,34 @@ namespace Glyssen.Utilities
 		public virtual Color GetMatchColor(int i)
 		{
 			return MaxContrastColorList[i % MaxContrastColorList.Count];
+		}
+
+		public virtual Color GetForeColorByCharacter(AssignCharacterViewModel.Character character)
+		{
+			if (character == null || string.IsNullOrWhiteSpace(character.CharacterId))
+				return SpeechNonCharacter;
+
+			if (character.CharacterId== "Jesus")
+				return SpeechJesus;
+
+			if (!character.IsStandard)
+				return SpeechCharacter;
+
+			return SpeechNonCharacter;
+		}
+
+		public virtual Color GetForeColorByCharacterId(string characterId)
+		{
+			if (string.IsNullOrWhiteSpace(characterId))
+				return SpeechNonCharacter;
+
+			if (characterId == "Jesus")
+				return SpeechJesus;
+
+			if (!CharacterVerseData.IsCharacterStandard(characterId))
+				return SpeechCharacter;
+
+			return SpeechNonCharacter;
 		}
 	}
 

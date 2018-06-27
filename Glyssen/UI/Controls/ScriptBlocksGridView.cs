@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Glyssen.Character;
 using SIL.Scripture;
 using Waxuquerque.Utilities;
 using Waxuquerque.ViewModel;
@@ -228,6 +229,9 @@ namespace Glyssen.UI.Controls
 				{
 					Rows[i].DefaultCellStyle.SelectionBackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i - firstRow);
 					Rows[i].DefaultCellStyle.SelectionForeColor = Color.Black;
+
+					var characterId = (string)Rows[i].Cells["colCharacter"].Value;
+					Rows[i].Cells["colText"].Style.SelectionForeColor = GlyssenColorPalette.ColorScheme.GetForeColorByCharacterId(characterId);
 				}
 			}
 
@@ -381,6 +385,7 @@ namespace Glyssen.UI.Controls
 				{
 					row.DefaultCellStyle.SelectionBackColor = DefaultCellStyle.SelectionBackColor;
 					row.DefaultCellStyle.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
+					row.Cells["colText"].Style.SelectionForeColor = DefaultCellStyle.SelectionForeColor;
 				}
 			}
 		}

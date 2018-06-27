@@ -1,4 +1,4 @@
-Control File Version	130
+Control File Version	131
 #	C	V	Character ID	Delivery	Alias	Quote Type	Default Character	Parallel Passage
 # DEU Almost the whole book is by Moses -- In some Bibles, first level quotes are actually 2nd level -- see DEU 1.5								
 # PSA will be handled as complete units, each psalm will be spoken by one voice								
@@ -15814,6 +15814,7 @@ JHN	13	25	John	sad	John (disciple whom Jesus loved)	Dialogue
 JHN	13	26	Jesus			Dialogue		
 JHN	13	27	Jesus	giving orders		Dialogue		
 JHN	13	29	Jesus			Quotation		
+JHN	13	29	disciples			Indirect		
 JHN	13	31	Jesus			Dialogue		
 JHN	13	32	Jesus			Normal		
 JHN	13	33	Jesus			Normal		
@@ -16740,6 +16741,7 @@ ACT	28	25	Paul			Normal
 ACT	28	26	Paul			Normal		
 ACT	28	27	Paul			Normal		
 ACT	28	28	Paul			Normal		
+ACT	28	29	Jews, the			Indirect		
 ACT	28	30	Paul			Indirect		
 ACT	28	31	Paul			Indirect		
 ROM	1	17	scripture			Quotation	God	
@@ -17283,7 +17285,6 @@ REV	18	18	sea captains, seafarers, sailors	weeping		Normal
 REV	18	18	voice from heaven, another			Normal		
 REV	18	19	sea captains, seafarers, sailors	weeping		Normal		
 REV	18	19	voice from heaven, another			Normal		
-REV	18	20	sea captains, seafarers, sailors	weeping		Normal		
 REV	18	20	voice from heaven, another			Normal		
 REV	18	21	angel, powerful			Normal		
 REV	18	22	angel, powerful			Normal		

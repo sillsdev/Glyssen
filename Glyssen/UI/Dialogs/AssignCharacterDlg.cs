@@ -446,6 +446,9 @@ namespace Glyssen.UI.Dialogs
 					if (colDelivery.Visible)
 						SetDeliveryCellValue(row, correlatedBlock);
 					row.DefaultCellStyle.BackColor = GlyssenColorPalette.ColorScheme.GetMatchColor(i++);
+
+					var character = (AssignCharacterViewModel.Character) row.Cells[colCharacter.Index].Value;
+					SetReferenceTextForeColor(row, character);
 				}
 				m_dataGridReferenceText.EditMode = DataGridViewEditMode.EditOnEnter;
 				var cellToMakeCurrent = m_dataGridReferenceText.FirstDisplayedCell;
@@ -467,6 +470,14 @@ namespace Glyssen.UI.Dialogs
 			UpdateAssignOrApplyAndResetButtonState();
 
 			m_dataGridReferenceText.CellValueChanged += m_dataGridReferenceText_CellValueChanged;
+		}
+
+		private void SetReferenceTextForeColor(DataGridViewRow row, AssignCharacterViewModel.Character character)
+		{
+			var foreColor = GlyssenColorPalette.ColorScheme.GetForeColorByCharacter(character);
+			if (colPrimary.Visible)
+				row.Cells[colPrimary.Index].Style.ForeColor = foreColor;
+			row.Cells[colEnglish.Index].Style.ForeColor = foreColor;
 		}
 
 		private void SetDeliveryCellValue(DataGridViewRow row, Block correlatedBlock)
@@ -1491,6 +1502,8 @@ namespace Glyssen.UI.Dialogs
 						m_dataGridReferenceText.Rows[e.RowIndex].Cells[colDelivery.Index].ReadOnly =
 							selectedCharacter == AssignCharacterViewModel.Character.Narrator;
 					}
+
+					SetReferenceTextForeColor(m_dataGridReferenceText.Rows[e.RowIndex], selectedCharacter);
 				}
 				UpdateInsertHeSaidButtonState();
 			}
