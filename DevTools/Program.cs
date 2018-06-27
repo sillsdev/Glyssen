@@ -14,7 +14,7 @@ namespace DevTools
 			Console.WriteLine("1) Use Paratext key terms to attempt localization of character IDs");
 			Console.WriteLine("2) Remove verse bridges from control file (currently removes comments)");
 			Console.WriteLine("3) Generate comparison file against FCBH template");
-			Console.WriteLine("4) Add references to CharacterDetail file");
+			Console.WriteLine("4) Update CharacterDetail file (make references and hypothetical-only correspond to CharacterVerse file)");
 			Console.WriteLine("5) BiblicalTerms.Processor.Process()");
 			Console.WriteLine("6) CharacterListProcessing.Process()");
 			Console.WriteLine("7) Output ranges of consecutive verses with single character");
@@ -32,41 +32,49 @@ namespace DevTools
 
 			ReferenceTextUtility.OnMessageRaised += (msg, error) => { Console.WriteLine(msg); };
 
-			switch (selection)
+			try
 			{
-				case "1": TermTranslator.Processor.Process(); break;
-				case "2": VerseBridgeHelper.RemoveAllVerseBridges(); break;
-				case "3": FCBH.Processor.Process(); break;
-				case "4": CharacterDetailProcessing.GenerateReferences(); break;
-				case "5": BiblicalTerms.Processor.Process(); break;
-				case "6": CharacterListProcessing.Process(); break;
-				case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
-				case "8":
-					DiffDirectorGuide();
-					outputType = "differences";
-					waitForUserToSeeOutput = true;
-					break;
-				case "9":
-					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.Generate);
-					waitForUserToSeeOutput = true;
-					break;
-				case "10": ReferenceTextUtility.LinkToEnglish();
-					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
-					break;
-				case "11":
-					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
-					waitForUserToSeeOutput = true;
-					break;
-				case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources();
-					break;
-				case "13":
-					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
-					waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
-					break;
-				case "14":
-					ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.GenerateEnglish);
-					waitForUserToSeeOutput = true;
-					break;
+				switch (selection)
+				{
+					case "1": TermTranslator.Processor.Process(); break;
+					case "2": VerseBridgeHelper.RemoveAllVerseBridges(); break;
+					case "3": FCBH.Processor.Process(); break;
+					case "4": CharacterDetailProcessing.GenerateReferences(); break;
+					case "5": BiblicalTerms.Processor.Process(); break;
+					case "6": CharacterListProcessing.Process(); break;
+					case "7": CharacterDetailProcessing.GetAllRangesOfThreeOrMoreConsecutiveVersesWithTheSameSingleCharacterNotMarkedAsImplicit(); break;
+					case "8":
+						DiffDirectorGuide();
+						outputType = "differences";
+						waitForUserToSeeOutput = true;
+						break;
+					case "9":
+						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.Generate);
+						waitForUserToSeeOutput = true;
+						break;
+					case "10": ReferenceTextUtility.LinkToEnglish();
+						waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+						break;
+					case "11":
+						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateCharacterMapping, ReferenceTextProxy.GetOrCreate(ReferenceTextType.English));
+						waitForUserToSeeOutput = true;
+						break;
+					case "12": ReferenceTextUtility.ObfuscateProprietaryReferenceTextsToMakeTestingResources();
+						break;
+					case "13":
+						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.CreateBookTitleAndChapterLabelSummary);
+						waitForUserToSeeOutput = ReferenceTextUtility.ErrorsOccurred;
+						break;
+					case "14":
+						ReferenceTextUtility.ProcessReferenceTextDataFromFile(ReferenceTextUtility.Mode.GenerateEnglish);
+						waitForUserToSeeOutput = true;
+						break;
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+				waitForUserToSeeOutput = true;
 			}
 
 			if (waitForUserToSeeOutput)

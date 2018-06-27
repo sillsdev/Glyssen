@@ -162,44 +162,57 @@ namespace ControlDataIntegrityTests
 				entriesWhereAliasEqualsCharacterId.Select(cv => cv.BcvRef + ", " + cv.Character + ", " + cv.Alias).OnePerLineWithIndent());
 		}
 
-		[Test]
-		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail()
+		[TestCase(true)]
+		[TestCase(false)]
+		public void DataIntegrity_AllCharacterIdsAndDefaultCharactersHaveCharacterDetail(bool readHypotheticalAsNarrator)
 		{
-			var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
-			ISet<string> missingCharacters = new SortedSet<string>();
-			ISet<string> missingDefaultCharacters = new SortedSet<string>();
-			foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
+			ControlCharacterVerseData.ReadHypotheticalAsNarrator = readHypotheticalAsNarrator;
+			CharacterDetailData.TabDelimitedCharacterDetailData = Resources.CharacterDetail; //resets cache
+
+			try
 			{
-				if (!charactersHavingDetail.Contains(cv.Character))
+				var charactersHavingDetail = CharacterDetailData.Singleton.GetAll().Select(d => d.CharacterId).ToList();
+				ISet<string> missingCharacters = new SortedSet<string>();
+				ISet<string> missingDefaultCharacters = new SortedSet<string>();
+				foreach (CharacterVerse cv in ControlCharacterVerseData.Singleton.GetAllQuoteInfo())
 				{
-					if (CharacterVerseData.IsCharacterStandard(cv.Character))
-						continue;
-
-					var characters = cv.Character.Split('/');
-					if (characters.Length > 1)
+					if (!charactersHavingDetail.Contains(cv.Character))
 					{
-						foreach (var character in characters.Where(character => !charactersHavingDetail.Contains(character)))
-							missingCharacters.Add(character);
-					}
-					else
-						missingCharacters.Add(cv.Character);
-				}
-				if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
-				{
-					if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
-						continue;
+						if (CharacterVerseData.IsCharacterStandard(cv.Character))
+							continue;
 
-					missingDefaultCharacters.Add(cv.DefaultCharacter);
+						var characters = cv.Character.Split('/');
+						if (characters.Length > 1)
+						{
+							foreach (var character in characters.Where(character => !charactersHavingDetail.Contains(character)))
+								missingCharacters.Add(character);
+						}
+						else
+							missingCharacters.Add(cv.Character);
+					}
+
+					if (!(string.IsNullOrEmpty(cv.DefaultCharacter) || charactersHavingDetail.Contains(cv.DefaultCharacter)))
+					{
+						if (CharacterVerseData.IsCharacterStandard(cv.DefaultCharacter))
+							continue;
+
+						missingDefaultCharacters.Add(cv.DefaultCharacter);
+					}
 				}
+
+				Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
+					"Characters in Character-Verse data but not in Character-Detail:" +
+					Environment.NewLine +
+					missingCharacters.OnePerLineWithIndent() +
+					Environment.NewLine +
+					"Default characters in Character-Verse data but not in Character-Detail:" +
+					Environment.NewLine +
+					missingDefaultCharacters.OnePerLineWithIndent());
 			}
-			Assert.False(missingCharacters.Any() || missingDefaultCharacters.Any(),
-				"Characters in Character-Verse data but not in Character-Detail:" +
-				Environment.NewLine +
-				missingCharacters.OnePerLineWithIndent() +
-				Environment.NewLine +
-				"Default characters in Character-Verse data but not in Character-Detail:" +
-				Environment.NewLine +
-				missingDefaultCharacters.OnePerLineWithIndent());
+			finally
+			{
+				ControlCharacterVerseData.ReadHypotheticalAsNarrator = false;
+			}
 		}
 
 		[Test]

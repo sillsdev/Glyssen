@@ -348,6 +348,9 @@ namespace GlyssenTests.Character
 		public void AttributesDisplay_ThreeNeuter_ReturnsNeuterWithCountOfThree()
 		{
 			var group = new CharacterGroup(m_project);
+			m_project.AddProjectCharacterDetail(new CharacterDetail {CharacterId = "ear", Gender = CharacterGender.Neuter});
+			m_project.AddProjectCharacterDetail(new CharacterDetail {CharacterId = "foot", Gender = CharacterGender.Neuter});
+			m_project.AddProjectCharacterDetail(new CharacterDetail {CharacterId = "head", Gender = CharacterGender.Neuter});
 			group.CharacterIds.Add("ear");
 			group.CharacterIds.Add("foot");
 			group.CharacterIds.Add("head");
